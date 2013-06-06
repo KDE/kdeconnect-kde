@@ -1,0 +1,94 @@
+[Global]
+IconName=pda
+Name=Android Shine
+Comment=Android Shine
+
+[Event/callReceived]
+Name=Calling
+Comment=Someone is calling you
+Action=Popup
+
+[Event/missedCall]
+Name=Missed
+Comment=You have a missed call
+Action=Popup
+
+[Event/smsReceived]
+Name=SMS
+Comment=Someone sent you a SMS
+Action=Popup
+
+[Event/mmsReceived]
+Name=MMS
+Comment=Someone sent you a MMS
+Action=Popup
+
+[Event/batteryLow]
+Name=Battery
+Comment=Your battery is in low state (Discharging)
+Action=Popup
+
+[Event/batteryCaution]
+Name=Battery
+Comment=Your battery is in caution state (Discharging)
+Action=Popup
+
+[Event/battery040]
+Name=Battery
+Comment=Your battery is at 40% (Discharging)
+Action=Popup
+
+[Event/battery060]
+Name=Battery
+Comment=Your battery is at 60% (Discharging)
+Action=Popup
+
+[Event/battery080]
+Name=Battery
+Comment=Your battery is at 80% (Discharging)
+Action=Popup
+
+[Event/battery100]
+Name=Battery
+Comment=Your battery is at 100% (Discharging)
+Action=Popup
+
+[Event/batteryChargingLow]
+Name=Battery
+Comment=Your battery is in low state (Charging)
+Action=Popup
+
+[Event/batteryChargingCaution]
+Name=Battery
+Comment=Your battery is in caution state (Charging)
+Action=Popup
+
+[Event/batteryCharging040]
+Name=Battery
+Comment=Your battery is at 40% (Charging)
+Action=Popup
+
+[Event/batteryCharging060]
+Name=Battery
+Comment=Your battery is at 60% (Charging)
+Action=Popup
+
+[Event/batteryCharging080]
+Name=Battery
+Comment=Your battery is at 80% (Charging)
+Action=Popup
+
+[Event/batteryCharging100]
+Name=Battery
+Comment=Your battery is at 100% (Charging)
+Action=Popup
+
+[Event/pingReceived]
+Name=Ping
+Comment=Ping received
+Action=Popup
+
+[Event/unknownEvent]
+Name=Unknown
+Comment=Something unknown happened
+Action=Popup
