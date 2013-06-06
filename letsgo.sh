@@ -1,13 +1,12 @@
 #!/bin/sh
 
+#Source bashrc to define kdebuild
+#http://techbase.kde.org/Getting_Started/Build/Environment
 . ~/.bashrc
 
 KDE_BUILD_CONFIRMATION=false
 
-cs android-connect
-
 if kdebuild; then
-
 
 	killall kded4
 	while killall -9 kded4; do
@@ -18,8 +17,5 @@ if kdebuild; then
 	#qdbus org.kde.kded /kded loadModule androidshine
 	kded4 2>&1 | grep -v "^kded(" &
 
-	echo ""
-
 fi
-
 
