@@ -26,15 +26,21 @@
 class Device
 {
 public:
-    Device(QString id, QString name) {
+    Device(const QString& id, const QString& name)
+    {
         mDeviceId = id;
         mDeviceName = name;
     }
 
-    QString id() { return mDeviceId; }
-    QString name() { return mDeviceName; }
-    bool paired() { return mPaired; }
-    void pair() { mPaired = true; }
+    QString id() const{ return mDeviceId; }
+    QString name() const { return mDeviceName; }
+    bool paired() const { return mPaired; }
+
+    void pair() {
+        mPaired = true;
+        //TODO: Actually do something
+
+    }
 
 private:
     bool mPaired;

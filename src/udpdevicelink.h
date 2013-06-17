@@ -33,10 +33,11 @@ class UdpDeviceLink
     Q_OBJECT
 
 public:
-    UdpDeviceLink(QString ip);
+    UdpDeviceLink(QHostAddress ip, quint16 port);
 
     void sendPackage(const NetworkPackage& np) {
-        //TODO: Not implemented
+        mUdpSocket->writeDatagram(np.toString(), mIp, mPort);
+
     }
 
 
@@ -45,7 +46,10 @@ private Q_SLOTS:
     void readPendingNotifications();
 
 private:
-    QUdpSocket* m_udpSocket;
+    QUdpSocket* mUdpSocket;
+
+    QHostAddress mIp;
+    quint16 mPort;
 
 };
 

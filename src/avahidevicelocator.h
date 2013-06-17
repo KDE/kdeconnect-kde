@@ -18,27 +18,44 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BONJOURDEVICELOCATOR_H
-#define BONJOURDEVICELOCATOR_H
+#ifndef AVAHIDEVICELOCATOR_H
+#define AVAHIDEVICELOCATOR_H
 
 #include <QObject>
+#include <KDE/DNSSD/ServiceBrowser>
+
+#include <KDE/DNSSD/RemoteService>
 
 #include "devicelocator.h"
 
-class BonjourDeviceLocator
+class AvahiDeviceLocator
     : public DeviceLocator
 {
     Q_OBJECT
 
 public:
-    BonjourDeviceLocator();
-
+    AvahiDeviceLocator();
+    QString getName() { return "Avahi"; }
     Priority getPriority() { return PRIORITY_HIGH; }
-    bool canLink(Device* d) { return true; }
-    DeviceLink* link(Device* d);
+    bool canLink(QString id);
+    DeviceLink* link(QString id);
     bool pair(Device* d);
-    QVector<Device*> discover();
+    QList<Device*> discover() { return visibleDevices.values(); }
+
+private slots:
+    void deviceDetected(DNSSD::RemoteService::Ptr s);
+    void deviceLost(DNSSD::RemoteService::Ptr s);
+
+private:
+    DNSSD::ServiceBrowser* browser;
+
+    Device* getDeviceInfo(DNSSD::RemoteService::Ptr s);
+
+    QMap<QString, Device*> visibleDevices;
+    QMap<Device*, DNSSD::RemoteService::Ptr> deviceRoutes;
+
+    QList<DeviceLink*> linkedDevices;
 
 };
 
-#endif // BONJOURDEVICELOCATOR_H
+#endif // AVAHIDEVICELOCATOR_H

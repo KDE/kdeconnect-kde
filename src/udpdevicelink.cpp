@@ -21,25 +21,28 @@
 #include "udpdevicelink.h"
 
 
-UdpDeviceLink::UdpDeviceLink(QString ip)
+UdpDeviceLink::UdpDeviceLink(QHostAddress ip, quint16 port)
 {
 
-    m_udpSocket = new QUdpSocket();
-    m_udpSocket->bind(10600);
-    connect(m_udpSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
+    mIp = ip;
+    mPort = port;
+
+    mUdpSocket = new QUdpSocket();
+    mUdpSocket->bind(port);
+    connect(mUdpSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
 
 }
 
 void UdpDeviceLink::readPendingNotifications()
 {
 
-    while (m_udpSocket->hasPendingDatagrams()) {
+    while (mUdpSocket->hasPendingDatagrams()) {
 
         QByteArray datagram;
-        datagram.resize(m_udpSocket->pendingDatagramSize());
+        datagram.resize(mUdpSocket->pendingDatagramSize());
         QHostAddress sender;
         quint16 senderPort;
-        m_udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+        mUdpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
         //log.write(datagram);
         qDebug() << datagram;

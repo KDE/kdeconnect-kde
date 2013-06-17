@@ -21,29 +21,29 @@
 #include "fakedevicelocator.h"
 #include "echodevicelink.h"
 
-bool FakeDeviceLocator::canLink(Device* d) {
-    return d->name() == "fake";
+FakeDeviceLocator::FakeDeviceLocator()
+{
+    fakeDevice = new Device("fake","Fake device");
+    echoDeviceLink = new EchoDeviceLink();
 }
 
-DeviceLink* FakeDeviceLocator::link(Device* d) {
-    if (d->name() == "fake") {
-        return new EchoDeviceLink();
-    } else {
-        return NULL;
-    }
+bool FakeDeviceLocator::canLink(QString id) {
+    return id == "fake";
+}
+
+DeviceLink* FakeDeviceLocator::link(QString id) {
+    if (!canLink(id)) return NULL;
+    return echoDeviceLink;
 }
 
 bool FakeDeviceLocator::pair(Device* d) {
-    if (d->name() != "fake") {
-        return false;
-    } else {
-        d->pair();
-        return true;
-    }
+    if (d != fakeDevice) return false;
+    d->pair();
+    return true;
 }
 
-QVector<Device*> FakeDeviceLocator::discover() {
-    QVector<Device*> devices;
-    devices.append(new Device("fake","Fake device"));
+QList<Device*> FakeDeviceLocator::discover() {
+    QList<Device*> devices;
+    devices.append(fakeDevice);
     return devices;
 }

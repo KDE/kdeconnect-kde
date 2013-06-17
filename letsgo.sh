@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #Source bashrc to define kdebuild
 #http://techbase.kde.org/Getting_Started/Build/Environment

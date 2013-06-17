@@ -36,6 +36,8 @@ public:
     DeviceLocator();
     virtual ~DeviceLocator() { }
 
+    virtual QString getName() = 0;
+
     enum Priority {
         PRIORITY_LOW = 0,      //ie: 3g
         PRIORITY_MEDIUM = 50,  //ie: internet
@@ -43,10 +45,10 @@ public:
     };
 
     virtual Priority getPriority() = 0;
-    virtual bool canLink(Device* d) = 0;
-    virtual DeviceLink* link(Device* d) = 0;
+    virtual bool canLink(QString id) = 0;
+    virtual DeviceLink* link(QString id) = 0;
     virtual bool pair(Device* d) = 0;
-    virtual QVector<Device*> discover() = 0;
+    virtual QList<Device*> discover() = 0;
 
 };
 

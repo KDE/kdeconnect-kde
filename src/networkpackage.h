@@ -29,12 +29,20 @@ class NetworkPackage
 
 public:
 
+    NetworkPackage(long id) {
+        mId = id;
+        //TODO
+    }
+
     static NetworkPackage fromString(QByteArray);
+    QByteArray toString() const;
 
     QString type() const { return mType; }
     QString body() const { return mBody; }
     long id() const { return mId; }
     bool isCancel() const { return mIsCancel; }
+
+
 
 private:
 

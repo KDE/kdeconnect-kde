@@ -52,7 +52,29 @@ public:
     Daemon(QObject *parent, const QList<QVariant>&);
     ~Daemon();
 
+//DBUS interface
+
+public Q_SLOTS:
+
+    Q_SCRIPTABLE QString listVisibleDevices();
+
+    Q_SCRIPTABLE bool linkDevice(QString id);
+
+/*
+    Q_SCRIPTABLE bool pairDevice(long id);
+
+    Q_SCRIPTABLE QString listPairedDevices(long id);
+
+    Q_SCRIPTABLE bool linkAllPairedDevices();
+
+    Q_SCRIPTABLE QString listLinkedDevices(long id);
+
+*/
+
 private:
+
+    //Get a DeviceLink through the best DeviceLocator available
+    DeviceLink* linkTo(QString d);
 
     //All known devices (read from/stored to settings)
     QVector<Device*> pairedDevices;

@@ -28,17 +28,17 @@
 
 NetworkPackage NetworkPackage::fromString(QByteArray s)
 {
-
-    NetworkPackage pp;
-
     //FIXME: How can I do this using Qt?
     std::string stds(std::string(s.data()));
     std::cout << stds << std::endl;
 
     std::stringstream ss(stds);
 
-    ss >> pp.mId;
-    std::cout <<  pp.mId << std::endl;
+    long id;
+    ss >> id;
+    qDebug() << "Receiving package with id: " << id;
+
+    NetworkPackage pp(id);
 
     ss >> pp.mDeviceId;
     qDebug() << pp.mDeviceId;
@@ -62,5 +62,19 @@ NetworkPackage NetworkPackage::fromString(QByteArray s)
     return pp;
 
 }
+
+
+QByteArray NetworkPackage::toString() const
+{
+
+    QByteArray s;
+
+    //TODO
+    s += "HOLA";
+
+    return s;
+
+}
+
 
 

@@ -26,12 +26,20 @@ class FakeDeviceLocator
     : public DeviceLocator
 {
 public:
+    FakeDeviceLocator();
     
+    QString getName() { return "FakeLocator"; }
+
     Priority getPriority() { return PRIORITY_LOW; }
-    bool canLink(Device* d);
-    DeviceLink* link(Device* d);
+    bool canLink(QString id);
+    DeviceLink* link(QString id);
     bool pair(Device* d);
-    QVector<Device*> discover();
+    QList<Device*> discover();
+
+private:
+    Device* fakeDevice;
+    DeviceLink* echoDeviceLink;
+    
 };
 
 #endif // FAKEDEVICELOCATOR_H
