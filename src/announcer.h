@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEVICELOCATOR_H
-#define DEVICELOCATOR_H
+#ifndef ANNOUNCER_H
+#define ANNOUNCER_H
 
 #include <qvector.h>
 #include <QObject>
@@ -27,16 +27,14 @@
 #include "devicelink.h"
 #include "device.h"
 
-class DeviceLocator
+class Announcer
     : public QObject
 {
     Q_OBJECT
 
 public:
-    DeviceLocator();
-    virtual ~DeviceLocator() { }
-
-    virtual QString getName() = 0;
+    Announcer();
+    virtual ~Announcer() { }
 
     enum Priority {
         PRIORITY_LOW = 0,      //ie: 3g
@@ -44,18 +42,16 @@ public:
         PRIORITY_HIGH = 100    //ie: lan
     };
 
+    virtual QString getName() = 0;
     virtual Priority getPriority() = 0;
-    virtual bool canLink(QString id) = 0;
-    virtual DeviceLink* link(QString id) = 0;
-    virtual bool pair(Device* d) = 0;
-    virtual QList<Device*> discover() = 0;
+
+    virtual void setDiscoverable(bool b) = 0;
+
+signals:
+    void deviceConnection(DeviceLink *);
 
 signals:
 
-    //TODO: Emit this to be able to see if it is a known device
-    //void deviceDiscovered(Device* d);
-    //void deviceLost(QString id);
-
 };
 
-#endif // DEVICELOCATOR_H
+#endif

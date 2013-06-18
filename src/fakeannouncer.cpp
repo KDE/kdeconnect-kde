@@ -18,32 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "fakedevicelocator.h"
+#include "fakeannouncer.h"
 #include "echodevicelink.h"
 
-FakeDeviceLocator::FakeDeviceLocator()
+FakeAnnouncer::FakeAnnouncer()
 {
     fakeDevice = new Device("fake","Fake device");
     echoDeviceLink = new EchoDeviceLink(fakeDevice);
 }
 
-bool FakeDeviceLocator::canLink(QString id) {
-    return id == "fake";
+FakeAnnouncer::~FakeAnnouncer()
+{
+    //delete echoDeviceLink;
+    //delete fakeDevice;
 }
 
-DeviceLink* FakeDeviceLocator::link(QString id) {
-    if (!canLink(id)) return NULL;
-    return echoDeviceLink;
+void FakeAnnouncer::setDiscoverable(bool b)
+{
+    if (b) emit deviceConnection(echoDeviceLink);
 }
 
-bool FakeDeviceLocator::pair(Device* d) {
-    if (d != fakeDevice) return false;
-    d->pair();
-    return true;
-}
-
-QList<Device*> FakeDeviceLocator::discover() {
-    QList<Device*> devices;
-    devices.append(fakeDevice);
-    return devices;
-}

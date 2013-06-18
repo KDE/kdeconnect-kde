@@ -18,8 +18,45 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "devicelocator.h"
+#ifndef AVAHIANNOUNCER_H
+#define AVAHIANNOUNCER_H
 
-DeviceLocator::DeviceLocator() {
-    //gcc complains if we don't add something to compile on a class with virtual functions
-}
+#include <QObject>
+
+#include <QUdpSocket>
+
+#include <KDE/DNSSD/PublicService>
+
+#include "announcer.h"
+
+class AvahiAnnouncer
+    : public Announcer
+{
+    Q_OBJECT
+
+public:
+    AvahiAnnouncer();
+    ~AvahiAnnouncer();
+
+    QString getName() { return "Avahi"; }
+    Priority getPriority() { return PRIORITY_HIGH; }
+
+    void setDiscoverable(bool b);
+
+
+
+private Q_SLOTS:
+    void readPendingNotifications();
+
+private:
+    DNSSD::PublicService* service;
+    QUdpSocket* mUdpSocket;
+
+    QVector<DeviceLink*> links;
+
+    QHostAddress mIp;
+    quint16 mPort;
+
+};
+
+#endif

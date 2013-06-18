@@ -22,8 +22,8 @@
 #include "networkpackage.h"
 #include "notificationpackagereceiver.h"
 #include "pausemusicpackagereceiver.h"
-#include "avahidevicelocator.h"
-#include "fakedevicelocator.h"
+#include "avahiannouncer.h"
+#include "fakeannouncer.h"
 
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
@@ -37,31 +37,14 @@
 K_PLUGIN_FACTORY(AndroidShineFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(AndroidShineFactory("androidshine", "androidshine"))
 
-DeviceLink* Daemon::linkTo(QString id) {
+void Daemon::linkTo(DeviceLink* dl) {
 
-    DeviceLink* link = NULL;
+    linkedDevices.append(dl);
 
-    Q_FOREACH (DeviceLocator* locator, deviceLocators) {
-        if (locator->canLink(id)) {
-            link = locator->link(id);
-            if (link != NULL) break;
-        }
+    Q_FOREACH (PackageReceiver* pr, packageReceivers) {
+        QObject::connect(dl,SIGNAL(receivedPackage(const NetworkPackage&)),
+                            pr,SLOT(receivePackage(const NetworkPackage&)));
     }
-
-    if (link != NULL) {
-
-        linkedDevices.append(link);
-
-        Q_FOREACH (PackageReceiver* pr, packageReceivers) {
-            QObject::connect(link,SIGNAL(receivedPackage(const NetworkPackage&)),
-                             pr,SLOT(receivePackage(const NetworkPackage&)));
-        }
-
-    } else {
-        qDebug() << "Could not link device id " + id;
-    }
-
-    return link;
 
 }
 
@@ -76,21 +59,20 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     packageReceivers.push_back(new PauseMusicPackageReceiver());
 
     //TODO: Do not hardcode the load of the device locators
-    deviceLocators.insert(new AvahiDeviceLocator());
-    deviceLocators.insert(new FakeDeviceLocator());
+    announcers.insert(new AvahiAnnouncer());
+    announcers.insert(new FakeAnnouncer());
+
+    //Listen to incomming connections
+    Q_FOREACH (Announcer* a, announcers) {
+        QObject::connect(a,SIGNAL(deviceConnection(DeviceLink*)),
+                            this,SLOT(deviceConnection(DeviceLink*)));
+        a->setDiscoverable(true);
+    }
 
     //TODO: Read paired devices from config
     //pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
 
-    //At boot time, try to link to all paired devices
-    //FIXME: This should be done for every new visible device, not only at boot
-    //TODO: Add a way to notify discovered/lost devices
-    Q_FOREACH (Device* device, pairedDevices) {
-        linkTo(device->id());
-    }
-
 }
-
 
 QString Daemon::listVisibleDevices()
 {
@@ -99,29 +81,22 @@ QString Daemon::listVisibleDevices()
 
     ret << std::setw(20) << "ID";
     ret << std::setw(20) << "Name";
-    ret << std::setw(20) << "Source";
     ret << std::endl;
 
-    QList<Device*> visibleDevices;
-
-    Q_FOREACH (DeviceLocator* dl, deviceLocators) {
-        Q_FOREACH (Device* d, dl->discover()) {
-            ret << std::setw(20) << d->id().toStdString();
-            ret << std::setw(20) << d->name().toStdString();
-            ret << std::setw(20) << dl->getName().toStdString();
-            ret << std::endl;
-        }
+    Q_FOREACH (Device* d, visibleDevices) {
+        ret << std::setw(20) << d->id().toStdString();
+        ret << std::setw(20) << d->name().toStdString();
+        ret << std::endl;
     }
 
     return QString::fromStdString(ret.str());
 
 }
 
-bool Daemon::linkDevice(QString id)
+bool Daemon::pairDevice(QString id)
 {
-
-    return linkTo(id);
-
+    //TODO
+    return true;
 }
 
 QString Daemon::listLinkedDevices()
@@ -133,8 +108,35 @@ QString Daemon::listLinkedDevices()
     }
 
     return ret;
+
 }
 
+
+void Daemon::deviceConnection(DeviceLink* dl)
+{
+
+    QString id = dl->device()->id();
+    bool paired = false;
+    Q_FOREACH (Device* d, pairedDevices) {
+        if (id == d->id()) {
+            paired = true;
+            break;
+        }
+    }
+
+    visibleDevices.append(dl->device());
+
+    if (paired) {
+        qDebug() << "Known device connected" + dl->device()->name();
+        linkTo(dl);
+    }
+    else {
+        qDebug() << "Unknown device connected" + dl->device()->name();
+        //TODO: Not connect immediately
+        linkTo(dl);
+    }
+
+}
 
 Daemon::~Daemon()
 {

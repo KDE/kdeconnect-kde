@@ -39,7 +39,7 @@
 #include "device.h"
 #include "packagereceiver.h"
 #include "devicelink.h"
-#include "devicelocator.h"
+#include "announcer.h"
 
 class QUdpSocket;
 
@@ -54,15 +54,16 @@ public:
 
 //DBUS interface
 
+private Q_SLOTS:
+    void deviceConnection(DeviceLink* dl);
+
 public Q_SLOTS:
 
     Q_SCRIPTABLE QString listVisibleDevices();
 
-    Q_SCRIPTABLE bool linkDevice(QString id);
-
-/*
     Q_SCRIPTABLE bool pairDevice(QString id);
 
+/*
     Q_SCRIPTABLE QString listPairedDevices(QString id);
 
     Q_SCRIPTABLE bool linkAllPairedDevices();
@@ -73,17 +74,23 @@ public Q_SLOTS:
 
 private:
 
-    //Get a DeviceLink through the best DeviceLocator available
-    DeviceLink* linkTo(QString d);
+    void linkTo(DeviceLink* dl);
 
-    //All known devices (read from/stored to settings)
+    //Non paired visible devices
+    QList<Device*> visibleDevices;
+
+    //All paired devices (should be stored and read from disk)
     QVector<Device*> pairedDevices;
 
     //Currently connected devices
     QVector<DeviceLink*> linkedDevices;
 
-    //Different ways to find new devices and connect to them, ordered by priority
-    QSet<DeviceLocator*> deviceLocators;
+
+
+
+
+    //Different ways to find devices and connect to them, ordered by priority
+    QSet<Announcer*> announcers;
 
     //Everybody who wants to be notified about a new package
     QVector<PackageReceiver*> packageReceivers;

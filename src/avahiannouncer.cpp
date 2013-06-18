@@ -18,25 +18,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "avahiannouncer.h"
+
 #include "udpdevicelink.h"
 
-
-UdpDeviceLink::UdpDeviceLink(Device* d, QHostAddress ip, quint16 port)
-    : DeviceLink(d)
+AvahiAnnouncer::AvahiAnnouncer()
 {
+    QString serviceType = "_kdeconnect._udp";
+    quint16 port = 10601;
 
-    mIp = ip;
-    mPort = port;
+    //http://api.kde.org/4.x-api/kdelibs-apidocs/dnssd/html/index.html
+    service = new DNSSD::PublicService("KDE Host", serviceType, port);
 
     mUdpSocket = new QUdpSocket();
     mUdpSocket->bind(port);
+
     connect(mUdpSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
+
+    qDebug() << "listening to udp messages";
 
 }
 
-void UdpDeviceLink::readPendingNotifications()
+void AvahiAnnouncer::readPendingNotifications()
 {
 
+    qDebug() << "readPendingNotifications";
+    
     while (mUdpSocket->hasPendingDatagrams()) {
 
         QByteArray datagram;
@@ -46,12 +53,27 @@ void UdpDeviceLink::readPendingNotifications()
         mUdpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
         //log.write(datagram);
-        qDebug() << datagram;
+        qDebug() << ("AvahiAnnouncer incomming udp datagram: " + datagram);
 
-        NetworkPackage np = NetworkPackage::fromString(datagram);
+        QString id, name;
 
-        emit receivedPackage(np);
-        
+        Device* device = new Device(id, name);
+        DeviceLink* dl = new UdpDeviceLink(device, sender, 10600);
+        links.append(dl);
+
+        emit deviceConnection(dl);
+
     }
 
 }
+
+AvahiAnnouncer::~AvahiAnnouncer()
+{
+    delete service;
+}
+
+void AvahiAnnouncer::setDiscoverable(bool b)
+{
+    if (b) service->publishAsync();
+}
+

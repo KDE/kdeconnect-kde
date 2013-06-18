@@ -1,14 +1,14 @@
 set(kded_androidshine_SRCS
-    fakedevicelocator.cpp
+    fakeannouncer.cpp
     echodevicelink.cpp
     udpdevicelink.cpp
-    avahidevicelocator.cpp
+    avahiannouncer.cpp
     pausemusicpackagereceiver.cpp
     notificationpackagereceiver.cpp
     networkpackage.cpp
     daemon.cpp
     devicelink.cpp
-    devicelocator.cpp
+    announcer.cpp
     packagereceiver.cpp
 )
 

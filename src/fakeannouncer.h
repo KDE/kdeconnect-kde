@@ -18,23 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FAKEDEVICELOCATOR_H
-#define FAKEDEVICELOCATOR_H
-#include "devicelocator.h"
+#ifndef FAKEANNOUNCER_H
+#define FAKEANNOUNCER_H
 
-class FakeDeviceLocator
-    : public DeviceLocator
+#include "announcer.h"
+
+class FakeAnnouncer
+    : public Announcer
 {
 public:
-    FakeDeviceLocator();
-    
-    QString getName() { return "FakeLocator"; }
+    FakeAnnouncer();
+    ~FakeAnnouncer();
 
+    QString getName() { return "FakeAnnouncer"; }
     Priority getPriority() { return PRIORITY_LOW; }
-    bool canLink(QString id);
-    DeviceLink* link(QString id);
-    bool pair(Device* d);
-    QList<Device*> discover();
+
+    void setDiscoverable(bool b);
 
 private:
     Device* fakeDevice;
@@ -42,4 +41,4 @@ private:
     
 };
 
-#endif // FAKEDEVICELOCATOR_H
+#endif
