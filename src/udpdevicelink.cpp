@@ -21,7 +21,8 @@
 #include "udpdevicelink.h"
 
 
-UdpDeviceLink::UdpDeviceLink(QHostAddress ip, quint16 port)
+UdpDeviceLink::UdpDeviceLink(Device* d, QHostAddress ip, quint16 port)
+    : DeviceLink(d)
 {
 
     mIp = ip;

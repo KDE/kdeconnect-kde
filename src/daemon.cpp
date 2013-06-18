@@ -80,9 +80,11 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     deviceLocators.insert(new FakeDeviceLocator());
 
     //TODO: Read paired devices from config
-    pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
+    //pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
 
     //At boot time, try to link to all paired devices
+    //FIXME: This should be done for every new visible device, not only at boot
+    //TODO: Add a way to notify discovered/lost devices
     Q_FOREACH (Device* device, pairedDevices) {
         linkTo(device->id());
     }
@@ -122,7 +124,7 @@ bool Daemon::linkDevice(QString id)
 
 }
 
-QString Daemon::listLinkedDevices(long int id)
+QString Daemon::listLinkedDevices()
 {
     QString ret;
 
@@ -137,6 +139,5 @@ QString Daemon::listLinkedDevices(long int id)
 Daemon::~Daemon()
 {
     qDebug() << "SAYONARA BABY";
-
 }
 

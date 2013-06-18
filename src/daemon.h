@@ -61,15 +61,15 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool linkDevice(QString id);
 
 /*
-    Q_SCRIPTABLE bool pairDevice(long id);
+    Q_SCRIPTABLE bool pairDevice(QString id);
 
-    Q_SCRIPTABLE QString listPairedDevices(long id);
+    Q_SCRIPTABLE QString listPairedDevices(QString id);
 
     Q_SCRIPTABLE bool linkAllPairedDevices();
 
 */
 
-    Q_SCRIPTABLE QString listLinkedDevices(long id);
+    Q_SCRIPTABLE QString listLinkedDevices();
 
 private:
 

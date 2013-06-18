@@ -33,7 +33,7 @@ class UdpDeviceLink
     Q_OBJECT
 
 public:
-    UdpDeviceLink(QHostAddress ip, quint16 port);
+    UdpDeviceLink(Device* d, QHostAddress ip, quint16 port);
 
     void sendPackage(const NetworkPackage& np) {
         mUdpSocket->writeDatagram(np.toString(), mIp, mPort);

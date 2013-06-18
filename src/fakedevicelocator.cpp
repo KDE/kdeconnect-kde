@@ -24,7 +24,7 @@
 FakeDeviceLocator::FakeDeviceLocator()
 {
     fakeDevice = new Device("fake","Fake device");
-    echoDeviceLink = new EchoDeviceLink();
+    echoDeviceLink = new EchoDeviceLink(fakeDevice);
 }
 
 bool FakeDeviceLocator::canLink(QString id) {

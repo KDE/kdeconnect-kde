@@ -20,6 +20,8 @@
 
 #include "devicelink.h"
 
-DeviceLink::DeviceLink() {
+DeviceLink::DeviceLink(Device* d)
+    : mDevice(d)
+{
     //gcc complains if we don't add something to compile on a class with virtual functions
 }

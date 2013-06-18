@@ -33,7 +33,7 @@ class DeviceLink
     Q_OBJECT
 
 public:
-    DeviceLink(Device* d) : mDevice(d) { };
+    DeviceLink(Device* d);
 
     Device* device() { return mDevice; }
     

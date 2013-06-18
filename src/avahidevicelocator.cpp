@@ -43,7 +43,13 @@ DeviceLink* AvahiDeviceLocator::link(QString id) {
     Device* d = visibleDevices[id];
     const DNSSD::RemoteService::Ptr& rs = deviceRoutes[d];
 
-    DeviceLink* dl = new UdpDeviceLink(QHostAddress(rs->hostName()),rs->port());
+    DeviceLink* dl = new UdpDeviceLink(d, QHostAddress(rs->hostName()),rs->port());
+
+    qDebug() << "Sending pair request to device " + id;
+    NetworkPackage np(12345);
+    //TODO: Package contents
+    dl->sendPackage(np);
+
     linkedDevices.append(dl); //Store the ref to be able to delete the memory later
 
     return dl;

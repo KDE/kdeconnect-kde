@@ -25,8 +25,9 @@
 class EchoDeviceLink
     : public DeviceLink
 {
-
 public:
+    EchoDeviceLink(Device* d) : DeviceLink(d) { }
+
     void sendPackage(const NetworkPackage& np) {
         emit receivedPackage(np);
     }

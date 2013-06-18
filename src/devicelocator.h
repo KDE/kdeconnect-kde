@@ -50,6 +50,12 @@ public:
     virtual bool pair(Device* d) = 0;
     virtual QList<Device*> discover() = 0;
 
+signals:
+
+    //TODO: Emit this to be able to see if it is a known device
+    //void deviceDiscovered(Device* d);
+    //void deviceLost(QString id);
+
 };
 
 #endif // DEVICELOCATOR_H
