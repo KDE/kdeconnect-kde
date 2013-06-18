@@ -102,8 +102,8 @@ QString Daemon::listVisibleDevices()
 
     QList<Device*> visibleDevices;
 
-    foreach (DeviceLocator* dl, deviceLocators) {
-        foreach (Device* d, dl->discover()) {
+    Q_FOREACH (DeviceLocator* dl, deviceLocators) {
+        Q_FOREACH (Device* d, dl->discover()) {
             ret << std::setw(20) << d->id().toStdString();
             ret << std::setw(20) << d->name().toStdString();
             ret << std::setw(20) << dl->getName().toStdString();
@@ -121,6 +121,18 @@ bool Daemon::linkDevice(QString id)
     return linkTo(id);
 
 }
+
+QString Daemon::listLinkedDevices(long int id)
+{
+    QString ret;
+
+    Q_FOREACH (DeviceLink* dl, linkedDevices) {
+        ret += dl->device()->name() + "(" + dl->device()->id() + ")";
+    }
+
+    return ret;
+}
+
 
 Daemon::~Daemon()
 {

@@ -25,18 +25,26 @@
 
 #include "networkpackage.h"
 
+class Device;
+
 class DeviceLink
     : public QObject
 {
     Q_OBJECT
 
 public:
-    DeviceLink();
+    DeviceLink(Device* d) : mDevice(d) { };
 
+    Device* device() { return mDevice; }
+    
     virtual void sendPackage(const NetworkPackage& np) = 0;
 
 signals:
     void receivedPackage(const NetworkPackage& np);
+
+private:
+
+    Device* mDevice;
 
 };
 
