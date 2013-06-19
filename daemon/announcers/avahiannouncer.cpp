@@ -20,7 +20,7 @@
 
 #include "avahiannouncer.h"
 
-#include "udpdevicelink.h"
+#include "devicelinks/udpdevicelink.h"
 
 AvahiAnnouncer::AvahiAnnouncer()
 {

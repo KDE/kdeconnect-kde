@@ -1,15 +1,20 @@
 set(kded_androidshine_SRCS
-    fakeannouncer.cpp
-    echodevicelink.cpp
-    udpdevicelink.cpp
-    avahiannouncer.cpp
-    pausemusicpackagereceiver.cpp
-    notificationpackagereceiver.cpp
+
+    announcers/announcer.cpp
+    announcers/fakeannouncer.cpp
+    announcers/avahiannouncer.cpp
+
+    devicelinks/echodevicelink.cpp
+    devicelinks/udpdevicelink.cpp
+    devicelinks/devicelink.cpp
+
+    packagereceivers/packagereceiver.cpp
+    packagereceivers/pausemusicpackagereceiver.cpp
+    packagereceivers/notificationpackagereceiver.cpp
+
     networkpackage.cpp
     daemon.cpp
-    devicelink.cpp
-    announcer.cpp
-    packagereceiver.cpp
+
 )
 
 kde4_add_plugin(kded_androidshine ${kded_androidshine_SRCS})

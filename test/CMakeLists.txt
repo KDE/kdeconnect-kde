@@ -8,6 +8,7 @@ target_link_libraries(kded_androidshine_tests
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     kdnssd
+    ${QT_QTTEST_LIBRARY}
     ${QT_QTNETWORK_LIBRARY}
 )
 

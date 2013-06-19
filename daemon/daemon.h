@@ -37,9 +37,9 @@
 #include <QSet>
 
 #include "device.h"
-#include "packagereceiver.h"
-#include "devicelink.h"
-#include "announcer.h"
+#include "packagereceivers/packagereceiver.h"
+#include "devicelinks/devicelink.h"
+#include "announcers/announcer.h"
 
 class QUdpSocket;
 

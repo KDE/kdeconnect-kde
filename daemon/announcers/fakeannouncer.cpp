@@ -18,40 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ANNOUNCER_H
-#define ANNOUNCER_H
+#include "fakeannouncer.h"
+#include "devicelinks/echodevicelink.h"
 
-#include <qvector.h>
-#include <QObject>
-
-#include "devicelink.h"
-#include "device.h"
-
-class Announcer
-    : public QObject
+FakeAnnouncer::FakeAnnouncer()
 {
-    Q_OBJECT
+    fakeDevice = new Device("fake","Fake device");
+    echoDeviceLink = new EchoDeviceLink(fakeDevice);
+}
 
-public:
-    Announcer();
-    virtual ~Announcer() { }
+FakeAnnouncer::~FakeAnnouncer()
+{
+    //delete echoDeviceLink;
+    //delete fakeDevice;
+}
 
-    enum Priority {
-        PRIORITY_LOW = 0,      //ie: 3g
-        PRIORITY_MEDIUM = 50,  //ie: internet
-        PRIORITY_HIGH = 100    //ie: lan
-    };
+void FakeAnnouncer::setDiscoverable(bool b)
+{
+    if (b) emit deviceConnection(echoDeviceLink);
+}
 
-    virtual QString getName() = 0;
-    virtual Priority getPriority() = 0;
-
-    virtual void setDiscoverable(bool b) = 0;
-
-signals:
-    void deviceConnection(DeviceLink *);
-
-signals:
-
-};
-
-#endif

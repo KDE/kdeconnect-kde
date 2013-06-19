@@ -20,10 +20,10 @@
 
 #include "daemon.h"
 #include "networkpackage.h"
-#include "notificationpackagereceiver.h"
-#include "pausemusicpackagereceiver.h"
-#include "avahiannouncer.h"
-#include "fakeannouncer.h"
+#include "packagereceivers/notificationpackagereceiver.h"
+#include "packagereceivers/pausemusicpackagereceiver.h"
+#include "announcers/avahiannouncer.h"
+#include "announcers/fakeannouncer.h"
 
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
