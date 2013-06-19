@@ -14,4 +14,3 @@ target_link_libraries(kded_androidshine_tests
 
 add_test(kded_androidshine_tests ${CMAKE_CURRENT_BINARY_DIR}/kded_androidshine_tests)
 
-

@@ -24,6 +24,8 @@ target_link_libraries(kded_androidshine
     ${KDE4_KDEUI_LIBS}
     kdnssd
     ${QT_QTNETWORK_LIBRARY}
+    ${QJSON_LIBRARIES}
+    ${QJSON_LIBRARY}
 )
 
 install(TARGETS kded_androidshine DESTINATION ${PLUGIN_INSTALL_DIR})
