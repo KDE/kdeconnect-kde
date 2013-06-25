@@ -15,6 +15,8 @@ set(kded_androidshine_SRCS
     networkpackage.cpp
     daemon.cpp
     device.cpp
+
+    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml
 )
 
 kde4_add_plugin(kded_androidshine ${kded_androidshine_SRCS})
@@ -33,8 +35,6 @@ qt4_generate_dbus_interface(
     org.kde.kdeconnect.xml
     OPTIONS -a
 )
-
-add_dependencies(kded_androidshine ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 install(TARGETS kded_androidshine DESTINATION ${PLUGIN_INSTALL_DIR})

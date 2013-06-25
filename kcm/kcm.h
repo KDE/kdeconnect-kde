@@ -56,7 +56,7 @@ private Q_SLOTS:
     void deviceRemoved(QString id);
 
 private:
-    LocalDaemonInterface dbusInterface;
+    OrgKdeKdeconnectInterface dbusInterface;
     Ui::KdeConnectKcmUi* m_ui;
     QStandardItemModel* m_model;
 

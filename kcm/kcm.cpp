@@ -41,7 +41,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KdeConnectKcmFactory::componentData(), parent)
     , dbusInterface("org.kde.kded", "/modules/androidshine", QDBusConnection::sessionBus(), this)
 {
-    
+
     m_ui = new Ui::KdeConnectKcmUi();
     m_ui->setupUi(this);
 

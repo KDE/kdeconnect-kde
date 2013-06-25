@@ -5,11 +5,11 @@ set(kcm_SRCS
 
 qt4_add_dbus_interface(
    kcm_SRCS
-   ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.kdeconnect.xml
+   ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.xml
    daemoninterface
 )
 
-kde4_add_ui_files(kcm_SRCS kcm.ui wizzard.ui)
+kde4_add_ui_files(kcm_SRCS kcm.ui wizard.ui)
 
 kde4_add_plugin(kdeconnect-kcm ${kcm_SRCS})
 
