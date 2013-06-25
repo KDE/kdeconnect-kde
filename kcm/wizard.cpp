@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,50 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDECONNECTKCM_H
-#define KDECONNECTKCM_H
-
-#include <QStandardItemModel>
-#include <QDBusConnection>
-
-#include <kcmodule.h>
-
 #include "wizard.h"
-#include "daemoninterface.h"
 
-class Create;
-class QModelIndex;
-class AccountsModel;
-class AccountWidget;
-class QStackedLayout;
-class QItemSelectionModel;
-class QDBusInterface;
+#include <QDebug>
 
-namespace Ui {
-    class KdeConnectKcmUi;
+#include "ui_wizard.h"
+
+AddDeviceWizard::AddDeviceWizard(QWidget* parent)
+    : QWizard(parent)
+{
+    qDebug() << "HA";
+
+    m_wizard = new Ui::Wizard();
+    m_wizard->setupUi(this);
+
 }
 
-class KdeConnectKcm : public KCModule
+AddDeviceWizard::~AddDeviceWizard()
 {
-Q_OBJECT
-public:
-    KdeConnectKcm(QWidget *parent, const QVariantList&);
-    virtual ~KdeConnectKcm();
-
-private Q_SLOTS:
-    void addButtonClicked();
-    void removeButtonClicked();
-    void currentChanged(const QModelIndex& current, const QModelIndex& previous);
-
-    void deviceAdded(QString id, QString name);
-    void deviceRemoved(QString id);
-
-private:
-    OrgKdeKdeconnectInterface dbusInterface;
-    Ui::KdeConnectKcmUi* m_ui;
-    QStandardItemModel* m_model;
-    AddDeviceWizard wizard;
-
-};
-
-#endif
+    delete m_wizard;
+}

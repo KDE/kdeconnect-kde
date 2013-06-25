@@ -1,6 +1,7 @@
 
 set(kcm_SRCS
     kcm.cpp
+    wizard.cpp
 )
 
 qt4_add_dbus_interface(

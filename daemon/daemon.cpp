@@ -24,6 +24,7 @@
 #include "packagereceivers/pausemusicpackagereceiver.h"
 #include "announcers/avahiannouncer.h"
 #include "announcers/fakeannouncer.h"
+#include "devicelinks/echodevicelink.h"
 
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
@@ -38,7 +39,8 @@
 K_PLUGIN_FACTORY(AndroidShineFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(AndroidShineFactory("androidshine", "androidshine"))
 
-void Daemon::linkTo(DeviceLink* dl) {
+void Daemon::linkTo(DeviceLink* dl)
+{
 
     linkedDevices.append(dl);
 
@@ -86,8 +88,6 @@ QString Daemon::listVisibleDevices()
     ret << std::setw(20) << "Name";
     ret << std::endl;
 
-    emit deviceAdded("hola","hola");
-
     Q_FOREACH (Device* d, visibleDevices) {
         ret << std::setw(20) << d->id().toStdString();
         ret << std::setw(20) << d->name().toStdString();
@@ -101,6 +101,7 @@ QString Daemon::listVisibleDevices()
 bool Daemon::pairDevice(QString id)
 {
     //TODO
+    linkedDevices.append(new EchoDeviceLink(new Device(id,"fake-to-the-max")));
     return true;
 }
 
@@ -109,7 +110,9 @@ QString Daemon::listLinkedDevices()
     QString ret;
 
     Q_FOREACH (DeviceLink* dl, linkedDevices) {
-        ret += dl->device()->name() + "(" + dl->device()->id() + ")";
+        if (!ret.isEmpty()) ret += "\n";
+        //ret += dl->device()->name() + "(" + dl->device()->id() + ")";
+        ret += dl->device()->id();
     }
 
     return ret;
