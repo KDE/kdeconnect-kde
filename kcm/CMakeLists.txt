@@ -3,7 +3,11 @@ set(kcm_SRCS
     kcm.cpp
 )
 
-qt4_automoc(${kcm_SRCS})
+qt4_add_dbus_interface(
+   kcm_SRCS
+   ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.kdeconnect.xml
+   daemoninterface
+)
 
 kde4_add_ui_files(kcm_SRCS kcm.ui wizzard.ui)
 

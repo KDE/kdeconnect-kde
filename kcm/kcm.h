@@ -21,8 +21,12 @@
 #ifndef KDECONNECTKCM_H
 #define KDECONNECTKCM_H
 
+#include <QStandardItemModel>
+#include <QDBusConnection>
+
 #include <kcmodule.h>
-#include <qstandarditemmodel.h>
+
+#include "daemoninterface.h"
 
 class Create;
 class QModelIndex;
@@ -30,6 +34,8 @@ class AccountsModel;
 class AccountWidget;
 class QStackedLayout;
 class QItemSelectionModel;
+class QDBusInterface;
+
 namespace Ui {
     class KdeConnectKcmUi;
 }
@@ -46,7 +52,11 @@ private Q_SLOTS:
     void removeButtonClicked();
     void currentChanged(const QModelIndex& current, const QModelIndex& previous);
 
+    void deviceAdded(QString id, QString name);
+    void deviceRemoved(QString id);
+
 private:
+    LocalDaemonInterface dbusInterface;
     Ui::KdeConnectKcmUi* m_ui;
     QStandardItemModel* m_model;
 

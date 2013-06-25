@@ -21,20 +21,20 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
+#include <QObject>
+#include <QDBusConnection>
 #include <QString>
 
-class Device
+class Device : public QObject
 {
-public:
-    Device(const QString& id, const QString& name)
-    {
-        mDeviceId = id;
-        mDeviceName = name;
-    }
+    Q_OBJECT
 
-    QString id() const{ return mDeviceId; }
-    QString name() const { return mDeviceName; }
-    bool paired() const { return mPaired; }
+public:
+    Device(const QString& id, const QString& name);
+
+    Q_SCRIPTABLE QString id() const{ return mDeviceId; }
+    Q_SCRIPTABLE QString name() const { return mDeviceName; }
+    Q_SCRIPTABLE bool paired() const { return mPaired; }
 
     void pair() {
         mPaired = true;

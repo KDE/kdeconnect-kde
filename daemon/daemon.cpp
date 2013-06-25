@@ -28,6 +28,7 @@
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
 
+#include <QDBusConnection>
 #include <KDE/KIcon>
 
 #include <sstream>
@@ -72,6 +73,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     //TODO: Read paired devices from config
     //pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
 
+    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
+
 }
 
 QString Daemon::listVisibleDevices()
@@ -82,6 +85,8 @@ QString Daemon::listVisibleDevices()
     ret << std::setw(20) << "ID";
     ret << std::setw(20) << "Name";
     ret << std::endl;
+
+    emit deviceAdded("hola","hola");
 
     Q_FOREACH (Device* d, visibleDevices) {
         ret << std::setw(20) << d->id().toStdString();

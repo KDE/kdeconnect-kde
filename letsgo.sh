@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Source bashrc to define kdebuild
+#Source bashrc to define kdebuild and environment variables
 #http://techbase.kde.org/Getting_Started/Build/Environment
 . ~/.bashrc
 
@@ -12,7 +12,7 @@ if kdebuild; then
 	while killall -9 kded4; do
 		true
 	done
-	
+
 	#qdbus org.kde.kded /kded unloadModule androidshine
 	#qdbus org.kde.kded /kded loadModule androidshine
 	kded4 2>&1 | grep -v "^kded(" &

@@ -47,12 +47,11 @@ class Daemon
     : public KDEDModule
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect")
 
 public:
     Daemon(QObject *parent, const QList<QVariant>&);
     ~Daemon();
-
-//DBUS interface
 
 private Q_SLOTS:
     void deviceConnection(DeviceLink* dl);
@@ -67,10 +66,14 @@ public Q_SLOTS:
     Q_SCRIPTABLE QString listPairedDevices(QString id);
 
     Q_SCRIPTABLE bool linkAllPairedDevices();
-
 */
 
     Q_SCRIPTABLE QString listLinkedDevices();
+
+Q_SIGNALS:
+
+    Q_SCRIPTABLE void deviceAdded(QString id, QString name);
+    Q_SCRIPTABLE void deviceRemoved(QString id);
 
 private:
 
