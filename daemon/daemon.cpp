@@ -101,7 +101,7 @@ QString Daemon::listVisibleDevices()
 
 void Daemon::startDiscovery(int timeOut)
 {
-
+    qDebug() << "Start discovery";
     //Listen to incomming connections
     Q_FOREACH (Announcer* a, announcers) {
         a->setDiscoverable(true);

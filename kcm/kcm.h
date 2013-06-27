@@ -52,7 +52,6 @@ private Q_SLOTS:
     void removeButtonClicked();
     void currentChanged(const QModelIndex& current, const QModelIndex& previous);
 
-
 private:
     Ui::KdeConnectKcmUi* kcmUi;
     DaemonDbusInterface dbusInterface;

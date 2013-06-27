@@ -36,6 +36,8 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
 
     wizardUi->listView->setModel(discoveredDevicesList);
 
+    dbusInterface->startDiscovery(123456789);
+
     connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(pageChanged(int)));
 
     connect(dbusInterface, SIGNAL(deviceDiscovered(QString, QString)), this, SLOT(deviceDiscovered(QString,QString)));
@@ -46,11 +48,6 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
 void AddDeviceWizard::pageChanged(int id)
 {
     qDebug() << id;
-    //QWizardPage* p = page(id);
-    if (id == 1) {
-        dbusInterface->startDiscovery(10);
-        //Show "scanning"
-    }
 }
 
 void AddDeviceWizard::deviceDiscovered(QString id, QString name)

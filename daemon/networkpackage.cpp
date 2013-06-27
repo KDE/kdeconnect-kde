@@ -40,8 +40,9 @@ NetworkPackage NetworkPackage::fromString(QByteArray s)
 
     NetworkPackage pp(id);
 
-    ss >> pp.mDeviceId;
-    qDebug() << pp.mDeviceId;
+    std::string deviceId;
+    ss >> deviceId;
+    pp.mDeviceId = QString::fromStdString(deviceId);
 
     ss >> pp.mTime;
 
@@ -55,7 +56,6 @@ NetworkPackage NetworkPackage::fromString(QByteArray s)
     ss.get(); //Skip ws
     ss.read(c,bodyLenght);
     pp.mBody = QString::fromAscii(c,bodyLenght);
-    qDebug() << pp.mBody;
 
     ss >> pp.mIsCancel;
 

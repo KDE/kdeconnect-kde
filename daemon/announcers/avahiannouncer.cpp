@@ -55,7 +55,10 @@ void AvahiAnnouncer::readPendingNotifications()
         //log.write(datagram);
         qDebug() << ("AvahiAnnouncer incomming udp datagram: " + datagram);
 
-        QString id, name;
+        NetworkPackage np = NetworkPackage::fromString(datagram);
+
+        QString id = np.deviceId();
+        QString name = np.body();
 
         Device* device = new Device(id, name);
         DeviceLink* dl = new UdpDeviceLink(device, sender, 10600);
@@ -74,6 +77,7 @@ AvahiAnnouncer::~AvahiAnnouncer()
 
 void AvahiAnnouncer::setDiscoverable(bool b)
 {
+    qDebug() << "Avahi scanning";
     if (b) service->publishAsync();
 }
 

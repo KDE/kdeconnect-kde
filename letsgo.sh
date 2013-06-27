@@ -5,17 +5,24 @@
 . ~/.bashrc
 
 KDE_BUILD_CONFIRMATION=false
+export VERBOSE=1
 
 if kdebuild; then
 
-	killall kded4
-	while killall -9 kded4; do
+	killall kded4 2> /dev/null
+	while killall -9 kded4 2> /dev/null; do
 		true
 	done
 
 	#qdbus org.kde.kded /kded unloadModule androidshine
 	#qdbus org.kde.kded /kded loadModule androidshine
-	kded4 2>&1 | grep -v "^kded(" &
+
+	if [ ""$1 == "--nodaemon" ]; then
+		echo "nodaemon"
+		kded4 --nofork
+	else
+		kded4 2>&1 | grep -v "^kded(" &
+	fi
 
 fi
 

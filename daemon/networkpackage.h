@@ -37,9 +37,10 @@ public:
     static NetworkPackage fromString(QByteArray);
     QByteArray toString() const;
 
+    long id() const { return mId; }
+    QString deviceId() const { return mDeviceId; }
     QString type() const { return mType; }
     QString body() const { return mBody; }
-    long id() const { return mId; }
     bool isCancel() const { return mIsCancel; }
 
 
@@ -47,8 +48,8 @@ public:
 private:
 
     long mId;
-    long mDeviceId;
     long mTime;
+    QString mDeviceId;
     QString mType;
     QString mBody;
     QVariant mExtra;
