@@ -58,9 +58,14 @@ private Q_SLOTS:
 
 public Q_SLOTS:
 
+    //After calling this, signal deviceDiscovered will be triggered for each device
+    Q_SCRIPTABLE void startDiscovery(int timeOut);
+
     Q_SCRIPTABLE QString listVisibleDevices();
 
     Q_SCRIPTABLE bool pairDevice(QString id);
+
+
 
 /*
     Q_SCRIPTABLE QString listPairedDevices(QString id);
@@ -72,15 +77,15 @@ public Q_SLOTS:
 
 Q_SIGNALS:
 
-    Q_SCRIPTABLE void deviceAdded(QString id, QString name);
-    Q_SCRIPTABLE void deviceRemoved(QString id);
+    Q_SCRIPTABLE void deviceDiscovered(QString id, QString name);
+    //Q_SCRIPTABLE void deviceLost(QString id);
 
 private:
 
     void linkTo(DeviceLink* dl);
 
-    //Non paired visible devices
-    QList<Device*> visibleDevices;
+    //(Non paired?) visible devices
+    QMap<QString, DeviceLink*> visibleDevices;
 
     //All paired devices (should be stored and read from disk)
     QVector<Device*> pairedDevices;

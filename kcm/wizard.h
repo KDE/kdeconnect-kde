@@ -44,7 +44,7 @@ private Q_SLOTS:
     void pageChanged(int id);
     
     void deviceDiscovered(QString id, QString name);
-    void deviceLost(QString id);
+    //void deviceLost(QString id);
     void discoveryFinished(bool success);
 
 private:

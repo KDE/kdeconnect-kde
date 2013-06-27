@@ -65,17 +65,18 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     announcers.insert(new AvahiAnnouncer());
     announcers.insert(new FakeAnnouncer());
 
-    //Listen to incomming connections
-    Q_FOREACH (Announcer* a, announcers) {
-        QObject::connect(a,SIGNAL(deviceConnection(DeviceLink*)),
-                            this,SLOT(deviceConnection(DeviceLink*)));
-        a->setDiscoverable(true);
-    }
-
     //TODO: Read paired devices from config
     //pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
 
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
+
+
+    //Listen to incomming connections
+    Q_FOREACH (Announcer* a, announcers) {
+        QObject::connect(a,SIGNAL(deviceConnection(DeviceLink*)),
+                            this,SLOT(deviceConnection(DeviceLink*)));
+    }
+
 
 }
 
@@ -88,9 +89,9 @@ QString Daemon::listVisibleDevices()
     ret << std::setw(20) << "Name";
     ret << std::endl;
 
-    Q_FOREACH (Device* d, visibleDevices) {
-        ret << std::setw(20) << d->id().toStdString();
-        ret << std::setw(20) << d->name().toStdString();
+    Q_FOREACH (DeviceLink* d, visibleDevices) {
+        ret << std::setw(20) << d->device()->id().toStdString();
+        ret << std::setw(20) << d->device()->name().toStdString();
         ret << std::endl;
     }
 
@@ -98,11 +99,23 @@ QString Daemon::listVisibleDevices()
 
 }
 
+void Daemon::startDiscovery(int timeOut)
+{
+
+    //Listen to incomming connections
+    Q_FOREACH (Announcer* a, announcers) {
+        a->setDiscoverable(true);
+    }
+
+}
+
 bool Daemon::pairDevice(QString id)
 {
-    //TODO
-    linkedDevices.append(new EchoDeviceLink(new Device(id,"fake-to-the-max")));
+    if (!visibleDevices.contains(id)) return false;
+
+    linkTo(visibleDevices[id]);
     return true;
+
 }
 
 QString Daemon::listLinkedDevices()
@@ -132,7 +145,7 @@ void Daemon::deviceConnection(DeviceLink* dl)
         }
     }
 
-    visibleDevices.append(dl->device());
+    visibleDevices[dl->device()->id()] = dl;
 
     if (paired) {
         qDebug() << "Known device connected" + dl->device()->name();
@@ -140,8 +153,10 @@ void Daemon::deviceConnection(DeviceLink* dl)
     }
     else {
         qDebug() << "Unknown device connected" + dl->device()->name();
-        //TODO: Not connect immediately
-        linkTo(dl);
+
+        emit deviceDiscovered(dl->device()->id(), dl->device()->name());
+
+        //linkTo(dl);
     }
 
 }

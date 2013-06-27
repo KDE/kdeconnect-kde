@@ -38,8 +38,8 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
 
     connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(pageChanged(int)));
 
-    connect(dbusInterface, SIGNAL(deviceAdded(QString, QString)), this, SLOT(deviceDiscovered(QString,QString)));
-    connect(dbusInterface, SIGNAL(deviceRemoved(QString)), this, SLOT(deviceLost(QString)));
+    connect(dbusInterface, SIGNAL(deviceDiscovered(QString, QString)), this, SLOT(deviceDiscovered(QString,QString)));
+    //connect(dbusInterface, SIGNAL(deviceLost(QString)), this, SLOT(deviceLost(QString)));
 
 }
 
@@ -48,6 +48,7 @@ void AddDeviceWizard::pageChanged(int id)
     qDebug() << id;
     //QWizardPage* p = page(id);
     if (id == 1) {
+        dbusInterface->startDiscovery(10);
         //Show "scanning"
     }
 }
@@ -59,12 +60,12 @@ void AddDeviceWizard::deviceDiscovered(QString id, QString name)
 
     discoveredDevicesList->appendRow(item);
 }
-
+/*
 void AddDeviceWizard::deviceLost(QString id)
 {
     //discoveredDevicesList->removeRow();
 }
-
+*/
 void AddDeviceWizard::discoveryFinished(bool success)
 {
 
