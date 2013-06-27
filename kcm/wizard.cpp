@@ -21,20 +21,58 @@
 #include "wizard.h"
 
 #include <QDebug>
+#include <QStandardItemModel>
 
 #include "ui_wizard.h"
 
 AddDeviceWizard::AddDeviceWizard(QWidget* parent)
     : QWizard(parent)
+    , wizardUi(new Ui::Wizard())
+    , dbusInterface(new DaemonDbusInterface(this))
+    , discoveredDevicesList(new QStandardItemModel(this))
 {
-    qDebug() << "HA";
 
-    m_wizard = new Ui::Wizard();
-    m_wizard->setupUi(this);
+    wizardUi->setupUi(this);
+
+    wizardUi->listView->setModel(discoveredDevicesList);
+
+    connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(pageChanged(int)));
+
+    connect(dbusInterface, SIGNAL(deviceAdded(QString, QString)), this, SLOT(deviceDiscovered(QString,QString)));
+    connect(dbusInterface, SIGNAL(deviceRemoved(QString)), this, SLOT(deviceLost(QString)));
+
+}
+
+void AddDeviceWizard::pageChanged(int id)
+{
+    qDebug() << id;
+    //QWizardPage* p = page(id);
+    if (id == 1) {
+        //Show "scanning"
+    }
+}
+
+void AddDeviceWizard::deviceDiscovered(QString id, QString name)
+{
+    QStandardItem* item = new QStandardItem(name);
+    item->setData(id);
+
+    discoveredDevicesList->appendRow(item);
+}
+
+void AddDeviceWizard::deviceLost(QString id)
+{
+    //discoveredDevicesList->removeRow();
+}
+
+void AddDeviceWizard::discoveryFinished(bool success)
+{
 
 }
 
 AddDeviceWizard::~AddDeviceWizard()
 {
-    delete m_wizard;
+    delete wizardUi;
+    delete dbusInterface;
+    delete discoveredDevicesList;
 }

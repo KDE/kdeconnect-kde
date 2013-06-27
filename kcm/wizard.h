@@ -22,18 +22,35 @@
 #define WIZARD_H
 
 #include <QWizard>
+#include <QObject>
+
+#include "daemondbusinterface.h"
 
 namespace Ui {
     class Wizard;
 }
 
+class QStandardItemModel;
+
 class AddDeviceWizard : public QWizard
 {
+    Q_OBJECT
+
 public:
     AddDeviceWizard(QWidget* parent);
     ~AddDeviceWizard();
+
+private Q_SLOTS:
+    void pageChanged(int id);
+    
+    void deviceDiscovered(QString id, QString name);
+    void deviceLost(QString id);
+    void discoveryFinished(bool success);
+
 private:
-    Ui::Wizard* m_wizard;
+    Ui::Wizard* wizardUi;
+    DaemonDbusInterface* dbusInterface;
+    QStandardItemModel* discoveredDevicesList;
 };
 
 #endif // WIZARD_H

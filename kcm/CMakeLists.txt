@@ -1,13 +1,14 @@
 
-set(kcm_SRCS
+set(kcm_SRCS devicesmodel.cpp
     kcm.cpp
     wizard.cpp
+    daemondbusinterface.cpp
 )
 
 qt4_add_dbus_interface(
    kcm_SRCS
    ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.xml
-   daemoninterface
+   org_kde_kdeconnect_interface
 )
 
 kde4_add_ui_files(kcm_SRCS kcm.ui wizard.ui)

@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,47 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDECONNECTKCM_H
-#define KDECONNECTKCM_H
+#include "daemondbusinterface.h"
 
-#include <QStandardItemModel>
-#include <QDBusConnection>
-
-#include <kcmodule.h>
-
-#include "wizard.h"
-
-class Create;
-class QModelIndex;
-class AccountsModel;
-class AccountWidget;
-class QStackedLayout;
-class QItemSelectionModel;
-class QDBusInterface;
-
-namespace Ui {
-    class KdeConnectKcmUi;
-}
-
-class KdeConnectKcm : public KCModule
+DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
+    : OrgKdeKdeconnectInterface("org.kde.kdeconnect", "/modules/androidshine", QDBusConnection::sessionBus(), parent)
 {
-    Q_OBJECT
-public:
-    KdeConnectKcm(QWidget *parent, const QVariantList&);
-    virtual ~KdeConnectKcm();
 
-private Q_SLOTS:
-    void addButtonClicked();
-    void removeButtonClicked();
-    void currentChanged(const QModelIndex& current, const QModelIndex& previous);
-
-
-private:
-    Ui::KdeConnectKcmUi* kcmUi;
-    DaemonDbusInterface dbusInterface;
-    QStandardItemModel pairedDevicesList;
-    AddDeviceWizard addDeviceWizard;
-
-};
-
-#endif
+}

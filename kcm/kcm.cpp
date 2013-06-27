@@ -40,24 +40,19 @@ K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
 
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KdeConnectKcmFactory::componentData(), parent)
-    , dbusInterface("org.kde.kdeconnect", "/modules/androidshine", QDBusConnection::sessionBus(), this)
-    , wizard(this)
+    , kcmUi(new Ui::KdeConnectKcmUi())
+    , dbusInterface(this)
+    , pairedDevicesList(this)
+    , addDeviceWizard(this)
 {
 
-    m_ui = new Ui::KdeConnectKcmUi();
-    m_ui->setupUi(this);
+    kcmUi->setupUi(this);
 
-    m_model = new QStandardItemModel(this);
-    m_ui->deviceList->setIconSize(QSize(32,32));
-    m_ui->deviceList->setModel(m_model);
+    kcmUi->deviceList->setIconSize(QSize(32,32));
+    kcmUi->deviceList->setModel(&pairedDevicesList);
 
-//    dbusInterface.pairDevice("holalala");
-
-    connect(&dbusInterface, SIGNAL(deviceAdded(QString, QString)), this, SLOT(deviceAdded(QString, QString)));
-    connect(&dbusInterface, SIGNAL(deviceRemoved(QString)), this, SLOT(deviceRemoved(QString)));
-
-    connect(m_ui->removeButton, SIGNAL(clicked(bool)), this, SLOT(removeButtonClicked()));
-    connect(m_ui->addButton, SIGNAL(clicked(bool)), this, SLOT(addButtonClicked()));
+    connect(kcmUi->addButton, SIGNAL(clicked(bool)), this, SLOT(addButtonClicked()));
+    connect(kcmUi->removeButton, SIGNAL(clicked(bool)), this, SLOT(removeButtonClicked()));
 
 }
 
@@ -68,7 +63,7 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::addButtonClicked()
 {
-
+    addDeviceWizard.show();
 }
 
 void KdeConnectKcm::removeButtonClicked()
@@ -77,17 +72,6 @@ void KdeConnectKcm::removeButtonClicked()
 }
 
 void KdeConnectKcm::currentChanged(const QModelIndex& current, const QModelIndex& previous)
-{
-
-}
-
-void KdeConnectKcm::deviceAdded(QString id, QString name) //TODO: Rebre mes coses...
-{
-    //m_model->appendRow(new QStandardItem(id));
-    wizard.show();
-}
-
-void KdeConnectKcm::deviceRemoved(QString id)
 {
 
 }
