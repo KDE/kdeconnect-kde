@@ -62,7 +62,7 @@ KNotification* NotificationPackageReceiver::createNotification(const NetworkPack
 
     KNotification* notification = new KNotification(type); //KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
-    notification->setComponentData(KComponentData("androidshine", "androidshine"));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);
     notification->setText(np.body());
 

@@ -2,12 +2,12 @@
 Type=Service
 Icon=preferences-system-power-management
 X-KDE-ServiceTypes=KDEDModule
-X-KDE-Library=androidshine
-X-KDE-DBus-ModuleName=androidshine
+X-KDE-Library=kdeconnect
+X-KDE-DBus-ModuleName=kdeconnect
 X-KDE-Kded-autoload=true
 X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 
-Name=Android shine
+Name=KDE Connect
 
-Comment=Android shiny backend
+Comment=Connect KDE with your smartphone

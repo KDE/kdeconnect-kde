@@ -19,9 +19,12 @@
  */
 
 #include "wizard.h"
+#include "devicesmodel.h"
 
 #include <QDebug>
 #include <QStandardItemModel>
+
+#include <kdebug.h>
 
 #include "ui_wizard.h"
 
@@ -29,33 +32,47 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
     : QWizard(parent)
     , wizardUi(new Ui::Wizard())
     , dbusInterface(new DaemonDbusInterface(this))
-    , discoveredDevicesList(new QStandardItemModel(this))
+    , discoveredDevicesList(new DevicesModel(this))
 {
 
     wizardUi->setupUi(this);
 
+    connect(wizardUi->listView,SIGNAL(activated(QModelIndex)),this,SLOT(deviceSelected(QModelIndex)));
+
     wizardUi->listView->setModel(discoveredDevicesList);
 
-    dbusInterface->startDiscovery(123456789);
-
     connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(pageChanged(int)));
+
+    connect(this,SIGNAL(accepted()),this,SLOT(wizardFinished()));
 
     connect(dbusInterface, SIGNAL(deviceDiscovered(QString, QString)), this, SLOT(deviceDiscovered(QString,QString)));
     //connect(dbusInterface, SIGNAL(deviceLost(QString)), this, SLOT(deviceLost(QString)));
 
+    dbusInterface->startDiscovery(123456789);
+
 }
+
+void AddDeviceWizard::wizardFinished()
+{
+    if (selectedIndex.row() > 0 && selectedIndex.row() < discoveredDevicesList->rowCount()) {
+        QString name = discoveredDevicesList->data(selectedIndex,DevicesModel::NameModelRole).toString();
+        QString id = discoveredDevicesList->data(selectedIndex,DevicesModel::IdModelRole).toString();
+        emit deviceAdded(name,id);
+    }
+}
+
 
 void AddDeviceWizard::pageChanged(int id)
 {
     qDebug() << id;
+    if (id == 2) {
+        //TODO: Do the actual pairing in this page
+    }
 }
 
 void AddDeviceWizard::deviceDiscovered(QString id, QString name)
 {
-    QStandardItem* item = new QStandardItem(name);
-    item->setData(id);
-
-    discoveredDevicesList->appendRow(item);
+    discoveredDevicesList->addDevice(id,name,DevicesModel::Visible);
 }
 /*
 void AddDeviceWizard::deviceLost(QString id)
@@ -66,6 +83,26 @@ void AddDeviceWizard::deviceLost(QString id)
 void AddDeviceWizard::discoveryFinished(bool success)
 {
 
+}
+
+void AddDeviceWizard::restart()
+{
+    selectedIndex = QModelIndex();
+    QWizard::restart();
+}
+
+
+void AddDeviceWizard::show()
+{
+    restart();
+    QWizard::show();
+}
+
+void AddDeviceWizard::deviceSelected(const QModelIndex& index)
+{
+    qDebug() << "Selected: " + index.row();
+    selectedIndex = index;
+    next();
 }
 
 AddDeviceWizard::~AddDeviceWizard()

@@ -14,14 +14,14 @@ if kdebuild; then
 		true
 	done
 
-	#qdbus org.kde.kded /kded unloadModule androidshine
-	#qdbus org.kde.kded /kded loadModule androidshine
+	#qdbus org.kde.kded /kded unloadModule kdeconnect
+	#qdbus org.kde.kded /kded loadModule kdeconnect
 
 	if [ ""$1 == "--nodaemon" ]; then
 		echo "nodaemon"
 		kded4 --nofork
 	else
-		kded4 2>&1 | grep -v "^kded(" &
+		kded4 --nofork # 2>&1 | grep -v "^kded(" &
 	fi
 
 fi

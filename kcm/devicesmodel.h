@@ -33,12 +33,19 @@ class DevicesModel
 {
 public:
     enum ModelRoles {
-        IconModelRole = 0,
-        NameModelRole,
-        AliasModelRole,
-        DeviceTypeModelRole,
-        DeviceModelRole,
-        LastModelRole
+        NameModelRole = Qt::DisplayRole,
+        IconModelRole = Qt::DecorationRole,
+        IdModelRole = Qt::UserRole,
+        StatusModelRole
+    };
+
+    enum DeviceStatus {
+        Missing = 0,
+        Visible,
+        Connected,
+        PairedMissing = 10,
+        PairedVisible,
+        PairedConnected,
     };
 
     DevicesModel(QObject *parent = 0);
@@ -53,10 +60,15 @@ public:
     virtual bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
     virtual bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
+    void loadPaired();
+    void addDevice(QString id, QString name, DeviceStatus status);
+
+
 private:
     struct Device {
         QString id;
         QString name;
+        DeviceStatus status;
     };
     QList<Device> m_deviceList;
 };

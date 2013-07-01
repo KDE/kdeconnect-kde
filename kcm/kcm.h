@@ -25,8 +25,10 @@
 #include <QDBusConnection>
 
 #include <kcmodule.h>
+#include <ksharedconfig.h>
 
 #include "wizard.h"
+#include "devicesmodel.h"
 
 class Create;
 class QModelIndex;
@@ -51,12 +53,14 @@ private Q_SLOTS:
     void addButtonClicked();
     void removeButtonClicked();
     void currentChanged(const QModelIndex& current, const QModelIndex& previous);
-
+    void deviceAdded(QString id, QString name);
+    
 private:
     Ui::KdeConnectKcmUi* kcmUi;
     DaemonDbusInterface dbusInterface;
-    QStandardItemModel pairedDevicesList;
+    DevicesModel pairedDevicesList;
     AddDeviceWizard addDeviceWizard;
+    KSharedConfigPtr config;
 
 };
 

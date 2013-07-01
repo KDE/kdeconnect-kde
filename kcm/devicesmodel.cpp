@@ -21,22 +21,63 @@
  */
 
 #include "devicesmodel.h"
+#include <ksharedconfig.h>
 
+#include <QDebug>
+#include <KConfigGroup>
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
+
 }
 
 DevicesModel::~DevicesModel()
 {
 }
 
+void DevicesModel::loadPaired()
+{
+
+    //TODO: Load from daemon, so we can know if they are currently connected or not
+
+    removeRows(0,rowCount());
+
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    const KConfigGroup& known = config->group("devices").group("paired");
+    const QStringList& list = known.groupList();
+
+    const QString defaultName("unnamed");
+
+    Q_FOREACH(QString id, list) {
+
+        const KConfigGroup& data = known.group(id);
+        const QString& name = data.readEntry<QString>("name",defaultName);
+
+        //qDebug() << id << name;
+
+        addDevice(id,name,Visible);
+
+    }
+
+}
+
+void DevicesModel::addDevice(QString id, QString name, DevicesModel::DeviceStatus status)
+{
+    int rown = rowCount();
+    insertRows(rown,1);
+    setData(index(rown,0),QVariant(id),IdModelRole);
+    setData(index(rown,0),QVariant(name),NameModelRole);
+    setData(index(rown,0),QVariant(PairedConnected),StatusModelRole);
+    emit dataChanged(index(rown,0),index(rown,0));
+}
+
+
 int DevicesModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 
-    return 1;
+    return 1; //We are not using the second dimension at all
 }
 
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
@@ -46,15 +87,13 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
     switch (role) {
             case IconModelRole:
-                //return m_deviceList[index.row()].m_icon;
+                return QPixmap(); //TODO: Return a pixmap to represent the status
+            case IdModelRole:
+                return m_deviceList[index.row()].id;
             case NameModelRole:
-                //return m_deviceList[index.row()].m_device->name();
-            case AliasModelRole:
-                //return m_deviceList[index.row()].m_device->alias();
-            case DeviceTypeModelRole:
-                //return m_deviceList[index.row()].m_deviceType;
-            case DeviceModelRole:
-                //return QVariant::fromValue<void*>(m_deviceList[index.row()].m_device);
+                return m_deviceList[index.row()].name;
+            case StatusModelRole:
+                return m_deviceList[index.row()].status;
             default:
                 break;
     }
@@ -68,16 +107,16 @@ bool DevicesModel::setData(const QModelIndex &index, const QVariant &value, int 
     }
     switch (role) {
             case IconModelRole:
-                //m_deviceList[index.row()].m_icon = value.value<QPixmap>();
+                qDebug() << "Icon can not be assigned to, change status instead";
                 break;
-            case DeviceTypeModelRole:
-                //m_deviceList[index.row()].m_deviceType = value.toString();
+            case IdModelRole:
+                m_deviceList[index.row()].id = value.toString();
                 break;
-            case DeviceModelRole: {
-                    //Device *const device = static_cast<Device*>(value.value<void*>());
-                    //m_deviceList[index.row()].m_device = device;
-                    //connect(device, SIGNAL(propertyChanged(QString,QVariant)),this, SIGNAL(layoutChanged()));
-                }
+            case NameModelRole:
+                m_deviceList[index.row()].name = value.toString();
+                break;
+            case StatusModelRole:
+                m_deviceList[index.row()].status = (DeviceStatus)value.toInt();
                 break;
             default:
                 return false;

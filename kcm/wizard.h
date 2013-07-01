@@ -25,6 +25,7 @@
 #include <QObject>
 
 #include "daemondbusinterface.h"
+#include "devicesmodel.h"
 
 namespace Ui {
     class Wizard;
@@ -39,6 +40,8 @@ class AddDeviceWizard : public QWizard
 public:
     AddDeviceWizard(QWidget* parent);
     ~AddDeviceWizard();
+    void show();
+    void restart();
 
 private Q_SLOTS:
     void pageChanged(int id);
@@ -47,10 +50,18 @@ private Q_SLOTS:
     //void deviceLost(QString id);
     void discoveryFinished(bool success);
 
+    void deviceSelected(const QModelIndex& index);
+
+    void wizardFinished();
+
+Q_SIGNALS:
+    void deviceAdded(QString id, QString name);
+
 private:
     Ui::Wizard* wizardUi;
     DaemonDbusInterface* dbusInterface;
-    QStandardItemModel* discoveredDevicesList;
+    DevicesModel* discoveredDevicesList;
+    QModelIndex selectedIndex;
 };
 
 #endif // WIZARD_H

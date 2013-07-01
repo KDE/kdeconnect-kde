@@ -21,7 +21,7 @@
 #include "daemondbusinterface.h"
 
 DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
-    : OrgKdeKdeconnectInterface("org.kde.kdeconnect", "/modules/androidshine", QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectInterface("org.kde.kdeconnect", "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
 {
 
 }

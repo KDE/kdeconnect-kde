@@ -3,6 +3,6 @@
 Device::Device(const QString& id, const QString& name) {
     mDeviceId = id;
     mDeviceName = name;
-    QDBusConnection::sessionBus().registerObject("module/androidshine/Devices/"+id, this);
+    QDBusConnection::sessionBus().registerObject("module/kdeconnect/Devices/"+id, this);
 
 }

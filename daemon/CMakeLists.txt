@@ -1,4 +1,4 @@
-set(kded_androidshine_SRCS
+set(kded_kdeconnect_SRCS
 
     announcers/announcer.cpp
     announcers/fakeannouncer.cpp
@@ -19,9 +19,9 @@ set(kded_androidshine_SRCS
     ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml
 )
 
-kde4_add_plugin(kded_androidshine ${kded_androidshine_SRCS})
+kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
 
-target_link_libraries(kded_androidshine
+target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     kdnssd
@@ -37,6 +37,6 @@ qt4_generate_dbus_interface(
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
-install(TARGETS kded_androidshine DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES androidshine.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
-install(FILES androidshine.notifyrc DESTINATION ${DATA_INSTALL_DIR}/androidshine)
+install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
+install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
+install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)

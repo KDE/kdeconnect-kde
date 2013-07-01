@@ -36,8 +36,8 @@
 #include <iomanip>
 #include <iostream>
 
-K_PLUGIN_FACTORY(AndroidShineFactory, registerPlugin<Daemon>();)
-K_EXPORT_PLUGIN(AndroidShineFactory("androidshine", "androidshine"))
+K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
+K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
 
 void Daemon::linkTo(DeviceLink* dl)
 {
@@ -58,12 +58,16 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     qDebug() << "GO GO GO!";
 
     //TODO: Do not hardcode the load of the package receivers
+    //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
     packageReceivers.push_back(new NotificationPackageReceiver());
     packageReceivers.push_back(new PauseMusicPackageReceiver());
 
     //TODO: Do not hardcode the load of the device locators
+    //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
     announcers.insert(new AvahiAnnouncer());
     announcers.insert(new FakeAnnouncer());
+
+    //TODO: Add package emitters
 
     //TODO: Read paired devices from config
     //pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
@@ -76,7 +80,6 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         QObject::connect(a,SIGNAL(deviceConnection(DeviceLink*)),
                             this,SLOT(deviceConnection(DeviceLink*)));
     }
-
 
 }
 

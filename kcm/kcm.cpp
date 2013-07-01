@@ -44,9 +44,16 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     , dbusInterface(this)
     , pairedDevicesList(this)
     , addDeviceWizard(this)
+    , config(KSharedConfig::openConfig("kdeconnectrc"))
 {
 
+    pairedDevicesList.loadPaired();
+
     kcmUi->setupUi(this);
+
+    //config->group("devices").group("paired").group("123456").writeEntry("name","Ultra-fake device");
+    //config->group("devices").group("paired").group("987654").writeEntry("name","Ultra-fake device");
+    //pairedDevicesList.updateFromConfig();
 
     kcmUi->deviceList->setIconSize(QSize(32,32));
     kcmUi->deviceList->setModel(&pairedDevicesList);
@@ -54,6 +61,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     connect(kcmUi->addButton, SIGNAL(clicked(bool)), this, SLOT(addButtonClicked()));
     connect(kcmUi->removeButton, SIGNAL(clicked(bool)), this, SLOT(removeButtonClicked()));
 
+    connect(&addDeviceWizard,SIGNAL(deviceAdded(QString,QString)),this, SLOT(deviceAdded(QString,QString)));
 }
 
 KdeConnectKcm::~KdeConnectKcm()
@@ -69,6 +77,12 @@ void KdeConnectKcm::addButtonClicked()
 void KdeConnectKcm::removeButtonClicked()
 {
 
+}
+
+void KdeConnectKcm::deviceAdded(QString id,QString name)
+{
+    qDebug() << "Succesfully paired: " + id;
+    pairedDevicesList.addDevice(id,name,DevicesModel::PairedConnected);
 }
 
 void KdeConnectKcm::currentChanged(const QModelIndex& current, const QModelIndex& previous)
