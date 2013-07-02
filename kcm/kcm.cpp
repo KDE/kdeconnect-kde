@@ -82,7 +82,11 @@ void KdeConnectKcm::removeButtonClicked()
 void KdeConnectKcm::deviceAdded(QString id,QString name)
 {
     qDebug() << "Succesfully paired: " + id;
-    pairedDevicesList.addDevice(id,name,DevicesModel::PairedConnected);
+
+    //TODO: Do not use kconf directly but talk to daemon
+    dbusInterface.pairDevice(id);
+
+    pairedDevicesList.loadPaired();
 }
 
 void KdeConnectKcm::currentChanged(const QModelIndex& current, const QModelIndex& previous)

@@ -37,6 +37,8 @@ UdpDeviceLink::UdpDeviceLink(Device* d, QHostAddress ip, quint16 port)
 void UdpDeviceLink::readPendingNotifications()
 {
 
+    qDebug() << "UdpDeviceLink readPendingNotifications";
+
     while (mUdpSocket->hasPendingDatagrams()) {
 
         QByteArray datagram;

@@ -35,14 +35,14 @@ AvahiAnnouncer::AvahiAnnouncer()
 
     connect(mUdpSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
 
-    qDebug() << "listening to udp messages";
+    qDebug() << "Listening to udp messages";
 
 }
 
 void AvahiAnnouncer::readPendingNotifications()
 {
 
-    qDebug() << "readPendingNotifications";
+    qDebug() << "AvahiAnnouncer readPendingNotifications";
     
     while (mUdpSocket->hasPendingDatagrams()) {
 
@@ -53,16 +53,20 @@ void AvahiAnnouncer::readPendingNotifications()
         mUdpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
         //log.write(datagram);
-        qDebug() << ("AvahiAnnouncer incomming udp datagram: " + datagram);
+        qDebug() << "AvahiAnnouncer incomming udp datagram: " << datagram;
 
         NetworkPackage np = NetworkPackage::fromString(datagram);
 
         QString id = np.deviceId();
         QString name = np.body();
 
+        qDebug() << "AvahiAnnouncer creating link to device" << name;
+
         Device* device = new Device(id, name);
         DeviceLink* dl = new UdpDeviceLink(device, sender, 10600);
         links.append(dl);
+
+        qDebug() << "Emitting link" << name;
 
         emit deviceConnection(dl);
 

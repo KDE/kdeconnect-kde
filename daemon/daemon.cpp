@@ -28,9 +28,10 @@
 
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
-
 #include <QDBusConnection>
-#include <KDE/KIcon>
+
+#include <KIcon>
+#include <KConfigGroup>
 
 #include <sstream>
 #include <iomanip>
@@ -53,6 +54,7 @@ void Daemon::linkTo(DeviceLink* dl)
 
 Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)
+    , config(KSharedConfig::openConfig("kdeconnectrc"))
 {
 
     qDebug() << "GO GO GO!";
@@ -69,8 +71,16 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //TODO: Add package emitters
 
-    //TODO: Read paired devices from config
-    //pairedDevices.push_back(new Device("MyAndroid","MyAndroid"));
+    //Read remebered paired devices
+    const KConfigGroup& known = config->group("devices").group("paired");
+    const QStringList& list = known.groupList();
+    const QString defaultName("unnamed");
+    Q_FOREACH(QString id, list) {
+        const KConfigGroup& data = known.group(id);
+        const QString& name = data.readEntry<QString>("name",defaultName);
+        pairedDevices.push_back(new Device(id,name));
+    }
+
 
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
 
@@ -116,6 +126,8 @@ bool Daemon::pairDevice(QString id)
 {
     if (!visibleDevices.contains(id)) return false;
 
+    config->group("devices").group("paired").group(id).writeEntry("name",visibleDevices[id]->device()->name());
+
     linkTo(visibleDevices[id]);
     return true;
 
@@ -139,6 +151,8 @@ QString Daemon::listLinkedDevices()
 void Daemon::deviceConnection(DeviceLink* dl)
 {
 
+    qDebug() << "deviceConnection";
+
     QString id = dl->device()->id();
     bool paired = false;
     Q_FOREACH (Device* d, pairedDevices) {
@@ -151,15 +165,12 @@ void Daemon::deviceConnection(DeviceLink* dl)
     visibleDevices[dl->device()->id()] = dl;
 
     if (paired) {
-        qDebug() << "Known device connected" + dl->device()->name();
+        qDebug() << "Known device connected" << dl->device()->name();
         linkTo(dl);
     }
     else {
-        qDebug() << "Unknown device connected" + dl->device()->name();
-
+        qDebug() << "Unknown device connected" << dl->device()->name();
         emit deviceDiscovered(dl->device()->id(), dl->device()->name());
-
-        //linkTo(dl);
     }
 
 }

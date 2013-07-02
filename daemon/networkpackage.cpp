@@ -36,7 +36,7 @@ NetworkPackage NetworkPackage::fromString(QByteArray s)
 
     long id;
     ss >> id;
-    qDebug() << "Receiving package with id: " << id;
+    //qDebug() << "Decoding package with id:" << id;
 
     NetworkPackage pp(id);
 
@@ -58,6 +58,8 @@ NetworkPackage NetworkPackage::fromString(QByteArray s)
     pp.mBody = QString::fromAscii(c,bodyLenght);
 
     ss >> pp.mIsCancel;
+
+    qDebug() << "Decoded package with id:" << id;
 
     return pp;
 

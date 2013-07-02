@@ -26,8 +26,8 @@
 #include <QRegExp>
 #include <map>
 
-#include <KDE/KDEDModule>
-#include <KDE/KNotification>
+#include <KDEDModule>
+#include <KNotification>
 
 #include "networkpackage.h"
 #include <KDE/KPluginFactory>
@@ -35,6 +35,8 @@
 #include <qtextstream.h>
 
 #include <QSet>
+
+#include <KConfig>
 
 #include "device.h"
 #include "packagereceivers/packagereceiver.h"
@@ -65,8 +67,6 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE bool pairDevice(QString id);
 
-
-
 /*
     Q_SCRIPTABLE QString listPairedDevices(QString id);
 
@@ -82,7 +82,10 @@ Q_SIGNALS:
 
 private:
 
+
     void linkTo(DeviceLink* dl);
+
+    KSharedConfigPtr config;
 
     //(Non paired?) visible devices
     QMap<QString, DeviceLink*> visibleDevices;

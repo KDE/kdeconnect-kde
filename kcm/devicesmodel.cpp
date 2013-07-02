@@ -69,6 +69,7 @@ void DevicesModel::addDevice(QString id, QString name, DevicesModel::DeviceStatu
     setData(index(rown,0),QVariant(id),IdModelRole);
     setData(index(rown,0),QVariant(name),NameModelRole);
     setData(index(rown,0),QVariant(PairedConnected),StatusModelRole);
+    qDebug() << "Add device" << name;
     emit dataChanged(index(rown,0),index(rown,0));
 }
 

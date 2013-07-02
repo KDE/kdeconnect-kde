@@ -54,10 +54,11 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
 
 void AddDeviceWizard::wizardFinished()
 {
-    if (selectedIndex.row() > 0 && selectedIndex.row() < discoveredDevicesList->rowCount()) {
+
+    if (selectedIndex.isValid() && selectedIndex.row() >= 0 && selectedIndex.row() < discoveredDevicesList->rowCount()) {
         QString name = discoveredDevicesList->data(selectedIndex,DevicesModel::NameModelRole).toString();
         QString id = discoveredDevicesList->data(selectedIndex,DevicesModel::IdModelRole).toString();
-        emit deviceAdded(name,id);
+        emit deviceAdded(id,name);
     }
 }
 
@@ -72,6 +73,7 @@ void AddDeviceWizard::pageChanged(int id)
 
 void AddDeviceWizard::deviceDiscovered(QString id, QString name)
 {
+    qDebug() << "Discovered"<<name;
     discoveredDevicesList->addDevice(id,name,DevicesModel::Visible);
 }
 /*
@@ -100,7 +102,7 @@ void AddDeviceWizard::show()
 
 void AddDeviceWizard::deviceSelected(const QModelIndex& index)
 {
-    qDebug() << "Selected: " + index.row();
+    qDebug() << "Selected:" << index.row();
     selectedIndex = index;
     next();
 }
