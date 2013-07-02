@@ -50,6 +50,12 @@ void Daemon::linkTo(DeviceLink* dl)
                             pr,SLOT(receivePackage(const NetworkPackage&)));
     }
 
+    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setTitle(dl->device()->name());
+    notification->setText("Succesfully connected");
+
 }
 
 Daemon::Daemon(QObject *parent, const QList<QVariant>&)
@@ -124,14 +130,27 @@ void Daemon::startDiscovery(int timeOut)
 
 bool Daemon::pairDevice(QString id)
 {
-    if (!visibleDevices.contains(id)) return false;
-
+    if (!visibleDevices.contains(id)) {
+        return false;
+    }
     config->group("devices").group("paired").group(id).writeEntry("name",visibleDevices[id]->device()->name());
-
     linkTo(visibleDevices[id]);
     return true;
-
 }
+
+bool Daemon::unpairDevice(QString id)
+{
+    /*qDebug() << "M'han passat" << id;
+    foreach(QString c, config->group("devices").group("paired").groupList()) {
+        qDebug() << "Tinc" << c;
+    }*/
+    if (!config->group("devices").group("paired").hasGroup(id)) {
+        return false;
+    }
+    config->group("devices").group("paired").deleteGroup(id);
+    return true;
+}
+
 
 QString Daemon::listLinkedDevices()
 {

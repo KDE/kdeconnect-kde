@@ -41,27 +41,27 @@ K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KdeConnectKcmFactory::componentData(), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
-    , dbusInterface(this)
-    , pairedDevicesList(this)
-    , addDeviceWizard(this)
+    , m_dbusInterface(new DaemonDbusInterface(this))
+    , pairedDevicesList(new DevicesModel(this))
+    , addDeviceWizard(new AddDeviceWizard(this))
     , config(KSharedConfig::openConfig("kdeconnectrc"))
 {
+    config->group("devices").group("paired").group("123456").writeEntry("name","Ultra-fake device");
+    config->group("devices").group("paired").group("987654").writeEntry("name","Ultra-fake device");
 
-    pairedDevicesList.loadPaired();
+    pairedDevicesList->loadPaired();
 
     kcmUi->setupUi(this);
 
-    //config->group("devices").group("paired").group("123456").writeEntry("name","Ultra-fake device");
-    //config->group("devices").group("paired").group("987654").writeEntry("name","Ultra-fake device");
-    //pairedDevicesList.updateFromConfig();
-
     kcmUi->deviceList->setIconSize(QSize(32,32));
-    kcmUi->deviceList->setModel(&pairedDevicesList);
+    kcmUi->deviceList->setModel(pairedDevicesList);
 
     connect(kcmUi->addButton, SIGNAL(clicked(bool)), this, SLOT(addButtonClicked()));
     connect(kcmUi->removeButton, SIGNAL(clicked(bool)), this, SLOT(removeButtonClicked()));
 
-    connect(&addDeviceWizard,SIGNAL(deviceAdded(QString,QString)),this, SLOT(deviceAdded(QString,QString)));
+    connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)), this, SLOT(deviceSelected(QModelIndex)));
+
+    connect(addDeviceWizard,SIGNAL(deviceAdded(QString,QString)),this, SLOT(deviceAdded(QString,QString)));
 }
 
 KdeConnectKcm::~KdeConnectKcm()
@@ -71,28 +71,34 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::addButtonClicked()
 {
-    addDeviceWizard.show();
+    addDeviceWizard->show();
 }
 
 void KdeConnectKcm::removeButtonClicked()
 {
+    QModelIndex selectedIndex = kcmUi->deviceList->currentIndex();
+    if (selectedIndex.isValid() && selectedIndex.row() >= 0 && selectedIndex.row() < pairedDevicesList->rowCount()) {
+        QString id = pairedDevicesList->data(selectedIndex,DevicesModel::IdModelRole).toString();
+        if (m_dbusInterface->unpairDevice(id)) {;
+            pairedDevicesList->loadPaired();
+        }
+    }
 
 }
 
 void KdeConnectKcm::deviceAdded(QString id,QString name)
 {
-    qDebug() << "Succesfully paired: " + id;
+    if (m_dbusInterface->pairDevice(id)) {
+        qDebug() << "Succesfully paired: " + id;
+        pairedDevicesList->loadPaired();
+    }
 
-    //TODO: Do not use kconf directly but talk to daemon
-    dbusInterface.pairDevice(id);
-
-    pairedDevicesList.loadPaired();
 }
 
-void KdeConnectKcm::currentChanged(const QModelIndex& current, const QModelIndex& previous)
+void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
-
+    qDebug() << "PENIS";
+    kcmUi->removeButton->setEnabled(current.isValid());
 }
 
 
-#include "kcm.moc"

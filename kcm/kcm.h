@@ -52,14 +52,14 @@ public:
 private Q_SLOTS:
     void addButtonClicked();
     void removeButtonClicked();
-    void currentChanged(const QModelIndex& current, const QModelIndex& previous);
+    void deviceSelected(const QModelIndex& current);
     void deviceAdded(QString id, QString name);
     
 private:
     Ui::KdeConnectKcmUi* kcmUi;
-    DaemonDbusInterface dbusInterface;
-    DevicesModel pairedDevicesList;
-    AddDeviceWizard addDeviceWizard;
+    DaemonDbusInterface* m_dbusInterface;
+    DevicesModel* pairedDevicesList;
+    AddDeviceWizard* addDeviceWizard;
     KSharedConfigPtr config;
 
 };

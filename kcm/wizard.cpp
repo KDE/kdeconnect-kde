@@ -54,7 +54,6 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
 
 void AddDeviceWizard::wizardFinished()
 {
-
     if (selectedIndex.isValid() && selectedIndex.row() >= 0 && selectedIndex.row() < discoveredDevicesList->rowCount()) {
         QString name = discoveredDevicesList->data(selectedIndex,DevicesModel::NameModelRole).toString();
         QString id = discoveredDevicesList->data(selectedIndex,DevicesModel::IdModelRole).toString();

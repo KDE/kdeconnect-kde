@@ -25,11 +25,12 @@
 
 
 #include <QAbstractItemModel>
+#include <QAbstractListModel>
 #include <QPixmap>
 #include <QList>
 
 class DevicesModel
-    : public QAbstractItemModel
+    : public QAbstractListModel
 {
 public:
     enum ModelRoles {

@@ -66,6 +66,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE QString listVisibleDevices();
 
     Q_SCRIPTABLE bool pairDevice(QString id);
+    Q_SCRIPTABLE bool unpairDevice(QString id);
 
 /*
     Q_SCRIPTABLE QString listPairedDevices(QString id);

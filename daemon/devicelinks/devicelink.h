@@ -33,6 +33,7 @@ class DeviceLink
     Q_OBJECT
 
 public:
+    //TODO: Add QObject* parent
     DeviceLink(Device* d);
 
     Device* device() { return mDevice; }

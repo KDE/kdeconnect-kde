@@ -27,7 +27,7 @@
 #include <KConfigGroup>
 
 DevicesModel::DevicesModel(QObject *parent)
-    : QAbstractItemModel(parent)
+    : QAbstractListModel(parent)
 {
 
 }
