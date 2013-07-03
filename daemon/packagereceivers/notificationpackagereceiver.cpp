@@ -74,8 +74,6 @@ bool NotificationPackageReceiver::receivePackage(const NetworkPackage& np) {
 
     if (np.isCancel()) {
 
-        //system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause");
-
         //It would be awesome to remove the old notification from the system tray here, but there is no way to do it :(
         //Now I realize why at the end of the day I have hundreds of notifications from facebook messages that I HAVE ALREADY READ,
         //...it's just because the telepathy client has no way to remove them! even when it knows that I have read those messages lol
@@ -86,12 +84,8 @@ bool NotificationPackageReceiver::receivePackage(const NetworkPackage& np) {
         KNotification* n = createNotification(np);
         n->sendEvent();
 
-        //system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause");
-
-
     }
 
     return true;
-
 
 }

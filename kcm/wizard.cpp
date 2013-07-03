@@ -48,8 +48,6 @@ AddDeviceWizard::AddDeviceWizard(QWidget* parent)
     connect(dbusInterface, SIGNAL(deviceDiscovered(QString, QString)), this, SLOT(deviceDiscovered(QString,QString)));
     //connect(dbusInterface, SIGNAL(deviceLost(QString)), this, SLOT(deviceLost(QString)));
 
-    dbusInterface->startDiscovery(123456789);
-
 }
 
 void AddDeviceWizard::wizardFinished()
@@ -81,10 +79,6 @@ void AddDeviceWizard::deviceLost(QString id)
     //discoveredDevicesList->removeRow();
 }
 */
-void AddDeviceWizard::discoveryFinished(bool success)
-{
-
-}
 
 void AddDeviceWizard::restart()
 {

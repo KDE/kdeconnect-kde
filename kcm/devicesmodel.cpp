@@ -24,133 +24,41 @@
 #include <ksharedconfig.h>
 
 #include <QDebug>
+#include <qdbusinterface.h>
 #include <KConfigGroup>
+#include <kicon.h>
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
+    , m_dbusInterface(new DaemonDbusInterface(this))
 {
-
+    QList<QString> deviceIds = m_dbusInterface->devices();
+    connect(m_dbusInterface,SIGNAL(newDeviceAdded(QString)),this,SLOT(deviceAdded(QString)));
+    Q_FOREACH(const QString& id, deviceIds) {
+        deviceAdded(id);
+    }
+    connect(m_dbusInterface,SIGNAL(deviceStatusChanged(QString)),this,SLOT(deviceStatusChanged(QString)));
+    //connect(m_dbusInterface,SIGNAL(deviceRemoved(QString)),this,SLOT(deviceRemoved(QString));
 }
 
 DevicesModel::~DevicesModel()
 {
 }
 
-void DevicesModel::loadPaired()
+void DevicesModel::deviceStatusChanged(const QString& id)
 {
-
-    //TODO: Load from daemon, so we can know if they are currently connected or not
-
-    removeRows(0,rowCount());
-
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const KConfigGroup& known = config->group("devices").group("paired");
-    const QStringList& list = known.groupList();
-
-    const QString defaultName("unnamed");
-
-    Q_FOREACH(QString id, list) {
-
-        const KConfigGroup& data = known.group(id);
-        const QString& name = data.readEntry<QString>("name",defaultName);
-
-        //qDebug() << id << name;
-
-        addDevice(id,name,Visible);
-
-    }
-
+    qDebug() << "deviceStatusChanged";
+    emit dataChanged(index(0),index(rowCount()));
 }
 
-void DevicesModel::addDevice(QString id, QString name, DevicesModel::DeviceStatus status)
+void DevicesModel::deviceAdded(const QString& id)
 {
-    int rown = rowCount();
-    insertRows(rown,1);
-    setData(index(rown,0),QVariant(id),IdModelRole);
-    setData(index(rown,0),QVariant(name),NameModelRole);
-    setData(index(rown,0),QVariant(PairedConnected),StatusModelRole);
-    qDebug() << "Add device" << name;
-    emit dataChanged(index(rown,0),index(rown,0));
+    beginInsertRows(QModelIndex(), rowCount(), rowCount() + 1);
+    m_deviceList.append(new DeviceDbusInterface(id,this));
+    endInsertRows();
 }
 
-
-int DevicesModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent);
-
-    return 1; //We are not using the second dimension at all
-}
-
-QVariant DevicesModel::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid() || index.row() < 0 || index.row() >= m_deviceList.count()) {
-        return QVariant();
-    }
-    switch (role) {
-            case IconModelRole:
-                return QPixmap(); //TODO: Return a pixmap to represent the status
-            case IdModelRole:
-                return m_deviceList[index.row()].id;
-            case NameModelRole:
-                return m_deviceList[index.row()].name;
-            case StatusModelRole:
-                return m_deviceList[index.row()].status;
-            default:
-                break;
-    }
-    return QVariant();
-}
-
-bool DevicesModel::setData(const QModelIndex &index, const QVariant &value, int role)
-{
-    if (!index.isValid() || index.row() < 0 || index.row() >= m_deviceList.count()) {
-        return false;
-    }
-    switch (role) {
-            case IconModelRole:
-                qDebug() << "Icon can not be assigned to, change status instead";
-                break;
-            case IdModelRole:
-                m_deviceList[index.row()].id = value.toString();
-                break;
-            case NameModelRole:
-                m_deviceList[index.row()].name = value.toString();
-                break;
-            case StatusModelRole:
-                m_deviceList[index.row()].status = (DeviceStatus)value.toInt();
-                break;
-            default:
-                return false;
-    }
-    emit dataChanged(index, index);
-    return true;
-}
-
-QModelIndex DevicesModel::index(int row, int column, const QModelIndex &parent) const
-{
-    Q_UNUSED(parent);
-
-    if (row < 0 || row >= m_deviceList.count() || column != 0) {
-        return QModelIndex();
-    }
-
-    return createIndex(row, column);
-}
-
-QModelIndex DevicesModel::parent(const QModelIndex &index) const
-{
-    Q_UNUSED(index);
-
-    return QModelIndex();
-}
-
-int DevicesModel::rowCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent);
-
-    return m_deviceList.count();
-}
-
+/*
 bool DevicesModel::insertRows(int row, int count, const QModelIndex &parent)
 {
     if (row < 0 || row > m_deviceList.count() || count < 1) {
@@ -158,7 +66,7 @@ bool DevicesModel::insertRows(int row, int count, const QModelIndex &parent)
     }
     beginInsertRows(parent, row, row + count - 1);
     for (int i = row; i < row + count; ++i) {
-        m_deviceList.insert(i, Device());
+        m_deviceList.insert(i, new Device());
     }
     endInsertRows();
     return true;
@@ -176,3 +84,39 @@ bool DevicesModel::removeRows(int row, int count, const QModelIndex &parent)
     endRemoveRows();
     return true;
 }
+*/
+QVariant DevicesModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid() || index.row() < 0 || index.row() >= m_deviceList.count()) {
+        return QVariant();
+    }
+    //FIXME: This function gets called lots of times per second, producing lots of dbus calls
+    switch (role) {
+        case IconModelRole: {
+            bool paired = m_deviceList[index.row()]->paired();
+            bool reachable = m_deviceList[index.row()]->reachable();
+            QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
+            return KIcon(icon).pixmap(32, 32);
+        }
+        case IdModelRole:
+            return QString(m_deviceList[index.row()]->id());
+        case NameModelRole:
+            return QString(m_deviceList[index.row()]->name());
+        default:
+            break;
+    }
+    return QVariant();
+}
+
+DeviceDbusInterface* DevicesModel::getDevice(const QModelIndex& index)
+{
+    return m_deviceList[index.row()];
+}
+
+int DevicesModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+
+    return m_deviceList.count();
+}
+

@@ -4,4 +4,4 @@
 #http://techbase.kde.org/Getting_Started/Build/Environment
 . ~/.bashrc
 
-kcmshell4 kdeconnect-kcm &
+kcmshell4 kcm_kdeconnect &

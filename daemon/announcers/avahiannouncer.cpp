@@ -22,13 +22,16 @@
 
 #include "devicelinks/udpdevicelink.h"
 
+#include <QHostInfo>
+
 AvahiAnnouncer::AvahiAnnouncer()
 {
     QString serviceType = "_kdeconnect._udp";
     quint16 port = 10601;
 
     //http://api.kde.org/4.x-api/kdelibs-apidocs/dnssd/html/index.html
-    service = new DNSSD::PublicService("KDE Host", serviceType, port);
+
+    service = new DNSSD::PublicService(QHostInfo::localHostName(), serviceType, port);
 
     mUdpSocket = new QUdpSocket();
     mUdpSocket->bind(port);
@@ -60,15 +63,12 @@ void AvahiAnnouncer::readPendingNotifications()
         QString id = np.deviceId();
         QString name = np.body();
 
-        qDebug() << "AvahiAnnouncer creating link to device" << name;
+        qDebug() << "AvahiAnnouncer creating link to device" << id;
 
-        Device* device = new Device(id, name);
-        DeviceLink* dl = new UdpDeviceLink(device, sender, 10600);
+        DeviceLink* dl = new UdpDeviceLink(id, this, sender, 10600);
         links.append(dl);
 
-        qDebug() << "Emitting link" << name;
-
-        emit deviceConnection(dl);
+        emit onNewDeviceLink(id, name, dl);
 
     }
 

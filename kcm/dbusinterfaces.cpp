@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,10 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "daemondbusinterface.h"
+#include "dbusinterfaces.h"
 
 DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
-    : OrgKdeKdeconnectInterface("org.kde.kdeconnect", "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
+    : KdeconnectDaemonInterface("org.kde.kdeconnect", "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
+    : KdeconnectDeviceInterface("org.kde.kdeconnect", "/modules/kdeconnect/Devices/"+id, QDBusConnection::sessionBus(), parent)
 {
 
 }

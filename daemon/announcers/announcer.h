@@ -27,8 +27,9 @@
 #include "devicelinks/devicelink.h"
 #include "device.h"
 
-class Announcer
-    : public QObject
+class DeviceLink;
+
+class Announcer : public QObject
 {
     Q_OBJECT
 
@@ -42,13 +43,13 @@ public:
         PRIORITY_HIGH = 100    //ie: lan
     };
 
-    virtual QString getName() = 0;
-    virtual Priority getPriority() = 0;
+    virtual QString name() = 0;
+    virtual Priority priority() = 0;
 
     virtual void setDiscoverable(bool b) = 0;
 
 signals:
-    void deviceConnection(DeviceLink *);
+    void onNewDeviceLink(const QString& id, const QString& name, DeviceLink*);
 
 signals:
 

@@ -28,50 +28,35 @@
 #include <QAbstractListModel>
 #include <QPixmap>
 #include <QList>
+#include "dbusinterfaces.h"
 
-class DevicesModel
-    : public QAbstractListModel
+class DevicesModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
     enum ModelRoles {
         NameModelRole = Qt::DisplayRole,
         IconModelRole = Qt::DecorationRole,
         IdModelRole = Qt::UserRole,
-        StatusModelRole
-    };
-
-    enum DeviceStatus {
-        Missing = 0,
-        Visible,
-        Connected,
-        PairedMissing = 10,
-        PairedVisible,
-        PairedConnected,
     };
 
     DevicesModel(QObject *parent = 0);
     virtual ~DevicesModel();
 
-    virtual int columnCount(const QModelIndex &parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex &index, int role) const;
-    virtual bool setData(const QModelIndex &index, const QVariant &value, int role);
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
-    virtual QModelIndex parent(const QModelIndex &index) const;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
-    virtual bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
+    //virtual bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
+    //virtual bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
-    void loadPaired();
-    void addDevice(QString id, QString name, DeviceStatus status);
+    DeviceDbusInterface* getDevice(const QModelIndex& index);
 
+private Q_SLOTS:
+    void deviceStatusChanged(const QString& id);
+    void deviceAdded(const QString& id);
 
 private:
-    struct Device {
-        QString id;
-        QString name;
-        DeviceStatus status;
-    };
-    QList<Device> m_deviceList;
+    DaemonDbusInterface* m_dbusInterface;
+    QList<DeviceDbusInterface*> m_deviceList;
 };
 
 #endif // DEVICESMODEL_H

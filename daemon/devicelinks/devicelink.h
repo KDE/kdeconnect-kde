@@ -24,8 +24,10 @@
 #include <QObject>
 
 #include "networkpackage.h"
+#include <announcers/announcer.h>
 
 class Device;
+class Announcer;
 
 class DeviceLink
     : public QObject
@@ -33,10 +35,10 @@ class DeviceLink
     Q_OBJECT
 
 public:
-    //TODO: Add QObject* parent
-    DeviceLink(Device* d);
+    DeviceLink(const QString& deviceId, Announcer* parent);
 
-    Device* device() { return mDevice; }
+    const QString& deviceId() { return mDeviceId; }
+    Announcer* announcer() { return mAnnouncer; }
     
     virtual void sendPackage(const NetworkPackage& np) = 0;
 
@@ -44,9 +46,9 @@ signals:
     void receivedPackage(const NetworkPackage& np);
 
 private:
-
-    Device* mDevice;
-
+    QString mDeviceId;
+    Announcer* mAnnouncer;
+    
 };
 
 #endif // DEVICELINK_H

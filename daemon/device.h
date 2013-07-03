@@ -24,28 +24,55 @@
 #include <QObject>
 #include <QDBusConnection>
 #include <QString>
+#include <qvector.h>
+#include "devicelinks/devicelink.h"
+
+class DeviceLink;
 
 class Device : public QObject
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "kdeconnect.device")
 
 public:
+
+    //Device known from KConfig, we trust it but we need to wait for a incoming devicelink to communicate
     Device(const QString& id, const QString& name);
 
-    Q_SCRIPTABLE QString id() const{ return mDeviceId; }
-    Q_SCRIPTABLE QString name() const { return mDeviceName; }
-    Q_SCRIPTABLE bool paired() const { return mPaired; }
+    //Device known via a presentation package sent to us via a devicelink, we know everything but we don't trust it yet
+    Device(const QString& id, const QString& name, DeviceLink* dl);
 
-    void pair() {
-        mPaired = true;
-        //TODO: Actually do something
+    //Device known via discovery, we know nothing and have to ask for a presentation package
+    //(not supported yet, do we need it or we can rely on the device presenging itself?)
+    //Device(const QString& id, DeviceLink* dl);
 
-    }
+    void addLink(DeviceLink*);
+    void removeLink(DeviceLink*);
+
+    void sendPackage(const NetworkPackage& np);
+
+Q_SIGNALS:
+    void receivedPackage(const NetworkPackage& np);
+
+public Q_SLOTS:
+    Q_SCRIPTABLE QString id() const{ return m_deviceId; }
+    Q_SCRIPTABLE QString name() const { return m_deviceName; }
+    Q_SCRIPTABLE bool paired() const { return m_paired; }
+    Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
+    Q_SCRIPTABLE void setPair(bool b);
+    Q_SCRIPTABLE void sendPing();
+
+private Q_SLOTS:
+    void privateReceivedPackage(const NetworkPackage& np);
 
 private:
-    bool mPaired;
-    QString mDeviceId;
-    QString mDeviceName;
+    bool m_paired;
+    QString m_deviceId;
+    QString m_deviceName;
+    QVector<DeviceLink*> m_deviceLinks;
+    bool m_knownIdentiy;
+
+
 };
 
 #endif // DEVICE_H

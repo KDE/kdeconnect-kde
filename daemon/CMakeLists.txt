@@ -17,6 +17,7 @@ set(kded_kdeconnect_SRCS
     device.cpp
 
     ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml
+    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.device.xml
 )
 
 kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
@@ -36,7 +37,14 @@ qt4_generate_dbus_interface(
     OPTIONS -a
 )
 
+qt4_generate_dbus_interface(
+    device.h
+    org.kde.kdeconnect.device.xml
+    OPTIONS -a
+)
+
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.device.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)

@@ -40,30 +40,15 @@
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
 
-void Daemon::linkTo(DeviceLink* dl)
-{
-
-    linkedDevices.append(dl);
-
-    Q_FOREACH (PackageReceiver* pr, packageReceivers) {
-        QObject::connect(dl,SIGNAL(receivedPackage(const NetworkPackage&)),
-                            pr,SLOT(receivePackage(const NetworkPackage&)));
-    }
-
-    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(dl->device()->name());
-    notification->setText("Succesfully connected");
-
-}
-
 Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)
-    , config(KSharedConfig::openConfig("kdeconnectrc"))
 {
 
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+
+    //Debugging
     qDebug() << "GO GO GO!";
+    config->group("devices").group("paired").group("fake_unreachable").writeEntry("name","Fake device");
 
     //TODO: Do not hardcode the load of the package receivers
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
@@ -81,116 +66,90 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     const KConfigGroup& known = config->group("devices").group("paired");
     const QStringList& list = known.groupList();
     const QString defaultName("unnamed");
-    Q_FOREACH(QString id, list) {
+    Q_FOREACH(const QString& id, list) {
         const KConfigGroup& data = known.group(id);
         const QString& name = data.readEntry<QString>("name",defaultName);
-        pairedDevices.push_back(new Device(id,name));
-    }
-
-
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
-
-
-    //Listen to incomming connections
-    Q_FOREACH (Announcer* a, announcers) {
-        QObject::connect(a,SIGNAL(deviceConnection(DeviceLink*)),
-                            this,SLOT(deviceConnection(DeviceLink*)));
-    }
-
-}
-
-QString Daemon::listVisibleDevices()
-{
-
-    std::stringstream ret;
-
-    ret << std::setw(20) << "ID";
-    ret << std::setw(20) << "Name";
-    ret << std::endl;
-
-    Q_FOREACH (DeviceLink* d, visibleDevices) {
-        ret << std::setw(20) << d->device()->id().toStdString();
-        ret << std::setw(20) << d->device()->name().toStdString();
-        ret << std::endl;
-    }
-
-    return QString::fromStdString(ret.str());
-
-}
-
-void Daemon::startDiscovery(int timeOut)
-{
-    qDebug() << "Start discovery";
-    //Listen to incomming connections
-    Q_FOREACH (Announcer* a, announcers) {
-        a->setDiscoverable(true);
-    }
-
-}
-
-bool Daemon::pairDevice(QString id)
-{
-    if (!visibleDevices.contains(id)) {
-        return false;
-    }
-    config->group("devices").group("paired").group(id).writeEntry("name",visibleDevices[id]->device()->name());
-    linkTo(visibleDevices[id]);
-    return true;
-}
-
-bool Daemon::unpairDevice(QString id)
-{
-    /*qDebug() << "M'han passat" << id;
-    foreach(QString c, config->group("devices").group("paired").groupList()) {
-        qDebug() << "Tinc" << c;
-    }*/
-    if (!config->group("devices").group("paired").hasGroup(id)) {
-        return false;
-    }
-    config->group("devices").group("paired").deleteGroup(id);
-    return true;
-}
-
-
-QString Daemon::listLinkedDevices()
-{
-    QString ret;
-
-    Q_FOREACH (DeviceLink* dl, linkedDevices) {
-        if (!ret.isEmpty()) ret += "\n";
-        //ret += dl->device()->name() + "(" + dl->device()->id() + ")";
-        ret += dl->device()->id();
-    }
-
-    return ret;
-
-}
-
-
-void Daemon::deviceConnection(DeviceLink* dl)
-{
-
-    qDebug() << "deviceConnection";
-
-    QString id = dl->device()->id();
-    bool paired = false;
-    Q_FOREACH (Device* d, pairedDevices) {
-        if (id == d->id()) {
-            paired = true;
-            break;
+        Device* device = new Device(id,name);
+        m_devices[id] = device;
+        Q_FOREACH (PackageReceiver* pr, packageReceivers) {
+            connect(device,SIGNAL(receivedPackage(const NetworkPackage&)),
+                    pr,SLOT(receivePackage(const NetworkPackage&)));
         }
     }
 
-    visibleDevices[dl->device()->id()] = dl;
+    //Listen to incomming connections
+    Q_FOREACH (Announcer* a, announcers) {
+        connect(a,SIGNAL(onNewDeviceLink(QString,QString,DeviceLink*)),
+                this,SLOT(onNewDeviceLink(QString,QString,DeviceLink*)));
+    }
+    
+    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
 
-    if (paired) {
-        qDebug() << "Known device connected" << dl->device()->name();
-        linkTo(dl);
+    setDiscoveryEnabled(true);
+
+}
+void Daemon::setDiscoveryEnabled(bool b)
+{
+    qDebug() << "Discovery:" << b;
+    //Listen to incomming connections
+    Q_FOREACH (Announcer* a, announcers) {
+        a->setDiscoverable(b);
     }
-    else {
-        qDebug() << "Unknown device connected" << dl->device()->name();
-        emit deviceDiscovered(dl->device()->id(), dl->device()->name());
+
+}
+
+QStringList Daemon::devices()
+{
+    return m_devices.keys();
+}
+
+
+void Daemon::onNewDeviceLink(const QString& id, const QString& name, DeviceLink* dl)
+{
+    qDebug() << "Device discovered" << dl->deviceId();
+
+    if (m_devices.contains(dl->deviceId())) {
+        Device* device = m_devices[dl->deviceId()];
+        device->addLink(dl);
+
+        KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+        notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+        notification->setTitle(device->name());
+        notification->setText("Succesfully connected");
+
+        emit deviceStatusChanged(id);
+    } else {
+        Device* device = new Device(id,name,dl);
+        m_devices[dl->deviceId()] = device;
+        Q_FOREACH (PackageReceiver* pr, packageReceivers) {
+            connect(device,SIGNAL(receivedPackage(const NetworkPackage&)),
+                    pr,SLOT(receivePackage(const NetworkPackage&)));
+        }
+        emit newDeviceAdded(id);
     }
+
+}
+
+
+void Daemon::onLostDeviceLink(DeviceLink* dl)
+{
+    qDebug() << "Device lost" << dl->deviceId();
+
+    if (m_devices.contains(dl->deviceId())) {
+        Device* device = m_devices[dl->deviceId()];
+        device->removeLink(dl);
+
+        KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+        notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+        notification->setTitle(device->name());
+        notification->setText("Disconnected");
+
+    } else {
+        qDebug() << "Lost unknown device, this should not happen (?)";
+    }
+
 
 }
 

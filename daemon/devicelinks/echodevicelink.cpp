@@ -19,3 +19,11 @@
  */
 
 #include "echodevicelink.h"
+
+#include "announcers/fakeannouncer.h"
+
+EchoDeviceLink::EchoDeviceLink(const QString& d, FakeAnnouncer* a)
+    : DeviceLink(d, a)
+{
+
+}

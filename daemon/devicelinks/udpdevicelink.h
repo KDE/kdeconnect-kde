@@ -27,13 +27,14 @@
 #include "devicelink.h"
 #include <qudpsocket.h>
 
-class UdpDeviceLink
-    : public DeviceLink
+class AvahiAnnouncer;
+
+class UdpDeviceLink : public DeviceLink
 {
     Q_OBJECT
 
 public:
-    UdpDeviceLink(Device* d, QHostAddress ip, quint16 port);
+    UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip, quint16 port);
 
     void sendPackage(const NetworkPackage& np) {
         mUdpSocket->writeDatagram(np.toString(), mIp, mPort);

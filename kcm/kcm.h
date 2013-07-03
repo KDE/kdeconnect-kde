@@ -50,17 +50,16 @@ public:
     virtual ~KdeConnectKcm();
 
 private Q_SLOTS:
-    void addButtonClicked();
-    void removeButtonClicked();
     void deviceSelected(const QModelIndex& current);
-    void deviceAdded(QString id, QString name);
+    void trustedStateChanged(bool);
+    void sendPing();
     
 private:
     Ui::KdeConnectKcmUi* kcmUi;
-    DaemonDbusInterface* m_dbusInterface;
     DevicesModel* pairedDevicesList;
     AddDeviceWizard* addDeviceWizard;
     KSharedConfigPtr config;
+    QModelIndex selectedIndex;
 
 };
 

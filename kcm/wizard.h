@@ -24,7 +24,7 @@
 #include <QWizard>
 #include <QObject>
 
-#include "daemondbusinterface.h"
+#include "dbusinterfaces.h"
 #include "devicesmodel.h"
 
 namespace Ui {
@@ -48,7 +48,6 @@ private Q_SLOTS:
     
     void deviceDiscovered(QString id, QString name);
     //void deviceLost(QString id);
-    void discoveryFinished(bool success);
 
     void deviceSelected(const QModelIndex& index);
 

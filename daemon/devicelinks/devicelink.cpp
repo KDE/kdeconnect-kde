@@ -20,8 +20,10 @@
 
 #include "devicelink.h"
 
-DeviceLink::DeviceLink(Device* d)
-    : mDevice(d)
+DeviceLink::DeviceLink(const QString& deviceId, Announcer* parent)
+    : QObject(parent)
+    , mDeviceId(deviceId)
+    , mAnnouncer(parent)
 {
     //gcc complains if we don't add something to compile on a class with virtual functions
 }

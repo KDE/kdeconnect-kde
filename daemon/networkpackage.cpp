@@ -26,23 +26,33 @@
 #include <string>
 #include <iostream>
 
+
+static QString decodeNextString(std::stringstream& ss) {
+    int length;
+    ss >> length;
+    char c[length];
+    ss.get(); //Skip ws
+    ss.read(c,length);
+    return QString::fromAscii(c,length);
+}
+
 NetworkPackage NetworkPackage::fromString(QByteArray s)
 {
-    //FIXME: How can I do this using Qt?
+    //FIXME: Find a better way of serialization
     std::string stds(std::string(s.data()));
     std::cout << stds << std::endl;
 
     std::stringstream ss(stds);
 
+    NetworkPackage pp;
+
     long id;
     ss >> id;
+    pp.mId = id;
+
     //qDebug() << "Decoding package with id:" << id;
 
-    NetworkPackage pp(id);
-
-    std::string deviceId;
-    ss >> deviceId;
-    pp.mDeviceId = QString::fromStdString(deviceId);
+    pp.mDeviceId = decodeNextString(ss);
 
     ss >> pp.mTime;
 
@@ -50,12 +60,7 @@ NetworkPackage NetworkPackage::fromString(QByteArray s)
     ss >> type;
     pp.mType = QString::fromStdString(type);
 
-    int bodyLenght;
-    ss >> bodyLenght;
-    char c[bodyLenght];
-    ss.get(); //Skip ws
-    ss.read(c,bodyLenght);
-    pp.mBody = QString::fromAscii(c,bodyLenght);
+    pp.mBody = decodeNextString(ss);
 
     ss >> pp.mIsCancel;
 

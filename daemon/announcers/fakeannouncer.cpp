@@ -23,18 +23,16 @@
 
 FakeAnnouncer::FakeAnnouncer()
 {
-    fakeDevice = new Device("fake","Fake device");
-    echoDeviceLink = new EchoDeviceLink(fakeDevice);
+    echoDeviceLink = new EchoDeviceLink("fake", this);
 }
 
 FakeAnnouncer::~FakeAnnouncer()
 {
     //delete echoDeviceLink;
-    //delete fakeDevice;
 }
 
 void FakeAnnouncer::setDiscoverable(bool b)
 {
-    if (b) emit deviceConnection(echoDeviceLink);
+    if (b) emit onNewDeviceLink(echoDeviceLink->deviceId(),"Echo device", echoDeviceLink);
 }
 

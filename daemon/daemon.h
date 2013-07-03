@@ -49,57 +49,35 @@ class Daemon
     : public KDEDModule
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect")
+    Q_CLASSINFO("D-Bus Interface", "kdeconnect.daemon")
 
 public:
     Daemon(QObject *parent, const QList<QVariant>&);
     ~Daemon();
 
-private Q_SLOTS:
-    void deviceConnection(DeviceLink* dl);
-
 public Q_SLOTS:
 
     //After calling this, signal deviceDiscovered will be triggered for each device
-    Q_SCRIPTABLE void startDiscovery(int timeOut);
+    Q_SCRIPTABLE void setDiscoveryEnabled(bool b);
 
-    Q_SCRIPTABLE QString listVisibleDevices();
-
-    Q_SCRIPTABLE bool pairDevice(QString id);
-    Q_SCRIPTABLE bool unpairDevice(QString id);
-
-/*
-    Q_SCRIPTABLE QString listPairedDevices(QString id);
-
-    Q_SCRIPTABLE bool linkAllPairedDevices();
-*/
-
-    Q_SCRIPTABLE QString listLinkedDevices();
+    //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
+    Q_SCRIPTABLE QStringList devices();
 
 Q_SIGNALS:
+    Q_SCRIPTABLE void newDeviceAdded(const QString& id);
+    Q_SCRIPTABLE void deviceStatusChanged(const QString& id);
 
-    Q_SCRIPTABLE void deviceDiscovered(QString id, QString name);
-    //Q_SCRIPTABLE void deviceLost(QString id);
+
+private Q_SLOTS:
+
+    void onNewDeviceLink(const QString& id, const QString& name, DeviceLink* dl);
+    void onLostDeviceLink(DeviceLink* dl);
 
 private:
 
 
-    void linkTo(DeviceLink* dl);
-
-    KSharedConfigPtr config;
-
-    //(Non paired?) visible devices
-    QMap<QString, DeviceLink*> visibleDevices;
-
-    //All paired devices (should be stored and read from disk)
-    QVector<Device*> pairedDevices;
-
-    //Currently connected devices
-    QVector<DeviceLink*> linkedDevices;
-
-
-
-
+    //Every known device
+    QMap<QString, Device*> m_devices;
 
     //Different ways to find devices and connect to them, ordered by priority
     QSet<Announcer*> announcers;

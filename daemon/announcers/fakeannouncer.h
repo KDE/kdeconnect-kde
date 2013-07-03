@@ -23,20 +23,19 @@
 
 #include "announcer.h"
 
-class FakeAnnouncer
-    : public Announcer
+class FakeAnnouncer : public Announcer
 {
+    Q_OBJECT
 public:
     FakeAnnouncer();
     ~FakeAnnouncer();
 
-    QString getName() { return "FakeAnnouncer"; }
-    Priority getPriority() { return PRIORITY_LOW; }
+    QString name() { return "FakeAnnouncer"; }
+    Priority priority() { return PRIORITY_LOW; }
 
     void setDiscoverable(bool b);
 
 private:
-    Device* fakeDevice;
     DeviceLink* echoDeviceLink;
     
 };

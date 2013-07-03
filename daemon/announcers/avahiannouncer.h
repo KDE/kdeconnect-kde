@@ -38,12 +38,10 @@ public:
     AvahiAnnouncer();
     ~AvahiAnnouncer();
 
-    QString getName() { return "Avahi"; }
-    Priority getPriority() { return PRIORITY_HIGH; }
+    QString name() { return "Avahi"; }
+    Priority priority() { return PRIORITY_HIGH; }
 
     void setDiscoverable(bool b);
-
-
 
 private Q_SLOTS:
     void readPendingNotifications();

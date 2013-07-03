@@ -19,10 +19,10 @@
  */
 
 #include "udpdevicelink.h"
+#include "announcers/avahiannouncer.h"
 
-
-UdpDeviceLink::UdpDeviceLink(Device* d, QHostAddress ip, quint16 port)
-    : DeviceLink(d)
+UdpDeviceLink::UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip, quint16 port)
+    : DeviceLink(d, a)
 {
 
     mIp = ip;

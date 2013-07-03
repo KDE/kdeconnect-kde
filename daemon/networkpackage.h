@@ -29,8 +29,8 @@ class NetworkPackage
 
 public:
 
-    NetworkPackage(long id) {
-        mId = id;
+    NetworkPackage() {
+        mId = 3;
         //TODO
     }
 
@@ -38,12 +38,16 @@ public:
     QByteArray toString() const;
 
     long id() const { return mId; }
-    QString deviceId() const { return mDeviceId; }
-    QString type() const { return mType; }
-    QString body() const { return mBody; }
+    const QString& deviceId() const { return mDeviceId; }
+    const QString& type() const { return mType; }
+    const QString& body() const { return mBody; }
     bool isCancel() const { return mIsCancel; }
 
-
+    void setId(long id) { mId = id; }
+    void setDeviceId(const QString& id) { mDeviceId = id; }
+    void setType(const QString& t) { mType = t; }
+    void setBody(const QString& b) { mBody = b; }
+    void setCancel(bool b) { mIsCancel = b; }
 
 private:
 
