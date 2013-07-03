@@ -75,7 +75,9 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 void KdeConnectKcm::trustedStateChanged(bool b)
 {
     if (!selectedIndex.isValid()) return;
-    pairedDevicesList->getDevice(selectedIndex)->setPair(b);
+    DeviceDbusInterface* device = pairedDevicesList->getDevice(selectedIndex);
+    device->setPair(b);
+    pairedDevicesList->deviceStatusChanged(device->id());
 }
 
 

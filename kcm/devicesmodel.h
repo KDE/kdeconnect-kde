@@ -50,8 +50,10 @@ public:
 
     DeviceDbusInterface* getDevice(const QModelIndex& index);
 
-private Q_SLOTS:
+public Q_SLOTS:
     void deviceStatusChanged(const QString& id);
+
+private Q_SLOTS:
     void deviceAdded(const QString& id);
 
 private:

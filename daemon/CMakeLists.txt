@@ -26,6 +26,7 @@ target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     kdnssd
+    qjson
     ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
     ${QJSON_LIBRARY}

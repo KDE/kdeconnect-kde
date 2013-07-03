@@ -49,7 +49,7 @@ public:
     void addLink(DeviceLink*);
     void removeLink(DeviceLink*);
 
-    void sendPackage(const NetworkPackage& np);
+    bool sendPackage(const NetworkPackage& np);
 
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);

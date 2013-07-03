@@ -58,18 +58,23 @@ void AvahiAnnouncer::readPendingNotifications()
         //log.write(datagram);
         qDebug() << "AvahiAnnouncer incomming udp datagram: " << datagram;
 
-        NetworkPackage np = NetworkPackage::fromString(datagram);
+        NetworkPackage np;
+        NetworkPackage::unserialize(datagram,&np);
 
-        QString id = np.deviceId();
-        QString name = np.body();
+        if (np.type() == "kdeconnect.identity") {
 
-        qDebug() << "AvahiAnnouncer creating link to device" << id;
+            QString id = np.get<QString>("deviceId");
+            QString name = np.get<QString>("deviceName");
 
-        DeviceLink* dl = new UdpDeviceLink(id, this, sender, 10600);
-        links.append(dl);
+            qDebug() << "AvahiAnnouncer creating link to device" << id;
 
-        emit onNewDeviceLink(id, name, dl);
+            DeviceLink* dl = new UdpDeviceLink(id, this, sender, 10600);
+            links.append(dl);
 
+            emit onNewDeviceLink(id, name, dl);
+        } else {
+            qDebug() << "Not an identification package (wuh?)";
+        }
     }
 
 }

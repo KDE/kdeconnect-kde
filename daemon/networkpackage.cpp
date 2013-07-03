@@ -24,64 +24,47 @@
 #include <QDebug>
 #include <sstream>
 #include <string>
+#include <qjson/serializer.h>
 #include <iostream>
+#include <ctime>
+#include <qjson/qobjecthelper.h>
 
-
-static QString decodeNextString(std::stringstream& ss) {
-    int length;
-    ss >> length;
-    char c[length];
-    ss.get(); //Skip ws
-    ss.read(c,length);
-    return QString::fromAscii(c,length);
-}
-
-NetworkPackage NetworkPackage::fromString(QByteArray s)
+NetworkPackage::NetworkPackage(QString type)
 {
-    //FIXME: Find a better way of serialization
-    std::string stds(std::string(s.data()));
-    std::cout << stds << std::endl;
-
-    std::stringstream ss(stds);
-
-    NetworkPackage pp;
-
-    long id;
-    ss >> id;
-    pp.mId = id;
-
-    //qDebug() << "Decoding package with id:" << id;
-
-    pp.mDeviceId = decodeNextString(ss);
-
-    ss >> pp.mTime;
-
-    std::string type;
-    ss >> type;
-    pp.mType = QString::fromStdString(type);
-
-    pp.mBody = decodeNextString(ss);
-
-    ss >> pp.mIsCancel;
-
-    qDebug() << "Decoded package with id:" << id;
-
-    return pp;
-
+    mId = time(NULL);
+    mType = type;
 }
 
-
-QByteArray NetworkPackage::toString() const
+QByteArray NetworkPackage::serialize() const
 {
+    //Object -> QVariant
+    //QVariantMap variant;
+    //variant["id"] = mId;
+    //variant["type"] = mType;
+    //variant["body"] = mBody;
+    QVariantMap variant = QJson::QObjectHelper::qobject2qvariant(this);
 
-    QByteArray s;
+    //QVariant -> json
+    bool ok;
+    QJson::Serializer serializer;
+    QByteArray json = serializer.serialize(variant,&ok);
+    if (!ok) qDebug() << "D'oh!";
 
-    //TODO
-    s += "HOLA";
-
-    return s;
-
+    return json;
 }
 
+void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
+{
+    //Json -> QVariant
+    QJson::Parser parser;
+    QVariantMap variant = parser.parse(a).toMap();
 
+    //QVariant -> Object
+    //NetworkPackage np;
+    //QJSon json(a);
+    //np.mId = json["id"];
+    //np.mType = json["type"];
+    //np.mBody = json["body"];
+    QJson::QObjectHelper::qvariant2qobject(variant,np);
+}
 

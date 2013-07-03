@@ -18,39 +18,44 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef UDPDEVICELINK_H
-#define UDPDEVICELINK_H
+#ifndef DEFAULTARG_H
+#define DEFAULTARG_H
 
-#include <QObject>
 #include <QString>
 
-#include "devicelink.h"
-#include <qudpsocket.h>
-#include <qtcpsocket.h>
-
-class AvahiAnnouncer;
-
-class UdpDeviceLink : public DeviceLink
-{
-    Q_OBJECT
-
-public:
-    UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip, quint16 port);
-
-    bool sendPackage(const NetworkPackage& np) {
-        mSocket->writeDatagram(np.serialize(),mIp,mPort);
-        return true;
-    }
-    
-private Q_SLOTS:
-    void readPendingNotifications();
-
-private:
-    QUdpSocket* mSocket;
-
-    QHostAddress mIp;
-    quint16 mPort;
-
+template<class T>
+struct default_arg {
+    static T get(); //Not defined for any other value
 };
 
-#endif // UDPDEVICELINK_H
+//bool -> false
+template<>
+struct default_arg<bool> {
+    static bool get() { return false; }
+};
+
+//int -> -1
+template<>
+struct default_arg<int> {
+    static int get() { return -1; }
+};
+
+//Pointer types -> NULL (partial specialization)
+/*template<class T*>
+struct default_arg<T*> {
+    static T* get() { NULL; }
+};
+*/
+//QStrings -> empty string
+template<>
+struct default_arg<QString> {
+    static QString get() { return QString(); }
+};
+
+template<class T>
+struct default_arg<T*> {
+    static T* get() { return NULL;}
+};
+
+
+#endif // DEFAULTARG_H

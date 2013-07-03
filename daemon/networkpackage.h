@@ -21,44 +21,51 @@
 #ifndef NETWORKPACKAGE_H
 #define NETWORKPACKAGE_H
 
+#include <QObject>
 #include <QString>
 #include <QVariant>
+#include <qjson/parser.h>
+#include "default_args.h"
 
-class NetworkPackage
+class NetworkPackage : public QObject
 {
+    Q_OBJECT
+    Q_PROPERTY( long id READ id WRITE setId )
+    Q_PROPERTY( QString type READ type WRITE setType )
+    Q_PROPERTY( QVariantMap body READ body WRITE setBody )
+    Q_PROPERTY( int version READ version WRITE setVersion )
 
 public:
 
-    NetworkPackage() {
-        mId = 3;
-        //TODO
-    }
+    NetworkPackage() {};
+    NetworkPackage(QString type);
 
-    static NetworkPackage fromString(QByteArray);
-    QByteArray toString() const;
+    static void unserialize(QByteArray, NetworkPackage*);
+    QByteArray serialize() const;
 
     long id() const { return mId; }
-    const QString& deviceId() const { return mDeviceId; }
     const QString& type() const { return mType; }
-    const QString& body() const { return mBody; }
-    bool isCancel() const { return mIsCancel; }
+    QVariantMap& body() { return mBody; }
+    int version() const { return mVersion; }
 
-    void setId(long id) { mId = id; }
-    void setDeviceId(const QString& id) { mDeviceId = id; }
-    void setType(const QString& t) { mType = t; }
-    void setBody(const QString& b) { mBody = b; }
-    void setCancel(bool b) { mIsCancel = b; }
+    //Get and set info from body. Note that id, type and version can not be accessed through these.
+    template<typename T> T get(const QString& property, const T& defaultValue = default_arg<T>::get()) const {
+        return mBody.value(property,defaultValue).template value<T>(); //Important note: Awesome template syntax is awesome
+    }
+    template<typename T> void set(const QString& property, const T& value) const { return mBody[property].setValue(value); }
 
 private:
+    void setId(long id) { mId = id; }
+    void setType(const QString& t) { mType = t; }
+    void setBody(const QVariantMap& b) { mBody = b; }
+    void setVersion(int v) { mVersion = v; }
 
     long mId;
-    long mTime;
-    QString mDeviceId;
     QString mType;
-    QString mBody;
-    QVariant mExtra;
-    bool mIsCancel;
+    QVariantMap mBody; //json in the Android side
+    int mVersion;
 
 };
+
 
 #endif // NETWORKPACKAGE_H

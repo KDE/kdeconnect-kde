@@ -30,8 +30,9 @@ class EchoDeviceLink : public DeviceLink
 public:
     EchoDeviceLink(const QString& d, FakeAnnouncer* a);
 
-    void sendPackage(const NetworkPackage& np) {
+    bool sendPackage(const NetworkPackage& np) {
         emit receivedPackage(np);
+        return true;
     }
 
 };

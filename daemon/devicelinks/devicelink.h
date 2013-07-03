@@ -40,7 +40,7 @@ public:
     const QString& deviceId() { return mDeviceId; }
     Announcer* announcer() { return mAnnouncer; }
     
-    virtual void sendPackage(const NetworkPackage& np) = 0;
+    virtual bool sendPackage(const NetworkPackage& np) = 0;
 
 signals:
     void receivedPackage(const NetworkPackage& np);

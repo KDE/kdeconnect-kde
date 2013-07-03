@@ -30,11 +30,11 @@ PauseMusicPackageReceiver::PauseMusicPackageReceiver()
 bool PauseMusicPackageReceiver::receivePackage ( const NetworkPackage& np )
 {
 
-    if (np.type() != "RINGING") return false; //TODO: Consider pauseOnlyAfterAnswering
+    if (np.get<QString>("eventType","") != "ring") return false; //TODO: Consider pauseOnlyAfterAnswering
 
     //TODO: Use KDE DBUS API
-    if (np.isCancel()) {
-        system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause");
+    if (np.get<QString>("eventDetails") == "hang") {
+        system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play");
     } else {
         system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause");
     }

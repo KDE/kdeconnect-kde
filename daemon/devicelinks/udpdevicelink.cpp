@@ -28,9 +28,9 @@ UdpDeviceLink::UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress i
     mIp = ip;
     mPort = port;
 
-    mUdpSocket = new QUdpSocket();
-    mUdpSocket->bind(port);
-    connect(mUdpSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
+    mSocket = new QUdpSocket();
+    mSocket->bind(port);
+    connect(mSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
 
 }
 
@@ -39,18 +39,19 @@ void UdpDeviceLink::readPendingNotifications()
 
     qDebug() << "UdpDeviceLink readPendingNotifications";
 
-    while (mUdpSocket->hasPendingDatagrams()) {
+    while (mSocket->hasPendingDatagrams()) {
 
         QByteArray datagram;
-        datagram.resize(mUdpSocket->pendingDatagramSize());
+        datagram.resize(mSocket->pendingDatagramSize());
         QHostAddress sender;
         quint16 senderPort;
-        mUdpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+        mSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
         //log.write(datagram);
         qDebug() << datagram;
 
-        NetworkPackage np = NetworkPackage::fromString(datagram);
+        NetworkPackage np;
+        NetworkPackage::unserialize(datagram,&np);
 
         emit receivedPackage(np);
         

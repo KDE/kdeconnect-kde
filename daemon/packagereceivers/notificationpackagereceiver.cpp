@@ -64,7 +64,7 @@ KNotification* NotificationPackageReceiver::createNotification(const NetworkPack
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);
-    notification->setText(np.body());
+    notification->setText(np.get<QString>(QString("content")));
 
     return notification;
 
@@ -72,19 +72,18 @@ KNotification* NotificationPackageReceiver::createNotification(const NetworkPack
 
 bool NotificationPackageReceiver::receivePackage(const NetworkPackage& np) {
 
-    if (np.isCancel()) {
+    //if (np.get("isCancel")) {
 
         //It would be awesome to remove the old notification from the system tray here, but there is no way to do it :(
         //Now I realize why at the end of the day I have hundreds of notifications from facebook messages that I HAVE ALREADY READ,
         //...it's just because the telepathy client has no way to remove them! even when it knows that I have read those messages lol
-        //Here we have our awesome KDE notifications system, unusable and meant to fuck the user.
 
-    } else {
+    //} else {
 
         KNotification* n = createNotification(np);
         n->sendEvent();
 
-    }
+    //}
 
     return true;
 

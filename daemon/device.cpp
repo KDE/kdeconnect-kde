@@ -78,15 +78,16 @@ void Device::removeLink(DeviceLink* link)
     m_deviceLinks.remove(m_deviceLinks.indexOf(link));
 }
 
-void Device::sendPackage(const NetworkPackage& np)
+bool Device::sendPackage(const NetworkPackage& np)
 {
-    m_deviceLinks.first()->sendPackage(np);
+    if (m_deviceLinks.empty()) return false;
+    return m_deviceLinks.first()->sendPackage(np);
 }
 
 void Device::privateReceivedPackage(const NetworkPackage& np)
 {
-    if (np.type() == "IDENTITY" && !m_knownIdentiy) {
-        m_deviceName = np.body();
+    if (np.type() == "kdeconnect.identity" && !m_knownIdentiy) {
+        m_deviceName = np.get<QString>("deviceName");
     } else if (m_paired) {
         qDebug() << "package received from paired device";
         emit receivedPackage(np);
@@ -97,10 +98,9 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
 void Device::sendPing()
 {
-    qDebug() << "sendPing";
-    NetworkPackage np;
-    np.setType("PING");
-    sendPackage(np);
+    NetworkPackage np("kdeconnect.ping");
+    bool success = sendPackage(np);
+    qDebug() << "sendPing:" << success;
 }
 
 
