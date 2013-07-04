@@ -33,6 +33,7 @@ NetworkPackage::NetworkPackage(QString type)
 {
     mId = time(NULL);
     mType = type;
+    mVersion = 1;
 }
 
 QByteArray NetworkPackage::serialize() const
@@ -48,7 +49,7 @@ QByteArray NetworkPackage::serialize() const
     bool ok;
     QJson::Serializer serializer;
     QByteArray json = serializer.serialize(variant,&ok);
-    if (!ok) qDebug() << "D'oh!";
+    if (!ok) qDebug() << "Serialization error:" << serializer.errorMessage();
 
     return json;
 }
@@ -57,7 +58,12 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
 {
     //Json -> QVariant
     QJson::Parser parser;
-    QVariantMap variant = parser.parse(a).toMap();
+    bool ok;
+    QVariantMap variant = parser.parse(a, &ok).toMap();
+    if (!ok) {
+        qDebug() << "Unserialization error:" << parser.errorLine() << parser.errorString();
+        np->setVersion(-1);
+    }
 
     //QVariant -> Object
     //NetworkPackage np;

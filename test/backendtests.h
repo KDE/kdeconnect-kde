@@ -26,6 +26,10 @@ class BackendTests : public QObject
 
 private Q_SLOTS:
     void initTestCase();
+
+    void dummyTest();
+    void networkPackageTest();
+
     void cleanupTestCase();
 
     void init();

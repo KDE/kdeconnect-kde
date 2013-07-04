@@ -1,4 +1,5 @@
 set(kded_kdeconnect_tests_SRCS
+    ../daemon/networkpackage.cpp
     backendtests.cpp
 )
 
@@ -8,6 +9,7 @@ target_link_libraries(kded_kdeconnect_tests
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     kdnssd
+    qjson
     ${QT_QTTEST_LIBRARY}
     ${QT_QTNETWORK_LIBRARY}
 )

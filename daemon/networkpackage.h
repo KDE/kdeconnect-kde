@@ -52,7 +52,7 @@ public:
     template<typename T> T get(const QString& property, const T& defaultValue = default_arg<T>::get()) const {
         return mBody.value(property,defaultValue).template value<T>(); //Important note: Awesome template syntax is awesome
     }
-    template<typename T> void set(const QString& property, const T& value) const { return mBody[property].setValue(value); }
+    template<typename T> void set(const QString& property, const T& value) { mBody[property] = value; }
 
 private:
     void setId(long id) { mId = id; }
