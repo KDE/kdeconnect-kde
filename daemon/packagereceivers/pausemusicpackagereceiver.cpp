@@ -20,24 +20,48 @@
 
 #include "pausemusicpackagereceiver.h"
 
+#include <QDebug>
+
 PauseMusicPackageReceiver::PauseMusicPackageReceiver()
 {
-
-    pauseOnlyAfterAnswering = false;
+    //TODO: Be able to change this from settings
+    pauseWhen = PauseWhenTalking;
+    paused = false;
 
 }
 
-bool PauseMusicPackageReceiver::receivePackage ( const NetworkPackage& np )
+bool PauseMusicPackageReceiver::receivePackage (const Device& device, const NetworkPackage& np)
 {
+    Q_UNUSED(device);
 
-    if (np.get<QString>("eventType","") != "ring") return false; //TODO: Consider pauseOnlyAfterAnswering
+    bool pauseConditionFulfilled = false;
 
-    //TODO: Use KDE DBUS API
-    if (np.get<QString>("eventDetails") == "hang") {
-        system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play");
-    } else {
-        system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause");
+    //TODO: I have manually tested it and it works for both cases, but I should somehow write a test for this logic
+    if (pauseWhen == PauseWhenRinging) {
+        if (np.type() == PACKAGE_TYPE_NOTIFICATION) {
+            if (np.get<QString>("notificationType") != "ringing") return false;
+            pauseConditionFulfilled = !np.get<bool>("isCancel");
+        } else if (np.type() == PACKAGE_TYPE_CALL) {
+            pauseConditionFulfilled = !np.get<bool>("isCancel");
+        } else {
+            return false;
+        }
+    } else if (pauseWhen == PauseWhenTalking){
+        if (np.type() != PACKAGE_TYPE_CALL) return false;
+        pauseConditionFulfilled = !np.get<bool>("isCancel");
     }
+
+    qDebug() << "PauseMusicPackageReceiver - PauseCondition:" << pauseConditionFulfilled;
+
+    if (pauseConditionFulfilled && !paused) {
+        //TODO: Use KDE DBUS API
+        system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause");
+    } if (!pauseConditionFulfilled && paused) {
+        //FIXME: Play does not work, using PlayPause
+        system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause");
+    }
+
+    paused = pauseConditionFulfilled;
 
     return true;
 

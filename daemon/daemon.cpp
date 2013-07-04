@@ -20,6 +20,7 @@
 
 #include "daemon.h"
 #include "networkpackage.h"
+#include "packagereceivers/pingpackagereceiver.h"
 #include "packagereceivers/notificationpackagereceiver.h"
 #include "packagereceivers/pausemusicpackagereceiver.h"
 #include "announcers/avahiannouncer.h"
@@ -52,6 +53,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //TODO: Do not hardcode the load of the package receivers
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
+    packageReceivers.push_back(new PingPackageReceiver());
     packageReceivers.push_back(new NotificationPackageReceiver());
     packageReceivers.push_back(new PauseMusicPackageReceiver());
 
@@ -72,8 +74,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         Device* device = new Device(id,name);
         m_devices[id] = device;
         Q_FOREACH (PackageReceiver* pr, packageReceivers) {
-            connect(device,SIGNAL(receivedPackage(const NetworkPackage&)),
-                    pr,SLOT(receivePackage(const NetworkPackage&)));
+            connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
+                    pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
         }
     }
 
@@ -82,7 +84,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         connect(a,SIGNAL(onNewDeviceLink(QString,QString,DeviceLink*)),
                 this,SLOT(onNewDeviceLink(QString,QString,DeviceLink*)));
     }
-    
+
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
 
     setDiscoveryEnabled(true);
@@ -109,6 +111,8 @@ void Daemon::onNewDeviceLink(const QString& id, const QString& name, DeviceLink*
     qDebug() << "Device discovered" << dl->deviceId();
 
     if (m_devices.contains(dl->deviceId())) {
+        qDebug() << "It is a known device";
+
         Device* device = m_devices[dl->deviceId()];
         device->addLink(dl);
 
@@ -117,39 +121,20 @@ void Daemon::onNewDeviceLink(const QString& id, const QString& name, DeviceLink*
         notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
         notification->setTitle(device->name());
         notification->setText("Succesfully connected");
+        notification->sendEvent();
 
         emit deviceStatusChanged(id);
     } else {
+        qDebug() << "It is a new device";
+
         Device* device = new Device(id,name,dl);
         m_devices[dl->deviceId()] = device;
         Q_FOREACH (PackageReceiver* pr, packageReceivers) {
-            connect(device,SIGNAL(receivedPackage(const NetworkPackage&)),
-                    pr,SLOT(receivePackage(const NetworkPackage&)));
+            connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
+                    pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
         }
         emit newDeviceAdded(id);
     }
-
-}
-
-
-void Daemon::onLostDeviceLink(DeviceLink* dl)
-{
-    qDebug() << "Device lost" << dl->deviceId();
-
-    if (m_devices.contains(dl->deviceId())) {
-        Device* device = m_devices[dl->deviceId()];
-        device->removeLink(dl);
-
-        KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-        notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-        notification->setTitle(device->name());
-        notification->setText("Disconnected");
-
-    } else {
-        qDebug() << "Lost unknown device, this should not happen (?)";
-    }
-
 
 }
 

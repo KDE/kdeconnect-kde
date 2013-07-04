@@ -51,9 +51,8 @@ void AvahiAnnouncer::readPendingNotifications()
 
         QByteArray datagram;
         datagram.resize(mUdpSocket->pendingDatagramSize());
-        QHostAddress sender;
-        quint16 senderPort;
-        mUdpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+        NetAddress sender;
+        mUdpSocket->readDatagram(datagram.data(), datagram.size(), &(sender.ip), &(sender.port));
 
         //log.write(datagram);
         qDebug() << "AvahiAnnouncer incomming udp datagram: " << datagram;
@@ -68,8 +67,11 @@ void AvahiAnnouncer::readPendingNotifications()
 
             qDebug() << "AvahiAnnouncer creating link to device" << id;
 
-            DeviceLink* dl = new UdpDeviceLink(id, this, sender, 10600);
-            links.append(dl);
+            DeviceLink* dl = new UdpDeviceLink(id, this, sender.ip, 10600);
+
+            if (links.contains(sender)) delete links[sender]; //Delete old link if we already know it, probably it is down if this happens.
+
+            links[sender] = dl;
 
             emit onNewDeviceLink(id, name, dl);
         } else {

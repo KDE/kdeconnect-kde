@@ -49,6 +49,8 @@ public:
     virtual void setDiscoverable(bool b) = 0;
 
 signals:
+    //NOTE: The announcer has to destroy the DeviceLink when it's no longer accessible,
+    //      and every user should listen to the destroy signal to remove its references.
     void onNewDeviceLink(const QString& id, const QString& name, DeviceLink*);
 
 signals:

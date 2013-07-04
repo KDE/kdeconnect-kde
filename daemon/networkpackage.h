@@ -21,6 +21,7 @@
 #ifndef NETWORKPACKAGE_H
 #define NETWORKPACKAGE_H
 
+#include "networkpackagetypes.h"
 #include <QObject>
 #include <QString>
 #include <QVariant>

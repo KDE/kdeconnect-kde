@@ -63,19 +63,25 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 
 void Device::addLink(DeviceLink* link)
 {
-    Q_FOREACH(DeviceLink* existing, m_deviceLinks) {
-        //Do not add duplicate links
-        if (existing->announcer() == link->announcer()) return;
-    }
+    qDebug() << "AddLink";
+    connect(link,SIGNAL(destroyed(QObject*)),this,SLOT(linkDestroyed(QObject*)));
+
     m_deviceLinks.append(link);
     connect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
+
     qSort(m_deviceLinks.begin(),m_deviceLinks.end(),lessThan);
+}
+
+void Device::linkDestroyed(QObject* o)
+{
+    removeLink(static_cast<DeviceLink*>(o));
 }
 
 void Device::removeLink(DeviceLink* link)
 {
+    qDebug() << "RemoveLink";
     disconnect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
-    m_deviceLinks.remove(m_deviceLinks.indexOf(link));
+    m_deviceLinks.removeOne(link);
 }
 
 bool Device::sendPackage(const NetworkPackage& np)
@@ -90,7 +96,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         m_deviceName = np.get<QString>("deviceName");
     } else if (m_paired) {
         qDebug() << "package received from paired device";
-        emit receivedPackage(np);
+        emit receivedPackage(*this, np);
     } else {
         qDebug() << "not paired, ignoring package";
     }

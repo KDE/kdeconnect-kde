@@ -18,23 +18,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPACKAGERECEIVER_H
-#define PAUSEMUSICPACKAGERECEIVER_H
+#ifndef PINGPACKAGERECEIVER_H
+#define PINGPACKAGERECEIVER_H
+
+#include <knotification.h>
 
 #include "packagereceiver.h"
 
-class PauseMusicPackageReceiver
+class PingPackageReceiver
     : public PackageReceiver
 {
-public:
-    PauseMusicPackageReceiver();
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
-private:
-    enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
-    PauseCondtions pauseWhen;
-    bool paused;
+public:
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
 };
 
-#endif // PAUSEMUSICPACKAGERECEIVER_H
+#endif // PINGPACKAGERECEIVER_H

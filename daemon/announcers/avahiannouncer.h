@@ -28,6 +28,7 @@
 #include <KDE/DNSSD/PublicService>
 
 #include "announcer.h"
+#include "netaddress.h"
 
 class AvahiAnnouncer
     : public Announcer
@@ -50,10 +51,7 @@ private:
     DNSSD::PublicService* service;
     QUdpSocket* mUdpSocket;
 
-    QVector<DeviceLink*> links;
-
-    QHostAddress mIp;
-    quint16 mPort;
+    QMap<NetAddress, DeviceLink*> links;
 
 };
 

@@ -20,70 +20,74 @@
 
 #include "notificationpackagereceiver.h"
 
+#include <QDebug>
 #include <kicon.h>
 
-KNotification* NotificationPackageReceiver::createNotification(const NetworkPackage& np) {
+KNotification* NotificationPackageReceiver::createNotification(const QString& deviceName, const NetworkPackage& np) {
 
-    QString title, type, icon;
+    QString npType = np.get<QString>("notificationType");
 
-    if (np.type() == "RINGING") {
-        title = "Incoming call";
+    QString title, content, type, icon;
+
+    title = deviceName;
+
+    if (npType == "ringing") {
         type = "callReceived";
         icon = "call-start";
-    } else if (np.type() == "MISSED") {
-        title = "Missed call";
-        type = "callMissed";
+        content = "Incoming call from " + np.get<QString>("phoneNumber");
+    } else if (npType == "missedCall") {
+        type = "missedCall";
         icon = "call-start";
-    } else if (np.type() == "SMS") {
-        title = "SMS Received";
+        content = "Missed call from " + np.get<QString>("phoneNumber");
+    } else if (npType == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
-    } else if (np.type() == "BATTERY") {
-        title = "Battery status";
+        content = "SMS received from " + np.get<QString>("phoneNumber");
+    } else if (npType == "battery") {
         type = "battery100";
-        icon = "battery-100"; // Here we need to take all different cases into account. All
-                                // possible steps on battery charge level and state (discharging
-                                // or charging)
-    } else if (np.type() == "NOTIFY") {
-        title = "Notification";
+        icon = "battery-100";
+        content = "Battery at " + np.get<QString>("batteryLevel") + "%";
+    } else if (npType == "notification") {
         type = "pingReceived";
         icon = "dialog-ok";
-    } else if (np.type() == "PING") {
-        title = "Ping!";
-        type = "pingReceived";
-        icon = "dialog-ok";
+        content = np.get<QString>("notificationContent");
     } else {
-        //TODO: return if !debug
-        title = "Unknown";
+        //TODO: return NULL if !debug
         type = "unknownEvent";
         icon = "pda";
+        content = "Unknown notification type: " + npType;
     }
 
+    qDebug() << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type); //KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);
-    notification->setText(np.get<QString>(QString("content")));
+    notification->setText(content);
 
     return notification;
 
 }
 
-bool NotificationPackageReceiver::receivePackage(const NetworkPackage& np) {
+bool NotificationPackageReceiver::receivePackage(const Device& device, const NetworkPackage& np) {
 
-    //if (np.get("isCancel")) {
+    qDebug() << "LOLOLO" << np.serialize();
+
+    if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
+
+    if (np.get<bool>("isCancel")) {
 
         //It would be awesome to remove the old notification from the system tray here, but there is no way to do it :(
         //Now I realize why at the end of the day I have hundreds of notifications from facebook messages that I HAVE ALREADY READ,
-        //...it's just because the telepathy client has no way to remove them! even when it knows that I have read those messages lol
+        //...it's just because the telepathy client has no way to remove them! even when it knows that I have read those messages!
 
-    //} else {
+    } else {
 
-        KNotification* n = createNotification(np);
-        n->sendEvent();
+        KNotification* n = createNotification(device.name(), np);
+        if (n != NULL) n->sendEvent();
 
-    //}
+    }
 
     return true;
 

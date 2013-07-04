@@ -18,23 +18,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPACKAGERECEIVER_H
-#define PAUSEMUSICPACKAGERECEIVER_H
+#include "pingpackagereceiver.h"
 
-#include "packagereceiver.h"
+#include <QDebug>
+#include <kicon.h>
 
-class PauseMusicPackageReceiver
-    : public PackageReceiver
-{
-public:
-    PauseMusicPackageReceiver();
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+bool PingPackageReceiver::receivePackage(const Device& device, const NetworkPackage& np) {
 
-private:
-    enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
-    PauseCondtions pauseWhen;
-    bool paused;
+    qDebug() << np.type();
 
-};
+    if (np.type() != PACKAGE_TYPE_PING) return false;
 
-#endif // PAUSEMUSICPACKAGERECEIVER_H
+    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setTitle("Ping!");
+    notification->setText(device.name());
+    notification->sendEvent();
+
+    return true;
+
+}

@@ -69,9 +69,7 @@ Q_SIGNALS:
 
 
 private Q_SLOTS:
-
     void onNewDeviceLink(const QString& id, const QString& name, DeviceLink* dl);
-    void onLostDeviceLink(DeviceLink* dl);
 
 private:
 

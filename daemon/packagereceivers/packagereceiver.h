@@ -24,6 +24,7 @@
 #include <QObject>
 
 #include "networkpackage.h"
+#include "device.h"
 
 class PackageReceiver
     : public QObject
@@ -36,7 +37,7 @@ public:
 
 public Q_SLOTS:
     //Returns true if it has handled the package in some way
-    virtual bool receivePackage(const NetworkPackage& np) = 0;
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
 };
 
 #endif // PACKAGERECEIVER_H

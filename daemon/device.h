@@ -46,15 +46,17 @@ public:
     //(not supported yet, do we need it or we can rely on the device presenging itself?)
     //Device(const QString& id, DeviceLink* dl);
 
+    //Add and remove links
     void addLink(DeviceLink*);
     void removeLink(DeviceLink*);
 
+    //Send and receive
     bool sendPackage(const NetworkPackage& np);
-
 Q_SIGNALS:
-    void receivedPackage(const NetworkPackage& np);
+    void receivedPackage(const Device& device, const NetworkPackage& np);
 
 public Q_SLOTS:
+    //Public dbus interface
     Q_SCRIPTABLE QString id() const{ return m_deviceId; }
     Q_SCRIPTABLE QString name() const { return m_deviceName; }
     Q_SCRIPTABLE bool paired() const { return m_paired; }
@@ -63,13 +65,14 @@ public Q_SLOTS:
     Q_SCRIPTABLE void sendPing();
 
 private Q_SLOTS:
+    void linkDestroyed(QObject* o = 0);
     void privateReceivedPackage(const NetworkPackage& np);
 
 private:
     bool m_paired;
     QString m_deviceId;
     QString m_deviceName;
-    QVector<DeviceLink*> m_deviceLinks;
+    QList<DeviceLink*> m_deviceLinks;
     bool m_knownIdentiy;
 
 

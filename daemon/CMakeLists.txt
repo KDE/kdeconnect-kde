@@ -9,8 +9,9 @@ set(kded_kdeconnect_SRCS
     devicelinks/devicelink.cpp
 
     packagereceivers/packagereceiver.cpp
-    packagereceivers/pausemusicpackagereceiver.cpp
+    packagereceivers/pingpackagereceiver.cpp
     packagereceivers/notificationpackagereceiver.cpp
+    packagereceivers/pausemusicpackagereceiver.cpp
 
     networkpackage.cpp
     daemon.cpp

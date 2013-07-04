@@ -18,23 +18,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPACKAGERECEIVER_H
-#define PAUSEMUSICPACKAGERECEIVER_H
+#ifndef NETWORKPACKAGETYPES_H
+#define NETWORKPACKAGETYPES_H
 
-#include "packagereceiver.h"
+#define PACKAGE_TYPE_IDENTITY QString("kdeconnect.identity")
+#define PACKAGE_TYPE_PING QString("kdeconnect.ping")
+#define PACKAGE_TYPE_NOTIFICATION QString("kdeconnect.notification")
+#define PACKAGE_TYPE_CALL QString("kdeconnect.call")
 
-class PauseMusicPackageReceiver
-    : public PackageReceiver
-{
-public:
-    PauseMusicPackageReceiver();
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
-private:
-    enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
-    PauseCondtions pauseWhen;
-    bool paused;
-
-};
-
-#endif // PAUSEMUSICPACKAGERECEIVER_H
+#endif // NETWORKPACKAGETYPES_H

@@ -71,7 +71,6 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
         qDebug() << "Warning: package version " << np->version() << " greater than supported version " << CURRENT_PACKAGE_VERSION;
     }
 
-
     //QVariant -> Object
     //NetworkPackage np;
     //QJSon json(a);

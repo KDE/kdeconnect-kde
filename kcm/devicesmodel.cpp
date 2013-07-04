@@ -47,6 +47,7 @@ DevicesModel::~DevicesModel()
 
 void DevicesModel::deviceStatusChanged(const QString& id)
 {
+    Q_UNUSED(id);
     qDebug() << "deviceStatusChanged";
     emit dataChanged(index(0),index(rowCount()));
 }

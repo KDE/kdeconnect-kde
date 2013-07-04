@@ -18,23 +18,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPACKAGERECEIVER_H
-#define PAUSEMUSICPACKAGERECEIVER_H
+#ifndef NETADDRESS_H
+#define NETADDRESS_H
 
-#include "packagereceiver.h"
+#include <QHostAddress>
 
-class PauseMusicPackageReceiver
-    : public PackageReceiver
-{
-public:
-    PauseMusicPackageReceiver();
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
-
-private:
-    enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
-    PauseCondtions pauseWhen;
-    bool paused;
-
+struct NetAddress {
+    NetAddress() { }
+    NetAddress(QHostAddress _ip, quint16 _port) : ip(_ip), port(_port) { }
+    QHostAddress ip;
+    quint16 port;
 };
 
-#endif // PAUSEMUSICPACKAGERECEIVER_H
+inline bool operator< (const NetAddress& a, const NetAddress& b){
+    return (a.ip.toString()+a.port) < (b.ip.toString()+b.port);
+}
+
+#endif // NETADDRESS_H

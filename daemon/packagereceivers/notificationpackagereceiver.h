@@ -30,10 +30,10 @@ class NotificationPackageReceiver
 {
 
 public:
-    virtual bool receivePackage(const NetworkPackage& np);
+    virtual bool receivePackage(const Device&, const NetworkPackage& np);
 
 private:
-    static KNotification* createNotification(const NetworkPackage& np);
+    static KNotification* createNotification(const QString& deviceName,const NetworkPackage& np);
 
 
 };
