@@ -29,11 +29,13 @@
 #include <ctime>
 #include <qjson/qobjecthelper.h>
 
+const static int CURRENT_PACKAGE_VERSION = 1;
+
 NetworkPackage::NetworkPackage(QString type)
 {
     mId = time(NULL);
     mType = type;
-    mVersion = 1;
+    mVersion = CURRENT_PACKAGE_VERSION;
 }
 
 QByteArray NetworkPackage::serialize() const
@@ -64,6 +66,11 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
         qDebug() << "Unserialization error:" << parser.errorLine() << parser.errorString();
         np->setVersion(-1);
     }
+
+    if (np->version() > CURRENT_PACKAGE_VERSION) {
+        qDebug() << "Warning: package version " << np->version() << " greater than supported version " << CURRENT_PACKAGE_VERSION;
+    }
+
 
     //QVariant -> Object
     //NetworkPackage np;
