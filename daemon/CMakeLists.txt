@@ -3,10 +3,12 @@ set(kded_kdeconnect_SRCS
     announcers/announcer.cpp
     announcers/fakeannouncer.cpp
     announcers/avahiannouncer.cpp
+    announcers/avahitcpannouncer.cpp
 
+    devicelinks/devicelink.cpp
     devicelinks/echodevicelink.cpp
     devicelinks/udpdevicelink.cpp
-    devicelinks/devicelink.cpp
+    devicelinks/tcpdevicelink.cpp
 
     packagereceivers/packagereceiver.cpp
     packagereceivers/pingpackagereceiver.cpp

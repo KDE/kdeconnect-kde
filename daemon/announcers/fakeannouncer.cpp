@@ -21,18 +21,22 @@
 #include "fakeannouncer.h"
 #include "devicelinks/echodevicelink.h"
 
-FakeAnnouncer::FakeAnnouncer()
+#include <QDebug>
+
+LoopbackAnnouncer::LoopbackAnnouncer()
 {
     echoDeviceLink = new EchoDeviceLink("fake", this);
+    NetworkPackage::createIdentityPackage(&identityPackage);
 }
 
-FakeAnnouncer::~FakeAnnouncer()
+LoopbackAnnouncer::~LoopbackAnnouncer()
 {
     //delete echoDeviceLink;
 }
 
-void FakeAnnouncer::setDiscoverable(bool b)
+void LoopbackAnnouncer::setDiscoverable(bool b)
 {
-    if (b) emit onNewDeviceLink(echoDeviceLink->deviceId(),"Echo device", echoDeviceLink);
+    qDebug() << "Echo Device discovery emitted";
+    if (b) emit onNewDeviceLink(identityPackage, echoDeviceLink);
 }
 

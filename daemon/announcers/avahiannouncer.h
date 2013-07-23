@@ -40,18 +40,19 @@ public:
     ~AvahiAnnouncer();
 
     QString name() { return "Avahi"; }
-    Priority priority() { return PRIORITY_HIGH; }
+    int priority() { return PRIORITY_HIGH; }
 
     void setDiscoverable(bool b);
 
 private Q_SLOTS:
-    void readPendingNotifications();
+    void newConnection();
+    void deviceLinkDestroyed(QObject*);
 
 private:
     DNSSD::PublicService* service;
     QUdpSocket* mUdpSocket;
 
-    QMap<NetAddress, DeviceLink*> links;
+    QMap<QString, DeviceLink*> links;
 
 };
 

@@ -72,8 +72,6 @@ KNotification* NotificationPackageReceiver::createNotification(const QString& de
 
 bool NotificationPackageReceiver::receivePackage(const Device& device, const NetworkPackage& np) {
 
-    qDebug() << "LOLOLO" << np.serialize();
-
     if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
 
     if (np.get<bool>("isCancel")) {

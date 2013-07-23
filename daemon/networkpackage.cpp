@@ -19,9 +19,12 @@
  */
 
 #include "networkpackage.h"
+#include <ksharedconfig.h>
+#include <kconfiggroup.h>
 #include <qbytearray.h>
 #include <qdatastream.h>
-#include <QDebug>
+#include <KDebug>
+#include <QHostInfo>
 #include <sstream>
 #include <string>
 #include <qjson/serializer.h>
@@ -58,6 +61,7 @@ QByteArray NetworkPackage::serialize() const
 
 void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
 {
+    kDebug() << a;
     //Json -> QVariant
     QJson::Parser parser;
     bool ok;
@@ -79,4 +83,18 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
     //np.mBody = json["body"];
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 }
+
+void NetworkPackage::createIdentityPackage(NetworkPackage* np)
+{
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    QString id = config->group("myself").readEntry<QString>("id","");
+    np->mId = time(NULL);
+    np->mType = PACKAGE_TYPE_IDENTITY;
+    np->mVersion = CURRENT_PACKAGE_VERSION;
+    np->set("deviceId", id);
+    np->set("deviceName", QHostInfo::localHostName());
+
+    //qDebug() << "createIdentityPackage" << np->serialize();
+}
+
 

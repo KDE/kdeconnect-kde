@@ -24,11 +24,13 @@
 #include "packagereceivers/notificationpackagereceiver.h"
 #include "packagereceivers/pausemusicpackagereceiver.h"
 #include "announcers/avahiannouncer.h"
+#include "announcers/avahitcpannouncer.h"
 #include "announcers/fakeannouncer.h"
 #include "devicelinks/echodevicelink.h"
 
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
+#include <quuid.h>
 #include <QDBusConnection>
 
 #include <KIcon>
@@ -44,8 +46,11 @@ K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
 Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)
 {
-
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+
+    if (!config->group("myself").hasKey("id")) {
+        config->group("myself").writeEntry("id",QUuid::createUuid().toString());
+    }
 
     //Debugging
     qDebug() << "GO GO GO!";
@@ -59,8 +64,9 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
-    announcers.insert(new AvahiAnnouncer());
-    announcers.insert(new FakeAnnouncer());
+//     announcers.insert(new AvahiAnnouncer());
+    announcers.insert(new AvahiTcpAnnouncer());
+    //announcers.insert(new LoopbackAnnouncer());
 
     //TODO: Add package emitters
 
@@ -81,8 +87,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //Listen to incomming connections
     Q_FOREACH (Announcer* a, announcers) {
-        connect(a,SIGNAL(onNewDeviceLink(QString,QString,DeviceLink*)),
-                this,SLOT(onNewDeviceLink(QString,QString,DeviceLink*)));
+        connect(a,SIGNAL(onNewDeviceLink(NetworkPackage,DeviceLink*)),
+                this,SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
     }
 
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
@@ -106,14 +112,16 @@ QStringList Daemon::devices()
 }
 
 
-void Daemon::onNewDeviceLink(const QString& id, const QString& name, DeviceLink* dl)
+void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
-    qDebug() << "Device discovered" << dl->deviceId();
+    const QString& id = identityPackage.get<QString>("deviceId");
 
-    if (m_devices.contains(dl->deviceId())) {
+    qDebug() << "Device discovered" << id << "via" << dl->announcer()->name();
+
+    if (m_devices.contains(id)) {
         qDebug() << "It is a known device";
 
-        Device* device = m_devices[dl->deviceId()];
+        Device* device = m_devices[id];
         device->addLink(dl);
 
         KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
@@ -127,8 +135,10 @@ void Daemon::onNewDeviceLink(const QString& id, const QString& name, DeviceLink*
     } else {
         qDebug() << "It is a new device";
 
+        const QString& name = identityPackage.get<QString>("deviceName");
+
         Device* device = new Device(id,name,dl);
-        m_devices[dl->deviceId()] = device;
+        m_devices[id] = device;
         Q_FOREACH (PackageReceiver* pr, packageReceivers) {
             connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
                     pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));

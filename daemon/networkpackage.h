@@ -44,6 +44,8 @@ public:
     static void unserialize(QByteArray, NetworkPackage*);
     QByteArray serialize() const;
 
+    static void createIdentityPackage(NetworkPackage*);
+
     long id() const { return mId; }
     const QString& type() const { return mType; }
     QVariantMap& body() { return mBody; }

@@ -34,24 +34,23 @@ class Announcer : public QObject
     Q_OBJECT
 
 public:
+
+    const int PRIORITY_LOW = 0;      //ie: 3g
+    const int PRIORITY_MEDIUM = 50;  //ie: internet
+    const int PRIORITY_HIGH = 100;   //ie: lan
+
     Announcer();
     virtual ~Announcer() { }
 
-    enum Priority {
-        PRIORITY_LOW = 0,      //ie: 3g
-        PRIORITY_MEDIUM = 50,  //ie: internet
-        PRIORITY_HIGH = 100    //ie: lan
-    };
-
     virtual QString name() = 0;
-    virtual Priority priority() = 0;
+    virtual int priority() = 0;
 
     virtual void setDiscoverable(bool b) = 0;
 
 signals:
-    //NOTE: The announcer has to destroy the DeviceLink when it's no longer accessible,
-    //      and every user should listen to the destroy signal to remove its references.
-    void onNewDeviceLink(const QString& id, const QString& name, DeviceLink*);
+    //NOTE: The announcer will to destroy the DeviceLink when it's no longer accessible,
+    //      and every user should listen to the destroyed signal to remove its references.
+    void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink*);
 
 signals:
 

@@ -21,23 +21,22 @@
 #include "udpdevicelink.h"
 #include "announcers/avahiannouncer.h"
 
-UdpDeviceLink::UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip, quint16 port)
+UdpDeviceLink::UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip)
     : DeviceLink(d, a)
 {
 
     mIp = ip;
-    mPort = port;
 
     mSocket = new QUdpSocket();
-    mSocket->bind(port);
-    connect(mSocket, SIGNAL(readyRead()), this, SLOT(readPendingNotifications()));
+    mSocket->bind(mPort);
+    connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
 
 }
 
-void UdpDeviceLink::readPendingNotifications()
+void UdpDeviceLink::dataReceived()
 {
 
-    qDebug() << "UdpDeviceLink readPendingNotifications";
+    qDebug() << "UdpDeviceLink dataReceived";
 
     while (mSocket->hasPendingDatagrams()) {
 
@@ -54,7 +53,7 @@ void UdpDeviceLink::readPendingNotifications()
         NetworkPackage::unserialize(datagram,&np);
 
         emit receivedPackage(np);
-        
+
     }
 
 }

@@ -22,13 +22,13 @@
 #define ECHODEVICELINK_H
 #include "devicelink.h"
 
-class FakeAnnouncer;
+class LoopbackAnnouncer;
 
 class EchoDeviceLink : public DeviceLink
 {
     Q_OBJECT
 public:
-    EchoDeviceLink(const QString& d, FakeAnnouncer* a);
+    EchoDeviceLink(const QString& d, LoopbackAnnouncer* a);
 
     bool sendPackage(const NetworkPackage& np) {
         emit receivedPackage(np);

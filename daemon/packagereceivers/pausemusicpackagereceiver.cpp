@@ -25,7 +25,7 @@
 PauseMusicPackageReceiver::PauseMusicPackageReceiver()
 {
     //TODO: Be able to change this from settings
-    pauseWhen = PauseWhenTalking;
+    pauseWhen = PauseWhenRinging;
     paused = false;
 
 }

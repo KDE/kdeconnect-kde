@@ -59,6 +59,7 @@ public Q_SLOTS:
     //Public dbus interface
     Q_SCRIPTABLE QString id() const{ return m_deviceId; }
     Q_SCRIPTABLE QString name() const { return m_deviceName; }
+    Q_SCRIPTABLE QStringList availableLinks() const;
     Q_SCRIPTABLE bool paired() const { return m_paired; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
     Q_SCRIPTABLE void setPair(bool b);

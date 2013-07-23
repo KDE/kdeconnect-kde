@@ -18,12 +18,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "echodevicelink.h"
+#ifndef AVAHITCPANNOUNCER_H
+#define AVAHITCPANNOUNCER_H
 
-#include "announcers/fakeannouncer.h"
+#include <QObject>
+#include <QTcpServer>
 
-EchoDeviceLink::EchoDeviceLink(const QString& d, LoopbackAnnouncer* a)
-    : DeviceLink(d, a)
+#include <KDE/DNSSD/PublicService>
+
+#include "announcer.h"
+#include "netaddress.h"
+
+
+class AvahiTcpAnnouncer
+    : public Announcer
 {
+    Q_OBJECT
 
-}
+public:
+    AvahiTcpAnnouncer();
+    ~AvahiTcpAnnouncer();
+
+    QString name() { return "AvahiTcpAnnouncer"; }
+    int priority() { return PRIORITY_HIGH + 1; }
+
+    void setDiscoverable(bool b);
+
+private Q_SLOTS:
+    void newConnection();
+    void deviceLinkDestroyed(QObject*);
+    void dataReceived();
+
+private:
+    DNSSD::PublicService* service;
+    QTcpServer* mServer;
+
+    QMap<QString, DeviceLink*> links;
+
+};
+
+#endif

@@ -25,8 +25,7 @@
 #include <QString>
 
 #include "devicelink.h"
-#include <qudpsocket.h>
-#include <qtcpsocket.h>
+#include <QUdpSocket>
 
 class AvahiAnnouncer;
 
@@ -35,21 +34,21 @@ class UdpDeviceLink : public DeviceLink
     Q_OBJECT
 
 public:
-    UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip, quint16 port);
+    UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip);
 
     bool sendPackage(const NetworkPackage& np) {
-        mSocket->writeDatagram(np.serialize(),mIp,mPort);
+        mSocket->writeDatagram(np.serialize(),mIp,mPort+1);
         return true;
     }
     
 private Q_SLOTS:
-    void readPendingNotifications();
+    void dataReceived();
 
 private:
     QUdpSocket* mSocket;
 
     QHostAddress mIp;
-    quint16 mPort;
+    const quint16 mPort = 10603;
 
 };
 

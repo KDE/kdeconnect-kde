@@ -20,12 +20,13 @@
 
 #include "pingpackagereceiver.h"
 
-#include <QDebug>
+#include <KDebug>
 #include <kicon.h>
 
 bool PingPackageReceiver::receivePackage(const Device& device, const NetworkPackage& np) {
 
-    qDebug() << np.type();
+
+    kDebug() << np.type();
 
     if (np.type() != PACKAGE_TYPE_PING) return false;
 

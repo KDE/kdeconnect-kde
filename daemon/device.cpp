@@ -2,6 +2,7 @@
 #include <ksharedptr.h>
 #include <ksharedconfig.h>
 #include "devicelinks/devicelink.h"
+#include "announcers/announcer.h"
 
 #include <KConfigGroup>
 #include <QDebug>
@@ -63,7 +64,8 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 
 void Device::addLink(DeviceLink* link)
 {
-    qDebug() << "AddLink";
+    qDebug() << "Adding link to " << id() << "via" << link->announcer();
+
     connect(link,SIGNAL(destroyed(QObject*)),this,SLOT(linkDestroyed(QObject*)));
 
     m_deviceLinks.append(link);
@@ -74,20 +76,23 @@ void Device::addLink(DeviceLink* link)
 
 void Device::linkDestroyed(QObject* o)
 {
+    qDebug() << "Link destroyed";
     removeLink(static_cast<DeviceLink*>(o));
 }
 
 void Device::removeLink(DeviceLink* link)
 {
     qDebug() << "RemoveLink";
-    disconnect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
+    //disconnect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
     m_deviceLinks.removeOne(link);
 }
 
 bool Device::sendPackage(const NetworkPackage& np)
 {
-    if (m_deviceLinks.empty()) return false;
-    return m_deviceLinks.first()->sendPackage(np);
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        if (dl->sendPackage(np)) return true;
+    }
+    return false;
 }
 
 void Device::privateReceivedPackage(const NetworkPackage& np)
@@ -100,6 +105,15 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
     } else {
         qDebug() << "not paired, ignoring package";
     }
+}
+
+QStringList Device::availableLinks() const
+{
+    QStringList sl;
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        sl.append(dl->announcer()->name());
+    }
+    return sl;
 }
 
 void Device::sendPing()

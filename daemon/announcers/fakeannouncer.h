@@ -18,25 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FAKEANNOUNCER_H
-#define FAKEANNOUNCER_H
+#ifndef LOOPBACKANNOUNCER_H
+#define LOOPBACKANNOUNCER_H
 
 #include "announcer.h"
+#include "networkpackage.h"
 
-class FakeAnnouncer : public Announcer
+class LoopbackAnnouncer : public Announcer
 {
     Q_OBJECT
 public:
-    FakeAnnouncer();
-    ~FakeAnnouncer();
+    LoopbackAnnouncer();
+    ~LoopbackAnnouncer();
 
-    QString name() { return "FakeAnnouncer"; }
-    Priority priority() { return PRIORITY_LOW; }
+    QString name() { return "LoopbackAnnouncer"; }
+    int priority() { return PRIORITY_LOW; }
 
     void setDiscoverable(bool b);
 
 private:
     DeviceLink* echoDeviceLink;
+    NetworkPackage identityPackage;
     
 };
 

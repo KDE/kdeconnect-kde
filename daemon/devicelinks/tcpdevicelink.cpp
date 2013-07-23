@@ -18,12 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "echodevicelink.h"
+#include "tcpdevicelink.h"
+#include "announcers/avahitcpannouncer.h"
 
-#include "announcers/fakeannouncer.h"
-
-EchoDeviceLink::EchoDeviceLink(const QString& d, LoopbackAnnouncer* a)
+TcpDeviceLink::TcpDeviceLink(const QString& d, AvahiTcpAnnouncer* a, QTcpSocket* socket)
     : DeviceLink(d, a)
 {
+    mSocket = socket;
+    connect(mSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
+    connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+}
 
+void TcpDeviceLink::dataReceived()
+{
+    qDebug() << "TcpDeviceLink dataReceived";
+
+    QByteArray a = mSocket->readAll();
+
+    qDebug() << a;
+
+    NetworkPackage np;
+    NetworkPackage::unserialize(a,&np);
+
+    emit receivedPackage(np);
 }
