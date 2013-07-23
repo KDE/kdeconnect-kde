@@ -20,9 +20,10 @@
 
 #include "daemon.h"
 #include "networkpackage.h"
-#include "packagereceivers/pingpackagereceiver.h"
-#include "packagereceivers/notificationpackagereceiver.h"
-#include "packagereceivers/pausemusicpackagereceiver.h"
+#include "packageinterfaces/pingpackagereceiver.h"
+#include "packageinterfaces/notificationpackagereceiver.h"
+#include "packageinterfaces/pausemusicpackagereceiver.h"
+#include "packageinterfaces/clipboardpackageinterface.h"
 #include "announcers/avahiannouncer.h"
 #include "announcers/avahitcpannouncer.h"
 #include "announcers/fakeannouncer.h"
@@ -61,6 +62,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     packageReceivers.push_back(new PingPackageReceiver());
     packageReceivers.push_back(new NotificationPackageReceiver());
     packageReceivers.push_back(new PauseMusicPackageReceiver());
+    packageReceivers.push_back(new ClipboardPackageInterface());
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
@@ -82,6 +84,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         Q_FOREACH (PackageReceiver* pr, packageReceivers) {
             connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
                     pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
+            connect(pr,SIGNAL(sendPackage(const NetworkPackage&)),
+                    device,SLOT(sendPackage(const NetworkPackage&)));
         }
     }
 
@@ -142,6 +146,8 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Q_FOREACH (PackageReceiver* pr, packageReceivers) {
             connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
                     pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
+            connect(pr,SIGNAL(sendPackage(const NetworkPackage&)),
+                    device,SLOT(sendPackage(const NetworkPackage&)));
         }
         emit newDeviceAdded(id);
     }

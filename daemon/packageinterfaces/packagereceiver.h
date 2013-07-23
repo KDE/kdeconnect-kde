@@ -18,15 +18,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETWORKPACKAGETYPES_H
-#define NETWORKPACKAGETYPES_H
+#ifndef PACKAGERECEIVER_H
+#define PACKAGERECEIVER_H
 
-#define PACKAGE_TYPE_IDENTITY QString("kdeconnect.identity")
-#define PACKAGE_TYPE_PING QString("kdeconnect.ping")
-#define PACKAGE_TYPE_NOTIFICATION QString("kdeconnect.notification")
-#define PACKAGE_TYPE_CALL QString("kdeconnect.call")
-#define PACKAGE_TYPE_CLIPBOARD QString("kdeconnect.clipboard")
+#include <QObject>
 
+#include "networkpackage.h"
+#include "device.h"
 
+class PackageReceiver
+    : public QObject
+{
+    Q_OBJECT
 
-#endif // NETWORKPACKAGETYPES_H
+public:
+    PackageReceiver();
+    virtual ~PackageReceiver() { }
+
+public Q_SLOTS:
+    //Returns true if it has handled the package in some way
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
+
+Q_SIGNALS:
+    void sendPackage(const NetworkPackage& np);
+};
+
+#endif // PACKAGERECEIVER_H

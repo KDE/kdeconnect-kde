@@ -39,7 +39,7 @@
 #include <KConfig>
 
 #include "device.h"
-#include "packagereceivers/packagereceiver.h"
+#include "packageinterfaces/packagereceiver.h"
 #include "devicelinks/devicelink.h"
 #include "announcers/announcer.h"
 

@@ -18,26 +18,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PACKAGERECEIVER_H
-#define PACKAGERECEIVER_H
+#ifndef CLIPBOARDPACKAGEINTERFACE_H
+#define CLIPBOARDPACKAGEINTERFACE_H
 
 #include <QObject>
+#include <QClipboard>
 
 #include "networkpackage.h"
 #include "device.h"
+#include "packagereceiver.h"
 
-class PackageReceiver
-    : public QObject
+class ClipboardPackageInterface
+    : public PackageReceiver
 {
     Q_OBJECT
 
 public:
-    PackageReceiver();
-    virtual ~PackageReceiver() { }
+    ClipboardPackageInterface();
+    virtual ~ClipboardPackageInterface() { }
 
 public Q_SLOTS:
-    //Returns true if it has handled the package in some way
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+
+private Q_SLOTS:
+    void clipboardChanged();
+
+private:
+    bool ignore_next_clipboard_change;
+    QClipboard *clipboard;
 };
 
-#endif // PACKAGERECEIVER_H
+#endif

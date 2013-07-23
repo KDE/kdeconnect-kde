@@ -51,12 +51,13 @@ public:
     void removeLink(DeviceLink*);
 
     //Send and receive
-    bool sendPackage(const NetworkPackage& np);
 Q_SIGNALS:
     void receivedPackage(const Device& device, const NetworkPackage& np);
-
 public Q_SLOTS:
+    bool sendPackage(const NetworkPackage& np);
+
     //Public dbus interface
+public Q_SLOTS:
     Q_SCRIPTABLE QString id() const{ return m_deviceId; }
     Q_SCRIPTABLE QString name() const { return m_deviceName; }
     Q_SCRIPTABLE QStringList availableLinks() const;

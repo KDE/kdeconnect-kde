@@ -10,10 +10,11 @@ set(kded_kdeconnect_SRCS
     devicelinks/udpdevicelink.cpp
     devicelinks/tcpdevicelink.cpp
 
-    packagereceivers/packagereceiver.cpp
-    packagereceivers/pingpackagereceiver.cpp
-    packagereceivers/notificationpackagereceiver.cpp
-    packagereceivers/pausemusicpackagereceiver.cpp
+    packageinterfaces/packagereceiver.cpp
+    packageinterfaces/pingpackagereceiver.cpp
+    packageinterfaces/notificationpackagereceiver.cpp
+    packageinterfaces/pausemusicpackagereceiver.cpp
+    packageinterfaces/clipboardpackageinterface.cpp
 
     networkpackage.cpp
     daemon.cpp
