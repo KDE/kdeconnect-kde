@@ -25,7 +25,6 @@
 #include <QApplication>
 
 ClipboardPackageInterface::ClipboardPackageInterface() {
-    qDebug() << "ClipboardPackageInterface";
     clipboard = QApplication::clipboard();
     ignore_next_clipboard_change = false;
     connect(clipboard,SIGNAL(changed(QClipboard::Mode)),this,SLOT(clipboardChanged()));
@@ -37,7 +36,7 @@ void ClipboardPackageInterface::clipboardChanged()
         ignore_next_clipboard_change = false;
         return;
     }
-    qDebug() << "ClipboardChanged";
+    //qDebug() << "ClipboardChanged";
     NetworkPackage np(PACKAGE_TYPE_CLIPBOARD);
     np.set("content",clipboard->text());
     emit sendPackage(np);

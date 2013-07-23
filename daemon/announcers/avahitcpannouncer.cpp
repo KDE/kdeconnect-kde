@@ -34,7 +34,7 @@ AvahiTcpAnnouncer::AvahiTcpAnnouncer()
 
     service = new DNSSD::PublicService(QHostInfo::localHostName(), serviceType, port);
 
-    mServer = new QTcpServer();
+    mServer = new QTcpServer(this);
     connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
     mServer->listen(QHostAddress::Any, port);
 
@@ -45,6 +45,7 @@ void AvahiTcpAnnouncer::newConnection()
     qDebug() << "AvahiTcpAnnouncer newConnection";
 
     QTcpSocket* socket = mServer->nextPendingConnection();
+    socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
 
     connect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 

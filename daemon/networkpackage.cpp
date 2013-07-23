@@ -71,10 +71,6 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
         np->setVersion(-1);
     }
 
-    if (np->version() > CURRENT_PACKAGE_VERSION) {
-        qDebug() << "Warning: package version " << np->version() << " greater than supported version " << CURRENT_PACKAGE_VERSION;
-    }
-
     //QVariant -> Object
     //NetworkPackage np;
     //QJSon json(a);
@@ -82,6 +78,11 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
     //np.mType = json["type"];
     //np.mBody = json["body"];
     QJson::QObjectHelper::qvariant2qobject(variant,np);
+
+    if (np->version() > CURRENT_PACKAGE_VERSION) {
+        qDebug() << "Warning: package version " << np->version() << " greater than supported version " << CURRENT_PACKAGE_VERSION;
+    }
+
 }
 
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
