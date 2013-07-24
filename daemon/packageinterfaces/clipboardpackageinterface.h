@@ -41,7 +41,7 @@ public Q_SLOTS:
     virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
 private Q_SLOTS:
-    void clipboardChanged();
+    void clipboardChanged(QClipboard::Mode mode);
 
 private:
     bool ignore_next_clipboard_change;

@@ -53,7 +53,6 @@ void AvahiTcpLinkProvider::newConnection()
     NetworkPackage::createIdentityPackage(&np);
     int written = socket->write(np.serialize());
 
-    qDebug() << np.serialize();
     qDebug() << "AvahiTcpLinkProvider sent package." << written << " bytes written, waiting for reply";
 }
 

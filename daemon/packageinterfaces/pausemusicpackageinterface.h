@@ -23,6 +23,9 @@
 
 #include "packageinterface.h"
 
+#include <QSet>
+#include <QString>
+
 class PauseMusicPackageInterface
     : public PackageInterface
 {
@@ -33,7 +36,7 @@ public:
 private:
     enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
     PauseCondtions pauseWhen;
-    bool paused;
+    QSet<QString> pausedSources;
 
 };
 
