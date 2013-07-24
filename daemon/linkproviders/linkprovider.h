@@ -18,28 +18,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LOOPBACKANNOUNCER_H
-#define LOOPBACKANNOUNCER_H
+#ifndef LINKPROVIDER_H
+#define LINKPROVIDER_H
 
-#include "announcer.h"
-#include "networkpackage.h"
+#include <qvector.h>
+#include <QObject>
 
-class LoopbackAnnouncer : public Announcer
+#include "devicelinks/devicelink.h"
+#include "device.h"
+
+class DeviceLink;
+
+class LinkProvider
+    : public QObject
 {
     Q_OBJECT
+
 public:
-    LoopbackAnnouncer();
-    ~LoopbackAnnouncer();
 
-    QString name() { return "LoopbackAnnouncer"; }
-    int priority() { return PRIORITY_LOW; }
+    const int PRIORITY_LOW = 0;      //eg: 3g
+    const int PRIORITY_MEDIUM = 50;  //eg: internet
+    const int PRIORITY_HIGH = 100;   //eg: lan
 
-    void setDiscoverable(bool b);
+    LinkProvider();
+    virtual ~LinkProvider() { }
 
-private:
-    DeviceLink* echoDeviceLink;
-    NetworkPackage identityPackage;
-    
+    virtual QString name() = 0;
+    virtual int priority() = 0;
+
+    virtual void setDiscoverable(bool b) = 0;
+
+Q_SIGNALS:
+    //NOTE: The provider will to destroy the DeviceLink when it's no longer accessible,
+    //      and every user should listen to the destroyed signal to remove its references.
+    void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink*);
+
 };
 
 #endif

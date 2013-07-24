@@ -24,7 +24,9 @@
 #ifndef DbusInterfaces_H_
 #define DbusInterfaces_H_
 
-class DaemonDbusInterface : public KdeconnectDaemonInterface {
+class DaemonDbusInterface
+    : public KdeconnectDaemonInterface
+{
     Q_OBJECT
 public:
     DaemonDbusInterface(QObject* parent);

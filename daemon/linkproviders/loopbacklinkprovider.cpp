@@ -18,29 +18,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PACKAGERECEIVER_H
-#define PACKAGERECEIVER_H
+#include "loopbacklinkprovider.h"
+#include "devicelinks/echodevicelink.h"
 
-#include <QObject>
+#include <QDebug>
 
-#include "networkpackage.h"
-#include "device.h"
-
-class PackageReceiver
-    : public QObject
+LoopbackLinkProvider::LoopbackLinkProvider()
 {
-    Q_OBJECT
+    echoDeviceLink = new EchoDeviceLink("fake", this);
+    NetworkPackage::createIdentityPackage(&identityPackage);
+}
 
-public:
-    PackageReceiver();
-    virtual ~PackageReceiver() { }
+LoopbackLinkProvider::~LoopbackLinkProvider()
+{
+    //delete echoDeviceLink;
+}
 
-public Q_SLOTS:
-    //Returns true if it has handled the package in some way
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
+void LoopbackLinkProvider::setDiscoverable(bool b)
+{
+    qDebug() << "Echo Device discovery emitted";
+    if (b) emit onNewDeviceLink(identityPackage, echoDeviceLink);
+}
 
-Q_SIGNALS:
-    void sendPackage(const NetworkPackage& np);
-};
-
-#endif // PACKAGERECEIVER_H

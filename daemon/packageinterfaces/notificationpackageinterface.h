@@ -18,41 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ANNOUNCER_H
-#define ANNOUNCER_H
+#ifndef NOTIFICATIONPACKAGEINTERFACE_H
+#define NOTIFICATIONPACKAGEINTERFACE_H
 
-#include <qvector.h>
-#include <QObject>
+#include <knotification.h>
 
-#include "devicelinks/devicelink.h"
-#include "device.h"
+#include "packageinterface.h"
 
-class DeviceLink;
-
-class Announcer : public QObject
+class NotificationPackageInterface
+    : public PackageInterface
 {
-    Q_OBJECT
 
 public:
+    virtual bool receivePackage(const Device&, const NetworkPackage& np);
 
-    const int PRIORITY_LOW = 0;      //ie: 3g
-    const int PRIORITY_MEDIUM = 50;  //ie: internet
-    const int PRIORITY_HIGH = 100;   //ie: lan
+private:
+    static KNotification* createNotification(const QString& deviceName,const NetworkPackage& np);
 
-    Announcer();
-    virtual ~Announcer() { }
-
-    virtual QString name() = 0;
-    virtual int priority() = 0;
-
-    virtual void setDiscoverable(bool b) = 0;
-
-signals:
-    //NOTE: The announcer will to destroy the DeviceLink when it's no longer accessible,
-    //      and every user should listen to the destroyed signal to remove its references.
-    void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink*);
-
-signals:
 
 };
 

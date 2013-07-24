@@ -39,9 +39,9 @@
 #include <KConfig>
 
 #include "device.h"
-#include "packageinterfaces/packagereceiver.h"
+#include "packageinterfaces/packageinterface.h"
 #include "devicelinks/devicelink.h"
-#include "announcers/announcer.h"
+#include "linkproviders/linkprovider.h"
 
 class QUdpSocket;
 
@@ -75,13 +75,13 @@ private:
 
 
     //Every known device
-    QMap<QString, Device*> m_devices;
+    QMap<QString, Device*> mDevices;
 
-    //Different ways to find devices and connect to them, ordered by priority
-    QSet<Announcer*> announcers;
+    //Different ways to find devices and connect to them
+    QSet<LinkProvider*> mLinkProviders;
 
-    //Everybody who wants to be notified about a new package
-    QVector<PackageReceiver*> packageReceivers;
+    //The classes that send and receive the packages
+    QVector<PackageInterface*> mPackageInterfaces;
 
 };
 

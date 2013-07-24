@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "packagereceiver.h"
+#include "packageinterface.h"
 
-PackageReceiver::PackageReceiver() {
+PackageInterface::PackageInterface() {
     //gcc complains if we don't add something to compile on a class with virtual functions
 }

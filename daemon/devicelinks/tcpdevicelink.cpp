@@ -19,14 +19,20 @@
  */
 
 #include "tcpdevicelink.h"
-#include "announcers/avahitcpannouncer.h"
+#include "linkproviders/avahitcplinkprovider.h"
 
-TcpDeviceLink::TcpDeviceLink(const QString& d, AvahiTcpAnnouncer* a, QTcpSocket* socket)
+TcpDeviceLink::TcpDeviceLink(const QString& d, AvahiTcpLinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
 {
     mSocket = socket;
     connect(mSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
     connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+}
+
+bool TcpDeviceLink::sendPackage(const NetworkPackage& np)
+{
+    int written = mSocket->write(np.serialize());
+    return written != -1;
 }
 
 void TcpDeviceLink::dataReceived()

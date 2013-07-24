@@ -19,15 +19,16 @@
  */
 
 #include "daemon.h"
+
 #include "networkpackage.h"
-#include "packageinterfaces/pingpackagereceiver.h"
-#include "packageinterfaces/notificationpackagereceiver.h"
-#include "packageinterfaces/pausemusicpackagereceiver.h"
+
+#include "packageinterfaces/pingpackageinterface.h"
+#include "packageinterfaces/notificationpackageinterface.h"
+#include "packageinterfaces/pausemusicpackageinterface.h"
 #include "packageinterfaces/clipboardpackageinterface.h"
-#include "announcers/avahiannouncer.h"
-#include "announcers/avahitcpannouncer.h"
-#include "announcers/fakeannouncer.h"
-#include "devicelinks/echodevicelink.h"
+
+#include "linkproviders/avahitcplinkprovider.h"
+#include "linkproviders/loopbacklinkprovider.h"
 
 #include <QtNetwork/QUdpSocket>
 #include <QFile>
@@ -54,23 +55,20 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     }
 
     //Debugging
-    qDebug() << "GO GO GO!";
+    qDebug() << "Starting KdeConnect daemon";
     config->group("devices").group("paired").group("fake_unreachable").writeEntry("name","Fake device");
 
-    //TODO: Do not hardcode the load of the package receivers
+    //TODO: Do not hardcode the load of the package interfaces
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
-    packageReceivers.push_back(new PingPackageReceiver());
-    packageReceivers.push_back(new NotificationPackageReceiver());
-    packageReceivers.push_back(new PauseMusicPackageReceiver());
-    packageReceivers.push_back(new ClipboardPackageInterface());
+    mPackageInterfaces.push_back(new PingPackageInterface());
+    mPackageInterfaces.push_back(new NotificationPackageInterface());
+    mPackageInterfaces.push_back(new PauseMusicPackageInterface());
+    mPackageInterfaces.push_back(new ClipboardPackageInterface());
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
-//     announcers.insert(new AvahiAnnouncer());
-    announcers.insert(new AvahiTcpAnnouncer());
-    //announcers.insert(new LoopbackAnnouncer());
-
-    //TODO: Add package emitters
+    mLinkProviders.insert(new AvahiTcpLinkProvider());
+    //mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
     const KConfigGroup& known = config->group("devices").group("paired");
@@ -80,8 +78,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         const KConfigGroup& data = known.group(id);
         const QString& name = data.readEntry<QString>("name",defaultName);
         Device* device = new Device(id,name);
-        m_devices[id] = device;
-        Q_FOREACH (PackageReceiver* pr, packageReceivers) {
+        mDevices[id] = device;
+        Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
             connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
                     pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
             connect(pr,SIGNAL(sendPackage(const NetworkPackage&)),
@@ -90,7 +88,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     }
 
     //Listen to incomming connections
-    Q_FOREACH (Announcer* a, announcers) {
+    Q_FOREACH (LinkProvider* a, mLinkProviders) {
         connect(a,SIGNAL(onNewDeviceLink(NetworkPackage,DeviceLink*)),
                 this,SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
     }
@@ -102,9 +100,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 }
 void Daemon::setDiscoveryEnabled(bool b)
 {
-    qDebug() << "Discovery:" << b;
     //Listen to incomming connections
-    Q_FOREACH (Announcer* a, announcers) {
+    Q_FOREACH (LinkProvider* a, mLinkProviders) {
         a->setDiscoverable(b);
     }
 
@@ -112,7 +109,7 @@ void Daemon::setDiscoveryEnabled(bool b)
 
 QStringList Daemon::devices()
 {
-    return m_devices.keys();
+    return mDevices.keys();
 }
 
 
@@ -120,12 +117,12 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 {
     const QString& id = identityPackage.get<QString>("deviceId");
 
-    qDebug() << "Device discovered" << id << "via" << dl->announcer()->name();
+    qDebug() << "Device discovered" << id << "via" << dl->provider()->name();
 
-    if (m_devices.contains(id)) {
+    if (mDevices.contains(id)) {
         qDebug() << "It is a known device";
 
-        Device* device = m_devices[id];
+        Device* device = mDevices[id];
         device->addLink(dl);
 
         KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
@@ -142,8 +139,8 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         const QString& name = identityPackage.get<QString>("deviceName");
 
         Device* device = new Device(id,name,dl);
-        m_devices[id] = device;
-        Q_FOREACH (PackageReceiver* pr, packageReceivers) {
+        mDevices[id] = device;
+        Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
             connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
                     pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
             connect(pr,SIGNAL(sendPackage(const NetworkPackage&)),
@@ -156,6 +153,6 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
 Daemon::~Daemon()
 {
-    qDebug() << "SAYONARA BABY";
+
 }
 

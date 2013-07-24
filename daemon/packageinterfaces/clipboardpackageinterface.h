@@ -26,10 +26,10 @@
 
 #include "networkpackage.h"
 #include "device.h"
-#include "packagereceiver.h"
+#include "packageinterface.h"
 
 class ClipboardPackageInterface
-    : public PackageReceiver
+    : public PackageInterface
 {
     Q_OBJECT
 

@@ -1,19 +1,17 @@
 set(kded_kdeconnect_SRCS
 
-    announcers/announcer.cpp
-    announcers/fakeannouncer.cpp
-    announcers/avahiannouncer.cpp
-    announcers/avahitcpannouncer.cpp
+    linkproviders/linkprovider.cpp
+    linkproviders/loopbacklinkprovider.cpp
+    linkproviders/avahitcplinkprovider.cpp
 
     devicelinks/devicelink.cpp
     devicelinks/echodevicelink.cpp
-    devicelinks/udpdevicelink.cpp
     devicelinks/tcpdevicelink.cpp
 
-    packageinterfaces/packagereceiver.cpp
-    packageinterfaces/pingpackagereceiver.cpp
-    packageinterfaces/notificationpackagereceiver.cpp
-    packageinterfaces/pausemusicpackagereceiver.cpp
+    packageinterfaces/packageinterface.cpp
+    packageinterfaces/pingpackageinterface.cpp
+    packageinterfaces/notificationpackageinterface.cpp
+    packageinterfaces/pausemusicpackageinterface.cpp
     packageinterfaces/clipboardpackageinterface.cpp
 
     networkpackage.cpp

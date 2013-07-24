@@ -18,12 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "notificationpackagereceiver.h"
+#include "notificationpackageinterface.h"
 
 #include <QDebug>
 #include <kicon.h>
 
-KNotification* NotificationPackageReceiver::createNotification(const QString& deviceName, const NetworkPackage& np) {
+KNotification* NotificationPackageInterface::createNotification(const QString& deviceName, const NetworkPackage& np) {
 
     QString npType = np.get<QString>("notificationType");
 
@@ -70,7 +70,7 @@ KNotification* NotificationPackageReceiver::createNotification(const QString& de
 
 }
 
-bool NotificationPackageReceiver::receivePackage(const Device& device, const NetworkPackage& np) {
+bool NotificationPackageInterface::receivePackage(const Device& device, const NetworkPackage& np) {
 
     if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
 

@@ -42,7 +42,8 @@ namespace Ui {
     class KdeConnectKcmUi;
 }
 
-class KdeConnectKcm : public KCModule
+class KdeConnectKcm
+    : public KCModule
 {
     Q_OBJECT
 public:

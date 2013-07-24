@@ -27,21 +27,18 @@
 
 #include "devicelink.h"
 #include <QTcpSocket>
-#include <QTcpServer>
 
-class AvahiTcpAnnouncer;
+class AvahiTcpLinkProvider;
 
-class TcpDeviceLink : public DeviceLink
+class TcpDeviceLink
+    : public DeviceLink
 {
     Q_OBJECT
 
 public:
-    TcpDeviceLink(const QString& d, AvahiTcpAnnouncer* a, QTcpSocket* socket);
+    TcpDeviceLink(const QString& d, AvahiTcpLinkProvider* a, QTcpSocket* socket);
 
-    bool sendPackage(const NetworkPackage& np) {
-        mSocket->write(np.serialize());
-        return true;
-    }
+    bool sendPackage(const NetworkPackage& np);
 
 private Q_SLOTS:
     void dataReceived();

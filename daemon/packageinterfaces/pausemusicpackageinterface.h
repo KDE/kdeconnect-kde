@@ -18,43 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef AVAHITCPANNOUNCER_H
-#define AVAHITCPANNOUNCER_H
+#ifndef PAUSEMUSICPACKAGERECEIVER_H
+#define PAUSEMUSICPACKAGERECEIVER_H
 
-#include <QObject>
-#include <QTcpServer>
+#include "packageinterface.h"
 
-#include <KDE/DNSSD/PublicService>
-
-#include "announcer.h"
-#include "netaddress.h"
-
-
-class AvahiTcpAnnouncer
-    : public Announcer
+class PauseMusicPackageInterface
+    : public PackageInterface
 {
-    Q_OBJECT
-
 public:
-    AvahiTcpAnnouncer();
-    ~AvahiTcpAnnouncer();
-
-    QString name() { return "AvahiTcpAnnouncer"; }
-    int priority() { return PRIORITY_HIGH + 1; }
-
-    void setDiscoverable(bool b);
-
-private Q_SLOTS:
-    void newConnection();
-    void deviceLinkDestroyed(QObject*);
-    void dataReceived();
+    PauseMusicPackageInterface();
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
 private:
-    DNSSD::PublicService* service;
-    QTcpServer* mServer;
-
-    QMap<QString, DeviceLink*> links;
+    enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
+    PauseCondtions pauseWhen;
+    bool paused;
 
 };
 
-#endif
+#endif // PAUSEMUSICPACKAGERECEIVER_H

@@ -18,11 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "pausemusicpackagereceiver.h"
+#include "pausemusicpackageinterface.h"
 
 #include <QDebug>
 
-PauseMusicPackageReceiver::PauseMusicPackageReceiver()
+PauseMusicPackageInterface::PauseMusicPackageInterface()
 {
     //TODO: Be able to change this from settings
     pauseWhen = PauseWhenRinging;
@@ -30,7 +30,7 @@ PauseMusicPackageReceiver::PauseMusicPackageReceiver()
 
 }
 
-bool PauseMusicPackageReceiver::receivePackage (const Device& device, const NetworkPackage& np)
+bool PauseMusicPackageInterface::receivePackage (const Device& device, const NetworkPackage& np)
 {
     Q_UNUSED(device);
 

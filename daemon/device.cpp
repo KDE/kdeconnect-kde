@@ -2,7 +2,7 @@
 #include <ksharedptr.h>
 #include <ksharedconfig.h>
 #include "devicelinks/devicelink.h"
-#include "announcers/announcer.h"
+#include "linkproviders/linkprovider.h"
 
 #include <KConfigGroup>
 #include <QDebug>
@@ -59,12 +59,12 @@ void Device::setPair(bool b)
 
 static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 {
-    return p1->announcer()->priority() > p2->announcer()->priority();
+    return p1->provider()->priority() > p2->provider()->priority();
 }
 
 void Device::addLink(DeviceLink* link)
 {
-    qDebug() << "Adding link to " << id() << "via" << link->announcer();
+    qDebug() << "Adding link to " << id() << "via" << link->provider();
 
     connect(link,SIGNAL(destroyed(QObject*)),this,SLOT(linkDestroyed(QObject*)));
 
@@ -111,7 +111,7 @@ QStringList Device::availableLinks() const
 {
     QStringList sl;
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        sl.append(dl->announcer()->name());
+        sl.append(dl->provider()->name());
     }
     return sl;
 }

@@ -93,7 +93,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Show notifications from this source</string>
+            <string>Trust this device</string>
            </property>
           </widget>
          </item>

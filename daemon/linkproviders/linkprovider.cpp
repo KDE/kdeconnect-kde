@@ -18,38 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef UDPDEVICELINK_H
-#define UDPDEVICELINK_H
+#include "linkprovider.h"
 
-#include <QObject>
-#include <QString>
-
-#include "devicelink.h"
-#include <QUdpSocket>
-
-class AvahiAnnouncer;
-
-class UdpDeviceLink : public DeviceLink
-{
-    Q_OBJECT
-
-public:
-    UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip);
-
-    bool sendPackage(const NetworkPackage& np) {
-        mSocket->writeDatagram(np.serialize(),mIp,mPort+1);
-        return true;
-    }
-    
-private Q_SLOTS:
-    void dataReceived();
-
-private:
-    QUdpSocket* mSocket;
-
-    QHostAddress mIp;
-    const quint16 mPort = 10603;
-
-};
-
-#endif // UDPDEVICELINK_H
+LinkProvider::LinkProvider() {
+    //gcc complains if we don't add something to compile on a class with virtual functions
+}

@@ -19,11 +19,12 @@
  */
 
 #include "devicelink.h"
+#include "linkproviders/linkprovider.h"
 
-DeviceLink::DeviceLink(const QString& deviceId, Announcer* parent)
+DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
     : QObject(parent)
     , mDeviceId(deviceId)
-    , mAnnouncer(parent)
+    , mLinkProvider(parent)
 {
     //gcc complains if we don't add something to compile on a class with virtual functions
 }

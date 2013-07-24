@@ -18,14 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "avahitcpannouncer.h"
+#include "avahitcplinkprovider.h"
 
 #include "devicelinks/tcpdevicelink.h"
 
 #include <QHostInfo>
 #include <QTcpServer>
 
-AvahiTcpAnnouncer::AvahiTcpAnnouncer()
+AvahiTcpLinkProvider::AvahiTcpLinkProvider()
 {
     QString serviceType = "_kdeconnect._tcp";
     quint16 port = 10602;
@@ -40,9 +40,9 @@ AvahiTcpAnnouncer::AvahiTcpAnnouncer()
 
 }
 
-void AvahiTcpAnnouncer::newConnection()
+void AvahiTcpLinkProvider::newConnection()
 {
-    qDebug() << "AvahiTcpAnnouncer newConnection";
+    qDebug() << "AvahiTcpLinkProvider newConnection";
 
     QTcpSocket* socket = mServer->nextPendingConnection();
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
@@ -51,21 +51,19 @@ void AvahiTcpAnnouncer::newConnection()
 
     NetworkPackage np;
     NetworkPackage::createIdentityPackage(&np);
-    qDebug() << socket->isWritable();
-    qDebug() << socket->isOpen();
     int written = socket->write(np.serialize());
 
     qDebug() << np.serialize();
-    qDebug() << "AvahiTcpAnnouncer sent tcp package" << written << " bytes written, waiting for reply";
+    qDebug() << "AvahiTcpLinkProvider sent package." << written << " bytes written, waiting for reply";
 }
 
-void AvahiTcpAnnouncer::dataReceived()
+void AvahiTcpLinkProvider::dataReceived()
 {
     QTcpSocket* socket = (QTcpSocket*) QObject::sender();
 
     QByteArray data = socket->readLine();
 
-    qDebug() << "AvahiTcpAnnouncer received reply:" << data;
+    qDebug() << "AvahiTcpLinkProvider received reply:" << data;
 
     NetworkPackage np;
     NetworkPackage::unserialize(data,&np);
@@ -84,32 +82,32 @@ void AvahiTcpAnnouncer::dataReceived()
         }
         links[id] = dl;
 
-        qDebug() << "AvahiAnnouncer creating link to device" << id << "(" << socket->peerAddress() << ")";
+        qDebug() << "AvahiTcpLinkProvider creating link to device" << id << "(" << socket->peerAddress() << ")";
 
         emit onNewDeviceLink(np, dl);
 
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
     } else {
-        qDebug() << "AvahiTcpAnnouncer/newConnection: Not an identification package (wuh?)";
+        qDebug() << "AvahiTcpLinkProvider/newConnection: Not an identification package (wuh?)";
     }
 
 }
 
-void AvahiTcpAnnouncer::deviceLinkDestroyed(QObject* deviceLink)
+void AvahiTcpLinkProvider::deviceLinkDestroyed(QObject* deviceLink)
 {
     const QString& id = ((DeviceLink*)deviceLink)->deviceId();
     if (links.contains(id)) links.remove(id);
 }
 
-AvahiTcpAnnouncer::~AvahiTcpAnnouncer()
+AvahiTcpLinkProvider::~AvahiTcpLinkProvider()
 {
     delete service;
 }
 
-void AvahiTcpAnnouncer::setDiscoverable(bool b)
+void AvahiTcpLinkProvider::setDiscoverable(bool b)
 {
-    qDebug() << "AvahiTcp announcing";
+    qDebug() << "AvahiTcpLinkProvider discoverable:" << b;
     if (b) service->publishAsync();
 }
 

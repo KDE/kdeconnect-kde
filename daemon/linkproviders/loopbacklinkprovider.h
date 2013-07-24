@@ -18,42 +18,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef AVAHIANNOUNCER_H
-#define AVAHIANNOUNCER_H
+#ifndef LOOPBACKLINKPROVIDER_H
+#define LOOPBACKLINKPROVIDER_H
 
-#include <QObject>
+#include "linkprovider.h"
+#include "networkpackage.h"
 
-#include <QUdpSocket>
-
-#include <KDE/DNSSD/PublicService>
-
-#include "announcer.h"
-#include "netaddress.h"
-
-class AvahiAnnouncer
-    : public Announcer
+class LoopbackLinkProvider
+    : public LinkProvider
 {
     Q_OBJECT
-
 public:
-    AvahiAnnouncer();
-    ~AvahiAnnouncer();
+    LoopbackLinkProvider();
+    ~LoopbackLinkProvider();
 
-    QString name() { return "Avahi"; }
-    int priority() { return PRIORITY_HIGH; }
+    QString name() { return "LoopbackLinkProvider"; }
+    int priority() { return PRIORITY_LOW; }
 
     void setDiscoverable(bool b);
 
-private Q_SLOTS:
-    void newConnection();
-    void deviceLinkDestroyed(QObject*);
-
 private:
-    DNSSD::PublicService* service;
-    QUdpSocket* mUdpSocket;
-
-    QMap<QString, DeviceLink*> links;
-
+    DeviceLink* echoDeviceLink;
+    NetworkPackage identityPackage;
+    
 };
 
 #endif

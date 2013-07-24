@@ -55,6 +55,9 @@ QByteArray NetworkPackage::serialize() const
     QJson::Serializer serializer;
     QByteArray json = serializer.serialize(variant,&ok);
     if (!ok) qDebug() << "Serialization error:" << serializer.errorMessage();
+    json.append('\n');
+
+    qDebug() << "utlims chars:" << (int)(json[json.size()-1]) << (int)(json[json.size()-2]) << (int)(json[json.size()-3]);
 
     return json;
 }
@@ -80,7 +83,7 @@ void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 
     if (np->version() > CURRENT_PACKAGE_VERSION) {
-        qDebug() << "Warning: package version " << np->version() << " greater than supported version " << CURRENT_PACKAGE_VERSION;
+        qDebug() << "Warning: package version" << np->version() << "is greater than supported version" << CURRENT_PACKAGE_VERSION;
     }
 
 }

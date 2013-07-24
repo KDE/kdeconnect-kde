@@ -18,25 +18,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "pingpackagereceiver.h"
+#ifndef PACKAGEINTERFACE_H
+#define PACKAGEINTERFACE_H
 
-#include <KDebug>
-#include <kicon.h>
+#include <QObject>
 
-bool PingPackageReceiver::receivePackage(const Device& device, const NetworkPackage& np) {
+#include "networkpackage.h"
+#include "device.h"
 
+class PackageInterface
+    : public QObject
+{
+    Q_OBJECT
 
-    kDebug() << np.type();
+public:
+    PackageInterface();
+    virtual ~PackageInterface() { }
 
-    if (np.type() != PACKAGE_TYPE_PING) return false;
+public Q_SLOTS:
+    //Returns true if it has handled the package in some way
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
 
-    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle("Ping!");
-    notification->setText(device.name());
-    notification->sendEvent();
+Q_SIGNALS:
+    void sendPackage(const NetworkPackage& np);
+};
 
-    return true;
-
-}
+#endif

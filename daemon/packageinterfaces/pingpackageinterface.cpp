@@ -18,42 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "udpdevicelink.h"
-#include "announcers/avahiannouncer.h"
+#include "pingpackageinterface.h"
 
-UdpDeviceLink::UdpDeviceLink(const QString& d, AvahiAnnouncer* a, QHostAddress ip)
-    : DeviceLink(d, a)
-{
+#include <KDebug>
+#include <kicon.h>
 
-    mIp = ip;
+bool PingPackageInterface::receivePackage(const Device& device, const NetworkPackage& np) {
 
-    mSocket = new QUdpSocket();
-    mSocket->bind(mPort);
-    connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+    if (np.type() != PACKAGE_TYPE_PING) return false;
 
-}
+    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setTitle("Ping!");
+    notification->setText(device.name());
+    notification->sendEvent();
 
-void UdpDeviceLink::dataReceived()
-{
-
-    qDebug() << "UdpDeviceLink dataReceived";
-
-    while (mSocket->hasPendingDatagrams()) {
-
-        QByteArray datagram;
-        datagram.resize(mSocket->pendingDatagramSize());
-        QHostAddress sender;
-        quint16 senderPort;
-        mSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
-
-        //log.write(datagram);
-        qDebug() << datagram;
-
-        NetworkPackage np;
-        NetworkPackage::unserialize(datagram,&np);
-
-        emit receivedPackage(np);
-
-    }
+    return true;
 
 }

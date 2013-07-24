@@ -20,9 +20,9 @@
 
 #include "echodevicelink.h"
 
-#include "announcers/fakeannouncer.h"
+#include "linkproviders/loopbacklinkprovider.h"
 
-EchoDeviceLink::EchoDeviceLink(const QString& d, LoopbackAnnouncer* a)
+EchoDeviceLink::EchoDeviceLink(const QString& d, LoopbackLinkProvider* a)
     : DeviceLink(d, a)
 {
 

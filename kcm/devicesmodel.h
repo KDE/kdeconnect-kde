@@ -30,7 +30,8 @@
 #include <QList>
 #include "dbusinterfaces.h"
 
-class DevicesModel : public QAbstractListModel
+class DevicesModel
+    : public QAbstractListModel
 {
     Q_OBJECT
 public:

@@ -18,20 +18,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PINGPACKAGERECEIVER_H
-#define PINGPACKAGERECEIVER_H
+#ifndef AVAHITCPLINKPROVIDER_H
+#define AVAHITCPLINKPROVIDER_H
 
-#include <knotification.h>
+#include <QObject>
+#include <QTcpServer>
 
-#include "packagereceiver.h"
+#include <KDE/DNSSD/PublicService>
 
-class PingPackageReceiver
-    : public PackageReceiver
+#include "linkprovider.h"
+#include "netaddress.h"
+
+
+class AvahiTcpLinkProvider
+    : public LinkProvider
 {
+    Q_OBJECT
 
 public:
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+    AvahiTcpLinkProvider();
+    ~AvahiTcpLinkProvider();
+
+    QString name() { return "AvahiTcpLinkProvider"; }
+    int priority() { return PRIORITY_HIGH + 1; }
+
+    void setDiscoverable(bool b);
+
+private Q_SLOTS:
+    void newConnection();
+    void deviceLinkDestroyed(QObject*);
+    void dataReceived();
+
+private:
+    DNSSD::PublicService* service;
+    QTcpServer* mServer;
+
+    QMap<QString, DeviceLink*> links;
 
 };
 
-#endif // PINGPACKAGERECEIVER_H
+#endif
