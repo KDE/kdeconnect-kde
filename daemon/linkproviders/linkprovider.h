@@ -36,9 +36,9 @@ class LinkProvider
 
 public:
 
-    const int PRIORITY_LOW = 0;      //eg: 3g
-    const int PRIORITY_MEDIUM = 50;  //eg: internet
-    const int PRIORITY_HIGH = 100;   //eg: lan
+    const static int PRIORITY_LOW = 0;      //eg: 3g
+    const static int PRIORITY_MEDIUM = 50;  //eg: internet
+    const static int PRIORITY_HIGH = 100;   //eg: lan
 
     LinkProvider();
     virtual ~LinkProvider() { }

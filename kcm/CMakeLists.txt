@@ -10,6 +10,7 @@ qt4_add_dbus_interface(
    ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.xml
    daemoninterface
 )
+
 qt4_add_dbus_interface(
    kcm_SRCS
    ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.device.xml
@@ -25,6 +26,11 @@ target_link_libraries(kcm_kdeconnect
     ${QT_QTGUI_LIBRARY}
     ${KDE4_KDEUI_LIBRARY}
     ${KDE4_KIO_LIBRARY}
+)
+
+add_dependencies(kcm_kdeconnect
+    org.kde.kdeconnect.xml
+    org.kde.kdeconnect.device.xml
 )
 
 install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})

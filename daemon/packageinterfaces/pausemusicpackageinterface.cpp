@@ -29,7 +29,7 @@
 
 PauseMusicPackageInterface::PauseMusicPackageInterface()
 {
-    //TODO: Be able to change this from settings
+    //TODO: Be able to change this from plugin settings
     pauseWhen = PauseWhenRinging;
 
 }
@@ -57,40 +57,32 @@ bool PauseMusicPackageInterface::receivePackage (const Device& device, const Net
 
     qDebug() << "PauseMusicPackageReceiver - PauseCondition:" << pauseConditionFulfilled;
 
+    //TODO: Make this async
+    //TODO: Make this not crash if dbus is not working
     if (pauseConditionFulfilled) {
-        //TODO: Make this async
         //Search for interfaces currently playing
         QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
         Q_FOREACH (const QString& iface, interfaces) {
             if (iface.startsWith("org.mpris.MediaPlayer2")) {
-                QDBusInterface *dbusInterface = new QDBusInterface(iface, "/org/mpris/MediaPlayer2", "org.freedesktop.DBus.Properties", QDBusConnection::sessionBus(), this);
-                QDBusInterface *mprisInterface = new QDBusInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player", QDBusConnection::sessionBus(), this);
-
-                QString status = (qvariant_cast<QDBusVariant>(dbusInterface->call(QDBus::Block,"Get","org.mpris.MediaPlayer2.Player","PlaybackStatus").arguments().first()).variant()).toString();
+                QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
+                QString status = mprisInterface.property("PlaybackStatus").toString();
                 if (status == "Playing") {
                     if (!pausedSources.contains(iface)) {
                         pausedSources.insert(iface);
-                        mprisInterface->call(QDBus::Block,"Pause");
+                        mprisInterface.call(QDBus::Block,"Pause");
                     }
                 }
-
-                delete dbusInterface;
-                delete mprisInterface;
             }
         }
     } if (!pauseConditionFulfilled) {
-        //TODO: Make this async
         Q_FOREACH (const QString& iface, pausedSources) {
-            QDBusInterface *mprisInterface = new QDBusInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player", QDBusConnection::sessionBus(), this);
-            //FIXME: Calling play does not work in spotify
+            QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
+            //Calling play does not work in spotify
             //mprisInterface->call(QDBus::Block,"Play");
             //Workaround: Using playpause instead (checking first if it is already playing)
-            QDBusInterface *dbusInterface = new QDBusInterface(iface, "/org/mpris/MediaPlayer2", "org.freedesktop.DBus.Properties", QDBusConnection::sessionBus(), this);
-            QString status = (qvariant_cast<QDBusVariant>(dbusInterface->call(QDBus::Block,"Get","org.mpris.MediaPlayer2.Player","PlaybackStatus").arguments().first()).variant()).toString();
-            if (status == "Paused") mprisInterface->call(QDBus::Block,"PlayPause");
-            delete dbusInterface;
+            QString status = mprisInterface.property("PlaybackStatus").toString();
+            if (status == "Paused") mprisInterface.call(QDBus::Block,"PlayPause");
             //End of workaround
-            delete mprisInterface;
         }
         pausedSources.clear();
     }
