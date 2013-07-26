@@ -23,7 +23,6 @@
 #include <kconfiggroup.h>
 #include <qbytearray.h>
 #include <qdatastream.h>
-#include <KDebug>
 #include <QHostInfo>
 #include <sstream>
 #include <string>
@@ -66,7 +65,8 @@ QByteArray NetworkPackage::serialize() const
 
 void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
 {
-    kDebug() << a;
+    qDebug() << "Unserialize:" << a;
+    
     //Json -> QVariant
     QJson::Parser parser;
     bool ok;

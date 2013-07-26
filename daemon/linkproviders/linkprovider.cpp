@@ -20,6 +20,7 @@
 
 #include "linkprovider.h"
 
-LinkProvider::LinkProvider() {
+LinkProvider::LinkProvider()
+{
     //gcc complains if we don't add something to compile on a class with virtual functions
 }

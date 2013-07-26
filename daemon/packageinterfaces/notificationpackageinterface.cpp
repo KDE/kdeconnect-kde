@@ -23,7 +23,8 @@
 #include <QDebug>
 #include <kicon.h>
 
-KNotification* NotificationPackageInterface::createNotification(const QString& deviceName, const NetworkPackage& np) {
+KNotification* NotificationPackageInterface::createNotification(const QString& deviceName, const NetworkPackage& np)
+{
 
     QString npType = np.get<QString>("notificationType");
 
@@ -71,7 +72,8 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
 
 }
 
-bool NotificationPackageInterface::receivePackage(const Device& device, const NetworkPackage& np) {
+bool NotificationPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
+{
 
     if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
 

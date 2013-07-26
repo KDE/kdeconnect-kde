@@ -49,7 +49,7 @@ class Daemon
     : public KDEDModule
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "kdeconnect.daemon")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
 
 public:
     Daemon(QObject *parent, const QList<QVariant>&);

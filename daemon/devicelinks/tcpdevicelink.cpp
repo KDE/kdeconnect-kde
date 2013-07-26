@@ -39,12 +39,16 @@ void TcpDeviceLink::dataReceived()
 {
     qDebug() << "TcpDeviceLink dataReceived";
 
-    QByteArray a = mSocket->readAll();
+    QByteArray data = mSocket->readAll();
+    QList<QByteArray> packages = data.split('\n');
+    Q_FOREACH(const QByteArray& package, packages) {
 
-    qDebug() << a;
+        if (package.length() < 3) continue;
 
-    NetworkPackage np;
-    NetworkPackage::unserialize(a,&np);
+        NetworkPackage np;
+        NetworkPackage::unserialize(package,&np);
 
-    emit receivedPackage(np);
+        emit receivedPackage(np);
+
+    }
 }

@@ -26,6 +26,7 @@
 #include "packageinterfaces/notificationpackageinterface.h"
 #include "packageinterfaces/pausemusicpackageinterface.h"
 #include "packageinterfaces/clipboardpackageinterface.h"
+#include "packageinterfaces/batterypackageinterface.h"
 
 #include "linkproviders/avahitcplinkprovider.h"
 #include "linkproviders/loopbacklinkprovider.h"
@@ -56,7 +57,6 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //Debugging
     qDebug() << "Starting KdeConnect daemon";
-    config->group("devices").group("paired").group("fake_unreachable").writeEntry("name","Fake device");
 
     //TODO: Do not hardcode the load of the package interfaces
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
@@ -64,6 +64,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     mPackageInterfaces.push_back(new NotificationPackageInterface());
     mPackageInterfaces.push_back(new PauseMusicPackageInterface());
     mPackageInterfaces.push_back(new ClipboardPackageInterface());
+    mPackageInterfaces.push_back(new BatteryPackageInterface());
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins

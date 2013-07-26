@@ -21,13 +21,13 @@
 #include "dbusinterfaces.h"
 
 DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
-    : KdeconnectDaemonInterface("org.kde.kdeconnect", "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDaemonInterface("org.kde.kdeconnect", "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
 {
 
 }
 
 DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
-    : KdeconnectDeviceInterface("org.kde.kdeconnect", "/modules/kdeconnect/Devices/"+id, QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {
 
 }

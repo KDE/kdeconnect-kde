@@ -3,7 +3,7 @@
 #include <ksharedconfig.h>
 #include "devicelinks/devicelink.h"
 #include "linkproviders/linkprovider.h"
-
+#include "packageinterfaces/devicebatteryinformation_p.h"
 #include <KConfigGroup>
 #include <QDebug>
 
@@ -13,7 +13,10 @@ Device::Device(const QString& id, const QString& name)
     m_deviceName = name;
     m_paired = true;
     m_knownIdentiy = true;
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/Devices/"+id, this, QDBusConnection::ExportScriptableContents);
+
+    //Register in bus
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+
 }
 
 Device::Device(const QString& id, const QString& name, DeviceLink* link)
@@ -22,7 +25,9 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     m_deviceName = name;
     m_paired = false;
     m_knownIdentiy = true;
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/Devices/"+id, this, QDBusConnection::ExportScriptableContents);
+
+    //Register in bus
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     addLink(link);
 }

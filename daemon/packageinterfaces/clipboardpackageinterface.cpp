@@ -24,7 +24,8 @@
 #include <KDebug>
 #include <QApplication>
 
-ClipboardPackageInterface::ClipboardPackageInterface() {
+ClipboardPackageInterface::ClipboardPackageInterface()
+{
     clipboard = QApplication::clipboard();
     ignore_next_clipboard_change = false;
     connect(clipboard,SIGNAL(changed(QClipboard::Mode)),this,SLOT(clipboardChanged(QClipboard::Mode)));

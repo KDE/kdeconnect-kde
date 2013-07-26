@@ -31,6 +31,7 @@ target_link_libraries(kcm_kdeconnect
 add_dependencies(kcm_kdeconnect
     org.kde.kdeconnect.xml
     org.kde.kdeconnect.device.xml
+    org.kde.kdeconnect.device.battery.xml
 )
 
 install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})

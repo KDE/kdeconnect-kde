@@ -13,6 +13,8 @@ set(kded_kdeconnect_SRCS
     packageinterfaces/notificationpackageinterface.cpp
     packageinterfaces/pausemusicpackageinterface.cpp
     packageinterfaces/clipboardpackageinterface.cpp
+    packageinterfaces/batterypackageinterface.cpp
+    packageinterfaces/devicebatteryinformation_p.cpp
 
     networkpackage.cpp
     daemon.cpp
@@ -31,30 +33,34 @@ target_link_libraries(kded_kdeconnect
     ${QJSON_LIBRARY}
 )
 
-qt4_generate_dbus_interface(
+macro (generate_and_install_dbus_interface project_main_target header_file output_xml_file) #OPTIONS qdbus_options
+    QT4_EXTRACT_OPTIONS(extra_files_ignore qdbus_options ${ARGN})
+    qt4_generate_dbus_interface(${header_file} ${output_xml_file} OPTIONS ${qdbus_options})
+    add_dependencies(${project_main_target} ${output_xml_file})
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${output_xml_file} DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+endmacro (generate_and_install_dbus_interface)
+
+generate_and_install_dbus_interface(
+    kded_kdeconnect
     daemon.h
     org.kde.kdeconnect.xml
     OPTIONS -a
 )
 
-qt4_generate_dbus_interface(
+generate_and_install_dbus_interface(
+    kded_kdeconnect
     device.h
     org.kde.kdeconnect.device.xml
     OPTIONS -a
 )
 
-add_custom_target(
-    org.kde.kdeconnect.xml
-    SOURCES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml
+generate_and_install_dbus_interface(
+    kded_kdeconnect
+    packageinterfaces/devicebatteryinformation_p.h
+    org.kde.kdeconnect.device.battery.xml
+    OPTIONS -a
 )
 
-add_custom_target(
-    org.kde.kdeconnect.device.xml
-    SOURCES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.device.xml
-)
-
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.device.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)

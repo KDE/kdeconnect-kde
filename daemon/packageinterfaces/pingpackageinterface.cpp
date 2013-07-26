@@ -23,7 +23,8 @@
 #include <KDebug>
 #include <kicon.h>
 
-bool PingPackageInterface::receivePackage(const Device& device, const NetworkPackage& np) {
+bool PingPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
+{
 
     if (np.type() != PACKAGE_TYPE_PING) return false;
 

@@ -18,32 +18,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "daemoninterface.h"
-#include "deviceinterface.h"
+#include "batterypackageinterface.h"
 
-#ifndef DbusInterfaces_H_
-#define DbusInterfaces_H_
+#include <QDebug>
+#include <kicon.h>
 
-/**
- * Using these "proxy" classes just in case we need to rename the
- * interface, so we can change the class name in a single place.
- */
-class DaemonDbusInterface
-    : public OrgKdeKdeconnectDaemonInterface
+
+BatteryPackageInterface::BatteryPackageInterface()
 {
-    Q_OBJECT
-public:
-    DaemonDbusInterface(QObject* parent);
+    //TODO: Get initial state of all devices
+}
 
-};
-
-class DeviceDbusInterface
-    : public OrgKdeKdeconnectDeviceInterface
+bool BatteryPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
 {
-    Q_OBJECT
-public:
-    DeviceDbusInterface(const QString& id, QObject* parent);
+    if (np.type() != PACKAGE_TYPE_BATTERY) return false;
 
-};
+    QString id = device.id();
 
-#endif
+    if (!devices.contains(id)) {
+
+        //TODO: Avoid ugly const_cast
+        DeviceBatteryInformation* deviceInfo = new DeviceBatteryInformation(const_cast<Device*>(&device));
+
+        devices[id] = deviceInfo;
+
+        qDebug() << "Added battery info to device" << id;
+
+    }
+
+    bool isCharging = np.get<bool>("isCharging");
+    devices[id]->setCharging(isCharging);
+
+    int currentCharge = np.get<int>("currentCharge");
+    devices[id]->setCharge(currentCharge);
+
+    return true;
+
+}

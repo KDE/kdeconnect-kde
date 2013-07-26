@@ -32,7 +32,9 @@ class DeviceLink;
 class Device : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "kdeconnect.device")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
+    Q_PROPERTY(QString id READ id)
+    Q_PROPERTY(QString name READ name)
 
 public:
 
@@ -46,6 +48,9 @@ public:
     //(not supported yet, do we need it or we can rely on the device presenging itself?)
     //Device(const QString& id, DeviceLink* dl);
 
+    QString id() const{ return m_deviceId; }
+    QString name() const { return m_deviceName; }
+
     //Add and remove links
     void addLink(DeviceLink*);
     void removeLink(DeviceLink*);
@@ -56,10 +61,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     bool sendPackage(const NetworkPackage& np);
 
-    //Public dbus interface
+    //Public dbus operations
 public Q_SLOTS:
-    Q_SCRIPTABLE QString id() const{ return m_deviceId; }
-    Q_SCRIPTABLE QString name() const { return m_deviceName; }
     Q_SCRIPTABLE QStringList availableLinks() const;
     Q_SCRIPTABLE bool paired() const { return m_paired; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }

@@ -18,32 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "daemoninterface.h"
-#include "deviceinterface.h"
+#include "devicebatteryinformation_p.h"
 
-#ifndef DbusInterfaces_H_
-#define DbusInterfaces_H_
-
-/**
- * Using these "proxy" classes just in case we need to rename the
- * interface, so we can change the class name in a single place.
- */
-class DaemonDbusInterface
-    : public OrgKdeKdeconnectDaemonInterface
+DeviceBatteryInformation::DeviceBatteryInformation(QObject* parent)
+    : QDBusAbstractAdaptor(parent)
 {
-    Q_OBJECT
-public:
-    DaemonDbusInterface(QObject* parent);
 
-};
-
-class DeviceDbusInterface
-    : public OrgKdeKdeconnectDeviceInterface
-{
-    Q_OBJECT
-public:
-    DeviceDbusInterface(const QString& id, QObject* parent);
-
-};
-
-#endif
+}
