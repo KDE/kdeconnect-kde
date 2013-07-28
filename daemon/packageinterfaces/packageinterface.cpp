@@ -20,7 +20,8 @@
 
 #include "packageinterface.h"
 
-PackageInterface::PackageInterface()
+PackageInterface::PackageInterface(QObject* parent)
+    : QObject(parent)
 {
     //gcc complains if we don't add something to compile on a class with virtual functions
 }

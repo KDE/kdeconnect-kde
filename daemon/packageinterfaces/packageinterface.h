@@ -32,7 +32,7 @@ class PackageInterface
     Q_OBJECT
 
 public:
-    PackageInterface();
+    PackageInterface(QObject* parent = 0);
     virtual ~PackageInterface() { }
 
 public Q_SLOTS:

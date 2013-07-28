@@ -77,6 +77,11 @@ void Device::addLink(DeviceLink* link)
     connect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
 
     qSort(m_deviceLinks.begin(),m_deviceLinks.end(),lessThan);
+
+    if (m_deviceLinks.size() == 1) {
+        emit reachableStatusChanged();
+    }
+
 }
 
 void Device::linkDestroyed(QObject* o)
@@ -87,9 +92,13 @@ void Device::linkDestroyed(QObject* o)
 
 void Device::removeLink(DeviceLink* link)
 {
-    qDebug() << "RemoveLink";
-    //disconnect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
     m_deviceLinks.removeOne(link);
+
+    qDebug() << "RemoveLink"<< m_deviceLinks.size() << "links remaining";
+
+    if (m_deviceLinks.empty()) {
+        emit reachableStatusChanged();
+    }
 }
 
 bool Device::sendPackage(const NetworkPackage& np)

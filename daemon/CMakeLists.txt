@@ -33,17 +33,35 @@ target_link_libraries(kded_kdeconnect
     ${QJSON_LIBRARY}
 )
 
-macro (generate_and_install_dbus_interface project_main_target header_file output_xml_file) #OPTIONS qdbus_options
-    QT4_EXTRACT_OPTIONS(extra_files_ignore qdbus_options ${ARGN})
-    qt4_generate_dbus_interface(${header_file} ${output_xml_file} OPTIONS ${qdbus_options})
-    add_dependencies(${project_main_target} ${output_xml_file})
-    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${output_xml_file} DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+macro (generate_and_install_dbus_interface main_project_target header_file output_xml_file) #OPTIONS qdbus_options
+    QT4_EXTRACT_OPTIONS(
+        extra_files_ignore
+        qdbus_options
+        ${ARGN}
+    )
+    qt4_generate_dbus_interface(
+        ${header_file}
+        ${output_xml_file}
+        OPTIONS ${qdbus_options}
+    )
+    add_custom_target(
+        ${output_xml_file}
+        SOURCES ${CMAKE_CURRENT_BINARY_DIR}/${output_xml_file}
+    )
+    install(
+        FILES ${CMAKE_CURRENT_BINARY_DIR}/${output_xml_file}
+        DESTINATION ${DBUS_INTERFACES_INSTALL_DIR}
+    )
+    add_dependencies(
+        ${main_project_target}
+        ${output_xml_file}
+    )
 endmacro (generate_and_install_dbus_interface)
 
 generate_and_install_dbus_interface(
     kded_kdeconnect
     daemon.h
-    org.kde.kdeconnect.xml
+    org.kde.kdeconnect.daemon.xml
     OPTIONS -a
 )
 
@@ -58,6 +76,13 @@ generate_and_install_dbus_interface(
     kded_kdeconnect
     packageinterfaces/devicebatteryinformation_p.h
     org.kde.kdeconnect.device.battery.xml
+    OPTIONS -a
+)
+
+generate_and_install_dbus_interface(
+    kded_kdeconnect
+    packageinterfaces/batterypackageinterface.h
+    org.kde.kdeconnect.battery.xml
     OPTIONS -a
 )
 

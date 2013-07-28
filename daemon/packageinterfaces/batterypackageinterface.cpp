@@ -24,9 +24,17 @@
 #include <kicon.h>
 
 
-BatteryPackageInterface::BatteryPackageInterface()
+BatteryPackageInterface::BatteryPackageInterface(QObject* parent)
+    : PackageInterface(parent)
 {
     //TODO: Get initial state of all devices
+
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/plugins/battery", this, QDBusConnection::ExportScriptableContents);
+    //The solid backend watches for this service to become available, because it is not possible to watch for a path
+    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect.battery");
+
+    qDebug() << "BatteryPackageInterface registered in dbus";
+
 }
 
 bool BatteryPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
@@ -35,23 +43,42 @@ bool BatteryPackageInterface::receivePackage(const Device& device, const Network
 
     QString id = device.id();
 
-    if (!devices.contains(id)) {
+    if (!mDevices.contains(id)) {
 
         //TODO: Avoid ugly const_cast
         DeviceBatteryInformation* deviceInfo = new DeviceBatteryInformation(const_cast<Device*>(&device));
 
-        devices[id] = deviceInfo;
+        mDevices[id] = deviceInfo;
+
+        emit batteryDeviceAdded(device.id());
+        connect(&device, SIGNAL(reachableStatusChanged()), this, SLOT(deviceReachableStatusChange()));
 
         qDebug() << "Added battery info to device" << id;
 
     }
 
     bool isCharging = np.get<bool>("isCharging");
-    devices[id]->setCharging(isCharging);
+    mDevices[id]->setCharging(isCharging);
 
     int currentCharge = np.get<int>("currentCharge");
-    devices[id]->setCharge(currentCharge);
+    mDevices[id]->setCharge(currentCharge);
 
     return true;
 
 }
+
+QStringList BatteryPackageInterface::getBatteryReportingDevices()
+{
+    return mDevices.keys();
+}
+
+void BatteryPackageInterface::deviceReachableStatusChange()
+{
+    Device* device = static_cast<Device*>(sender());
+    if (!device->reachable()) {
+        mDevices.remove(device->id());
+        emit batteryDeviceLost(device->id());
+        disconnect(device, SIGNAL(reachableStatusChanged()), this, SLOT(deviceReachableStatusChange()));
+    }
+}
+

@@ -24,20 +24,32 @@
 #include <knotification.h>
 
 #include "packageinterface.h"
+#include <QDBusAbstractAdaptor>
 
 #include "devicebatteryinformation_p.h"
 
 class BatteryPackageInterface
     : public PackageInterface
 {
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.battery")
 
 public:
-    BatteryPackageInterface();
+    BatteryPackageInterface(QObject* parent);
     virtual bool receivePackage(const Device&, const NetworkPackage& np);
 
 private:
-    QHash<QString,DeviceBatteryInformation*> devices;
+    QHash<QString,DeviceBatteryInformation*> mDevices;
 
+public Q_SLOTS:
+    Q_SCRIPTABLE QStringList getBatteryReportingDevices();
+
+Q_SIGNALS:
+    Q_SCRIPTABLE void batteryDeviceAdded(const QString& id);
+    Q_SCRIPTABLE void batteryDeviceLost(const QString& id);
+
+public slots:
+    void deviceReachableStatusChange();
 };
 
 #endif

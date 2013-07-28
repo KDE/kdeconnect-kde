@@ -28,24 +28,24 @@ class DeviceBatteryInformation
     : public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.battery")
-    Q_PROPERTY( int charge READ charge )
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
+    Q_PROPERTY( int charge READ charge NOTIFY chargingChange )
     Q_PROPERTY( bool isCharging READ isCharging NOTIFY chargingChange )
 
 public:
     DeviceBatteryInformation(QObject* parent = 0);
 
     int charge() { return mCharge; }
-    void setCharge(int charge) { mCharge = charge; }
+    void setCharge(int charge) { mCharge = charge; emit chargingChange(); }
     bool isCharging() { return mIsCharging; }
-    void setCharging(bool isCharging) { mIsCharging = isCharging; }
+    void setCharging(bool isCharging) { mIsCharging = isCharging; emit chargingChange(); }
 
 private:
     bool mIsCharging;
     int mCharge;
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void chargingChange(bool charging);
+    Q_SCRIPTABLE void chargingChange();
 
 };
 

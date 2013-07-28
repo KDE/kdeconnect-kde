@@ -29,7 +29,8 @@
 
 class DeviceLink;
 
-class Device : public QObject
+class Device
+    : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
@@ -55,6 +56,7 @@ public:
     void addLink(DeviceLink*);
     void removeLink(DeviceLink*);
 
+
     //Send and receive
 Q_SIGNALS:
     void receivedPackage(const Device& device, const NetworkPackage& np);
@@ -69,6 +71,9 @@ public Q_SLOTS:
     Q_SCRIPTABLE void setPair(bool b);
     Q_SCRIPTABLE void sendPing();
 
+Q_SIGNALS:
+    void reachableStatusChanged();
+    
 private Q_SLOTS:
     void linkDestroyed(QObject* o = 0);
     void privateReceivedPackage(const NetworkPackage& np);

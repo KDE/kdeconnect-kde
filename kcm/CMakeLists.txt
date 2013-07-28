@@ -7,7 +7,7 @@ set(kcm_SRCS devicesmodel.cpp
 
 qt4_add_dbus_interface(
    kcm_SRCS
-   ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.xml
+   ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.daemon.xml
    daemoninterface
 )
 
@@ -29,9 +29,8 @@ target_link_libraries(kcm_kdeconnect
 )
 
 add_dependencies(kcm_kdeconnect
-    org.kde.kdeconnect.xml
+    org.kde.kdeconnect.daemon.xml
     org.kde.kdeconnect.device.xml
-    org.kde.kdeconnect.device.battery.xml
 )
 
 install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})

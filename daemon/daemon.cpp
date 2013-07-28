@@ -64,7 +64,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     mPackageInterfaces.push_back(new NotificationPackageInterface());
     mPackageInterfaces.push_back(new PauseMusicPackageInterface());
     mPackageInterfaces.push_back(new ClipboardPackageInterface());
-    mPackageInterfaces.push_back(new BatteryPackageInterface());
+    mPackageInterfaces.push_back(new BatteryPackageInterface(this));
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
