@@ -69,7 +69,7 @@ bool PauseMusicPackageInterface::receivePackage (const Device& device, const Net
                 if (status == "Playing") {
                     if (!pausedSources.contains(iface)) {
                         pausedSources.insert(iface);
-                        mprisInterface.call(QDBus::Block,"Pause");
+                        mprisInterface.asyncCall("Pause");
                     }
                 }
             }
@@ -81,7 +81,7 @@ bool PauseMusicPackageInterface::receivePackage (const Device& device, const Net
             //mprisInterface->call(QDBus::Block,"Play");
             //Workaround: Using playpause instead (checking first if it is already playing)
             QString status = mprisInterface.property("PlaybackStatus").toString();
-            if (status == "Paused") mprisInterface.call(QDBus::Block,"PlayPause");
+            if (status == "Paused") mprisInterface.asyncCall("PlayPause");
             //End of workaround
         }
         pausedSources.clear();

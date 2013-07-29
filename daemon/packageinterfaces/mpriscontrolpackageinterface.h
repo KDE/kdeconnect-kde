@@ -18,25 +18,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPACKAGEINTERFACE_H
-#define PAUSEMUSICPACKAGEINTERFACE_H
+#ifndef MPRISCONTROLPACKAGEINTERFACE_H
+#define MPRISCONTROLPACKAGEINTERFACE_H
 
 #include "packageinterface.h"
 
 #include <QSet>
 #include <QString>
 
-class PauseMusicPackageInterface
+class MprisControlPackageInterface
     : public PackageInterface
 {
 public:
-    PauseMusicPackageInterface();
+    MprisControlPackageInterface();
     virtual bool receivePackage(const Device& device, const NetworkPackage& np);
-
-private:
-    enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
-    PauseCondtions pauseWhen;
-    QSet<QString> pausedSources;
 
 };
 

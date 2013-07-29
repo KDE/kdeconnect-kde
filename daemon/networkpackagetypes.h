@@ -27,7 +27,7 @@
 #define PACKAGE_TYPE_BATTERY QString("kdeconnect.battery")
 #define PACKAGE_TYPE_CALL QString("kdeconnect.call")
 #define PACKAGE_TYPE_CLIPBOARD QString("kdeconnect.clipboard")
-
+#define PACKAGE_TYPE_MPRIS QString("kdeconnect.mpris")
 
 
 #endif // NETWORKPACKAGETYPES_H

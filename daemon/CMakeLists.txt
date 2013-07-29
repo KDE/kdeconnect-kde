@@ -14,6 +14,7 @@ set(kded_kdeconnect_SRCS
     packageinterfaces/pausemusicpackageinterface.cpp
     packageinterfaces/clipboardpackageinterface.cpp
     packageinterfaces/batterypackageinterface.cpp
+    packageinterfaces/mpriscontrolpackageinterface.cpp
     packageinterfaces/devicebatteryinformation_p.cpp
 
     networkpackage.cpp

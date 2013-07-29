@@ -27,6 +27,7 @@
 #include "packageinterfaces/pausemusicpackageinterface.h"
 #include "packageinterfaces/clipboardpackageinterface.h"
 #include "packageinterfaces/batterypackageinterface.h"
+#include "packageinterfaces/mpriscontrolpackageinterface.h"
 
 #include "linkproviders/avahitcplinkprovider.h"
 #include "linkproviders/loopbacklinkprovider.h"
@@ -65,6 +66,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     mPackageInterfaces.push_back(new PauseMusicPackageInterface());
     mPackageInterfaces.push_back(new ClipboardPackageInterface());
     mPackageInterfaces.push_back(new BatteryPackageInterface(this));
+    mPackageInterfaces.push_back(new MprisControlPackageInterface());
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
