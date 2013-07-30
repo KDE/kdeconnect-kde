@@ -25,13 +25,28 @@
 
 #include <QSet>
 #include <QString>
+#include <QHash>
+#include <QDBusArgument>
 
 class MprisControlPackageInterface
     : public PackageInterface
 {
+    Q_OBJECT
+
 public:
     MprisControlPackageInterface();
     virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+
+public Q_SLOTS:
+    void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
+
+private:
+    QHash<QString, QString> playerList;
+    void addPlayer(const QString& ifaceName);
+    void removePlayer(const QString& ifaceName);
+    void sendPlayerList();
+    void sendNowPlaying(const QDBusInterface& interface);
+
 
 };
 

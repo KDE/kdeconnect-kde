@@ -25,6 +25,7 @@
 #include <QObject>
 #include <QString>
 #include <QVariant>
+#include <QStringList>
 #include <qjson/parser.h>
 #include "default_args.h"
 
@@ -38,7 +39,6 @@ class NetworkPackage : public QObject
 
 public:
 
-    NetworkPackage() {};
     NetworkPackage(QString type);
 
     static void unserialize(QByteArray, NetworkPackage*);
@@ -52,10 +52,12 @@ public:
     int version() const { return mVersion; }
 
     //Get and set info from body. Note that id, type and version can not be accessed through these.
-    template<typename T> T get(const QString& property, const T& defaultValue = default_arg<T>::get()) const {
-        return mBody.value(property,defaultValue).template value<T>(); //Important note: Awesome template syntax is awesome
+    template<typename T> T get(const QString& key, const T& defaultValue = default_arg<T>::get()) const {
+        return mBody.value(key,defaultValue).template value<T>(); //Important note: Awesome template syntax is awesome
     }
-    template<typename T> void set(const QString& property, const T& value) { mBody[property] = value; }
+    template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
+    
+    bool has(const QString& key) { return mBody.contains(key); }
 
 private:
     void setId(long id) { mId = id; }
@@ -70,5 +72,7 @@ private:
 
 };
 
+//Set specialization need this awesome-to-the-max syntax:
+//template<> inline void NetworkPackage::set<QStringList>(const QString& key, const QStringList& value) { mBody[key] = QVariant(value); }
 
 #endif // NETWORKPACKAGE_H

@@ -45,7 +45,7 @@ void TcpDeviceLink::dataReceived()
 
         if (package.length() < 3) continue;
 
-        NetworkPackage np;
+        NetworkPackage np("");
         NetworkPackage::unserialize(package,&np);
 
         emit receivedPackage(np);

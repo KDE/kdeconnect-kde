@@ -49,7 +49,7 @@ void AvahiTcpLinkProvider::newConnection()
 
     connect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
-    NetworkPackage np;
+    NetworkPackage np(PACKAGE_TYPE_IDENTITY);
     NetworkPackage::createIdentityPackage(&np);
     int written = socket->write(np.serialize());
 
@@ -64,7 +64,7 @@ void AvahiTcpLinkProvider::dataReceived()
 
     qDebug() << "AvahiTcpLinkProvider received reply:" << data;
 
-    NetworkPackage np;
+    NetworkPackage np("");
     NetworkPackage::unserialize(data,&np);
 
     if (np.version() > 0 && np.type() == PACKAGE_TYPE_IDENTITY) {

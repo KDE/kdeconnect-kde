@@ -29,7 +29,60 @@
 
 MprisControlPackageInterface::MprisControlPackageInterface()
 {
-    //TODO: Emit info read form mpris to the phone
+
+    //Detect new interfaces
+    connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceOwnerChanged(QString,QString,QString)),
+            this, SLOT(serviceOwnerChanged(QString,QString,QString)));
+
+    //Add existing interfaces
+    QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
+    Q_FOREACH (const QString& iface, interfaces) {
+        if (iface.startsWith("org.mpris.MediaPlayer2")) {
+            addPlayer(iface);
+        }
+    }
+
+}
+
+void MprisControlPackageInterface::serviceOwnerChanged(const QString &name,
+                                              const QString &oldOwner,
+                                              const QString &newOwner)
+{
+    Q_UNUSED(oldOwner);
+
+    if (name.startsWith("org.mpris.MediaPlayer2")) {
+
+        qDebug() << "Something registered in bus" << name << oldOwner << newOwner;
+
+        if (oldOwner.isEmpty()) {
+            addPlayer(name);
+        } else if (newOwner.isEmpty()) {
+            removePlayer(name);
+        }
+    }
+}
+
+void MprisControlPackageInterface::addPlayer(const QString& ifaceName)
+{
+    QDBusInterface interface(ifaceName, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2");
+    //TODO: Make this async
+    QString identity = interface.property("Identity").toString();
+    playerList[identity] = ifaceName;
+    qDebug() << "addPlayer" << ifaceName << identity;
+    sendPlayerList();
+}
+
+void MprisControlPackageInterface::removePlayer(const QString& ifaceName)
+{
+    playerList.remove(playerList.key(ifaceName));
+    sendPlayerList();
+}
+
+void MprisControlPackageInterface::sendPlayerList()
+{
+    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    np.set("playerList",playerList.keys());
+    sendPackage(np);
 }
 
 bool MprisControlPackageInterface::receivePackage (const Device& device, const NetworkPackage& np)
@@ -38,16 +91,40 @@ bool MprisControlPackageInterface::receivePackage (const Device& device, const N
 
     if (np.type() != PACKAGE_TYPE_MPRIS) return false;
 
-    QString action = np.get<QString>("action");
 
-    QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
-    Q_FOREACH (const QString& iface, interfaces) {
-        if (iface.startsWith("org.mpris.MediaPlayer2")) {
-            QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
-            mprisInterface.asyncCall(action);
-        }
+    QString player = np.get<QString>("player");
+    if (!playerList.contains(player)) {
+        sendPlayerList();
+        return true;
+    }
+
+    QDBusInterface mprisInterface(playerList[player], "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
+
+    if (np.get<bool>("requestPlayerList")) {
+        sendPlayerList();
+    }
+
+    QString action = np.get<QString>("action");
+    if (!action.isEmpty()) {
+        qDebug() << "Calling action" << action << "in" << playerList[player];
+        mprisInterface.call(action);
+        sendNowPlaying(mprisInterface);
+    } else if (np.get<bool>("requestNowPlaying")) {
+        sendNowPlaying(mprisInterface);
     }
 
     return true;
 
+}
+
+void MprisControlPackageInterface::sendNowPlaying(const QDBusInterface& mprisInterface)
+{
+    QVariantMap nowPlayingMap = mprisInterface.property("Metadata").toMap();
+    QString nowPlaying = nowPlayingMap["xesam:title"].toString();
+    if (nowPlayingMap.contains("xesam:artist")) {
+        nowPlaying = nowPlayingMap["xesam:artist"].toString() + " - " + nowPlaying;
+    }
+    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    np.set("nowPlaying",nowPlaying);
+    sendPackage(np);
 }

@@ -24,6 +24,7 @@
 #include <QDebug>
 
 LoopbackLinkProvider::LoopbackLinkProvider()
+    : identityPackage(PACKAGE_TYPE_IDENTITY)
 {
     echoDeviceLink = new EchoDeviceLink("fake", this);
     NetworkPackage::createIdentityPackage(&identityPackage);
