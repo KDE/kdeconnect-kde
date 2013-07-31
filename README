@@ -1,0 +1,20 @@
+The kdeconnect protocol:
+
+Communication between heterogenous devices is achieved using NetworkPackages.
+NetworkPackages are independent and self-contained pieces of information that
+are sent from one device to another serialized in json.
+
+The basic structure of a NetworkPackage is the following:
+
+{
+    "id": 123456789,
+    "type": "org.kde.whatever",
+    "body": {
+
+    },
+    "version": 1
+}
+
+Each type of package defines what it should contain inside its "body", so only
+the sender and receiver of this type of package need agree about it.
+
