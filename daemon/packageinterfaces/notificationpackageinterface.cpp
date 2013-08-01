@@ -35,7 +35,6 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
     if (npType == "ringing") {
         type = "callReceived";
         icon = "call-start";
-        QString number =
         content = "Incoming call from " + np.get<QString>("phoneNumber","unknown number");
     } else if (npType == "missedCall") {
         type = "missedCall";
@@ -44,7 +43,10 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
     } else if (npType == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
-        content = "SMS received from " + np.get<QString>("phoneNumber","unknown number");
+        content = "SMS from "
+            + np.get<QString>("phoneNumber","unknown number")
+            + ":\n"
+            + np.get<QString>("messageBody","");
     } else if (npType == "battery") {
         type = "battery100";
         icon = "battery-100";
