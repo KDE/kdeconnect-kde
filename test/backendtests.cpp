@@ -53,7 +53,7 @@ void BackendTests::networkPackageTest()
 
     QByteArray ba = np.serialize();
     //qDebug() << "Serialized package:" << ba;
-    NetworkPackage np2;
+    NetworkPackage np2("");
     NetworkPackage::unserialize(ba,&np2);
 
     QCOMPARE( np.id(), np2.id() );
