@@ -45,6 +45,8 @@ public Q_SLOTS:
     virtual void onNetworkChange(QNetworkSession::State state);
     virtual void onStart();
     virtual void onStop();
+    void connected();
+    void connectError();
 
 private Q_SLOTS:
     void newUdpConnection();
@@ -58,6 +60,7 @@ private:
     const static quint16 port = 1714;
 
     QMap<QString, DeviceLink*> links;
+    QMap<QTcpSocket*, NetworkPackage*> receivedIdentityPackages;
 
 };
 

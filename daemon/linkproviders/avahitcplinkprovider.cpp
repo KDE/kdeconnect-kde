@@ -53,6 +53,8 @@ void AvahiTcpLinkProvider::onStop()
 }
 void AvahiTcpLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
+    Q_UNUSED(state);
+    
     //Nothing to do, Avahi will handle it
 }
 

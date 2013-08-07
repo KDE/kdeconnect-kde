@@ -33,7 +33,7 @@
 
 const static int CURRENT_PACKAGE_VERSION = 1;
 
-NetworkPackage::NetworkPackage(QString type)
+NetworkPackage::NetworkPackage(const QString& type)
 {
     mId = time(NULL);
     mType = type;
@@ -63,7 +63,7 @@ QByteArray NetworkPackage::serialize() const
     return json;
 }
 
-void NetworkPackage::unserialize(QByteArray a, NetworkPackage* np)
+void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 {
     qDebug() << "Unserialize:" << a;
     

@@ -70,20 +70,20 @@ void BroadcastTcpLinkProvider::newUdpConnection()
 
         mUdpServer->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
-        NetworkPackage np("");
-        NetworkPackage::unserialize(datagram,&np);
+        NetworkPackage* np = new NetworkPackage("");
+        NetworkPackage::unserialize(datagram,np);
 
-        if (np.version() > 0 && np.type() == PACKAGE_TYPE_IDENTITY) {
+        if (np->version() > 0 && np->type() == PACKAGE_TYPE_IDENTITY) {
 
             NetworkPackage np2("");
             NetworkPackage::createIdentityPackage(&np2);
 
-            if (np.get<QString>("deviceId") == np2.get<QString>("deviceId")) {
+            if (np->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
                 qDebug() << "I can't fuck myself!";
                 return;
             }
 
-            const QString& id = np.get<QString>("deviceId");
+            const QString& id = np->get<QString>("deviceId");
             if (links.contains(id)) {
                 //Delete old link if we already know it, probably it is down if this happens.
                 qDebug() << "Destroying old link";
@@ -94,27 +94,67 @@ void BroadcastTcpLinkProvider::newUdpConnection()
             QTcpSocket* socket = new QTcpSocket(this);
 
             qDebug() << "Received Udp presentation from" << sender << "asking for a tcp connection...";
+
+            receivedIdentityPackages[socket] = np;
+            connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+            connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
             socket->connectToHost(sender, port);
-            socket->waitForConnected();
-            qDebug() << "Connected" << socket->isWritable();
 
-            TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
 
-            connect(dl,SIGNAL(destroyed(QObject*)),this,SLOT(deviceLinkDestroyed(QObject*)));
-
-            links[id] = dl;
-            bool success = dl->sendPackage(np2);
-            if (!success) { //FIXME: Why is this happening?
-                qDebug() << "Fallback, try reverse connection";
-                QUdpSocket().writeDatagram(np2.serialize(),sender, port);
-            }
-
-            qDebug() << "Handshaking done (i'm the existing device)";
-
-            emit onNewDeviceLink(np, dl);
-
+        } else {
+            delete np;
         }
     }
+
+}
+
+void BroadcastTcpLinkProvider::connectError()
+{
+    QTcpSocket* socket = (QTcpSocket*)sender();
+
+    disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
+    disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
+
+    qDebug() << "Fallback (1), try reverse connection";
+    onNetworkChange(QNetworkSession::Connected);
+
+}
+
+void BroadcastTcpLinkProvider::connected()
+{
+
+    QTcpSocket* socket = (QTcpSocket*)sender();
+
+    disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
+    disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
+
+    NetworkPackage* np = receivedIdentityPackages[socket];
+    const QString& id = np->get<QString>("deviceId");
+    qDebug() << "Connected" << socket->isWritable();
+
+    TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
+
+    connect(dl,SIGNAL(destroyed(QObject*)),this,SLOT(deviceLinkDestroyed(QObject*)));
+
+    links[id] = dl;
+
+    NetworkPackage np2("");
+    NetworkPackage::createIdentityPackage(&np2);
+
+    bool success = dl->sendPackage(np2);
+
+    if (success) {
+        qDebug() << "Handshaking done (i'm the existing device)";
+        emit onNewDeviceLink(*np, dl);
+    } else {
+        //I think this will never happen
+        qDebug() << "Fallback (2), try reverse connection";
+        onNetworkChange(QNetworkSession::Connected);
+        delete dl;
+    }
+
+    receivedIdentityPackages.remove(socket);
+    delete np;
 
 }
 

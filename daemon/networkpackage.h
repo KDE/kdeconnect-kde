@@ -39,9 +39,9 @@ class NetworkPackage : public QObject
 
 public:
 
-    NetworkPackage(QString type);
+    NetworkPackage(const QString& type);
 
-    static void unserialize(QByteArray, NetworkPackage*);
+    static void unserialize(const QByteArray&, NetworkPackage*);
     QByteArray serialize() const;
 
     static void createIdentityPackage(NetworkPackage*);

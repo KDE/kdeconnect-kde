@@ -69,7 +69,7 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 
 void Device::addLink(DeviceLink* link)
 {
-    qDebug() << "Adding link to " << id() << "via" << link->provider();
+    qDebug() << "Adding link to" << id() << "via" << link->provider();
 
     connect(link,SIGNAL(destroyed(QObject*)),this,SLOT(linkDestroyed(QObject*)));
 
@@ -86,7 +86,6 @@ void Device::addLink(DeviceLink* link)
 
 void Device::linkDestroyed(QObject* o)
 {
-    qDebug() << "Link destroyed";
     removeLink(static_cast<DeviceLink*>(o));
 }
 
