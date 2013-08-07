@@ -143,14 +143,17 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Device* device = mDevices[id];
         device->addLink(dl);
 
-        KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-        notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-        notification->setTitle(device->name());
-        notification->setText("Succesfully connected");
-        notification->sendEvent();
+        if (device->paired()) {
+            KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+            notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+            notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+            notification->setTitle(device->name());
+            notification->setText("Succesfully connected");
+            notification->sendEvent();
+        }
 
         emit deviceStatusChanged(id);
+        
     } else {
         qDebug() << "It is a new device";
 
