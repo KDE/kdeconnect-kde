@@ -54,9 +54,24 @@ void DevicesModel::deviceStatusChanged(const QString& id)
 
 void DevicesModel::deviceAdded(const QString& id)
 {
+    /*
     beginInsertRows(QModelIndex(), rowCount(), rowCount() + 1);
     m_deviceList.append(new DeviceDbusInterface(id,this));
     endInsertRows();
+    */
+
+    //Full refresh
+    Q_UNUSED(id);
+    beginRemoveRows(QModelIndex(), 0, m_deviceList.count() - 1);
+    m_deviceList.clear();
+    endRemoveRows();
+    QList<QString> deviceIds = m_dbusInterface->devices();
+    Q_FOREACH(const QString& id, deviceIds) {
+        beginInsertRows(QModelIndex(), rowCount(), rowCount() + 1);
+        m_deviceList.append(new DeviceDbusInterface(id,this));
+        endInsertRows();
+    }
+
 }
 
 /*
@@ -88,9 +103,25 @@ bool DevicesModel::removeRows(int row, int count, const QModelIndex &parent)
 */
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
 {
+
+    if (!m_dbusInterface->isValid()) {
+        switch (role) {
+            case IconModelRole:
+                return KIcon("dialog-close").pixmap(32, 32);
+            case NameModelRole:
+                return QString("KDED not running");
+            default:
+                return QVariant();
+        }
+    }
+
+
+    qDebug() << index.row() << ">= " << m_deviceList.count() << (index.row() >= m_deviceList.count());
     if (!index.isValid() || index.row() < 0 || index.row() >= m_deviceList.count()) {
         return QVariant();
     }
+
+
     //FIXME: This function gets called lots of times per second, producing lots of dbus calls
     switch (role) {
         case IconModelRole: {
@@ -104,9 +135,8 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         case NameModelRole:
             return QString(m_deviceList[index.row()]->name());
         default:
-            break;
+             return QVariant();
     }
-    return QVariant();
 }
 
 DeviceDbusInterface* DevicesModel::getDevice(const QModelIndex& index)
