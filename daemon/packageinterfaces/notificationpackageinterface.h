@@ -25,17 +25,26 @@
 
 #include "packageinterface.h"
 
+#include <KStatusNotifierItem>
+
 class NotificationPackageInterface
     : public PackageInterface
 {
+    Q_OBJECT
 
 public:
+    NotificationPackageInterface(QObject* parent = 0);
+
     virtual bool receivePackage(const Device&, const NetworkPackage& np);
 
 private:
-    static KNotification* createNotification(const QString& deviceName,const NetworkPackage& np);
+    KNotification* createNotification(const QString& deviceName,const NetworkPackage& np);
+    KStatusNotifierItem* trayIcon;
+    QHash<QString, KNotification*> pendingNotifications;
 
-
+public slots:
+    void showPendingNotifications();
+    void notificationAttended();
 };
 
 #endif

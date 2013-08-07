@@ -18,37 +18,47 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "tcpdevicelink.h"
-#include "linkproviders/linkprovider.h"
+#ifndef BROADCASTTCPLINKPROVIDER_H
+#define BROADCASTTCPLINKPROVIDER_H
 
-TcpDeviceLink::TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
-    : DeviceLink(d, a)
+#include <QObject>
+#include <QTcpServer>
+#include <QUdpSocket>
+
+#include "linkprovider.h"
+#include "netaddress.h"
+
+
+class BroadcastTcpLinkProvider
+    : public LinkProvider
 {
-    mSocket = socket;
-    connect(mSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
-    connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
-}
+    Q_OBJECT
 
-bool TcpDeviceLink::sendPackage(const NetworkPackage& np)
-{
-    int written = mSocket->write(np.serialize());
-    return written != -1;
-}
+public:
+    BroadcastTcpLinkProvider();
+    ~BroadcastTcpLinkProvider();
 
-void TcpDeviceLink::dataReceived()
-{
-    qDebug() << "TcpDeviceLink dataReceived";
+    QString name() { return "BroadcastTcpLinkProvider"; }
+    int priority() { return PRIORITY_HIGH + 5; }
 
-    QByteArray data = mSocket->readAll();
-    QList<QByteArray> packages = data.split('\n');
-    Q_FOREACH(const QByteArray& package, packages) {
+public Q_SLOTS:
+    virtual void onNetworkChange(QNetworkSession::State state);
+    virtual void onStart();
+    virtual void onStop();
 
-        if (package.length() < 3) continue;
+private Q_SLOTS:
+    void newUdpConnection();
+    void newConnection();
+    void dataReceived();
+    void deviceLinkDestroyed(QObject*);
 
-        NetworkPackage np("");
-        NetworkPackage::unserialize(package,&np);
+private:
+    QTcpServer* mTcpServer;
+    QUdpSocket* mUdpServer;
+    const static quint16 port = 1714;
 
-        emit receivedPackage(np);
+    QMap<QString, DeviceLink*> links;
 
-    }
-}
+};
+
+#endif

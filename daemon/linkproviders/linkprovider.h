@@ -21,8 +21,9 @@
 #ifndef LINKPROVIDER_H
 #define LINKPROVIDER_H
 
-#include <qvector.h>
 #include <QObject>
+#include <QVector>
+#include <QNetworkSession>
 
 #include "devicelinks/devicelink.h"
 #include "device.h"
@@ -46,7 +47,10 @@ public:
     virtual QString name() = 0;
     virtual int priority() = 0;
 
-    virtual void setDiscoverable(bool b) = 0;
+public Q_SLOTS:
+    virtual void onStart() = 0;
+    virtual void onStop() = 0;
+    virtual void onNetworkChange(QNetworkSession::State state) = 0;
 
 Q_SIGNALS:
     //NOTE: The provider will to destroy the DeviceLink when it's no longer accessible,

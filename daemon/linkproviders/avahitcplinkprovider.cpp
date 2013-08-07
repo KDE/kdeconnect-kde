@@ -28,7 +28,6 @@
 AvahiTcpLinkProvider::AvahiTcpLinkProvider()
 {
     QString serviceType = "_kdeconnect._tcp";
-    quint16 port = 10602;
 
     //http://api.kde.org/4.x-api/kdelibs-apidocs/dnssd/html/index.html
 
@@ -36,8 +35,25 @@ AvahiTcpLinkProvider::AvahiTcpLinkProvider()
 
     mServer = new QTcpServer(this);
     connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
-    mServer->listen(QHostAddress::Any, port);
 
+}
+
+void AvahiTcpLinkProvider::onStart()
+{
+
+    mServer->listen(QHostAddress::Any, port);
+    service->publishAsync();
+}
+
+void AvahiTcpLinkProvider::onStop()
+{
+    mServer->close();
+    service->stop();
+
+}
+void AvahiTcpLinkProvider::onNetworkChange(QNetworkSession::State state)
+{
+    //Nothing to do, Avahi will handle it
 }
 
 void AvahiTcpLinkProvider::newConnection()
@@ -102,11 +118,5 @@ void AvahiTcpLinkProvider::deviceLinkDestroyed(QObject* deviceLink)
 AvahiTcpLinkProvider::~AvahiTcpLinkProvider()
 {
     delete service;
-}
-
-void AvahiTcpLinkProvider::setDiscoverable(bool b)
-{
-    qDebug() << "AvahiTcpLinkProvider discoverable:" << b;
-    if (b) service->publishAsync();
 }
 

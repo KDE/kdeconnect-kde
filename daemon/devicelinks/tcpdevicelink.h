@@ -36,7 +36,7 @@ class TcpDeviceLink
     Q_OBJECT
 
 public:
-    TcpDeviceLink(const QString& d, AvahiTcpLinkProvider* a, QTcpSocket* socket);
+    TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
 
     bool sendPackage(const NetworkPackage& np);
 

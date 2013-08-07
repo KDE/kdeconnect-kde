@@ -60,6 +60,8 @@ public Q_SLOTS:
     //After calling this, signal deviceDiscovered will be triggered for each device
     Q_SCRIPTABLE void setDiscoveryEnabled(bool b);
 
+    Q_SCRIPTABLE void forceOnNetworkChange();
+
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices();
 

@@ -23,23 +23,40 @@
 #include <QDebug>
 #include <kicon.h>
 
+NotificationPackageInterface::NotificationPackageInterface(QObject* parent)
+    : PackageInterface(parent)
+{
+    //TODO: Split in EventNotificationInterface and NotificationDrawerSyncInterface
+    
+    trayIcon = new KStatusNotifierItem(parent);
+    trayIcon->setIconByName("pda");
+    trayIcon->setTitle("KdeConnect");
+    connect(trayIcon,SIGNAL(activateRequested(bool,QPoint)),this,SLOT(showPendingNotifications()));
+}
+
 KNotification* NotificationPackageInterface::createNotification(const QString& deviceName, const NetworkPackage& np)
 {
+
+    QString id = QString::number(np.id());
 
     QString npType = np.get<QString>("notificationType");
 
     QString title, content, type, icon;
+    bool transient;
 
     title = deviceName;
+
 
     if (npType == "ringing") {
         type = "callReceived";
         icon = "call-start";
         content = "Incoming call from " + np.get<QString>("phoneNumber","unknown number");
+        transient = false;
     } else if (npType == "missedCall") {
         type = "missedCall";
         icon = "call-start";
         content = "Missed call from " + np.get<QString>("phoneNumber","unknown number");
+        transient = true;
     } else if (npType == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
@@ -47,31 +64,74 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
             + np.get<QString>("phoneNumber","unknown number")
             + ":\n"
             + np.get<QString>("messageBody","");
+            transient = true;
     } else if (npType == "battery") {
         type = "battery100";
         icon = "battery-100";
         content = "Battery at " + np.get<QString>("batteryLevel") + "%";
+        transient = false;
     } else if (npType == "notification") {
         type = "pingReceived";
         icon = "dialog-ok";
         content = np.get<QString>("notificationContent");
+        transient = false;
     } else {
         //TODO: return NULL if !debug
         type = "unknownEvent";
         icon = "pda";
         content = "Unknown notification type: " + npType;
+        transient = false;
     }
 
     qDebug() << "Creating notification with type:" << type;
+
+
+    if (transient) {
+        trayIcon->setStatus(KStatusNotifierItem::Active);
+
+        KNotification* notification = new KNotification(type); //KNotification::Persistent
+        notification->setPixmap(KIcon(icon).pixmap(48, 48));
+        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+        notification->setTitle(title);
+        notification->setText(content);
+
+        pendingNotifications.insert(id, notification);
+    }
 
     KNotification* notification = new KNotification(type); //KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);
     notification->setText(content);
+    notification->setProperty("id",id);
+
+    connect(notification,SIGNAL(activated()),this,SLOT(notificationAttended()));
+    connect(notification,SIGNAL(closed()),this,SLOT(notificationAttended()));
 
     return notification;
 
+}
+
+void NotificationPackageInterface::notificationAttended()
+{
+    KNotification* normalNotification = (KNotification*)sender();
+    QString id = normalNotification->property("id").toString();
+    if (pendingNotifications.contains(id)) {
+        delete pendingNotifications[id];
+        pendingNotifications.remove(id);
+        if (pendingNotifications.isEmpty()) {
+            trayIcon->setStatus(KStatusNotifierItem::Passive);
+        }
+    }
+}
+
+void NotificationPackageInterface::showPendingNotifications()
+{
+    trayIcon->setStatus(KStatusNotifierItem::Passive);
+    Q_FOREACH (KNotification* notification, pendingNotifications) {
+        notification->sendEvent();
+    }
+    pendingNotifications.clear();
 }
 
 bool NotificationPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)

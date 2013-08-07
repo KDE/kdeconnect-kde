@@ -42,7 +42,10 @@ public:
     QString name() { return "AvahiTcpLinkProvider"; }
     int priority() { return PRIORITY_HIGH + 1; }
 
-    void setDiscoverable(bool b);
+public Q_SLOTS:
+    virtual void onNetworkChange(QNetworkSession::State state);
+    virtual void onStart();
+    virtual void onStop();
 
 private Q_SLOTS:
     void newConnection();
@@ -53,6 +56,7 @@ private:
     DNSSD::PublicService* service;
     QTcpServer* mServer;
 
+    static const quint16 port = 10602;
     QMap<QString, DeviceLink*> links;
 
 };

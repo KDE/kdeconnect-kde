@@ -29,20 +29,17 @@
 #include "packageinterfaces/batterypackageinterface.h"
 #include "packageinterfaces/mpriscontrolpackageinterface.h"
 
+#include "linkproviders/broadcasttcplinkprovider.h"
 #include "linkproviders/avahitcplinkprovider.h"
 #include "linkproviders/loopbacklinkprovider.h"
 
-#include <QtNetwork/QUdpSocket>
-#include <QFile>
-#include <quuid.h>
+#include <QUuid>
 #include <QDBusConnection>
+#include <QNetworkSession>
+#include <QNetworkConfigurationManager>
 
 #include <KIcon>
 #include <KConfigGroup>
-
-#include <sstream>
-#include <iomanip>
-#include <iostream>
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
@@ -50,6 +47,7 @@ K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
 Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)
 {
+
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
 
     if (!config->group("myself").hasKey("id")) {
@@ -70,7 +68,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //TODO: Do not hardcode the load of the device locators
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
-    mLinkProviders.insert(new AvahiTcpLinkProvider());
+    mLinkProviders.insert(new BroadcastTcpLinkProvider());
+    //mLinkProviders.insert(new AvahiTcpLinkProvider());
     //mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
@@ -90,8 +89,12 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         }
     }
 
+    QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
+
     //Listen to incomming connections
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
+        connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
+                a, SLOT(onNetworkChange(QNetworkSession::State)));
         connect(a,SIGNAL(onNewDeviceLink(NetworkPackage,DeviceLink*)),
                 this,SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
     }
@@ -105,9 +108,18 @@ void Daemon::setDiscoveryEnabled(bool b)
 {
     //Listen to incomming connections
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
-        a->setDiscoverable(b);
+        if (b)
+            a->onStart();
+        else
+            a->onStop();
     }
 
+}
+void Daemon::forceOnNetworkChange()
+{
+    Q_FOREACH (LinkProvider* a, mLinkProviders) {
+        a->onNetworkChange(QNetworkSession::Connected);
+    }
 }
 
 QStringList Daemon::devices()
