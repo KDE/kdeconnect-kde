@@ -51,7 +51,10 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
 
     if (!config->group("myself").hasKey("id")) {
-        config->group("myself").writeEntry("id",QUuid::createUuid().toString());
+        QString uid = QUuid::createUuid().toString();
+        uid = uid.mid(1,uid.length()-2).replace("-","_");
+        config->group("myself").writeEntry("id",uid);
+        qDebug() << uid;
     }
 
     //Debugging
