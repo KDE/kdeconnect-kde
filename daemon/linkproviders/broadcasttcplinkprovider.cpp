@@ -40,7 +40,9 @@ BroadcastTcpLinkProvider::BroadcastTcpLinkProvider()
 void BroadcastTcpLinkProvider::onStart()
 {
     mUdpServer->bind(QHostAddress::Broadcast, port, QUdpSocket::ShareAddress);
-    mTcpServer->listen(QHostAddress::Any, port);
+
+    tcpPort = port;
+    while (!mTcpServer->listen(QHostAddress::Any, tcpPort)) tcpPort++;
 
     onNetworkChange(QNetworkSession::Connected);
 }
@@ -52,10 +54,12 @@ void BroadcastTcpLinkProvider::onStop()
 }
 
 //I'm in a new network, let's be polite and introduce myself
-void BroadcastTcpLinkProvider::onNetworkChange(QNetworkSession::State state) {
+void BroadcastTcpLinkProvider::onNetworkChange(QNetworkSession::State state)
+{
     qDebug() << "onNetworkChange" << state;
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
+    np.set("tcpPort",tcpPort);
     QUdpSocket().writeDatagram(np.serialize(),QHostAddress("255.255.255.255"), port);
 }
 
@@ -79,7 +83,7 @@ void BroadcastTcpLinkProvider::newUdpConnection()
             NetworkPackage::createIdentityPackage(&np2);
 
             if (np->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
-                qDebug() << "I can't fuck myself!";
+                qDebug() << "Ignoring my own broadcast";
                 return;
             }
 
@@ -91,18 +95,21 @@ void BroadcastTcpLinkProvider::newUdpConnection()
                 links.remove(id);
             }
 
+            int tcpPort = np->get<int>("tcpPort",port);
+
+            qDebug() << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
+
             QTcpSocket* socket = new QTcpSocket(this);
-
-            qDebug() << "Received Udp presentation from" << sender << "asking for a tcp connection...";
-
-            receivedIdentityPackages[socket] = np;
+            receivedIdentityPackages[socket].np = np;
+            receivedIdentityPackages[socket].sender = sender;
             connect(socket, SIGNAL(connected()), this, SLOT(connected()));
             connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
-            socket->connectToHost(sender, port);
-
+            socket->connectToHost(sender, tcpPort);
 
         } else {
+
             delete np;
+
         }
     }
 
@@ -116,7 +123,10 @@ void BroadcastTcpLinkProvider::connectError()
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
 
     qDebug() << "Fallback (1), try reverse connection";
-    onNetworkChange(QNetworkSession::Connected);
+    NetworkPackage np("");
+    NetworkPackage::createIdentityPackage(&np);
+    np.set("tcpPort",tcpPort);
+    QUdpSocket().writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, port);
 
 }
 
@@ -128,7 +138,7 @@ void BroadcastTcpLinkProvider::connected()
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
-    NetworkPackage* np = receivedIdentityPackages[socket];
+    NetworkPackage* np = receivedIdentityPackages[socket].np;
     const QString& id = np->get<QString>("deviceId");
     qDebug() << "Connected" << socket->isWritable();
 
@@ -143,13 +153,14 @@ void BroadcastTcpLinkProvider::connected()
 
     bool success = dl->sendPackage(np2);
 
+    //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
         qDebug() << "Handshaking done (i'm the existing device)";
         emit onNewDeviceLink(*np, dl);
     } else {
         //I think this will never happen
         qDebug() << "Fallback (2), try reverse connection";
-        onNetworkChange(QNetworkSession::Connected);
+        QUdpSocket().writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
         delete dl;
     }
 

@@ -58,9 +58,15 @@ private:
     QTcpServer* mTcpServer;
     QUdpSocket* mUdpServer;
     const static quint16 port = 1714;
+    quint16 tcpPort;
 
     QMap<QString, DeviceLink*> links;
-    QMap<QTcpSocket*, NetworkPackage*> receivedIdentityPackages;
+
+    struct PendingConnect {
+        NetworkPackage* np;
+        QHostAddress sender;
+    };
+    QMap<QTcpSocket*, PendingConnect> receivedIdentityPackages;
 
 };
 
