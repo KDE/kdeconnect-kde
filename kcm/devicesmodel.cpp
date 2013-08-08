@@ -62,9 +62,11 @@ void DevicesModel::deviceAdded(const QString& id)
 
     //Full refresh
     Q_UNUSED(id);
-    beginRemoveRows(QModelIndex(), 0, m_deviceList.count() - 1);
-    m_deviceList.clear();
-    endRemoveRows();
+    if (m_deviceList.count() > 0) {
+        beginRemoveRows(QModelIndex(), 0, m_deviceList.count() - 1);
+        m_deviceList.clear();
+        endRemoveRows();
+    }
     QList<QString> deviceIds = m_dbusInterface->devices();
     Q_FOREACH(const QString& id, deviceIds) {
         beginInsertRows(QModelIndex(), rowCount(), rowCount() + 1);
