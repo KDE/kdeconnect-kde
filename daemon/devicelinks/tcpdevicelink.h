@@ -38,7 +38,7 @@ class TcpDeviceLink
 public:
     TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
 
-    bool sendPackage(const NetworkPackage& np);
+    bool sendPackage(const NetworkPackage& np) const;
 
 private Q_SLOTS:
     void dataReceived();

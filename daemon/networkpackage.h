@@ -57,7 +57,7 @@ public:
     }
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
     
-    bool has(const QString& key) { return mBody.contains(key); }
+    bool has(const QString& key) const { return mBody.contains(key); }
 
 private:
     void setId(long id) { mId = id; }

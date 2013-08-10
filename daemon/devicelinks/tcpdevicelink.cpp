@@ -29,7 +29,7 @@ TcpDeviceLink::TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
     connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
 }
 
-bool TcpDeviceLink::sendPackage(const NetworkPackage& np)
+bool TcpDeviceLink::sendPackage(const NetworkPackage& np) const
 {
     int written = mSocket->write(np.serialize());
     return written != -1;

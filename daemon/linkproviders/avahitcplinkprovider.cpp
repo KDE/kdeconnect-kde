@@ -101,7 +101,7 @@ void AvahiTcpLinkProvider::dataReceived()
 
         qDebug() << "AvahiTcpLinkProvider creating link to device" << id << "(" << socket->peerAddress() << ")";
 
-        emit onNewDeviceLink(np, dl);
+        Q_EMIT onConnectionReceived(np, dl);
 
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
@@ -111,9 +111,11 @@ void AvahiTcpLinkProvider::dataReceived()
 
 }
 
-void AvahiTcpLinkProvider::deviceLinkDestroyed(QObject* deviceLink)
+void AvahiTcpLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
 {
-    const QString& id = ((DeviceLink*)deviceLink)->deviceId();
+    DeviceLink* deviceLink = (DeviceLink*)uncastedDeviceLink;
+    Q_EMIT onConnectionLost(deviceLink);
+    const QString& id = deviceLink->deviceId();
     if (links.contains(id)) links.remove(id);
 }
 

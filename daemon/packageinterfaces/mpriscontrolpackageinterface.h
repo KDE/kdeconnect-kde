@@ -22,6 +22,7 @@
 #define MPRISCONTROLPACKAGEINTERFACE_H
 
 #include "packageinterface.h"
+#include "mprisdbusinterface.h"
 
 #include <QSet>
 #include <QString>
@@ -37,16 +38,16 @@ public:
     MprisControlPackageInterface();
     virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
-public Q_SLOTS:
+private Q_SLOTS:
     void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
+    void propertiesChanged(const QString& interface, const QVariantMap& properties);
 
 private:
     QHash<QString, QString> playerList;
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
-    void sendPlayerList();
-    void sendNowPlaying(const QDBusInterface& interface);
-
+    void sendPlayerList(const Device* device = 0);
+    int prevVolume;
 
 };
 

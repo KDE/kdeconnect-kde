@@ -74,6 +74,10 @@ void Device::addLink(DeviceLink* link)
     connect(link,SIGNAL(destroyed(QObject*)),this,SLOT(linkDestroyed(QObject*)));
 
     m_deviceLinks.append(link);
+
+    //TODO: Somehow destroy previous device links from the same provider,
+    //but if we do it here, the provider will keep a broken ref!
+
     connect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
 
     qSort(m_deviceLinks.begin(),m_deviceLinks.end(),lessThan);
@@ -100,7 +104,7 @@ void Device::removeLink(DeviceLink* link)
     }
 }
 
-bool Device::sendPackage(const NetworkPackage& np)
+bool Device::sendPackage(const NetworkPackage& np) const
 {
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
         if (dl->sendPackage(np)) return true;
@@ -135,6 +139,4 @@ void Device::sendPing()
     bool success = sendPackage(np);
     qDebug() << "sendPing:" << success;
 }
-
-
 

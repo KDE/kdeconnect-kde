@@ -91,14 +91,14 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
                     device,SLOT(sendPackage(const NetworkPackage&)));
         }
     }
-
+    
     QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
 
     //Listen to incomming connections
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
         connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
                 a, SLOT(onNetworkChange(QNetworkSession::State)));
-        connect(a,SIGNAL(onNewDeviceLink(NetworkPackage,DeviceLink*)),
+        connect(a,SIGNAL(onConnectionReceived(NetworkPackage,DeviceLink*)),
                 this,SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
     }
 
@@ -130,7 +130,6 @@ QStringList Daemon::devices()
     return mDevices.keys();
 }
 
-
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     const QString& id = identityPackage.get<QString>("deviceId");
@@ -143,16 +142,16 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Device* device = mDevices[id];
         device->addLink(dl);
 
-        if (device->paired()) {
+        /*if (device->paired()) {
             KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
             notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
             notification->setTitle(device->name());
             notification->setText("Succesfully connected");
             notification->sendEvent();
-        }
+        }*/
 
-        emit deviceStatusChanged(id);
+        Q_EMIT deviceStatusChanged(id);
         
     } else {
         qDebug() << "It is a new device";
@@ -164,10 +163,8 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
             connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
                     pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
-            connect(pr,SIGNAL(sendPackage(const NetworkPackage&)),
-                    device,SLOT(sendPackage(const NetworkPackage&)));
         }
-        emit newDeviceAdded(id);
+        Q_EMIT newDeviceAdded(id);
     }
 
 }

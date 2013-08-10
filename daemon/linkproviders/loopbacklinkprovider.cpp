@@ -38,6 +38,6 @@ LoopbackLinkProvider::~LoopbackLinkProvider()
 void LoopbackLinkProvider::setDiscoverable(bool b)
 {
     qDebug() << "Echo Device discovery emitted";
-    if (b) emit onNewDeviceLink(identityPackage, echoDeviceLink);
+    if (b) Q_EMIT onConnectionReceived(identityPackage, echoDeviceLink);
 }
 

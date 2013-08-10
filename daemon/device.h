@@ -61,7 +61,7 @@ public:
 Q_SIGNALS:
     void receivedPackage(const Device& device, const NetworkPackage& np);
 public Q_SLOTS:
-    bool sendPackage(const NetworkPackage& np);
+    bool sendPackage(const NetworkPackage& np) const;
 
     //Public dbus operations
 public Q_SLOTS:

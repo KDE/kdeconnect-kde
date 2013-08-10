@@ -156,7 +156,7 @@ void BroadcastTcpLinkProvider::connected()
     //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
         qDebug() << "Handshaking done (i'm the existing device)";
-        emit onNewDeviceLink(*np, dl);
+        Q_EMIT onConnectionReceived(*np, dl);
     } else {
         //I think this will never happen
         qDebug() << "Fallback (2), try reverse connection";
@@ -218,7 +218,7 @@ void BroadcastTcpLinkProvider::dataReceived()
 
         qDebug() << "Handshaking done (i'm the new device)";
 
-        emit onNewDeviceLink(np, dl);
+        Q_EMIT onConnectionReceived(np, dl);
 
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
@@ -228,14 +228,12 @@ void BroadcastTcpLinkProvider::dataReceived()
 
 }
 
-void BroadcastTcpLinkProvider::deviceLinkDestroyed(QObject* deviceLink)
+void BroadcastTcpLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
 {
-    const QString& id = ((DeviceLink*)deviceLink)->deviceId();
-    qDebug() << "deviceLinkDestroyed";
-    if (links.contains(id)) {
-        qDebug() << "removing link from link list";
-        links.remove(id);
-    }
+    DeviceLink* deviceLink = (DeviceLink*)uncastedDeviceLink;
+    Q_EMIT onConnectionLost(deviceLink);
+    const QString& id = deviceLink->deviceId();
+    if (links.contains(id)) links.remove(id);
 }
 
 BroadcastTcpLinkProvider::~BroadcastTcpLinkProvider()

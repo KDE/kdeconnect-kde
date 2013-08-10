@@ -23,6 +23,18 @@ set(kded_kdeconnect_SRCS
     device.cpp
 )
 
+
+qt4_add_dbus_interface(
+   kded_kdeconnect_SRCS
+   packageinterfaces/mprisdbusinterface.xml
+   mprisdbusinterface
+)
+
+qt4_add_dbus_interface(
+   kded_kdeconnect_SRCS
+   packageinterfaces/propertiesInterface.xml
+   propertiesdbusinterface
+)
 kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
 
 target_link_libraries(kded_kdeconnect
