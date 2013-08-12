@@ -23,6 +23,15 @@
 #include <KDebug>
 #include <kicon.h>
 
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPackageInterface >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect_ping") )
+
+PingPackageInterface::PingPackageInterface(QObject* parent, const QVariantList& args)
+    : PackageInterface(parent)
+{
+    Q_UNUSED(args);
+}
+
 bool PingPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
 {
 

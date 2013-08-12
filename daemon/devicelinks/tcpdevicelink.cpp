@@ -19,14 +19,18 @@
  */
 
 #include "tcpdevicelink.h"
+
 #include "linkproviders/linkprovider.h"
+#include "networkpackage.h"
 
 TcpDeviceLink::TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
 {
     mSocket = socket;
-    connect(mSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
-    connect(mSocket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+    connect(mSocket, SIGNAL(disconnected()),
+            this, SLOT(deleteLater()));
+    connect(mSocket, SIGNAL(readyRead()),
+            this, SLOT(dataReceived()));
 }
 
 bool TcpDeviceLink::sendPackage(const NetworkPackage& np) const
@@ -46,7 +50,7 @@ void TcpDeviceLink::dataReceived()
         if (package.length() < 3) continue;
 
         NetworkPackage np("");
-        NetworkPackage::unserialize(package,&np);
+        NetworkPackage::unserialize(package, &np);
 
         emit receivedPackage(np);
 

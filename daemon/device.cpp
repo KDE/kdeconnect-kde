@@ -1,11 +1,13 @@
 #include "device.h"
-#include <ksharedptr.h>
-#include <ksharedconfig.h>
-#include "devicelinks/devicelink.h"
-#include "linkproviders/linkprovider.h"
-#include "packageinterfaces/devicebatteryinformation_p.h"
+
+#include <KSharedPtr>
+#include <KSharedConfig>
 #include <KConfigGroup>
 #include <QDebug>
+
+#include "devicelinks/devicelink.h"
+#include "linkproviders/linkprovider.h"
+#include "networkpackage.h"
 
 Device::Device(const QString& id, const QString& name)
 {
@@ -107,6 +109,9 @@ void Device::removeLink(DeviceLink* link)
 bool Device::sendPackage(const NetworkPackage& np) const
 {
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        //TODO: Actually detect if a package is received or not, now when have TCP
+        //"ESTABLISHED" connections that look legit and return true when we use them,
+        //but that are actually broken
         if (dl->sendPackage(np)) return true;
     }
     return false;

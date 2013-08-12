@@ -18,29 +18,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PACKAGEINTERFACE_H
-#define PACKAGEINTERFACE_H
+#ifndef PACKAGEINTERFACELOADER_H
+#define PACKAGEINTERFACELOADER_H
 
 #include <QObject>
 
-#include "networkpackage.h"
-#include "device.h"
+#include "packageinterface.h"
 
-class PackageInterface
-    : public QObject
+
+class PluginLoader : public QObject
 {
     Q_OBJECT
+    public:
+        PluginLoader(QObject * parent);
+        virtual ~PluginLoader();
 
-public:
-    PackageInterface(QObject* parent = 0);
-    virtual ~PackageInterface() { }
+        void loadAllPlugins();
 
-public Q_SLOTS:
-    //Returns true if it has handled the package in some way
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
-
-Q_SIGNALS:
-    void sendPackage(const NetworkPackage& np);
+    signals:
+        void pluginLoaded(PackageInterface * plugin);
 };
 
 #endif

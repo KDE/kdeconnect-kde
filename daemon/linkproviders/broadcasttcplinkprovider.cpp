@@ -20,11 +20,12 @@
 
 #include "broadcasttcplinkprovider.h"
 
-#include "devicelinks/tcpdevicelink.h"
-
 #include <QHostInfo>
 #include <QTcpServer>
 #include <QUdpSocket>
+
+#include "devicelinks/tcpdevicelink.h"
+#include "networkpackage.h"
 
 BroadcastTcpLinkProvider::BroadcastTcpLinkProvider()
 {

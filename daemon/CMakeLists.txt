@@ -2,49 +2,31 @@ set(kded_kdeconnect_SRCS
 
     linkproviders/linkprovider.cpp
     linkproviders/loopbacklinkprovider.cpp
-    linkproviders/avahitcplinkprovider.cpp
+    #linkproviders/avahitcplinkprovider.cpp
     linkproviders/broadcasttcplinkprovider.cpp
 
     devicelinks/devicelink.cpp
     devicelinks/echodevicelink.cpp
     devicelinks/tcpdevicelink.cpp
 
-    packageinterfaces/packageinterface.cpp
-    packageinterfaces/pingpackageinterface.cpp
-    packageinterfaces/notificationpackageinterface.cpp
-    packageinterfaces/pausemusicpackageinterface.cpp
-    packageinterfaces/clipboardpackageinterface.cpp
-    packageinterfaces/batterypackageinterface.cpp
-    packageinterfaces/mpriscontrolpackageinterface.cpp
-    packageinterfaces/devicebatteryinformation_p.cpp
+    plugins/packageinterface.cpp
+    plugins/pluginloader.cpp
 
     networkpackage.cpp
     daemon.cpp
     device.cpp
 )
 
+add_subdirectory(plugins)
 
-qt4_add_dbus_interface(
-   kded_kdeconnect_SRCS
-   packageinterfaces/mprisdbusinterface.xml
-   mprisdbusinterface
-)
-
-qt4_add_dbus_interface(
-   kded_kdeconnect_SRCS
-   packageinterfaces/propertiesInterface.xml
-   propertiesdbusinterface
-)
 kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
 
 target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
-    kdnssd
+    #kdnssd
     qjson
     ${QT_QTNETWORK_LIBRARY}
-    ${QJSON_LIBRARIES}
-    ${QJSON_LIBRARY}
 )
 
 macro (generate_and_install_dbus_interface main_project_target header_file output_xml_file) #OPTIONS qdbus_options
@@ -83,20 +65,6 @@ generate_and_install_dbus_interface(
     kded_kdeconnect
     device.h
     org.kde.kdeconnect.device.xml
-    OPTIONS -a
-)
-
-generate_and_install_dbus_interface(
-    kded_kdeconnect
-    packageinterfaces/devicebatteryinformation_p.h
-    org.kde.kdeconnect.device.battery.xml
-    OPTIONS -a
-)
-
-generate_and_install_dbus_interface(
-    kded_kdeconnect
-    packageinterfaces/batterypackageinterface.h
-    org.kde.kdeconnect.battery.xml
     OPTIONS -a
 )
 

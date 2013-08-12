@@ -18,36 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEVICELINK_H
-#define DEVICELINK_H
+#ifndef PINGPACKAGEINTERFACE_H
+#define PINGPACKAGEINTERFACE_H
 
-#include <QObject>
+#include <knotification.h>
 
+#include "../packageinterface.h"
 
-class NetworkPackage;
-class Device;
-class LinkProvider;
-
-class DeviceLink
-    : public QObject
+class KDE_EXPORT PingPackageInterface
+    : public PackageInterface
 {
     Q_OBJECT
 
 public:
-    DeviceLink(const QString& deviceId, LinkProvider* parent);
+    explicit PingPackageInterface(QObject *parent, const QVariantList &args);
 
-    const QString& deviceId() { return mDeviceId; }
-    LinkProvider* provider() { return mLinkProvider; }
-    
-    virtual bool sendPackage(const NetworkPackage& np) const = 0;
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
 
-signals:
-    void receivedPackage(const NetworkPackage& np) const;
-
-private:
-    QString mDeviceId;
-    LinkProvider* mLinkProvider;
-    
 };
 
-#endif // DEVICELINK_H
+#endif

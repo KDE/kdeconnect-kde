@@ -9,6 +9,10 @@ export VERBOSE=1
 
 if kdebuild; then
 
+	echo "--------BUILD DONE--------------"
+
+	kbuildsycoca4
+
 	killall kded4 2> /dev/null
 	while killall -9 kded4 2> /dev/null; do
 		true
@@ -16,6 +20,8 @@ if kdebuild; then
 
 	#qdbus org.kde.kded /kded unloadModule kdeconnect
 	#qdbus org.kde.kded /kded loadModule kdeconnect
+
+	echo "--------STARTING KDED--------------"
 
 	kded4 --nofork # 2>&1 | grep -v "^kded(" &
 

@@ -39,7 +39,7 @@
 #include <KConfig>
 
 #include "device.h"
-#include "packageinterfaces/packageinterface.h"
+#include "plugins/packageinterface.h"
 #include "devicelinks/devicelink.h"
 #include "linkproviders/linkprovider.h"
 
@@ -72,6 +72,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);
+    void pluginLoaded(PackageInterface*);
 
 private:
 

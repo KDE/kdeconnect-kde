@@ -18,20 +18,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PINGPACKAGEINTERFACE_H
-#define PINGPACKAGEINTERFACE_H
+#ifndef PACKAGEINTERFACE_H
+#define PACKAGEINTERFACE_H
 
-#include <knotification.h>
+#include <QObject>
 
-#include "packageinterface.h"
+#include <kdemacros.h>
+#include <KPluginFactory>
+#include <KPluginLoader>
 
-class PingPackageInterface
-    : public PackageInterface
+#include "../networkpackage.h"
+#include "../device.h"
+
+#define KDECONNECT_PLUGIN_EXPORT( c ) \
+  K_PLUGIN_FACTORY( KdeConnectFactory, registerPlugin< c >(); ) \
+  K_EXPORT_PLUGIN( KdeConnectFactory("c") )
+
+class KDE_EXPORT PackageInterface
+    : public QObject
 {
+    Q_OBJECT
 
 public:
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+    PackageInterface(QObject* parent = 0);
+    virtual ~PackageInterface() { }
 
+public Q_SLOTS:
+    //Returns true if it has handled the package in some way
+    //device.sendPackage can be used to send an answer back to the device
+    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
+
+Q_SIGNALS:
+    //Sends a package to *all* connected devices
+    void sendPackage(const NetworkPackage& np);
 };
 
 #endif

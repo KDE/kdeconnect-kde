@@ -22,12 +22,8 @@
 
 #include "networkpackage.h"
 
-#include "packageinterfaces/pingpackageinterface.h"
-#include "packageinterfaces/notificationpackageinterface.h"
-#include "packageinterfaces/pausemusicpackageinterface.h"
-#include "packageinterfaces/clipboardpackageinterface.h"
-#include "packageinterfaces/batterypackageinterface.h"
-#include "packageinterfaces/mpriscontrolpackageinterface.h"
+#include "plugins/packageinterface.h"
+#include "plugins/pluginloader.h"
 
 #include "linkproviders/broadcasttcplinkprovider.h"
 #include "linkproviders/avahitcplinkprovider.h"
@@ -51,25 +47,22 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
 
     if (!config->group("myself").hasKey("id")) {
-        QString uid = QUuid::createUuid().toString();
-        uid = uid.mid(1,uid.length()-2).replace("-","_");
-        config->group("myself").writeEntry("id",uid);
-        qDebug() << uid;
+        QString uuid = QUuid::createUuid().toString();
+        //uuids contain charcaters that are not exportable in dbus paths
+        uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
+        config->group("myself").writeEntry("id", uuid);
+        qDebug() << "My id:" << uuid;
     }
 
     //Debugging
     qDebug() << "Starting KdeConnect daemon";
 
-    //TODO: Do not hardcode the load of the package interfaces
-    //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
-    mPackageInterfaces.push_back(new PingPackageInterface());
-    mPackageInterfaces.push_back(new NotificationPackageInterface());
-    mPackageInterfaces.push_back(new PauseMusicPackageInterface());
-    mPackageInterfaces.push_back(new ClipboardPackageInterface());
-    mPackageInterfaces.push_back(new BatteryPackageInterface(this));
-    mPackageInterfaces.push_back(new MprisControlPackageInterface());
+    //Load plugins
+    PluginLoader *loader = new PluginLoader(this);
+    connect(loader, SIGNAL(pluginLoaded(PackageInterface*)), this, SLOT(pluginLoaded(PackageInterface*)));
+    loader->loadAllPlugins();
 
-    //TODO: Do not hardcode the load of the device locators
+    //Load backends (hardcoded by now)
     //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
     mLinkProviders.insert(new BroadcastTcpLinkProvider());
     //mLinkProviders.insert(new AvahiTcpLinkProvider());
@@ -81,14 +74,14 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     const QString defaultName("unnamed");
     Q_FOREACH(const QString& id, list) {
         const KConfigGroup& data = known.group(id);
-        const QString& name = data.readEntry<QString>("name",defaultName);
-        Device* device = new Device(id,name);
+        const QString& name = data.readEntry<QString>("name", defaultName);
+        Device* device = new Device(id, name);
         mDevices[id] = device;
         Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
-            connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
-                    pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
-            connect(pr,SIGNAL(sendPackage(const NetworkPackage&)),
-                    device,SLOT(sendPackage(const NetworkPackage&)));
+            connect(device, SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
+                    pr, SLOT(receivePackage(const Device&, const NetworkPackage&)));
+            connect(pr, SIGNAL(sendPackage(const NetworkPackage&)),
+                    device, SLOT(sendPackage(const NetworkPackage&)));
         }
     }
     
@@ -98,8 +91,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
         connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
                 a, SLOT(onNetworkChange(QNetworkSession::State)));
-        connect(a,SIGNAL(onConnectionReceived(NetworkPackage,DeviceLink*)),
-                this,SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
+        connect(a, SIGNAL(onConnectionReceived(NetworkPackage, DeviceLink*)),
+                this, SLOT(onNewDeviceLink(NetworkPackage, DeviceLink*)));
     }
 
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
@@ -130,6 +123,19 @@ QStringList Daemon::devices()
     return mDevices.keys();
 }
 
+void Daemon::pluginLoaded(PackageInterface* packageInterface)
+{
+    qDebug() << "PLUUUUUUUUUUUUUUUUGINLOADEEEEEEEEEEEEEEEEEEEEEEED";
+    mPackageInterfaces.append(packageInterface);
+    Q_FOREACH(Device* device, mDevices) {
+        connect(device, SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
+                packageInterface, SLOT(receivePackage(const Device&, const NetworkPackage&)));
+        connect(packageInterface, SIGNAL(sendPackage(const NetworkPackage&)),
+                device, SLOT(sendPackage(const NetworkPackage&)));
+    }
+
+}
+
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     const QString& id = identityPackage.get<QString>("deviceId");
@@ -158,11 +164,11 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
         const QString& name = identityPackage.get<QString>("deviceName");
 
-        Device* device = new Device(id,name,dl);
+        Device* device = new Device(id, name, dl);
         mDevices[id] = device;
         Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
-            connect(device,SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
-                    pr,SLOT(receivePackage(const Device&, const NetworkPackage&)));
+            connect(device, SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
+                    pr, SLOT(receivePackage(const Device&, const NetworkPackage&)));
         }
         Q_EMIT newDeviceAdded(id);
     }
