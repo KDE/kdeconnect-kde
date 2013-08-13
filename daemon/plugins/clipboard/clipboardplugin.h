@@ -18,27 +18,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CLIPBOARDPACKAGEINTERFACE_H
-#define CLIPBOARDPACKAGEINTERFACE_H
+#ifndef CLIPBOARDPLUGIN_H
+#define CLIPBOARDPLUGIN_H
 
 #include <QObject>
 #include <QClipboard>
 
-#include "networkpackage.h"
-#include "device.h"
-#include "packageinterface.h"
+#include "../kdeconnectplugin.h"
+#include "../../networkpackage.h"
+#include "../../device.h"
 
-class ClipboardPackageInterface
-    : public PackageInterface
+class ClipboardPlugin
+    : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    ClipboardPackageInterface();
-    virtual ~ClipboardPackageInterface() { }
+    explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+    virtual bool receivePackage(const NetworkPackage& np);
 
 private Q_SLOTS:
     void clipboardChanged(QClipboard::Mode mode);

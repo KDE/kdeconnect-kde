@@ -1,0 +1,23 @@
+find_package(KDE4 REQUIRED)
+include (KDE4Defaults)
+include_directories(${KDE4_INCLUDES})
+
+set(kdeconnect_clipboard_SRCS
+    clipboardplugin.cpp
+    ../kdeconnectplugin.cpp
+    ../pluginloader.cpp
+    ../../networkpackage.cpp
+    ../../device.cpp
+)
+
+kde4_add_plugin(kdeconnect_clipboard ${kdeconnect_clipboard_SRCS})
+
+target_link_libraries(kdeconnect_clipboard
+    ${KDE4_KDECORE_LIBS}
+    ${KDE4_KDEUI_LIBS}
+    ${QT_QTNETWORK_LIBRARY}
+    qjson
+)
+
+install(TARGETS kdeconnect_clipboard DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(FILES kdeconnect_clipboard.desktop DESTINATION ${SERVICES_INSTALL_DIR} )

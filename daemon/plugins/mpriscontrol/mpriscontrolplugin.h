@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MPRISCONTROLPACKAGEINTERFACE_H
-#define MPRISCONTROLPACKAGEINTERFACE_H
+#ifndef MPRISCONTROLPLUGIN_H
+#define MPRISCONTROLPLUGIN_H
 
 #include <QSet>
 #include <QString>
@@ -45,10 +45,11 @@ private Q_SLOTS:
     void propertiesChanged(const QString& interface, const QVariantMap& properties);
 
 private:
-    QHash<QString, QString> playerList;
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
     void sendPlayerList();
+
+    QHash<QString, QString> playerList;
     int prevVolume;
 
 };

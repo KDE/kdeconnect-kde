@@ -18,20 +18,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "clipboardpackageinterface.h"
+#include "clipboardplugin.h"
 
 #include <QClipboard>
 #include <KDebug>
 #include <QApplication>
 
-ClipboardPackageInterface::ClipboardPackageInterface()
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ClipboardPlugin >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_clipboard", "kdeconnect_clipboard") )
+
+ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
 {
     clipboard = QApplication::clipboard();
     ignore_next_clipboard_change = false;
     connect(clipboard,SIGNAL(changed(QClipboard::Mode)),this,SLOT(clipboardChanged(QClipboard::Mode)));
 }
 
-void ClipboardPackageInterface::clipboardChanged(QClipboard::Mode mode)
+void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
 {
     if (mode != QClipboard::QClipboard::Clipboard) return;
 
@@ -42,12 +46,12 @@ void ClipboardPackageInterface::clipboardChanged(QClipboard::Mode mode)
     //qDebug() << "ClipboardChanged";
     NetworkPackage np(PACKAGE_TYPE_CLIPBOARD);
     np.set("content",clipboard->text());
-    emit sendPackage(np);
+    device()->sendPackage(np);
 }
 
-bool ClipboardPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
+bool ClipboardPlugin::receivePackage(const NetworkPackage& np)
 {
-    Q_UNUSED(device);
+    qDebug() << "AAAAAAAAAAAAAAAAAA";
     if (np.type() == PACKAGE_TYPE_CLIPBOARD) {
         ignore_next_clipboard_change = true;
         clipboard->setText(np.get<QString>("content"));

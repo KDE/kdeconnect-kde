@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KdeConnect/Plugin
+X-KDE-Library=kdeconnect_clipboard
+X-KDE-PluginInfo-Author=Albert Vaca
+X-KDE-PluginInfo-Email=albertvaka@gmail.com
+X-KDE-PluginInfo-Name=kdeconnect_clipboard
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+Icon=edit-paste
+Name=Clipboard
+Comment=Share the clipboard between devices
