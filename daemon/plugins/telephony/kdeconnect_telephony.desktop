@@ -10,6 +10,6 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
-Icon=preferences-desktop-notification
+Icon=call-start
 Name=Telephony integration
 Comment=Currently it only shows notifications for calls and SMS
