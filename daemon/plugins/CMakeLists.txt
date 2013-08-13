@@ -6,3 +6,5 @@ add_subdirectory(pausemusic)
 add_subdirectory(mpriscontrol)
 add_subdirectory(clipboard)
 add_subdirectory(telephony)
+add_subdirectory(battery)
+
