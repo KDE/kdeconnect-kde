@@ -11,5 +11,5 @@ X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=folder-downloads
-Name=File transfer
+Name=(Stub) File transfer
 Comment=Allows to send and receive files

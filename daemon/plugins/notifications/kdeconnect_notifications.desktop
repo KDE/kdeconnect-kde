@@ -11,5 +11,5 @@ X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=preferences-desktop-notification
-Name=Notification sync
+Name=(Stub) Notification sync
 Comment=Show phone notifications in KDE and keep them in sync
