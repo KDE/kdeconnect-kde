@@ -67,7 +67,9 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         const KConfigGroup& data = known.group(id);
         const QString& name = data.readEntry<QString>("name", defaultName);
         Device* device = new Device(id, name);
+        connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
+        Q_EMIT deviceAdded(id);
     }
     
     QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
@@ -103,6 +105,17 @@ void Daemon::forceOnNetworkChange()
     }
 }
 
+QStringList Daemon::visibleDevices()
+{
+    QStringList ret;
+    Q_FOREACH(Device* device, mDevices) {
+        if (device->reachable()) {
+            ret.append(device->id());
+        }
+    }
+    return ret;
+}
+
 QStringList Daemon::devices()
 {
     return mDevices.keys();
@@ -120,16 +133,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Device* device = mDevices[id];
         device->addLink(dl);
 
-        /*if (device->paired()) {
-            KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-            notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-            notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-            notification->setTitle(device->name());
-            notification->setText("Succesfully connected");
-            notification->sendEvent();
-        }*/
-
-        Q_EMIT deviceStatusChanged(id);
+        Q_EMIT deviceVisibilityChanged(id, true);
         
     } else {
         qDebug() << "It is a new device";
@@ -137,9 +141,31 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         const QString& name = identityPackage.get<QString>("deviceName");
 
         Device* device = new Device(id, name, dl);
+        connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
 
-        Q_EMIT newDeviceAdded(id);
+        Q_EMIT deviceAdded(id);
+        Q_EMIT deviceVisibilityChanged(id, true);
+    }
+
+}
+
+void Daemon::onDeviceReachableStatusChanged()
+{
+
+    Device* device = (Device*)sender();
+    QString id = device->id();
+
+    if (!device->reachable()) {
+
+        Q_EMIT deviceVisibilityChanged(id, false);
+
+        if (!device->paired()) {
+            Q_EMIT deviceRemoved(id);
+            mDevices.remove(id);
+            device->deleteLater();
+        }
+
     }
 
 }

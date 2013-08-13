@@ -24,7 +24,7 @@
 #include <QObject>
 #include <QDBusConnection>
 #include <QString>
-#include <qvector.h>
+#include <QMap>
 
 #include "networkpackage.h"
 
@@ -61,6 +61,7 @@ public:
     Q_SCRIPTABLE bool trusted() const { return m_paired; }
     Q_SCRIPTABLE bool paired() const { return m_paired; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
+    Q_SCRIPTABLE bool hasPlugin(const QString& name);
 
     //Send and receive
 Q_SIGNALS:
@@ -74,21 +75,21 @@ public Q_SLOTS:
     Q_SCRIPTABLE void reloadPlugins();
     Q_SCRIPTABLE void sendPing();
 
-Q_SIGNALS:
-    void reachableStatusChanged();
-    
 private Q_SLOTS:
     void linkDestroyed(QObject* o = 0);
     void privateReceivedPackage(const NetworkPackage& np);
+
+Q_SIGNALS:
+    void reachableStatusChanged();
+    void pluginsChanged();
 
 private:
     bool m_paired;
     QString m_deviceId;
     QString m_deviceName;
     QList<DeviceLink*> m_deviceLinks;
-    QList<KdeConnectPlugin*> m_plugins;
+    QMap<QString, KdeConnectPlugin*> m_plugins;
     bool m_knownIdentiy;
-
 
 };
 

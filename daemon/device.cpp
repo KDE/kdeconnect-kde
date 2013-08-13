@@ -24,7 +24,7 @@ Device::Device(const QString& id, const QString& name)
     m_knownIdentiy = true;
 
     //Register in bus
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors | QDBusConnection::ExportChildObjects);
 
     reloadPlugins();
 }
@@ -37,7 +37,7 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     m_knownIdentiy = true;
 
     //Register in bus
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors | QDBusConnection::ExportChildObjects);
 
     addLink(link);
 
@@ -60,6 +60,11 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/Devices/"+id, this);
 }
 */
+
+bool Device::hasPlugin(const QString& name)
+{
+    return m_plugins.contains(name);
+}
 
 void Device::reloadPlugins()
 {
@@ -86,14 +91,15 @@ void Device::reloadPlugins()
 
             connect(this, SIGNAL(receivedPackage(const NetworkPackage&)),
                     plugin, SLOT(receivePackage(const NetworkPackage&)));
-    //        connect(packageInterface, SIGNAL(sendPackage(const NetworkPackage&)),
+    //        connect(plugin, SIGNAL(sendPackage(const NetworkPackage&)),
     //                device, SLOT(sendPackage(const NetworkPackage&)));
 
 
-            m_plugins.append(plugin);
+            m_plugins[pluginName] = plugin;
         }
     }
 
+    Q_EMIT pluginsChanged();
 
 }
 
@@ -125,15 +131,16 @@ void Device::addLink(DeviceLink* link)
 
     m_deviceLinks.append(link);
 
-    //TODO: Somehow destroy previous device links from the same provider,
-    //but if we do it here, the provider will keep a broken ref!
+    //Theoretically we will never add two links from the same provider (the provider should destroy
+    //the old one before this is called), so we do not have to worry about destroying old links.
+    //Actually, we should not destroy them or the provider will store an invalid ref!
 
     connect(link, SIGNAL(receivedPackage(NetworkPackage)), this, SLOT(privateReceivedPackage(NetworkPackage)));
 
     qSort(m_deviceLinks.begin(),m_deviceLinks.end(),lessThan);
 
     if (m_deviceLinks.size() == 1) {
-        emit reachableStatusChanged();
+        Q_EMIT reachableStatusChanged();
     }
 
 }
@@ -150,7 +157,7 @@ void Device::removeLink(DeviceLink* link)
     qDebug() << "RemoveLink"<< m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.empty()) {
-        emit reachableStatusChanged();
+        Q_EMIT reachableStatusChanged();
     }
 }
 
@@ -162,8 +169,8 @@ bool Device::sendPackage(const NetworkPackage& np) const
     }
 
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        //TODO: Actually detect if a package is received or not, now when have TCP
-        //"ESTABLISHED" connections that look legit and return true when we use them,
+        //TODO: Actually detect if a package is received or not, now we keep TCP
+        //"ESTABLISHED" connections that look legit (return true when we use them),
         //but that are actually broken
         if (dl->sendPackage(np)) return true;
     }

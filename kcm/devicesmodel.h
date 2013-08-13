@@ -56,6 +56,8 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void deviceAdded(const QString& id);
+    void deviceRemoved(const QString& id);
+    void refreshDeviceList();
 
 private:
     DaemonDbusInterface* m_dbusInterface;

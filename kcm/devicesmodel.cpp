@@ -33,23 +33,17 @@ DevicesModel::DevicesModel(QObject *parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
 {
     QList<QString> deviceIds = m_dbusInterface->devices();
-    connect(m_dbusInterface,SIGNAL(newDeviceAdded(QString)),this,SLOT(deviceAdded(QString)));
     Q_FOREACH(const QString& id, deviceIds) {
         deviceAdded(id);
     }
-    connect(m_dbusInterface,SIGNAL(deviceStatusChanged(QString)),this,SLOT(deviceStatusChanged(QString)));
-    //connect(m_dbusInterface,SIGNAL(deviceRemoved(QString)),this,SLOT(deviceRemoved(QString));
+
+    connect(m_dbusInterface,SIGNAL(deviceAdded(QString)),this,SLOT(deviceAdded(QString)));
+    connect(m_dbusInterface,SIGNAL(deviceVisibilityChanged(QString,bool)),this,SLOT(deviceStatusChanged(QString)));
+    connect(m_dbusInterface,SIGNAL(deviceRemoved(QString)),this,SLOT(deviceRemoved(QString)));
 }
 
 DevicesModel::~DevicesModel()
 {
-}
-
-void DevicesModel::deviceStatusChanged(const QString& id)
-{
-    Q_UNUSED(id);
-    qDebug() << "deviceStatusChanged";
-    emit dataChanged(index(0),index(rowCount()));
 }
 
 void DevicesModel::deviceAdded(const QString& id)
@@ -60,8 +54,26 @@ void DevicesModel::deviceAdded(const QString& id)
     endInsertRows();
     */
 
-    //Full refresh
     Q_UNUSED(id);
+    refreshDeviceList();
+}
+
+void DevicesModel::deviceRemoved(const QString& id)
+{
+    Q_UNUSED(id);
+    refreshDeviceList();
+}
+
+
+void DevicesModel::deviceStatusChanged(const QString& id)
+{
+    Q_UNUSED(id);
+    emit dataChanged(index(0),index(rowCount()));
+}
+
+void DevicesModel::refreshDeviceList()
+{
+
     if (m_deviceList.count() > 0) {
         beginRemoveRows(QModelIndex(), 0, m_deviceList.count() - 1);
         m_deviceList.clear();
@@ -75,7 +87,6 @@ void DevicesModel::deviceAdded(const QString& id)
     }
 
 }
-
 /*
 bool DevicesModel::insertRows(int row, int count, const QModelIndex &parent)
 {

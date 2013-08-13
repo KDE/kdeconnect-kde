@@ -62,15 +62,17 @@ public Q_SLOTS:
     Q_SCRIPTABLE void forceOnNetworkChange();
 
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
-    Q_SCRIPTABLE QStringList devices();
+    Q_SCRIPTABLE QStringList devices(); //All known devices
+    Q_SCRIPTABLE QStringList visibleDevices(); //Only visible devices
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void newDeviceAdded(const QString& id);
-    Q_SCRIPTABLE void deviceStatusChanged(const QString& id);
-
+    Q_SCRIPTABLE void deviceAdded(const QString& id);
+    Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed
+    Q_SCRIPTABLE void deviceVisibilityChanged(const QString& id, bool isVisible);
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);
+    void onDeviceReachableStatusChanged();
 
 private:
 

@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PACKAGEINTERFACELOADER_H
-#define PACKAGEINTERFACELOADER_H
+#ifndef PLUGINLOADER_H
+#define PLUGINLOADER_H
 
 #include <QObject>
 #include <QMap>
