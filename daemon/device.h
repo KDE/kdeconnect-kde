@@ -28,6 +28,7 @@
 #include "devicelinks/devicelink.h"
 
 class DeviceLink;
+class PackageInterface;
 
 class Device
     : public QObject
@@ -38,7 +39,6 @@ class Device
     Q_PROPERTY(QString name READ name)
 
 public:
-
     //Device known from KConfig, we trust it but we need to wait for a incoming devicelink to communicate
     Device(const QString& id, const QString& name);
 
@@ -56,19 +56,20 @@ public:
     void addLink(DeviceLink*);
     void removeLink(DeviceLink*);
 
-
-    //Send and receive
-Q_SIGNALS:
-    void receivedPackage(const Device& device, const NetworkPackage& np);
-public Q_SLOTS:
-    bool sendPackage(const NetworkPackage& np) const;
-
-    //Public dbus operations
-public Q_SLOTS:
     Q_SCRIPTABLE QStringList availableLinks() const;
     Q_SCRIPTABLE bool paired() const { return m_paired; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
+
+    //Send and receive
+Q_SIGNALS:
+    void receivedPackage(const NetworkPackage& np);
+public Q_SLOTS:
+    bool sendPackage(const NetworkPackage& np) const;
+
+    //Dbus operations called from kcm
+public Q_SLOTS:
     Q_SCRIPTABLE void setPair(bool b);
+    Q_SCRIPTABLE void reloadPlugins();
     Q_SCRIPTABLE void sendPing();
 
 Q_SIGNALS:
@@ -83,9 +84,12 @@ private:
     QString m_deviceId;
     QString m_deviceName;
     QList<DeviceLink*> m_deviceLinks;
+    QList<PackageInterface*> m_plugins;
     bool m_knownIdentiy;
 
 
 };
+
+Q_DECLARE_METATYPE(Device*)
 
 #endif // DEVICE_H

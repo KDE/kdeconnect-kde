@@ -25,7 +25,7 @@ target_link_libraries(kcm_kdeconnect
     ${QT_QTCORE_LIBRARY}
     ${QT_QTGUI_LIBRARY}
     ${KDE4_KDEUI_LIBRARY}
-    ${KDE4_KIO_LIBRARY}
+    ${KDE4_KCMUTILS_LIBS}
 )
 
 add_dependencies(kcm_kdeconnect

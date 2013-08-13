@@ -22,21 +22,29 @@
 #define PACKAGEINTERFACELOADER_H
 
 #include <QObject>
+#include <QMap>
+#include <QString>
 
 #include "packageinterface.h"
 
+#include <KPluginFactory>
+#include <KService>
 
-class PluginLoader : public QObject
+class Device;
+
+class PluginLoader
 {
-    Q_OBJECT
-    public:
-        PluginLoader(QObject * parent);
-        virtual ~PluginLoader();
 
-        void loadAllPlugins();
+public:
+    static PluginLoader* instance();
+    PackageInterface* instantiatePluginForDevice(QString name, Device* device);
+    QStringList getPluginList();
 
-    signals:
-        void pluginLoaded(PackageInterface * plugin);
+private:
+    PluginLoader();
+    QMap<QString,KService::Ptr> plugins;
+
+
 };
 
 #endif

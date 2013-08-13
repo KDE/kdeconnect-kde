@@ -57,13 +57,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     //Debugging
     qDebug() << "Starting KdeConnect daemon";
 
-    //Load plugins
-    PluginLoader *loader = new PluginLoader(this);
-    connect(loader, SIGNAL(pluginLoaded(PackageInterface*)), this, SLOT(pluginLoaded(PackageInterface*)));
-    loader->loadAllPlugins();
-
-    //Load backends (hardcoded by now)
-    //use: https://techbase.kde.org/Development/Tutorials/Services/Plugins
+    //Load backends (hardcoded by now, should be plugins in a future)
     mLinkProviders.insert(new BroadcastTcpLinkProvider());
     //mLinkProviders.insert(new AvahiTcpLinkProvider());
     //mLinkProviders.insert(new LoopbackLinkProvider());
@@ -77,12 +71,6 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         const QString& name = data.readEntry<QString>("name", defaultName);
         Device* device = new Device(id, name);
         mDevices[id] = device;
-        Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
-            connect(device, SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
-                    pr, SLOT(receivePackage(const Device&, const NetworkPackage&)));
-            connect(pr, SIGNAL(sendPackage(const NetworkPackage&)),
-                    device, SLOT(sendPackage(const NetworkPackage&)));
-        }
     }
     
     QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
@@ -123,19 +111,6 @@ QStringList Daemon::devices()
     return mDevices.keys();
 }
 
-void Daemon::pluginLoaded(PackageInterface* packageInterface)
-{
-    qDebug() << "PLUUUUUUUUUUUUUUUUGINLOADEEEEEEEEEEEEEEEEEEEEEEED";
-    mPackageInterfaces.append(packageInterface);
-    Q_FOREACH(Device* device, mDevices) {
-        connect(device, SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
-                packageInterface, SLOT(receivePackage(const Device&, const NetworkPackage&)));
-        connect(packageInterface, SIGNAL(sendPackage(const NetworkPackage&)),
-                device, SLOT(sendPackage(const NetworkPackage&)));
-    }
-
-}
-
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     const QString& id = identityPackage.get<QString>("deviceId");
@@ -166,10 +141,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
         Device* device = new Device(id, name, dl);
         mDevices[id] = device;
-        Q_FOREACH (PackageInterface* pr, mPackageInterfaces) {
-            connect(device, SIGNAL(receivedPackage(const Device&, const NetworkPackage&)),
-                    pr, SLOT(receivePackage(const Device&, const NetworkPackage&)));
-        }
+
         Q_EMIT newDeviceAdded(id);
     }
 

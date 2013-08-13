@@ -3,8 +3,14 @@
 #include <KSharedPtr>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KStandardDirs>
+#include <KPluginSelector>
+#include <KServiceTypeTrader>
+#include <KPluginInfo>
+
 #include <QDebug>
 
+#include "plugins/pluginloader.h"
 #include "devicelinks/devicelink.h"
 #include "linkproviders/linkprovider.h"
 #include "networkpackage.h"
@@ -19,6 +25,7 @@ Device::Device(const QString& id, const QString& name)
     //Register in bus
     QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
+    reloadPlugins();
 }
 
 Device::Device(const QString& id, const QString& name, DeviceLink* link)
@@ -32,6 +39,8 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     addLink(link);
+
+    reloadPlugins();
 }
 /*
 Device::Device(const QString& id, const QString& name, DeviceLink* link)
@@ -50,6 +59,43 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/Devices/"+id, this);
 }
 */
+
+void Device::reloadPlugins()
+{
+
+    qDeleteAll(m_plugins);
+    m_plugins.clear();
+
+    QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
+    QMap<QString,QString> pluginStates = KSharedConfig::openConfig(path + id())->group("Plugins").entryMap();
+
+    PluginLoader* loader = PluginLoader::instance();
+
+    //Code borrowed from KWin
+    foreach (const QString& pluginName, loader->getPluginList()) {
+
+        const QString value = pluginStates.value(pluginName + QString::fromLatin1("Enabled"), QString());
+        bool enabled = (value.isNull() ? true : QVariant(value).toBool()); //Enable all plugins by default
+
+        qDebug() << pluginName << "enabled:" << enabled;
+
+        if (enabled) {
+            PackageInterface* plugin = loader->instantiatePluginForDevice(pluginName, this);
+
+            connect(this, SIGNAL(receivedPackage(const NetworkPackage&)),
+                    plugin, SLOT(receivePackage(const NetworkPackage&)));
+    //        connect(packageInterface, SIGNAL(sendPackage(const NetworkPackage&)),
+    //                device, SLOT(sendPackage(const NetworkPackage&)));
+
+
+            m_plugins.append(plugin);
+        }
+    }
+
+
+}
+
+
 void Device::setPair(bool b)
 {
     qDebug() << "setPair" << b;
@@ -122,10 +168,10 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
     if (np.type() == "kdeconnect.identity" && !m_knownIdentiy) {
         m_deviceName = np.get<QString>("deviceName");
     } else if (m_paired) {
-        qDebug() << "package received from paired device";
-        emit receivedPackage(*this, np);
+        qDebug() << "package received from trusted device";
+        Q_EMIT receivedPackage(np);
     } else {
-        qDebug() << "not paired, ignoring package";
+        qDebug() << "device" << name() << "not trusted, ignoring package" << np.type();
     }
 }
 

@@ -118,7 +118,6 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 
 
-    qDebug() << index.row() << ">= " << m_deviceList.count() << (index.row() >= m_deviceList.count());
     if (!index.isValid() || index.row() < 0 || index.row() >= m_deviceList.count()) {
         return QVariant();
     }

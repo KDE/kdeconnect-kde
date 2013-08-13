@@ -32,6 +32,8 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 
+#include <KServiceTypeTrader>
+#include <KPluginInfo>
 #include <KDebug>
 #include <kpluginfactory.h>
 #include <kstandarddirs.h>
@@ -43,7 +45,8 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KdeConnectKcmFactory::componentData(), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , pairedDevicesList(new DevicesModel(this))
-    , config(KSharedConfig::openConfig("kdeconnectrc"))
+    , currentDevice(0)
+    //, config(KSharedConfig::openConfig("kdeconnectrc"))
 {
     kcmUi->setupUi(this);
 
@@ -51,6 +54,8 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->deviceList->setModel(pairedDevicesList);
 
     kcmUi->deviceInfo->setVisible(false);
+
+    setButtons(KCModule::NoAdditionalButton);
 
     connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)), this, SLOT(deviceSelected(QModelIndex)));
     connect(kcmUi->ping_button, SIGNAL(pressed()), this, SLOT(sendPing()));
@@ -64,27 +69,63 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
+    //Store previous selection
+    pluginsConfigChanged();
+
+    //FIXME: KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
+    delete kcmUi->pluginSelector;
+    kcmUi->pluginSelector = new KPluginSelector(this);
+    kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
+
     bool valid = current.isValid();
     kcmUi->deviceInfo->setVisible(valid);
     if (!valid) return;
-    selectedIndex = current;
-    bool paired = pairedDevicesList->getDevice(current)->paired();
-    kcmUi->trust_checkbox->setChecked(paired);
+
+    currentDevice = pairedDevicesList->getDevice(current);
+    kcmUi->deviceName->setText(currentDevice->name());
+    kcmUi->trust_checkbox->setChecked(currentDevice->paired());
+
+    KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
+    QList<KPluginInfo> scriptinfos = KPluginInfo::fromServices(offers);
+
+    QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
+    KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(path + currentDevice->id());
+    kcmUi->pluginSelector->addPlugins(scriptinfos, KPluginSelector::ReadConfigFile, "Plugins", QString(), deviceConfig);
+
+    connect(kcmUi->pluginSelector, SIGNAL(changed(bool)), this, SLOT(pluginsConfigChanged()));
 }
 
 void KdeConnectKcm::trustedStateChanged(bool b)
 {
-    if (!selectedIndex.isValid()) return;
-    DeviceDbusInterface* device = pairedDevicesList->getDevice(selectedIndex);
-    device->setPair(b);
-    pairedDevicesList->deviceStatusChanged(device->id());
+    if (!currentDevice) return;
+    currentDevice->setPair(b);
+    pairedDevicesList->deviceStatusChanged(currentDevice->id());
+}
+
+void KdeConnectKcm::pluginsConfigChanged()
+{
+    //Store previous selection
+    if (!currentDevice) return;
+
+    DeviceDbusInterface* auxCurrentDevice = currentDevice; //HACK to avoid infinite recursion (for some reason calling save on pluginselector emits changed)
+    currentDevice = 0;
+    kcmUi->pluginSelector->save();
+    currentDevice = auxCurrentDevice;
+
+    currentDevice->reloadPlugins();
+}
+
+void KdeConnectKcm::save()
+{
+    pluginsConfigChanged();
+    KCModule::save();
 }
 
 
 void KdeConnectKcm::sendPing()
 {
-    if (!selectedIndex.isValid()) return;
-    pairedDevicesList->getDevice(selectedIndex)->sendPing();
+    if (!currentDevice) return;
+    currentDevice->sendPing();
 }
 
 

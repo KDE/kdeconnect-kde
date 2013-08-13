@@ -22,6 +22,7 @@
 #define PACKAGEINTERFACE_H
 
 #include <QObject>
+#include <QVariantList>
 
 #include <kdemacros.h>
 #include <KPluginFactory>
@@ -40,17 +41,18 @@ class KDE_EXPORT PackageInterface
     Q_OBJECT
 
 public:
-    PackageInterface(QObject* parent = 0);
+    PackageInterface(QObject* parent, const QVariantList& args);
     virtual ~PackageInterface() { }
+    Device* device();
 
 public Q_SLOTS:
     //Returns true if it has handled the package in some way
     //device.sendPackage can be used to send an answer back to the device
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np) = 0;
+    virtual bool receivePackage(const NetworkPackage& np) = 0;
 
-Q_SIGNALS:
-    //Sends a package to *all* connected devices
-    void sendPackage(const NetworkPackage& np);
+private:
+    Device* mDevice;
+
 };
 
 #endif

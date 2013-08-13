@@ -30,13 +30,13 @@
 #include "wizard.h"
 #include "devicesmodel.h"
 
-class Create;
 class QModelIndex;
 class AccountsModel;
 class AccountWidget;
 class QStackedLayout;
 class QItemSelectionModel;
 class QDBusInterface;
+class DeviceDbusInterface;
 
 namespace Ui {
     class KdeConnectKcmUi;
@@ -50,17 +50,21 @@ public:
     KdeConnectKcm(QWidget *parent, const QVariantList&);
     virtual ~KdeConnectKcm();
 
+private:
+    virtual void save();
+
 private Q_SLOTS:
     void deviceSelected(const QModelIndex& current);
     void trustedStateChanged(bool);
+    void pluginsConfigChanged();
     void sendPing();
-    
+
 private:
     Ui::KdeConnectKcmUi* kcmUi;
     DevicesModel* pairedDevicesList;
     AddDeviceWizard* addDeviceWizard;
-    KSharedConfigPtr config;
-    QModelIndex selectedIndex;
+    DeviceDbusInterface* currentDevice;
+    //KSharedConfigPtr config;
 
 };
 

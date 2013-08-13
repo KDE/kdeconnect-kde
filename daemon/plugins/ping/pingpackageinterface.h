@@ -21,7 +21,7 @@
 #ifndef PINGPACKAGEINTERFACE_H
 #define PINGPACKAGEINTERFACE_H
 
-#include <knotification.h>
+#include <QObject>
 
 #include "../packageinterface.h"
 
@@ -32,8 +32,9 @@ class KDE_EXPORT PingPackageInterface
 
 public:
     explicit PingPackageInterface(QObject *parent, const QVariantList &args);
-
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+    
+public Q_SLOTS:
+    virtual bool receivePackage(const NetworkPackage& np);
 
 };
 

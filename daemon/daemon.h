@@ -72,19 +72,14 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);
-    void pluginLoaded(PackageInterface*);
 
 private:
-
-
-    //Every known device
-    QMap<QString, Device*> mDevices;
 
     //Different ways to find devices and connect to them
     QSet<LinkProvider*> mLinkProviders;
 
-    //The classes that send and receive the packages
-    QVector<PackageInterface*> mPackageInterfaces;
+    //Every known device
+    QMap<QString, Device*> mDevices;
 
 };
 

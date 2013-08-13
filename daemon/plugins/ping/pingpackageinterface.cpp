@@ -20,19 +20,20 @@
 
 #include "pingpackageinterface.h"
 
-#include <KDebug>
-#include <kicon.h>
+#include <KNotification>
+#include <KIcon>
+#include <QDebug>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPackageInterface >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect_ping") )
 
 PingPackageInterface::PingPackageInterface(QObject* parent, const QVariantList& args)
-    : PackageInterface(parent)
+    : PackageInterface(parent, args)
 {
-    Q_UNUSED(args);
+    qDebug() << "Plugin constructor for device" << device()->name();
 }
 
-bool PingPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
+bool PingPackageInterface::receivePackage(const NetworkPackage& np)
 {
 
     if (np.type() != PACKAGE_TYPE_PING) return false;
@@ -41,7 +42,7 @@ bool PingPackageInterface::receivePackage(const Device& device, const NetworkPac
     notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle("Ping!");
-    notification->setText(device.name());
+    notification->setText(device()->name());
     notification->sendEvent();
 
     return true;

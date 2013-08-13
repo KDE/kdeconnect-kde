@@ -1,8 +1,41 @@
-The kdeconnect protocol:
+Class diagram
+==============
 
-Communication between heterogenous devices is achieved using NetworkPackages.
+   Backend_1  ...  Backend_N
+           \   |  /
+            Daemon
+           /   |  \
+     Device_1  ...  Device_N
+                   /         \
+                   |-Plugin_1 |-DeviceLink_1
+                   |-Plugin_2 |-DeviceLink_2
+                   |- ...     |-...
+                   |-Plugin_N |-DeviceLink_N
+
+
+Daemon instantiates Backends
+
+Backends manage to create DeviceLinks with the devices they can reach, and Q_EMIT them to Daemon.
+
+When Daemon receives a DeviceLink from a backend it:
+    - If he already knows the Device, adds the DeviceLink to the Device
+    - If not, it creates a new Device.
+
+Devices contain a list of DeviceLinks, plus a list of Plugins (instantiated automatically)
+
+Information for and from Plugins is encapsulated in NetworkPackages.
+
+When a DeviceLink receives a NetworkPackage from the device in the other end, Device will notify all the plugins.
+
+When a Plugin wants to send a NetworkPackage, it does so using the pointer to Device
+
+
+
+The NetworkPackage format
+=========================
+
 NetworkPackages are independent and self-contained pieces of information that
-are sent from one device to another serialized in json.
+are sent from one device to another (via a DeviceLink) serialized in json.
 
 The basic structure of a NetworkPackage is the following:
 
@@ -16,5 +49,6 @@ The basic structure of a NetworkPackage is the following:
 }
 
 Each type of package defines what it should contain inside its "body", so only
-the sender and receiver of this type of package need agree about it.
+the emisor Plugin and receiver Plugin of this type of package need agree about
+its content.
 

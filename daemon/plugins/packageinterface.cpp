@@ -20,8 +20,17 @@
 
 #include "packageinterface.h"
 
-PackageInterface::PackageInterface(QObject* parent)
+#include <QPointer>
+
+#include "../device.h"
+
+PackageInterface::PackageInterface(QObject* parent, const QVariantList& args)
     : QObject(parent)
 {
-    //gcc complains if we don't add something to compile on a class with virtual functions
+    mDevice = qvariant_cast< Device* >(args.first());
+}
+
+Device* PackageInterface::device()
+{
+    return mDevice;
 }
