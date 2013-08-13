@@ -18,31 +18,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BATTERYPLUGIN_H
-#define BATTERYPLUGIN_H
+#ifndef BATTERYDBUSINTERFACE_H
+#define BATTERYDBUSINTERFACE_H
 
 #include <QDBusAbstractAdaptor>
 
-#include <KNotification>
-
-#include "../kdeconnectplugin.h"
-
-class BatteryDbusInterface;
-
-class BatteryPlugin
-    : public KdeConnectPlugin
+class BatteryDbusInterface
+    : public QDBusAbstractAdaptor
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
+    Q_PROPERTY( int charge READ charge NOTIFY chargingChange )
+    Q_PROPERTY( bool isCharging READ isCharging NOTIFY chargingChange )
 
 public:
-    explicit BatteryPlugin(QObject *parent, const QVariantList &args);
-    virtual ~BatteryPlugin();
+    explicit BatteryDbusInterface(QObject *parent);
 
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
+    int charge() { return mCharge; }
+    bool isCharging() { return mIsCharging; }
+
+    void updateValues(bool isCharging, int currentCharge);
+
+Q_SIGNALS:
+    Q_SCRIPTABLE void chargingChange();
 
 private:
-    BatteryDbusInterface* batteryDbusInterface;
+    bool mIsCharging;
+    int mCharge;
+
 };
 
 #endif

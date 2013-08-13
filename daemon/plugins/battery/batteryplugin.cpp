@@ -18,67 +18,56 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "batterypackageinterface.h"
+#include "batteryplugin.h"
 
 #include <QDebug>
-#include <kicon.h>
+#include <KNotification>
+#include <KIcon>
 
+#include "batterydbusinterface.h"
 
-BatteryPackageInterface::BatteryPackageInterface(QObject* parent)
-    : PackageInterface(parent)
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< BatteryPlugin >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_battery", "kdeconnect_battery") )
+
+BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
 {
-    //TODO: Get initial state of all devices
+    batteryDbusInterface = new BatteryDbusInterface(parent);
 
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/plugins/battery", this, QDBusConnection::ExportScriptableContents);
-    //The solid backend watches for this service to become available, because it is not possible to watch for a path
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect.battery");
-
-    qDebug() << "BatteryPackageInterface registered in dbus";
+    NetworkPackage np(PACKAGE_TYPE_BATTERY);
+    np.set("request",true);
+    device()->sendPackage(np);
 
 }
 
-bool BatteryPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
+BatteryPlugin::~BatteryPlugin()
 {
+    batteryDbusInterface->deleteLater();
+}
+
+bool BatteryPlugin::receivePackage(const NetworkPackage& np)
+{
+
     if (np.type() != PACKAGE_TYPE_BATTERY) return false;
 
-    QString id = device.id();
+    bool isCharging = np.get<bool>("isCharging");
+    int currentCharge = np.get<int>("currentCharge");
 
-    if (!mDevices.contains(id)) {
+    if (batteryDbusInterface->isCharging() != currentCharge || batteryDbusInterface->isCharging() != isCharging) {
 
-        //TODO: Avoid ugly const_cast
-        DeviceBatteryInformation* deviceInfo = new DeviceBatteryInformation(const_cast<Device*>(&device));
+        batteryDbusInterface->updateValues(isCharging, currentCharge);
 
-        mDevices[id] = deviceInfo;
-
-        emit batteryDeviceAdded(device.id());
-        connect(&device, SIGNAL(reachableStatusChanged()), this, SLOT(deviceReachableStatusChange()));
-
-        qDebug() << "Added battery info to device" << id;
+        if (currentCharge == 14 && !isCharging) {
+            KNotification* notification = new KNotification("battery100");
+            notification->setPixmap(KIcon("battery-040").pixmap(48, 48));
+            notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+            notification->setTitle(device()->name() + ": low battery");
+            notification->setText("Battery at 14%");
+        }
 
     }
-
-    bool isCharging = np.get<bool>("isCharging");
-    mDevices[id]->setCharging(isCharging);
-
-    int currentCharge = np.get<int>("currentCharge");
-    mDevices[id]->setCharge(currentCharge);
 
     return true;
 
-}
-
-QStringList BatteryPackageInterface::getBatteryReportingDevices()
-{
-    return mDevices.keys();
-}
-
-void BatteryPackageInterface::deviceReachableStatusChange()
-{
-    Device* device = static_cast<Device*>(sender());
-    if (!device->reachable()) {
-        mDevices.remove(device->id());
-        emit batteryDeviceLost(device->id());
-        disconnect(device, SIGNAL(reachableStatusChanged()), this, SLOT(deviceReachableStatusChange()));
-    }
 }
 

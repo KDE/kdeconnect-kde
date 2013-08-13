@@ -1,14 +1,30 @@
+find_package(KDE4 REQUIRED)
+include (KDE4Defaults)
+include_directories(${KDE4_INCLUDES})
 
-generate_and_install_dbus_interface(
-    kded_kdeconnect
-    packageinterfaces/devicebatteryinformation_p.h
-    org.kde.kdeconnect.device.battery.xml
-    OPTIONS -a
+set(kdeconnect_battery_SRCS
+    batteryplugin.cpp
+    batterydbusinterface.cpp
+    ../kdeconnectplugin.cpp
 )
 
+kde4_add_plugin(kdeconnect_battery ${kdeconnect_battery_SRCS})
+
+target_link_libraries(kdeconnect_battery
+    ${KDE4_KDECORE_LIBS}
+    ${KDE4_KDEUI_LIBS}
+    ${QT_QTNETWORK_LIBRARY}
+    qjson
+)
+
+install(TARGETS kdeconnect_battery DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(FILES kdeconnect_battery.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+
+include(../../../cmakemacros.txt)
+
 generate_and_install_dbus_interface(
-    kded_kdeconnect
-    packageinterfaces/batterypackageinterface.h
-    org.kde.kdeconnect.battery.xml
+    kdeconnect_battery
+    batterydbusinterface.h
+    org.kde.kdeconnect.device.battery.xml
     OPTIONS -a
 )
