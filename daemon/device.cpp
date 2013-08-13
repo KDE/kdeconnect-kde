@@ -156,6 +156,11 @@ void Device::removeLink(DeviceLink* link)
 
 bool Device::sendPackage(const NetworkPackage& np) const
 {
+    if (!m_paired) {
+        //qDebug() << "sendpackage disabled on untrusted device" << name();
+        return false;
+    }
+
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
         //TODO: Actually detect if a package is received or not, now when have TCP
         //"ESTABLISHED" connections that look legit and return true when we use them,
@@ -170,7 +175,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
     if (np.type() == "kdeconnect.identity" && !m_knownIdentiy) {
         m_deviceName = np.get<QString>("deviceName");
     } else if (m_paired) {
-        qDebug() << "package received from trusted device";
+        //qDebug() << "package received from trusted device" << name();
         Q_EMIT receivedPackage(np);
     } else {
         qDebug() << "device" << name() << "not trusted, ignoring package" << np.type();
