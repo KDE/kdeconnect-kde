@@ -26,6 +26,8 @@
 #include <QString>
 #include <qvector.h>
 
+#include "networkpackage.h"
+
 class DeviceLink;
 class KdeConnectPlugin;
 
