@@ -5,6 +5,9 @@ include_directories(${KDE4_INCLUDES})
 set(kdeconnect_notifications_SRCS
     notificationsplugin.cpp
     ../kdeconnectplugin.cpp
+    ../pluginloader.cpp
+    ../../networkpackage.cpp
+    ../../device.cpp
 )
 
 kde4_add_plugin(kdeconnect_notifications ${kdeconnect_notifications_SRCS})

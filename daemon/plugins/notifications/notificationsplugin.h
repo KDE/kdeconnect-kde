@@ -27,25 +27,17 @@
 
 #include <KStatusNotifierItem>
 
-class NotificationPlugin
+class NotificationsPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit NotificationPlugin(QObject *parent, const QVariantList &args);
+    explicit NotificationsPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
 
-private:
-    KNotification* createNotification(const QString& deviceName,const NetworkPackage& np);
-    KStatusNotifierItem* trayIcon;
-    QHash<QString, KNotification*> pendingNotifications;
-
-public slots:
-    void showPendingNotifications();
-    void notificationAttended();
 };
 
 #endif

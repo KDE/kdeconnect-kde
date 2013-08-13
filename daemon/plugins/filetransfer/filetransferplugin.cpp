@@ -33,6 +33,7 @@ FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args
 
 bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 {
+    Q_UNUSED(np);
 
     return false;
 

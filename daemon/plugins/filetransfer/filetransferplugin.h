@@ -31,7 +31,7 @@ class FileTransferPlugin
     Q_OBJECT
 
 public:
-    explicit FileTranferPlugin(QObject *parent, const QVariantList &args);
+    explicit FileTransferPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);

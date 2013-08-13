@@ -6,6 +6,9 @@ set(kdeconnect_battery_SRCS
     batteryplugin.cpp
     batterydbusinterface.cpp
     ../kdeconnectplugin.cpp
+    ../pluginloader.cpp
+    ../../networkpackage.cpp
+    ../../device.cpp
 )
 
 kde4_add_plugin(kdeconnect_battery ${kdeconnect_battery_SRCS})

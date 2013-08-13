@@ -10,6 +10,6 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
-Icon=preferences-desktop-notification
+Icon=folder-downloads
 Name=File transfer
 Comment=Allows to send and receive files

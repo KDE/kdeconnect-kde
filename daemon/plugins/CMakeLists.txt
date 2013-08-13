@@ -7,4 +7,6 @@ add_subdirectory(mpriscontrol)
 add_subdirectory(clipboard)
 add_subdirectory(telephony)
 add_subdirectory(battery)
+add_subdirectory(filetransfer)
+add_subdirectory(notifications)
 
