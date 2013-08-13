@@ -18,23 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "notificationpackageinterface.h"
+#include "telephonyplugin.h"
 
 #include <QDebug>
 #include <kicon.h>
 
-NotificationPackageInterface::NotificationPackageInterface(QObject* parent)
-    : PackageInterface(parent)
+TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
 {
-    //TODO: Split in EventNotificationInterface and NotificationDrawerSyncInterface
-    
     trayIcon = new KStatusNotifierItem(parent);
     trayIcon->setIconByName("pda");
     trayIcon->setTitle("KdeConnect");
     connect(trayIcon,SIGNAL(activateRequested(bool,QPoint)),this,SLOT(showPendingNotifications()));
 }
 
-KNotification* NotificationPackageInterface::createNotification(const QString& deviceName, const NetworkPackage& np)
+KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 {
 
     QString id = QString::number(np.id());
@@ -44,8 +42,7 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
     QString title, content, type, icon;
     bool transient;
 
-    title = deviceName;
-
+    title = device()->name();
 
     if (npType == "ringing") {
         type = "callReceived";
@@ -65,16 +62,6 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
             + ":\n"
             + np.get<QString>("messageBody","");
             transient = true;
-    } else if (npType == "battery") {
-        type = "battery100";
-        icon = "battery-100";
-        content = "Battery at " + np.get<QString>("batteryLevel") + "%";
-        transient = false;
-    } else if (npType == "notification") {
-        type = "pingReceived";
-        icon = "dialog-ok";
-        content = np.get<QString>("notificationContent");
-        transient = false;
     } else {
         //TODO: return NULL if !debug
         type = "unknownEvent";
@@ -89,7 +76,7 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
     if (transient) {
         trayIcon->setStatus(KStatusNotifierItem::Active);
 
-        KNotification* notification = new KNotification(type); //KNotification::Persistent
+        KNotification* notification = new KNotification(type);
         notification->setPixmap(KIcon(icon).pixmap(48, 48));
         notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
         notification->setTitle(title);
@@ -98,7 +85,8 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
         pendingNotifications.insert(id, notification);
     }
 
-    KNotification* notification = new KNotification(type); //KNotification::Persistent
+
+    KNotification* notification = new KNotification(type); //, KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);
@@ -112,7 +100,7 @@ KNotification* NotificationPackageInterface::createNotification(const QString& d
 
 }
 
-void NotificationPackageInterface::notificationAttended()
+void TelephonyPlugin::notificationAttended()
 {
     KNotification* normalNotification = (KNotification*)sender();
     QString id = normalNotification->property("id").toString();
@@ -125,7 +113,7 @@ void NotificationPackageInterface::notificationAttended()
     }
 }
 
-void NotificationPackageInterface::showPendingNotifications()
+void TelephonyPlugin::showPendingNotifications()
 {
     trayIcon->setStatus(KStatusNotifierItem::Passive);
     Q_FOREACH (KNotification* notification, pendingNotifications) {
@@ -134,7 +122,7 @@ void NotificationPackageInterface::showPendingNotifications()
     pendingNotifications.clear();
 }
 
-bool NotificationPackageInterface::receivePackage(const Device& device, const NetworkPackage& np)
+bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 {
 
     if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
@@ -147,7 +135,7 @@ bool NotificationPackageInterface::receivePackage(const Device& device, const Ne
 
     } else {
 
-        KNotification* n = createNotification(device.name(), np);
+        KNotification* n = createNotification(np);
         if (n != NULL) n->sendEvent();
 
     }

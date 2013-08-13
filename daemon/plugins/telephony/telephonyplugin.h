@@ -18,33 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NOTIFICATIONPACKAGEINTERFACE_H
-#define NOTIFICATIONPACKAGEINTERFACE_H
+#ifndef TELEPHONYPLUGIN_H
+#define TELEPHONYPLUGIN_H
 
 #include <knotification.h>
 
-#include "packageinterface.h"
+#include "../kdeconnectplugin.h"
 
 #include <KStatusNotifierItem>
 
-class NotificationPackageInterface
-    : public PackageInterface
+class TelephonyPlugin
+    : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    NotificationPackageInterface(QObject* parent = 0);
+    explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
 
-    virtual bool receivePackage(const Device&, const NetworkPackage& np);
+public Q_SLOTS:
+    virtual bool receivePackage(const NetworkPackage& np);
+    void showPendingNotifications();
+    void notificationAttended();
 
 private:
-    KNotification* createNotification(const QString& deviceName,const NetworkPackage& np);
+    KNotification* createNotification(const NetworkPackage& np);
     KStatusNotifierItem* trayIcon;
     QHash<QString, KNotification*> pendingNotifications;
 
-public slots:
-    void showPendingNotifications();
-    void notificationAttended();
 };
 
 #endif
