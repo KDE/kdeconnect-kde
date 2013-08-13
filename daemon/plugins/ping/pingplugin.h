@@ -32,7 +32,8 @@ class KDE_EXPORT PingPlugin
 
 public:
     explicit PingPlugin(QObject *parent, const QVariantList &args);
-
+    virtual ~PingPlugin();
+    
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
 

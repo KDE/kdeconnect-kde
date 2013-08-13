@@ -33,7 +33,8 @@ class BatteryDbusInterface
 
 public:
     explicit BatteryDbusInterface(QObject *parent);
-
+    virtual ~BatteryDbusInterface();
+    
     int charge() { return mCharge; }
     bool isCharging() { return mIsCharging; }
 

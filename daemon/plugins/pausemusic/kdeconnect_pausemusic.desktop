@@ -11,5 +11,5 @@ X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=speaker
-Name=Pause music on call
-Comment=Pause music during a phone call
+Name=Pause media during calls
+Comment=Pause music/videos during a phone call

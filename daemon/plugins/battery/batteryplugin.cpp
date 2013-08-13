@@ -32,8 +32,9 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_battery", "kdeconnect_batte
 BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-    batteryDbusInterface = new BatteryDbusInterface(parent);
 
+    batteryDbusInterface = new BatteryDbusInterface(parent);
+    
     NetworkPackage np(PACKAGE_TYPE_BATTERY);
     np.set("request",true);
     device()->sendPackage(np);
@@ -42,7 +43,14 @@ BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
 
 BatteryPlugin::~BatteryPlugin()
 {
-    batteryDbusInterface->deleteLater();
+    //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
+    // the next access to device via dbus). The implication of not deleting this
+    // is that disabling the plugin does not remove the interface (that will
+    // return outdated values) and that enabling it again instantiates a second
+    // adaptor. This is a partial memory leak (the memory will be freed when the
+    // device is destroyed anyway)
+
+    //batteryDbusInterface->deleteLater();
 }
 
 bool BatteryPlugin::receivePackage(const NetworkPackage& np)

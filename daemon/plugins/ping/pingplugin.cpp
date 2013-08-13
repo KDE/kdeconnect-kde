@@ -33,6 +33,11 @@ PingPlugin::PingPlugin(QObject* parent, const QVariantList& args)
     qDebug() << "Ping plugin constructor for device" << device()->name();
 }
 
+PingPlugin::~PingPlugin()
+{
+    qDebug() << "Ping plugin destructor for device" << device()->name();
+}
+
 bool PingPlugin::receivePackage(const NetworkPackage& np)
 {
 

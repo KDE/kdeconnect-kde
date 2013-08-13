@@ -12,4 +12,4 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=call-start
 Name=Telephony integration
-Comment=Currently it only shows notifications for calls and SMS
+Comment=Show notifications for calls and SMS (answering coming soon)

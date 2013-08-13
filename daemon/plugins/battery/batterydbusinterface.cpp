@@ -25,7 +25,11 @@
 BatteryDbusInterface::BatteryDbusInterface(QObject *parent)
     : QDBusAbstractAdaptor(parent)
 {
+}
 
+BatteryDbusInterface::~BatteryDbusInterface()
+{
+    qDebug() << "Destroying BatteryDbusInterface";
 }
 
 void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)

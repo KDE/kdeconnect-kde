@@ -68,36 +68,46 @@ bool Device::hasPlugin(const QString& name)
 
 void Device::reloadPlugins()
 {
+    QMap< QString, KdeConnectPlugin* > newPluginMap;
 
+    if (paired()) { //Do not load any plugin for unpaired devices
+
+        QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
+        QMap<QString,QString> pluginStates = KSharedConfig::openConfig(path + id())->group("Plugins").entryMap();
+
+        PluginLoader* loader = PluginLoader::instance();
+
+        //Code borrowed from KWin
+        foreach (const QString& pluginName, loader->getPluginList()) {
+
+            const QString value = pluginStates.value(pluginName + QString::fromLatin1("Enabled"), QString());
+            KPluginInfo info = loader->getPluginInfo(pluginName);
+            bool enabled = (value.isNull() ? info.isPluginEnabledByDefault() : QVariant(value).toBool());
+
+            if (enabled) {
+
+                if (m_plugins.contains(pluginName)) {
+                    //Already loaded, reuse it
+                    newPluginMap[pluginName] = m_plugins[pluginName];
+                    m_plugins.remove(pluginName);
+                } else {
+                    KdeConnectPlugin* plugin = loader->instantiatePluginForDevice(pluginName, this);
+
+                    connect(this, SIGNAL(receivedPackage(const NetworkPackage&)),
+                            plugin, SLOT(receivePackage(const NetworkPackage&)));
+
+                    newPluginMap[pluginName] = plugin;
+                }
+            }
+        }
+    }
+
+    //Erase all the plugins left in the original map (it means that we don't want
+    //them anymore, otherways they would have been moved to the newPluginMap)
     qDeleteAll(m_plugins);
     m_plugins.clear();
 
-    QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
-    QMap<QString,QString> pluginStates = KSharedConfig::openConfig(path + id())->group("Plugins").entryMap();
-
-    PluginLoader* loader = PluginLoader::instance();
-
-    //Code borrowed from KWin
-    foreach (const QString& pluginName, loader->getPluginList()) {
-
-        const QString value = pluginStates.value(pluginName + QString::fromLatin1("Enabled"), QString());
-        KPluginInfo info = loader->getPluginInfo(pluginName);
-        bool enabled = (value.isNull() ? info.isPluginEnabledByDefault() : QVariant(value).toBool());
-
-        qDebug() << pluginName << "enabled:" << enabled;
-
-        if (enabled) {
-            KdeConnectPlugin* plugin = loader->instantiatePluginForDevice(pluginName, this);
-
-            connect(this, SIGNAL(receivedPackage(const NetworkPackage&)),
-                    plugin, SLOT(receivePackage(const NetworkPackage&)));
-    //        connect(plugin, SIGNAL(sendPackage(const NetworkPackage&)),
-    //                device, SLOT(sendPackage(const NetworkPackage&)));
-
-
-            m_plugins[pluginName] = plugin;
-        }
-    }
+    m_plugins = newPluginMap;
 
     Q_EMIT pluginsChanged();
 
@@ -106,7 +116,6 @@ void Device::reloadPlugins()
 
 void Device::setPair(bool b)
 {
-    qDebug() << "setPair" << b;
     m_paired = b;
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     if (b) {
@@ -116,6 +125,7 @@ void Device::setPair(bool b)
         qDebug() << name() << "unpaired";
         config->group("devices").group("paired").deleteGroup(id());
     }
+    reloadPlugins();
 }
 
 static bool lessThan(DeviceLink* p1, DeviceLink* p2)
