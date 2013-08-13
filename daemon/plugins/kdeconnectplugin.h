@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PACKAGEINTERFACE_H
-#define PACKAGEINTERFACE_H
+#ifndef KDECONNECTPLUGIN_H
+#define KDECONNECTPLUGIN_H
 
 #include <QObject>
 #include <QVariantList>
@@ -31,18 +31,13 @@
 #include "../networkpackage.h"
 #include "../device.h"
 
-#define KDECONNECT_PLUGIN_EXPORT( c ) \
-  K_PLUGIN_FACTORY( KdeConnectFactory, registerPlugin< c >(); ) \
-  K_EXPORT_PLUGIN( KdeConnectFactory("c") )
-
-class KDE_EXPORT PackageInterface
+class KDE_EXPORT KdeConnectPlugin
     : public QObject
 {
     Q_OBJECT
 
 public:
-    PackageInterface(QObject* parent, const QVariantList& args);
-    virtual ~PackageInterface() { }
+    KdeConnectPlugin(QObject* parent, const QVariantList& args);
     Device* device();
 
 public Q_SLOTS:

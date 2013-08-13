@@ -25,19 +25,18 @@
 #include <QMap>
 #include <QString>
 
-#include "packageinterface.h"
-
 #include <KPluginFactory>
 #include <KService>
 
 class Device;
+class KdeConnectPlugin;
 
 class PluginLoader
 {
 
 public:
     static PluginLoader* instance();
-    PackageInterface* instantiatePluginForDevice(QString name, Device* device);
+    KdeConnectPlugin* instantiatePluginForDevice(QString name, Device* device);
     QStringList getPluginList();
 
 private:

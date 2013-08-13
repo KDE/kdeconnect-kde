@@ -3,8 +3,8 @@ include (KDE4Defaults)
 include_directories(${KDE4_INCLUDES})
 
 set(kdeconnect_ping_SRCS
-    pingpackageinterface.cpp
-    ../packageinterface.cpp
+    pingplugin.cpp
+    ../kdeconnectplugin.cpp
 )
 
 kde4_add_plugin(kdeconnect_ping ${kdeconnect_ping_SRCS})

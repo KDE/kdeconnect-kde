@@ -25,10 +25,9 @@
 #include <QDBusConnection>
 #include <QString>
 #include <qvector.h>
-#include "devicelinks/devicelink.h"
 
 class DeviceLink;
-class PackageInterface;
+class KdeConnectPlugin;
 
 class Device
     : public QObject
@@ -49,7 +48,7 @@ public:
     //(not supported yet, do we need it or we can rely on the device presenging itself?)
     //Device(const QString& id, DeviceLink* dl);
 
-    QString id() const{ return m_deviceId; }
+    QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }
 
     //Add and remove links
@@ -84,7 +83,7 @@ private:
     QString m_deviceId;
     QString m_deviceName;
     QList<DeviceLink*> m_deviceLinks;
-    QList<PackageInterface*> m_plugins;
+    QList<KdeConnectPlugin*> m_plugins;
     bool m_knownIdentiy;
 
 

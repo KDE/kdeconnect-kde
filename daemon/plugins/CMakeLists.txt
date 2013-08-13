@@ -1,5 +1,5 @@
 
-install(FILES kdeconnect_package_interface.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
+install(FILES kdeconnect_plugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
 
 add_subdirectory(ping)
 

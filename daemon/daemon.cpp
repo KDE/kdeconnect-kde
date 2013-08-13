@@ -22,9 +22,6 @@
 
 #include "networkpackage.h"
 
-#include "plugins/packageinterface.h"
-#include "plugins/pluginloader.h"
-
 #include "linkproviders/broadcasttcplinkprovider.h"
 #include "linkproviders/avahitcplinkprovider.h"
 #include "linkproviders/loopbacklinkprovider.h"

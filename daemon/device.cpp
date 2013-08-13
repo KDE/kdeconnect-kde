@@ -10,6 +10,7 @@
 
 #include <QDebug>
 
+#include "plugins/kdeconnectplugin.h"
 #include "plugins/pluginloader.h"
 #include "devicelinks/devicelink.h"
 #include "linkproviders/linkprovider.h"
@@ -80,7 +81,7 @@ void Device::reloadPlugins()
         qDebug() << pluginName << "enabled:" << enabled;
 
         if (enabled) {
-            PackageInterface* plugin = loader->instantiatePluginForDevice(pluginName, this);
+            KdeConnectPlugin* plugin = loader->instantiatePluginForDevice(pluginName, this);
 
             connect(this, SIGNAL(receivedPackage(const NetworkPackage&)),
                     plugin, SLOT(receivePackage(const NetworkPackage&)));

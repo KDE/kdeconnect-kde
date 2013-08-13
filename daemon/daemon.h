@@ -39,7 +39,6 @@
 #include <KConfig>
 
 #include "device.h"
-#include "plugins/packageinterface.h"
 #include "devicelinks/devicelink.h"
 #include "linkproviders/linkprovider.h"
 

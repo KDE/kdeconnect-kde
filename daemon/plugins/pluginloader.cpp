@@ -20,8 +20,7 @@
 
 #include "pluginloader.h"
 
-#include "packageinterface.h"
-#include "plugins/ping/pingpackageinterface.h"
+#include "kdeconnectplugin.h"
 
 #include <KServiceTypeTrader>
 #include <KDebug>
@@ -48,7 +47,7 @@ QStringList PluginLoader::getPluginList()
     return plugins.keys();
 }
 
-PackageInterface* PluginLoader::instantiatePluginForDevice(QString id, Device* device) {
+KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(QString id, Device* device) {
 
     KService::Ptr service = plugins[id];
     if (!service) {
@@ -65,7 +64,7 @@ PackageInterface* PluginLoader::instantiatePluginForDevice(QString id, Device* d
     QVariant deviceVariant;
     deviceVariant.setValue<Device*>(device);
 
-    //FIXME: create<PackageInterface> return NULL
+    //FIXME: create<KdeConnectPlugin> return NULL
     QObject *plugin = factory->create<QObject>(device, QVariantList() << deviceVariant);
     if (!plugin) {
         qDebug() << "Error loading plugin";
@@ -73,6 +72,6 @@ PackageInterface* PluginLoader::instantiatePluginForDevice(QString id, Device* d
     }
 
     qDebug() << "Loaded plugin:" << service->name();
-    return (PackageInterface*)plugin;
+    return (KdeConnectPlugin*)plugin;
 }
 

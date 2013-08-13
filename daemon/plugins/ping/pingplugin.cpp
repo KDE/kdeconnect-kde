@@ -18,22 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "pingpackageinterface.h"
+#include "pingplugin.h"
 
 #include <KNotification>
 #include <KIcon>
 #include <QDebug>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPackageInterface >(); )
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect_ping") )
 
-PingPackageInterface::PingPackageInterface(QObject* parent, const QVariantList& args)
-    : PackageInterface(parent, args)
+PingPlugin::PingPlugin(QObject* parent, const QVariantList& args)
+    : KdeConnectPlugin(parent, args)
 {
     qDebug() << "Plugin constructor for device" << device()->name();
 }
 
-bool PingPackageInterface::receivePackage(const NetworkPackage& np)
+bool PingPlugin::receivePackage(const NetworkPackage& np)
 {
 
     if (np.type() != PACKAGE_TYPE_PING) return false;

@@ -18,24 +18,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PINGPACKAGEINTERFACE_H
-#define PINGPACKAGEINTERFACE_H
+#include "kdeconnectplugin.h"
 
-#include <QObject>
+#include <QPointer>
 
-#include "../packageinterface.h"
+#include "../device.h"
 
-class KDE_EXPORT PingPackageInterface
-    : public PackageInterface
+KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
+    : QObject(parent)
 {
-    Q_OBJECT
+    mDevice = qvariant_cast< Device* >(args.first());
+}
 
-public:
-    explicit PingPackageInterface(QObject *parent, const QVariantList &args);
-    
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-
-};
-
-#endif
+Device* KdeConnectPlugin::device()
+{
+    return mDevice;
+}

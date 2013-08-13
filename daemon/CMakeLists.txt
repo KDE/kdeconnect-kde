@@ -9,7 +9,7 @@ set(kded_kdeconnect_SRCS
     devicelinks/echodevicelink.cpp
     devicelinks/tcpdevicelink.cpp
 
-    plugins/packageinterface.cpp
+    plugins/kdeconnectplugin.cpp
     plugins/pluginloader.cpp
 
     networkpackage.cpp
