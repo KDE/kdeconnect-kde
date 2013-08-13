@@ -10,5 +10,6 @@ X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
+Icon=dialog-ok
 Name=Ping
 Comment=Send and receive pings
