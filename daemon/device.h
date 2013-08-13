@@ -58,6 +58,7 @@ public:
     void removeLink(DeviceLink*);
 
     Q_SCRIPTABLE QStringList availableLinks() const;
+    Q_SCRIPTABLE bool trusted() const { return m_paired; }
     Q_SCRIPTABLE bool paired() const { return m_paired; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
 

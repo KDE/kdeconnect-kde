@@ -47,11 +47,22 @@ QStringList PluginLoader::getPluginList()
     return plugins.keys();
 }
 
-KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(QString id, Device* device) {
+KPluginInfo PluginLoader::getPluginInfo(const QString& name) {
 
-    KService::Ptr service = plugins[id];
+    KService::Ptr service = plugins[name];
     if (!service) {
-        qDebug() << "Plugin unknown" << id;
+        qDebug() << "Plugin unknown" << name;
+        return KPluginInfo();
+    }
+
+    return KPluginInfo(service);
+}
+
+KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) {
+
+    KService::Ptr service = plugins[name];
+    if (!service) {
+        qDebug() << "Plugin unknown" << name;
         return NULL;
     }
 

@@ -27,6 +27,7 @@
 
 #include <KPluginFactory>
 #include <KService>
+#include <KPluginInfo>
 
 class Device;
 class KdeConnectPlugin;
@@ -36,8 +37,10 @@ class PluginLoader
 
 public:
     static PluginLoader* instance();
-    KdeConnectPlugin* instantiatePluginForDevice(QString name, Device* device);
+
     QStringList getPluginList();
+    KPluginInfo getPluginInfo(const QString& name);
+    KdeConnectPlugin* instantiatePluginForDevice(const QString& name, Device* device);
 
 private:
     PluginLoader();

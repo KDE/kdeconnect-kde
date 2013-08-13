@@ -76,8 +76,8 @@ void Device::reloadPlugins()
     foreach (const QString& pluginName, loader->getPluginList()) {
 
         const QString value = pluginStates.value(pluginName + QString::fromLatin1("Enabled"), QString());
-        KPluginInfo plugininfo(pluginName);
-        bool enabled = (value.isNull() ? plugininfo.isPluginEnabledByDefault() : QVariant(value).toBool());
+        KPluginInfo info = loader->getPluginInfo(pluginName);
+        bool enabled = (value.isNull() ? info.isPluginEnabledByDefault() : QVariant(value).toBool());
 
         qDebug() << pluginName << "enabled:" << enabled;
 
