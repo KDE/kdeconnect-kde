@@ -51,7 +51,6 @@ void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
 
 bool ClipboardPlugin::receivePackage(const NetworkPackage& np)
 {
-    qDebug() << "AAAAAAAAAAAAAAAAAA";
     if (np.type() == PACKAGE_TYPE_CLIPBOARD) {
         ignore_next_clipboard_change = true;
         clipboard->setText(np.get<QString>("content"));

@@ -83,7 +83,8 @@ void MprisControlPlugin::addPlayer(const QString& service)
 
 void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, const QVariantMap& properties)
 {
-
+    Q_UNUSED(propertyInterface);
+    
     NetworkPackage np(PACKAGE_TYPE_MPRIS);
     bool somethingToSend = false;
     if (properties.contains("Volume")) {
