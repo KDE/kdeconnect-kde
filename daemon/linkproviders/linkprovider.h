@@ -25,8 +25,7 @@
 #include <QVector>
 #include <QNetworkSession>
 
-#include "devicelinks/devicelink.h"
-#include "device.h"
+#include "../networkpackage.h"
 
 class DeviceLink;
 

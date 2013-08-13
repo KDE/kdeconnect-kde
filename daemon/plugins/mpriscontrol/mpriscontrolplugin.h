@@ -21,22 +21,24 @@
 #ifndef MPRISCONTROLPACKAGEINTERFACE_H
 #define MPRISCONTROLPACKAGEINTERFACE_H
 
-#include "packageinterface.h"
-#include "mprisdbusinterface.h"
-
 #include <QSet>
 #include <QString>
 #include <QHash>
 #include <QDBusArgument>
 
-class MprisControlPackageInterface
-    : public PackageInterface
+#include "../kdeconnectplugin.h"
+#include "mprisdbusinterface.h"
+
+class MprisControlPlugin
+    : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    MprisControlPackageInterface();
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+    explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
+
+public Q_SLOTS:
+    virtual bool receivePackage(const NetworkPackage& np);
 
 private Q_SLOTS:
     void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
@@ -46,7 +48,7 @@ private:
     QHash<QString, QString> playerList;
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
-    void sendPlayerList(const Device* device = 0);
+    void sendPlayerList();
     int prevVolume;
 
 };

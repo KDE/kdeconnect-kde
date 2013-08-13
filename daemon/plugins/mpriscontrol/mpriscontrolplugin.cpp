@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "mpriscontrolpackageinterface.h"
+#include "mpriscontrolplugin.h"
 
 #include "propertiesdbusinterface.h"
 
@@ -29,7 +29,11 @@
 #include <QDBusReply>
 #include <QDBusMessage>
 
-MprisControlPackageInterface::MprisControlPackageInterface()
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MprisControlPlugin >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mpriscontrol", "kdeconnect_mpriscontrol") )
+
+MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args)
+    : KdeConnectPlugin(parent, args)
 {
 
     //Detect new interfaces
@@ -46,7 +50,7 @@ MprisControlPackageInterface::MprisControlPackageInterface()
 
 }
 
-void MprisControlPackageInterface::serviceOwnerChanged(const QString &name,
+void MprisControlPlugin::serviceOwnerChanged(const QString &name,
                                               const QString &oldOwner,
                                               const QString &newOwner)
 {
@@ -54,7 +58,7 @@ void MprisControlPackageInterface::serviceOwnerChanged(const QString &name,
 
     if (name.startsWith("org.mpris.MediaPlayer2")) {
 
-        qDebug() << "Something (un)registered in bus" << name << oldOwner << newOwner;
+        qDebug() << "Mpris (un)registered in bus" << name << oldOwner << newOwner;
 
         if (oldOwner.isEmpty()) {
             addPlayer(name);
@@ -64,7 +68,7 @@ void MprisControlPackageInterface::serviceOwnerChanged(const QString &name,
     }
 }
 
-void MprisControlPackageInterface::addPlayer(const QString& service)
+void MprisControlPlugin::addPlayer(const QString& service)
 {
     QDBusInterface mprisInterface(service, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2");
     const QString& identity = mprisInterface.property("Identity").toString();
@@ -77,7 +81,7 @@ void MprisControlPackageInterface::addPlayer(const QString& service)
 
 }
 
-void MprisControlPackageInterface::propertiesChanged(const QString& propertyInterface, const QVariantMap& properties)
+void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, const QVariantMap& properties)
 {
 
     NetworkPackage np(PACKAGE_TYPE_MPRIS);
@@ -115,19 +119,18 @@ void MprisControlPackageInterface::propertiesChanged(const QString& propertyInte
         const QString& service = interface->service();
         const QString& player = playerList.key(service);
         np.set("player", player);
-        sendPackage(np);
+        device()->sendPackage(np);
     }
 }
 
-void MprisControlPackageInterface::removePlayer(const QString& ifaceName)
+void MprisControlPlugin::removePlayer(const QString& ifaceName)
 {
     playerList.remove(playerList.key(ifaceName));
     sendPlayerList();
 }
 
-bool MprisControlPackageInterface::receivePackage (const Device& device, const NetworkPackage& np)
+bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 {
-    Q_UNUSED(device);
 
     if (np.type() != PACKAGE_TYPE_MPRIS) return false;
 
@@ -135,7 +138,7 @@ bool MprisControlPackageInterface::receivePackage (const Device& device, const N
     const QString& player = np.get<QString>("player");
     bool valid_player = playerList.contains(player);
     if (!valid_player || np.get<bool>("requestPlayerList")) {
-        sendPlayerList(&device);
+        sendPlayerList();
         if (!valid_player) {
             return true;
         }
@@ -185,17 +188,16 @@ bool MprisControlPackageInterface::receivePackage (const Device& device, const N
     }
     if (somethingToSend) {
         answer.set("player", player);
-        device.sendPackage(answer);
+        device()->sendPackage(answer);
     }
 
     return true;
 
 }
 
-void MprisControlPackageInterface::sendPlayerList(const Device* device)
+void MprisControlPlugin::sendPlayerList()
 {
     NetworkPackage np(PACKAGE_TYPE_MPRIS);
     np.set("playerList",playerList.keys());
-    if (device == NULL) Q_EMIT sendPackage(np);
-    else device->sendPackage(np);
+    device()->sendPackage(np);
 }
