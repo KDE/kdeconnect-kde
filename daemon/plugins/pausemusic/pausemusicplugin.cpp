@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "pausemusicpackageinterface.h"
+#include "pausemusicplugin.h"
 
 #include <QDebug>
 #include <QDBusConnection>
@@ -27,16 +27,20 @@
 #include <QDBusReply>
 #include <QDBusMessage>
 
-PauseMusicPackageInterface::PauseMusicPackageInterface()
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect_pausemusic") )
+
+PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
+    : KdeConnectPlugin(parent, args)
 {
+
     //TODO: Be able to change this from plugin settings
     pauseWhen = PauseWhenRinging;
 
 }
 
-bool PauseMusicPackageInterface::receivePackage (const Device& device, const NetworkPackage& np)
+bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
-    Q_UNUSED(device);
 
     bool pauseConditionFulfilled = false;
 

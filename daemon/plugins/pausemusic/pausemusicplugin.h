@@ -18,20 +18,25 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPACKAGEINTERFACE_H
-#define PAUSEMUSICPACKAGEINTERFACE_H
+#ifndef PAUSEMUSICPLUGIN_H
+#define PAUSEMUSICPLUGIN_H
 
-#include "packageinterface.h"
-
+#include <QObject>
 #include <QSet>
 #include <QString>
 
-class PauseMusicPackageInterface
-    : public PackageInterface
+#include "../kdeconnectplugin.h"
+
+class PauseMusicPlugin
+    : public KdeConnectPlugin
 {
+    Q_OBJECT
+
 public:
-    PauseMusicPackageInterface();
-    virtual bool receivePackage(const Device& device, const NetworkPackage& np);
+    explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
+
+public Q_SLOTS:
+    virtual bool receivePackage(const NetworkPackage& np);
 
 private:
     enum PauseCondtions { PauseWhenTalking, PauseWhenRinging, NeverPause };
