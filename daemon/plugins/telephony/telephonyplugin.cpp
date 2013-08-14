@@ -125,7 +125,7 @@ void TelephonyPlugin::showPendingNotifications()
 bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 {
 
-    if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
+    if (np.type() != PACKAGE_TYPE_TELEPHONY) return false;
 
     if (np.get<bool>("isCancel")) {
 

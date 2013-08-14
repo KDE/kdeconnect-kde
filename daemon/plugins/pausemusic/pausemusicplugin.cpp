@@ -41,28 +41,20 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
+    if (np.type() != PACKAGE_TYPE_TELEPHONY) return false;
 
-    bool pauseConditionFulfilled = false;
-
-    //TODO: I have manually tested it and it works for both "pauseWhen" cases, but I should somehow write a test for this logic
+    //TODO: Test this logic again
     if (pauseWhen == PauseWhenRinging) {
-        if (np.type() == PACKAGE_TYPE_NOTIFICATION) {
-            if (np.get<QString>("notificationType") != "ringing") return false;
-            pauseConditionFulfilled = !np.get<bool>("isCancel");
-        } else if (np.type() == PACKAGE_TYPE_CALL) {
-            pauseConditionFulfilled = !np.get<bool>("isCancel");
-        } else {
-            return false;
-        }
+        if (np.get<QString>("event") != "ringing" || np.get<QString>("event") != "talking") return false;
     } else if (pauseWhen == PauseWhenTalking){
-        if (np.type() != PACKAGE_TYPE_CALL) return false;
-        pauseConditionFulfilled = !np.get<bool>("isCancel");
+        if (np.get<QString>("event") != "talking") return false;
     }
+
+
+    bool pauseConditionFulfilled = !np.get<bool>("isCancel");
 
     qDebug() << "PauseMusicPackageReceiver - PauseCondition:" << pauseConditionFulfilled;
 
-    //TODO: Make this async
-    //TODO: Make this not crash if dbus is not working
     if (pauseConditionFulfilled) {
         //Search for interfaces currently playing
         QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
@@ -78,7 +70,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                 }
             }
         }
-    } if (!pauseConditionFulfilled) {
+    } else {
         Q_FOREACH (const QString& iface, pausedSources) {
             QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
             //Calling play does not work in spotify

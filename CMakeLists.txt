@@ -13,6 +13,5 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(daemon)
 add_subdirectory(kcm)
-#add_subdirectory(kioslave)
 
 add_subdirectory(test)
