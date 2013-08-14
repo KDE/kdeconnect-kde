@@ -26,7 +26,7 @@
 LoopbackLinkProvider::LoopbackLinkProvider()
     : identityPackage(PACKAGE_TYPE_IDENTITY)
 {
-    echoDeviceLink = new EchoDeviceLink("fake", this);
+    echoDeviceLink = new EchoDeviceLink("loopback", this);
     NetworkPackage::createIdentityPackage(&identityPackage);
 }
 
@@ -35,9 +35,20 @@ LoopbackLinkProvider::~LoopbackLinkProvider()
     //delete echoDeviceLink;
 }
 
-void LoopbackLinkProvider::setDiscoverable(bool b)
+void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
+    Q_UNUSED(state);
     qDebug() << "Echo Device discovery emitted";
-    if (b) Q_EMIT onConnectionReceived(identityPackage, echoDeviceLink);
+    Q_EMIT onConnectionReceived(identityPackage, echoDeviceLink);
+}
+
+void LoopbackLinkProvider::onStart()
+{
+    onNetworkChange(QNetworkSession::Connected);
+}
+
+void LoopbackLinkProvider::onStop()
+{
+    onConnectionLost(echoDeviceLink);
 }
 

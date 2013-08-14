@@ -22,8 +22,8 @@
 
 #include "linkproviders/loopbacklinkprovider.h"
 
-EchoDeviceLink::EchoDeviceLink(const QString& d, LoopbackLinkProvider* a)
-    : DeviceLink(d, a)
+EchoDeviceLink::EchoDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
+    : DeviceLink(deviceId, provider)
 {
 
 }

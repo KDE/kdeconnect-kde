@@ -35,7 +35,9 @@ public:
     QString name() { return "LoopbackLinkProvider"; }
     int priority() { return PRIORITY_LOW; }
 
-    void setDiscoverable(bool b);
+    virtual void onStart();
+    virtual void onStop();
+    virtual void onNetworkChange(QNetworkSession::State state);
 
 private:
     DeviceLink* echoDeviceLink;
