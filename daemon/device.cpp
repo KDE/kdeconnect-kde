@@ -70,7 +70,7 @@ void Device::reloadPlugins()
 {
     QMap< QString, KdeConnectPlugin* > newPluginMap;
 
-    if (paired()) { //Do not load any plugin for unpaired devices
+    if (paired() && reachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
         QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
         QMap<QString,QString> pluginStates = KSharedConfig::openConfig(path + id())->group("Plugins").entryMap();
@@ -150,6 +150,7 @@ void Device::addLink(DeviceLink* link)
     qSort(m_deviceLinks.begin(),m_deviceLinks.end(),lessThan);
 
     if (m_deviceLinks.size() == 1) {
+        reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
 
@@ -167,6 +168,7 @@ void Device::removeLink(DeviceLink* link)
     qDebug() << "RemoveLink"<< m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.empty()) {
+        reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
 }
