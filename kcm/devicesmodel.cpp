@@ -85,7 +85,7 @@ void DevicesModel::refreshDeviceList()
         m_deviceList.append(new DeviceDbusInterface(id,this));
         endInsertRows();
     }
-
+    Q_EMIT dataChanged(index(0),index(deviceIds.count()));
 }
 /*
 bool DevicesModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -129,23 +129,36 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 
 
-    if (!index.isValid() || index.row() < 0 || index.row() >= m_deviceList.count()) {
+    if (!index.isValid()
+        || index.row() < 0
+        || index.row() >= m_deviceList.count()
+        || !m_deviceList[index.row()]->isValid())
+    {
         return QVariant();
     }
+
+    DeviceDbusInterface* device = m_deviceList[index.row()];
 
 
     //FIXME: This function gets called lots of times per second, producing lots of dbus calls
     switch (role) {
         case IconModelRole: {
-            bool paired = m_deviceList[index.row()]->paired();
-            bool reachable = m_deviceList[index.row()]->reachable();
+            bool paired = device->paired();
+            bool reachable = device->reachable();
             QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
             return KIcon(icon).pixmap(32, 32);
         }
         case IdModelRole:
-            return QString(m_deviceList[index.row()]->id());
+            return QString(device->id());
         case NameModelRole:
-            return QString(m_deviceList[index.row()]->name());
+            return QString(device->name());
+        case StatusModelRole: {
+            int status = StatusUnknown;
+            if (device->paired()) status |= StatusPaired;
+            if (device->reachable()) status |= StatusReachable;
+            return status;
+        }
+
         default:
              return QVariant();
     }

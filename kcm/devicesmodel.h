@@ -39,6 +39,13 @@ public:
         NameModelRole = Qt::DisplayRole,
         IconModelRole = Qt::DecorationRole,
         IdModelRole = Qt::UserRole,
+        StatusModelRole //= Qt::UserRole+1
+    };
+    enum StatusFlags {
+        StatusUnknown = 0x00,
+        StatusPaired  = 0x01,
+        StatusReachable = 0x10,
+
     };
 
     DevicesModel(QObject *parent = 0);
