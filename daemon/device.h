@@ -43,7 +43,7 @@ public:
     //Device known from KConfig, we trust it but we need to wait for a incoming devicelink to communicate
     Device(const QString& id, const QString& name);
 
-    //Device known via a presentation package sent to us via a devicelink, we know everything but we don't trust it yet
+    //Device known via an incoming connection sent to us via a devicelink, we know everything but we don't trust it yet
     Device(const QString& id, const QString& name, DeviceLink* dl);
 
     //Device known via discovery, we know nothing and have to ask for a presentation package
@@ -72,7 +72,7 @@ public Q_SLOTS:
     //Dbus operations called from kcm
 public Q_SLOTS:
     Q_SCRIPTABLE void setPair(bool b);
-    Q_SCRIPTABLE void reloadPlugins();
+    Q_SCRIPTABLE void reloadPlugins(); //From settings
     Q_SCRIPTABLE void sendPing();
 
 private Q_SLOTS:

@@ -11,5 +11,5 @@ X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=battery-100
-Name=Battery display
+Name=Battery monitor
 Comment=Show your phone battery next to your computer battery

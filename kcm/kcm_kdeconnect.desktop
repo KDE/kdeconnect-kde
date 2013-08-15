@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Exec=kcmshell4 kcm_kdeconnect
-Icon=applications-internet
+Icon=smartphone
 Type=Service
 
 X-KDE-ServiceTypes=KCModule
@@ -11,9 +11,9 @@ X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=hardware
 
-Name=KdeConnect
+Name=Devices
 
-Comment=Connect your smartphone and your desktop
+Comment=Connect and sync your devices with KDE
 
 X-KDE-Keywords=Network,Android,Devices
 

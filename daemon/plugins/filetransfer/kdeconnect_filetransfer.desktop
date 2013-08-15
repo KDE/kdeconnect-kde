@@ -12,4 +12,4 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=folder-downloads
 Name=(Stub) File transfer
-Comment=Allows to send and receive files
+Comment=Send and receive files from dolphin
