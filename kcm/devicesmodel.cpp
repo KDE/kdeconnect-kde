@@ -70,11 +70,9 @@ void DevicesModel::deviceRemoved(const QString& id)
 void DevicesModel::deviceStatusChanged(const QString& id)
 {
     Q_UNUSED(id);
-    //FIXME: Emitting dataChanged does not invalidate the view, refreshDeviceList does
+    //FIXME: Emitting dataChanged does not invalidate the view, refreshDeviceList does.
     //Q_EMIT dataChanged(index(0),index(rowCount()));
     refreshDeviceList();
-
-
 }
 
 void DevicesModel::refreshDeviceList()
