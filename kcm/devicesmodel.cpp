@@ -37,9 +37,12 @@ DevicesModel::DevicesModel(QObject *parent)
         deviceAdded(id);
     }
 
-    connect(m_dbusInterface,SIGNAL(deviceAdded(QString)),this,SLOT(deviceAdded(QString)));
-    connect(m_dbusInterface,SIGNAL(deviceVisibilityChanged(QString,bool)),this,SLOT(deviceStatusChanged(QString)));
-    connect(m_dbusInterface,SIGNAL(deviceRemoved(QString)),this,SLOT(deviceRemoved(QString)));
+    connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),
+            this, SLOT(deviceAdded(QString)));
+    connect(m_dbusInterface, SIGNAL(deviceVisibilityChanged(QString,bool)),
+            this, SLOT(deviceStatusChanged(QString)));
+    connect(m_dbusInterface, SIGNAL(deviceRemoved(QString)),
+            this, SLOT(deviceRemoved(QString)));
 }
 
 DevicesModel::~DevicesModel()
@@ -64,11 +67,12 @@ void DevicesModel::deviceRemoved(const QString& id)
     refreshDeviceList();
 }
 
-
 void DevicesModel::deviceStatusChanged(const QString& id)
 {
     Q_UNUSED(id);
-    emit dataChanged(index(0),index(rowCount()));
+    //FIXME: Emitting dataChanged does not invalidate the view, refreshDeviceList does
+    //Q_EMIT dataChanged(index(0),index(rowCount()));
+    refreshDeviceList();
 }
 
 void DevicesModel::refreshDeviceList()
@@ -79,13 +83,16 @@ void DevicesModel::refreshDeviceList()
         m_deviceList.clear();
         endRemoveRows();
     }
+
     QList<QString> deviceIds = m_dbusInterface->devices();
     Q_FOREACH(const QString& id, deviceIds) {
-        beginInsertRows(QModelIndex(), rowCount(), rowCount() + 1);
+        beginInsertRows(QModelIndex(), rowCount(), rowCount());
         m_deviceList.append(new DeviceDbusInterface(id,this));
         endInsertRows();
     }
+
     Q_EMIT dataChanged(index(0),index(deviceIds.count()));
+
 }
 /*
 bool DevicesModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -128,7 +135,6 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         }
     }
 
-
     if (!index.isValid()
         || index.row() < 0
         || index.row() >= m_deviceList.count()
@@ -138,7 +144,6 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 
     DeviceDbusInterface* device = m_deviceList[index.row()];
-
 
     //FIXME: This function gets called lots of times per second, producing lots of dbus calls
     switch (role) {
@@ -158,7 +163,6 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
             if (device->reachable()) status |= StatusReachable;
             return status;
         }
-
         default:
              return QVariant();
     }

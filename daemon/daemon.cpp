@@ -133,8 +133,6 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Device* device = mDevices[id];
         device->addLink(dl);
 
-        Q_EMIT deviceVisibilityChanged(id, true);
-        
     } else {
         qDebug() << "It is a new device";
 
@@ -145,9 +143,10 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         mDevices[id] = device;
 
         Q_EMIT deviceAdded(id);
-        Q_EMIT deviceVisibilityChanged(id, true);
     }
 
+    Q_EMIT deviceVisibilityChanged(id, true);
+    
 }
 
 void Daemon::onDeviceReachableStatusChanged()
@@ -156,9 +155,9 @@ void Daemon::onDeviceReachableStatusChanged()
     Device* device = (Device*)sender();
     QString id = device->id();
 
-    if (!device->reachable()) {
+    Q_EMIT deviceVisibilityChanged(id, device->reachable());
 
-        Q_EMIT deviceVisibilityChanged(id, false);
+    if (!device->reachable()) {
 
         if (!device->paired()) {
             Q_EMIT deviceRemoved(id);
