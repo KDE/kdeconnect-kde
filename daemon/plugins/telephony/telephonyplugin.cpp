@@ -29,16 +29,11 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_telephony", "kdeconnect_tel
 TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-    trayIcon = new KStatusNotifierItem(parent);
-    trayIcon->setIconByName("pda");
-    trayIcon->setTitle("KdeConnect");
-    connect(trayIcon,SIGNAL(activateRequested(bool,QPoint)),this,SLOT(showPendingNotifications()));
+
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 {
-
-    QString id = QString::number(np.id());
 
     QString npType = np.get<QString>("notificationType");
 
@@ -75,54 +70,14 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
     qDebug() << "Creating notification with type:" << type;
 
-
-    if (transient) {
-        trayIcon->setStatus(KStatusNotifierItem::Active);
-
-        KNotification* notification = new KNotification(type);
-        notification->setPixmap(KIcon(icon).pixmap(48, 48));
-        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-        notification->setTitle(title);
-        notification->setText(content);
-
-        pendingNotifications.insert(id, notification);
-    }
-
-
     KNotification* notification = new KNotification(type); //, KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);
     notification->setText(content);
-    notification->setProperty("id",id);
-
-    connect(notification,SIGNAL(activated()),this,SLOT(notificationAttended()));
-    connect(notification,SIGNAL(closed()),this,SLOT(notificationAttended()));
 
     return notification;
 
-}
-
-void TelephonyPlugin::notificationAttended()
-{
-    KNotification* normalNotification = (KNotification*)sender();
-    QString id = normalNotification->property("id").toString();
-    if (pendingNotifications.contains(id)) {
-        delete pendingNotifications[id];
-        pendingNotifications.remove(id);
-        if (pendingNotifications.isEmpty()) {
-            trayIcon->setStatus(KStatusNotifierItem::Passive);
-        }
-    }
-}
-
-void TelephonyPlugin::showPendingNotifications()
-{
-    trayIcon->setStatus(KStatusNotifierItem::Passive);
-    Q_FOREACH (KNotification* notification, pendingNotifications) {
-        notification->sendEvent();
-    }
-    pendingNotifications.clear();
 }
 
 bool TelephonyPlugin::receivePackage(const NetworkPackage& np)

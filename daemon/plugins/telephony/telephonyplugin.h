@@ -37,13 +37,9 @@ public:
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
-    void showPendingNotifications();
-    void notificationAttended();
 
 private:
     KNotification* createNotification(const NetworkPackage& np);
-    KStatusNotifierItem* trayIcon;
-    QHash<QString, KNotification*> pendingNotifications;
 
 };
 
