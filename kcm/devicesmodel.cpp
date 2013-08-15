@@ -73,6 +73,8 @@ void DevicesModel::deviceStatusChanged(const QString& id)
     //FIXME: Emitting dataChanged does not invalidate the view, refreshDeviceList does
     //Q_EMIT dataChanged(index(0),index(rowCount()));
     refreshDeviceList();
+
+
 }
 
 void DevicesModel::refreshDeviceList()
@@ -91,36 +93,10 @@ void DevicesModel::refreshDeviceList()
         endInsertRows();
     }
 
-    Q_EMIT dataChanged(index(0),index(deviceIds.count()));
+    Q_EMIT dataChanged(index(0), index(deviceIds.count()));
 
 }
-/*
-bool DevicesModel::insertRows(int row, int count, const QModelIndex &parent)
-{
-    if (row < 0 || row > m_deviceList.count() || count < 1) {
-        return false;
-    }
-    beginInsertRows(parent, row, row + count - 1);
-    for (int i = row; i < row + count; ++i) {
-        m_deviceList.insert(i, new Device());
-    }
-    endInsertRows();
-    return true;
-}
 
-bool DevicesModel::removeRows(int row, int count, const QModelIndex &parent)
-{
-    if (row < 0 || row > m_deviceList.count() || count < 1) {
-        return false;
-    }
-    beginRemoveRows(parent, row, row + count - 1);
-    for (int i = row; i < row + count; ++i) {
-        m_deviceList.removeAt(row);
-    }
-    endRemoveRows();
-    return true;
-}
-*/
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
 {
 
@@ -159,8 +135,10 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
             return QString(device->name());
         case StatusModelRole: {
             int status = StatusUnknown;
-            if (device->paired()) status |= StatusPaired;
-            if (device->reachable()) status |= StatusReachable;
+            if (device->reachable()) {
+                status |= StatusReachable;
+                if (device->paired()) status |= StatusPaired;
+            }
             return status;
         }
         default:

@@ -38,8 +38,8 @@ public:
     enum ModelRoles {
         NameModelRole = Qt::DisplayRole,
         IconModelRole = Qt::DecorationRole,
+        StatusModelRole = Qt::InitialSortOrderRole,
         IdModelRole = Qt::UserRole,
-        StatusModelRole //= Qt::UserRole+1
     };
     enum StatusFlags {
         StatusUnknown = 0x00,
@@ -53,8 +53,6 @@ public:
 
     virtual QVariant data(const QModelIndex &index, int role) const;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    //virtual bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
-    //virtual bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
 
     DeviceDbusInterface* getDevice(const QModelIndex& index);
 

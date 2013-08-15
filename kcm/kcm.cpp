@@ -32,6 +32,8 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 
+#include "devicessortproxymodel.h"
+
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
 #include <KDebug>
@@ -44,22 +46,33 @@ K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KdeConnectKcmFactory::componentData(), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
-    , pairedDevicesList(new DevicesModel(this))
+    , devicesModel(new DevicesModel(this))
     , currentDevice(0)
     //, config(KSharedConfig::openConfig("kdeconnectrc"))
 {
     kcmUi->setupUi(this);
 
     kcmUi->deviceList->setIconSize(QSize(32,32));
-    kcmUi->deviceList->setModel(pairedDevicesList);
+
+    sortProxyModel = new DevicesSortProxyModel(devicesModel);
+
+    kcmUi->deviceList->setModel(sortProxyModel);
 
     kcmUi->deviceInfo->setVisible(false);
 
     setButtons(KCModule::NoAdditionalButton);
 
-    connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)), this, SLOT(deviceSelected(QModelIndex)));
-    connect(kcmUi->ping_button, SIGNAL(pressed()), this, SLOT(sendPing()));
-    connect(kcmUi->trust_checkbox,SIGNAL(toggled(bool)), this, SLOT(trustedStateChanged(bool)));
+    connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+            this, SLOT(resetSelection()));
+    connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)),
+            this, SLOT(deviceSelected(QModelIndex)));
+    connect(kcmUi->ping_button, SIGNAL(pressed()),
+            this, SLOT(sendPing()));
+    connect(kcmUi->trust_checkbox, SIGNAL(toggled(bool)),
+            this, SLOT(trustedStateChanged(bool)));
+
+
+
 }
 
 KdeConnectKcm::~KdeConnectKcm()
@@ -67,21 +80,29 @@ KdeConnectKcm::~KdeConnectKcm()
 
 }
 
+void KdeConnectKcm::resetSelection()
+{
+    kcmUi->deviceList->selectionModel()->setCurrentIndex(sortProxyModel->mapFromSource(currentIndex), QItemSelectionModel::ClearAndSelect);
+}
+
 void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
-    //Store previous selection
+
+    //Store previous device config
     pluginsConfigChanged();
+
+    currentIndex = sortProxyModel->mapToSource(current);
+
+    bool valid = currentIndex.isValid();
+    kcmUi->deviceInfo->setVisible(valid);
+    if (!valid) return;
 
     //FIXME: KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
     kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
 
-    bool valid = current.isValid();
-    kcmUi->deviceInfo->setVisible(valid);
-    if (!valid) return;
-
-    currentDevice = pairedDevicesList->getDevice(current);
+    currentDevice = devicesModel->getDevice(currentIndex);
     kcmUi->deviceName->setText(currentDevice->name());
     kcmUi->trust_checkbox->setChecked(currentDevice->paired());
 
@@ -92,14 +113,16 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(path + currentDevice->id());
     kcmUi->pluginSelector->addPlugins(scriptinfos, KPluginSelector::ReadConfigFile, "Plugins", QString(), deviceConfig);
 
-    connect(kcmUi->pluginSelector, SIGNAL(changed(bool)), this, SLOT(pluginsConfigChanged()));
+    connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
+            this, SLOT(pluginsConfigChanged()));
 }
 
 void KdeConnectKcm::trustedStateChanged(bool b)
 {
     if (!currentDevice) return;
     currentDevice->setPair(b);
-    pairedDevicesList->deviceStatusChanged(currentDevice->id());
+    devicesModel->deviceStatusChanged(currentDevice->id());
+
 }
 
 void KdeConnectKcm::pluginsConfigChanged()
@@ -121,11 +144,9 @@ void KdeConnectKcm::save()
     KCModule::save();
 }
 
-
 void KdeConnectKcm::sendPing()
 {
     if (!currentDevice) return;
     currentDevice->sendPing();
 }
-
 

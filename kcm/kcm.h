@@ -37,6 +37,7 @@ class QStackedLayout;
 class QItemSelectionModel;
 class QDBusInterface;
 class DeviceDbusInterface;
+class DevicesSortProxyModel;
 
 namespace Ui {
     class KdeConnectKcmUi;
@@ -58,13 +59,17 @@ private Q_SLOTS:
     void trustedStateChanged(bool);
     void pluginsConfigChanged();
     void sendPing();
+    void resetSelection();
 
 private:
     Ui::KdeConnectKcmUi* kcmUi;
-    DevicesModel* pairedDevicesList;
+    DevicesModel* devicesModel;
+    DevicesSortProxyModel* sortProxyModel;
     AddDeviceWizard* addDeviceWizard;
     DeviceDbusInterface* currentDevice;
+    QModelIndex currentIndex;
     //KSharedConfigPtr config;
+
 
 };
 

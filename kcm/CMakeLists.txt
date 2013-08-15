@@ -1,5 +1,5 @@
 
-set(kcm_SRCS devicesmodel.cpp
+set(kcm_SRCS devicessortproxymodel.cpp devicesmodel.cpp
     kcm.cpp
     #wizard.cpp
     dbusinterfaces.cpp
