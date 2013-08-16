@@ -88,14 +88,6 @@ void BroadcastTcpLinkProvider::newUdpConnection()
                 return;
             }
 
-            const QString& id = np->get<QString>("deviceId");
-            if (links.contains(id)) {
-                //Delete old link if we already know it, probably it is down if this happens.
-                qDebug() << "Destroying old link";
-                delete links[id];
-                links.remove(id);
-            }
-
             int tcpPort = np->get<int>("tcpPort",port);
 
             qDebug() << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
@@ -106,6 +98,7 @@ void BroadcastTcpLinkProvider::newUdpConnection()
             connect(socket, SIGNAL(connected()), this, SLOT(connected()));
             connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
             socket->connectToHost(sender, tcpPort);
+
 
         } else {
 
@@ -147,6 +140,9 @@ void BroadcastTcpLinkProvider::connected()
 
     connect(dl,SIGNAL(destroyed(QObject*)),this,SLOT(deviceLinkDestroyed(QObject*)));
 
+    QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
+    DeviceLink* oldLink = (oldLinkIterator == links.end())? 0 : oldLinkIterator.value();
+
     links[id] = dl;
 
     NetworkPackage np2("");
@@ -163,6 +159,11 @@ void BroadcastTcpLinkProvider::connected()
         qDebug() << "Fallback (2), try reverse connection";
         QUdpSocket().writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
         delete dl;
+    }
+
+    if (oldLink) {
+        Q_EMIT onConnectionLost(oldLink);
+        delete oldLink;
     }
 
     receivedIdentityPackages.remove(socket);
@@ -208,11 +209,9 @@ void BroadcastTcpLinkProvider::dataReceived()
 
         connect(dl,SIGNAL(destroyed(QObject*)),this,SLOT(deviceLinkDestroyed(QObject*)));
 
-        if (links.contains(id)) {
-            //Delete old link if we already know it, probably it is down if this happens.
-            qDebug() << "Destroying old link";
-            delete links[id];
-        }
+        QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
+        DeviceLink* oldLink = (oldLinkIterator == links.end())? 0 : oldLinkIterator.value();
+
         links[id] = dl;
 
         //qDebug() << "BroadcastTcpLinkProvider creating link to device" << id << "(" << socket->peerAddress() << ")";
@@ -221,6 +220,11 @@ void BroadcastTcpLinkProvider::dataReceived()
 
         Q_EMIT onConnectionReceived(np, dl);
 
+        if (oldLink) {
+            Q_EMIT onConnectionLost(oldLink);
+            delete oldLink;
+        }
+        
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
     } else {
