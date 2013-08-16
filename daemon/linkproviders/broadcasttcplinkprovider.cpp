@@ -138,12 +138,6 @@ void BroadcastTcpLinkProvider::connected()
 
     TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
 
-    connect(dl, SIGNAL(destroyed(QObject*)),
-            this, SLOT(deviceLinkDestroyed(QObject*)));
-
-    QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
-    DeviceLink* oldLink = (oldLinkIterator == links.end())? 0 : oldLinkIterator.value();
-
     NetworkPackage np2("");
     NetworkPackage::createIdentityPackage(&np2);
 
@@ -154,14 +148,21 @@ void BroadcastTcpLinkProvider::connected()
 
         qDebug() << "Handshaking done (i'm the existing device)";
 
-        links[id] = dl;
+        connect(dl, SIGNAL(destroyed(QObject*)),
+                this, SLOT(deviceLinkDestroyed(QObject*)));
+
         Q_EMIT onConnectionReceived(*np, dl);
 
-        if (oldLink) {
+        QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
+        if (oldLinkIterator != links.end()) {
+            DeviceLink* oldLink = oldLinkIterator.value();
             disconnect(oldLink, SIGNAL(destroyed(QObject*)),
                         this, SLOT(deviceLinkDestroyed(QObject*)));
-            delete oldLink;
+            oldLink->deleteLater();
+            links.erase(oldLinkIterator);
         }
+
+        links[id] = dl;
 
     } else {
         //I think this will never happen
@@ -212,25 +213,23 @@ void BroadcastTcpLinkProvider::dataReceived()
         const QString& id = np.get<QString>("deviceId");
         TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
 
+        qDebug() << "Handshaking done (i'm the new device)";
+
         connect(dl, SIGNAL(destroyed(QObject*)),
                 this, SLOT(deviceLinkDestroyed(QObject*)));
 
-        QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
-        DeviceLink* oldLink = (oldLinkIterator == links.end())? 0 : oldLinkIterator.value();
-
-        links[id] = dl;
-
-        //qDebug() << "BroadcastTcpLinkProvider creating link to device" << id << "(" << socket->peerAddress() << ")";
-
-        qDebug() << "Handshaking done (i'm the new device)";
-
         Q_EMIT onConnectionReceived(np, dl);
 
-        if (oldLink) {
+        QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
+        if (oldLinkIterator != links.end()) {
+            DeviceLink* oldLink = oldLinkIterator.value();
             disconnect(oldLink, SIGNAL(destroyed(QObject*)),
                         this, SLOT(deviceLinkDestroyed(QObject*)));
-            delete oldLink;
+            oldLink->deleteLater();
+            links.erase(oldLinkIterator);
         }
+
+        links[id] = dl;
 
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
