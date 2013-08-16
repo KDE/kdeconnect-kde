@@ -134,16 +134,15 @@ void BroadcastTcpLinkProvider::connected()
 
     NetworkPackage* np = receivedIdentityPackages[socket].np;
     const QString& id = np->get<QString>("deviceId");
-    qDebug() << "Connected" << socket->isWritable();
+    //qDebug() << "Connected" << socket->isWritable();
 
     TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
 
-    connect(dl,SIGNAL(destroyed(QObject*)),this,SLOT(deviceLinkDestroyed(QObject*)));
+    connect(dl, SIGNAL(destroyed(QObject*)),
+            this, SLOT(deviceLinkDestroyed(QObject*)));
 
     QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
     DeviceLink* oldLink = (oldLinkIterator == links.end())? 0 : oldLinkIterator.value();
-
-    links[id] = dl;
 
     NetworkPackage np2("");
     NetworkPackage::createIdentityPackage(&np2);
@@ -152,8 +151,18 @@ void BroadcastTcpLinkProvider::connected()
 
     //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
+
         qDebug() << "Handshaking done (i'm the existing device)";
+
+        links[id] = dl;
         Q_EMIT onConnectionReceived(*np, dl);
+
+        if (oldLink) {
+            disconnect(oldLink, SIGNAL(destroyed(QObject*)),
+                        this, SLOT(deviceLinkDestroyed(QObject*)));
+            delete oldLink;
+        }
+
     } else {
         //I think this will never happen
         qDebug() << "Fallback (2), try reverse connection";
@@ -161,12 +170,8 @@ void BroadcastTcpLinkProvider::connected()
         delete dl;
     }
 
-    if (oldLink) {
-        Q_EMIT onConnectionLost(oldLink);
-        delete oldLink;
-    }
-
     receivedIdentityPackages.remove(socket);
+
     delete np;
 
 }
@@ -207,7 +212,8 @@ void BroadcastTcpLinkProvider::dataReceived()
         const QString& id = np.get<QString>("deviceId");
         TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
 
-        connect(dl,SIGNAL(destroyed(QObject*)),this,SLOT(deviceLinkDestroyed(QObject*)));
+        connect(dl, SIGNAL(destroyed(QObject*)),
+                this, SLOT(deviceLinkDestroyed(QObject*)));
 
         QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
         DeviceLink* oldLink = (oldLinkIterator == links.end())? 0 : oldLinkIterator.value();
@@ -221,10 +227,11 @@ void BroadcastTcpLinkProvider::dataReceived()
         Q_EMIT onConnectionReceived(np, dl);
 
         if (oldLink) {
-            Q_EMIT onConnectionLost(oldLink);
+            disconnect(oldLink, SIGNAL(destroyed(QObject*)),
+                        this, SLOT(deviceLinkDestroyed(QObject*)));
             delete oldLink;
         }
-        
+
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
     } else {
@@ -235,10 +242,16 @@ void BroadcastTcpLinkProvider::dataReceived()
 
 void BroadcastTcpLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
 {
+    qDebug() << "deviceLinkDestroyed";
+
     DeviceLink* deviceLink = (DeviceLink*)uncastedDeviceLink;
-    Q_EMIT onConnectionLost(deviceLink);
     const QString& id = deviceLink->deviceId();
-    if (links.contains(id)) links.remove(id);
+
+    QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
+    if (oldLinkIterator != links.end() && oldLinkIterator.value() == deviceLink) {
+        links.erase(oldLinkIterator);
+    }
+
 }
 
 BroadcastTcpLinkProvider::~BroadcastTcpLinkProvider()
