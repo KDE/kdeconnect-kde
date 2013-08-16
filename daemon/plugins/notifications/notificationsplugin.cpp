@@ -31,7 +31,14 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_notifications", "kdeconnect
 NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
+    trayIcon = new KStatusNotifierItem(parent);
+    trayIcon->setIconByName("smartphone");
+    trayIcon->setTitle(device()->name());
+}
 
+NotificationsPlugin::~NotificationsPlugin()
+{
+    delete trayIcon;
 }
 
 bool NotificationsPlugin::receivePackage(const NetworkPackage& np)
