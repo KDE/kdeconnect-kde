@@ -38,7 +38,6 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     QString event = np.get<QString>("event");
 
     QString title, content, type, icon;
-    bool transient;
 
     title = device()->name();
 
@@ -46,12 +45,10 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         type = "callReceived";
         icon = "call-start";
         content = "Incoming call from " + np.get<QString>("phoneNumber","unknown number");
-        transient = false;
     } else if (event == "missedCall") {
         type = "missedCall";
         icon = "call-start";
         content = "Missed call from " + np.get<QString>("phoneNumber","unknown number");
-        transient = true;
     } else if (event == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
@@ -59,13 +56,11 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
             + np.get<QString>("phoneNumber","unknown number")
             + ":\n"
             + np.get<QString>("messageBody","");
-            transient = true;
     } else {
         //TODO: return NULL if !debug
         type = "unknownEvent";
         icon = "pda";
         content = "Unknown notification type: " + event;
-        transient = false;
     }
 
     qDebug() << "Creating notification with type:" << type;
