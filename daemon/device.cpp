@@ -23,10 +23,11 @@ Device::Device(const QString& id, const QString& name)
     m_paired = true;
     m_knownIdentiy = true;
 
-    //Register in bus
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors | QDBusConnection::ExportChildObjects);
-
     reloadPlugins();
+
+    //Register in bus
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+
 }
 
 Device::Device(const QString& id, const QString& name, DeviceLink* link)
@@ -36,12 +37,13 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     m_paired = false;
     m_knownIdentiy = true;
 
-    //Register in bus
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors | QDBusConnection::ExportChildObjects);
-
     addLink(link);
 
     reloadPlugins();
+
+    //Register in bus
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+
 }
 /*
 Device::Device(const QString& id, const QString& name, DeviceLink* link)
@@ -137,7 +139,8 @@ void Device::addLink(DeviceLink* link)
 {
     qDebug() << "Adding link to" << id() << "via" << link->provider();
 
-    connect(link,SIGNAL(destroyed(QObject*)),this,SLOT(linkDestroyed(QObject*)));
+    connect(link, SIGNAL(destroyed(QObject*)),
+            this, SLOT(linkDestroyed(QObject*)));
 
     m_deviceLinks.append(link);
 
@@ -165,7 +168,7 @@ void Device::removeLink(DeviceLink* link)
 {
     m_deviceLinks.removeOne(link);
 
-    qDebug() << "RemoveLink"<< m_deviceLinks.size() << "links remaining";
+    qDebug() << "RemoveLink" << m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.empty()) {
         reloadPlugins();

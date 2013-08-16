@@ -26,7 +26,6 @@
 LoopbackLinkProvider::LoopbackLinkProvider()
     : identityPackage(PACKAGE_TYPE_IDENTITY)
 {
-    echoDeviceLink = new EchoDeviceLink("loopback", this);
     NetworkPackage::createIdentityPackage(&identityPackage);
 }
 
@@ -44,11 +43,12 @@ void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
 
 void LoopbackLinkProvider::onStart()
 {
+    echoDeviceLink = new EchoDeviceLink("loopback", this);
     onNetworkChange(QNetworkSession::Connected);
 }
 
 void LoopbackLinkProvider::onStop()
 {
-    onConnectionLost(echoDeviceLink);
+    delete echoDeviceLink;
 }
 

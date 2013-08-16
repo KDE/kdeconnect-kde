@@ -54,8 +54,8 @@ public Q_SLOTS:
 Q_SIGNALS:
     //NOTE: The provider will to destroy the DeviceLink when it's no longer accessible,
     //      and every user should listen to the destroyed signal to remove its references.
+    //      That's the reason because there is no "onConnectionLost".
     void onConnectionReceived(const NetworkPackage& identityPackage, DeviceLink*);
-    void onConnectionLost(DeviceLink*);
 
 };
 

@@ -80,8 +80,8 @@ private Q_SLOTS:
     void privateReceivedPackage(const NetworkPackage& np);
 
 Q_SIGNALS:
-    void reachableStatusChanged();
-    void pluginsChanged();
+    Q_SCRIPTABLE void reachableStatusChanged();
+    Q_SCRIPTABLE void pluginsChanged();
 
 private:
     bool m_paired;
