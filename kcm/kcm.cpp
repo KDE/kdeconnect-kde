@@ -120,9 +120,19 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 void KdeConnectKcm::trustedStateChanged(bool b)
 {
     if (!currentDevice) return;
-    currentDevice->setPair(b);
-    devicesModel->deviceStatusChanged(currentDevice->id());
-
+    QDBusPendingReply<void> pendingReply = currentDevice->setPair(b);
+    pendingReply.waitForFinished();
+    if (pendingReply.isValid()) {
+        //If dbus was down, calling this would make kcm crash
+        devicesModel->deviceStatusChanged(currentDevice->id());
+    } else {
+        //Revert checkbox
+        disconnect(kcmUi->trust_checkbox, SIGNAL(toggled(bool)),
+                   this, SLOT(trustedStateChanged(bool)));
+        kcmUi->trust_checkbox->setCheckState(b? Qt::Unchecked : Qt::Checked);
+        connect(kcmUi->trust_checkbox, SIGNAL(toggled(bool)),
+                this, SLOT(trustedStateChanged(bool)));
+    }
 }
 
 void KdeConnectKcm::pluginsConfigChanged()

@@ -18,6 +18,7 @@
 
 Device::Device(const QString& id, const QString& name)
 {
+
     m_deviceId = id;
     m_deviceName = name;
     m_paired = true;
@@ -32,6 +33,7 @@ Device::Device(const QString& id, const QString& name)
 
 Device::Device(const QString& id, const QString& name, DeviceLink* link)
 {
+
     m_deviceId = id;
     m_deviceName = name;
     m_paired = false;
@@ -45,23 +47,11 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
 }
-/*
-Device::Device(const QString& id, const QString& name, DeviceLink* link)
+
+Device::~Device()
 {
-    m_deviceId = id;
-    m_deviceName = id; //Temporary name
-    m_paired = false;
-    m_knownIdentiy = false;
 
-    addLink(link);
-
-    NetworkPackage identityRequest;
-    identityRequest.setType("IDENTITY_REQUEST");
-    link->sendPackage(identityRequest);
-
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/Devices/"+id, this);
 }
-*/
 
 bool Device::hasPlugin(const QString& name)
 {
@@ -123,9 +113,11 @@ void Device::setPair(bool b)
     if (b) {
         qDebug() << name() << "paired";
         config->group("devices").group("paired").group(id()).writeEntry("name",name());
+        Q_EMIT reachableStatusChanged();
     } else {
         qDebug() << name() << "unpaired";
         config->group("devices").group("paired").deleteGroup(id());
+        //Do not Q_EMIT reachableStatusChanged() because we do not want it to suddenly disappear from device list
     }
     reloadPlugins();
 }

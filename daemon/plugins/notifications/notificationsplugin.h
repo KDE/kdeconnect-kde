@@ -31,7 +31,6 @@ class NotificationsPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
-    KStatusNotifierItem* trayIcon;
 
 public:
     explicit NotificationsPlugin(QObject *parent, const QVariantList &args);
@@ -39,6 +38,9 @@ public:
     
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
+
+private:
+    KStatusNotifierItem* trayIcon;
 
 };
 

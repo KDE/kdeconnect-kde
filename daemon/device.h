@@ -46,9 +46,7 @@ public:
     //Device known via an incoming connection sent to us via a devicelink, we know everything but we don't trust it yet
     Device(const QString& id, const QString& name, DeviceLink* dl);
 
-    //Device known via discovery, we know nothing and have to ask for a presentation package
-    //(not supported yet, do we need it or we can rely on the device presenging itself?)
-    //Device(const QString& id, DeviceLink* dl);
+    virtual ~Device();
 
     QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }

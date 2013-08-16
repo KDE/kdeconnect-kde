@@ -60,7 +60,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         //TODO: return NULL if !debug
         type = "unknownEvent";
         icon = "pda";
-        content = "Unknown notification type: " + event;
+        content = "Unknown telephony event: " + event;
     }
 
     qDebug() << "Creating notification with type:" << type;

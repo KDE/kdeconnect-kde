@@ -160,6 +160,7 @@ void Daemon::onDeviceReachableStatusChanged()
     if (!device->reachable()) {
 
         if (!device->paired()) {
+            qDebug() << "Destroying device";
             Q_EMIT deviceRemoved(id);
             mDevices.remove(id);
             device->deleteLater();
