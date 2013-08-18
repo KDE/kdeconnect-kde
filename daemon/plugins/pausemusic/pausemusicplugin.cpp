@@ -41,19 +41,28 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
-    if (np.type() != PACKAGE_TYPE_TELEPHONY) return false;
 
-    //TODO: Test this logic again
+    if (np.type() != PACKAGE_TYPE_TELEPHONY) {
+        return false;
+    }
+
+
     if (pauseWhen == PauseWhenRinging) {
-        if (np.get<QString>("event") != "ringing" || np.get<QString>("event") != "talking") return false;
-    } else if (pauseWhen == PauseWhenTalking){
-        if (np.get<QString>("event") != "talking") return false;
+
+        if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
+            return true;
+        }
+
+    } else if (pauseWhen == PauseWhenTalking) {
+
+        if (np.get<QString>("event") != "talking") {
+            return true;
+        }
+
     }
 
 
     bool pauseConditionFulfilled = !np.get<bool>("isCancel");
-
-    qDebug() << "PauseMusicPackageReceiver - PauseCondition:" << pauseConditionFulfilled;
 
     if (pauseConditionFulfilled) {
         //Search for interfaces currently playing
