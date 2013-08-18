@@ -60,6 +60,7 @@ public:
     Q_SCRIPTABLE bool paired() const { return m_paired; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
     Q_SCRIPTABLE bool hasPlugin(const QString& name);
+    Q_SCRIPTABLE QStringList loadedPlugins();
 
     //Send and receive
 Q_SIGNALS:

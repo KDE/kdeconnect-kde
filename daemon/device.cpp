@@ -58,6 +58,11 @@ bool Device::hasPlugin(const QString& name)
     return m_plugins.contains(name);
 }
 
+QStringList Device::loadedPlugins()
+{
+    return m_plugins.keys();
+}
+
 void Device::reloadPlugins()
 {
     QMap< QString, KdeConnectPlugin* > newPluginMap;
