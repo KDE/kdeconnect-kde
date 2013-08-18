@@ -91,18 +91,25 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     //Store previous device config
     pluginsConfigChanged();
 
-    currentIndex = sortProxyModel->mapToSource(current);
+    if (!current.isValid()) {
+        kcmUi->deviceInfo->setVisible(false);
+        return;
+    }
 
-    bool valid = currentIndex.isValid();
+    currentIndex = sortProxyModel->mapToSource(current);
+    currentDevice = devicesModel->getDevice(currentIndex);
+
+    bool valid = (currentDevice != NULL && currentDevice->isValid());
     kcmUi->deviceInfo->setVisible(valid);
-    if (!valid) return;
+    if (!valid) {
+        return;
+    }
 
     //FIXME: KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
     kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
 
-    currentDevice = devicesModel->getDevice(currentIndex);
     kcmUi->deviceName->setText(currentDevice->name());
     kcmUi->trust_checkbox->setChecked(currentDevice->paired());
 

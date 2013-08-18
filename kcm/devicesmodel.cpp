@@ -95,7 +95,6 @@ void DevicesModel::refreshDeviceList()
 
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
 {
-
     if (!m_dbusInterface->isValid()) {
         switch (role) {
             case IconModelRole:
@@ -117,7 +116,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
 
     DeviceDbusInterface* device = m_deviceList[index.row()];
 
-    //FIXME: This function gets called lots of times per second, producing lots of dbus calls
+    //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache.
     switch (role) {
         case IconModelRole: {
             bool paired = device->paired();
@@ -144,7 +143,16 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
 
 DeviceDbusInterface* DevicesModel::getDevice(const QModelIndex& index)
 {
-    return m_deviceList[index.row()];
+    if (!index.isValid()) {
+        return NULL;
+    }
+
+    int row = index.row();
+    if (row < 0 || row >= m_deviceList.size()) {
+        return NULL;
+    }
+
+    return m_deviceList[row];
 }
 
 int DevicesModel::rowCount(const QModelIndex &parent) const
