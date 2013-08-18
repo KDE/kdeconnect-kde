@@ -44,8 +44,8 @@ Q_SIGNALS:
     Q_SCRIPTABLE void chargingChange();
 
 private:
-    bool mIsCharging;
     int mCharge;
+    bool mIsCharging : 1;
 
 };
 

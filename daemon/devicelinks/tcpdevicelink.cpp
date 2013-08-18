@@ -52,7 +52,7 @@ void TcpDeviceLink::dataReceived()
         NetworkPackage np("");
         NetworkPackage::unserialize(package, &np);
 
-        emit receivedPackage(np);
+        Q_EMIT receivedPackage(np);
 
     }
 }

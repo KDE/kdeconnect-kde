@@ -31,10 +31,9 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_battery", "kdeconnect_batte
 
 BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , batteryDbusInterface(new BatteryDbusInterface(parent))
 {
 
-    batteryDbusInterface = new BatteryDbusInterface(parent);
-    
     NetworkPackage np(PACKAGE_TYPE_BATTERY);
     np.set("request",true);
     device()->sendPackage(np);
@@ -61,7 +60,8 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
     bool isCharging = np.get<bool>("isCharging");
     int currentCharge = np.get<int>("currentCharge");
 
-    if (batteryDbusInterface->isCharging() != currentCharge || batteryDbusInterface->isCharging() != isCharging) {
+    if (batteryDbusInterface->isCharging() != currentCharge
+        || batteryDbusInterface->isCharging() != isCharging) {
 
         batteryDbusInterface->updateValues(isCharging, currentCharge);
 

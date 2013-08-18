@@ -56,6 +56,8 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
             + np.get<QString>("phoneNumber","unknown number")
             + ":\n"
             + np.get<QString>("messageBody","");
+    } else if (event == "talking") {
+        return NULL;
     } else {
         //TODO: return NULL if !debug
         type = "unknownEvent";
