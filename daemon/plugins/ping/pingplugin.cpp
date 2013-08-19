@@ -47,7 +47,7 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
     notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(device()->name());
-    notification->setText("Ping!");
+    notification->setText(np->get<QString>("message","Ping!"));
     notification->sendEvent();
 
     return true;
