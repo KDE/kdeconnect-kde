@@ -18,14 +18,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NOTIFICATIONPACKAGEINTERFACE_H
-#define NOTIFICATIONPACKAGEINTERFACE_H
+#ifndef NOTIFICATIONSPLUGIN_H
+#define NOTIFICATIONSPLUGIN_H
 
 #include <knotification.h>
 
 #include "../kdeconnectplugin.h"
 
-#include <KStatusNotifierItem>
+/*
+ * This class is just a proxy for NotificationsDbusInterface
+ * because it can not inherit from QDBusAbstractAdaptor and
+ * KdeConnectPlugin at the same time (both are QObject)
+ */
+class NotificationsDbusInterface;
 
 class NotificationsPlugin
     : public KdeConnectPlugin
@@ -40,7 +45,7 @@ public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
 
 private:
-    KStatusNotifierItem* trayIcon;
+    NotificationsDbusInterface* notificationsDbusInterface;
 
 };
 

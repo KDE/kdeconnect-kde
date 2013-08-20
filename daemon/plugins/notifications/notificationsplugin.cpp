@@ -21,7 +21,10 @@
 #include "notificationsplugin.h"
 
 #include <QDebug>
-#include <kicon.h>
+
+#include <KIcon>
+
+#include "notificationsdbusinterface.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< NotificationsPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_notifications", "kdeconnect_notifications") )
@@ -29,20 +32,32 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_notifications", "kdeconnect
 NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    trayIcon = new KStatusNotifierItem(this);
-    trayIcon->setIconByName("smartphone");
-    trayIcon->setTitle(device()->name());
+    notificationsDbusInterface = new NotificationsDbusInterface(device(), parent);
+
+    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
+    np.set("request",true);
+    device()->sendPackage(np);
 }
 
 NotificationsPlugin::~NotificationsPlugin()
 {
-    delete trayIcon;
+    //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
+    // the next dbus access to its parent). The implication of not deleting this
+    // is that disabling the plugin does not remove the interface (that will
+    // return outdated values) and that enabling it again instantiates a second
+    // adaptor.
+
+    //notificationsDbusInterface->deleteLater();
+
 }
 
 bool NotificationsPlugin::receivePackage(const NetworkPackage& np)
 {
     if (np.type() != PACKAGE_TYPE_NOTIFICATION) return false;
 
+    notificationsDbusInterface->processPackage(np);
+
     return true;
 }
 
+   

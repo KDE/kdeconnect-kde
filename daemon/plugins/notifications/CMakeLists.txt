@@ -3,7 +3,9 @@ include (KDE4Defaults)
 include_directories(${KDE4_INCLUDES})
 
 set(kdeconnect_notifications_SRCS
+    notification.cpp
     notificationsplugin.cpp
+    notificationsdbusinterface.cpp
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
     ../../networkpackage.cpp
@@ -21,3 +23,19 @@ target_link_libraries(kdeconnect_notifications
 
 install(TARGETS kdeconnect_notifications DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES kdeconnect_notifications.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+
+include(../../../cmakemacros.txt)
+
+generate_and_install_dbus_interface(
+    kdeconnect_notifications
+    notificationsdbusinterface.h
+    org.kde.kdeconnect.device.notifications.xml
+    OPTIONS -a
+)
+
+generate_and_install_dbus_interface(
+    kdeconnect_notifications
+    notification.h
+    org.kde.kdeconnect.device.notifications.notification.xml
+    OPTIONS -a
+)
