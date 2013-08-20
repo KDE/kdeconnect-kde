@@ -27,7 +27,7 @@ Device::Device(const QString& id, const QString& name)
     reloadPlugins();
 
     //Register in bus
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
 }
 
@@ -44,7 +44,7 @@ Device::Device(const QString& id, const QString& name, DeviceLink* link)
     reloadPlugins();
 
     //Register in bus
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/devices/"+id, this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
 }
 

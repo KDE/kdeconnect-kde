@@ -50,6 +50,7 @@ public:
 
     QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }
+    QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
 
     //Add and remove links
     void addLink(DeviceLink*);

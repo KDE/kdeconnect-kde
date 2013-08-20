@@ -43,7 +43,7 @@ BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
 BatteryPlugin::~BatteryPlugin()
 {
     //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
-    // the next access to device via dbus). The implication of not deleting this
+    // the next dbus access to its parent). The implication of not deleting this
     // is that disabling the plugin does not remove the interface (that will
     // return outdated values) and that enabling it again instantiates a second
     // adaptor. This is a partial memory leak (the memory will be freed when the
