@@ -90,12 +90,11 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
     Notification* noti = mNotifications[publicId];
     mNotifications.remove(publicId);
 
-    //Deleting the notification will unregister it automatically?
+    //Deleting the notification will unregister it automatically
     //QDBusConnection::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
     noti->deleteLater();
 
     Q_EMIT notificationRemoved(publicId);
-
 }
 
 void NotificationsDbusInterface::dismissRequested(Notification* notification)
@@ -114,5 +113,4 @@ QString NotificationsDbusInterface::newId()
 {
     return QString::number(++mLastId);
 }
-
 
