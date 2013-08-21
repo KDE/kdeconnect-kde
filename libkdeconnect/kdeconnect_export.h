@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,49 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef WIZARD_H
-#define WIZARD_H
+#ifndef KDECONNECT_EXPORT_H
+#define KDECONNECT_EXPORT_H
 
-#include <QWizard>
-#include <QObject>
+#include <QtCore/QtGlobal>
 
-#include "../libkdeconnect/dbusinterfaces.h"
-#include "../libkdeconnect/devicesmodel.h"
+#define KDECONNECT_EXPORT Q_DECL_EXPORT
 
-namespace Ui {
-    class Wizard;
-}
-
-class QStandardItemModel;
-
-class AddDeviceWizard : public QWizard
-{
-    Q_OBJECT
-
-public:
-    AddDeviceWizard(QWidget* parent);
-    ~AddDeviceWizard();
-    void show();
-    void restart();
-
-private Q_SLOTS:
-    void pageChanged(int id);
-    
-    void deviceDiscovered(QString id, QString name);
-    //void deviceLost(QString id);
-
-    void deviceSelected(const QModelIndex& index);
-
-    void wizardFinished();
-
-Q_SIGNALS:
-    void deviceAdded(QString id, QString name);
-
-private:
-    Ui::Wizard* wizardUi;
-    DaemonDbusInterface* dbusInterface;
-    DevicesModel* discoveredDevicesList;
-    QModelIndex selectedIndex;
-};
-
-#endif // WIZARD_H
+#endif

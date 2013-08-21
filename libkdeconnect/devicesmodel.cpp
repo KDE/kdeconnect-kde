@@ -22,18 +22,17 @@
 #include <ksharedconfig.h>
 
 #include <QDebug>
-#include <qdbusinterface.h>
+#include <QDBusInterface>
+
 #include <KConfigGroup>
-#include <kicon.h>
+#include <KIcon>
+
+bool fetchNotifications = true;
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
 {
-    QList<QString> deviceIds = m_dbusInterface->devices();
-    Q_FOREACH(const QString& id, deviceIds) {
-        deviceAdded(id);
-    }
 
     connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),
             this, SLOT(deviceAdded(QString)));
@@ -41,6 +40,9 @@ DevicesModel::DevicesModel(QObject *parent)
             this, SLOT(deviceStatusChanged(QString)));
     connect(m_dbusInterface, SIGNAL(deviceRemoved(QString)),
             this, SLOT(deviceRemoved(QString)));
+
+    refreshDeviceList();
+
 }
 
 DevicesModel::~DevicesModel()
@@ -49,18 +51,14 @@ DevicesModel::~DevicesModel()
 
 void DevicesModel::deviceAdded(const QString& id)
 {
-    /*
-    beginInsertRows(QModelIndex(), rowCount(), rowCount() + 1);
-    m_deviceList.append(new DeviceDbusInterface(id,this));
-    endInsertRows();
-    */
-
+    //TODO: Actually add instead of refresh
     Q_UNUSED(id);
     refreshDeviceList();
 }
 
 void DevicesModel::deviceRemoved(const QString& id)
 {
+    //TODO: Actually remove instead of refresh
     Q_UNUSED(id);
     refreshDeviceList();
 }
@@ -77,17 +75,19 @@ void DevicesModel::refreshDeviceList()
 {
 
     if (m_deviceList.count() > 0) {
-        beginRemoveRows(QModelIndex(), 0, m_deviceList.count() - 1);
+        beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
         m_deviceList.clear();
         endRemoveRows();
     }
 
     QList<QString> deviceIds = m_dbusInterface->devices();
+    beginInsertRows(QModelIndex(), 0, deviceIds.size()-1);
     Q_FOREACH(const QString& id, deviceIds) {
-        beginInsertRows(QModelIndex(), rowCount(), rowCount());
-        m_deviceList.append(new DeviceDbusInterface(id,this));
-        endInsertRows();
+        DeviceDbusInterface* deviceDbusInterface = new DeviceDbusInterface(id,this);
+        m_deviceList.append(deviceDbusInterface);
     }
+    endInsertRows();
+
 
     Q_EMIT dataChanged(index(0), index(deviceIds.count()));
 
@@ -128,6 +128,8 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
             return QString(device->id());
         case NameModelRole:
             return QString(device->name());
+        case Qt::ToolTipRole:
+            return QVariant(); //To implement
         case StatusModelRole: {
             int status = StatusUnknown;
             if (device->reachable()) {

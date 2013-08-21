@@ -21,7 +21,7 @@
 #include "kcm.h"
 #include "ui_kcm.h"
 #include "ui_wizard.h"
-#include "dbusinterfaces.h"
+#include "libkdeconnect/dbusinterfaces.h"
 
 #include <QtGui/QLabel>
 #include <QtGui/QMenu>

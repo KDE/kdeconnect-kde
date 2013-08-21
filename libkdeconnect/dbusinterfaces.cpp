@@ -18,6 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
 #include "dbusinterfaces.h"
 
 DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
@@ -28,6 +29,24 @@ DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
 
 DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+DeviceBatteryDbusInterface::DeviceBatteryDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceBatteryInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceNotificationsInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+NotificationDbusInterface::NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent)
+    : OrgKdeKdeconnectDeviceNotificationsNotificationInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+deviceId+"/notifications/"+notificationId, QDBusConnection::sessionBus(), parent)
 {
 
 }

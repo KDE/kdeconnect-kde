@@ -28,7 +28,7 @@
 #include <ksharedconfig.h>
 
 #include "wizard.h"
-#include "devicesmodel.h"
+#include "libkdeconnect/devicesmodel.h"
 
 class QModelIndex;
 class AccountsModel;

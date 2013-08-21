@@ -18,53 +18,45 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEVICESMODEL_H
-#define DEVICESMODEL_H
-
+#ifndef NOTIFICATIONSMODEL_H
+#define NOTIFICATIONSMODEL_H
 
 #include <QAbstractItemModel>
 #include <QAbstractListModel>
 #include <QPixmap>
 #include <QList>
-#include "dbusinterfaces.h"
 
-class DevicesModel
+#include "libkdeconnect/dbusinterfaces.h"
+
+class KDECONNECT_EXPORT NotificationsModel
     : public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum ModelRoles {
-        NameModelRole = Qt::DisplayRole,
         IconModelRole = Qt::DecorationRole,
-        StatusModelRole = Qt::InitialSortOrderRole,
-        IdModelRole = Qt::UserRole,
-    };
-    enum StatusFlags {
-        StatusUnknown = 0x00,
-        StatusPaired  = 0x01,
-        StatusReachable = 0x10,
-
+        NameModelRole = Qt::DisplayRole,
+        ContentModelRole = Qt::UserRole,
+        IdModelRole = Qt::UserRole + 1,
     };
 
-    DevicesModel(QObject *parent = 0);
-    virtual ~DevicesModel();
+    NotificationsModel(const QString& deviceId = "", QObject *parent = 0);
+    virtual ~NotificationsModel();
 
     virtual QVariant data(const QModelIndex &index, int role) const;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
-    DeviceDbusInterface* getDevice(const QModelIndex& index);
-
-public Q_SLOTS:
-    void deviceStatusChanged(const QString& id);
+    NotificationDbusInterface* getNotification(const QModelIndex&);
 
 private Q_SLOTS:
-    void deviceAdded(const QString& id);
-    void deviceRemoved(const QString& id);
-    void refreshDeviceList();
+    void notificationAdded(const QString& id);
+    void notificationRemoved(const QString& id);
+    void refreshNotificationList();
 
 private:
-    DaemonDbusInterface* m_dbusInterface;
-    QList<DeviceDbusInterface*> m_deviceList;
+    DeviceNotificationsDbusInterface* m_dbusInterface;
+    QList<NotificationDbusInterface*> m_notificationList;
+    QString m_deviceId;
 };
 
 #endif // DEVICESMODEL_H

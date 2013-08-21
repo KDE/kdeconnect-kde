@@ -1,4 +1,5 @@
 project(kdeconnect)
+
 cmake_minimum_required(VERSION 2.6)
 
 find_package(KDE4 REQUIRED)
@@ -12,6 +13,9 @@ include_directories(${KDE4_INCLUDES})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(daemon)
+add_subdirectory(libkdeconnect)
 add_subdirectory(kcm)
+#add_subdirectory(kioslave)
+add_subdirectory(plasmoid)
 
 add_subdirectory(test)

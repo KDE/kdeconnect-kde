@@ -46,8 +46,8 @@ public Q_SLOTS:
     void dismissRequested(Notification* notification);
 
 Q_SIGNALS:
-    void notificationPosted(const QString& publicId);
-    void notificationRemoved(const QString& publicId);
+    Q_SCRIPTABLE void notificationPosted(const QString& publicId);
+    Q_SCRIPTABLE void notificationRemoved(const QString& publicId);
 
 private /*methods*/:
     void addNotification(Notification* noti);

@@ -18,17 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "daemoninterface.h"
-#include "deviceinterface.h"
+#ifndef DBUSINTERFACES_H
+#define DBUSINTERFACES_H
 
-#ifndef DbusInterfaces_H_
-#define DbusInterfaces_H_
+#include "kdeconnect_export.h"
+
+#include "libkdeconnect/daemoninterface.h"
+#include "libkdeconnect/deviceinterface.h"
+#include "libkdeconnect/devicebatteryinterface.h"
+#include "libkdeconnect/devicenotificationsinterface.h"
+#include "libkdeconnect/notificationinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
  * interface, so we can change the class name in a single place.
  */
-class DaemonDbusInterface
+class KDECONNECT_EXPORT DaemonDbusInterface
     : public OrgKdeKdeconnectDaemonInterface
 {
     Q_OBJECT
@@ -37,7 +42,7 @@ public:
 
 };
 
-class DeviceDbusInterface
+class KDECONNECT_EXPORT DeviceDbusInterface
     : public OrgKdeKdeconnectDeviceInterface
 {
     Q_OBJECT
@@ -46,4 +51,32 @@ public:
 
 };
 
-#endif
+class KDECONNECT_EXPORT DeviceBatteryDbusInterface
+    : public OrgKdeKdeconnectDeviceBatteryInterface
+{
+    Q_OBJECT
+public:
+    DeviceBatteryDbusInterface(const QString& id, QObject* parent);
+
+};
+
+class KDECONNECT_EXPORT DeviceNotificationsDbusInterface
+    : public OrgKdeKdeconnectDeviceNotificationsInterface
+{
+    Q_OBJECT
+public:
+    DeviceNotificationsDbusInterface(const QString& id, QObject* parent);
+
+};
+
+class KDECONNECT_EXPORT NotificationDbusInterface
+    : public OrgKdeKdeconnectDeviceNotificationsNotificationInterface
+{
+    Q_OBJECT
+public:
+    NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent);
+
+};
+
+
+#endif // DEVICEINTERFACE_H

@@ -19,7 +19,9 @@
  */
 
 #include "devicessortproxymodel.h"
-#include "devicesmodel.h"
+
+#include "libkdeconnect/dbusinterfaces.h"
+#include "libkdeconnect/devicesmodel.h"
 
 #include <QDebug>
 
