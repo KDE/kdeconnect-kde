@@ -1,0 +1,11 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.kdeconnect.plasmoid">
+    <method name="notify">
+      <arg name="solidError" type="i" direction="in"/>
+      <arg name="error" type="s" direction="in"/>
+      <arg name="errorDetails" type="s" direction="in"/>
+      <arg name="udi" type="s" direction="in"/>
+    </method>
+  </interface>
+</node>

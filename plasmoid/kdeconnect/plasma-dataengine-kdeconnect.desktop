@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=KdeConnect
+Comment=Passive device notifications for the user.
+X-KDE-ServiceTypes=Plasma/DataEngine
+Type=Service
+Icon=device-notifier
+X-KDE-Library=plasma_engine_kdeconnect
+
+X-KDE-PluginInfo-Author=Jacopo De Simoi
+X-KDE-PluginInfo-Email=wilderkde@gmail.com
+X-KDE-PluginInfo-Name=kdeconnect
+X-KDE-PluginInfo-Version=
+X-KDE-PluginInfo-Website=
+X-KDE-PluginInfo-Category=
