@@ -1,5 +1,5 @@
 
-add_subdirectory(kdeconnect)
+add_subdirectory(declarativeplugin)
 
 install(DIRECTORY package/
         DESTINATION ${DATA_INSTALL_DIR}/plasma/plasmoids/kdeconnect)

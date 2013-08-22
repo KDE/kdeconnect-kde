@@ -33,6 +33,9 @@ class KDECONNECT_EXPORT DevicesModel
     : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter)
+    Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
+
 public:
     enum ModelRoles {
         NameModelRole = Qt::DisplayRole,
@@ -49,6 +52,10 @@ public:
     DevicesModel(QObject *parent = 0);
     virtual ~DevicesModel();
 
+    void setDisplayFilter(StatusFlags flags);
+    void setDisplayFilter(int flags);
+    StatusFlags displayFilter() const;
+
     virtual QVariant data(const QModelIndex &index, int role) const;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
@@ -62,9 +69,14 @@ private Q_SLOTS:
     void deviceRemoved(const QString& id);
     void refreshDeviceList();
 
+Q_SIGNALS:
+    void rowsChanged();
+
 private:
     DaemonDbusInterface* m_dbusInterface;
     QList<DeviceDbusInterface*> m_deviceList;
+    StatusFlags m_displayFilter;
+
 };
 
 #endif // DEVICESMODEL_H

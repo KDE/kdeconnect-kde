@@ -32,26 +32,41 @@ class KDECONNECT_EXPORT NotificationsModel
     : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
+    Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 public:
     enum ModelRoles {
         IconModelRole = Qt::DecorationRole,
         NameModelRole = Qt::DisplayRole,
         ContentModelRole = Qt::UserRole,
-        IdModelRole = Qt::UserRole + 1,
+        AppNameModelRole = Qt::UserRole+1,
+        IdModelRole  = Qt::UserRole+2,
+        DismissableModelRole = Qt::UserRole+3,
+        DbusInterfaceRole = Qt::UserRole+4,
     };
 
-    NotificationsModel(const QString& deviceId = "", QObject *parent = 0);
+    NotificationsModel(QObject *parent = 0);
     virtual ~NotificationsModel();
+
+    QString deviceId();
+    void setDeviceId(const QString& deviceId);
 
     virtual QVariant data(const QModelIndex &index, int role) const;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
     NotificationDbusInterface* getNotification(const QModelIndex&);
 
+public Q_SLOTS:
+    void clear();
+
 private Q_SLOTS:
     void notificationAdded(const QString& id);
     void notificationRemoved(const QString& id);
     void refreshNotificationList();
+
+Q_SIGNALS:
+    void deviceIdChanged(const QString& value);
+    void rowsChanged();
 
 private:
     DeviceNotificationsDbusInterface* m_dbusInterface;

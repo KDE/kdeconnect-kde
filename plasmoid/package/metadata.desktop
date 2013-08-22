@@ -2,21 +2,20 @@
 Name=KdeConnect
 Comment=KdeConnect awesome plasmoid
 
-Icon=device-notifier
+Icon=smartphone
 Type=Service
 X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
 
 X-Plasma-API=declarativeappletscript
-X-Plasma-MainScript=ui/devicenotifier.qml
+X-Plasma-MainScript=ui/kdeconnect.qml
 X-Plasma-DefaultSize=290,340
 X-Plasma-NotificationArea=true
-X-Plasma-ConfigPlugins=solid-actions,device_automounter_kcm
 
-X-KDE-PluginInfo-Author=Viranch Mehta, Jacopo De Simoi
-X-KDE-PluginInfo-Email=wilderkde@gmail.com
+X-KDE-PluginInfo-Author=Albert Vaca Cintora
+X-KDE-PluginInfo-Email=albertvaka@gmail.com
 X-KDE-PluginInfo-Name=kdeconnect
-X-KDE-PluginInfo-Version=1.0
-X-KDE-PluginInfo-Website=http://userbase.kde.org/Plasma/DeviceNotifier
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-Category=System Information
 X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL

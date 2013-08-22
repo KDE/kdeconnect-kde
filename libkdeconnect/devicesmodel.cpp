@@ -19,6 +19,7 @@
  */
 
 #include "devicesmodel.h"
+#include "modeltest.h"
 #include <ksharedconfig.h>
 
 #include <QDebug>
@@ -34,6 +35,13 @@ DevicesModel::DevicesModel(QObject *parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
 {
 
+    //new ModelTest(this, this);
+
+    connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
+            this, SIGNAL(rowsChanged()));
+    connect(this, SIGNAL(rowsInserted(QModelIndex, int, int)),
+            this, SIGNAL(rowsChanged()));
+
     connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),
             this, SLOT(deviceAdded(QString)));
     connect(m_dbusInterface, SIGNAL(deviceVisibilityChanged(QString,bool)),
@@ -42,6 +50,11 @@ DevicesModel::DevicesModel(QObject *parent)
             this, SLOT(deviceRemoved(QString)));
 
     refreshDeviceList();
+
+    //Role names for QML
+    QHash<int, QByteArray> names = roleNames();
+    names.insert(IdModelRole, "deviceId");
+    setRoleNames(names);
 
 }
 
@@ -70,6 +83,21 @@ void DevicesModel::deviceStatusChanged(const QString& id)
     //Q_EMIT dataChanged(index(0),index(rowCount()));
     refreshDeviceList();
 }
+DevicesModel::StatusFlags DevicesModel::displayFilter() const
+{
+    return m_displayFilter;
+}
+
+void DevicesModel::setDisplayFilter(int flags)
+{
+    setDisplayFilter((StatusFlags)flags);
+}
+
+void DevicesModel::setDisplayFilter(DevicesModel::StatusFlags flags)
+{
+    m_displayFilter = flags;
+    refreshDeviceList();
+}
 
 void DevicesModel::refreshDeviceList()
 {
@@ -80,13 +108,29 @@ void DevicesModel::refreshDeviceList()
         endRemoveRows();
     }
 
-    QList<QString> deviceIds = m_dbusInterface->devices();
-    beginInsertRows(QModelIndex(), 0, deviceIds.size()-1);
-    Q_FOREACH(const QString& id, deviceIds) {
-        DeviceDbusInterface* deviceDbusInterface = new DeviceDbusInterface(id,this);
-        m_deviceList.append(deviceDbusInterface);
+    if (!m_dbusInterface->isValid()) {
+        return;
     }
-    endInsertRows();
+
+    QDBusPendingReply<QStringList> deviceIds = m_dbusInterface->devices();
+    deviceIds.waitForFinished();
+    if (deviceIds.isError()) return;
+
+    Q_FOREACH(const QString& id, deviceIds.value()) {
+
+        DeviceDbusInterface* deviceDbusInterface = new DeviceDbusInterface(id,this);
+
+        bool onlyPaired = (m_displayFilter & StatusPaired);
+        if (onlyPaired && !deviceDbusInterface->paired()) continue;
+        bool onlyReachable = (m_displayFilter & StatusReachable);
+        if (onlyReachable && !deviceDbusInterface->reachable()) continue;
+
+        beginInsertRows(QModelIndex(), rowCount(), rowCount());
+        m_deviceList.append(deviceDbusInterface);
+        endInsertRows();
+
+    }
+
 
 
     Q_EMIT dataChanged(index(0), index(deviceIds.count()));
@@ -95,18 +139,8 @@ void DevicesModel::refreshDeviceList()
 
 QVariant DevicesModel::data(const QModelIndex &index, int role) const
 {
-    if (!m_dbusInterface->isValid()) {
-        switch (role) {
-            case IconModelRole:
-                return KIcon("dialog-close").pixmap(32, 32);
-            case NameModelRole:
-                return QString("KDED not running");
-            default:
-                return QVariant();
-        }
-    }
-
-    if (!index.isValid()
+    if (!m_dbusInterface->isValid()
+        || !index.isValid()
         || index.row() < 0
         || index.row() >= m_deviceList.count()
         || !m_deviceList[index.row()]->isValid())
@@ -159,7 +193,10 @@ DeviceDbusInterface* DevicesModel::getDevice(const QModelIndex& index)
 
 int DevicesModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    if(parent.isValid()) {
+        //Return size 0 if we are a child because this is not a tree
+        return 0;
+    }
 
     return m_deviceList.count();
 }

@@ -23,6 +23,9 @@
 #include <QDebug>
 #include <QDBusConnection>
 
+#include <KNotification>
+#include <KIcon>
+
 NotificationsDbusInterface::NotificationsDbusInterface(Device* device, QObject *parent)
     : QDBusAbstractAdaptor(parent)
     , mDevice(device)
@@ -68,6 +71,13 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
     QDBusConnection::sessionBus().registerObject(mDevice->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
+
+    KNotification* notification = new KNotification("notification");
+    notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setTitle(mDevice->name());
+    notification->setText(noti->appName() + ": " + noti->ticker());
+    notification->sendEvent();
 }
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)

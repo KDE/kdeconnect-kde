@@ -43,6 +43,7 @@ public:
     
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
+    virtual void connected();
 
 private:
     NotificationsDbusInterface* notificationsDbusInterface;

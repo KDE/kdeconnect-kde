@@ -34,7 +34,7 @@ class Notification
     Q_PROPERTY(QString internalId READ internalId)
     Q_PROPERTY(QString appName READ appName)
     Q_PROPERTY(QString ticker READ ticker)
-    Q_PROPERTY(QString dismissable READ dismissable)
+    Q_PROPERTY(bool dismissable READ dismissable)
 
 public:
     Notification(const NetworkPackage& np, QObject* parent);

@@ -44,6 +44,7 @@ public Q_SLOTS:
     //Returns true if it has handled the package in some way
     //device.sendPackage can be used to send an answer back to the device
     virtual bool receivePackage(const NetworkPackage& np) = 0;
+    virtual void connected() = 0;
 
 private:
     Device* mDevice;

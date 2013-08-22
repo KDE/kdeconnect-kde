@@ -12,6 +12,7 @@ set(libkdeconnect_SRC
     dbusinterfaces.cpp
     devicesmodel.cpp
     notificationsmodel.cpp
+    modeltest.cpp
 )
 
 set_source_files_properties(

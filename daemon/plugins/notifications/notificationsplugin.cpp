@@ -33,7 +33,10 @@ NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& ar
     : KdeConnectPlugin(parent, args)
 {
     notificationsDbusInterface = new NotificationsDbusInterface(device(), parent);
+}
 
+void NotificationsPlugin::connected()
+{
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set("request",true);
     device()->sendPackage(np);

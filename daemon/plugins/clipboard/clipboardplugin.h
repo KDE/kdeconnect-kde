@@ -38,7 +38,8 @@ public:
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
-
+    virtual void connected() { }
+    
 private Q_SLOTS:
     void clipboardChanged(QClipboard::Mode mode);
 

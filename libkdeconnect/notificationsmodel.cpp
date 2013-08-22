@@ -26,12 +26,44 @@
 
 #include <KConfigGroup>
 #include <KIcon>
+#include "modeltest.h"
 
-NotificationsModel::NotificationsModel(const QString& deviceId, QObject *parent)
+NotificationsModel::NotificationsModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_dbusInterface(new DeviceNotificationsDbusInterface(deviceId, this))
-    , m_deviceId(deviceId)
+    , m_dbusInterface(0)
 {
+
+    //new ModelTest(this, this);
+
+    connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
+            this, SIGNAL(rowsChanged()));
+    connect(this, SIGNAL(rowsInserted(QModelIndex, int, int)),
+            this, SIGNAL(rowsChanged()));
+
+    //Role names for QML
+    QHash<int, QByteArray> names = roleNames();
+    names.insert(DbusInterfaceRole, "dbusInterface");
+    names.insert(AppNameModelRole, "appName");
+    names.insert(DismissableModelRole, "dismissable");
+    setRoleNames(names);
+
+}
+
+NotificationsModel::~NotificationsModel()
+{
+}
+
+QString NotificationsModel::deviceId()
+{
+    return m_deviceId;
+}
+
+void NotificationsModel::setDeviceId(const QString& deviceId)
+{
+    m_deviceId = deviceId;
+
+    if (m_dbusInterface) delete m_dbusInterface;
+    m_dbusInterface = new DeviceNotificationsDbusInterface(deviceId, this);
 
     connect(m_dbusInterface, SIGNAL(notificationPosted(QString)),
             this, SLOT(notificationAdded(QString)));
@@ -40,10 +72,7 @@ NotificationsModel::NotificationsModel(const QString& deviceId, QObject *parent)
 
     refreshNotificationList();
 
-}
-
-NotificationsModel::~NotificationsModel()
-{
+    Q_EMIT deviceIdChanged(deviceId);
 }
 
 void NotificationsModel::notificationAdded(const QString& id)
@@ -62,43 +91,41 @@ void NotificationsModel::notificationRemoved(const QString& id)
 
 void NotificationsModel::refreshNotificationList()
 {
-    if (m_notificationList.count() > 0) {
+    if (!m_dbusInterface) return;
+
+    if (!m_notificationList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, m_notificationList.size() - 1);
+        qDeleteAll(m_notificationList);
         m_notificationList.clear();
         endRemoveRows();
     }
 
-    QList<QString> notificationIds = m_dbusInterface->activeNotifications();
-    beginInsertRows(QModelIndex(), 0, notificationIds.size()-1);
-    Q_FOREACH(const QString& notificationId, notificationIds) {
-        NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId,notificationId,this);
+    if (!m_dbusInterface->isValid()) return;
+
+    QDBusPendingReply<QStringList> notificationIds = m_dbusInterface->activeNotifications();
+    notificationIds.waitForFinished();
+    if (notificationIds.isError()) return;
+
+    beginInsertRows(QModelIndex(), 0, notificationIds.value().size()-1);
+    Q_FOREACH(const QString& notificationId, notificationIds.value()) {
+        NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, notificationId, this);
         m_notificationList.append(dbusInterface);
     }
     endInsertRows();
-
-
-    Q_EMIT dataChanged(index(0), index(notificationIds.count()));
-
 }
 
 QVariant NotificationsModel::data(const QModelIndex &index, int role) const
 {
-    if (!m_dbusInterface->isValid()) {
-        switch (role) {
-            case IconModelRole:
-                return KIcon("dialog-close").pixmap(32, 32);
-            case NameModelRole:
-                return QString("KDED not running");
-            default:
-                return QVariant();
-        }
-    }
 
     if (!index.isValid()
         || index.row() < 0
         || index.row() >= m_notificationList.count()
         || !m_notificationList[index.row()]->isValid())
     {
+        return QVariant();
+    }
+
+    if (!m_dbusInterface || !m_dbusInterface->isValid()) {
         return QVariant();
     }
 
@@ -114,9 +141,14 @@ QVariant NotificationsModel::data(const QModelIndex &index, int role) const
             return QString(notification->ticker());
         case Qt::ToolTipRole:
             return QVariant(); //To implement
-        case ContentModelRole: {
+        case ContentModelRole:
             return QString("AAAAAA"); //To implement
-        }
+        case AppNameModelRole:
+            return QString(notification->appName());
+        case DbusInterfaceRole:
+            return qVariantFromValue<QObject*>(notification);
+        case DismissableModelRole:
+            return notification->dismissable();
         default:
              return QVariant();
     }
@@ -138,8 +170,19 @@ NotificationDbusInterface* NotificationsModel::getNotification(const QModelIndex
 
 int NotificationsModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent);
+    if(parent.isValid()) {
+        //Return size 0 if we are a child because this is not a tree
+        return 0;
+    }
 
     return m_notificationList.count();
 }
 
+void NotificationsModel::clear()
+{
+    Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
+        if (notification->dismissable()) {
+            notification->dismiss();
+        }
+    }
+}

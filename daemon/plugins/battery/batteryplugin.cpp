@@ -34,10 +34,13 @@ BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     , batteryDbusInterface(new BatteryDbusInterface(parent))
 {
 
+}
+
+void BatteryPlugin::connected()
+{
     NetworkPackage np(PACKAGE_TYPE_BATTERY);
     np.set("request",true);
     device()->sendPackage(np);
-
 }
 
 BatteryPlugin::~BatteryPlugin()
@@ -71,6 +74,7 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
             notification->setTitle(device()->name() + ": low battery");
             notification->setText("Battery at 14%");
+            notification->sendEvent();
         }
 
     }

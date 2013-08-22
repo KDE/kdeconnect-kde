@@ -18,41 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MPRISCONTROLPLUGIN_H
-#define MPRISCONTROLPLUGIN_H
+import QtQuick 1.1
+import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
+import org.kde.plasma.core 0.1 as PlasmaCore
 
-#include <QSet>
-#include <QString>
-#include <QHash>
-#include <QDBusArgument>
+Item {
+    PlasmaWidgets.IconWidget {
+        id: icon
+        Component.onCompleted: setIcon("smartphone");
+        anchors.fill: parent
+    }
 
-#include "../kdeconnectplugin.h"
-#include "mprisdbusinterface.h"
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        onClicked: plasmoid.togglePopup()
 
-class MprisControlPlugin
-    : public KdeConnectPlugin
-{
-    Q_OBJECT
-
-public:
-    explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
-
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
-
-private Q_SLOTS:
-    void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
-    void propertiesChanged(const QString& interface, const QVariantMap& properties);
-
-private:
-    void addPlayer(const QString& ifaceName);
-    void removePlayer(const QString& ifaceName);
-    void sendPlayerList();
-
-    QHash<QString, QString> playerList;
-    int prevVolume;
-
-};
-
-#endif
+        PlasmaCore.ToolTip {
+            id: tooltip
+            target: mouseArea
+            image: QIcon("smartphone")
+            subText: "KDE Connect device notifications"
+        }
+    }
+}

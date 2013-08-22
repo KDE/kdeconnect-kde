@@ -106,6 +106,10 @@ void Device::reloadPlugins()
 
     m_plugins = newPluginMap;
 
+    Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
+            plugin->connected();
+    }
+
     Q_EMIT pluginsChanged();
 
 }
@@ -150,10 +154,13 @@ void Device::addLink(DeviceLink* link)
     qSort(m_deviceLinks.begin(),m_deviceLinks.end(),lessThan);
 
     if (m_deviceLinks.size() == 1) {
-        reloadPlugins();
+        reloadPlugins(); //Will load the plugins
         Q_EMIT reachableStatusChanged();
+    } else {
+        Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
+            plugin->connected();
+        }
     }
-
 }
 
 void Device::linkDestroyed(QObject* o)

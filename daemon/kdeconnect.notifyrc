@@ -88,6 +88,11 @@ Name=Ping
 Comment=Ping received
 Action=Popup
 
+[Event/notification]
+Name=Notification
+Comment=Notification received
+Action=Popup
+
 [Event/unknownEvent]
 Name=Unknown
 Comment=Something unknown happened
