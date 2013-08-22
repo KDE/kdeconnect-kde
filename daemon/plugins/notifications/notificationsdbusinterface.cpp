@@ -51,6 +51,17 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
     } else {
         Notification* noti = new Notification(np, this);
         addNotification(noti);
+
+        if (!np.get<bool>("requestAnswer", false)) { //Do not show notifications for answers to a initial request
+            KNotification* notification = new KNotification("notification");
+            notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
+            notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+            notification->setTitle(mDevice->name());
+            notification->setText(noti->appName() + ": " + noti->ticker());
+            notification->sendEvent();
+        }
+
+
     }
 }
 
@@ -72,12 +83,6 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     QDBusConnection::sessionBus().registerObject(mDevice->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 
-    KNotification* notification = new KNotification("notification");
-    notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(mDevice->name());
-    notification->setText(noti->appName() + ": " + noti->ticker());
-    notification->sendEvent();
 }
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)
