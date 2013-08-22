@@ -33,6 +33,7 @@ bool fetchNotifications = true;
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
+    , m_displayFilter(DevicesModel::StatusUnknown)
 {
 
     //new ModelTest(this, this);
