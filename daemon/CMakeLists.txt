@@ -2,12 +2,11 @@ set(kded_kdeconnect_SRCS
 
     linkproviders/linkprovider.cpp
     linkproviders/loopbacklinkprovider.cpp
-    #linkproviders/avahitcplinkprovider.cpp
-    linkproviders/broadcasttcplinkprovider.cpp
+    linkproviders/lanlinkprovider.cpp
 
     devicelinks/devicelink.cpp
-    devicelinks/echodevicelink.cpp
-    devicelinks/tcpdevicelink.cpp
+    devicelinks/loopbackdevicelink.cpp
+    devicelinks/landevicelink.cpp
 
     plugins/kdeconnectplugin.cpp
     plugins/pluginloader.cpp

@@ -18,34 +18,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TCPDEVICELINK_H
-#define TCPDEVICELINK_H
-
-#include <QObject>
-#include <QString>
-#include <qthread.h>
-
+#ifndef ECHODEVICELINK_H
+#define ECHODEVICELINK_H
 #include "devicelink.h"
-#include <QTcpSocket>
 
-class AvahiTcpLinkProvider;
+class LoopbackLinkProvider;
 
-class TcpDeviceLink
+class LoopbackDeviceLink
     : public DeviceLink
 {
     Q_OBJECT
-
 public:
-    TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
+    LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
-    bool sendPackage(const NetworkPackage& np) const;
-
-private Q_SLOTS:
-    void dataReceived();
-
-private:
-    QTcpSocket* mSocket;
+    bool sendPackage(const NetworkPackage& np) const {
+        Q_EMIT receivedPackage(np);
+        return true;
+    }
 
 };
 
-#endif // UDPDEVICELINK_H
+#endif // ECHODEVICELINK_H

@@ -22,11 +22,15 @@
 #define NETWORKPACKAGE_H
 
 #include "networkpackagetypes.h"
+
 #include <QObject>
 #include <QString>
 #include <QVariant>
 #include <QStringList>
+#include <QSsl>
+
 #include <qjson/parser.h>
+
 #include "default_args.h"
 
 class NetworkPackage : public QObject
@@ -43,6 +47,9 @@ public:
 
     static void unserialize(const QByteArray&, NetworkPackage*);
     QByteArray serialize() const;
+
+    static void rsaUnserialize(const QByteArray&, NetworkPackage*, Qssl );
+    QByteArray rsaSerialize() const;
 
     static void createIdentityPackage(NetworkPackage*);
 

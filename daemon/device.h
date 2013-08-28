@@ -67,7 +67,7 @@ public:
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
 public Q_SLOTS:
-    bool sendPackage(const NetworkPackage& np) const;
+    virtual bool sendPackage(const NetworkPackage& np) const;
 
     //Dbus operations called from kcm
 public Q_SLOTS:
@@ -77,7 +77,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void linkDestroyed(QObject* o = 0);
-    void privateReceivedPackage(const NetworkPackage& np);
+    virtual void privateReceivedPackage(const NetworkPackage& np);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void reachableStatusChanged();

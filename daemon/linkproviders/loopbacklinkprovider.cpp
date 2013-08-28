@@ -19,7 +19,6 @@
  */
 
 #include "loopbacklinkprovider.h"
-#include "devicelinks/echodevicelink.h"
 
 #include <QDebug>
 
@@ -38,17 +37,17 @@ void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
     Q_UNUSED(state);
     qDebug() << "Echo Device discovery emitted";
-    Q_EMIT onConnectionReceived(identityPackage, echoDeviceLink);
+    Q_EMIT onConnectionReceived(identityPackage, loopbackDeviceLink);
 }
 
 void LoopbackLinkProvider::onStart()
 {
-    echoDeviceLink = new EchoDeviceLink("loopback", this);
+    loopbackDeviceLink = new LoopbackDeviceLink("loopback", this);
     onNetworkChange(QNetworkSession::Connected);
 }
 
 void LoopbackLinkProvider::onStop()
 {
-    delete echoDeviceLink;
+    delete loopbackDeviceLink;
 }
 

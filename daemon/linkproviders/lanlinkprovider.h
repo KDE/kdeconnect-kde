@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BROADCASTTCPLINKPROVIDER_H
-#define BROADCASTTCPLINKPROVIDER_H
+#ifndef LANLINKPROVIDER_H
+#define LANLINKPROVIDER_H
 
 #include <QObject>
 #include <QTcpServer>
@@ -28,18 +28,17 @@
 #include "linkprovider.h"
 #include "netaddress.h"
 
-
-class BroadcastTcpLinkProvider
+class LanLinkProvider
     : public LinkProvider
 {
     Q_OBJECT
 
 public:
-    BroadcastTcpLinkProvider();
-    ~BroadcastTcpLinkProvider();
+    LanLinkProvider();
+    ~LanLinkProvider();
 
-    QString name() { return "BroadcastTcpLinkProvider"; }
-    int priority() { return PRIORITY_HIGH + 5; }
+    QString name() { return "LanLinkProvider"; }
+    int priority() { return PRIORITY_HIGH + 10; }
 
 public Q_SLOTS:
     virtual void onNetworkChange(QNetworkSession::State state);

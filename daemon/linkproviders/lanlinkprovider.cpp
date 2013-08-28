@@ -18,16 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "broadcasttcplinkprovider.h"
+#include "lanlinkprovider.h"
 
 #include <QHostInfo>
 #include <QTcpServer>
 #include <QUdpSocket>
 
-#include "devicelinks/tcpdevicelink.h"
+#include "devicelinks/landevicelink.h"
 #include "networkpackage.h"
 
-BroadcastTcpLinkProvider::BroadcastTcpLinkProvider()
+LanLinkProvider::LanLinkProvider()
 {
 
     mUdpServer = new QUdpSocket(this);
@@ -38,7 +38,7 @@ BroadcastTcpLinkProvider::BroadcastTcpLinkProvider()
 
 }
 
-void BroadcastTcpLinkProvider::onStart()
+void LanLinkProvider::onStart()
 {
     mUdpServer->bind(QHostAddress::Broadcast, port, QUdpSocket::ShareAddress);
 
@@ -48,14 +48,14 @@ void BroadcastTcpLinkProvider::onStart()
     onNetworkChange(QNetworkSession::Connected);
 }
 
-void BroadcastTcpLinkProvider::onStop()
+void LanLinkProvider::onStop()
 {
     mUdpServer->close();
     mTcpServer->close();
 }
 
 //I'm in a new network, let's be polite and introduce myself
-void BroadcastTcpLinkProvider::onNetworkChange(QNetworkSession::State state)
+void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
     qDebug() << "onNetworkChange" << state;
     NetworkPackage np("");
@@ -65,7 +65,7 @@ void BroadcastTcpLinkProvider::onNetworkChange(QNetworkSession::State state)
 }
 
 //I'm the existing device, a new device is kindly introducing itself (I will create a TcpSocket)
-void BroadcastTcpLinkProvider::newUdpConnection()
+void LanLinkProvider::newUdpConnection()
 {
     while (mUdpServer->hasPendingDatagrams()) {
         QByteArray datagram;
@@ -109,7 +109,7 @@ void BroadcastTcpLinkProvider::newUdpConnection()
 
 }
 
-void BroadcastTcpLinkProvider::connectError()
+void LanLinkProvider::connectError()
 {
     QTcpSocket* socket = (QTcpSocket*)sender();
 
@@ -124,7 +124,7 @@ void BroadcastTcpLinkProvider::connectError()
 
 }
 
-void BroadcastTcpLinkProvider::connected()
+void LanLinkProvider::connected()
 {
 
     QTcpSocket* socket = (QTcpSocket*)sender();
@@ -136,7 +136,7 @@ void BroadcastTcpLinkProvider::connected()
     const QString& id = np->get<QString>("deviceId");
     //qDebug() << "Connected" << socket->isWritable();
 
-    TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
+    LanDeviceLink* dl = new LanDeviceLink(id, this, socket);
 
     NetworkPackage np2("");
     NetworkPackage::createIdentityPackage(&np2);
@@ -178,9 +178,9 @@ void BroadcastTcpLinkProvider::connected()
 }
 
 //I'm the new device and this is the answer to my UDP introduction (no data received yet)
-void BroadcastTcpLinkProvider::newConnection()
+void LanLinkProvider::newConnection()
 {
-    qDebug() << "BroadcastTcpLinkProvider newConnection";
+    qDebug() << "LanLinkProvider newConnection";
 
     QTcpSocket* socket = mTcpServer->nextPendingConnection();
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
@@ -192,18 +192,18 @@ void BroadcastTcpLinkProvider::newConnection()
     NetworkPackage::createIdentityPackage(&np);
     int written = socket->write(np.serialize());
 
-    qDebug() << "BroadcastTcpLinkProvider sent package." << written << " bytes written, waiting for reply";
+    qDebug() << "LanLinkProvider sent package." << written << " bytes written, waiting for reply";
 */
 }
 
 //I'm the new device and this is the answer to my UDP introduction (data received)
-void BroadcastTcpLinkProvider::dataReceived()
+void LanLinkProvider::dataReceived()
 {
     QTcpSocket* socket = (QTcpSocket*) QObject::sender();
 
     QByteArray data = socket->readLine();
 
-    qDebug() << "BroadcastTcpLinkProvider received reply:" << data;
+    qDebug() << "LanLinkProvider received reply:" << data;
 
     NetworkPackage np("");
     NetworkPackage::unserialize(data,&np);
@@ -211,7 +211,7 @@ void BroadcastTcpLinkProvider::dataReceived()
     if (np.version() > 0 && np.type() == PACKAGE_TYPE_IDENTITY) {
 
         const QString& id = np.get<QString>("deviceId");
-        TcpDeviceLink* dl = new TcpDeviceLink(id, this, socket);
+        LanDeviceLink* dl = new LanDeviceLink(id, this, socket);
 
         qDebug() << "Handshaking done (i'm the new device)";
 
@@ -234,12 +234,12 @@ void BroadcastTcpLinkProvider::dataReceived()
         disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 
     } else {
-        qDebug() << "BroadcastTcpLinkProvider/newConnection: Not an identification package (wuh?)";
+        qDebug() << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
     }
 
 }
 
-void BroadcastTcpLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
+void LanLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
 {
     qDebug() << "deviceLinkDestroyed";
 
@@ -253,7 +253,7 @@ void BroadcastTcpLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
 
 }
 
-BroadcastTcpLinkProvider::~BroadcastTcpLinkProvider()
+LanLinkProvider::~LanLinkProvider()
 {
 
 }

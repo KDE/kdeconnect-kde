@@ -22,8 +22,7 @@
 
 #include "networkpackage.h"
 
-#include "linkproviders/broadcasttcplinkprovider.h"
-#include "linkproviders/avahitcplinkprovider.h"
+#include "linkproviders/lanlinkprovider.h"
 #include "linkproviders/loopbacklinkprovider.h"
 
 #include <QUuid>
@@ -55,9 +54,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     qDebug() << "Starting KdeConnect daemon";
 
     //Load backends (hardcoded by now, should be plugins in a future)
-    mLinkProviders.insert(new BroadcastTcpLinkProvider());
-    //mLinkProviders.insert(new AvahiTcpLinkProvider());
-    //mLinkProviders.insert(new LoopbackLinkProvider());
+    mLinkProviders.insert(new LanLinkProvider());
+    mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
     const KConfigGroup& known = config->group("devices").group("paired");

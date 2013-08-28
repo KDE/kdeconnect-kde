@@ -18,12 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "tcpdevicelink.h"
+#include "landevicelink.h"
 
 #include "linkproviders/linkprovider.h"
 #include "networkpackage.h"
 
-TcpDeviceLink::TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
+LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
 {
     mSocket = socket;
@@ -33,15 +33,15 @@ TcpDeviceLink::TcpDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
             this, SLOT(dataReceived()));
 }
 
-bool TcpDeviceLink::sendPackage(const NetworkPackage& np) const
+bool LanDeviceLink::sendPackage(const NetworkPackage& np) const
 {
     int written = mSocket->write(np.serialize());
     return written != -1;
 }
 
-void TcpDeviceLink::dataReceived()
+void LanDeviceLink::dataReceived()
 {
-    qDebug() << "TcpDeviceLink dataReceived";
+    qDebug() << "LanDeviceLink dataReceived";
 
     QByteArray data = mSocket->readAll();
     QList<QByteArray> packages = data.split('\n');

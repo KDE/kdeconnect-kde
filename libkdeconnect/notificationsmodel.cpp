@@ -188,11 +188,9 @@ bool NotificationsModel::isAnyDimissable()
 {
     Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
         if (notification->dismissable()) {
-            qDebug() << "Dismisable true";
             return true;
         }
     }
-    qDebug() << "Dismisable false";
     return false;
 }
 

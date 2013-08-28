@@ -18,47 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef AVAHITCPLINKPROVIDER_H
-#define AVAHITCPLINKPROVIDER_H
+#include "loopbackdevicelink.h"
 
-#include <QObject>
-#include <QTcpServer>
+#include "linkproviders/loopbacklinkprovider.h"
 
-#include <KDE/DNSSD/PublicService>
-
-#include "linkprovider.h"
-#include "netaddress.h"
-
-
-class AvahiTcpLinkProvider
-    : public LinkProvider
+LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
+    : DeviceLink(deviceId, provider)
 {
-    Q_OBJECT
 
-public:
-    AvahiTcpLinkProvider();
-    ~AvahiTcpLinkProvider();
-
-    QString name() { return "AvahiTcpLinkProvider"; }
-    int priority() { return PRIORITY_HIGH + 1; }
-
-public Q_SLOTS:
-    virtual void onNetworkChange(QNetworkSession::State state);
-    virtual void onStart();
-    virtual void onStop();
-
-private Q_SLOTS:
-    void newConnection();
-    void deviceLinkDestroyed(QObject*);
-    void dataReceived();
-
-private:
-    DNSSD::PublicService* service;
-    QTcpServer* mServer;
-
-    static const quint16 port = 10602;
-    QMap<QString, DeviceLink*> links;
-
-};
-
-#endif
+}
