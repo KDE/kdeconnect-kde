@@ -1,7 +1,7 @@
 [Global]
 IconName=pda
-Name=Android Shine
-Comment=Android Shine
+Name=KDE Connect
+Comment=Notifications from your devices
 
 [Event/callReceived]
 Name=Calling
