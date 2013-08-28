@@ -35,10 +35,13 @@ NotificationsModel::NotificationsModel(QObject *parent)
 
     //new ModelTest(this, this);
 
-    connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
-            this, SIGNAL(rowsChanged()));
     connect(this, SIGNAL(rowsInserted(QModelIndex, int, int)),
             this, SIGNAL(rowsChanged()));
+    connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
+            this, SIGNAL(rowsChanged()));
+
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+            this, SIGNAL(anyDismissableChanged()));
 
     //Role names for QML
     QHash<int, QByteArray> names = roleNames();
@@ -102,16 +105,21 @@ void NotificationsModel::refreshNotificationList()
 
     if (!m_dbusInterface->isValid()) return;
 
-    QDBusPendingReply<QStringList> notificationIds = m_dbusInterface->activeNotifications();
-    notificationIds.waitForFinished();
-    if (notificationIds.isError()) return;
+    QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
+    pendingNotificationIds.waitForFinished();
+    if (pendingNotificationIds.isError()) return;
+    const QStringList& notificationIds = pendingNotificationIds.value();
 
-    beginInsertRows(QModelIndex(), 0, notificationIds.value().size()-1);
-    Q_FOREACH(const QString& notificationId, notificationIds.value()) {
+    if (notificationIds.isEmpty()) return;
+
+    beginInsertRows(QModelIndex(), 0, notificationIds.size()-1);
+    Q_FOREACH(const QString& notificationId, notificationIds) {
         NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, notificationId, this);
         m_notificationList.append(dbusInterface);
     }
     endInsertRows();
+
+    Q_EMIT dataChanged(index(0), index(notificationIds.size()-1));
 }
 
 QVariant NotificationsModel::data(const QModelIndex &index, int role) const
@@ -139,10 +147,8 @@ QVariant NotificationsModel::data(const QModelIndex &index, int role) const
             return QString(notification->internalId());
         case NameModelRole:
             return QString(notification->ticker());
-        case Qt::ToolTipRole:
-            return QVariant(); //To implement
         case ContentModelRole:
-            return QString("AAAAAA"); //To implement
+            return QString(); //To implement in the Android side
         case AppNameModelRole:
             return QString(notification->appName());
         case DbusInterfaceRole:
@@ -178,7 +184,20 @@ int NotificationsModel::rowCount(const QModelIndex &parent) const
     return m_notificationList.count();
 }
 
-void NotificationsModel::clear()
+bool NotificationsModel::isAnyDimissable()
+{
+    Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
+        if (notification->dismissable()) {
+            qDebug() << "Dismisable true";
+            return true;
+        }
+    }
+    qDebug() << "Dismisable false";
+    return false;
+}
+
+
+void NotificationsModel::dismissAll()
 {
     Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
         if (notification->dismissable()) {

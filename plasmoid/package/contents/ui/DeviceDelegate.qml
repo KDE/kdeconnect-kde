@@ -40,12 +40,15 @@ PlasmaComponents.ListItem
         //Notifications
         PlasmaComponents.ListItem {
             visible: notificationsModel.count>0
+            enabled: true
             sectionDelegate: true
             PlasmaComponents.Label { text: i18n("Notifications") }
             PlasmaComponents.ToolButton {
+                enabled: true
+                visible: notificationsModel.isAnyDimissable;
                 anchors.right: parent.right
                 iconSource: "window-close"
-                onClicked: notificationsModel.clear();
+                onClicked: notificationsModel.dismissAll();
             }
         }
         Repeater {
@@ -59,7 +62,8 @@ PlasmaComponents.ListItem
                     text: appName + ": " + display
                 }
                 PlasmaComponents.ToolButton {
-                    visible: dismissable
+                    visible: notificationsModel.isAnyDimissable;
+                    enabled: dismissable
                     anchors.right: parent.right
                     iconSource: "window-close"
                     onClicked: dbusInterface.dismiss();

@@ -34,6 +34,8 @@ class KDECONNECT_EXPORT NotificationsModel
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
+    Q_PROPERTY(bool isAnyDimissable READ isAnyDimissable NOTIFY anyDismissableChanged)
+
 public:
     enum ModelRoles {
         IconModelRole = Qt::DecorationRole,
@@ -57,7 +59,8 @@ public:
     NotificationDbusInterface* getNotification(const QModelIndex&);
 
 public Q_SLOTS:
-    void clear();
+    void dismissAll();
+    bool isAnyDimissable();
 
 private Q_SLOTS:
     void notificationAdded(const QString& id);
@@ -66,6 +69,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void deviceIdChanged(const QString& value);
+    void anyDismissableChanged();
     void rowsChanged();
 
 private:

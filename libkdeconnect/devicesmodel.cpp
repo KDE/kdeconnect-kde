@@ -28,8 +28,6 @@
 #include <KConfigGroup>
 #include <KIcon>
 
-bool fetchNotifications = true;
-
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
@@ -103,7 +101,7 @@ void DevicesModel::setDisplayFilter(DevicesModel::StatusFlags flags)
 void DevicesModel::refreshDeviceList()
 {
 
-    if (m_deviceList.count() > 0) {
+    if (!m_deviceList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
         m_deviceList.clear();
         endRemoveRows();
@@ -113,11 +111,12 @@ void DevicesModel::refreshDeviceList()
         return;
     }
 
-    QDBusPendingReply<QStringList> deviceIds = m_dbusInterface->devices();
-    deviceIds.waitForFinished();
-    if (deviceIds.isError()) return;
+    QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices();
+    pendingDeviceIds.waitForFinished();
+    if (pendingDeviceIds.isError()) return;
+    const QStringList& deviceIds = pendingDeviceIds.value();
 
-    Q_FOREACH(const QString& id, deviceIds.value()) {
+    Q_FOREACH(const QString& id, deviceIds) {
 
         DeviceDbusInterface* deviceDbusInterface = new DeviceDbusInterface(id,this);
 
@@ -126,15 +125,16 @@ void DevicesModel::refreshDeviceList()
         bool onlyReachable = (m_displayFilter & StatusReachable);
         if (onlyReachable && !deviceDbusInterface->reachable()) continue;
 
-        beginInsertRows(QModelIndex(), rowCount(), rowCount());
+        int firstRow = m_deviceList.size();
+        int lastRow = firstRow;
+
+        beginInsertRows(QModelIndex(), firstRow, lastRow);
         m_deviceList.append(deviceDbusInterface);
         endInsertRows();
 
     }
 
-
-
-    Q_EMIT dataChanged(index(0), index(deviceIds.count()));
+    Q_EMIT dataChanged(index(0), index(m_deviceList.size()));
 
 }
 
@@ -143,7 +143,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     if (!m_dbusInterface->isValid()
         || !index.isValid()
         || index.row() < 0
-        || index.row() >= m_deviceList.count()
+        || index.row() >= m_deviceList.size()
         || !m_deviceList[index.row()]->isValid())
     {
         return QVariant();
@@ -199,6 +199,6 @@ int DevicesModel::rowCount(const QModelIndex &parent) const
         return 0;
     }
 
-    return m_deviceList.count();
+    return m_deviceList.size();
 }
 
