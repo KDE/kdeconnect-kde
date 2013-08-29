@@ -20,6 +20,10 @@
 
 #include "landevicelink.h"
 
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+
 #include "linkproviders/linkprovider.h"
 #include "networkpackage.h"
 
@@ -27,6 +31,20 @@ LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
     : DeviceLink(d, a)
 {
     mSocket = socket;
+
+    int fd = socket->socketDescriptor();
+    int enableKeepAlive = 1;
+    setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enableKeepAlive, sizeof(enableKeepAlive));
+
+    int maxIdle = 60; /* seconds */
+    setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+
+    int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
+    setsockopt(fd, SOL_TCP, TCP_KEEPCNT, &count, sizeof(count));
+
+    int interval = 5;   // send a keepalive packet out every 2 seconds (after the 5 second idle period)
+    setsockopt(fd, SOL_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
+
     connect(mSocket, SIGNAL(disconnected()),
             this, SLOT(deleteLater()));
     connect(mSocket, SIGNAL(readyRead()),
