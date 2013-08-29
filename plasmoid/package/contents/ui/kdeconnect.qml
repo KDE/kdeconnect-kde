@@ -37,7 +37,7 @@ Item {
     PlasmaComponents.Label {
         id: header
         visible: devicesView.count==0
-        text: i18n("No Devices Available")
+        text: i18n("No paired devices available")
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
     }
