@@ -29,6 +29,7 @@
 #include <QDBusConnection>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
+#include <QSslKey>
 
 #include <KIcon>
 #include <KConfigGroup>
@@ -50,6 +51,58 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         qDebug() << "My id:" << uuid;
     }
 
+    if (!config->group("myself").hasKey("privateKey")) {
+
+        //TODO: Generate
+
+        QByteArray key = QByteArray(
+                                "-----BEGIN RSA PRIVATE KEY-----\n"
+                                "MIICXAIBAAKBgQCnKxy6aZrABVvbxuWqMPbohH4KRDBGqyO/OwxvUD1qHpqZ9cJT\n"
+                                "bgttiIaXzdQny5esf6brI6Di/ssIp9awdLBlMT+eR6zR7g446tbxaCFuUiL0QIei\n"
+                                "izEveTDNRbson/8DPJrn8/81doTeXsuV7YbqmtUGwdZ5kiocAW92ZZukdQIDAQAB\n"
+                                "AoGBAI18yuLoMQdnQblBne8vZDumsDsmPaoCfc4EP2ETi/d+kaHPxTryABAkJq7j\n"
+                                "kjZgdi6VGIUacbjOqK/Zxrcw/H460EwOUzh97Z4t9CDtDhz6t3ddT8CfbG2TUgbx\n"
+                                "Vv3mSYSUDBdNBV6YY4fyLtZl6oI2V+rBaFIT48+vAK9doKlhAkEA2ZKm9dc80IjU\n"
+                                "c/Wwn8ij+6ALs4Mpa0dPYivgZ2QhXiX5TfMymal2dDufkOH4wIUO+8vV8CSmmTRU\n"
+                                "8Lv/B3pY7QJBAMSxeJtTSFwBcGRaZKRMIqeuZ/yMMT4EqqIh1DjBpujCRKApVpkO\n"
+                                "kVx3Yu7xyOfniXBwujiYNSL6LrWdKykEsKkCQEr2UDgbtIRU4H4jhHtI8dbcSavL\n"
+                                "4RVpOFymqWZ2BVke1EqbJC/1Ry687DlK4h3Sulre3BMlTZEziqB25WN6L/ECQBJv\n"
+                                "B3yXG4rz35KoHhJ/yCeq4rf6c4r6aPt07Cy9iWT6/+96sFD72oet8KmwI0IIowrU\n"
+                                "pb80FJbIl6QRrL/VXrECQBDdeCAG6J3Cwm4ozQiDQyiNd1qJqWc4co9savJxLtEU\n"
+                                "s5L4Qwfrexm16oCJimGmsa5q6Y0n4f5gY+MRh3n+nQo=\n"
+                                "-----END RSA PRIVATE KEY-----\n"
+                             );
+
+        //Test for validity
+        //QSslKey privateKey(key.toAscii(), QSsl::Rsa, QSsl::Pem, QSsl::PrivateKey);
+        //qDebug() << "Valid private key:" << !privateKey.isNull();
+
+        config->group("myself").writeEntry("privateKey", key);
+
+    }
+
+    if (!config->group("myself").hasKey("publicKey")) {
+
+        //TODO: Generate
+
+        QByteArray key = QByteArray(
+                                "-----BEGIN PUBLIC KEY-----\n"
+                                "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnKxy6aZrABVvbxuWqMPbohH4K\n"
+                                "RDBGqyO/OwxvUD1qHpqZ9cJTbgttiIaXzdQny5esf6brI6Di/ssIp9awdLBlMT+e\n"
+                                "R6zR7g446tbxaCFuUiL0QIeiizEveTDNRbson/8DPJrn8/81doTeXsuV7YbqmtUG\n"
+                                "wdZ5kiocAW92ZZukdQIDAQAB\n"
+                                "-----END PUBLIC KEY-----\n"
+
+                             );
+
+        //Test for validity
+        //QSslKey publicKey(key.toAscii(), QSsl::Rsa, QSsl::Pem, QSsl::PublicKey);
+        //qDebug() << "Valid public key:" << !publicKey.isNull();
+
+        config->group("myself").writeEntry("publicKey", key);
+
+    }
+
     //Debugging
     qDebug() << "Starting KdeConnect daemon";
 
@@ -58,13 +111,10 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
-    const KConfigGroup& known = config->group("devices").group("paired");
+    const KConfigGroup& known = config->group("devices");
     const QStringList& list = known.groupList();
-    const QString defaultName("unnamed");
     Q_FOREACH(const QString& id, list) {
-        const KConfigGroup& data = known.group(id);
-        const QString& name = data.readEntry<QString>("name", defaultName);
-        Device* device = new Device(id, name);
+        Device* device = new Device(id);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
         Q_EMIT deviceAdded(id);
@@ -127,16 +177,12 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
     if (mDevices.contains(id)) {
         qDebug() << "It is a known device";
-
         Device* device = mDevices[id];
         device->addLink(dl);
-
     } else {
         qDebug() << "It is a new device";
 
-        const QString& name = identityPackage.get<QString>("deviceName");
-
-        Device* device = new Device(id, name, dl);
+        Device* device = new Device(identityPackage, dl);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
 
@@ -157,7 +203,7 @@ void Daemon::onDeviceReachableStatusChanged()
 
     if (!device->reachable()) {
 
-        if (!device->paired()) {
+        if (!device->isPaired()) {
             qDebug() << "Destroying device";
             Q_EMIT deviceRemoved(id);
             mDevices.remove(id);

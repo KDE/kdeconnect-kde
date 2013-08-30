@@ -25,6 +25,8 @@
 #include <QDBusConnection>
 #include <QString>
 #include <QMap>
+#include <QSslKey>
+#include <QTimer>
 
 #include "networkpackage.h"
 
@@ -40,11 +42,11 @@ class Device
     Q_PROPERTY(QString name READ name)
 
 public:
-    //Device known from KConfig, we trust it but we need to wait for a incoming devicelink to communicate
-    Device(const QString& id, const QString& name);
+    //Read device from KConfig, we already know it but we need to wait for a incoming devicelink to communicate
+    Device(const QString& id);
 
     //Device known via an incoming connection sent to us via a devicelink, we know everything but we don't trust it yet
-    Device(const QString& id, const QString& name, DeviceLink* dl);
+    Device(const NetworkPackage& np, DeviceLink* dl);
 
     virtual ~Device();
 
@@ -57,8 +59,8 @@ public:
     void removeLink(DeviceLink*);
 
     Q_SCRIPTABLE QStringList availableLinks() const;
-    Q_SCRIPTABLE bool trusted() const { return m_paired; }
-    Q_SCRIPTABLE bool paired() const { return m_paired; }
+    Q_SCRIPTABLE bool isPaired() const { return !m_publicKey.isNull(); }
+    Q_SCRIPTABLE bool pairRequested() const { return m_pairingRequested; }
     Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
     Q_SCRIPTABLE bool hasPlugin(const QString& name);
     Q_SCRIPTABLE QStringList loadedPlugins();
@@ -69,28 +71,37 @@ Q_SIGNALS:
 public Q_SLOTS:
     virtual bool sendPackage(const NetworkPackage& np) const;
 
-    //Dbus operations called from kcm
+    //Dbus operations
 public Q_SLOTS:
-    Q_SCRIPTABLE void setPair(bool b);
-    Q_SCRIPTABLE void reloadPlugins(); //From settings
+    Q_SCRIPTABLE void requestPair();
+    Q_SCRIPTABLE void unpair();
+    Q_SCRIPTABLE void reloadPlugins(); //From kconf
     Q_SCRIPTABLE void sendPing();
+    void acceptPairing();
+    void rejectPairing();
 
 private Q_SLOTS:
+    void privateReceivedPackage(const NetworkPackage& np);
     void linkDestroyed(QObject* o = 0);
-    virtual void privateReceivedPackage(const NetworkPackage& np);
+    void pairingTimeout();
 
 Q_SIGNALS:
     Q_SCRIPTABLE void reachableStatusChanged();
     Q_SCRIPTABLE void pluginsChanged();
+    Q_SCRIPTABLE void pairingSuccesful();
+    Q_SCRIPTABLE void pairingFailed(const QString& error);
 
 private:
-    bool m_paired;
     QString m_deviceId;
     QString m_deviceName;
+    QSslKey m_publicKey;
+    QSslKey m_tempPublicKey;
+    bool m_pairingRequested;
+
     QList<DeviceLink*> m_deviceLinks;
     QMap<QString, KdeConnectPlugin*> m_plugins;
-    bool m_knownIdentiy;
 
+    QTimer pairingTimer;
 };
 
 Q_DECLARE_METATYPE(Device*)

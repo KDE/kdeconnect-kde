@@ -56,10 +56,12 @@ private:
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex& current);
-    void trustedStateChanged(bool);
+    void requestPair();
     void pluginsConfigChanged();
     void sendPing();
     void resetSelection();
+    void pairingSuccesful();
+    void pairingFailed(const QString& error);
 
 private:
     Ui::KdeConnectKcmUi* kcmUi;
@@ -69,8 +71,8 @@ private:
     DeviceDbusInterface* currentDevice;
     QModelIndex currentIndex;
     //KSharedConfigPtr config;
-
-
+public slots:
+    void unpair();
 };
 
 #endif

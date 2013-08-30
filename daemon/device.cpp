@@ -7,7 +7,10 @@
 #include <KPluginSelector>
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
+#include <KNotification>
+#include <KIcon>
 
+#include <QSslKey>
 #include <QDebug>
 
 #include "plugins/kdeconnectplugin.h"
@@ -16,36 +19,38 @@
 #include "linkproviders/linkprovider.h"
 #include "networkpackage.h"
 
-Device::Device(const QString& id, const QString& name)
+Device::Device(const QString& id)
 {
 
     m_deviceId = id;
-    m_deviceName = name;
-    m_paired = true;
-    m_knownIdentiy = true;
 
-    reloadPlugins();
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    const KConfigGroup& data = config->group("devices").group(id);
+
+    const QString& name = data.readEntry<QString>("name", QString("unnamed"));
+    m_deviceName = name;
+
+    const QByteArray& key = data.readEntry<QByteArray>("publicKey",QByteArray());
+    m_publicKey = QSslKey(key, QSsl::Rsa, QSsl::Pem, QSsl::PublicKey);
+
+    m_pairingRequested = false;
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
 }
 
-Device::Device(const QString& id, const QString& name, DeviceLink* link)
+Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
+    m_deviceId = identityPackage.get<QString>("deviceId");
+    m_deviceName = identityPackage.get<QString>("deviceName");
 
-    m_deviceId = id;
-    m_deviceName = name;
-    m_paired = false;
-    m_knownIdentiy = true;
+    addLink(dl);
 
-    addLink(link);
-
-    reloadPlugins();
+    m_pairingRequested = false;
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-
 }
 
 Device::~Device()
@@ -67,7 +72,7 @@ void Device::reloadPlugins()
 {
     QMap< QString, KdeConnectPlugin* > newPluginMap;
 
-    if (paired() && reachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
+    if (isPaired() && reachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
         QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
         QMap<QString,QString> pluginStates = KSharedConfig::openConfig(path + id())->group("Plugins").entryMap();
@@ -114,21 +119,75 @@ void Device::reloadPlugins()
 
 }
 
+//TODO
+QSslKey myPrivateKey() {
 
-void Device::setPair(bool b)
-{
-    m_paired = b;
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    if (b) {
-        qDebug() << name() << "paired";
-        config->group("devices").group("paired").group(id()).writeEntry("name",name());
-        Q_EMIT reachableStatusChanged();
-    } else {
-        qDebug() << name() << "unpaired";
-        config->group("devices").group("paired").deleteGroup(id());
-        //Do not Q_EMIT reachableStatusChanged() because we do not want it to suddenly disappear from device list
+    const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
+
+    QSslKey privateKey(key.toAscii(), QSsl::Rsa, QSsl::Pem, QSsl::PrivateKey);
+    qDebug() << "Valid public key:" << !privateKey.isNull();
+
+    return privateKey;
+
+}
+
+void Device::requestPair()
+{
+    if (isPaired() || m_pairingRequested) {
+        Q_EMIT pairingFailed(i18n("Already paired"));
+        return;
     }
-    reloadPlugins();
+    if (!reachable()) {
+        Q_EMIT pairingFailed(i18n("Device not reachable"));
+        return;
+    }
+
+    //Send our own public key
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", true);
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    const QByteArray& key = config->group("myself").readEntry<QByteArray>("publicKey",QByteArray());
+    np.set("publicKey",key);
+    bool success = sendPackage(np);
+
+    if (!success) {
+        Q_EMIT pairingFailed(i18n("Error contacting device"));
+        return;
+    }
+
+    m_pairingRequested = true;
+    pairingTimer.start(20 * 1000);
+    connect(&pairingTimer, SIGNAL(timeout()),
+            this, SLOT(pairingTimeout()));
+
+}
+
+void Device::unpair()
+{
+    if (!isPaired()) return;
+
+    m_publicKey = QSslKey();
+    m_pairingRequested = false;
+    pairingTimer.stop();
+
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    config->group("devices").deleteGroup(id());
+
+    if (reachable()) {
+        NetworkPackage np(PACKAGE_TYPE_PAIR);
+        np.set("pair", false);
+        sendPackage(np);
+    }
+
+    reloadPlugins(); //Will unload the plugins
+
+}
+
+void Device::pairingTimeout()
+{
+    m_pairingRequested = false;
+    Q_EMIT Q_EMIT pairingFailed("Timed out");
 }
 
 static bool lessThan(DeviceLink* p1, DeviceLink* p2)
@@ -182,9 +241,10 @@ void Device::removeLink(DeviceLink* link)
 
 bool Device::sendPackage(const NetworkPackage& np) const
 {
-    if (!m_paired) {
-        //qDebug() << "sendpackage disabled on untrusted device" << name();
-        return false;
+    //Maybe we could block here any package that is not an identity or a pairing package
+
+    if (isPaired()) {
+
     }
 
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
@@ -198,14 +258,118 @@ bool Device::sendPackage(const NetworkPackage& np) const
 
 void Device::privateReceivedPackage(const NetworkPackage& np)
 {
-    if (np.type() == "kdeconnect.identity" && !m_knownIdentiy) {
-        m_deviceName = np.get<QString>("deviceName");
-    } else if (m_paired) {
-        //qDebug() << "package received from trusted device" << name();
-        Q_EMIT receivedPackage(np);
+
+    if (np.type() == PACKAGE_TYPE_PAIR) {
+
+        qDebug() << "Pair package";
+
+        bool pair = np.get<bool>("pair");
+        if (pair == isPaired()) {
+            qDebug() << "Already" << (pair? "paired":"unpaired");
+            return;
+        }
+
+        KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+
+        if (pair) {
+
+            if (m_pairingRequested)  { //We started pairing
+
+                qDebug() << "Pair answer";
+
+                m_pairingRequested = false;
+                pairingTimer.stop();
+
+                //Store as trusted device
+                const QByteArray& key = np.get<QByteArray>("publicKey");
+                config->group("devices").group(id()).writeEntry("publicKey",key);
+                config->group("devices").group(id()).writeEntry("name",name());
+                m_publicKey = QSslKey(key, QSsl::Rsa, QSsl::Pem, QSsl::PublicKey);
+
+                Q_EMIT pairingSuccesful();
+
+            } else {
+
+                qDebug() << "Pair request";
+
+                const QString& key = np.get<QString>("publicKey");
+                m_tempPublicKey = QSslKey(key.toAscii(), QSsl::Rsa, QSsl::Pem, QSsl::PublicKey);
+
+                KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+                notification->setPixmap(KIcon("dialog-information").pixmap(48, 48));
+                notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+                notification->setTitle("KDE Connect");
+                notification->setText(i18n("Pairing request from %1", m_deviceName));
+                notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
+                connect(notification, SIGNAL(action1Activated()), this, SLOT(acceptPairing()));
+                connect(notification, SIGNAL(action2Activated()), this, SLOT(rejectPairing()));
+                notification->sendEvent();
+
+            }
+
+        } else {
+
+            qDebug() << "Unpair request";
+            if (m_pairingRequested) {
+                pairingTimer.stop();
+                Q_EMIT pairingFailed(i18n("Canceled by other peer"));
+            }
+            unpair();
+
+        }
+
+    } else if (!isPaired()) {
+
+        //TODO: Alert the other side that we don't trust them
+        qDebug() << "device" << name() << "not paired, ignoring package" << np.type();
+
     } else {
-        qDebug() << "device" << name() << "not trusted, ignoring package" << np.type();
+
+        //Forward signal
+        Q_EMIT receivedPackage(np);
+
     }
+
+}
+
+void Device::acceptPairing()
+{
+    qDebug() << "Accepted pairing";
+
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+
+    //Send our own public key
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", true);
+    const QByteArray& key = config->group("myself").readEntry<QByteArray>("publicKey",QByteArray());
+    np.set("publicKey",key);
+    bool success = sendPackage(np);
+
+    if (!success) {
+        return;
+    }
+
+    //Store as trusted device
+    m_publicKey = m_tempPublicKey;
+    config->group("devices").group(id()).writeEntry("publicKey", m_tempPublicKey.toPem());
+    config->group("devices").group(id()).writeEntry("name", name());
+
+    reloadPlugins(); //This will load plugins
+}
+
+void Device::rejectPairing()
+{
+    qDebug() << "Rejected pairing";
+
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", false);
+    sendPackage(np);
+
+    KNotification* notification = (KNotification*)sender();
+    notification->setActions(QStringList());
+    notification->setText(i18n("Pairing rejected"));
+    notification->update();
+
 }
 
 QStringList Device::availableLinks() const

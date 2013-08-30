@@ -41,11 +41,19 @@ struct default_arg<int> {
 };
 
 //Pointer types -> NULL (partial specialization)
+//NOTE: Comented because it doesn't makeno sense to send a pointer over the network, but I just left it here for reference --albertvaka
 /*template<class T*>
 struct default_arg<T*> {
     static T* get() { NULL; }
 };
 */
+
+//QByteArray-> empty qbytearray
+template<>
+struct default_arg<QByteArray> {
+    static QByteArray get() { return QByteArray(); }
+};
+
 //QStrings -> empty string
 template<>
 struct default_arg<QString> {

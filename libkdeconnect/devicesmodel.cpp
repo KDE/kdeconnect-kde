@@ -121,7 +121,7 @@ void DevicesModel::refreshDeviceList()
         DeviceDbusInterface* deviceDbusInterface = new DeviceDbusInterface(id,this);
 
         bool onlyPaired = (m_displayFilter & StatusPaired);
-        if (onlyPaired && !deviceDbusInterface->paired()) continue;
+        if (onlyPaired && !deviceDbusInterface->isPaired()) continue;
         bool onlyReachable = (m_displayFilter & StatusReachable);
         if (onlyReachable && !deviceDbusInterface->reachable()) continue;
 
@@ -154,7 +154,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache.
     switch (role) {
         case IconModelRole: {
-            bool paired = device->paired();
+            bool paired = device->isPaired();
             bool reachable = device->reachable();
             QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
             return KIcon(icon).pixmap(32, 32);
@@ -169,7 +169,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
             int status = StatusUnknown;
             if (device->reachable()) {
                 status |= StatusReachable;
-                if (device->paired()) status |= StatusPaired;
+                if (device->isPaired()) status |= StatusPaired;
             }
             return status;
         }

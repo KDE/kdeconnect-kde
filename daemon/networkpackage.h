@@ -48,9 +48,6 @@ public:
     static void unserialize(const QByteArray&, NetworkPackage*);
     QByteArray serialize() const;
 
-    static void rsaUnserialize(const QByteArray&, NetworkPackage*, Qssl );
-    QByteArray rsaSerialize() const;
-
     static void createIdentityPackage(NetworkPackage*);
 
     long id() const { return mId; }

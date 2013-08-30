@@ -22,6 +22,7 @@
 #define NETWORKPACKAGETYPES_H
 
 #define PACKAGE_TYPE_IDENTITY QString("kdeconnect.identity")
+#define PACKAGE_TYPE_PAIR QString("kdeconnect.pair")
 #define PACKAGE_TYPE_PING QString("kdeconnect.ping")
 #define PACKAGE_TYPE_NOTIFICATION QString("kdeconnect.notification")
 #define PACKAGE_TYPE_BATTERY QString("kdeconnect.battery")
