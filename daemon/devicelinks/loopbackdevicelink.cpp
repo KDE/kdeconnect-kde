@@ -27,3 +27,13 @@ LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProv
 {
 
 }
+
+bool LoopbackDeviceLink::sendPackage(const NetworkPackage& toSend) const
+{
+    NetworkPackage toReceive("");
+    NetworkPackage::unserialize(toSend.serialize(), &toReceive);
+
+    Q_EMIT receivedPackage(toReceive);
+
+    return true;
+}

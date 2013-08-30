@@ -31,10 +31,7 @@ class LoopbackDeviceLink
 public:
     LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
-    bool sendPackage(const NetworkPackage& np) const {
-        Q_EMIT receivedPackage(np);
-        return true;
-    }
+    bool sendPackage(const NetworkPackage& np) const;
 
 };
 
