@@ -123,7 +123,7 @@ void DevicesModel::refreshDeviceList()
         bool onlyPaired = (m_displayFilter & StatusPaired);
         if (onlyPaired && !deviceDbusInterface->isPaired()) continue;
         bool onlyReachable = (m_displayFilter & StatusReachable);
-        if (onlyReachable && !deviceDbusInterface->reachable()) continue;
+        if (onlyReachable && !deviceDbusInterface->isReachable()) continue;
 
         int firstRow = m_deviceList.size();
         int lastRow = firstRow;
@@ -155,7 +155,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     switch (role) {
         case IconModelRole: {
             bool paired = device->isPaired();
-            bool reachable = device->reachable();
+            bool reachable = device->isReachable();
             QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
             return KIcon(icon).pixmap(32, 32);
         }
@@ -167,7 +167,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
             return QVariant(); //To implement
         case StatusModelRole: {
             int status = StatusUnknown;
-            if (device->reachable()) {
+            if (device->isReachable()) {
                 status |= StatusReachable;
                 if (device->isPaired()) status |= StatusPaired;
             }

@@ -18,31 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #ifndef DAEMON_H
 #define DAEMON_H
 
 #include <QObject>
-#include <QRegExp>
-#include <map>
+#include <QSet>
+#include <QMap>
+#include <QtCrypto>
 
 #include <KDEDModule>
-#include <KNotification>
-
-#include "networkpackage.h"
-#include <KDE/KPluginFactory>
-#include <QFile>
-#include <qtextstream.h>
-
-#include <QSet>
-
-#include <KConfig>
+#include <KPluginFactory>
 
 #include "device.h"
+#include "networkpackage.h"
 #include "devicelinks/devicelink.h"
 #include "linkproviders/linkprovider.h"
-
-class QUdpSocket;
 
 class Daemon
     : public KDEDModule
@@ -81,6 +71,9 @@ private:
 
     //Every known device
     QMap<QString, Device*> mDevices;
+
+    // The Initializer object sets things up, and also does cleanup when it goes out of scope
+    QCA::Initializer init;
 
 };
 

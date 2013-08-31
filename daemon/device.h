@@ -27,6 +27,7 @@
 #include <QMap>
 #include <QSslKey>
 #include <QTimer>
+#include <QtCrypto>
 
 #include "networkpackage.h"
 
@@ -40,6 +41,12 @@ class Device
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
     Q_PROPERTY(QString id READ id)
     Q_PROPERTY(QString name READ name)
+
+    enum PairStatus {
+        NotPaired,
+        PairRequested,
+        Paired,
+    };
 
 public:
     //Read device from KConfig, we already know it but we need to wait for a incoming devicelink to communicate
@@ -58,12 +65,14 @@ public:
     void addLink(DeviceLink*);
     void removeLink(DeviceLink*);
 
+    Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
+    Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::PairRequested; }
+
     Q_SCRIPTABLE QStringList availableLinks() const;
-    Q_SCRIPTABLE bool isPaired() const { return !m_publicKey.isNull(); }
-    Q_SCRIPTABLE bool pairRequested() const { return m_pairingRequested; }
-    Q_SCRIPTABLE bool reachable() const { return !m_deviceLinks.empty(); }
-    Q_SCRIPTABLE bool hasPlugin(const QString& name);
+    Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.empty(); }
+
     Q_SCRIPTABLE QStringList loadedPlugins();
+    Q_SCRIPTABLE bool hasPlugin(const QString& name);
 
     //Send and receive
 Q_SIGNALS:
@@ -94,9 +103,8 @@ Q_SIGNALS:
 private:
     QString m_deviceId;
     QString m_deviceName;
-    QSslKey m_publicKey;
-    QSslKey m_tempPublicKey;
-    bool m_pairingRequested;
+    QCA::PublicKey m_publicKey;
+    PairStatus m_pairStatus;
 
     QList<DeviceLink*> m_deviceLinks;
     QMap<QString, KdeConnectPlugin*> m_plugins;

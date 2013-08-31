@@ -1,5 +1,8 @@
 find_package(KDE4 REQUIRED)
-include (KDE4Defaults)
+find_package(QJSON REQUIRED)
+find_package(QCA2 REQUIRED)
+
+include(KDE4Defaults)
 include_directories(${KDE4_INCLUDES})
 
 set(kdeconnect_pausemusic_SRCS
@@ -13,7 +16,8 @@ target_link_libraries(kdeconnect_pausemusic
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${QT_QTNETWORK_LIBRARY}
-    qjson
+    ${QJSON_LIBRARIES}
+    ${QCA2_LIBRARIES}
 )
 
 install(TARGETS kdeconnect_pausemusic DESTINATION ${PLUGIN_INSTALL_DIR} )

@@ -29,10 +29,12 @@
 #include <QDBusConnection>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
-#include <QSslKey>
+#include <QDebug>
 
-#include <KIcon>
+#include <KConfig>
 #include <KConfigGroup>
+#include <KNotification>
+#include <KIcon>
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
@@ -51,55 +53,14 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         qDebug() << "My id:" << uuid;
     }
 
-    if (!config->group("myself").hasKey("privateKey")) {
+    if (!config->group("myself").hasKey("privateKey") || !config->group("myself").hasKey("publicKey")) {
 
-        //TODO: Generate
+        //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
+        QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(1024);
+        config->group("myself").writeEntry("privateKey", privateKey.toPEM());
 
-        QByteArray key = QByteArray(
-                                "-----BEGIN RSA PRIVATE KEY-----\n"
-                                "MIICXAIBAAKBgQCnKxy6aZrABVvbxuWqMPbohH4KRDBGqyO/OwxvUD1qHpqZ9cJT\n"
-                                "bgttiIaXzdQny5esf6brI6Di/ssIp9awdLBlMT+eR6zR7g446tbxaCFuUiL0QIei\n"
-                                "izEveTDNRbson/8DPJrn8/81doTeXsuV7YbqmtUGwdZ5kiocAW92ZZukdQIDAQAB\n"
-                                "AoGBAI18yuLoMQdnQblBne8vZDumsDsmPaoCfc4EP2ETi/d+kaHPxTryABAkJq7j\n"
-                                "kjZgdi6VGIUacbjOqK/Zxrcw/H460EwOUzh97Z4t9CDtDhz6t3ddT8CfbG2TUgbx\n"
-                                "Vv3mSYSUDBdNBV6YY4fyLtZl6oI2V+rBaFIT48+vAK9doKlhAkEA2ZKm9dc80IjU\n"
-                                "c/Wwn8ij+6ALs4Mpa0dPYivgZ2QhXiX5TfMymal2dDufkOH4wIUO+8vV8CSmmTRU\n"
-                                "8Lv/B3pY7QJBAMSxeJtTSFwBcGRaZKRMIqeuZ/yMMT4EqqIh1DjBpujCRKApVpkO\n"
-                                "kVx3Yu7xyOfniXBwujiYNSL6LrWdKykEsKkCQEr2UDgbtIRU4H4jhHtI8dbcSavL\n"
-                                "4RVpOFymqWZ2BVke1EqbJC/1Ry687DlK4h3Sulre3BMlTZEziqB25WN6L/ECQBJv\n"
-                                "B3yXG4rz35KoHhJ/yCeq4rf6c4r6aPt07Cy9iWT6/+96sFD72oet8KmwI0IIowrU\n"
-                                "pb80FJbIl6QRrL/VXrECQBDdeCAG6J3Cwm4ozQiDQyiNd1qJqWc4co9savJxLtEU\n"
-                                "s5L4Qwfrexm16oCJimGmsa5q6Y0n4f5gY+MRh3n+nQo=\n"
-                                "-----END RSA PRIVATE KEY-----\n"
-                             );
-
-        //Test for validity
-        //QSslKey privateKey(key.toAscii(), QSsl::Rsa, QSsl::Pem, QSsl::PrivateKey);
-        //qDebug() << "Valid private key:" << !privateKey.isNull();
-
-        config->group("myself").writeEntry("privateKey", key);
-
-    }
-
-    if (!config->group("myself").hasKey("publicKey")) {
-
-        //TODO: Generate
-
-        QByteArray key = QByteArray(
-                                "-----BEGIN PUBLIC KEY-----\n"
-                                "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnKxy6aZrABVvbxuWqMPbohH4K\n"
-                                "RDBGqyO/OwxvUD1qHpqZ9cJTbgttiIaXzdQny5esf6brI6Di/ssIp9awdLBlMT+e\n"
-                                "R6zR7g446tbxaCFuUiL0QIeiizEveTDNRbson/8DPJrn8/81doTeXsuV7YbqmtUG\n"
-                                "wdZ5kiocAW92ZZukdQIDAQAB\n"
-                                "-----END PUBLIC KEY-----\n"
-
-                             );
-
-        //Test for validity
-        //QSslKey publicKey(key.toAscii(), QSsl::Rsa, QSsl::Pem, QSsl::PublicKey);
-        //qDebug() << "Valid public key:" << !publicKey.isNull();
-
-        config->group("myself").writeEntry("publicKey", key);
+        QCA::PublicKey publicKey = privateKey.toPublicKey();
+        config->group("myself").writeEntry("publicKey", publicKey.toPEM());
 
     }
 
@@ -157,7 +118,7 @@ QStringList Daemon::visibleDevices()
 {
     QStringList ret;
     Q_FOREACH(Device* device, mDevices) {
-        if (device->reachable()) {
+        if (device->isReachable()) {
             ret.append(device->id());
         }
     }
@@ -199,9 +160,9 @@ void Daemon::onDeviceReachableStatusChanged()
     Device* device = (Device*)sender();
     QString id = device->id();
 
-    Q_EMIT deviceVisibilityChanged(id, device->reachable());
+    Q_EMIT deviceVisibilityChanged(id, device->isReachable());
 
-    if (!device->reachable()) {
+    if (!device->isReachable()) {
 
         if (!device->isPaired()) {
             qDebug() << "Destroying device";

@@ -27,11 +27,13 @@
 #include <QString>
 #include <QVariant>
 #include <QStringList>
-#include <QSsl>
+#include <QSslKey>
 
 #include <qjson/parser.h>
 
 #include "default_args.h"
+
+class EncryptedNetworkPackage;
 
 class NetworkPackage : public QObject
 {
@@ -62,6 +64,8 @@ public:
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
     
     bool has(const QString& key) const { return mBody.contains(key); }
+
+    EncryptedNetworkPackage encrypt(const QSslKey& key) const;
 
 private:
     void setId(long id) { mId = id; }

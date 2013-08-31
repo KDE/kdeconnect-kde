@@ -19,23 +19,26 @@
  */
 
 #include "networkpackage.h"
-#include <ksharedconfig.h>
-#include <kconfiggroup.h>
-#include <qbytearray.h>
-#include <qdatastream.h>
+
+#include <KSharedConfig>
+#include <KConfigGroup>
+#include <QByteArray>
+#include <QDataStream>
 #include <QHostInfo>
-#include <sstream>
-#include <string>
+#include <QSslKey>
+#include <QDateTime>
+#include <QtCrypto/QtCrypto>
+
 #include <qjson/serializer.h>
-#include <iostream>
-#include <ctime>
 #include <qjson/qobjecthelper.h>
+
+#include "encryptednetworkpackage.h"
 
 const static int CURRENT_PACKAGE_VERSION = 1;
 
 NetworkPackage::NetworkPackage(const QString& type)
 {
-    mId = time(NULL);
+    mId = QDateTime::currentMSecsSinceEpoch();
     mType = type;
     mVersion = CURRENT_PACKAGE_VERSION;
 }
@@ -101,6 +104,13 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->set("deviceName", QHostInfo::localHostName());
 
     //qDebug() << "createIdentityPackage" << np->serialize();
+}
+
+EncryptedNetworkPackage NetworkPackage::encrypt ( const QSslKey& key ) const
+{
+    QByteArray serialized = serialize();
+    return EncryptedNetworkPackage();
+
 }
 
 
