@@ -57,11 +57,12 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
         //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
         QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(1024);
-        config->group("myself").writeEntry("privateKey", privateKey.toPEM());
+        config->group("myself").writeEntry("privateKey", privateKey.toDER());
 
         QCA::PublicKey publicKey = privateKey.toPublicKey();
-        config->group("myself").writeEntry("publicKey", publicKey.toPEM());
-
+        config->group("myself").writeEntry("publicKey", publicKey.toDER());
+        //TODO: Store key in a PEM file instead (KStandardDirs::locate("appdata", "private.pem"))
+        
     }
 
     //Debugging
