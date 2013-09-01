@@ -1,3 +1,8 @@
+add_subdirectory(plugins)
+
+find_package (QJSON REQUIRED)
+find_package (QCA2 REQUIRED)
+
 include_directories(
     ${QJSON_INCLUDE_DIR}
     ${QCA2_INCLUDE_DIR}
@@ -21,12 +26,7 @@ set(kded_kdeconnect_SRCS
     device.cpp
 )
 
-add_subdirectory(plugins)
-
 kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
-
-find_package (QJSON REQUIRED)
-find_package (QCA2 REQUIRED)
 
 target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}

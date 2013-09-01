@@ -18,4 +18,4 @@ add_subdirectory(kcm)
 #add_subdirectory(kioslave)
 add_subdirectory(plasmoid)
 
-add_subdirectory(test)
+add_subdirectory(tests)

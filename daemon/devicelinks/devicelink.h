@@ -39,10 +39,10 @@ public:
     const QString& deviceId() { return mDeviceId; }
     LinkProvider* provider() { return mLinkProvider; }
     
-    virtual bool sendPackage(const NetworkPackage& np) const = 0;
+    virtual bool sendPackage(const NetworkPackage& np) = 0;
 
-signals:
-    void receivedPackage(const NetworkPackage& np) const;
+Q_SIGNALS:
+    void receivedPackage(const NetworkPackage& np);
 
 private:
     QString mDeviceId;

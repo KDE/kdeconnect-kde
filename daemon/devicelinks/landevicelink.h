@@ -38,7 +38,7 @@ class LanDeviceLink
 public:
     LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
 
-    bool sendPackage(const NetworkPackage& np) const;
+    bool sendPackage(const NetworkPackage& np);
 
 private Q_SLOTS:
     void dataReceived();

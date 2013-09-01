@@ -2,6 +2,11 @@ find_package(KDE4 REQUIRED)
 find_package(QJSON REQUIRED)
 find_package(QCA2 REQUIRED)
 
+include_directories(
+    ${QJSON_INCLUDE_DIR}
+    ${QCA2_INCLUDE_DIR}
+)
+
 include(KDE4Defaults)
 include_directories(${KDE4_INCLUDES})
 

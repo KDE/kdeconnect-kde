@@ -32,15 +32,15 @@
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
 
-#include "encryptednetworkpackage.h"
-
-const static int CURRENT_PACKAGE_VERSION = 1;
+const static int CURRENT_PACKAGE_VERSION = 2;
 
 NetworkPackage::NetworkPackage(const QString& type)
 {
-    mId = QDateTime::currentMSecsSinceEpoch();
+    mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = type;
+    mBody = QVariantMap();
     mVersion = CURRENT_PACKAGE_VERSION;
+    mEncrypted = false;
 }
 
 QByteArray NetworkPackage::serialize() const
@@ -68,8 +68,8 @@ QByteArray NetworkPackage::serialize() const
 
 void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 {
-    qDebug() << "Unserialize:" << a;
-    
+    qDebug() << "Unserialize: " << a;
+
     //Json -> QVariant
     QJson::Parser parser;
     bool ok;
@@ -80,11 +80,6 @@ void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     }
 
     //QVariant -> Object
-    //NetworkPackage np;
-    //QJSon json(a);
-    //np.mId = json["id"];
-    //np.mType = json["type"];
-    //np.mBody = json["body"];
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 
     if (np->version() > CURRENT_PACKAGE_VERSION) {
@@ -92,6 +87,34 @@ void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     }
 
 }
+
+void NetworkPackage::encrypt (QCA::PublicKey& key)
+{
+    qDebug() << key.toDER() << key.canEncrypt();
+    
+    QByteArray serialized = serialize();
+    QByteArray data = key.encrypt(serialized, QCA::EME_PKCS1v15).toByteArray();
+
+    mId = QString::number(QDateTime::currentMSecsSinceEpoch());
+    mType = "kdeconnect.encrypted";
+    mBody = QVariantMap();
+    mBody["data"] = data.toBase64();
+    mVersion = CURRENT_PACKAGE_VERSION;
+    mEncrypted = true;
+
+}
+
+void NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
+{
+    QByteArray encryptedJson = QByteArray::fromBase64(get<QByteArray>("data"));
+
+    QCA::SecureArray decryptedJson;
+    key.decrypt(encryptedJson, &decryptedJson, QCA::EME_PKCS1v15);
+
+    unserialize(decryptedJson.toByteArray(), out);
+}
+
+
 
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
@@ -104,13 +127,6 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->set("deviceName", QHostInfo::localHostName());
 
     //qDebug() << "createIdentityPackage" << np->serialize();
-}
-
-EncryptedNetworkPackage NetworkPackage::encrypt ( const QSslKey& key ) const
-{
-    QByteArray serialized = serialize();
-    return EncryptedNetworkPackage();
-
 }
 
 

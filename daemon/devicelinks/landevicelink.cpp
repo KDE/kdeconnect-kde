@@ -51,7 +51,7 @@ LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
             this, SLOT(dataReceived()));
 }
 
-bool LanDeviceLink::sendPackage(const NetworkPackage& np) const
+bool LanDeviceLink::sendPackage(const NetworkPackage& np)
 {
     int written = mSocket->write(np.serialize());
     return written != -1;

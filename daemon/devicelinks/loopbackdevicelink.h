@@ -18,8 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ECHODEVICELINK_H
-#define ECHODEVICELINK_H
+#ifndef LOOPBACKDEVICELINK_H
+#define LOOPBACKDEVICELINK_H
+
 #include "devicelink.h"
 
 class LoopbackLinkProvider;
@@ -31,8 +32,8 @@ class LoopbackDeviceLink
 public:
     LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
-    bool sendPackage(const NetworkPackage& np) const;
+    bool sendPackage(const NetworkPackage& np);
 
 };
 
-#endif // ECHODEVICELINK_H
+#endif

@@ -27,7 +27,7 @@
 #include <QString>
 #include <QVariant>
 #include <QStringList>
-#include <QSslKey>
+#include <QtCrypto>
 
 #include <qjson/parser.h>
 
@@ -38,24 +38,29 @@ class EncryptedNetworkPackage;
 class NetworkPackage : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY( long id READ id WRITE setId )
+    Q_PROPERTY( QString id READ id WRITE setId )
     Q_PROPERTY( QString type READ type WRITE setType )
     Q_PROPERTY( QVariantMap body READ body WRITE setBody )
     Q_PROPERTY( int version READ version WRITE setVersion )
+    Q_PROPERTY( bool isEncrypted READ isEncrypted WRITE setEncrypted )
 
 public:
 
     NetworkPackage(const QString& type);
 
-    static void unserialize(const QByteArray&, NetworkPackage*);
+    static void unserialize(const QByteArray& json, NetworkPackage* out);
     QByteArray serialize() const;
+
+    void encrypt(QCA::PublicKey& key);
+    void decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
 
     static void createIdentityPackage(NetworkPackage*);
 
-    long id() const { return mId; }
+    QString id() const { return mId; }
     const QString& type() const { return mType; }
     QVariantMap& body() { return mBody; }
     int version() const { return mVersion; }
+    bool isEncrypted() const { return mEncrypted; }
 
     //Get and set info from body. Note that id, type and version can not be accessed through these.
     template<typename T> T get(const QString& key, const T& defaultValue = default_arg<T>::get()) const {
@@ -65,16 +70,16 @@ public:
     
     bool has(const QString& key) const { return mBody.contains(key); }
 
-    EncryptedNetworkPackage encrypt(const QSslKey& key) const;
-
 private:
-    void setId(long id) { mId = id; }
+    void setId(QString id) { mId = id; }
     void setType(const QString& t) { mType = t; }
     void setBody(const QVariantMap& b) { mBody = b; }
     void setVersion(int v) { mVersion = v; }
+    void setEncrypted(bool b) { mEncrypted = b; }
 
-    long mId;
+    QString mId;
     QString mType;
+    bool mEncrypted;
     QVariantMap mBody; //json in the Android side
     int mVersion;
 

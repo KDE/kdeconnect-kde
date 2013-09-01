@@ -18,21 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "backendtests.h"
+#include "networkpackagetests.h"
 
 #include "../daemon/networkpackage.h"
 
 #include <qtest_kde.h>
 #include <QtTest>
 
-QTEST_KDEMAIN(BackendTests, NoGUI);
+QTEST_KDEMAIN(NetworkPackageTests, NoGUI);
 
-void BackendTests::initTestCase()
+void NetworkPackageTests::initTestCase()
 {
     // Called before the first testfunction is executed
 }
 
-void BackendTests::dummyTest()
+void NetworkPackageTests::dummyTest()
 {
     QDate date;
     date.setYMD( 1967, 3, 11 );
@@ -41,7 +41,7 @@ void BackendTests::dummyTest()
     QCOMPARE( QDate::longMonthName(date.month()), QString("March") );
 }
 
-void BackendTests::networkPackageTest()
+void NetworkPackageTests::networkPackageTest()
 {
     NetworkPackage np("com.test");
 
@@ -64,10 +64,10 @@ void BackendTests::networkPackageTest()
     QCOMPARE( np.version(), np2.version() );
     QCOMPARE( np.body(), np2.body() );
 
-    QByteArray json("{ \"id\": 123, \"type\": \"test\", \"body\": { \"testing\": true }, \"version\": 3 }");
+    QByteArray json("{ \"id\": \"123\", \"type\": \"test\", \"body\": { \"testing\": true }, \"version\": 3 }");
     //qDebug() << json;
     NetworkPackage::unserialize(json,&np2);
-    QCOMPARE( np2.id(), long(123) );
+    QCOMPARE( np2.id(), QString("123") );
     QCOMPARE( np2.version(), 3 );
     QCOMPARE( (np2.get<bool>("testing")), true );
     QCOMPARE( (np2.get<bool>("not_testing")), false );
@@ -78,22 +78,53 @@ void BackendTests::networkPackageTest()
     //QtTest::ignoreMessage(QtDebugMsg, "Unserialization error: 1 \"syntax error, unexpected string\"");
     //QCOMPARE( np2.version(), -1 );
 
+
+}
+
+void NetworkPackageTests::networkPackageEncryptionTest()
+{
+
+    NetworkPackage original("com.test");
+    original.set("hello","hola");
+
+    NetworkPackage copy("");
+    NetworkPackage::unserialize(original.serialize(), &copy);
+
+    NetworkPackage decrypted("");
+
+    QCA::Initializer init;
+    QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(1024);
+    QCA::PublicKey publicKey = privateKey.toPublicKey();
+
+    //Encrypt and decrypt np
+    QCOMPARE( original.isEncrypted(), false );
+    original.encrypt(publicKey);
+    QCOMPARE( original.isEncrypted(), true );
+    original.decrypt(privateKey, &decrypted);
+    QCOMPARE( original.isEncrypted(), true );
+    QCOMPARE( decrypted.isEncrypted(), false );
+
+    //np should be equal top np2
+    QCOMPARE( decrypted.id(), copy.id() );
+    QCOMPARE( decrypted.type(), copy.type() );
+    QCOMPARE( decrypted.version(), copy.version() );
+    QCOMPARE( decrypted.body(), copy.body() );
+
 }
 
 
-void BackendTests::cleanupTestCase()
+void NetworkPackageTests::cleanupTestCase()
 {
     // Called after the last testfunction was executed
 }
 
-void BackendTests::init()
+void NetworkPackageTests::init()
 {
     // Called before each testfunction is executed
 }
 
-void BackendTests::cleanup()
+void NetworkPackageTests::cleanup()
 {
     // Called after every testfunction
 }
 
-#include "backendtests.moc"

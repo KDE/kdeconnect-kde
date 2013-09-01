@@ -71,14 +71,14 @@ public:
     Q_SCRIPTABLE QStringList availableLinks() const;
     Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.empty(); }
 
-    Q_SCRIPTABLE QStringList loadedPlugins();
-    Q_SCRIPTABLE bool hasPlugin(const QString& name);
+    Q_SCRIPTABLE QStringList loadedPlugins() const;
+    Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
 
     //Send and receive
 Q_SIGNALS:
-    void receivedPackage(const NetworkPackage& np);
+    void receivedPackage(const NetworkPackage& np) const;
 public Q_SLOTS:
-    virtual bool sendPackage(const NetworkPackage& np) const;
+    virtual bool sendPackage(NetworkPackage& np);
 
     //Dbus operations
 public Q_SLOTS:
@@ -110,6 +110,7 @@ private:
     QMap<QString, KdeConnectPlugin*> m_plugins;
 
     QTimer pairingTimer;
+
 };
 
 Q_DECLARE_METATYPE(Device*)

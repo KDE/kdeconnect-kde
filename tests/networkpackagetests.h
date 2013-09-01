@@ -18,12 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BACKENDTESTS_H
-#define BACKENDTESTS_H
+#ifndef NETWORKPACKAGETESTS_H
+#define NETWORKPACKAGETESTS_H
 
 #include <QObject>
 
-class BackendTests : public QObject
+class NetworkPackageTests : public QObject
 {
     Q_OBJECT
 
@@ -32,6 +32,7 @@ private Q_SLOTS:
 
     void dummyTest();
     void networkPackageTest();
+    void networkPackageEncryptionTest();
 
     void cleanupTestCase();
 
@@ -40,4 +41,4 @@ private Q_SLOTS:
 
 };
 
-#endif // BACKENDTESTS_H
+#endif 
