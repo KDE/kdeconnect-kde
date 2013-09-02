@@ -76,9 +76,9 @@ void LanLinkProvider::newUdpConnection()
         mUdpServer->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
         NetworkPackage* np = new NetworkPackage("");
-        NetworkPackage::unserialize(datagram,np);
+        bool success = NetworkPackage::unserialize(datagram,np);
 
-        if (np->version() > 0 && np->type() == PACKAGE_TYPE_IDENTITY) {
+        if (success && np->type() == PACKAGE_TYPE_IDENTITY) {
 
             NetworkPackage np2("");
             NetworkPackage::createIdentityPackage(&np2);
@@ -206,9 +206,9 @@ void LanLinkProvider::dataReceived()
     qDebug() << "LanLinkProvider received reply:" << data;
 
     NetworkPackage np("");
-    NetworkPackage::unserialize(data,&np);
+    bool success = NetworkPackage::unserialize(data,&np);
 
-    if (np.version() > 0 && np.type() == PACKAGE_TYPE_IDENTITY) {
+    if (success && np.type() == PACKAGE_TYPE_IDENTITY) {
 
         const QString& id = np.get<QString>("deviceId");
         LanDeviceLink* dl = new LanDeviceLink(id, this, socket);

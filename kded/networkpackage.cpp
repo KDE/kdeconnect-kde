@@ -32,15 +32,11 @@
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
 
-const static int CURRENT_PACKAGE_VERSION = 2;
-
 NetworkPackage::NetworkPackage(const QString& type)
 {
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = type;
     mBody = QVariantMap();
-    mVersion = CURRENT_PACKAGE_VERSION;
-    mEncrypted = false;
 }
 
 QByteArray NetworkPackage::serialize() const
@@ -66,7 +62,7 @@ QByteArray NetworkPackage::serialize() const
     return json;
 }
 
-void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
+bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 {
     qDebug() << "Unserialize: " << a;
 
@@ -76,15 +72,13 @@ void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QVariantMap variant = parser.parse(a, &ok).toMap();
     if (!ok) {
         qDebug() << "Unserialization error:" << parser.errorLine() << parser.errorString();
-        np->setVersion(-1);
+		return false;
     }
 
     //QVariant -> Object
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 
-    if (np->version() > CURRENT_PACKAGE_VERSION) {
-        qDebug() << "Warning: package version" << np->version() << "is greater than supported version" << CURRENT_PACKAGE_VERSION;
-    }
+	return true;
 
 }
 
@@ -93,28 +87,26 @@ void NetworkPackage::encrypt (QCA::PublicKey& key)
 
     QByteArray serialized = serialize();
 
-    int chunkSize = key.maximumEncryptSize(QCA::EME_PKCS1v15);
+    int chunkSize = key.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm);
 
     QStringList chunks;
     while (!serialized.isEmpty()) {
         QByteArray chunk = serialized.left(chunkSize);
         serialized = serialized.mid(chunkSize);
-        QByteArray encryptedChunk = key.encrypt(chunk, QCA::EME_PKCS1v15).toByteArray();
+        QByteArray encryptedChunk = key.encrypt(chunk, NetworkPackage::EncryptionAlgorithm).toByteArray();
         chunks.append( encryptedChunk.toBase64() );
     }
 
     qDebug() << chunks.size() << "chunks";
 
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
-    mType = "kdeconnect.encrypted";
+    mType = PACKAGE_TYPE_ENCRYPTED;
     mBody = QVariantMap();
     mBody["data"] = chunks;
-    mVersion = CURRENT_PACKAGE_VERSION;
-    mEncrypted = true;
 
 }
 
-void NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
+bool NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
 {
     const QStringList& chunks = mBody["data"].toStringList();
 
@@ -122,12 +114,16 @@ void NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
     Q_FOREACH(const QString& chunk, chunks) {
         QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
         QCA::SecureArray decryptedChunk;
-        key.decrypt(encryptedChunk, &decryptedChunk, QCA::EME_PKCS1v15);
+        bool success = key.decrypt(encryptedChunk, &decryptedChunk, NetworkPackage::EncryptionAlgorithm);
+		if (!success) {
+			return false;
+		}
         decryptedJson.append(decryptedChunk.toByteArray());
 
     }
 
-    unserialize(decryptedJson, out);
+    return unserialize(decryptedJson, out);
+
 }
 
 
@@ -136,11 +132,10 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     QString id = config->group("myself").readEntry<QString>("id","");
-    np->mId = time(NULL);
-    np->mType = PACKAGE_TYPE_IDENTITY;
-    np->mVersion = CURRENT_PACKAGE_VERSION;
+    np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->set("deviceId", id);
     np->set("deviceName", QHostInfo::localHostName());
+    np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
 
     //qDebug() << "createIdentityPackage" << np->serialize();
 }

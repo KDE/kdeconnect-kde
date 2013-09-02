@@ -152,7 +152,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     }
 
     Q_EMIT deviceVisibilityChanged(id, true);
-    
+
 }
 
 void Daemon::onDeviceReachableStatusChanged()

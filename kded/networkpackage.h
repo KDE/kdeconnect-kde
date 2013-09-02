@@ -41,47 +41,41 @@ class NetworkPackage : public QObject
     Q_PROPERTY( QString id READ id WRITE setId )
     Q_PROPERTY( QString type READ type WRITE setType )
     Q_PROPERTY( QVariantMap body READ body WRITE setBody )
-    Q_PROPERTY( int version READ version WRITE setVersion )
-    Q_PROPERTY( bool isEncrypted READ isEncrypted WRITE setEncrypted )
 
 public:
 
+	const static QCA::EncryptionAlgorithm EncryptionAlgorithm = QCA::EME_PKCS1v15;
+	const static int ProtocolVersion = 3;
+
     NetworkPackage(const QString& type);
-
-    static void unserialize(const QByteArray& json, NetworkPackage* out);
-    QByteArray serialize() const;
-
-    void encrypt(QCA::PublicKey& key);
-    void decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
 
     static void createIdentityPackage(NetworkPackage*);
 
-    QString id() const { return mId; }
+    QByteArray serialize() const;
+    static bool unserialize(const QByteArray& json, NetworkPackage* out);
+
+    void encrypt(QCA::PublicKey& key);
+    bool decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
+
+    const QString& id() const { return mId; }
     const QString& type() const { return mType; }
     QVariantMap& body() { return mBody; }
-    int version() const { return mVersion; }
-    bool isEncrypted() const { return mEncrypted; }
 
-    //Get and set info from body. Note that id, type and version can not be accessed through these.
+    //Get and set info from body. Note that id and type can not be accessed through these.
     template<typename T> T get(const QString& key, const T& defaultValue = default_arg<T>::get()) const {
         return mBody.value(key,defaultValue).template value<T>(); //Important note: Awesome template syntax is awesome
     }
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
-    
     bool has(const QString& key) const { return mBody.contains(key); }
 
 private:
-    void setId(QString id) { mId = id; }
+    void setId(const QString& id) { mId = id; }
     void setType(const QString& t) { mType = t; }
     void setBody(const QVariantMap& b) { mBody = b; }
-    void setVersion(int v) { mVersion = v; }
-    void setEncrypted(bool b) { mEncrypted = b; }
 
     QString mId;
     QString mType;
-    bool mEncrypted;
-    QVariantMap mBody; //json in the Android side
-    int mVersion;
+    QVariantMap mBody;
 
 };
 

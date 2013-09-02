@@ -63,14 +63,12 @@ void NetworkPackageTests::networkPackageTest()
 
     QCOMPARE( np.id(), np2.id() );
     QCOMPARE( np.type(), np2.type() );
-    QCOMPARE( np.version(), np2.version() );
     QCOMPARE( np.body(), np2.body() );
 
-    QByteArray json("{ \"id\": \"123\", \"type\": \"test\", \"body\": { \"testing\": true }, \"version\": 3 }");
+    QByteArray json("{ \"id\": \"123\", \"type\": \"test\", \"body\": { \"testing\": true } }");
     //qDebug() << json;
     NetworkPackage::unserialize(json,&np2);
     QCOMPARE( np2.id(), QString("123") );
-    QCOMPARE( np2.version(), 3 );
     QCOMPARE( (np2.get<bool>("testing")), true );
     QCOMPARE( (np2.get<bool>("not_testing")), false );
     QCOMPARE( (np2.get<bool>("not_testing",true)), true );
@@ -78,8 +76,6 @@ void NetworkPackageTests::networkPackageTest()
     //NetworkPackage::unserialize("this is not json",&np2);
     //QtTest::ignoreMessage(QtSystemMsg, "json_parser - syntax error found,  forcing abort, Line 1 Column 0");
     //QtTest::ignoreMessage(QtDebugMsg, "Unserialization error: 1 \"syntax error, unexpected string\"");
-    //QCOMPARE( np2.version(), -1 );
-
 
 }
 
@@ -100,27 +96,26 @@ void NetworkPackageTests::networkPackageEncryptionTest()
 
 
     //Encrypt and decrypt np
-    QCOMPARE( original.isEncrypted(), false );
+    QCOMPARE( original.type(), QString("com.test") );
     original.encrypt(publicKey);
-    QCOMPARE( original.isEncrypted(), true );
+    QCOMPARE( original.type(), PACKAGE_TYPE_ENCRYPTED );
     original.decrypt(privateKey, &decrypted);
-    QCOMPARE( original.isEncrypted(), true );
-    QCOMPARE( decrypted.isEncrypted(), false );
+    QCOMPARE( original.type(), PACKAGE_TYPE_ENCRYPTED );
+    QCOMPARE( decrypted.type(), QString("com.test") );
 
     //np should be equal top np2
     QCOMPARE( decrypted.id(), copy.id() );
     QCOMPARE( decrypted.type(), copy.type() );
-    QCOMPARE( decrypted.version(), copy.version() );
     QCOMPARE( decrypted.body(), copy.body() );
 
 
 
     //Test for long package encryption that need multi-chunk encryption
 
-    QByteArray json = "{ \"body\" : { \"nowPlaying\" : \"A really long song name - A really long artist name\", \"player\" : \"A really long player name\" }, \"id\" : \"A really long package id\", \"isEncrypted\" : false, \"type\" : \"kdeconnect.a_really_long_package_type\", \"version\" : 2 }\n";
+    QByteArray json = "{ \"body\" : { \"nowPlaying\" : \"A really long song name - A really long artist name\", \"player\" : \"A really long player name\", \"the_meaning_of_life_the_universe_and_everything\" : \"42\" }, \"id\" : \"A really long package id\", \"type\" : \"kdeconnect.a_really_really_long_package_type\" }\n";
     qDebug() << "EME_PKCS1_OAEP maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1_OAEP);
     qDebug() << "EME_PKCS1v15 maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1v15);
-    QCOMPARE( json.size() > publicKey.maximumEncryptSize(QCA::EME_PKCS1v15), true );
+    QCOMPARE( json.size() > publicKey.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm), true );
 
     NetworkPackage::unserialize(json, &original);
     original.encrypt(publicKey);

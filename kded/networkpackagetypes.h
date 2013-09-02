@@ -24,6 +24,7 @@
 #define PACKAGE_TYPE_IDENTITY QString("kdeconnect.identity")
 #define PACKAGE_TYPE_PAIR QString("kdeconnect.pair")
 #define PACKAGE_TYPE_PING QString("kdeconnect.ping")
+#define PACKAGE_TYPE_ENCRYPTED QString("kdeconnect.encrypted")
 #define PACKAGE_TYPE_NOTIFICATION QString("kdeconnect.notification")
 #define PACKAGE_TYPE_BATTERY QString("kdeconnect.battery")
 #define PACKAGE_TYPE_TELEPHONY QString("kdeconnect.telephony")

@@ -44,6 +44,12 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
     m_deviceId = identityPackage.get<QString>("deviceId");
     m_deviceName = identityPackage.get<QString>("deviceName");
 
+	int protocolVersion = identityPackage.get<int>("protocolVersion");
+	if (protocolVersion != NetworkPackage::ProtocolVersion) {
+		qDebug() << "WARNING: Device uses a different protocol version" << protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+		//TODO: Do something
+	}
+
     addLink(dl);
 
     m_pairStatus = Device::Device::NotPaired;
@@ -320,14 +326,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
     } else {
 
-        if (!np.isEncrypted()) {
-            //TODO: The other side doesn't know that we are already paired
-            qDebug() << "Warning: A paired device is sending an unencrypted package";
-
-            //Forward package
-            Q_EMIT receivedPackage(np);
-
-        } else {
+        if (np.type() == PACKAGE_TYPE_ENCRYPTED) {
 
             //TODO: Do not read the key every time
             KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -338,6 +337,15 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             NetworkPackage decryptedNp("");
             np.decrypt(privateKey, &decryptedNp);
             Q_EMIT receivedPackage(decryptedNp);
+
+        } else {
+
+            //TODO: The other side doesn't know that we are already paired
+            qDebug() << "Warning: A paired device is sending an unencrypted package";
+
+            //Forward package
+            Q_EMIT receivedPackage(np);
+
         }
 
 
