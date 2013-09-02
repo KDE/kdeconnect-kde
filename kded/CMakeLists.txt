@@ -36,7 +36,7 @@ target_link_libraries(kded_kdeconnect
     ${QCA2_LIBRARIES}
 )
 
-include(../cmakemacros.txt)
+include(../macros.cmake)
 
 generate_and_install_dbus_interface(
     kded_kdeconnect
