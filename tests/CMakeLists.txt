@@ -8,14 +8,7 @@ include_directories(
     ${QCA2_INCLUDE_DIR}
 )
 
-set(kdeconnect_tests_SRCS
-    ../daemon/networkpackage.cpp
-    networkpackagetests.cpp
-)
-
-kde4_add_unit_test(kdeconnect_tests ${kdeconnect_tests_SRCS})
-
-target_link_libraries(kdeconnect_tests
+set(kdeconnect_libraries
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${QJSON_LIBRARIES}
@@ -23,3 +16,8 @@ target_link_libraries(kdeconnect_tests
     ${QT_QTTEST_LIBRARY}
     ${QT_QTNETWORK_LIBRARY}
 )
+
+#NetworkPackage
+kde4_add_unit_test(kdeconnect_tests ../kded/networkpackage.cpp networkpackagetests.cpp)
+target_link_libraries(kdeconnect_tests ${kdeconnect_libraries})
+
