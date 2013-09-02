@@ -90,15 +90,25 @@ void NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 
 void NetworkPackage::encrypt (QCA::PublicKey& key)
 {
-    qDebug() << key.toDER() << key.canEncrypt();
-    
+
     QByteArray serialized = serialize();
-    QByteArray data = key.encrypt(serialized, QCA::EME_PKCS1v15).toByteArray();
+
+    int chunkSize = key.maximumEncryptSize(QCA::EME_PKCS1v15);
+
+    QStringList chunks;
+    while (!serialized.isEmpty()) {
+        QByteArray chunk = serialized.left(chunkSize);
+        serialized = serialized.mid(chunkSize);
+        QByteArray encryptedChunk = key.encrypt(chunk, QCA::EME_PKCS1v15).toByteArray();
+        chunks.append( encryptedChunk.toBase64() );
+    }
+
+    qDebug() << chunks.size() << "chunks";
 
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = "kdeconnect.encrypted";
     mBody = QVariantMap();
-    mBody["data"] = data.toBase64();
+    mBody["data"] = chunks;
     mVersion = CURRENT_PACKAGE_VERSION;
     mEncrypted = true;
 
@@ -106,12 +116,18 @@ void NetworkPackage::encrypt (QCA::PublicKey& key)
 
 void NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
 {
-    QByteArray encryptedJson = QByteArray::fromBase64(get<QByteArray>("data"));
+    const QStringList& chunks = mBody["data"].toStringList();
 
-    QCA::SecureArray decryptedJson;
-    key.decrypt(encryptedJson, &decryptedJson, QCA::EME_PKCS1v15);
+    QByteArray decryptedJson;
+    Q_FOREACH(const QString& chunk, chunks) {
+        QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
+        QCA::SecureArray decryptedChunk;
+        key.decrypt(encryptedChunk, &decryptedChunk, QCA::EME_PKCS1v15);
+        decryptedJson.append(decryptedChunk.toByteArray());
 
-    unserialize(decryptedJson.toByteArray(), out);
+    }
+
+    unserialize(decryptedJson, out);
 }
 
 

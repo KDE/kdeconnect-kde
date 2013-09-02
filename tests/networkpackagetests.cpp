@@ -39,6 +39,8 @@ void NetworkPackageTests::dummyTest()
     QVERIFY( date.isValid() );
     QCOMPARE( date.month(), 3 );
     QCOMPARE( QDate::longMonthName(date.month()), QString("March") );
+
+    QCOMPARE(QString("hello").toUpper(), QString("HELLO"));
 }
 
 void NetworkPackageTests::networkPackageTest()
@@ -93,8 +95,9 @@ void NetworkPackageTests::networkPackageEncryptionTest()
     NetworkPackage decrypted("");
 
     QCA::Initializer init;
-    QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(1024);
+    QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
     QCA::PublicKey publicKey = privateKey.toPublicKey();
+
 
     //Encrypt and decrypt np
     QCOMPARE( original.isEncrypted(), false );
@@ -109,6 +112,22 @@ void NetworkPackageTests::networkPackageEncryptionTest()
     QCOMPARE( decrypted.type(), copy.type() );
     QCOMPARE( decrypted.version(), copy.version() );
     QCOMPARE( decrypted.body(), copy.body() );
+
+
+
+    //Test for long package encryption that need multi-chunk encryption
+
+    QByteArray json = "{ \"body\" : { \"nowPlaying\" : \"A really long song name - A really long artist name\", \"player\" : \"A really long player name\" }, \"id\" : \"A really long package id\", \"isEncrypted\" : false, \"type\" : \"kdeconnect.a_really_long_package_type\", \"version\" : 2 }\n";
+    qDebug() << "EME_PKCS1_OAEP maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1_OAEP);
+    qDebug() << "EME_PKCS1v15 maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1v15);
+    QCOMPARE( json.size() > publicKey.maximumEncryptSize(QCA::EME_PKCS1v15), true );
+
+    NetworkPackage::unserialize(json, &original);
+    original.encrypt(publicKey);
+    original.decrypt(privateKey, &decrypted);
+    QByteArray decryptedJson = decrypted.serialize();
+
+    QCOMPARE(QString(json), QString(decryptedJson));
 
 }
 

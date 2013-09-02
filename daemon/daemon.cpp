@@ -56,7 +56,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     if (!config->group("myself").hasKey("privateKey") || !config->group("myself").hasKey("publicKey")) {
 
         //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
-        QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(1024);
+        QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
         config->group("myself").writeEntry("privateKey", privateKey.toDER().toByteArray().toBase64());
 
         QCA::PublicKey publicKey = privateKey.toPublicKey();
