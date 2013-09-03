@@ -20,6 +20,7 @@
 
 #include "mpriscontrolplugin.h"
 
+#include "mprisdbusinterface.h"
 #include "propertiesdbusinterface.h"
 
 #include <QDBusArgument>
