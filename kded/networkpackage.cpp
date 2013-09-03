@@ -32,6 +32,9 @@
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
 
+const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
+const int NetworkPackage::ProtocolVersion = 3;
+
 NetworkPackage::NetworkPackage(const QString& type)
 {
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());

@@ -44,8 +44,8 @@ class NetworkPackage : public QObject
 
 public:
 
-	const static QCA::EncryptionAlgorithm EncryptionAlgorithm = QCA::EME_PKCS1v15;
-	const static int ProtocolVersion = 3;
+    const static QCA::EncryptionAlgorithm EncryptionAlgorithm;
+    const static int ProtocolVersion;
 
     NetworkPackage(const QString& type);
 
