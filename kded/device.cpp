@@ -316,8 +316,6 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
             qDebug() << "Unpair request";
 
-            m_pairStatus = Device::NotPaired;
-
             if (m_pairStatus == PairRequested) {
                 pairingTimer.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
@@ -326,6 +324,8 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 config->group("trusted_devices").deleteGroup(id());
                 reloadPlugins();
             }
+
+            m_pairStatus = Device::NotPaired;
 
         }
 
