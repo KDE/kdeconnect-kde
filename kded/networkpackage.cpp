@@ -136,6 +136,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     QString id = config->group("myself").readEntry<QString>("id","");
     np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
+    np->mType = PACKAGE_TYPE_IDENTITY;
     np->set("deviceId", id);
     np->set("deviceName", QHostInfo::localHostName());
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
