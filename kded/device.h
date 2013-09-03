@@ -44,7 +44,8 @@ class Device
 
     enum PairStatus {
         NotPaired,
-        PairRequested,
+        Requested,
+        RequestedByPeer,
         Paired,
     };
 
@@ -66,7 +67,7 @@ public:
     void removeLink(DeviceLink*);
 
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
-    Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::PairRequested; }
+    Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
 
     Q_SCRIPTABLE QStringList availableLinks() const;
     Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.empty(); }
@@ -91,7 +92,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void privateReceivedPackage(const NetworkPackage& np);
-    void linkDestroyed(QObject* o = 0);
+    void linkDestroyed(QObject* o);
     void pairingTimeout();
 
 Q_SIGNALS:

@@ -125,11 +125,11 @@ void Device::reloadPlugins()
 
 void Device::requestPair()
 {
-    if (m_pairStatus == Paired) {
+    if (m_pairStatus == Device::Paired) {
         Q_EMIT pairingFailed(i18n("Already paired"));
         return;
     }
-    if (m_pairStatus == Device::PairRequested) {
+    if (m_pairStatus == Device::Requested) {
         Q_EMIT pairingFailed(i18n("Pairing already requested for this device"));
         return;
     }
@@ -138,21 +138,24 @@ void Device::requestPair()
         return;
     }
 
+    m_pairStatus = Device::Requested;
+
     //Send our own public key
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", true);
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     const QString& key = config->group("myself").readEntry<QString>("publicKey",QString());
     np.set("publicKey",key);
-    qDebug() << "BYTES" << QByteArray::fromBase64(key.toAscii());
     bool success = sendPackage(np);
 
     if (!success) {
+        m_pairStatus = Device::NotPaired;
         Q_EMIT pairingFailed(i18n("Error contacting device"));
         return;
     }
 
-    m_pairStatus = PairRequested;
+    if (m_pairStatus == Device::Paired) return;
+    pairingTimer.setSingleShot(true);
     pairingTimer.start(20 * 1000);
     connect(&pairingTimer, SIGNAL(timeout()),
             this, SLOT(pairingTimeout()));
@@ -163,7 +166,7 @@ void Device::unpair()
 {
     if (!isPaired()) return;
 
-    m_pairStatus = NotPaired;
+    m_pairStatus = Device::NotPaired;
 
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     config->group("trusted_devices").deleteGroup(id());
@@ -178,8 +181,11 @@ void Device::unpair()
 
 void Device::pairingTimeout()
 {
-    m_pairStatus = NotPaired;
-    Q_EMIT Q_EMIT pairingFailed("Timed out");
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", false);
+    sendPackage(np);
+    m_pairStatus = Device::NotPaired;
+    Q_EMIT pairingFailed("Timed out");
 }
 
 static bool lessThan(DeviceLink* p1, DeviceLink* p2)
@@ -259,7 +265,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
         if (wantsPair == isPaired()) {
             qDebug() << "Already" << (wantsPair? "paired":"unpaired");
-            if (m_pairStatus == Device::PairRequested) {
+            if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
                 pairingTimer.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
@@ -274,25 +280,27 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             m_publicKey = QCA::RSAPublicKey::fromPEM(key);
             if (m_publicKey.isNull()) {
                 qDebug() << "ERROR decoding key";
-                if (m_pairStatus == PairRequested) {
-                    m_pairStatus = NotPaired;
+                if (m_pairStatus == Device::Requested) {
+                    m_pairStatus = Device::NotPaired;
                     pairingTimer.stop();
                 }
                 Q_EMIT pairingFailed(i18n("Received incorrect key"));
                 return;
             }
 
-            if (m_pairStatus == Device::PairRequested)  { //We started pairing
+            if (m_pairStatus == Device::Requested)  { //We started pairing
 
                 qDebug() << "Pair answer";
 
-                m_pairStatus = Paired;
+                m_pairStatus = Device::Paired;
                 pairingTimer.stop();
 
                 //Store as trusted device
                 KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
                 config->group("trusted_devices").group(id()).writeEntry("publicKey",key);
                 config->group("trusted_devices").group(id()).writeEntry("deviceName",name());
+
+                reloadPlugins();
 
                 Q_EMIT pairingSuccesful();
 
@@ -310,16 +318,18 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 connect(notification, SIGNAL(action2Activated()), this, SLOT(rejectPairing()));
                 notification->sendEvent();
 
+                m_pairStatus = Device::RequestedByPeer;
+
             }
 
         } else {
 
             qDebug() << "Unpair request";
 
-            if (m_pairStatus == PairRequested) {
+            if (m_pairStatus == Device::Requested) {
                 pairingTimer.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
-            } else if (m_pairStatus == Paired) {
+            } else if (m_pairStatus == Device::Paired) {
                 KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
                 config->group("trusted_devices").deleteGroup(id());
                 reloadPlugins();
@@ -369,6 +379,8 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
 void Device::acceptPairing()
 {
+    if (m_pairStatus != Device::RequestedByPeer) return;
+
     qDebug() << "Accepted pairing";
 
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -388,23 +400,24 @@ void Device::acceptPairing()
     config->group("trusted_devices").group(id()).writeEntry("publicKey", m_publicKey.toPEM());
     config->group("trusted_devices").group(id()).writeEntry("deviceName", name());
 
-    m_pairStatus = Paired;
+    m_pairStatus = Device::Paired;
 
     reloadPlugins(); //This will load plugins
+
+    Q_EMIT pairingSuccesful();
 }
 
 void Device::rejectPairing()
 {
     qDebug() << "Rejected pairing";
 
+    m_pairStatus = Device::NotPaired;
+
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
     sendPackage(np);
 
-    KNotification* notification = (KNotification*)sender();
-    notification->setActions(QStringList());
-    notification->setText(i18n("Pairing rejected"));
-    notification->update();
+    Q_EMIT pairingFailed(i18n("Canceled by the user"));
 
 }
 
