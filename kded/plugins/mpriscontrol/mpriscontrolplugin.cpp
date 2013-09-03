@@ -22,6 +22,7 @@
 
 #include "propertiesdbusinterface.h"
 
+#include <QDBusArgument>
 #include <QDebug>
 #include <QDBusConnection>
 #include <QDBusInterface>

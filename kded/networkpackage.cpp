@@ -118,9 +118,9 @@ bool NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
         QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
         QCA::SecureArray decryptedChunk;
         bool success = key.decrypt(encryptedChunk, &decryptedChunk, NetworkPackage::EncryptionAlgorithm);
-		if (!success) {
-			return false;
-		}
+        if (!success) {
+            return false;
+        }
         decryptedJson.append(decryptedChunk.toByteArray());
 
     }

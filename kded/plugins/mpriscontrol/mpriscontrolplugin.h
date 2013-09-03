@@ -21,13 +21,10 @@
 #ifndef MPRISCONTROLPLUGIN_H
 #define MPRISCONTROLPLUGIN_H
 
-#include <QSet>
 #include <QString>
 #include <QHash>
-#include <QDBusArgument>
 
 #include "../kdeconnectplugin.h"
-#include "mprisdbusinterface.h"
 
 class MprisControlPlugin
     : public KdeConnectPlugin

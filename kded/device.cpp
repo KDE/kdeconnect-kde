@@ -44,15 +44,15 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
     m_deviceId = identityPackage.get<QString>("deviceId");
     m_deviceName = identityPackage.get<QString>("deviceName");
 
-	int protocolVersion = identityPackage.get<int>("protocolVersion");
-	if (protocolVersion != NetworkPackage::ProtocolVersion) {
-		qDebug() << "WARNING: Device uses a different protocol version" << protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
-		//TODO: Do something
-	}
+    int protocolVersion = identityPackage.get<int>("protocolVersion");
+    if (protocolVersion != NetworkPackage::ProtocolVersion) {
+        qDebug() << "WARNING: Device uses a different protocol version" << protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+        //TODO: Do something
+    }
 
     addLink(dl);
 
-    m_pairStatus = Device::Device::NotPaired;
+    m_pairStatus = Device::NotPaired;
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
