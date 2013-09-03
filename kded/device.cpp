@@ -164,16 +164,13 @@ void Device::unpair()
     if (!isPaired()) return;
 
     m_pairStatus = NotPaired;
-    pairingTimer.stop();
 
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     config->group("trusted_devices").deleteGroup(id());
 
-    if (isReachable()) {
-        NetworkPackage np(PACKAGE_TYPE_PAIR);
-        np.set("pair", false);
-        sendPackage(np);
-    }
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", false);
+    sendPackage(np);
 
     reloadPlugins(); //Will unload the plugins
 
