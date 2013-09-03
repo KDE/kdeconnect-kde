@@ -73,9 +73,10 @@ void MprisControlPlugin::serviceOwnerChanged(const QString &name,
 void MprisControlPlugin::addPlayer(const QString& service)
 {
     QDBusInterface mprisInterface(service, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2");
+    //FIXME: This call hangs and returns an empty string if KDED is still starting!
     const QString& identity = mprisInterface.property("Identity").toString();
     playerList[identity] = service;
-    qDebug() << "addPlayer" << service << identity;
+    qDebug() << "Mpris addPlayer" << service << "->" << identity;
     sendPlayerList();
 
     OrgFreedesktopDBusPropertiesInterface* freedesktopInterface = new OrgFreedesktopDBusPropertiesInterface(service, "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus(), this);
@@ -128,7 +129,9 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
 
 void MprisControlPlugin::removePlayer(const QString& ifaceName)
 {
-    playerList.remove(playerList.key(ifaceName));
+    QString identity = playerList.key(ifaceName);
+    qDebug() << "Mpris removePlayer" << ifaceName << "->" << identity;
+    playerList.remove(identity);
     sendPlayerList();
 }
 
