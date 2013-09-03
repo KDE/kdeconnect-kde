@@ -57,11 +57,11 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
         //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
         QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
-        config->group("myself").writeEntry("privateKey", privateKey.toDER().toByteArray().toBase64());
+        config->group("myself").writeEntry("privateKey", privateKey.toPEM());
 
         QCA::PublicKey publicKey = privateKey.toPublicKey();
-        config->group("myself").writeEntry("publicKey", publicKey.toDER().toBase64());
-        //TODO: Store key in a PEM file instead (KStandardDirs::locate("appdata", "private.pem"))
+        config->group("myself").writeEntry("publicKey", publicKey.toPEM());
+        //TODO: Store key in a PEM file instead (use something like KStandardDirs::locate("appdata", "private.pem"))
         
     }
 
@@ -73,7 +73,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
-    const KConfigGroup& known = config->group("devices");
+    const KConfigGroup& known = config->group("trusted_devices");
     const QStringList& list = known.groupList();
     Q_FOREACH(const QString& id, list) {
         Device* device = new Device(id);

@@ -75,13 +75,13 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QVariantMap variant = parser.parse(a, &ok).toMap();
     if (!ok) {
         qDebug() << "Unserialization error:" << parser.errorLine() << parser.errorString();
-		return false;
+        return false;
     }
 
     //QVariant -> Object
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 
-	return true;
+    return true;
 
 }
 
