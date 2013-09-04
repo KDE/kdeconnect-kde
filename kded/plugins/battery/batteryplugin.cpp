@@ -69,7 +69,7 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
         batteryDbusInterface->updateValues(isCharging, currentCharge);
 
         if (currentCharge == 14 && !isCharging) {
-            KNotification* notification = new KNotification("battery100");
+            KNotification* notification = new KNotification("batteryLow");
             notification->setPixmap(KIcon("battery-040").pixmap(48, 48));
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
             notification->setTitle(device()->name() + ": low battery");
