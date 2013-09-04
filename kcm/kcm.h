@@ -27,7 +27,6 @@
 #include <kcmodule.h>
 #include <ksharedconfig.h>
 
-#include "wizard.h"
 #include "libkdeconnect/devicesmodel.h"
 
 class QModelIndex;
@@ -67,11 +66,10 @@ private:
     Ui::KdeConnectKcmUi* kcmUi;
     DevicesModel* devicesModel;
     DevicesSortProxyModel* sortProxyModel;
-    AddDeviceWizard* addDeviceWizard;
     DeviceDbusInterface* currentDevice;
     QModelIndex currentIndex;
-    //KSharedConfigPtr config;
-public slots:
+
+public Q_SLOTS:
     void unpair();
 };
 

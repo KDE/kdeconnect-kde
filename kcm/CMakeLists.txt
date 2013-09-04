@@ -6,10 +6,9 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
 
 set(kcm_SRCS devicessortproxymodel.cpp
     kcm.cpp
-    #wizard.cpp
 )
 
-kde4_add_ui_files(kcm_SRCS kcm.ui wizard.ui)
+kde4_add_ui_files(kcm_SRCS kcm.ui)
 
 kde4_add_plugin(kcm_kdeconnect ${kcm_SRCS})
 
