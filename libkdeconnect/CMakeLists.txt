@@ -16,18 +16,18 @@ set(libkdeconnect_SRC
 )
 
 set_source_files_properties(
-    ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.daemon.xml
-    ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.device.xml
-    ${CMAKE_BINARY_DIR}/daemon/plugins/battery/org.kde.kdeconnect.device.battery.xml
-    ${CMAKE_BINARY_DIR}/daemon/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
-    ${CMAKE_BINARY_DIR}/daemon/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
+    ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.daemon.xml
+    ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.device.xml
+    ${CMAKE_BINARY_DIR}/kded/plugins/battery/org.kde.kdeconnect.device.battery.xml
+    ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
+    ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
     PROPERTIES NO_NAMESPACE true
 )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.daemon.xml daemoninterface)
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/daemon/org.kde.kdeconnect.device.xml deviceinterface)
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/daemon/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/daemon/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/daemon/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.daemon.xml daemoninterface)
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.device.xml deviceinterface)
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
 
 kde4_add_library(kdeconnect SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnect PROPERTIES
