@@ -185,7 +185,7 @@ void Device::pairingTimeout()
     np.set("pair", false);
     sendPackage(np);
     m_pairStatus = Device::NotPaired;
-    Q_EMIT pairingFailed("Timed out");
+    Q_EMIT pairingFailed(i18n("Timed out"));
 }
 
 static bool lessThan(DeviceLink* p1, DeviceLink* p2)

@@ -21,7 +21,9 @@
 #include "telephonyplugin.h"
 
 #include <QDebug>
-#include <kicon.h>
+
+#include <KLocalizedString>
+#include <KIcon>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< TelephonyPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_telephony", "kdeconnect_telephony") )
@@ -36,6 +38,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 {
 
     QString event = np.get<QString>("event");
+    QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
 
     QString title, content, type, icon;
 
@@ -44,25 +47,23 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     if (event == "ringing") {
         type = "callReceived";
         icon = "call-start";
-        content = "Incoming call from " + np.get<QString>("phoneNumber","unknown number");
+        content = i18n("Incoming call from %1", phoneNumber);
     } else if (event == "missedCall") {
         type = "missedCall";
         icon = "call-start";
-        content = "Missed call from " + np.get<QString>("phoneNumber","unknown number");
+        content = i18n("Missed call from %1", phoneNumber);
     } else if (event == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
-        content = "SMS from "
-            + np.get<QString>("phoneNumber","unknown number")
-            + ":\n"
-            + np.get<QString>("messageBody","");
+        QString content = np.get<QString>("messageBody","");
+        content = i18n("SMS from %1: %2", phoneNumber, content);
     } else if (event == "talking") {
         return NULL;
     } else {
         //TODO: return NULL if !debug
         type = "unknownEvent";
         icon = "pda";
-        content = "Unknown telephony event: " + event;
+        content = i18n("Unknown telephony event: %2", event);
     }
 
     qDebug() << "Creating notification with type:" << type;

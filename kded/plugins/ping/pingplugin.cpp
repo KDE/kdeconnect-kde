@@ -20,9 +20,11 @@
 
 #include "pingplugin.h"
 
+#include <QDebug>
+
 #include <KNotification>
 #include <KIcon>
-#include <QDebug>
+#include <KLocalizedString>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect_ping") )
@@ -47,7 +49,7 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
     notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(device()->name());
-    notification->setText(np.get<QString>("message","Ping!"));
+    notification->setText(np.get<QString>("message",i18n("Ping!")));
     notification->sendEvent();
 
     return true;

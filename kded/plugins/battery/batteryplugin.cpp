@@ -23,6 +23,7 @@
 #include <QDebug>
 #include <KNotification>
 #include <KIcon>
+#include <KLocalizedString>
 
 #include "batterydbusinterface.h"
 
@@ -72,8 +73,8 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
             KNotification* notification = new KNotification("batteryLow");
             notification->setPixmap(KIcon("battery-040").pixmap(48, 48));
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-            notification->setTitle(device()->name() + ": low battery");
-            notification->setText("Battery at 14%");
+            notification->setTitle(i18nc("device name: low battery", "%1: low battery",device()->name()));
+            notification->setText(i18n("Battery at 14%"));
             notification->sendEvent();
         }
 
