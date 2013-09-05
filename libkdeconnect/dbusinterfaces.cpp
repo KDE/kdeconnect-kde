@@ -32,13 +32,13 @@ DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
 {
 
 }
-
+/*
 DeviceBatteryDbusInterface::DeviceBatteryDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceBatteryInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {
 
 }
-
+*/
 DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceNotificationsInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {

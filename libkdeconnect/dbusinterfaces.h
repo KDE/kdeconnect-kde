@@ -25,7 +25,7 @@
 
 #include "libkdeconnect/daemoninterface.h"
 #include "libkdeconnect/deviceinterface.h"
-#include "libkdeconnect/devicebatteryinterface.h"
+//#include "libkdeconnect/devicebatteryinterface.h"
 #include "libkdeconnect/devicenotificationsinterface.h"
 #include "libkdeconnect/notificationinterface.h"
 
@@ -50,7 +50,7 @@ public:
     DeviceDbusInterface(const QString& id, QObject* parent);
 
 };
-
+/*
 class KDECONNECT_EXPORT DeviceBatteryDbusInterface
     : public OrgKdeKdeconnectDeviceBatteryInterface
 {
@@ -59,7 +59,7 @@ public:
     DeviceBatteryDbusInterface(const QString& id, QObject* parent);
 
 };
-
+*/
 class KDECONNECT_EXPORT DeviceNotificationsDbusInterface
     : public OrgKdeKdeconnectDeviceNotificationsInterface
 {
