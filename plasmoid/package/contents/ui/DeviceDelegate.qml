@@ -60,8 +60,14 @@ PlasmaComponents.ListItem
             delegate: PlasmaComponents.ListItem {
                 PlasmaComponents.Label {
                     text: appName + ": " + display
+                    anchors.right: dismissButton.left
+                    anchors.left: parent.left
+                    elide: Text.ElideRight
+                    maximumLineCount: 2
+                    wrapMode: Text.WordWrap
                 }
                 PlasmaComponents.ToolButton {
+                    id: dismissButton
                     visible: notificationsModel.isAnyDimissable;
                     enabled: dismissable
                     anchors.right: parent.right
