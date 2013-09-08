@@ -82,9 +82,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         Q_EMIT deviceAdded(id);
     }
     
+    //Listen to connectivity changes
     QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
-
-    //Listen to incomming connections
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
         connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
                 a, SLOT(onNetworkChange(QNetworkSession::State)));
