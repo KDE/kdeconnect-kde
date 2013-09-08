@@ -33,8 +33,6 @@
 
 #include "default_args.h"
 
-class EncryptedNetworkPackage;
-
 class NetworkPackage : public QObject
 {
     Q_OBJECT
