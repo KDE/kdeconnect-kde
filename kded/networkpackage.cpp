@@ -27,7 +27,7 @@
 #include <QHostInfo>
 #include <QSslKey>
 #include <QDateTime>
-#include <QtCrypto/QtCrypto>
+#include <QtCrypto>
 
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
@@ -100,7 +100,7 @@ void NetworkPackage::encrypt (QCA::PublicKey& key)
         chunks.append( encryptedChunk.toBase64() );
     }
 
-    qDebug() << chunks.size() << "chunks";
+    //qDebug() << chunks.size() << "chunks";
 
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = PACKAGE_TYPE_ENCRYPTED;
