@@ -69,12 +69,13 @@ public:
     bool has(const QString& key) const { return mBody.contains(key); }
 
     QIODevice* payload() const { return mPayload; }
-    void setPayload(QIODevice* device) { mPayload = device;}
+    void setPayload(QIODevice* device) { mPayload = device; }
     bool hasPayload() const { return (mPayload != 0); }
 
     //To be called by a particular DeviceLink
     QVariantMap payloadTransferInfo() const { return mPayloadTransferInfo; }
     void setPayloadTransferInfo(const QVariantMap& map) { mPayloadTransferInfo = map; }
+    bool hasPayloadTransferInfo() const { return !mPayloadTransferInfo.isEmpty(); }
 
 private:
 
