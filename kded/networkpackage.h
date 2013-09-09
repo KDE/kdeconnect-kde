@@ -24,9 +24,11 @@
 #include "networkpackagetypes.h"
 
 #include <QObject>
+#include <QDebug>
 #include <QString>
 #include <QVariant>
 #include <QStringList>
+#include <QIODevice>
 #include <QtCrypto>
 
 #include <qjson/parser.h>
@@ -66,7 +68,16 @@ public:
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
     bool has(const QString& key) const { return mBody.contains(key); }
 
+    QIODevice* payload() const { return mPayload; }
+    void setPayload(QIODevice* device) { mPayload = device;}
+    bool hasPayload() const { return (mPayload != 0); }
+
+    //To be called by a particular DeviceLink
+    QVariantMap payloadTransferInfo() const { return mPayloadTransferInfo; }
+    void setPayloadTransferInfo(const QVariantMap& map) { mPayloadTransferInfo = map; }
+
 private:
+
     void setId(const QString& id) { mId = id; }
     void setType(const QString& t) { mType = t; }
     void setBody(const QVariantMap& b) { mBody = b; }
@@ -75,9 +86,9 @@ private:
     QString mType;
     QVariantMap mBody;
 
-};
+    QIODevice* mPayload;
+    QVariantMap mPayloadTransferInfo;
 
-//Set specialization need this awesome-to-the-max syntax:
-//template<> inline void NetworkPackage::set<QStringList>(const QString& key, const QStringList& value) { mBody[key] = QVariant(value); }
+};
 
 #endif // NETWORKPACKAGE_H

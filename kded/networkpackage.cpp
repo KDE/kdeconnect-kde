@@ -22,6 +22,7 @@
 
 #include <KSharedConfig>
 #include <KConfigGroup>
+
 #include <QByteArray>
 #include <QDataStream>
 #include <QHostInfo>
@@ -33,13 +34,29 @@
 #include <qjson/qobjecthelper.h>
 
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
-const int NetworkPackage::ProtocolVersion = 3;
+const int NetworkPackage::ProtocolVersion = 4;
 
 NetworkPackage::NetworkPackage(const QString& type)
 {
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = type;
     mBody = QVariantMap();
+    mPayload = 0;
+}
+
+
+void NetworkPackage::createIdentityPackage(NetworkPackage* np)
+{
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    QString id = config->group("myself").readEntry<QString>("id","");
+    np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
+    np->mType = PACKAGE_TYPE_IDENTITY;
+    np->mPayload = 0;
+    np->set("deviceId", id);
+    np->set("deviceName", QHostInfo::localHostName());
+    np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
+
+    //qDebug() << "createIdentityPackage" << np->serialize();
 }
 
 QByteArray NetworkPackage::serialize() const
@@ -50,6 +67,10 @@ QByteArray NetworkPackage::serialize() const
     //variant["type"] = mType;
     //variant["body"] = mBody;
     QVariantMap variant = QJson::QObjectHelper::qobject2qvariant(this);
+
+    if (hasPayload()) {
+        variant["payloadTransferInfo"] = mPayloadTransferInfo;
+    }
 
     //QVariant -> json
     bool ok;
@@ -80,6 +101,10 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 
     //QVariant -> Object
     QJson::QObjectHelper::qvariant2qobject(variant,np);
+
+    if (variant.contains("payloadTransferInfo")) {
+        np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap();
+    }
 
     return true;
 
@@ -128,20 +153,4 @@ bool NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
     return unserialize(decryptedJson, out);
 
 }
-
-
-
-void NetworkPackage::createIdentityPackage(NetworkPackage* np)
-{
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    QString id = config->group("myself").readEntry<QString>("id","");
-    np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
-    np->mType = PACKAGE_TYPE_IDENTITY;
-    np->set("deviceId", id);
-    np->set("deviceName", QHostInfo::localHostName());
-    np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
-
-    //qDebug() << "createIdentityPackage" << np->serialize();
-}
-
 
