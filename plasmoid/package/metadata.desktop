@@ -10,6 +10,7 @@ X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/kdeconnect.qml
 X-Plasma-DefaultSize=290,340
 X-Plasma-NotificationArea=true
+X-Plasma-ConfigPlugins=kcm_kdeconnect
 
 X-KDE-PluginInfo-Author=Albert Vaca Cintora
 X-KDE-PluginInfo-Email=albertvaka@gmail.com
