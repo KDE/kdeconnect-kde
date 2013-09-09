@@ -58,7 +58,7 @@ QByteArray NetworkPackage::serialize() const
     if (!ok) {
         qDebug() << "Serialization error:" << serializer.errorMessage();
     } else {
-        qDebug() << "Serialized package:" << json;
+        //qDebug() << "Serialized package:" << json;
         json.append('\n');
     }
 
@@ -67,7 +67,7 @@ QByteArray NetworkPackage::serialize() const
 
 bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 {
-    qDebug() << "Unserialize: " << a;
+    //qDebug() << "Unserialize: " << a;
 
     //Json -> QVariant
     QJson::Parser parser;
