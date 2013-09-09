@@ -195,7 +195,7 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 
 void Device::addLink(DeviceLink* link)
 {
-    qDebug() << "Adding link to" << id() << "via" << link->provider();
+    //qDebug() << "Adding link to" << id() << "via" << link->provider();
 
     connect(link, SIGNAL(destroyed(QObject*)),
             this, SLOT(linkDestroyed(QObject*)));
@@ -230,7 +230,7 @@ void Device::removeLink(DeviceLink* link)
 {
     m_deviceLinks.removeOne(link);
 
-    qDebug() << "RemoveLink" << m_deviceLinks.size() << "links remaining";
+    //qDebug() << "RemoveLink" << m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.empty()) {
         reloadPlugins();
@@ -259,7 +259,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 {
     if (np.type() == PACKAGE_TYPE_PAIR) {
 
-        qDebug() << "Pair package";
+        //qDebug() << "Pair package";
 
         bool wantsPair = np.get<bool>("pair");
 

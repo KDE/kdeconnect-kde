@@ -134,14 +134,14 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 {
     const QString& id = identityPackage.get<QString>("deviceId");
 
-    qDebug() << "Device discovered" << id << "via" << dl->provider()->name();
+    //qDebug() << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (mDevices.contains(id)) {
-        qDebug() << "It is a known device";
+        //qDebug() << "It is a known device";
         Device* device = mDevices[id];
         device->addLink(dl);
     } else {
-        qDebug() << "It is a new device";
+        //qDebug() << "It is a new device";
 
         Device* device = new Device(identityPackage, dl);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
@@ -162,10 +162,12 @@ void Daemon::onDeviceReachableStatusChanged()
 
     Q_EMIT deviceVisibilityChanged(id, device->isReachable());
 
+    qDebug() << "Device" << device->name() << "reachable status changed:" << device->isReachable();
+
     if (!device->isReachable()) {
 
         if (!device->isPaired()) {
-            qDebug() << "Destroying device";
+            qDebug() << "Destroying device" << device->name();
             Q_EMIT deviceRemoved(id);
             mDevices.remove(id);
             device->deleteLater();
