@@ -19,8 +19,6 @@
  */
 
 #include "kcm.h"
-#include "ui_kcm.h"
-#include "libkdeconnect/dbusinterfaces.h"
 
 #include <QtGui/QLabel>
 #include <QtGui/QMenu>
@@ -30,14 +28,16 @@
 #include <QtGui/QListView>
 #include <QDBusConnection>
 #include <QDBusInterface>
-
-#include "devicessortproxymodel.h"
+#include <QDebug>
 
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
-#include <KDebug>
-#include <kpluginfactory.h>
-#include <kstandarddirs.h>
+#include <KPluginFactory>
+#include <KStandardDirs>
+
+#include "ui_kcm.h"
+#include "libkdeconnect/dbusinterfaces.h"
+#include "devicessortproxymodel.h"
 
 K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
