@@ -30,12 +30,11 @@ LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProv
 
 bool LoopbackDeviceLink::sendPackage(const NetworkPackage& input)
 {
-    qDebug() << "loopbacksendpackage";
     NetworkPackage output("");
     NetworkPackage::unserialize(input.serialize(), &output);
 
+    //LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
-        //Loopback does not need payloadTransferInfo
         QIODevice* device = input.payload();
         device->open(QIODevice::ReadOnly);
         output.setPayload(device);

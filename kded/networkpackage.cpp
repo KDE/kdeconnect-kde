@@ -44,7 +44,6 @@ NetworkPackage::NetworkPackage(const QString& type)
     mPayload = 0;
 }
 
-
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -69,6 +68,7 @@ QByteArray NetworkPackage::serialize() const
     QVariantMap variant = QJson::QObjectHelper::qobject2qvariant(this);
 
     if (hasPayload()) {
+        //qDebug() << "Serializing payloadTransferInfo";
         variant["payloadTransferInfo"] = mPayloadTransferInfo;
     }
 
@@ -103,6 +103,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 
     if (variant.contains("payloadTransferInfo")) {
+        //qDebug() << "Unserializing payloadTransferInfo";
         np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap();
     }
 
@@ -110,9 +111,10 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 
 }
 
-void NetworkPackage::encrypt (QCA::PublicKey& key)
+void NetworkPackage::encrypt(QCA::PublicKey& key)
 {
 
+    //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
     QByteArray serialized = serialize();
 
     int chunkSize = key.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm);
@@ -134,8 +136,9 @@ void NetworkPackage::encrypt (QCA::PublicKey& key)
 
 }
 
-bool NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
+bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 {
+
     const QStringList& chunks = mBody["data"].toStringList();
 
     QByteArray decryptedJson;
@@ -147,7 +150,11 @@ bool NetworkPackage::decrypt (QCA::PrivateKey& key, NetworkPackage* out) const
             return false;
         }
         decryptedJson.append(decryptedChunk.toByteArray());
+    }
 
+    //TODO: Implement payload encryption somehow (create an intermediate iodevice to decrypt the payload here?)
+    if (hasPayload()) {
+        out->setPayload(mPayload);
     }
 
     return unserialize(decryptedJson, out);
