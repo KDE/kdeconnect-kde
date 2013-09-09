@@ -18,22 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "loopbackdevicelink.h"
+#include "devicelink.h"
+#include "linkprovider.h"
 
-#include "linkproviders/loopbacklinkprovider.h"
-
-LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
-    : DeviceLink(deviceId, provider)
+DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
+    : QObject(parent)
+    , mDeviceId(deviceId)
+    , mLinkProvider(parent)
 {
-
+    //gcc complains if we don't add something to compile on a class with virtual functions
 }
 
-bool LoopbackDeviceLink::sendPackage(const NetworkPackage& toSend)
-{
-    NetworkPackage toReceive("");
-    NetworkPackage::unserialize(toSend.serialize(), &toReceive);
-
-    Q_EMIT receivedPackage(toReceive);
-
-    return true;
-}

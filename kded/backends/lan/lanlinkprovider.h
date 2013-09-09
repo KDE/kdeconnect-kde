@@ -18,34 +18,55 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#ifndef LANLINKPROVIDER_H
+#define LANLINKPROVIDER_H
 
 #include <QObject>
-#include <QString>
-#include <qthread.h>
+#include <QTcpServer>
+#include <QUdpSocket>
 
-#include "devicelink.h"
-#include <QTcpSocket>
+#include "../linkprovider.h"
+#include "netaddress.h"
 
-class AvahiTcpLinkProvider;
-
-class LanDeviceLink
-    : public DeviceLink
+class LanLinkProvider
+    : public LinkProvider
 {
     Q_OBJECT
 
 public:
-    LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
+    LanLinkProvider();
+    ~LanLinkProvider();
 
-    bool sendPackage(const NetworkPackage& np);
+    QString name() { return "LanLinkProvider"; }
+    int priority() { return PRIORITY_HIGH + 10; }
+
+public Q_SLOTS:
+    virtual void onNetworkChange(QNetworkSession::State state);
+    virtual void onStart();
+    virtual void onStop();
+    void connected();
+    void connectError();
 
 private Q_SLOTS:
+    void newUdpConnection();
+    void newConnection();
     void dataReceived();
+    void deviceLinkDestroyed(QObject*);
 
 private:
-    QTcpSocket* mSocket;
+    QTcpServer* mTcpServer;
+    QUdpSocket* mUdpServer;
+    const static quint16 port = 1714;
+    quint16 tcpPort;
+
+    QMap<QString, DeviceLink*> links;
+
+    struct PendingConnect {
+        NetworkPackage* np;
+        QHostAddress sender;
+    };
+    QMap<QTcpSocket*, PendingConnect> receivedIdentityPackages;
 
 };
 
-#endif // UDPDEVICELINK_H
+#endif

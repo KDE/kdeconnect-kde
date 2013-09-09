@@ -31,8 +31,8 @@
 
 #include "device.h"
 #include "networkpackage.h"
-#include "devicelinks/devicelink.h"
-#include "linkproviders/linkprovider.h"
+#include "backends/devicelink.h"
+#include "backends/linkprovider.h"
 
 class Daemon
     : public KDEDModule

@@ -18,13 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "devicelink.h"
-#include "linkproviders/linkprovider.h"
+#ifndef LANDEVICELINK_H
+#define LANDEVICELINK_H
 
-DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
-    : QObject(parent)
-    , mDeviceId(deviceId)
-    , mLinkProvider(parent)
+#include <QObject>
+#include <QString>
+#include <QTcpSocket>
+
+#include "../devicelink.h"
+
+class AvahiTcpLinkProvider;
+
+class LanDeviceLink
+    : public DeviceLink
 {
-    //gcc complains if we don't add something to compile on a class with virtual functions
-}
+    Q_OBJECT
+
+public:
+    LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
+
+    bool sendPackage(const NetworkPackage& np);
+
+private Q_SLOTS:
+    void dataReceived();
+
+private:
+    QTcpSocket* mSocket;
+
+};
+
+#endif // UDPDEVICELINK_H

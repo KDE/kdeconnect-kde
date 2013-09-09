@@ -14,8 +14,8 @@
 
 #include "plugins/kdeconnectplugin.h"
 #include "plugins/pluginloader.h"
-#include "devicelinks/devicelink.h"
-#include "linkproviders/linkprovider.h"
+#include "backends/devicelink.h"
+#include "backends/linkprovider.h"
 #include "networkpackage.h"
 
 Device::Device(const QString& id)

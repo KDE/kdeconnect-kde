@@ -4,19 +4,19 @@ find_package (QJSON REQUIRED)
 find_package (QCA2 REQUIRED)
 
 include_directories(
+    ${KDE4_KIO_LIBS}
     ${QJSON_INCLUDE_DIR}
     ${QCA2_INCLUDE_DIR}
 )
 
+add_subdirectory(backends/lan)
+add_subdirectory(backends/loopback)
+
 set(kded_kdeconnect_SRCS
+    ${kded_kdeconnect_SRCS}
 
-    linkproviders/linkprovider.cpp
-    linkproviders/loopbacklinkprovider.cpp
-    linkproviders/lanlinkprovider.cpp
-
-    devicelinks/devicelink.cpp
-    devicelinks/loopbackdevicelink.cpp
-    devicelinks/landevicelink.cpp
+    backends/linkprovider.cpp
+    backends/devicelink.cpp
 
     plugins/kdeconnectplugin.cpp
     plugins/pluginloader.cpp
@@ -31,6 +31,7 @@ kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
 target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KIO_LIBS}
     ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
     ${QCA2_LIBRARIES}

@@ -22,8 +22,8 @@
 
 #include "networkpackage.h"
 
-#include "linkproviders/lanlinkprovider.h"
-#include "linkproviders/loopbacklinkprovider.h"
+#include "backends/lan/lanlinkprovider.h"
+#include "backends/loopback/loopbacklinkprovider.h"
 
 #include <QUuid>
 #include <QDBusConnection>
@@ -62,7 +62,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         QCA::PublicKey publicKey = privateKey.toPublicKey();
         config->group("myself").writeEntry("publicKey", publicKey.toPEM());
         //TODO: Store key in a PEM file instead (use something like KStandardDirs::locate("appdata", "private.pem"))
-        
+
     }
 
     //Debugging

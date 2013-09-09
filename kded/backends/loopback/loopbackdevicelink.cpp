@@ -18,36 +18,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEVICELINK_H
-#define DEVICELINK_H
+#include "loopbackdevicelink.h"
 
-#include <QObject>
+#include "loopbacklinkprovider.h"
 
-
-class NetworkPackage;
-class Device;
-class LinkProvider;
-
-class DeviceLink
-    : public QObject
+LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
+    : DeviceLink(deviceId, provider)
 {
-    Q_OBJECT
 
-public:
-    DeviceLink(const QString& deviceId, LinkProvider* parent);
+}
 
-    const QString& deviceId() { return mDeviceId; }
-    LinkProvider* provider() { return mLinkProvider; }
-    
-    virtual bool sendPackage(const NetworkPackage& np) = 0;
+bool LoopbackDeviceLink::sendPackage(const NetworkPackage& input)
+{
+    qDebug() << "loopbacksendpackage";
+    NetworkPackage output("");
+    NetworkPackage::unserialize(input.serialize(), &output);
 
-Q_SIGNALS:
-    void receivedPackage(const NetworkPackage& np);
+    if (input.hasPayload()) {
+        //Loopback does not need payloadTransferInfo
+        QIODevice* device = input.payload();
+        device->open(QIODevice::ReadOnly);
+        output.setPayload(device);
+    }
 
-private:
-    QString mDeviceId;
-    LinkProvider* mLinkProvider;
-    
-};
+    Q_EMIT receivedPackage(output);
 
-#endif // DEVICELINK_H
+    return true;
+}

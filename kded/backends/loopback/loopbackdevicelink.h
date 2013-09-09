@@ -18,32 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LOOPBACKLINKPROVIDER_H
-#define LOOPBACKLINKPROVIDER_H
+#ifndef LOOPBACKDEVICELINK_H
+#define LOOPBACKDEVICELINK_H
 
-#include "linkprovider.h"
-#include "networkpackage.h"
-#include "devicelinks/loopbackdevicelink.h"
+#include "../devicelink.h"
 
-class LoopbackLinkProvider
-    : public LinkProvider
+class LoopbackLinkProvider;
+
+class LoopbackDeviceLink
+    : public DeviceLink
 {
     Q_OBJECT
 public:
-    LoopbackLinkProvider();
-    ~LoopbackLinkProvider();
+    LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
-    QString name() { return "LoopbackLinkProvider"; }
-    int priority() { return PRIORITY_LOW; }
+    bool sendPackage(const NetworkPackage& np);
 
-    virtual void onStart();
-    virtual void onStop();
-    virtual void onNetworkChange(QNetworkSession::State state);
-
-private:
-    LoopbackDeviceLink* loopbackDeviceLink;
-    NetworkPackage identityPackage;
-    
 };
 
 #endif

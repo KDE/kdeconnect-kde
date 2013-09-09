@@ -24,8 +24,7 @@
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 
-#include "linkproviders/linkprovider.h"
-#include "networkpackage.h"
+#include "../linkprovider.h"
 
 LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
@@ -59,7 +58,7 @@ bool LanDeviceLink::sendPackage(const NetworkPackage& np)
 
 void LanDeviceLink::dataReceived()
 {
-    qDebug() << "LanDeviceLink dataReceived";
+    //qDebug() << "LanDeviceLink dataReceived";
 
     QByteArray data = mSocket->readAll();
     QList<QByteArray> packages = data.split('\n');
