@@ -50,9 +50,9 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         removeNotification(np.get<QString>("id"));
     } else {
         Notification* noti = new Notification(np, this);
-        addNotification(noti);
 
-        if (!np.get<bool>("requestAnswer", false)) { //Do not show notifications for answers to a initial request
+        //Do not show updates to existent notification nor answers to a initialization request
+        if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
             KNotification* notification = new KNotification("notification");
             notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
@@ -61,7 +61,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             notification->sendEvent();
         }
 
-
+        addNotification(noti);
     }
 }
 
