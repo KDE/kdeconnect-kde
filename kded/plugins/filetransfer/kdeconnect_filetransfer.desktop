@@ -11,5 +11,5 @@ X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=folder-downloads
-Name=(Stub) File transfer
+Name=File transfer
 Comment=Send and receive files from dolphin

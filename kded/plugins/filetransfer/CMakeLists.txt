@@ -4,6 +4,7 @@ find_package(QCA2 REQUIRED)
 
 include_directories(
     ${QJSON_INCLUDE_DIR}
+    ${KIO_INCLUDE_DIR}
     ${QCA2_INCLUDE_DIR}
 )
 
@@ -12,6 +13,8 @@ include_directories(${KDE4_INCLUDES})
 
 set(kdeconnect_filetransfer_SRCS
     filetransferplugin.cpp
+    filetransferjob.cpp
+    autoclosingqfile.cpp
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
     ../../networkpackage.cpp
@@ -23,6 +26,7 @@ kde4_add_plugin(kdeconnect_filetransfer ${kdeconnect_filetransfer_SRCS})
 target_link_libraries(kdeconnect_filetransfer
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KIO_LIBS}
     ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
     ${QCA2_LIBRARIES}

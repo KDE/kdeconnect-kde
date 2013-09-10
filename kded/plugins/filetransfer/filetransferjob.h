@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,28 +18,38 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "loopbackdevicelink.h"
+#ifndef FILETRANSFERJOB_H
+#define FILETRANSFERJOB_H
 
-#include "loopbacklinkprovider.h"
+#include <QIODevice>
+#include <QTemporaryFile>
 
-LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
-    : DeviceLink(deviceId, provider)
+#include <KJob>
+#include <KUrl>
+#include <KIO/FileJob>
+#include <KIO/Job>
+#include <KSharedPtr>
+
+class FileTransferJob : public KJob
 {
+    Q_OBJECT
 
-}
+public:
+    FileTransferJob(QIODevice* origin, const KUrl& destination);
+    virtual void start();
+    KUrl destination() { return mDestination; }
 
-bool LoopbackDeviceLink::sendPackage(const NetworkPackage& input)
-{
-    NetworkPackage output(QString::null);
-    NetworkPackage::unserialize(input.serialize(), &output);
+public Q_SLOTS:
+    void readyRead();
+    void moveResult(KJob*);
+    void open(KIO::Job*);
+    void sourceFinished();
 
-    //LoopbackDeviceLink does not need deviceTransferInfo
-    if (input.hasPayload()) {
-        QIODevice* device = input.payload();
-        output.setPayload(device);
-    }
+private:
+    KIO::FileJob* mTempDestination;
+    KUrl mDestination;
+    QIODevice* mOrigin;
 
-    Q_EMIT receivedPackage(output);
+};
 
-    return true;
-}
+#endif // FILETRANSFERJOB_H

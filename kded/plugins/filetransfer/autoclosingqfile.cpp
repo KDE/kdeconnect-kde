@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,28 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "loopbackdevicelink.h"
+#include "autoclosingqfile.h"
 
-#include "loopbacklinkprovider.h"
-
-LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
-    : DeviceLink(deviceId, provider)
+AutoClosingQFile::AutoClosingQFile(const QString& name)
+    : QFile(name)
 {
 
-}
-
-bool LoopbackDeviceLink::sendPackage(const NetworkPackage& input)
-{
-    NetworkPackage output(QString::null);
-    NetworkPackage::unserialize(input.serialize(), &output);
-
-    //LoopbackDeviceLink does not need deviceTransferInfo
-    if (input.hasPayload()) {
-        QIODevice* device = input.payload();
-        output.setPayload(device);
-    }
-
-    Q_EMIT receivedPackage(output);
-
-    return true;
 }

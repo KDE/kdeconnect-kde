@@ -21,7 +21,8 @@
 #ifndef FILETRANFERPLUGIN_H
 #define FILETRANFERPLUGIN_H
 
-#include <knotification.h>
+#include <KNotification>
+#include <KIO/Job>
 
 #include "../kdeconnectplugin.h"
 
@@ -36,6 +37,10 @@ public:
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
     virtual void connected() { }
+    void finished(KJob*);
+
+private:
+    QString mDestinationDir;
 
 };
 
