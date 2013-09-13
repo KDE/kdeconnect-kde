@@ -202,6 +202,12 @@ void Device::addLink(DeviceLink* link)
 
     m_deviceLinks.append(link);
 
+    //TODO: Do not read the key every time
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
+    QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
+    link->setPrivateKey(privateKey);
+
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
     //Actually, we should not destroy them or the provider will store an invalid ref!
@@ -241,17 +247,22 @@ void Device::removeLink(DeviceLink* link)
 bool Device::sendPackage(NetworkPackage& np)
 {
     if (np.type() != PACKAGE_TYPE_PAIR && isPaired()) {
-        np.encrypt(m_publicKey);
+        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+            //TODO: Actually detect if a package is received or not, now we keep TCP
+            //"ESTABLISHED" connections that look legit (return true when we use them),
+            //but that are actually broken
+            if (dl->sendPackageEncrypted(m_publicKey, np)) return true;
+        }
     } else {
         //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
+        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+            //TODO: Actually detect if a package is received or not, now we keep TCP
+            //"ESTABLISHED" connections that look legit (return true when we use them),
+            //but that are actually broken
+            if (dl->sendPackage(np)) return true;
+        }
     }
 
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        //TODO: Actually detect if a package is received or not, now we keep TCP
-        //"ESTABLISHED" connections that look legit (return true when we use them),
-        //but that are actually broken
-        if (dl->sendPackage(np)) return true;
-    }
     return false;
 }
 
@@ -346,32 +357,8 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
     } else {
 
-        if (np.type() == PACKAGE_TYPE_ENCRYPTED) {
-
-            //TODO: Do not read the key every time
-            KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-            const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
-            QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
-
-            //Emit decrypted package
-            NetworkPackage decryptedNp("");
-            bool success = np.decrypt(privateKey, &decryptedNp);
-            if (!success) {
-                qDebug() << "Failed to decrypt package";
-            } else {
-                Q_EMIT receivedPackage(decryptedNp);
-            }
-
-        } else {
-
-            //TODO: The other side doesn't know that we are already paired, do something
-            qDebug() << "WARNING: Received unencrypted package from paired device!";
-
-            //Forward package
-            Q_EMIT receivedPackage(np);
-
-        }
-
+        //Forward package
+        Q_EMIT receivedPackage(np);
 
     }
 

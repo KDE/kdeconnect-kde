@@ -37,7 +37,8 @@ class LanDeviceLink
 public:
     LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
 
-    bool sendPackage(const NetworkPackage& np);
+    bool sendPackage(NetworkPackage& np);
+    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
 
 private Q_SLOTS:
     void dataReceived();

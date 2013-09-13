@@ -51,10 +51,17 @@ LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
             this, SLOT(dataReceived()));
 }
 
-bool LanDeviceLink::sendPackage(const NetworkPackage& np)
+bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
+{
+    np.encrypt(key);
+    int written = mSocket->write(np.serialize());
+    return (written != -1);
+}
+
+bool LanDeviceLink::sendPackage(NetworkPackage& np)
 {
     int written = mSocket->write(np.serialize());
-    return written != -1;
+    return (written != -1);
 }
 
 void LanDeviceLink::dataReceived()
@@ -67,10 +74,24 @@ void LanDeviceLink::dataReceived()
 
         if (package.length() < 3) continue;
 
-        NetworkPackage np("");
+        NetworkPackage np(QString::null);
         NetworkPackage::unserialize(package, &np);
+        if (np.type() == PACKAGE_TYPE_ENCRYPTED) {
 
-        Q_EMIT receivedPackage(np);
+            if (mPrivateKey.isNull()) {
+                //TODO: Emit the problem?
+                return;
+            }
+
+            NetworkPackage decrypted(QString::null);
+            np.decrypt(mPrivateKey, &decrypted);
+            Q_EMIT receivedPackage(decrypted);
+
+        } else {
+
+            Q_EMIT receivedPackage(np);
+
+        }
 
     }
 }
