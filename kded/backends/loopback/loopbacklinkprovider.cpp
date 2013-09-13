@@ -57,6 +57,7 @@ void LoopbackLinkProvider::onStop()
 {
     if (loopbackDeviceLink) {
         delete loopbackDeviceLink;
+        loopbackDeviceLink = 0;
     }
 }
 
