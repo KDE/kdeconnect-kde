@@ -55,8 +55,8 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     } else if (event == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
-        QString content = np.get<QString>("messageBody","");
-        content = i18n("SMS from %1: %2", phoneNumber, content);
+        QString messageBody = np.get<QString>("messageBody","");
+        content = i18n("SMS from %1: %2", phoneNumber, messageBody);
     } else if (event == "talking") {
         return NULL;
     } else {
