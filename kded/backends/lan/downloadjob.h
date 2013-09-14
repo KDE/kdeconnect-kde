@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,35 +18,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#ifndef DOWNLOADJOB_H
+#define DOWNLOADJOB_H
 
-#include <QObject>
-#include <QString>
+#include <KJob>
+
+#include <QIODevice>
+#include <QVariantMap>
+#include <QHostAddress>
 #include <QTcpSocket>
 
-#include "../devicelink.h"
-
-class AvahiTcpLinkProvider;
-
-class LanDeviceLink
-    : public DeviceLink
+class DownloadJob
+    : public KJob
 {
     Q_OBJECT
-
 public:
-    LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
-
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
-
-private Q_SLOTS:
-    void dataReceived();
-    void readyRead();
+    DownloadJob(QHostAddress address, QVariantMap transferInfo);
+    virtual void start();
+    QIODevice* getPayload();
 
 private:
+    QIODevice* mOutput;
     QTcpSocket* mSocket;
+    QHostAddress mAddress;
+    qint16 mPort;
+
+private Q_SLOTS:
+    void disconnected();
 
 };
 
-#endif // UDPDEVICELINK_H
+#endif // UPLOADJOB_H

@@ -26,6 +26,8 @@
 #include <netdb.h>
 
 #include "../linkprovider.h"
+#include "uploadjob.h"
+#include "downloadjob.h"
 
 LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
@@ -53,13 +55,26 @@ LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
 
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
+    if (np.hasPayload()) {
+         UploadJob* job = new UploadJob(np.payload());
+         job->start();
+         np.setPayloadTransferInfo(job->getTransferInfo());
+    }
+
     np.encrypt(key);
+
     int written = mSocket->write(np.serialize());
     return (written != -1);
 }
 
 bool LanDeviceLink::sendPackage(NetworkPackage& np)
 {
+    if (np.hasPayload()) {
+         UploadJob* job = new UploadJob(np.payload());
+         job->start();
+         np.setPayloadTransferInfo(job->getTransferInfo());
+    }
+
     int written = mSocket->write(np.serialize());
     return (written != -1);
 }
@@ -85,6 +100,13 @@ void LanDeviceLink::dataReceived()
 
             NetworkPackage decrypted(QString::null);
             np.decrypt(mPrivateKey, &decrypted);
+
+            if (np.hasPayloadTransferInfo()) {
+                DownloadJob* job = new DownloadJob(mSocket->peerAddress(), np.payloadTransferInfo());
+                job->start();
+                np.setPayload(job->getPayload());
+            }
+
             Q_EMIT receivedPackage(decrypted);
 
         } else {
@@ -94,4 +116,9 @@ void LanDeviceLink::dataReceived()
         }
 
     }
+}
+
+void LanDeviceLink::readyRead()
+{
+
 }

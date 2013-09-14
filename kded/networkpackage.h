@@ -68,6 +68,7 @@ public:
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
     bool has(const QString& key) const { return mBody.contains(key); }
 
+    //TODO: Change to a shared pointer
     QIODevice* payload() const { return mPayload; }
     void setPayload(QIODevice* device) { mPayload = device; }
     bool hasPayload() const { return (mPayload != 0); }

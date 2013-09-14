@@ -4,7 +4,8 @@ set(kded_kdeconnect_SRCS
 
     backends/lan/lanlinkprovider.cpp
     backends/lan/landevicelink.cpp
-    #landevicelinktransfer.cpp
+    backends/lan/uploadjob.cpp
+    backends/lan/downloadjob.cpp
 
     PARENT_SCOPE
 )
