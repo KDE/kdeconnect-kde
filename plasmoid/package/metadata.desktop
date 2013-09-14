@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=KdeConnect
+Name[de]=KdeConnect
+Name[pt]=KDEConnect
+Name[pt_BR]=KdeConnect
+Name[sv]=KDE anslut
+Name[uk]=KdeConnect
+Name[x-test]=xxKdeConnectxx
 Comment=Show notifications from your devices using KDE Connect
+Comment[de]=Zeigt Benachrichtigungen von Ihren Geräten mit KDE-Connect
+Comment[pt]=Mostrar notificações dos seus dispositivos usando o KDE Connect
+Comment[pt_BR]=Mostrar notificações dos seus dispositivos usando o KDE Connect
+Comment[sv]=Visa underrättelser från apparater med KDE anslut
+Comment[uk]=Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»
+Comment[x-test]=xxShow notifications from your devices using KDE Connectxx
 
 Icon=smartphone
 Type=Service

@@ -1,39 +1,135 @@
 [Global]
 IconName=smartphone
 Name=KDE Connect
+Name[de]=KDE Connect
+Name[pt]=KDE Connect
+Name[pt_BR]=KDE Connect
+Name[sv]=KDE anslut
+Name[uk]=З’єднання KDE
+Name[x-test]=xxKDE Connectxx
 Comment=Notifications from your devices
+Comment[de]=Benachrichtigungen von Ihren Geräten
+Comment[pt]=Notificações dos seus dispositivos
+Comment[pt_BR]=Notificações dos seus dispositivos
+Comment[sv]=Underrättelser från dina apparater
+Comment[uk]=Сповіщення з вашого пристрою
+Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/callReceived]
 Name=Calling
+Name[de]=Anruf
+Name[pt]=A Chamar
+Name[pt_BR]=Chamando
+Name[sv]=Samtal
+Name[uk]=Виклик
+Name[x-test]=xxCallingxx
 Comment=Someone is calling you
+Comment[de]=Sie werden angerufen
+Comment[pt]=Alguém está a ligar-lhe
+Comment[pt_BR]=Alguém está chamando você
+Comment[sv]=Någon ringer till dig
+Comment[uk]=Хтось телефонує вам
+Comment[x-test]=xxSomeone is calling youxx
 Action=Popup
 
 [Event/missedCall]
 Name=Missed
+Name[de]=Verpasst
+Name[pt]=Não Atendida
+Name[pt_BR]=Não atendidas
+Name[sv]=Missat
+Name[uk]=Пропущено
+Name[x-test]=xxMissedxx
 Comment=You have a missed call
+Comment[de]=Sie haben einen Anruf verpasst
+Comment[pt]=Tem uma chamada não atendida
+Comment[pt_BR]=Você tem uma chamada não atendida
+Comment[sv]=Du har missat ett samtal
+Comment[uk]=Вами пропущено телефонний дзвінок
+Comment[x-test]=xxYou have a missed callxx
 Action=Popup
 
 [Event/smsReceived]
 Name=SMS
+Name[de]=SMS
+Name[pt]=SMS
+Name[pt_BR]=SMS
+Name[sv]=SMS
+Name[uk]=SMS
+Name[x-test]=xxSMSxx
 Comment=Someone sent you an SMS
+Comment[de]=Jemand hat Ihnen eine SMS gesendet
+Comment[pt]=Alguém lhe enviou um SMS
+Comment[pt_BR]=Alguém lhe enviou um SMS
+Comment[sv]=Någon skickade ett SMS till dig
+Comment[uk]=Хтось надіслав вам SMS
+Comment[x-test]=xxSomeone sent you an SMSxx
 Action=Popup
 
 [Event/batteryLow]
 Name=Battery
+Name[de]=Akku
+Name[pt]=Bateria
+Name[pt_BR]=Bateria
+Name[sv]=Batteri
+Name[uk]=Акумулятор
+Name[x-test]=xxBatteryxx
 Comment=Your battery is in low state
+Comment[de]=Der Ladestand Ihres Akkus ist niedrig
+Comment[pt]=A sua bateria está fraca
+Comment[pt_BR]=Sua bateria está com carga baixa
+Comment[sv]=Batteriet är nästan slut
+Comment[uk]=Рівень заряду акумулятора є низьким
+Comment[x-test]=xxYour battery is in low statexx
 Action=Popup
 
 [Event/pingReceived]
 Name=Ping
+Name[de]=Ping
+Name[pt]=Pedido de Rede
+Name[pt_BR]=Ping
+Name[sv]=Ping
+Name[uk]=Луна
+Name[x-test]=xxPingxx
 Comment=Ping received
+Comment[de]=Ping empfangen
+Comment[pt]=Pedido de rede recebido
+Comment[pt_BR]=Ping recebido
+Comment[sv]=Ping mottaget
+Comment[uk]=Отримано сигнал підтримки зв’язку
+Comment[x-test]=xxPing receivedxx
 Action=Popup
 
 [Event/notification]
 Name=Notification
+Name[de]=Benachrichtigung
+Name[pt]=Notificação
+Name[pt_BR]=Notificação
+Name[sv]=Underrättelse
+Name[uk]=Сповіщення
+Name[x-test]=xxNotificationxx
 Comment=Notification received
+Comment[de]=Benachrichtigung eingegangen
+Comment[pt]=Notificação recebida
+Comment[pt_BR]=Notificação recebida
+Comment[sv]=Underrättelse mottagen
+Comment[uk]=Отримано сповіщення
+Comment[x-test]=xxNotification receivedxx
 Action=Popup
 
 [Event/unknownEvent]
 Name=Unknown
+Name[de]=Unbekannt
+Name[pt]=Desconhecido
+Name[pt_BR]=Desconhecido
+Name[sv]=Okänt
+Name[uk]=Невідомо
+Name[x-test]=xxUnknownxx
 Comment=Something unknown happened
+Comment[de]=Etwas unbekanntes ist aufgetreten
+Comment[pt]=Algo de inesperado aconteceu
+Comment[pt_BR]=Ocorreu algo inesperado
+Comment[sv]=Någonting okänt inträffade
+Comment[uk]=Сталося щось невідоме програмі
+Comment[x-test]=xxSomething unknown happenedxx
 Action=Popup
