@@ -12,9 +12,27 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=Devices
+Name[de]=Geräte
+Name[pt]=Dispositivos
+Name[pt_BR]=Dispositivos
+Name[sv]=Apparater
+Name[uk]=Пристрої
+Name[x-test]=xxDevicesxx
 
 Comment=Connect and sync your devices with KDE
+Comment[de]=Verbinden und Abgleichen Ihrer Geräte mit KDE
+Comment[pt]=Ligue e sincronize os seus dispositivos com o KDE
+Comment[pt_BR]=Conecta e sincroniza seus dispositivos com o KDE
+Comment[sv]=Anslut och synkronisera dina apparater med KDE
+Comment[uk]=З’єднання і синхронізація ваших пристроїв з KDE
+Comment[x-test]=xxConnect and sync your devices with KDExx
 
 X-KDE-Keywords=Network,Android,Devices
+X-KDE-Keywords[de]=Netzwerk,Android,Geräte
+X-KDE-Keywords[pt]=Rede,Android,Dispositivos
+X-KDE-Keywords[pt_BR]=Rede,Android,Dispositivos
+X-KDE-Keywords[sv]=Nätverk, Android, apparater
+X-KDE-Keywords[uk]=Network;Android;Devices;мережа;андроїд;пристрої
+X-KDE-Keywords[x-test]=xxNetwork,Android,Devicesxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;
