@@ -19,6 +19,7 @@ Name[uk]=Модуль передавання файлів
 Name[x-test]=xxFile transferxx
 Comment=Send and receive files from dolphin
 Comment[de]=Dateien aus Dolphin senden und empfangen
+Comment[nl]=Bestanden verzenden en ontvangen vanuit dolphin
 Comment[pt]=Enviar e receber ficheiros a partir do Dolphin
 Comment[pt_BR]=Envia e recebe arquivos a partir do Dolphin
 Comment[sv]=Skicka och ta emot filer med Dolphin
