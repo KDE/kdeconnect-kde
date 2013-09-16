@@ -86,7 +86,6 @@ void KdeConnectKcm::resetSelection()
     kcmUi->deviceList->selectionModel()->setCurrentIndex(sortProxyModel->mapFromSource(currentIndex), QItemSelectionModel::ClearAndSelect);
 }
 
-
 void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
 
@@ -182,6 +181,8 @@ void KdeConnectKcm::unpair()
 
 void KdeConnectKcm::pairingFailed(const QString& error)
 {
+    if (sender() != currentDevice) return;
+
     kcmUi->messages->setText(i18n("Error trying to pair: %1",error));
     kcmUi->messages->animatedShow();
     kcmUi->progressBar->setVisible(false);
@@ -190,14 +191,17 @@ void KdeConnectKcm::pairingFailed(const QString& error)
 
 void KdeConnectKcm::pairingSuccesful()
 {
+    DeviceDbusInterface* sender = (DeviceDbusInterface*) sender();
+    devicesModel->deviceStatusChanged(sender->id());
+
+    if (sender != currentDevice) return;
+
     kcmUi->progressBar->setVisible(false);
     kcmUi->unpair_button->setVisible(true);
     kcmUi->pair_button->setVisible(false);
     kcmUi->ping_button->setVisible(true);
 
     kcmUi->status_label->setText(i18n("(paired)"));
-
-    devicesModel->deviceStatusChanged(currentDevice->id());
 }
 
 void KdeConnectKcm::pluginsConfigChanged()
