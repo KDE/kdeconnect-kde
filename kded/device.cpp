@@ -177,6 +177,8 @@ void Device::unpair()
 
     reloadPlugins(); //Will unload the plugins
 
+    Q_EMIT unpaired();
+
 }
 
 void Device::pairingTimeout()
@@ -344,6 +346,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
                 config->group("trusted_devices").deleteGroup(id());
                 reloadPlugins();
+                Q_EMIT unpaired();
             }
 
             m_pairStatus = Device::NotPaired;
