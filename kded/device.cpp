@@ -45,7 +45,7 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
 
     int protocolVersion = identityPackage.get<int>("protocolVersion");
     if (protocolVersion != NetworkPackage::ProtocolVersion) {
-        qDebug() << "WARNING: Device uses a different protocol version" << protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+        qDebug() << m_deviceName << "- warning, device uses a different protocol version" << protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
         //TODO: Do something
     }
 

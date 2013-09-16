@@ -79,7 +79,9 @@ QByteArray NetworkPackage::serialize() const
     if (!ok) {
         qDebug() << "Serialization error:" << serializer.errorMessage();
     } else {
-        //qDebug() << "Serialized package:" << json;
+        if (!isEncrypted()) {
+            qDebug() << "Serialized package:" << json;
+        }
         json.append('\n');
     }
 
@@ -95,7 +97,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     bool ok;
     QVariantMap variant = parser.parse(a, &ok).toMap();
     if (!ok) {
-        qDebug() << "Unserialization error:" << parser.errorLine() << parser.errorString();
+        qDebug() << "Unserialization error:" << a;
         return false;
     }
 
@@ -103,7 +105,9 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant,np);
 
     if (variant.contains("payloadTransferInfo")) {
-        //qDebug() << "Unserializing payloadTransferInfo";
+        if (!np->isEncrypted()) {
+            //qDebug() << "Unserializing payloadTransferInfo";
+        }
         np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap();
     }
 

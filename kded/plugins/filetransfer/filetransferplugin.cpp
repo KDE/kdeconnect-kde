@@ -39,32 +39,36 @@ FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args
 {
     //TODO: Use downloads user path
     //TODO: Be able to change this from config
-    mDestinationDir = QDesktopServices::DesktopLocation;
+    mDestinationDir = QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);
 }
 
 bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 {
 
     //TODO: Move this code to a test and do a diff between files
-    /*
-    if (np.type() == PACKAGE_TYPE_PING) {
+    //if (np.type() == PACKAGE_TYPE_PING) {
 
-        NetworkPackage np(PACKAGE_TYPE_FILETRANSFER);
-        np.set("filename", mDestinationDir + "/itworks.txt");
+        qDebug() << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
+
+        NetworkPackage out(PACKAGE_TYPE_FILETRANSFER);
+        out.set("filename", mDestinationDir + "/itworks.txt");
          //TODO: Use shared pointers
-        AutoClosingQFile* file = new AutoClosingQFile("/home/vaka/KdeConnect.apk"); //Test file to transfer
+        AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
 
-        np.setPayload(file);
+        out.setPayload(file);
 
-        device()->sendPackage(np);
+        device()->sendPackage(out);
 
         return true;
-    }
-    */
+
+    //}
 
     if (np.type() != PACKAGE_TYPE_FILETRANSFER) return false;
 
+    qDebug() << "file transfer";
+
     if (np.hasPayload()) {
+        qDebug() << "receiving file";
         QString filename = np.get<QString>("filename");
         QIODevice* incoming = np.payload();
         FileTransferJob* job = new FileTransferJob(incoming,filename);
