@@ -90,7 +90,6 @@ QByteArray NetworkPackage::serialize() const
 
 bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 {
-
     //Json -> QVariant
     QJson::Parser parser;
     bool ok;
@@ -104,7 +103,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant, np);
 
     if (!np->isEncrypted()) {
-        //qDebug() << "Serialized package:" << a;
+        //qDebug() << "Unserialized package:" << a;
     }
 
     if (variant.contains("payloadTransferInfo")) {
