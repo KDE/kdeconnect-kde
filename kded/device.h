@@ -100,6 +100,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
     Q_SCRIPTABLE void pairingSuccesful();
     Q_SCRIPTABLE void pairingFailed(const QString& error);
+    Q_SCRIPTABLE void unpaired();
 
 private:
     QString m_deviceId;

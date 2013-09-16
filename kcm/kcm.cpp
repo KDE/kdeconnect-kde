@@ -89,6 +89,15 @@ void KdeConnectKcm::resetSelection()
 void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
 
+    if (currentDevice) {
+        disconnect(currentDevice,SIGNAL(pairingSuccesful()),
+            this, SLOT(pairingSuccesful()));
+        disconnect(currentDevice,SIGNAL(pairingFailed(QString)),
+            this, SLOT(pairingFailed(QString)));
+        disconnect(currentDevice,SIGNAL(unpaired()),
+            this, SLOT(unpaired()));
+    }
+
     //Store previous device config
     pluginsConfigChanged();
 
@@ -134,6 +143,13 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     kcmUi->name_label->setText(currentDevice->name());
     kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
 
+    connect(currentDevice,SIGNAL(pairingSuccesful()),
+            this, SLOT(pairingSuccesful()));
+    connect(currentDevice,SIGNAL(pairingFailed(QString)),
+            this, SLOT(pairingFailed(QString)));
+    connect(currentDevice,SIGNAL(unpaired()),
+            this, SLOT(unpaired()));
+
     KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
     QList<KPluginInfo> scriptinfos = KPluginInfo::fromServices(offers);
 
@@ -143,21 +159,19 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
             this, SLOT(pluginsConfigChanged()));
+
 }
 
 void KdeConnectKcm::requestPair()
 {
-    if (!currentDevice) return;
+    if (!currentDevice) {
+        return;
+    }
 
     kcmUi->messages->hide();
 
     kcmUi->pair_button->setVisible(false);
     kcmUi->progressBar->setVisible(true);
-
-    connect(currentDevice,SIGNAL(pairingSuccesful()),
-            this, SLOT(pairingSuccesful()));
-    connect(currentDevice,SIGNAL(pairingFailed(QString)),
-            this, SLOT(pairingFailed(QString)));
 
     currentDevice->requestPair();
 
@@ -165,42 +179,52 @@ void KdeConnectKcm::requestPair()
 
 void KdeConnectKcm::unpair()
 {
-    if (!currentDevice) return;
+    if (!currentDevice) {
+        return;
+    }
+
+    currentDevice->unpair();
+}
+
+void KdeConnectKcm::unpaired()
+{
+    DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
+    devicesModel->deviceStatusChanged(senderDevice->id());
+
+    if (senderDevice != currentDevice) return;
 
     kcmUi->pair_button->setVisible(true);
     kcmUi->unpair_button->setVisible(false);
     kcmUi->progressBar->setVisible(false);
     kcmUi->ping_button->setVisible(false);
-
-    currentDevice->unpair();
-
     kcmUi->status_label->setText(i18n("(unpaired)"));
-
-    devicesModel->deviceStatusChanged(currentDevice->id());
 }
 
 void KdeConnectKcm::pairingFailed(const QString& error)
 {
     if (sender() != currentDevice) return;
 
+    kcmUi->pair_button->setVisible(true);
+    kcmUi->unpair_button->setVisible(false);
+    kcmUi->progressBar->setVisible(false);
+    kcmUi->ping_button->setVisible(false);
+    kcmUi->status_label->setText(i18n("(unpaired)"));
+
     kcmUi->messages->setText(i18n("Error trying to pair: %1",error));
     kcmUi->messages->animatedShow();
-    kcmUi->progressBar->setVisible(false);
-    kcmUi->pair_button->setVisible(true);
 }
 
 void KdeConnectKcm::pairingSuccesful()
 {
-    DeviceDbusInterface* sender = (DeviceDbusInterface*) sender();
-    devicesModel->deviceStatusChanged(sender->id());
+    DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
+    devicesModel->deviceStatusChanged(senderDevice->id());
 
-    if (sender != currentDevice) return;
+    if (senderDevice != currentDevice) return;
 
-    kcmUi->progressBar->setVisible(false);
-    kcmUi->unpair_button->setVisible(true);
     kcmUi->pair_button->setVisible(false);
+    kcmUi->unpair_button->setVisible(true);
+    kcmUi->progressBar->setVisible(false);
     kcmUi->ping_button->setVisible(true);
-
     kcmUi->status_label->setText(i18n("(paired)"));
 }
 
