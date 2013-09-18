@@ -106,6 +106,10 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
         //qDebug() << "Unserialized package:" << a;
     }
 
+    if (!np->isEncrypted()) {
+        qDebug() << "Unserialize: " << a;
+    }
+
     if (variant.contains("payloadTransferInfo")) {
         //qDebug() << "Unserializing payloadTransferInfo";
         np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap();
