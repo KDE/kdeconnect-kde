@@ -89,29 +89,31 @@ void LanDeviceLink::dataReceived()
 
         if (package.length() < 3) continue;
 
-        NetworkPackage np(QString::null);
-        NetworkPackage::unserialize(package, &np);
-        if (np.type() == PACKAGE_TYPE_ENCRYPTED) {
+        NetworkPackage unserialized(QString::null);
+        NetworkPackage::unserialize(package, &unserialized);
+        if (unserialized.isEncrypted()) {
 
-            if (mPrivateKey.isNull()) {
-                //TODO: Emit the problem?
-                return;
-            }
-
+            //mPrivateKey should always be set when device link is added to device, no null-checking done here
             NetworkPackage decrypted(QString::null);
-            np.decrypt(mPrivateKey, &decrypted);
+            unserialized.decrypt(mPrivateKey, &decrypted);
 
-            if (np.hasPayloadTransferInfo()) {
-                DownloadJob* job = new DownloadJob(mSocket->peerAddress(), np.payloadTransferInfo());
+            if (decrypted.hasPayloadTransferInfo()) {
+                qDebug() << "HasPayloadTransferInfo";
+                DownloadJob* job = new DownloadJob(mSocket->peerAddress(), decrypted.payloadTransferInfo());
                 job->start();
-                np.setPayload(job->getPayload());
+                decrypted.setPayload(job->getPayload());
             }
 
             Q_EMIT receivedPackage(decrypted);
 
         } else {
 
-            Q_EMIT receivedPackage(np);
+            if (unserialized.hasPayloadTransferInfo()) {
+                //Lets ignore unencrypted payloads
+            }
+
+
+            Q_EMIT receivedPackage(unserialized);
 
         }
 
