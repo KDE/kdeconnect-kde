@@ -23,12 +23,13 @@
 DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
 {
     mPort = transferInfo["port"].toInt();
-    mSocket = new QTcpSocket(this);
+    mSocket = new QTcpSocket();
     mAddress = address;
 }
 
 void DownloadJob::start()
 {
+    qDebug() << "start";
     mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
     connect(mSocket, SIGNAL(disconnected()), this, SLOT(disconnected()));
 }
@@ -40,5 +41,6 @@ void DownloadJob::disconnected()
 
 QIODevice* DownloadJob::getPayload()
 {
+    qDebug() << "getPayload";
     return mSocket;
 }
