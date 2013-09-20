@@ -71,8 +71,9 @@ public:
 
     //TODO: Change to a shared pointer
     QIODevice* payload() const { return mPayload; }
-    void setPayload(QIODevice* device) { mPayload = device; }
-    bool hasPayload() const { return (mPayload != 0); }
+    void setPayload(QIODevice* device, int payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
+    bool hasPayload() const { return (mPayloadSize != 0); }
+    int payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
 
     //To be called by a particular DeviceLink
     QVariantMap payloadTransferInfo() const { return mPayloadTransferInfo; }
@@ -84,12 +85,14 @@ private:
     void setId(const QString& id) { mId = id; }
     void setType(const QString& t) { mType = t; }
     void setBody(const QVariantMap& b) { mBody = b; }
+    void setPayloadSize(int s) { mPayloadSize = s; }
 
     QString mId;
     QString mType;
     QVariantMap mBody;
 
     QIODevice* mPayload;
+    int mPayloadSize;
     QVariantMap mPayloadTransferInfo;
 
 };

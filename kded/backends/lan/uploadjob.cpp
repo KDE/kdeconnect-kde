@@ -62,6 +62,8 @@ void UploadJob::newConnection()
 
 void UploadJob::readyRead()
 {
+    //TODO: Implement payload encryption
+
     qint64 bytes = qMax(mInput->bytesAvailable(), (qint64)4096);
     mSocket->write(mInput->read(bytes));
 }

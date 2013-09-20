@@ -47,7 +47,7 @@ bool LoopbackDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackag
     //LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
         QIODevice* device = input.payload();
-        output.setPayload(device);
+        output.setPayload(device, input.payloadSize());
     }
 
     Q_EMIT receivedPackage(output);
@@ -63,7 +63,7 @@ bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)
     //LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
         QIODevice* device = input.payload();
-        output.setPayload(device);
+        output.setPayload(device, input.payloadSize());
     }
 
     Q_EMIT receivedPackage(output);

@@ -40,41 +40,42 @@ FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args
     //TODO: Use downloads user path
     //TODO: Be able to change this from config
     mDestinationDir = QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);
+    if (!mDestinationDir.endsWith('/')) mDestinationDir.append('/');
 }
 
 bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 {
 
     //TODO: Move this code to a test and do a diff between files
-    //if (np.type() == PACKAGE_TYPE_PING) {
+    if (np.type() == PACKAGE_TYPE_PING) {
 
         qDebug() << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
         NetworkPackage out(PACKAGE_TYPE_FILETRANSFER);
-        out.set("filename", mDestinationDir + "/itworks.txt");
+        out.set("filename", mDestinationDir + "itworks.txt");
          //TODO: Use shared pointers
         AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
 
-        out.setPayload(file);
+        out.setPayload(file, file->size());
 
         device()->sendPackage(out);
 
         return true;
 
-    //}
+    }
 
     if (np.type() != PACKAGE_TYPE_FILETRANSFER) return false;
-
-    qDebug() << "file transfer";
+    qDebug() << "File transfer";
 
     if (np.hasPayload()) {
         qDebug() << "receiving file";
-        QString filename = np.get<QString>("filename");
+        QString filename = np.get<QString>("filename", mDestinationDir + QString::number(QDateTime::currentMSecsSinceEpoch()));
         QIODevice* incoming = np.payload();
-        FileTransferJob* job = new FileTransferJob(incoming,filename);
+        FileTransferJob* job = new FileTransferJob(incoming, np.payloadSize(), filename);
         connect(job,SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
         job->start();
     }
+
     return true;
 
 }

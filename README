@@ -15,11 +15,11 @@ Class diagram
 
 Daemon instantiates Backends
 
-Backends manage to create DeviceLinks with the devices they can reach, and Q_EMIT them to Daemon.
+Backends manage to create DeviceLinks with the devices they can reach, and Q_EMIT them to the Daemon.
 
-When Daemon receives a DeviceLink from a backend it:
-    - If he already knows the Device, adds the DeviceLink to the Device
-    - If not, it creates a new Device.
+When the Daemon receives a DeviceLink from a backend:
+    - If it already knows the Device, adds the new DeviceLink to the existing Device, as a new way to reach it.
+    - If not, it creates a new untrusted (yet to be paired) Device.
 
 Devices contain a list of DeviceLinks, plus a list of Plugins (instantiated automatically)
 
@@ -45,10 +45,22 @@ The basic structure of a NetworkPackage is the following:
     "body": {
 
     },
-    "version": 1
+    "version": 5
 }
 
 Each type of package defines what it should contain inside its "body", so only
 the emisor Plugin and receiver Plugin of this type of package need agree about
 its content.
 
+If the package has a payload attached, it will also contain two more fields:
+ "payloadSize": The size of the file, or -1 if it is a stream without known end
+ "payloadTransferInfo": Another JSON Object containing the information that the
+                        backend wants to send to the peer backend, to actually
+                        transfer the payload.
+
+Encrypted network packages have the following format:
+
+//TODO
+
+
+//TODO: Document the possible contents written for each plugin in the body part

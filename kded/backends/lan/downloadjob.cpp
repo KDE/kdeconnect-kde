@@ -32,6 +32,7 @@ void DownloadJob::start()
     qDebug() << "start";
     mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
     connect(mSocket, SIGNAL(disconnected()), this, SLOT(disconnected()));
+    //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
 }
 
 void DownloadJob::disconnected()

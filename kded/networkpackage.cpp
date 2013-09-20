@@ -34,7 +34,7 @@
 #include <qjson/qobjecthelper.h>
 
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
-const int NetworkPackage::ProtocolVersion = 4;
+const int NetworkPackage::ProtocolVersion = 5;
 
 NetworkPackage::NetworkPackage(const QString& type)
 {
@@ -42,6 +42,7 @@ NetworkPackage::NetworkPackage(const QString& type)
     mType = type;
     mBody = QVariantMap();
     mPayload = 0;
+    mPayloadSize = 0;
 }
 
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
@@ -51,6 +52,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->mType = PACKAGE_TYPE_IDENTITY;
     np->mPayload = 0;
+    np->mPayloadSize = 0;
     np->set("deviceId", id);
     np->set("deviceName", QHostInfo::localHostName());
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
@@ -69,6 +71,7 @@ QByteArray NetworkPackage::serialize() const
 
     if (hasPayload()) {
         //qDebug() << "Serializing payloadTransferInfo";
+        variant["payloadSize"] = 0;
         variant["payloadTransferInfo"] = mPayloadTransferInfo;
     }
 
@@ -110,10 +113,8 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
         qDebug() << "Unserialize: " << a;
     }
 
-    if (variant.contains("payloadTransferInfo")) {
-        //qDebug() << "Unserializing payloadTransferInfo";
-        np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap();
-    }
+    np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
+    np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
     return true;
 
@@ -122,7 +123,6 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 void NetworkPackage::encrypt(QCA::PublicKey& key)
 {
 
-    //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
     QByteArray serialized = serialize();
 
     int chunkSize = key.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm);
@@ -160,12 +160,15 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
         decryptedJson.append(decryptedChunk.toByteArray());
     }
 
-    //TODO: Implement payload encryption somehow (create an intermediate iodevice to decrypt the payload here?)
+    bool success = unserialize(decryptedJson, out);
+
+    if (!success) return false;
+
     if (hasPayload()) {
-        out->setPayload(mPayload);
+        out->mPayload = mPayload;
     }
 
-    return unserialize(decryptedJson, out);
+    return true;
 
 }
 

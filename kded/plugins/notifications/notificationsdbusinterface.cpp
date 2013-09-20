@@ -51,6 +51,8 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
     } else {
         Notification* noti = new Notification(np, this);
 
+        //TODO: Store the app icon if any under tmp with the app name as filename (so we only store one per app) and export the path to that file to dbus inside Notification
+
         //Do not show updates to existent notification nor answers to a initialization request
         if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
             KNotification* notification = new KNotification("notification");

@@ -35,7 +35,7 @@ class FileTransferJob : public KJob
     Q_OBJECT
 
 public:
-    FileTransferJob(QIODevice* origin, const KUrl& destination);
+    FileTransferJob(QIODevice* origin, int size, const KUrl& destination);
     virtual void start();
     KUrl destination() { return mDestination; }
 
@@ -48,7 +48,9 @@ public Q_SLOTS:
 private:
     KIO::FileJob* mTempDestination;
     KUrl mDestination;
+    int mSize;
     QIODevice* mOrigin;
+    int mWritten;
 
 };
 

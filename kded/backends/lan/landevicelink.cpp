@@ -101,7 +101,7 @@ void LanDeviceLink::dataReceived()
                 qDebug() << "HasPayloadTransferInfo";
                 DownloadJob* job = new DownloadJob(mSocket->peerAddress(), decrypted.payloadTransferInfo());
                 job->start();
-                decrypted.setPayload(job->getPayload());
+                decrypted.setPayload(job->getPayload(), decrypted.payloadSize());
             }
 
             Q_EMIT receivedPackage(decrypted);
