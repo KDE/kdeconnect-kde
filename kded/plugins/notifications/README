@@ -1,0 +1,32 @@
+
+This plugin listens to packages with type "kdeconnect.notification" that will
+contain all the information of the other device notifications.
+
+The other device will report us every notification that is created or dismissed,
+so we can keep in sync a local list of notifications.
+
+At the beginning we can request the already existing notifications by sending a
+package with the boolean "request" set to true.
+
+The received packages will contain the following fields:
+
+"id" (string): A unique notification id.
+"appName" (string): The app that generated the notification
+"ticker" (string): The title or headline of the notification.
+"isClearable" (boolean): True if we can request to dismiss the notification.
+"isCancel" (boolean): True if the notification was dismissed in the peer device.
+"requestAnswer" (boolean): True if this is an answer to a "request" package.
+
+Additionally the package can contain a payload with the icon of the notification
+in PNG format.
+
+The content of these fields is used to display the notifications to the user.
+Note that if we receive a second notification with the same "id", we should
+update the existent notification instead of creating a new one.
+
+If the user dismisses a notification from this device, we have to request the
+other device to remove it. This is done by sending a package with the fields
+"id" set to the id of the notification we want to dismiss and a boolean "cancel"
+set to true. The other device will answer with a notification package with
+"isCancel" set to true when it is dismissed.
+

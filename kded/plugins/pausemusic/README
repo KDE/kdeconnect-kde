@@ -1,0 +1,7 @@
+
+This simple plugin will just listen to "kdeconnect.telephony" like the telephony
+plugin does. It reads the field "event", to see if it is "ringing" or "talking"
+and then pauses all the music/video players reachable through MPRIS. When the
+same kind of package is received but the boolean "isCancel" is set to true, it
+will resume the playback of all the paused sources.
+
