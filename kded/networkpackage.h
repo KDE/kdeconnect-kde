@@ -32,6 +32,7 @@
 #include <QStringList>
 #include <QIODevice>
 #include <QtCrypto>
+#include <QSharedPointer>
 
 #include <qjson/parser.h>
 
@@ -73,9 +74,8 @@ public:
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
     bool has(const QString& key) const { return mBody.contains(key); }
 
-    //TODO: Change to a shared pointer
-    QIODevice* payload() const { return mPayload; }
-    void setPayload(QIODevice* device, int payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
+    QSharedPointer<QIODevice> payload() const { return mPayload; }
+    void setPayload(const QSharedPointer<QIODevice>& device, int payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
     bool hasPayload() const { return (mPayloadSize != 0); }
     int payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
     FileTransferJob* createPayloadTransferJob(const KUrl& destination) const;
@@ -96,7 +96,7 @@ private:
     QString mType;
     QVariantMap mBody;
 
-    QIODevice* mPayload;
+    QSharedPointer<QIODevice> mPayload;
     int mPayloadSize;
     QVariantMap mPayloadTransferInfo;
 

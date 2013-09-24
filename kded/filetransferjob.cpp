@@ -25,26 +25,20 @@
 #include <QDebug>
 #include <qalgorithms.h>
 
-FileTransferJob::FileTransferJob(QIODevice* origin, int size, const KUrl& destination): KJob()
+FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination): KJob()
 {
-    mDestination = destination;
+    mDestination = KIO::open(destination, QIODevice::WriteOnly);
     mOrigin = origin;
     mSize = size;
     mWritten = 0;
+    qDebug() << "Downloading payload to" << destination;
 }
 
 void FileTransferJob::start()
 {
     //Open destination file
-
-    QTemporaryFile tmp;
-    tmp.setAutoRemove(false);
-    tmp.open();
-
-    mTempDestination = KIO::open(tmp.fileName(), QIODevice::WriteOnly);
-    connect(mTempDestination, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
-    mTempDestination->start();
-
+    connect(mDestination, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
+    mDestination->start();
 }
 
 void FileTransferJob::open(KIO::Job* job)
@@ -62,8 +56,8 @@ void FileTransferJob::open(KIO::Job* job)
     mOrigin->open(QIODevice::ReadOnly);
     Q_ASSERT(mOrigin->isOpen());
 
-    connect(mOrigin, SIGNAL(readyRead()),this, SLOT(readyRead()));
-    connect(mOrigin, SIGNAL(disconnected()),this, SLOT(sourceFinished()));
+    connect(mOrigin.data(), SIGNAL(readyRead()),this, SLOT(readyRead()));
+    connect(mOrigin.data(), SIGNAL(disconnected()),this, SLOT(sourceFinished()));
     if (mOrigin->bytesAvailable() > 0) readyRead();
 
 }
@@ -76,7 +70,7 @@ void FileTransferJob::readyRead()
 
     int bytes = qMin(qint64(4096), mOrigin->bytesAvailable());
     QByteArray data = mOrigin->read(bytes);
-    mTempDestination->write(data);
+    mDestination->write(data);
     mWritten += bytes;
 
     if (mSize > -1) {
@@ -87,7 +81,7 @@ void FileTransferJob::readyRead()
 
     if (mSize > -1 && mWritten >= mSize) { //At the end or expected size reached
         qDebug() << "No more data to read";
-        disconnect(mOrigin, SIGNAL(readyRead()),this, SLOT(readyRead()));
+        disconnect(mOrigin.data(), SIGNAL(readyRead()),this, SLOT(readyRead()));
         mOrigin->close();
     } else if (mOrigin->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "readyRead", Qt::QueuedConnection);
@@ -99,7 +93,7 @@ void FileTransferJob::sourceFinished()
     qDebug() << "sourceFinished";
 
     //Make sure we do not enter this function again
-    disconnect(mOrigin, SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
+    disconnect(mOrigin.data(), SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
 
     //TODO: MD5 check the file
     if (mSize > -1 && mWritten != mSize) {
@@ -107,23 +101,10 @@ void FileTransferJob::sourceFinished()
         setError(1);
         setErrorText(i18n("Received incomplete file"));
         emitResult();
-    }
-
-    qDebug() << "Finished" << mTempDestination->url() << mDestination;
-    KIO::FileCopyJob* job = KIO::file_move(mTempDestination->url(), mDestination);
-    connect(job, SIGNAL(result(KJob*)), this, SLOT(moveResult(KJob*)));
-    job->start();
-
-    //delete mOrigin; //TODO: Use shared pointers
-}
-
-void FileTransferJob::moveResult(KJob* job)
-{
-    //TODO: Error handling, cleanup
-    qDebug() << "Move finished";
-    if (job->error()) {
-        qDebug() << job->errorText();
+    } else {
+        qDebug() << "Finished transfer" << mDestination->url();
     }
     emitResult();
 }
+
 

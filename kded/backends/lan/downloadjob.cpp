@@ -22,9 +22,10 @@
 
 DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
 {
+    mAddress = address;
     mPort = transferInfo["port"].toInt();
     mSocket = new QTcpSocket();
-    mAddress = address;
+    mOutput = QSharedPointer<QIODevice>(mSocket);
 }
 
 void DownloadJob::start()
@@ -40,8 +41,8 @@ void DownloadJob::disconnected()
     emitResult();
 }
 
-QIODevice* DownloadJob::getPayload()
+QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
     qDebug() << "getPayload";
-    return mSocket;
+    return mOutput;
 }

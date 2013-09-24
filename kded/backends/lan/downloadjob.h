@@ -27,6 +27,7 @@
 #include <QVariantMap>
 #include <QHostAddress>
 #include <QTcpSocket>
+#include <QSharedPointer>
 
 class DownloadJob
     : public KJob
@@ -35,13 +36,14 @@ class DownloadJob
 public:
     DownloadJob(QHostAddress address, QVariantMap transferInfo);
     virtual void start();
-    QIODevice* getPayload();
+    QSharedPointer<QIODevice> getPayload();
 
 private:
-    QIODevice* mOutput;
-    QTcpSocket* mSocket;
     QHostAddress mAddress;
     qint16 mPort;
+    QTcpSocket* mSocket;
+    QSharedPointer<QIODevice> mOutput;
+
 
 private Q_SLOTS:
     void disconnected();

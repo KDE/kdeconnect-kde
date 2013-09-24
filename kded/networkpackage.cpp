@@ -29,7 +29,6 @@
 #include <QSslKey>
 #include <QDateTime>
 #include <QtCrypto>
-
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
 
@@ -43,7 +42,7 @@ NetworkPackage::NetworkPackage(const QString& type)
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = type;
     mBody = QVariantMap();
-    mPayload = 0;
+    mPayload = QSharedPointer<QIODevice>();
     mPayloadSize = 0;
 }
 
@@ -53,7 +52,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     QString id = config->group("myself").readEntry<QString>("id","");
     np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->mType = PACKAGE_TYPE_IDENTITY;
-    np->mPayload = 0;
+    np->mPayload = QSharedPointer<QIODevice>();
     np->mPayloadSize = 0;
     np->set("deviceId", id);
     np->set("deviceName", QHostInfo::localHostName());

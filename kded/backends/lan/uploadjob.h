@@ -27,18 +27,19 @@
 #include <QVariantMap>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <QSharedPointer>
 
 class UploadJob
     : public KJob
 {
     Q_OBJECT
 public:
-    UploadJob(QIODevice* source);
+    UploadJob(const QSharedPointer<QIODevice>& source);
     virtual void start();
     QVariantMap getTransferInfo();
 
 private:
-    QIODevice* mInput;
+    QSharedPointer<QIODevice> mInput;
     QTcpServer* mServer;
     QTcpSocket* mSocket;
     qint16 mPort;

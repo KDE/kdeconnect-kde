@@ -23,7 +23,7 @@
 
 #include "uploadjob.h"
 
-UploadJob::UploadJob(QIODevice* source): KJob()
+UploadJob::UploadJob(const QSharedPointer<QIODevice>& source): KJob()
 {
     mInput = source;
     mServer = new QTcpServer(this);
@@ -51,8 +51,8 @@ void UploadJob::newConnection()
 
     mSocket = mServer->nextPendingConnection();
 
-    connect(mInput, SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(mInput, SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
+    connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
+    connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
 
     if (!mInput->open(QIODevice::ReadOnly)) {
         return; //TODO: Handle error, clean up...
