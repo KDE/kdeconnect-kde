@@ -17,6 +17,7 @@ set(kdeconnect_notifications_SRCS
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
     ../../networkpackage.cpp
+    ../../filetransferjob.cpp
     ../../device.cpp
 )
 
@@ -25,6 +26,7 @@ kde4_add_plugin(kdeconnect_notifications ${kdeconnect_notifications_SRCS})
 target_link_libraries(kdeconnect_notifications
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KIO_LIBS}
     ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
     ${QCA2_LIBRARIES}

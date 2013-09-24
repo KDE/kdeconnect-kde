@@ -16,6 +16,7 @@ set(kdeconnect_battery_SRCS
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
     ../../networkpackage.cpp
+    ../../filetransferjob.cpp
     ../../device.cpp
 )
 
@@ -24,6 +25,7 @@ kde4_add_plugin(kdeconnect_battery ${kdeconnect_battery_SRCS})
 target_link_libraries(kdeconnect_battery
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KIO_LIBS}
     ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
     ${QCA2_LIBRARIES}

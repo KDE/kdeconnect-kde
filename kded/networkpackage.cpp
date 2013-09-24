@@ -33,6 +33,8 @@
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
 
+#include "filetransferjob.h"
+
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 5;
 
@@ -170,5 +172,10 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
     return true;
 
+}
+
+FileTransferJob* NetworkPackage::createPayloadTransferJob(const KUrl& destination) const
+{
+    return new FileTransferJob(payload(), payloadSize(), destination);
 }
 

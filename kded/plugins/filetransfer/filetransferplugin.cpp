@@ -28,7 +28,7 @@
 #include <QFile>
 #include <QDesktopServices>
 
-#include "filetransferjob.h"
+#include "../../filetransferjob.h"
 #include "autoclosingqfile.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< FileTransferPlugin >(); )
@@ -70,9 +70,8 @@ bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
     if (np.hasPayload()) {
         qDebug() << "receiving file";
         QString filename = np.get<QString>("filename", mDestinationDir + QString::number(QDateTime::currentMSecsSinceEpoch()));
-        QIODevice* incoming = np.payload();
-        FileTransferJob* job = new FileTransferJob(incoming, np.payloadSize(), filename);
-        connect(job,SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
+        FileTransferJob* job = np.createPayloadTransferJob(filename);
+        connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
         job->start();
     }
 

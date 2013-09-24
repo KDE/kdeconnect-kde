@@ -15,6 +15,7 @@ set(kdeconnect_mpriscontrol_SRCS
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
     ../../networkpackage.cpp
+    ../../filetransferjob.cpp
     ../../device.cpp
 )
 
@@ -35,6 +36,7 @@ kde4_add_plugin(kdeconnect_mpriscontrol ${kdeconnect_mpriscontrol_SRCS})
 target_link_libraries(kdeconnect_mpriscontrol
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KIO_LIBS}
     ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
     ${QCA2_LIBRARIES}

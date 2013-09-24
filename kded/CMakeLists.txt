@@ -22,6 +22,7 @@ set(kded_kdeconnect_SRCS
     plugins/pluginloader.cpp
 
     networkpackage.cpp
+    filetransferjob.cpp
     daemon.cpp
     device.cpp
 )

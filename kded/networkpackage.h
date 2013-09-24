@@ -23,6 +23,8 @@
 
 #include "networkpackagetypes.h"
 
+#include <KUrl>
+
 #include <QObject>
 #include <QDebug>
 #include <QString>
@@ -34,6 +36,8 @@
 #include <qjson/parser.h>
 
 #include "default_args.h"
+
+class FileTransferJob;
 
 class NetworkPackage : public QObject
 {
@@ -74,6 +78,7 @@ public:
     void setPayload(QIODevice* device, int payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
     bool hasPayload() const { return (mPayloadSize != 0); }
     int payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
+    FileTransferJob* createPayloadTransferJob(const KUrl& destination) const;
 
     //To be called by a particular DeviceLink
     QVariantMap payloadTransferInfo() const { return mPayloadTransferInfo; }
