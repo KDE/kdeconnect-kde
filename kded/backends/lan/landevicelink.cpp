@@ -81,13 +81,16 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
 
 void LanDeviceLink::dataReceived()
 {
-    //qDebug() << "LanDeviceLink dataReceived";
-
     QByteArray data = mSocket->readAll();
+
+    //qDebug() << "LanDeviceLink dataReceived" << data;
+
     QList<QByteArray> packages = data.split('\n');
     Q_FOREACH(const QByteArray& package, packages) {
 
-        if (package.length() < 3) continue;
+        if (package.length() < 3) {
+            continue;
+        }
 
         NetworkPackage unserialized(QString::null);
         NetworkPackage::unserialize(package, &unserialized);
@@ -109,15 +112,22 @@ void LanDeviceLink::dataReceived()
         } else {
 
             if (unserialized.hasPayloadTransferInfo()) {
-                //Lets ignore unencrypted payloads
+                qWarning() << "Ignoring unencrypted payload";
+                continue;
             }
-
 
             Q_EMIT receivedPackage(unserialized);
 
         }
 
     }
+
+    //qDebug() << "MOAR BYTES" << mSocket->bytesAvailable() << packages.length();
+
+    if (mSocket->bytesAvailable() > 0) {
+        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
+    }
+
 }
 
 void LanDeviceLink::readyRead()

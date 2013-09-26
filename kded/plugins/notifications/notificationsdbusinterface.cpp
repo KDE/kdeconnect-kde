@@ -23,7 +23,6 @@
 #include "../../filetransferjob.h"
 
 #include <QDebug>
-#include <QDir>
 #include <QDBusConnection>
 
 #include <KNotification>
@@ -34,8 +33,9 @@ NotificationsDbusInterface::NotificationsDbusInterface(Device* device, QObject *
     : QDBusAbstractAdaptor(parent)
     , mDevice(device)
     , mLastId(0)
+    , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
 {
-
+    imagesDir.mkpath(imagesDir.absolutePath());
 }
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
@@ -56,8 +56,8 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
 
         QString destination;
         if (np.hasPayload()) {
-            //TODO: Store the image with extension?
-            destination = QDir::temp().absoluteFilePath("kdeconnect/"+KMD5(np.get<QString>("appName").toLatin1()).hexDigest());
+            QString filename = KMD5(np.get<QString>("appName").toLatin1()).hexDigest();  //TODO: Store with extension?
+            destination = imagesDir.absoluteFilePath(filename);
             FileTransferJob* job = np.createPayloadTransferJob(destination);
             job->start();
         }

@@ -27,17 +27,27 @@
 
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination): KJob()
 {
+    Q_ASSERT(destination.isLocalFile());
+    QFile(destination.path()).open(QIODevice::WriteOnly | QIODevice::Truncate); //HACK: KIO is so dumb it can't create the file if it doesn't exist
     mDestination = KIO::open(destination, QIODevice::WriteOnly);
+    connect(mDestination, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
+    connect(mDestination, SIGNAL(result(KJob*)), this, SLOT(openFinished(KJob*)));
     mOrigin = origin;
     mSize = size;
     mWritten = 0;
-    qDebug() << "Downloading payload to" << destination;
+    qDebug() << "FileTransferJob Downloading payload to" << destination;
+}
+
+void FileTransferJob::openFinished(KJob* job)
+{
+    qDebug() << job->errorString();
 }
 
 void FileTransferJob::start()
 {
+    //qDebug() << "FileTransferJob start";
+
     //Open destination file
-    connect(mDestination, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
     mDestination->start();
 }
 
@@ -45,7 +55,7 @@ void FileTransferJob::open(KIO::Job* job)
 {
     Q_UNUSED(job);
 
-    qDebug() << "open";
+    //qDebug() << "FileTransferJob open";
 
     if (!mOrigin) {
         qDebug() << "FileTransferJob: Origin is null";
@@ -64,20 +74,16 @@ void FileTransferJob::open(KIO::Job* job)
 
 void FileTransferJob::readyRead()
 {
-    qDebug() << "readyRead";
-
-    //Copy a chunk of data
-
     int bytes = qMin(qint64(4096), mOrigin->bytesAvailable());
     QByteArray data = mOrigin->read(bytes);
     mDestination->write(data);
     mWritten += bytes;
 
+    //qDebug() << "readyRead" << mSize << mWritten << bytes;
+
     if (mSize > -1) {
         setPercent((mWritten*100)/mSize);
     }
-
-    qDebug() << mSize << mWritten << bytes;
 
     if (mSize > -1 && mWritten >= mSize) { //At the end or expected size reached
         qDebug() << "No more data to read";
@@ -90,8 +96,6 @@ void FileTransferJob::readyRead()
 
 void FileTransferJob::sourceFinished()
 {
-    qDebug() << "sourceFinished";
-
     //Make sure we do not enter this function again
     disconnect(mOrigin.data(), SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
 
@@ -104,7 +108,8 @@ void FileTransferJob::sourceFinished()
     } else {
         qDebug() << "Finished transfer" << mDestination->url();
     }
+    mDestination->close();
+    mDestination->deleteLater();
     emitResult();
 }
-
 

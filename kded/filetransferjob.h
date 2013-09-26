@@ -44,6 +44,7 @@ public Q_SLOTS:
     void readyRead();
     void open(KIO::Job*);
     void sourceFinished();
+    void openFinished(KJob*);
 
 private:
     QSharedPointer<QIODevice> mOrigin;

@@ -25,6 +25,7 @@
 #include <QHash>
 #include <QString>
 #include <QStringList>
+#include <QDir>
 
 #include "../../device.h"
 #include "notification.h"
@@ -59,6 +60,7 @@ private /*attributes*/:
     QHash<QString, Notification*> mNotifications;
     QHash<QString, QString> mInternalIdToPublicId;
     int mLastId;
+    QDir imagesDir;
 
 };
 

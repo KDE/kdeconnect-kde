@@ -45,6 +45,7 @@ void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
     if (loopbackDeviceLink) {
         delete loopbackDeviceLink;
     }
+
     loopbackDeviceLink = newLoopbackDeviceLink;
 }
 
