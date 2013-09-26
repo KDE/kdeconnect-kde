@@ -10,6 +10,7 @@
 #include <KNotification>
 #include <KIcon>
 
+#include <QDBusConnection>
 #include <QDebug>
 
 #include "plugins/kdeconnectplugin.h"

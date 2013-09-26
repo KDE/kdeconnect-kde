@@ -23,7 +23,7 @@
 #include "../../filetransferjob.h"
 
 #include <QDebug>
-#include <qdir.h>
+#include <QDir>
 #include <QDBusConnection>
 
 #include <KNotification>

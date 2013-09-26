@@ -22,8 +22,9 @@
 
 #include "kdeconnectplugin.h"
 
+#include <QDebug>
+
 #include <KServiceTypeTrader>
-#include <KDebug>
 
 #include "../device.h"
 

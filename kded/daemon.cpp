@@ -33,8 +33,6 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KNotification>
-#include <KIcon>
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
@@ -77,7 +75,8 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     const QStringList& list = known.groupList();
     Q_FOREACH(const QString& id, list) {
         Device* device = new Device(id);
-        connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
+        connect(device, SIGNAL(reachableStatusChanged()),
+                this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
         Q_EMIT deviceAdded(id);
     }
@@ -96,6 +95,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     setDiscoveryEnabled(true);
 
 }
+
 void Daemon::setDiscoveryEnabled(bool b)
 {
     //Listen to incomming connections
@@ -107,6 +107,7 @@ void Daemon::setDiscoveryEnabled(bool b)
     }
 
 }
+
 void Daemon::forceOnNetworkChange()
 {
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
@@ -162,7 +163,7 @@ void Daemon::onDeviceReachableStatusChanged()
 
     Q_EMIT deviceVisibilityChanged(id, device->isReachable());
 
-    qDebug() << "Device" << device->name() << "reachable status changed:" << device->isReachable();
+    //qDebug() << "Device" << device->name() << "reachable status changed:" << device->isReachable();
 
     if (!device->isReachable()) {
 

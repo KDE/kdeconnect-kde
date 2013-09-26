@@ -20,8 +20,6 @@
 
 #include "kdeconnectplugin.h"
 
-#include <QPointer>
-
 #include "../device.h"
 
 KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)

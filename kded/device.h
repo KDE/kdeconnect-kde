@@ -22,7 +22,6 @@
 #define DEVICE_H
 
 #include <QObject>
-#include <QDBusConnection>
 #include <QString>
 #include <QMap>
 #include <QSslKey>

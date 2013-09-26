@@ -30,7 +30,8 @@
 #include <KIO/Job>
 #include <KSharedPtr>
 
-class FileTransferJob : public KJob
+class FileTransferJob
+    : public KJob
 {
     Q_OBJECT
 
@@ -52,4 +53,4 @@ private:
 
 };
 
-#endif // FILETRANSFERJOB_H
+#endif
