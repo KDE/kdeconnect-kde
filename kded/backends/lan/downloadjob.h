@@ -41,8 +41,7 @@ public:
 private:
     QHostAddress mAddress;
     qint16 mPort;
-    QTcpSocket* mSocket;
-    QSharedPointer<QIODevice> mOutput;
+    QSharedPointer<QTcpSocket> mSocket;
 
 
 private Q_SLOTS:

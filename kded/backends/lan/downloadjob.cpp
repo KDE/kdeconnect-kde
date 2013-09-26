@@ -24,25 +24,26 @@ DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
 {
     mAddress = address;
     mPort = transferInfo["port"].toInt();
-    mSocket = new QTcpSocket();
-    mOutput = QSharedPointer<QIODevice>(mSocket);
+    mSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
 }
 
 void DownloadJob::start()
 {
-    qDebug() << "start";
+    //qDebug() << "DownloadJob Start";
     mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
-    connect(mSocket, SIGNAL(disconnected()), this, SLOT(disconnected()));
+    connect(mSocket.data(), SIGNAL(disconnected()),
+            this, SLOT(disconnected()));
     //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
 }
 
 void DownloadJob::disconnected()
 {
+    //qDebug() << "DownloadJob End";
     emitResult();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
-    qDebug() << "getPayload";
-    return mOutput;
+    //qDebug() << "getPayload";
+    return mSocket.staticCast<QIODevice>();
 }
