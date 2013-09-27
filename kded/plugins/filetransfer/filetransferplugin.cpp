@@ -26,6 +26,7 @@
 
 #include <QDebug>
 #include <QFile>
+#include <qprocess.h>
 #include <QDesktopServices>
 
 #include "../../filetransferjob.h"
@@ -45,8 +46,8 @@ FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args
 
 bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 {
-
-    //TODO: Move this code to a test and do a diff between files
+/*
+    //TODO: Move this code to a test and add a diff between files
     if (np.type() == PACKAGE_TYPE_PING) {
 
         qDebug() << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
@@ -63,16 +64,37 @@ bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
         return true;
 
     }
-
+*/
     if (np.type() != PACKAGE_TYPE_FILETRANSFER) return false;
     qDebug() << "File transfer";
 
     if (np.hasPayload()) {
         qDebug() << "receiving file";
-        QString filename = np.get<QString>("filename", mDestinationDir + QString::number(QDateTime::currentMSecsSinceEpoch()));
-        FileTransferJob* job = np.createPayloadTransferJob(filename);
+        QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
+        FileTransferJob* job = np.createPayloadTransferJob(mDestinationDir + filename);
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
         job->start();
+    } else if (np.has("text")) {
+        QString text = np.get<QString>("text");
+        if (!KStandardDirs::findExe("kate").isEmpty()) {
+            QProcess* proc = new QProcess();
+            connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
+            proc->start("kate", QStringList("--stdin"));
+            proc->write(text.toUtf8());
+            proc->closeWriteChannel();
+        } else {
+            QTemporaryFile tmpFile;
+            tmpFile.setAutoRemove(false);
+            tmpFile.open();
+            tmpFile.write(text.toUtf8());
+            tmpFile.close();
+            QDesktopServices::openUrl(QUrl::fromLocalFile(tmpFile.fileName()));
+        }
+    } else if (np.has("url")) {
+        QUrl url(np.get<QString>("url"));
+        QDesktopServices::openUrl(url);
+    } else {
+        qDebug() << "Error: Nothing attached!";
     }
 
     return true;
