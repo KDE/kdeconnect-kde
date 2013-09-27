@@ -12,6 +12,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=edit-paste
 Name=Clipboard
+Name[cs]=Schránka
 Name[de]=Zwischenablage
 Name[es]=Portapapeles
 Name[nl]=Klembord

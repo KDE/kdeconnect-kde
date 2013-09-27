@@ -12,6 +12,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=battery-100
 Name=Battery monitor
+Name[cs]=Monitor baterie
 Name[de]=Akkuüberwachung
 Name[es]=Monitor de la batería
 Name[nl]=Batterijmonitor

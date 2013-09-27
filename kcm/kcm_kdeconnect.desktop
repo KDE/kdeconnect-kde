@@ -12,6 +12,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=Devices
+Name[cs]=Zařízení
 Name[de]=Geräte
 Name[es]=Dispositivos
 Name[nl]=Apparaten

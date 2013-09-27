@@ -22,6 +22,7 @@ Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/callReceived]
 Name=Calling
+Name[cs]=Volám
 Name[de]=Anruf
 Name[es]=Llamando
 Name[nl]=Oproep
@@ -45,6 +46,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed
+Name[cs]=Zmeškané
 Name[de]=Verpasst
 Name[es]=Perdida
 Name[nl]=Gemist
@@ -55,6 +57,7 @@ Name[sv]=Missat
 Name[uk]=Пропущено
 Name[x-test]=xxMissedxx
 Comment=You have a missed call
+Comment[cs]=Máte zmeškaný hovor
 Comment[de]=Sie haben einen Anruf verpasst
 Comment[es]=Tiene una llamada perdida
 Comment[nl]=U hebt een gemiste oproep
@@ -68,6 +71,7 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS
+Name[cs]=SMS
 Name[de]=SMS
 Name[es]=SMS
 Name[nl]=SMS
@@ -90,6 +94,7 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery
+Name[cs]=Baterie
 Name[de]=Akku
 Name[es]=Batería
 Name[nl]=Batterij
@@ -112,6 +117,7 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping
+Name[cs]=Ping
 Name[de]=Ping
 Name[es]=Ping
 Name[nl]=Ping
@@ -134,6 +140,7 @@ Action=Popup
 
 [Event/notification]
 Name=Notification
+Name[cs]=Upozornění
 Name[de]=Benachrichtigung
 Name[es]=Notificación
 Name[nl]=Melding
@@ -156,6 +163,7 @@ Action=Popup
 
 [Event/unknownEvent]
 Name=Unknown
+Name[cs]=Neznámý
 Name[de]=Unbekannt
 Name[es]=Desconocido
 Name[nl]=Onbekend
