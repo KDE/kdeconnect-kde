@@ -102,10 +102,12 @@ Q_SIGNALS:
     Q_SCRIPTABLE void unpaired();
 
 private:
+    //TODO: Replace device id by public key
     QString m_deviceId;
     QString m_deviceName;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
+    int m_protocolVersion;
 
     QList<DeviceLink*> m_deviceLinks;
     QMap<QString, KdeConnectPlugin*> m_plugins;
