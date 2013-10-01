@@ -39,9 +39,11 @@ public Q_SLOTS:
     virtual void connected() { }
     void finished(KJob*);
 
+private Q_SLOTS:
+    void openDestinationFolder();
+
 private:
     QString mDestinationDir;
 
 };
-
 #endif

@@ -28,6 +28,7 @@
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination): KJob()
 {
     Q_ASSERT(destination.isLocalFile());
+    //TODO: Make a precondition before calling this function that destination file exists
     QFile(destination.path()).open(QIODevice::WriteOnly | QIODevice::Truncate); //HACK: KIO is so dumb it can't create the file if it doesn't exist
     mDestination = KIO::open(destination, QIODevice::WriteOnly);
     connect(mDestination, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
@@ -86,9 +87,8 @@ void FileTransferJob::readyRead()
     }
 
     if (mSize > -1 && mWritten >= mSize) { //At the end or expected size reached
-        qDebug() << "No more data to read";
-        disconnect(mOrigin.data(), SIGNAL(readyRead()),this, SLOT(readyRead()));
         mOrigin->close();
+        //sourceFinished();
     } else if (mOrigin->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "readyRead", Qt::QueuedConnection);
     }

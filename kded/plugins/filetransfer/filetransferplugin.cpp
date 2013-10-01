@@ -65,12 +65,14 @@ bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 
     }
 */
+
     if (np.type() != PACKAGE_TYPE_FILETRANSFER) return false;
     qDebug() << "File transfer";
 
     if (np.hasPayload()) {
-        qDebug() << "receiving file";
+        //qDebug() << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
+        //TODO: Ask before overwritting or rename file if it already exists
         FileTransferJob* job = np.createPayloadTransferJob(mDestinationDir + filename);
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
         job->start();
@@ -111,7 +113,12 @@ void FileTransferPlugin::finished(KJob* job)
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(i18n("Transfer finished"));
     notification->setText(transferJob->destination().fileName());
-    //TODO: Add action "open destination folder"
+    notification->setActions(QStringList(i18n("Open destination folder")));
+    connect(notification, SIGNAL(action1Activated()), this, SLOT(openDestinationFolder()));
     notification->sendEvent();
+}
 
+void FileTransferPlugin::openDestinationFolder()
+{
+    QDesktopServices::openUrl(mDestinationDir);
 }
