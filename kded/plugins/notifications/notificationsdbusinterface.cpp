@@ -20,18 +20,22 @@
 
 #include "notificationsdbusinterface.h"
 
+#include "../../filetransferjob.h"
+
 #include <QDebug>
 #include <QDBusConnection>
 
 #include <KNotification>
 #include <KIcon>
+#include <KMD5>
 
 NotificationsDbusInterface::NotificationsDbusInterface(Device* device, QObject *parent)
     : QDBusAbstractAdaptor(parent)
     , mDevice(device)
     , mLastId(0)
+    , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
 {
-
+    imagesDir.mkpath(imagesDir.absolutePath());
 }
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
@@ -49,7 +53,17 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
     if (np.get<bool>("isCancel")) {
         removeNotification(np.get<QString>("id"));
     } else {
-        Notification* noti = new Notification(np, this);
+
+        QString destination;
+        if (np.hasPayload()) {
+            QString filename = KMD5(np.get<QString>("appName").toLatin1()).hexDigest();  //TODO: Store with extension?
+            destination = imagesDir.absoluteFilePath(filename);
+            FileTransferJob* job = np.createPayloadTransferJob(destination);
+            job->start();
+        }
+
+        Notification* noti = new Notification(np, destination, this);
+        addNotification(noti);
 
         //Do not show updates to existent notification nor answers to a initialization request
         if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
@@ -61,7 +75,6 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             notification->sendEvent();
         }
 
-        addNotification(noti);
     }
 }
 

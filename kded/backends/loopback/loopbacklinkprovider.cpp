@@ -25,6 +25,7 @@
 LoopbackLinkProvider::LoopbackLinkProvider()
     : identityPackage(PACKAGE_TYPE_IDENTITY)
 {
+    loopbackDeviceLink = 0;
     NetworkPackage::createIdentityPackage(&identityPackage);
 }
 
@@ -36,18 +37,28 @@ LoopbackLinkProvider::~LoopbackLinkProvider()
 void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
     Q_UNUSED(state);
-    qDebug() << "Echo Device discovery emitted";
-    Q_EMIT onConnectionReceived(identityPackage, loopbackDeviceLink);
+    //qDebug() << "Echo Device discovery emitted";
+
+    LoopbackDeviceLink* newLoopbackDeviceLink = new LoopbackDeviceLink("loopback", this);
+    Q_EMIT onConnectionReceived(identityPackage, newLoopbackDeviceLink);
+
+    if (loopbackDeviceLink) {
+        delete loopbackDeviceLink;
+    }
+
+    loopbackDeviceLink = newLoopbackDeviceLink;
 }
 
 void LoopbackLinkProvider::onStart()
 {
-    loopbackDeviceLink = new LoopbackDeviceLink("loopback", this);
     onNetworkChange(QNetworkSession::Connected);
 }
 
 void LoopbackLinkProvider::onStop()
 {
-    delete loopbackDeviceLink;
+    if (loopbackDeviceLink) {
+        delete loopbackDeviceLink;
+        loopbackDeviceLink = 0;
+    }
 }
 

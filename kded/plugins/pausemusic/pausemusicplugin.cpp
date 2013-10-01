@@ -23,7 +23,7 @@
 #include <QDebug>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <qdbusconnectioninterface.h>
+#include <QDBusConnectionInterface>
 #include <QDBusReply>
 #include <QDBusMessage>
 

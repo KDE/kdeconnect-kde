@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,17 +18,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#ifndef DOWNLOADJOB_H
+#define DOWNLOADJOB_H
 
-#include "../device.h"
+#include <KJob>
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+#include <QIODevice>
+#include <QVariantMap>
+#include <QHostAddress>
+#include <QTcpSocket>
+#include <QSharedPointer>
+
+class DownloadJob
+    : public KJob
 {
-    mDevice = qvariant_cast< Device* >(args.first());
-}
+    Q_OBJECT
+public:
+    DownloadJob(QHostAddress address, QVariantMap transferInfo);
+    virtual void start();
+    QSharedPointer<QIODevice> getPayload();
 
-Device* KdeConnectPlugin::device()
-{
-    return mDevice;
-}
+private:
+    QHostAddress mAddress;
+    qint16 mPort;
+    QSharedPointer<QTcpSocket> mSocket;
+
+
+private Q_SLOTS:
+    void disconnected();
+
+};
+
+#endif // UPLOADJOB_H

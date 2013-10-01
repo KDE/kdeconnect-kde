@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,22 +18,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LOOPBACKDEVICELINK_H
-#define LOOPBACKDEVICELINK_H
+#ifndef UPLOADJOB_H
+#define UPLOADJOB_H
 
-#include "devicelink.h"
+#include <KJob>
 
-class LoopbackLinkProvider;
+#include <QIODevice>
+#include <QVariantMap>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QSharedPointer>
 
-class LoopbackDeviceLink
-    : public DeviceLink
+class UploadJob
+    : public KJob
 {
     Q_OBJECT
 public:
-    LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
+    UploadJob(const QSharedPointer<QIODevice>& source);
+    virtual void start();
+    QVariantMap getTransferInfo();
 
-    bool sendPackage(const NetworkPackage& np);
+private:
+    QSharedPointer<QIODevice> mInput;
+    QTcpServer* mServer;
+    QTcpSocket* mSocket;
+    qint16 mPort;
 
+private Q_SLOTS:
+    void readyRead();
+    void newConnection();
+    void aboutToClose();
 };
 
-#endif
+#endif // UPLOADJOB_H

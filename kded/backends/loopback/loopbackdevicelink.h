@@ -18,36 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEVICELINK_H
-#define DEVICELINK_H
+#ifndef LOOPBACKDEVICELINK_H
+#define LOOPBACKDEVICELINK_H
 
-#include <QObject>
+#include "../devicelink.h"
 
+class LoopbackLinkProvider;
 
-class NetworkPackage;
-class Device;
-class LinkProvider;
-
-class DeviceLink
-    : public QObject
+class LoopbackDeviceLink
+    : public DeviceLink
 {
     Q_OBJECT
-
 public:
-    DeviceLink(const QString& deviceId, LinkProvider* parent);
+    LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
-    const QString& deviceId() { return mDeviceId; }
-    LinkProvider* provider() { return mLinkProvider; }
-    
-    virtual bool sendPackage(const NetworkPackage& np) = 0;
+    virtual bool sendPackage(NetworkPackage& np);
+    virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np);
 
-Q_SIGNALS:
-    void receivedPackage(const NetworkPackage& np);
-
-private:
-    QString mDeviceId;
-    LinkProvider* mLinkProvider;
-    
 };
 
-#endif // DEVICELINK_H
+#endif

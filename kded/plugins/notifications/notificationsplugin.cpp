@@ -38,7 +38,7 @@ NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& ar
 void NotificationsPlugin::connected()
 {
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
-    np.set("request",true);
+    np.set("request", true);
     device()->sendPackage(np);
 }
 

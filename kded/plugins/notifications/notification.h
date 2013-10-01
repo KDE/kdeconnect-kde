@@ -34,15 +34,17 @@ class Notification
     Q_PROPERTY(QString internalId READ internalId)
     Q_PROPERTY(QString appName READ appName)
     Q_PROPERTY(QString ticker READ ticker)
+    Q_PROPERTY(QString iconPath READ iconPath)
     Q_PROPERTY(bool dismissable READ dismissable)
 
 public:
-    Notification(const NetworkPackage& np, QObject* parent);
+    Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent);
     virtual ~Notification();
 
     QString internalId() { return mId; }
     QString appName() { return mAppName; }
     QString ticker() { return mTicker; }
+    QString iconPath() { return mIconPath; }
     bool dismissable() { return mDismissable; }
 
 public Q_SLOTS:
@@ -55,7 +57,7 @@ private:
     QString mId;
     QString mAppName;
     QString mTicker;
-    //QIcon mIcon;
+    QString mIconPath;
     bool mDismissable;
 
 };

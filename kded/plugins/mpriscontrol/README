@@ -1,0 +1,27 @@
+
+This plugin controls the playback of mpris-enabled applications in this device,
+commanded by its counterpart in the other device that acts as a remote control.
+That means both plugins are not symmetrical.
+
+This plugins receives and sends packages with type kdeconnect.mpris.
+
+It keeps a list of detected players it can control via MPRIS. When it receives
+a package that contains the boolean "requestPlayerList" set to true, it will
+send back the list of players in an array named "playerList". If a new player is
+detected or a known one dissappears, it should also send this list. Note that
+players are identified only by its name (its MPRIS Identity), so there can not
+be two players with the same display name.
+
+This plugins also reports the current song, extracted from MPRIS Metadata. It
+should send it when it changes or when receiving a package containing a boolean
+"requestNowPlaying" set to true.
+
+The remote devices can send packages with commands to one of the players. Those
+packages will contain a string "player" with the name of the player they want to
+command and a string "action" with the name of an MPRIS call (like "Play",
+"Next"...).
+
+This plugin can also control the system volume. The peer device can send a
+package with "requestVolume" set to true to ask for the current volume, or send
+a package with "setVolume" set to an integer in the range [0,100] to change it.
+

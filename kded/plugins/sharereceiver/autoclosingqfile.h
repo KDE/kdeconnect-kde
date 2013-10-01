@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,32 +18,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LOOPBACKLINKPROVIDER_H
-#define LOOPBACKLINKPROVIDER_H
+#ifndef AUTOCLOSINGQFILE_H
+#define AUTOCLOSINGQFILE_H
 
-#include "linkprovider.h"
-#include "networkpackage.h"
-#include "devicelinks/loopbackdevicelink.h"
+#include <QFile>
+#include <QDebug>
 
-class LoopbackLinkProvider
-    : public LinkProvider
+class AutoClosingQFile : public QFile
 {
     Q_OBJECT
 public:
-    LoopbackLinkProvider();
-    ~LoopbackLinkProvider();
 
-    QString name() { return "LoopbackLinkProvider"; }
-    int priority() { return PRIORITY_LOW; }
-
-    virtual void onStart();
-    virtual void onStop();
-    virtual void onNetworkChange(QNetworkSession::State state);
-
-private:
-    LoopbackDeviceLink* loopbackDeviceLink;
-    NetworkPackage identityPackage;
-    
+    AutoClosingQFile(const QString &name);
+    virtual qint64 readData(char* data, qint64 maxlen) {
+        qint64 read = QFile::readData(data, maxlen);
+        if (read == -1 || read == bytesAvailable()) {
+            close();
+        }
+        return read;
+    }
 };
 
-#endif
+
+#endif // AUTOCLOSINGQFILE_H

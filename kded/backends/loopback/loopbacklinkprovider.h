@@ -18,23 +18,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "filetransferplugin.h"
+#ifndef LOOPBACKLINKPROVIDER_H
+#define LOOPBACKLINKPROVIDER_H
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< FileTransferPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_filetransfer", "kdeconnect_filetransfer") )
+#include "../linkprovider.h"
+#include "loopbackdevicelink.h"
 
-
-FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args)
+class LoopbackLinkProvider
+    : public LinkProvider
 {
+    Q_OBJECT
+public:
+    LoopbackLinkProvider();
+    ~LoopbackLinkProvider();
 
+    QString name() { return "LoopbackLinkProvider"; }
+    int priority() { return PRIORITY_LOW; }
+
+    virtual void onStart();
+    virtual void onStop();
+    virtual void onNetworkChange(QNetworkSession::State state);
+
+private:
+    LoopbackDeviceLink* loopbackDeviceLink;
+    NetworkPackage identityPackage;
     
-}
+};
 
-bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
-{
-    Q_UNUSED(np);
-
-    return false;
-
-}
+#endif

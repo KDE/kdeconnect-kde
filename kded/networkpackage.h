@@ -23,15 +23,22 @@
 
 #include "networkpackagetypes.h"
 
+#include <KUrl>
+
 #include <QObject>
+#include <QDebug>
 #include <QString>
 #include <QVariant>
 #include <QStringList>
+#include <QIODevice>
 #include <QtCrypto>
+#include <QSharedPointer>
 
 #include <qjson/parser.h>
 
 #include "default_args.h"
+
+class FileTransferJob;
 
 class NetworkPackage : public QObject
 {
@@ -54,6 +61,7 @@ public:
 
     void encrypt(QCA::PublicKey& key);
     bool decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
+    bool isEncrypted() const { return mType == PACKAGE_TYPE_ENCRYPTED; }
 
     const QString& id() const { return mId; }
     const QString& type() const { return mType; }
@@ -66,18 +74,32 @@ public:
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }
     bool has(const QString& key) const { return mBody.contains(key); }
 
+    QSharedPointer<QIODevice> payload() const { return mPayload; }
+    void setPayload(const QSharedPointer<QIODevice>& device, int payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
+    bool hasPayload() const { return (mPayloadSize != 0); }
+    int payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
+    FileTransferJob* createPayloadTransferJob(const KUrl& destination) const;
+
+    //To be called by a particular DeviceLink
+    QVariantMap payloadTransferInfo() const { return mPayloadTransferInfo; }
+    void setPayloadTransferInfo(const QVariantMap& map) { mPayloadTransferInfo = map; }
+    bool hasPayloadTransferInfo() const { return !mPayloadTransferInfo.isEmpty(); }
+
 private:
+
     void setId(const QString& id) { mId = id; }
     void setType(const QString& t) { mType = t; }
     void setBody(const QVariantMap& b) { mBody = b; }
+    void setPayloadSize(int s) { mPayloadSize = s; }
 
     QString mId;
     QString mType;
     QVariantMap mBody;
 
-};
+    QSharedPointer<QIODevice> mPayload;
+    int mPayloadSize;
+    QVariantMap mPayloadTransferInfo;
 
-//Set specialization need this awesome-to-the-max syntax:
-//template<> inline void NetworkPackage::set<QStringList>(const QString& key, const QStringList& value) { mBody[key] = QVariant(value); }
+};
 
 #endif // NETWORKPACKAGE_H

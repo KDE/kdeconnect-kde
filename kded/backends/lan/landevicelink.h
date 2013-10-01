@@ -18,17 +18,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#ifndef LANDEVICELINK_H
+#define LANDEVICELINK_H
 
-#include "../device.h"
+#include <QObject>
+#include <QString>
+#include <QTcpSocket>
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+#include "../devicelink.h"
+
+class AvahiTcpLinkProvider;
+
+class LanDeviceLink
+    : public DeviceLink
 {
-    mDevice = qvariant_cast< Device* >(args.first());
-}
+    Q_OBJECT
 
-Device* KdeConnectPlugin::device()
-{
-    return mDevice;
-}
+public:
+    LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
+
+    bool sendPackage(NetworkPackage& np);
+    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
+
+private Q_SLOTS:
+    void dataReceived();
+    void readyRead();
+
+private:
+    QTcpSocket* mSocket;
+
+};
+
+#endif // UDPDEVICELINK_H

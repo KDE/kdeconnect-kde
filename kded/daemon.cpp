@@ -22,8 +22,8 @@
 
 #include "networkpackage.h"
 
-#include "linkproviders/lanlinkprovider.h"
-#include "linkproviders/loopbacklinkprovider.h"
+#include "backends/lan/lanlinkprovider.h"
+#include "backends/loopback/loopbacklinkprovider.h"
 
 #include <QUuid>
 #include <QDBusConnection>
@@ -33,8 +33,6 @@
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KNotification>
-#include <KIcon>
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
@@ -62,7 +60,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         QCA::PublicKey publicKey = privateKey.toPublicKey();
         config->group("myself").writeEntry("publicKey", publicKey.toPEM());
         //TODO: Store key in a PEM file instead (use something like KStandardDirs::locate("appdata", "private.pem"))
-        
+
     }
 
     //Debugging
@@ -70,14 +68,15 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
 
     //Load backends (hardcoded by now, should be plugins in a future)
     mLinkProviders.insert(new LanLinkProvider());
-    mLinkProviders.insert(new LoopbackLinkProvider());
+    //mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
     const KConfigGroup& known = config->group("trusted_devices");
     const QStringList& list = known.groupList();
     Q_FOREACH(const QString& id, list) {
         Device* device = new Device(id);
-        connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
+        connect(device, SIGNAL(reachableStatusChanged()),
+                this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
         Q_EMIT deviceAdded(id);
     }
@@ -96,6 +95,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     setDiscoveryEnabled(true);
 
 }
+
 void Daemon::setDiscoveryEnabled(bool b)
 {
     //Listen to incomming connections
@@ -107,6 +107,7 @@ void Daemon::setDiscoveryEnabled(bool b)
     }
 
 }
+
 void Daemon::forceOnNetworkChange()
 {
     Q_FOREACH (LinkProvider* a, mLinkProviders) {
@@ -139,7 +140,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     if (mDevices.contains(id)) {
         //qDebug() << "It is a known device";
         Device* device = mDevices[id];
-        device->addLink(dl);
+        device->addLink(identityPackage, dl);
     } else {
         //qDebug() << "It is a new device";
 
@@ -162,7 +163,7 @@ void Daemon::onDeviceReachableStatusChanged()
 
     Q_EMIT deviceVisibilityChanged(id, device->isReachable());
 
-    qDebug() << "Device" << device->name() << "reachable status changed:" << device->isReachable();
+    //qDebug() << "Device" << device->name() << "reachable status changed:" << device->isReachable();
 
     if (!device->isReachable()) {
 

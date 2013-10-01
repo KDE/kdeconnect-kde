@@ -24,8 +24,7 @@
 #include <QTcpServer>
 #include <QUdpSocket>
 
-#include "devicelinks/landevicelink.h"
-#include "networkpackage.h"
+#include "landevicelink.h"
 
 LanLinkProvider::LanLinkProvider()
 {
@@ -57,7 +56,8 @@ void LanLinkProvider::onStop()
 //I'm in a new network, let's be polite and introduce myself
 void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
-    qDebug() << "onNetworkChange" << state;
+    Q_UNUSED(state);
+    //qDebug() << "onNetworkChange" << state;
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort",tcpPort);
@@ -84,13 +84,13 @@ void LanLinkProvider::newUdpConnection()
             NetworkPackage::createIdentityPackage(&np2);
 
             if (np->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
-                qDebug() << "Ignoring my own broadcast";
+                //qDebug() << "Ignoring my own broadcast";
                 return;
             }
 
             int tcpPort = np->get<int>("tcpPort",port);
 
-            qDebug() << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
+            //qDebug() << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
 
             QTcpSocket* socket = new QTcpSocket(this);
             receivedIdentityPackages[socket].np = np;
@@ -146,7 +146,7 @@ void LanLinkProvider::connected()
     //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
 
-        qDebug() << "Handshaking done (i'm the existing device)";
+        //qDebug() << "Handshaking done (i'm the existing device)";
 
         connect(dl, SIGNAL(destroyed(QObject*)),
                 this, SLOT(deviceLinkDestroyed(QObject*)));
@@ -180,7 +180,7 @@ void LanLinkProvider::connected()
 //I'm the new device and this is the answer to my UDP introduction (no data received yet)
 void LanLinkProvider::newConnection()
 {
-    qDebug() << "LanLinkProvider newConnection";
+    //qDebug() << "LanLinkProvider newConnection";
 
     QTcpSocket* socket = mTcpServer->nextPendingConnection();
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
@@ -203,7 +203,7 @@ void LanLinkProvider::dataReceived()
 
     QByteArray data = socket->readLine();
 
-    qDebug() << "LanLinkProvider received reply:" << data;
+    //qDebug() << "LanLinkProvider received reply:" << data;
 
     NetworkPackage np("");
     bool success = NetworkPackage::unserialize(data,&np);
@@ -213,7 +213,7 @@ void LanLinkProvider::dataReceived()
         const QString& id = np.get<QString>("deviceId");
         LanDeviceLink* dl = new LanDeviceLink(id, this, socket);
 
-        qDebug() << "Handshaking done (i'm the new device)";
+        //qDebug() << "Handshaking done (i'm the new device)";
 
         connect(dl, SIGNAL(destroyed(QObject*)),
                 this, SLOT(deviceLinkDestroyed(QObject*)));
@@ -241,7 +241,7 @@ void LanLinkProvider::dataReceived()
 
 void LanLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
 {
-    qDebug() << "deviceLinkDestroyed";
+    //qDebug() << "deviceLinkDestroyed";
 
     DeviceLink* deviceLink = (DeviceLink*)uncastedDeviceLink;
     const QString& id = deviceLink->deviceId();

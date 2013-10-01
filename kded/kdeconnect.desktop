@@ -10,7 +10,6 @@ X-KDE-Kded-phase=1
 
 Name=KDE Connect
 Name[de]=KDE Connect
-Name[es]=KDE Connect
 Name[nl]=KDE Connect
 Name[pt]=KDE Connect
 Name[pt_BR]=KDE Connect
@@ -21,7 +20,6 @@ Name[x-test]=xxKDE Connectxx
 
 Comment=Connect KDE with your smartphone
 Comment[de]=KDE mit Ihren Smartphone verbinden
-Comment[es]=Conecte KDE con su teléfono móvil
 Comment[nl]=KDE met uw smartphone verbinden
 Comment[pt]=Ligue o KDE ao seu telemóvel
 Comment[pt_BR]=Conecte o KDE ao seu celular

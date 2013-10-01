@@ -30,6 +30,7 @@
 #define PACKAGE_TYPE_TELEPHONY QString("kdeconnect.telephony")
 #define PACKAGE_TYPE_CLIPBOARD QString("kdeconnect.clipboard")
 #define PACKAGE_TYPE_MPRIS QString("kdeconnect.mpris")
+#define PACKAGE_TYPE_SHARE QString("kdeconnect.share")
 
 
 #endif // NETWORKPACKAGETYPES_H

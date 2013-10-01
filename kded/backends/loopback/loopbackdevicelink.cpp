@@ -20,7 +20,7 @@
 
 #include "loopbackdevicelink.h"
 
-#include "linkproviders/loopbacklinkprovider.h"
+#include "loopbacklinkprovider.h"
 
 LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
     : DeviceLink(deviceId, provider)
@@ -28,12 +28,44 @@ LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProv
 
 }
 
-bool LoopbackDeviceLink::sendPackage(const NetworkPackage& toSend)
+bool LoopbackDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& input)
 {
-    NetworkPackage toReceive("");
-    NetworkPackage::unserialize(toSend.serialize(), &toReceive);
+    if (mPrivateKey.isNull() || key.isNull()) {
+        return false;
+    }
 
-    Q_EMIT receivedPackage(toReceive);
+    input.encrypt(key);
+
+    QByteArray serialized = input.serialize();
+
+    NetworkPackage unserialized(QString::null);
+    NetworkPackage::unserialize(serialized, &unserialized);
+
+    NetworkPackage output(QString::null);
+    unserialized.decrypt(mPrivateKey, &output);
+
+    //LoopbackDeviceLink does not need deviceTransferInfo
+    if (input.hasPayload()) {
+        output.setPayload(input.payload(), input.payloadSize());
+    }
+
+    Q_EMIT receivedPackage(output);
 
     return true;
 }
+
+bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)
+{
+    NetworkPackage output(QString::null);
+    NetworkPackage::unserialize(input.serialize(), &output);
+
+    //LoopbackDeviceLink does not need deviceTransferInfo
+    if (input.hasPayload()) {
+        output.setPayload(input.payload(), input.payloadSize());
+    }
+
+    Q_EMIT receivedPackage(output);
+
+    return true;
+}
+

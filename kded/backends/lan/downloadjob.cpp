@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,17 +18,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#include "downloadjob.h"
 
-#include "../device.h"
-
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
 {
-    mDevice = qvariant_cast< Device* >(args.first());
+    mAddress = address;
+    mPort = transferInfo["port"].toInt();
+    mSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
 }
 
-Device* KdeConnectPlugin::device()
+void DownloadJob::start()
 {
-    return mDevice;
+    //qDebug() << "DownloadJob Start";
+    mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
+    connect(mSocket.data(), SIGNAL(disconnected()),
+            this, SLOT(disconnected()));
+    //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
+}
+
+void DownloadJob::disconnected()
+{
+    //qDebug() << "DownloadJob End";
+    emitResult();
+}
+
+QSharedPointer<QIODevice> DownloadJob::getPayload()
+{
+    //qDebug() << "getPayload";
+    return mSocket.staticCast<QIODevice>();
 }

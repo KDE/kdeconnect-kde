@@ -18,9 +18,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "linkprovider.h"
+#ifndef SHARERECEIVERPLUGIN_H
+#define SHARERECEIVERPLUGIN_H
 
-LinkProvider::LinkProvider()
+#include <KNotification>
+#include <KIO/Job>
+
+#include "../kdeconnectplugin.h"
+
+class ShareReceiverPlugin
+    : public KdeConnectPlugin
 {
-    //gcc complains if we don't add something to compile on a class with virtual functions
-}
+    Q_OBJECT
+
+public:
+    explicit ShareReceiverPlugin(QObject *parent, const QVariantList &args);
+
+public Q_SLOTS:
+    virtual bool receivePackage(const NetworkPackage& np);
+    virtual void connected() { }
+    void finished(KJob*);
+
+private Q_SLOTS:
+    void openDestinationFolder();
+
+private:
+    QString mDestinationDir;
+
+};
+#endif

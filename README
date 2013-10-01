@@ -15,11 +15,11 @@ Class diagram
 
 Daemon instantiates Backends
 
-Backends manage to create DeviceLinks with the devices they can reach, and Q_EMIT them to Daemon.
+Backends manage to create DeviceLinks with the devices they can reach, and Q_EMIT them to the Daemon.
 
-When Daemon receives a DeviceLink from a backend it:
-    - If he already knows the Device, adds the DeviceLink to the Device
-    - If not, it creates a new Device.
+When the Daemon receives a DeviceLink from a backend:
+    - If it already knows the Device, adds the new DeviceLink to the existing Device, as a new way to reach it.
+    - If not, it creates a new untrusted (yet to be paired) Device.
 
 Devices contain a list of DeviceLinks, plus a list of Plugins (instantiated automatically)
 
@@ -40,15 +40,37 @@ are sent from one device to another (via a DeviceLink) serialized in json.
 The basic structure of a NetworkPackage is the following:
 
 {
-    "id": 123456789,
-    "type": "org.kde.whatever",
-    "body": {
+  "id": 123456789,
+  "type": "org.kde.whatever",
+  "body": {
 
-    },
-    "version": 1
+   },
+  "version": 5
 }
 
 Each type of package defines what it should contain inside its "body", so only
-the emisor Plugin and receiver Plugin of this type of package need agree about
-its content.
+the emisor plugin and receiver plugin of this type of package need agree about
+its content. Each plugin should provide a README explaining what does it write
+in the "body" section, to ease porting to other platforms.
+
+If the package has a payload attached, it will also contain two more fields:
+ "payloadSize": The size of the file, or -1 if it is a stream without known end
+ "payloadTransferInfo": Another JSON Object containing the information that the
+                        backend wants to send to the peer backend, to actually
+                        transfer the payload.
+
+Encrypted network packages have the following format:
+
+ "type": is always set to "kdeconnect.encrypted".
+ "id": contains a new valid id (ie: not the same id as the unencrypted package).
+ "version": contains the package version.
+ "body": contains a "data" array that carries the original package encrypted.
+
+The "data" array is filled the following way:
+
+ 1. The original package is serialized.
+ 2. The serialized string is divided in chunks small enough to be encrypted with
+    the other device's public key.
+ 3. Each chunk is encrypted and appended to the array in order.
+
 

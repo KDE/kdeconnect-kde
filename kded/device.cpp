@@ -10,12 +10,13 @@
 #include <KNotification>
 #include <KIcon>
 
+#include <QDBusConnection>
 #include <QDebug>
 
 #include "plugins/kdeconnectplugin.h"
 #include "plugins/pluginloader.h"
-#include "devicelinks/devicelink.h"
-#include "linkproviders/linkprovider.h"
+#include "backends/devicelink.h"
+#include "backends/linkprovider.h"
 #include "networkpackage.h"
 
 Device::Device(const QString& id)
@@ -33,6 +34,8 @@ Device::Device(const QString& id)
 
     m_pairStatus = Device::Paired;
 
+    m_protocolVersion = NetworkPackage::ProtocolVersion; //We don't know it yet
+
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
@@ -42,14 +45,8 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     m_deviceId = identityPackage.get<QString>("deviceId");
     m_deviceName = identityPackage.get<QString>("deviceName");
-
-    int protocolVersion = identityPackage.get<int>("protocolVersion");
-    if (protocolVersion != NetworkPackage::ProtocolVersion) {
-        qDebug() << "WARNING: Device uses a different protocol version" << protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
-        //TODO: Do something
-    }
-
-    addLink(dl);
+    m_protocolVersion = identityPackage.get<int>("protocolVersion");
+    addLink(identityPackage, dl);
 
     m_pairStatus = Device::NotPaired;
 
@@ -195,14 +192,25 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
     return p1->provider()->priority() > p2->provider()->priority();
 }
 
-void Device::addLink(DeviceLink* link)
+void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
     //qDebug() << "Adding link to" << id() << "via" << link->provider();
+
+    m_protocolVersion = identityPackage.get<int>("protocolVersion");
+    if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
+        qWarning() << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+    }
 
     connect(link, SIGNAL(destroyed(QObject*)),
             this, SLOT(linkDestroyed(QObject*)));
 
     m_deviceLinks.append(link);
+
+    //TODO: Do not read the key every time
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
+    QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
+    link->setPrivateKey(privateKey);
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
@@ -243,17 +251,22 @@ void Device::removeLink(DeviceLink* link)
 bool Device::sendPackage(NetworkPackage& np)
 {
     if (np.type() != PACKAGE_TYPE_PAIR && isPaired()) {
-        np.encrypt(m_publicKey);
+        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+            //TODO: Actually detect if a package is received or not, now we keep TCP
+            //"ESTABLISHED" connections that look legit (return true when we use them),
+            //but that are actually broken
+            if (dl->sendPackageEncrypted(m_publicKey, np)) return true;
+        }
     } else {
         //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
+        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+            //TODO: Actually detect if a package is received or not, now we keep TCP
+            //"ESTABLISHED" connections that look legit (return true when we use them),
+            //but that are actually broken
+            if (dl->sendPackage(np)) return true;
+        }
     }
 
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        //TODO: Actually detect if a package is received or not, now we keep TCP
-        //"ESTABLISHED" connections that look legit (return true when we use them),
-        //but that are actually broken
-        if (dl->sendPackage(np)) return true;
-    }
     return false;
 }
 
@@ -349,32 +362,8 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
     } else {
 
-        if (np.type() == PACKAGE_TYPE_ENCRYPTED) {
-
-            //TODO: Do not read the key every time
-            KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-            const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
-            QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
-
-            //Emit decrypted package
-            NetworkPackage decryptedNp("");
-            bool success = np.decrypt(privateKey, &decryptedNp);
-            if (!success) {
-                qDebug() << "Failed to decrypt package";
-            } else {
-                Q_EMIT receivedPackage(decryptedNp);
-            }
-
-        } else {
-
-            //TODO: The other side doesn't know that we are already paired, do something
-            qDebug() << "WARNING: Received unencrypted package from paired device!";
-
-            //Forward package
-            Q_EMIT receivedPackage(np);
-
-        }
-
+        //Forward package
+        Q_EMIT receivedPackage(np);
 
     }
 

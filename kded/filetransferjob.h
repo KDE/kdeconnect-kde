@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,17 +18,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#ifndef FILETRANSFERJOB_H
+#define FILETRANSFERJOB_H
 
-#include "../device.h"
+#include <QIODevice>
+#include <QTemporaryFile>
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+#include <KJob>
+#include <KUrl>
+#include <KIO/FileJob>
+#include <KIO/Job>
+#include <KSharedPtr>
+
+class FileTransferJob
+    : public KJob
 {
-    mDevice = qvariant_cast< Device* >(args.first());
-}
+    Q_OBJECT
 
-Device* KdeConnectPlugin::device()
-{
-    return mDevice;
-}
+public:
+    FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination);
+    virtual void start();
+    KUrl destination() { return mDestination->url(); }
+
+public Q_SLOTS:
+    void readyRead();
+    void open(KIO::Job*);
+    void sourceFinished();
+    void openFinished(KJob*);
+
+private:
+    QSharedPointer<QIODevice> mOrigin;
+    KIO::FileJob* mDestination;
+    int mSize;
+    int mWritten;
+
+};
+
+#endif

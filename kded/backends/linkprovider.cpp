@@ -18,25 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FILETRANFERPLUGIN_H
-#define FILETRANFERPLUGIN_H
+#include "linkprovider.h"
 
-#include <knotification.h>
-
-#include "../kdeconnectplugin.h"
-
-class FileTransferPlugin
-    : public KdeConnectPlugin
+LinkProvider::LinkProvider()
 {
-    Q_OBJECT
+    //gcc complains if we don't add something to compile on a class with virtual functions
+}
 
-public:
-    explicit FileTransferPlugin(QObject *parent, const QVariantList &args);
-
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
-
-};
-
-#endif

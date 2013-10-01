@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,17 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#include "autoclosingqfile.h"
 
-#include "../device.h"
-
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+AutoClosingQFile::AutoClosingQFile(const QString& name)
+    : QFile(name)
 {
-    mDevice = qvariant_cast< Device* >(args.first());
-}
 
-Device* KdeConnectPlugin::device()
-{
-    return mDevice;
 }

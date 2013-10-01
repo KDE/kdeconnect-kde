@@ -22,7 +22,6 @@
 #define DEVICE_H
 
 #include <QObject>
-#include <QDBusConnection>
 #include <QString>
 #include <QMap>
 #include <QSslKey>
@@ -63,7 +62,7 @@ public:
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
 
     //Add and remove links
-    void addLink(DeviceLink*);
+    void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
@@ -103,10 +102,12 @@ Q_SIGNALS:
     Q_SCRIPTABLE void unpaired();
 
 private:
+    //TODO: Replace device id by public key
     QString m_deviceId;
     QString m_deviceName;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
+    int m_protocolVersion;
 
     QList<DeviceLink*> m_deviceLinks;
     QMap<QString, KdeConnectPlugin*> m_plugins;

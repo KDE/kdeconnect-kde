@@ -1,0 +1,11 @@
+
+It receives a packages with type kdeconnect.share. If they have a payload
+attached, it will download it as a file with the filename set in the field
+"filename" (string). If that field is not set it should generate a filename.
+
+If the content transferred is text, it can be sent in a field "text" (string)
+instead of an attached payload. In that case, this plugin opens a text editor
+with the content instead of saving it as a file.
+
+If the content transferred is a url, it can be sent in a field "url" (string).
+In that case, this plugin opens that url in the default browser.

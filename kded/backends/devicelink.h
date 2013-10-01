@@ -18,54 +18,42 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANLINKPROVIDER_H
-#define LANLINKPROVIDER_H
+#ifndef DEVICELINK_H
+#define DEVICELINK_H
 
 #include <QObject>
-#include <QTcpServer>
-#include <QUdpSocket>
+#include <QtCrypto>
 
-#include "linkprovider.h"
-#include "netaddress.h"
+#include "../networkpackage.h"
 
-class LanLinkProvider
-    : public LinkProvider
+class NetworkPackage;
+class LinkProvider;
+
+class DeviceLink
+    : public QObject
 {
     Q_OBJECT
 
 public:
-    LanLinkProvider();
-    ~LanLinkProvider();
+    DeviceLink(const QString& deviceId, LinkProvider* parent);
 
-    QString name() { return "LanLinkProvider"; }
-    int priority() { return PRIORITY_HIGH + 10; }
+    const QString& deviceId() { return mDeviceId; }
+    LinkProvider* provider() { return mLinkProvider; }
 
-public Q_SLOTS:
-    virtual void onNetworkChange(QNetworkSession::State state);
-    virtual void onStart();
-    virtual void onStop();
-    void connected();
-    void connectError();
+    virtual bool sendPackage(NetworkPackage& np) = 0;
+    virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) = 0;
 
-private Q_SLOTS:
-    void newUdpConnection();
-    void newConnection();
-    void dataReceived();
-    void deviceLinkDestroyed(QObject*);
+    void setPrivateKey(const QCA::PrivateKey& privateKey) { mPrivateKey = privateKey; }
+
+Q_SIGNALS:
+    void receivedPackage(const NetworkPackage& np);
+
+protected:
+    QCA::PrivateKey mPrivateKey;
 
 private:
-    QTcpServer* mTcpServer;
-    QUdpSocket* mUdpServer;
-    const static quint16 port = 1714;
-    quint16 tcpPort;
-
-    QMap<QString, DeviceLink*> links;
-
-    struct PendingConnect {
-        NetworkPackage* np;
-        QHostAddress sender;
-    };
-    QMap<QTcpSocket*, PendingConnect> receivedIdentityPackages;
+    QString mDeviceId;
+    LinkProvider* mLinkProvider;
 
 };
 

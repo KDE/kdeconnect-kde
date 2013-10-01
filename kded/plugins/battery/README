@@ -1,0 +1,17 @@
+
+This plugins receives packages with type "kdeconnect.battery" and reads the
+following fields:
+
+isCharging (boolean): If the battery of the peer device is charging
+currentCharge (int): The charge % of the peer device
+
+<TODO>
+Symmetrically, it sends its own battery information in packages with the same
+format.
+</TODO>
+
+It also sends packages with type kdeconnect.battery and a field "request": true,
+to ask the peer device to send a package like the mentioned above, and should
+also answer this same kind of packages with its own information.
+
+If the battery is low and discharging, it will notify the user.

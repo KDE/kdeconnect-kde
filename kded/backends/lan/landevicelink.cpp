@@ -25,8 +25,9 @@
 #include <netinet/tcp.h>
 #include <netdb.h>
 
-#include "linkproviders/linkprovider.h"
-#include "networkpackage.h"
+#include "../linkprovider.h"
+#include "uploadjob.h"
+#include "downloadjob.h"
 
 LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
@@ -52,26 +53,84 @@ LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
             this, SLOT(dataReceived()));
 }
 
-bool LanDeviceLink::sendPackage(const NetworkPackage& np)
+bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
+    if (np.hasPayload()) {
+         UploadJob* job = new UploadJob(np.payload());
+         job->start();
+         np.setPayloadTransferInfo(job->getTransferInfo());
+    }
+
+    np.encrypt(key);
+
     int written = mSocket->write(np.serialize());
-    return written != -1;
+    return (written != -1);
+}
+
+bool LanDeviceLink::sendPackage(NetworkPackage& np)
+{
+    if (np.hasPayload()) {
+         UploadJob* job = new UploadJob(np.payload());
+         job->start();
+         np.setPayloadTransferInfo(job->getTransferInfo());
+    }
+
+    int written = mSocket->write(np.serialize());
+    return (written != -1);
 }
 
 void LanDeviceLink::dataReceived()
 {
-    qDebug() << "LanDeviceLink dataReceived";
-
     QByteArray data = mSocket->readAll();
+
+    //qDebug() << "LanDeviceLink dataReceived" << data;
+
     QList<QByteArray> packages = data.split('\n');
     Q_FOREACH(const QByteArray& package, packages) {
 
-        if (package.length() < 3) continue;
+        if (package.length() < 3) {
+            continue;
+        }
 
-        NetworkPackage np("");
-        NetworkPackage::unserialize(package, &np);
+        NetworkPackage unserialized(QString::null);
+        NetworkPackage::unserialize(package, &unserialized);
+        if (unserialized.isEncrypted()) {
 
-        Q_EMIT receivedPackage(np);
+            //mPrivateKey should always be set when device link is added to device, no null-checking done here
+            NetworkPackage decrypted(QString::null);
+            unserialized.decrypt(mPrivateKey, &decrypted);
+
+            if (decrypted.hasPayloadTransferInfo()) {
+                qDebug() << "HasPayloadTransferInfo";
+                DownloadJob* job = new DownloadJob(mSocket->peerAddress(), decrypted.payloadTransferInfo());
+                job->start();
+                decrypted.setPayload(job->getPayload(), decrypted.payloadSize());
+            }
+
+            Q_EMIT receivedPackage(decrypted);
+
+        } else {
+
+            if (unserialized.hasPayloadTransferInfo()) {
+                qWarning() << "Ignoring unencrypted payload";
+                continue;
+            }
+
+            Q_EMIT receivedPackage(unserialized);
+
+        }
 
     }
+
+    //qDebug() << "MOAR BYTES" << mSocket->bytesAvailable() << packages.length();
+
+    if (mSocket->bytesAvailable() > 0) {
+        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
+    }
+
+}
+
+void LanDeviceLink::readyRead()
+{
+
 }
