@@ -84,7 +84,7 @@ QByteArray NetworkPackage::serialize() const
         qDebug() << "Serialization error:" << serializer.errorMessage();
     } else {
         if (!isEncrypted()) {
-            qDebug() << "Serialized package:" << json;
+            //qDebug() << "Serialized package:" << json;
         }
         json.append('\n');
     }
@@ -107,11 +107,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant, np);
 
     if (!np->isEncrypted()) {
-        //qDebug() << "Unserialized package:" << a;
-    }
-
-    if (!np->isEncrypted()) {
-        qDebug() << "Unserialize: " << a;
+        //qDebug() << "Unserialized: " << a;
     }
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
