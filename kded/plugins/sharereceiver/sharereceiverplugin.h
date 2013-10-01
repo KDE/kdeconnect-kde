@@ -18,21 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef FILETRANFERPLUGIN_H
-#define FILETRANFERPLUGIN_H
+#ifndef SHARERECEIVERPLUGIN_H
+#define SHARERECEIVERPLUGIN_H
 
 #include <KNotification>
 #include <KIO/Job>
 
 #include "../kdeconnectplugin.h"
 
-class FileTransferPlugin
+class ShareReceiverPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit FileTransferPlugin(QObject *parent, const QVariantList &args);
+    explicit ShareReceiverPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);

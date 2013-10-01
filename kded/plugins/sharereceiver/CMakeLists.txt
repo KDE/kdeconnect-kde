@@ -11,8 +11,8 @@ include_directories(
     ${CMAKE_SOURCE_DIR}
 )
 
-set(kdeconnect_filetransfer_SRCS
-    filetransferplugin.cpp
+set(kdeconnect_sharereceiver_SRCS
+    sharereceiverplugin.cpp
     autoclosingqfile.cpp
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
@@ -21,9 +21,9 @@ set(kdeconnect_filetransfer_SRCS
     ../../device.cpp
 )
 
-kde4_add_plugin(kdeconnect_filetransfer ${kdeconnect_filetransfer_SRCS})
+kde4_add_plugin(kdeconnect_sharereceiver ${kdeconnect_sharereceiver_SRCS})
 
-target_link_libraries(kdeconnect_filetransfer
+target_link_libraries(kdeconnect_sharereceiver
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KDEUI_LIBS}
     ${KDE4_KIO_LIBS}
@@ -32,5 +32,5 @@ target_link_libraries(kdeconnect_filetransfer
     ${QCA2_LIBRARIES}
 )
 
-install(TARGETS kdeconnect_filetransfer DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_filetransfer.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+install(TARGETS kdeconnect_sharereceiver DESTINATION ${PLUGIN_INSTALL_DIR} )
+install(FILES kdeconnect_sharereceiver.desktop DESTINATION ${SERVICES_INSTALL_DIR} )

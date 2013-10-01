@@ -1,5 +1,5 @@
 
-It receives a packages with type kdeconnect.filetransfer. If they have a payload
+It receives a packages with type kdeconnect.share. If they have a payload
 attached, it will download it as a file with the filename set in the field
 "filename" (string). If that field is not set it should generate a filename.
 

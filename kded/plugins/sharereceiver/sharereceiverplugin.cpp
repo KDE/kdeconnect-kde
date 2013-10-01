@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "filetransferplugin.h"
+#include "sharereceiverplugin.h"
 
 #include <KIcon>
 #include <KLocalizedString>
@@ -32,10 +32,10 @@
 #include "../../filetransferjob.h"
 #include "autoclosingqfile.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< FileTransferPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_filetransfer", "kdeconnect_filetransfer") )
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ShareReceiverPlugin >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sharereceiver", "kdeconnect_sharereceiver") )
 
-FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args)
+ShareReceiverPlugin::ShareReceiverPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
     //TODO: Use downloads user path
@@ -44,7 +44,7 @@ FileTransferPlugin::FileTransferPlugin(QObject* parent, const QVariantList& args
     if (!mDestinationDir.endsWith('/')) mDestinationDir.append('/');
 }
 
-bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
+bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
 {
 /*
     //TODO: Move this code to a test and add a diff between files
@@ -52,7 +52,7 @@ bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 
         qDebug() << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
-        NetworkPackage out(PACKAGE_TYPE_FILETRANSFER);
+        NetworkPackage out(PACKAGE_TYPE_SHARE);
         out.set("filename", mDestinationDir + "itworks.txt");
          //TODO: Use shared pointers
         AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
@@ -66,7 +66,7 @@ bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
     }
 */
 
-    if (np.type() != PACKAGE_TYPE_FILETRANSFER) return false;
+    if (np.type() != PACKAGE_TYPE_SHARE) return false;
     qDebug() << "File transfer";
 
     if (np.hasPayload()) {
@@ -103,7 +103,7 @@ bool FileTransferPlugin::receivePackage(const NetworkPackage& np)
 
 }
 
-void FileTransferPlugin::finished(KJob* job)
+void ShareReceiverPlugin::finished(KJob* job)
 {
     qDebug() << "File transfer finished";
 
@@ -118,7 +118,7 @@ void FileTransferPlugin::finished(KJob* job)
     notification->sendEvent();
 }
 
-void FileTransferPlugin::openDestinationFolder()
+void ShareReceiverPlugin::openDestinationFolder()
 {
     QDesktopServices::openUrl(mDestinationDir);
 }
