@@ -14,6 +14,7 @@ X-KDE-System-Settings-Parent-Category=hardware
 Name=Devices
 Name[cs]=Zařízení
 Name[de]=Geräte
+Name[es]=Dispositivos
 Name[nl]=Apparaten
 Name[pt]=Dispositivos
 Name[pt_BR]=Dispositivos
@@ -24,6 +25,7 @@ Name[x-test]=xxDevicesxx
 
 Comment=Connect and sync your devices with KDE
 Comment[de]=Verbinden und Abgleichen Ihrer Geräte mit KDE
+Comment[es]=Conectar y sincronizar dispositivos con KDE
 Comment[nl]=Uw apparaten met KDE verbinden en synchroniseren
 Comment[pt]=Ligue e sincronize os seus dispositivos com o KDE
 Comment[pt_BR]=Conecta e sincroniza seus dispositivos com o KDE
@@ -33,6 +35,7 @@ Comment[x-test]=xxConnect and sync your devices with KDExx
 
 X-KDE-Keywords=Network,Android,Devices
 X-KDE-Keywords[de]=Netzwerk,Android,Geräte
+X-KDE-Keywords[es]=Red,Android,Dispositivos
 X-KDE-Keywords[nl]=Netwerk,Android,Apparaten
 X-KDE-Keywords[pt]=Rede,Android,Dispositivos
 X-KDE-Keywords[pt_BR]=Rede,Android,Dispositivos

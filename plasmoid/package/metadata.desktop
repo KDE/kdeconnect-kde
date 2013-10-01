@@ -2,6 +2,7 @@
 Name=KdeConnect
 Name[cs]=KdeConnect
 Name[de]=KdeConnect
+Name[es]=KdeConnect
 Name[nl]=KdeConnect
 Name[pt]=KDEConnect
 Name[pt_BR]=KdeConnect
@@ -10,6 +11,7 @@ Name[uk]=KdeConnect
 Name[x-test]=xxKdeConnectxx
 Comment=Show notifications from your devices using KDE Connect
 Comment[de]=Zeigt Benachrichtigungen von Ihren Geräten mit KDE-Connect
+Comment[es]=Mostrar notificaciones de sus dispositivos usando KDE Connect
 Comment[nl]=Meldingen van uw apparaten met KDE Connect tonen
 Comment[pt]=Mostrar notificações dos seus dispositivos usando o KDE Connect
 Comment[pt_BR]=Mostrar notificações dos seus dispositivos usando o KDE Connect
