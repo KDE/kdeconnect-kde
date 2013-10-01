@@ -34,6 +34,8 @@ Device::Device(const QString& id)
 
     m_pairStatus = Device::Paired;
 
+    m_protocolVersion = NetworkPackage::ProtocolVersion; //We don't know it yet
+
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
@@ -43,13 +45,8 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     m_deviceId = identityPackage.get<QString>("deviceId");
     m_deviceName = identityPackage.get<QString>("deviceName");
-
     m_protocolVersion = identityPackage.get<int>("protocolVersion");
-    if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
-        qWarning() << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
-    }
-
-    addLink(dl);
+    addLink(identityPackage, dl);
 
     m_pairStatus = Device::NotPaired;
 
@@ -195,9 +192,14 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
     return p1->provider()->priority() > p2->provider()->priority();
 }
 
-void Device::addLink(DeviceLink* link)
+void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
     //qDebug() << "Adding link to" << id() << "via" << link->provider();
+
+    m_protocolVersion = identityPackage.get<int>("protocolVersion");
+    if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
+        qWarning() << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+    }
 
     connect(link, SIGNAL(destroyed(QObject*)),
             this, SLOT(linkDestroyed(QObject*)));

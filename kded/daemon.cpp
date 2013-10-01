@@ -140,7 +140,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     if (mDevices.contains(id)) {
         //qDebug() << "It is a known device";
         Device* device = mDevices[id];
-        device->addLink(dl);
+        device->addLink(identityPackage, dl);
     } else {
         //qDebug() << "It is a new device";
 

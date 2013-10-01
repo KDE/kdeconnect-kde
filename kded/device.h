@@ -62,7 +62,7 @@ public:
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
 
     //Add and remove links
-    void addLink(DeviceLink*);
+    void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
