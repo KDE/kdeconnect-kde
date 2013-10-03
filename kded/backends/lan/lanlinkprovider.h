@@ -38,7 +38,7 @@ public:
     ~LanLinkProvider();
 
     QString name() { return "LanLinkProvider"; }
-    int priority() { return PRIORITY_HIGH + 10; }
+    int priority() { return PRIORITY_HIGH; }
 
 public Q_SLOTS:
     virtual void onNetworkChange(QNetworkSession::State state);

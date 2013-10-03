@@ -57,7 +57,9 @@ void LanLinkProvider::onStop()
 void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
     Q_UNUSED(state);
-    //qDebug() << "onNetworkChange" << state;
+
+    if (!mTcpServer->isListening()) return;
+
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort",tcpPort);
