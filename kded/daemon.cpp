@@ -23,6 +23,7 @@
 #include "networkpackage.h"
 
 #include "backends/lan/lanlinkprovider.h"
+#include "backends/online/onlinelinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 
 #include <QUuid>
@@ -49,6 +50,14 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
         config->group("myself").writeEntry("id", uuid);
         qDebug() << "My id:" << uuid;
+    }
+
+    //qDebug() << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
+    if(!QCA::isSupported("rsa")) {
+        //TODO: Maybe display this in a more visible way?
+        qWarning() << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
+                   << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
+        return;
     }
 
     if (!config->group("myself").hasKey("privateKey") || !config->group("myself").hasKey("publicKey")) {
