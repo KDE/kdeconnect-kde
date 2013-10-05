@@ -81,48 +81,37 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
 
 void LanDeviceLink::dataReceived()
 {
-    QByteArray data = mSocket->readAll();
+
+    QByteArray package = mSocket->readLine();
 
     //qDebug() << "LanDeviceLink dataReceived" << data;
 
-    QList<QByteArray> packages = data.split('\n');
-    Q_FOREACH(const QByteArray& package, packages) {
+    NetworkPackage unserialized(QString::null);
+    NetworkPackage::unserialize(package, &unserialized);
+    if (unserialized.isEncrypted()) {
 
-        if (package.length() < 3) {
-            continue;
+        //mPrivateKey should always be set when device link is added to device, no null-checking done here
+        NetworkPackage decrypted(QString::null);
+        unserialized.decrypt(mPrivateKey, &decrypted);
+
+        if (decrypted.hasPayloadTransferInfo()) {
+            qDebug() << "HasPayloadTransferInfo";
+            DownloadJob* job = new DownloadJob(mSocket->peerAddress(), decrypted.payloadTransferInfo());
+            job->start();
+            decrypted.setPayload(job->getPayload(), decrypted.payloadSize());
         }
 
-        NetworkPackage unserialized(QString::null);
-        NetworkPackage::unserialize(package, &unserialized);
-        if (unserialized.isEncrypted()) {
+        Q_EMIT receivedPackage(decrypted);
 
-            //mPrivateKey should always be set when device link is added to device, no null-checking done here
-            NetworkPackage decrypted(QString::null);
-            unserialized.decrypt(mPrivateKey, &decrypted);
+    } else {
 
-            if (decrypted.hasPayloadTransferInfo()) {
-                qDebug() << "HasPayloadTransferInfo";
-                DownloadJob* job = new DownloadJob(mSocket->peerAddress(), decrypted.payloadTransferInfo());
-                job->start();
-                decrypted.setPayload(job->getPayload(), decrypted.payloadSize());
-            }
-
-            Q_EMIT receivedPackage(decrypted);
-
-        } else {
-
-            if (unserialized.hasPayloadTransferInfo()) {
-                qWarning() << "Ignoring unencrypted payload";
-                continue;
-            }
-
-            Q_EMIT receivedPackage(unserialized);
-
+        if (unserialized.hasPayloadTransferInfo()) {
+            qWarning() << "Ignoring unencrypted payload";
         }
+
+        Q_EMIT receivedPackage(unserialized);
 
     }
-
-    //qDebug() << "MOAR BYTES" << mSocket->bytesAvailable() << packages.length();
 
     if (mSocket->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
