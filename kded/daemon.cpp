@@ -23,7 +23,6 @@
 #include "networkpackage.h"
 
 #include "backends/lan/lanlinkprovider.h"
-#include "backends/online/onlinelinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 
 #include <QUuid>
