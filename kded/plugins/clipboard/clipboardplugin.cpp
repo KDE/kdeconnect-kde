@@ -29,15 +29,15 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_clipboard", "kdeconnect_cli
 
 ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , clipboard(QApplication::clipboard())
+    , ignore_next_clipboard_change(false)
 {
-    clipboard = QApplication::clipboard();
-    ignore_next_clipboard_change = false;
-    connect(clipboard,SIGNAL(changed(QClipboard::Mode)),this,SLOT(clipboardChanged(QClipboard::Mode)));
+    connect(clipboard, SIGNAL(changed(QClipboard::Mode)), this, SLOT(clipboardChanged(QClipboard::Mode)));
 }
 
 void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
 {
-    if (mode != QClipboard::QClipboard::Clipboard) return;
+    if (mode != QClipboard::Clipboard) return;
 
     if (ignore_next_clipboard_change) {
         ignore_next_clipboard_change = false;

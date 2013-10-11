@@ -32,11 +32,8 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect_pa
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
+    , pauseWhen(PauseWhenRinging) //TODO: Be able to change this from plugin settings
 {
-
-    //TODO: Be able to change this from plugin settings
-    pauseWhen = PauseWhenRinging;
-
 }
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
@@ -46,21 +43,18 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
         return false;
     }
 
-
-    if (pauseWhen == PauseWhenRinging) {
-
-        if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
-            return true;
-        }
-
-    } else if (pauseWhen == PauseWhenTalking) {
-
-        if (np.get<QString>("event") != "talking") {
-            return true;
-        }
-
+    switch(pauseWhen) {
+        case PauseWhenRinging:
+            if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
+                return true;
+            }
+            break;
+        case PauseWhenTalking:
+            if (np.get<QString>("event") != "talking") {
+                return true;
+            }
+            break;
     }
-
 
     bool pauseConditionFulfilled = !np.get<bool>("isCancel");
 

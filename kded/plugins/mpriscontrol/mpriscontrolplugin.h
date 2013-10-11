@@ -26,6 +26,8 @@
 
 #include "../kdeconnectplugin.h"
 
+#define PACKAGE_TYPE_MPRIS QLatin1String("kdeconnect.mpris")
+
 class MprisControlPlugin
     : public KdeConnectPlugin
 {

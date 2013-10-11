@@ -64,6 +64,10 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
     np.encrypt(key);
 
     int written = mSocket->write(np.serialize());
+
+    //TODO: Actually detect if a package is received or not, now we keep TCP
+    //"ESTABLISHED" connections that look legit (return true when we use them),
+    //but that are actually broken
     return (written != -1);
 }
 
@@ -76,6 +80,9 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
     }
 
     int written = mSocket->write(np.serialize());
+    //TODO: Actually detect if a package is received or not, now we keep TCP
+    //"ESTABLISHED" connections that look legit (return true when we use them),
+    //but that are actually broken
     return (written != -1);
 }
 

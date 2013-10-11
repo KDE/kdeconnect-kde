@@ -21,16 +21,10 @@
 #ifndef NETWORKPACKAGETYPES_H
 #define NETWORKPACKAGETYPES_H
 
-#define PACKAGE_TYPE_IDENTITY QString("kdeconnect.identity")
-#define PACKAGE_TYPE_PAIR QString("kdeconnect.pair")
-#define PACKAGE_TYPE_ENCRYPTED QString("kdeconnect.encrypted")
-#define PACKAGE_TYPE_PING QString("kdeconnect.ping")
-#define PACKAGE_TYPE_NOTIFICATION QString("kdeconnect.notification")
-#define PACKAGE_TYPE_BATTERY QString("kdeconnect.battery")
-#define PACKAGE_TYPE_TELEPHONY QString("kdeconnect.telephony")
-#define PACKAGE_TYPE_CLIPBOARD QString("kdeconnect.clipboard")
-#define PACKAGE_TYPE_MPRIS QString("kdeconnect.mpris")
-#define PACKAGE_TYPE_SHARE QString("kdeconnect.share")
-
+#define PACKAGE_TYPE_IDENTITY QLatin1String("kdeconnect.identity")
+#define PACKAGE_TYPE_PAIR QLatin1String("kdeconnect.pair")
+#define PACKAGE_TYPE_ENCRYPTED QLatin1String("kdeconnect.encrypted")
+#define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
+#define PACKAGE_TYPE_PING QLatin1String("kdeconnect.ping")
 
 #endif // NETWORKPACKAGETYPES_H

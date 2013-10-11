@@ -21,11 +21,9 @@
 #ifndef BATTERYPLUGIN_H
 #define BATTERYPLUGIN_H
 
-#include <QDBusAbstractAdaptor>
-
-#include <KNotification>
-
 #include "../kdeconnectplugin.h"
+
+#define PACKAGE_TYPE_BATTERY QLatin1String("kdeconnect.battery")
 
 class BatteryDbusInterface;
 

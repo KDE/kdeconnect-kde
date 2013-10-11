@@ -26,6 +26,8 @@
 
 #include "../kdeconnectplugin.h"
 
+#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share")
+
 class ShareReceiverPlugin
     : public KdeConnectPlugin
 {

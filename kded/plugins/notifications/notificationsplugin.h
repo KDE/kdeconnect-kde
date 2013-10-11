@@ -24,6 +24,7 @@
 #include <knotification.h>
 
 #include "../kdeconnectplugin.h"
+#define PACKAGE_TYPE_NOTIFICATION QLatin1String("kdeconnect.notification")
 
 /*
  * This class is just a proxy for NotificationsDbusInterface

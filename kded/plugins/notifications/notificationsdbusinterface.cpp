@@ -21,6 +21,7 @@
 #include "notificationsdbusinterface.h"
 
 #include "../../filetransferjob.h"
+#include <notificationsplugin.h>
 
 #include <QDebug>
 #include <QDBusConnection>
@@ -67,7 +68,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
 
         //Do not show updates to existent notification nor answers to a initialization request
         if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
-            KNotification* notification = new KNotification("notification");
+            KNotification* notification = new KNotification("notification", KNotification::CloseOnTimeout, this);
             notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
             notification->setTitle(mDevice->name());
@@ -107,16 +108,13 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
         return;
     }
 
-    QString publicId = mInternalIdToPublicId[internalId];
-    mInternalIdToPublicId.remove(internalId);
+    QString publicId = mInternalIdToPublicId.take(internalId);
 
-    if (!mNotifications.contains(publicId)) {
+    Notification* noti = mNotifications.take(publicId);
+    if (!noti) {
         qDebug() << "Not found";
         return;
     }
-
-    Notification* noti = mNotifications[publicId];
-    mNotifications.remove(publicId);
 
     //Deleting the notification will unregister it automatically
     //QDBusConnection::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);

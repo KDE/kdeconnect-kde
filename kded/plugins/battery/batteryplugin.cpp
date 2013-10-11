@@ -69,6 +69,12 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
 
         batteryDbusInterface->updateValues(isCharging, currentCharge);
 
+        //FIXME: Where's that 14 coming from?
+        //TODO: Decouple the protocol from Android
+        /*TODO: Look into the following android interfaces
+                    android.intent.action.BATTERY_LOW
+                    android.intent.action.BATTERY_OKAY
+        */
         if (currentCharge == 14 && !isCharging) {
             KNotification* notification = new KNotification("batteryLow");
             notification->setPixmap(KIcon("battery-040").pixmap(48, 48));

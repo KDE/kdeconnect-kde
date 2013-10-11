@@ -49,10 +49,18 @@ class Device
     };
 
 public:
-    //Read device from KConfig, we already know it but we need to wait for a incoming devicelink to communicate
+    /**
+     * Reads the @p device from KConfig
+     *
+     * We already know it but we need to wait for an incoming DeviceLink to communicate
+     */
     Device(const QString& id);
 
-    //Device known via an incoming connection sent to us via a devicelink, we know everything but we don't trust it yet
+    /**
+     * Device known via an incoming connection sent to us via a devicelink.
+     *
+     * We know everything but we don't trust it yet
+     */
     Device(const NetworkPackage& np, DeviceLink* dl);
 
     virtual ~Device();
@@ -69,15 +77,17 @@ public:
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
 
     Q_SCRIPTABLE QStringList availableLinks() const;
-    Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.empty(); }
+    Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.isEmpty(); }
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
 
-    //Send and receive
 Q_SIGNALS:
+    ///notifies about a @p np package that has just been received from the device
     void receivedPackage(const NetworkPackage& np) const;
+
 public Q_SLOTS:
+    ///sends a @p np package to the device
     virtual bool sendPackage(NetworkPackage& np);
 
     //Dbus operations
@@ -103,7 +113,7 @@ Q_SIGNALS:
 
 private:
     //TODO: Replace device id by public key
-    QString m_deviceId;
+    const QString m_deviceId;
     QString m_deviceName;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;

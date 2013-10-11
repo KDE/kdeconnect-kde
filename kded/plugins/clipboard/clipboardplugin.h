@@ -28,6 +28,8 @@
 #include "../../networkpackage.h"
 #include "../../device.h"
 
+#define PACKAGE_TYPE_CLIPBOARD QLatin1String("kdeconnect.clipboard")
+
 class ClipboardPlugin
     : public KdeConnectPlugin
 {

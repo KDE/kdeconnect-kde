@@ -68,7 +68,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
     qDebug() << "Creating notification with type:" << type;
 
-    KNotification* notification = new KNotification(type); //, KNotification::Persistent
+    KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(title);

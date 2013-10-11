@@ -20,21 +20,17 @@
 #include "networkpackage.h"
 
 Device::Device(const QString& id)
+    : m_deviceId(id)
+    , m_pairStatus(Device::Paired)
+    , m_protocolVersion(NetworkPackage::ProtocolVersion) //We don't know it yet
 {
-
-    m_deviceId = id;
-
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const KConfigGroup& data = config->group("trusted_devices").group(id);
+    KConfigGroup data = config->group("trusted_devices").group(id);
 
     m_deviceName = data.readEntry<QString>("deviceName", QString("unnamed"));
 
     const QString& key = data.readEntry<QString>("publicKey",QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
-
-    m_pairStatus = Device::Paired;
-
-    m_protocolVersion = NetworkPackage::ProtocolVersion; //We don't know it yet
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -42,13 +38,12 @@ Device::Device(const QString& id)
 }
 
 Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
+    : m_deviceId(identityPackage.get<QString>("deviceId"))
+    , m_deviceName(identityPackage.get<QString>("deviceName"))
+    , m_pairStatus(Device::NotPaired)
+    , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
 {
-    m_deviceId = identityPackage.get<QString>("deviceId");
-    m_deviceName = identityPackage.get<QString>("deviceName");
-    m_protocolVersion = identityPackage.get<int>("protocolVersion");
     addLink(identityPackage, dl);
-
-    m_pairStatus = Device::NotPaired;
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -75,24 +70,23 @@ void Device::reloadPlugins()
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
-        QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
-        QMap<QString,QString> pluginStates = KSharedConfig::openConfig(path + id())->group("Plugins").entryMap();
+        QString path = KGlobal::dirs()->findResource("config", "kdeconnect/"+id());
+        KConfigGroup pluginStates = KSharedConfig::openConfig(path)->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();
 
         //Code borrowed from KWin
         foreach (const QString& pluginName, loader->getPluginList()) {
+            QString enabledKey = pluginName + QString::fromLatin1("Enabled");
 
-            const QString value = pluginStates.value(pluginName + QString::fromLatin1("Enabled"), QString());
-            KPluginInfo info = loader->getPluginInfo(pluginName);
-            bool enabled = (value.isNull() ? info.isPluginEnabledByDefault() : QVariant(value).toBool());
+            bool isPluginEnabled = (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
+                                                            : loader->getPluginInfo(pluginName).isPluginEnabledByDefault());
 
-            if (enabled) {
-
-                if (m_plugins.contains(pluginName)) {
+            if (isPluginEnabled) {
+                KdeConnectPlugin* reusedPluginInstance = m_plugins.take(pluginName);
+                if (reusedPluginInstance) {
                     //Already loaded, reuse it
-                    newPluginMap[pluginName] = m_plugins[pluginName];
-                    m_plugins.remove(pluginName);
+                    newPluginMap[pluginName] = reusedPluginInstance;
                 } else {
                     KdeConnectPlugin* plugin = loader->instantiatePluginForDevice(pluginName, this);
 
@@ -105,15 +99,13 @@ void Device::reloadPlugins()
         }
     }
 
-    //Erase all the plugins left in the original map (it means that we don't want
-    //them anymore, otherways they would have been moved to the newPluginMap)
+    //Erase all left plugins in the original map (meaning that we don't want
+    //them anymore, otherwise they would have been moved to the newPluginMap)
     qDeleteAll(m_plugins);
-    m_plugins.clear();
-
     m_plugins = newPluginMap;
 
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
-            plugin->connected();
+        plugin->connected();
     }
 
     Q_EMIT pluginsChanged();
@@ -122,17 +114,19 @@ void Device::reloadPlugins()
 
 void Device::requestPair()
 {
-    if (m_pairStatus == Device::Paired) {
-        Q_EMIT pairingFailed(i18n("Already paired"));
-        return;
-    }
-    if (m_pairStatus == Device::Requested) {
-        Q_EMIT pairingFailed(i18n("Pairing already requested for this device"));
-        return;
-    }
-    if (!isReachable()) {
-        Q_EMIT pairingFailed(i18n("Device not reachable"));
-        return;
+    switch(m_pairStatus) {
+        case Device::Paired:
+            Q_EMIT pairingFailed(i18n("Already paired"));
+            return;
+        case Device::Requested:
+            Q_EMIT pairingFailed(i18n("Pairing already requested for this device"));
+            return;
+        default:
+            if (!isReachable()) {
+                Q_EMIT pairingFailed(i18n("Device not reachable"));
+                return;
+            }
+            break;
     }
 
     m_pairStatus = Device::Requested;
@@ -242,7 +236,7 @@ void Device::removeLink(DeviceLink* link)
 
     //qDebug() << "RemoveLink" << m_deviceLinks.size() << "links remaining";
 
-    if (m_deviceLinks.empty()) {
+    if (m_deviceLinks.isEmpty()) {
         reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
@@ -252,17 +246,11 @@ bool Device::sendPackage(NetworkPackage& np)
 {
     if (np.type() != PACKAGE_TYPE_PAIR && isPaired()) {
         Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-            //TODO: Actually detect if a package is received or not, now we keep TCP
-            //"ESTABLISHED" connections that look legit (return true when we use them),
-            //but that are actually broken
             if (dl->sendPackageEncrypted(m_publicKey, np)) return true;
         }
     } else {
         //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
         Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-            //TODO: Actually detect if a package is received or not, now we keep TCP
-            //"ESTABLISHED" connections that look legit (return true when we use them),
-            //but that are actually broken
             if (dl->sendPackage(np)) return true;
         }
     }
