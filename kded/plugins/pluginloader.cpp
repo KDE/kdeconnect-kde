@@ -37,19 +37,19 @@ PluginLoader* PluginLoader::instance()
 PluginLoader::PluginLoader()
 {
     KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
-    for(KService::List::const_iterator iter = offers.begin(); iter < offers.end(); ++iter) {
+    for(KService::List::const_iterator iter = offers.constBegin(); iter != offers.constEnd(); ++iter) {
         KService::Ptr service = *iter;
         plugins[service->library()] = service;
     }
 }
 
-QStringList PluginLoader::getPluginList()
+QStringList PluginLoader::getPluginList() const
 {
     return plugins.keys();
 }
 
-KPluginInfo PluginLoader::getPluginInfo(const QString& name) {
-
+KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
+{
     KService::Ptr service = plugins[name];
     if (!service) {
         qDebug() << "Plugin unknown" << name;
@@ -59,8 +59,8 @@ KPluginInfo PluginLoader::getPluginInfo(const QString& name) {
     return KPluginInfo(service);
 }
 
-KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) {
-
+KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) const
+{
     KService::Ptr service = plugins[name];
     if (!service) {
         qDebug() << "Plugin unknown" << name;
@@ -73,8 +73,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, 
         return NULL;
     }
 
-    QVariant deviceVariant;
-    deviceVariant.setValue<Device*>(device);
+    QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
     //FIXME: create<KdeConnectPlugin> return NULL
     QObject *plugin = factory->create<QObject>(device, QVariantList() << deviceVariant);
