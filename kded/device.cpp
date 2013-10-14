@@ -200,6 +200,9 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 
     m_deviceLinks.append(link);
 
+    //re-read the device name from the identityPackage because it could have changed
+    m_deviceName = identityPackage.get<QString>("deviceName");
+
     //TODO: Do not read the key every time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
