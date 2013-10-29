@@ -3,7 +3,7 @@ set( EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR} )
 include(KDE4Defaults)
 
 find_package(KDE4 REQUIRED)
-find_package(QJSON REQUIRED)
+find_package(QJSON 0.8.1 REQUIRED)
 find_package(QCA2 REQUIRED)
 
 include_directories(

@@ -1,6 +1,6 @@
 add_subdirectory(plugins)
 
-find_package (QJSON REQUIRED)
+find_package (QJSON 0.8.1 REQUIRED)
 find_package (QCA2 REQUIRED)
 
 include_directories(
