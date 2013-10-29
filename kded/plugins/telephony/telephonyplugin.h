@@ -27,6 +27,8 @@
 
 #include <KStatusNotifierItem>
 
+#define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
+
 class TelephonyPlugin
     : public KdeConnectPlugin
 {

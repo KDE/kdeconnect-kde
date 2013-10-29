@@ -59,30 +59,33 @@ KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
     return KPluginInfo(service);
 }
 
-KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) const
+PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) const
 {
+    PluginData ret;
+
     KService::Ptr service = plugins[name];
     if (!service) {
         qDebug() << "Plugin unknown" << name;
-        return NULL;
+        return ret;
     }
 
     KPluginFactory *factory = KPluginLoader(service->library()).factory();
     if (!factory) {
         qDebug() << "KPluginFactory could not load the plugin:" << service->library();
-        return NULL;
+        return ret;
     }
+
+    ret.interfaces = service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList();
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
-    //FIXME: create<KdeConnectPlugin> return NULL
-    QObject *plugin = factory->create<QObject>(device, QVariantList() << deviceVariant);
-    if (!plugin) {
+    ret.plugin = (KdeConnectPlugin*) factory->create<QObject>(device, QVariantList() << deviceVariant);
+    if (!ret.plugin) {
         qDebug() << "Error loading plugin";
-        return NULL;
+        return ret;
     }
 
     qDebug() << "Loaded plugin:" << service->name();
-    return (KdeConnectPlugin*)plugin;
+    return ret;
 }
 

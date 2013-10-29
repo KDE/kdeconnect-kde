@@ -34,3 +34,5 @@ Comment[ru]=Дистанционное управление музыкой и в
 Comment[sv]=Fjärrstyr musik och videor
 Comment[uk]=Віддалене керування відтворенням музики та відео
 Comment[x-test]=xxRemote control your music and videosxx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.mpris

@@ -58,9 +58,6 @@ BatteryPlugin::~BatteryPlugin()
 
 bool BatteryPlugin::receivePackage(const NetworkPackage& np)
 {
-
-    if (np.type() != PACKAGE_TYPE_BATTERY) return false;
-
     bool isCharging = np.get<bool>("isCharging");
     int currentCharge = np.get<int>("currentCharge");
 

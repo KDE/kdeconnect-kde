@@ -1,12 +1,10 @@
 #include "device.h"
 
-#include <KSharedPtr>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KStandardDirs>
 #include <KPluginSelector>
 #include <KServiceTypeTrader>
-#include <KPluginInfo>
 #include <KNotification>
 #include <KIcon>
 
@@ -66,7 +64,8 @@ QStringList Device::loadedPlugins() const
 
 void Device::reloadPlugins()
 {
-    QMap< QString, KdeConnectPlugin* > newPluginMap;
+    QMap<QString, KdeConnectPlugin*> newPluginMap;
+    QMultiMap<QString, KdeConnectPlugin*> newPluginsByInterface;
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
@@ -83,18 +82,19 @@ void Device::reloadPlugins()
                                                             : loader->getPluginInfo(pluginName).isPluginEnabledByDefault());
 
             if (isPluginEnabled) {
-                KdeConnectPlugin* reusedPluginInstance = m_plugins.take(pluginName);
-                if (reusedPluginInstance) {
-                    //Already loaded, reuse it
-                    newPluginMap[pluginName] = reusedPluginInstance;
+                KdeConnectPlugin* plugin = m_plugins.take(pluginName);
+                QStringList interfaces;
+                if (plugin) {
+                    interfaces = m_pluginsByinterface.keys(plugin);
                 } else {
-                    KdeConnectPlugin* plugin = loader->instantiatePluginForDevice(pluginName, this);
-
-                    connect(this, SIGNAL(receivedPackage(NetworkPackage)),
-                            plugin, SLOT(receivePackage(NetworkPackage)));
-
-                    newPluginMap[pluginName] = plugin;
+                    PluginData data = loader->instantiatePluginForDevice(pluginName, this);
+                    plugin = data.plugin;
+                    interfaces = data.interfaces;
                 }
+                foreach(const QString& interface, interfaces) {
+                    newPluginsByInterface.insert(interface, plugin);
+                }
+                newPluginMap[pluginName] = plugin;
             }
         }
     }
@@ -103,6 +103,7 @@ void Device::reloadPlugins()
     //them anymore, otherwise they would have been moved to the newPluginMap)
     qDeleteAll(m_plugins);
     m_plugins = newPluginMap;
+    m_pluginsByinterface = newPluginsByInterface;
 
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
         plugin->connected();
@@ -346,16 +347,14 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
         }
 
-    } else if (!isPaired()) {
-
+    } else if (isPaired()) {
+        QList<KdeConnectPlugin*> plugins = m_pluginsByinterface.values(np.type());
+        foreach(KdeConnectPlugin* plugin, plugins) {
+            plugin->receivePackage(np);
+        }
+    } else {
         //TODO: Notify the other side that we don't trust them
         qDebug() << "device" << name() << "not paired, ignoring package" << np.type();
-
-    } else {
-
-        //Forward package
-        Q_EMIT receivedPackage(np);
-
     }
 
 }
@@ -415,7 +414,7 @@ QStringList Device::availableLinks() const
 
 void Device::sendPing()
 {
-    NetworkPackage np("kdeconnect.ping");
+    NetworkPackage np(PACKAGE_TYPE_PING);
     bool success = sendPackage(np);
     qDebug() << "sendPing:" << success;
 }

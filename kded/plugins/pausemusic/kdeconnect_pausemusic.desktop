@@ -33,3 +33,5 @@ Comment[ru]=Приостанавливать музыку/видео во вре
 Comment[sv]=Pausa musik eller videor under ett telefonsamtal
 Comment[uk]=Призупинка відтворення музики і відео на час телефонних дзвінків
 Comment[x-test]=xxPause music/videos during a phone callxx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.telephony

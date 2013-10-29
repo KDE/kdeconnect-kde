@@ -38,11 +38,6 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
-
-    if (np.type() != PACKAGE_TYPE_TELEPHONY) {
-        return false;
-    }
-
     switch(pauseWhen) {
         case PauseWhenRinging:
             if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
@@ -54,6 +49,8 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                 return true;
             }
             break;
+        case NeverPause:
+            return true;
     }
 
     bool pauseConditionFulfilled = !np.get<bool>("isCancel");
@@ -76,7 +73,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     } else {
         Q_FOREACH (const QString& iface, pausedSources) {
             QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
-            //Calling play does not work in spotify
+            //Calling play does not work for Spotify
             //mprisInterface->call(QDBus::Block,"Play");
             //Workaround: Using playpause instead (checking first if it is already playing)
             QString status = mprisInterface.property("PlaybackStatus").toString();

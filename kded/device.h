@@ -82,10 +82,6 @@ public:
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
 
-Q_SIGNALS:
-    ///notifies about a @p np package that has just been received from the device
-    void receivedPackage(const NetworkPackage& np) const;
-
 public Q_SLOTS:
     ///sends a @p np package to the device
     virtual bool sendPackage(NetworkPackage& np);
@@ -121,6 +117,7 @@ private:
 
     QList<DeviceLink*> m_deviceLinks;
     QMap<QString, KdeConnectPlugin*> m_plugins;
+    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByinterface;
 
     QTimer pairingTimer;
 

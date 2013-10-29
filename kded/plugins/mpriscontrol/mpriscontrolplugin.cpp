@@ -137,11 +137,6 @@ void MprisControlPlugin::removePlayer(const QString& ifaceName)
 
 bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 {
-
-    if (np.type() != PACKAGE_TYPE_MPRIS) {
-        return false;
-    }
-
     if (np.has("playerList")) {
         return false; //Whoever sent this is an mpris client and not an mpris control!
     }

@@ -42,9 +42,6 @@ PingPlugin::~PingPlugin()
 
 bool PingPlugin::receivePackage(const NetworkPackage& np)
 {
-
-    if (np.type() != PACKAGE_TYPE_PING) return false;
-
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
     notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));

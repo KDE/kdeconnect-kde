@@ -39,3 +39,5 @@ Comment[sk]=Poslať a prijať pingy
 Comment[sv]=Skicka och ta emot ping
 Comment[uk]=Надсилання і отримання сигналів підтримання зв’язку
 Comment[x-test]=xxSend and receive pingsxx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.ping

@@ -32,6 +32,13 @@
 class Device;
 class KdeConnectPlugin;
 
+struct PluginData
+{
+    PluginData() : plugin(0) {}
+    KdeConnectPlugin* plugin;
+    QStringList interfaces;
+};
+
 class PluginLoader
 {
 
@@ -40,7 +47,7 @@ public:
 
     QStringList getPluginList() const;
     KPluginInfo getPluginInfo(const QString& name) const;
-    KdeConnectPlugin* instantiatePluginForDevice(const QString& name, Device* device) const;
+    PluginData instantiatePluginForDevice(const QString& name, Device* device) const;
 
 private:
     PluginLoader();

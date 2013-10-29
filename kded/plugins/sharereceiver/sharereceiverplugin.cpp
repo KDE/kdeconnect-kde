@@ -66,7 +66,6 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
     }
 */
 
-    if (np.type() != PACKAGE_TYPE_SHARE) return false;
     qDebug() << "File transfer";
 
     if (np.hasPayload()) {

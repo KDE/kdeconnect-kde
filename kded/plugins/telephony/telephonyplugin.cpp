@@ -80,9 +80,6 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
 bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 {
-
-    if (np.type() != PACKAGE_TYPE_TELEPHONY) return false;
-
     if (np.get<bool>("isCancel")) {
 
         //It would be awesome to remove the old notification from the system tray here, but there is no way to do it :(

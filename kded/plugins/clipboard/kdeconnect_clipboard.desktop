@@ -37,3 +37,5 @@ Comment[ru]=Общий буфер обмена для всех устройст�
 Comment[sv]=Dela klippbordet mellan apparater
 Comment[uk]=Спільне використання буфера обміну даними на пристроях
 Comment[x-test]=xxShare the clipboard between devicesxx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.clipboard

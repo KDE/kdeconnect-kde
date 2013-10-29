@@ -37,3 +37,5 @@ Comment[ru]=Показывать значок батареи устройств�
 Comment[sv]=Visa telefonens batteri intill datorbatteriet
 Comment[uk]=Показ даних щодо рівня заряду акумулятора на телефоні поряд з даними щодо рівня заряду акумулятора комп’ютера
 Comment[x-test]=xxShow your phone battery next to your computer batteryxx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.battery

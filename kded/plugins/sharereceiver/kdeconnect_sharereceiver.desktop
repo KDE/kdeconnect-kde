@@ -29,3 +29,5 @@ Comment[ru]=Получать общие файлы и адреса URL с тел
 Comment[sv]=Ta emot filer och webbadresser att dela från din telefon
 Comment[uk]=Отримання файлів та адрес, наданих у спільне користування з вашого телефону
 Comment[x-test]=xxReceive files and URLs shared from your phonexx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.share
