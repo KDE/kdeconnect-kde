@@ -164,6 +164,11 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
         qDebug() << "Setting volume" << volume << "to" << playerList[player];
         mprisInterface.setVolume(volume);
     }
+    if (np.has("Seek")) {
+        int offset = np.get<int>("Seek");
+        qDebug() << "Seeking" << offset << "to" << playerList[player];
+        mprisInterface.Seek(offset);
+    }
 
     //Send something read from the mpris interface
     NetworkPackage answer(PACKAGE_TYPE_MPRIS);
