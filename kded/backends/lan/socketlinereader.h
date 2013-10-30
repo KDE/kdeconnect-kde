@@ -18,33 +18,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#ifndef SOCKETLINEREADER_H
+#define SOCKETLINEREADER_H
 
 #include <QObject>
 #include <QString>
+#include <QQueue>
 #include <QTcpSocket>
+#include <QHostAddress>
 
-#include "../devicelink.h"
-
-class SocketLineReader;
-
-class LanDeviceLink
-    : public DeviceLink
+/*
+ * Encapsulates a QTcpSocket and implements the same methods of its API that are
+ * used by LanDeviceLink, but readyRead is emitted only when a newline is found.
+ */
+class SocketLineReader
+    : public QObject
 {
     Q_OBJECT
 
 public:
-    LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket);
+    SocketLineReader(QTcpSocket* socket, QObject* parent = 0);
 
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
+    QByteArray readLine() { return mPackages.dequeue(); }
+    qint64 write(const QByteArray& data) { return mSocket->write(data); }
+    QHostAddress peerAddress() { return mSocket->peerAddress(); }
+    qint64 bytesAvailable() { return mPackages.size(); }
+
+Q_SIGNALS:
+    void disconnected();
+    void readyRead();
 
 private Q_SLOTS:
     void dataReceived();
 
 private:
-    SocketLineReader* mSocketLineReader;
+    QByteArray lastChunk;
+    QTcpSocket* mSocket;
+    QQueue<QByteArray> mPackages;
 
 };
 

@@ -28,28 +28,16 @@
 #include "../linkprovider.h"
 #include "uploadjob.h"
 #include "downloadjob.h"
+#include "socketlinereader.h"
 
 LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
     : DeviceLink(d, a)
+    , mSocketLineReader(new SocketLineReader(socket, a))
 {
-    mSocket = socket;
 
-    int fd = socket->socketDescriptor();
-    int enableKeepAlive = 1;
-    setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enableKeepAlive, sizeof(enableKeepAlive));
-
-    int maxIdle = 60; /* seconds */
-    setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
-
-    int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
-    setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPCNT, &count, sizeof(count));
-
-    int interval = 5;   // send a keepalive packet out every 2 seconds (after the 5 second idle period)
-    setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPINTVL, &interval, sizeof(interval));
-
-    connect(mSocket, SIGNAL(disconnected()),
+    connect(mSocketLineReader, SIGNAL(disconnected()),
             this, SLOT(deleteLater()));
-    connect(mSocket, SIGNAL(readyRead()),
+    connect(mSocketLineReader, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
 }
 
@@ -63,7 +51,7 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
 
     np.encrypt(key);
 
-    int written = mSocket->write(np.serialize());
+    int written = mSocketLineReader->write(np.serialize());
 
     //TODO: Actually detect if a package is received or not, now we keep TCP
     //"ESTABLISHED" connections that look legit (return true when we use them),
@@ -79,7 +67,7 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
          np.setPayloadTransferInfo(job->getTransferInfo());
     }
 
-    int written = mSocket->write(np.serialize());
+    int written = mSocketLineReader->write(np.serialize());
     //TODO: Actually detect if a package is received or not, now we keep TCP
     //"ESTABLISHED" connections that look legit (return true when we use them),
     //but that are actually broken
@@ -89,9 +77,9 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
 void LanDeviceLink::dataReceived()
 {
 
-    QByteArray package = mSocket->readLine();
+    QByteArray package = mSocketLineReader->readLine();
 
-    //qDebug() << "LanDeviceLink dataReceived" << data;
+    //qDebug() << "LanDeviceLink dataReceived" << package;
 
     NetworkPackage unserialized(QString::null);
     NetworkPackage::unserialize(package, &unserialized);
@@ -103,7 +91,7 @@ void LanDeviceLink::dataReceived()
 
         if (decrypted.hasPayloadTransferInfo()) {
             qDebug() << "HasPayloadTransferInfo";
-            DownloadJob* job = new DownloadJob(mSocket->peerAddress(), decrypted.payloadTransferInfo());
+            DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), decrypted.payloadTransferInfo());
             job->start();
             decrypted.setPayload(job->getPayload(), decrypted.payloadSize());
         }
@@ -120,13 +108,8 @@ void LanDeviceLink::dataReceived()
 
     }
 
-    if (mSocket->bytesAvailable() > 0) {
+    if (mSocketLineReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
-
-}
-
-void LanDeviceLink::readyRead()
-{
 
 }

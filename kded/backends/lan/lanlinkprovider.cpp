@@ -20,11 +20,33 @@
 
 #include "lanlinkprovider.h"
 
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netdb.h>
+
 #include <QHostInfo>
 #include <QTcpServer>
 #include <QUdpSocket>
 
 #include "landevicelink.h"
+
+void LanLinkProvider::configureSocket(QTcpSocket* socket)
+{
+    int fd = socket->socketDescriptor();
+    int enableKeepAlive = 1;
+    setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enableKeepAlive, sizeof(enableKeepAlive));
+
+    int maxIdle = 60; /* seconds */
+    setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+
+    int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
+    setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPCNT, &count, sizeof(count));
+
+    int interval = 5;   // send a keepalive packet out every 2 seconds (after the 5 second idle period)
+    setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPINTVL, &interval, sizeof(interval));
+
+}
 
 LanLinkProvider::LanLinkProvider()
 {
@@ -134,6 +156,8 @@ void LanLinkProvider::connected()
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
+    configureSocket(socket);
+
     NetworkPackage* np = receivedIdentityPackages[socket].np;
     const QString& id = np->get<QString>("deviceId");
     //qDebug() << "Connected" << socket->isWritable();
@@ -202,6 +226,7 @@ void LanLinkProvider::newConnection()
 void LanLinkProvider::dataReceived()
 {
     QTcpSocket* socket = (QTcpSocket*) QObject::sender();
+    configureSocket(socket);
 
     QByteArray data = socket->readLine();
 

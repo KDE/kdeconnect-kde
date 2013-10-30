@@ -54,6 +54,8 @@ private Q_SLOTS:
     void deviceLinkDestroyed(QObject*);
 
 private:
+    static void configureSocket(QTcpSocket* socket);
+
     QTcpServer* mTcpServer;
     QUdpSocket* mUdpServer;
     const static quint16 port = 1714;
