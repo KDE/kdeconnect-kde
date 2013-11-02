@@ -20,6 +20,7 @@ Name[pt]=Pausar os conteúdos durante as chamadas
 Name[pt_BR]=Pausar os conteúdos multimídia durante as chamadas
 Name[ru]=Останавливать проигрывание мультимедия во время звонков
 Name[sv]=Pausa media under samtal
+Name[tr]=Çağrılar sırasında ortamı duraklat
 Name[uk]=Призупинка відтворення під час дзвінків
 Name[x-test]=xxPause media during callsxx
 Comment=Pause music/videos during a phone call
@@ -31,6 +32,7 @@ Comment[pt]=Pausar a música/vídeo durante uma chamada
 Comment[pt_BR]=Pausa a música/vídeo durante uma chamada
 Comment[ru]=Приостанавливать музыку/видео во время телефонного звонка
 Comment[sv]=Pausa musik eller videor under ett telefonsamtal
+Comment[tr]=Bir telefon çağrısı sırasında müzik/videoları duraklat
 Comment[uk]=Призупинка відтворення музики і відео на час телефонних дзвінків
 Comment[x-test]=xxPause music/videos during a phone callxx
 

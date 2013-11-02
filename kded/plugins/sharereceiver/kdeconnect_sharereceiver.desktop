@@ -18,6 +18,7 @@ Name[pt]=Destinatário da partilha
 Name[pt_BR]=Destinatário do compartilhamento
 Name[ru]=Сделать ресивер общим
 Name[sv]=Dela mottagare
+Name[tr]=Paylaşım alıcı
 Name[uk]=Отримання спільних даних
 Name[x-test]=xxShare receiverxx
 Comment=Receive files and URLs shared from your phone
@@ -27,6 +28,7 @@ Comment[pt]=Receber os ficheiros e URL's partilhados a partir do seu telefone
 Comment[pt_BR]=Recebe os arquivos e URLs compartilhados a partir do seu telefone
 Comment[ru]=Получать общие файлы и адреса URL с телефона
 Comment[sv]=Ta emot filer och webbadresser att dela från din telefon
+Comment[tr]=Telefonunuzdan paylaşılan dosya ve adresleri alın
 Comment[uk]=Отримання файлів та адрес, наданих у спільне користування з вашого телефону
 Comment[x-test]=xxReceive files and URLs shared from your phonexx
 

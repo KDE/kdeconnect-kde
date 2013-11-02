@@ -21,6 +21,7 @@ Name[pt_BR]=Sincronização de notificações
 Name[ru]=Синхронизация уведомлений
 Name[sk]=Synchronizácia pripomienok
 Name[sv]=Synkronisering av underrättelser
+Name[tr]=Bildirim eşitleme
 Name[uk]=Синхронізація сповіщень
 Name[x-test]=xxNotification syncxx
 Comment=Show phone notifications in KDE and keep them in sync
@@ -33,6 +34,7 @@ Comment[pt]=Mostrar as notificações do telefone no KDE e mantê-las sincroniza
 Comment[pt_BR]=Mostra as notificações do celular no KDE e as mantem sincronizadas
 Comment[ru]=Показывать телефонные уведомления в KDE и синхронизировать их
 Comment[sv]=Visa telefonunderrättelser i KDE och håll dem synkroniserade
+Comment[tr]=Telefon bildirimlerini KDE içinde eşitler ve eşzamanlı tutar
 Comment[uk]=Показ сповіщень з телефону у KDE та підтримання синхронізації даних сповіщень
 Comment[x-test]=xxShow phone notifications in KDE and keep them in syncxx
 

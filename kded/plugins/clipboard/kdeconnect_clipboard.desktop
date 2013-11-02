@@ -23,6 +23,7 @@ Name[pt_BR]=Área de transferência
 Name[ru]=Буфер обмена
 Name[sk]=Schránka
 Name[sv]=Klippbord
+Name[tr]=Pano
 Name[uk]=Буфер обміну
 Name[x-test]=xxClipboardxx
 Comment=Share the clipboard between devices
@@ -35,6 +36,7 @@ Comment[pt]=Partilhar a área de transferência entre dispositivos
 Comment[pt_BR]=Compartilhar a área de transferência entre dispositivos
 Comment[ru]=Общий буфер обмена для всех устройств
 Comment[sv]=Dela klippbordet mellan apparater
+Comment[tr]=Aygıtlar arasında panoyu paylaştır
 Comment[uk]=Спільне використання буфера обміну даними на пристроях
 Comment[x-test]=xxShare the clipboard between devicesxx
 

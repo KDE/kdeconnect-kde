@@ -10,6 +10,7 @@ Name[pt]=KDEConnect
 Name[pt_BR]=KdeConnect
 Name[ru]=KdeConnect
 Name[sv]=KDE anslut
+Name[tr]=KdeConnect
 Name[uk]=KdeConnect
 Name[x-test]=xxKdeConnectxx
 Comment=Show notifications from your devices using KDE Connect
@@ -22,6 +23,7 @@ Comment[pt]=Mostrar notificações dos seus dispositivos usando o KDE Connect
 Comment[pt_BR]=Mostrar notificações dos seus dispositivos usando o KDE Connect
 Comment[ru]=Показывать уведомления от устройств с помощью KDE Connect
 Comment[sv]=Visa underrättelser från apparater med KDE anslut
+Comment[tr]=KDE Bağlan kullanılarak cihazınızdan bildirimleri görüntüleyin
 Comment[uk]=Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»
 Comment[x-test]=xxShow notifications from your devices using KDE Connectxx
 
