@@ -12,6 +12,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=preferences-desktop-notification
 Name=Notification sync
+Name[de]=Benachrichtigungs-Abgleich
 Name[es]=Sincronizar notificaciones
 Name[fr]=Synchronisation de notifications
 Name[hu]=Értesítés szinkronizáció
