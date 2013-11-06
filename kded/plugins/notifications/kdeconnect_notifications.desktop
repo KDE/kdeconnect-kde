@@ -39,4 +39,4 @@ Comment[tr]=Telefon bildirimlerini KDE içinde eşitler ve eşzamanlı tutar
 Comment[uk]=Показ сповіщень з телефону у KDE та підтримання синхронізації даних сповіщень
 Comment[x-test]=xxShow phone notifications in KDE and keep them in syncxx
 
-X-KdeConnect-SupportedPackageType=kdeconnect.notifications
+X-KdeConnect-SupportedPackageType=kdeconnect.notification

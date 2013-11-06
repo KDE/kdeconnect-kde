@@ -37,3 +37,5 @@ Comment[sv]=Visa underrättelser om samtal och SMS (att svara kommer snart)
 Comment[tr]=Çağrı ve SMS'ler için bildirim göster (yanıtlama yakında geliyor)
 Comment[uk]=Показ сповіщень щодо дзвінків і SMS (скоро буде реалізовано і автовідповідач)
 Comment[x-test]=xxShow notifications for calls and SMS (answering coming soon)xx
+
+X-KdeConnect-SupportedPackageType=kdeconnect.telephony
