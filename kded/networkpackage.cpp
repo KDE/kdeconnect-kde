@@ -56,6 +56,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->mPayloadSize = 0;
     np->set("deviceId", id);
     np->set("deviceName", QHostInfo::localHostName());
+    np->set("protocolType", "desktop"); //TODO: Detect laptop, tablet, phone...
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
 
     //qDebug() << "createIdentityPackage" << np->serialize();
