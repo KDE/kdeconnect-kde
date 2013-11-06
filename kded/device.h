@@ -48,6 +48,16 @@ class Device
         Paired,
     };
 
+    enum DeviceType {
+        Unknown,
+        Desktop,
+        Laptop,
+        Phone,
+        Tablet,
+    };
+    static DeviceType str2type(QString deviceType);
+    static QString type2str(DeviceType deviceType);
+
 public:
     /**
      * Reads the @p device from KConfig
@@ -111,6 +121,7 @@ private:
     //TODO: Replace device id by public key
     const QString m_deviceId;
     QString m_deviceName;
+    DeviceType m_deviceType;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
     int m_protocolVersion;

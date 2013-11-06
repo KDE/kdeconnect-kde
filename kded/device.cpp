@@ -26,6 +26,7 @@ Device::Device(const QString& id)
     KConfigGroup data = config->group("trusted_devices").group(id);
 
     m_deviceName = data.readEntry<QString>("deviceName", QString("unnamed"));
+    m_deviceType = str2type(data.readEntry<QString>("deviceType", QLatin1String("unknown")));
 
     const QString& key = data.readEntry<QString>("publicKey",QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
@@ -38,6 +39,7 @@ Device::Device(const QString& id)
 Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
     : m_deviceId(identityPackage.get<QString>("deviceId"))
     , m_deviceName(identityPackage.get<QString>("deviceName"))
+    , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
 {
@@ -203,6 +205,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 
     //re-read the device name from the identityPackage because it could have changed
     m_deviceName = identityPackage.get<QString>("deviceName");
+    m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
     //TODO: Do not read the key every time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -419,3 +422,18 @@ void Device::sendPing()
     qDebug() << "sendPing:" << success;
 }
 
+static DeviceType Device::str2type(QString deviceType) {
+    if (deviceType == "desktop") return Desktop;
+    if (deviceType == "laptop") return Laptop;
+    if (deviceType == "phone") return Phone;
+    if (deviceType == "tablet") return Tablet;
+    return Unknown;
+}
+
+static QString Device::type2str(DeviceType deviceType) {
+    if (deviceType == Desktop) return "desktop";
+    if (deviceType == Laptop) return "laptop";
+    if (deviceType == Phone) return "phone";
+    if (deviceType == Tablet) return "tablet";
+    return "unknown";
+}
