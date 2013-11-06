@@ -25,10 +25,10 @@ Device::Device(const QString& id)
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
     KConfigGroup data = config->group("trusted_devices").group(id);
 
-    m_deviceName = data.readEntry<QString>("deviceName", QString("unnamed"));
+    m_deviceName = data.readEntry<QString>("deviceName", QLatin1String("unnamed"));
     m_deviceType = str2type(data.readEntry<QString>("deviceType", QLatin1String("unknown")));
 
-    const QString& key = data.readEntry<QString>("publicKey",QString());
+    const QString& key = data.readEntry<QString>("publicKey", QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
 
     //Register in bus
@@ -135,12 +135,7 @@ void Device::requestPair()
     m_pairStatus = Device::Requested;
 
     //Send our own public key
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", true);
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString& key = config->group("myself").readEntry<QString>("publicKey",QString());
-    np.set("publicKey",key);
-    bool success = sendPackage(np);
+    bool success = sendOwnPublicKey();
 
     if (!success) {
         m_pairStatus = Device::NotPaired;
@@ -207,9 +202,9 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceName = identityPackage.get<QString>("deviceName");
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
-    //TODO: Do not read the key every time
+    //TODO: Do not read the key every time from config, store somewhere
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString& key = config->group("myself").readEntry<QString>("privateKey",QString());
+    const QString& key = config->group("myself").readEntry<QString>("privateKey", QString());
     QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
     link->setPrivateKey(privateKey);
 
@@ -301,18 +296,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             if (m_pairStatus == Device::Requested)  { //We started pairing
 
                 qDebug() << "Pair answer";
-
-                m_pairStatus = Device::Paired;
-                pairingTimer.stop();
-
-                //Store as trusted device
-                KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-                config->group("trusted_devices").group(id()).writeEntry("publicKey",key);
-                config->group("trusted_devices").group(id()).writeEntry("deviceName",name());
-
-                reloadPlugins();
-
-                Q_EMIT pairingSuccesful();
+                setAsPaired();
 
             } else {
 
@@ -362,34 +346,15 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
 }
 
-void Device::acceptPairing()
+bool Device::sendOwnPublicKey()
 {
-    if (m_pairStatus != Device::RequestedByPeer) return;
-
-    qDebug() << "Accepted pairing";
-
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-
-    //Send our own public key
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", true);
-    const QString& key = config->group("myself").readEntry<QString>("publicKey",QString());
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    const QString& key = config->group("myself").readEntry<QString>("publicKey", QString());
     np.set("publicKey",key);
     bool success = sendPackage(np);
-
-    if (!success) {
-        return;
-    }
-
-    //Store as trusted device
-    config->group("trusted_devices").group(id()).writeEntry("publicKey", m_publicKey.toPEM());
-    config->group("trusted_devices").group(id()).writeEntry("deviceName", name());
-
-    m_pairStatus = Device::Paired;
-
-    reloadPlugins(); //This will load plugins
-
-    Q_EMIT pairingSuccesful();
+    return success;
 }
 
 void Device::rejectPairing()
@@ -404,6 +369,46 @@ void Device::rejectPairing()
 
     Q_EMIT pairingFailed(i18n("Canceled by the user"));
 
+}
+
+void Device::acceptPairing()
+{
+    if (m_pairStatus != Device::RequestedByPeer) return;
+
+    qDebug() << "Accepted pairing";
+
+    bool success = sendOwnPublicKey();
+
+    if (!success) {
+        m_pairStatus = Device::NotPaired;
+        return;
+    }
+
+    setAsPaired();
+
+}
+
+void Device::setAsPaired()
+{
+
+    m_pairStatus = Device::Paired;
+
+    pairingTimer.stop(); //Just in case it was started
+
+    storeAsTrusted(); //Save to the config as trusted
+
+    reloadPlugins(); //Will actually load the plugins
+
+    Q_EMIT pairingSuccesful();
+
+}
+
+void Device::storeAsTrusted()
+{
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+    config->group("trusted_devices").group(id()).writeEntry("publicKey", m_publicKey.toPEM());
+    config->group("trusted_devices").group(id()).writeEntry("deviceName", name());
+    config->group("trusted_devices").group(id()).writeEntry("deviceType", type2str(m_deviceType));
 }
 
 QStringList Device::availableLinks() const
@@ -422,7 +427,7 @@ void Device::sendPing()
     qDebug() << "sendPing:" << success;
 }
 
-static DeviceType Device::str2type(QString deviceType) {
+Device::DeviceType Device::str2type(QString deviceType) {
     if (deviceType == "desktop") return Desktop;
     if (deviceType == "laptop") return Laptop;
     if (deviceType == "phone") return Phone;
@@ -430,7 +435,7 @@ static DeviceType Device::str2type(QString deviceType) {
     return Unknown;
 }
 
-static QString Device::type2str(DeviceType deviceType) {
+QString Device::type2str(Device::DeviceType deviceType) {
     if (deviceType == Desktop) return "desktop";
     if (deviceType == Laptop) return "laptop";
     if (deviceType == Phone) return "phone";

@@ -132,6 +132,10 @@ private:
 
     QTimer pairingTimer;
 
+    void setAsPaired();
+    void storeAsTrusted();
+    bool sendOwnPublicKey();
+
 };
 
 Q_DECLARE_METATYPE(Device*)
