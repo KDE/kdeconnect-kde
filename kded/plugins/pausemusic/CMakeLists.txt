@@ -14,6 +14,7 @@ include_directories(
 set(kdeconnect_pausemusic_SRCS
     pausemusicplugin.cpp
     ../kdeconnectplugin.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_pausemusic ${kdeconnect_pausemusic_SRCS})

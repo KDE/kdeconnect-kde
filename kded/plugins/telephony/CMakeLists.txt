@@ -13,6 +13,7 @@ include_directories(${KDE4_INCLUDES})
 set(kdeconnect_telephony_SRCS
     telephonyplugin.cpp
     ../kdeconnectplugin.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_telephony ${kdeconnect_telephony_SRCS})

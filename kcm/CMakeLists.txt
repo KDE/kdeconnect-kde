@@ -4,8 +4,10 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_SOURCE_DIR}
                     ${CMAKE_BINARY_DIR})
 
-set(kcm_SRCS devicessortproxymodel.cpp
+set(kcm_SRCS
     kcm.cpp
+    devicessortproxymodel.cpp
+    kdebugnamespace.cpp
 )
 
 kde4_add_ui_files(kcm_SRCS kcm.ui)

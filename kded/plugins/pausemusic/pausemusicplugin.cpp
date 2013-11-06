@@ -20,12 +20,13 @@
 
 #include "pausemusicplugin.h"
 
-#include <QDebug>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusConnectionInterface>
 #include <QDBusReply>
 #include <QDBusMessage>
+
+#include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect_pausemusic") )

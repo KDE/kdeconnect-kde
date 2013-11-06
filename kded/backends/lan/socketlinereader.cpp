@@ -20,6 +20,7 @@
 
 #include "socketlinereader.h"
 
+#include "../../kdebugnamespace.h"
 
 SocketLineReader::SocketLineReader(QTcpSocket* socket, QObject* parent)
     : QObject(parent)
@@ -64,7 +65,7 @@ void SocketLineReader::dataReceived()
         if (mPackages.length() > 0) {
             Q_EMIT readyRead();
         } else {
-            qDebug() << "Received incomplete chunk of data, waiting for more";
+            kDebug(kdeconnect_kded()) << "Received incomplete chunk of data, waiting for more";
         }
 
     }

@@ -59,7 +59,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->set("protocolType", "desktop"); //TODO: Detect laptop, tablet, phone...
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
 
-    //qDebug() << "createIdentityPackage" << np->serialize();
+    //kDebug(kdeconnect_kded()) << "createIdentityPackage" << np->serialize();
 }
 
 QByteArray NetworkPackage::serialize() const
@@ -72,7 +72,7 @@ QByteArray NetworkPackage::serialize() const
     QVariantMap variant = QJson::QObjectHelper::qobject2qvariant(this);
 
     if (hasPayload()) {
-        //qDebug() << "Serializing payloadTransferInfo";
+        //kDebug(kdeconnect_kded()) << "Serializing payloadTransferInfo";
         variant["payloadSize"] = 0;
         variant["payloadTransferInfo"] = mPayloadTransferInfo;
     }
@@ -82,10 +82,10 @@ QByteArray NetworkPackage::serialize() const
     QJson::Serializer serializer;
     QByteArray json = serializer.serialize(variant,&ok);
     if (!ok) {
-        qDebug() << "Serialization error:" << serializer.errorMessage();
+        kDebug(kdeconnect_kded()) << "Serialization error:" << serializer.errorMessage();
     } else {
         if (!isEncrypted()) {
-            //qDebug() << "Serialized package:" << json;
+            //kDebug(kdeconnect_kded()) << "Serialized package:" << json;
         }
         json.append('\n');
     }
@@ -100,7 +100,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     bool ok;
     QVariantMap variant = parser.parse(a, &ok).toMap();
     if (!ok) {
-        qDebug() << "Unserialization error:" << a;
+        kDebug(kdeconnect_kded()) << "Unserialization error:" << a;
         return false;
     }
 
@@ -108,7 +108,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant, np);
 
     if (!np->isEncrypted()) {
-        //qDebug() << "Unserialized: " << a;
+        //kDebug(kdeconnect_kded()) << "Unserialized: " << a;
     }
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
@@ -133,7 +133,7 @@ void NetworkPackage::encrypt(QCA::PublicKey& key)
         chunks.append( encryptedChunk.toBase64() );
     }
 
-    //qDebug() << chunks.size() << "chunks";
+    //kDebug(kdeconnect_kded()) << chunks.size() << "chunks";
 
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = PACKAGE_TYPE_ENCRYPTED;

@@ -23,7 +23,7 @@
 #include "libkdeconnect/dbusinterfaces.h"
 #include "libkdeconnect/devicesmodel.h"
 
-#include <QDebug>
+#include "kdebugnamespace.h"
 
 DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel* devicesModel)
     : QSortFilterProxyModel(devicesModel)

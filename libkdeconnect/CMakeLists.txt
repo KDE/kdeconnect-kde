@@ -13,6 +13,7 @@ set(libkdeconnect_SRC
     devicesmodel.cpp
     notificationsmodel.cpp
     modeltest.cpp
+    kdebugnamespace.cpp
 )
 
 set_source_files_properties(

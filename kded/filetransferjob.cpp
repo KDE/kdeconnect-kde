@@ -20,10 +20,11 @@
 
 #include "filetransferjob.h"
 
+#include <qalgorithms.h>
+
 #include <KLocalizedString>
 
-#include <QDebug>
-#include <qalgorithms.h>
+#include "kdebugnamespace.h"
 
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination): KJob()
 {
@@ -36,17 +37,17 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int si
     mOrigin = origin;
     mSize = size;
     mWritten = 0;
-    qDebug() << "FileTransferJob Downloading payload to" << destination;
+    kDebug(kdeconnect_kded()) << "FileTransferJob Downloading payload to" << destination;
 }
 
 void FileTransferJob::openFinished(KJob* job)
 {
-    qDebug() << job->errorString();
+    kDebug(kdeconnect_kded()) << job->errorString();
 }
 
 void FileTransferJob::start()
 {
-    //qDebug() << "FileTransferJob start";
+    //kDebug(kdeconnect_kded()) << "FileTransferJob start";
 
     //Open destination file
     mDestination->start();
@@ -56,10 +57,10 @@ void FileTransferJob::open(KIO::Job* job)
 {
     Q_UNUSED(job);
 
-    //qDebug() << "FileTransferJob open";
+    //kDebug(kdeconnect_kded()) << "FileTransferJob open";
 
     if (!mOrigin) {
-        qDebug() << "FileTransferJob: Origin is null";
+        kDebug(kdeconnect_kded()) << "FileTransferJob: Origin is null";
         return;
     }
 
@@ -80,7 +81,7 @@ void FileTransferJob::readyRead()
     mDestination->write(data);
     mWritten += bytes;
 
-    //qDebug() << "readyRead" << mSize << mWritten << bytes;
+    //kDebug(kdeconnect_kded()) << "readyRead" << mSize << mWritten << bytes;
 
     if (mSize > -1) {
         setPercent((mWritten*100)/mSize);
@@ -101,12 +102,12 @@ void FileTransferJob::sourceFinished()
 
     //TODO: MD5 check the file
     if (mSize > -1 && mWritten != mSize) {
-        qDebug() << "Received incomplete file";
+        kDebug(kdeconnect_kded()) << "Received incomplete file";
         setError(1);
         setErrorText(i18n("Received incomplete file"));
         emitResult();
     } else {
-        qDebug() << "Finished transfer" << mDestination->url();
+        kDebug(kdeconnect_kded()) << "Finished transfer" << mDestination->url();
     }
     mDestination->close();
     mDestination->deleteLater();

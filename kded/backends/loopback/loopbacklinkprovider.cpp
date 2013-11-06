@@ -20,7 +20,7 @@
 
 #include "loopbacklinkprovider.h"
 
-#include <QDebug>
+#include "kdebugnamespace.h"
 
 LoopbackLinkProvider::LoopbackLinkProvider()
     : identityPackage(PACKAGE_TYPE_IDENTITY)
@@ -37,7 +37,7 @@ LoopbackLinkProvider::~LoopbackLinkProvider()
 void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
     Q_UNUSED(state);
-    //qDebug() << "Echo Device discovery emitted";
+    //kDebug(kdeconnect_kded()) << "Echo Device discovery emitted";
 
     LoopbackDeviceLink* newLoopbackDeviceLink = new LoopbackDeviceLink("loopback", this);
     Q_EMIT onConnectionReceived(identityPackage, newLoopbackDeviceLink);

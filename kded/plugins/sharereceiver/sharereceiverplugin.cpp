@@ -24,11 +24,11 @@
 #include <KLocalizedString>
 #include <KStandardDirs>
 
-#include <QDebug>
 #include <QFile>
 #include <qprocess.h>
 #include <QDesktopServices>
 
+#include "../../kdebugnamespace.h"
 #include "../../filetransferjob.h"
 #include "autoclosingqfile.h"
 
@@ -50,7 +50,7 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
     //TODO: Move this code to a test and add a diff between files
     if (np.type() == PACKAGE_TYPE_PING) {
 
-        qDebug() << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
+        kDebug(kdeconnect_kded()) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
         NetworkPackage out(PACKAGE_TYPE_SHARE);
         out.set("filename", mDestinationDir + "itworks.txt");
@@ -66,10 +66,10 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
     }
 */
 
-    qDebug() << "File transfer";
+    kDebug(kdeconnect_kded()) << "File transfer";
 
     if (np.hasPayload()) {
-        //qDebug() << "receiving file";
+        //kDebug(kdeconnect_kded()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         //TODO: Ask before overwritting or rename file if it already exists
         FileTransferJob* job = np.createPayloadTransferJob(mDestinationDir + filename);
@@ -95,7 +95,7 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
         QUrl url(np.get<QString>("url"));
         QDesktopServices::openUrl(url);
     } else {
-        qDebug() << "Error: Nothing attached!";
+        kDebug(kdeconnect_kded()) << "Error: Nothing attached!";
     }
 
     return true;
@@ -104,7 +104,7 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
 
 void ShareReceiverPlugin::finished(KJob* job)
 {
-    qDebug() << "File transfer finished";
+    kDebug(kdeconnect_kded()) << "File transfer finished";
 
     FileTransferJob* transferJob = (FileTransferJob*)job;
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent

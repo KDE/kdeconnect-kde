@@ -19,14 +19,15 @@
  */
 
 #include "devicesmodel.h"
-#include "modeltest.h"
-#include <ksharedconfig.h>
 
-#include <QDebug>
 #include <QDBusInterface>
 
+#include <KSharedConfig>
 #include <KConfigGroup>
 #include <KIcon>
+
+#include "kdebugnamespace.h"
+#include "modeltest.h"
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)

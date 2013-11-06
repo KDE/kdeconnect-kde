@@ -20,15 +20,15 @@
 
 #include "notificationsdbusinterface.h"
 
-#include "../../filetransferjob.h"
-#include <notificationsplugin.h>
-
-#include <QDebug>
 #include <QDBusConnection>
 
 #include <KNotification>
 #include <KIcon>
 #include <KMD5>
+
+#include "../../kdebugnamespace.h"
+#include "../../filetransferjob.h"
+#include "notificationsplugin.h"
 
 NotificationsDbusInterface::NotificationsDbusInterface(Device* device, QObject *parent)
     : QDBusAbstractAdaptor(parent)
@@ -101,10 +101,10 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)
 {
-    qDebug() << "removeNotification" << internalId;
+    kDebug(kdeconnect_kded()) << "removeNotification" << internalId;
 
     if (!mInternalIdToPublicId.contains(internalId)) {
-        qDebug() << "Not found";
+        kDebug(kdeconnect_kded()) << "Not found";
         return;
     }
 
@@ -112,7 +112,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
     Notification* noti = mNotifications.take(publicId);
     if (!noti) {
-        qDebug() << "Not found";
+        kDebug(kdeconnect_kded()) << "Not found";
         return;
     }
 

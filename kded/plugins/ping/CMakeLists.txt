@@ -14,6 +14,7 @@ include_directories(
 set(kdeconnect_ping_SRCS
     pingplugin.cpp
     ../kdeconnectplugin.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_ping ${kdeconnect_ping_SRCS})

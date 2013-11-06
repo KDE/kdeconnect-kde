@@ -20,10 +20,9 @@
 
 #include "notificationsplugin.h"
 
-#include <QDebug>
-
 #include <KIcon>
 
+#include "../../kdebugnamespace.h"
 #include "notificationsdbusinterface.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< NotificationsPlugin >(); )

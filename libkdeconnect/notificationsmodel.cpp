@@ -19,14 +19,15 @@
  */
 
 #include "notificationsmodel.h"
-#include <ksharedconfig.h>
 
-#include <QDebug>
 #include <QDBusInterface>
 
+#include <KSharedConfig>
 #include <KConfigGroup>
 #include <KIcon>
+
 #include "modeltest.h"
+#include "kdebugnamespace.h"
 
 NotificationsModel::NotificationsModel(QObject *parent)
     : QAbstractListModel(parent)

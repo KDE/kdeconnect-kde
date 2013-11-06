@@ -22,7 +22,8 @@
 #define AUTOCLOSINGQFILE_H
 
 #include <QFile>
-#include <QDebug>
+
+#include "../../kdebugnamespace.h"
 
 class AutoClosingQFile : public QFile
 {

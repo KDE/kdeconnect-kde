@@ -18,26 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "batterydbusinterface.h"
+#include "kdebugnamespace.h"
 
-#include "../../kdebugnamespace.h"
-
-BatteryDbusInterface::BatteryDbusInterface(QObject *parent)
-    : QDBusAbstractAdaptor(parent)
-{
-}
-
-BatteryDbusInterface::~BatteryDbusInterface()
-{
-    kDebug(kdeconnect_kded()) << "Destroying BatteryDbusInterface";
-}
-
-void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)
-{
-    mIsCharging = isCharging;
-    mCharge = currentCharge;
-
-    Q_EMIT chargingChange();
+int kdeconnect_kded() {
+	static int s_area = KDebug::registerArea("kdeconnect_kded", true);
+	return s_area;
 }
 
 

@@ -28,7 +28,6 @@
 #include <QtGui/QListView>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QDebug>
 
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
@@ -38,6 +37,7 @@
 #include "ui_kcm.h"
 #include "libkdeconnect/dbusinterfaces.h"
 #include "devicessortproxymodel.h"
+#include "kdebugnamespace.h"
 
 K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
@@ -133,7 +133,6 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
             kcmUi->ping_button->setVisible(false);
         }
     }
-
 
     //FIXME: KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;

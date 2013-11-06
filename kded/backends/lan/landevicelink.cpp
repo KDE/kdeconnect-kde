@@ -81,7 +81,7 @@ void LanDeviceLink::dataReceived()
 
     QByteArray package = mSocketLineReader->readLine();
 
-    //qDebug() << "LanDeviceLink dataReceived" << package;
+    //kDebug(kdeconnect_kded()) << "LanDeviceLink dataReceived" << package;
 
     NetworkPackage unserialized(QString::null);
     NetworkPackage::unserialize(package, &unserialized);
@@ -92,7 +92,7 @@ void LanDeviceLink::dataReceived()
         unserialized.decrypt(mPrivateKey, &decrypted);
 
         if (decrypted.hasPayloadTransferInfo()) {
-            qDebug() << "HasPayloadTransferInfo";
+            kDebug(kdeconnect_kded()) << "HasPayloadTransferInfo";
             DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), decrypted.payloadTransferInfo());
             job->start();
             decrypted.setPayload(job->getPayload(), decrypted.payloadSize());

@@ -21,7 +21,8 @@
 #include "notification.h"
 
 #include <QDBusConnection>
-#include <QDebug>
+
+#include "../../kdebugnamespace.h"
 
 Notification::Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent)
     : QObject(parent)

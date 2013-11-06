@@ -23,19 +23,18 @@
 
 #include "networkpackagetypes.h"
 
-#include <KUrl>
-
 #include <QObject>
-#include <QDebug>
 #include <QString>
 #include <QVariant>
 #include <QStringList>
 #include <QIODevice>
 #include <QtCrypto>
 #include <QSharedPointer>
-
 #include <qjson/parser.h>
 
+#include <KUrl>
+
+#include "kdebugnamespace.h"
 #include "default_args.h"
 
 class FileTransferJob;

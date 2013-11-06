@@ -1,5 +1,7 @@
 #include "device.h"
 
+#include <QDBusConnection>
+
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KStandardDirs>
@@ -8,9 +10,7 @@
 #include <KNotification>
 #include <KIcon>
 
-#include <QDBusConnection>
-#include <QDebug>
-
+#include "kdebugnamespace.h"
 #include "plugins/kdeconnectplugin.h"
 #include "plugins/pluginloader.h"
 #include "backends/devicelink.h"
@@ -186,7 +186,7 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 
 void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
-    //qDebug() << "Adding link to" << id() << "via" << link->provider();
+    //kDebug(kdeconnect_kded()) << "Adding link to" << id() << "via" << link->provider();
 
     m_protocolVersion = identityPackage.get<int>("protocolVersion");
     if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
@@ -236,7 +236,7 @@ void Device::removeLink(DeviceLink* link)
 {
     m_deviceLinks.removeOne(link);
 
-    //qDebug() << "RemoveLink" << m_deviceLinks.size() << "links remaining";
+    //kDebug(kdeconnect_kded()) << "RemoveLink" << m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.isEmpty()) {
         reloadPlugins();
@@ -264,12 +264,12 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 {
     if (np.type() == PACKAGE_TYPE_PAIR) {
 
-        //qDebug() << "Pair package";
+        //kDebug(kdeconnect_kded()) << "Pair package";
 
         bool wantsPair = np.get<bool>("pair");
 
         if (wantsPair == isPaired()) {
-            qDebug() << "Already" << (wantsPair? "paired":"unpaired");
+            kDebug(kdeconnect_kded()) << "Already" << (wantsPair? "paired":"unpaired");
             if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
                 pairingTimer.stop();
@@ -284,7 +284,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             const QString& key = np.get<QString>("publicKey");
             m_publicKey = QCA::RSAPublicKey::fromPEM(key);
             if (m_publicKey.isNull()) {
-                qDebug() << "ERROR decoding key";
+                kDebug(kdeconnect_kded()) << "ERROR decoding key";
                 if (m_pairStatus == Device::Requested) {
                     m_pairStatus = Device::NotPaired;
                     pairingTimer.stop();
@@ -295,12 +295,12 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
             if (m_pairStatus == Device::Requested)  { //We started pairing
 
-                qDebug() << "Pair answer";
+                kDebug(kdeconnect_kded()) << "Pair answer";
                 setAsPaired();
 
             } else {
 
-                qDebug() << "Pair request";
+                kDebug(kdeconnect_kded()) << "Pair request";
 
                 KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
                 notification->setPixmap(KIcon("dialog-information").pixmap(48, 48));
@@ -318,7 +318,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
         } else {
 
-            qDebug() << "Unpair request";
+            kDebug(kdeconnect_kded()) << "Unpair request";
 
             if (m_pairStatus == Device::Requested) {
                 pairingTimer.stop();
@@ -341,7 +341,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         }
     } else {
         //TODO: Notify the other side that we don't trust them
-        qDebug() << "device" << name() << "not paired, ignoring package" << np.type();
+        kDebug(kdeconnect_kded()) << "device" << name() << "not paired, ignoring package" << np.type();
     }
 
 }
@@ -359,7 +359,7 @@ bool Device::sendOwnPublicKey()
 
 void Device::rejectPairing()
 {
-    qDebug() << "Rejected pairing";
+    kDebug(kdeconnect_kded()) << "Rejected pairing";
 
     m_pairStatus = Device::NotPaired;
 
@@ -375,7 +375,7 @@ void Device::acceptPairing()
 {
     if (m_pairStatus != Device::RequestedByPeer) return;
 
-    qDebug() << "Accepted pairing";
+    kDebug(kdeconnect_kded()) << "Accepted pairing";
 
     bool success = sendOwnPublicKey();
 
@@ -424,7 +424,7 @@ void Device::sendPing()
 {
     NetworkPackage np(PACKAGE_TYPE_PING);
     bool success = sendPackage(np);
-    qDebug() << "sendPing:" << success;
+    kDebug(kdeconnect_kded()) << "sendPing:" << success;
 }
 
 Device::DeviceType Device::str2type(QString deviceType) {

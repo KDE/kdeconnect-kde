@@ -20,11 +20,11 @@
 
 #include "batteryplugin.h"
 
-#include <QDebug>
 #include <KNotification>
 #include <KIcon>
 #include <KLocalizedString>
 
+#include "../../kdebugnamespace.h"
 #include "batterydbusinterface.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< BatteryPlugin >(); )

@@ -20,19 +20,18 @@
 
 #include "daemon.h"
 
-#include "networkpackage.h"
-
-#include "backends/lan/lanlinkprovider.h"
-#include "backends/loopback/loopbacklinkprovider.h"
-
 #include <QUuid>
 #include <QDBusConnection>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
-#include <QDebug>
 
 #include <KConfig>
 #include <KConfigGroup>
+
+#include "kdebugnamespace.h"
+#include "networkpackage.h"
+#include "backends/lan/lanlinkprovider.h"
+#include "backends/loopback/loopbacklinkprovider.h"
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
@@ -48,10 +47,10 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         //uuids contain charcaters that are not exportable in dbus paths
         uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
         config->group("myself").writeEntry("id", uuid);
-        qDebug() << "My id:" << uuid;
+        kDebug(kdeconnect_kded()) << "My id:" << uuid;
     }
 
-    //qDebug() << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
+    //kDebug(kdeconnect_kded()) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
         //TODO: Maybe display this in a more visible way?
         qWarning() << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
@@ -72,7 +71,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     }
 
     //Debugging
-    qDebug() << "Starting KdeConnect daemon";
+    kDebug(kdeconnect_kded()) << "Starting KdeConnect daemon";
 
     //Load backends (hardcoded by now, should be plugins in a future)
     mLinkProviders.insert(new LanLinkProvider());
@@ -143,14 +142,14 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 {
     const QString& id = identityPackage.get<QString>("deviceId");
 
-    //qDebug() << "Device discovered" << id << "via" << dl->provider()->name();
+    //kDebug(kdeconnect_kded()) << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (mDevices.contains(id)) {
-        //qDebug() << "It is a known device";
+        //kDebug(kdeconnect_kded()) << "It is a known device";
         Device* device = mDevices[id];
         device->addLink(identityPackage, dl);
     } else {
-        //qDebug() << "It is a new device";
+        //kDebug(kdeconnect_kded()) << "It is a new device";
 
         Device* device = new Device(identityPackage, dl);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
@@ -171,12 +170,12 @@ void Daemon::onDeviceReachableStatusChanged()
 
     Q_EMIT deviceVisibilityChanged(id, device->isReachable());
 
-    //qDebug() << "Device" << device->name() << "reachable status changed:" << device->isReachable();
+    //kDebug(kdeconnect_kded()) << "Device" << device->name() << "reachable status changed:" << device->isReachable();
 
     if (!device->isReachable()) {
 
         if (!device->isPaired()) {
-            qDebug() << "Destroying device" << device->name();
+            kDebug(kdeconnect_kded()) << "Destroying device" << device->name();
             Q_EMIT deviceRemoved(id);
             mDevices.remove(id);
             device->deleteLater();

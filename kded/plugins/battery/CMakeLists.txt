@@ -19,6 +19,7 @@ set(kdeconnect_battery_SRCS
     ../../networkpackage.cpp
     ../../filetransferjob.cpp
     ../../device.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_battery ${kdeconnect_battery_SRCS})

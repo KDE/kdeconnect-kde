@@ -19,6 +19,7 @@ set(kdeconnect_sharereceiver_SRCS
     ../../filetransferjob.cpp
     ../../networkpackage.cpp
     ../../device.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_sharereceiver ${kdeconnect_sharereceiver_SRCS})

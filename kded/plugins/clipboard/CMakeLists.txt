@@ -18,6 +18,7 @@ set(kdeconnect_clipboard_SRCS
     ../../networkpackage.cpp
     ../../filetransferjob.cpp
     ../../device.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_clipboard ${kdeconnect_clipboard_SRCS})

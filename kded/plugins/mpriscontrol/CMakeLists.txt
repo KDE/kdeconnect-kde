@@ -18,6 +18,7 @@ set(kdeconnect_mpriscontrol_SRCS
     ../../networkpackage.cpp
     ../../filetransferjob.cpp
     ../../device.cpp
+    ../../kdebugnamespace.cpp
 )
 
 qt4_add_dbus_interface(

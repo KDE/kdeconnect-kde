@@ -20,13 +20,11 @@
 
 #include "pluginloader.h"
 
-#include "kdeconnectplugin.h"
-
-#include <QDebug>
-
 #include <KServiceTypeTrader>
 
+#include "../kdebugnamespace.h"
 #include "../device.h"
+#include "kdeconnectplugin.h"
 
 PluginLoader* PluginLoader::instance()
 {
@@ -52,7 +50,7 @@ KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
 {
     KService::Ptr service = plugins[name];
     if (!service) {
-        qDebug() << "Plugin unknown" << name;
+        kDebug(kdeconnect_kded()) << "Plugin unknown" << name;
         return KPluginInfo();
     }
 
@@ -65,13 +63,13 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
 
     KService::Ptr service = plugins[name];
     if (!service) {
-        qDebug() << "Plugin unknown" << name;
+        kDebug(kdeconnect_kded()) << "Plugin unknown" << name;
         return ret;
     }
 
     KPluginFactory *factory = KPluginLoader(service->library()).factory();
     if (!factory) {
-        qDebug() << "KPluginFactory could not load the plugin:" << service->library();
+        kDebug(kdeconnect_kded()) << "KPluginFactory could not load the plugin:" << service->library();
         return ret;
     }
 
@@ -81,11 +79,11 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
 
     ret.plugin = (KdeConnectPlugin*) factory->create<QObject>(device, QVariantList() << deviceVariant);
     if (!ret.plugin) {
-        qDebug() << "Error loading plugin";
+        kDebug(kdeconnect_kded()) << "Error loading plugin";
         return ret;
     }
 
-    qDebug() << "Loaded plugin:" << service->name();
+    kDebug(kdeconnect_kded()) << "Loaded plugin:" << service->name();
     return ret;
 }
 

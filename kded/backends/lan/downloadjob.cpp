@@ -29,7 +29,7 @@ DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
 
 void DownloadJob::start()
 {
-    //qDebug() << "DownloadJob Start";
+    //kDebug(kdeconnect_kded()) << "DownloadJob Start";
     mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
     connect(mSocket.data(), SIGNAL(disconnected()),
             this, SLOT(disconnected()));
@@ -38,12 +38,12 @@ void DownloadJob::start()
 
 void DownloadJob::disconnected()
 {
-    //qDebug() << "DownloadJob End";
+    //kDebug(kdeconnect_kded()) << "DownloadJob End";
     emitResult();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
-    //qDebug() << "getPayload";
+    //kDebug(kdeconnect_kded()) << "getPayload";
     return mSocket.staticCast<QIODevice>();
 }

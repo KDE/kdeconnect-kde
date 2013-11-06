@@ -20,6 +20,7 @@ set(kdeconnect_notifications_SRCS
     ../../networkpackage.cpp
     ../../filetransferjob.cpp
     ../../device.cpp
+    ../../kdebugnamespace.cpp
 )
 
 kde4_add_plugin(kdeconnect_notifications ${kdeconnect_notifications_SRCS})

@@ -20,10 +20,10 @@
 
 #include "telephonyplugin.h"
 
-#include <QDebug>
-
 #include <KLocalizedString>
 #include <KIcon>
+
+#include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< TelephonyPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_telephony", "kdeconnect_telephony") )
@@ -66,7 +66,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         content = i18n("Unknown telephony event: %2", event);
     }
 
-    qDebug() << "Creating notification with type:" << type;
+    kDebug(kdeconnect_kded()) << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
