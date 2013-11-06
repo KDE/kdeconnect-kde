@@ -77,6 +77,8 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
 void LanDeviceLink::dataReceived()
 {
 
+    if (mSocketLineReader->bytesAvailable() == 0) return;
+
     QByteArray package = mSocketLineReader->readLine();
 
     //qDebug() << "LanDeviceLink dataReceived" << package;

@@ -55,14 +55,17 @@ void SocketLineReader::dataReceived()
 
     lastChunk = data.mid(parsedLength);
 
-    if (mPackages.length() > 0) {
-        Q_EMIT readyRead();
-    } else {
-        qDebug() << "Received incomplete chunk of data, waiting for more";
-    }
-
     if (mSocket->bytesAvailable() > 0) {
-        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
-    }
 
+        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
+
+    } else {
+
+        if (mPackages.length() > 0) {
+            Q_EMIT readyRead();
+        } else {
+            qDebug() << "Received incomplete chunk of data, waiting for more";
+        }
+
+    }
 }
