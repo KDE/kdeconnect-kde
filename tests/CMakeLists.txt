@@ -24,6 +24,6 @@ set(kdeconnect_libraries
 )
 
 #NetworkPackage
-kde4_add_unit_test(kdeconnect_tests ../kded/networkpackage.cpp ../kded/filetransferjob.cpp networkpackagetests.cpp)
+kde4_add_unit_test(kdeconnect_tests ../kded/networkpackage.cpp ../kded/kdebugnamespace.cpp ../kded/filetransferjob.cpp networkpackagetests.cpp)
 target_link_libraries(kdeconnect_tests ${kdeconnect_libraries})
 
