@@ -4,6 +4,12 @@ following fields:
 
 isCharging (boolean): If the battery of the peer device is charging
 currentCharge (int): The charge % of the peer device
+thresholdEvent (int) [optional when = 0, see below]:
+    means that a battery threshold event were fired on the remote device:
+        0 := no event. generally not transmitted.
+        1 := battery entered in low state
+    This is an int so in the future we'll be able to subscribe to more events.
+    (see BatteryPlugin.ThresholdBatteryEvent)
 
 <TODO>
 Symmetrically, it sends its own battery information in packages with the same

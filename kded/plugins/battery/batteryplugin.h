@@ -41,6 +41,14 @@ public Q_SLOTS:
     virtual void connected();
 
 private:
+    // Keep these values in sync with THRESHOLD* constants in
+    // kdeconnect-android:BatteryPlugin.java
+    // see README for their meaning
+    enum ThresholdBatteryEvent {
+        ThresholdNone       = 0,
+        ThresholdBatteryLow = 1
+    };
+
     BatteryDbusInterface* batteryDbusInterface;
 };
 

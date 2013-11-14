@@ -60,27 +60,21 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
 {
     bool isCharging = np.get<bool>("isCharging");
     int currentCharge = np.get<int>("currentCharge");
+    int thresholdEvent = np.get<int>("thresholdEvent", (int)ThresholdNone);
 
     if (batteryDbusInterface->isCharging() != currentCharge
-        || batteryDbusInterface->isCharging() != isCharging) {
-
+        || batteryDbusInterface->isCharging() != isCharging
+    ) {
         batteryDbusInterface->updateValues(isCharging, currentCharge);
+    }
 
-        //FIXME: Where's that 14 coming from?
-        //TODO: Decouple the protocol from Android
-        /*TODO: Look into the following android interfaces
-                    android.intent.action.BATTERY_LOW
-                    android.intent.action.BATTERY_OKAY
-        */
-        if (currentCharge == 14 && !isCharging) {
-            KNotification* notification = new KNotification("batteryLow");
-            notification->setPixmap(KIcon("battery-040").pixmap(48, 48));
-            notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-            notification->setTitle(i18nc("device name: low battery", "%1: low battery",device()->name()));
-            notification->setText(i18n("Battery at 14%"));
-            notification->sendEvent();
-        }
-
+    if ( thresholdEvent == ThresholdBatteryLow && !isCharging ) {
+        KNotification* notification = new KNotification("batteryLow");
+        notification->setPixmap(KIcon("battery-040").pixmap(48, 48));
+        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+        notification->setTitle(i18nc("device name: low battery", "%1: low battery", device()->name()));
+        notification->setText(i18n("Battery at %1%", currentCharge));
+        notification->sendEvent();
     }
 
     return true;
