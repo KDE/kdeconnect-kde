@@ -38,7 +38,7 @@ class KDECONNECT_EXPORT DaemonDbusInterface
 {
     Q_OBJECT
 public:
-    DaemonDbusInterface(QObject* parent);
+    DaemonDbusInterface(QObject* parent = 0);
 
 };
 
@@ -47,7 +47,7 @@ class KDECONNECT_EXPORT DeviceDbusInterface
 {
     Q_OBJECT
 public:
-    DeviceDbusInterface(const QString& id, QObject* parent);
+    DeviceDbusInterface(const QString& deviceId, QObject* parent = 0);
 
 };
 
@@ -56,7 +56,7 @@ class KDECONNECT_EXPORT DeviceBatteryDbusInterface
 {
     Q_OBJECT
 public:
-    DeviceBatteryDbusInterface(const QString& id, QObject* parent);
+    DeviceBatteryDbusInterface(const QString& deviceId, QObject* parent = 0);
 
 };
 
@@ -65,7 +65,7 @@ class KDECONNECT_EXPORT DeviceNotificationsDbusInterface
 {
     Q_OBJECT
 public:
-    DeviceNotificationsDbusInterface(const QString& id, QObject* parent);
+    DeviceNotificationsDbusInterface(const QString& deviceId, QObject* parent = 0);
 
 };
 
@@ -74,9 +74,10 @@ class KDECONNECT_EXPORT NotificationDbusInterface
 {
     Q_OBJECT
 public:
-    NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent);
+    NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent = 0);
 
 };
+
 
 
 #endif // DEVICEINTERFACE_H
