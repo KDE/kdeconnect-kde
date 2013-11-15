@@ -35,17 +35,24 @@ Item {
     property Component compactRepresentation: CompactRepresentation { }
 
     PlasmaComponents.Label {
-        id: header
         visible: devicesView.count==0
         text: i18n("No paired devices available")
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
     }
 
+    /*
+    //Startup arguments
+    PlasmaComponents.Label {
+        visible: (startupArguments.length > 0)
+        text: (""+startupArguments)
+        anchors.fill: parent
+    }
+    */
+
     PlasmaExtras.ScrollArea {
         id: dialogItem
         anchors.fill: parent
-
 
         flickableItem: ListView {
             id: devicesView

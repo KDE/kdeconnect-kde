@@ -24,10 +24,12 @@
 
 #include "libkdeconnect/devicesmodel.h"
 #include "libkdeconnect/notificationsmodel.h"
+#include "batteryinterface.h"
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
     Q_UNUSED(uri);
     qmlRegisterType<DevicesModel>("org.kde.kdeconnect", 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
+    qmlRegisterType<BatteryInterface>("org.kde.kdeconnect", 1, 0, "BatteryInterface");
 }

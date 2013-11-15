@@ -37,12 +37,33 @@ PlasmaComponents.ListItem
             text: display
         }
 
+        //Battery
+        PlasmaComponents.ListItem {
+            BatteryInterface {
+                id: batteryInterface
+                device: root.deviceId
+            }
+            sectionDelegate: true
+            visible: batteryInterface.available
+            PlasmaComponents.Label {
+                //font.bold: true
+                text: i18n("Battery")
+            }
+            PlasmaComponents.Label {
+                text: batteryInterface.displayString
+                anchors.right: parent.right
+            }
+        }
+
         //Notifications
         PlasmaComponents.ListItem {
             visible: notificationsModel.count>0
             enabled: true
             sectionDelegate: true
-            PlasmaComponents.Label { text: i18n("Notifications") }
+            PlasmaComponents.Label {
+                //font.bold: true
+                text: i18n("Notifications")
+            }
             PlasmaComponents.ToolButton {
                 enabled: true
                 visible: notificationsModel.isAnyDimissable;
@@ -79,11 +100,7 @@ PlasmaComponents.ListItem
             //Repeater.onItemAdded: plasmoid.status = "NeedsAttentionStatus";
         }
 
-        //Other information could be here (battery, etc.)
-        /*PlasmaComponents.ListItem {
-            sectionDelegate: true
-            PlasmaComponents.Label { text: "This is some random info about the device" }
-        }*/
+        //TODO: Other information could be displayed here
 
     }
 }
