@@ -98,6 +98,7 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     }
 
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
 
     setDiscoveryEnabled(true);
 
@@ -140,6 +141,7 @@ QStringList Daemon::devices()
 
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
+
     const QString& id = identityPackage.get<QString>("deviceId");
 
     //kDebug(kdeconnect_kded()) << "Device discovered" << id << "via" << dl->provider()->name();
