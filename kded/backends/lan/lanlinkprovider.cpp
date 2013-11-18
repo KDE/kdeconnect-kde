@@ -35,17 +35,23 @@
 void LanLinkProvider::configureSocket(QTcpSocket* socket)
 {
     int fd = socket->socketDescriptor();
-    int enableKeepAlive = 1;
+    char enableKeepAlive = 1;
     setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, &enableKeepAlive, sizeof(enableKeepAlive));
 
+#ifdef TCP_KEEPIDLE
     int maxIdle = 60; /* seconds */
     setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+#endif
 
+#ifdef TCP_KEEPCNT
     int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
     setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPCNT, &count, sizeof(count));
+#endif
 
+#ifdef TCP_KEEPINTVL
     int interval = 5;   // send a keepalive packet out every 2 seconds (after the 5 second idle period)
     setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPINTVL, &interval, sizeof(interval));
+#endif
 
 }
 

@@ -1,7 +1,5 @@
 #include "device.h"
 
-#include <QDBusConnection>
-
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KStandardDirs>
@@ -16,6 +14,11 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 #include "networkpackage.h"
+
+#ifdef interface // MSVC language extension, QDBusConnection uses this as a variable name
+#undef interface
+#endif
+#include <QDBusConnection>
 
 Device::Device(const QString& id)
     : m_deviceId(id)
