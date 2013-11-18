@@ -62,7 +62,7 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
     int currentCharge = np.get<int>("currentCharge");
     int thresholdEvent = np.get<int>("thresholdEvent", (int)ThresholdNone);
 
-    if (batteryDbusInterface->isCharging() != currentCharge
+    if (batteryDbusInterface->charge() != currentCharge
         || batteryDbusInterface->isCharging() != isCharging
     ) {
         batteryDbusInterface->updateValues(isCharging, currentCharge);
