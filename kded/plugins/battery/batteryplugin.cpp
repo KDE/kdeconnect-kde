@@ -35,6 +35,9 @@ BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     , batteryDbusInterface(new BatteryDbusInterface(parent))
 {
 
+    //TODO: Add battery reporting, could be based on:
+    // http://kde-apps.org/content/show.php/battery+plasmoid+with+remaining+time?content=120309
+
 }
 
 void BatteryPlugin::connected()
@@ -50,8 +53,7 @@ BatteryPlugin::~BatteryPlugin()
     // the next dbus access to its parent). The implication of not deleting this
     // is that disabling the plugin does not remove the interface (that will
     // return outdated values) and that enabling it again instantiates a second
-    // adaptor. This is a partial memory leak (the memory will be freed when the
-    // device is destroyed anyway)
+    // adaptor. This is also a memory leak until the entire device is destroyed.
 
     //batteryDbusInterface->deleteLater();
 }
