@@ -26,6 +26,9 @@
 #include <QDBusReply>
 #include <QDBusMessage>
 
+#include <KSharedConfig>
+#include <KConfigGroup>
+
 #include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
@@ -33,25 +36,26 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect_pa
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
-    , pauseWhen(PauseWhenRinging) //TODO: Be able to change this from plugin settings
 {
+
 }
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
-    switch(pauseWhen) {
-        case PauseWhenRinging:
-            if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
-                return true;
-            }
-            break;
-        case PauseWhenTalking:
-            if (np.get<QString>("event") != "talking") {
-                return true;
-            }
-            break;
-        case NeverPause:
+    //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/kdeconnect_pausemusic");
+    bool pauseOnlyWhenTalking = config->group("pause_condition").readEntry("talking_only", false);
+
+    if (pauseOnlyWhenTalking) {
+        qDebug() << "pause when talking";
+        if (np.get<QString>("event") != "talking") {
             return true;
+        }
+    } else { //Pause as soon as it rings
+        qDebug() << "pause when ringing";
+        if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
+            return true;
+        }
     }
 
     bool pauseConditionFulfilled = !np.get<bool>("isCancel");

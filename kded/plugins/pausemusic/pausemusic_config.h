@@ -18,29 +18,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSICPLUGIN_H
-#define PAUSEMUSICPLUGIN_H
+#ifndef PAUSEMUSIC_CONFIG_H
+#define PAUSEMUSIC_CONFIG_H
 
-#include <QObject>
-#include <QSet>
-#include <QString>
+#include <kcmodule.h>
+#include <ksharedconfig.h>
 
-#include "../kdeconnectplugin.h"
+namespace Ui {
+    class PauseMusicConfigUi;
+}
 
-class PauseMusicPlugin
-    : public KdeConnectPlugin
+class PauseMusicConfig
+    : public KCModule
 {
     Q_OBJECT
-
 public:
-    explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
+    PauseMusicConfig(QWidget *parent, const QVariantList&);
+    virtual ~PauseMusicConfig();
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { };
-    
+    virtual void save();
+    virtual void load();
+    virtual void defaults();
+
 private:
-    QSet<QString> pausedSources;
+    Ui::PauseMusicConfigUi* m_ui;
+    KSharedConfigPtr m_cfg;
 
 };
 
