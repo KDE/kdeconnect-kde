@@ -18,36 +18,54 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "sharereceiverplugin.h"
+#include "shareplugin.h"
 
 #include <KIcon>
 #include <KLocalizedString>
 #include <KStandardDirs>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include <QFile>
 #include <qprocess.h>
+#include <QDir>
 #include <QDesktopServices>
 
 #include "../../kdebugnamespace.h"
 #include "../../filetransferjob.h"
 #include "autoclosingqfile.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ShareReceiverPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sharereceiver", "kdeconnect_sharereceiver") )
+K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SharePlugin >(); )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_share", "kdeconnect_share") )
 
-ShareReceiverPlugin::ShareReceiverPlugin(QObject* parent, const QVariantList& args)
+SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    //TODO: Use downloads user path
-    //TODO: Be able to change this from config
-    mDestinationDir = QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);
-    if (!mDestinationDir.endsWith('/')) mDestinationDir.append('/');
+
 }
 
-bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
+QString SharePlugin::destinationDir()
+{
+    //TODO: Change this for the xdg download user dir
+    QString defaultPath = QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);
+
+    //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
+    QString dir = config->group("receive").readEntry("path", defaultPath);
+
+    if (!dir.endsWith('/')) dir.append('/');
+
+    QDir().mkpath(KUrl(dir).path()); //Using KUrl to remove file:/// protocol, wich seems to confuse QDir.mkpath
+
+    kDebug(kdeconnect_kded()) << dir;
+
+    return dir;
+}
+
+bool SharePlugin::receivePackage(const NetworkPackage& np)
 {
 /*
-    //TODO: Move this code to a test and add a diff between files
+    //TODO: Use this code to write a test
     if (np.type() == PACKAGE_TYPE_PING) {
 
         kDebug(kdeconnect_kded()) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
@@ -72,7 +90,7 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
         //kDebug(kdeconnect_kded()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         //TODO: Ask before overwritting or rename file if it already exists
-        FileTransferJob* job = np.createPayloadTransferJob(mDestinationDir + filename);
+        FileTransferJob* job = np.createPayloadTransferJob(destinationDir() + filename);
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
         job->start();
     } else if (np.has("text")) {
@@ -102,13 +120,15 @@ bool ShareReceiverPlugin::receivePackage(const NetworkPackage& np)
 
 }
 
-void ShareReceiverPlugin::finished(KJob* job)
+void SharePlugin::finished(KJob* job)
 {
     kDebug(kdeconnect_kded()) << "File transfer finished";
 
+    bool error = (job->error() != 0);
+
     FileTransferJob* transferJob = (FileTransferJob*)job;
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
+    notification->setPixmap(KIcon(error? "edit-delete" : "dialog-ok").pixmap(48, 48));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
     notification->setTitle(i18n("Transfer finished"));
     notification->setText(transferJob->destination().fileName());
@@ -117,7 +137,7 @@ void ShareReceiverPlugin::finished(KJob* job)
     notification->sendEvent();
 }
 
-void ShareReceiverPlugin::openDestinationFolder()
+void SharePlugin::openDestinationFolder()
 {
-    QDesktopServices::openUrl(mDestinationDir);
+    QDesktopServices::openUrl(destinationDir());
 }

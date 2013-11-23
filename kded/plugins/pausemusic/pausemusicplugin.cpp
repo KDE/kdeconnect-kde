@@ -43,16 +43,14 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/kdeconnect_pausemusic");
+    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/pausemusic");
     bool pauseOnlyWhenTalking = config->group("pause_condition").readEntry("talking_only", false);
 
     if (pauseOnlyWhenTalking) {
-        qDebug() << "pause when talking";
         if (np.get<QString>("event") != "talking") {
             return true;
         }
     } else { //Pause as soon as it rings
-        qDebug() << "pause when ringing";
         if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
             return true;
         }

@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHARERECEIVERPLUGIN_H
-#define SHARERECEIVERPLUGIN_H
+#ifndef SHAREPLUGIN_H
+#define SHAREPLUGIN_H
 
 #include <KNotification>
 #include <KIO/Job>
@@ -28,13 +28,13 @@
 
 #define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share")
 
-class ShareReceiverPlugin
+class SharePlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit ShareReceiverPlugin(QObject *parent, const QVariantList &args);
+    explicit SharePlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
@@ -45,7 +45,7 @@ private Q_SLOTS:
     void openDestinationFolder();
 
 private:
-    QString mDestinationDir;
+    QString destinationDir();
 
 };
 #endif

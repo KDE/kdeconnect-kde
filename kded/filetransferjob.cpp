@@ -102,10 +102,9 @@ void FileTransferJob::sourceFinished()
 
     //TODO: MD5 check the file
     if (mSize > -1 && mWritten != mSize) {
-        kDebug(kdeconnect_kded()) << "Received incomplete file";
+        kDebug(kdeconnect_kded()) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
         setError(1);
         setErrorText(i18n("Received incomplete file"));
-        emitResult();
     } else {
         kDebug(kdeconnect_kded()) << "Finished transfer" << mDestination->url();
     }
