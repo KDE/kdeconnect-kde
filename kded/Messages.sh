@@ -5,6 +5,6 @@ $XGETTEXT rc.cpp -o $podir/kdeconnect-kded.pot
 rm -f rc.cpp
 
 #.cpp (-j passed to merge into existing file)
-$XGETTEXT `find . -name '*.cpp'` -o $podir/kdeconnect-kded.pot
+$XGETTEXT `find . -name '*.cpp'` -j -o $podir/kdeconnect-kded.pot
 
 #.desktop and .notifyrc files doesn't need to be included here
