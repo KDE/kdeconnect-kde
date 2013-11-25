@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KdeConnect
 Name[cs]=KdeConnect
+Name[da]=KdeConnect
 Name[de]=KdeConnect
 Name[es]=KdeConnect
 Name[fr]=KdeConnect
@@ -15,6 +16,7 @@ Name[tr]=KdeConnect
 Name[uk]=KdeConnect
 Name[x-test]=xxKdeConnectxx
 Comment=Show notifications from your devices using KDE Connect
+Comment[da]=Vis bekendtgørelser fra dine enheder med KDE Connect
 Comment[de]=Zeigt Benachrichtigungen von Ihren Geräten mit KDE-Connect
 Comment[es]=Mostrar notificaciones de sus dispositivos usando KDE Connect
 Comment[fr]=Afficher les notifications provenant de vos périphériques à l'aide de KDE Connect
