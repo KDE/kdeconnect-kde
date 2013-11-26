@@ -12,6 +12,7 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=folder-downloads
 Name=Share and receive
+Name[cs]=Sdílet a přijímat
 Name[da]=Del og modtag
 Name[nl]=Delen en ontvangen
 Name[pt]=Partilhar e receber
