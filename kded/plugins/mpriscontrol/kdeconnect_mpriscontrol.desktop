@@ -13,6 +13,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 Icon=media-playback-start
 Name=Multimedia control receiver
 Name[da]=Modtager til multimediebetjening
+Name[de]=Steuerung für Multimedia-Empfänger
 Name[es]=Receptor de control multimedia
 Name[fr]=Receveur de contrôle multimédia
 Name[hu]=Multimédia vezérlés vevő
