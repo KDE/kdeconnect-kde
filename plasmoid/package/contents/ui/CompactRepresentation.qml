@@ -19,7 +19,6 @@
  */
 
 import QtQuick 1.1
-import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
 import org.kde.plasma.core 0.1 as PlasmaCore
 
 Item {
@@ -31,25 +30,10 @@ Item {
         return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
     }
 
-
-/*
-    PlasmaWidgets.IconWidget {
+    PlasmaCore.IconItem {
         id: icon
-        Component.onCompleted: setIconByName("smartphone");
+        source: "smartphone"
         anchors.fill: parent
-    }
-*/
-
-    PlasmaCore.Svg {
-        id: svg
-        imagePath: "icons/smartphone"
-    }
-
-    PlasmaCore.SvgItem {
-        anchors.fill: parent
-        svg: svg
-        height: view.height
-        width: view.width
     }
 
     MouseArea {
