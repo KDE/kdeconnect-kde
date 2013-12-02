@@ -23,10 +23,33 @@ import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
 import org.kde.plasma.core 0.1 as PlasmaCore
 
 Item {
+    id: view
+    anchors.fill: parent
+
+    //TODO: Use this to detect if we should be iconized or full size
+    function isConstrained() {
+        return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
+    }
+
+
+/*
     PlasmaWidgets.IconWidget {
         id: icon
-        Component.onCompleted: setIcon("smartphone");
+        Component.onCompleted: setIconByName("smartphone");
         anchors.fill: parent
+    }
+*/
+
+    PlasmaCore.Svg {
+        id: svg
+        imagePath: "icons/smartphone"
+    }
+
+    PlasmaCore.SvgItem {
+        anchors.fill: parent
+        svg: svg
+        height: view.height
+        width: view.width
     }
 
     MouseArea {
@@ -41,4 +64,5 @@ Item {
             subText: "KDE Connect device notifications"
         }
     }
+
 }
