@@ -11,23 +11,7 @@ X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=hardware
 
-Name=Devices
-Name[cs]=Zařízení
-Name[da]=Enheder
-Name[de]=Geräte
-Name[es]=Dispositivos
-Name[fr]=Périphériques
-Name[hu]=Eszközök
-Name[it]=Dispositivi
-Name[nl]=Apparaten
-Name[pt]=Dispositivos
-Name[pt_BR]=Dispositivos
-Name[ru]=Устройства
-Name[sk]=Zariadenia
-Name[sv]=Apparater
-Name[tr]=Aygıtlar
-Name[uk]=Пристрої
-Name[x-test]=xxDevicesxx
+Name=KDE Connect
 
 Comment=Connect and sync your devices with KDE
 Comment[da]=Forbind og synkronisér dine enheder med KDE
