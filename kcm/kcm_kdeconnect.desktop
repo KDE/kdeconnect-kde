@@ -12,6 +12,21 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=KDE Connect
+Name[da]=KDE Connect
+Name[de]=KDE Connect
+Name[es]=KDE Connect
+Name[fr]=KDE Connect
+Name[hu]=KDE csatlakozás
+Name[it]=KDE Connect
+Name[nl]=KDE Connect
+Name[pt]=KDE Connect
+Name[pt_BR]=KDE Connect
+Name[ru]=KDE Connect
+Name[sk]=KDE Connect
+Name[sv]=KDE anslut
+Name[tr]=KDE Bağlan
+Name[uk]=З’єднання KDE
+Name[x-test]=xxKDE Connectxx
 
 Comment=Connect and sync your devices with KDE
 Comment[da]=Forbind og synkronisér dine enheder med KDE
