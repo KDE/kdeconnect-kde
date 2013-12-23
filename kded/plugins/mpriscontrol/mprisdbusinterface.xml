@@ -28,6 +28,7 @@
     <property access="readwrite" type="d" name="Rate"/>
     <property access="readwrite" type="b" name="Shuffle"/>
     <property access="read" type="a{sv}" name="Metadata">
+      <annotation value="QVariantMap" name="com.trolltech.QtDBus.QtTypeName"/>
       <annotation value="QVariantMap" name="org.qtproject.QtDBus.QtTypeName"/>
     </property>
     <property access="readwrite" type="d" name="Volume"/>
