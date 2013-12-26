@@ -20,6 +20,7 @@
 
 #include "shareplugin.h"
 
+#include <KGlobalSettings>
 #include <KIcon>
 #include <KLocalizedString>
 #include <KStandardDirs>
@@ -46,8 +47,7 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 
 QString SharePlugin::destinationDir()
 {
-    //TODO: Change this for the xdg download user dir
-    QString defaultPath = QDesktopServices::storageLocation(QDesktopServices::DesktopLocation);
+    QString defaultPath = KGlobalSettings::downloadPath();
 
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");

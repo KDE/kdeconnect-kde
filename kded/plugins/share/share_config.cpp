@@ -20,11 +20,10 @@
 
 #include "share_config.h"
 
-#include <QDesktopServices>
-
+#include <KConfigGroup>
+#include <KGlobalSettings>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KConfigGroup>
 #include <KUrlRequester>
 
 #include "../../kdebugnamespace.h"
@@ -53,8 +52,7 @@ void ShareConfig::defaults()
 {
     KCModule::defaults();
 
-    //TODO: Set this to the user's xdg download dir
-    m_ui->kurlrequester->setUrl(KUrl(QDesktopServices::storageLocation(QDesktopServices::DesktopLocation)));
+    m_ui->kurlrequester->setUrl(KGlobalSettings::downloadPath());
 
     Q_EMIT changed(true);
 }
@@ -64,7 +62,7 @@ void ShareConfig::load()
 {
     KCModule::load();
 
-    m_ui->kurlrequester->setUrl(m_cfg->group("receive").readEntry("path", QDesktopServices::storageLocation(QDesktopServices::DesktopLocation)));
+    m_ui->kurlrequester->setUrl(m_cfg->group("receive").readEntry("path", KGlobalSettings::downloadPath()));
 
     Q_EMIT changed(false);
 }
