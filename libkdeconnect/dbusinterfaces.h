@@ -26,6 +26,7 @@
 #include "libkdeconnect/daemoninterface.h"
 #include "libkdeconnect/deviceinterface.h"
 #include "libkdeconnect/devicebatteryinterface.h"
+#include "libkdeconnect/devicesftpinterface.h"
 #include "libkdeconnect/devicenotificationsinterface.h"
 #include "libkdeconnect/notificationinterface.h"
 
@@ -76,6 +77,15 @@ class KDECONNECT_EXPORT NotificationDbusInterface
 public:
     NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent = 0);
 
+};
+
+class KDECONNECT_EXPORT SftpDbusInterface
+    : public OrgKdeKdeconnectDeviceSftpInterface
+{
+    Q_OBJECT
+public:
+    SftpDbusInterface(const QString& deviceId, QObject* parent = 0);
+    virtual ~SftpDbusInterface();
 };
 
 
