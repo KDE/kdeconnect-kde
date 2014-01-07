@@ -74,7 +74,7 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
     url.setPath(np.get<QString>("path"));
     
     if (url.isValid()) {
-        return KRun::runUrl(url, "inode/vnd.kde.service.sftp-ssh", 0);
+        return new KRun(url, 0);
     }
 
     return false;
