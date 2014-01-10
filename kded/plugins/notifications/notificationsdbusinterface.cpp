@@ -55,13 +55,17 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         removeNotification(np.get<QString>("id"));
     } else {
 
+
+        //TODO: Uncoment when we are able to display app icon on plasmoid
         QString destination;
+        /*
         if (np.hasPayload()) {
             QString filename = KMD5(np.get<QString>("appName").toLatin1()).hexDigest();  //TODO: Store with extension?
             destination = imagesDir.absoluteFilePath(filename);
             FileTransferJob* job = np.createPayloadTransferJob(destination);
             job->start();
         }
+        */
 
         Notification* noti = new Notification(np, destination, this);
 
