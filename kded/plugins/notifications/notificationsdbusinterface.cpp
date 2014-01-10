@@ -64,7 +64,6 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         }
 
         Notification* noti = new Notification(np, destination, this);
-        addNotification(noti);
 
         //Do not show updates to existent notification nor answers to a initialization request
         if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
@@ -75,6 +74,8 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             notification->setText(noti->appName() + ": " + noti->ticker());
             notification->sendEvent();
         }
+
+        addNotification(noti);
 
     }
 }
