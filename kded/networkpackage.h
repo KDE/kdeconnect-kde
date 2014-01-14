@@ -65,6 +65,7 @@ public:
     const QString& id() const { return mId; }
     const QString& type() const { return mType; }
     QVariantMap& body() { return mBody; }
+    const QVariantMap& body() const { return mBody; }
 
     //Get and set info from body. Note that id and type can not be accessed through these.
     template<typename T> T get(const QString& key, const T& defaultValue = default_arg<T>::get()) const {
