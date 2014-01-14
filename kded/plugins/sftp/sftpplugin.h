@@ -21,6 +21,8 @@
 #ifndef SFTPPLUGIN_H
 #define SFTPPLUGIN_H
 
+#include <KProcess>
+
 #include "../kdeconnectplugin.h"
 
 #define PACKAGE_TYPE_SFTP QLatin1String("kdeconnect.sftp")
@@ -42,9 +44,15 @@ public Q_SLOTS:
     
 private Q_SLOTS:
     void startBrowsing();
+    void stopBrowsing();
 
+    void onStarted();
+    void onError(QProcess::ProcessError error);
+    void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    
 private:
     SftpDbusInterface* sftpDbusInterface;
+    QPointer<KProcess> mountProc;
 };
 
 #endif
