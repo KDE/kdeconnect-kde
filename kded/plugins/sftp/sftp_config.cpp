@@ -26,6 +26,7 @@
 #include <KSharedConfig>
 #include <KStandardDirs>
 
+#include "sftpplugin.h"
 #include "../../kdebugnamespace.h"
 
 #include "ui_sftp_config.h"
@@ -35,57 +36,67 @@ K_EXPORT_PLUGIN(SftpConfigFactory("kdeconnect_sftp_config", "kdeconnect_sftp_con
 
 SftpConfig::SftpConfig(QWidget *parent, const QVariantList& )
     : KCModule(SftpConfigFactory::componentData(), parent)
-    , ui(new Ui::SftpConfigUi())
-    , cfg(KSharedConfig::openConfig("kdeconnect/plugins/sftp"))
+    , m_ui(new Ui::SftpConfigUi())
+    , m_cfg(SftpConfig::config())
 {
-    ui->setupUi(this);
+    m_ui->setupUi(this);
 
-    ui->check->setIcon(KIconLoader::global()->loadIcon("view-refresh", KIconLoader::Dialog));
-    connect(ui->check, SIGNAL(clicked(bool)), this, SLOT(refresh()));
-    refresh();
+    m_ui->refresh->setIcon(KIconLoader::global()->loadIcon("view-refresh", KIconLoader::Dialog));
+    m_ui->pixmap->setPixmap(KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Dialog));
+    
+    connect(m_ui->refresh, SIGNAL(clicked(bool)), this, SLOT(checkSshfs()));
+    
+    connect(m_ui->mountpoint, SIGNAL(textChanged(QString)), this, SLOT(changed()));
+    connect(m_ui->idle, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->timeout, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 }
 
 SftpConfig::~SftpConfig()
 {
-    delete ui;
 }
 
-void SftpConfig::refresh()
+void SftpConfig::checkSshfs()
 {
-    const QString sshfs = KStandardDirs::findExe("sshfs");
-    
-    if (sshfs.isEmpty())
-    {
-        ui->label->setText(i18n("sshfs not found in PATH"));      
-        ui->pixmap->setPixmap(KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Dialog));
-    }
-    else
-    {
-        ui->label->setText(i18n("sshfs found at %1").arg(sshfs));        
-        ui->pixmap->setPixmap(KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Dialog));  
-    }
+    m_ui->error->setVisible(KStandardDirs::findExe("sshfs").isEmpty());
 }
 
 void SftpConfig::defaults()
 {
     KCModule::defaults();
-    refresh();
-    //Q_EMIT changed(true);
+    
+    checkSshfs();
+    m_ui->mountpoint->setUrl(m_cfg->group("main").readEntry("mountpoint"
+      , KStandardDirs::locateLocal("appdata", "", true, SftpPlugin::componentData())));
+    m_ui->idle->setChecked(m_cfg->group("main").readEntry("idle", true));
+    m_ui->timeout->setValue(m_cfg->group("main").readEntry("idletimeout", 10));
+    
+    Q_EMIT changed(true);
 }
 
 
 void SftpConfig::load()
 {
     KCModule::load();
-    refresh()    ;
-    //Q_EMIT changed(false);
+    
+    checkSshfs();
+    m_ui->mountpoint->setUrl(m_cfg->group("main").readEntry("mountpoint"
+      , KStandardDirs::locateLocal("appdata", "", true, SftpPlugin::componentData())));
+    m_ui->idle->setChecked(m_cfg->group("main").readEntry("idle", true));
+    m_ui->timeout->setValue(m_cfg->group("main").readEntry("idletimeout", 10));
+    
+    Q_EMIT changed(false);
 }
 
 
 void SftpConfig::save()
 {
-    refresh();
+    checkSshfs();
+    m_cfg->group("main").writeEntry("idle", m_ui->idle->isChecked());
+    m_cfg->group("main").writeEntry("idletimeout", m_ui->timeout->value());
+    m_cfg->group("main").writeEntry("mountpoint", m_ui->mountpoint->url().url());
+    
     KCModule::save();
-    //Q_EMIT changed(false);
+    Q_EMIT changed(false);
 }
+
 

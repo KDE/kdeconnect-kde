@@ -36,17 +36,22 @@ public:
     SftpConfig(QWidget *parent, const QVariantList&);
     virtual ~SftpConfig();
 
+    static inline KSharedConfigPtr config()
+    {
+        return KSharedConfig::openConfig("kdeconnect/plugins/sftp");
+    }
+    
 public Q_SLOTS:
     virtual void save();
     virtual void load();
     virtual void defaults();
 
 private Q_SLOTS:
-    void refresh();
+    void checkSshfs();
     
 private:
-    Ui::SftpConfigUi* ui;
-    KSharedConfigPtr cfg;
+    QScopedPointer<Ui::SftpConfigUi> m_ui;
+    KSharedConfigPtr m_cfg;
 
 };
 

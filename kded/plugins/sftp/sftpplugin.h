@@ -39,22 +39,33 @@ public:
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
     virtual ~SftpPlugin();
 
+    inline static KComponentData componentData() 
+    {
+        return KComponentData("kdeconnect", "kdeconnect");
+    }
+    
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
     virtual void connected();
 
+    Q_SCRIPTABLE void mount();
+    Q_SCRIPTABLE void umount();
+    
     Q_SCRIPTABLE void startBrowsing();
-    Q_SCRIPTABLE void stopBrowsing();
+
+protected:
+     void timerEvent(QTimerEvent *event);
     
 private Q_SLOTS:
     void onStarted();
     void onError(QProcess::ProcessError error);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void mountTimeout();
     
 private:
     QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }  
-    void knotify(int type, const QString& title, const QString& text, const QPixmap& icon) const;
-    void cleanMountPoint();
+    void knotify(int type, const QString& text, const QPixmap& icon) const;
+    void cleanMountPoint(QObject* mounter);
     
 private:
     struct Pimpl;
