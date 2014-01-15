@@ -20,6 +20,8 @@
 
 #include "sftpplugin.h"
 
+#include <QDBusConnection>
+
 #include <KIconLoader>
 #include <KLocalizedString>
 #include <KNotification>
@@ -28,25 +30,31 @@
 #include <KStandardDirs>
 
 #include "../../kdebugnamespace.h"
-#include "sftpdbusinterface.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
 
-static const char* mount_c = "sftpmount";
 static const char* passwd_c = "sftppassword";
 
 static const QSet<QString> fields_c = QSet<QString>() <<
   "ip" << "port" << "user" << "port" << "password" << "path";
   
 
+struct SftpPlugin::Pimpl
+{
+    Pimpl() {};
+    
+    QString mountPoint;
+    QPointer<KProcess> mountProc;  
+};
+
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , sftpDbusInterface(new SftpDbusInterface(parent))
-    , mountProc(0)
-{
-
-  connect(sftpDbusInterface, SIGNAL(startBrowsing()), this, SLOT(startBrowsing()));
+    , m_d(new Pimpl)
+{ 
+    m_d->mountPoint = KStandardDirs::locateLocal("appdata", device()->name() + "/", true,
+        KComponentData("kdeconnect", "kdeconnect"));
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
 }
 
 void SftpPlugin::connected()
@@ -55,13 +63,7 @@ void SftpPlugin::connected()
 
 SftpPlugin::~SftpPlugin()
 {
-    //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
-    // the next dbus access to its parent). The implication of not deleting this
-    // is that disabling the plugin does not remove the interface (that will
-    // return outdated values) and that enabling it again instantiates a second
-    // adaptor. This is also a memory leak until the entire device is destroyed.
-
-    //sftpDbusInterface->deleteLater();
+    QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     stopBrowsing();
 }
 
@@ -74,82 +76,81 @@ void SftpPlugin::startBrowsing()
 
 void SftpPlugin::stopBrowsing()
 {
-    if (mountProc)
+    cleanMountPoint();
+    if (m_d->mountProc)
     {
-        mountProc->terminate();
-        QTimer::singleShot(15000, mountProc, SLOT(kill()));
-        mountProc->waitForFinished();
+        m_d->mountProc->terminate();
+        QTimer::singleShot(5000, m_d->mountProc, SLOT(kill()));
+        m_d->mountProc->waitForFinished();
     }
 }
 
 bool SftpPlugin::receivePackage(const NetworkPackage& np)
 {
-    if (!mountProc.isNull()) {
-        return false;
-    }
-    
-    if (!(fields_c - np.body().keys().toSet()).isEmpty()) {
+    if (!(fields_c - np.body().keys().toSet()).isEmpty())
+    {
         // package is invalid
         return false;
     }
     
-    mountProc = new KProcess(this);
-    mountProc->setOutputChannelMode(KProcess::SeparateChannels);
+    if (!m_d->mountProc.isNull())
+    {
+        return new KRun(KUrl::fromLocalFile(m_d->mountPoint), 0);
+    }
+    
+    m_d->mountProc = new KProcess(this);
+    m_d->mountProc->setOutputChannelMode(KProcess::SeparateChannels);
 
-    connect(mountProc, SIGNAL(started()), SLOT(onStarted()));    
-    connect(mountProc, SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
-    connect(mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
-    connect(mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), mountProc, SLOT(deleteLater()));
+    connect(m_d->mountProc, SIGNAL(started()), SLOT(onStarted()));    
+    connect(m_d->mountProc, SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
+    connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
+    connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), m_d->mountProc, SLOT(deleteLater()));
     
-    
-    const QString mount = KStandardDirs::locateLocal("appdata", device()->name() + "/", true,
-      KComponentData("kdeconnect", "kdeconnect"));
     const QString program = "sshfs";
     const QStringList arguments = QStringList() 
-      << QString("%1@%2:%3")
-        .arg(np.get<QString>("user"))
-        .arg(np.get<QString>("ip"))
-        .arg(np.get<QString>("path"))
-      << "-p" << np.get<QString>("port")
-      << "-d"
-      << "-f"
-      << "-o" << "password_stdin"
-      << mount;
+        << QString("%1@%2:%3")
+            .arg(np.get<QString>("user"))
+            .arg(np.get<QString>("ip"))
+            .arg(np.get<QString>("path"))
+        << "-p" << np.get<QString>("port")
+        << "-d"
+        << "-f"
+        << "-o" << "password_stdin"
+        << m_d->mountPoint;
     
-    mountProc->setProgram(program, arguments);
-    mountProc->setProperty(passwd_c, np.get<QString>("password"));
-    mountProc->setProperty(mount_c, mount);
+    m_d->mountProc->setProgram(program, arguments);
+    m_d->mountProc->setProperty(passwd_c, np.get<QString>("password"));
 
-    mountProc->start();
+    cleanMountPoint();
+    m_d->mountProc->start();
     
     return true;
 }
 
 void SftpPlugin::onStarted()
 {
-    mountProc->write(mountProc->property(passwd_c).toString().toLocal8Bit() + "\n");
-    mountProc->closeWriteChannel();
+    m_d->mountProc->write(m_d->mountProc->property(passwd_c).toString().toLocal8Bit() + "\n");
+    m_d->mountProc->closeWriteChannel();
     
-    KNotification::event(KNotification::Notification
-      , i18n("Device %1").arg(device()->name())
-      , i18n("Filesystem mounted at %1").arg(mountProc->property(mount_c).toString())
-      , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
-      , 0, KNotification::CloseOnTimeout
-    )->sendEvent();
+    knotify(KNotification::Notification
+        , i18n("Device %1").arg(device()->name())
+        , i18n("Filesystem mounted at %1").arg(m_d->mountPoint)
+        , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
+    );
     
-    new KRun(KUrl::fromLocalFile(mountProc->property(mount_c).toString()), 0);
+    new KRun(KUrl::fromLocalFile(m_d->mountPoint), 0);
 }
 
 void SftpPlugin::onError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        KNotification::event(KNotification::Error
-          , i18n("Device %1").arg(device()->name())
-          , i18n("Failed to start sshfs")
-          , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
-          , 0, KNotification::CloseOnTimeout
-        )->sendEvent();
+        knotify(KNotification::Error
+            , i18n("Device %1").arg(device()->name())
+            , i18n("Failed to start sshfs")
+            , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
+        );
+        cleanMountPoint();
     }
 }
 
@@ -159,20 +160,34 @@ void SftpPlugin::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 
     if (exitStatus == QProcess::NormalExit)
     {
-        KNotification::event(KNotification::Notification
-          , i18n("Device %1").arg(device()->name())
-          , i18n("Filesystem unmounted")
-          , KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Desktop)
-          , 0, KNotification::CloseOnTimeout
-        )->sendEvent();
+        knotify(KNotification::Notification
+            , i18n("Device %1").arg(device()->name())
+            , i18n("Filesystem unmounted")
+            , KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Desktop)
+        );
     }
     else
     {
-        KNotification::event(KNotification::Error
-          , i18n("Device %1").arg(device()->name())
-          , i18n("Error when accessing to filesystem")
-          , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
-          , 0, KNotification::CloseOnTimeout
-        )->sendEvent();
+        knotify(KNotification::Error
+            , i18n("Device %1").arg(device()->name())
+            , i18n("Error when accessing to filesystem")
+            , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
+        );
     }
+
+    cleanMountPoint();   
+    m_d->mountProc = 0;
+}
+
+void SftpPlugin::knotify(int type, const QString& title, const QString& text, const QPixmap& icon) const
+{
+    KNotification::event(KNotification::StandardEvent(type), title, text, icon, 0
+      , KNotification::CloseOnTimeout);
+}
+
+void SftpPlugin::cleanMountPoint()
+{
+    if (m_d->mountProc.isNull()) return;
+    
+    KProcess::execute(QStringList() << "fusermount" << "-u" << m_d->mountPoint, 10000);        
 }

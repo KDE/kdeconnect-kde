@@ -27,13 +27,14 @@
 
 #define PACKAGE_TYPE_SFTP QLatin1String("kdeconnect.sftp")
 
-class SftpDbusInterface;
+class KNotification;
 
 class SftpPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
-
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.sftp")
+    
 public:
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
     virtual ~SftpPlugin();
@@ -41,18 +42,23 @@ public:
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
     virtual void connected();
+
+    Q_SCRIPTABLE void startBrowsing();
+    Q_SCRIPTABLE void stopBrowsing();
     
 private Q_SLOTS:
-    void startBrowsing();
-    void stopBrowsing();
-
     void onStarted();
     void onError(QProcess::ProcessError error);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
     
 private:
-    SftpDbusInterface* sftpDbusInterface;
-    QPointer<KProcess> mountProc;
+    QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }  
+    void knotify(int type, const QString& title, const QString& text, const QPixmap& icon) const;
+    void cleanMountPoint();
+    
+private:
+    struct Pimpl;
+    QScopedPointer<Pimpl> m_d;
 };
 
 #endif

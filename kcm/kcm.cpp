@@ -257,5 +257,5 @@ void KdeConnectKcm::sendPing()
 void KdeConnectKcm::browseFilesystem()
 {
     if (!currentDevice) return;
-    SftpDbusInterface(currentDevice->id(), this).browseFilesystem();
+    SftpDbusInterface(currentDevice->id(), this).startBrowsing();
 }

@@ -32,3 +32,8 @@ Device* KdeConnectPlugin::device()
 {
     return mDevice;
 }
+
+Device const* KdeConnectPlugin::device() const
+{
+    return mDevice;
+}
