@@ -56,11 +56,12 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
     //kDebug(kdeconnect_kded()) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
         //TODO: Maybe display this in a more visible way?
-        qWarning() << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
+        kWarning(kdeconnect_kded()) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
                    << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
         return;
     }
 
+    const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
     if (!config->group("myself").hasKey("privateKey"))
     {
         const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
@@ -69,13 +70,13 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         
         if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))
         {
-            qWarning() << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
+            kWarning(kdeconnect_kded()) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
             return;
         }
         
-        if (!privKey.setPermissions(QFile::ReadOwner | QFile::WriteOwner))
+        if (!privKey.setPermissions(strict))
         {
-            qWarning() << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
+            kWarning(kdeconnect_kded()) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
             return;
         }
 
@@ -86,9 +87,9 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         config->group("myself").writeEntry("privateKey", privateKeyPath);
     }
     
-    if (QFileInfo(config->group("myself").readEntry("privateKey")).permissions() != (QFile::ReadOwner | QFile::WriteOwner))
+    if (QFile::permissions(config->group("myself").readEntry("privateKey")) != strict)
     {
-        qWarning() << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKey");
+        kWarning(kdeconnect_kded()) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKey");
         return;
     }
 

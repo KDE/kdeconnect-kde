@@ -54,6 +54,12 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     addLink(identityPackage, dl);
 
+    QFile privKey(KSharedConfig::openConfig("kdeconnectrc")->group("myself").readEntry("privateKey"));
+    if (privKey.open(QIODevice::ReadOnly))
+    {
+        m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+    }
+    
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 }
@@ -356,9 +362,7 @@ bool Device::sendOwnPublicKey()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", true);
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString& key = config->group("myself").readEntry<QString>("publicKey", QString());
-    np.set("publicKey",key);
+    np.set("publicKey", m_privateKey.toPublicKey().toPEM());
     bool success = sendPackage(np);
     return success;
 }
