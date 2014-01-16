@@ -50,3 +50,39 @@ NotificationDbusInterface::NotificationDbusInterface(const QString& deviceId, co
 {
 
 }
+
+SftpDbusInterface::SftpDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceSftpInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/" + id + "/sftp", QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+SftpDbusInterface::~SftpDbusInterface()
+{
+
+}
+
+DaemonDbusInterface::~DaemonDbusInterface()
+{
+
+}
+
+DeviceBatteryDbusInterface::~DeviceBatteryDbusInterface()
+{
+
+}
+
+DeviceDbusInterface::~DeviceDbusInterface()
+{
+
+}
+
+DeviceNotificationsDbusInterface::~DeviceNotificationsDbusInterface()
+{
+
+}
+
+NotificationDbusInterface::~NotificationDbusInterface()
+{
+
+}
