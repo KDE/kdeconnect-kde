@@ -33,6 +33,7 @@
 #include <KRun>
 #include <KStandardDirs>
 #include <kde_file.h>
+#include <kfileplacesmodel.h>
 
 #include "sftp_config.h"
 #include "../../kdebugnamespace.h"
@@ -43,20 +44,12 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
 static const char* passwd_c = "sftppassword";
 static const char* mountpoint_c = "sftpmountpoint";
 static const char* timestamp_c = "timestamp";
-
-static const QSet<QString> fields_c = QSet<QString>() <<
-  "ip" << "port" << "user" << "port" << "password" << "path";
-  
+static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "password" << "path";
 
 inline bool isTimeout(QObject* o, const KConfigGroup& cfg)
 {
     int duration = o->property(timestamp_c).toDateTime().secsTo(QDateTime::currentDateTime());  
     return cfg.readEntry("idle", true) && duration > (cfg.readEntry("idletimeout", 60) * 60);
-}
-
-inline QString mountpoint(QObject* o)
-{
-    return o->property(mountpoint_c).toString();
 }
 
 struct SftpPlugin::Pimpl
@@ -67,6 +60,7 @@ struct SftpPlugin::Pimpl
     };
     
     QPointer<KProcess> mountProc;  
+    KFilePlacesModel* m_placesModel;
     QTimer mountTimer;
     int idleTimer;
     bool waitForMount;
@@ -81,16 +75,41 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     m_d->idleTimer = startTimer(20 * 1000);
     
     connect(&m_d->mountTimer, SIGNAL(timeout()), this, SLOT(mountTimeout()));
+
+    //Add KIO entry to Dolphin's Places
+    m_d->m_placesModel = new KFilePlacesModel();
+    addToDolphin();
+
+}
+
+void SftpPlugin::addToDolphin()
+{
+    removeFromDolphin();
+    KUrl kioUrl("kdeconnect://"+device()->id()+"/");
+    m_d->m_placesModel->addPlace(device()->name(), kioUrl, "smartphone");
+    kDebug(kdeconnect_kded()) << "add to dolphin";
+}
+
+void SftpPlugin::removeFromDolphin()
+{
+    KUrl kioUrl("kdeconnect://"+device()->id()+"/");
+    QModelIndex index = m_d->m_placesModel->closestItem(kioUrl);
+    while (index.row() != -1) {
+        m_d->m_placesModel->removePlace(index);
+        index = m_d->m_placesModel->closestItem(kioUrl);
+    }
 }
 
 void SftpPlugin::connected()
 {
+
 }
 
 SftpPlugin::~SftpPlugin()
 {
     QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     umount();
+    removeFromDolphin();
 }
 
 void SftpPlugin::mount()
@@ -113,7 +132,7 @@ void SftpPlugin::umount()
 {
     if (m_d->mountProc)
     {
-        cleanMountPoint(m_d->mountProc);
+        cleanMountPoint();
         if (m_d->mountProc)
         {
             m_d->mountProc->terminate();
@@ -127,7 +146,7 @@ void SftpPlugin::startBrowsing()
 {
     if (m_d->mountProc)
     {
-        new KRun(KUrl::fromLocalFile(mountpoint(m_d->mountProc)), 0);
+        new KRun(KUrl::fromLocalFile(mountPoint()), 0);
     }
     else
     {
@@ -159,8 +178,7 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
     connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
     connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), m_d->mountProc, SLOT(deleteLater()));
     
-    const QString mpoint = KConfig("kdeconnect/plugins/sftp").group("main").readEntry("mountpoint"
-      , KStandardDirs::locateLocal("appdata", "", true, componentData())) + "/" + device()->name() + "/";
+    const QString mpoint = mountPoint();
     QDir().mkpath(mpoint);
     
     const QString program = "sshfs";
@@ -177,12 +195,18 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
     
     m_d->mountProc->setProgram(program, arguments);
     m_d->mountProc->setProperty(passwd_c, np.get<QString>("password"));
-    m_d->mountProc->setProperty(mountpoint_c, mpoint);
 
-    cleanMountPoint(m_d->mountProc);
+    cleanMountPoint();
     m_d->mountProc->start();
     
     return true;
+}
+
+QString SftpPlugin::mountPoint()
+{
+    const QString defaultMountDir = KStandardDirs::locateLocal("appdata", "", true, componentData());
+    const QString mountDir = KConfig("kdeconnect/plugins/sftp").group("main").readEntry("mountpoint", defaultMountDir);
+    return mountDir + "/" + device()->id() + "/";
 }
 
 void SftpPlugin::timerEvent(QTimerEvent* event)
@@ -206,14 +230,14 @@ void SftpPlugin::onStarted()
     m_d->mountProc->closeWriteChannel();
     
     knotify(KNotification::Notification
-        , i18n("Filesystem mounted at %1").arg(mountpoint(sender()))
+        , i18n("Filesystem mounted at %1").arg(mountPoint())
         , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
     );
     
     if (m_d->waitForMount)
     {
         m_d->waitForMount = false;
-        new KRun(KUrl::fromLocalFile(mountpoint(sender())), 0);
+        new KRun(KUrl::fromLocalFile(mountPoint()), 0);
     }
 
 }
@@ -226,7 +250,7 @@ void SftpPlugin::onError(QProcess::ProcessError error)
             , i18n("Failed to start sshfs")
             , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
         );
-        cleanMountPoint(sender());
+        cleanMountPoint();
     }
 }
 
@@ -259,7 +283,7 @@ void SftpPlugin::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
         );
     }
 
-    cleanMountPoint(sender());   
+    cleanMountPoint();
     m_d->mountProc = 0;
 }
 
@@ -270,16 +294,9 @@ void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) con
       , KNotification::CloseOnTimeout);
 }
 
-void SftpPlugin::cleanMountPoint(QObject* mounter)
+void SftpPlugin::cleanMountPoint()
 {
-    if (!mounter || mountpoint(mounter).isEmpty()) 
-    {
-        return;
-    }
-    
-    KProcess::execute(QStringList()
-        << "fusermount" << "-u"
-        << mountpoint(mounter), 10000);
+    KProcess::execute(QStringList() << "fusermount" << "-u" << mountPoint(), 10000);
 }
 
 void SftpPlugin::mountTimeout()

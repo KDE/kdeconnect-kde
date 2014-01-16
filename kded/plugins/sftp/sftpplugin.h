@@ -53,6 +53,8 @@ public Q_SLOTS:
     
     Q_SCRIPTABLE void startBrowsing();
 
+    Q_SCRIPTABLE QString mountPoint();
+
 protected:
      void timerEvent(QTimerEvent *event);
     
@@ -63,9 +65,11 @@ private Q_SLOTS:
     void mountTimeout();
     
 private:
-    QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }  
+    QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }
     void knotify(int type, const QString& text, const QPixmap& icon) const;
-    void cleanMountPoint(QObject* mounter);
+    void cleanMountPoint();
+    void addToDolphin();
+    void removeFromDolphin();
     
 private:
     struct Pimpl;

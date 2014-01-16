@@ -1,0 +1,16 @@
+[Protocol]
+exec=kio_kdeconnect
+protocol=kdeconnect
+input=none
+output=filesystem
+copyToFile=false
+copyFromFile=false
+listing=Name,Type,Access
+reading=true
+writing=false
+makedir=false
+deleting=false
+moving=false
+Icon=smartphone
+maxInstances=2
+
