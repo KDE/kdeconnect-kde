@@ -19,6 +19,7 @@
 #undef interface
 #endif
 #include <QDBusConnection>
+#include <QFile>
 
 Device::Device(const QString& id)
     : m_deviceId(id)
@@ -33,10 +34,15 @@ Device::Device(const QString& id)
 
     const QString& key = data.readEntry<QString>("publicKey", QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
+    
+    QFile privKey(config->group("myself").readEntry("privateKey"));
+    if (privKey.open(QIODevice::ReadOnly))
+    {
+        m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+    }
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-
 }
 
 Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
@@ -205,11 +211,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceName = identityPackage.get<QString>("deviceName");
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
-    //TODO: Do not read the key every time from config, store somewhere
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString& key = config->group("myself").readEntry<QString>("privateKey", QString());
-    QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
-    link->setPrivateKey(privateKey);
+    link->setPrivateKey(m_privateKey);
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.

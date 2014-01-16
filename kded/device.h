@@ -122,6 +122,7 @@ private:
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;
+    QCA::PrivateKey m_privateKey;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
     int m_protocolVersion;

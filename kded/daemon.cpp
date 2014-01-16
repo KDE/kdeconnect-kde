@@ -21,12 +21,15 @@
 #include "daemon.h"
 
 #include <QUuid>
+#include <QFile>
+#include <QFileInfo>
 #include <QDBusConnection>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <KStandardDirs>
 
 #include "kdebugnamespace.h"
 #include "networkpackage.h"
@@ -58,16 +61,35 @@ Daemon::Daemon(QObject *parent, const QList<QVariant>&)
         return;
     }
 
-    if (!config->group("myself").hasKey("privateKey") || !config->group("myself").hasKey("publicKey")) {
+    if (!config->group("myself").hasKey("privateKey"))
+    {
+        const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
+        
+        QFile privKey(privateKeyPath);
+        
+        if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))
+        {
+            qWarning() << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
+            return;
+        }
+        
+        if (!privKey.setPermissions(QFile::ReadOwner | QFile::WriteOwner))
+        {
+            qWarning() << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
+            return;
+        }
 
-        //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
-        QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
-        config->group("myself").writeEntry("privateKey", privateKey.toPEM());
-
-        QCA::PublicKey publicKey = privateKey.toPublicKey();
-        config->group("myself").writeEntry("publicKey", publicKey.toPEM());
-        //TODO: Store key in a PEM file instead (use something like KStandardDirs::locate("appdata", "private.pem"))
-
+        //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html        
+        privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toAscii());
+        privKey.close();
+        
+        config->group("myself").writeEntry("privateKey", privateKeyPath);
+    }
+    
+    if (QFileInfo(config->group("myself").readEntry("privateKey")).permissions() != (QFile::ReadOwner | QFile::WriteOwner))
+    {
+        qWarning() << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKey");
+        return;
     }
 
     //Debugging
