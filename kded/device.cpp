@@ -323,17 +323,18 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
             kDebug(kdeconnect_kded()) << "Unpair request";
 
-            if (m_pairStatus == Device::Requested) {
+            PairStatus prevPairStatus = m_pairStatus;
+            m_pairStatus = Device::NotPaired;
+
+            if (prevPairStatus == Device::Requested) {
                 pairingTimer.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
-            } else if (m_pairStatus == Device::Paired) {
+            } else if (prevPairStatus == Device::Paired) {
                 KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
                 config->group("trusted_devices").deleteGroup(id());
                 reloadPlugins();
                 Q_EMIT unpaired();
             }
-
-            m_pairStatus = Device::NotPaired;
 
         }
 
