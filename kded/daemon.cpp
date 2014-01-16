@@ -123,20 +123,15 @@ void Daemon::forceOnNetworkChange()
     }
 }
 
-QStringList Daemon::visibleDevices()
+QStringList Daemon::devices(bool onlyReachable, bool onlyVisible)
 {
     QStringList ret;
     Q_FOREACH(Device* device, mDevices) {
-        if (device->isReachable()) {
-            ret.append(device->id());
-        }
+        if (onlyReachable && !device->isReachable()) continue;
+        if (onlyVisible && !device->isPaired()) continue;
+        ret.append(device->id());
     }
     return ret;
-}
-
-QStringList Daemon::devices()
-{
-    return mDevices.keys();
 }
 
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)

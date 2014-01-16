@@ -27,8 +27,18 @@ DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
 
 }
 
+DaemonDbusInterface::~DaemonDbusInterface()
+{
+
+}
+
 DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+DeviceDbusInterface::~DeviceDbusInterface()
 {
 
 }
@@ -39,8 +49,18 @@ DeviceBatteryDbusInterface::DeviceBatteryDbusInterface(const QString& id, QObjec
 
 }
 
+DeviceBatteryDbusInterface::~DeviceBatteryDbusInterface()
+{
+
+}
+
 DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceNotificationsInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+DeviceNotificationsDbusInterface::~DeviceNotificationsDbusInterface()
 {
 
 }
@@ -51,10 +71,18 @@ NotificationDbusInterface::NotificationDbusInterface(const QString& deviceId, co
 
 }
 
+NotificationDbusInterface::~NotificationDbusInterface()
+{
+
+}
+
 SftpDbusInterface::SftpDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceSftpInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/" + id + "/sftp", QDBusConnection::sessionBus(), parent)
 {
 
 }
 
-SftpDbusInterface::~SftpDbusInterface() {}
+SftpDbusInterface::~SftpDbusInterface()
+{
+
+}

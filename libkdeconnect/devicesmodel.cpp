@@ -112,27 +112,21 @@ void DevicesModel::refreshDeviceList()
         return;
     }
 
-    QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices();
+
+    bool onlyPaired = (m_displayFilter & StatusPaired);
+    bool onlyReachable = (m_displayFilter & StatusReachable);
+
+    QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
     pendingDeviceIds.waitForFinished();
     if (pendingDeviceIds.isError()) return;
+
     const QStringList& deviceIds = pendingDeviceIds.value();
-
     Q_FOREACH(const QString& id, deviceIds) {
-
-        DeviceDbusInterface* deviceDbusInterface = new DeviceDbusInterface(id,this);
-
-        bool onlyPaired = (m_displayFilter & StatusPaired);
-        if (onlyPaired && !deviceDbusInterface->isPaired()) continue;
-        bool onlyReachable = (m_displayFilter & StatusReachable);
-        if (onlyReachable && !deviceDbusInterface->isReachable()) continue;
-
         int firstRow = m_deviceList.size();
         int lastRow = firstRow;
-
         beginInsertRows(QModelIndex(), firstRow, lastRow);
-        m_deviceList.append(deviceDbusInterface);
+        m_deviceList.append(new DeviceDbusInterface(id,this));
         endInsertRows();
-
     }
 
     Q_EMIT dataChanged(index(0), index(m_deviceList.size()));
