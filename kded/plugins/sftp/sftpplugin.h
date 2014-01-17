@@ -64,6 +64,9 @@ private Q_SLOTS:
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void mountTimeout();
     
+    void readProcessStderr();
+    void readProcessStdout();
+    
 private:
     QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }
     void knotify(int type, const QString& text, const QPixmap& icon) const;

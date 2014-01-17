@@ -42,9 +42,8 @@ K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
 
 static const char* passwd_c = "sftppassword";
-static const char* mountpoint_c = "sftpmountpoint";
 static const char* timestamp_c = "timestamp";
-static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "password" << "path";
+static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "path";
 
 inline bool isTimeout(QObject* o, const KConfigGroup& cfg)
 {
@@ -70,7 +69,7 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_d(new Pimpl)
 { 
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
+    kDebug(kdeconnect_kded()) << "creating [" << device()->name() << "]...";
     
     m_d->idleTimer = startTimer(20 * 1000);
     
@@ -79,7 +78,17 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     //Add KIO entry to Dolphin's Places
     m_d->m_placesModel = new KFilePlacesModel();
     addToDolphin();
+    kDebug(kdeconnect_kded()) << "created [" << device()->name() << "]";
+}
 
+SftpPlugin::~SftpPlugin()
+{
+    kDebug(kdeconnect_kded()) << "destroying [" << device()->name() << "]...";
+
+    QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
+    umount();
+    removeFromDolphin();
+    kDebug(kdeconnect_kded()) << "destroyed [" << device()->name() << "]";
 }
 
 void SftpPlugin::addToDolphin()
@@ -102,18 +111,13 @@ void SftpPlugin::removeFromDolphin()
 
 void SftpPlugin::connected()
 {
-
-}
-
-SftpPlugin::~SftpPlugin()
-{
-    QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
-    umount();
-    removeFromDolphin();
+    kDebug(kdeconnect_kded()) << "exposing DBUS interface: "
+        << QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
 }
 
 void SftpPlugin::mount()
 {
+    kDebug(kdeconnect_kded()) << "start mounting device:" << device()->name();
     if (m_d->mountTimer.isActive() || m_d->mountProc)
     {
         return;
@@ -178,6 +182,9 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
     connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
     connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), m_d->mountProc, SLOT(deleteLater()));
     
+    connect(m_d->mountProc, SIGNAL(readyReadStandardError()), this, SLOT(readProcessStderr()));
+    connect(m_d->mountProc, SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessStdout()));
+    
     const QString mpoint = mountPoint();
     QDir().mkpath(mpoint);
     
@@ -187,14 +194,13 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
             .arg(np.get<QString>("user"))
             .arg(np.get<QString>("ip"))
             .arg(np.get<QString>("path"))
+        << mpoint            
         << "-p" << np.get<QString>("port")
         << "-d"
         << "-f"
-        << "-o" << "password_stdin"
-        << mpoint;
+        << "-o" << "IdentityFile=" + device()->privateKey();
     
     m_d->mountProc->setProgram(program, arguments);
-    m_d->mountProc->setProperty(passwd_c, np.get<QString>("password"));
 
     cleanMountPoint();
     m_d->mountProc->start();
@@ -224,10 +230,9 @@ void SftpPlugin::timerEvent(QTimerEvent* event)
 
 void SftpPlugin::onStarted()
 {
-    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());
+    kDebug(kdeconnect_kded()) << qobject_cast<KProcess*>(sender())->program();
     
-    m_d->mountProc->write(m_d->mountProc->property(passwd_c).toString().toLocal8Bit() + "\n");
-    m_d->mountProc->closeWriteChannel();
+    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());
     
     knotify(KNotification::Notification
         , i18n("Filesystem mounted at %1").arg(mountPoint())
@@ -239,11 +244,13 @@ void SftpPlugin::onStarted()
         m_d->waitForMount = false;
         new KRun(KUrl::fromLocalFile(mountPoint()), 0);
     }
-
 }
 
 void SftpPlugin::onError(QProcess::ProcessError error)
 {
+    kDebug(kdeconnect_kded()) << qobject_cast<KProcess*>(sender())->program(); 
+    kDebug(kdeconnect_kded()) << "ARGS: error=" << error;
+    
     if (error == QProcess::FailedToStart)
     {
         knotify(KNotification::Error
@@ -256,7 +263,8 @@ void SftpPlugin::onError(QProcess::ProcessError error)
 
 void SftpPlugin::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    Q_UNUSED(exitCode);
+    kDebug(kdeconnect_kded()) << qobject_cast<KProcess*>(sender())->program();
+    kDebug(kdeconnect_kded()) << "ARGS: exitCode=" << exitCode << " exitStatus=" << exitStatus;
 
     if (exitStatus == QProcess::NormalExit)
     {
@@ -307,3 +315,51 @@ void SftpPlugin::mountTimeout()
     );
 }
 
+void SftpPlugin::readProcessStderr()
+{
+    kError(kdeconnect_kded()) << "sshfs:" << m_d->mountProc->readAllStandardError();
+}
+
+void SftpPlugin::readProcessStdout()
+{
+    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());    
+    m_d->mountProc->readAllStandardOutput();
+}
+
+// void SftpPlugin::startAgent()
+// {
+//     m_d->agentProc = new KProcess(this);
+//     m_d->agentProc->setOutputChannelMode(KProcess::SeparateChannels);
+//     connect(m_d->agentProc, SIGNAL(finished(int,QProcess::ExitStatus)), m_d->agentProc, SLOT(deleteLater()));
+//     
+//     m_d->agentProc->setProgram("ssh-agent", QStringList("-c"));
+//     m_d->agentProc->setReadChannel(QProcess::StandardOutput);
+// 
+//     kDebug(kdeconnect_kded()) << "1";
+//     m_d->agentProc->start();
+//     if (!m_d->agentProc->waitForFinished(5000))
+//     {
+//         kDebug(kdeconnect_kded()) << "2";
+//         m_d->agentProc->deleteLater();
+//         return;
+//     }
+//     
+//     kDebug(kdeconnect_kded()) << "3";
+//     m_d->env = QProcessEnvironment::systemEnvironment();
+//     QRegExp envrx("setenv (.*) (.*);");
+//     
+//     kDebug(kdeconnect_kded()) << "4";
+//     QByteArray data = m_d->agentProc->readLine();
+//     kDebug(kdeconnect_kded()) << "line readed:" << data;
+//     if (envrx.indexIn(data) == -1)
+//     {
+//         kError(kdeconnect_kded()) << "can't start ssh-agent";
+//         return;
+//     }
+//     m_d->env.insert(envrx.cap(1), envrx.cap(2));
+// 
+//     KProcess add;
+//     add.setProgram("ssh-add", QStringList() << device()->privateKey());
+//     add.setProcessEnvironment(m_d->env);
+//     add.execute(5000);
+// }

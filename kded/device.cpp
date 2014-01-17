@@ -255,6 +255,11 @@ void Device::removeLink(DeviceLink* link)
     }
 }
 
+QString Device::privateKey() const
+{
+    return KSharedConfig::openConfig("kdeconnectrc")->group("myself").readEntry("privateKey");
+}
+
 bool Device::sendPackage(NetworkPackage& np)
 {
     if (np.type() != PACKAGE_TYPE_PAIR && isPaired()) {
