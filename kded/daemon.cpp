@@ -36,13 +36,8 @@
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 
-K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Daemon>();)
-K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
-
-Daemon::Daemon(QObject *parent, const QList<QVariant>&)
-    : KDEDModule(parent)
+Daemon::Daemon(QObject *parent) : QObject(parent)
 {
-
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
 
     if (!config->group("myself").hasKey("id")) {
