@@ -70,6 +70,10 @@ bool Kded::start()
         return false;
     }
 
+    m_daemon->closeReadChannel(KProcess::StandardError);
+    m_daemon->closeReadChannel(KProcess::StandardOutput);
+    m_daemon->closeWriteChannel();
+    
     kDebug(kdeconnect_kded()) << "Daemon successfuly started";
     return true;
 }
