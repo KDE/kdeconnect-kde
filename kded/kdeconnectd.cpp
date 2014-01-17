@@ -1,8 +1,9 @@
 
 #include <sys/socket.h>
+#include <unistd.h>
 #include <signal.h>
 
-#include <QCoreApplication>
+#include <QApplication>
 #include <QSocketNotifier>
 
 #include "daemon.h"
@@ -36,7 +37,7 @@ void initializeTermHandlers(QCoreApplication* app)
 
 int main(int argc, char* argv[])
 {
-    QCoreApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     initializeTermHandlers(&app);
     new Daemon(&app);

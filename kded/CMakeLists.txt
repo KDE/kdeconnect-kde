@@ -69,7 +69,7 @@ generate_and_install_dbus_interface(
 generate_and_install_dbus_interface(
     kded_kdeconnect
     kded.h
-    org.kde.kdeconnect.kded.xml
+    org.kde.kded.kdeconnect.xml
     OPTIONS -a
 )
 

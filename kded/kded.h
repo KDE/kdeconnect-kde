@@ -28,7 +28,7 @@ class Kded
     : public KDEDModule
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.kded")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kded.kdeconnect")
 
 public:
     Kded(QObject *parent, const QList<QVariant>&);

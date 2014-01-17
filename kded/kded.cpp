@@ -35,15 +35,12 @@ Kded::Kded(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)
     , m_daemon(0)
 {
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect/kded", this, QDBusConnection::ExportScriptableContents);
     start();
     kDebug(kdeconnect_kded()) << "kded_kdeconnect started"; 
 }
 
 Kded::~Kded()
 {
-    QDBusConnection::sessionBus().unregisterObject("/modules/kdeconnect/kded");
     stop();
     kDebug(kdeconnect_kded()) << "kded_kdeconnect stopped";
 }
@@ -63,6 +60,7 @@ bool Kded::start()
     connect(m_daemon, SIGNAL(finished(int,QProcess::ExitStatus)), m_daemon, SLOT(deleteLater()));
     
     m_daemon->setProgram(daemon);
+    m_daemon->setOutputChannelMode(KProcess::SeparateChannels);
     m_daemon->start();
     if (!m_daemon->waitForStarted(10000))
     {
@@ -70,9 +68,7 @@ bool Kded::start()
         return false;
     }
 
-    m_daemon->closeReadChannel(KProcess::StandardError);
     m_daemon->closeReadChannel(KProcess::StandardOutput);
-    m_daemon->closeWriteChannel();
     
     kDebug(kdeconnect_kded()) << "Daemon successfuly started";
     return true;
@@ -109,17 +105,17 @@ void Kded::onError(QProcess::ProcessError errorCode)
 
 void Kded::onFinished(int exitCode, QProcess::ExitStatus status)
 {
-    m_daemon = 0;
-    
     if (status == QProcess::CrashExit)
     {
-        kError(kdeconnect_kded()) << "Process crashed code=" << exitCode;
+        kError(kdeconnect_kded()) << "Process crashed with code=" << exitCode;
+        kError(kdeconnect_kded()) << m_daemon->readAllStandardError();
         kWarning(kdeconnect_kded()) << "Restarting in 5 sec...";
         QTimer::singleShot(5000, this, SLOT(start()));        
     }
     else
     {
-        kWarning(kdeconnect_kded()) << "Process finished code=" << exitCode;
+        kWarning(kdeconnect_kded()) << "Process finished with code=" << exitCode;
     }
+    m_daemon = 0;
 }
 
