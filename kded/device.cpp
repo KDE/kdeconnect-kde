@@ -52,13 +52,13 @@ Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
     , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
 {
-    addLink(identityPackage, dl);
-
     QFile privKey(KSharedConfig::openConfig("kdeconnectrc")->group("myself").readEntry("privateKey"));
     if (privKey.open(QIODevice::ReadOnly))
     {
         m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
     }
+
+    addLink(identityPackage, dl);
     
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -217,6 +217,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceName = identityPackage.get<QString>("deviceName");
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
+    Q_ASSERT(!m_privateKey.isNull());
     link->setPrivateKey(m_privateKey);
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
