@@ -23,10 +23,7 @@
 #include <QDBusConnection>
 #include <QTimer>
 
-#include <KConfig>
-#include <KConfigGroup>
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KStandardDirs>
 
 #include "kdebugnamespace.h"
