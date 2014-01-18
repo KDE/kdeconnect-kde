@@ -41,12 +41,13 @@
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
 
-static const char* passwd_c = "sftppassword";
 static const char* timestamp_c = "timestamp";
 static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "path";
 
 inline bool isTimeout(QObject* o, const KConfigGroup& cfg)
 {
+    if (!o) return false;
+    
     int duration = o->property(timestamp_c).toDateTime().secsTo(QDateTime::currentDateTime());  
     return cfg.readEntry("idle", true) && duration > (cfg.readEntry("idletimeout", 60) * 60);
 }
@@ -182,9 +183,6 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
     connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
     connect(m_d->mountProc, SIGNAL(finished(int,QProcess::ExitStatus)), m_d->mountProc, SLOT(deleteLater()));
     
-    connect(m_d->mountProc, SIGNAL(readyReadStandardError()), this, SLOT(readProcessStderr()));
-    connect(m_d->mountProc, SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessStdout()));
-    
     const QString mpoint = mountPoint();
     QDir().mkpath(mpoint);
     
@@ -238,6 +236,9 @@ void SftpPlugin::onStarted()
         , i18n("Filesystem mounted at %1").arg(mountPoint())
         , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
     );
+    
+    connect(m_d->mountProc, SIGNAL(readyReadStandardError()), this, SLOT(readProcessStderr()));
+    connect(m_d->mountProc, SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessStdout()));
     
     if (m_d->waitForMount)
     {
@@ -317,7 +318,8 @@ void SftpPlugin::mountTimeout()
 
 void SftpPlugin::readProcessStderr()
 {
-    kError(kdeconnect_kded()) << "sshfs:" << m_d->mountProc->readAllStandardError();
+    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());    
+    m_d->mountProc->readAllStandardError();
 }
 
 void SftpPlugin::readProcessStdout()
