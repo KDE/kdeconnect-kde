@@ -13,6 +13,7 @@ include_directories(
 
 set(kdeconnect_sftp_SRCS
     sftpplugin.cpp
+    mountloop.cpp
     ../kdeconnectplugin.cpp
     ../pluginloader.cpp
     ../../networkpackage.cpp
@@ -41,6 +42,7 @@ include(../../../macros.cmake)
 generate_and_install_dbus_interface(
     kdeconnect_sftp
     sftpplugin.h
+    mountloop.h
     org.kde.kdeconnect.device.sftp.xml
     OPTIONS -a
 )

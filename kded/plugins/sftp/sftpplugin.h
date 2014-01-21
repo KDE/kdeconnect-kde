@@ -30,24 +30,6 @@
 
 class KNotification;
 
-//TODO move to private
-class MountLoop : public QEventLoop
-{
-    Q_OBJECT
-public:
-    MountLoop();
-    
-    bool exec(QEventLoop::ProcessEventsFlags flags = QEventLoop::AllEvents);
-    
-Q_SIGNALS:
-    void result(bool status);
-    
-public Q_SLOTS:
-    void failed();
-    void successed();
-    void exitWith(bool status);
-};
-
 class SftpPlugin
     : public KdeConnectPlugin
 {
@@ -92,8 +74,7 @@ private Q_SLOTS:
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void mountTimeout();
     
-    void readProcessStderr();
-    void readProcessStdout();
+    void readProcessOut();
     
     bool waitForMount();
     
