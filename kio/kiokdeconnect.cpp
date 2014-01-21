@@ -51,6 +51,36 @@ extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
     return 0;
 }
 
+//Some useful error mapping
+KIO::Error toKioError(const QDBusError::ErrorType type)
+{
+    switch (type) 
+    {
+        case QDBusError::NoError:
+            return KIO::Error(KJob::NoError);
+        case QDBusError::NoMemory:
+            return KIO::ERR_OUT_OF_MEMORY;
+        case QDBusError::Timeout:          
+            return KIO::ERR_SERVER_TIMEOUT;
+        case QDBusError::TimedOut:          
+            return KIO::ERR_SERVER_TIMEOUT;
+        default:
+            return KIO::ERR_INTERNAL;
+    };
+};
+
+template <typename T>
+bool handleDBusError(QDBusReply<T>& reply, KIO::SlaveBase* slave)
+{
+    if (!reply.isValid())
+    {
+        kDebug(kdeconnect_kio()) << "Error in DBus request:" << reply.error();
+        slave->error(toKioError(reply.error().type()),reply.error().message());
+        return true;
+    }
+    return false;
+}
+
 KioKdeconnect::KioKdeconnect(const QByteArray &pool, const QByteArray &app)
     : SlaveBase("kdeconnect", pool, app),
     m_dbusInterface(new DaemonDbusInterface(this))
@@ -102,9 +132,29 @@ void KioKdeconnect::listDevice()
     kDebug(kdeconnect_kio()) << "ListDevice" << m_currentDevice;
 
     SftpDbusInterface interface(m_currentDevice);
-    interface.mount(); //Since this does not happen immediately, we mount it here
-    QString url = interface.mountPoint();
-
+    
+    QDBusReply<bool> mountreply = interface.mountAndWait();
+    
+    if (handleDBusError(mountreply, this))
+    {
+        return;
+    }
+    
+    if (!mountreply.value())
+    {
+        error(KIO::ERR_COULD_NOT_MOUNT, i18n("Could not mount device filesystem"));
+        return;
+    }
+    
+    QDBusReply<QString> urlreply = interface.mountPoint();
+    
+    if (handleDBusError(urlreply, this))
+    {
+        return;
+    }
+    
+    QString url = urlreply.value();
+    
     KIO::UDSEntry entry;
     entry.insert(KIO::UDSEntry::UDS_NAME, "files");
     entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, "Browse images");
