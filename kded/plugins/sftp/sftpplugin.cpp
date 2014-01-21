@@ -37,55 +37,41 @@
 #include <kfileplacesmodel.h>
 
 #include "sftp_config.h"
+#include "mountloop.h"
 #include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
 
-static const char* timestamp_c = "timestamp";
+static const char* lastaccess_c = "lastaccess";
 static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "path";
 
 inline bool isTimeout(QObject* o, const KConfigGroup& cfg)
 {
     if (!o) return false;
     
-    int duration = o->property(timestamp_c).toDateTime().secsTo(QDateTime::currentDateTime());  
+    int duration = o->property(lastaccess_c).toDateTime().secsTo(QDateTime::currentDateTime());  
     return cfg.readEntry("idle", true) && duration > (cfg.readEntry("idletimeout", 60) * 60);
 }
 
-MountLoop::MountLoop()
-    : QEventLoop()
-{
-}
-
-bool MountLoop::exec(QEventLoop::ProcessEventsFlags flags)
-{
-    return QEventLoop::exec(flags) == 0;
-}
-
-void MountLoop::failed()
-{
-    Q_EMIT(result(false));
-    exit(1);
-}
-
-void MountLoop::successed()
-{
-    Q_EMIT(result(true));
-    exit(0);
-}
-
-void MountLoop::exitWith(bool status)
-{
-    Q_EMIT(result(status));
-    exit(status ? 0 : 1);
-}
 
 struct SftpPlugin::Pimpl
 {
+    Pimpl()
+    {
+        connectTimer.setInterval(10 * 1000);
+        connectTimer.setSingleShot(true);
+        
+        //Add KIO entry to Dolphin's Places
+        placesModel = new KFilePlacesModel();
+    }
+  
     QPointer<KProcess> mountProc;  
-    KFilePlacesModel* m_placesModel;
-    int idleTimer;
+    KFilePlacesModel*  placesModel;
+    
+    QTimer connectTimer;  
+    int idleTimerId;
+    
     MountLoop loop;
 };
 
@@ -95,13 +81,16 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
 { 
     kDebug(kdeconnect_kded()) << "creating [" << device()->name() << "]...";
     
-    m_d->idleTimer = startTimer(20 * 1000);
-    
+
+    m_d->idleTimerId = startTimer(20 * 1000);
+
+    connect(&m_d->connectTimer, SIGNAL(timeout()), this, SLOT(mountTimeout()));
+    connect(&m_d->connectTimer, SIGNAL(timeout()), &m_d->loop, SLOT(failed()));
+
     connect(this, SIGNAL(mount_succesed()), &m_d->loop, SLOT(successed()));
     connect(this, SIGNAL(mount_failed()), &m_d->loop, SLOT(failed()));
 
-    //Add KIO entry to Dolphin's Places
-    m_d->m_placesModel = new KFilePlacesModel();
+    
     addToDolphin();
     kDebug(kdeconnect_kded()) << "created [" << device()->name() << "]";
 }
@@ -120,17 +109,17 @@ void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    m_d->m_placesModel->addPlace(device()->name(), kioUrl, "smartphone");
+    m_d->placesModel->addPlace(device()->name(), kioUrl, "smartphone");
     kDebug(kdeconnect_kded()) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    QModelIndex index = m_d->m_placesModel->closestItem(kioUrl);
+    QModelIndex index = m_d->placesModel->closestItem(kioUrl);
     while (index.row() != -1) {
-        m_d->m_placesModel->removePlace(index);
-        index = m_d->m_placesModel->closestItem(kioUrl);
+        m_d->placesModel->removePlace(index);
+        index = m_d->placesModel->closestItem(kioUrl);
     }
 }
 
@@ -148,6 +137,8 @@ void SftpPlugin::mount()
         return;
     }
 
+    m_d->connectTimer.start();
+    
     NetworkPackage np(PACKAGE_TYPE_SFTP);
     np.set("startBrowsing", true);
     device()->sendPackage(np);
@@ -164,20 +155,18 @@ bool SftpPlugin::mountAndWait()
     
     if (m_d->loop.isRunning())
     {
+        kDebug(kdeconnect_kded()) << "start secondary loop";
         MountLoop loop;
         connect(&m_d->loop, SIGNAL(result(bool)), &loop, SLOT(exitWith(bool)));
         return loop.exec();
     }
 
-    kDebug(kdeconnect_kded()) << "call mounting" << device()->name();
-    
     mount();
     
     QTimer mt;
     connect(&mt, SIGNAL(timeout()), &m_d->loop, SLOT(failed()));
-    connect(&mt, SIGNAL(timeout()), this, SLOT(mountTimeout()));
-    kDebug(kdeconnect_kded()) << "stargting timer";
     mt.start(15000);
+    kDebug(kdeconnect_kded()) << "start primary loop";
     return m_d->loop.exec();
 }
 
@@ -217,8 +206,10 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
         return true;
     }
     
+    m_d->connectTimer.stop();
+    
     m_d->mountProc = new KProcess(this);
-    m_d->mountProc->setOutputChannelMode(KProcess::SeparateChannels);
+    m_d->mountProc->setOutputChannelMode(KProcess::MergedChannels);
 
     connect(m_d->mountProc, SIGNAL(started()), SLOT(onStarted()));    
     connect(m_d->mountProc, SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
@@ -257,7 +248,7 @@ QString SftpPlugin::mountPoint()
 
 void SftpPlugin::timerEvent(QTimerEvent* event)
 {
-    if (event->timerId() == m_d->idleTimer) 
+    if (event->timerId() == m_d->idleTimerId) 
     {
         if (isTimeout(m_d->mountProc, SftpConfig::config()->group("main")))
         {
@@ -270,9 +261,9 @@ void SftpPlugin::timerEvent(QTimerEvent* event)
 
 void SftpPlugin::onStarted()
 {
-    kDebug(kdeconnect_kded()) << qobject_cast<KProcess*>(sender())->program();
+    kDebug(kdeconnect_kded()) << qobject_cast<KProcess*>(sender())->program().join(" ");
     
-    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());
+    m_d->mountProc->setProperty(lastaccess_c, QDateTime::currentDateTime());
     
     knotify(KNotification::Notification
         , i18n("Filesystem mounted at %1").arg(mountPoint())
@@ -282,8 +273,8 @@ void SftpPlugin::onStarted()
     //Used to notify MountLoop about success. 
     Q_EMIT mount_succesed();
     
-    connect(m_d->mountProc, SIGNAL(readyReadStandardError()), this, SLOT(readProcessStderr()));
-    connect(m_d->mountProc, SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessStdout()));
+    connect(m_d->mountProc, SIGNAL(readyReadStandardError()), this, SLOT(readProcessOut()));
+    connect(m_d->mountProc, SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessOut()));
 }
 
 void SftpPlugin::onError(QProcess::ProcessError error)
@@ -360,16 +351,10 @@ void SftpPlugin::mountTimeout()
     );
 }
 
-void SftpPlugin::readProcessStderr()
+void SftpPlugin::readProcessOut()
 {
-    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());    
-    m_d->mountProc->readAllStandardError();
-}
-
-void SftpPlugin::readProcessStdout()
-{
-    m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());    
-    m_d->mountProc->readAllStandardOutput();
+    m_d->mountProc->setProperty(lastaccess_c, QDateTime::currentDateTime());    
+    m_d->mountProc->readAll();
 }
 
 bool SftpPlugin::waitForMount()
