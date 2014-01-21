@@ -22,12 +22,31 @@
 #define SFTPPLUGIN_H
 
 #include <KProcess>
+#include <QEventLoop>
 
 #include "../kdeconnectplugin.h"
 
 #define PACKAGE_TYPE_SFTP QLatin1String("kdeconnect.sftp")
 
 class KNotification;
+
+//TODO move to private
+class MountLoop : public QEventLoop
+{
+    Q_OBJECT
+public:
+    MountLoop();
+    
+    bool exec(QEventLoop::ProcessEventsFlags flags = QEventLoop::AllEvents);
+    
+Q_SIGNALS:
+    void result(bool status);
+    
+public Q_SLOTS:
+    void failed();
+    void successed();
+    void exitWith(bool status);
+};
 
 class SftpPlugin
     : public KdeConnectPlugin
@@ -36,6 +55,7 @@ class SftpPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.sftp")
     
 public:
+  
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
     virtual ~SftpPlugin();
 
@@ -43,6 +63,12 @@ public:
     {
         return KComponentData("kdeconnect", "kdeconnect");
     }
+
+Q_SIGNALS:
+  
+    void mount_succesed(); //TODO make private - for internal use
+    void mount_failed();  //TODO make private -for internal use
+   
     
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
@@ -50,10 +76,12 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE void mount();
     Q_SCRIPTABLE void umount();
+    Q_SCRIPTABLE bool mountAndWait();
     
     Q_SCRIPTABLE void startBrowsing();
 
     Q_SCRIPTABLE QString mountPoint();
+
 
 protected:
      void timerEvent(QTimerEvent *event);
@@ -67,6 +95,8 @@ private Q_SLOTS:
     void readProcessStderr();
     void readProcessStdout();
     
+    bool waitForMount();
+    
 private:
     QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }
     void knotify(int type, const QString& text, const QPixmap& icon) const;
@@ -78,5 +108,6 @@ private:
     struct Pimpl;
     QScopedPointer<Pimpl> m_d;
 };
+
 
 #endif

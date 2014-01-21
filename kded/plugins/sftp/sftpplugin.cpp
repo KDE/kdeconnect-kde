@@ -20,9 +20,10 @@
 
 #include "sftpplugin.h"
 
-#include <QDBusConnection>
 #include <QDir>
 #include <QTimerEvent>
+
+#include <QDBusConnection>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -52,18 +53,40 @@ inline bool isTimeout(QObject* o, const KConfigGroup& cfg)
     return cfg.readEntry("idle", true) && duration > (cfg.readEntry("idletimeout", 60) * 60);
 }
 
+MountLoop::MountLoop()
+    : QEventLoop()
+{
+}
+
+bool MountLoop::exec(QEventLoop::ProcessEventsFlags flags)
+{
+    return QEventLoop::exec(flags) == 0;
+}
+
+void MountLoop::failed()
+{
+    Q_EMIT(result(false));
+    exit(1);
+}
+
+void MountLoop::successed()
+{
+    Q_EMIT(result(true));
+    exit(0);
+}
+
+void MountLoop::exitWith(bool status)
+{
+    Q_EMIT(result(status));
+    exit(status ? 0 : 1);
+}
+
 struct SftpPlugin::Pimpl
 {
-    Pimpl() : waitForMount(false)
-    {
-        mountTimer.setSingleShot(true);
-    };
-    
     QPointer<KProcess> mountProc;  
     KFilePlacesModel* m_placesModel;
-    QTimer mountTimer;
     int idleTimer;
-    bool waitForMount;
+    MountLoop loop;
 };
 
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
@@ -74,7 +97,8 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     
     m_d->idleTimer = startTimer(20 * 1000);
     
-    connect(&m_d->mountTimer, SIGNAL(timeout()), this, SLOT(mountTimeout()));
+    connect(this, SIGNAL(mount_succesed()), &m_d->loop, SLOT(successed()));
+    connect(this, SIGNAL(mount_failed()), &m_d->loop, SLOT(failed()));
 
     //Add KIO entry to Dolphin's Places
     m_d->m_placesModel = new KFilePlacesModel();
@@ -119,19 +143,44 @@ void SftpPlugin::connected()
 void SftpPlugin::mount()
 {
     kDebug(kdeconnect_kded()) << "start mounting device:" << device()->name();
-    if (m_d->mountTimer.isActive() || m_d->mountProc)
+    if (m_d->loop.isRunning() || m_d->mountProc)
     {
         return;
-    }
-    else
-    {
-        m_d->mountTimer.start(10000);    
     }
 
     NetworkPackage np(PACKAGE_TYPE_SFTP);
     np.set("startBrowsing", true);
     device()->sendPackage(np);
 }
+
+bool SftpPlugin::mountAndWait()
+{
+    kDebug(kdeconnect_kded()) << "start mounting device and block:" << device()->name();
+    
+    if (m_d->mountProc && !m_d->loop.isRunning())
+    {
+        return true;
+    }
+    
+    if (m_d->loop.isRunning())
+    {
+        MountLoop loop;
+        connect(&m_d->loop, SIGNAL(result(bool)), &loop, SLOT(exitWith(bool)));
+        return loop.exec();
+    }
+
+    kDebug(kdeconnect_kded()) << "call mounting" << device()->name();
+    
+    mount();
+    
+    QTimer mt;
+    connect(&mt, SIGNAL(timeout()), &m_d->loop, SLOT(failed()));
+    connect(&mt, SIGNAL(timeout()), this, SLOT(mountTimeout()));
+    kDebug(kdeconnect_kded()) << "stargting timer";
+    mt.start(15000);
+    return m_d->loop.exec();
+}
+
 
 void SftpPlugin::umount()
 {
@@ -149,14 +198,9 @@ void SftpPlugin::umount()
 
 void SftpPlugin::startBrowsing()
 {
-    if (m_d->mountProc)
+    if (mountAndWait())
     {
         new KRun(KUrl::fromLocalFile(mountPoint()), 0);
-    }
-    else
-    {
-        m_d->waitForMount = true;
-        mount();
     }
 }
 
@@ -172,8 +216,6 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
     {
         return true;
     }
-    
-    m_d->mountTimer.stop();
     
     m_d->mountProc = new KProcess(this);
     m_d->mountProc->setOutputChannelMode(KProcess::SeparateChannels);
@@ -237,14 +279,11 @@ void SftpPlugin::onStarted()
         , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
     );
     
+    //Used to notify MountLoop about success. 
+    Q_EMIT mount_succesed();
+    
     connect(m_d->mountProc, SIGNAL(readyReadStandardError()), this, SLOT(readProcessStderr()));
     connect(m_d->mountProc, SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessStdout()));
-    
-    if (m_d->waitForMount)
-    {
-        m_d->waitForMount = false;
-        new KRun(KUrl::fromLocalFile(mountPoint()), 0);
-    }
 }
 
 void SftpPlugin::onError(QProcess::ProcessError error)
@@ -294,6 +333,10 @@ void SftpPlugin::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 
     cleanMountPoint();
     m_d->mountProc = 0;
+    
+    //Used to notify MountLoop about error. 
+    //There is no loop running if mount was succesful!
+    Q_EMIT mount_failed();
 }
 
 void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) const
@@ -310,6 +353,7 @@ void SftpPlugin::cleanMountPoint()
 
 void SftpPlugin::mountTimeout()
 {
+    kDebug(kdeconnect_kded()) << "loop.... TIMEOUT";
     knotify(KNotification::Error
         , i18n("Failed to mount filesystem: device not responding")
         , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
@@ -327,6 +371,23 @@ void SftpPlugin::readProcessStdout()
     m_d->mountProc->setProperty(timestamp_c, QDateTime::currentDateTime());    
     m_d->mountProc->readAllStandardOutput();
 }
+
+bool SftpPlugin::waitForMount()
+{
+    if (m_d->loop.isRunning()) 
+    {
+        MountLoop loop;
+        connect(&m_d->loop, SIGNAL(result(bool)), &loop, SLOT(exitWith(bool)));
+        
+        kDebug(kdeconnect_kded()) << "start secondary loop...";
+        bool ret = loop.exec();
+        kDebug(kdeconnect_kded()) << "finish secondary loop...:" << ret;
+        return ret;
+    }
+    
+    return m_d->mountProc;
+}
+
 
 // void SftpPlugin::startAgent()
 // {
