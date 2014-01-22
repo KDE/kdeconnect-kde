@@ -99,7 +99,7 @@ Daemon::Daemon(QObject *parent) : QObject(parent)
     const KConfigGroup& known = config->group("trusted_devices");
     const QStringList& list = known.groupList();
     Q_FOREACH(const QString& id, list) {
-        Device* device = new Device(id);
+        Device* device = new Device(this, id);
         connect(device, SIGNAL(reachableStatusChanged()),
                 this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
@@ -166,7 +166,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     } else {
         //kDebug(kdeconnect_kded()) << "It is a new device";
 
-        Device* device = new Device(identityPackage, dl);
+        Device* device = new Device(this, identityPackage, dl);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
         mDevices[id] = device;
 

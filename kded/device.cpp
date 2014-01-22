@@ -21,8 +21,9 @@
 #include <QDBusConnection>
 #include <QFile>
 
-Device::Device(const QString& id)
-    : m_deviceId(id)
+Device::Device(QObject* parent, const QString& id)
+    : QObject(parent)
+    , m_deviceId(id)
     , m_pairStatus(Device::Paired)
     , m_protocolVersion(NetworkPackage::ProtocolVersion) //We don't know it yet
 {
@@ -45,8 +46,9 @@ Device::Device(const QString& id)
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 }
 
-Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
-    : m_deviceId(identityPackage.get<QString>("deviceId"))
+Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLink* dl)
+    : QObject(parent)
+    , m_deviceId(identityPackage.get<QString>("deviceId"))
     , m_deviceName(identityPackage.get<QString>("deviceName"))
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
