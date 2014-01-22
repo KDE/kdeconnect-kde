@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Samoilenko Yuri<kinnalru@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,9 +20,6 @@
 
 #ifndef SFTPPLUGIN_H
 #define SFTPPLUGIN_H
-
-#include <KProcess>
-#include <QEventLoop>
 
 #include "../kdeconnectplugin.h"
 
@@ -48,9 +45,7 @@ public:
 
 Q_SIGNALS:
   
-    void mount_succesed(); //TODO make private - for internal use
-    void mount_failed();  //TODO make private -for internal use
-   
+    void packageReceived(const NetworkPackage& np);
     
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
@@ -64,24 +59,14 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE QString mountPoint();
 
-
-protected:
-     void timerEvent(QTimerEvent *event);
-    
 private Q_SLOTS:
-    void onStarted();
-    void onError(QProcess::ProcessError error);
-    void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
-    void mountTimeout();
-    
-    void readProcessOut();
-    
-    bool waitForMount();
+    void onMounted();
+    void onUnmounted(bool idleTimeout);
+    void onFailed(const QString& message);
     
 private:
     QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }
     void knotify(int type, const QString& text, const QPixmap& icon) const;
-    void cleanMountPoint();
     void addToDolphin();
     void removeFromDolphin();
     
