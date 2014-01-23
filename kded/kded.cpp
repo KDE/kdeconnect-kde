@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Yuri Samoilenko <kinnalru@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,7 +20,6 @@
 
 #include "kded.h"
 
-#include <QDBusConnection>
 #include <QTimer>
 
 #include <KPluginFactory>
@@ -62,7 +61,7 @@ bool Kded::start()
     m_daemon->setProgram(daemon);
     m_daemon->setOutputChannelMode(KProcess::SeparateChannels);
     m_daemon->start();
-    if (!m_daemon->waitForStarted(10000))
+    if (!m_daemon->waitForStarted(2000)) //FIXME: KDEDs should be non-blocking, do we really need to wait for it to start?
     {
         kError(kdeconnect_kded()) << "Can't start " << daemon;
         return false;

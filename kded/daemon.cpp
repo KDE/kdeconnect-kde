@@ -57,7 +57,7 @@ Daemon::Daemon(QObject *parent) : QObject(parent)
     }
 
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
-    if (!config->group("myself").hasKey("privateKey"))
+    if (!config->group("myself").hasKey("privateKeyPath"))
     {
         const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
         
@@ -72,20 +72,21 @@ Daemon::Daemon(QObject *parent) : QObject(parent)
         if (!privKey.setPermissions(strict))
         {
             kWarning(kdeconnect_kded()) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
-            return;
+            //return;
         }
 
         //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html        
         privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toAscii());
         privKey.close();
         
-        config->group("myself").writeEntry("privateKey", privateKeyPath);
+        config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
     }
     
-    if (QFile::permissions(config->group("myself").readEntry("privateKey")) != strict)
+    if (QFile::permissions(config->group("myself").readEntry("privateKeyPath")) != strict)
     {
-        kWarning(kdeconnect_kded()) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKey");
-        return;
+        kWarning(kdeconnect_kded()) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
+        //FIXME: Do not silently fail, because user won't notice the problem
+        //return;
     }
 
     //Debugging

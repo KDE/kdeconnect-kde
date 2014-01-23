@@ -83,7 +83,7 @@ public:
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
-    QString privateKey() const;
+    QString privateKeyPath() const;
     
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
@@ -120,7 +120,6 @@ Q_SIGNALS:
     Q_SCRIPTABLE void unpaired();
 
 private:
-    //TODO: Replace device id by public key
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;

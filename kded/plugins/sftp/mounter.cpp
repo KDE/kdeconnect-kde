@@ -116,7 +116,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-p" << np.get<QString>("port")
         << "-d"
         << "-f"
-        << "-o" << "IdentityFile=" + m_sftp->device()->privateKey();
+        << "-o" << "IdentityFile=" + m_sftp->device()->privateKeyPath();
     
     m_proc->setProgram(program, arguments);
 
