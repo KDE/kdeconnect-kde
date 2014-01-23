@@ -157,7 +157,7 @@ void KioKdeconnect::listDevice()
     
     KIO::UDSEntry entry;
     entry.insert(KIO::UDSEntry::UDS_NAME, "files");
-    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, "Browse images");
+    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Camera pictures"));
     entry.insert(KIO::UDSEntry::UDS_ICON_NAME, "folder");
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
@@ -166,7 +166,7 @@ void KioKdeconnect::listDevice()
     listEntry(entry, false);
 
     entry.insert(KIO::UDSEntry::UDS_NAME, "files");
-    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, "Browse all files");
+    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("All files"));
     entry.insert(KIO::UDSEntry::UDS_ICON_NAME, "folder");
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
