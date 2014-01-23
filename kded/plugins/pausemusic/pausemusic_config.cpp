@@ -40,6 +40,7 @@ PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& )
 
     connect(m_ui->rad_ringing, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->rad_talking, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->check_mute, SIGNAL(toggled(bool)), this, SLOT(changed()));
 }
 
 PauseMusicConfig::~PauseMusicConfig()
@@ -52,7 +53,7 @@ void PauseMusicConfig::defaults()
     KCModule::defaults();
     m_ui->rad_talking->setChecked(false);
     m_ui->rad_ringing->setChecked(true);
-
+    m_ui->check_mute->setChecked(false);
     Q_EMIT changed(true);
 }
 
@@ -63,7 +64,8 @@ void PauseMusicConfig::load()
     bool talking = m_cfg->group("pause_condition").readEntry("talking_only", false);
     m_ui->rad_talking->setChecked(talking);
     m_ui->rad_ringing->setChecked(!talking);
-
+    bool use_mute = m_cfg->group("use_mute").readEntry("use_mute", false);
+    m_ui->check_mute->setChecked(use_mute);
     Q_EMIT changed(false);
 }
 
@@ -71,6 +73,7 @@ void PauseMusicConfig::load()
 void PauseMusicConfig::save()
 {
     m_cfg->group("pause_condition").writeEntry("talking_only", m_ui->rad_talking->isChecked());
+    m_cfg->group("use_mute").writeEntry("use_mute", m_ui->check_mute->isChecked());
     KCModule::save();
 
     Q_EMIT changed(false);
