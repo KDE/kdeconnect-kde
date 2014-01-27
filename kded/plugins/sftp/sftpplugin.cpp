@@ -113,16 +113,21 @@ void SftpPlugin::mount()
     connect(m_d->mounter, SIGNAL(failed(QString)), this, SLOT(onFailed(QString)));
 }
 
+void SftpPlugin::umount()
+{
+    kDebug(kdeconnect_kded()) << "Device:" << device()->name();
+    delete m_d->mounter.data();
+}
+
 bool SftpPlugin::mountAndWait()
 {
     mount();
     return m_d->mounter->wait();
 }
 
-void SftpPlugin::umount()
+bool SftpPlugin::isMounted()
 {
-    kDebug(kdeconnect_kded()) << "Device:" << device()->name();
-    delete m_d->mounter.data();
+    return m_d->mounter;
 }
 
 void SftpPlugin::startBrowsing()

@@ -27,6 +27,16 @@ PlasmaComponents.ListItem
 {
     id: root
     property string deviceId: model.deviceId
+    property variant sftp: null
+    
+    Component.onCompleted: {
+        sftp = SftpDbusInterfaceFactory.create(deviceId)
+        console.debug("hello")
+        //console.debug(sftp.isMounted())
+        if (sftp.isMounted()) {
+            browse.state = "MOUNTED"
+        }
+    }
 
     Column {
         width: parent.width
@@ -42,9 +52,30 @@ PlasmaComponents.ListItem
             PlasmaComponents.Button {
                 id: browse
                 text: "Browse"
+                state: "UNMOUNTED"
                 onClicked: {
-                    text = "Hello"
+                    if (state == "UNMOUNTED") {
+                        sftp.startBrowsing()
+                        state = "MOUNTED"
+                        console.debug(sftp.mountPoint())
+                    }
+                    else {
+                        sftp.umount()
+                        state = "UNMOUNTED"
+                    }
                 }
+                
+                states: [
+                  State {
+                      name: "UNMOUNTED"
+                      PropertyChanges { target: browse; text: "Browse"}
+                  },
+                  State {
+                      name: "MOUNTED"
+                      PropertyChanges { target: browse; text: "Unmount"}
+                  }
+              ]
+                
             }
  
             height: browse.height

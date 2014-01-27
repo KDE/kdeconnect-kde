@@ -21,10 +21,21 @@
 #include "kdeconnectdeclarativeplugin.h"
 
 #include <QtDeclarative/QDeclarativeItem>
+#include <QtDeclarative/QDeclarativeEngine>
+#include <QtDeclarative/QDeclarativeContext>
 
 #include "libkdeconnect/devicesmodel.h"
 #include "libkdeconnect/notificationsmodel.h"
 #include "batteryinterface.h"
+
+Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin);
+
+
+
+QObject* createSftpInterface(QVariant deviceId)
+{
+    return new SyncSftpDbusInterface(deviceId.toString());
+}
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
@@ -32,4 +43,14 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DevicesModel>("org.kde.kdeconnect", 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
     qmlRegisterType<BatteryInterface>("org.kde.kdeconnect", 1, 0, "BatteryInterface");
+    
+    //qmlRegisterUncreatableType<TestT>("org.kde.kdeconnect", 1, 0, "SftpDbusInterface", "no create");
+}
+
+void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
+{
+    QDeclarativeExtensionPlugin::initializeEngine(engine, uri);
+    
+    engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
+      , new ObjectFactory(engine, createSftpInterface));
 }

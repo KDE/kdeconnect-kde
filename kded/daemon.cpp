@@ -94,7 +94,7 @@ Daemon::Daemon(QObject *parent) : QObject(parent)
 
     //Load backends (hardcoded by now, should be plugins in a future)
     mLinkProviders.insert(new LanLinkProvider());
-    //mLinkProviders.insert(new LoopbackLinkProvider());
+//     mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
     const KConfigGroup& known = config->group("trusted_devices");
