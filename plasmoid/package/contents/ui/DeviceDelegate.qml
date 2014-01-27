@@ -30,13 +30,27 @@ PlasmaComponents.ListItem
 
     Column {
         width: parent.width
-        PlasmaComponents.Label {
+        
+        Row
+        {
+            PlasmaComponents.Label {
+                width: parent.width - browse.width
+                horizontalAlignment: Text.AlignHCenter
+                text: display
+            }
+            
+            PlasmaComponents.Button {
+                id: browse
+                text: "Browse"
+                onClicked: {
+                    text = "Hello"
+                }
+            }
+ 
+            height: browse.height
             width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            horizontalAlignment: Text.AlignHCenter
-            text: display
         }
-
+        
         //Battery
         PlasmaComponents.ListItem {
             BatteryInterface {
@@ -54,7 +68,7 @@ PlasmaComponents.ListItem
                 anchors.right: parent.right
             }
         }
-
+        
         //Notifications
         PlasmaComponents.ListItem {
             visible: notificationsModel.count>0
