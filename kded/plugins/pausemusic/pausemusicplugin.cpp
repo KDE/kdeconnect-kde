@@ -32,7 +32,7 @@
 #include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect_pausemusic") )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect-kded") )
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

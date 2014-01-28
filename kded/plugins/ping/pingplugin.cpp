@@ -27,7 +27,7 @@
 #include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect_ping") )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect-kded") )
 
 PingPlugin::PingPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
