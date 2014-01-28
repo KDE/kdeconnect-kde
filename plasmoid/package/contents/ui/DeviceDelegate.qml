@@ -31,11 +31,12 @@ PlasmaComponents.ListItem
     
     Component.onCompleted: {
         sftp = SftpDbusInterfaceFactory.create(deviceId)
-        console.debug("hello")
-        //console.debug(sftp.isMounted())
-        if (sftp.isMounted()) {
+        if (ResponseWaiter.waitForReply(sftp.isMounted())) {
             browse.state = "MOUNTED"
         }
+        
+        console.debug(ResponseWaiter.waitForReply(sftp.mountPoint()))
+        
     }
 
     Column {
@@ -57,7 +58,6 @@ PlasmaComponents.ListItem
                     if (state == "UNMOUNTED") {
                         sftp.startBrowsing()
                         state = "MOUNTED"
-                        console.debug(sftp.mountPoint())
                     }
                     else {
                         sftp.umount()

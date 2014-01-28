@@ -130,12 +130,13 @@ bool SftpPlugin::isMounted()
     return m_d->mounter;
 }
 
-void SftpPlugin::startBrowsing()
+bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait())
     {
-        new KRun(KUrl::fromLocalFile(mountPoint()), 0);
+        return new KRun(KUrl::fromLocalFile(mountPoint()), 0);
     }
+    return false;
 }
 
 bool SftpPlugin::receivePackage(const NetworkPackage& np)

@@ -24,21 +24,17 @@
 #include <QVariant>
 #include <QDeclarativeExtensionPlugin>
 
-
-//FIXME HACK Force some slot to be synchronous 
-#include <libkdeconnect/dbusinterfaces.h>
-
-class SyncSftpDbusInterface : public SftpDbusInterface
+class DBusResponseWaiter : public QObject
 {
     Q_OBJECT
 public:
-    SyncSftpDbusInterface(const QString& id) : SftpDbusInterface(id) {}
-    ~SyncSftpDbusInterface(){}
+    DBusResponseWaiter() {}
     
-    Q_INVOKABLE bool isMounted() {
-        return SftpDbusInterface::isMounted();
-    }
+    virtual ~DBusResponseWaiter(){};
+    
+    Q_INVOKABLE QVariant waitForReply(QVariant variant) const;
 };
+
 
 class ObjectFactory : public QObject
 {
@@ -82,6 +78,8 @@ class KdeConnectDeclarativePlugin : public QDeclarativeExtensionPlugin
     virtual void registerTypes(const char* uri);
     virtual void initializeEngine(QDeclarativeEngine *engine, const char *uri);
 };
+
+
 
 
 
