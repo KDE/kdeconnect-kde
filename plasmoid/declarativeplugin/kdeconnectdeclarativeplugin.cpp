@@ -26,82 +26,49 @@
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
 
+#include "objectfactory.h"
+#include "responsewaiter.h"
+
 #include "libkdeconnect/devicesmodel.h"
 #include "libkdeconnect/notificationsmodel.h"
 #include "batteryinterface.h"
 
 Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin);
 
-// Q_DECLARE_METATYPE(QDBusPendingCall)
-
-Q_DECLARE_METATYPE(QDBusPendingReply<>)
-Q_DECLARE_METATYPE(QDBusPendingReply<QVariant>)
-Q_DECLARE_METATYPE(QDBusPendingReply<bool>)
-Q_DECLARE_METATYPE(QDBusPendingReply<QString>)
-
 QObject* createSftpInterface(QVariant deviceId)
 {
     return new SftpDbusInterface(deviceId.toString());
 }
 
-const QDBusPendingCall* extractPendingCall(QVariant& variant)
-{
-    if (variant.canConvert<QDBusPendingReply<> >())
-    {}
-    else if (variant.canConvert<QDBusPendingReply<QVariant> >())
-    {}
-    else if (variant.canConvert<QDBusPendingReply<bool> >())
-    {}
-    else if (variant.canConvert<QDBusPendingReply<QString> >())
-    {}
-    else
-    {
-        return 0;
-    }
-    
-    return reinterpret_cast<const QDBusPendingCall*>(variant.constData());
-}
+QDeclarativeEngine* engine_;
 
-QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
+QObject* createDBusResponse()
 {
-    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(extractPendingCall(variant)))
-    {
-        call->waitForFinished();
-        QDBusMessage reply = call->reply();
-
-        if (reply.arguments().count() > 0)
-        {
-            qDebug() <<reply.arguments().first(); 
-            return reply.arguments().first();
-        }
-        else
-        {
-            return QVariant();
-        }
-    }
-    return QVariant();
+    return new DBusResponse(engine_);
 }
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
     Q_UNUSED(uri);
     
-    qRegisterMetaType<QDBusPendingReply<> >("QDBusPendingReply<>");
-    qRegisterMetaType<QDBusPendingReply<QVariant> >("QDBusPendingReply<QVariant>");
-    qRegisterMetaType<QDBusPendingReply<bool> >("QDBusPendingReply<bool>");
-    qRegisterMetaType<QDBusPendingReply<QString> >("QDBusPendingReply<QString>");
-
     qmlRegisterType<DevicesModel>("org.kde.kdeconnect", 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
     qmlRegisterType<BatteryInterface>("org.kde.kdeconnect", 1, 0, "BatteryInterface");
+    
+    qmlRegisterType<DBusResponse>("org.kde.kdeconnect", 1, 0, "DBusResponse");
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
 {
+    engine_ = engine;
     QDeclarativeExtensionPlugin::initializeEngine(engine, uri);
     
     engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
       , new ObjectFactory(engine, createSftpInterface));
+    
+    
+    engine->rootContext()->setContextProperty("DBusResponseFactory"
+      , new ObjectFactory(engine, createDBusResponse));    
     
     engine->rootContext()->setContextProperty("ResponseWaiter"
       , new DBusResponseWaiter());    

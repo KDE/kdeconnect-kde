@@ -30,12 +30,23 @@ PlasmaComponents.ListItem
     property variant sftp: null
     
     Component.onCompleted: {
-        sftp = SftpDbusInterfaceFactory.create(deviceId)
-        if (ResponseWaiter.waitForReply(sftp.isMounted())) {
-            browse.state = "MOUNTED"
-        }
-        
-        console.debug(ResponseWaiter.waitForReply(sftp.mountPoint()))
+      sftp = SftpDbusInterfaceFactory.create(deviceId)
+      
+      var response = DBusResponseFactory.create()
+      response.onSuccess = function(v) {console.log("gggggggggggggggggg", v)}
+      console.log("o3")
+      response.onError = function(v) {console.log("eeeeee")}
+      console.log("o4")
+      response.pendingCall = sftp.isMounted()
+      console.log("o5")
+      
+//         rr.pendingCall = 1;
+//             onCompleted: {
+//                 console.debug("GGGGGGGGGGGGGGGGG")
+//             }
+//         }
+// 
+//         console.debug(ResponseWaiter.waitForReply(sftp.mountPoint()))
         
     }
 
