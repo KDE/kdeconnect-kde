@@ -28,17 +28,45 @@ PlasmaComponents.ListItem
     id: root
     property string deviceId: model.deviceId
     property variant sftp: null
+
+
+    DBusResponse
+    {
+      id: resp
+      
+      function wow() {
+          console.log("wow")
+      }
+    }    
     
     Component.onCompleted: {
       sftp = SftpDbusInterfaceFactory.create(deviceId)
+
+//       resp.wow()
+//       resp.wow()
+//       resp.wow()
       
+//       resp.func = bb
+      
+      
+      resp.pendingCall = sftp.isMounted()
+
       var response = DBusResponseFactory.create()
-      response.onSuccess = function(v) {console.log("gggggggggggggggggg", v)}
+      response.pendingCall = sftp.isMounted()
+      
+      /*
+      response.onSuccess = bb;
+//       function (v) {
+//         console.debug("SUCCESSS");
+//         console.debug(v);
+//       }
       console.log("o3")
       response.onError = function(v) {console.log("eeeeee")}
       console.log("o4")
       response.pendingCall = sftp.isMounted()
-      console.log("o5")
+      console.log("o5")*/
+      
+
       
 //         rr.pendingCall = 1;
 //             onCompleted: {

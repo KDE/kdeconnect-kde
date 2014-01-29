@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 #include <qdeclarativeexpression.h>
 #include <QDeclarativeEngine>
+#include <QDeclarativeContext>
 
 #include "responsewaiter.h"
 
@@ -73,22 +74,21 @@ void DBusResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
         qDebug() << "ocf 2";
         if (call->isError())
         {
-              qDebug() << "ocf 3";
-              
-
-//             onError failure = watcher->property("onError").value<onError>();
-//              failure(call->error().message());
         }
         else
         {
-              qDebug() << "ocf 4444";
+              qDebug() << "ocf 4444:" << this;
     //          onComplete success = watcher->property("onComplete").value<onComplete>();
-             
-              QDeclarativeExpression *expr = new QDeclarativeExpression(e_->rootContext(), this, "console.debug(this.onError)");
+
+//               e_->rootContext()->setContextProperty("test_func", m_onSuccess); 
+
+              
+              QDeclarativeExpression *expr = new QDeclarativeExpression(e_->rootContext(), this, "wow");
               qDebug() << "ocf 555";
               expr->evaluate();  // result = 400
-              qDebug() << "ocf 666";
               
+//               qDebug() << "ocf 666" << expr->error();
+//               
               QDBusMessage reply = call->reply();
 
               if (reply.arguments().count() > 0)
