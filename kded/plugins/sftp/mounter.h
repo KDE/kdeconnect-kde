@@ -37,7 +37,8 @@ public:
     virtual ~Mounter();
     
     bool wait();
-  
+    bool isMounted() const {return m_started;}
+    
 Q_SIGNALS:
     void mounted();
     void unmounted(bool idleTimeout);    
