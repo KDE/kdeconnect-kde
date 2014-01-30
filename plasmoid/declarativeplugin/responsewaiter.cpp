@@ -78,6 +78,7 @@ void DBusResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
               }
         }
     }
+    deleteLater();
 }
 
 const QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const

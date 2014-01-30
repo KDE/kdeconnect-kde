@@ -40,11 +40,10 @@ QObject* createSftpInterface(QVariant deviceId)
     return new SftpDbusInterface(deviceId.toString());
 }
 
-QDeclarativeEngine* engine_;
 
 QObject* createDBusResponse()
 {
-    return new DBusResponse(engine_);
+    return new DBusResponse();
 }
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
@@ -60,7 +59,6 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 
 void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
 {
-    engine_ = engine;
     QDeclarativeExtensionPlugin::initializeEngine(engine, uri);
     
     engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"

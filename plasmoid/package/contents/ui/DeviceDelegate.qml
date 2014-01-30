@@ -30,20 +30,23 @@ PlasmaComponents.ListItem
     property variant sftp: SftpDbusInterfaceFactory.create(deviceId)
 
 
-    DBusResponse
-    {
-        id: resp
-        onSuccess: {
-            console.log(1)
-            if (result)
-            {
-                browse.state = "MOUNTED"
+    Component.onCompleted: {
+        var response = DBusResponseFactory.create()
+        response.success.connect( function(result) {
+            if (result) {
+                state = "MOUNTED"
             }
-        }
-        onError: function(message) {
-            console.debug("error:" + message)
-        }
-        pendingCall: sftp.isMounted()
+            else {
+                state = "UNMOUNTED"
+            }
+        })
+                        
+        response.error.connect( function(message) {
+            console.error("Error:" + message)
+            state = "UNMOUNTED"
+        })
+                        
+        response.pendingCall = sftp.isMounted()
     }
     
     Column {
@@ -62,13 +65,11 @@ PlasmaComponents.ListItem
                 text: "Browse"
                 state: "UNMOUNTED"
                 
-                function mounted() {
-                    console.debug("SUCCESS")
-                }
                 onClicked: {
                     if (state == "UNMOUNTED") {
                         state = "MOUNTING"
-                        resp.success.connect(function(result){
+                        var response = DBusResponseFactory.create()
+                        response.success.connect( function(result){
                             if (result) {
                                 state = "MOUNTED"
                             }
@@ -77,18 +78,12 @@ PlasmaComponents.ListItem
                             }
                         })
                         
-                        resp.error.connect(function(){
-                            console.debug("ERROR")
+                        response.error.connect( function(message) {
+                            console.error("Error:" + message)
+                            state = "UNMOUNTED"
                         })
-                        resp.pendingCall = sftp.startBrowsing()
-//                         if (ResponseWaiter.waitForReply(sftp.startBrowsing()))
-//                         {
-//                             state = "MOUNTED"
-//                         }
-//                         else
-//                         {
-//                             state = "UNMOUNTED"
-//                         }
+                                        
+                        response.pendingCall = sftp.startBrowsing()
                     }
                     else {
                         sftp.umount()
