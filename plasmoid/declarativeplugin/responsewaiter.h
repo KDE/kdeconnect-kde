@@ -15,38 +15,20 @@ class DBusResponse : public QObject
 {
     Q_OBJECT
     
-    Q_PROPERTY(QVariant pendingCall READ pendingCall WRITE setPendingCall NOTIFY pendingCallChanged)
-    Q_PROPERTY(QVariant onError READ onError WRITE setOnError NOTIFY onErrorChanged)
-    Q_PROPERTY(QVariant onSuccess READ onSuccess WRITE setOnSuccess NOTIFY onSuccessChanged)
+    Q_PROPERTY(QVariant pendingCall WRITE setPendingCall)
     
 public:
-    DBusResponse(QDeclarativeEngine* e = 0) : QObject(e) , e_(e) {qDebug() << "C";};
+    DBusResponse(QObject* parent = 0) : QObject(parent) {}
     virtual ~DBusResponse() {};
 
     void setPendingCall(QVariant e);
-    QVariant pendingCall() {return m_pendingCall;}
     
-    
-    void setOnError(QVariant e) {m_onError = e;}
-    QVariant onError() {return m_onError;}
-    
-    void setOnSuccess(QVariant e) {m_onSuccess = e;}
-    QVariant onSuccess() {return m_onSuccess;}
-
 Q_SIGNALS:
-    void onSuccessChanged();
-    void onErrorChanged();
-    void pendingCallChanged();
+    void success(QVariant result);
+    void error(QString message);
     
 private Q_SLOTS:
     void onCallFinished(QDBusPendingCallWatcher* watcher);
-   
-private:
-  QVariant m_pendingCall;
-  QVariant m_onError;
-  QVariant m_onSuccess;
-  
-  QDeclarativeEngine* e_;
 };
 
 class DBusResponseWaiter : public QObject

@@ -27,57 +27,25 @@ PlasmaComponents.ListItem
 {
     id: root
     property string deviceId: model.deviceId
-    property variant sftp: null
+    property variant sftp: SftpDbusInterfaceFactory.create(deviceId)
 
 
     DBusResponse
     {
-      id: resp
-      
-      function wow() {
-          console.log("wow")
-      }
-    }    
-    
-    Component.onCompleted: {
-      sftp = SftpDbusInterfaceFactory.create(deviceId)
-
-//       resp.wow()
-//       resp.wow()
-//       resp.wow()
-      
-//       resp.func = bb
-      
-      
-      resp.pendingCall = sftp.isMounted()
-
-      var response = DBusResponseFactory.create()
-      response.pendingCall = sftp.isMounted()
-      
-      /*
-      response.onSuccess = bb;
-//       function (v) {
-//         console.debug("SUCCESSS");
-//         console.debug(v);
-//       }
-      console.log("o3")
-      response.onError = function(v) {console.log("eeeeee")}
-      console.log("o4")
-      response.pendingCall = sftp.isMounted()
-      console.log("o5")*/
-      
-
-      
-//         rr.pendingCall = 1;
-//             onCompleted: {
-//                 console.debug("GGGGGGGGGGGGGGGGG")
-//             }
-//         }
-// 
-//         console.debug(ResponseWaiter.waitForReply(sftp.mountPoint()))
-        
+        id: resp
+        onSuccess: {
+            console.log(1)
+            if (result)
+            {
+                browse.state = "MOUNTED"
+            }
+        }
+        onError: function(message) {
+            console.debug("error:" + message)
+        }
+        pendingCall: sftp.isMounted()
     }
-
+    
     Column {
         width: parent.width
         
@@ -93,10 +61,34 @@ PlasmaComponents.ListItem
                 id: browse
                 text: "Browse"
                 state: "UNMOUNTED"
+                
+                function mounted() {
+                    console.debug("SUCCESS")
+                }
                 onClicked: {
                     if (state == "UNMOUNTED") {
-                        sftp.startBrowsing()
-                        state = "MOUNTED"
+                        state = "MOUNTING"
+                        resp.success.connect(function(result){
+                            if (result) {
+                                state = "MOUNTED"
+                            }
+                            else {
+                                state = "UNMOUNTED"
+                            }
+                        })
+                        
+                        resp.error.connect(function(){
+                            console.debug("ERROR")
+                        })
+                        resp.pendingCall = sftp.startBrowsing()
+//                         if (ResponseWaiter.waitForReply(sftp.startBrowsing()))
+//                         {
+//                             state = "MOUNTED"
+//                         }
+//                         else
+//                         {
+//                             state = "UNMOUNTED"
+//                         }
                     }
                     else {
                         sftp.umount()
@@ -108,6 +100,10 @@ PlasmaComponents.ListItem
                   State {
                       name: "UNMOUNTED"
                       PropertyChanges { target: browse; text: "Browse"}
+                  },
+                  State {
+                      name: "MOUNTING"
+                      PropertyChanges { target: browse; text: "Mounting..."}
                   },
                   State {
                       name: "MOUNTED"
