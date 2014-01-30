@@ -127,7 +127,7 @@ bool SftpPlugin::mountAndWait()
 
 bool SftpPlugin::isMounted()
 {
-    return m_d->mounter;
+    return m_d->mounter && m_d->mounter->isMounted();
 }
 
 void SftpPlugin::startBrowsing()
@@ -193,6 +193,8 @@ void SftpPlugin::onFailed(const QString& message)
         , message
         , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
     );
+    m_d->mounter->deleteLater();
+    m_d->mounter = 0;
 }
 
 void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) const
