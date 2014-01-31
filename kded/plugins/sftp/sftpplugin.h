@@ -46,6 +46,8 @@ public:
 Q_SIGNALS:
   
     void packageReceived(const NetworkPackage& np);
+    Q_SCRIPTABLE void mounted();
+    Q_SCRIPTABLE void unmounted();
     
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
@@ -58,6 +60,8 @@ public Q_SLOTS:
     
     Q_SCRIPTABLE bool startBrowsing();
     Q_SCRIPTABLE QString mountPoint();
+    
+    
 
 private Q_SLOTS:
     void onMounted();

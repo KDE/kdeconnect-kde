@@ -165,6 +165,8 @@ void SftpPlugin::onMounted()
         , i18n("Filesystem mounted at %1").arg(mountPoint())
         , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
     );
+    
+    Q_EMIT mounted();
 }
 
 void SftpPlugin::onUnmounted(bool idleTimeout)
@@ -186,6 +188,8 @@ void SftpPlugin::onUnmounted(bool idleTimeout)
     
     m_d->mounter->deleteLater();
     m_d->mounter = 0;
+    
+    Q_EMIT unmounted();
 }
 
 void SftpPlugin::onFailed(const QString& message)
@@ -196,6 +200,8 @@ void SftpPlugin::onFailed(const QString& message)
     );
     m_d->mounter->deleteLater();
     m_d->mounter = 0;
+    
+    Q_EMIT unmounted();
 }
 
 void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) const
