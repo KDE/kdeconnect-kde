@@ -43,7 +43,7 @@ QObject* createSftpInterface(QVariant deviceId)
 
 QObject* createDBusResponse()
 {
-    return new DBusResponse();
+    return new DBusAsyncResponse();
 }
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
@@ -54,7 +54,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
     qmlRegisterType<BatteryInterface>("org.kde.kdeconnect", 1, 0, "BatteryInterface");
     
-    qmlRegisterType<DBusResponse>("org.kde.kdeconnect", 1, 0, "DBusResponse");
+    qmlRegisterType<DBusAsyncResponse>("org.kde.kdeconnect", 1, 0, "DBusResponse");
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
@@ -68,6 +68,6 @@ void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, c
     engine->rootContext()->setContextProperty("DBusResponseFactory"
       , new ObjectFactory(engine, createDBusResponse));    
     
-    engine->rootContext()->setContextProperty("ResponseWaiter"
-      , new DBusResponseWaiter());    
+    engine->rootContext()->setContextProperty("DBusResponseWaiter"
+      , DBusResponseWaiter::instance());    
 }

@@ -15,6 +15,17 @@ Q_DECLARE_METATYPE(QDBusPendingReply<bool>)
 Q_DECLARE_METATYPE(QDBusPendingReply<int>)
 Q_DECLARE_METATYPE(QDBusPendingReply<QString>)
 
+DBusResponseWaiter* DBusResponseWaiter::m_instance = 0;
+
+DBusResponseWaiter* DBusResponseWaiter::instance()
+{
+    if (!m_instance)
+    {
+        m_instance = new DBusResponseWaiter();
+    }
+    return m_instance;
+}
+
 DBusResponseWaiter::DBusResponseWaiter()
     : QObject()
 {
@@ -42,9 +53,9 @@ QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
     return QVariant();
 }
 
-void DBusResponse::setPendingCall(QVariant variant)
+void DBusAsyncResponse::setPendingCall(QVariant variant)
 {
-    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter().extractPendingCall(variant)))
+    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
     {  
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(*call);
         watcher->setProperty("pengingCall", variant);
@@ -54,11 +65,11 @@ void DBusResponse::setPendingCall(QVariant variant)
 }
 
 
-void DBusResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
+void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
 {
     QVariant variant = watcher->property("pengingCall");
     
-    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter().extractPendingCall(variant)))
+    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
     {
         if (call->isError())
         {

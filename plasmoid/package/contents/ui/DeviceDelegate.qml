@@ -31,13 +31,23 @@ PlasmaComponents.ListItem
 
 
     Component.onCompleted: {
+      
+        sftp.mounted.connect( function() {
+            browse.state = "MOUNTED"
+        })
+        
+        sftp.unmounted.connect( function() {
+          console.log(222)
+            browse.state = "UNMOUNTED"
+        })
+        
         var response = DBusResponseFactory.create()
         response.success.connect( function(result) {
             if (result) {
-                state = "MOUNTED"
+                browse.state = "MOUNTED"
             }
             else {
-                state = "UNMOUNTED"
+                browse.state = "UNMOUNTED"
             }
         })
                         
@@ -62,47 +72,31 @@ PlasmaComponents.ListItem
             
             PlasmaComponents.Button {
                 id: browse
-                text: "Browse"
+                checkable: true
                 state: "UNMOUNTED"
                 
                 onClicked: {
                     if (state == "UNMOUNTED") {
                         state = "MOUNTING"
-                        var response = DBusResponseFactory.create()
-                        response.success.connect( function(result){
-                            if (result) {
-                                state = "MOUNTED"
-                            }
-                            else {
-                                state = "UNMOUNTED"
-                            }
-                        })
-                        
-                        response.error.connect( function(message) {
-                            console.error("Error:" + message)
-                            state = "UNMOUNTED"
-                        })
-                                        
-                        response.pendingCall = sftp.startBrowsing()
+                        sftp.startBrowsing()
                     }
                     else {
                         sftp.umount()
-                        state = "UNMOUNTED"
                     }
                 }
                 
                 states: [
                   State {
                       name: "UNMOUNTED"
-                      PropertyChanges { target: browse; text: "Browse"}
+                      PropertyChanges { target: browse; checked: false; text: "Browse"}
                   },
                   State {
                       name: "MOUNTING"
-                      PropertyChanges { target: browse; text: "Mounting..."}
+                      PropertyChanges { target: browse; checked: true; text: "Mounting..."}
                   },
                   State {
                       name: "MOUNTED"
-                      PropertyChanges { target: browse; text: "Unmount"}
+                      PropertyChanges { target: browse; checked: false; text: "Unmount"}
                   }
               ]
                 

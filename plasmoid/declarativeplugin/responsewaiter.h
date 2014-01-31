@@ -11,15 +11,36 @@
 class QDBusPendingCall;
 class QDBusPendingCallWatcher;
 
-class DBusResponse : public QObject
+class DBusResponseWaiter : public QObject
+{
+    Q_OBJECT
+    
+public:
+  
+    static DBusResponseWaiter* instance();
+  
+    ///extract QDbusPendingCall from \p variant and blocks untill completed
+    Q_INVOKABLE QVariant waitForReply(QVariant variant) const;
+    
+    const QDBusPendingCall* extractPendingCall(QVariant& variant) const;
+  
+private:
+    DBusResponseWaiter();
+    
+    static DBusResponseWaiter* m_instance;
+    QList<int> m_registered;
+};
+
+
+class DBusAsyncResponse : public QObject
 {
     Q_OBJECT
     
     Q_PROPERTY(QVariant pendingCall WRITE setPendingCall)
     
 public:
-    DBusResponse(QObject* parent = 0) : QObject(parent) {}
-    virtual ~DBusResponse() {};
+    DBusAsyncResponse(QObject* parent = 0) : QObject(parent) {}
+    virtual ~DBusAsyncResponse() {};
 
     void setPendingCall(QVariant e);
     
@@ -31,22 +52,5 @@ private Q_SLOTS:
     void onCallFinished(QDBusPendingCallWatcher* watcher);
 };
 
-class DBusResponseWaiter : public QObject
-{
-    Q_OBJECT
-    
-public:
-  
-    DBusResponseWaiter();
-    
-    virtual ~DBusResponseWaiter(){};
-    
-    ///extract QDbusPendingCall from \p variant and blocks untill completed
-    Q_INVOKABLE QVariant waitForReply(QVariant variant) const;
-    
-    const QDBusPendingCall* extractPendingCall(QVariant& variant) const;
-  
-    QList<int> m_registered;
-};
 
 #endif
