@@ -1,6 +1,7 @@
 [Global]
 IconName=smartphone
 Name=KDE Connect
+Name[bs]=Konekcija KDE
 Name[da]=KDE Connect
 Name[de]=KDE Connect
 Name[es]=KDE Connect
@@ -17,6 +18,7 @@ Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Comment=Notifications from your devices
+Comment[bs]=Notifikacija sa Vašeg uređaja
 Comment[da]=Bekendtgørelser fra dine enheder
 Comment[de]=Benachrichtigungen von Ihren Geräten
 Comment[es]=Notificaciones de sus dispositivos
@@ -34,6 +36,7 @@ Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/callReceived]
 Name=Calling
+Name[bs]=Poziva se
 Name[cs]=Volám
 Name[da]=Ringer
 Name[de]=Anruf
@@ -51,6 +54,7 @@ Name[tr]=Aranıyor
 Name[uk]=Виклик
 Name[x-test]=xxCallingxx
 Comment=Someone is calling you
+Comment[bs]=Neko Vas zove
 Comment[da]=Nogen ringer til dig
 Comment[de]=Sie werden angerufen
 Comment[es]=Alguien le está llamando
@@ -70,6 +74,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed
+Name[bs]=Propušten
 Name[cs]=Zmeškané
 Name[da]=Ubesvaret
 Name[de]=Verpasst
@@ -87,6 +92,7 @@ Name[tr]=Cevapsız
 Name[uk]=Пропущено
 Name[x-test]=xxMissedxx
 Comment=You have a missed call
+Comment[bs]=Imate propušten poziv
 Comment[cs]=Máte zmeškaný hovor
 Comment[da]=Du har et ubesvaret opkald
 Comment[de]=Sie haben einen Anruf verpasst
@@ -107,6 +113,7 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS
+Name[bs]=SMS
 Name[cs]=SMS
 Name[da]=SMS
 Name[de]=SMS
@@ -124,6 +131,7 @@ Name[tr]=SMS
 Name[uk]=SMS
 Name[x-test]=xxSMSxx
 Comment=Someone sent you an SMS
+Comment[bs]=Neko Vam je poslao SMS poruku
 Comment[da]=Nogen sendte dig en SMS
 Comment[de]=Jemand hat Ihnen eine SMS gesendet
 Comment[es]=Alguien le ha enviado un SMS
@@ -142,6 +150,7 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery
+Name[bs]=Baterija
 Name[cs]=Baterie
 Name[da]=Batteri
 Name[de]=Akku
@@ -159,6 +168,7 @@ Name[tr]=Pil
 Name[uk]=Акумулятор
 Name[x-test]=xxBatteryxx
 Comment=Your battery is in low state
+Comment[bs]=Vaša baterija je gotovo prazna
 Comment[da]=Dit batteri er på lavt niveau
 Comment[de]=Der Ladestand Ihres Akkus ist niedrig
 Comment[es]=La batería está en estado bajo
@@ -177,6 +187,7 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping
+Name[bs]=Ping
 Name[cs]=Ping
 Name[da]=Ping
 Name[de]=Ping
@@ -194,6 +205,7 @@ Name[tr]=Ping
 Name[uk]=Луна
 Name[x-test]=xxPingxx
 Comment=Ping received
+Comment[bs]=Primili ste ping
 Comment[da]=Ping modtaget
 Comment[de]=Ping empfangen
 Comment[es]=Ping recibido
@@ -212,6 +224,7 @@ Action=Popup
 
 [Event/notification]
 Name=Notification
+Name[bs]=Obavještenje
 Name[cs]=Upozornění
 Name[da]=Bekendtgørelse
 Name[de]=Benachrichtigung
@@ -229,6 +242,7 @@ Name[tr]=Bildirim
 Name[uk]=Сповіщення
 Name[x-test]=xxNotificationxx
 Comment=Notification received
+Comment[bs]=Primjeno obavještenje
 Comment[da]=Bekendtgørelse modtaget
 Comment[de]=Benachrichtigung eingegangen
 Comment[es]=Notificación recibida
@@ -247,6 +261,7 @@ Action=Popup
 
 [Event/unknownEvent]
 Name=Unknown
+Name[bs]=Nepoznato
 Name[cs]=Neznámý
 Name[da]=Ukendt
 Name[de]=Unbekannt
@@ -264,6 +279,7 @@ Name[tr]=Bilinmeyen
 Name[uk]=Невідомо
 Name[x-test]=xxUnknownxx
 Comment=Something unknown happened
+Comment[bs]=Nešto se nepoznato dogodilo
 Comment[da]=Der skete noget ukendt
 Comment[de]=Etwas unbekanntes ist aufgetreten
 Comment[es]=Ha ocurrido algo desconocido

@@ -12,6 +12,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=KDE Connect
+Name[bs]=Konekcija KDE
 Name[da]=KDE Connect
 Name[de]=KDE Connect
 Name[es]=KDE Connect
@@ -29,6 +30,7 @@ Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 
 Comment=Connect and sync your devices with KDE
+Comment[bs]=Konektuj se i  'prijavi' svoj uređaj sa KDE
 Comment[da]=Forbind og synkronisér dine enheder med KDE
 Comment[de]=Verbinden und Abgleichen Ihrer Geräte mit KDE
 Comment[es]=Conectar y sincronizar dispositivos con KDE
@@ -45,6 +47,7 @@ Comment[uk]=З’єднання і синхронізація ваших при�
 Comment[x-test]=xxConnect and sync your devices with KDExx
 
 X-KDE-Keywords=Network,Android,Devices
+X-KDE-Keywords[bs]=Mreža,Android,Uređaji
 X-KDE-Keywords[da]=Netværk,Android,Enheder
 X-KDE-Keywords[de]=Netzwerk,Android,Geräte
 X-KDE-Keywords[es]=Red,Android,Dispositivos
