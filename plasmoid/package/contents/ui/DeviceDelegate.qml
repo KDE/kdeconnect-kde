@@ -27,38 +27,9 @@ PlasmaComponents.ListItem
 {
     id: root
     property string deviceId: model.deviceId
-    property variant sftp: SftpDbusInterfaceFactory.create(deviceId)
+   
 
-
-    Component.onCompleted: {
-      
-        sftp.mounted.connect( function() {
-            browse.state = "MOUNTED"
-        })
-        
-        sftp.unmounted.connect( function() {
-          console.log(222)
-            browse.state = "UNMOUNTED"
-        })
-        
-        var response = DBusResponseFactory.create()
-        response.success.connect( function(result) {
-            if (result) {
-                browse.state = "MOUNTED"
-            }
-            else {
-                browse.state = "UNMOUNTED"
-            }
-        })
-                        
-        response.error.connect( function(message) {
-            console.error("Error:" + message)
-            state = "UNMOUNTED"
-        })
-                        
-        response.pendingCall = sftp.isMounted()
-    }
-    
+   
     Column {
         width: parent.width
         
@@ -70,36 +41,9 @@ PlasmaComponents.ListItem
                 text: display
             }
             
-            PlasmaComponents.Button {
+            BrowseButton {
                 id: browse
-                checkable: true
-                state: "UNMOUNTED"
-                
-                onClicked: {
-                    if (state == "UNMOUNTED") {
-                        state = "MOUNTING"
-                        sftp.startBrowsing()
-                    }
-                    else {
-                        sftp.umount()
-                    }
-                }
-                
-                states: [
-                  State {
-                      name: "UNMOUNTED"
-                      PropertyChanges { target: browse; checked: false; text: "Browse"}
-                  },
-                  State {
-                      name: "MOUNTING"
-                      PropertyChanges { target: browse; checked: true; text: "Mounting..."}
-                  },
-                  State {
-                      name: "MOUNTED"
-                      PropertyChanges { target: browse; checked: false; text: "Unmount"}
-                  }
-              ]
-                
+                deviceId: root.deviceId
             }
  
             height: browse.height
