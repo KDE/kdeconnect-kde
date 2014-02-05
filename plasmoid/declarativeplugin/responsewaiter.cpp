@@ -3,9 +3,6 @@
 #include <QDBusPendingReply>
 #include <QDebug>
 #include <QCoreApplication>
-#include <qdeclarativeexpression.h>
-#include <QDeclarativeEngine>
-#include <QDeclarativeContext>
 
 #include "responsewaiter.h"
 
@@ -43,6 +40,12 @@ QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
     if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(extractPendingCall(variant)))
     {
         call->waitForFinished();
+        
+        if (call->isError())
+        {
+            return QVariant("error");
+        }
+        
         QDBusMessage reply = call->reply();
 
         if (reply.arguments().count() > 0)
@@ -63,7 +66,6 @@ void DBusAsyncResponse::setPendingCall(QVariant variant)
         connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), watcher, SLOT(deleteLater()));
     };
 }
-
 
 void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
 {
@@ -89,7 +91,10 @@ void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
               }
         }
     }
-    deleteLater();
+    if (m_autodelete)
+    {
+        deleteLater();
+    }
 }
 
 const QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const

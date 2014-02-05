@@ -37,12 +37,14 @@ class DBusAsyncResponse : public QObject
     Q_OBJECT
     
     Q_PROPERTY(QVariant pendingCall WRITE setPendingCall)
+    Q_PROPERTY(bool autoDelete WRITE setAutodelete)
     
 public:
-    DBusAsyncResponse(QObject* parent = 0) : QObject(parent) {}
-    virtual ~DBusAsyncResponse() {};
+    DBusAsyncResponse(QObject* parent = 0) : QObject(parent), m_autodelete(false) {}
+    virtual ~DBusAsyncResponse() {}; 
 
     void setPendingCall(QVariant e);
+    void setAutodelete(bool b) {m_autodelete = b;};
     
 Q_SIGNALS:
     void success(QVariant result);
@@ -50,6 +52,9 @@ Q_SIGNALS:
     
 private Q_SLOTS:
     void onCallFinished(QDBusPendingCallWatcher* watcher);
+    
+private:    
+    bool m_autodelete;
 };
 
 
