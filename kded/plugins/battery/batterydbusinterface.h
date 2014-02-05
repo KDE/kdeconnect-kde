@@ -28,20 +28,19 @@ class BatteryDbusInterface
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
-    Q_PROPERTY( int charge READ charge NOTIFY chargingChange )
-    Q_PROPERTY( bool isCharging READ isCharging NOTIFY chargingChange )
 
 public:
     explicit BatteryDbusInterface(QObject *parent);
     virtual ~BatteryDbusInterface();
     
-    int charge() { return mCharge; }
-    bool isCharging() { return mIsCharging; }
+    Q_SCRIPTABLE int charge() { return mCharge; }
+    Q_SCRIPTABLE bool isCharging() { return mIsCharging; }
 
     void updateValues(bool isCharging, int currentCharge);
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void chargingChange();
+    Q_SCRIPTABLE void stateChanged(bool charging);  
+    Q_SCRIPTABLE void chargeChanged(int charge);
 
 private:
     int mCharge;

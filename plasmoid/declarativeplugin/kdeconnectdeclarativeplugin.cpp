@@ -35,11 +35,20 @@
 
 Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin);
 
+QObject* createDeviceDbusInterface(QVariant deviceId)
+{
+    return new DeviceDbusInterface(deviceId.toString());
+}
+
+QObject* createDeviceBatteryDbusInterface(QVariant deviceId)
+{
+    return new DeviceBatteryDbusInterface(deviceId.toString());
+}
+
 QObject* createSftpInterface(QVariant deviceId)
 {
     return new SftpDbusInterface(deviceId.toString());
 }
-
 
 QObject* createDBusResponse()
 {
@@ -60,6 +69,12 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
 {
     QDeclarativeExtensionPlugin::initializeEngine(engine, uri);
+ 
+    engine->rootContext()->setContextProperty("DeviceDbusInterfaceFactory"
+      , new ObjectFactory(engine, createDeviceDbusInterface));
+    
+    engine->rootContext()->setContextProperty("DeviceBatteryDbusInterfaceFactory"
+      , new ObjectFactory(engine, createDeviceBatteryDbusInterface));
     
     engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
       , new ObjectFactory(engine, createSftpInterface));

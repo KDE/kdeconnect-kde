@@ -37,7 +37,8 @@ void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)
     mIsCharging = isCharging;
     mCharge = currentCharge;
 
-    Q_EMIT chargingChange();
+    Q_EMIT stateChanged(mIsCharging);
+    Q_EMIT chargeChanged(mCharge);
 }
 
 

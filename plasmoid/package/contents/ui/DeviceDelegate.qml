@@ -90,18 +90,20 @@ PlasmaComponents.ListItem
         
         //Battery
         PlasmaComponents.ListItem {
-            BatteryInterface {
-                id: batteryInterface
-                device: root.deviceId
+          
+            Battery {
+                id: battery
+                deviceId: root.deviceId
             }
+          
             sectionDelegate: true
-            visible: batteryInterface.available
+            visible: battery.available
             PlasmaComponents.Label {
                 //font.bold: true
                 text: i18n("Battery")
             }
             PlasmaComponents.Label {
-                text: batteryInterface.displayString
+                text: battery.displayString
                 anchors.right: parent.right
             }
         }
