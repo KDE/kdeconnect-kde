@@ -41,11 +41,49 @@ PlasmaComponents.ListItem
                 text: display
             }
             
-            BrowseButton {
+            PlasmaComponents.Button
+            {
                 id: browse
-                deviceId: root.deviceId
+                checkable: true
+                state: "UNMOUNTED"
+
+                states: [
+                    State {
+                        name: "UNMOUNTED"
+                        PropertyChanges { target: browse; checked: false; text: "Browse" }
+                    },
+                    State {
+                        name: "MOUNTING"
+                        PropertyChanges { target: browse; checked: true; text: "Mounting..." }
+                    },
+                    State {
+                        name: "MOUNTED"
+                        PropertyChanges { target: browse; checked: false; text: "Unmount" }
+                    }
+                ]
+
+                Sftp {
+                    id: sftp
+                    deviceId: root.deviceId
+                    
+                    onMounted: browse.state = "MOUNTED"
+                    onUnmounted: browse.state = "UNMOUNTED"
+                    onError: browse.state = "UNMOUNTED"
+                }
+                
+                onClicked: {
+                    if (state == "UNMOUNTED") {
+                        state = "MOUNTING"
+                        sftp.browse()
+                    }
+                    else if (state == "MOUNTED") {
+                        sftp.unmount()
+                        state = "UNMOUNTED"
+                    }
+                }
             }
- 
+            
+
             height: browse.height
             width: parent.width
         }

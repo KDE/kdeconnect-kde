@@ -54,7 +54,7 @@ public Q_SLOTS:
     virtual void connected();
 
     Q_SCRIPTABLE void mount();
-    Q_SCRIPTABLE void umount();
+    Q_SCRIPTABLE void unmount();
     Q_SCRIPTABLE bool mountAndWait();
     Q_SCRIPTABLE bool isMounted();
     

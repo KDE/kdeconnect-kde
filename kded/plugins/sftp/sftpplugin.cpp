@@ -65,7 +65,7 @@ SftpPlugin::~SftpPlugin()
 {
     QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     removeFromDolphin();    
-    umount();
+    unmount();
     kDebug(kdeconnect_kded()) << "Destroyed device:" << device()->name();
 }
 
@@ -113,7 +113,7 @@ void SftpPlugin::mount()
     connect(m_d->mounter, SIGNAL(failed(QString)), this, SLOT(onFailed(QString)));
 }
 
-void SftpPlugin::umount()
+void SftpPlugin::unmount()
 {
     kDebug(kdeconnect_kded()) << "Device:" << device()->name();
     delete m_d->mounter.data();
