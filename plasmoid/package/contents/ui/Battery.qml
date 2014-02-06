@@ -31,7 +31,7 @@ QtObject {
     property bool available: false
     property bool state: false
     property int charge: -1
-    property string displayString: (state) ? ("Charging, " + charge) : ("Discharging, " + charge)
+    property string displayString: (available) ? ((state) ? ("Charging, " + charge) : ("Discharging, " + charge)) : "No Info"
     
     property variant device: DeviceDbusInterfaceFactory.create(deviceId)
     property variant battery: null
@@ -55,8 +55,8 @@ QtObject {
             battery.stateChanged.connect(function(charging) {root.state = charging})
             battery.chargeChanged.connect(function(charge) {root.charge = charge})
             
-            startupCheck1.pendingCall = battery.isCharging()
-            startupCheck2.pendingCall = battery.charge()
+            startupCheck1.setPendingCall(battery.isCharging())
+            startupCheck2.setPendingCall(battery.charge())
         }
         else {
             battery = null

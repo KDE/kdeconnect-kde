@@ -48,7 +48,7 @@ QtObject {
         sftp.mounted.connect(mounted)
         sftp.unmounted.connect(unmounted)
         
-        startupCheck.pendingCall = sftp.isMounted()
+        startupCheck.setPendingCall(sftp.isMounted())
     }
     
     function browse() {
