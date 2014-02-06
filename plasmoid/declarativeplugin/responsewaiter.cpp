@@ -56,20 +56,33 @@ QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
     return QVariant();
 }
 
+DBusAsyncResponse::DBusAsyncResponse(QObject* parent)
+    : QObject(parent)
+    , m_autodelete(false)
+{
+    m_timeout.setSingleShot(true);
+    m_timeout.setInterval(15000);
+    connect(&m_timeout, SIGNAL(timeout()), this, SLOT(onTimeout()));
+}
+
+
 void DBusAsyncResponse::setPendingCall(QVariant variant)
 {
     if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
     {  
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(*call);
-        watcher->setProperty("pengingCall", variant);
+        watcher->setProperty("pengingCallVariant", variant);
         connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(onCallFinished(QDBusPendingCallWatcher*)));
         connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), watcher, SLOT(deleteLater()));
+        connect(&m_timeout, SIGNAL(timeout()), watcher, SLOT(deleteLater()));
+        m_timeout.start();
     };
 }
 
 void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
 {
-    QVariant variant = watcher->property("pengingCall");
+    m_timeout.stop();
+    QVariant variant = watcher->property("pengingCallVariant");
     
     if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
     {
@@ -95,6 +108,11 @@ void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
     {
         deleteLater();
     }
+}
+
+void DBusAsyncResponse::onTimeout()
+{
+    Q_EMIT error("timeout when waiting dbus response!");
 }
 
 const QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const

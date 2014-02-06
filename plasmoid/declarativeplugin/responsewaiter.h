@@ -4,7 +4,7 @@
 
 #include <QObject>
 #include <QVariant>
-#include <QDebug>
+#include <QTimer>
 
 #include <QDeclarativeEngine>
 
@@ -38,7 +38,7 @@ class DBusAsyncResponse : public QObject
     Q_PROPERTY(bool autoDelete READ autodelete WRITE setAutodelete)
     
 public:
-    DBusAsyncResponse(QObject* parent = 0) : QObject(parent), m_autodelete(false) {}
+    DBusAsyncResponse(QObject* parent = 0);
     virtual ~DBusAsyncResponse() {}; 
 
     Q_INVOKABLE void setPendingCall(QVariant e);
@@ -52,8 +52,10 @@ Q_SIGNALS:
     
 private Q_SLOTS:
     void onCallFinished(QDBusPendingCallWatcher* watcher);
+    void onTimeout();
     
-private:    
+private:
+    QTimer m_timeout;
     bool m_autodelete;
 };
 

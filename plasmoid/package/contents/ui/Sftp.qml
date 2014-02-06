@@ -52,7 +52,7 @@ QtObject {
     }
     
     function browse() {
-        sftp.startBrowsing()
+        startupCheck.setPendingCall(sftp.startBrowsing())
     }
     
     function unmount() {
