@@ -23,8 +23,10 @@
 #include <signal.h>
 #include <unistd.h>
 
-#include <QApplication>
 #include <QSocketNotifier>
+#include <KApplication>
+#include <KAboutData>
+#include <KCmdLineArgs>
 
 #include "daemon.h"
 
@@ -57,14 +59,24 @@ void initializeTermHandlers(QCoreApplication* app)
 
 int main(int argc, char* argv[])
 {
-    QApplication app(argc, argv);
+    KAboutData aboutData("kdeconnectd", "kdeconnectd",
+                         ki18n("kdeconnect"),
+                         "0.1",
+                         ki18n("connect devices"),
+                         KAboutData::License_GPL,
+                         KLocalizedString(),
+                         KLocalizedString(),
+                         "http://albertvaka.wordpress.com");
+
+    KCmdLineArgs::init(argc, argv, &aboutData);
+    
+    KApplication app(true); // WARNING GUI required for QClipboard access
+    app.disableSessionManagement();
 
     initializeTermHandlers(&app);
     new Daemon(&app);
     return app.exec();
 }
-
-
 
 
 
