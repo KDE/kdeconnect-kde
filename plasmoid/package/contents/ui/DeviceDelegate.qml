@@ -40,7 +40,7 @@ PlasmaComponents.ListItem
                 horizontalAlignment: Text.AlignHCenter
                 text: display
             }
-            
+
             PlasmaComponents.Button
             {
                 id: browse
@@ -50,27 +50,27 @@ PlasmaComponents.ListItem
                 states: [
                     State {
                         name: "UNMOUNTED"
-                        PropertyChanges { target: browse; checked: false; text: "Browse" }
+                        PropertyChanges { target: browse; checked: false; text: i18n("Browse") }
                     },
                     State {
                         name: "MOUNTING"
-                        PropertyChanges { target: browse; checked: true; text: "Mounting..." }
+                        PropertyChanges { target: browse; checked: true; text: i18n("Mounting...") }
                     },
                     State {
                         name: "MOUNTED"
-                        PropertyChanges { target: browse; checked: false; text: "Unmount" }
+                        PropertyChanges { target: browse; checked: false; text: i18n("Unmount") }
                     }
                 ]
 
                 Sftp {
                     id: sftp
                     deviceId: root.deviceId
-                    
+
                     onMounted: browse.state = "MOUNTED"
                     onUnmounted: browse.state = "UNMOUNTED"
                     onError: browse.state = "UNMOUNTED"
                 }
-                
+
                 onClicked: {
                     if (state == "UNMOUNTED") {
                         state = "MOUNTING"
@@ -82,12 +82,12 @@ PlasmaComponents.ListItem
                     }
                 }
             }
-            
+
 
             height: browse.height
             width: parent.width
         }
-        
+
         //Battery
         PlasmaComponents.ListItem {
           

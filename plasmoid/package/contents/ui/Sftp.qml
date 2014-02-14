@@ -24,9 +24,9 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.kdeconnect 1.0
 
 QtObject {
-  
+
     id: root
-    
+
     property string deviceId: ""
     property bool isMounted: false    
     property variant sftp: SftpDbusInterfaceFactory.create(deviceId)
@@ -40,7 +40,7 @@ QtObject {
     signal mounted
     signal unmounted
     signal error(string message)
- 
+
     onMounted: isMounted = true
     onUnmounted: isMounted = false
  

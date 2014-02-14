@@ -29,9 +29,9 @@ QtObject {
     
     property string deviceId: ""
     property bool available: false
-    property bool state: false
+    property bool charging: false
     property int charge: -1
-    property string displayString: (available) ? ((state) ? ("Charging, " + charge) : ("Discharging, " + charge)) : "No Info"
+    property string displayString: (available && charge > -1) ? ((charging) ? (i18n("Charging, %1").arg(charge)) : (i18n("Discharging, %1").arg(charge))) : i18n("No info")
     
     property variant device: DeviceDbusInterfaceFactory.create(deviceId)
     property variant battery: null
@@ -39,7 +39,7 @@ QtObject {
     property variant nested1: DBusAsyncResponse {
         id: startupCheck1
         autoDelete: false
-        onSuccess: state = result
+        onSuccess: charging = result
     }
     
     property variant nested2: DBusAsyncResponse {
@@ -52,7 +52,7 @@ QtObject {
         if (available) {
             battery = DeviceBatteryDbusInterfaceFactory.create(deviceId)
             
-            battery.stateChanged.connect(function(charging) {root.state = charging})
+            battery.stateChanged.connect(function(charging) {root.charging = charging})
             battery.chargeChanged.connect(function(charge) {root.charge = charge})
             
             startupCheck1.setPendingCall(battery.isCharging())

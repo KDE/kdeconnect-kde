@@ -45,7 +45,7 @@ Item {
             id: tooltip
             target: mouseArea
             image: QIcon("smartphone")
-            subText: "KDE Connect device notifications"
+            subText: i18n("KDE Connect device notifications")
         }
     }
 
