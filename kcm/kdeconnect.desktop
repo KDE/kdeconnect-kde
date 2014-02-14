@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Icon=smartphone
+Terminal=false
+Exec=kcmshell4 kcm_kdeconnect
+Name=KDE Connect
+GenericName=Connect smartphones to your KDE Plasma Workspace
+Categories=Qt;KDE;
