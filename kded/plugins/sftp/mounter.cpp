@@ -18,7 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #include <QDir>
 #include <QTimerEvent>
 
@@ -102,7 +101,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     connect(m_proc.data(), SIGNAL(started()), SLOT(onStarted()));    
     connect(m_proc.data(), SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
     connect(m_proc.data(), SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
-    
+
     const QString mpoint = m_sftp->mountPoint();
     QDir().mkpath(mpoint);
     
@@ -116,11 +115,15 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-p" << np.get<QString>("port")
         << "-d"
         << "-f"
-        << "-o IdentityFile=" + m_sftp->device()->privateKeyPath()
-        << "-o StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
-        << "-o UserKnownHostsFile=/dev/null"; //Prevent storing as a known host
+        << "-o" << "IdentityFile=" + m_sftp->device()->privateKeyPath()
+        << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
+        << "-o" << "UserKnownHostsFile=/dev/null"; //Prevent storing as a known host
     
     m_proc->setProgram(program, arguments);
+
+    //To debug
+    //m_proc->setStandardOutputFile("/tmp/kdeconnect-sftp.out");
+    //m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
 
     cleanMountPoint();
     

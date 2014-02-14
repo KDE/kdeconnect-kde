@@ -21,6 +21,7 @@
 #include "sftpplugin.h"
 
 #include <QDBusConnection>
+#include <QDir>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -29,8 +30,8 @@
 #include <KNotification>
 #include <KRun>
 #include <KStandardDirs>
+#include <KFilePlacesModel>
 #include <kde_file.h>
-#include <kfileplacesmodel.h>
 
 #include "sftp_config.h"
 #include "mounter.h"
@@ -156,7 +157,7 @@ QString SftpPlugin::mountPoint()
 {
     const QString defaultMountDir = KStandardDirs::locateLocal("appdata", "", true, componentData());
     const QString mountDir = KConfig("kdeconnect/plugins/sftp").group("main").readEntry("mountpoint", defaultMountDir);
-    return mountDir + "/" + device()->id() + "/";
+    return QDir(mountDir).absoluteFilePath(device()->id());
 }
 
 void SftpPlugin::onMounted()

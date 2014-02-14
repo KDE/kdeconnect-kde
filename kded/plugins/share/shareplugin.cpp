@@ -27,7 +27,6 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 
-#include <QFile>
 #include <qprocess.h>
 #include <QDir>
 #include <QDesktopServices>
