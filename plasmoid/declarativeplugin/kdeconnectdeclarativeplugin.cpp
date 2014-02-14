@@ -21,15 +21,65 @@
 #include "kdeconnectdeclarativeplugin.h"
 
 #include <QtDeclarative/QDeclarativeItem>
+#include <QtDeclarative/QDeclarativeEngine>
+#include <QtDeclarative/QDeclarativeContext>
+#include <QDBusPendingCall>
+#include <QDBusPendingReply>
+
+#include "objectfactory.h"
+#include "responsewaiter.h"
 
 #include "libkdeconnect/devicesmodel.h"
 #include "libkdeconnect/notificationsmodel.h"
-#include "batteryinterface.h"
+
+Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin);
+
+QObject* createDeviceDbusInterface(QVariant deviceId)
+{
+    return new DeviceDbusInterface(deviceId.toString());
+}
+
+QObject* createDeviceBatteryDbusInterface(QVariant deviceId)
+{
+    return new DeviceBatteryDbusInterface(deviceId.toString());
+}
+
+QObject* createSftpInterface(QVariant deviceId)
+{
+    return new SftpDbusInterface(deviceId.toString());
+}
+
+QObject* createDBusResponse()
+{
+    return new DBusAsyncResponse();
+}
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
     Q_UNUSED(uri);
+    
     qmlRegisterType<DevicesModel>("org.kde.kdeconnect", 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
-    qmlRegisterType<BatteryInterface>("org.kde.kdeconnect", 1, 0, "BatteryInterface");
+    qmlRegisterType<DBusAsyncResponse>("org.kde.kdeconnect", 1, 0, "DBusAsyncResponse");
+}
+
+void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
+{
+    QDeclarativeExtensionPlugin::initializeEngine(engine, uri);
+ 
+    engine->rootContext()->setContextProperty("DeviceDbusInterfaceFactory"
+      , new ObjectFactory(engine, createDeviceDbusInterface));
+    
+    engine->rootContext()->setContextProperty("DeviceBatteryDbusInterfaceFactory"
+      , new ObjectFactory(engine, createDeviceBatteryDbusInterface));
+    
+    engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
+      , new ObjectFactory(engine, createSftpInterface));
+    
+    
+    engine->rootContext()->setContextProperty("DBusResponseFactory"
+      , new ObjectFactory(engine, createDBusResponse));    
+    
+    engine->rootContext()->setContextProperty("DBusResponseWaiter"
+      , DBusResponseWaiter::instance());    
 }

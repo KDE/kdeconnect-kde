@@ -1,0 +1,16 @@
+
+This plugins receives packages with type "kdeconnect.sftp" and reads the
+following fields:
+
+ip (string): ip of the curretly active network on device
+port (string): port where sftp server starts
+user (string): username to connect to sftp server
+password (string): one session password to access sftp server
+path (string): root directory to access device filesystem
+
+This plugins sends packages with type "kdeconnect.sftp" and fills the
+following fields:
+
+startBrowsing (boolean): tell device to start sftp server and noify desktop
+
+

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Samoilenko Yuri<kinnalru@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,22 +18,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#include "mountloop.h"
 
-#include "../device.h"
+MountLoop::MountLoop()
+    : QEventLoop()
+{}
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+bool MountLoop::exec(QEventLoop::ProcessEventsFlags flags)
 {
-    mDevice = qvariant_cast< Device* >(args.first());
+    return QEventLoop::exec(flags) == 0;
 }
 
-Device* KdeConnectPlugin::device()
+void MountLoop::failed()
 {
-    return mDevice;
+    Q_EMIT(result(false));
+    exit(1);
 }
 
-Device const* KdeConnectPlugin::device() const
+void MountLoop::successed()
 {
-    return mDevice;
+    Q_EMIT(result(true));
+    exit(0);
+}
+
+void MountLoop::exitWith(bool status)
+{
+    Q_EMIT(result(status));
+    exit(status ? 0 : 1);
 }

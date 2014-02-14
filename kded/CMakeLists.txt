@@ -28,7 +28,18 @@ set(kded_kdeconnect_SRCS
     kdebugnamespace.cpp
 )
 
-kde4_add_plugin(kded_kdeconnect ${kded_kdeconnect_SRCS})
+kde4_add_executable(kdeconnectd kdeconnectd.cpp ${kded_kdeconnect_SRCS})
+
+target_link_libraries(kdeconnectd
+    ${KDE4_KDECORE_LIBS}
+    ${KDE4_KDEUI_LIBS}
+    ${KDE4_KIO_LIBS}
+    ${QT_QTNETWORK_LIBRARY}
+    ${QJSON_LIBRARIES}
+    ${QCA2_LIBRARIES}
+)
+
+kde4_add_plugin(kded_kdeconnect kded.cpp ${kded_kdeconnect_SRCS})
 
 target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
@@ -42,19 +53,27 @@ target_link_libraries(kded_kdeconnect
 include(../macros.cmake)
 
 generate_and_install_dbus_interface(
-    kded_kdeconnect
+    kdeconnectd
     daemon.h
     org.kde.kdeconnect.daemon.xml
     OPTIONS -a
 )
 
 generate_and_install_dbus_interface(
-    kded_kdeconnect
+    kdeconnectd
     device.h
     org.kde.kdeconnect.device.xml
     OPTIONS -a
 )
 
+generate_and_install_dbus_interface(
+    kded_kdeconnect
+    kded.h
+    org.kde.kded.kdeconnect.xml
+    OPTIONS -a
+)
+
+install(TARGETS kdeconnectd DESTINATION ${LIBEXEC_INSTALL_DIR})
 install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)

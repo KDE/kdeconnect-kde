@@ -64,14 +64,14 @@ public:
      *
      * We already know it but we need to wait for an incoming DeviceLink to communicate
      */
-    Device(const QString& id);
+    Device(QObject* parent, const QString& id);
 
     /**
      * Device known via an incoming connection sent to us via a devicelink.
      *
      * We know everything but we don't trust it yet
      */
-    Device(const NetworkPackage& np, DeviceLink* dl);
+    Device(QObject* parent, const NetworkPackage& np, DeviceLink* dl);
 
     virtual ~Device();
 
@@ -83,6 +83,8 @@ public:
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
+    QString privateKeyPath() const;
+    
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
 
@@ -118,10 +120,10 @@ Q_SIGNALS:
     Q_SCRIPTABLE void unpaired();
 
 private:
-    //TODO: Replace device id by public key
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;
+    QCA::PrivateKey m_privateKey;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
     int m_protocolVersion;

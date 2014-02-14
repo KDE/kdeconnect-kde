@@ -19,9 +19,11 @@
 #undef interface
 #endif
 #include <QDBusConnection>
+#include <QFile>
 
-Device::Device(const QString& id)
-    : m_deviceId(id)
+Device::Device(QObject* parent, const QString& id)
+    : QObject(parent)
+    , m_deviceId(id)
     , m_pairStatus(Device::Paired)
     , m_protocolVersion(NetworkPackage::ProtocolVersion) //We don't know it yet
 {
@@ -33,21 +35,33 @@ Device::Device(const QString& id)
 
     const QString& key = data.readEntry<QString>("publicKey", QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
+    
+    //TODO: It is redundant to have our own private key in every instance of Device, move this to a signleton somewhere (Daemon?)
+    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
+    QFile privKey(privateKeyPath);
+    privKey.open(QIODevice::ReadOnly);
+    m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-
 }
 
-Device::Device(const NetworkPackage& identityPackage, DeviceLink* dl)
-    : m_deviceId(identityPackage.get<QString>("deviceId"))
+Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLink* dl)
+    : QObject(parent)
+    , m_deviceId(identityPackage.get<QString>("deviceId"))
     , m_deviceName(identityPackage.get<QString>("deviceName"))
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
 {
-    addLink(identityPackage, dl);
+    //TODO: It is redundant to have our own private key in every instance of Device, move this to a signleton somewhere (Daemon?)
+    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
+    QFile privKey(privateKeyPath);
+    privKey.open(QIODevice::ReadOnly);
+    m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
 
+    addLink(identityPackage, dl);
+    
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 }
@@ -205,11 +219,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceName = identityPackage.get<QString>("deviceName");
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
-    //TODO: Do not read the key every time from config, store somewhere
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString& key = config->group("myself").readEntry<QString>("privateKey", QString());
-    QCA::PrivateKey privateKey = QCA::PrivateKey::fromPEM(key);
-    link->setPrivateKey(privateKey);
+    Q_ASSERT(!m_privateKey.isNull());
+    link->setPrivateKey(m_privateKey);
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
@@ -245,6 +256,11 @@ void Device::removeLink(DeviceLink* link)
         reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
+}
+
+QString Device::privateKeyPath() const
+{
+    return KSharedConfig::openConfig("kdeconnectrc")->group("myself").readEntry("privateKeyPath");
 }
 
 bool Device::sendPackage(NetworkPackage& np)
@@ -354,9 +370,7 @@ bool Device::sendOwnPublicKey()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", true);
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString& key = config->group("myself").readEntry<QString>("publicKey", QString());
-    np.set("publicKey",key);
+    np.set("publicKey", m_privateKey.toPublicKey().toPEM());
     bool success = sendPackage(np);
     return success;
 }

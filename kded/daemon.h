@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DAEMON_H
-#define DAEMON_H
+#ifndef KDECONNECT_DAEMON_H
+#define KDECONNECT_DAEMON_H
 
 #include <QObject>
 #include <QSet>
@@ -35,13 +35,13 @@
 #include "backends/linkprovider.h"
 
 class Daemon
-    : public KDEDModule
+    : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
 
 public:
-    Daemon(QObject *parent, const QList<QVariant>&);
+    Daemon(QObject *parent);
     ~Daemon();
 
 public Q_SLOTS:
@@ -73,7 +73,6 @@ private:
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
     QCA::Initializer mQcaInitializer;
-
 };
 
 #endif

@@ -39,6 +39,7 @@ class KDE_EXPORT KdeConnectPlugin
 public:
     KdeConnectPlugin(QObject* parent, const QVariantList& args);
     Device* device();
+    Device const* device() const;
 
 public Q_SLOTS:
     /**

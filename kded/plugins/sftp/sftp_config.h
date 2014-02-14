@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Samoilenko Yuri <kinnalrua@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,22 +18,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#ifndef SFTP_CONFIG_H
+#define SFTP_CONFIG_H
 
-#include "../device.h"
+#include <kcmodule.h>
+#include <ksharedconfig.h>
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
-{
-    mDevice = qvariant_cast< Device* >(args.first());
+namespace Ui {
+    class SftpConfigUi;
 }
 
-Device* KdeConnectPlugin::device()
+class SftpConfig
+    : public KCModule
 {
-    return mDevice;
-}
+    Q_OBJECT
+public:
+    SftpConfig(QWidget *parent, const QVariantList&);
+    virtual ~SftpConfig();
 
-Device const* KdeConnectPlugin::device() const
-{
-    return mDevice;
-}
+    static inline KSharedConfigPtr config()
+    {
+        return KSharedConfig::openConfig("kdeconnect/plugins/sftp");
+    }
+    
+public Q_SLOTS:
+    virtual void save();
+    virtual void load();
+    virtual void defaults();
+
+private Q_SLOTS:
+    void checkSshfs();
+    
+private:
+    QScopedPointer<Ui::SftpConfigUi> m_ui;
+    KSharedConfigPtr m_cfg;
+
+};
+
+#endif

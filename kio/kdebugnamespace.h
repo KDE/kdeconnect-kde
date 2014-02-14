@@ -18,22 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#ifndef KDEBUG_KDECONNECT_KCM_H
+#define KDEBUG_KDECONNECT_KCM_H
 
-#include "../device.h"
+#include <KDebug>
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
-{
-    mDevice = qvariant_cast< Device* >(args.first());
-}
+int kdeconnect_kio();
 
-Device* KdeConnectPlugin::device()
-{
-    return mDevice;
-}
+#endif
 
-Device const* KdeConnectPlugin::device() const
-{
-    return mDevice;
-}

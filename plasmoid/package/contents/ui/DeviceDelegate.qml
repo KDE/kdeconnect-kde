@@ -27,34 +27,87 @@ PlasmaComponents.ListItem
 {
     id: root
     property string deviceId: model.deviceId
+   
 
+   
     Column {
         width: parent.width
-        PlasmaComponents.Label {
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-            horizontalAlignment: Text.AlignHCenter
-            text: display
-        }
+        
+        Row
+        {
+            PlasmaComponents.Label {
+                width: parent.width - browse.width
+                horizontalAlignment: Text.AlignHCenter
+                text: display
+            }
+            
+            PlasmaComponents.Button
+            {
+                id: browse
+                checkable: true
+                state: "UNMOUNTED"
 
+                states: [
+                    State {
+                        name: "UNMOUNTED"
+                        PropertyChanges { target: browse; checked: false; text: "Browse" }
+                    },
+                    State {
+                        name: "MOUNTING"
+                        PropertyChanges { target: browse; checked: true; text: "Mounting..." }
+                    },
+                    State {
+                        name: "MOUNTED"
+                        PropertyChanges { target: browse; checked: false; text: "Unmount" }
+                    }
+                ]
+
+                Sftp {
+                    id: sftp
+                    deviceId: root.deviceId
+                    
+                    onMounted: browse.state = "MOUNTED"
+                    onUnmounted: browse.state = "UNMOUNTED"
+                    onError: browse.state = "UNMOUNTED"
+                }
+                
+                onClicked: {
+                    if (state == "UNMOUNTED") {
+                        state = "MOUNTING"
+                        sftp.browse()
+                    }
+                    else if (state == "MOUNTED") {
+                        sftp.unmount()
+                        state = "UNMOUNTED"
+                    }
+                }
+            }
+            
+
+            height: browse.height
+            width: parent.width
+        }
+        
         //Battery
         PlasmaComponents.ListItem {
-            BatteryInterface {
-                id: batteryInterface
-                device: root.deviceId
+          
+            Battery {
+                id: battery
+                deviceId: root.deviceId
             }
+          
             sectionDelegate: true
-            visible: batteryInterface.available
+            visible: battery.available
             PlasmaComponents.Label {
                 //font.bold: true
                 text: i18n("Battery")
             }
             PlasmaComponents.Label {
-                text: batteryInterface.displayString
+                text: battery.displayString
                 anchors.right: parent.right
             }
         }
-
+        
         //Notifications
         PlasmaComponents.ListItem {
             visible: notificationsModel.count>0

@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Yuri Samoilenko <kinnalru@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,22 +18,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin.h"
+#ifndef KDECONNECT_KDED_H
+#define KDECONNECT_KDED_H
 
-#include "../device.h"
+#include <KDEDModule>
+#include <KProcess>
 
-KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
-    : QObject(parent)
+class Kded
+    : public KDEDModule
 {
-    mDevice = qvariant_cast< Device* >(args.first());
-}
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kded.kdeconnect")
 
-Device* KdeConnectPlugin::device()
-{
-    return mDevice;
-}
+public:
+    Kded(QObject *parent, const QList<QVariant>&);
+    ~Kded();
 
-Device const* KdeConnectPlugin::device() const
-{
-    return mDevice;
-}
+public Q_SLOTS:
+    
+    Q_SCRIPTABLE bool start();
+    Q_SCRIPTABLE void stop();
+    Q_SCRIPTABLE bool restart();
+
+private Q_SLOTS:
+    void onError(QProcess::ProcessError);
+    void onFinished(int, QProcess::ExitStatus);
+    
+private:
+    KProcess* m_daemon;
+};
+
+#endif

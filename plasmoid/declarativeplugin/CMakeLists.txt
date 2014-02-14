@@ -2,10 +2,17 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_SOURCE_DIR}
                     ${CMAKE_BINARY_DIR})
+
 set(kdeconnectdeclarativeplugin_SRC
-    batteryinterface.cpp
     kdeconnectdeclarativeplugin.cpp
+    responsewaiter.cpp
 )
+
+set(kdeconnectdeclarativeplugin_MOC
+  objectfactory.h
+)
+
+qt4_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})    
 
 kde4_add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
 add_dependencies(kdeconnectdeclarativeplugin libkdeconnect)

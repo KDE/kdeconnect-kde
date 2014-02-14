@@ -18,33 +18,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BATTERYDBUSINTERFACE_H
-#define BATTERYDBUSINTERFACE_H
+#ifndef KIOKDECONNECT_H
+#define KIOKDECONNECT_H
 
-#include <QDBusAbstractAdaptor>
+#include <QObject>
 
-class BatteryDbusInterface
-    : public QDBusAbstractAdaptor
+#include <kio/slavebase.h>
+
+#include "../libkdeconnect/dbusinterfaces.h"
+
+class KioKdeconnect : public QObject, public KIO::SlaveBase
 {
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
+  Q_OBJECT
 
 public:
-    explicit BatteryDbusInterface(QObject *parent);
-    virtual ~BatteryDbusInterface();
-    
-    Q_SCRIPTABLE int charge() { return mCharge; }
-    Q_SCRIPTABLE bool isCharging() { return mIsCharging; }
+    KioKdeconnect(const QByteArray &pool, const QByteArray &app);
 
-    void updateValues(bool isCharging, int currentCharge);
+    void get(const KUrl &url);
+    void listDir(const KUrl &url);
+    void stat(const KUrl &url);
 
-Q_SIGNALS:
-    Q_SCRIPTABLE void stateChanged(bool charging);  
-    Q_SCRIPTABLE void chargeChanged(int charge);
+    void setHost(const QString &constHostname, quint16 port, const QString &user, const QString &pass);
+
+    void listAllDevices(); //List all devices exported by m_dbusInterface
+    void listDevice(); //List m_currentDevice
+
 
 private:
-    int mCharge;
-    bool mIsCharging : 1;
+
+    /**
+     * Contains the ID of the current device or is empty when no device is set.
+     */
+    QString m_currentDevice;
+
+    /**
+     * KDED DBus interface, used to communicate to the daemon since we need some status (like connected)
+     */
+    DaemonDbusInterface *m_dbusInterface;
 
 };
 

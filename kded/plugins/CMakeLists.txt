@@ -9,4 +9,5 @@ add_subdirectory(telephony)
 add_subdirectory(battery)
 add_subdirectory(share)
 add_subdirectory(notifications)
+add_subdirectory(sftp)
 

@@ -21,7 +21,6 @@
 #include "clipboardplugin.h"
 
 #include <QClipboard>
-#include <KDebug>
 #include <QApplication>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ClipboardPlugin >(); )

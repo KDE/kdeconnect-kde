@@ -26,8 +26,11 @@
 class KdeConnectDeclarativePlugin : public QDeclarativeExtensionPlugin
 {
     virtual void registerTypes(const char* uri);
+    virtual void initializeEngine(QDeclarativeEngine *engine, const char *uri);
 };
 
-Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin);
+
+
+
 
 #endif // ANALITZADECLARATIVEPLUGIN_H

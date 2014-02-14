@@ -1,0 +1,17 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KdeConnect/Plugin
+X-KDE-Library=kdeconnect_sftp
+X-KDE-PluginInfo-Author=Samoilenko Yuri
+X-KDE-PluginInfo-Email=kinnalru@gmail.com
+X-KDE-PluginInfo-Name=kdeconnect_sftp
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+Icon=system-file-manager
+Name=Remote filesystem browser
+Comment=Browse the remote device filesystem using SFTP
+
+X-KdeConnect-SupportedPackageType=kdeconnect.sftp
