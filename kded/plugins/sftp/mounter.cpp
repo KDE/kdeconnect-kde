@@ -95,6 +95,21 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     //TODO implement on android side
     //if (np.get<int>("id") != m_id) return;
   
+
+    //This is the previous code, to access sftp server using KIO. Now we are
+    //using the external binary sshfs, and accessing it as a local filesystem.
+  /*
+   *    KUrl url;
+   *    url.setProtocol("sftp");
+   *    url.setHost(np.get<QString>("ip"));
+   *    url.setPort(np.get<QString>("port").toInt());
+   *    url.setUser(np.get<QString>("user"));
+   *    url.setPass(np.get<QString>("password"));
+   *    url.setPath(np.get<QString>("path"));
+   *    new KRun(url, 0);
+   *    Q_EMIT mounted();
+   */
+
     m_proc.reset(new KProcess(this));
     m_proc->setOutputChannelMode(KProcess::MergedChannels);
 
@@ -104,7 +119,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
     const QString mpoint = m_sftp->mountPoint();
     QDir().mkpath(mpoint);
-    
+
     const QString program = "sshfs";
     const QStringList arguments = QStringList()
         << QString("%1@%2:%3")
