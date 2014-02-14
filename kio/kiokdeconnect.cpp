@@ -36,7 +36,7 @@
 
 extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
 {
-    KAboutData about("kiokdeconnect", "kdeconnect", ki18n("kiokdeconnect"), "1.0");
+    KAboutData about("kiokdeconnect", "kdeconnect-kio", ki18n("kiokdeconnect"), "1.0");
     KCmdLineArgs::init(&about);
 
     KApplication app;
