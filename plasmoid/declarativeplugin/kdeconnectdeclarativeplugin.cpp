@@ -76,7 +76,6 @@ void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, c
     engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
       , new ObjectFactory(engine, createSftpInterface));
     
-    
     engine->rootContext()->setContextProperty("DBusResponseFactory"
       , new ObjectFactory(engine, createDBusResponse));    
     

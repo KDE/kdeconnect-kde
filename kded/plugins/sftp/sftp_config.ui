@@ -186,13 +186,6 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QToolButton" name="toolButton">
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <customwidgets>

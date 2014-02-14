@@ -161,8 +161,9 @@ QString SftpPlugin::mountPoint()
 
 void SftpPlugin::onMounted()
 {
+    kDebug(kdeconnect_kded()) << QString("Remote filesystem mounted at %1").arg(mountPoint());
     knotify(KNotification::Notification
-        , i18n("Filesystem mounted at %1").arg(mountPoint())
+        , i18n("Remote filesystem mounted")
         , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
     );
     

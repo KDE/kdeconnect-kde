@@ -93,7 +93,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         return;
     }
     
-    //TODO implement on amdroid side
+    //TODO implement on android side
     //if (np.get<int>("id") != m_id) return;
   
     m_proc.reset(new KProcess(this));
@@ -116,7 +116,9 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-p" << np.get<QString>("port")
         << "-d"
         << "-f"
-        << "-o" << "IdentityFile=" + m_sftp->device()->privateKeyPath();
+        << "-o IdentityFile=" + m_sftp->device()->privateKeyPath()
+        << "-o StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
+        << "-o UserKnownHostsFile=/dev/null"; //Prevent storing as a known host
     
     m_proc->setProgram(program, arguments);
 
