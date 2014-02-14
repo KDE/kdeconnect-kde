@@ -13,9 +13,4 @@ following fields:
 
 startBrowsing (boolean): tell device to start sftp server and noify desktop
 
-<TODO>
-random password generation
-using encrypted packages
-</TODO>
-
 
