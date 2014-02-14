@@ -161,11 +161,7 @@ QString SftpPlugin::mountPoint()
 
 void SftpPlugin::onMounted()
 {
-    kDebug(kdeconnect_kded()) << QString("Remote filesystem mounted at %1").arg(mountPoint());
-    knotify(KNotification::Notification
-        , i18n("Remote filesystem mounted")
-        , KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop)
-    );
+    kDebug(kdeconnect_kded()) << device()->name() << QString("Remote filesystem mounted at %1").arg(mountPoint());
     
     Q_EMIT mounted();
 }
@@ -174,17 +170,11 @@ void SftpPlugin::onUnmounted(bool idleTimeout)
 {
     if (idleTimeout)
     {
-        knotify(KNotification::Notification
-            , i18n("Filesystem unmounted by idle timeout")
-            , KIconLoader::global()->loadIcon("clock", KIconLoader::Desktop)
-        );
+        kDebug(kdeconnect_kded()) << device()->name() << "Remote filesystem unmounted by idle timeout";
     }
     else
     {
-        knotify(KNotification::Notification
-            , i18n("Filesystem unmounted")
-            , KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Desktop)
-        );
+        kDebug(kdeconnect_kded()) << device()->name() << "Remote filesystem unmounted";
     }
     
     m_d->mounter->deleteLater();

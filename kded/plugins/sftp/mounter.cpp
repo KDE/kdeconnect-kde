@@ -157,11 +157,9 @@ void Mounter::onError(QProcess::ProcessError error)
 
 void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    Q_UNUSED(exitCode);
-    
     if (exitStatus == QProcess::NormalExit)
     {
-        kDebug(kdeconnect_kded()) << "Porcess finished";
+        kDebug(kdeconnect_kded()) << "Process finished (exit code: " << exitCode << ")";
         
         if (m_proc->property(idleTimeout_c).toBool())
         {
@@ -174,7 +172,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     }
     else
     {
-        kDebug(kdeconnect_kded()) << "Porcess failed";
+        kDebug(kdeconnect_kded()) << "Porcess failed (exit code: " << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
