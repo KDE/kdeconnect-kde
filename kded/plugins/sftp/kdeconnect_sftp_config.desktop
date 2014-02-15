@@ -6,7 +6,5 @@ X-KDE-Library=kdeconnect_sftp_config
 X-KDE-ParentComponents=kdeconnect_sftp
 
 Name=SFTP filebrowser plugin settings
-Name[uk]=Настройки SFTP обозревателя
-Name[ru]=Настройки SFTP обозревателя
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;
