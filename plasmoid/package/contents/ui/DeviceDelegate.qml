@@ -54,11 +54,14 @@ PlasmaComponents.ListItem
                     },
                     State {
                         name: "MOUNTING"
-                        PropertyChanges { target: browse; checked: true; text: i18n("Mounting...") }
+			// TODO make apropriate icons
+                        //PropertyChanges { target: browse; checked: true; text: i18n("Mounting...") }
+                        PropertyChanges { target: browse; checked: false; text: i18n("Browse") }
                     },
                     State {
                         name: "MOUNTED"
-                        PropertyChanges { target: browse; checked: false; text: i18n("Unmount") }
+                        //PropertyChanges { target: browse; checked: false; text: i18n("Unmount") }
+                        PropertyChanges { target: browse; checked: false; text: i18n("Browse") }
                     }
                 ]
 
@@ -74,12 +77,13 @@ PlasmaComponents.ListItem
                 onClicked: {
                     if (state == "UNMOUNTED") {
                         state = "MOUNTING"
-                        sftp.browse()
+                        //sftp.browse()
                     }
                     else if (state == "MOUNTED") {
-                        sftp.unmount()
+                        //sftp.unmount()
                         state = "UNMOUNTED"
                     }
+                    sftp.browse()
                 }
             }
 

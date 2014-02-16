@@ -39,13 +39,13 @@ QtObject {
     property variant nested1: DBusAsyncResponse {
         id: startupCheck1
         autoDelete: false
-        onSuccess: charging = result
+        onSuccess: root.charging = result
     }
     
     property variant nested2: DBusAsyncResponse {
         id: startupCheck2
         autoDelete: false
-        onSuccess: charge = result
+        onSuccess: root.charge = result
     }
     
     onAvailableChanged: {
