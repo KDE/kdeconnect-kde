@@ -295,3 +295,16 @@ Comment[tr]=Bilinmeyen bir durum oluştu
 Comment[uk]=Сталося щось невідоме програмі
 Comment[x-test]=xxSomething unknown happenedxx
 Action=Popup
+
+[Event/mounted]
+Name=Mounted
+Name[x-test]=xxMountedxx
+Comment=Filesystem mounted
+Action=None
+
+[Event/unmounted]
+Name=Unmounted
+Name[x-test]=xxUnmountedxx
+Comment=Filesystem unmounted
+Action=None
+
