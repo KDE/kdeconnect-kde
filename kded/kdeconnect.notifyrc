@@ -298,11 +298,35 @@ Action=Popup
 
 [Event/mounted]
 Name=Mounted
+Name[de]=Eingebunden
+Name[pt]=Montado
+Name[pt_BR]=Montado
+Name[sv]=Monterat
+Name[uk]=Змонтовано
+Name[x-test]=xxMountedxx
 Comment=Filesystem mounted
+Comment[de]=Dateisystem eingebunden
+Comment[pt]=Sistema de ficheiros montado
+Comment[pt_BR]=Sistema de arquivos montado
+Comment[sv]=Filsystem monterat
+Comment[uk]=Файлову систему змонтовано
+Comment[x-test]=xxFilesystem mountedxx
 Action=None
 
 [Event/unmounted]
 Name=Unmounted
+Name[de]=Einbindung gelöst
+Name[pt]=Desmontado
+Name[pt_BR]=Desmontado
+Name[sv]=Avmonterat
+Name[uk]=Демонтовано
+Name[x-test]=xxUnmountedxx
 Comment=Filesystem unmounted
+Comment[de]=Einbindung des Dateisystems gelöst
+Comment[pt]=Sistema de ficheiros desmontado
+Comment[pt_BR]=Sistema de arquivos desmontado
+Comment[sv]=Filsystem avmonterat
+Comment[uk]=Файлову систему демонтовано
+Comment[x-test]=xxFilesystem unmountedxx
 Action=None
 
