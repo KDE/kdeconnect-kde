@@ -44,45 +44,14 @@ PlasmaComponents.ListItem
             PlasmaComponents.Button
             {
                 id: browse
-                checkable: true
-                state: "UNMOUNTED"
-
-                states: [
-                    State {
-                        name: "UNMOUNTED"
-                        PropertyChanges { target: browse; checked: false; text: i18n("Browse") }
-                    },
-                    State {
-                        name: "MOUNTING"
-			// TODO make apropriate icons
-                        //PropertyChanges { target: browse; checked: true; text: i18n("Mounting...") }
-                        PropertyChanges { target: browse; checked: false; text: i18n("Browse") }
-                    },
-                    State {
-                        name: "MOUNTED"
-                        //PropertyChanges { target: browse; checked: false; text: i18n("Unmount") }
-                        PropertyChanges { target: browse; checked: false; text: i18n("Browse") }
-                    }
-                ]
+                iconSource: "document-open-folder"
 
                 Sftp {
                     id: sftp
                     deviceId: root.deviceId
-
-                    onMounted: browse.state = "MOUNTED"
-                    onUnmounted: browse.state = "UNMOUNTED"
-                    onError: browse.state = "UNMOUNTED"
                 }
 
                 onClicked: {
-                    if (state == "UNMOUNTED") {
-                        state = "MOUNTING"
-                        //sftp.browse()
-                    }
-                    else if (state == "MOUNTED") {
-                        //sftp.unmount()
-                        state = "UNMOUNTED"
-                    }
                     sftp.browse()
                 }
             }
