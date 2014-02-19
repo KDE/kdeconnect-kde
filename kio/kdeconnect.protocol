@@ -11,6 +11,6 @@ writing=false
 makedir=false
 deleting=false
 moving=false
-Icon=smartphone
+Icon=kdeconnect
 maxInstances=2
 

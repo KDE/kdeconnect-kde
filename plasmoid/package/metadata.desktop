@@ -35,7 +35,7 @@ Comment[tr]=KDE Bağlan kullanılarak cihazınızdan bildirimleri görüntüleyi
 Comment[uk]=Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»
 Comment[x-test]=xxShow notifications from your devices using KDE Connectxx
 
-Icon=smartphone
+Icon=kdeconnect
 Type=Service
 X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
 

@@ -74,7 +74,7 @@ void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    m_d->placesModel->addPlace(device()->name(), kioUrl, "smartphone");
+    m_d->placesModel->addPlace(device()->name(), kioUrl, "kdeconnect");
     kDebug(kdeconnect_kded()) << "add to dolphin";
 }
 

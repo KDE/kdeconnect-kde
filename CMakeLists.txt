@@ -17,5 +17,6 @@ add_subdirectory(libkdeconnect)
 add_subdirectory(kcm)
 add_subdirectory(kio)
 add_subdirectory(plasmoid)
+add_subdirectory(icon)
 
 add_subdirectory(tests)

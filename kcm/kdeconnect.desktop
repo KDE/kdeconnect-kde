@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Icon=smartphone
+Icon=kdeconnect
 Terminal=false
 Exec=kcmshell4 kcm_kdeconnect
 Name=KDE Connect

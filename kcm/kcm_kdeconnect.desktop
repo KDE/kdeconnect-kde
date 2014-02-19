@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Exec=kcmshell4 kcm_kdeconnect
-Icon=smartphone
+Icon=kdeconnect
 Type=Service
 
 X-KDE-ServiceTypes=KCModule

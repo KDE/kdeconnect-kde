@@ -32,7 +32,7 @@ Item {
 
     PlasmaCore.IconItem {
         id: icon
-        source: "smartphone"
+        source: "kdeconnect"
         anchors.fill: parent
     }
 
@@ -44,7 +44,7 @@ Item {
         PlasmaCore.ToolTip {
             id: tooltip
             target: mouseArea
-            image: QIcon("smartphone")
+            image: QIcon("kdeconnect")
             subText: i18n("KDE Connect device notifications")
         }
     }
