@@ -30,5 +30,5 @@ GenericName[sk]=Pripojiť smartfóny k vašej pracovnej ploche KDE Plasma
 GenericName[sv]=Anslut smartphone till KDE Plasma arbetsyta
 GenericName[uk]=З’єднання смартфонів з вашим робочим простором Плазми KDE
 GenericName[x-test]=xxConnect smartphones to your KDE Plasma Workspacexx
-Categories=Qt;KDE;HardwareSettings;
+Categories=Qt;KDE;Settings;HardwareSettings;
 Hidden=true
