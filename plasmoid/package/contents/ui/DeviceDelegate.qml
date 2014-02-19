@@ -36,20 +36,21 @@ PlasmaComponents.ListItem
         Row
         {
             PlasmaComponents.Label {
-                width: parent.width - browse.width
+                width: browse.visible? parent.width - browse.width : parent.width
                 horizontalAlignment: Text.AlignHCenter
                 text: display
             }
 
             PlasmaComponents.Button
             {
-                id: browse
-                iconSource: "document-open-folder"
-
                 Sftp {
                     id: sftp
                     deviceId: root.deviceId
                 }
+
+                id: browse
+                iconSource: "document-open-folder"
+                visible: sftp.available
 
                 onClicked: {
                     sftp.browse()
@@ -63,12 +64,12 @@ PlasmaComponents.ListItem
 
         //Battery
         PlasmaComponents.ListItem {
-          
+
             Battery {
                 id: battery
                 deviceId: root.deviceId
             }
-          
+
             sectionDelegate: true
             visible: battery.available
             PlasmaComponents.Label {
@@ -80,7 +81,7 @@ PlasmaComponents.ListItem
                 anchors.right: parent.right
             }
         }
-        
+
         //Notifications
         PlasmaComponents.ListItem {
             visible: notificationsModel.count>0
@@ -122,11 +123,9 @@ PlasmaComponents.ListItem
                     onClicked: dbusInterface.dismiss();
                 }
             }
-            //FIXME
-            //Repeater.onItemAdded: plasmoid.status = "NeedsAttentionStatus";
         }
 
-        //TODO: Other information could be displayed here
+        //NOTE: More information could be displayed here
 
     }
 }

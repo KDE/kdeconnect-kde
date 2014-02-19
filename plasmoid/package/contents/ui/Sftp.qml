@@ -28,29 +28,24 @@ QtObject {
     id: root
 
     property string deviceId: ""
-    property bool isMounted: false    
-    property variant sftp: SftpDbusInterfaceFactory.create(deviceId)
+    property variant device: DeviceDbusInterfaceFactory.create(deviceId)
+    property bool available: false
 
+    property bool isMounted: false
+    property variant sftp: null
     property variant nested: DBusAsyncResponse {
         id: startupCheck
         onSuccess: (result) ? root.mounted() : root.unmounted()
         onError: root.error(message)
     }
-    
+
     signal mounted
     signal unmounted
     signal error(string message)
 
     onMounted: isMounted = true
     onUnmounted: isMounted = false
- 
-    Component.onCompleted: {
-        sftp.mounted.connect(mounted)
-        sftp.unmounted.connect(unmounted)
-        
-        startupCheck.setPendingCall(sftp.isMounted())
-    }
-    
+
     function browse() {
         startupCheck.setPendingCall(sftp.startBrowsing())
     }
@@ -58,5 +53,36 @@ QtObject {
     function unmount() {
         sftp.unmount()
     }
+
+    Component.onCompleted: {
+        device.pluginsChanged.connect(pluginsChanged)
+        device.pluginsChanged()
+    }
+
+    /* Note: magically called by qml */
+    onAvailableChanged: {
+        if (available) {
+            sftp = SftpDbusInterfaceFactory.create(deviceId)
+
+            sftp.mounted.connect(mounted)
+            sftp.unmounted.connect(unmounted)
+
+            startupCheck.setPendingCall(sftp.isMounted())
+        }
+        else {
+            sftp = null
+        }
+    }
     
+    function pluginsChanged() {
+        var result = DBusResponseWaiter.waitForReply(device.hasPlugin("kdeconnect_sftp"))
+
+        if (result && result != "error") {
+            available = true
+        }
+        else {
+            available = false
+        }
+    }
+
 }

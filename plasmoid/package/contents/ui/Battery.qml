@@ -28,12 +28,12 @@ QtObject {
     id: root
     
     property string deviceId: ""
+    property variant device: DeviceDbusInterfaceFactory.create(deviceId)
     property bool available: false
+
     property bool charging: false
     property int charge: -1
     property string displayString: (available && charge > -1) ? ((charging) ? (i18n("Charging, %1").arg(charge)) : (i18n("Discharging, %1").arg(charge))) : i18n("No info")
-    
-    property variant device: DeviceDbusInterfaceFactory.create(deviceId)
     property variant battery: null
 
     property variant nested1: DBusAsyncResponse {
@@ -48,6 +48,7 @@ QtObject {
         onSuccess: root.charge = result
     }
     
+    /* Note: magically called by qml */
     onAvailableChanged: {
         if (available) {
             battery = DeviceBatteryDbusInterfaceFactory.create(deviceId)
