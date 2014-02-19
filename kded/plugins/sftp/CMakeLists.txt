@@ -60,5 +60,5 @@ target_link_libraries( kdeconnect_sftp_config
     ${KDE4_KIO_LIBS}
 )
 
-install(TARGETS kdeconnect_sftp_config DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_sftp_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+#install(TARGETS kdeconnect_sftp_config DESTINATION ${PLUGIN_INSTALL_DIR} )
+#install(FILES kdeconnect_sftp_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
