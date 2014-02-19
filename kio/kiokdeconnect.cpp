@@ -105,7 +105,7 @@ void KioKdeconnect::listAllDevices()
 
         const QString target = QString("kdeconnect://").append(deviceId).append("/");
         const QString name = interface.name();
-        const QString icon = "smartphone";
+        const QString icon = "kdeconnect";
 
         KIO::UDSEntry entry;
         entry.insert(KIO::UDSEntry::UDS_NAME, name);
