@@ -135,7 +135,8 @@ bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait())
     {
-        return new KRun(KUrl::fromLocalFile(mountPoint()), 0);
+        //return new KRun(KUrl::fromLocalFile(mountPoint()), 0);
+        return new KRun(KUrl::fromPathOrUrl("kdeconnect://"+device()->id()), 0);
     }
     return false;
 }
