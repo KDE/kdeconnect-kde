@@ -304,6 +304,7 @@ Action=Popup
 
 [Event/mounted]
 Name=Mounted
+Name[da]=Monteret
 Name[de]=Eingebunden
 Name[hu]=Csatolva
 Name[nl]=Aangekoppeld
@@ -314,6 +315,7 @@ Name[sv]=Monterat
 Name[uk]=Змонтовано
 Name[x-test]=xxMountedxx
 Comment=Filesystem mounted
+Comment[da]=Filsystem monteret
 Comment[de]=Dateisystem eingebunden
 Comment[hu]=Fájlrendszer csatolva
 Comment[nl]=Bestandssysteem aangekoppeld
@@ -327,6 +329,7 @@ Action=None
 
 [Event/unmounted]
 Name=Unmounted
+Name[da]=Afmonteret
 Name[de]=Einbindung gelöst
 Name[hu]=Leválasztva
 Name[nl]=Afgekoppeld
@@ -337,6 +340,7 @@ Name[sv]=Avmonterat
 Name[uk]=Демонтовано
 Name[x-test]=xxUnmountedxx
 Comment=Filesystem unmounted
+Comment[da]=Filsystem afmonteret
 Comment[de]=Einbindung des Dateisystems gelöst
 Comment[hu]=Fájlrendszer leválasztva
 Comment[nl]=Bestandssysteem afgekoppeld
