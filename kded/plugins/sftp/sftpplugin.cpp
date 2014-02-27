@@ -44,13 +44,10 @@ static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user
 
 struct SftpPlugin::Pimpl
 {
-    Pimpl()
-    {
-        //Add KIO entry to Dolphin's Places
-        placesModel = new KFilePlacesModel();
-    }
+    Pimpl() {}
   
-    KFilePlacesModel*  placesModel;
+    //Add KIO entry to Dolphin's Places
+    KFilePlacesModel  placesModel;
     QPointer<Mounter> mounter;
 };
 
@@ -74,17 +71,17 @@ void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    m_d->placesModel->addPlace(device()->name(), kioUrl, "kdeconnect");
+    m_d->placesModel.addPlace(device()->name(), kioUrl, "kdeconnect");
     kDebug(kdeconnect_kded()) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    QModelIndex index = m_d->placesModel->closestItem(kioUrl);
+    QModelIndex index = m_d->placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
-        m_d->placesModel->removePlace(index);
-        index = m_d->placesModel->closestItem(kioUrl);
+        m_d->placesModel.removePlace(index);
+        index = m_d->placesModel.closestItem(kioUrl);
     }
 }
 
