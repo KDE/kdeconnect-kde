@@ -38,7 +38,7 @@
 #include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect-kded") )
 
 static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "path";
 
@@ -164,7 +164,7 @@ void SftpPlugin::onMounted()
 
     KNotification* notification = new KNotification("mounted", KNotification::CloseOnTimeout, this);
     notification->setPixmap(KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
     notification->setTitle(i18n("Device %1", device()->name()));
     notification->setText(i18n("Filesystem mounted at %1", mountPoint()));
     notification->sendEvent();

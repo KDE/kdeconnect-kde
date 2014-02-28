@@ -75,7 +75,7 @@ void MprisControlPlugin::addPlayer(const QString& service)
 {
     QDBusInterface mprisInterface(service, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2");
     //FIXME: This call hangs and returns an empty string if KDED is still starting!
-    const QString& identity = mprisInterface.property("Identity").toString();
+    const QString identity = mprisInterface.property("Identity").toString();
     playerList[identity] = service;
     kDebug(kdeconnect_kded()) << "Mpris addPlayer" << service << "->" << identity;
     sendPlayerList();
@@ -130,7 +130,7 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
 
 void MprisControlPlugin::removePlayer(const QString& ifaceName)
 {
-    QString identity = playerList.key(ifaceName);
+    const QString identity = playerList.key(ifaceName);
     kDebug(kdeconnect_kded()) << "Mpris removePlayer" << ifaceName << "->" << identity;
     playerList.remove(identity);
     sendPlayerList();
@@ -143,7 +143,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     }
 
     //Send the player list
-    const QString& player = np.get<QString>("player");
+    const QString player = np.get<QString>("player");
     bool valid_player = playerList.contains(player);
     if (!valid_player || np.get<bool>("requestPlayerList")) {
         sendPlayerList();

@@ -28,7 +28,7 @@
 #include "kdebugnamespace.h"
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Kded>();)
-K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect"))
+K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect-kded"))
 
 Kded::Kded(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)

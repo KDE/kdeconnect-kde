@@ -70,7 +70,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
     KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
     notification->setTitle(title);
     notification->setText(content);
 
