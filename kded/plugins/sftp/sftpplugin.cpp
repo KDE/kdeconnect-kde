@@ -165,8 +165,8 @@ void SftpPlugin::onMounted()
     KNotification* notification = new KNotification("mounted", KNotification::CloseOnTimeout, this);
     notification->setPixmap(KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(i18n("Device %1").arg(device()->name()));
-    notification->setText(i18n("Filesystem mounted at %1").arg(mountPoint()));
+    notification->setTitle(i18n("Device %1", device()->name()));
+    notification->setText(i18n("Filesystem mounted at %1", mountPoint()));
     notification->sendEvent();
 
     Q_EMIT mounted();
@@ -186,7 +186,7 @@ void SftpPlugin::onUnmounted(bool idleTimeout)
     KNotification* notification = new KNotification("unmounted", KNotification::CloseOnTimeout, this);
     notification->setPixmap(KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Desktop));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(i18n("Device %1").arg(device()->name()));
+    notification->setTitle(i18n("Device %1", device()->name()));
     notification->setText(i18n("Filesystem unmounted"));
     notification->sendEvent();
     
@@ -211,7 +211,7 @@ void SftpPlugin::onFailed(const QString& message)
 void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) const
 {
     KNotification::event(KNotification::StandardEvent(type)
-      , i18n("Device %1").arg(device()->name()), text, icon, 0
+      , i18n("Device %1", device()->name()), text, icon, 0
       , KNotification::CloseOnTimeout);
 }
 
