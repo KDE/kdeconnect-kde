@@ -44,17 +44,14 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 
 }
 
-QString SharePlugin::destinationDir()
+KUrl SharePlugin::destinationDir() const
 {
-    QString defaultPath = KGlobalSettings::downloadPath();
-
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
-    QString dir = config->group("receive").readEntry("path", defaultPath);
+    KUrl dir = config->group("receive").readEntry("path", KGlobalSettings::downloadPath());
+    dir.adjustPath(KUrl::AddTrailingSlash);
 
-    if (!dir.endsWith('/')) dir.append('/');
-
-    QDir().mkpath(KUrl(dir).path()); //Using KUrl to remove file:/// protocol, wich seems to confuse QDir.mkpath
+    QDir().mkpath(dir.toLocalFile());
 
     kDebug(kdeconnect_kded()) << dir;
 
@@ -89,7 +86,10 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         //kDebug(kdeconnect_kded()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         //TODO: Ask before overwritting or rename file if it already exists
-        FileTransferJob* job = np.createPayloadTransferJob(destinationDir() + filename);
+
+        KUrl destination = destinationDir();
+        destination.addPath(filename);
+        FileTransferJob* job = np.createPayloadTransferJob(destination);
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
         job->start();
     } else if (np.has("text")) {

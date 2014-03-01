@@ -45,7 +45,7 @@ private Q_SLOTS:
     void openDestinationFolder();
 
 private:
-    QString destinationDir();
+    KUrl destinationDir() const;
 
 };
 #endif
