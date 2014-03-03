@@ -40,6 +40,7 @@ public:
     virtual void start();
     KUrl destination() { return mDestination->url(); }
 
+    void setDeviceName(const QString &deviceName) {mDeviceName = deviceName;};
 public Q_SLOTS:
     void readyRead();
     void open(KIO::Job*);
@@ -49,6 +50,7 @@ public Q_SLOTS:
 private:
     QSharedPointer<QIODevice> mOrigin;
     KIO::FileJob* mDestination;
+    QString mDeviceName;
     int mSize;
     int mWritten;
 

@@ -37,6 +37,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int si
     mOrigin = origin;
     mSize = size;
     mWritten = 0;
+    mDeviceName = i18nc("Device name that will appear on the jobs", "KDE-Connect");
     kDebug(kdeconnect_kded()) << "FileTransferJob Downloading payload to" << destination;
 }
 
@@ -49,6 +50,10 @@ void FileTransferJob::start()
 {
     //kDebug(kdeconnect_kded()) << "FileTransferJob start";
 
+    description(this, i18n("Receiving file over KDE-Connect"),
+                        QPair<QString, QString>(i18nc("File transfer origin", "From"),
+                        QString(mDeviceName)),
+                        QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination->url().path()));
     //Open destination file
     mDestination->start();
 }
