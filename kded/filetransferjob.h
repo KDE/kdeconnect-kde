@@ -38,8 +38,7 @@ class FileTransferJob
 public:
     FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination);
     virtual void start();
-    KUrl destination() { return mDestination->url(); }
-
+    KUrl destination() const { return mDestination->url(); }
     void setDeviceName(const QString &deviceName) {mDeviceName = deviceName;};
 public Q_SLOTS:
     void readyRead();
