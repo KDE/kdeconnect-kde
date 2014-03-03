@@ -112,6 +112,9 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     }
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
+    if (np->mPayloadSize == -1) {
+        np->mPayloadSize = np->get<int>("size", -1);
+    }
     np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
     return true;
