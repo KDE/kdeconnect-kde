@@ -73,7 +73,7 @@ QByteArray NetworkPackage::serialize() const
 
     if (hasPayload()) {
         //kDebug(kdeconnect_kded()) << "Serializing payloadTransferInfo";
-        variant["payloadSize"] = 0;
+        variant["payloadSize"] = payloadSize();
         variant["payloadTransferInfo"] = mPayloadTransferInfo;
     }
 
