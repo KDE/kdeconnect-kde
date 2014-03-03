@@ -30,6 +30,7 @@
 #include <qprocess.h>
 #include <QDir>
 #include <QDesktopServices>
+#include <QDBusConnection>
 
 #include "../../kdebugnamespace.h"
 #include "../../filetransferjob.h"
@@ -41,7 +42,6 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_share", "kdeconnect-kded") 
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-
 }
 
 KUrl SharePlugin::destinationDir() const
@@ -139,4 +139,27 @@ void SharePlugin::finished(KJob* job)
 void SharePlugin::openDestinationFolder()
 {
     QDesktopServices::openUrl(destinationDir());
+}
+
+void SharePlugin::shareUrl(const QUrl& url)
+{
+    NetworkPackage package(PACKAGE_TYPE_SHARE);
+    if(url.isLocalFile()) {
+        QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
+        package.setPayload(ioFile, ioFile->size());
+        package.set<QString>("filename", KUrl(url).fileName());
+    } else {
+        package.set<QString>("url", url.toString());
+    }
+    device()->sendPackage(package);
+}
+
+void SharePlugin::connected()
+{
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
+}
+
+QString SharePlugin::dbusPath() const
+{
+    return "/modules/kdeconnect/devices/" + device()->id() + "/share";
 }
