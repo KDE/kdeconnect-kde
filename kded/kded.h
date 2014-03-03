@@ -36,13 +36,19 @@ public:
 
 public Q_SLOTS:
     
-    Q_SCRIPTABLE bool start();
+    Q_SCRIPTABLE void start();
     Q_SCRIPTABLE void stop();
-    Q_SCRIPTABLE bool restart();
+    Q_SCRIPTABLE void restart();
+
+Q_SIGNALS:
+    Q_SCRIPTABLE void started();
+    Q_SCRIPTABLE void stopped();
 
 private Q_SLOTS:
     void onError(QProcess::ProcessError);
     void onFinished(int, QProcess::ExitStatus);
+    void daemonStarted();
+    void checkIfDaemonTerminated();
     
 private:
     KProcess* m_daemon;

@@ -44,50 +44,38 @@ Kded::~Kded()
     kDebug(kdeconnect_kded()) << "kded_kdeconnect stopped";
 }
 
-bool Kded::start()
+void Kded::start()
 {
     if (m_daemon) {
-        return true;
+        return;
     }
     
     const QString daemon = KStandardDirs::locate("exe", "kdeconnectd");
     kDebug(kdeconnect_kded()) << "Starting daemon " << daemon;    
     m_daemon = new KProcess(this);
+    connect(m_daemon, SIGNAL(started()), SLOT(daemonStarted()));
     connect(m_daemon, SIGNAL(error(QProcess::ProcessError)), this, SLOT(onError(QProcess::ProcessError)));
     connect(m_daemon, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(onFinished(int,QProcess::ExitStatus)));
     connect(m_daemon, SIGNAL(finished(int,QProcess::ExitStatus)), m_daemon, SLOT(deleteLater()));
     
     m_daemon->setProgram(daemon);
     m_daemon->setOutputChannelMode(KProcess::SeparateChannels);
-    m_daemon->start();
-    if (!m_daemon->waitForStarted(2000)) {//FIXME: KDEDs should be non-blocking, do we really need to wait for it to start?
-        kError(kdeconnect_kded()) << "Can't start " << daemon;
-        return false;
-    }
-
     m_daemon->closeReadChannel(KProcess::StandardOutput);
-
-    kDebug(kdeconnect_kded()) << "Daemon successfuly started";
-    return true;
+    m_daemon->start();
 }
 
 void Kded::stop()
 {
     if (!m_daemon) {
-        return true;
+        return;
     }
 
     m_daemon->terminate();
-    if (m_daemon->waitForFinished(10000)) {
-        kDebug(kdeconnect_kded()) << "Daemon successfuly stopped";
-    } else {
-        m_daemon->kill();
-        kWarning(kdeconnect_kded()) << "Daemon  killed";
-    }
-    m_daemon = 0;
+    m_daemon->setProperty("terminate", true);
+    QTimer::singleShot(10000, this, SLOT(checkIfDaemonTerminated()));
 }
 
-bool Kded::restart()
+void Kded::restart()
 {
     stop();
     return start();
@@ -96,6 +84,12 @@ bool Kded::restart()
 void Kded::onError(QProcess::ProcessError errorCode)
 {
     kError(kdeconnect_kded()) << "Process error code=" << errorCode;
+}
+
+void Kded::daemonStarted()
+{
+    kDebug(kdeconnect_kded()) << "Daemon successfuly started";
+    Q_EMIT started();
 }
 
 void Kded::onFinished(int exitCode, QProcess::ExitStatus status)
@@ -109,6 +103,16 @@ void Kded::onFinished(int exitCode, QProcess::ExitStatus status)
         kWarning(kdeconnect_kded()) << "Process finished with code=" << exitCode;
     }
 
+    Q_EMIT stopped();
     m_daemon = 0;
 }
 
+void Kded::checkIfDaemonTerminated()
+{
+    if (!m_daemon || !m_daemon->property("terminate").isValid()) {
+        return;
+    }
+
+    m_daemon->kill();
+    kWarning(kdeconnect_kded()) << "Daemon  killed";
+}
