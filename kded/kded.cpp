@@ -46,8 +46,7 @@ Kded::~Kded()
 
 bool Kded::start()
 {
-    if (m_daemon) 
-    {
+    if (m_daemon) {
         return true;
     }
     
@@ -61,34 +60,31 @@ bool Kded::start()
     m_daemon->setProgram(daemon);
     m_daemon->setOutputChannelMode(KProcess::SeparateChannels);
     m_daemon->start();
-    if (!m_daemon->waitForStarted(2000)) //FIXME: KDEDs should be non-blocking, do we really need to wait for it to start?
-    {
+    if (!m_daemon->waitForStarted(2000)) {//FIXME: KDEDs should be non-blocking, do we really need to wait for it to start?
         kError(kdeconnect_kded()) << "Can't start " << daemon;
         return false;
     }
 
     m_daemon->closeReadChannel(KProcess::StandardOutput);
-    
+
     kDebug(kdeconnect_kded()) << "Daemon successfuly started";
     return true;
 }
 
 void Kded::stop()
 {
-    if (m_daemon)
-    {
-        m_daemon->terminate();
-        if (m_daemon->waitForFinished(10000))
-        {
-            kDebug(kdeconnect_kded()) << "Daemon successfuly stopped";
-        }
-        else
-        {
-            m_daemon->kill();
-            kWarning(kdeconnect_kded()) << "Daemon  killed";
-        }
-        m_daemon = 0;
+    if (!m_daemon) {
+        return true;
     }
+
+    m_daemon->terminate();
+    if (m_daemon->waitForFinished(10000)) {
+        kDebug(kdeconnect_kded()) << "Daemon successfuly stopped";
+    } else {
+        m_daemon->kill();
+        kWarning(kdeconnect_kded()) << "Daemon  killed";
+    }
+    m_daemon = 0;
 }
 
 bool Kded::restart()
@@ -104,17 +100,15 @@ void Kded::onError(QProcess::ProcessError errorCode)
 
 void Kded::onFinished(int exitCode, QProcess::ExitStatus status)
 {
-    if (status == QProcess::CrashExit)
-    {
+    if (status == QProcess::CrashExit) {
         kError(kdeconnect_kded()) << "Process crashed with code=" << exitCode;
         kError(kdeconnect_kded()) << m_daemon->readAllStandardError();
         kWarning(kdeconnect_kded()) << "Restarting in 5 sec...";
         QTimer::singleShot(5000, this, SLOT(start()));        
-    }
-    else
-    {
+    } else {
         kWarning(kdeconnect_kded()) << "Process finished with code=" << exitCode;
     }
+
     m_daemon = 0;
 }
 
