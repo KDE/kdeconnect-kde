@@ -59,7 +59,7 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
 int main(int argc, char* argv[])
 {
-    KAboutData aboutData("kdeconnectd", "kdeconnect-kded",
+    KAboutData aboutData("kdeconnect", "kdeconnect-kded",
                          ki18n("kdeconnect"),
                          "0.1",
                          ki18n("connect devices"),
