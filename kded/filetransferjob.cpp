@@ -37,7 +37,9 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int si
     mOrigin = origin;
     mSize = size;
     mWritten = 0;
+    m_speedBytes = 0;
     mDeviceName = i18nc("Device name that will appear on the jobs", "KDE-Connect");
+    qDebug() << "SIZE: " << mSize;
     kDebug(kdeconnect_kded()) << "FileTransferJob Downloading payload to" << destination;
 }
 
@@ -49,7 +51,9 @@ void FileTransferJob::openFinished(KJob* job)
 void FileTransferJob::start()
 {
     //kDebug(kdeconnect_kded()) << "FileTransferJob start";
-
+    setTotalAmount(Bytes, mSize);
+    setProcessedAmount(Bytes, 0);
+    m_time = QTime::currentTime();
     description(this, i18n("Receiving file over KDE-Connect"),
                         QPair<QString, QString>(i18nc("File transfer origin", "From"),
                         QString(mDeviceName)),
@@ -84,12 +88,23 @@ void FileTransferJob::readyRead()
     int bytes = qMin(qint64(4096), mOrigin->bytesAvailable());
     QByteArray data = mOrigin->read(bytes);
     mDestination->write(data);
-    mWritten += bytes;
+    mWritten += data.size();
+    setProcessedAmount(Bytes, mWritten);
 
     //kDebug(kdeconnect_kded()) << "readyRead" << mSize << mWritten << bytes;
 
     if (mSize > -1) {
-        setPercent((mWritten*100)/mSize);
+        //If a least 1 second has passed since last update
+        int secondsSinceLastTime = m_time.secsTo(QTime::currentTime());
+        if (secondsSinceLastTime > 0 && m_speedBytes > 0) {
+            float speed = (mWritten - m_speedBytes) / secondsSinceLastTime;
+            emitSpeed(speed);
+
+            m_time = QTime::currentTime();
+            m_speedBytes = mWritten;
+        } else if(m_speedBytes == 0) {
+            m_speedBytes = mWritten;
+        }
     }
 
     if (mSize > -1 && mWritten >= mSize) { //At the end or expected size reached

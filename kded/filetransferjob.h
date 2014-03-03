@@ -22,6 +22,7 @@
 #define FILETRANSFERJOB_H
 
 #include <QIODevice>
+#include <QTime>
 #include <QTemporaryFile>
 
 #include <KJob>
@@ -50,6 +51,8 @@ private:
     QSharedPointer<QIODevice> mOrigin;
     KIO::FileJob* mDestination;
     QString mDeviceName;
+    QTime m_time;
+    qulonglong m_speedBytes;
     int mSize;
     int mWritten;
 
