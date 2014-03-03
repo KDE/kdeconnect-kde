@@ -28,6 +28,9 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source): KJob()
     mInput = source;
     mServer = new QTcpServer(this);
     mSocket = 0;
+
+    connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
+    connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
 }
 
 void UploadJob::start()
@@ -49,15 +52,13 @@ void UploadJob::newConnection()
 
     if (mSocket || !mServer->hasPendingConnections()) return;
 
-    mSocket = mServer->nextPendingConnection();
-
-    connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
-    connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
-
     if (!mInput->open(QIODevice::ReadOnly)) {
+        qWarning() << "error when opening the input to upload";
         return; //TODO: Handle error, clean up...
     }
 
+    mSocket = mServer->nextPendingConnection();
+    readyRead();
 }
 
 void UploadJob::readyRead()
@@ -65,7 +66,10 @@ void UploadJob::readyRead()
     //TODO: Implement payload encryption
 
     qint64 bytes = qMax(mInput->bytesAvailable(), (qint64)4096);
-    mSocket->write(mInput->read(bytes));
+    int w = mSocket->write(mInput->read(bytes));
+    if (w<0) {
+        qWarning() << "error when writing data to upload" << bytes << mInput->bytesAvailable();
+    }
 }
 
 void UploadJob::aboutToClose()
