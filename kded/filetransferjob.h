@@ -50,6 +50,8 @@ public Q_SLOTS:
     void sourceFinished();
     void openFinished(KJob*);
 
+protected:
+    virtual bool doKill();
 private:
     void startTransfer();
     QSharedPointer<QIODevice> mOrigin;

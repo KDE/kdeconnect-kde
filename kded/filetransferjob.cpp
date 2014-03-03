@@ -201,3 +201,13 @@ void FileTransferJob::sourceFinished()
     emitResult();
 }
 
+bool FileTransferJob::doKill()
+{
+    if (mDestinationJob) {
+        mDestinationJob->close();
+    }
+    if (mOrigin) {
+        mOrigin->close();
+    }
+    return true;
+}
