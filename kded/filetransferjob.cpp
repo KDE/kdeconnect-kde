@@ -39,6 +39,8 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int si
     mDestination = destination;
     mDestinationJob = 0;
     mDeviceName = i18nc("Device name that will appear on the jobs", "KDE-Connect");
+
+    setCapabilities(Killable);
     kDebug(kdeconnect_kded()) << "FileTransferJob Downloading payload to" << destination;
 }
 
