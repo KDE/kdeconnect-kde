@@ -34,7 +34,7 @@ Kded::Kded(QObject *parent, const QList<QVariant>&)
     : KDEDModule(parent)
     , m_daemon(0)
 {
-    start();
+    QMetaObject::invokeMethod(this, "start", Qt::QueuedConnection);
     kDebug(kdeconnect_kded()) << "kded_kdeconnect started"; 
 }
 
