@@ -26,6 +26,7 @@
 #include <KStandardDirs>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KJobTrackerInterface>
 
 #include <qprocess.h>
 #include <QDir>
@@ -91,6 +92,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         destination.addPath(filename);
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
+        KIO::getJobTracker()->registerJob(job);
         job->start();
     } else if (np.has("text")) {
         QString text = np.get<QString>("text");
