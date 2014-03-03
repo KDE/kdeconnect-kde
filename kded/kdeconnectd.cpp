@@ -72,6 +72,7 @@ int main(int argc, char* argv[])
     
     KApplication app(true); // WARNING GUI required for QClipboard access
     app.disableSessionManagement();
+    app.setQuitOnLastWindowClosed(false);
 
 
     //Force daemon to destroy when KApplications in alive
