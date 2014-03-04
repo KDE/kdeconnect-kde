@@ -163,7 +163,9 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
     bool success = unserialize(decryptedJson, out);
 
-    if (!success) return false;
+    if (!success) {
+        return false;
+    }
 
     if (hasPayload()) {
         out->mPayload = mPayload;

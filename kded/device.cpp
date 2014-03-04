@@ -160,7 +160,10 @@ void Device::requestPair()
         return;
     }
 
-    if (m_pairStatus == Device::Paired) return;
+    if (m_pairStatus == Device::Paired) {
+        return;
+    }
+
     pairingTimer.setSingleShot(true);
     pairingTimer.start(30 * 1000);
     connect(&pairingTimer, SIGNAL(timeout()),
