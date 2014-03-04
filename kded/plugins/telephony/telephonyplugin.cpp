@@ -37,12 +37,12 @@ TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 {
 
-    QString event = np.get<QString>("event");
-    QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
+    const QString event = np.get<QString>("event");
+    const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
 
-    QString title, content, type, icon;
+    QString content, type, icon;
 
-    title = device()->name();
+    const QString title = device()->name();
 
     if (event == "ringing") {
         type = "callReceived";

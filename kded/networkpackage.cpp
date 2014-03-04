@@ -49,7 +49,7 @@ NetworkPackage::NetworkPackage(const QString& type)
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    QString id = config->group("myself").readEntry<QString>("id","");
+    const QString id = config->group("myself").readEntry<QString>("id","");
     np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->mType = PACKAGE_TYPE_IDENTITY;
     np->mPayload = QSharedPointer<QIODevice>();
@@ -130,9 +130,9 @@ void NetworkPackage::encrypt(QCA::PublicKey& key)
 
     QStringList chunks;
     while (!serialized.isEmpty()) {
-        QByteArray chunk = serialized.left(chunkSize);
+        const QByteArray chunk = serialized.left(chunkSize);
         serialized = serialized.mid(chunkSize);
-        QByteArray encryptedChunk = key.encrypt(chunk, NetworkPackage::EncryptionAlgorithm).toByteArray();
+        const QByteArray encryptedChunk = key.encrypt(chunk, NetworkPackage::EncryptionAlgorithm).toByteArray();
         chunks.append( encryptedChunk.toBase64() );
     }
 
@@ -152,7 +152,7 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
     QByteArray decryptedJson;
     Q_FOREACH(const QString& chunk, chunks) {
-        QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
+        const QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
         QCA::SecureArray decryptedChunk;
         bool success = key.decrypt(encryptedChunk, &decryptedChunk, NetworkPackage::EncryptionAlgorithm);
         if (!success) {
