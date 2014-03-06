@@ -1,4 +1,5 @@
 add_subdirectory(plugins)
+add_subdirectory(autotests)
 
 find_package (QJSON 0.8.1 REQUIRED)
 find_package (QCA2 REQUIRED)
