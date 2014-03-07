@@ -79,7 +79,7 @@ void LanDeviceLink::dataReceived()
 
     if (mSocketLineReader->bytesAvailable() == 0) return;
 
-    QByteArray package = mSocketLineReader->readLine();
+    const QByteArray package = mSocketLineReader->readLine();
 
     //kDebug(kdeconnect_kded()) << "LanDeviceLink dataReceived" << package;
 
