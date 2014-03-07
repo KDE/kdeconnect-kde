@@ -35,8 +35,8 @@ target_link_libraries(kdeconnect_sftp
     ${QCA2_LIBRARIES}
 )
 
-install(TARGETS kdeconnect_sftp DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_sftp.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+#install(TARGETS kdeconnect_sftp DESTINATION ${PLUGIN_INSTALL_DIR} )
+#install(FILES kdeconnect_sftp.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
 include(../../../macros.cmake)
 
