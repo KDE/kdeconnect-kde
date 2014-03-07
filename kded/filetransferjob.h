@@ -22,6 +22,7 @@
 #define FILETRANSFERJOB_H
 
 #include <QIODevice>
+#include <QTime>
 #include <QTemporaryFile>
 
 #include <KJob>
@@ -38,17 +39,27 @@ class FileTransferJob
 public:
     FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination);
     virtual void start();
-    KUrl destination() { return mDestination->url(); }
+    KUrl destination() const { return mDestination; }
+    void setDeviceName(const QString &deviceName) {mDeviceName = deviceName;};
 
 public Q_SLOTS:
+    void doStart();
+    void renameDone(int result);
     void readyRead();
     void open(KIO::Job*);
     void sourceFinished();
     void openFinished(KJob*);
 
+protected:
+    virtual bool doKill();
 private:
+    void startTransfer();
     QSharedPointer<QIODevice> mOrigin;
-    KIO::FileJob* mDestination;
+    KIO::FileJob* mDestinationJob;
+    QString mDeviceName;
+    KUrl mDestination;
+    QTime m_time;
+    qulonglong m_speedBytes;
     int mSize;
     int mWritten;
 

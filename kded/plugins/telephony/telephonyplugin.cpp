@@ -37,12 +37,12 @@ TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 {
 
-    QString event = np.get<QString>("event");
-    QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
+    const QString event = np.get<QString>("event");
+    const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
 
-    QString title, content, type, icon;
+    QString content, type, icon;
 
-    title = device()->name();
+    const QString title = device()->name();
 
     if (event == "ringing") {
         type = "callReceived";
@@ -70,7 +70,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
     KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
     notification->setPixmap(KIcon(icon).pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
     notification->setTitle(title);
     notification->setText(content);
 

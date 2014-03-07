@@ -49,7 +49,7 @@ NetworkPackage::NetworkPackage(const QString& type)
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    QString id = config->group("myself").readEntry<QString>("id","");
+    const QString id = config->group("myself").readEntry<QString>("id","");
     np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->mType = PACKAGE_TYPE_IDENTITY;
     np->mPayload = QSharedPointer<QIODevice>();
@@ -73,7 +73,7 @@ QByteArray NetworkPackage::serialize() const
 
     if (hasPayload()) {
         //kDebug(kdeconnect_kded()) << "Serializing payloadTransferInfo";
-        variant["payloadSize"] = 0;
+        variant["payloadSize"] = payloadSize();
         variant["payloadTransferInfo"] = mPayloadTransferInfo;
     }
 
@@ -112,6 +112,9 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     }
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
+    if (np->mPayloadSize == -1) {
+        np->mPayloadSize = np->get<int>("size", -1);
+    }
     np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
     return true;
@@ -127,9 +130,9 @@ void NetworkPackage::encrypt(QCA::PublicKey& key)
 
     QStringList chunks;
     while (!serialized.isEmpty()) {
-        QByteArray chunk = serialized.left(chunkSize);
+        const QByteArray chunk = serialized.left(chunkSize);
         serialized = serialized.mid(chunkSize);
-        QByteArray encryptedChunk = key.encrypt(chunk, NetworkPackage::EncryptionAlgorithm).toByteArray();
+        const QByteArray encryptedChunk = key.encrypt(chunk, NetworkPackage::EncryptionAlgorithm).toByteArray();
         chunks.append( encryptedChunk.toBase64() );
     }
 
@@ -149,7 +152,7 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
     QByteArray decryptedJson;
     Q_FOREACH(const QString& chunk, chunks) {
-        QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
+        const QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
         QCA::SecureArray decryptedChunk;
         bool success = key.decrypt(encryptedChunk, &decryptedChunk, NetworkPackage::EncryptionAlgorithm);
         if (!success) {
@@ -160,7 +163,9 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
     bool success = unserialize(decryptedJson, out);
 
-    if (!success) return false;
+    if (!success) {
+        return false;
+    }
 
     if (hasPayload()) {
         out->mPayload = mPayload;

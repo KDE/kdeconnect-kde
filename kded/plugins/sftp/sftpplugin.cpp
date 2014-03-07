@@ -38,19 +38,16 @@
 #include "../../kdebugnamespace.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect_sftp") )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect-kded") )
 
 static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "path";
 
 struct SftpPlugin::Pimpl
 {
-    Pimpl()
-    {
-        //Add KIO entry to Dolphin's Places
-        placesModel = new KFilePlacesModel();
-    }
+    Pimpl() {}
   
-    KFilePlacesModel*  placesModel;
+    //Add KIO entry to Dolphin's Places
+    KFilePlacesModel  placesModel;
     QPointer<Mounter> mounter;
 };
 
@@ -74,17 +71,17 @@ void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    m_d->placesModel->addPlace(device()->name(), kioUrl, "kdeconnect");
+    m_d->placesModel.addPlace(device()->name(), kioUrl, "kdeconnect");
     kDebug(kdeconnect_kded()) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
-    QModelIndex index = m_d->placesModel->closestItem(kioUrl);
+    QModelIndex index = m_d->placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
-        m_d->placesModel->removePlace(index);
-        index = m_d->placesModel->closestItem(kioUrl);
+        m_d->placesModel.removePlace(index);
+        index = m_d->placesModel.closestItem(kioUrl);
     }
 }
 
@@ -167,9 +164,9 @@ void SftpPlugin::onMounted()
 
     KNotification* notification = new KNotification("mounted", KNotification::CloseOnTimeout, this);
     notification->setPixmap(KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(i18n("Device %1").arg(device()->name()));
-    notification->setText(i18n("Filesystem mounted at %1").arg(mountPoint()));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
+    notification->setTitle(i18n("Device %1", device()->name()));
+    notification->setText(i18n("Filesystem mounted at %1", mountPoint()));
     notification->sendEvent();
 
     Q_EMIT mounted();
@@ -189,7 +186,7 @@ void SftpPlugin::onUnmounted(bool idleTimeout)
     KNotification* notification = new KNotification("unmounted", KNotification::CloseOnTimeout, this);
     notification->setPixmap(KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Desktop));
     notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(i18n("Device %1").arg(device()->name()));
+    notification->setTitle(i18n("Device %1", device()->name()));
     notification->setText(i18n("Filesystem unmounted"));
     notification->sendEvent();
     
@@ -214,7 +211,7 @@ void SftpPlugin::onFailed(const QString& message)
 void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) const
 {
     KNotification::event(KNotification::StandardEvent(type)
-      , i18n("Device %1").arg(device()->name()), text, icon, 0
+      , i18n("Device %1", device()->name()), text, icon, 0
       , KNotification::CloseOnTimeout);
 }
 

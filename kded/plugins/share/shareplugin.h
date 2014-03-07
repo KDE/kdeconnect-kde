@@ -32,20 +32,26 @@ class SharePlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.share")
 
 public:
     explicit SharePlugin(QObject *parent, const QVariantList &args);
 
+    ///Helper method, QDBus won't recognize QUrl
+    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
-    void finished(KJob*);
+    virtual void connected();
 
 private Q_SLOTS:
+    void finished(KJob*);
     void openDestinationFolder();
 
 private:
-    QString destinationDir();
+    void shareUrl(const QUrl& url);
+
+    QString dbusPath() const;
+    KUrl destinationDir() const;
 
 };
 #endif

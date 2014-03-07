@@ -1,0 +1,5 @@
+set(_testname testsocketlinereader)
+qt4_generate_moc(${_testname}.cpp ${CMAKE_CURRENT_BINARY_DIR}/${_testname}.moc)
+include_directories(${QT_INCLUDES} ${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+kde4_add_unit_test(${_testname} ${_testname}.cpp ${_testname}.moc ../backends/lan/socketlinereader.cpp ../kdebugnamespace.cpp)
+target_link_libraries(${_testname} ${KDE4_KDECORE_LIBS} ${QT_QTTEST_LIBRARY} ${QT_QTCORE_LIBRARY} ${QT_QTNETWORK_LIBRARY})

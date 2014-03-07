@@ -43,11 +43,11 @@ void sighandler(int signum)
     }
 }
 
-void initializeTermHandlers(QCoreApplication* app)
+void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 {
     ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
     QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
-    QObject::connect(snTerm, SIGNAL(activated(int)), app, SLOT(quit()));    
+    QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));    
     
     action.sa_handler = sighandler;
     sigemptyset(&action.sa_mask);
@@ -59,7 +59,7 @@ void initializeTermHandlers(QCoreApplication* app)
 
 int main(int argc, char* argv[])
 {
-    KAboutData aboutData("kdeconnectd", "kdeconnectd",
+    KAboutData aboutData("kdeconnect", "kdeconnect-kded",
                          ki18n("kdeconnect"),
                          "0.1",
                          ki18n("connect devices"),
@@ -72,9 +72,15 @@ int main(int argc, char* argv[])
     
     KApplication app(true); // WARNING GUI required for QClipboard access
     app.disableSessionManagement();
+    app.setQuitOnLastWindowClosed(false);
 
-    initializeTermHandlers(&app);
-    new Daemon(&app);
+
+    //Force daemon to destroy when KApplications in alive
+    //belongs to bug KApplications resoure freeing
+    Daemon* daemon = new Daemon(0);
+    QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
+    initializeTermHandlers(&app, daemon);
+    
     return app.exec();
 }
 

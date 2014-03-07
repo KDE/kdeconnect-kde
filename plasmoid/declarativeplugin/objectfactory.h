@@ -19,7 +19,7 @@ public:
     ObjectFactory(QObject* parent, Func1 f1) : QObject(parent), m_f0(0), m_f1(f1), m_f2(0) {}
     ObjectFactory(QObject* parent, Func2 f2) : QObject(parent), m_f0(0), m_f1(0), m_f2(f2) {}
     
-    virtual ~ObjectFactory() {};
+    virtual ~ObjectFactory() {}
     
     
     Q_INVOKABLE QObject* create() {

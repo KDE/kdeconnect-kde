@@ -32,7 +32,7 @@
 #include "libkdeconnect/devicesmodel.h"
 #include "libkdeconnect/notificationsmodel.h"
 
-Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin);
+Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin)
 
 QObject* createDeviceDbusInterface(QVariant deviceId)
 {

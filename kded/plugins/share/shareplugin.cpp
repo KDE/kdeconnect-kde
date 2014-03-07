@@ -26,10 +26,12 @@
 #include <KStandardDirs>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KJobTrackerInterface>
 
 #include <qprocess.h>
 #include <QDir>
 #include <QDesktopServices>
+#include <QDBusConnection>
 
 #include "../../kdebugnamespace.h"
 #include "../../filetransferjob.h"
@@ -41,20 +43,16 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_share", "kdeconnect-kded") 
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-
 }
 
-QString SharePlugin::destinationDir()
+KUrl SharePlugin::destinationDir() const
 {
-    QString defaultPath = KGlobalSettings::downloadPath();
-
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
-    QString dir = config->group("receive").readEntry("path", defaultPath);
+    KUrl dir = config->group("receive").readEntry("path", KGlobalSettings::downloadPath());
+    dir.adjustPath(KUrl::AddTrailingSlash);
 
-    if (!dir.endsWith('/')) dir.append('/');
-
-    QDir().mkpath(KUrl(dir).path()); //Using KUrl to remove file:/// protocol, wich seems to confuse QDir.mkpath
+    QDir().mkpath(dir.toLocalFile());
 
     kDebug(kdeconnect_kded()) << dir;
 
@@ -89,8 +87,13 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         //kDebug(kdeconnect_kded()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         //TODO: Ask before overwritting or rename file if it already exists
-        FileTransferJob* job = np.createPayloadTransferJob(destinationDir() + filename);
+
+        KUrl destination = destinationDir();
+        destination.addPath(filename);
+        FileTransferJob* job = np.createPayloadTransferJob(destination);
+        job->setDeviceName(device()->name());
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
+        KIO::getJobTracker()->registerJob(job);
         job->start();
     } else if (np.has("text")) {
         QString text = np.get<QString>("text");
@@ -128,7 +131,7 @@ void SharePlugin::finished(KJob* job)
     FileTransferJob* transferJob = (FileTransferJob*)job;
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
     notification->setPixmap(KIcon(error? "edit-delete" : "dialog-ok").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
     notification->setTitle(i18n("Transfer finished"));
     notification->setText(transferJob->destination().fileName());
     notification->setActions(QStringList(i18n("Open destination folder")));
@@ -139,4 +142,27 @@ void SharePlugin::finished(KJob* job)
 void SharePlugin::openDestinationFolder()
 {
     QDesktopServices::openUrl(destinationDir());
+}
+
+void SharePlugin::shareUrl(const QUrl& url)
+{
+    NetworkPackage package(PACKAGE_TYPE_SHARE);
+    if(url.isLocalFile()) {
+        QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
+        package.setPayload(ioFile, ioFile->size());
+        package.set<QString>("filename", KUrl(url).fileName());
+    } else {
+        package.set<QString>("url", url.toString());
+    }
+    device()->sendPackage(package);
+}
+
+void SharePlugin::connected()
+{
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
+}
+
+QString SharePlugin::dbusPath() const
+{
+    return "/modules/kdeconnect/devices/" + device()->id() + "/share";
 }
