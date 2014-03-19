@@ -26,6 +26,7 @@ Name[sv]=Fjärrfilsystembläddrare
 Name[uk]=Перегляд віддалених файлових систем
 Name[x-test]=xxRemote filesystem browserxx
 Comment=Browse the remote device filesystem using SFTP
+Comment[cs]=Prohlížení souborového systému na zařízení pomocí SFTP
 Comment[da]=Gennemse filsystemet på den eksterne enhed med SFTP
 Comment[de]=Browsen im Dateisystem des entfernten Geräts mit SFTP
 Comment[fr]=Visualiser le système de fichiers de l'appareil distant en utilisant SFTP

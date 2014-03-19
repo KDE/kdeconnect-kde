@@ -32,6 +32,7 @@ Name[uk]=Синхронізація сповіщень
 Name[x-test]=xxNotification syncxx
 Comment=Show phone notifications in KDE and keep them in sync
 Comment[bs]=Prikaži objavještenja sa mobitela u KDE i održavaj ih sinhronizovanim
+Comment[cs]=Zobrazit upozornění z telefonu v KDE a udržovat je synchronizovaná
 Comment[da]=Vis telefonbekendtgørelser i KDE og hold dem synkroniseret
 Comment[de]=Benachrichtigungen in KDE anzeigen und abgleichen
 Comment[es]=Mostrar las notificaciones del teléfono en KDE y mantenerlas sincronizadas
