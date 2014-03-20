@@ -6,6 +6,7 @@ X-KDE-Library=kdeconnect_sftp_config
 X-KDE-ParentComponents=kdeconnect_sftp
 
 Name=SFTP filebrowser plugin settings
+Name[cs]=Nastavení modulu pro prohlížení souborů přes SFTP
 Name[da]=Indstilling af filhåndteringens SFTP-plugin
 Name[de]=Modul-Einstellungen für SFTP-Dateibrowser
 Name[fr]=Paramètres du module du navigateur de fichiers SFTP

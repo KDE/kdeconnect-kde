@@ -13,6 +13,7 @@ X-KDE-PluginInfo-EnabledByDefault=true
 Icon=call-start
 Name=Telephony integration
 Name[bs]=Telefonska integracija
+Name[cs]=Integrace telefonie
 Name[da]=Telefoni-integration
 Name[de]=Telefon-Integration
 Name[es]=Integración de telefonía
