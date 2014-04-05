@@ -169,13 +169,6 @@
               </property>
              </widget>
             </item>
-            <item>
-             <widget class="QPushButton" name="browse_button">
-              <property name="text">
-               <string>Browse</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </widget>
          </item>
