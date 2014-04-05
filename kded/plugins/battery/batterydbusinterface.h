@@ -33,8 +33,8 @@ public:
     explicit BatteryDbusInterface(QObject *parent);
     virtual ~BatteryDbusInterface();
     
-    Q_SCRIPTABLE int charge() { return mCharge; }
-    Q_SCRIPTABLE bool isCharging() { return mIsCharging; }
+    Q_SCRIPTABLE int charge() const { return mCharge; }
+    Q_SCRIPTABLE bool isCharging() const { return mIsCharging; }
 
     void updateValues(bool isCharging, int currentCharge);
 

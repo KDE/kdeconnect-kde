@@ -123,7 +123,7 @@ bool SftpPlugin::mountAndWait()
     return m_d->mounter->wait();
 }
 
-bool SftpPlugin::isMounted()
+bool SftpPlugin::isMounted() const
 {
     return m_d->mounter && m_d->mounter->isMounted();
 }

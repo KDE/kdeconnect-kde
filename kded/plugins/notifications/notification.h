@@ -41,11 +41,11 @@ public:
     Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent);
     virtual ~Notification();
 
-    QString internalId() { return mId; }
-    QString appName() { return mAppName; }
-    QString ticker() { return mTicker; }
-    QString iconPath() { return mIconPath; }
-    bool dismissable() { return mDismissable; }
+    QString internalId() const { return mId; }
+    QString appName() const { return mAppName; }
+    QString ticker() const { return mTicker; }
+    QString iconPath() const { return mIconPath; }
+    bool dismissable() const { return mDismissable; }
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
