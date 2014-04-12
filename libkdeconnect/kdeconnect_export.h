@@ -23,6 +23,10 @@
 
 #include <QtCore/QtGlobal>
 
+#if defined(KDECONNECT_LIBRARY)
 #define KDECONNECT_EXPORT Q_DECL_EXPORT
+#else
+#define KDECONNECT_EXPORT Q_DECL_IMPORT
+#endif
 
 #endif
