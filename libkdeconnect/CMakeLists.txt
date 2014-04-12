@@ -8,6 +8,8 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_BINARY_DIR}
                     ${CMAKE_SOURCE_DIR})
 
+add_definitions(-DKDECONNECT_LIBRARY)
+
 set(libkdeconnect_SRC
     dbusinterfaces.cpp
     devicesmodel.cpp
