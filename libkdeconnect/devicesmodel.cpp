@@ -173,7 +173,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 }
 
-DeviceDbusInterface* DevicesModel::getDevice(const QModelIndex& index)
+DeviceDbusInterface *DevicesModel::getDevice(const QModelIndex &index) const
 {
     if (!index.isValid()) {
         return NULL;

@@ -57,7 +57,7 @@ NotificationsModel::~NotificationsModel()
 {
 }
 
-QString NotificationsModel::deviceId()
+QString NotificationsModel::deviceId() const
 {
     return m_deviceId;
 }
@@ -161,7 +161,7 @@ QVariant NotificationsModel::data(const QModelIndex &index, int role) const
     }
 }
 
-NotificationDbusInterface* NotificationsModel::getNotification(const QModelIndex& index)
+NotificationDbusInterface *NotificationsModel::getNotification(const QModelIndex &index) const
 {
     if (!index.isValid()) {
         return NULL;
@@ -185,7 +185,7 @@ int NotificationsModel::rowCount(const QModelIndex &parent) const
     return m_notificationList.count();
 }
 
-bool NotificationsModel::isAnyDimissable()
+bool NotificationsModel::isAnyDimissable() const
 {
     Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
         if (notification->dismissable()) {

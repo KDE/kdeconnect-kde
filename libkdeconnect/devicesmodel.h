@@ -59,7 +59,7 @@ public:
     virtual QVariant data(const QModelIndex &index, int role) const;
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
-    DeviceDbusInterface* getDevice(const QModelIndex& index);
+    DeviceDbusInterface *getDevice(const QModelIndex &index) const;
 
 public Q_SLOTS:
     void deviceStatusChanged(const QString& id);

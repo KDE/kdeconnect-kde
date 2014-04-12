@@ -50,17 +50,17 @@ public:
     NotificationsModel(QObject *parent = 0);
     virtual ~NotificationsModel();
 
-    QString deviceId();
+    QString deviceId() const;
     void setDeviceId(const QString& deviceId);
 
-    virtual QVariant data(const QModelIndex &index, int role) const;
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    virtual QVariant data(const QModelIndex& index, int role) const;
+    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
-    NotificationDbusInterface* getNotification(const QModelIndex&);
+    NotificationDbusInterface* getNotification(const QModelIndex& index) const;
 
 public Q_SLOTS:
     void dismissAll();
-    bool isAnyDimissable();
+    bool isAnyDimissable() const;
 
 private Q_SLOTS:
     void notificationAdded(const QString& id);
