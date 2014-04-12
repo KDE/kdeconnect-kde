@@ -84,6 +84,9 @@ void TestSocketLineReader::socketLineReader()
     mTimer.start();
     mLoop.exec();
 
+    /* remove the empty line before compare */
+    dataToSend.removeOne("\n");
+
     QCOMPARE(mPackages.count(), 5);//We expect 5 Packages
     for(int x = 0;x < 5; ++x) {
         QCOMPARE(mPackages[x], dataToSend[x]);
