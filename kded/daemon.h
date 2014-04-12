@@ -53,7 +53,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE void forceOnNetworkChange();
 
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
-    Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyVisible = false);
+    Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyVisible = false) const;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
