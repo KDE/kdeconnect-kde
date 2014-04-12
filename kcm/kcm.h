@@ -27,8 +27,6 @@
 #include <kcmodule.h>
 #include <ksharedconfig.h>
 
-#include "libkdeconnect/devicesmodel.h"
-
 class QModelIndex;
 class AccountsModel;
 class AccountWidget;
@@ -36,6 +34,7 @@ class QStackedLayout;
 class QItemSelectionModel;
 class QDBusInterface;
 class DeviceDbusInterface;
+class DevicesModel;
 class DevicesSortProxyModel;
 
 namespace Ui {

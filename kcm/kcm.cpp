@@ -36,6 +36,7 @@
 
 #include "ui_kcm.h"
 #include "libkdeconnect/dbusinterfaces.h"
+#include "libkdeconnect/devicesmodel.h"
 #include "devicessortproxymodel.h"
 #include "kdebugnamespace.h"
 
