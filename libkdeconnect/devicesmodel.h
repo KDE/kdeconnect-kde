@@ -44,9 +44,9 @@ public:
         IdModelRole = Qt::UserRole,
     };
     enum StatusFlags {
-        StatusUnknown = 0x00,
-        StatusPaired  = 0x01,
-        StatusReachable = 0x10,
+        StatusUnknown   = 0x00,
+        StatusPaired    = 0x01,
+        StatusReachable = 0x02
     };
 
     DevicesModel(QObject *parent = 0);
