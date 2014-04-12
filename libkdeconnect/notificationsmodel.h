@@ -58,9 +58,10 @@ public:
 
     NotificationDbusInterface* getNotification(const QModelIndex& index) const;
 
+    Q_INVOKABLE bool isAnyDimissable() const;
+
 public Q_SLOTS:
     void dismissAll();
-    bool isAnyDimissable() const;
 
 private Q_SLOTS:
     void notificationAdded(const QString& id);
