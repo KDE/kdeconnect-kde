@@ -24,7 +24,7 @@
 #include <unistd.h>
 
 #include <QSocketNotifier>
-#include <KApplication>
+#include <KUniqueApplication>
 #include <KAboutData>
 #include <KCmdLineArgs>
 
@@ -70,10 +70,9 @@ int main(int argc, char* argv[])
 
     KCmdLineArgs::init(argc, argv, &aboutData);
     
-    KApplication app(true); // WARNING GUI required for QClipboard access
+    KUniqueApplication app(true); // WARNING GUI required for QClipboard access
     app.disableSessionManagement();
     app.setQuitOnLastWindowClosed(false);
-
 
     //Force daemon to destroy when KApplications in alive
     //belongs to bug KApplications resoure freeing
