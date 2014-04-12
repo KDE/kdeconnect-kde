@@ -18,6 +18,24 @@ set(libkdeconnect_SRC
     kdebugnamespace.cpp
 )
 
+set(libkdeconnect_public_HEADERS
+    KDEConnect/DevicesModel
+    KDEConnect/NotificationsModel
+)
+
+set(libkdeconnect_HEADERS
+    devicesmodel.h
+    notificationsmodel.h
+    dbusinterfaces.h
+    kdeconnect_export.h
+    ${CMAKE_BINARY_DIR}/libkdeconnect/daemoninterface.h
+    ${CMAKE_BINARY_DIR}/libkdeconnect/deviceinterface.h
+    ${CMAKE_BINARY_DIR}/libkdeconnect/devicebatteryinterface.h
+    ${CMAKE_BINARY_DIR}/libkdeconnect/devicesftpinterface.h
+    ${CMAKE_BINARY_DIR}/libkdeconnect/devicenotificationsinterface.h
+    ${CMAKE_BINARY_DIR}/libkdeconnect/notificationinterface.h
+)
+
 set_source_files_properties(
     ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.daemon.xml
     ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.device.xml
@@ -70,4 +88,3 @@ install(FILES ${libkdeconnect_public_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}
 install(FILES ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfig.cmake
               ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfigVersion.cmake
         DESTINATION ${LIB_INSTALL_DIR}/cmake/KDEConnect)
-
