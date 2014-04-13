@@ -1,7 +1,7 @@
-set(likdeconnect_VERSION_MAJOR 1)
-set(likdeconnect_VERSION_MINOR 0)
-set(likdeconnect_VERSION_RELEASE 1)
-set(likdeconnect_VERSION "${likdeconnect_VERSION_MAJOR}.${likdeconnect_VERSION_MINOR}.${likdeconnect_VERSION_RELEASE}")
+set(KDECONNECT_VERSION_MAJOR 1)
+set(KDECONNECT_VERSION_MINOR 0)
+set(KDECONNECT_VERSION_PATCH 1)
+set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -34,8 +34,8 @@ qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/notifi
 
 kde4_add_library(kdeconnect SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnect PROPERTIES
-    VERSION ${likdeconnect_VERSION}
-    SOVERSION ${likdeconnect_VERSION_MAJOR}
+    VERSION ${KDECONNECT_VERSION}
+    SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
 
 add_dependencies(kdeconnect
