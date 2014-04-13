@@ -1,0 +1,35 @@
+# Find libkdeconnect
+# Once done this will define
+#
+#  KDECONNECT_FOUND    - system has KDEConnect Library
+#  KDECONNECT_INCLUDES - the KDEConnect include directory
+#  KDECONNECT_LIBS     - link these to use KDEConnect
+
+#  KDECONNECT_VERSION_MAJOR  - the version of the KDEConnect Library
+#  KDECONNECT_VERSION_MINOR  - the version of the KDEConnect Library
+#  KDECONNECT_VERSION_PATCH  - the version of the KDEConnect Library
+#  KDECONNECT_VERSION  - the version of the KDEConnect Library
+
+# Copyright (c) 2014, Alexandr Akulich <akulichalexander@gmail.com>
+#
+# Redistribution and use is allowed according to the terms of the BSD license.
+
+find_library(KDECONNECT_LIBRARY NAMES kdeconnect HINTS ${KDE4_LIB_INSTALL_DIR} ${QT_LIBRARY_DIR})
+
+find_path(KDECONNECT_INCLUDE_DIR NAMES kdeconnect_export.h HINTS ${KDE4_INCLUDE_INSTALL_DIR} ${QT_INCLUDE_DIR} ${INCLUDE_INSTALL_DIR} PATH_SUFFIXES kdeconnect)
+get_filename_component(KDECONNECT_INCLUDE_DIR ${KDECONNECT_INCLUDE_DIR} PATH)
+
+if(KDECONNECT_INCLUDE_DIR AND KDECONNECT_LIBRARY)
+   set(KDECONNECT_FOUND TRUE)
+   set(KDECONNECT_LIBS ${kdeconnect_LIB_DEPENDS} ${KDECONNECT_LIBRARY})
+   set(KDECONNECT_INCLUDES ${KDECONNECT_INCLUDE_DIR})
+   set(KDECONNECT_VERSION_MAJOR "@KDECONNECT_VERSION_MAJOR@")
+   set(KDECONNECT_VERSION_MINOR "@KDECONNECT_VERSION_MINOR@")
+   set(KDECONNECT_VERSION_PATCH "@KDECONNECT_VERSION_PATCH@")
+   set(KDECONNECT_VERSION "@KDECONNECT_VERSION@")
+endif(KDECONNECT_INCLUDE_DIR AND KDECONNECT_LIBRARY)
+
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(KDEConnect DEFAULT_MSG KDECONNECT_INCLUDE_DIR KDECONNECT_LIBRARY)
+
+mark_as_advanced(KDECONNECT_INCLUDE_DIR KDECONNECT_LIBRARY)

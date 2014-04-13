@@ -55,4 +55,17 @@ target_link_libraries(kdeconnect
     ${QJSON_LIBRARIES}
 )
 
+configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfig.cmake @ONLY)
+
+macro_write_basic_cmake_version_file(${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfigVersion.cmake
+        ${KDECONNECT_VERSION_MAJOR} ${KDECONNECT_VERSION_MINOR} ${KDECONNECT_VERSION_PATCH})
+        
 install(TARGETS kdeconnect EXPORT kdeconnectLibraryTargets  ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+#Install header files
+install(FILES ${libkdeconnect_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/kdeconnect COMPONENT Devel)
+install(FILES ${libkdeconnect_public_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDEConnect COMPONENT Devel)
+install(FILES ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfig.cmake
+              ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfigVersion.cmake
+        DESTINATION ${LIB_INSTALL_DIR}/cmake/KDEConnect)
+
