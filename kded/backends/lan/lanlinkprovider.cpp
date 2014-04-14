@@ -222,10 +222,12 @@ void LanLinkProvider::newConnection()
 {
     //kDebug(kdeconnect_kded()) << "LanLinkProvider newConnection";
 
-    QTcpSocket* socket = mTcpServer->nextPendingConnection();
-    socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
+    while(mTcpServer->hasPendingConnections()) {
+        QTcpSocket* socket = mTcpServer->nextPendingConnection();
+        socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
 
-    connect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
+        connect(socket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+    }
 
 /*
     NetworkPackage np(PACKAGE_TYPE_IDENTITY);
