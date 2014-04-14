@@ -50,7 +50,7 @@ Item {
     }
     */
 
-    function showPlasmoidBeShown()
+    function shouldPlasmoidBeShown()
     {
         if (devicesView.count > 0) {
             plasmoid.status = ActiveStatus;
@@ -71,8 +71,8 @@ Item {
                 displayFilter: 0x11
             }
             delegate: DeviceDelegate { }
-            onCountChanged: showPlasmoidBeShown()
-            Component.onCompleted: showPlasmoidBeShown();
+            onCountChanged: shouldPlasmoidBeShown()
+            Component.onCompleted: shouldPlasmoidBeShown();
         }
     }
 
