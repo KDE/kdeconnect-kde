@@ -157,6 +157,8 @@ void LanLinkProvider::connectError()
     np.set("tcpPort", mTcpPort);
     mUdpSocket.writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, port);
 
+    delete receivedIdentityPackages[socket].np;
+    receivedIdentityPackages.remove(socket);
 }
 
 void LanLinkProvider::connected()
