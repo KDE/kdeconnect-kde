@@ -45,6 +45,7 @@ Daemon::Daemon(QObject *parent) : QObject(parent)
         //uuids contain charcaters that are not exportable in dbus paths
         uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
         config->group("myself").writeEntry("id", uuid);
+        config->sync();
         kDebug(kdeconnect_kded()) << "My id:" << uuid;
     }
 
@@ -75,11 +76,17 @@ Daemon::Daemon(QObject *parent) : QObject(parent)
             //return;
         }
 
-        //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html        
-        privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toAscii());
+        //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
+        if (config->group("myself").hasKey("privateKey")) {
+            //Migration from older versions of KDE Connect
+            privKey.write(config->group("myself").readEntry<QString>("privateKey",QCA::KeyGenerator().createRSA(2048).toPEM()).toAscii());
+        } else {
+            privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toAscii());
+        }
         privKey.close();
-        
+
         config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
+        config->sync();
     }
     
     if (QFile::permissions(config->group("myself").readEntry("privateKeyPath")) != strict)
