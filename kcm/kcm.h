@@ -58,7 +58,6 @@ private Q_SLOTS:
     void requestPair();
     void pluginsConfigChanged();
     void sendPing();
-    void browseFilesystem();
     void resetSelection();
     void pairingSuccesful();
     void pairingFailed(const QString& error);

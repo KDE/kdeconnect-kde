@@ -56,7 +56,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE void mount();
     Q_SCRIPTABLE void unmount();
     Q_SCRIPTABLE bool mountAndWait();
-    Q_SCRIPTABLE bool isMounted();
+    Q_SCRIPTABLE bool isMounted() const;
     
     Q_SCRIPTABLE bool startBrowsing();
     Q_SCRIPTABLE QString mountPoint();

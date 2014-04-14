@@ -6,11 +6,14 @@ X-KDE-Library=kdeconnect_share_config
 X-KDE-ParentComponents=kdeconnect_share
 
 Name=Share plugin settings
+Name[cs]=Nastavení modulu sdílení
 Name[da]=Indstilling af deling-plugin
 Name[de]=Modul-Einstellungen für Veröffentlichung
 Name[fr]=Paramètres du module de partage
 Name[hu]=Megosztás bővítmény beállításai
+Name[ko]=공유 플러그인 설정
 Name[nl]=Plug-in-instellingen van delen
+Name[pl]=Ustawienia wtyczki udostępniania
 Name[pt]=Configuração do 'plugin' de partilha
 Name[pt_BR]=Compartilhar as configurações do plugin
 Name[sk]=Nastavenia pluginu zdieľania

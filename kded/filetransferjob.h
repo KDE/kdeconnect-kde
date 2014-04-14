@@ -52,6 +52,7 @@ public Q_SLOTS:
 
 protected:
     virtual bool doKill();
+
 private:
     void startTransfer();
     QSharedPointer<QIODevice> mOrigin;

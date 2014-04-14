@@ -73,8 +73,6 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
             this, SLOT(unpair()));
     connect(kcmUi->ping_button, SIGNAL(pressed()),
             this, SLOT(sendPing()));
-    connect(kcmUi->browse_button, SIGNAL(clicked(bool)),
-            this, SLOT(browseFilesystem()));
 
 }
 
@@ -252,10 +250,4 @@ void KdeConnectKcm::sendPing()
 {
     if (!currentDevice) return;
     currentDevice->sendPing();
-}
-
-void KdeConnectKcm::browseFilesystem()
-{
-    if (!currentDevice) return;
-    SftpDbusInterface(currentDevice->id(), this).startBrowsing();
 }

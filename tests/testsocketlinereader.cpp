@@ -16,7 +16,7 @@
  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA       *
  *************************************************************************************/
 
-#include "../backends/lan/socketlinereader.h"
+#include "../kded/backends/lan/socketlinereader.h"
 
 #include <QTest>
 #include <QTcpServer>
@@ -83,6 +83,9 @@ void TestSocketLineReader::socketLineReader()
     connect(mReader, SIGNAL(readyRead()), SLOT(newPackage()));
     mTimer.start();
     mLoop.exec();
+
+    /* remove the empty line before compare */
+    dataToSend.removeOne("\n");
 
     QCOMPARE(mPackages.count(), 5);//We expect 5 Packages
     for(int x = 0;x < 5; ++x) {

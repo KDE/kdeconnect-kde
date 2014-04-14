@@ -430,6 +430,7 @@ void Device::storeAsTrusted()
     config->group("trusted_devices").group(id()).writeEntry("publicKey", m_publicKey.toPEM());
     config->group("trusted_devices").group(id()).writeEntry("deviceName", name());
     config->group("trusted_devices").group(id()).writeEntry("deviceType", type2str(m_deviceType));
+    config->sync();
 }
 
 QStringList Device::availableLinks() const

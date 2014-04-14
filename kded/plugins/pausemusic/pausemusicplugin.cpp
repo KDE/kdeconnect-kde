@@ -76,8 +76,8 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     if (pauseConditionFulfilled) {
         if (use_mute) {
             QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
-            if (isKMixMuted()) {
-                pausedSources.insert("mute");
+            if (!isKMixMuted()) {
+                pausedSources.insert("mute"); //Fake source
                 kmixInterface.call("trigger");
             }
         } else {
