@@ -68,7 +68,7 @@ LanLinkProvider::LanLinkProvider()
 
 void LanLinkProvider::onStart()
 {
-    bool buildSucceed = mUdpServer->bind(QHostAddress::Broadcast, port, QUdpSocket::ShareAddress)
+    bool buildSucceed = mUdpServer->bind(QHostAddress::Broadcast, port, QUdpSocket::ShareAddress);
     Q_ASSERT(buildSucceed);
 
     mTcpPort = port;
@@ -117,7 +117,7 @@ void LanLinkProvider::newUdpConnection()
         mUdpServer->readDatagram(datagram.data(), datagram.size(), &sender);
 
         NetworkPackage* receivedPackage = new NetworkPackage("");
-        bool success = NetworkPackage::unserialize(datagram, receivedPackage);
+        success = NetworkPackage::unserialize(datagram, receivedPackage);
 
         if (!success || receivedPackage->type() != PACKAGE_TYPE_IDENTITY) {
             delete receivedPackage;
