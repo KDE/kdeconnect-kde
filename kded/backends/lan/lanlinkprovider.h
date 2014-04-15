@@ -51,7 +51,7 @@ private Q_SLOTS:
     void newUdpConnection();
     void newConnection();
     void dataReceived();
-    void deviceLinkDestroyed(QObject*);
+    void deviceLinkDestroyed(QObject* destroyedDeviceLink);
 
 private:
     static void configureSocket(QTcpSocket* socket);

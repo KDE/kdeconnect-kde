@@ -280,16 +280,12 @@ void LanLinkProvider::dataReceived()
     disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 }
 
-void LanLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
+void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 {
     //kDebug(kdeconnect_kded()) << "deviceLinkDestroyed";
-
-    DeviceLink* deviceLink = qobject_cast<DeviceLink*>(uncastedDeviceLink);
-    Q_ASSERT(deviceLink);
-
-    const QString& id = deviceLink->deviceId();
+    const QString id = destroyedDeviceLink->property("deviceId").toString();
     QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(id);
-    if (oldLinkIterator != mLinks.end() && oldLinkIterator.value() == deviceLink) {
+    if (oldLinkIterator != mLinks.end() && oldLinkIterator.value() == destroyedDeviceLink) {
         mLinks.erase(oldLinkIterator);
     }
 
