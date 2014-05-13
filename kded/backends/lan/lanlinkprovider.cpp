@@ -68,10 +68,13 @@ LanLinkProvider::LanLinkProvider()
 
 void LanLinkProvider::onStart()
 {
-    mUdpServer->bind(QHostAddress::Broadcast, port, QUdpSocket::ShareAddress);
+    bool buildSucceed = mUdpServer->bind(QHostAddress::Broadcast, port, QUdpSocket::ShareAddress);
+    Q_ASSERT(buildSucceed);
 
-    tcpPort = port;
-    while (!mTcpServer->listen(QHostAddress::Any, tcpPort)) tcpPort++;
+    mTcpPort = port;
+    while (!mTcpServer->listen(QHostAddress::Any, mTcpPort)) {
+        mTcpPort++;
+    }
 
     onNetworkChange(QNetworkSession::Connected);
 }
@@ -87,12 +90,14 @@ void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
 {
     Q_UNUSED(state);
 
-    if (!mTcpServer->isListening()) return;
+    if (!mTcpServer->isListening()) {
+        return;
+    }
 
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
-    np.set("tcpPort",tcpPort);
-    QUdpSocket().writeDatagram(np.serialize(),QHostAddress("255.255.255.255"), port);
+    np.set("tcpPort", mTcpPort);
+    mUdpSocket.writeDatagram(np.serialize(), QHostAddress("255.255.255.255"), port);
 }
 
 //I'm the existing device, a new device is kindly introducing itself (I will create a TcpSocket)
@@ -109,40 +114,39 @@ void LanLinkProvider::newUdpConnection()
         NetworkPackage* np = new NetworkPackage("");
         bool success = NetworkPackage::unserialize(datagram,np);
 
-        if (success && np->type() == PACKAGE_TYPE_IDENTITY) {
+        mUdpServer->readDatagram(datagram.data(), datagram.size(), &sender);
 
-            NetworkPackage np2("");
-            NetworkPackage::createIdentityPackage(&np2);
+        NetworkPackage* receivedPackage = new NetworkPackage("");
+        success = NetworkPackage::unserialize(datagram, receivedPackage);
 
-            if (np->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
-                //kDebug(kdeconnect_kded()) << "Ignoring my own broadcast";
-                return;
-            }
-
-            int tcpPort = np->get<int>("tcpPort",port);
-
-            //kDebug(kdeconnect_kded()) << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
-
-            QTcpSocket* socket = new QTcpSocket(this);
-            receivedIdentityPackages[socket].np = np;
-            receivedIdentityPackages[socket].sender = sender;
-            connect(socket, SIGNAL(connected()), this, SLOT(connected()));
-            connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
-            socket->connectToHost(sender, tcpPort);
-
-
-        } else {
-
-            delete np;
-
+        if (!success || receivedPackage->type() != PACKAGE_TYPE_IDENTITY) {
+            delete receivedPackage;
         }
-    }
 
+        NetworkPackage np2("");
+        NetworkPackage::createIdentityPackage(&np2);
+
+        if (receivedPackage->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
+            //kDebug(kdeconnect_kded()) << "Ignoring my own broadcast";
+            return;
+        }
+
+        int tcpPort = receivedPackage->get<int>("tcpPort", port);
+
+        //kDebug(kdeconnect_kded()) << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
+
+        QTcpSocket* socket = new QTcpSocket(this);
+        receivedIdentityPackages[socket].np = receivedPackage;
+        receivedIdentityPackages[socket].sender = sender;
+        connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+        connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
+        socket->connectToHost(sender, tcpPort);
+    }
 }
 
 void LanLinkProvider::connectError()
 {
-    QTcpSocket* socket = (QTcpSocket*)sender();
+    QTcpSocket* socket = qobject_cast<QTcpSocket*>(sender());
 
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
@@ -150,63 +154,66 @@ void LanLinkProvider::connectError()
     kDebug(kdeconnect_kded()) << "Fallback (1), try reverse connection";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
-    np.set("tcpPort",tcpPort);
-    QUdpSocket().writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, port);
+    np.set("tcpPort", mTcpPort);
+    mUdpSocket.writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, port);
 
+    delete receivedIdentityPackages[socket].np;
+    receivedIdentityPackages.remove(socket);
 }
 
 void LanLinkProvider::connected()
 {
 
-    QTcpSocket* socket = (QTcpSocket*)sender();
+    QTcpSocket* socket = qobject_cast<QTcpSocket*>(sender());
 
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
     configureSocket(socket);
 
-    NetworkPackage* np = receivedIdentityPackages[socket].np;
-    const QString& id = np->get<QString>("deviceId");
+    NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
+    const QString& deviceId = receivedPackage->get<QString>("deviceId");
     //kDebug(kdeconnect_kded()) << "Connected" << socket->isWritable();
 
-    LanDeviceLink* dl = new LanDeviceLink(id, this, socket);
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
 
     NetworkPackage np2("");
     NetworkPackage::createIdentityPackage(&np2);
 
-    bool success = dl->sendPackage(np2);
+    bool success = deviceLink->sendPackage(np2);
 
     //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
 
         //kDebug(kdeconnect_kded()) << "Handshaking done (i'm the existing device)";
 
-        connect(dl, SIGNAL(destroyed(QObject*)),
+        connect(deviceLink, SIGNAL(destroyed(QObject*)),
                 this, SLOT(deviceLinkDestroyed(QObject*)));
 
-        Q_EMIT onConnectionReceived(*np, dl);
+        Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 
-        QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
-        if (oldLinkIterator != links.end()) {
+        //We kill any possible link from this same device
+        QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(deviceId);
+        if (oldLinkIterator != mLinks.end()) {
             DeviceLink* oldLink = oldLinkIterator.value();
             disconnect(oldLink, SIGNAL(destroyed(QObject*)),
                         this, SLOT(deviceLinkDestroyed(QObject*)));
             oldLink->deleteLater();
-            links.erase(oldLinkIterator);
+            mLinks.erase(oldLinkIterator);
         }
 
-        links[id] = dl;
+        mLinks[deviceId] = deviceLink;
 
     } else {
         //I think this will never happen
         kDebug(kdeconnect_kded()) << "Fallback (2), try reverse connection";
-        QUdpSocket().writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
-        delete dl;
+        mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
+        delete deviceLink;
     }
 
     receivedIdentityPackages.remove(socket);
 
-    delete np;
+    delete receivedPackage;
 
 }
 
@@ -215,10 +222,12 @@ void LanLinkProvider::newConnection()
 {
     //kDebug(kdeconnect_kded()) << "LanLinkProvider newConnection";
 
-    QTcpSocket* socket = mTcpServer->nextPendingConnection();
-    socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
+    while(mTcpServer->hasPendingConnections()) {
+        QTcpSocket* socket = mTcpServer->nextPendingConnection();
+        socket->setSocketOption(QAbstractSocket::KeepAliveOption, 1);
 
-    connect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
+        connect(socket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+    }
 
 /*
     NetworkPackage np(PACKAGE_TYPE_IDENTITY);
@@ -232,57 +241,52 @@ void LanLinkProvider::newConnection()
 //I'm the new device and this is the answer to my UDP introduction (data received)
 void LanLinkProvider::dataReceived()
 {
-    QTcpSocket* socket = (QTcpSocket*) QObject::sender();
+    QTcpSocket* socket = qobject_cast<QTcpSocket*>(sender());
     configureSocket(socket);
 
-    QByteArray data = socket->readLine();
+    const QByteArray data = socket->readLine();
 
     //kDebug(kdeconnect_kded()) << "LanLinkProvider received reply:" << data;
 
     NetworkPackage np("");
-    bool success = NetworkPackage::unserialize(data,&np);
+    bool success = NetworkPackage::unserialize(data, &np);
 
-    if (success && np.type() == PACKAGE_TYPE_IDENTITY) {
-
-        const QString& id = np.get<QString>("deviceId");
-        LanDeviceLink* dl = new LanDeviceLink(id, this, socket);
-
-        //kDebug(kdeconnect_kded()) << "Handshaking done (i'm the new device)";
-
-        connect(dl, SIGNAL(destroyed(QObject*)),
-                this, SLOT(deviceLinkDestroyed(QObject*)));
-
-        Q_EMIT onConnectionReceived(np, dl);
-
-        QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
-        if (oldLinkIterator != links.end()) {
-            DeviceLink* oldLink = oldLinkIterator.value();
-            disconnect(oldLink, SIGNAL(destroyed(QObject*)),
-                        this, SLOT(deviceLinkDestroyed(QObject*)));
-            oldLink->deleteLater();
-            links.erase(oldLinkIterator);
-        }
-
-        links[id] = dl;
-
-        disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
-
-    } else {
+    if (!success || np.type() != PACKAGE_TYPE_IDENTITY) {
         kDebug(kdeconnect_kded()) << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
+        return;
     }
 
+    const QString& deviceId = np.get<QString>("deviceId");
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
+
+    //kDebug(kdeconnect_kded()) << "Handshaking done (i'm the new device)";
+
+    connect(deviceLink, SIGNAL(destroyed(QObject*)),
+            this, SLOT(deviceLinkDestroyed(QObject*)));
+
+    Q_EMIT onConnectionReceived(np, deviceLink);
+
+    QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(deviceId);
+    if (oldLinkIterator != mLinks.end()) {
+        DeviceLink* oldLink = oldLinkIterator.value();
+        disconnect(oldLink, SIGNAL(destroyed(QObject*)),
+                    this, SLOT(deviceLinkDestroyed(QObject*)));
+        oldLink->deleteLater();
+        mLinks.erase(oldLinkIterator);
+    }
+
+    mLinks[deviceId] = deviceLink;
+
+    disconnect(socket,SIGNAL(readyRead()),this,SLOT(dataReceived()));
 }
 
-void LanLinkProvider::deviceLinkDestroyed(QObject* uncastedDeviceLink)
+void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 {
     //kDebug(kdeconnect_kded()) << "deviceLinkDestroyed";
-
-    DeviceLink* deviceLink = (DeviceLink*)uncastedDeviceLink;
-    const QString& id = deviceLink->deviceId();
-
-    QMap< QString, DeviceLink* >::iterator oldLinkIterator = links.find(id);
-    if (oldLinkIterator != links.end() && oldLinkIterator.value() == deviceLink) {
-        links.erase(oldLinkIterator);
+    const QString id = destroyedDeviceLink->property("deviceId").toString();
+    QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(id);
+    if (oldLinkIterator != mLinks.end() && oldLinkIterator.value() == destroyedDeviceLink) {
+        mLinks.erase(oldLinkIterator);
     }
 
 }

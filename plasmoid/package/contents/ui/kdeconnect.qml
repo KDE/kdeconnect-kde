@@ -50,6 +50,15 @@ Item {
     }
     */
 
+    function shouldPlasmoidBeShown()
+    {
+        if (devicesView.count > 0) {
+            plasmoid.status = ActiveStatus;
+        } else {
+            plasmoid.status = PassiveStatus;
+        }
+    }
+
     PlasmaExtras.ScrollArea {
         id: dialogItem
         anchors.fill: parent
@@ -58,9 +67,12 @@ Item {
             id: devicesView
             anchors.fill: parent
             model: KdeConnect.DevicesModel {
+                id: connectDeviceModel
                 displayFilter: 0x11
             }
             delegate: DeviceDelegate { }
+            onCountChanged: shouldPlasmoidBeShown()
+            Component.onCompleted: shouldPlasmoidBeShown();
         }
     }
 

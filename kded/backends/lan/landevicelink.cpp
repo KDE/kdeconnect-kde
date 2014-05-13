@@ -34,7 +34,6 @@ LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* sock
     : DeviceLink(d, a)
     , mSocketLineReader(new SocketLineReader(socket, a))
 {
-
     connect(mSocketLineReader, SIGNAL(disconnected()),
             this, SLOT(deleteLater()));
     connect(mSocketLineReader, SIGNAL(readyRead()),
@@ -79,14 +78,13 @@ void LanDeviceLink::dataReceived()
 
     if (mSocketLineReader->bytesAvailable() == 0) return;
 
-    QByteArray package = mSocketLineReader->readLine();
+    const QByteArray package = mSocketLineReader->readLine();
 
     //kDebug(kdeconnect_kded()) << "LanDeviceLink dataReceived" << package;
 
     NetworkPackage unserialized(QString::null);
     NetworkPackage::unserialize(package, &unserialized);
     if (unserialized.isEncrypted()) {
-
         //mPrivateKey should always be set when device link is added to device, no null-checking done here
         NetworkPackage decrypted(QString::null);
         unserialized.decrypt(mPrivateKey, &decrypted);
@@ -101,7 +99,6 @@ void LanDeviceLink::dataReceived()
         Q_EMIT receivedPackage(decrypted);
 
     } else {
-
         if (unserialized.hasPayloadTransferInfo()) {
             qWarning() << "Ignoring unencrypted payload";
         }

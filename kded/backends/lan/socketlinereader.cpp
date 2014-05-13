@@ -1,5 +1,6 @@
 /**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Alejandro Fiestas Olivares <afiestas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,8 +21,6 @@
 
 #include "socketlinereader.h"
 
-#include "../../kdebugnamespace.h"
-
 SocketLineReader::SocketLineReader(QTcpSocket* socket, QObject* parent)
     : QObject(parent)
     , mSocket(socket)
@@ -37,36 +36,24 @@ SocketLineReader::SocketLineReader(QTcpSocket* socket, QObject* parent)
 
 void SocketLineReader::dataReceived()
 {
-
-    QByteArray data = lastChunk + mSocket->readAll();
-
-    int parsedLength = 0;
-    int packageLength = 0;
-    Q_FOREACH(char c, data) {
-        packageLength++;
-        if (c == '\n') {
-            QByteArray package = data.mid(parsedLength,packageLength);
-            parsedLength += packageLength;
-            packageLength = 0;
-            if(package.length() > 1) { //Ignore single newlines
-                mPackages.enqueue(package);
-            }
+    int packages = mPackages.size();
+    while(mSocket->canReadLine()) {
+        const QByteArray line = mSocket->readLine();
+        if (line.length() > 1) {
+            mPackages.enqueue(line);//we don't want single \n
         }
     }
 
-    lastChunk = data.mid(parsedLength);
-
+    //If we still have things to read from the socket, call dataReceived again
+    //We do this manually because we do not trust readyRead to be emitted again
+    //So we call this method again just in case.
     if (mSocket->bytesAvailable() > 0) {
-
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
+        return;
+    }
 
-    } else {
-
-        if (mPackages.length() > 0) {
-            Q_EMIT readyRead();
-        } else {
-            kDebug(kdeconnect_kded()) << "Received incomplete chunk of data, waiting for more";
-        }
-
+    //If we have any packages, tell it to the world.
+    if (!mPackages.isEmpty()) {
+        Q_EMIT readyRead();
     }
 }

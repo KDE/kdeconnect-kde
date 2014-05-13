@@ -132,7 +132,7 @@ private:
     QMap<QString, KdeConnectPlugin*> m_plugins;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByinterface;
 
-    QTimer pairingTimer;
+    QTimer m_pairingTimeut;
 
     void setAsPaired();
     void storeAsTrusted();

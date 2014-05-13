@@ -164,9 +164,9 @@ void Device::requestPair()
         return;
     }
 
-    pairingTimer.setSingleShot(true);
-    pairingTimer.start(30 * 1000);
-    connect(&pairingTimer, SIGNAL(timeout()),
+    m_pairingTimeut.setSingleShot(true);
+    m_pairingTimeut.start(30 * 1000); //30 seconds of timeout
+    connect(&m_pairingTimeut, SIGNAL(timeout()),
             this, SLOT(pairingTimeout()));
 
 }
@@ -294,7 +294,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             kDebug(kdeconnect_kded()) << "Already" << (wantsPair? "paired":"unpaired");
             if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
-                pairingTimer.stop();
+                m_pairingTimeut.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             }
             return;
@@ -309,7 +309,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 kDebug(kdeconnect_kded()) << "ERROR decoding key";
                 if (m_pairStatus == Device::Requested) {
                     m_pairStatus = Device::NotPaired;
-                    pairingTimer.stop();
+                    m_pairingTimeut.stop();
                 }
                 Q_EMIT pairingFailed(i18n("Received incorrect key"));
                 return;
@@ -346,7 +346,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             m_pairStatus = Device::NotPaired;
 
             if (prevPairStatus == Device::Requested) {
-                pairingTimer.stop();
+                m_pairingTimeut.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             } else if (prevPairStatus == Device::Paired) {
                 KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -414,7 +414,7 @@ void Device::setAsPaired()
 
     m_pairStatus = Device::Paired;
 
-    pairingTimer.stop(); //Just in case it was started
+    m_pairingTimeut.stop(); //Just in case it was started
 
     storeAsTrusted(); //Save to the config as trusted
 
