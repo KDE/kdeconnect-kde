@@ -1,6 +1,7 @@
 [Global]
 IconName=kdeconnect
 Name=KDE Connect
+Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
 Name[cs]=KDE Connect
 Name[da]=KDE Connect
@@ -22,6 +23,7 @@ Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Comment=Notifications from your devices
+Comment[bg]=Уведомления от устройствата ви
 Comment[bs]=Notifikacija sa Vašeg uređaja
 Comment[cs]=Oznamování z vašich zařízení
 Comment[da]=Bekendtgørelser fra dine enheder
@@ -45,6 +47,7 @@ Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/callReceived]
 Name=Calling
+Name[bg]=Позвъняване
 Name[bs]=Poziva se
 Name[cs]=Volám
 Name[da]=Ringer
@@ -66,6 +69,7 @@ Name[tr]=Aranıyor
 Name[uk]=Виклик
 Name[x-test]=xxCallingxx
 Comment=Someone is calling you
+Comment[bg]=Някой ви се обажда
 Comment[bs]=Neko Vas zove
 Comment[cs]=Někdo vám volá
 Comment[da]=Nogen ringer til dig
@@ -90,6 +94,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed
+Name[bg]=Пропуснати
 Name[bs]=Propušten
 Name[cs]=Zmeškané
 Name[da]=Ubesvaret
@@ -111,6 +116,7 @@ Name[tr]=Cevapsız
 Name[uk]=Пропущено
 Name[x-test]=xxMissedxx
 Comment=You have a missed call
+Comment[bg]=Имате неприето обаждане
 Comment[bs]=Imate propušten poziv
 Comment[cs]=Máte zmeškaný hovor
 Comment[da]=Du har et ubesvaret opkald
@@ -135,6 +141,7 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS
+Name[bg]=Текстово съобщение
 Name[bs]=SMS
 Name[cs]=SMS
 Name[da]=SMS
@@ -156,6 +163,7 @@ Name[tr]=SMS
 Name[uk]=SMS
 Name[x-test]=xxSMSxx
 Comment=Someone sent you an SMS
+Comment[bg]=Някой ви изпрати текстово съобщение
 Comment[bs]=Neko Vam je poslao SMS poruku
 Comment[cs]=Někdo vám poslal SMS
 Comment[da]=Nogen sendte dig en SMS
@@ -180,6 +188,7 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery
+Name[bg]=Батерия
 Name[bs]=Baterija
 Name[cs]=Baterie
 Name[da]=Batteri
@@ -201,6 +210,7 @@ Name[tr]=Pil
 Name[uk]=Акумулятор
 Name[x-test]=xxBatteryxx
 Comment=Your battery is in low state
+Comment[bg]=Батерията ви е с нисък заряд
 Comment[bs]=Vaša baterija je gotovo prazna
 Comment[cs]=Máte slabou baterii
 Comment[da]=Dit batteri er på lavt niveau
@@ -225,6 +235,7 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping
+Name[bg]=Пинг
 Name[bs]=Ping
 Name[cs]=Ping
 Name[da]=Ping
@@ -246,6 +257,7 @@ Name[tr]=Ping
 Name[uk]=Луна
 Name[x-test]=xxPingxx
 Comment=Ping received
+Comment[bg]=Пингът е приет
 Comment[bs]=Primili ste ping
 Comment[cs]=Ping přijat
 Comment[da]=Ping modtaget
@@ -270,6 +282,7 @@ Action=Popup
 
 [Event/notification]
 Name=Notification
+Name[bg]=Уведомление
 Name[bs]=Obavještenje
 Name[cs]=Upozornění
 Name[da]=Bekendtgørelse
@@ -291,6 +304,7 @@ Name[tr]=Bildirim
 Name[uk]=Сповіщення
 Name[x-test]=xxNotificationxx
 Comment=Notification received
+Comment[bg]=Уведомлението е прието
 Comment[bs]=Primjeno obavještenje
 Comment[cs]=Bylo přijato upozornění
 Comment[da]=Bekendtgørelse modtaget
@@ -315,6 +329,7 @@ Action=Popup
 
 [Event/unknownEvent]
 Name=Unknown
+Name[bg]=Неизвестно
 Name[bs]=Nepoznato
 Name[cs]=Neznámý
 Name[da]=Ukendt
@@ -336,6 +351,7 @@ Name[tr]=Bilinmeyen
 Name[uk]=Невідомо
 Name[x-test]=xxUnknownxx
 Comment=Something unknown happened
+Comment[bg]=Случи се нещо неизвестно
 Comment[bs]=Nešto se nepoznato dogodilo
 Comment[cs]=Stalo se něco neznámého
 Comment[da]=Der skete noget ukendt
@@ -360,6 +376,7 @@ Action=Popup
 
 [Event/mounted]
 Name=Mounted
+Name[bg]=Монтирана
 Name[cs]=Připojen
 Name[da]=Monteret
 Name[de]=Eingebunden
@@ -377,6 +394,7 @@ Name[tr]=Bağlı
 Name[uk]=Змонтовано
 Name[x-test]=xxMountedxx
 Comment=Filesystem mounted
+Comment[bg]=Файловата система е монтирана
 Comment[cs]=Souborový systém byl připojen
 Comment[da]=Filsystem monteret
 Comment[de]=Dateisystem eingebunden
@@ -397,6 +415,7 @@ Action=None
 
 [Event/unmounted]
 Name=Unmounted
+Name[bg]=Демонтирана
 Name[cs]=Odpojen
 Name[da]=Afmonteret
 Name[de]=Einbindung gelöst
@@ -414,6 +433,7 @@ Name[tr]=Ayrıldı
 Name[uk]=Демонтовано
 Name[x-test]=xxUnmountedxx
 Comment=Filesystem unmounted
+Comment[bg]=Файловата система е демонтирана
 Comment[cs]=Souborový systém byl odpojen
 Comment[da]=Filsystem afmonteret
 Comment[de]=Einbindung des Dateisystems gelöst
