@@ -7,6 +7,7 @@ X-KDE-ParentComponents=kdeconnect_share
 
 Name=Share plugin settings
 Name[bg]=Настройки на приставката за споделяне
+Name[ca]=Ajustaments del connector Compartició
 Name[cs]=Nastavení modulu sdílení
 Name[da]=Indstilling af deling-plugin
 Name[de]=Modul-Einstellungen für Veröffentlichung

@@ -7,6 +7,7 @@ X-KDE-ParentComponents=kdeconnect_pausemusic
 
 Name=Pause Music plugin settings
 Name[bg]=Настройки на приставката за поставяне на пауза
+Name[ca]=Ajustaments del connector Pausa la música
 Name[cs]=Nastavení modulu Pozastavení hudby
 Name[da]=Indstilling af plugin til at sætte musik på pause
 Name[de]=Modul-Einstellungen für das Anhalten der Musikwiedergabe
