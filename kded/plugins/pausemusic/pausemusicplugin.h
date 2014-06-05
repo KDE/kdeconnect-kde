@@ -38,6 +38,11 @@ public:
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
     virtual void connected() { };
+
+    /**
+     * @returns 0 if not muted, 1 if muted or -1 if there was an error
+     */
+    int isKMixMuted();
     
 private:
     QSet<QString> pausedSources;

@@ -35,15 +35,19 @@ K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >();
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect-kded") )
 
 //TODO: Port this away from KMix to use only Pulseaudio
-bool isKMixMuted() {
+int PauseMusicPlugin::isKMixMuted() {
     QDBusInterface kmixInterface("org.kde.kmix", "/Mixers", "org.kde.KMix.MixSet");
     QString mixer = kmixInterface.property("currentMasterMixer").toString();
     QString control = kmixInterface.property("currentMasterControl").toString();
+
+    if (mixer.isEmpty() || control.isEmpty())
+        return -1;
+
     mixer.replace(':','_');
     control.replace(':','_');
 
     QDBusInterface mixerInterface("org.kde.kmix", "/Mixers/"+mixer+"/"+control, "org.kde.KMix.Control");
-    if (mixerInterface.property("mute").toBool()) return true;
+    if (mixerInterface.property("mute").toBool()) return 1;
     return (mixerInterface.property("volume").toInt() == 0);
 }
 
@@ -76,7 +80,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     if (pauseConditionFulfilled) {
         if (use_mute) {
             QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
-            if (!isKMixMuted()) {
+            if (isKMixMuted() > 0) {
                 pausedSources.insert("mute"); //Fake source
                 kmixInterface.call("trigger");
             }
@@ -100,7 +104,9 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
         if (pausedSources.empty()) return false;
         if (use_mute) {
              QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
-             if (isKMixMuted()) kmixInterface.call("trigger");
+             if (isKMixMuted() == 0) {
+                 kmixInterface.call("trigger");
+             }
         } else {
             Q_FOREACH (const QString& iface, pausedSources) {
                 QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
