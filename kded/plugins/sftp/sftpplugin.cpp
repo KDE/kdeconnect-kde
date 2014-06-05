@@ -44,11 +44,11 @@ static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user
 
 struct SftpPlugin::Pimpl
 {
-    Pimpl() {}
+    Pimpl() : mounter(0) {}
   
     //Add KIO entry to Dolphin's Places
     KFilePlacesModel  placesModel;
-    QPointer<Mounter> mounter;
+    Mounter* mounter;
 };
 
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
@@ -113,8 +113,8 @@ void SftpPlugin::mount()
 
 void SftpPlugin::unmount()
 {
-    kDebug(kdeconnect_kded()) << "Device:" << device()->name();
-    delete m_d->mounter.data();
+    //FIXME
+    if (m_d->mounter) m_d->mounter->deleteLater();
 }
 
 bool SftpPlugin::mountAndWait()
