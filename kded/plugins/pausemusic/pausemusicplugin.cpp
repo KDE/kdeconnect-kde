@@ -98,7 +98,11 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                     if (status == "Playing") {
                         if (!pausedSources.contains(iface)) {
                             pausedSources.insert(iface);
-                            mprisInterface.asyncCall("Pause");
+                            if (mprisInterface.property("CanPause").toBool()) {
+                                mprisInterface.asyncCall("Pause");
+                            } else {
+                                mprisInterface.asyncCall("Stop");
+                            }
                         }
                     }
                 }
@@ -118,7 +122,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                 //mprisInterface->call(QDBus::Block,"Play");
                 //Workaround: Using playpause instead (checking first if it is already playing)
                 QString status = mprisInterface.property("PlaybackStatus").toString();
-                if (status == "Paused") mprisInterface.asyncCall("PlayPause");
+                mprisInterface.asyncCall("PlayPause");
                 //End of workaround
             }
         }
