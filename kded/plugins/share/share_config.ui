@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>411</width>
-    <height>165</height>
+    <width>569</width>
+    <height>140</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,6 +46,13 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>%1  in the path will be replaced with the specific device name.</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

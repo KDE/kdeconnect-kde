@@ -52,11 +52,13 @@ KUrl SharePlugin::destinationDir() const
     KUrl dir = config->group("receive").readEntry("path", KGlobalSettings::downloadPath());
     dir.adjustPath(KUrl::AddTrailingSlash);
 
-    QDir().mkpath(dir.toLocalFile());
+    QString url = dir.toLocalFile();
+    if (url.contains("%1")) url = url.arg(device()->name());
 
-    kDebug(kdeconnect_kded()) << dir;
+    kDebug(kdeconnect_kded()) << url;
+    QDir().mkpath(url);
 
-    return dir;
+    return url;
 }
 
 bool SharePlugin::receivePackage(const NetworkPackage& np)

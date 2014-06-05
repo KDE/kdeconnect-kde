@@ -70,7 +70,7 @@ void ShareConfig::load()
 
 void ShareConfig::save()
 {
-    m_cfg->group("receive").writeEntry("path", m_ui->kurlrequester->url());
+    m_cfg->group("receive").writeEntry("path", m_ui->kurlrequester->text());
 
     KCModule::save();
 
