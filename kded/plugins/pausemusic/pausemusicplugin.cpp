@@ -44,7 +44,11 @@ int PauseMusicPlugin::isKMixMuted() {
         return -1;
 
     mixer.replace(':','_');
+    mixer.replace('.','_');
+    mixer.replace('-','_');
     control.replace(':','_');
+    control.replace('.','_');
+    control.replace('-','_');
 
     QDBusInterface mixerInterface("org.kde.kmix", "/Mixers/"+mixer+"/"+control, "org.kde.KMix.Control");
     if (mixerInterface.property("mute").toBool()) return 1;
@@ -80,7 +84,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     if (pauseConditionFulfilled) {
         if (use_mute) {
             QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
-            if (isKMixMuted() > 0) {
+            if (isKMixMuted() == 0) {
                 pausedSources.insert("mute"); //Fake source
                 kmixInterface.call("trigger");
             }
@@ -104,7 +108,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
         if (pausedSources.empty()) return false;
         if (use_mute) {
              QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
-             if (isKMixMuted() == 0) {
+             if (isKMixMuted() > 0) {
                  kmixInterface.call("trigger");
              }
         } else {
