@@ -46,7 +46,6 @@ SftpConfig::SftpConfig(QWidget *parent, const QVariantList& )
     
     connect(m_ui->refresh, SIGNAL(clicked(bool)), this, SLOT(checkSshfs()));
     
-    connect(m_ui->mountpoint, SIGNAL(textChanged(QString)), this, SLOT(changed()));
     connect(m_ui->idle, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->timeout, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 }
@@ -65,8 +64,6 @@ void SftpConfig::defaults()
     KCModule::defaults();
     
     checkSshfs();
-    m_ui->mountpoint->setUrl(m_cfg->group("main").readEntry("mountpoint"
-      , KStandardDirs::locateLocal("appdata", "", true, SftpPlugin::componentData())));
     m_ui->idle->setChecked(m_cfg->group("main").readEntry("idle", true));
     m_ui->timeout->setValue(m_cfg->group("main").readEntry("idletimeout", 10));
     
@@ -79,8 +76,6 @@ void SftpConfig::load()
     KCModule::load();
     
     checkSshfs();
-    m_ui->mountpoint->setUrl(m_cfg->group("main").readEntry("mountpoint"
-      , KStandardDirs::locateLocal("appdata", "", true, SftpPlugin::componentData())));
     m_ui->idle->setChecked(m_cfg->group("main").readEntry("idle", true));
     m_ui->timeout->setValue(m_cfg->group("main").readEntry("idletimeout", 10));
     
@@ -93,8 +88,7 @@ void SftpConfig::save()
     checkSshfs();
     m_cfg->group("main").writeEntry("idle", m_ui->idle->isChecked());
     m_cfg->group("main").writeEntry("idletimeout", m_ui->timeout->value());
-    m_cfg->group("main").writeEntry("mountpoint", m_ui->mountpoint->url().url());
-    
+
     KCModule::save();
     Q_EMIT changed(false);
 }

@@ -48,18 +48,17 @@ QtObject {
         onSuccess: root.charge = result
     }
     
-    /* Note: magically called by qml */
+    // Note: magically called by qml
     onAvailableChanged: {
         if (available) {
             battery = DeviceBatteryDbusInterfaceFactory.create(deviceId)
             
             battery.stateChanged.connect(function(charging) {root.charging = charging})
             battery.chargeChanged.connect(function(charge) {root.charge = charge})
-            
+
             startupCheck1.setPendingCall(battery.isCharging())
             startupCheck2.setPendingCall(battery.charge())
-        }
-        else {
+        } else {
             battery = null
         }
     }
@@ -69,8 +68,7 @@ QtObject {
       
         if (result && result != "error") {
             available = true
-        }
-        else {
+        } else {
             available = false
         }      
     }

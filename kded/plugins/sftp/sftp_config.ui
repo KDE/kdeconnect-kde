@@ -9,51 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>303</width>
-    <height>155</height>
+    <width>505</width>
+    <height>127</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Share plugin settings</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="2">
-    <widget class="KUrlRequester" name="mountpoint">
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="mode">
-      <set>KFile::Directory|KFile::ExistingOnly|KFile::LocalOnly</set>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1" colspan="3">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>291</width>
-       <height>26</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="1" colspan="2">
-    <widget class="QCheckBox" name="idle">
-     <property name="text">
-      <string>Disconnect when idle</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1" colspan="2">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QGroupBox" name="error">
      <property name="title">
       <string>Error</string>
@@ -101,23 +65,7 @@
      </layout>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QLabel" name="label_3">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string>Mountpoint:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="1" colspan="2">
+   <item>
     <widget class="QFrame" name="frame">
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -132,6 +80,29 @@
       <property name="topMargin">
        <number>0</number>
       </property>
+      <item>
+       <widget class="QCheckBox" name="idle">
+        <property name="text">
+         <string>Disconnect when idle</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>53</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item>
        <widget class="QLabel" name="label_2">
         <property name="sizePolicy">
@@ -170,31 +141,24 @@
         </property>
        </widget>
       </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>53</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
      </layout>
     </widget>
    </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>291</width>
+       <height>26</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KUrlRequester</class>
-   <extends>QFrame</extends>
-   <header>kurlrequester.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections>
   <connection>

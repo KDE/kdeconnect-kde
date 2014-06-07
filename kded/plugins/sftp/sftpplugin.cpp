@@ -87,15 +87,14 @@ void SftpPlugin::removeFromDolphin()
 
 void SftpPlugin::connected()
 {
-    kDebug(kdeconnect_kded()) << "Exposing DBUS interface: "
-        << QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
+    bool state = QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
+    kDebug(kdeconnect_kded()) << "Exposing DBUS interface: " << state;
 }
 
 void SftpPlugin::mount()
 {
-    kDebug(kdeconnect_kded()) << "Device:" << device()->name();
-    if (m_d->mounter)
-    {
+    kDebug(kdeconnect_kded()) << "Mount device:" << device()->name();
+    if (m_d->mounter) {
         return;
     }
 
@@ -113,8 +112,11 @@ void SftpPlugin::mount()
 
 void SftpPlugin::unmount()
 {
-    //FIXME
-    if (m_d->mounter) m_d->mounter->deleteLater();
+    if (m_d->mounter)
+    {
+        m_d->mounter->deleteLater();
+        m_d->mounter = 0;
+    }
 }
 
 bool SftpPlugin::mountAndWait()
@@ -130,8 +132,7 @@ bool SftpPlugin::isMounted() const
 
 bool SftpPlugin::startBrowsing()
 {
-    if (mountAndWait())
-    {
+    if (mountAndWait()) {
         //return new KRun(KUrl::fromLocalFile(mountPoint()), 0);
         return new KRun(KUrl::fromPathOrUrl("kdeconnect://"+device()->id()), 0);
     }
@@ -153,8 +154,7 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
 
 QString SftpPlugin::mountPoint()
 {
-    const QString defaultMountDir = KStandardDirs::locateLocal("appdata", "", true, componentData());
-    const QString mountDir = KConfig("kdeconnect/plugins/sftp").group("main").readEntry("mountpoint", defaultMountDir);
+    const QString mountDir = KStandardDirs::locateLocal("appdata", "", true, KComponentData("kdeconnect", "kdeconnect"));
     return QDir(mountDir).absoluteFilePath(device()->id());
 }
 
@@ -162,36 +162,18 @@ void SftpPlugin::onMounted()
 {
     kDebug(kdeconnect_kded()) << device()->name() << QString("Remote filesystem mounted at %1").arg(mountPoint());
 
-    KNotification* notification = new KNotification("mounted", KNotification::CloseOnTimeout, this);
-    notification->setPixmap(KIconLoader::global()->loadIcon("drive-removable-media", KIconLoader::Desktop));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
-    notification->setTitle(i18n("Device %1", device()->name()));
-    notification->setText(i18n("Filesystem mounted at %1", mountPoint()));
-    notification->sendEvent();
-
     Q_EMIT mounted();
 }
 
 void SftpPlugin::onUnmounted(bool idleTimeout)
 {
-    if (idleTimeout)
-    {
+    if (idleTimeout) {
         kDebug(kdeconnect_kded()) << device()->name() << "Remote filesystem unmounted by idle timeout";
-    }
-    else
-    {
+    } else {
         kDebug(kdeconnect_kded()) << device()->name() << "Remote filesystem unmounted";
     }
 
-    KNotification* notification = new KNotification("unmounted", KNotification::CloseOnTimeout, this);
-    notification->setPixmap(KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::Desktop));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
-    notification->setTitle(i18n("Device %1", device()->name()));
-    notification->setText(i18n("Filesystem unmounted"));
-    notification->sendEvent();
-    
-    m_d->mounter->deleteLater();
-    m_d->mounter = 0;
+    unmount();
     
     Q_EMIT unmounted();
 }
@@ -202,9 +184,9 @@ void SftpPlugin::onFailed(const QString& message)
         , message
         , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
     );
-    m_d->mounter->deleteLater();
-    m_d->mounter = 0;
-    
+
+    unmount();
+
     Q_EMIT unmounted();
 }
 

@@ -38,11 +38,6 @@ public:
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
     virtual ~SftpPlugin();
 
-    inline static KComponentData componentData() 
-    {
-        return KComponentData("kdeconnect", "kdeconnect");
-    }
-
 Q_SIGNALS:
   
     void packageReceived(const NetworkPackage& np);
