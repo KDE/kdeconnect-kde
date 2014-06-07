@@ -42,7 +42,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>sshfsf not found in PATH</string>
+         <string>sshfs not found in PATH</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
