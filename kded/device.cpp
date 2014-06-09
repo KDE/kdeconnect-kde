@@ -194,8 +194,6 @@ void Device::requestPair()
 
 void Device::unpair()
 {
-    if (!isPaired()) return;
-
     m_pairStatus = Device::NotPaired;
 
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -384,8 +382,9 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             plugin->receivePackage(np);
         }
     } else {
-        //TODO: Notify the other side that we don't trust them
         kDebug(kdeconnect_kded()) << "device" << name() << "not paired, ignoring package" << np.type();
+        unpair();
+
     }
 
 }
