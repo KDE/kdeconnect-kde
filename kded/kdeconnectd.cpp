@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
     KAboutData aboutData("kdeconnect", "kdeconnect-kded",
                          ki18n("kdeconnect"),
                          "0.1",
-                         ki18n("connect devices"),
+                         ki18n("Connect your devices and KDE"),
                          KAboutData::License_GPL,
                          KLocalizedString(),
                          KLocalizedString(),
