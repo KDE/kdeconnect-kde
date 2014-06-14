@@ -48,23 +48,33 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
 {
     DevicesModel m;
 
-    QAction *menuAction = new QAction(QIcon::fromTheme("preferences-system-network"), i18n("Send via KDE Connect"), parentWidget);
-    QMenu *menu = new QMenu();
+    QList<QAction*> actions;
 
     for(int i = 0; i<m.rowCount(); ++i) {
         QModelIndex idx = m.index(i);
         DeviceDbusInterface* dev = m.getDevice(idx);
         if(dev->isReachable() && dev->isPaired()) {
-            QAction* action = menu->addAction(dev->name(), this, SLOT(sendFile()));
+            QAction* action = new QAction(dev->name(), parentWidget);
             action->setProperty("id", idx.data(DevicesModel::IdModelRole));
             action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
             action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
+            actions += action;
         }
     }
 
-    menuAction->setMenu(menu);
-
-    return QList<QAction*>() << menuAction;
+    if (actions.count() > 1) {
+        QAction *menuAction = new QAction(QIcon::fromTheme("preferences-system-network"), i18n("Send via KDE Connect"), parentWidget);
+        QMenu *menu = new QMenu();
+        menu->addActions(actions);
+        menuAction->setMenu(menu);
+        return QList<QAction*>() << menuAction;
+    } else {
+        if(actions.count() == 1) {
+            actions.first()->setText(i18n("Send to '%1' via KDE Connect", actions.first()->text()));
+            actions.first()->setIcon(QIcon::fromTheme("preferences-system-network"));
+        }
+        return actions;
+    }
 }
 
 void SendFileItemAction::sendFile()
