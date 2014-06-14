@@ -39,18 +39,18 @@ set(libkdeconnect_HEADERS
 set_source_files_properties(
     ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml
     ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml
-    ${CMAKE_BINARY_DIR}/core/plugins/battery/org.kde.kdeconnect.device.battery.xml
-    ${CMAKE_BINARY_DIR}/core/plugins/sftp/org.kde.kdeconnect.device.sftp.xml
-    ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
-    ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
+    ${CMAKE_BINARY_DIR}/plugins/battery/org.kde.kdeconnect.device.battery.xml
+    ${CMAKE_BINARY_DIR}/plugins/sftp/org.kde.kdeconnect.device.sftp.xml
+    ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
+    ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
     PROPERTIES NO_NAMESPACE true
 )
 qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml daemoninterface)
 qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml deviceinterface)
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/sftp/org.kde.kdeconnect.device.sftp.xml devicesftpinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/sftp/org.kde.kdeconnect.device.sftp.xml devicesftpinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
 
 kde4_add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES
