@@ -54,7 +54,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
         QModelIndex idx = m.index(i);
         DeviceDbusInterface* dev = m.getDevice(idx);
         if(dev->isReachable() && dev->isPaired()) {
-            QAction* action = new QAction(dev->name(), parentWidget);
+            QAction* action = new QAction(QIcon::fromTheme(dev->iconName()), dev->name(), parentWidget);
             action->setProperty("id", idx.data(DevicesModel::IdModelRole));
             action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
             action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
@@ -71,7 +71,6 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
     } else {
         if(actions.count() == 1) {
             actions.first()->setText(i18n("Send to '%1' via KDE Connect", actions.first()->text()));
-            actions.first()->setIcon(QIcon::fromTheme("preferences-system-network"));
         }
         return actions;
     }
