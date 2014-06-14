@@ -43,11 +43,6 @@ kde4_add_plugin(kded_kdeconnect kded.cpp)
 
 target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
-    ${KDE4_KDEUI_LIBS}
-    ${KDE4_KIO_LIBS}
-    ${QT_QTNETWORK_LIBRARY}
-    ${QJSON_LIBRARIES}
-    ${QCA2_LIBRARIES}
 )
 
 include(../macros.cmake)
