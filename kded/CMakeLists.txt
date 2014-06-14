@@ -39,7 +39,7 @@ target_link_libraries(kdeconnectd
     ${QCA2_LIBRARIES}
 )
 
-kde4_add_plugin(kded_kdeconnect kded.cpp ${kded_kdeconnect_SRCS})
+kde4_add_plugin(kded_kdeconnect kded.cpp)
 
 target_link_libraries(kded_kdeconnect
     ${KDE4_KDECORE_LIBS}
