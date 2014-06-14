@@ -36,7 +36,6 @@ SocketLineReader::SocketLineReader(QTcpSocket* socket, QObject* parent)
 
 void SocketLineReader::dataReceived()
 {
-    int packages = mPackages.size();
     while(mSocket->canReadLine()) {
         const QByteArray line = mSocket->readLine();
         if (line.length() > 1) {
