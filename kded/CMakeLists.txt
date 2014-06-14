@@ -1,13 +1,13 @@
-add_subdirectory(plugins)
-
-find_package (QJSON 0.8.1 REQUIRED)
-find_package (QCA2 REQUIRED)
+project(KDEConnectCore)
 
 include_directories(
     ${KDE4_KIO_LIBS}
     ${QJSON_INCLUDE_DIR}
     ${QCA2_INCLUDE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
 )
+
+add_subdirectory(plugins)
 
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
@@ -28,16 +28,21 @@ set(kded_kdeconnect_SRCS
     kdebugnamespace.cpp
 )
 
-kde4_add_executable(kdeconnectd kdeconnectd.cpp ${kded_kdeconnect_SRCS})
-
-target_link_libraries(kdeconnectd
+kde4_add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
+target_link_libraries(kdeconnectcore
+PUBLIC
     ${KDE4_KDECORE_LIBS}
-    ${KDE4_KDEUI_LIBS}
+
+PRIVATE
     ${KDE4_KIO_LIBS}
-    ${QT_QTNETWORK_LIBRARY}
     ${QJSON_LIBRARIES}
+    ${QT_QTNETWORK_LIBRARY}
     ${QCA2_LIBRARIES}
 )
+generate_export_header(kdeconnectcore EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectcore_export.h BASE_NAME KDEConnectCore)
+
+kde4_add_executable(kdeconnectd kdeconnectd.cpp)
+target_link_libraries(kdeconnectd kdeconnectcore ${KDE4_KDEUI_LIBS})
 
 kde4_add_plugin(kded_kdeconnect kded.cpp)
 

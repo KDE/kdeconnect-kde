@@ -38,6 +38,8 @@ class KDE_EXPORT KdeConnectPlugin
 
 public:
     KdeConnectPlugin(QObject* parent, const QVariantList& args);
+    virtual ~KdeConnectPlugin();
+
     Device* device();
     Device const* device() const;
 

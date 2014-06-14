@@ -33,7 +33,7 @@
 class DeviceLink;
 class KdeConnectPlugin;
 
-class Device
+class KDECONNECTCORE_EXPORT Device
     : public QObject
 {
     Q_OBJECT
