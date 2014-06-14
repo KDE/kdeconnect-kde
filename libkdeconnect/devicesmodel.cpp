@@ -55,7 +55,6 @@ DevicesModel::DevicesModel(QObject *parent)
     QHash<int, QByteArray> names = roleNames();
     names.insert(IdModelRole, "deviceId");
     setRoleNames(names);
-
 }
 
 DevicesModel::~DevicesModel()
@@ -83,6 +82,7 @@ void DevicesModel::deviceStatusChanged(const QString& id)
     //Q_EMIT dataChanged(index(0),index(rowCount()));
     refreshDeviceList();
 }
+
 DevicesModel::StatusFlags DevicesModel::displayFilter() const
 {
     return m_displayFilter;
@@ -101,7 +101,6 @@ void DevicesModel::setDisplayFilter(DevicesModel::StatusFlags flags)
 
 void DevicesModel::refreshDeviceList()
 {
-
     if (!m_deviceList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
         m_deviceList.clear();
@@ -130,10 +129,9 @@ void DevicesModel::refreshDeviceList()
     }
 
     Q_EMIT dataChanged(index(0), index(m_deviceList.size()));
-
 }
 
-QVariant DevicesModel::data(const QModelIndex &index, int role) const
+QVariant DevicesModel::data(const QModelIndex& index, int role) const
 {
     if (!m_dbusInterface->isValid()
         || !index.isValid()
@@ -173,7 +171,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     }
 }
 
-DeviceDbusInterface *DevicesModel::getDevice(const QModelIndex &index) const
+DeviceDbusInterface* DevicesModel::getDevice(const QModelIndex& index) const
 {
     if (!index.isValid()) {
         return NULL;
@@ -187,7 +185,7 @@ DeviceDbusInterface *DevicesModel::getDevice(const QModelIndex &index) const
     return m_deviceList[row];
 }
 
-int DevicesModel::rowCount(const QModelIndex &parent) const
+int DevicesModel::rowCount(const QModelIndex& parent) const
 {
     if(parent.isValid()) {
         //Return size 0 if we are a child because this is not a tree
@@ -196,4 +194,3 @@ int DevicesModel::rowCount(const QModelIndex &parent) const
 
     return m_deviceList.size();
 }
-
