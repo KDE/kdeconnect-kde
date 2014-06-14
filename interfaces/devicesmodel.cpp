@@ -55,6 +55,7 @@ DevicesModel::DevicesModel(QObject *parent)
     //Role names for QML
     QHash<int, QByteArray> names = roleNames();
     names.insert(IdModelRole, "deviceId");
+    names.insert(IconNameRole, "iconName");
     setRoleNames(names);
 }
 
@@ -167,8 +168,10 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             }
             return status;
         }
+        case IconNameRole:
+            return device->iconName();
         default:
-             return QVariant();
+            return QVariant();
     }
 }
 

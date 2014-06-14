@@ -484,3 +484,20 @@ QString Device::type2str(Device::DeviceType deviceType) {
     if (deviceType == Tablet) return "tablet";
     return "unknown";
 }
+
+QString Device::iconName() const
+{
+    switch(m_deviceType) {
+        case Device::Desktop:
+            return "computer";
+        case Device::Laptop:
+            return "computer-laptop";
+        case Device::Phone:
+            return "smartphone";
+        case Device::Tablet:
+            return "tablet";
+        case Device::Unknown:
+            return "unknown";
+    }
+    return QString();
+}

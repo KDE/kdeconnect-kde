@@ -38,7 +38,8 @@ class KDECONNECTCORE_EXPORT Device
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
-    Q_PROPERTY(QString id READ id)
+    Q_PROPERTY(QString id READ id CONSTANT)
+    Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString name READ name)
 
     enum PairStatus {
@@ -78,6 +79,7 @@ public:
     QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
+    QString iconName() const;
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
