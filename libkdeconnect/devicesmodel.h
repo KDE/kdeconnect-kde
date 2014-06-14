@@ -21,7 +21,6 @@
 #ifndef DEVICESMODEL_H
 #define DEVICESMODEL_H
 
-
 #include <QAbstractItemModel>
 #include <QAbstractListModel>
 #include <QPixmap>
@@ -56,10 +55,10 @@ public:
     void setDisplayFilter(int flags);
     StatusFlags displayFilter() const;
 
-    virtual QVariant data(const QModelIndex &index, int role) const;
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    virtual QVariant data(const QModelIndex& index, int role) const;
+    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
-    DeviceDbusInterface *getDevice(const QModelIndex &index) const;
+    DeviceDbusInterface* getDevice(const QModelIndex& index) const;
 
 public Q_SLOTS:
     void deviceStatusChanged(const QString& id);

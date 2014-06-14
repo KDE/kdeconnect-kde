@@ -29,7 +29,7 @@
 #include "modeltest.h"
 #include "kdebugnamespace.h"
 
-NotificationsModel::NotificationsModel(QObject *parent)
+NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(0)
 {
@@ -41,7 +41,7 @@ NotificationsModel::NotificationsModel(QObject *parent)
     connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
             this, SIGNAL(rowsChanged()));
 
-    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+    connect(this, SIGNAL(dataChanged(QModelIndex, QModelIndex)),
             this, SIGNAL(anyDismissableChanged()));
 
     //Role names for QML
@@ -66,7 +66,10 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
 {
     m_deviceId = deviceId;
 
-    if (m_dbusInterface) delete m_dbusInterface;
+    if (m_dbusInterface) {
+        delete m_dbusInterface;
+    }
+
     m_dbusInterface = new DeviceNotificationsDbusInterface(deviceId, this);
 
     connect(m_dbusInterface, SIGNAL(notificationPosted(QString)),
@@ -95,7 +98,9 @@ void NotificationsModel::notificationRemoved(const QString& id)
 
 void NotificationsModel::refreshNotificationList()
 {
-    if (!m_dbusInterface) return;
+    if (!m_dbusInterface) {
+        return;
+    }
 
     if (!m_notificationList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, m_notificationList.size() - 1);
@@ -104,28 +109,33 @@ void NotificationsModel::refreshNotificationList()
         endRemoveRows();
     }
 
-    if (!m_dbusInterface->isValid()) return;
+    if (!m_dbusInterface->isValid()) {
+        return;
+    }
 
     QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
     pendingNotificationIds.waitForFinished();
-    if (pendingNotificationIds.isError()) return;
+    if (pendingNotificationIds.isError()) {
+        return;
+    }
     const QStringList& notificationIds = pendingNotificationIds.value();
 
-    if (notificationIds.isEmpty()) return;
+    if (notificationIds.isEmpty()) {
+        return;
+    }
 
-    beginInsertRows(QModelIndex(), 0, notificationIds.size()-1);
-    Q_FOREACH(const QString& notificationId, notificationIds) {
+    beginInsertRows(QModelIndex(), 0, notificationIds.size() - 1);
+    Q_FOREACH (const QString& notificationId, notificationIds) {
         NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, notificationId, this);
         m_notificationList.append(dbusInterface);
     }
     endInsertRows();
 
-    Q_EMIT dataChanged(index(0), index(notificationIds.size()-1));
+    Q_EMIT dataChanged(index(0), index(notificationIds.size() - 1));
 }
 
-QVariant NotificationsModel::data(const QModelIndex &index, int role) const
+QVariant NotificationsModel::data(const QModelIndex& index, int role) const
 {
-
     if (!index.isValid()
         || index.row() < 0
         || index.row() >= m_notificationList.count()
@@ -161,7 +171,7 @@ QVariant NotificationsModel::data(const QModelIndex &index, int role) const
     }
 }
 
-NotificationDbusInterface *NotificationsModel::getNotification(const QModelIndex &index) const
+NotificationDbusInterface* NotificationsModel::getNotification(const QModelIndex& index) const
 {
     if (!index.isValid()) {
         return NULL;
@@ -175,9 +185,9 @@ NotificationDbusInterface *NotificationsModel::getNotification(const QModelIndex
     return m_notificationList[row];
 }
 
-int NotificationsModel::rowCount(const QModelIndex &parent) const
+int NotificationsModel::rowCount(const QModelIndex& parent) const
 {
-    if(parent.isValid()) {
+    if (parent.isValid()) {
         //Return size 0 if we are a child because this is not a tree
         return 0;
     }
@@ -187,7 +197,7 @@ int NotificationsModel::rowCount(const QModelIndex &parent) const
 
 bool NotificationsModel::isAnyDimissable() const
 {
-    Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
+    Q_FOREACH (NotificationDbusInterface* notification, m_notificationList) {
         if (notification->dismissable()) {
             return true;
         }
@@ -198,7 +208,7 @@ bool NotificationsModel::isAnyDimissable() const
 
 void NotificationsModel::dismissAll()
 {
-    Q_FOREACH(NotificationDbusInterface* notification, m_notificationList) {
+    Q_FOREACH (NotificationDbusInterface* notification, m_notificationList) {
         if (notification->dismissable()) {
             notification->dismiss();
         }
