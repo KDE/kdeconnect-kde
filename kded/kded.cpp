@@ -27,6 +27,8 @@
 
 #include "kdebugnamespace.h"
 
+int theArea = KDebug::registerArea("kdeconnect-kded");
+
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Kded>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect-kded"))
 
@@ -35,13 +37,13 @@ Kded::Kded(QObject *parent, const QList<QVariant>&)
     , m_daemon(0)
 {
     QMetaObject::invokeMethod(this, "start", Qt::QueuedConnection);
-    kDebug(kdeconnect_kded()) << "kded_kdeconnect started"; 
+    kDebug(theArea) << "kded_kdeconnect started";
 }
 
 Kded::~Kded()
 {
     stop();
-    kDebug(kdeconnect_kded()) << "kded_kdeconnect stopped";
+    kDebug(theArea) << "kded_kdeconnect stopped";
 }
 
 void Kded::start()
@@ -51,7 +53,7 @@ void Kded::start()
     }
     
     const QString daemon = KStandardDirs::locate("exe", "kdeconnectd");
-    kDebug(kdeconnect_kded()) << "Starting daemon " << daemon;    
+    kDebug(theArea) << "Starting daemon " << daemon;
     m_daemon = new KProcess(this);
     connect(m_daemon, SIGNAL(started()), SLOT(daemonStarted()));
     connect(m_daemon, SIGNAL(error(QProcess::ProcessError)), this, SLOT(onError(QProcess::ProcessError)));
@@ -83,24 +85,24 @@ void Kded::restart()
 
 void Kded::onError(QProcess::ProcessError errorCode)
 {
-    kError(kdeconnect_kded()) << "Process error code=" << errorCode;
+    kError(theArea) << "Process error code=" << errorCode;
 }
 
 void Kded::daemonStarted()
 {
-    kDebug(kdeconnect_kded()) << "Daemon successfuly started";
+    kDebug(theArea) << "Daemon successfuly started";
     Q_EMIT started();
 }
 
 void Kded::onFinished(int exitCode, QProcess::ExitStatus status)
 {
     if (status == QProcess::CrashExit) {
-        kError(kdeconnect_kded()) << "Process crashed with code=" << exitCode;
-        kError(kdeconnect_kded()) << m_daemon->readAllStandardError();
-        kWarning(kdeconnect_kded()) << "Restarting in 5 sec...";
+        kError(theArea) << "Process crashed with code=" << exitCode;
+        kError(theArea) << m_daemon->readAllStandardError();
+        kWarning(theArea) << "Restarting in 5 sec...";
         QTimer::singleShot(5000, this, SLOT(start()));        
     } else {
-        kWarning(kdeconnect_kded()) << "Process finished with code=" << exitCode;
+        kWarning(theArea) << "Process finished with code=" << exitCode;
     }
 
     Q_EMIT stopped();
@@ -114,5 +116,5 @@ void Kded::checkIfDaemonTerminated()
     }
 
     m_daemon->kill();
-    kWarning(kdeconnect_kded()) << "Daemon  killed";
+    kWarning(theArea) << "Daemon  killed";
 }

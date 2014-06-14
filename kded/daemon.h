@@ -28,13 +28,14 @@
 
 #include <KDEDModule>
 #include <KPluginFactory>
+#include "kdeconnectcore_export.h"
 
 #include "device.h"
 #include "networkpackage.h"
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
-class Daemon
+class KDECONNECTCORE_EXPORT Daemon
     : public QObject
 {
     Q_OBJECT

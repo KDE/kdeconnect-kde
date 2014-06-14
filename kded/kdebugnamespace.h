@@ -23,7 +23,7 @@
 
 #include <KDebug>
 
-int kdeconnect_kded();
+KDE_EXPORT int kdeconnect_kded();
 
 #endif
 

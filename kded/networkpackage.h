@@ -31,15 +31,15 @@
 #include <QtCrypto>
 #include <QSharedPointer>
 #include <qjson/parser.h>
-
 #include <KUrl>
 
+#include "kdeconnectcore_export.h"
 #include "kdebugnamespace.h"
 #include "default_args.h"
 
 class FileTransferJob;
 
-class NetworkPackage : public QObject
+class KDECONNECTCORE_EXPORT NetworkPackage : public QObject
 {
     Q_OBJECT
     Q_PROPERTY( QString id READ id WRITE setId )
