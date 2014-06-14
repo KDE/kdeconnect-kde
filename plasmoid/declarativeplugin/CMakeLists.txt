@@ -15,7 +15,6 @@ set(kdeconnectdeclarativeplugin_MOC
 qt4_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})    
 
 kde4_add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
-add_dependencies(kdeconnectdeclarativeplugin libkdeconnectinterfaces)
 target_link_libraries(kdeconnectdeclarativeplugin
     ${KDE4_KDEUI_LIBS}
     ${KDE4_KDECORE_LIBS}

@@ -6,8 +6,6 @@ set(kio_kdeconnect_PART_SRCS
 
 kde4_add_plugin(kio_kdeconnect ${kio_kdeconnect_PART_SRCS})
 
-add_dependencies(kio_kdeconnect libkdeconnectinterfaces)
-
 target_link_libraries(kio_kdeconnect
     ${KDE4_KDECORE_LIBS}
     ${KDE4_KIO_LIBRARY}

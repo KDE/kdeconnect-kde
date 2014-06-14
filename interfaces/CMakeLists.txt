@@ -28,12 +28,12 @@ set(libkdeconnect_HEADERS
     notificationsmodel.h
     dbusinterfaces.h
     ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h
-    ${CMAKE_BINARY_DIR}/libkdeconnect/daemoninterface.h
-    ${CMAKE_BINARY_DIR}/libkdeconnect/deviceinterface.h
-    ${CMAKE_BINARY_DIR}/libkdeconnect/devicebatteryinterface.h
-    ${CMAKE_BINARY_DIR}/libkdeconnect/devicesftpinterface.h
-    ${CMAKE_BINARY_DIR}/libkdeconnect/devicenotificationsinterface.h
-    ${CMAKE_BINARY_DIR}/libkdeconnect/notificationinterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/daemoninterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/deviceinterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/devicebatteryinterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/devicesftpinterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/devicenotificationsinterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/notificationinterface.h
 )
 
 set_source_files_properties(
@@ -77,9 +77,9 @@ target_link_libraries(kdeconnectinterfaces
     ${QJSON_LIBRARIES}
 )
 
-configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfig.cmake @ONLY)
+configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake @ONLY)
 
-macro_write_basic_cmake_version_file(${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfigVersion.cmake
+macro_write_basic_cmake_version_file(${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfigVersion.cmake
         ${KDECONNECT_VERSION_MAJOR} ${KDECONNECT_VERSION_MINOR} ${KDECONNECT_VERSION_PATCH})
         
 install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets  ${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -87,6 +87,6 @@ install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets  ${INSTALL_
 #Install header files
 install(FILES ${libkdeconnect_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/kdeconnect COMPONENT Devel)
 install(FILES ${libkdeconnect_public_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDEConnect COMPONENT Devel)
-install(FILES ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfig.cmake
-              ${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfigVersion.cmake
+install(FILES ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake
+              ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfigVersion.cmake
         DESTINATION ${LIB_INSTALL_DIR}/cmake/KDEConnect)
