@@ -77,22 +77,3 @@ install(TARGETS kdeconnectd DESTINATION ${LIBEXEC_INSTALL_DIR})
 install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)
-
-if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
- 
-	set(kdeconnect_standalone_SRCS
-		${kded_kdeconnect_SRCS}
-		main.cpp
-	)
-	kde4_add_executable(kdeconnect_standalone ${kdeconnect_standalone_SRCS})
-	target_link_libraries(kdeconnect_standalone
-		${KDE4_KDECORE_LIBS}
-		${KDE4_KDEUI_LIBS}
-		${KDE4_KIO_LIBS}
-		${QT_QTNETWORK_LIBRARY}
-		${QJSON_LIBRARIES}
-		${QCA2_LIBRARIES}
-	)
-	install(TARGETS kdeconnect_standalone ${INSTALL_TARGETS_DEFAULT_ARGS})
- 
- endif()
