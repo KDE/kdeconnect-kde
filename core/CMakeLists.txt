@@ -56,3 +56,4 @@ generate_and_install_dbus_interface(
     OPTIONS -a
 )
 
+install(TARGETS kdeconnectcore EXPORT kdeconnectLibraryTargets  ${INSTALL_TARGETS_DEFAULT_ARGS})
