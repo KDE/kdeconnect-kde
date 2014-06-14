@@ -2,6 +2,8 @@ project(kdeconnect)
 
 cmake_minimum_required(VERSION 2.6)
 
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
 find_package(KDE4 REQUIRED)
 find_package(QJSON REQUIRED)
 find_package(QCA2 REQUIRED)
@@ -22,6 +24,7 @@ add_subdirectory(icon)
 add_subdirectory(interfaces)
 
 add_subdirectory(kded)
+add_subdirectory(plugins)
 add_subdirectory(plasmoid)
 add_subdirectory(cli)
 

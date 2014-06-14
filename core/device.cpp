@@ -36,8 +36,8 @@
 #include <KIcon>
 
 #include "kdebugnamespace.h"
-#include "plugins/kdeconnectplugin.h"
-#include "plugins/pluginloader.h"
+#include "kdeconnectplugin.h"
+#include "pluginloader.h"
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 #include "networkpackage.h"

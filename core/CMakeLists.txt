@@ -3,11 +3,9 @@ project(KDEConnectCore)
 include_directories(
     ${KDE4_KIO_LIBS}
     ${QJSON_INCLUDE_DIR}
-    ${QCA2_INCLUDE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${QCA2_INCLUDE_DIR}
 )
-
-add_subdirectory(plugins)
 
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
@@ -18,8 +16,8 @@ set(kded_kdeconnect_SRCS
     backends/linkprovider.cpp
     backends/devicelink.cpp
 
-    plugins/kdeconnectplugin.cpp
-    plugins/pluginloader.cpp
+    kdeconnectplugin.cpp
+    pluginloader.cpp
 
     networkpackage.cpp
     filetransferjob.cpp
@@ -39,9 +37,10 @@ PRIVATE
     ${QT_QTNETWORK_LIBRARY}
     ${QCA2_LIBRARIES}
 )
+target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 generate_export_header(kdeconnectcore EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectcore_export.h BASE_NAME KDEConnectCore)
 
-include(../macros.cmake)
+include(macros)
 
 generate_and_install_dbus_interface(
     kdeconnectcore
