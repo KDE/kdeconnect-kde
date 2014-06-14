@@ -88,8 +88,6 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
     if (np.hasPayload()) {
         //kDebug(kdeconnect_kded()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
-        //TODO: Ask before overwritting or rename file if it already exists
-
         KUrl destination = destinationDir();
         destination.addPath(filename);
         FileTransferJob* job = np.createPayloadTransferJob(destination);
