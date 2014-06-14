@@ -231,7 +231,7 @@ void Mounter::start()
     np.set("start", true);
     np.set("id", m_id);
     np.set("idleTimeout", m_idleTimer.interval());
-    m_sftp->device()->sendPackage(np);
+    m_sftp->sendPackage(np);
     
     m_connectTimer.start();
 }

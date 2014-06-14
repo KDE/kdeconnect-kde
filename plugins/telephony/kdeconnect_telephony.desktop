@@ -58,3 +58,4 @@ Comment[uk]=Показ сповіщень щодо дзвінків і SMS (ск
 Comment[x-test]=xxShow notifications for calls and SMS (answering coming soon)xx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.telephony
+X-KdeConnect-OutgoingPackageType=

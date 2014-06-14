@@ -45,7 +45,7 @@ void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
     //kDebug(kdeconnect_kded()) << "ClipboardChanged";
     NetworkPackage np(PACKAGE_TYPE_CLIPBOARD);
     np.set("content",clipboard->text());
-    device()->sendPackage(np);
+    sendPackage(np);
 }
 
 bool ClipboardPlugin::receivePackage(const NetworkPackage& np)

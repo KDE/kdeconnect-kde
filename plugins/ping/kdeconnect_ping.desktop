@@ -59,3 +59,4 @@ Comment[uk]=Надсилання і отримання сигналів підт
 Comment[x-test]=xxSend and receive pingsxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.ping
+# X-KdeConnect-OutgoingPackageType=kdeconnect.ping

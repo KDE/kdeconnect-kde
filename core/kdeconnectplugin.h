@@ -42,8 +42,10 @@ public:
     KdeConnectPlugin(QObject* parent, const QVariantList& args);
     virtual ~KdeConnectPlugin();
 
-    Device* device();
+    const Device* device();
     Device const* device() const;
+
+    bool sendPackage(NetworkPackage& np) const;
 
 public Q_SLOTS:
     /**

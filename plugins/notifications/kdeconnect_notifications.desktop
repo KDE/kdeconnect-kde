@@ -58,3 +58,4 @@ Comment[uk]=Показ сповіщень з телефону у KDE та під
 Comment[x-test]=xxShow phone notifications in KDE and keep them in syncxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.notification
+X-KdeConnect-OutgoingPackageType=kdeconnect.notification

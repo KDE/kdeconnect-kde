@@ -132,7 +132,8 @@ private:
 
     QList<DeviceLink*> m_deviceLinks;
     QMap<QString, KdeConnectPlugin*> m_plugins;
-    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByinterface;
+    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
+    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
     QTimer m_pairingTimeut;
 

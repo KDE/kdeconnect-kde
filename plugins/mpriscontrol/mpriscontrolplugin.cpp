@@ -125,7 +125,7 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         const QString& service = interface->service();
         const QString& player = playerList.key(service);
         np.set("player", player);
-        device()->sendPackage(np);
+        sendPackage(np);
     }
 }
 
@@ -202,7 +202,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     }
     if (somethingToSend) {
         answer.set("player", player);
-        device()->sendPackage(answer);
+        sendPackage(answer);
     }
 
     return true;
@@ -213,5 +213,5 @@ void MprisControlPlugin::sendPlayerList()
 {
     NetworkPackage np(PACKAGE_TYPE_MPRIS);
     np.set("playerList",playerList.keys());
-    device()->sendPackage(np);
+    sendPackage(np);
 }

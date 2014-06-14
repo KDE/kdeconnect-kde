@@ -73,12 +73,13 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
         return ret;
     }
 
-    ret.interfaces = service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList();
+    ret.incomingInterfaces = service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList();
+    ret.outgoingInterfaces = service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList();
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
     //FIXME any reason to use QObject in template param instead KdeConnectPlugin?
-    ret.plugin = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant);
+    ret.plugin = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << ret.outgoingInterfaces);
     if (!ret.plugin) {
         kDebug(kdeconnect_kded()) << "Error loading plugin";
         return ret;

@@ -36,7 +36,8 @@ struct PluginData
 {
     PluginData() : plugin(0) {}
     KdeConnectPlugin* plugin;
-    QStringList interfaces;
+    QStringList incomingInterfaces;
+    QStringList outgoingInterfaces;
 };
 
 class PluginLoader

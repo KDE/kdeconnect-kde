@@ -30,9 +30,10 @@
 #include <core/filetransferjob.h>
 #include "notificationsplugin.h"
 
-NotificationsDbusInterface::NotificationsDbusInterface(Device* device, QObject *parent)
-    : QDBusAbstractAdaptor(parent)
-    , mDevice(device)
+NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
+    : QDBusAbstractAdaptor(plugin)
+    , mDevice(plugin->device())
+    , mPlugin(plugin)
     , mLastId(0)
     , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
 {
@@ -134,7 +135,7 @@ void NotificationsDbusInterface::dismissRequested(Notification* notification)
 
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set<QString>("cancel", internalId);
-    mDevice->sendPackage(np);
+    mPlugin->sendPackage(np);
 
     //This should be called automatically back from server
     //removeNotification(internalId);

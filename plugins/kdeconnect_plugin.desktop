@@ -29,3 +29,6 @@ Name[x-test]=xxKDEConnect Pluginxx
 # mandatory, list of all the package types supported
 [PropertyDef::X-KdeConnect-SupportedPackageType]
 Type=QStringList
+
+[PropertyDef::X-KdeConnect-OutgoingPackageType]
+Type=QStringList

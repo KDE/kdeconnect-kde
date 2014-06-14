@@ -23,6 +23,7 @@
 struct KdeConnectPluginPrivate
 {
     Device* mDevice;
+    QSet<QString> mOutgoingTypes;
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
     // Since the plugins use their own memory, they need their own initializer in order to send encrypted packages
@@ -34,13 +35,14 @@ KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
     , d(new KdeConnectPluginPrivate)
 {
     d->mDevice = qvariant_cast< Device* >(args.first());
+    d->mOutgoingTypes = args.last().toStringList().toSet();
 }
 
 KdeConnectPlugin::~KdeConnectPlugin()
 {
 }
 
-Device* KdeConnectPlugin::device()
+const Device* KdeConnectPlugin::device()
 {
     return d->mDevice;
 }
@@ -48,4 +50,14 @@ Device* KdeConnectPlugin::device()
 Device const* KdeConnectPlugin::device() const
 {
     return d->mDevice;
+}
+
+bool KdeConnectPlugin::sendPackage(NetworkPackage& np) const
+{
+    if(!d->mOutgoingTypes.contains(np.type())) {
+        qWarning() << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->mOutgoingTypes;
+        return false;
+    }
+//     qWarning() << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
+    return d->mDevice->sendPackage(np);
 }

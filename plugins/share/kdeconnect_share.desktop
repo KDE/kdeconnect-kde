@@ -50,3 +50,4 @@ Comment[uk]=Спрощене отримання і надсилання файл
 Comment[x-test]=xxReceive and send files, URLs or plain text easilyxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.share
+X-KdeConnect-OutgoingPackageType=kdeconnect.share

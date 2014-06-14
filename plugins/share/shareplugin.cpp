@@ -154,7 +154,7 @@ void SharePlugin::shareUrl(const QUrl& url)
     } else {
         package.set<QString>("url", url.toString());
     }
-    device()->sendPackage(package);
+    sendPackage(package);
 }
 
 void SharePlugin::connected()

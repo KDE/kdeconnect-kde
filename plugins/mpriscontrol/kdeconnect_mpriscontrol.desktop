@@ -57,3 +57,4 @@ Comment[uk]=Віддалене керування відтворенням му�
 Comment[x-test]=xxRemote control your music and videosxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.mpris
+X-KdeConnect-OutgoingPackageType=kdeconnect.mpris

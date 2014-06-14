@@ -58,3 +58,4 @@ Comment[uk]=Показ даних щодо рівня заряду акумул�
 Comment[x-test]=xxShow your phone battery next to your computer batteryxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.battery
+X-KdeConnect-OutgoingPackageType=kdeconnect.battery

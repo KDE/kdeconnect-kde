@@ -49,3 +49,4 @@ Comment[uk]=Перегляд файлових систем на сторонні
 Comment[x-test]=xxBrowse the remote device filesystem using SFTPxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.sftp
+X-KdeConnect-OutgoingPackageType=kdeconnect.sftp

@@ -44,7 +44,7 @@ void BatteryPlugin::connected()
 {
     NetworkPackage np(PACKAGE_TYPE_BATTERY);
     np.set("request",true);
-    device()->sendPackage(np);
+    sendPackage(np);
 }
 
 BatteryPlugin::~BatteryPlugin()

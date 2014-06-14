@@ -37,7 +37,7 @@ class NotificationsDbusInterface
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.notifications")
 
 public:
-    explicit NotificationsDbusInterface(Device* device, QObject *parent);
+    explicit NotificationsDbusInterface(KdeConnectPlugin* plugin);
     virtual ~NotificationsDbusInterface();
 
     void processPackage(const NetworkPackage& np);
@@ -56,7 +56,8 @@ private /*methods*/:
     QString newId(); //Generates successive identifitiers to use as public ids
 
 private /*attributes*/:
-    Device* mDevice;
+    const Device* mDevice;
+    KdeConnectPlugin* mPlugin;
     QHash<QString, Notification*> mNotifications;
     QHash<QString, QString> mInternalIdToPublicId;
     int mLastId;

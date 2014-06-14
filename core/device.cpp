@@ -105,7 +105,8 @@ QStringList Device::loadedPlugins() const
 void Device::reloadPlugins()
 {
     QMap<QString, KdeConnectPlugin*> newPluginMap;
-    QMultiMap<QString, KdeConnectPlugin*> newPluginsByInterface;
+    QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingInterface;
+    QMultiMap<QString, KdeConnectPlugin*> newPluginsByOutgoingInterface;
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
@@ -123,16 +124,21 @@ void Device::reloadPlugins()
 
             if (isPluginEnabled) {
                 KdeConnectPlugin* plugin = m_plugins.take(pluginName);
-                QStringList interfaces;
+                QStringList incomingInterfaces, outgoingInterfaces;
                 if (plugin) {
-                    interfaces = m_pluginsByinterface.keys(plugin);
+                    incomingInterfaces = m_pluginsByIncomingInterface.keys(plugin);
+                    outgoingInterfaces = m_pluginsByOutgoingInterface.keys(plugin);
                 } else {
                     PluginData data = loader->instantiatePluginForDevice(pluginName, this);
                     plugin = data.plugin;
-                    interfaces = data.interfaces;
+                    incomingInterfaces = data.incomingInterfaces;
+                    outgoingInterfaces = data.outgoingInterfaces;
                 }
-                foreach(const QString& interface, interfaces) {
-                    newPluginsByInterface.insert(interface, plugin);
+                foreach(const QString& interface, incomingInterfaces) {
+                    newPluginsByIncomingInterface.insert(interface, plugin);
+                }
+                foreach(const QString& interface, outgoingInterfaces) {
+                    newPluginsByOutgoingInterface.insert(interface, plugin);
                 }
                 newPluginMap[pluginName] = plugin;
             }
@@ -143,7 +149,8 @@ void Device::reloadPlugins()
     //them anymore, otherwise they would have been moved to the newPluginMap)
     qDeleteAll(m_plugins);
     m_plugins = newPluginMap;
-    m_pluginsByinterface = newPluginsByInterface;
+    m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
+    m_pluginsByOutgoingInterface = newPluginsByOutgoingInterface;
 
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
         plugin->connected();
@@ -377,7 +384,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         }
 
     } else if (isPaired()) {
-        QList<KdeConnectPlugin*> plugins = m_pluginsByinterface.values(np.type());
+        QList<KdeConnectPlugin*> plugins = m_pluginsByIncomingInterface.values(np.type());
         foreach(KdeConnectPlugin* plugin, plugins) {
             plugin->receivePackage(np);
         }

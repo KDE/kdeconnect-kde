@@ -31,14 +31,14 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_notifications", "kdeconnect
 NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    notificationsDbusInterface = new NotificationsDbusInterface(device(), parent);
+    notificationsDbusInterface = new NotificationsDbusInterface(this);
 }
 
 void NotificationsPlugin::connected()
 {
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set("request", true);
-    device()->sendPackage(np);
+    sendPackage(np);
 }
 
 NotificationsPlugin::~NotificationsPlugin()
