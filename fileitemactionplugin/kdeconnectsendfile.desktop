@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+Name=Send file via KDE Connect service
+X-KDE-Library=kdeconnectfiletiemaction
+X-KDE-Submenu=Connect
+
+Icon=preferences-system-network
+ServiceTypes=KFileItemAction/Plugin
+MimeType=application/octet-stream
