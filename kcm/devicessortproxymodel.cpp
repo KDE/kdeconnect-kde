@@ -20,8 +20,8 @@
 
 #include "devicessortproxymodel.h"
 
-#include "libkdeconnect/dbusinterfaces.h"
-#include "libkdeconnect/devicesmodel.h"
+#include "interfaces/dbusinterfaces.h"
+#include "interfaces/devicesmodel.h"
 
 #include "kdebugnamespace.h"
 

@@ -35,8 +35,8 @@
 #include <KStandardDirs>
 
 #include "ui_kcm.h"
-#include "libkdeconnect/dbusinterfaces.h"
-#include "libkdeconnect/devicesmodel.h"
+#include "interfaces/dbusinterfaces.h"
+#include "interfaces/devicesmodel.h"
 #include "devicessortproxymodel.h"
 #include "kdebugnamespace.h"
 

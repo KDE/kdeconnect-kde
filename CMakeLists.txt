@@ -15,12 +15,14 @@ include(KDE4Defaults)
 include_directories(${KDE4_INCLUDES})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_subdirectory(kded)
-add_subdirectory(libkdeconnect)
+add_subdirectory(core)
 add_subdirectory(kcm)
 add_subdirectory(kio)
-add_subdirectory(plasmoid)
 add_subdirectory(icon)
+add_subdirectory(interfaces)
+
+add_subdirectory(kded)
+add_subdirectory(plasmoid)
 add_subdirectory(cli)
 
 add_subdirectory(tests)

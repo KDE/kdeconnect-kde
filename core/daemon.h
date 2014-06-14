@@ -24,16 +24,14 @@
 #include <QObject>
 #include <QSet>
 #include <QMap>
-#include <QtCrypto>
 
 #include <KDEDModule>
 #include <KPluginFactory>
 #include "kdeconnectcore_export.h"
 
-#include "device.h"
-#include "networkpackage.h"
-#include "backends/devicelink.h"
-#include "backends/linkprovider.h"
+class DaemonPrivate;
+class NetworkPackage;
+class DeviceLink;
 
 class KDECONNECTCORE_EXPORT Daemon
     : public QObject
@@ -65,15 +63,7 @@ private Q_SLOTS:
     void onDeviceReachableStatusChanged();
 
 private:
-
-    //Different ways to find devices and connect to them
-    QSet<LinkProvider*> mLinkProviders;
-
-    //Every known device
-    QMap<QString, Device*> mDevices;
-
-    // The Initializer object sets things up, and also does cleanup when it goes out of scope
-    QCA::Initializer mQcaInitializer;
+    QScopedPointer<DaemonPrivate> d;
 };
 
 #endif

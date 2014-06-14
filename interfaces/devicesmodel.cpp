@@ -27,7 +27,8 @@
 #include <KIcon>
 
 #include "kdebugnamespace.h"
-#include "modeltest.h"
+// #include "modeltest.h"
+#include "interfaces/dbusinterfaces.h"
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)

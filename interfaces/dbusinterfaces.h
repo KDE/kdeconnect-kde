@@ -21,20 +21,20 @@
 #ifndef DBUSINTERFACES_H
 #define DBUSINTERFACES_H
 
-#include "kdeconnect_export.h"
+#include "interfaces/kdeconnectinterfaces_export.h"
 
-#include "libkdeconnect/daemoninterface.h"
-#include "libkdeconnect/deviceinterface.h"
-#include "libkdeconnect/devicebatteryinterface.h"
-#include "libkdeconnect/devicesftpinterface.h"
-#include "libkdeconnect/devicenotificationsinterface.h"
-#include "libkdeconnect/notificationinterface.h"
+#include "interfaces/daemoninterface.h"
+#include "interfaces/deviceinterface.h"
+#include "interfaces/devicebatteryinterface.h"
+#include "interfaces/devicesftpinterface.h"
+#include "interfaces/devicenotificationsinterface.h"
+#include "interfaces/notificationinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
  * interface, so we can change the class name in a single place.
  */
-class KDECONNECT_EXPORT DaemonDbusInterface
+class KDECONNECTINTERFACES_EXPORT DaemonDbusInterface
     : public OrgKdeKdeconnectDaemonInterface
 {
     Q_OBJECT
@@ -43,7 +43,7 @@ public:
     virtual ~DaemonDbusInterface();
 };
 
-class KDECONNECT_EXPORT DeviceDbusInterface
+class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
     : public OrgKdeKdeconnectDeviceInterface
 {
     Q_OBJECT
@@ -52,7 +52,7 @@ public:
     virtual ~DeviceDbusInterface();
 };
 
-class KDECONNECT_EXPORT DeviceBatteryDbusInterface
+class KDECONNECTINTERFACES_EXPORT DeviceBatteryDbusInterface
     : public OrgKdeKdeconnectDeviceBatteryInterface
 {
     Q_OBJECT
@@ -61,7 +61,7 @@ public:
     virtual ~DeviceBatteryDbusInterface();
 };
 
-class KDECONNECT_EXPORT DeviceNotificationsDbusInterface
+class KDECONNECTINTERFACES_EXPORT DeviceNotificationsDbusInterface
     : public OrgKdeKdeconnectDeviceNotificationsInterface
 {
     Q_OBJECT
@@ -70,7 +70,7 @@ public:
     virtual ~DeviceNotificationsDbusInterface();
 };
 
-class KDECONNECT_EXPORT NotificationDbusInterface
+class KDECONNECTINTERFACES_EXPORT NotificationDbusInterface
     : public OrgKdeKdeconnectDeviceNotificationsNotificationInterface
 {
     Q_OBJECT
@@ -79,7 +79,7 @@ public:
     virtual ~NotificationDbusInterface();
 };
 
-class KDECONNECT_EXPORT SftpDbusInterface
+class KDECONNECTINTERFACES_EXPORT SftpDbusInterface
     : public OrgKdeKdeconnectDeviceSftpInterface
 {
     Q_OBJECT

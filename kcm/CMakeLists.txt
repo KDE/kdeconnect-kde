@@ -14,14 +14,12 @@ kde4_add_ui_files(kcm_SRCS kcm.ui)
 
 kde4_add_plugin(kcm_kdeconnect ${kcm_SRCS})
 
-add_dependencies(kcm_kdeconnect libkdeconnect)
-
 target_link_libraries(kcm_kdeconnect
     ${QT_QTCORE_LIBRARY}
     ${QT_QTGUI_LIBRARY}
     ${KDE4_KDEUI_LIBRARY}
     ${KDE4_KCMUTILS_LIBS}
-    kdeconnect
+    kdeconnectinterfaces
 )
 
 install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})

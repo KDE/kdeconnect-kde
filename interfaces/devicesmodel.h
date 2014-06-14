@@ -26,9 +26,12 @@
 #include <QPixmap>
 #include <QList>
 
-#include "libkdeconnect/dbusinterfaces.h"
+#include "interfaces/kdeconnectinterfaces_export.h"
 
-class KDECONNECT_EXPORT DevicesModel
+class DaemonDbusInterface;
+class DeviceDbusInterface;
+
+class KDECONNECTINTERFACES_EXPORT DevicesModel
     : public QAbstractListModel
 {
     Q_OBJECT

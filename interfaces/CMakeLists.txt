@@ -27,7 +27,7 @@ set(libkdeconnect_HEADERS
     devicesmodel.h
     notificationsmodel.h
     dbusinterfaces.h
-    kdeconnect_export.h
+    ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h
     ${CMAKE_BINARY_DIR}/libkdeconnect/daemoninterface.h
     ${CMAKE_BINARY_DIR}/libkdeconnect/deviceinterface.h
     ${CMAKE_BINARY_DIR}/libkdeconnect/devicebatteryinterface.h
@@ -37,28 +37,30 @@ set(libkdeconnect_HEADERS
 )
 
 set_source_files_properties(
-    ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.daemon.xml
-    ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.device.xml
-    ${CMAKE_BINARY_DIR}/kded/plugins/battery/org.kde.kdeconnect.device.battery.xml
-    ${CMAKE_BINARY_DIR}/kded/plugins/sftp/org.kde.kdeconnect.device.sftp.xml
-    ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
-    ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
+    ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml
+    ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml
+    ${CMAKE_BINARY_DIR}/core/plugins/battery/org.kde.kdeconnect.device.battery.xml
+    ${CMAKE_BINARY_DIR}/core/plugins/sftp/org.kde.kdeconnect.device.sftp.xml
+    ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
+    ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
     PROPERTIES NO_NAMESPACE true
 )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.daemon.xml daemoninterface)
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/org.kde.kdeconnect.device.xml deviceinterface)
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/sftp/org.kde.kdeconnect.device.sftp.xml devicesftpinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
-qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/kded/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml daemoninterface)
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml deviceinterface)
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/sftp/org.kde.kdeconnect.device.sftp.xml devicesftpinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
+qt4_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
 
-kde4_add_library(kdeconnect SHARED ${libkdeconnect_SRC})
-set_target_properties(kdeconnect PROPERTIES
+kde4_add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
+set_target_properties(kdeconnectinterfaces PROPERTIES
     VERSION ${KDECONNECT_VERSION}
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
 
-add_dependencies(kdeconnect
+generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
+
+add_dependencies(kdeconnectinterfaces
         org.kde.kdeconnect.daemon.xml
         org.kde.kdeconnect.device.xml
         org.kde.kdeconnect.device.battery.xml
@@ -67,7 +69,7 @@ add_dependencies(kdeconnect
         org.kde.kdeconnect.device.notifications.notification.xml
 )
 
-target_link_libraries(kdeconnect
+target_link_libraries(kdeconnectinterfaces
     ${KDE4_KDEUI_LIBS}
     ${QT_QTCORE_LIBRARY}
     ${QT_QTDBUS_LIBRARY}
@@ -80,7 +82,7 @@ configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/libkdeconnect/KDECo
 macro_write_basic_cmake_version_file(${CMAKE_BINARY_DIR}/libkdeconnect/KDEConnectConfigVersion.cmake
         ${KDECONNECT_VERSION_MAJOR} ${KDECONNECT_VERSION_MINOR} ${KDECONNECT_VERSION_PATCH})
         
-install(TARGETS kdeconnect EXPORT kdeconnectLibraryTargets  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 #Install header files
 install(FILES ${libkdeconnect_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/kdeconnect COMPONENT Devel)

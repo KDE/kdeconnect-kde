@@ -25,7 +25,7 @@
 #include <KPluginFactory>
 #include <KStandardDirs>
 
-#include "kdebugnamespace.h"
+#include "core/kdebugnamespace.h"
 
 int theArea = KDebug::registerArea("kdeconnect-kded");
 

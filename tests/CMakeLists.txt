@@ -3,6 +3,7 @@ include_directories(
     ${QCA2_INCLUDE_DIR}
     ${KDE4_INCLUDES}
     ${KDEConnectCore_BINARY_DIR}
+    ${CMAKE_SOURCE_DIR}
 )
 
 set(kdeconnect_libraries
@@ -21,5 +22,5 @@ kde4_add_unit_test(kdeconnect_tests networkpackagetests.cpp)
 target_link_libraries(kdeconnect_tests ${kdeconnect_libraries})
 
 #Socketlinereader
-kde4_add_unit_test(testsocketlinereader testsocketlinereader.cpp ../kded/backends/lan/socketlinereader.cpp)
+kde4_add_unit_test(testsocketlinereader testsocketlinereader.cpp ../core/backends/lan/socketlinereader.cpp)
 target_link_libraries(testsocketlinereader ${kdeconnect_libraries})

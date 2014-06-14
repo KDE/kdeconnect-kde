@@ -28,7 +28,7 @@
 #include <KAboutData>
 #include <KCmdLineArgs>
 
-#include "daemon.h"
+#include "core/daemon.h"
 
 static int sigtermfd[2];
 const static char deadbeef = 1;

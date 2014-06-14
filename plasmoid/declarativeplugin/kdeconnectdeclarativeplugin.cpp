@@ -29,8 +29,8 @@
 #include "objectfactory.h"
 #include "responsewaiter.h"
 
-#include "libkdeconnect/devicesmodel.h"
-#include "libkdeconnect/notificationsmodel.h"
+#include "interfaces/devicesmodel.h"
+#include "interfaces/notificationsmodel.h"
 
 Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin)
 

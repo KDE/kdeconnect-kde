@@ -20,7 +20,7 @@
 
 #include "networkpackagetests.h"
 
-#include "../kded/networkpackage.h"
+#include "core/networkpackage.h"
 
 #include <qtest_kde.h>
 #include <QtTest>

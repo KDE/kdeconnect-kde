@@ -1,3 +1,5 @@
+include_directories(${CMAKE_SOURCE_DIR})
+
 set(kio_kdeconnect_PART_SRCS
    kiokdeconnect.cpp
    kdebugnamespace.cpp)

@@ -22,8 +22,10 @@
 #include <KUrl>
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
-#include <libkdeconnect/devicesmodel.h>
+#include <interfaces/devicesmodel.h>
 #include <iostream>
+#include <QDBusMessage>
+#include <QDBusConnection>
 
 int main(int argc, char** argv)
 {
