@@ -137,8 +137,11 @@ void NotificationsDbusInterface::dismissRequested(Notification* notification)
     np.set<QString>("cancel", internalId);
     mPlugin->sendPackage(np);
 
-    //This should be called automatically back from server
-    //removeNotification(internalId);
+    //Workaround: we erase notifications without waiting a repsonse from the
+    //phone because we won't receive a response if we are out of sync and this
+    //notification no longer exists. Ideally, each time we reach the phone
+    //after some time disconnected we should re-sync all the notifications.
+    removeNotification(internalId);
 }
 
 QString NotificationsDbusInterface::newId()
