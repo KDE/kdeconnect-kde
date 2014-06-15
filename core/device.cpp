@@ -57,11 +57,7 @@ Device::Device(QObject* parent, const QString& id)
     const QString& key = data.readEntry<QString>("publicKey", QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
     
-    //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
-    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
-    QFile privKey(privateKeyPath);
-    privKey.open(QIODevice::ReadOnly);
-    m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+    initPrivateKey();
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -75,16 +71,21 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
 {
-    //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
-    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
-    QFile privKey(privateKeyPath);
-    privKey.open(QIODevice::ReadOnly);
-    m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+    initPrivateKey();
 
     addLink(identityPackage, dl);
     
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+}
+
+void Device::initPrivateKey()
+{
+    //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
+    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
+    QFile privKey(privateKeyPath);
+    privKey.open(QIODevice::ReadOnly);
+    m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
 }
 
 Device::~Device()

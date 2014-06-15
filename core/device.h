@@ -140,6 +140,7 @@ private:
     void setAsPaired();
     void storeAsTrusted();
     bool sendOwnPublicKey();
+    void initPrivateKey();
 
 };
 
