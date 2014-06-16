@@ -54,3 +54,5 @@ bool ClipboardPlugin::receivePackage(const NetworkPackage& np)
     clipboard->setText(np.get<QString>("content"));
     return true;
 }
+
+#include "clipboardplugin.moc"

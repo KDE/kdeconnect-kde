@@ -20,19 +20,17 @@
 
 #include "kdeconnectdeclarativeplugin.h"
 
-#include <QtDeclarative/QDeclarativeItem>
-#include <QtDeclarative/QDeclarativeEngine>
-#include <QtDeclarative/QDeclarativeContext>
+#include <QQmlEngine>
+#include <QQmlContext>
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
+#include <QtQml>
 
 #include "objectfactory.h"
 #include "responsewaiter.h"
 
 #include "interfaces/devicesmodel.h"
 #include "interfaces/notificationsmodel.h"
-
-Q_EXPORT_PLUGIN2(kdeconnectdeclarativeplugin, KdeConnectDeclarativePlugin)
 
 QObject* createDeviceDbusInterface(QVariant deviceId)
 {
@@ -63,9 +61,9 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DBusAsyncResponse>("org.kde.kdeconnect", 1, 0, "DBusAsyncResponse");
 }
 
-void KdeConnectDeclarativePlugin::initializeEngine(QDeclarativeEngine* engine, const char* uri)
+void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
 {
-    QDeclarativeExtensionPlugin::initializeEngine(engine, uri);
+    QQmlExtensionPlugin::initializeEngine(engine, uri);
  
     engine->rootContext()->setContextProperty("DeviceDbusInterfaceFactory"
       , new ObjectFactory(engine, createDeviceDbusInterface));

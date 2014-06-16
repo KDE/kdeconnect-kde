@@ -134,3 +134,5 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     return true;
 
 }
+
+#include "pausemusicplugin.moc"

@@ -34,6 +34,8 @@
 #include <KServiceTypeTrader>
 #include <KNotification>
 #include <KIcon>
+#include <KGlobal>
+#include <KComponentData>
 
 #include "kdebugnamespace.h"
 #include "kdeconnectplugin.h"
@@ -82,7 +84,7 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
 void Device::initPrivateKey()
 {
     //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
-    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
+    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true);
     QFile privKey(privateKeyPath);
     privKey.open(QIODevice::ReadOnly);
     m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
@@ -353,7 +355,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
                 KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
                 notification->setPixmap(KIcon("dialog-information").pixmap(48, 48));
-                notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+                notification->setComponentName("kdeconnect");
                 notification->setTitle("KDE Connect");
                 notification->setText(i18n("Pairing request from %1", m_deviceName));
                 notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));

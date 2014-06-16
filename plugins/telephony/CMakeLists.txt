@@ -2,7 +2,7 @@ set(kdeconnect_telephony_SRCS
     telephonyplugin.cpp
 )
 
-kde4_add_plugin(kdeconnect_telephony ${kdeconnect_telephony_SRCS})
+add_library(kdeconnect_telephony MODULE ${kdeconnect_telephony_SRCS})
 
 target_link_libraries(kdeconnect_telephony kdeconnectcore ${KDE4_KDEUI_LIBS})
 

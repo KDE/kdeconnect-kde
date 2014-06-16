@@ -154,7 +154,7 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
 
 QString SftpPlugin::mountPoint()
 {
-    const QString mountDir = KStandardDirs::locateLocal("appdata", "", true, KComponentData("kdeconnect", "kdeconnect"));
+    const QString mountDir = KStandardDirs::locateLocal("appdata", "", true);
     return QDir(mountDir).absoluteFilePath(device()->id());
 }
 
@@ -197,3 +197,4 @@ void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) con
       , KNotification::CloseOnTimeout);
 }
 
+#include "sftpplugin.moc"

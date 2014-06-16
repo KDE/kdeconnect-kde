@@ -118,3 +118,5 @@ void Kded::checkIfDaemonTerminated()
     m_daemon->kill();
     kWarning(theArea) << "Daemon  killed";
 }
+
+#include "kded.moc"

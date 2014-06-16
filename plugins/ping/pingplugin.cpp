@@ -45,7 +45,7 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
 {
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
     notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
+    notification->setComponentName("kdeconnect");
     notification->setTitle(device()->name());
     notification->setText(np.get<QString>("message",i18n("Ping!"))); //This can be a source of spam
     notification->sendEvent();
@@ -53,3 +53,5 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
     return true;
 
 }
+
+#include "pingplugin.moc"

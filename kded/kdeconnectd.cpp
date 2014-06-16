@@ -25,7 +25,7 @@
 
 #include <QSocketNotifier>
 #include <KUniqueApplication>
-#include <KAboutData>
+#include <k4aboutdata.h>
 #include <KCmdLineArgs>
 
 #include "core/daemon.h"
@@ -59,11 +59,11 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
 int main(int argc, char* argv[])
 {
-    KAboutData aboutData("kdeconnect", "kdeconnect-kded",
+    K4AboutData aboutData("kdeconnect", "kdeconnect-kded",
                          ki18n("kdeconnect"),
                          "0.1",
                          ki18n("Connect your devices and KDE"),
-                         KAboutData::License_GPL,
+                         K4AboutData::License_GPL,
                          KLocalizedString(),
                          KLocalizedString(),
                          "http://albertvaka.wordpress.com");

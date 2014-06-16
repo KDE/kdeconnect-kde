@@ -1,7 +1,6 @@
 project(KDEConnectCore)
 
 include_directories(
-    ${KDE4_KIO_LIBS}
     ${QJSON_INCLUDE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${QCA2_INCLUDE_DIR}
@@ -26,15 +25,16 @@ set(kded_kdeconnect_SRCS
     kdebugnamespace.cpp
 )
 
-kde4_add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
+add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
 target_link_libraries(kdeconnectcore
 PUBLIC
-    ${KDE4_KDECORE_LIBS}
+    KF5::KDELibs4Support
 
 PRIVATE
-    ${KDE4_KIO_LIBS}
+    KF5::KIOWidgets
+    KF5::KCMUtils
+    Qt5::Network
     ${QJSON_LIBRARIES}
-    ${QT_QTNETWORK_LIBRARY}
     ${QCA2_LIBRARIES}
 )
 target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR})

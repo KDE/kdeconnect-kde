@@ -8,6 +8,11 @@
       <arg type="s" name="property_name" direction="in"/>
       <arg type="v" name="value" direction="out"/>
     </method>
+    <method name="GetAll">
+      <arg type="s" name="interface_name" direction="in"/>
+      <arg type="a{sv}" name="properties" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+    </method>
     <method name="Set">
       <arg type="s" name="interface_name" direction="in"/>
       <arg type="s" name="property_name" direction="in"/>
@@ -15,11 +20,9 @@
     </method>
     <signal name="PropertiesChanged">
       <arg type="s" name="interface_name"/>
-      <arg type="a{sv}" name="changed_properties">
-          <annotation name="com.trolltech.QtDBus.QtTypeName.In1" value="QVariantMap" />
-          <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap" />
-      </arg>
+      <arg type="a{sv}" name="changed_properties"/>
       <arg type="as" name="invalidated_properties"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
     </signal>
   </interface>
 </node>

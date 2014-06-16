@@ -131,7 +131,7 @@ void SharePlugin::finished(KJob* job)
     FileTransferJob* transferJob = (FileTransferJob*)job;
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
     notification->setPixmap(KIcon(error? "edit-delete" : "dialog-ok").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
+    notification->setComponentName("kdeconnect");
     notification->setTitle(i18n("Transfer finished"));
     notification->setText(transferJob->destination().fileName());
     notification->setActions(QStringList(i18n("Open destination folder")));
@@ -166,3 +166,5 @@ QString SharePlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/share";
 }
+
+#include "shareplugin.moc"

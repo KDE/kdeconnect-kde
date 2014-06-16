@@ -4,7 +4,7 @@ set(kdeconnect_notifications_SRCS
     notificationsdbusinterface.cpp
 )
 
-kde4_add_plugin(kdeconnect_notifications ${kdeconnect_notifications_SRCS})
+add_library(kdeconnect_notifications MODULE ${kdeconnect_notifications_SRCS})
 
 target_link_libraries(kdeconnect_notifications kdeconnectcore ${KDE4_KDEUI_LIBS})
 

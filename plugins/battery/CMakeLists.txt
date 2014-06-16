@@ -3,7 +3,7 @@ set(kdeconnect_battery_SRCS
     batterydbusinterface.cpp
 )
 
-kde4_add_plugin(kdeconnect_battery ${kdeconnect_battery_SRCS})
+add_library(kdeconnect_battery MODULE ${kdeconnect_battery_SRCS})
 
 target_link_libraries(kdeconnect_battery kdeconnectcore ${KDE4_KDEUI_LIBS})
 

@@ -80,7 +80,7 @@ Daemon::Daemon(QObject *parent)
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
     if (!config->group("myself").hasKey("privateKeyPath"))
     {
-        const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true, KComponentData("kdeconnect", "kdeconnect"));
+        const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true);
         
         QFile privKey(privateKeyPath);
         

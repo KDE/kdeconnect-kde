@@ -74,7 +74,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
             KNotification* notification = new KNotification("notification", KNotification::CloseOnTimeout, this);
             notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
-            notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
+            notification->setComponentName("kdeconnect");
             notification->setTitle(mDevice->name());
             notification->setText(noti->appName() + ": " + noti->ticker());
             notification->sendEvent();
@@ -149,3 +149,5 @@ QString NotificationsDbusInterface::newId()
     return QString::number(++mLastId);
 }
 
+
+#include "notificationsdbusinterface.moc"

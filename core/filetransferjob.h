@@ -58,7 +58,7 @@ private:
     QSharedPointer<QIODevice> mOrigin;
     KIO::FileJob* mDestinationJob;
     QString mDeviceName;
-    KUrl mDestination;
+    QUrl mDestination;
     QTime m_time;
     qulonglong m_speedBytes;
     int mSize;

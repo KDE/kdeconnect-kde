@@ -25,6 +25,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KUrlRequester>
+#include <KAboutData>
 
 #include <core/kdebugnamespace.h>
 
@@ -34,7 +35,7 @@ K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
 K_EXPORT_PLUGIN(ShareConfigFactory("kdeconnect_share_config", "kdeconnect_share_config"))
 
 ShareConfig::ShareConfig(QWidget *parent, const QVariantList& )
-    : KCModule(ShareConfigFactory::componentData(), parent)
+    : KCModule(KAboutData::pluginData("kdeconnect_share_config"), parent)
     , m_ui(new Ui::ShareConfigUi())
     , m_cfg(KSharedConfig::openConfig("kdeconnect/plugins/share"))
 {
@@ -77,3 +78,4 @@ void ShareConfig::save()
     Q_EMIT changed(false);
 }
 
+#include "share_config.moc"

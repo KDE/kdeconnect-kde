@@ -4,7 +4,7 @@ set(kdeconnect_sftp_SRCS
     sftpplugin.cpp
 )
 
-kde4_add_plugin(kdeconnect_sftp ${kdeconnect_sftp_SRCS})
+add_library(kdeconnect_sftp MODULE ${kdeconnect_sftp_SRCS})
 
 target_link_libraries(kdeconnect_sftp kdeconnectcore ${KDE4_KFILE_LIBS})
 
@@ -24,13 +24,13 @@ generate_and_install_dbus_interface(
 # Config
 
 set( kdeconnect_sftp_config_SRCS sftp_config.cpp )
-kde4_add_ui_files( kdeconnect_sftp_config_SRCS sftp_config.ui )
+qt5_wrap_ui( kdeconnect_sftp_config_SRCS sftp_config.ui )
 
-kde4_add_plugin( kdeconnect_sftp_config ${kdeconnect_sftp_config_SRCS} )
+add_library(kdeconnect_sftp_config MODULE ${kdeconnect_sftp_config_SRCS} )
 target_link_libraries( kdeconnect_sftp_config
-    ${KDE4_KDECORE_LIBS}
+    
     ${KDE4_KDEUI_LIBS}
-    ${KDE4_KIO_LIBS}
+    KF5::KIOWidgets
 )
 
 install(TARGETS kdeconnect_sftp_config DESTINATION ${PLUGIN_INSTALL_DIR} )

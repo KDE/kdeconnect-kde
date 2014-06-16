@@ -64,17 +64,17 @@ void FileTransferJob::doStart()
     KUrl destCheck = mDestination;
     if (QFile::exists(destCheck.path())) {
         QFileInfo destInfo(destCheck.path());
-        KIO::RenameDialog *dialog = new KIO::RenameDialog(0,
+        KIO::RenameDialog *dialog = new KIO::RenameDialog(Q_NULLPTR,
             i18n("Incoming file exists"),
-            KUrl(mDeviceName + ":/" + destCheck.fileName()),
+            QUrl(mDeviceName + ":/" + destCheck.fileName()),
             destCheck,
-            KIO::M_OVERWRITE,
+            KIO::RenameDialog_Overwrite,
             mSize,
             destInfo.size(),
-            -1,
-            destInfo.created().toTime_t(),
-            -1,
-            destInfo.lastModified().toTime_t()
+            QDateTime(),
+            destInfo.created(),
+            QDateTime(),
+            destInfo.lastModified()
         );
         connect(this, SIGNAL(finished(KJob*)), dialog, SLOT(deleteLater()));
         connect(dialog, SIGNAL(finished(int)), SLOT(renameDone(int)));

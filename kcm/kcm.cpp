@@ -20,19 +20,21 @@
 
 #include "kcm.h"
 
-#include <QtGui/QLabel>
-#include <QtGui/QMenu>
-#include <QtGui/QMenuBar>
-#include <QtGui/QAction>
-#include <QtGui/QStackedLayout>
-#include <QtGui/QListView>
+#include <QLabel>
+#include <QMenu>
+#include <QMenuBar>
+#include <QAction>
+#include <QStackedLayout>
+#include <QListView>
 #include <QDBusConnection>
 #include <QDBusInterface>
 
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
 #include <KPluginFactory>
+#include <KAboutData>
 #include <KStandardDirs>
+#include <KLocalizedString>
 
 #include "ui_kcm.h"
 #include "interfaces/dbusinterfaces.h"
@@ -44,7 +46,7 @@ K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
 
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
-    : KCModule(KdeConnectKcmFactory::componentData(), parent)
+    : KCModule(KAboutData::pluginData("kdeconnect-kcm"), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , devicesModel(new DevicesModel(this))
     , currentDevice(0)
@@ -252,3 +254,6 @@ void KdeConnectKcm::sendPing()
     if (!currentDevice) return;
     currentDevice->sendPing();
 }
+
+#include "kcm.moc"
+#include "moc_kcm.cpp"

@@ -1,11 +1,11 @@
 include_directories(${CMAKE_SOURCE_DIR})
 
-kde4_add_executable(kdeconnectd kdeconnectd.cpp)
-target_link_libraries(kdeconnectd kdeconnectcore ${KDE4_KDEUI_LIBS})
+add_executable(kdeconnectd kdeconnectd.cpp)
+target_link_libraries(kdeconnectd kdeconnectcore KF5::ConfigWidgets)
 
-kde4_add_plugin(kded_kdeconnect kded.cpp)
+add_library(kded_kdeconnect MODULE kded.cpp)
 
-target_link_libraries(kded_kdeconnect ${KDE4_KDECORE_LIBS})
+target_link_libraries(kded_kdeconnect KF5::DBusAddons KF5::KDELibs4Support)
 
 install(TARGETS kdeconnectd DESTINATION ${LIBEXEC_INSTALL_DIR})
 install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})

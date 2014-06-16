@@ -1,20 +1,24 @@
 project(kdeconnect)
 
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.12)
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+find_package(ECM 0.0.9 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake)
 
-find_package(KDE4 REQUIRED)
-find_package(QJSON REQUIRED)
+find_package(Qt5 5.2 REQUIRED COMPONENTS Qml Quick Xml Svg OpenGL PrintSupport Test)
+find_package(KF5 REQUIRED COMPONENTS I18n KIO Notifications ConfigWidgets DBusAddons KCMUtils KDELibs4Support)
 find_package(QCA2 REQUIRED)
+find_package(QJSON REQUIRED)
 
-#if(CMAKE_COMPILER_IS_GNUCXX)
-#    add_definitions(-std=gnu++0x)
-#endif()
+include(KDEInstallDirs)
+include(KDECompilerSettings)
+include(KDECMakeSettings)
+include(ECMAddTests)
+include(ECMSetupVersion)
+include(ECMInstallIcons)
+include(FeatureSummary)
 
 include(GenerateExportHeader)
-include(KDE4Defaults)
-include_directories(${KDE4_INCLUDES})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(core)

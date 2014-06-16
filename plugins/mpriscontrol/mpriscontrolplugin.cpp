@@ -215,3 +215,5 @@ void MprisControlPlugin::sendPlayerList()
     np.set("playerList",playerList.keys());
     sendPackage(np);
 }
+
+#include "mpriscontrolplugin.moc"

@@ -27,16 +27,17 @@
 #include <KDebug>
 #include <KComponentData>
 #include <KCmdLineArgs>
-#include <KAboutData>
 #include <KProcess>
 #include <KApplication>
 #include <KLocale>
+#include <k4aboutdata.h>
+#include <kdemacros.h>
 
 #include "kdebugnamespace.h"
 
 extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
 {
-    KAboutData about("kiokdeconnect", "kdeconnect-kio", ki18n("kiokdeconnect"), "1.0");
+    K4AboutData about("kiokdeconnect", "kdeconnect-kio", ki18n("kiokdeconnect"), "1.0");
     KCmdLineArgs::init(&about);
 
     KApplication app;
@@ -182,7 +183,7 @@ void KioKdeconnect::listDevice()
 
 
 
-void KioKdeconnect::listDir(const KUrl &url)
+void KioKdeconnect::listDir(const QUrl &url)
 {
     kDebug(kdeconnect_kio()) << "Listing..." << url;
 
@@ -204,7 +205,7 @@ void KioKdeconnect::listDir(const KUrl &url)
     }
 }
 
-void KioKdeconnect::stat(const KUrl &url)
+void KioKdeconnect::stat(const QUrl &url)
 {
     kDebug(kdeconnect_kio()) << "Stat: " << url;
 
@@ -215,7 +216,7 @@ void KioKdeconnect::stat(const KUrl &url)
     finished();
 }
 
-void KioKdeconnect::get(const KUrl &url)
+void KioKdeconnect::get(const QUrl &url)
 {
     kDebug(kdeconnect_kio()) << "Get: " << url;
     mimeType("");

@@ -62,4 +62,4 @@ bool NotificationsPlugin::receivePackage(const NetworkPackage& np)
     return true;
 }
 
-   
+#include "notificationsplugin.moc"

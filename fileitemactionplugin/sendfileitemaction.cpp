@@ -36,6 +36,7 @@
 #include <KDebug>
 #include <KProcess>
 #include <KLocalizedString>
+#include <KUrl>
 
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
 K_EXPORT_PLUGIN(SendFileItemActionFactory("SendFileItemAction", "kdeconnectfiletiemaction"))
@@ -86,3 +87,5 @@ void SendFileItemAction::sendFile()
         QDBusConnection::sessionBus().call(msg);
     }
 }
+
+#include "sendfileitemaction.moc"

@@ -22,6 +22,7 @@
 #define KDEBUG_KDECONNECT_KDED_H
 
 #include <KDebug>
+#include <kdemacros.h>
 
 KDE_EXPORT int kdeconnect_kded();
 

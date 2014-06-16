@@ -23,6 +23,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KAboutData>
 
 #include <core/kdebugnamespace.h>
 
@@ -32,7 +33,7 @@ K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
 K_EXPORT_PLUGIN(PauseMusicConfigFactory("kdeconnect_pausemusic_config", "kdeconnect-kded"))
 
 PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& )
-    : KCModule(PauseMusicConfigFactory::componentData(), parent)
+    : KCModule(KAboutData::pluginData("kdeconnect_pausemusic_config"), parent)
     , m_ui(new Ui::PauseMusicConfigUi())
     , m_cfg(KSharedConfig::openConfig("kdeconnect/plugins/pausemusic"))
 {
@@ -79,3 +80,4 @@ void PauseMusicConfig::save()
     Q_EMIT changed(false);
 }
 
+#include "pausemusic_config.moc"

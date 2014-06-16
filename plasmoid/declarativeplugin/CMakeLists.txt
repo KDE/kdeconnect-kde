@@ -12,15 +12,12 @@ set(kdeconnectdeclarativeplugin_MOC
   objectfactory.h
 )
 
-qt4_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})    
+qt5_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})    
 
-kde4_add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
+add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
 target_link_libraries(kdeconnectdeclarativeplugin
-    ${KDE4_KDEUI_LIBS}
-    ${KDE4_KDECORE_LIBS}
-    ${QT_QTCORE_LIBRARY}
-    ${QT_QTGUI_LIBRARY}
-    ${QT_QTDECLARATIVE_LIBRARY}
+    Qt5::Qml
+    Qt5::Gui
     kdeconnectinterfaces
 )
 install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${IMPORTS_INSTALL_DIR}/org/kde/kdeconnect)

@@ -2,19 +2,19 @@ set(kdeconnect_mpriscontrol_SRCS
     mpriscontrolplugin.cpp
 )
 
-qt4_add_dbus_interface(
+qt5_add_dbus_interface(
    kdeconnect_mpriscontrol_SRCS
    mprisdbusinterface.xml
    mprisdbusinterface
 )
 
-qt4_add_dbus_interface(
+qt5_add_dbus_interface(
    kdeconnect_mpriscontrol_SRCS
    propertiesInterface.xml
    propertiesdbusinterface
 )
 
-kde4_add_plugin(kdeconnect_mpriscontrol ${kdeconnect_mpriscontrol_SRCS})
+add_library(kdeconnect_mpriscontrol MODULE ${kdeconnect_mpriscontrol_SRCS})
 
 target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore)
 

@@ -10,15 +10,15 @@ set(kcm_SRCS
     kdebugnamespace.cpp
 )
 
-kde4_add_ui_files(kcm_SRCS kcm.ui)
+qt5_wrap_ui(kcm_SRCS kcm.ui)
 
-kde4_add_plugin(kcm_kdeconnect ${kcm_SRCS})
+add_library(kcm_kdeconnect MODULE ${kcm_SRCS})
 
 target_link_libraries(kcm_kdeconnect
-    ${QT_QTCORE_LIBRARY}
-    ${QT_QTGUI_LIBRARY}
+    Qt5::Core
+    Qt5::Gui
     ${KDE4_KDEUI_LIBRARY}
-    ${KDE4_KCMUTILS_LIBS}
+    KF5::KCMUtils
     kdeconnectinterfaces
 )
 

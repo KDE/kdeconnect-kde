@@ -25,6 +25,8 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KStandardDirs>
+#include <KAboutData>
+#include <KIconLoader>
 
 #include "sftpplugin.h"
 #include <core/kdebugnamespace.h>
@@ -35,7 +37,7 @@ K_PLUGIN_FACTORY(SftpConfigFactory, registerPlugin<SftpConfig>();)
 K_EXPORT_PLUGIN(SftpConfigFactory("kdeconnect_sftp_config", "kdeconnect-kded"))
 
 SftpConfig::SftpConfig(QWidget *parent, const QVariantList& )
-    : KCModule(SftpConfigFactory::componentData(), parent)
+    : KCModule(KAboutData::pluginData("kdeconnect_sftp_config"), parent)
     , m_ui(new Ui::SftpConfigUi())
     , m_cfg(SftpConfig::config())
 {
@@ -93,4 +95,4 @@ void SftpConfig::save()
     Q_EMIT changed(false);
 }
 
-
+#include "sftp_config.moc"

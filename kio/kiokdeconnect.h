@@ -34,9 +34,9 @@ class KioKdeconnect : public QObject, public KIO::SlaveBase
 public:
     KioKdeconnect(const QByteArray &pool, const QByteArray &app);
 
-    void get(const KUrl &url);
-    void listDir(const KUrl &url);
-    void stat(const KUrl &url);
+    void get(const QUrl &url);
+    void listDir(const QUrl &url);
+    void stat(const QUrl &url);
 
     void setHost(const QString &constHostname, quint16 port, const QString &user, const QString &pass);
 
