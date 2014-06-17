@@ -38,7 +38,7 @@
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
-K_EXPORT_PLUGIN(SendFileItemActionFactory("SendFileItemAction", "kdeconnectfiletiemaction"))
+K_EXPORT_PLUGIN(SendFileItemActionFactory("SendFileItemAction", "kdeconnect-filetiemaction"))
 
 SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KFileItemActionPlugin(parent)
 {

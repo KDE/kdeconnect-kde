@@ -29,7 +29,7 @@
 
 int main(int argc, char** argv)
 {
-    KAboutData about("kctool", 0, ki18n(("kctool")), "1.0", ki18n("KDE Connect CLI tool"),
+    KAboutData about("kctool", "kdeconnect-cli", ki18n(("kctool")), "1.0", ki18n("KDE Connect CLI tool"),
                      KAboutData::License_GPL, ki18n("(C) 2013 Aleix Pol Gonzalez"));
     about.addAuthor( ki18n("Aleix Pol Gonzalez"), KLocalizedString(), "aleixpol@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
