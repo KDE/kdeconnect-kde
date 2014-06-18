@@ -38,7 +38,7 @@
 #include "autoclosingqfile.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SharePlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_share", "kdeconnect-kded") )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_share", "kdeconnect-plugins") )
 
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

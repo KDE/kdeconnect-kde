@@ -34,7 +34,7 @@
 #include "propertiesdbusinterface.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MprisControlPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mpriscontrol", "kdeconnect-kded") )
+K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mpriscontrol", "kdeconnect-plugins") )
 
 MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

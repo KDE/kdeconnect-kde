@@ -41,6 +41,9 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
+static const KCatalogLoader loader("kdeconnect-core");
+static const KCatalogLoader loaderPlugins("kdeconnect-plugins");
+
 struct DaemonPrivate
 {
     //Different ways to find devices and connect to them
