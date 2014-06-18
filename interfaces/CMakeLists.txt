@@ -70,9 +70,9 @@ add_dependencies(kdeconnectinterfaces
 )
 
 target_link_libraries(kdeconnectinterfaces
-    ${KDE4_KDEUI_LIBS}
     Qt5::Core
     Qt5::DBus
+    KF5::KDELibs4Support
     
     ${QJSON_LIBRARIES}
 )

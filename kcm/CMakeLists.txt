@@ -17,7 +17,7 @@ add_library(kcm_kdeconnect MODULE ${kcm_SRCS})
 target_link_libraries(kcm_kdeconnect
     Qt5::Core
     Qt5::Gui
-    ${KDE4_KDEUI_LIBRARY}
+    KF5::KDELibs4Support
     KF5::KCMUtils
     kdeconnectinterfaces
 )

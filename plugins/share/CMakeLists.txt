@@ -20,7 +20,7 @@ qt5_wrap_ui( kdeconnect_share_config_SRCS share_config.ui )
 add_library(kdeconnect_share_config MODULE ${kdeconnect_share_config_SRCS} )
 target_link_libraries( kdeconnect_share_config
     
-    ${KDE4_KDEUI_LIBS}
+    KF5::KDELibs4Support
     KF5::KIOWidgets
 )
 

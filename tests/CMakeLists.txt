@@ -1,7 +1,6 @@
 include_directories(
     ${QJSON_INCLUDE_DIR}
     ${QCA2_INCLUDE_DIR}
-    ${KDE4_INCLUDES}
     ${KDEConnectCore_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}
 )
