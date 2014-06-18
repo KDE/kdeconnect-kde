@@ -6,7 +6,7 @@ set(kdeconnect_sftp_SRCS
 
 add_library(kdeconnect_sftp MODULE ${kdeconnect_sftp_SRCS})
 
-target_link_libraries(kdeconnect_sftp kdeconnectcore KF5::File)
+target_link_libraries(kdeconnect_sftp kdeconnectcore)
 
 install(TARGETS kdeconnect_sftp DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES kdeconnect_sftp.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
