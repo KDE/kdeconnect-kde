@@ -17,8 +17,7 @@ qt5_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})
 add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
 target_link_libraries(kdeconnectdeclarativeplugin
     Qt5::Qml
-    Qt5::Gui
     kdeconnectinterfaces
 )
-install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${IMPORTS_INSTALL_DIR}/org/kde/kdeconnect)
-install(FILES qmldir DESTINATION ${IMPORTS_INSTALL_DIR}/org/kde/kdeconnect)
+install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
+install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)

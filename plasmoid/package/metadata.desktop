@@ -50,7 +50,7 @@ Type=Service
 X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
 
 X-Plasma-API=declarativeappletscript
-X-Plasma-MainScript=ui/kdeconnect.qml
+X-Plasma-MainScript=ui/main.qml
 X-Plasma-NotificationArea=true
 X-Plasma-ConfigPlugins=kcm_kdeconnect
 

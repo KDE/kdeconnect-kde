@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,19 +19,12 @@
  */
 
 import QtQuick 2.1
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.plasmoid 2.0
 
-Item {
-    id: view
+Item
+{
+    Plasmoid.compactRepresentation: CompactRepresentation { }
+    Plasmoid.fullRepresentation: FullRepresentation {}
 
-    //TODO: Use this to detect if we should be iconized or full size
-    function isConstrained() {
-        return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
-    }
-
-    PlasmaCore.IconItem {
-        id: icon
-        source: "kdeconnect"
-        anchors.fill: parent
-    }
+    Plasmoid.preferredRepresentation: fullRepresentation
 }
