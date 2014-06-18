@@ -1,5 +1,7 @@
 project(KDEConnectCore)
 
+add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
+
 include_directories(
     ${QJSON_INCLUDE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
