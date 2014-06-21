@@ -55,7 +55,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->mPayload = QSharedPointer<QIODevice>();
     np->mPayloadSize = 0;
     np->set("deviceId", id);
-    np->set("deviceName", QHostInfo::localHostName());
+    np->set("deviceName", qgetenv("USER") + "@" + QHostInfo::localHostName());
     np->set("protocolType", "desktop"); //TODO: Detect laptop, tablet, phone...
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
 
