@@ -59,3 +59,5 @@ Comment[uk]=Спільне використання буфера обміну д
 Comment[x-test]=xxShare the clipboard between devicesxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.clipboard
+X-KdeConnect-OutgoingPackageType=kdeconnect.clipboard
+
