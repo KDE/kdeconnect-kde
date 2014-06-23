@@ -23,20 +23,23 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <interfaces/devicesmodel.h>
+#include <interfaces/dbusinterfaces.h>
 #include <iostream>
 #include <QDBusMessage>
 #include <QDBusConnection>
 
 int main(int argc, char** argv)
 {
-    KAboutData about("kctool", "kdeconnect-cli", ki18n(("kctool")), "1.0", ki18n("KDE Connect CLI tool"),
+    KAboutData about("kdeconnect-cli", "kdeconnect-cli", ki18n(("kdeconnect-cli")), "1.0", ki18n("KDE Connect CLI tool"),
                      KAboutData::License_GPL, ki18n("(C) 2013 Aleix Pol Gonzalez"));
     about.addAuthor( ki18n("Aleix Pol Gonzalez"), KLocalizedString(), "aleixpol@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
     options.add("l")
            .add("list-devices", ki18n("List all devices"));
-    options.add("share <path>", ki18n("Share a file"));
+    options.add("share <path>", ki18n("Share a file to a said device"));
+    options.add("pair", ki18n("Request pairing to a said device"));
+    options.add("unpair", ki18n("Stop pairing to a said device"));
     options.add("device <dev>", ki18n("Device ID"));
     KCmdLineArgs::addCmdLineOptions( options );
     KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
@@ -46,8 +49,10 @@ int main(int argc, char** argv)
         devices.setDisplayFilter(DevicesModel::StatusUnknown);
         for(int i=0, rows=devices.rowCount(); i<rows; ++i) {
             QModelIndex idx = devices.index(i);
+            bool isParied = idx.data(DevicesModel::IsPairedRole).toBool();
+
             std::cout << "- " << idx.data(Qt::DisplayRole).toString().toStdString()
-                      << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << std::endl;
+                      << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << (isParied ? " (paired)" : "") << std::endl;
         }
         std::cout << devices.rowCount() << " devices found" << std::endl;
     } else {
@@ -59,14 +64,29 @@ int main(int argc, char** argv)
         QUrl url;
         if(args->isSet("share")) {
             url = args->makeURL(args->getOption("share").toLatin1());
-        }
-        args->clear();
-
-        if(!url.isEmpty() && !device.isEmpty()) {
-            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
-            msg.setArguments(QVariantList() << url.toString());
-
-            QDBusConnection::sessionBus().call(msg);
+            args->clear();
+            if(!url.isEmpty() && !device.isEmpty()) {
+                QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
+                msg.setArguments(QVariantList() << url.toString());
+                QDBusConnection::sessionBus().call(msg);
+            } else
+                KCmdLineArgs::usageError(i18n("Couldn't share %1", url.toString()));
+        } else if(args->isSet("pair")) {
+            DeviceDbusInterface dev(device);
+            if(dev.isPaired())
+                std::cout << "Already paired" << std::endl;
+            else {
+                QDBusPendingReply<void> req = dev.requestPair();
+                req.waitForFinished();
+            }
+        } else if(args->isSet("unpair")) {
+            DeviceDbusInterface dev(device);
+            if(!dev.isPaired())
+                std::cout << "Already not paired" << std::endl;
+            else {
+                QDBusPendingReply<void> req = dev.unpair();
+                req.waitForFinished();
+            }
         } else
             KCmdLineArgs::usageError(i18n("Nothing to be done with the device"));
     }
