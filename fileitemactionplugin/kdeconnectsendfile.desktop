@@ -2,6 +2,7 @@
 Type=Service
 Name=Send file via KDE Connect service
 Name[ca]=Envia un fitxer a través del servei KDE Connect
+Name[cs]=Poslat soubor přes službu KDE Connect
 Name[es]=Enviar archivo usando el servicio KDE Connect
 Name[hu]=Fájl küldése a KDE csatlakozás szolgáltatáson keresztül
 Name[nl]=Bestand via de service KDE Connect versturen
@@ -15,6 +16,7 @@ Name[x-test]=xxSend file via KDE Connect servicexx
 X-KDE-Library=kdeconnectfiletiemaction
 X-KDE-Submenu=Connect
 X-KDE-Submenu[ca]=Connecta
+X-KDE-Submenu[cs]=Připojit
 X-KDE-Submenu[es]=Conectar
 X-KDE-Submenu[hu]=Csatlakozás
 X-KDE-Submenu[nl]=Verbinden
