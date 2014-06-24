@@ -28,10 +28,7 @@ set(kded_kdeconnect_SRCS
 
 kde4_add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
 target_link_libraries(kdeconnectcore
-PUBLIC
     ${KDE4_KDECORE_LIBS}
-
-PRIVATE
     ${KDE4_KIO_LIBS}
     ${QJSON_LIBRARIES}
     ${QT_QTNETWORK_LIBRARY}
