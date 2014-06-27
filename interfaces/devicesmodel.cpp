@@ -170,8 +170,6 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
         }
         case IconNameRole:
             return device->iconName();
-        case IsPairedRole:
-            return QVariant::fromValue<bool>(device->isPaired());
         default:
             return QVariant();
     }

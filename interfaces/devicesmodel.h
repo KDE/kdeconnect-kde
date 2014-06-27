@@ -44,8 +44,7 @@ public:
         IconModelRole = Qt::DecorationRole,
         StatusModelRole = Qt::InitialSortOrderRole,
         IdModelRole = Qt::UserRole,
-        IconNameRole,
-        IsPairedRole
+        IconNameRole
     };
     enum StatusFlag {
         StatusUnknown   = 0x00,
