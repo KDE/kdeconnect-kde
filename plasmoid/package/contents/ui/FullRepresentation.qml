@@ -59,7 +59,7 @@ Item {
         id: dialogItem
         anchors.fill: parent
 
-        flickableItem: ListView {
+        ListView {
             id: devicesView
             anchors.fill: parent
             model: KdeConnect.DevicesModel {
