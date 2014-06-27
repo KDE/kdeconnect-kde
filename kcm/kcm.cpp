@@ -250,5 +250,6 @@ void KdeConnectKcm::save()
 void KdeConnectKcm::sendPing()
 {
     if (!currentDevice) return;
-    currentDevice->sendPing();
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+currentDevice->id()+"/ping", "org.kde.kdeconnect.device.ping", "sendPing");
+    QDBusConnection::sessionBus().call(msg);
 }

@@ -29,15 +29,20 @@ class KDE_EXPORT PingPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.ping")
 
 public:
     explicit PingPlugin(QObject *parent, const QVariantList &args);
     virtual ~PingPlugin();
     
+    Q_SCRIPTABLE void sendPing();
+
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { };
+    virtual void connected();
 
+private:
+    QString dbusPath() const;
 };
 
 #endif

@@ -470,13 +470,6 @@ QStringList Device::availableLinks() const
     return sl;
 }
 
-void Device::sendPing()
-{
-    NetworkPackage np(PACKAGE_TYPE_PING);
-    bool success = sendPackage(np);
-    kDebug(kdeconnect_kded()) << "sendPing:" << success;
-}
-
 Device::DeviceType Device::str2type(QString deviceType) {
     if (deviceType == "desktop") return Desktop;
     if (deviceType == "laptop") return Laptop;

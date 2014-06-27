@@ -40,6 +40,7 @@ int main(int argc, char** argv)
     options.add("share <path>", ki18n("Share a file to a said device"));
     options.add("pair", ki18n("Request pairing to a said device"));
     options.add("unpair", ki18n("Stop pairing to a said device"));
+    options.add("ping", ki18n("Sends a ping to said device"));
     options.add("device <dev>", ki18n("Device ID"));
     KCmdLineArgs::addCmdLineOptions( options );
     KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
@@ -98,6 +99,9 @@ int main(int argc, char** argv)
                 QDBusPendingReply<void> req = dev.unpair();
                 req.waitForFinished();
             }
+        } else if(args->isSet("ping")) {
+            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/ping", "org.kde.kdeconnect.device.ping", "sendPing");
+            QDBusConnection::sessionBus().call(msg);
         } else
             KCmdLineArgs::usageError(i18n("Nothing to be done with the device"));
     }

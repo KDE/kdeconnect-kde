@@ -26,6 +26,7 @@
 
 #include <core/kdebugnamespace.h>
 #include <core/device.h>
+#include <QDBusConnection>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect-plugins") )
@@ -52,4 +53,21 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
 
     return true;
 
+}
+
+void PingPlugin::sendPing()
+{
+    NetworkPackage np(PACKAGE_TYPE_PING);
+    bool success = sendPackage(np);
+    kDebug(kdeconnect_kded()) << "sendPing:" << success;
+}
+
+void PingPlugin::connected()
+{
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
+}
+
+QString PingPlugin::dbusPath() const
+{
+    return "/modules/kdeconnect/devices/" + device()->id() + "/ping";
 }
