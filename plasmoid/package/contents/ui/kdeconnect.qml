@@ -68,7 +68,7 @@ Item {
             anchors.fill: parent
             model: KdeConnect.DevicesModel {
                 id: connectDeviceModel
-                displayFilter: 0x11
+                displayFilter: 3
             }
             delegate: DeviceDelegate { }
             onCountChanged: shouldPlasmoidBeShown()
@@ -81,7 +81,7 @@ Item {
         anchors.fill: parent
         id: devicesView
         model: KdeConnect.DevicesModel {
-            displayFilter: 0x11
+        displayFilter: 3
         }
         delegate: DeviceDelegate {}
     }
