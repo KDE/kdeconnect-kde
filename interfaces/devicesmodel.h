@@ -35,7 +35,7 @@ class KDECONNECTINTERFACES_EXPORT DevicesModel
     : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter)
+    Q_PROPERTY(StatusFlags displayFilter READ displayFilter WRITE setDisplayFilter)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 
 public:
@@ -47,11 +47,12 @@ public:
         IconNameRole,
         IsPairedRole
     };
-    enum StatusFlags {
+    enum StatusFlag {
         StatusUnknown   = 0x00,
         StatusPaired    = 0x01,
         StatusReachable = 0x02
     };
+    Q_DECLARE_FLAGS(StatusFlags, StatusFlag)
 
     DevicesModel(QObject *parent = 0);
     virtual ~DevicesModel();

@@ -68,7 +68,7 @@ Item {
             anchors.fill: parent
             model: KdeConnect.DevicesModel {
                 id: connectDeviceModel
-                displayFilter: 3
+                displayFilter: StatusPaired | StatusReachable
             }
             delegate: DeviceDelegate { }
             onCountChanged: shouldPlasmoidBeShown()
