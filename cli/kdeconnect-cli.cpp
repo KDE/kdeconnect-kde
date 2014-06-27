@@ -49,10 +49,21 @@ int main(int argc, char** argv)
         devices.setDisplayFilter(DevicesModel::StatusUnknown);
         for(int i=0, rows=devices.rowCount(); i<rows; ++i) {
             QModelIndex idx = devices.index(i);
-            bool isParied = idx.data(DevicesModel::IsPairedRole).toBool();
+            QString statusInfo;
+            switch(idx.data(DevicesModel::StatusModelRole).toInt()) {
+                case DevicesModel::StatusPaired:
+                    statusInfo = "(paired)";
+                    break;
+                case DevicesModel::StatusReachable:
+                    statusInfo = "(reachable)";
+                    break;
+                case DevicesModel::StatusReachable | DevicesModel::StatusPaired:
+                    statusInfo = "(paired and reachable)";
+                    break;
+            }
 
             std::cout << "- " << idx.data(Qt::DisplayRole).toString().toStdString()
-                      << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << (isParied ? " (paired)" : "") << std::endl;
+                      << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << ' ' << statusInfo.toStdString() << std::endl;
         }
         std::cout << devices.rowCount() << " devices found" << std::endl;
     } else {
