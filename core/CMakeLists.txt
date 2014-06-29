@@ -1,5 +1,10 @@
 project(KDEConnectCore)
 
+set(KDECONNECT_VERSION_MAJOR 1)
+set(KDECONNECT_VERSION_MINOR 0)
+set(KDECONNECT_VERSION_PATCH 1)
+set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}")
+
 include_directories(
     ${KDE4_KIO_LIBS}
     ${QJSON_INCLUDE_DIR}
@@ -27,6 +32,11 @@ set(kded_kdeconnect_SRCS
 )
 
 kde4_add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
+set_target_properties(kdeconnectcore PROPERTIES
+    VERSION ${KDECONNECT_VERSION}
+    SOVERSION ${KDECONNECT_VERSION_MAJOR}
+)
+
 target_link_libraries(kdeconnectcore
 LINK_PUBLIC
     ${KDE4_KDECORE_LIBS}
