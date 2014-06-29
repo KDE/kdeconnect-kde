@@ -77,7 +77,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
                 if (dy < 0) {
                     XTestFakeButtonEvent(m_display, MouseWheelDown, true, CurrentTime);
                     XTestFakeButtonEvent(m_display, MouseWheelDown, false, CurrentTime);
-                } else {
+                } else if (dy > 0) {
                     XTestFakeButtonEvent(m_display, MouseWheelUp, true, CurrentTime);
                     XTestFakeButtonEvent(m_display, MouseWheelUp, false, CurrentTime);
                 }
