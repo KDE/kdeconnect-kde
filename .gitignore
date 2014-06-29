@@ -1,5 +1,5 @@
 build
-android-shine.kdev4
+*.kdev4
 Makefile
 lib
 src/Makefile
