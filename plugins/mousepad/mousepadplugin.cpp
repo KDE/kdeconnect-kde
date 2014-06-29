@@ -21,45 +21,66 @@
 #include "mousepadplugin.h"
 
 #include <core/networkpackage.h>
-#include <QApplication>
 #include <X11/extensions/XTest.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MousepadPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mousepad", "kdeconnect-plugins") )
 
 #define LEFT_MOUSE_BUTTON 1 // Source: http://bharathisubramanian.wordpress.com/2010/04/01/x11-fake-mouse-events-generation-using-xtest/
+#define MOUSE_WHEEL_UP_BUTTON 4
+#define MOUSE_WHEEL_DOWN_BUTTON 5
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
-       : KdeConnectPlugin(parent, args)
+    : KdeConnectPlugin(parent, args), m_display(0)
 {
-    
+
+}
+
+MousepadPlugin::~MousepadPlugin()
+{
+    if (m_display) {
+        XCloseDisplay(m_display);
+        m_display = 0;
+    }
 }
 
 bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 {
     float dx = np.get<float>("dx", 0);
     float dy = np.get<float>("dy", 0);
-    QPoint point = QCursor::pos();
-    QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
-    
+
     bool isSingleClick = np.get<bool>("singleclick", false);
     bool isDoubleClick = np.get<bool>("doubleclick", false);
-    
-    if (isSingleClick || isDoubleClick) {
-	Display *display = XOpenDisplay(NULL);
-	if(display) {
-	    if (isSingleClick) {
-		XTestFakeButtonEvent(display, LEFT_MOUSE_BUTTON, true, CurrentTime);
-		XTestFakeButtonEvent(display, LEFT_MOUSE_BUTTON, false, CurrentTime);
-	    } else if (isDoubleClick) {
-		XTestFakeButtonEvent(display, LEFT_MOUSE_BUTTON, true, CurrentTime);
-		XTestFakeButtonEvent(display, LEFT_MOUSE_BUTTON, false, CurrentTime);
-		XTestFakeButtonEvent(display, LEFT_MOUSE_BUTTON, true, CurrentTime);
-		XTestFakeButtonEvent(display, LEFT_MOUSE_BUTTON, false, CurrentTime);
-	    }
-	    XFlush(display);
-	}
-	XCloseDisplay(display);
+    bool isScroll = np.get<bool>("scroll", false);
+
+    if (isSingleClick || isDoubleClick || isScroll) {
+        if(!m_display) {
+            m_display = XOpenDisplay(NULL);
+        }
+
+        if(m_display) {
+            if (isSingleClick) {
+                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, false, CurrentTime);
+            } else if (isDoubleClick) {
+                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, false, CurrentTime);
+                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, false, CurrentTime);
+            } else if( isScroll ) {
+                if (dy < 0) {
+                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_DOWN_BUTTON, true, CurrentTime);
+                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_DOWN_BUTTON, false, CurrentTime);
+                } else {
+                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_UP_BUTTON, true, CurrentTime);
+                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_UP_BUTTON, false, CurrentTime);
+                }
+            }
+            XFlush(m_display);
+        }
+    } else {
+        QPoint point = QCursor::pos();
+        QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
     }
     return true;
 }

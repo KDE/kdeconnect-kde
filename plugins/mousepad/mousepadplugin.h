@@ -22,6 +22,7 @@
 #define MOUSEPADPLUGIN_H
 
 #include <QObject>
+#include <QApplication>
 
 #include <core/kdeconnectplugin.h>
 
@@ -34,10 +35,14 @@ class MousepadPlugin
 
 public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
+    virtual ~MousepadPlugin();
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
     virtual void connected() { }
+
+private:
+    Display *m_display;
 };
 
 #endif
