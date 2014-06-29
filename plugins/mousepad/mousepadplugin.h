@@ -33,6 +33,14 @@ class MousepadPlugin
 {
     Q_OBJECT
 
+    enum MouseButtons {
+        LeftMouseButton = 1,
+        MiddleMouseButton = 2,
+        RightMouseButton = 3,
+        MouseWheelUp = 4,
+        MouseWheelDown = 5
+    };
+
 public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
     virtual ~MousepadPlugin();

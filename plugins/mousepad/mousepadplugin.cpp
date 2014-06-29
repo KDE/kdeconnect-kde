@@ -26,9 +26,7 @@
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MousepadPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mousepad", "kdeconnect-plugins") )
 
-#define LEFT_MOUSE_BUTTON 1 // Source: http://bharathisubramanian.wordpress.com/2010/04/01/x11-fake-mouse-events-generation-using-xtest/
-#define MOUSE_WHEEL_UP_BUTTON 4
-#define MOUSE_WHEEL_DOWN_BUTTON 5
+// Source: http://bharathisubramanian.wordpress.com/2010/04/01/x11-fake-mouse-events-generation-using-xtest/
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args), m_display(0)
@@ -51,29 +49,37 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 
     bool isSingleClick = np.get<bool>("singleclick", false);
     bool isDoubleClick = np.get<bool>("doubleclick", false);
+    bool isMiddleClick = np.get<bool>("middleclick", false);
+    bool isRightClick = np.get<bool>("rightclick", false);
     bool isScroll = np.get<bool>("scroll", false);
 
-    if (isSingleClick || isDoubleClick || isScroll) {
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isScroll) {
         if(!m_display) {
             m_display = XOpenDisplay(NULL);
         }
 
         if(m_display) {
             if (isSingleClick) {
-                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, true, CurrentTime);
-                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, false, CurrentTime);
+                XTestFakeButtonEvent(m_display, LeftMouseButton, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, LeftMouseButton, false, CurrentTime);
             } else if (isDoubleClick) {
-                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, true, CurrentTime);
-                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, false, CurrentTime);
-                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, true, CurrentTime);
-                XTestFakeButtonEvent(m_display, LEFT_MOUSE_BUTTON, false, CurrentTime);
+                XTestFakeButtonEvent(m_display, LeftMouseButton, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, LeftMouseButton, false, CurrentTime);
+                XTestFakeButtonEvent(m_display, LeftMouseButton, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, LeftMouseButton, false, CurrentTime);
+            } else if (isMiddleClick) {
+                XTestFakeButtonEvent(m_display, MiddleMouseButton, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, MiddleMouseButton, false, CurrentTime);
+            } else if (isRightClick) {
+                XTestFakeButtonEvent(m_display, RightMouseButton, true, CurrentTime);
+                XTestFakeButtonEvent(m_display, RightMouseButton, false, CurrentTime);
             } else if( isScroll ) {
                 if (dy < 0) {
-                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_DOWN_BUTTON, true, CurrentTime);
-                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_DOWN_BUTTON, false, CurrentTime);
+                    XTestFakeButtonEvent(m_display, MouseWheelDown, true, CurrentTime);
+                    XTestFakeButtonEvent(m_display, MouseWheelDown, false, CurrentTime);
                 } else {
-                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_UP_BUTTON, true, CurrentTime);
-                    XTestFakeButtonEvent(m_display, MOUSE_WHEEL_UP_BUTTON, false, CurrentTime);
+                    XTestFakeButtonEvent(m_display, MouseWheelUp, true, CurrentTime);
+                    XTestFakeButtonEvent(m_display, MouseWheelUp, false, CurrentTime);
                 }
             }
             XFlush(m_display);
