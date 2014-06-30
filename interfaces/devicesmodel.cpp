@@ -26,9 +26,10 @@
 #include <KConfigGroup>
 #include <KIcon>
 
-#include "kdebugnamespace.h"
+#include <core/kdebugnamespace.h>
+
+#include "dbusinterfaces.h"
 // #include "modeltest.h"
-#include "interfaces/dbusinterfaces.h"
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -105,16 +106,19 @@ void DevicesModel::refreshDeviceList()
     }
 
     if (!m_dbusInterface->isValid()) {
+        kDebug(debugArea()) << "dbus interface not valid";
         return;
     }
-
 
     bool onlyPaired = (m_displayFilter & StatusPaired);
     bool onlyReachable = (m_displayFilter & StatusReachable);
 
     QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
     pendingDeviceIds.waitForFinished();
-    if (pendingDeviceIds.isError()) return;
+    if (pendingDeviceIds.isError()) {
+        kDebug(debugArea()) << pendingDeviceIds.error();
+        return;
+    }
 
     const QStringList& deviceIds = pendingDeviceIds.value();
     Q_FOREACH(const QString& id, deviceIds) {

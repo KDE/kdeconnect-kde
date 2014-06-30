@@ -26,8 +26,10 @@
 #include <KConfigGroup>
 #include <KIcon>
 
-#include "modeltest.h"
-#include "kdebugnamespace.h"
+#include <core/kdebugnamespace.h>
+
+//#include "modeltest.h"
+
 
 NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)
@@ -110,12 +112,14 @@ void NotificationsModel::refreshNotificationList()
     }
 
     if (!m_dbusInterface->isValid()) {
+        kDebug(debugArea()) << "dbus interface not valid";
         return;
     }
 
     QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
     pendingNotificationIds.waitForFinished();
     if (pendingNotificationIds.isError()) {
+        kDebug(debugArea()) << pendingNotificationIds.error();
         return;
     }
     const QStringList& notificationIds = pendingNotificationIds.value();
@@ -204,7 +208,6 @@ bool NotificationsModel::isAnyDimissable() const
     }
     return false;
 }
-
 
 void NotificationsModel::dismissAll()
 {
