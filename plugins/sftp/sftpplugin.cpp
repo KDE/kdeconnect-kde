@@ -56,7 +56,7 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     , m_d(new Pimpl)
 { 
     addToDolphin();
-    kDebug(kdeconnect_kded()) << "Created device:" << device()->name();
+    kDebug(debugArea()) << "Created device:" << device()->name();
 }
 
 SftpPlugin::~SftpPlugin()
@@ -64,7 +64,7 @@ SftpPlugin::~SftpPlugin()
     QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     removeFromDolphin();    
     unmount();
-    kDebug(kdeconnect_kded()) << "Destroyed device:" << device()->name();
+    kDebug(debugArea()) << "Destroyed device:" << device()->name();
 }
 
 void SftpPlugin::addToDolphin()
@@ -72,7 +72,7 @@ void SftpPlugin::addToDolphin()
     removeFromDolphin();
     KUrl kioUrl("kdeconnect://"+device()->id()+"/");
     m_d->placesModel.addPlace(device()->name(), kioUrl, "kdeconnect");
-    kDebug(kdeconnect_kded()) << "add to dolphin";
+    kDebug(debugArea()) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
@@ -88,12 +88,12 @@ void SftpPlugin::removeFromDolphin()
 void SftpPlugin::connected()
 {
     bool state = QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
-    kDebug(kdeconnect_kded()) << "Exposing DBUS interface: " << state;
+    kDebug(debugArea()) << "Exposing DBUS interface: " << state;
 }
 
 void SftpPlugin::mount()
 {
-    kDebug(kdeconnect_kded()) << "Mount device:" << device()->name();
+    kDebug(debugArea()) << "Mount device:" << device()->name();
     if (m_d->mounter) {
         return;
     }
@@ -160,7 +160,7 @@ QString SftpPlugin::mountPoint()
 
 void SftpPlugin::onMounted()
 {
-    kDebug(kdeconnect_kded()) << device()->name() << QString("Remote filesystem mounted at %1").arg(mountPoint());
+    kDebug(debugArea()) << device()->name() << QString("Remote filesystem mounted at %1").arg(mountPoint());
 
     Q_EMIT mounted();
 }
@@ -168,9 +168,9 @@ void SftpPlugin::onMounted()
 void SftpPlugin::onUnmounted(bool idleTimeout)
 {
     if (idleTimeout) {
-        kDebug(kdeconnect_kded()) << device()->name() << "Remote filesystem unmounted by idle timeout";
+        kDebug(debugArea()) << device()->name() << "Remote filesystem unmounted by idle timeout";
     } else {
-        kDebug(kdeconnect_kded()) << device()->name() << "Remote filesystem unmounted";
+        kDebug(debugArea()) << device()->name() << "Remote filesystem unmounted";
     }
 
     unmount();

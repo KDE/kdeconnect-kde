@@ -55,7 +55,7 @@ KUrl SharePlugin::destinationDir() const
     QString url = dir.toLocalFile();
     if (url.contains("%1")) url = url.arg(device()->name());
 
-    kDebug(kdeconnect_kded()) << url;
+    kDebug(debugArea()) << url;
     QDir().mkpath(url);
 
     return url;
@@ -67,7 +67,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
     //TODO: Use this code to write a test
     if (np.type() == PACKAGE_TYPE_PING) {
 
-        kDebug(kdeconnect_kded()) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
+        kDebug(debugArea()) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
         NetworkPackage out(PACKAGE_TYPE_SHARE);
         out.set("filename", mDestinationDir + "itworks.txt");
@@ -83,10 +83,10 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
     }
 */
 
-    kDebug(kdeconnect_kded()) << "File transfer";
+    kDebug(debugArea()) << "File transfer";
 
     if (np.hasPayload()) {
-        //kDebug(kdeconnect_kded()) << "receiving file";
+        //kDebug(debugArea()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         KUrl destination = destinationDir();
         destination.addPath(filename);
@@ -115,7 +115,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         QUrl url(np.get<QString>("url"));
         QDesktopServices::openUrl(url);
     } else {
-        kDebug(kdeconnect_kded()) << "Error: Nothing attached!";
+        kDebug(debugArea()) << "Error: Nothing attached!";
     }
 
     return true;
@@ -124,7 +124,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
 void SharePlugin::finished(KJob* job)
 {
-    kDebug(kdeconnect_kded()) << "File transfer finished";
+    kDebug(debugArea()) << "File transfer finished";
 
     bool error = (job->error() != 0);
 

@@ -32,7 +32,7 @@
 #include <KApplication>
 #include <KLocale>
 
-#include "kdebugnamespace.h"
+#include <core/kdebugnamespace.h>
 
 extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
 {
@@ -74,7 +74,7 @@ bool handleDBusError(QDBusReply<T>& reply, KIO::SlaveBase* slave)
 {
     if (!reply.isValid())
     {
-        kDebug(kdeconnect_kio()) << "Error in DBus request:" << reply.error();
+        kDebug(debugArea()) << "Error in DBus request:" << reply.error();
         slave->error(toKioError(reply.error().type()),reply.error().message());
         return true;
     }
@@ -129,7 +129,7 @@ void KioKdeconnect::listDevice()
 {
     infoMessage(i18n("Accessing device..."));
 
-    kDebug(kdeconnect_kio()) << "ListDevice" << m_currentDevice;
+    kDebug(debugArea()) << "ListDevice" << m_currentDevice;
 
     SftpDbusInterface interface(m_currentDevice);
     
@@ -184,7 +184,7 @@ void KioKdeconnect::listDevice()
 
 void KioKdeconnect::listDir(const KUrl &url)
 {
-    kDebug(kdeconnect_kio()) << "Listing..." << url;
+    kDebug(debugArea()) << "Listing..." << url;
 
     /// Url is not used here becuase all we could care about the url is the host, and that's already
     /// handled in @p setHost
@@ -206,7 +206,7 @@ void KioKdeconnect::listDir(const KUrl &url)
 
 void KioKdeconnect::stat(const KUrl &url)
 {
-    kDebug(kdeconnect_kio()) << "Stat: " << url;
+    kDebug(debugArea()) << "Stat: " << url;
 
     KIO::UDSEntry entry;
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -217,7 +217,7 @@ void KioKdeconnect::stat(const KUrl &url)
 
 void KioKdeconnect::get(const KUrl &url)
 {
-    kDebug(kdeconnect_kio()) << "Get: " << url;
+    kDebug(debugArea()) << "Get: " << url;
     mimeType("");
     finished();
 }
@@ -227,7 +227,7 @@ void KioKdeconnect::setHost(const QString &hostName, quint16 port, const QString
 
     //This is called before everything else to set the file we want to show
 
-    kDebug(kdeconnect_kio()) << "Setting host: " << hostName;
+    kDebug(debugArea()) << "Setting host: " << hostName;
 
     // In this kio only the hostname is used
     Q_UNUSED(port)

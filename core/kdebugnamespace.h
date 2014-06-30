@@ -23,7 +23,11 @@
 
 #include <KDebug>
 
-KDE_EXPORT int kdeconnect_kded();
+inline int debugArea()
+{
+    static int theArea = KDebug::registerArea("kdeconnect");
+    return theArea;
+};
 
 #endif
 

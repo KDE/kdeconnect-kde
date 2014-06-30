@@ -151,7 +151,7 @@ void LanLinkProvider::connectError()
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
 
-    kDebug(kdeconnect_kded()) << "Fallback (1), try reverse connection";
+    kDebug(debugArea()) << "Fallback (1), try reverse connection";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
@@ -173,7 +173,7 @@ void LanLinkProvider::connected()
 
     NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
-    //kDebug(kdeconnect_kded()) << "Connected" << socket->isWritable();
+    //kDebug(debugArea()) << "Connected" << socket->isWritable();
 
     LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
 
@@ -185,7 +185,7 @@ void LanLinkProvider::connected()
     //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
 
-        //kDebug(kdeconnect_kded()) << "Handshaking done (i'm the existing device)";
+        //kDebug(debugArea()) << "Handshaking done (i'm the existing device)";
 
         connect(deviceLink, SIGNAL(destroyed(QObject*)),
                 this, SLOT(deviceLinkDestroyed(QObject*)));
@@ -206,7 +206,7 @@ void LanLinkProvider::connected()
 
     } else {
         //I think this will never happen
-        kDebug(kdeconnect_kded()) << "Fallback (2), try reverse connection";
+        kDebug(debugArea()) << "Fallback (2), try reverse connection";
         mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
         delete deviceLink;
     }
@@ -220,7 +220,7 @@ void LanLinkProvider::connected()
 //I'm the new device and this is the answer to my UDP introduction (no data received yet)
 void LanLinkProvider::newConnection()
 {
-    //kDebug(kdeconnect_kded()) << "LanLinkProvider newConnection";
+    //kDebug(debugArea()) << "LanLinkProvider newConnection";
 
     while(mTcpServer->hasPendingConnections()) {
         QTcpSocket* socket = mTcpServer->nextPendingConnection();
@@ -234,7 +234,7 @@ void LanLinkProvider::newConnection()
     NetworkPackage::createIdentityPackage(&np);
     int written = socket->write(np.serialize());
 
-    kDebug(kdeconnect_kded()) << "LanLinkProvider sent package." << written << " bytes written, waiting for reply";
+    kDebug(debugArea()) << "LanLinkProvider sent package." << written << " bytes written, waiting for reply";
 */
 }
 
@@ -246,20 +246,20 @@ void LanLinkProvider::dataReceived()
 
     const QByteArray data = socket->readLine();
 
-    //kDebug(kdeconnect_kded()) << "LanLinkProvider received reply:" << data;
+    //kDebug(debugArea()) << "LanLinkProvider received reply:" << data;
 
     NetworkPackage np("");
     bool success = NetworkPackage::unserialize(data, &np);
 
     if (!success || np.type() != PACKAGE_TYPE_IDENTITY) {
-        kDebug(kdeconnect_kded()) << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
+        kDebug(debugArea()) << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
         return;
     }
 
     const QString& deviceId = np.get<QString>("deviceId");
     LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
 
-    //kDebug(kdeconnect_kded()) << "Handshaking done (i'm the new device)";
+    //kDebug(debugArea()) << "Handshaking done (i'm the new device)";
 
     connect(deviceLink, SIGNAL(destroyed(QObject*)),
             this, SLOT(deviceLinkDestroyed(QObject*)));
@@ -282,7 +282,7 @@ void LanLinkProvider::dataReceived()
 
 void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 {
-    //kDebug(kdeconnect_kded()) << "deviceLinkDestroyed";
+    //kDebug(debugArea()) << "deviceLinkDestroyed";
     const QString id = destroyedDeviceLink->property("deviceId").toString();
     QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(id);
     if (oldLinkIterator != mLinks.end() && oldLinkIterator.value() == destroyedDeviceLink) {

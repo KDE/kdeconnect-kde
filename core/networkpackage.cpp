@@ -82,10 +82,10 @@ QByteArray NetworkPackage::serialize() const
     QJson::Serializer serializer;
     QByteArray json = serializer.serialize(variant,&ok);
     if (!ok) {
-        kDebug(kdeconnect_kded()) << "Serialization error:" << serializer.errorMessage();
+        kDebug(debugArea()) << "Serialization error:" << serializer.errorMessage();
     } else {
         if (!isEncrypted()) {
-            //kDebug(kdeconnect_kded()) << "Serialized package:" << json;
+            //kDebug(kDebugArea) << "Serialized package:" << json;
         }
         json.append('\n');
     }
@@ -100,7 +100,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     bool ok;
     QVariantMap variant = parser.parse(a, &ok).toMap();
     if (!ok) {
-        kDebug(kdeconnect_kded()) << "Unserialization error:" << a;
+        kDebug(debugArea()) << "Unserialization error:" << a;
         return false;
     }
 
@@ -108,7 +108,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJson::QObjectHelper::qvariant2qobject(variant, np);
 
     if (!np->isEncrypted()) {
-        //kDebug(kdeconnect_kded()) << "Unserialized: " << a;
+        //kDebug(kDebugArea) << "Unserialized: " << a;
     }
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok

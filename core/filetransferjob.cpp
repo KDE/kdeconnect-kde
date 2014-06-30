@@ -41,18 +41,18 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int si
     mDeviceName = i18nc("Device name that will appear on the jobs", "KDE-Connect");
 
     setCapabilities(Killable);
-    kDebug(kdeconnect_kded()) << "FileTransferJob Downloading payload to" << destination;
+    kDebug(debugArea()) << "FileTransferJob Downloading payload to" << destination;
 }
 
 void FileTransferJob::openFinished(KJob* job)
 {
-    kDebug(kdeconnect_kded()) << job->errorString();
+    kDebug(debugArea()) << job->errorString();
 }
 
 void FileTransferJob::start()
 {
     QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
-    //kDebug(kdeconnect_kded()) << "FileTransferJob start";
+    //kDebug(debugArea()) << "FileTransferJob start";
 }
 
 void FileTransferJob::doStart()
@@ -136,10 +136,10 @@ void FileTransferJob::open(KIO::Job* job)
 {
     Q_UNUSED(job);
 
-    //kDebug(kdeconnect_kded()) << "FileTransferJob open";
+    //kDebug(debugArea()) << "FileTransferJob open";
 
     if (!mOrigin) {
-        kDebug(kdeconnect_kded()) << "FileTransferJob: Origin is null";
+        kDebug(debugArea()) << "FileTransferJob: Origin is null";
         return;
     }
 
@@ -161,7 +161,7 @@ void FileTransferJob::readyRead()
     mWritten += data.size();
     setProcessedAmount(Bytes, mWritten);
 
-    //kDebug(kdeconnect_kded()) << "readyRead" << mSize << mWritten << bytes;
+    //kDebug(debugArea()) << "readyRead" << mSize << mWritten << bytes;
 
     if (mSize > -1) {
         //If a least 1 second has passed since last update
@@ -192,11 +192,11 @@ void FileTransferJob::sourceFinished()
 
     //TODO: MD5 check the file
     if (mSize > -1 && mWritten != mSize) {
-        kDebug(kdeconnect_kded()) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
+        kDebug(debugArea()) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
         setError(1);
         setErrorText(i18n("Received incomplete file"));
     } else {
-        kDebug(kdeconnect_kded()) << "Finished transfer" << mDestinationJob->url();
+        kDebug(debugArea()) << "Finished transfer" << mDestinationJob->url();
     }
     mDestinationJob->close();
     mDestinationJob->deleteLater();

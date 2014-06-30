@@ -28,7 +28,6 @@ set(kded_kdeconnect_SRCS
     filetransferjob.cpp
     daemon.cpp
     device.cpp
-    kdebugnamespace.cpp
 )
 
 kde4_add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})

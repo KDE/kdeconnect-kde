@@ -30,7 +30,7 @@ BatteryDbusInterface::BatteryDbusInterface(const Device *device)
 
 BatteryDbusInterface::~BatteryDbusInterface()
 {
-    kDebug(kdeconnect_kded()) << "Destroying BatteryDbusInterface";
+    kDebug(debugArea()) << "Destroying BatteryDbusInterface";
 }
 
 void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)

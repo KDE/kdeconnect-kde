@@ -39,7 +39,7 @@ void UploadJob::start()
     while(!mServer->listen(QHostAddress::Any, mPort)) {
         mPort++;
         if (mPort > 1764) { //No ports available?
-            kDebug(kdeconnect_kded()) << "Error opening a port in range 1739-1764 for file transfer";
+            kDebug(debugArea()) << "Error opening a port in range 1739-1764 for file transfer";
             mPort = 0;
             return;
         }

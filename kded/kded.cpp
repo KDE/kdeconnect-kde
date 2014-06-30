@@ -27,8 +27,6 @@
 
 #include "core/kdebugnamespace.h"
 
-int theArea = KDebug::registerArea("kdeconnect-kded");
-
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Kded>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect-kded"))
 
@@ -37,13 +35,13 @@ Kded::Kded(QObject *parent, const QList<QVariant>&)
     , m_daemon(0)
 {
     QMetaObject::invokeMethod(this, "start", Qt::QueuedConnection);
-    kDebug(theArea) << "kded_kdeconnect started";
+    kDebug(debugArea()) << "kded_kdeconnect started";
 }
 
 Kded::~Kded()
 {
     stop();
-    kDebug(theArea) << "kded_kdeconnect stopped";
+    kDebug(debugArea()) << "kded_kdeconnect stopped";
 }
 
 void Kded::start()
@@ -53,7 +51,7 @@ void Kded::start()
     }
     
     const QString daemon = KStandardDirs::locate("exe", "kdeconnectd");
-    kDebug(theArea) << "Starting daemon " << daemon;
+    kDebug(debugArea()) << "Starting daemon " << daemon;
     m_daemon = new KProcess(this);
     connect(m_daemon, SIGNAL(started()), SLOT(daemonStarted()));
     connect(m_daemon, SIGNAL(error(QProcess::ProcessError)), this, SLOT(onError(QProcess::ProcessError)));
@@ -85,24 +83,24 @@ void Kded::restart()
 
 void Kded::onError(QProcess::ProcessError errorCode)
 {
-    kError(theArea) << "Process error code=" << errorCode;
+    kError(debugArea()) << "Process error code=" << errorCode;
 }
 
 void Kded::daemonStarted()
 {
-    kDebug(theArea) << "Daemon successfuly started";
+    kDebug(debugArea()) << "Daemon successfuly started";
     Q_EMIT started();
 }
 
 void Kded::onFinished(int exitCode, QProcess::ExitStatus status)
 {
     if (status == QProcess::CrashExit) {
-        kError(theArea) << "Process crashed with code=" << exitCode;
-        kError(theArea) << m_daemon->readAllStandardError();
-        kWarning(theArea) << "Restarting in 5 sec...";
+        kError(debugArea()) << "Process crashed with code=" << exitCode;
+        kError(debugArea()) << m_daemon->readAllStandardError();
+        kWarning(debugArea()) << "Restarting in 5 sec...";
         QTimer::singleShot(5000, this, SLOT(start()));        
     } else {
-        kWarning(theArea) << "Process finished with code=" << exitCode;
+        kWarning(debugArea()) << "Process finished with code=" << exitCode;
     }
 
     Q_EMIT stopped();
@@ -116,5 +114,5 @@ void Kded::checkIfDaemonTerminated()
     }
 
     m_daemon->kill();
-    kWarning(theArea) << "Daemon  killed";
+    kWarning(debugArea()) << "Daemon  killed";
 }
