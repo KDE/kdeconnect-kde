@@ -85,19 +85,14 @@ void DevicesModel::deviceStatusChanged(const QString& id)
     refreshDeviceList();
 }
 
-DevicesModel::StatusFlags DevicesModel::displayFilter() const
+int DevicesModel::displayFilter() const
 {
     return m_displayFilter;
 }
 
 void DevicesModel::setDisplayFilter(int flags)
 {
-    setDisplayFilter((StatusFlags)flags);
-}
-
-void DevicesModel::setDisplayFilter(DevicesModel::StatusFlags flags)
-{
-    m_displayFilter = flags;
+    m_displayFilter = (StatusFlag)flags;
     refreshDeviceList();
 }
 

@@ -35,7 +35,7 @@ class KDECONNECTINTERFACES_EXPORT DevicesModel
     : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(StatusFlags displayFilter READ displayFilter WRITE setDisplayFilter)
+    Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 
 public:
@@ -52,13 +52,14 @@ public:
         StatusReachable = 0x02
     };
     Q_DECLARE_FLAGS(StatusFlags, StatusFlag)
+    Q_FLAGS(StatusFlags)
+    Q_ENUMS(StatusFlag)
 
     DevicesModel(QObject *parent = 0);
     virtual ~DevicesModel();
 
-    void setDisplayFilter(StatusFlags flags);
     void setDisplayFilter(int flags);
-    StatusFlags displayFilter() const;
+    int displayFilter() const;
 
     virtual QVariant data(const QModelIndex& index, int role) const;
     virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
@@ -80,7 +81,8 @@ private:
     DaemonDbusInterface* m_dbusInterface;
     QList<DeviceDbusInterface*> m_deviceList;
     StatusFlags m_displayFilter;
-
 };
+
+//Q_DECLARE_OPERATORS_FOR_FLAGS(DevicesModel::StatusFlags)
 
 #endif // DEVICESMODEL_H

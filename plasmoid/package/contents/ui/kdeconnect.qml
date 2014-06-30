@@ -23,7 +23,7 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.plasma.extras 0.1 as PlasmaExtras
 import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
-import org.kde.kdeconnect 1.0 as KdeConnect
+import org.kde.kdeconnect 1.0
 
 Item {
     id: kdeconnect
@@ -66,9 +66,9 @@ Item {
         flickableItem: ListView {
             id: devicesView
             anchors.fill: parent
-            model: KdeConnect.DevicesModel {
+            model: DevicesModel {
                 id: connectDeviceModel
-                displayFilter: StatusPaired | StatusReachable
+                displayFilter: 3
             }
             delegate: DeviceDelegate { }
             onCountChanged: shouldPlasmoidBeShown()
