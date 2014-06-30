@@ -26,18 +26,22 @@
 #include <KIcon>
 #include <KMD5>
 
+#include <core/device.h>
+#include <core/kdeconnectplugin.h>
 #include <core/kdebugnamespace.h>
 #include <core/filetransferjob.h>
+
 #include "notificationsplugin.h"
 
 NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
-    : QDBusAbstractAdaptor(plugin)
+    : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
     , mDevice(plugin->device())
     , mPlugin(plugin)
     , mLastId(0)
     , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
 {
     imagesDir.mkpath(imagesDir.absolutePath());
+
 }
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
