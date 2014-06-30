@@ -23,6 +23,7 @@
 #include <kcmdlineargs.h>
 #include <kaboutdata.h>
 #include <interfaces/devicesmodel.h>
+#include <interfaces/notificationsmodel.h>
 #include <interfaces/dbusinterfaces.h>
 #include <iostream>
 #include <QDBusMessage>
@@ -41,13 +42,13 @@ int main(int argc, char** argv)
     options.add("pair", ki18n("Request pairing to a said device"));
     options.add("unpair", ki18n("Stop pairing to a said device"));
     options.add("ping", ki18n("Sends a ping to said device"));
+    options.add("list-notifications", ki18n("Display the notifications on a said device"));
     options.add("device <dev>", ki18n("Device ID"));
     KCmdLineArgs::addCmdLineOptions( options );
     KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
     KApplication app;
     if(args->isSet("l")) {
         DevicesModel devices;
-        devices.setDisplayFilter(DevicesModel::StatusUnknown);
         for(int i=0, rows=devices.rowCount(); i<rows; ++i) {
             QModelIndex idx = devices.index(i);
             QString statusInfo;
@@ -62,7 +63,6 @@ int main(int argc, char** argv)
                     statusInfo = "(paired and reachable)";
                     break;
             }
-
             std::cout << "- " << idx.data(Qt::DisplayRole).toString().toStdString()
                       << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << ' ' << statusInfo.toStdString() << std::endl;
         }
@@ -102,8 +102,17 @@ int main(int argc, char** argv)
         } else if(args->isSet("ping")) {
             QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/ping", "org.kde.kdeconnect.device.ping", "sendPing");
             QDBusConnection::sessionBus().call(msg);
-        } else
+        } else if(args->isSet("list-notifications")) {
+            NotificationsModel notifications;
+            notifications.setDeviceId(device);
+            for(int i=0, rows=notifications.rowCount(); i<rows; ++i) {
+                QModelIndex idx = notifications.index(i);
+                std::cout << "- " << idx.data(NotificationsModel::AppNameModelRole).toString().toStdString()
+                << ": " << idx.data(NotificationsModel::NameModelRole).toString().toStdString() << std::endl;
+            }
+        } else {
             KCmdLineArgs::usageError(i18n("Nothing to be done with the device"));
+        }
     }
     QMetaObject::invokeMethod(&app, "quit", Qt::QueuedConnection);
 
