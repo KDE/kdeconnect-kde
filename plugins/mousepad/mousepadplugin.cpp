@@ -20,7 +20,6 @@
 
 #include "mousepadplugin.h"
 
-#include <core/networkpackage.h>
 #include <X11/extensions/XTest.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MousepadPlugin >(); )
@@ -90,3 +89,5 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     }
     return true;
 }
+
+#include "mousepadplugin.moc"

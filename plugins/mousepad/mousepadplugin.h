@@ -21,10 +21,9 @@
 #ifndef MOUSEPADPLUGIN_H
 #define MOUSEPADPLUGIN_H
 
-#include <QObject>
-#include <QApplication>
-
+#include <QtGui/QCursor>
 #include <core/kdeconnectplugin.h>
+#include <X11/Xlib.h>
 
 #define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
 
@@ -45,7 +44,6 @@ public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
     virtual ~MousepadPlugin();
 
-public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
     virtual void connected() { }
 

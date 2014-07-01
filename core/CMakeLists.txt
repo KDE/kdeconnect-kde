@@ -36,6 +36,8 @@ target_link_libraries(kdeconnectcore
 PUBLIC
     KF5::KDELibs4Support
 PRIVATE
+    ${QCA2_LIBRARIES}
+    ${QJSON_LIBRARIES}
     KF5::KIOWidgets
     KF5::KCMUtils
     Qt5::Network

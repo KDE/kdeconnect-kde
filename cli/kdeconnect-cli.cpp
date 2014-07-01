@@ -22,7 +22,6 @@
 #include <KUrl>
 #include <kcmdlineargs.h>
 #include <k4aboutdata.h>
-#include <kaboutdata.h>
 #include <interfaces/devicesmodel.h>
 #include <interfaces/notificationsmodel.h>
 #include <interfaces/dbusinterfaces.h>
@@ -32,8 +31,8 @@
 
 int main(int argc, char** argv)
 {
-    KAboutData about("kdeconnect-cli", "kdeconnect-cli", ki18n(("kdeconnect-cli")), "1.0", ki18n("KDE Connect CLI tool"),
-                     KAboutData::License_GPL, ki18n("(C) 2013 Aleix Pol Gonzalez"));
+    K4AboutData about("kdeconnect-cli", "kdeconnect-cli", ki18n(("kdeconnect-cli")), "1.0", ki18n("KDE Connect CLI tool"),
+                     K4AboutData::License_GPL, ki18n("(C) 2013 Aleix Pol Gonzalez"));
 
     about.addAuthor( ki18n("Aleix Pol Gonzalez"), KLocalizedString(), "aleixpol@kde.org" );
     KCmdLineArgs::init(argc, argv, &about);
