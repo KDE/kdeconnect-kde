@@ -1,0 +1,5 @@
+
+When the user moves his on the phone, dx and dy (The difference between the last movement and the current movement of the X and Y Axis respectively)
+is sent inside a NetworkPackage QCursor is used to move mouse cursor according to its relative position.
+
+When the user tap or double taps his phone, a mouse key button is simulated using XTestFakeButtonEvent

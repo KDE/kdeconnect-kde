@@ -23,6 +23,8 @@
 
 #include <QDBusAbstractAdaptor>
 
+class Device;
+
 class BatteryDbusInterface
     : public QDBusAbstractAdaptor
 {
@@ -30,7 +32,7 @@ class BatteryDbusInterface
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
 
 public:
-    explicit BatteryDbusInterface(QObject *parent);
+    explicit BatteryDbusInterface(const Device *device);
     virtual ~BatteryDbusInterface();
     
     Q_SCRIPTABLE int charge() const { return mCharge; }

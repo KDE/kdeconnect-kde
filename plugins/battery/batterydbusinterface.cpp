@@ -20,16 +20,17 @@
 
 #include "batterydbusinterface.h"
 
+#include <core/device.h>
 #include <core/kdebugnamespace.h>
 
-BatteryDbusInterface::BatteryDbusInterface(QObject *parent)
-    : QDBusAbstractAdaptor(parent)
+BatteryDbusInterface::BatteryDbusInterface(const Device *device)
+    : QDBusAbstractAdaptor(const_cast<Device*>(device))
 {
 }
 
 BatteryDbusInterface::~BatteryDbusInterface()
 {
-    kDebug(kdeconnect_kded()) << "Destroying BatteryDbusInterface";
+    kDebug(debugArea()) << "Destroying BatteryDbusInterface";
 }
 
 void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)

@@ -59,13 +59,13 @@ Mounter::Mounter(SftpPlugin* sftp, int idleTimeout)
     m_idleTimer.setSingleShot(false);
     
     QTimer::singleShot(0, this, SLOT(start()));
-    kDebug(kdeconnect_kded()) << "Created";
+    kDebug(debugArea()) << "Created";
 }
 
 Mounter::~Mounter()
 {
     unmount();
-    kDebug(kdeconnect_kded()) << "Destroyed";
+    kDebug(debugArea()) << "Destroyed";
 }
 
 bool Mounter::wait()
@@ -75,7 +75,7 @@ bool Mounter::wait()
         return true;
     }
     
-    kDebug(kdeconnect_kded()) << "Starting loop to wait for mount";
+    kDebug(debugArea()) << "Starting loop to wait for mount";
     
     MountLoop loop;
     connect(this, SIGNAL(mounted()), &loop, SLOT(successed()));
@@ -87,7 +87,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 {
     if (np.get<bool>("stop", false))
     {
-        kDebug(kdeconnect_kded()) << "SFTP server stopped";
+        kDebug(debugArea()) << "SFTP server stopped";
         unmount();
         return;
     }
@@ -142,13 +142,13 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
     cleanMountPoint();
     
-    kDebug(kdeconnect_kded()) << "Staring process: " << m_proc->program().join(" ");
+    kDebug(debugArea()) << "Staring process: " << m_proc->program().join(" ");
     m_proc->start();
 }
 
 void Mounter::onStarted()
 {
-    kDebug(kdeconnect_kded()) << "Porcess started";
+    kDebug(debugArea()) << "Porcess started";
     m_started = true;
     Q_EMIT mounted();
     
@@ -167,7 +167,7 @@ void Mounter::onError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        kDebug(kdeconnect_kded()) << "Porcess failed to start";
+        kDebug(debugArea()) << "Porcess failed to start";
         m_started = false;
         Q_EMIT failed(i18n("Failed to start sshfs"));
     }
@@ -177,7 +177,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus == QProcess::NormalExit)
     {
-        kDebug(kdeconnect_kded()) << "Process finished (exit code: " << exitCode << ")";
+        kDebug(debugArea()) << "Process finished (exit code: " << exitCode << ")";
         
         if (m_proc->property(idleTimeout_c).toBool())
         {
@@ -190,7 +190,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     }
     else
     {
-        kDebug(kdeconnect_kded()) << "Porcess failed (exit code: " << exitCode << ")";
+        kDebug(debugArea()) << "Porcess failed (exit code: " << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
@@ -201,7 +201,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 
 void Mounter::onMountTimeout()
 {
-    kDebug(kdeconnect_kded()) << "Timeout: device not responding";
+    kDebug(debugArea()) << "Timeout: device not responding";
     Q_EMIT failed(i18n("Failed to mount filesystem: device not responding"));
 }
 
@@ -211,7 +211,7 @@ void Mounter::onIdleTimeout()
     
     if (m_lastActivity.secsTo(QDateTime::currentDateTime()) >= m_idleTimer.interval() / 1000)
     {
-        kDebug(kdeconnect_kded()) << "Timeout: there is no activity on moutned filesystem";      
+        kDebug(debugArea()) << "Timeout: there is no activity on moutned filesystem";
         m_proc->setProperty(idleTimeout_c, true);
         unmount();
     }

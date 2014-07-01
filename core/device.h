@@ -105,7 +105,6 @@ public Q_SLOTS:
     Q_SCRIPTABLE void requestPair();
     Q_SCRIPTABLE void unpair();
     Q_SCRIPTABLE void reloadPlugins(); //From kconf
-    Q_SCRIPTABLE void sendPing();
     void acceptPairing();
     void rejectPairing();
 

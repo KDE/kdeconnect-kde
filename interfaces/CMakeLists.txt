@@ -15,7 +15,6 @@ set(libkdeconnect_SRC
     devicesmodel.cpp
     notificationsmodel.cpp
     modeltest.cpp
-    kdebugnamespace.cpp
 )
 
 set(libkdeconnect_public_HEADERS

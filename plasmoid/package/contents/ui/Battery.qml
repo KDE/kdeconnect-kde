@@ -53,8 +53,8 @@ QtObject {
         if (available) {
             battery = DeviceBatteryDbusInterfaceFactory.create(deviceId)
             
-            battery.stateChanged.connect(function(charging) {root.charging = charging})
-            battery.chargeChanged.connect(function(charge) {root.charge = charge})
+            battery.stateChanged.connect(function(c) {charging = c})
+            battery.chargeChanged.connect(function(c) {charge = c})
 
             startupCheck1.setPendingCall(battery.isCharging())
             startupCheck2.setPendingCall(battery.charge())

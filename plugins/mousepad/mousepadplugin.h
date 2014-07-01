@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Ahmed I. Khalil <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,12 +18,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDEBUG_LIBKDECONNECT_H
-#define KDEBUG_LIBKDECONNECT_H
+#ifndef MOUSEPADPLUGIN_H
+#define MOUSEPADPLUGIN_H
 
-#include <KDebug>
+#include <QObject>
+#include <QApplication>
 
-int libkdeconnect();
+#include <core/kdeconnectplugin.h>
+
+#define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
+
+class MousepadPlugin
+    : public KdeConnectPlugin
+{
+    Q_OBJECT
+
+    enum MouseButtons {
+        LeftMouseButton = 1,
+        MiddleMouseButton = 2,
+        RightMouseButton = 3,
+        MouseWheelUp = 4,
+        MouseWheelDown = 5
+    };
+
+public:
+    explicit MousepadPlugin(QObject *parent, const QVariantList &args);
+    virtual ~MousepadPlugin();
+
+public Q_SLOTS:
+    virtual bool receivePackage(const NetworkPackage& np);
+    virtual void connected() { }
+
+private:
+    Display *m_display;
+};
 
 #endif
-

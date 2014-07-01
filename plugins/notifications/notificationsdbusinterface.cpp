@@ -26,18 +26,22 @@
 #include <KIcon>
 #include <KMD5>
 
+#include <core/device.h>
+#include <core/kdeconnectplugin.h>
 #include <core/kdebugnamespace.h>
 #include <core/filetransferjob.h>
+
 #include "notificationsplugin.h"
 
 NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
-    : QDBusAbstractAdaptor(plugin)
+    : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
     , mDevice(plugin->device())
     , mPlugin(plugin)
     , mLastId(0)
     , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
 {
     imagesDir.mkpath(imagesDir.absolutePath());
+
 }
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
@@ -107,10 +111,10 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)
 {
-    kDebug(kdeconnect_kded()) << "removeNotification" << internalId;
+    kDebug(debugArea()) << "removeNotification" << internalId;
 
     if (!mInternalIdToPublicId.contains(internalId)) {
-        kDebug(kdeconnect_kded()) << "Not found";
+        kDebug(debugArea()) << "Not found";
         return;
     }
 
@@ -118,7 +122,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
     Notification* noti = mNotifications.take(publicId);
     if (!noti) {
-        kDebug(kdeconnect_kded()) << "Not found";
+        kDebug(debugArea()) << "Not found";
         return;
     }
 

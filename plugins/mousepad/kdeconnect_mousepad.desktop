@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KdeConnect/Plugin
+X-KDE-Library=kdeconnect_mousepad
+X-KDE-PluginInfo-Author=Ahmed I. Khalil
+X-KDE-PluginInfo-Email=ahmedibrahimkhali@gmail.com
+X-KDE-PluginInfo-Name=kdeconnect_mousepad
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+Icon=input-mouse
+Name=Touchpad
+Comment=Use your phone as a touchpad
+
+X-KdeConnect-SupportedPackageType=kdeconnect.mousepad
+X-KdeConnect-OutgoingPackageType=kdeconnect.mousepad
+

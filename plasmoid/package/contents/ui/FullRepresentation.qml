@@ -62,9 +62,10 @@ Item {
         ListView {
             id: devicesView
             anchors.fill: parent
-            model: KdeConnect.DevicesModel {
+            model: DevicesModel {
                 id: connectDeviceModel
-                displayFilter: 0x11
+                displayFilter: StatusFlags.StatusPaired | StatusFlags.StatusReachable
+
             }
             delegate: DeviceDelegate { }
             onCountChanged: shouldPlasmoidBeShown()
@@ -72,14 +73,4 @@ Item {
         }
     }
 
-/*
-    ListView {
-        anchors.fill: parent
-        id: devicesView
-        model: KdeConnect.DevicesModel {
-            displayFilter: 0x11
-        }
-        delegate: DeviceDelegate {}
-    }
-*/
 }

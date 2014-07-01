@@ -32,7 +32,7 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_battery", "kdeconnect-plugi
 
 BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , batteryDbusInterface(new BatteryDbusInterface(parent))
+    , batteryDbusInterface(new BatteryDbusInterface(device()))
 {
 
     //TODO: Add battery reporting, could be based on:

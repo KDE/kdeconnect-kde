@@ -2,6 +2,11 @@ project(KDEConnectCore)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
+set(KDECONNECT_VERSION_MAJOR 1)
+set(KDECONNECT_VERSION_MINOR 0)
+set(KDECONNECT_VERSION_PATCH 1)
+set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}")
+
 include_directories(
     ${QJSON_INCLUDE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
@@ -24,21 +29,23 @@ set(kded_kdeconnect_SRCS
     filetransferjob.cpp
     daemon.cpp
     device.cpp
-    kdebugnamespace.cpp
 )
 
 add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
 target_link_libraries(kdeconnectcore
 PUBLIC
     KF5::KDELibs4Support
-
 PRIVATE
     KF5::KIOWidgets
     KF5::KCMUtils
     Qt5::Network
-    ${QJSON_LIBRARIES}
-    ${QCA2_LIBRARIES}
 )
+
+set_target_properties(kdeconnectcore PROPERTIES
+    VERSION ${KDECONNECT_VERSION}
+    SOVERSION ${KDECONNECT_VERSION_MAJOR}
+)
+
 target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 generate_export_header(kdeconnectcore EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectcore_export.h BASE_NAME KDEConnectCore)
 

@@ -68,6 +68,8 @@ int main(int argc, char* argv[])
                          KLocalizedString(),
                          "http://albertvaka.wordpress.com");
 
+    aboutData.setOrganizationDomain("kde.org");
+
     KCmdLineArgs::init(argc, argv, &aboutData);
     
     KUniqueApplication app(true); // WARNING GUI required for QClipboard access

@@ -27,8 +27,10 @@
 #include <QStringList>
 #include <QDir>
 
-#include <core/device.h>
 #include "notification.h"
+
+class KdeConnectPlugin;
+class Device;
 
 class NotificationsDbusInterface
     : public QDBusAbstractAdaptor
