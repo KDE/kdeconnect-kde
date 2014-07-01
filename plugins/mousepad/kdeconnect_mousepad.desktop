@@ -11,7 +11,17 @@ X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 Icon=input-mouse
 Name=Touchpad
+Name[ca]=Plafó tàctil
+Name[nl]=Touchpad
+Name[pt]=Rato por Toque
+Name[uk]=Сенсорна панель
+Name[x-test]=xxTouchpadxx
 Comment=Use your phone as a touchpad
+Comment[ca]=Usa el vostre telèfon com un plafó tàctil
+Comment[nl]=Uw telefoon gebruiken als touchpad
+Comment[pt]=Usar o seu telemóvel como painel de rato
+Comment[uk]=Використання телефону як сенсорної панелі
+Comment[x-test]=xxUse your phone as a touchpadxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.mousepad
 X-KdeConnect-OutgoingPackageType=kdeconnect.mousepad
