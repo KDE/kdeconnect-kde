@@ -26,6 +26,7 @@
 #include <KStandardDirs>
 
 #include "core/kdebugnamespace.h"
+#include "config-kded.h"
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Kded>();)
 K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect-kded"))
@@ -50,7 +51,7 @@ void Kded::start()
         return;
     }
     
-    const QString daemon = KStandardDirs::locate("exe", "kdeconnectd");
+    const QString daemon = QStringLiteral(KDECONNECTD_BIN);
     kDebug(debugArea()) << "Starting daemon " << daemon;
     m_daemon = new KProcess(this);
     connect(m_daemon, SIGNAL(started()), SLOT(daemonStarted()));

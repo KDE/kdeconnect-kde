@@ -1,5 +1,7 @@
 include_directories(${CMAKE_SOURCE_DIR})
 
+configure_file(config-kded.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kded.h)
+
 add_executable(kdeconnectd kdeconnectd.cpp)
 target_link_libraries(kdeconnectd kdeconnectcore KF5::ConfigWidgets)
 
