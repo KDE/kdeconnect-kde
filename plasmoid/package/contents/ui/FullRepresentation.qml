@@ -49,9 +49,9 @@ Item {
     function shouldPlasmoidBeShown()
     {
         if (devicesView.count > 0) {
-            plasmoid.status = ActiveStatus;
+            plasmoid.status = PlasmaCore.Types.ActiveStatus;
         } else {
-            plasmoid.status = PassiveStatus;
+            plasmoid.status = PlasmaCore.Types.PassiveStatus;
         }
     }
 
@@ -62,9 +62,9 @@ Item {
         ListView {
             id: devicesView
             anchors.fill: parent
-            model: DevicesModel {
+            model: KdeConnect.DevicesModel {
                 id: connectDeviceModel
-                displayFilter: StatusFlags.StatusPaired | StatusFlags.StatusReachable
+                displayFilter: KdeConnect.DevicesModel.StatusPaired | KdeConnect.DevicesModel.StatusReachable
 
             }
             delegate: DeviceDelegate { }
