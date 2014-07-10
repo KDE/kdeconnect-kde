@@ -57,9 +57,9 @@ KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
     return KPluginInfo(service);
 }
 
-PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) const
+KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) const
 {
-    PluginData ret;
+    KdeConnectPlugin* ret = 0;
 
     KService::Ptr service = plugins[name];
     if (!service) {
@@ -73,14 +73,12 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
         return ret;
     }
 
-    ret.incomingInterfaces = service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList();
-    ret.outgoingInterfaces = service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList();
+    QStringList outgoingInterfaces = service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList();
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
-    //FIXME any reason to use QObject in template param instead KdeConnectPlugin?
-    ret.plugin = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << ret.outgoingInterfaces);
-    if (!ret.plugin) {
+    ret = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << outgoingInterfaces);
+    if (!ret) {
         kDebug(debugArea()) << "Error loading plugin";
         return ret;
     }
@@ -89,3 +87,25 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
     return ret;
 }
 
+KService::Ptr PluginLoader::pluginService(const QString& pluginName) const
+{
+    return plugins[pluginName];
+}
+
+QStringList PluginLoader::incomingInterfaces() const
+{
+    QSet<QString> ret;
+    foreach(const KService::Ptr& service, plugins) {
+        ret += service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList().toSet();
+    }
+    return ret.toList();
+}
+
+QStringList PluginLoader::outgoingInterfaces() const
+{
+    QSet<QString> ret;
+    foreach(const KService::Ptr& service, plugins) {
+        ret += service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList().toSet();
+    }
+    return ret.toList();
+}

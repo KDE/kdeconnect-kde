@@ -70,6 +70,8 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
+    , m_incomingCapabilities(identityPackage.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet())
+    , m_outgoingCapabilities(identityPackage.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet())
 {
     initPrivateKey();
 
@@ -130,11 +132,27 @@ void Device::reloadPlugins()
                     incomingInterfaces = m_pluginsByIncomingInterface.keys(plugin);
                     outgoingInterfaces = m_pluginsByOutgoingInterface.keys(plugin);
                 } else {
-                    PluginData data = loader->instantiatePluginForDevice(pluginName, this);
-                    plugin = data.plugin;
-                    incomingInterfaces = data.incomingInterfaces;
-                    outgoingInterfaces = data.outgoingInterfaces;
+                    KService::Ptr service = loader->pluginService(pluginName);
+                    incomingInterfaces = service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList();
+                    outgoingInterfaces = service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList();
                 }
+
+                //If we don't find intersection with the received on one end and the sent on the other, we don't
+                //let the plugin stay
+                //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
+                //we asume that the other client doesn't know about capabilities.
+                if (!m_incomingCapabilities.isEmpty() && !m_outgoingCapabilities.isEmpty()
+                    && m_incomingCapabilities.intersect(outgoingInterfaces.toSet()).isEmpty()
+                    && m_outgoingCapabilities.intersect(incomingInterfaces.toSet()).isEmpty()
+                ) {
+                    delete plugin;
+                    continue;
+                }
+
+                if (!plugin) {
+                    plugin = loader->instantiatePluginForDevice(pluginName, this);
+                }
+
                 foreach(const QString& interface, incomingInterfaces) {
                     newPluginsByIncomingInterface.insert(interface, plugin);
                 }

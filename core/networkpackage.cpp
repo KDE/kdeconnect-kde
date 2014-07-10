@@ -33,6 +33,7 @@
 #include <qjson/qobjecthelper.h>
 
 #include "filetransferjob.h"
+#include "pluginloader.h"
 
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 5;
@@ -58,6 +59,8 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->set("deviceName", qgetenv("USER") + "@" + QHostInfo::localHostName());
     np->set("protocolType", "desktop"); //TODO: Detect laptop, tablet, phone...
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
+    np->set("SupportedIncomingInterfaces", PluginLoader::instance()->incomingInterfaces().join(","));
+    np->set("SupportedOutgoingInterfaces", PluginLoader::instance()->outgoingInterfaces().join(","));
 
     //kDebug(kdeconnect_kded()) << "createIdentityPackage" << np->serialize();
 }
