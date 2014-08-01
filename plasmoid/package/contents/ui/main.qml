@@ -23,8 +23,15 @@ import org.kde.plasma.plasmoid 2.0
 
 Item
 {
-    Plasmoid.compactRepresentation: CompactRepresentation { }
+    width: units.gridUnit * 20
+    height: units.gridUnit * 32
+
+    function isConstrained() {
+        return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
+    }
+
+    Plasmoid.compactRepresentation: CompactRepresentation {}
     Plasmoid.fullRepresentation: FullRepresentation {}
 
-    Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
+    Plasmoid.preferredRepresentation: isConstrained() ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 }

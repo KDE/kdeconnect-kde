@@ -24,11 +24,6 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 Item {
     id: view
 
-    //TODO: Use this to detect if we should be iconized or full size
-    function isConstrained() {
-        return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
-    }
-
     PlasmaCore.IconItem {
         id: icon
         source: "kdeconnect"

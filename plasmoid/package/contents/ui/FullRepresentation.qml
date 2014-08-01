@@ -27,9 +27,6 @@ import org.kde.kdeconnect 1.0 as KdeConnect
 Item {
     id: kdeconnect
 
-    implicitWidth: 290
-    implicitHeight: 340
-
     PlasmaComponents.Label {
         visible: devicesView.count==0
         text: i18n("No paired devices available")
