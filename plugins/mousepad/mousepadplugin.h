@@ -25,6 +25,7 @@
 #include <QApplication>
 
 #include <core/kdeconnectplugin.h>
+#include <X11/Xlib.h>
 
 #define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
 
@@ -41,6 +42,17 @@ class MousepadPlugin
         MouseWheelDown = 5
     };
 
+    enum SpecialKeys {
+        Backspace = 1,
+        Enter = 1 << 1,
+        Tab = 1 << 1 | 1,
+        // Placeholder for other keys
+        FunctionalKeys = 1 << 2 | 1 << 1 | 1,
+
+        Shift = 1 << 3,
+        Control = 1 << 4
+    };
+
 public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
     virtual ~MousepadPlugin();
@@ -50,6 +62,8 @@ public Q_SLOTS:
     virtual void connected() { }
 
 private:
+    XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot, bool press, KeyCode keycode, int modifiers);
+
     Display *m_display;
 };
 

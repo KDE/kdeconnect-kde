@@ -95,7 +95,7 @@ private:
     QString mId;
     QString mType;
     QVariantMap mBody;
-
+	
     QSharedPointer<QIODevice> mPayload;
     int mPayloadSize;
     QVariantMap mPayloadTransferInfo;
