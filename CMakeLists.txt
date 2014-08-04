@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.8.12)
 find_package(ECM 0.0.9 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake)
 
-find_package(Qt5 5.2 REQUIRED COMPONENTS Qml Quick Xml Svg OpenGL PrintSupport Test)
+find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Test)
 find_package(KF5 REQUIRED COMPONENTS I18n KIO Notifications ConfigWidgets DBusAddons KCMUtils KDELibs4Support)
 find_package(QCA2 REQUIRED)
 find_package(QJSON REQUIRED)
