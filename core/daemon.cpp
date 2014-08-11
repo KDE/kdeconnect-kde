@@ -27,6 +27,7 @@
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
 #include <QtCrypto>
+#include <QNetworkAccessManager>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -117,6 +118,9 @@ Daemon::Daemon(QObject *parent)
         kWarning(debugArea()) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
     }
 
+    //Register on DBus
+    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
 
     //Load backends (hardcoded by now, should be plugins in a future)
     d->mLinkProviders.insert(new LanLinkProvider());
@@ -132,20 +136,23 @@ Daemon::Daemon(QObject *parent)
         d->mDevices[id] = device;
         Q_EMIT deviceAdded(id);
     }
-    
-    //Listen to connectivity changes
-    QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
+
+    //Listen to new devices
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
-        connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
-                a, SLOT(onNetworkChange(QNetworkSession::State)));
         connect(a, SIGNAL(onConnectionReceived(NetworkPackage, DeviceLink*)),
                 this, SLOT(onNewDeviceLink(NetworkPackage, DeviceLink*)));
     }
-
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
-
     setDiscoveryEnabled(true);
+
+    //Listen to connectivity changes
+    QNetworkConfigurationManager* manager = new QNetworkConfigurationManager();
+    QNetworkSession* network = new QNetworkSession(manager->defaultConfiguration());
+    connect(manager, SIGNAL(configurationAdded(QNetworkConfiguration)),
+            this, SLOT(forceOnNetworkChange()));
+    Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
+        connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
+                a, SLOT(onNetworkChange(QNetworkSession::State)));
+    }
 
     kDebug(debugArea()) << "KdeConnect daemon started";
 }
