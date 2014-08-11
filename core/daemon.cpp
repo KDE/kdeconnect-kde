@@ -61,6 +61,8 @@ Daemon::Daemon(QObject *parent)
     : QObject(parent)
     , d(new DaemonPrivate)
 {
+    kDebug(debugArea()) << "KdeConnect daemon starting";
+
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
 
     if (!config->group("myself").hasKey("id")) {
@@ -76,7 +78,7 @@ Daemon::Daemon(QObject *parent)
     if(!QCA::isSupported("rsa")) {
         //TODO: Maybe display this in a more visible way?
         kWarning(debugArea()) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
-                   << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
+                   << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again.";
         return;
     }
 
@@ -110,14 +112,11 @@ Daemon::Daemon(QObject *parent)
         config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
         config->sync();
     }
-    
     if (QFile::permissions(config->group("myself").readEntry("privateKeyPath")) != strict)
     {
         kWarning(debugArea()) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
     }
 
-    //Debugging
-    kDebug(debugArea()) << "Starting KdeConnect daemon";
 
     //Load backends (hardcoded by now, should be plugins in a future)
     d->mLinkProviders.insert(new LanLinkProvider());
@@ -148,11 +147,11 @@ Daemon::Daemon(QObject *parent)
 
     setDiscoveryEnabled(true);
 
+    kDebug(debugArea()) << "KdeConnect daemon started";
 }
 
 void Daemon::setDiscoveryEnabled(bool b)
 {
-    //Listen to incomming connections
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
         if (b)
             a->onStart();

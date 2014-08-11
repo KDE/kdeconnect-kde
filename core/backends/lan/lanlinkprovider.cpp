@@ -98,6 +98,8 @@ void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
     mUdpSocket.writeDatagram(np.serialize(), QHostAddress("255.255.255.255"), port);
+
+    //TODO: Ping active connections to see if they are still reachable
 }
 
 //I'm the existing device, a new device is kindly introducing itself (I will create a TcpSocket)
@@ -127,13 +129,13 @@ void LanLinkProvider::newUdpConnection()
         NetworkPackage::createIdentityPackage(&np2);
 
         if (receivedPackage->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
-            //kDebug(kdeconnect_kded()) << "Ignoring my own broadcast";
+            //kDebug(debugArea()) << "Ignoring my own broadcast";
             return;
         }
 
         int tcpPort = receivedPackage->get<int>("tcpPort", port);
 
-        //kDebug(kdeconnect_kded()) << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
+        //kDebug(debugArea()) << "Received Udp presentation from" << sender << "asking for a tcp connection on port " << tcpPort;
 
         QTcpSocket* socket = new QTcpSocket(this);
         receivedIdentityPackages[socket].np = receivedPackage;

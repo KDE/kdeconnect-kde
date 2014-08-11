@@ -33,7 +33,7 @@ public:
     virtual bool lessThan(const QModelIndex& left, const QModelIndex& right) const;
     virtual bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
 
-public slots:
+public Q_SLOTS:
     void sourceDataChanged(QModelIndex,QModelIndex);
 };
 
