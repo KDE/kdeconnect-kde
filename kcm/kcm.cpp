@@ -75,12 +75,19 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
             this, SLOT(unpair()));
     connect(kcmUi->ping_button, SIGNAL(pressed()),
             this, SLOT(sendPing()));
-
+    connect(kcmUi->refresh_button,SIGNAL(pressed()),
+            this, SLOT(refresh()));
 }
 
 KdeConnectKcm::~KdeConnectKcm()
 {
 
+}
+
+void KdeConnectKcm::refresh()
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
+    QDBusConnection::sessionBus().call(msg);
 }
 
 void KdeConnectKcm::resetSelection()

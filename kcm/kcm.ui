@@ -32,11 +32,15 @@
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="topMargin">
-       <number>0</number>
-      </property>
       <item>
        <widget class="QListView" name="deviceList"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="refresh_button">
+        <property name="text">
+         <string>Refresh</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
