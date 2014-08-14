@@ -29,29 +29,12 @@
 
 #define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
 
+struct FakeKey;
+
 class MousepadPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
-
-    enum MouseButtons {
-        LeftMouseButton = 1,
-        MiddleMouseButton = 2,
-        RightMouseButton = 3,
-        MouseWheelUp = 4,
-        MouseWheelDown = 5
-    };
-
-    enum SpecialKeys {
-        Backspace = 1,
-        Enter = 1 << 1,
-        Tab = 1 << 1 | 1,
-        // Placeholder for other keys
-        FunctionalKeys = 1 << 2 | 1 << 1 | 1,
-
-        Shift = 1 << 3,
-        Control = 1 << 4
-    };
 
 public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
@@ -62,9 +45,9 @@ public Q_SLOTS:
     virtual void connected() { }
 
 private:
-    XKeyEvent createKeyEvent(Display *display, Window &win, Window &winRoot, bool press, KeyCode keycode, int modifiers);
-
     Display *m_display;
+    FakeKey* m_fakekey;
+
 };
 
 #endif
