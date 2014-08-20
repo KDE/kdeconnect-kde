@@ -148,7 +148,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
 void Mounter::onStarted()
 {
-    kDebug(debugArea()) << "Porcess started";
+    kDebug(debugArea()) << "Process started";
     m_started = true;
     Q_EMIT mounted();
     
@@ -167,7 +167,7 @@ void Mounter::onError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        kDebug(debugArea()) << "Porcess failed to start";
+        kDebug(debugArea()) << "Process failed to start";
         m_started = false;
         Q_EMIT failed(i18n("Failed to start sshfs"));
     }
@@ -190,7 +190,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     }
     else
     {
-        kDebug(debugArea()) << "Porcess failed (exit code: " << exitCode << ")";
+        kDebug(debugArea()) << "Process failed (exit code: " << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
