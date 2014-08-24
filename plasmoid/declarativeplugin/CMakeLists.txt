@@ -12,7 +12,7 @@ set(kdeconnectdeclarativeplugin_MOC
   objectfactory.h
 )
 
-qt5_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})    
+qt5_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})
 
 add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
 target_link_libraries(kdeconnectdeclarativeplugin

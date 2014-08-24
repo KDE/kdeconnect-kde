@@ -56,7 +56,7 @@ X-Plasma-ConfigPlugins=kcm_kdeconnect
 
 X-KDE-PluginInfo-Author=Albert Vaca Cintora
 X-KDE-PluginInfo-Email=albertvaka@gmail.com
-X-KDE-PluginInfo-Name=kdeconnect
+X-KDE-PluginInfo-Name=org.kde.kdeconnect
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-Category=System Information
