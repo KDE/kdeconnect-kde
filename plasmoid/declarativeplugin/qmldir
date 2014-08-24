@@ -1,1 +1,2 @@
+module org.kde.kdeconnect
 plugin kdeconnectdeclarativeplugin
