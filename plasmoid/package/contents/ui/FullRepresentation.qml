@@ -27,11 +27,12 @@ import org.kde.kdeconnect 1.0 as KdeConnect
 Item {
     id: kdeconnect
 
-    PlasmaComponents.Label {
+    PlasmaExtras.Heading {
+        width: parent.width
+        level: 3
+        opacity: 0.6
+        text: i18n("No Paired Devices Available")
         visible: devicesView.count==0
-        text: i18n("No paired devices available")
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
     }
 
     /*
