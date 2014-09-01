@@ -19,6 +19,7 @@
  */
 
 import QtQuick 2.1
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 
 Item
@@ -27,7 +28,7 @@ Item
     height: units.gridUnit * 32
 
     function isConstrained() {
-        return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
+        return (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal);
     }
 
     Plasmoid.compactRepresentation: CompactRepresentation {}
