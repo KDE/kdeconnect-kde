@@ -86,8 +86,13 @@ void Device::initPrivateKey()
     //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
     const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true);
     QFile privKey(privateKeyPath);
-    privKey.open(QIODevice::ReadOnly);
-    m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+    if (privKey.open(QIODevice::ReadOnly))
+        m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+    else {
+        qWarning() << "Could not open the private key" << privateKeyPath;
+    }
+
+    Q_ASSERT(!m_privateKey.isNull());
 }
 
 Device::~Device()
