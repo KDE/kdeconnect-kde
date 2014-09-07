@@ -19,7 +19,7 @@ include(ECMInstallIcons)
 include(FeatureSummary)
 
 include(GenerateExportHeader)
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${QJSON_INCLUDE_DIR})
 
 add_subdirectory(core)
 add_subdirectory(kcm)
