@@ -59,7 +59,7 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
 int main(int argc, char* argv[])
 {
-    K4AboutData aboutData("org.kde.kdeconnect", "kdeconnect-kded",
+    K4AboutData aboutData("kdeconnect", "kdeconnect-kded",
                          ki18n("kdeconnect"),
                          "0.1",
                          ki18n("Connect your devices and KDE"),

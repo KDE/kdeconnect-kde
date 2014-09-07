@@ -3,6 +3,7 @@ Type=Service
 Icon=preferences-system-power-management
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=kdeconnect
+X-DBUS-ServiceName=org.kde.kdeconnect
 X-KDE-DBus-ModuleName=kdeconnect
 X-KDE-Kded-autoload=true
 X-KDE-Kded-load-on-demand=false
