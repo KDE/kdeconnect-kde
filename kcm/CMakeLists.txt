@@ -1,3 +1,4 @@
+add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kcm")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -9,7 +10,7 @@ set(kcm_SRCS
     devicessortproxymodel.cpp
 )
 
-qt5_wrap_ui(kcm_SRCS kcm.ui)
+ki18n_wrap_ui(kcm_SRCS kcm.ui)
 
 add_library(kcm_kdeconnect MODULE ${kcm_SRCS})
 

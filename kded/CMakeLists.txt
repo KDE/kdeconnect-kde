@@ -1,4 +1,5 @@
 include_directories(${CMAKE_SOURCE_DIR})
+add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
 configure_file(config-kded.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kded.h)
 
@@ -15,4 +16,3 @@ install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 
 #TODO: Split this into several files for core and for each plugin
 install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)
-

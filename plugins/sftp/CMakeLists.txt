@@ -24,7 +24,7 @@ generate_and_install_dbus_interface(
 # Config
 
 set( kdeconnect_sftp_config_SRCS sftp_config.cpp )
-qt5_wrap_ui( kdeconnect_sftp_config_SRCS sftp_config.ui )
+ki18n_wrap_ui( kdeconnect_sftp_config_SRCS sftp_config.ui )
 
 add_library(kdeconnect_sftp_config MODULE ${kdeconnect_sftp_config_SRCS} )
 target_link_libraries( kdeconnect_sftp_config

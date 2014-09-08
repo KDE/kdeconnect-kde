@@ -16,7 +16,7 @@ install(FILES kdeconnect_pausemusic.desktop DESTINATION ${SERVICES_INSTALL_DIR} 
 # Config
 
 set( kdeconnect_pausemusic_config_SRCS pausemusic_config.cpp )
-qt5_wrap_ui( kdeconnect_pausemusic_config_SRCS pausemusic_config.ui )
+ki18n_wrap_ui( kdeconnect_pausemusic_config_SRCS pausemusic_config.ui )
 
 add_library(kdeconnect_pausemusic_config MODULE ${kdeconnect_pausemusic_config_SRCS} )
 target_link_libraries( kdeconnect_pausemusic_config

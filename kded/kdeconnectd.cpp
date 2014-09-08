@@ -47,7 +47,7 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 {
     ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
     QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
-    QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));    
+    QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));
     
     action.sa_handler = sighandler;
     sigemptyset(&action.sa_mask);
@@ -60,13 +60,13 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 int main(int argc, char* argv[])
 {
     K4AboutData aboutData("kdeconnect", "kdeconnect-kded",
-                         ki18n("kdeconnect"),
-                         "0.1",
-                         ki18n("Connect your devices and KDE"),
-                         K4AboutData::License_GPL,
-                         KLocalizedString(),
-                         KLocalizedString(),
-                         "http://albertvaka.wordpress.com");
+                          ki18n("kdeconnect"),
+                          "0.1",
+                          ki18n("Connect your devices and KDE"),
+                          K4AboutData::License_GPL,
+                          KLocalizedString(),
+                          KLocalizedString(),
+                          "http://albertvaka.wordpress.com");
 
     aboutData.setOrganizationDomain("kde.org");
 
@@ -84,13 +84,3 @@ int main(int argc, char* argv[])
     
     return app.exec();
 }
-
-
-
-
-
-
-
-
-
-

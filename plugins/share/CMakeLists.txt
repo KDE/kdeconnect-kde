@@ -15,7 +15,7 @@ install(FILES kdeconnect_share.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 # Config
 
 set( kdeconnect_share_config_SRCS share_config.cpp )
-qt5_wrap_ui( kdeconnect_share_config_SRCS share_config.ui )
+ki18n_wrap_ui( kdeconnect_share_config_SRCS share_config.ui )
 
 add_library(kdeconnect_share_config MODULE ${kdeconnect_share_config_SRCS} )
 target_link_libraries( kdeconnect_share_config
