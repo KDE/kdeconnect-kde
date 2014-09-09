@@ -21,6 +21,7 @@
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
+import org.kde.kdeconnect 1.0
 
 Item
 {
@@ -35,4 +36,17 @@ Item
     Plasmoid.fullRepresentation: FullRepresentation {}
 
     Plasmoid.preferredRepresentation: isConstrained() ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
+
+    ProcessRunner {
+        id: processRunner
+    }
+
+    function action_launchkcm() {
+        processRunner.runKdeconnectKCM();
+    }
+
+    Component.onCompleted: {
+        plasmoid.removeAction("configure");
+        plasmoid.setAction("launchkcm", i18n("KDE Connect Settings..."), "configure");
+    }
 }

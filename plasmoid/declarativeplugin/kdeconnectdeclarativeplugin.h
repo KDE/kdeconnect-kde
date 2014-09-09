@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ANALITZADECLARATIVEPLUGIN_H
-#define ANALITZADECLARATIVEPLUGIN_H
+#ifndef KDECONNECTDECLARATIVEPLUGIN_H
+#define KDECONNECTDECLARATIVEPLUGIN_H
 
 #include <QQmlExtensionPlugin>
 
@@ -33,8 +33,4 @@ class KdeConnectDeclarativePlugin : public QQmlExtensionPlugin
     virtual void initializeEngine(QQmlEngine *engine, const char *uri);
 };
 
-
-
-
-
-#endif // ANALITZADECLARATIVEPLUGIN_H
+#endif // KDECONNECTDECLARATIVEPLUGIN_H

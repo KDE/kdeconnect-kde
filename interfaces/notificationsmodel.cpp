@@ -159,13 +159,13 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
         case IconModelRole:
             return KIcon("device-notifier").pixmap(32, 32);
         case IdModelRole:
-            return QString(notification->internalId());
+            return notification->internalId();
         case NameModelRole:
-            return QString(notification->ticker());
+            return notification->ticker();
         case ContentModelRole:
             return QString(); //To implement in the Android side
         case AppNameModelRole:
-            return QString(notification->appName());
+            return notification->appName();
         case DbusInterfaceRole:
             return qVariantFromValue<QObject*>(notification);
         case DismissableModelRole:

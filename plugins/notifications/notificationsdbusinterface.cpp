@@ -85,7 +85,6 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         }
 
         addNotification(noti);
-
     }
 }
 
@@ -106,7 +105,6 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
     QDBusConnection::sessionBus().registerObject(mDevice->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
-
 }
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)

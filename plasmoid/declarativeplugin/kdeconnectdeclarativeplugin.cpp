@@ -28,6 +28,7 @@
 
 #include "objectfactory.h"
 #include "responsewaiter.h"
+#include "processrunner.h"
 
 #include "interfaces/devicesmodel.h"
 #include "interfaces/notificationsmodel.h"
@@ -59,6 +60,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DevicesModel>("org.kde.kdeconnect", 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
     qmlRegisterType<DBusAsyncResponse>("org.kde.kdeconnect", 1, 0, "DBusAsyncResponse");
+    qmlRegisterType<ProcessRunner>(uri, 1, 0, "ProcessRunner");
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
