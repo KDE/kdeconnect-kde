@@ -56,6 +56,7 @@ void NetworkPackageTests::networkPackageTest()
     np.body().remove("hello");
     QCOMPARE( (np.get<QString>("hello","bye")) , QString("bye") );
 
+    np.set("foo", "bar");
     QByteArray ba = np.serialize();
     //qDebug() << "Serialized package:" << ba;
     NetworkPackage np2("");
