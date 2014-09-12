@@ -91,6 +91,7 @@ void NetworkPackageTests::networkPackageIdentityTest()
 
 void NetworkPackageTests::networkPackageEncryptionTest()
 {
+    QCA::Initializer init;
     if(!QCA::isSupported("rsa")) {
         QFAIL("RSA isn't supported by your QCA. ");
         return;
@@ -105,7 +106,6 @@ void NetworkPackageTests::networkPackageEncryptionTest()
 
     NetworkPackage decrypted("");
 
-    QCA::Initializer init;
     QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
     QVERIFY(!privateKey.isNull());
     QCA::PublicKey publicKey = privateKey.toPublicKey();
