@@ -23,14 +23,15 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 
+#include <QMetaObject>
+#include <QMetaProperty>
 #include <QByteArray>
 #include <QDataStream>
 #include <QHostInfo>
 #include <QSslKey>
 #include <QDateTime>
+#include <qjsondocument.h>
 #include <QtCrypto>
-#include <qjson/serializer.h>
-#include <qjson/qobjecthelper.h>
 
 #include "filetransferjob.h"
 
@@ -62,6 +63,18 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     //kDebug(kdeconnect_kded()) << "createIdentityPackage" << np->serialize();
 }
 
+QVariantMap qobject2qvairant(const QObject* object)
+{
+    QVariantMap map;
+    auto metaObject = object->metaObject();
+    for(int i = metaObject->propertyOffset(); i < metaObject->propertyCount(); ++i) {
+        const char *name = metaObject->property(i).name();
+        map.insert(QString::fromLatin1(name), object->property(name));
+    }
+
+    return map;
+}
+
 QByteArray NetworkPackage::serialize() const
 {
     //Object -> QVariant
@@ -69,7 +82,7 @@ QByteArray NetworkPackage::serialize() const
     //variant["id"] = mId;
     //variant["type"] = mType;
     //variant["body"] = mBody;
-    QVariantMap variant = QJson::QObjectHelper::qobject2qvariant(this);
+    QVariantMap variant = qobject2qvairant(this);
 
     if (hasPayload()) {
         //kDebug(kdeconnect_kded()) << "Serializing payloadTransferInfo";
@@ -79,10 +92,10 @@ QByteArray NetworkPackage::serialize() const
 
     //QVariant -> json
     bool ok;
-    QJson::Serializer serializer;
-    QByteArray json = serializer.serialize(variant,&ok);
-    if (!ok) {
-        kDebug(debugArea()) << "Serialization error:" << serializer.errorMessage();
+    auto jsonDocument = QJsonDocument::fromVariant(variant);
+    QByteArray json = jsonDocument.toJson(QJsonDocument::Compact);
+    if (json.isEmpty()) {
+        kDebug(debugArea()) << "Serialization error:";
     } else {
         if (!isEncrypted()) {
             //kDebug(kDebugArea) << "Serialized package:" << json;
@@ -93,19 +106,38 @@ QByteArray NetworkPackage::serialize() const
     return json;
 }
 
+void qvariant2qobject(const QVariantMap& variant, QObject* object)
+{
+    for ( QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter )
+    {
+        QVariant property = object->property( iter.key().toLatin1() );
+        Q_ASSERT( property.isValid() );
+        if ( property.isValid() )
+        {
+            QVariant value = iter.value();
+            if ( value.canConvert( property.type() ) )
+            {
+                value.convert( property.type() );
+                object->setProperty( iter.key().toLatin1(), value );
+            } else if ( QString( QLatin1String("QVariant") ).compare( QLatin1String( property.typeName() ) ) == 0) {
+                object->setProperty( iter.key().toLatin1(), value );
+            }
+        }
+    }
+}
+
 bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 {
     //Json -> QVariant
-    QJson::Parser parser;
-    bool ok;
-    QVariantMap variant = parser.parse(a, &ok).toMap();
-    if (!ok) {
-        kDebug(debugArea()) << "Unserialization error:" << a;
+    QJsonParseError parseError;
+    auto parser = QJsonDocument::fromJson(a, &parseError);
+    if (parser.isNull()) {
+        kDebug(debugArea()) << "Unserialization error:" << parseError.errorString();
         return false;
     }
 
-    //QVariant -> Object
-    QJson::QObjectHelper::qvariant2qobject(variant, np);
+    auto variant = parser.toVariant().toMap();
+    qvariant2qobject(variant, np);
 
     if (!np->isEncrypted()) {
         //kDebug(kDebugArea) << "Unserialized: " << a;

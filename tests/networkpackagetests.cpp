@@ -66,7 +66,7 @@ void NetworkPackageTests::networkPackageTest()
     QCOMPARE( np.type(), np2.type() );
     QCOMPARE( np.body(), np2.body() );
 
-    QByteArray json("{ \"id\": \"123\", \"type\": \"test\", \"body\": { \"testing\": true } }");
+    QByteArray json("{\"id\":\"123\",\"type\":\"test\",\"body\":{\"testing\":true}}");
     //qDebug() << json;
     NetworkPackage::unserialize(json,&np2);
     QCOMPARE( np2.id(), QString("123") );
@@ -129,7 +129,7 @@ void NetworkPackageTests::networkPackageEncryptionTest()
 
     //Test for long package encryption that need multi-chunk encryption
 
-    QByteArray json = "{ \"body\" : { \"nowPlaying\" : \"A really long song name - A really long artist name\", \"player\" : \"A really long player name\", \"the_meaning_of_life_the_universe_and_everything\" : \"42\" }, \"id\" : \"A really long package id\", \"type\" : \"kdeconnect.a_really_really_long_package_type\" }\n";
+    QByteArray json = "{\"body\":{\"nowPlaying\":\"A really long song name - A really long artist name\",\"player\":\"A really long player name\",\"the_meaning_of_life_the_universe_and_everything\":\"42\"},\"id\":\"A really long package id\",\"type\":\"kdeconnect.a_really_really_long_package_type\"}\n";
     qDebug() << "EME_PKCS1_OAEP maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1_OAEP);
     qDebug() << "EME_PKCS1v15 maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1v15);
     QCOMPARE( json.size() > publicKey.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm), true );

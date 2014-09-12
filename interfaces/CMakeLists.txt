@@ -72,8 +72,6 @@ target_link_libraries(kdeconnectinterfaces
     Qt5::Core
     Qt5::DBus
     KF5::KDELibs4Support
-    
-    ${QJSON_LIBRARIES}
 )
 
 configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake @ONLY)

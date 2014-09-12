@@ -30,7 +30,6 @@
 #include <QIODevice>
 #include <QtCrypto>
 #include <QSharedPointer>
-#include <qjson/parser.h>
 #include <KUrl>
 
 #include "kdeconnectcore_export.h"

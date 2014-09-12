@@ -1,5 +1,4 @@
 include_directories(
-    ${QJSON_INCLUDE_DIR}
     ${QCA2_INCLUDE_DIR}
     ${KDEConnectCore_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}
@@ -8,7 +7,6 @@ include_directories(
 set(kdeconnect_libraries
     KF5::KIOWidgets
     Qt5::Network
-    ${QJSON_LIBRARIES}
     ${QCA2_LIBRARIES}
     Qt5::Test
     kdeconnectcore
