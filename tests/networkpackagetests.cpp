@@ -139,7 +139,7 @@ void NetworkPackageTests::networkPackageEncryptionTest()
     original.decrypt(privateKey, &decrypted);
     QByteArray decryptedJson = decrypted.serialize();
 
-    QCOMPARE(QString(json), QString(decryptedJson));
+    QCOMPARE(QString(decryptedJson), QString(json));
 
 }
 
