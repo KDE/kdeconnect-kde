@@ -20,8 +20,6 @@
 
 #include "notificationsplugin.h"
 
-#include <KIcon>
-
 #include <core/kdebugnamespace.h>
 #include "notificationsdbusinterface.h"
 

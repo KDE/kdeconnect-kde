@@ -21,7 +21,7 @@
 #include "telephonyplugin.h"
 
 #include <KLocalizedString>
-#include <KIcon>
+#include <QIcon>
 
 #include <core/kdebugnamespace.h>
 
@@ -69,7 +69,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     kDebug(debugArea()) << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
-    notification->setPixmap(KIcon(icon).pixmap(48, 48));
+    notification->setPixmap(QIcon::fromTheme(icon).pixmap(48, 48));
     notification->setComponentName("kdeconnect");
     notification->setTitle(title);
     notification->setText(content);

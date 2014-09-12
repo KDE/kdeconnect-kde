@@ -24,7 +24,7 @@
 
 #include <KSharedConfig>
 #include <KConfigGroup>
-#include <KIcon>
+#include <QIcon>
 
 #include <core/kdebugnamespace.h>
 
@@ -151,7 +151,7 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             bool paired = device->isPaired();
             bool reachable = device->isReachable();
             QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
-            return KIcon(icon).pixmap(32, 32);
+            return QIcon::fromTheme(icon).pixmap(32, 32);
         }
         case IdModelRole:
             return QString(device->id());

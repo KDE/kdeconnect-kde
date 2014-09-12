@@ -29,7 +29,7 @@
 #include <QMessageBox>
 #include <QVariantList>
 
-#include <KIcon>
+#include <QIcon>
 #include <KPluginFactory>
 #include <KPluginLoader>
 

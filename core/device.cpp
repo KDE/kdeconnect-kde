@@ -33,7 +33,7 @@
 #include <KPluginSelector>
 #include <KServiceTypeTrader>
 #include <KNotification>
-#include <KIcon>
+#include <QIcon>
 #include <KGlobal>
 #include <KComponentData>
 
@@ -359,7 +359,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 kDebug(debugArea()) << "Pair request";
 
                 KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-                notification->setPixmap(KIcon("dialog-information").pixmap(48, 48));
+                notification->setPixmap(QIcon::fromTheme("dialog-information").pixmap(48, 48));
                 notification->setComponentName("kdeconnect");
                 notification->setTitle("KDE Connect");
                 notification->setText(i18n("Pairing request from %1", m_deviceName));

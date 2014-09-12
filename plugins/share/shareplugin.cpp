@@ -21,7 +21,7 @@
 #include "shareplugin.h"
 
 #include <KGlobalSettings>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <KStandardDirs>
 #include <KSharedConfig>
@@ -130,7 +130,7 @@ void SharePlugin::finished(KJob* job)
 
     FileTransferJob* transferJob = (FileTransferJob*)job;
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-    notification->setPixmap(KIcon(error? "edit-delete" : "dialog-ok").pixmap(48, 48));
+    notification->setPixmap(QIcon::fromTheme(error? "edit-delete" : "dialog-ok").pixmap(48, 48));
     notification->setComponentName("kdeconnect");
     notification->setTitle(i18n("Transfer finished"));
     notification->setText(transferJob->destination().fileName());
