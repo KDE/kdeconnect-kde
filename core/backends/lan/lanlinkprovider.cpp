@@ -44,13 +44,17 @@ void LanLinkProvider::configureSocket(QTcpSocket* socket)
 #endif
 
 #ifdef TCP_KEEPCNT
-    int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
-    setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPCNT, &count, sizeof(count));
+    if (getprotobyname("TCP")) {
+        int count = 3;  // send up to 3 keepalive packets out, then disconnect if no response
+        setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPCNT, &count, sizeof(count));
+    }
 #endif
 
 #ifdef TCP_KEEPINTVL
-    int interval = 5;   // send a keepalive packet out every 2 seconds (after the 5 second idle period)
-    setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPINTVL, &interval, sizeof(interval));
+    if (getprotobyname("TCP")) {
+        int interval = 5;   // send a keepalive packet out every 2 seconds (after the 5 second idle period)
+        setsockopt(fd, getprotobyname("TCP")->p_proto, TCP_KEEPINTVL, &interval, sizeof(interval));
+    }
 #endif
 
 }
@@ -167,6 +171,8 @@ void LanLinkProvider::connected()
 {
 
     QTcpSocket* socket = qobject_cast<QTcpSocket*>(sender());
+
+    if (!socket) return;
 
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
