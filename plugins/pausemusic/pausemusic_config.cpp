@@ -53,6 +53,7 @@ void PauseMusicConfig::defaults()
     KCModule::defaults();
     m_ui->rad_talking->setChecked(false);
     m_ui->rad_ringing->setChecked(true);
+    m_ui->check_pause->setChecked(true);
     m_ui->check_mute->setChecked(false);
     Q_EMIT changed(true);
 }
@@ -61,19 +62,23 @@ void PauseMusicConfig::defaults()
 void PauseMusicConfig::load()
 {
     KCModule::load();
-    bool talking = m_cfg->group("pause_condition").readEntry("talking_only", false);
+    bool talking = m_cfg->group("condition").readEntry("talking_only", false);
     m_ui->rad_talking->setChecked(talking);
     m_ui->rad_ringing->setChecked(!talking);
-    bool use_mute = m_cfg->group("use_mute").readEntry("use_mute", false);
-    m_ui->check_mute->setChecked(use_mute);
+
+    bool pause = m_cfg->group("actions").readEntry("pause", true);
+    bool mute = m_cfg->group("actions").readEntry("mute", false);
+    m_ui->check_pause->setChecked(pause);
+    m_ui->check_mute->setChecked(mute);
     Q_EMIT changed(false);
 }
 
 
 void PauseMusicConfig::save()
 {
-    m_cfg->group("pause_condition").writeEntry("talking_only", m_ui->rad_talking->isChecked());
-    m_cfg->group("use_mute").writeEntry("use_mute", m_ui->check_mute->isChecked());
+    m_cfg->group("condition").writeEntry("talking_only", m_ui->rad_talking->isChecked());
+    m_cfg->group("actions").writeEntry("pause", m_ui->check_pause->isChecked());
+    m_cfg->group("actions").writeEntry("mute", m_ui->check_mute->isChecked());
     KCModule::save();
 
     Q_EMIT changed(false);

@@ -59,6 +59,7 @@ int PauseMusicPlugin::isKMixMuted() {
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
+    , muted(false)
 {
     QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
 }
@@ -67,7 +68,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/pausemusic");
-    bool pauseOnlyWhenTalking = config->group("pause_condition").readEntry("talking_only", false);
+    bool pauseOnlyWhenTalking = config->group("condition").readEntry("talking_only", false);
 
     if (pauseOnlyWhenTalking) {
         if (np.get<QString>("event") != "talking") {
@@ -80,16 +81,21 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     }
 
     bool pauseConditionFulfilled = !np.get<bool>("isCancel");
-    bool use_mute = config->group("use_mute").readEntry("use_mute", false);
+
+    bool pause = config->group("actions").readEntry("pause", true);
+    bool mute = config->group("actions").readEntry("mute", false);
 
     if (pauseConditionFulfilled) {
-        if (use_mute) {
+
+        if (mute) {
             QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
             if (isKMixMuted() == 0) {
-                pausedSources.insert("mute"); //Fake source
+                muted = true;
                 kmixInterface.call("trigger");
             }
-        } else {
+        }
+
+        if (pause) {
             //Search for interfaces currently playing
             QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
             Q_FOREACH (const QString& iface, interfaces) {
@@ -109,14 +115,18 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                 }
             }
         }
+
     } else {
-        if (pausedSources.empty()) return false;
-        if (use_mute) {
+
+        if (mute && muted) {
              QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
              if (isKMixMuted() > 0) {
                  kmixInterface.call("trigger");
              }
-        } else {
+             muted = false;
+        }
+
+        if (pause && !pausedSources.empty()) {
             Q_FOREACH (const QString& iface, pausedSources) {
                 QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
                 //Calling play does not work for Spotify
@@ -126,8 +136,8 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                 mprisInterface.asyncCall("PlayPause");
                 //End of workaround
             }
+            pausedSources.clear();
         }
-        pausedSources.clear();
 
     }
 

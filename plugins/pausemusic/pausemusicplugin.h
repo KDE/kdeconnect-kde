@@ -46,6 +46,7 @@ public Q_SLOTS:
     
 private:
     QSet<QString> pausedSources;
+    bool muted;
 
 };
 
