@@ -36,7 +36,6 @@
 #include <KStandardDirs>
 #include <KLocalizedString>
 
-#include <core/kdebugnamespace.h>
 
 #include "ui_kcm.h"
 #include "interfaces/dbusinterfaces.h"

@@ -20,7 +20,6 @@
 
 #include "devicessortproxymodel.h"
 
-#include <core/kdebugnamespace.h>
 #include <interfaces/dbusinterfaces.h>
 #include <interfaces/devicesmodel.h>
 
