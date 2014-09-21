@@ -36,7 +36,7 @@
 #include <KDebug>
 #include <KProcess>
 #include <KLocalizedString>
-#include <KUrl>
+#include <QUrl>
 
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
 K_EXPORT_PLUGIN(SendFileItemActionFactory("SendFileItemAction", "kdeconnect-filetiemaction"))
@@ -80,7 +80,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
 
 void SendFileItemAction::sendFile()
 {
-    QList<QUrl> urls = sender()->property("urls").value<KUrl::List>();
+    QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
     foreach(const QUrl& url, urls) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+sender()->property("id").toString()+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
         msg.setArguments(QVariantList() << url.toString());
