@@ -37,7 +37,7 @@ public:
     ~Kded();
 
 public Q_SLOTS:
-    
+
     Q_SCRIPTABLE void start();
     Q_SCRIPTABLE void stop();
     Q_SCRIPTABLE void restart();
@@ -51,7 +51,7 @@ private Q_SLOTS:
     void onFinished(int, QProcess::ExitStatus);
     void daemonStarted();
     void checkIfDaemonTerminated();
-    
+
 private:
     KProcess* m_daemon;
 };

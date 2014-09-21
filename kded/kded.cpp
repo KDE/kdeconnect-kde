@@ -52,7 +52,7 @@ void Kded::start()
     if (m_daemon) {
         return;
     }
-    
+
     const QString daemon = QStringLiteral(KDECONNECTD_BIN);
     qDebug(KDECONNECT_KDED) << "Starting daemon " << daemon;
     m_daemon = new KProcess(this);
@@ -60,7 +60,7 @@ void Kded::start()
     connect(m_daemon, SIGNAL(error(QProcess::ProcessError)), this, SLOT(onError(QProcess::ProcessError)));
     connect(m_daemon, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(onFinished(int,QProcess::ExitStatus)));
     connect(m_daemon, SIGNAL(finished(int,QProcess::ExitStatus)), m_daemon, SLOT(deleteLater()));
-    
+
     m_daemon->setProgram(daemon);
     m_daemon->setOutputChannelMode(KProcess::SeparateChannels);
     m_daemon->closeReadChannel(KProcess::StandardOutput);
