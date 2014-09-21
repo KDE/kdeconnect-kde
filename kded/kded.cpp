@@ -24,7 +24,6 @@
 #include <QDebug>
 
 #include <KPluginFactory>
-#include <KStandardDirs>
 
 #include "config-kded.h"
 
