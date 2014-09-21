@@ -19,17 +19,19 @@
  */
 
 #include "devicesmodel.h"
+#include "interfaces_debug.h"
 
+#include <QDebug>
 #include <QDBusInterface>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QIcon>
 
-#include <core/kdebugnamespace.h>
-
 #include "dbusinterfaces.h"
 // #include "modeltest.h"
+
+Q_LOGGING_CATEGORY(KDECONNECT_INTERFACES, "kdeconnect.interfaces");
 
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -106,7 +108,7 @@ void DevicesModel::refreshDeviceList()
     }
 
     if (!m_dbusInterface->isValid()) {
-        kDebug(debugArea()) << "dbus interface not valid";
+        qCDebug(KDECONNECT_INTERFACES) << "dbus interface not valid";
         return;
     }
 
@@ -116,7 +118,7 @@ void DevicesModel::refreshDeviceList()
     QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
     pendingDeviceIds.waitForFinished();
     if (pendingDeviceIds.isError()) {
-        kDebug(debugArea()) << pendingDeviceIds.error();
+        qCDebug(KDECONNECT_INTERFACES) << pendingDeviceIds.error();
         return;
     }
 

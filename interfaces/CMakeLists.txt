@@ -71,7 +71,8 @@ add_dependencies(kdeconnectinterfaces
 target_link_libraries(kdeconnectinterfaces
     Qt5::Core
     Qt5::DBus
-    KF5::KDELibs4Support
+    Qt5::Gui
+    KF5::ConfigCore
 )
 
 configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake @ONLY)

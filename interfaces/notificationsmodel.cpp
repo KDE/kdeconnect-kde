@@ -19,17 +19,16 @@
  */
 
 #include "notificationsmodel.h"
+#include "interfaces_debug.h"
 
+#include <QDebug>
 #include <QDBusInterface>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QIcon>
 
-#include <core/kdebugnamespace.h>
-
 //#include "modeltest.h"
-
 
 NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)
@@ -112,14 +111,14 @@ void NotificationsModel::refreshNotificationList()
     }
 
     if (!m_dbusInterface->isValid()) {
-        kDebug(debugArea()) << "dbus interface not valid";
+        qCDebug(KDECONNECT_INTERFACES) << "dbus interface not valid";
         return;
     }
 
     QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
     pendingNotificationIds.waitForFinished();
     if (pendingNotificationIds.isError()) {
-        kDebug(debugArea()) << pendingNotificationIds.error();
+        qCDebug(KDECONNECT_INTERFACES) << pendingNotificationIds.error();
         return;
     }
     const QStringList& notificationIds = pendingNotificationIds.value();
