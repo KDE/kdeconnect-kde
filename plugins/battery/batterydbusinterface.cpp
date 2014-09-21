@@ -19,7 +19,9 @@
  */
 
 #include "batterydbusinterface.h"
+#include "batteryplugin.h"
 
+#include <QDebug>
 #include <core/device.h>
 #include <core/kdebugnamespace.h>
 
@@ -30,7 +32,7 @@ BatteryDbusInterface::BatteryDbusInterface(const Device *device)
 
 BatteryDbusInterface::~BatteryDbusInterface()
 {
-    kDebug(debugArea()) << "Destroying BatteryDbusInterface";
+    qCDebug(KDECONNECT_PLUGING_BATTERY) << "Destroying BatteryDbusInterface";
 }
 
 void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)

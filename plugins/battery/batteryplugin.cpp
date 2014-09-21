@@ -24,11 +24,12 @@
 #include <QIcon>
 #include <KLocalizedString>
 
-#include <core/kdebugnamespace.h>
 #include "batterydbusinterface.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< BatteryPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_battery", "kdeconnect-plugins") )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGING_BATTERY, "kdeconnect.plugin.battery")
 
 BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
