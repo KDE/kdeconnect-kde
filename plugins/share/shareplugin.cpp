@@ -24,7 +24,7 @@
 #include <KGlobalSettings>
 #include <QIcon>
 #include <KLocalizedString>
-#include <KStandardDirs>
+#include <QStandardPaths>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KJobTrackerInterface>
@@ -107,7 +107,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         job->start();
     } else if (np.has("text")) {
         QString text = np.get<QString>("text");
-        if (!KStandardDirs::findExe("kate").isEmpty()) {
+        if (!QStandardPaths::findExecutable("kate").isEmpty()) {
             QProcess* proc = new QProcess();
             connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
             proc->start("kate", QStringList("--stdin"));
