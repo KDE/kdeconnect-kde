@@ -24,9 +24,9 @@
 #include <unistd.h>
 
 #include <QSocketNotifier>
-#include <KUniqueApplication>
-#include <k4aboutdata.h>
-#include <KCmdLineArgs>
+#include <QGuiApplication>
+
+#include <KDBusService>
 
 #include "core/daemon.h"
 
@@ -48,7 +48,7 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
     ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
     QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
     QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));
-    
+
     action.sa_handler = sighandler;
     sigemptyset(&action.sa_mask);
     action.sa_flags = 0;
@@ -59,28 +59,20 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
 int main(int argc, char* argv[])
 {
-    K4AboutData aboutData("kdeconnect", "kdeconnect-kded",
-                          ki18n("kdeconnect"),
-                          "0.1",
-                          ki18n("Connect your devices and KDE"),
-                          K4AboutData::License_GPL,
-                          KLocalizedString(),
-                          KLocalizedString(),
-                          "http://albertvaka.wordpress.com");
+    QCoreApplication::setApplicationName("kdeconnect");
+    QCoreApplication::setApplicationVersion("0.1");
+    QCoreApplication::setOrganizationDomain("kde.org");
 
-    aboutData.setOrganizationDomain("kde.org");
-
-    KCmdLineArgs::init(argc, argv, &aboutData);
-    
-    KUniqueApplication app(true); // WARNING GUI required for QClipboard access
-    app.disableSessionManagement();
+    QGuiApplication app(argc, argv);
     app.setQuitOnLastWindowClosed(false);
+
+    KDBusService dbusService(KDBusService::Unique);
 
     //Force daemon to destroy when KApplications in alive
     //belongs to bug KApplications resoure freeing
     Daemon* daemon = new Daemon(0);
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
     initializeTermHandlers(&app, daemon);
-    
+
     return app.exec();
 }

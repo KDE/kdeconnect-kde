@@ -4,7 +4,7 @@ add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 configure_file(config-kded.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kded.h)
 
 add_executable(kdeconnectd kdeconnectd.cpp)
-target_link_libraries(kdeconnectd kdeconnectcore KF5::ConfigWidgets)
+target_link_libraries(kdeconnectd kdeconnectcore KF5::DBusAddons KF5::ConfigWidgets)
 
 add_library(kded_kdeconnect MODULE kded.cpp)
 
