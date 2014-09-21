@@ -20,6 +20,8 @@
 
 #include "share_config.h"
 
+#include <QStandardPaths>
+
 #include <KConfigGroup>
 #include <KGlobalSettings>
 #include <KPluginFactory>
@@ -50,7 +52,7 @@ void ShareConfig::defaults()
 {
     KCModule::defaults();
 
-    m_ui->kurlrequester->setUrl(KGlobalSettings::downloadPath());
+    m_ui->kurlrequester->setUrl(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
 
     Q_EMIT changed(true);
 }
@@ -60,7 +62,8 @@ void ShareConfig::load()
 {
     KCModule::load();
 
-    m_ui->kurlrequester->setUrl(m_cfg->group("receive").readEntry("path", KGlobalSettings::downloadPath()));
+    m_ui->kurlrequester->setUrl(m_cfg->group("receive").readEntry("path",
+                                QStandardPaths::writableLocation(QStandardPaths::DownloadLocation)));
 
     Q_EMIT changed(false);
 }

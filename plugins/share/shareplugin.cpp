@@ -51,7 +51,8 @@ QUrl SharePlugin::destinationDir() const
 {
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
-    QUrl dir = QUrl::fromLocalFile(config->group("receive").readEntry("path", KGlobalSettings::downloadPath()));
+    const QString downloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    QUrl dir = QUrl::fromLocalFile(config->group("receive").readEntry("path", downloadPath));
 
     if (!dir.path().endsWith('/')) {
         dir.setPath(dir.path() + '/');
