@@ -19,9 +19,11 @@
  */
 
 #include "sftpplugin.h"
+#include "sftp_debug.h"
 
 #include <QDBusConnection>
 #include <QDir>
+#include <QDebug>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -35,10 +37,11 @@
 
 #include "sftp_config.h"
 #include "mounter.h"
-#include <core/kdebugnamespace.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_sftp", "kdeconnect-plugins") )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SFTP, "kdeconnect.plugin.sftp")
 
 static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user" << "port" << "path";
 
@@ -56,7 +59,7 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     , m_d(new Pimpl)
 { 
     addToDolphin();
-    kDebug(debugArea()) << "Created device:" << device()->name();
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created device:" << device()->name();
 }
 
 SftpPlugin::~SftpPlugin()
@@ -64,7 +67,7 @@ SftpPlugin::~SftpPlugin()
     QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     removeFromDolphin();    
     unmount();
-    kDebug(debugArea()) << "Destroyed device:" << device()->name();
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroyed device:" << device()->name();
 }
 
 void SftpPlugin::addToDolphin()
@@ -72,7 +75,7 @@ void SftpPlugin::addToDolphin()
     removeFromDolphin();
     QUrl kioUrl("kdeconnect://"+device()->id()+"/");
     m_d->placesModel.addPlace(device()->name(), kioUrl, "kdeconnect");
-    kDebug(debugArea()) << "add to dolphin";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
@@ -88,12 +91,12 @@ void SftpPlugin::removeFromDolphin()
 void SftpPlugin::connected()
 {
     bool state = QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
-    kDebug(debugArea()) << "Exposing DBUS interface: " << state;
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Exposing DBUS interface: " << state;
 }
 
 void SftpPlugin::mount()
 {
-    kDebug(debugArea()) << "Mount device:" << device()->name();
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Mount device:" << device()->name();
     if (m_d->mounter) {
         return;
     }
@@ -160,7 +163,7 @@ QString SftpPlugin::mountPoint()
 
 void SftpPlugin::onMounted()
 {
-    kDebug(debugArea()) << device()->name() << QString("Remote filesystem mounted at %1").arg(mountPoint());
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << QString("Remote filesystem mounted at %1").arg(mountPoint());
 
     Q_EMIT mounted();
 }
@@ -168,9 +171,9 @@ void SftpPlugin::onMounted()
 void SftpPlugin::onUnmounted(bool idleTimeout)
 {
     if (idleTimeout) {
-        kDebug(debugArea()) << device()->name() << "Remote filesystem unmounted by idle timeout";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << "Remote filesystem unmounted by idle timeout";
     } else {
-        kDebug(debugArea()) << device()->name() << "Remote filesystem unmounted";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << "Remote filesystem unmounted";
     }
 
     unmount();

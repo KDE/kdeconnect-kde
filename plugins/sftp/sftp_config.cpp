@@ -29,7 +29,6 @@
 #include <KIconLoader>
 
 #include "sftpplugin.h"
-#include <core/kdebugnamespace.h>
 
 #include "ui_sftp_config.h"
 

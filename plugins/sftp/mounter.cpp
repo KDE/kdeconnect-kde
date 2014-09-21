@@ -20,13 +20,13 @@
 
 #include <QDir>
 #include <QTimerEvent>
+#include <QDebug>
 
 #include <KLocalizedString>
 #include <KStandardDirs>
 
-#include <core/kdebugnamespace.h>
-
 #include "mounter.h"
+#include "sftp_debug.h"
 
 static const char* idleTimeout_c = "idleTimeout";
 
@@ -59,13 +59,13 @@ Mounter::Mounter(SftpPlugin* sftp, int idleTimeout)
     m_idleTimer.setSingleShot(false);
     
     QTimer::singleShot(0, this, SLOT(start()));
-    kDebug(debugArea()) << "Created";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created";
 }
 
 Mounter::~Mounter()
 {
     unmount();
-    kDebug(debugArea()) << "Destroyed";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroyed";
 }
 
 bool Mounter::wait()
@@ -75,7 +75,7 @@ bool Mounter::wait()
         return true;
     }
     
-    kDebug(debugArea()) << "Starting loop to wait for mount";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting loop to wait for mount";
     
     MountLoop loop;
     connect(this, SIGNAL(mounted()), &loop, SLOT(successed()));
@@ -87,7 +87,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 {
     if (np.get<bool>("stop", false))
     {
-        kDebug(debugArea()) << "SFTP server stopped";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "SFTP server stopped";
         unmount();
         return;
     }
@@ -142,13 +142,13 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
     cleanMountPoint();
     
-    kDebug(debugArea()) << "Staring process: " << m_proc->program().join(" ");
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Staring process: " << m_proc->program().join(" ");
     m_proc->start();
 }
 
 void Mounter::onStarted()
 {
-    kDebug(debugArea()) << "Process started";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process started";
     m_started = true;
     Q_EMIT mounted();
     
@@ -167,7 +167,7 @@ void Mounter::onError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        kDebug(debugArea()) << "Process failed to start";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed to start";
         m_started = false;
         Q_EMIT failed(i18n("Failed to start sshfs"));
     }
@@ -177,7 +177,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus == QProcess::NormalExit)
     {
-        kDebug(debugArea()) << "Process finished (exit code: " << exitCode << ")";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process finished (exit code: " << exitCode << ")";
         
         if (m_proc->property(idleTimeout_c).toBool())
         {
@@ -190,7 +190,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     }
     else
     {
-        kDebug(debugArea()) << "Process failed (exit code: " << exitCode << ")";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code: " << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
@@ -201,7 +201,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 
 void Mounter::onMountTimeout()
 {
-    kDebug(debugArea()) << "Timeout: device not responding";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Timeout: device not responding";
     Q_EMIT failed(i18n("Failed to mount filesystem: device not responding"));
 }
 
@@ -211,7 +211,7 @@ void Mounter::onIdleTimeout()
     
     if (m_lastActivity.secsTo(QDateTime::currentDateTime()) >= m_idleTimer.interval() / 1000)
     {
-        kDebug(debugArea()) << "Timeout: there is no activity on moutned filesystem";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Timeout: there is no activity on moutned filesystem";
         m_proc->setProperty(idleTimeout_c, true);
         unmount();
     }
