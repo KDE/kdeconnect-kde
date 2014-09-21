@@ -26,10 +26,10 @@
 
 #include <QDBusConnection>
 #include <QFile>
+#include <QStandardPaths>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
-#include <KStandardDirs>
 #include <KPluginSelector>
 #include <KServiceTypeTrader>
 #include <KNotification>
@@ -86,7 +86,8 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
 void Device::initPrivateKey()
 {
     //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
-    const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true);
+    const QString privateKeyPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::DataLocation, QStringLiteral("key.pem"));
+
     QFile privKey(privateKeyPath);
     if (privKey.open(QIODevice::ReadOnly))
         m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
@@ -120,7 +121,7 @@ void Device::reloadPlugins()
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
-        QString path = KGlobal::dirs()->findResource("config", "kdeconnect/"+id());
+        QString path = QStandardPaths::locate(QStandardPaths::ConfigLocation, "kdeconnect/", QStandardPaths::LocateDirectory) + id();
         KConfigGroup pluginStates = KSharedConfig::openConfig(path)->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();

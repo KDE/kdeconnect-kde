@@ -27,10 +27,10 @@
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
 #include <QtCrypto>
+#include <QStandardPaths>
 
 #include <KConfig>
 #include <KConfigGroup>
-#include <KStandardDirs>
 
 #include "core_debug.h"
 #include "networkpackage.h"
@@ -81,7 +81,7 @@ Daemon::Daemon(QObject *parent)
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
     if (!config->group("myself").hasKey("privateKeyPath"))
     {
-        const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true);
+        const QString privateKeyPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::DataLocation, QStringLiteral("key.pem"));
 
         QFile privKey(privateKeyPath);
 
