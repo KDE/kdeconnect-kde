@@ -24,6 +24,8 @@
 #include <KDEDModule>
 #include <KProcess>
 
+#include <QLoggingCategory>
+
 class Kded
     : public KDEDModule
 {
@@ -54,4 +56,5 @@ private:
     KProcess* m_daemon;
 };
 
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_KDED)
 #endif
