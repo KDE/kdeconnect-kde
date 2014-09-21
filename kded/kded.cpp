@@ -28,7 +28,6 @@
 #include "config-kded.h"
 
 K_PLUGIN_FACTORY(KdeConnectFactory, registerPlugin<Kded>();)
-K_EXPORT_PLUGIN(KdeConnectFactory("kdeconnect", "kdeconnect-kded"))
 
 Q_LOGGING_CATEGORY(KDECONNECT_KDED, "kdeconnect.kded")
 

@@ -32,7 +32,6 @@
 #include <core/networkpackage.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_pausemusic", "kdeconnect-plugins") )
 
 //TODO: Port this away from KMix to use only Pulseaudio
 int PauseMusicPlugin::isKMixMuted() {

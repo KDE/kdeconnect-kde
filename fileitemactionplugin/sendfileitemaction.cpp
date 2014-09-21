@@ -38,7 +38,6 @@
 #include <QUrl>
 
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
-K_EXPORT_PLUGIN(SendFileItemActionFactory("SendFileItemAction", "kdeconnect-filetiemaction"))
 
 Q_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION, "kdeconnect.fileitemaction")
 

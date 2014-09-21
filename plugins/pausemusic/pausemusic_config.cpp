@@ -28,7 +28,6 @@
 #include "ui_pausemusic_config.h"
 
 K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
-K_EXPORT_PLUGIN(PauseMusicConfigFactory("kdeconnect_pausemusic_config", "kdeconnect-kded"))
 
 PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& )
     : KCModule(KAboutData::pluginData("kdeconnect_pausemusic_config"), parent)

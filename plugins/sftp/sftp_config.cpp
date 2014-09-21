@@ -33,7 +33,6 @@
 #include "ui_sftp_config.h"
 
 K_PLUGIN_FACTORY(SftpConfigFactory, registerPlugin<SftpConfig>();)
-K_EXPORT_PLUGIN(SftpConfigFactory("kdeconnect_sftp_config", "kdeconnect-kded"))
 
 SftpConfig::SftpConfig(QWidget *parent, const QVariantList& )
     : KCModule(KAboutData::pluginData("kdeconnect_sftp_config"), parent)

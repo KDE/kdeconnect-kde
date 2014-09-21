@@ -30,7 +30,6 @@
 #include "ui_share_config.h"
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
-K_EXPORT_PLUGIN(ShareConfigFactory("kdeconnect_share_config", "kdeconnect_share_config"))
 
 ShareConfig::ShareConfig(QWidget *parent, const QVariantList& )
     : KCModule(KAboutData::pluginData("kdeconnect_share_config"), parent)
