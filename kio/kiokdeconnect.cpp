@@ -24,7 +24,7 @@
 #include <QtCore/QThread>
 #include <QDBusMetaType>
 
-#include <KDebug>
+#include <QDebug>
 #include <KComponentData>
 #include <KCmdLineArgs>
 #include <KProcess>
@@ -34,6 +34,8 @@
 #include <kdemacros.h>
 
 #include <core/kdebugnamespace.h>
+
+Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
 
 extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
 {
@@ -75,7 +77,7 @@ bool handleDBusError(QDBusReply<T>& reply, KIO::SlaveBase* slave)
 {
     if (!reply.isValid())
     {
-        kDebug(debugArea()) << "Error in DBus request:" << reply.error();
+        qCDebug(KDECONNECT_KIO) << "Error in DBus request:" << reply.error();
         slave->error(toKioError(reply.error().type()),reply.error().message());
         return true;
     }
@@ -130,7 +132,7 @@ void KioKdeconnect::listDevice()
 {
     infoMessage(i18n("Accessing device..."));
 
-    kDebug(debugArea()) << "ListDevice" << m_currentDevice;
+    qCDebug(KDECONNECT_KIO) << "ListDevice" << m_currentDevice;
 
     SftpDbusInterface interface(m_currentDevice);
     
@@ -185,7 +187,7 @@ void KioKdeconnect::listDevice()
 
 void KioKdeconnect::listDir(const QUrl &url)
 {
-    kDebug(debugArea()) << "Listing..." << url;
+    qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
     /// Url is not used here becuase all we could care about the url is the host, and that's already
     /// handled in @p setHost
@@ -207,7 +209,7 @@ void KioKdeconnect::listDir(const QUrl &url)
 
 void KioKdeconnect::stat(const QUrl &url)
 {
-    kDebug(debugArea()) << "Stat: " << url;
+    qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
     KIO::UDSEntry entry;
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -218,7 +220,7 @@ void KioKdeconnect::stat(const QUrl &url)
 
 void KioKdeconnect::get(const QUrl &url)
 {
-    kDebug(debugArea()) << "Get: " << url;
+    qCDebug(KDECONNECT_KIO) << "Get: " << url;
     mimeType("");
     finished();
 }
@@ -228,7 +230,7 @@ void KioKdeconnect::setHost(const QString &hostName, quint16 port, const QString
 
     //This is called before everything else to set the file we want to show
 
-    kDebug(debugArea()) << "Setting host: " << hostName;
+    qCDebug(KDECONNECT_KIO) << "Setting host: " << hostName;
 
     // In this kio only the hostname is used
     Q_UNUSED(port)
