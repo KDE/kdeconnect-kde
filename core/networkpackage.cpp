@@ -95,7 +95,7 @@ QByteArray NetworkPackage::serialize() const
     auto jsonDocument = QJsonDocument::fromVariant(variant);
     QByteArray json = jsonDocument.toJson(QJsonDocument::Compact);
     if (json.isEmpty()) {
-        kDebug(debugArea()) << "Serialization error:";
+        qCDebug(KDECONNECT_CORE) << "Serialization error:";
     } else {
         if (!isEncrypted()) {
             //kDebug(kDebugArea) << "Serialized package:" << json;
@@ -132,7 +132,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     QJsonParseError parseError;
     auto parser = QJsonDocument::fromJson(a, &parseError);
     if (parser.isNull()) {
-        kDebug(debugArea()) << "Unserialization error:" << parseError.errorString();
+        qCDebug(KDECONNECT_CORE) << "Unserialization error:" << parseError.errorString();
         return false;
     }
 

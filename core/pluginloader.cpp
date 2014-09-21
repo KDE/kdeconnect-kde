@@ -50,7 +50,7 @@ KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
 {
     KService::Ptr service = plugins[name];
     if (!service) {
-        kDebug(debugArea()) << "Plugin unknown" << name;
+        qCDebug(KDECONNECT_CORE) << "Plugin unknown" << name;
         return KPluginInfo();
     }
 
@@ -63,13 +63,13 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
 
     KService::Ptr service = plugins[name];
     if (!service) {
-        kDebug(debugArea()) << "Plugin unknown" << name;
+        qCDebug(KDECONNECT_CORE) << "Plugin unknown" << name;
         return ret;
     }
 
     KPluginFactory *factory = KPluginLoader(service->library()).factory();
     if (!factory) {
-        kDebug(debugArea()) << "KPluginFactory could not load the plugin:" << service->library();
+        qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service->library();
         return ret;
     }
 
@@ -81,11 +81,11 @@ PluginData PluginLoader::instantiatePluginForDevice(const QString& name, Device*
     //FIXME any reason to use QObject in template param instead KdeConnectPlugin?
     ret.plugin = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << ret.outgoingInterfaces);
     if (!ret.plugin) {
-        kDebug(debugArea()) << "Error loading plugin";
+        qCDebug(KDECONNECT_CORE) << "Error loading plugin";
         return ret;
     }
 
-    kDebug(debugArea()) << "Loaded plugin:" << service->name();
+    qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service->name();
     return ret;
 }
 

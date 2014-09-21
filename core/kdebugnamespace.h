@@ -1,5 +1,6 @@
 /**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Alejandro Fiestas Olivares <afiestas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,9 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDEBUG_KDECONNECT_KDED_H
-#define KDEBUG_KDECONNECT_KDED_H
+#ifndef QDEBUG_KDECONNECT_CORE_H
+#define QDEBUG_KDECONNECT_CORE_H
 
+#include <QLoggingCategory>
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CORE)
+
+//Just until we port everything to qCDebug
 #include <KDebug>
 #include <kdemacros.h>
 
@@ -29,6 +35,5 @@ inline int debugArea()
     static int theArea = KDebug::registerArea("kdeconnect");
     return theArea;
 };
-
 #endif
 

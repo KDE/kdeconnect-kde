@@ -66,13 +66,13 @@ Daemon::Daemon(QObject *parent)
         uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
         config->group("myself").writeEntry("id", uuid);
         config->sync();
-        kDebug(debugArea()) << "My id:" << uuid;
+        qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
     }
 
-    //kDebug(debugArea()) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
+    //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
         //TODO: Maybe display this in a more visible way?
-        kWarning(debugArea()) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
+        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
                    << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
         return;
     }
@@ -81,18 +81,18 @@ Daemon::Daemon(QObject *parent)
     if (!config->group("myself").hasKey("privateKeyPath"))
     {
         const QString privateKeyPath = KStandardDirs::locateLocal("appdata", "key.pem", true);
-        
+
         QFile privKey(privateKeyPath);
-        
+
         if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))
         {
-            kWarning(debugArea()) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
+            qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
             return;
         }
         
         if (!privKey.setPermissions(strict))
         {
-            kWarning(debugArea()) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
+            qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
         }
 
         //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
@@ -110,11 +110,11 @@ Daemon::Daemon(QObject *parent)
     
     if (QFile::permissions(config->group("myself").readEntry("privateKeyPath")) != strict)
     {
-        kWarning(debugArea()) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
+        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
     }
 
     //Debugging
-    kDebug(debugArea()) << "Starting KdeConnect daemon";
+    qCDebug(KDECONNECT_CORE) << "Starting KdeConnect daemon";
 
     //Load backends (hardcoded by now, should be plugins in a future)
     d->mLinkProviders.insert(new LanLinkProvider());
@@ -182,14 +182,14 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
     const QString& id = identityPackage.get<QString>("deviceId");
 
-    //kDebug(debugArea()) << "Device discovered" << id << "via" << dl->provider()->name();
+    //qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (d->mDevices.contains(id)) {
-        //kDebug(debugArea()) << "It is a known device";
+        //qCDebug(KDECONNECT_CORE) << "It is a known device";
         Device* device = d->mDevices[id];
         device->addLink(identityPackage, dl);
     } else {
-        //kDebug(debugArea()) << "It is a new device";
+        //qCDebug(KDECONNECT_CORE) << "It is a new device";
 
         Device* device = new Device(this, identityPackage, dl);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceReachableStatusChanged()));
@@ -210,12 +210,12 @@ void Daemon::onDeviceReachableStatusChanged()
 
     Q_EMIT deviceVisibilityChanged(id, device->isReachable());
 
-    //kDebug(debugArea()) << "Device" << device->name() << "reachable status changed:" << device->isReachable();
+    //qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "reachable status changed:" << device->isReachable();
 
     if (!device->isReachable()) {
 
         if (!device->isPaired()) {
-            kDebug(debugArea()) << "Destroying device" << device->name();
+            qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
             Q_EMIT deviceRemoved(id);
             d->mDevices.remove(id);
             device->deleteLater();

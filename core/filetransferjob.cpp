@@ -41,18 +41,18 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int si
     mDeviceName = i18nc("Device name that will appear on the jobs", "KDE-Connect");
 
     setCapabilities(Killable);
-    kDebug(debugArea()) << "FileTransferJob Downloading payload to" << destination;
+    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
 }
 
 void FileTransferJob::openFinished(KJob* job)
 {
-    kDebug(debugArea()) << job->errorString();
+    qCDebug(KDECONNECT_CORE) << job->errorString();
 }
 
 void FileTransferJob::start()
 {
     QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
-    //kDebug(debugArea()) << "FileTransferJob start";
+    //qCDebug(KDECONNECT_CORE) << "FileTransferJob start";
 }
 
 void FileTransferJob::doStart()
@@ -136,10 +136,10 @@ void FileTransferJob::open(KIO::Job* job)
 {
     Q_UNUSED(job);
 
-    //kDebug(debugArea()) << "FileTransferJob open";
+    //qCDebug(KDECONNECT_CORE) << "FileTransferJob open";
 
     if (!mOrigin) {
-        kDebug(debugArea()) << "FileTransferJob: Origin is null";
+        qCDebug(KDECONNECT_CORE) << "FileTransferJob: Origin is null";
         return;
     }
 
@@ -161,7 +161,7 @@ void FileTransferJob::readyRead()
     mWritten += data.size();
     setProcessedAmount(Bytes, mWritten);
 
-    //kDebug(debugArea()) << "readyRead" << mSize << mWritten << bytes;
+    //qCDebug(KDECONNECT_CORE) << "readyRead" << mSize << mWritten << bytes;
 
     if (mSize > -1) {
         //If a least 1 second has passed since last update
@@ -192,11 +192,11 @@ void FileTransferJob::sourceFinished()
 
     //TODO: MD5 check the file
     if (mSize > -1 && mWritten != mSize) {
-        kDebug(debugArea()) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
+        qCDebug(KDECONNECT_CORE) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
         setError(1);
         setErrorText(i18n("Received incomplete file"));
     } else {
-        kDebug(debugArea()) << "Finished transfer" << mDestinationJob->url();
+        qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestinationJob->url();
     }
     mDestinationJob->close();
     mDestinationJob->deleteLater();

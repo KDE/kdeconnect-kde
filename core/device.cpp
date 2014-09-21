@@ -44,6 +44,8 @@
 #include "backends/linkprovider.h"
 #include "networkpackage.h"
 
+Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
+
 Device::Device(QObject* parent, const QString& id)
     : QObject(parent)
     , m_deviceId(id)
@@ -240,7 +242,7 @@ static bool lessThan(DeviceLink* p1, DeviceLink* p2)
 
 void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
-    //kDebug(debugArea()) << "Adding link to" << id() << "via" << link->provider();
+    //qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
 
     m_protocolVersion = identityPackage.get<int>("protocolVersion");
     if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
@@ -287,7 +289,7 @@ void Device::removeLink(DeviceLink* link)
 {
     m_deviceLinks.removeOne(link);
 
-    //kDebug(debugArea()) << "RemoveLink" << m_deviceLinks.size() << "links remaining";
+    //qCDebug(KDECONNECT_CORE) << "RemoveLink" << m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.isEmpty()) {
         reloadPlugins();
@@ -320,12 +322,12 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 {
     if (np.type() == PACKAGE_TYPE_PAIR) {
 
-        //kDebug(debugArea()) << "Pair package";
+        //qCDebug(KDECONNECT_CORE) << "Pair package";
 
         bool wantsPair = np.get<bool>("pair");
 
         if (wantsPair == isPaired()) {
-            kDebug(debugArea()) << "Already" << (wantsPair? "paired":"unpaired");
+            qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
             if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
                 m_pairingTimeut.stop();
@@ -340,7 +342,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             const QString& key = np.get<QString>("publicKey");
             m_publicKey = QCA::RSAPublicKey::fromPEM(key);
             if (m_publicKey.isNull()) {
-                kDebug(debugArea()) << "ERROR decoding key";
+                qCDebug(KDECONNECT_CORE) << "ERROR decoding key";
                 if (m_pairStatus == Device::Requested) {
                     m_pairStatus = Device::NotPaired;
                     m_pairingTimeut.stop();
@@ -351,12 +353,12 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
             if (m_pairStatus == Device::Requested)  { //We started pairing
 
-                kDebug(debugArea()) << "Pair answer";
+                qCDebug(KDECONNECT_CORE) << "Pair answer";
                 setAsPaired();
 
             } else {
 
-                kDebug(debugArea()) << "Pair request";
+                qCDebug(KDECONNECT_CORE) << "Pair request";
 
                 KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
                 notification->setPixmap(QIcon::fromTheme("dialog-information").pixmap(48, 48));
@@ -374,7 +376,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
         } else {
 
-            kDebug(debugArea()) << "Unpair request";
+            qCDebug(KDECONNECT_CORE) << "Unpair request";
 
             PairStatus prevPairStatus = m_pairStatus;
             m_pairStatus = Device::NotPaired;
@@ -397,7 +399,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             plugin->receivePackage(np);
         }
     } else {
-        kDebug(debugArea()) << "device" << name() << "not paired, ignoring package" << np.type();
+        qCDebug(KDECONNECT_CORE) << "device" << name() << "not paired, ignoring package" << np.type();
         unpair();
 
     }
@@ -415,7 +417,7 @@ bool Device::sendOwnPublicKey()
 
 void Device::rejectPairing()
 {
-    kDebug(debugArea()) << "Rejected pairing";
+    qCDebug(KDECONNECT_CORE) << "Rejected pairing";
 
     m_pairStatus = Device::NotPaired;
 
@@ -431,7 +433,7 @@ void Device::acceptPairing()
 {
     if (m_pairStatus != Device::RequestedByPeer) return;
 
-    kDebug(debugArea()) << "Accepted pairing";
+    qCDebug(KDECONNECT_CORE) << "Accepted pairing";
 
     bool success = sendOwnPublicKey();
 
