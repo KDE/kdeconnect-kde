@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Alejandro Fiestas Olivares <afiestas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,28 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "notification.h"
+#ifndef NOTIFICATION_DEBUG_H
+#define NOTIFICATION_DEBUG_H
 
-#include <QDBusConnection>
+#include <QLoggingCategory>
 
-Notification::Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent)
-    : QObject(parent)
-{
-    mId = np.get<QString>("id");
-    mAppName = np.get<QString>("appName");
-    mTicker = np.get<QString>("ticker");
-    mDismissable = np.get<bool>("isClearable");
-    mIconPath = iconPath;
-}
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION)
 
-Notification::~Notification()
-{
-
-}
-
-void Notification::dismiss()
-{
-    if (mDismissable) {
-        Q_EMIT dismissRequested(this);
-    }
-}
+#endif //NOTIFICATION_DEBUG_H

@@ -20,11 +20,13 @@
 
 #include "notificationsplugin.h"
 
-#include <core/kdebugnamespace.h>
 #include "notificationsdbusinterface.h"
+#include "notification_debug.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< NotificationsPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_notifications", "kdeconnect-plugins") )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION, "kdeconnect.plugin.notification")
 
 NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

@@ -19,6 +19,7 @@
  */
 
 #include "notificationsdbusinterface.h"
+#include "notification_debug.h"
 
 #include <QDBusConnection>
 
@@ -28,7 +29,6 @@
 
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
-#include <core/kdebugnamespace.h>
 #include <core/filetransferjob.h>
 
 #include "notificationsplugin.h"
@@ -109,10 +109,10 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)
 {
-    kDebug(debugArea()) << "removeNotification" << internalId;
+    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
 
     if (!mInternalIdToPublicId.contains(internalId)) {
-        kDebug(debugArea()) << "Not found";
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found";
         return;
     }
 
@@ -120,7 +120,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
     Notification* noti = mNotifications.take(publicId);
     if (!noti) {
-        kDebug(debugArea()) << "Not found";
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found";
         return;
     }
 
