@@ -33,7 +33,6 @@
 #include <KPluginInfo>
 #include <KPluginFactory>
 #include <KAboutData>
-#include <KStandardDirs>
 #include <KLocalizedString>
 
 
@@ -155,7 +154,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
     QList<KPluginInfo> scriptinfos = KPluginInfo::fromServices(offers);
 
-    QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
+    QString path = QStandardPaths::locate(QStandardPaths::ConfigLocation, "kdeconnect/", QStandardPaths::LocateDirectory);
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(path + currentDevice->id());
     kcmUi->pluginSelector->addPlugins(scriptinfos, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
 
