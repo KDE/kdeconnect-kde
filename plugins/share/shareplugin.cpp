@@ -45,15 +45,21 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 {
 }
 
-KUrl SharePlugin::destinationDir() const
+QUrl SharePlugin::destinationDir() const
 {
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
-    KUrl dir = config->group("receive").readEntry("path", KGlobalSettings::downloadPath());
-    dir.adjustPath(KUrl::AddTrailingSlash);
+    QUrl dir = QUrl::fromLocalFile(config->group("receive").readEntry("path", KGlobalSettings::downloadPath()));
+
+    if (!dir.path().endsWith('/')) {
+        dir.setPath(dir.path() + '/');
+    }
 
     QString url = dir.toLocalFile();
-    if (url.contains("%1")) url = url.arg(device()->name());
+
+    if (url.contains("%1")) {
+        url = url.arg(device()->name());
+    }
 
     kDebug(debugArea()) << url;
     QDir().mkpath(url);
@@ -88,8 +94,9 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
     if (np.hasPayload()) {
         //kDebug(debugArea()) << "receiving file";
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
-        KUrl destination = destinationDir();
-        destination.addPath(filename);
+        QUrl destination = destinationDir();
+        destination = destination.adjusted(QUrl::StripTrailingSlash);
+        destination.setPath(destination.path() + '/' + filename);
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         job->setDeviceName(device()->name());
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
@@ -146,11 +153,12 @@ void SharePlugin::openDestinationFolder()
 
 void SharePlugin::shareUrl(const QUrl& url)
 {
+    qDebug() << url;
     NetworkPackage package(PACKAGE_TYPE_SHARE);
     if(url.isLocalFile()) {
         QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
         package.setPayload(ioFile, ioFile->size());
-        package.set<QString>("filename", KUrl(url).fileName());
+        package.set<QString>("filename", QUrl(url).fileName());
     } else {
         package.set<QString>("url", url.toString());
     }
