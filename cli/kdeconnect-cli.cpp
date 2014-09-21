@@ -19,7 +19,6 @@
  */
 
 #include <KApplication>
-#include <KUrl>
 #include <kcmdlineargs.h>
 #include <k4aboutdata.h>
 #include <interfaces/devicesmodel.h>
