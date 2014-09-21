@@ -44,9 +44,9 @@ SftpConfig::SftpConfig(QWidget *parent, const QVariantList& )
 
     m_ui->refresh->setIcon(KIconLoader::global()->loadIcon("view-refresh", KIconLoader::Dialog));
     m_ui->pixmap->setPixmap(KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Dialog));
-    
+
     connect(m_ui->refresh, SIGNAL(clicked(bool)), this, SLOT(checkSshfs()));
-    
+
     connect(m_ui->idle, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->timeout, SIGNAL(valueChanged(int)), this, SLOT(changed()));
 }
@@ -63,11 +63,11 @@ void SftpConfig::checkSshfs()
 void SftpConfig::defaults()
 {
     KCModule::defaults();
-    
+
     checkSshfs();
     m_ui->idle->setChecked(m_cfg->group("main").readEntry("idle", true));
     m_ui->timeout->setValue(m_cfg->group("main").readEntry("idletimeout", 10));
-    
+
     Q_EMIT changed(true);
 }
 
@@ -75,12 +75,12 @@ void SftpConfig::defaults()
 void SftpConfig::load()
 {
     KCModule::load();
-    
+
     checkSshfs();
     m_ui->idle->setChecked(m_cfg->group("main").readEntry("idle", true));
     m_ui->timeout->setValue(m_cfg->group("main").readEntry("idletimeout", 10));
-    
-    Q_EMIT changed(false);
+
+Q_EMIT changed(false);
 }
 
 
