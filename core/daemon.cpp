@@ -32,7 +32,7 @@
 #include <KConfigGroup>
 #include <KStandardDirs>
 
-#include "kdebugnamespace.h"
+#include "core_debug.h"
 #include "networkpackage.h"
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
@@ -41,6 +41,7 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
+#include <QDebug>
 struct DaemonPrivate
 {
     //Different ways to find devices and connect to them

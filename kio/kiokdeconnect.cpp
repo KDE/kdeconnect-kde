@@ -33,8 +33,6 @@
 #include <k4aboutdata.h>
 #include <kdemacros.h>
 
-#include <core/kdebugnamespace.h>
-
 Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
 
 extern "C" int KDE_EXPORT kdemain(int argc, char **argv)

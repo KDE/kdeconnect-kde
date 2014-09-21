@@ -23,7 +23,6 @@
 
 #include <QDebug>
 #include <core/device.h>
-#include <core/kdebugnamespace.h>
 
 BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     : QDBusAbstractAdaptor(const_cast<Device*>(device))

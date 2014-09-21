@@ -19,14 +19,14 @@
  */
 
 #include "filetransferjob.h"
+#include <core_debug.h>
 
 #include <qalgorithms.h>
 #include <QFileInfo>
+#include <QDebug>
 
 #include <KIO/RenameDialog>
 #include <KLocalizedString>
-
-#include "kdebugnamespace.h"
 
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const QUrl &destination): KJob()
 {
@@ -105,7 +105,7 @@ void FileTransferJob::renameDone(int result)
         break;
     }
     default:
-        kWarning() << "Unknown Error";
+        qCWarning(KDECONNECT_CORE()) << "Unknown Error";
         emitResult();
     }
 

@@ -19,6 +19,7 @@
  */
 
 #include "kdeconnectplugin.h"
+#include <QDebug>
 
 struct KdeConnectPluginPrivate
 {

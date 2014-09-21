@@ -19,6 +19,7 @@
  */
 
 #include "landevicelink.h"
+#include "core_debug.h"
 
 #include <sys/socket.h>
 #include <netinet/in.h>

@@ -33,7 +33,6 @@
 #include <QUrl>
 
 #include "kdeconnectcore_export.h"
-#include "kdebugnamespace.h"
 #include "default_args.h"
 
 class FileTransferJob;

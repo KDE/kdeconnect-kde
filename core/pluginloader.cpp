@@ -22,7 +22,7 @@
 
 #include <KServiceTypeTrader>
 
-#include "kdebugnamespace.h"
+#include "core_debug.h"
 #include "device.h"
 #include "kdeconnectplugin.h"
 

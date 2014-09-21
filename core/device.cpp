@@ -37,7 +37,7 @@
 #include <KGlobal>
 #include <KComponentData>
 
-#include "kdebugnamespace.h"
+#include "core_debug.h"
 #include "kdeconnectplugin.h"
 #include "pluginloader.h"
 #include "backends/devicelink.h"

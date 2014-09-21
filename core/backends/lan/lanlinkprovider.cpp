@@ -19,6 +19,7 @@
  */
 
 #include "lanlinkprovider.h"
+#include "core_debug.h"
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -29,7 +30,6 @@
 #include <QTcpServer>
 #include <QUdpSocket>
 
-#include "../../kdebugnamespace.h"
 #include "landevicelink.h"
 
 void LanLinkProvider::configureSocket(QTcpSocket* socket)
@@ -151,7 +151,6 @@ void LanLinkProvider::connectError()
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
 
-    qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);

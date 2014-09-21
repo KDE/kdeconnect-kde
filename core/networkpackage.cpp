@@ -19,6 +19,7 @@
  */
 
 #include "networkpackage.h"
+#include "core_debug.h"
 
 #include <KSharedConfig>
 #include <KConfigGroup>
@@ -32,6 +33,7 @@
 #include <QDateTime>
 #include <qjsondocument.h>
 #include <QtCrypto>
+#include <QDebug>
 
 #include "filetransferjob.h"
 

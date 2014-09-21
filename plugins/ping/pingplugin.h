@@ -28,7 +28,7 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING)
 
-class KDE_EXPORT PingPlugin
+class Q_DECL_EXPORT PingPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT

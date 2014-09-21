@@ -20,8 +20,8 @@
 
 #include <qalgorithms.h>
 
-#include "kdebugnamespace.h"
 #include "uploadjob.h"
+#include "core_debug.h"
 
 UploadJob::UploadJob(const QSharedPointer<QIODevice>& source): KJob()
 {

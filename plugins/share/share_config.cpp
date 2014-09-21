@@ -27,8 +27,6 @@
 #include <KUrlRequester>
 #include <KAboutData>
 
-#include <core/kdebugnamespace.h>
-
 #include "ui_share_config.h"
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
