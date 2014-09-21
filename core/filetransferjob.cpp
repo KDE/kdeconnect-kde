@@ -28,7 +28,7 @@
 
 #include "kdebugnamespace.h"
 
-FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination): KJob()
+FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const QUrl &destination): KJob()
 {
     Q_ASSERT(destination.isLocalFile());
     //TODO: Make a precondition before calling this function that destination file exists
@@ -61,7 +61,7 @@ void FileTransferJob::doStart()
         QPair<QString, QString>(i18nc("File transfer origin", "From"),
         QString(mDeviceName))
     );
-    KUrl destCheck = mDestination;
+    QUrl destCheck = mDestination;
     if (QFile::exists(destCheck.path())) {
         QFileInfo destInfo(destCheck.path());
         KIO::RenameDialog *dialog = new KIO::RenameDialog(Q_NULLPTR,

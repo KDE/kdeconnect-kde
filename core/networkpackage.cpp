@@ -207,7 +207,7 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
 }
 
-FileTransferJob* NetworkPackage::createPayloadTransferJob(const KUrl& destination) const
+FileTransferJob* NetworkPackage::createPayloadTransferJob(const QUrl &destination) const
 {
     return new FileTransferJob(payload(), payloadSize(), destination);
 }

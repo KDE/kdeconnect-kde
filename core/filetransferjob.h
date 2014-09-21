@@ -26,7 +26,7 @@
 #include <QTemporaryFile>
 
 #include <KJob>
-#include <KUrl>
+#include <QUrl>
 #include <KIO/FileJob>
 #include <KIO/Job>
 #include <KSharedPtr>
@@ -37,9 +37,9 @@ class FileTransferJob
     Q_OBJECT
 
 public:
-    FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination);
+    FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const QUrl &destination);
     virtual void start();
-    KUrl destination() const { return mDestination; }
+    QUrl destination() const { return mDestination; }
     void setDeviceName(const QString &deviceName) {mDeviceName = deviceName;};
 
 public Q_SLOTS:
