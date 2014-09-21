@@ -22,24 +22,26 @@
 
 #include <KNotification>
 #include <QIcon>
+#include <QDebug>
 #include <KLocalizedString>
 
-#include <core/kdebugnamespace.h>
 #include <core/device.h>
 #include <QDBusConnection>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect-plugins") )
 
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING, "kdeconnect.plugin.ping");
+
 PingPlugin::PingPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    //kDebug(debugArea()) << "Ping plugin constructor for device" << device()->name();
+//     qCDebug(KDECONNECT_PLUGIN_PING) << "Ping plugin constructor for device" << device()->name();
 }
 
 PingPlugin::~PingPlugin()
 {
-    //kDebug(debugArea()) << "Ping plugin destructor for device" << device()->name();
+//     qCDebug(KDECONNECT_PLUGIN_PING) << "Ping plugin destructor for device" << device()->name();
 }
 
 bool PingPlugin::receivePackage(const NetworkPackage& np)
@@ -59,7 +61,7 @@ void PingPlugin::sendPing()
 {
     NetworkPackage np(PACKAGE_TYPE_PING);
     bool success = sendPackage(np);
-    kDebug(debugArea()) << "sendPing:" << success;
+    qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }
 
 void PingPlugin::connected()

@@ -22,8 +22,11 @@
 #define PINGPLUGIN_H
 
 #include <QObject>
+#include <QLoggingCategory>
 
 #include <core/kdeconnectplugin.h>
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING)
 
 class KDE_EXPORT PingPlugin
     : public KdeConnectPlugin
@@ -34,7 +37,7 @@ class KDE_EXPORT PingPlugin
 public:
     explicit PingPlugin(QObject *parent, const QVariantList &args);
     virtual ~PingPlugin();
-    
+
     Q_SCRIPTABLE void sendPing();
 
 public Q_SLOTS:
