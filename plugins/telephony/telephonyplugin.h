@@ -21,6 +21,7 @@
 #ifndef TELEPHONYPLUGIN_H
 #define TELEPHONYPLUGIN_H
 
+#include <QLoggingCategory>
 #include <knotification.h>
 
 #include <core/kdeconnectplugin.h>
@@ -28,6 +29,8 @@
 #include <KStatusNotifierItem>
 
 #define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 
 class TelephonyPlugin
     : public KdeConnectPlugin

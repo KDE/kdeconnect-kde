@@ -22,11 +22,12 @@
 
 #include <KLocalizedString>
 #include <QIcon>
-
-#include <core/kdebugnamespace.h>
+#include <QDebug>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< TelephonyPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_telephony", "kdeconnect-plugins") )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 
 TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
@@ -66,7 +67,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         content = i18n("Unknown telephony event: %2", event);
     }
 
-    kDebug(debugArea()) << "Creating notification with type:" << type;
+    qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
     notification->setPixmap(QIcon::fromTheme(icon).pixmap(48, 48));
