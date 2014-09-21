@@ -70,14 +70,14 @@ SftpPlugin::~SftpPlugin()
 void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
-    KUrl kioUrl("kdeconnect://"+device()->id()+"/");
+    QUrl kioUrl("kdeconnect://"+device()->id()+"/");
     m_d->placesModel.addPlace(device()->name(), kioUrl, "kdeconnect");
     kDebug(debugArea()) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
-    KUrl kioUrl("kdeconnect://"+device()->id()+"/");
+    QUrl kioUrl("kdeconnect://"+device()->id()+"/");
     QModelIndex index = m_d->placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
         m_d->placesModel.removePlace(index);
@@ -133,8 +133,8 @@ bool SftpPlugin::isMounted() const
 bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
-        //return new KRun(KUrl::fromLocalFile(mountPoint()), 0);
-        return new KRun(KUrl::fromPathOrUrl("kdeconnect://"+device()->id()), 0);
+        //return new KRun(QUrl::fromLocalFile(mountPoint()), 0);
+        return new KRun(QUrl("kdeconnect://"+device()->id()), 0);
     }
     return false;
 }

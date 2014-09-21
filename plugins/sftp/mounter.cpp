@@ -99,12 +99,12 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     //This is the previous code, to access sftp server using KIO. Now we are
     //using the external binary sshfs, and accessing it as a local filesystem.
   /*
-   *    KUrl url;
-   *    url.setProtocol("sftp");
+   *    QUrl url;
+   *    url.setScheme("sftp");
    *    url.setHost(np.get<QString>("ip"));
    *    url.setPort(np.get<QString>("port").toInt());
-   *    url.setUser(np.get<QString>("user"));
-   *    url.setPass(np.get<QString>("password"));
+   *    url.setUserName(np.get<QString>("user"));
+   *    url.setPassword(np.get<QString>("password"));
    *    url.setPath(np.get<QString>("path"));
    *    new KRun(url, 0);
    *    Q_EMIT mounted();
