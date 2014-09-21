@@ -26,6 +26,8 @@
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ClipboardPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_clipboard", "kdeconnect-plugins") )
 
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD, "kdeconnect.plugin.clipboard")
+
 ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , ignore_next_clipboard_change(false)
@@ -42,7 +44,7 @@ void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
         ignore_next_clipboard_change = false;
         return;
     }
-    //kDebug(kdeconnect_kded()) << "ClipboardChanged";
+//     qCDebug(KDECONNECT_PLUGIN_CLIPBOARD) << "ClipboardChanged";
     NetworkPackage np(PACKAGE_TYPE_CLIPBOARD);
     np.set("content",clipboard->text());
     sendPackage(np);
