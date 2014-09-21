@@ -24,7 +24,7 @@
 #include <KGlobalSettings>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KStandardDirs>
+#include <QStandardPaths>
 #include <KAboutData>
 #include <KIconLoader>
 
@@ -57,7 +57,7 @@ SftpConfig::~SftpConfig()
 
 void SftpConfig::checkSshfs()
 {
-    m_ui->error->setVisible(KStandardDirs::findExe("sshfs").isEmpty());
+    m_ui->error->setVisible(QStandardPaths::findExecutable(QStringLiteral("sshfs")).isEmpty());
 }
 
 void SftpConfig::defaults()

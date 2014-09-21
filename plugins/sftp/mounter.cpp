@@ -23,7 +23,6 @@
 #include <QDebug>
 
 #include <KLocalizedString>
-#include <KStandardDirs>
 
 #include "mounter.h"
 #include "sftp_debug.h"
