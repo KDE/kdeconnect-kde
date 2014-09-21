@@ -23,11 +23,13 @@
 
 #include <kfileitemactionplugin.h>
 #include <KFileItemListProperties>
+#include <QLoggingCategory>
 
 class QAction;
 class KFileItemListProperties;
 class QWidget;
 
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION)
 class SendFileItemAction : public KFileItemActionPlugin
 {
 Q_OBJECT
