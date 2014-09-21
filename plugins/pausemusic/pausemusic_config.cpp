@@ -25,8 +25,6 @@
 #include <KConfigGroup>
 #include <KAboutData>
 
-#include <core/kdebugnamespace.h>
-
 #include "ui_pausemusic_config.h"
 
 K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)

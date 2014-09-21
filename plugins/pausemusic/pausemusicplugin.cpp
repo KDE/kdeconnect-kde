@@ -29,7 +29,6 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 
-#include <core/kdebugnamespace.h>
 #include <core/networkpackage.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
