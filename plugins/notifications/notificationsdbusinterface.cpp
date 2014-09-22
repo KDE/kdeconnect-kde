@@ -25,7 +25,7 @@
 
 #include <KNotification>
 #include <QIcon>
-#include <KMD5>
+#include <QCryptographicHash>
 
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
