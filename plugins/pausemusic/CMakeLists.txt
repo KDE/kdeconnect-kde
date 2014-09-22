@@ -25,7 +25,8 @@ ki18n_wrap_ui( kdeconnect_pausemusic_config_SRCS pausemusic_config.ui )
 add_library(kdeconnect_pausemusic_config MODULE ${kdeconnect_pausemusic_config_SRCS} )
 target_link_libraries( kdeconnect_pausemusic_config
     Qt5::Core
-    KF5::KDELibs4Support
+    KF5::I18n
+    KF5::KCMUtils
 )
 
 install( TARGETS kdeconnect_pausemusic_config DESTINATION ${PLUGIN_INSTALL_DIR} )
