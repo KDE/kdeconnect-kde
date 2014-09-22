@@ -22,7 +22,7 @@
 #define KDECONNECT_KDED_H
 
 #include <KDEDModule>
-#include <KProcess>
+#include <QProcess>
 
 #include <QLoggingCategory>
 
@@ -53,7 +53,7 @@ private Q_SLOTS:
     void checkIfDaemonTerminated();
 
 private:
-    KProcess* m_daemon;
+    QProcess* m_daemon;
 };
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_KDED)

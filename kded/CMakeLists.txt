@@ -8,7 +8,7 @@ target_link_libraries(kdeconnectd kdeconnectcore KF5::DBusAddons KF5::ConfigWidg
 
 add_library(kded_kdeconnect MODULE kded.cpp)
 
-target_link_libraries(kded_kdeconnect KF5::DBusAddons KF5::KDELibs4Support)
+target_link_libraries(kded_kdeconnect KF5::Service KF5::DBusAddons)
 
 install(TARGETS kdeconnectd DESTINATION ${LIBEXEC_INSTALL_DIR})
 install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
