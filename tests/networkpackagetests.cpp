@@ -22,10 +22,9 @@
 
 #include "core/networkpackage.h"
 
-#include <qtest_kde.h>
 #include <QtTest>
 
-QTEST_KDEMAIN(NetworkPackageTests, NoGUI);
+QTEST_GUILESS_MAIN(NetworkPackageTests);
 
 void NetworkPackageTests::initTestCase()
 {

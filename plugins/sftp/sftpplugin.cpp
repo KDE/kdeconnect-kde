@@ -33,7 +33,7 @@
 #include <KRun>
 #include <QStandardPaths>
 #include <KFilePlacesModel>
-#include <kde_file.h>
+#include <KPluginFactory>
 
 #include "sftp_config.h"
 #include "mounter.h"

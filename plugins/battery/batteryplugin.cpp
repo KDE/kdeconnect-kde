@@ -23,6 +23,7 @@
 #include <KNotification>
 #include <QIcon>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
 #include "batterydbusinterface.h"
 

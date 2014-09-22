@@ -24,9 +24,6 @@
 #include <QObject>
 #include <QVariantList>
 
-#include <KPluginFactory>
-#include <KPluginLoader>
-
 #include "kdeconnectcore_export.h"
 #include "networkpackage.h"
 #include "device.h"

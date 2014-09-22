@@ -5,6 +5,10 @@ set(kdeconnect_pausemusic_SRCS
 add_library(kdeconnect_pausemusic MODULE ${kdeconnect_pausemusic_SRCS})
 
 target_link_libraries(kdeconnect_pausemusic
+    Qt5::Core
+    Qt5::DBus
+    KF5::ConfigCore
+    KF5::Service
     kdeconnectcore
 )
 
@@ -20,7 +24,7 @@ ki18n_wrap_ui( kdeconnect_pausemusic_config_SRCS pausemusic_config.ui )
 
 add_library(kdeconnect_pausemusic_config MODULE ${kdeconnect_pausemusic_config_SRCS} )
 target_link_libraries( kdeconnect_pausemusic_config
-    
+    Qt5::Core
     KF5::KDELibs4Support
 )
 

@@ -28,6 +28,8 @@
 #include <QDBusReply>
 #include <QDBusMessage>
 
+#include <KPluginFactory>
+
 #include <core/device.h>
 #include "mprisdbusinterface.h"
 #include "propertiesdbusinterface.h"

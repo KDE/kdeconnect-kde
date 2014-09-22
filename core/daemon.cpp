@@ -31,6 +31,7 @@
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <KSharedConfig>
 
 #include "core_debug.h"
 #include "networkpackage.h"

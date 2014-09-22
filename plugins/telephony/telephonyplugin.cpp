@@ -24,6 +24,8 @@
 #include <QIcon>
 #include <QDebug>
 
+#include <KPluginFactory>
+
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< TelephonyPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")

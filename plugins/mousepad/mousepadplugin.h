@@ -24,6 +24,7 @@
 #include <QtGui/QCursor>
 #include <core/kdeconnectplugin.h>
 #include <X11/Xlib.h>
+#include "fixx11h.h"
 
 #define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
 

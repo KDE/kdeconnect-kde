@@ -24,6 +24,7 @@
 #include <QIcon>
 #include <QDebug>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
 #include <core/device.h>
 #include <QDBusConnection>

@@ -23,6 +23,8 @@
 #include "notificationsdbusinterface.h"
 #include "notification_debug.h"
 
+#include <KPluginFactory>
+
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< NotificationsPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION, "kdeconnect.plugin.notification")

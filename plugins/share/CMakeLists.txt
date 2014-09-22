@@ -5,7 +5,14 @@ set(kdeconnect_share_SRCS
 
 add_library(kdeconnect_share MODULE ${kdeconnect_share_SRCS})
 
-target_link_libraries(kdeconnect_share kdeconnectcore ${KDE4_KFILE_LIBS} KF5::KIOWidgets)
+target_link_libraries(kdeconnect_share
+    kdeconnectcore
+    Qt5::DBus
+    KF5::Service
+    KF5::Notifications
+    KF5::I18n
+    KF5::KIOWidgets
+)
 
 install(TARGETS kdeconnect_share DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES kdeconnect_share.desktop DESTINATION ${SERVICES_INSTALL_DIR} )

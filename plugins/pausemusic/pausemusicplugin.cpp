@@ -28,6 +28,7 @@
 
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KPluginFactory>
 
 #include <core/networkpackage.h>
 

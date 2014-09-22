@@ -21,7 +21,9 @@
 #include "clipboardplugin.h"
 
 #include <QClipboard>
-#include <QApplication>
+#include <QGuiApplication>
+
+#include <KPluginFactory>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ClipboardPlugin >(); )
 
@@ -30,7 +32,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD, "kdeconnect.plugin.clipboard")
 ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , ignore_next_clipboard_change(false)
-    , clipboard(QApplication::clipboard())
+    , clipboard(QGuiApplication::clipboard())
 {
     connect(clipboard, SIGNAL(changed(QClipboard::Mode)), this, SLOT(clipboardChanged(QClipboard::Mode)));
 }

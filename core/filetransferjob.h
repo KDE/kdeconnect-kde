@@ -24,12 +24,12 @@
 #include <QIODevice>
 #include <QTime>
 #include <QTemporaryFile>
+#include <QSharedPointer>
 
 #include <KJob>
 #include <QUrl>
 #include <KIO/FileJob>
 #include <KIO/Job>
-#include <KSharedPtr>
 
 class FileTransferJob
     : public KJob

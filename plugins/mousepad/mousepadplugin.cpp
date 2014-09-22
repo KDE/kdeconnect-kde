@@ -19,8 +19,9 @@
  */
 
 #include "mousepadplugin.h"
-
 #include <X11/extensions/XTest.h>
+
+#include <KPluginFactory>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MousepadPlugin >(); )
 

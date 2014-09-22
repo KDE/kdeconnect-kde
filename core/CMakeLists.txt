@@ -33,12 +33,16 @@ set(kded_kdeconnect_SRCS
 add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
 target_link_libraries(kdeconnectcore
 PUBLIC
-    KF5::KDELibs4Support
+    Qt5::Network
 PRIVATE
     ${QCA2_LIBRARIES}
+    Qt5::DBus
+    Qt5::Gui
     KF5::KIOWidgets
     KF5::KCMUtils
-    Qt5::Network
+    KF5::I18n
+    KF5::ConfigCore
+    KF5::Notifications
 )
 
 set_target_properties(kdeconnectcore PROPERTIES

@@ -30,12 +30,9 @@
 
 #include <KSharedConfig>
 #include <KConfigGroup>
-#include <KPluginSelector>
-#include <KServiceTypeTrader>
 #include <KNotification>
+#include <KLocalizedString>
 #include <QIcon>
-#include <KGlobal>
-#include <KComponentData>
 
 #include "core_debug.h"
 #include "kdeconnectplugin.h"

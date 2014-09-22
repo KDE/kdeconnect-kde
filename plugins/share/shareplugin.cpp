@@ -21,13 +21,13 @@
 #include "shareplugin.h"
 #include "share_debug.h"
 
-#include <KGlobalSettings>
 #include <QIcon>
 #include <KLocalizedString>
 #include <QStandardPaths>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KJobTrackerInterface>
+#include <KPluginFactory>
 
 #include <qprocess.h>
 #include <QDir>
