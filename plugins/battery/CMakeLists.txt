@@ -5,7 +5,13 @@ set(kdeconnect_battery_SRCS
 
 add_library(kdeconnect_battery MODULE ${kdeconnect_battery_SRCS})
 
-target_link_libraries(kdeconnect_battery kdeconnectcore KF5::Service KF5::KDELibs4Support)
+target_link_libraries(kdeconnect_battery
+    kdeconnectcore
+    Qt5::DBus
+    KF5::I18n
+    KF5::Service
+    KF5::Notifications
+)
 
 install(TARGETS kdeconnect_battery DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES kdeconnect_battery.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
