@@ -34,6 +34,7 @@ add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network
+    KF5::KIOCore
 PRIVATE
     ${QCA2_LIBRARIES}
     Qt5::DBus
