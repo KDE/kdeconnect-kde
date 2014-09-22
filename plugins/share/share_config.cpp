@@ -23,11 +23,11 @@
 #include <QStandardPaths>
 
 #include <KConfigGroup>
-#include <KGlobalSettings>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KUrlRequester>
 #include <KAboutData>
+#include <KCModule>
 
 #include "ui_share_config.h"
 
