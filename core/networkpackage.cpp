@@ -186,7 +186,7 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 
     QByteArray decryptedJson;
     Q_FOREACH(const QString& chunk, chunks) {
-        const QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toAscii());
+        const QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toLatin1());
         QCA::SecureArray decryptedChunk;
         bool success = key.decrypt(encryptedChunk, &decryptedChunk, NetworkPackage::EncryptionAlgorithm);
         if (!success) {

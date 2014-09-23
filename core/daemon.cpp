@@ -100,16 +100,16 @@ Daemon::Daemon(QObject *parent)
         //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
         if (config->group("myself").hasKey("privateKey")) {
             //Migration from older versions of KDE Connect
-            privKey.write(config->group("myself").readEntry<QString>("privateKey",QCA::KeyGenerator().createRSA(2048).toPEM()).toAscii());
+            privKey.write(config->group("myself").readEntry<QString>("privateKey",QCA::KeyGenerator().createRSA(2048).toPEM()).toLatin1());
         } else {
-            privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toAscii());
+            privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toLatin1());
         }
         privKey.close();
 
         config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
         config->sync();
     }
-    
+
     if (QFile::permissions(config->group("myself").readEntry("privateKeyPath")) != strict)
     {
         qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
@@ -132,7 +132,7 @@ Daemon::Daemon(QObject *parent)
         d->mDevices[id] = device;
         Q_EMIT deviceAdded(id);
     }
-    
+
     //Listen to connectivity changes
     QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
