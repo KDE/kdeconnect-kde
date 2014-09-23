@@ -1,5 +1,4 @@
 include_directories(
-    ${QCA2_INCLUDE_DIR}
     ${KDEConnectCore_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}
 )
@@ -7,9 +6,9 @@ include_directories(
 set(kdeconnect_libraries
     KF5::KIOWidgets
     Qt5::Network
-    ${QCA2_LIBRARIES}
     Qt5::Test
     kdeconnectcore
+    qca
 )
 
 ecm_add_test(networkpackagetests.cpp LINK_LIBRARIES ${kdeconnect_libraries})

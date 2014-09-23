@@ -7,7 +7,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DI
 
 find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Test)
 find_package(KF5 REQUIRED COMPONENTS I18n KIO Notifications ConfigWidgets DBusAddons KCMUtils IconThemes)
-find_package(QCA2 REQUIRED)
+find_package(Qca REQUIRED)
 
 include(KDEInstallDirs)
 include(KDECompilerSettings)

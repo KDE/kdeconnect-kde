@@ -41,6 +41,7 @@ target_link_libraries( kdeconnect_sftp_config
     KF5::KIOWidgets
     KF5::KCMUtils
     KF5::IconThemes
+    qca
 )
 
 install(TARGETS kdeconnect_sftp_config DESTINATION ${PLUGIN_INSTALL_DIR} )

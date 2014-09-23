@@ -9,7 +9,6 @@ set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${QCA2_INCLUDE_DIR}
 )
 
 add_subdirectory(backends/lan)
@@ -35,8 +34,8 @@ target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network
     KF5::KIOCore
+    qca
 PRIVATE
-    ${QCA2_LIBRARIES}
     Qt5::DBus
     Qt5::Gui
     KF5::KIOWidgets
