@@ -54,12 +54,14 @@ DevicesModel::DevicesModel(QObject *parent)
             this, SLOT(deviceRemoved(QString)));
 
     refreshDeviceList();
+}
 
-    //Role names for QML
-    QHash<int, QByteArray> names = roleNames();
+QHash< int, QByteArray > DevicesModel::roleNames() const
+{
+    QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names.insert(IdModelRole, "deviceId");
     names.insert(IconNameRole, "iconName");
-    setRoleNames(names);
+    return names;
 }
 
 DevicesModel::~DevicesModel()

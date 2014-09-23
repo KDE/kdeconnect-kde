@@ -65,6 +65,7 @@ public:
     virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
     DeviceDbusInterface* getDevice(const QModelIndex& index) const;
+    virtual QHash<int, QByteArray> roleNames() const;
 
 public Q_SLOTS:
     void deviceStatusChanged(const QString& id);

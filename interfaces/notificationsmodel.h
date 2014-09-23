@@ -59,6 +59,7 @@ public:
     NotificationDbusInterface* getNotification(const QModelIndex& index) const;
 
     Q_INVOKABLE bool isAnyDimissable() const;
+    virtual QHash<int, QByteArray> roleNames() const;
 
 public Q_SLOTS:
     void dismissAll();

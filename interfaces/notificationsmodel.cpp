@@ -44,14 +44,15 @@ NotificationsModel::NotificationsModel(QObject* parent)
 
     connect(this, SIGNAL(dataChanged(QModelIndex, QModelIndex)),
             this, SIGNAL(anyDismissableChanged()));
+}
 
-    //Role names for QML
-    QHash<int, QByteArray> names = roleNames();
+QHash<int, QByteArray> NotificationsModel::roleNames() const
+{
+    QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names.insert(DbusInterfaceRole, "dbusInterface");
     names.insert(AppNameModelRole, "appName");
     names.insert(DismissableModelRole, "dismissable");
-    setRoleNames(names);
-
+    return names;
 }
 
 NotificationsModel::~NotificationsModel()
