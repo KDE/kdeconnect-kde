@@ -41,11 +41,11 @@ K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>()
 
 Q_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION, "kdeconnect.fileitemaction")
 
-SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KFileItemActionPlugin(parent)
+SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KAbstractFileItemActionPlugin(parent)
 {
 }
 
-QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) const
+QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
 {
     DevicesModel m;
 

@@ -21,8 +21,8 @@
 #ifndef SENDFILEITEMACTION_H
 #define SENDFILEITEMACTION_H
 
-#include <kfileitemactionplugin.h>
 #include <KFileItemListProperties>
+#include <KAbstractFileItemActionPlugin>
 #include <QLoggingCategory>
 
 class QAction;
@@ -30,12 +30,12 @@ class KFileItemListProperties;
 class QWidget;
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION)
-class SendFileItemAction : public KFileItemActionPlugin
+class SendFileItemAction : public KAbstractFileItemActionPlugin
 {
 Q_OBJECT
 public:
     SendFileItemAction(QObject* parent, const QVariantList &args);
-    virtual QList< QAction* > actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) const;
+    virtual QList< QAction* > actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget);
 
 private Q_SLOTS:
     void sendFile();
