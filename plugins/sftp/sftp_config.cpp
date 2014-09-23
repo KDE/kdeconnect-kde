@@ -21,7 +21,6 @@
 #include "sftp_config.h"
 
 #include <KConfigGroup>
-#include <KGlobalSettings>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <QStandardPaths>
