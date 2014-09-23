@@ -24,24 +24,14 @@
 #include <QtCore/QThread>
 #include <QDBusMetaType>
 
+#include <KLocalizedString>
+
 #include <QDebug>
-#include <KComponentData>
-#include <KCmdLineArgs>
-#include <KProcess>
-#include <KApplication>
-#include <KLocale>
-#include <k4aboutdata.h>
-#include <kdemacros.h>
 
 Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
 
-extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
+extern "C" int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
-    K4AboutData about("kiokdeconnect", "kdeconnect-kio", ki18n("kiokdeconnect"), "1.0");
-    KCmdLineArgs::init(&about);
-
-    KApplication app;
-
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_kdeconnect protocol pool app\n");
         exit(-1);
@@ -115,13 +105,12 @@ void KioKdeconnect::listAllDevices()
         entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
         entry.insert(KIO::UDSEntry::UDS_URL, target);
-        listEntry(entry, false);
+        listEntry(entry);
 
         processedSize(i++);
 
     }
 
-    listEntry(KIO::UDSEntry(), true);
     infoMessage("");
     finished();
 }
@@ -164,7 +153,7 @@ void KioKdeconnect::listDevice()
     entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
     entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
     entry.insert(KIO::UDSEntry::UDS_URL, url + "/DCIM/Camera");
-    listEntry(entry, false);
+    listEntry(entry);
 
     entry.insert(KIO::UDSEntry::UDS_NAME, "files");
     entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("All files"));
@@ -173,9 +162,8 @@ void KioKdeconnect::listDevice()
     entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
     entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
     entry.insert(KIO::UDSEntry::UDS_URL, url);
-    listEntry(entry, false);
+    listEntry(entry);
 
-    listEntry(KIO::UDSEntry(), true);
     infoMessage("");
     finished();
 
@@ -193,7 +181,6 @@ void KioKdeconnect::listDir(const QUrl &url)
 
     if (!m_dbusInterface->isValid()) {
         infoMessage(i18n("Could not contact background service."));
-        listEntry(KIO::UDSEntry(), true);
         finished();
         return;
     }
