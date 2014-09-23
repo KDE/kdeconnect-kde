@@ -34,7 +34,7 @@ void NetworkPackageTests::initTestCase()
 void NetworkPackageTests::dummyTest()
 {
     QDate date;
-    date.setYMD( 1967, 3, 11 );
+    date.setDate( 1967, 3, 11 );
     QVERIFY( date.isValid() );
     QCOMPARE( date.month(), 3 );
     QCOMPARE( QDate::longMonthName(date.month()), QString("March") );
