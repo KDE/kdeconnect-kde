@@ -38,10 +38,11 @@ int main(int argc, char** argv)
     KCmdLineOptions options;
     options.add("l")
            .add("list-devices", ki18n("List all devices"));
-    options.add("share <path>", ki18n("Share a file to a said device"));
+    options.add("refresh", ki18n("Search for devices in the network and re-establish connections."));
     options.add("pair", ki18n("Request pairing to a said device"));
     options.add("unpair", ki18n("Stop pairing to a said device"));
     options.add("ping", ki18n("Sends a ping to said device"));
+    options.add("share <path>", ki18n("Share a file to a said device"));
     options.add("list-notifications", ki18n("Display the notifications on a said device"));
     options.add("device <dev>", ki18n("Device ID"));
     KCmdLineArgs::addCmdLineOptions( options );
@@ -67,6 +68,9 @@ int main(int argc, char** argv)
                       << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << ' ' << statusInfo.toStdString() << std::endl;
         }
         std::cout << devices.rowCount() << " devices found" << std::endl;
+    } else if(args->isSet("refresh")) {
+        QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
+        QDBusConnection::sessionBus().call(msg);
     } else {
         QString device;
         if(!args->isSet("device")) {
