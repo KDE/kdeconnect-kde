@@ -36,6 +36,7 @@ public:
     virtual ~PingPlugin();
     
     Q_SCRIPTABLE void sendPing();
+    Q_SCRIPTABLE void sendPing(const QString& customMessage);
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
