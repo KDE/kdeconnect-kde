@@ -34,6 +34,7 @@ int main(int argc, char** argv)
     KAboutData about("kdeconnect-cli", "kdeconnect-cli", ki18n(("kdeconnect-cli")), "1.0", ki18n("KDE Connect CLI tool"),
                      KAboutData::License_GPL, ki18n("(C) 2013 Aleix Pol Gonzalez"));
     about.addAuthor( ki18n("Aleix Pol Gonzalez"), KLocalizedString(), "aleixpol@kde.org" );
+    about.addAuthor( ki18n("Albert Vaca Cintora"), KLocalizedString(), "albertvaka@gmail.com" );
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
     options.add("l")
