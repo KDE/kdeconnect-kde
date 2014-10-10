@@ -136,44 +136,38 @@ void KioKdeconnect::listDevice()
     
     QDBusReply<bool> mountreply = interface.mountAndWait();
     
-    if (handleDBusError(mountreply, this))
-    {
+    if (handleDBusError(mountreply, this)) {
         return;
     }
     
-    if (!mountreply.value())
-    {
+    if (!mountreply.value()) {
         error(KIO::ERR_COULD_NOT_MOUNT, i18n("Could not mount device filesystem"));
         return;
     }
     
-    QDBusReply<QString> urlreply = interface.mountPoint();
+    QDBusReply< QVariantMap > urlreply = interface.getDirectories();
     
-    if (handleDBusError(urlreply, this))
-    {
+    if (handleDBusError(urlreply, this)) {
         return;
     }
     
-    QString url = urlreply.value();
+    QVariantMap urls = urlreply.value();
     
-    KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_NAME, "files");
-    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Camera pictures"));
-    entry.insert(KIO::UDSEntry::UDS_ICON_NAME, "folder");
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
-    entry.insert(KIO::UDSEntry::UDS_URL, url + "/DCIM/Camera");
-    listEntry(entry, false);
+    for (QVariantMap::iterator it = urls.begin(); it != urls.end(); it++) {
 
-    entry.insert(KIO::UDSEntry::UDS_NAME, "files");
-    entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("All files"));
-    entry.insert(KIO::UDSEntry::UDS_ICON_NAME, "folder");
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
-    entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
-    entry.insert(KIO::UDSEntry::UDS_URL, url);
-    listEntry(entry, false);
+        QString path = it.key();
+        QString name = it.value().toString();
+
+        KIO::UDSEntry entry;
+        entry.insert(KIO::UDSEntry::UDS_NAME, "files");
+        entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, name);
+        entry.insert(KIO::UDSEntry::UDS_ICON_NAME, "folder");
+        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
+        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
+        entry.insert(KIO::UDSEntry::UDS_URL, path);
+        listEntry(entry, false);
+    }
 
     listEntry(KIO::UDSEntry(), true);
     infoMessage("");

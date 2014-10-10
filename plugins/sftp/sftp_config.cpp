@@ -70,7 +70,6 @@ void SftpConfig::defaults()
     Q_EMIT changed(true);
 }
 
-
 void SftpConfig::load()
 {
     KCModule::load();
