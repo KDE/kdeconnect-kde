@@ -29,6 +29,9 @@
 #include <QTcpServer>
 #include <QUdpSocket>
 
+#include <KSharedConfig>
+#include <KConfigGroup>
+
 #include "../../kdebugnamespace.h"
 #include "landevicelink.h"
 
@@ -129,11 +132,11 @@ void LanLinkProvider::newUdpConnection()
             delete receivedPackage;
         }
 
-        NetworkPackage np2("");
-        NetworkPackage::createIdentityPackage(&np2);
+        KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
+        const QString myId = config->group("myself").readEntry<QString>("id","");
 
-        if (receivedPackage->get<QString>("deviceId") == np2.get<QString>("deviceId")) {
             //kDebug(debugArea()) << "Ignoring my own broadcast";
+        if (receivedPackage->get<QString>("deviceId") == myId) {
             return;
         }
 

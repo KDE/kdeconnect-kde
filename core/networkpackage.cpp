@@ -32,6 +32,7 @@
 #include <qjson/serializer.h>
 #include <qjson/qobjecthelper.h>
 
+#include "dbushelper.h"
 #include "filetransferjob.h"
 #include "pluginloader.h"
 
@@ -120,15 +121,13 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     }
     np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
-    //uuids contain charcaters that are not exportable in dbus paths
-    np->mId = np->mId.mid(1, np->mId.length() - 2).replace("-", "_");
-
-	if (np->mBody.contains("deviceId"))
-	{
-		QString deviceId = np->get<QString>("deviceId");
-		deviceId = deviceId.mid(1, deviceId.length() - 2).replace("-", "_");
-		np->set("deviceId", deviceId);
-	}
+    //Ids containing characters that are not allowed as dbus paths would make app crash
+    if (np->mBody.contains("deviceId"))
+    {
+        QString deviceId = np->get<QString>("deviceId");
+        DbusHelper::filterNonExportableCharacters(deviceId);
+        np->set("deviceId", deviceId);
+    }
 
     return true;
 

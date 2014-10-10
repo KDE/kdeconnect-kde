@@ -33,6 +33,7 @@
 #include <KConfigGroup>
 #include <KStandardDirs>
 
+#include "dbushelper.h"
 #include "kdebugnamespace.h"
 #include "networkpackage.h"
 #include "backends/lan/lanlinkprovider.h"
@@ -68,8 +69,7 @@ Daemon::Daemon(QObject *parent)
 
     if (!config->group("myself").hasKey("id")) {
         QString uuid = QUuid::createUuid().toString();
-        //uuids contain charcaters that are not exportable in dbus paths
-        uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
+        DbusHelper::filterNonExportableCharacters(uuid);
         config->group("myself").writeEntry("id", uuid);
         config->sync();
         kDebug(debugArea()) << "My id:" << uuid;
