@@ -78,7 +78,7 @@ MousepadPlugin::~MousepadPlugin()
 
 bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 {
-    //TODO: Split in several package types to avoid big if statements: mouse move, mouse click and keyboard events
+    //TODO: Split mouse/keyboard in two different plugins to avoid big if statements
 
     float dx = np.get<float>("dx", 0);
     float dy = np.get<float>("dy", 0);

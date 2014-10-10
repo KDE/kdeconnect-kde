@@ -20,7 +20,6 @@
 
 #include "mpriscontrolplugin.h"
 
-
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -158,7 +157,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     if (np.has("action")) {
         const QString& action = np.get<QString>("action");
         kDebug(debugArea()) << "Calling action" << action << "in" << playerList[player];
-        //TODO: Check for valid actions
+        //TODO: Check for valid actions, currently we trust anything the other end sends us
         mprisInterface.call(action);
     }
     if (np.has("setVolume")) {

@@ -94,7 +94,6 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     
     //TODO implement on android side
     //if (np.get<int>("id") != m_id) return;
-  
 
     //This is the previous code, to access sftp server using KIO. Now we are
     //using the external binary sshfs, and accessing it as a local filesystem.

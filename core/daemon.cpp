@@ -77,7 +77,7 @@ Daemon::Daemon(QObject *parent)
 
     //kDebug(debugArea()) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
-        //TODO: Maybe display this in a more visible way?
+        //TODO: Display this in a notification or another visible way
         kWarning(debugArea()) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
                    << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again.";
         return;

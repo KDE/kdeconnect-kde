@@ -193,7 +193,6 @@ void LanLinkProvider::connected()
 
     bool success = deviceLink->sendPackage(np2);
 
-    //TODO: Use reverse connection too to preffer connecting a unstable device (a phone) to a stable device (a computer)
     if (success) {
 
         //kDebug(debugArea()) << "Handshaking done (i'm the existing device)";

@@ -21,7 +21,6 @@
 #include "dbushelper.h"
 
 #include <QRegExp>
-#include <kdebug.h>
 
 namespace DbusHelper {
 

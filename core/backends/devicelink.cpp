@@ -29,6 +29,5 @@ DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
     Q_ASSERT(!deviceId.isEmpty());
 
     setProperty("deviceId", deviceId);
-    //gcc complains if we don't add something to compile on a class with virtual functions
 }
 

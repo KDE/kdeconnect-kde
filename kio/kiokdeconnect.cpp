@@ -92,7 +92,8 @@ void KioKdeconnect::listAllDevices()
 {
     infoMessage(i18n("Listing devices..."));
 
-    QStringList devices = m_dbusInterface->devices(true, true); //TODO: Change to all devices and show different icons for connected and disconnected?
+    //TODO: Change to all devices and show different icons for connected and disconnected?
+    QStringList devices = m_dbusInterface->devices(true, true);
 
     totalSize(devices.length());
 

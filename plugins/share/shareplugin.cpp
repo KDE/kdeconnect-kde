@@ -64,7 +64,7 @@ KUrl SharePlugin::destinationDir() const
 bool SharePlugin::receivePackage(const NetworkPackage& np)
 {
 /*
-    //TODO: Use this code to write a test
+    //TODO: Write a test like this
     if (np.type() == PACKAGE_TYPE_PING) {
 
         kDebug(debugArea()) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
