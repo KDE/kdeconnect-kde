@@ -110,6 +110,7 @@ Daemon::Daemon(QObject *parent)
         }
         privKey.close();
 
+        //TODO: This should not store an absolute path: it will cause problems if the home folder changes, .kde4 becomes .kde (debian?), or similar...
         config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
         config->sync();
     }
