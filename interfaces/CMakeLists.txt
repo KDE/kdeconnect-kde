@@ -69,9 +69,10 @@ add_dependencies(kdeconnectinterfaces
 )
 
 target_link_libraries(kdeconnectinterfaces
-    Qt5::Core
-    Qt5::DBus
+LINK_PUBLIC
     Qt5::Gui
+    Qt5::DBus
+LINK_PRIVATE
     KF5::ConfigCore
 )
 

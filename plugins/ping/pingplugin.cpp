@@ -54,12 +54,21 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
     notification->sendEvent();
 
     return true;
-
 }
 
 void PingPlugin::sendPing()
 {
     NetworkPackage np(PACKAGE_TYPE_PING);
+    bool success = sendPackage(np);
+    qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
+}
+
+void PingPlugin::sendPing(const QString& customMessage)
+{
+    NetworkPackage np(PACKAGE_TYPE_PING);
+    if (!customMessage.isEmpty()) {
+        np.set("message", customMessage);
+    }
     bool success = sendPackage(np);
     qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }

@@ -55,7 +55,7 @@ struct SftpPlugin::Pimpl
 
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , m_d(new Pimpl)
+    , m_d(new Pimpl())
 { 
     addToDolphin();
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created device:" << device()->name();
@@ -66,7 +66,6 @@ SftpPlugin::~SftpPlugin()
     QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     removeFromDolphin();    
     unmount();
-    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroyed device:" << device()->name();
 }
 
 void SftpPlugin::addToDolphin()
@@ -143,13 +142,25 @@ bool SftpPlugin::startBrowsing()
 
 bool SftpPlugin::receivePackage(const NetworkPackage& np)
 {
-    if (!(fields_c - np.body().keys().toSet()).isEmpty())
-    {
+    if (!(fields_c - np.body().keys().toSet()).isEmpty()) {
         // package is invalid
         return false;
     }
     
     Q_EMIT packageReceived(np);
+
+    remoteDirectories.clear();
+    if (np.has("multiPaths")) {
+        QStringList paths = np.get<QStringList>("multiPaths",QStringList());
+        QStringList names = np.get<QStringList>("pathNames",QStringList());
+        int size = qMin<int>(names.size(), paths.size());
+        for (int i = 0; i < size; i++) {
+            remoteDirectories.insert(mountPoint() + paths.at(i), names.at(i));
+        }
+    } else {
+        remoteDirectories.insert(mountPoint(), i18n("All files"));
+        remoteDirectories.insert(mountPoint() + "/DCIM/Camera", i18n("Camera pictures"));
+    }
 
     return true;
 }
@@ -197,6 +208,11 @@ void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) con
     KNotification::event(KNotification::StandardEvent(type)
       , i18n("Device %1", device()->name()), text, icon, 0
       , KNotification::CloseOnTimeout);
+}
+
+QVariantMap SftpPlugin::getDirectories()
+{
+    return remoteDirectories;
 }
 
 #include "sftpplugin.moc"

@@ -35,7 +35,9 @@
 #include <QtCrypto>
 #include <QDebug>
 
+#include "dbushelper.h"
 #include "filetransferjob.h"
+#include "pluginloader.h"
 
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 5;
@@ -59,8 +61,10 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->mPayloadSize = 0;
     np->set("deviceId", id);
     np->set("deviceName", qgetenv("USER") + "@" + QHostInfo::localHostName());
-    np->set("protocolType", "desktop"); //TODO: Detect laptop, tablet, phone...
+    np->set("deviceType", "desktop"); //TODO: Detect laptop, tablet, phone...
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
+    np->set("SupportedIncomingInterfaces", PluginLoader::instance()->incomingInterfaces().join(","));
+    np->set("SupportedOutgoingInterfaces", PluginLoader::instance()->outgoingInterfaces().join(","));
 
     //kDebug(kdeconnect_kded()) << "createIdentityPackage" << np->serialize();
 }
@@ -150,6 +154,14 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
         np->mPayloadSize = np->get<int>("size", -1);
     }
     np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap(); //Will return an empty qvariantmap if was not present, which is ok
+
+    //Ids containing characters that are not allowed as dbus paths would make app crash
+    if (np->mBody.contains("deviceId"))
+    {
+        QString deviceId = np->get<QString>("deviceId");
+        DbusHelper::filterNonExportableCharacters(deviceId);
+        np->set("deviceId", deviceId);
+    }
 
     return true;
 

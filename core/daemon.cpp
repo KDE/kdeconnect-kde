@@ -28,12 +28,14 @@
 #include <QNetworkConfigurationManager>
 #include <QtCrypto>
 #include <QStandardPaths>
+#include <QNetworkAccessManager>
 
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
 
 #include "core_debug.h"
+#include "dbushelper.h"
 #include "networkpackage.h"
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
@@ -60,12 +62,13 @@ Daemon::Daemon(QObject *parent)
     : QObject(parent)
     , d(new DaemonPrivate)
 {
+    qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
+
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
 
     if (!config->group("myself").hasKey("id")) {
         QString uuid = QUuid::createUuid().toString();
-        //uuids contain charcaters that are not exportable in dbus paths
-        uuid = uuid.mid(1, uuid.length() - 2).replace("-", "_");
+        DbusHelper::filterNonExportableCharacters(uuid);
         config->group("myself").writeEntry("id", uuid);
         config->sync();
         qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
@@ -73,7 +76,7 @@ Daemon::Daemon(QObject *parent)
 
     //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
-        //TODO: Maybe display this in a more visible way?
+        //TODO: Display this in a notification or another visible way
         qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
                    << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
         return;
@@ -106,6 +109,7 @@ Daemon::Daemon(QObject *parent)
         }
         privKey.close();
 
+        //TODO: This should not store an absolute path: it will cause problems if the home folder changes, .kde4 becomes .kde (debian?), or similar...
         config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
         config->sync();
     }
@@ -115,8 +119,9 @@ Daemon::Daemon(QObject *parent)
         qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
     }
 
-    //Debugging
-    qCDebug(KDECONNECT_CORE) << "Starting KdeConnect daemon";
+    //Register on DBus
+    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
 
     //Load backends (hardcoded by now, should be plugins in a future)
     d->mLinkProviders.insert(new LanLinkProvider());
@@ -133,25 +138,28 @@ Daemon::Daemon(QObject *parent)
         Q_EMIT deviceAdded(id);
     }
 
-    //Listen to connectivity changes
-    QNetworkSession* network = new QNetworkSession(QNetworkConfigurationManager().defaultConfiguration());
+    //Listen to new devices
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
-        connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
-                a, SLOT(onNetworkChange(QNetworkSession::State)));
         connect(a, SIGNAL(onConnectionReceived(NetworkPackage, DeviceLink*)),
                 this, SLOT(onNewDeviceLink(NetworkPackage, DeviceLink*)));
     }
-
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
-
     setDiscoveryEnabled(true);
 
+    //Listen to connectivity changes
+    QNetworkConfigurationManager* manager = new QNetworkConfigurationManager();
+    QNetworkSession* network = new QNetworkSession(manager->defaultConfiguration());
+    connect(manager, SIGNAL(configurationAdded(QNetworkConfiguration)),
+            this, SLOT(forceOnNetworkChange()));
+    Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
+        connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
+                a, SLOT(onNetworkChange(QNetworkSession::State)));
+    }
+
+    qCDebug(KDECONNECT_CORE) << "KdeConnect daemon started";
 }
 
 void Daemon::setDiscoveryEnabled(bool b)
 {
-    //Listen to incomming connections
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
         if (b)
             a->onStart();

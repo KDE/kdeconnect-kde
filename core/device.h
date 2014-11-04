@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QString>
 #include <QMap>
+#include <QSet>
 #include <QSslKey>
 #include <QTimer>
 #include <QtCrypto>
@@ -135,6 +136,8 @@ private:
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
     QTimer m_pairingTimeut;
+    QSet<QString> m_incomingCapabilities;
+    QSet<QString> m_outgoingCapabilities;
 
     void setAsPaired();
     void storeAsTrusted();

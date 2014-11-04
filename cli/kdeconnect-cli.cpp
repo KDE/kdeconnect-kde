@@ -43,6 +43,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("unpair", i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption("ping", i18n("Sends a ping to said device")));
     parser.addOption(QCommandLineOption("list-notifications", i18n("Display the notifications on a said device")));
+    parser.addOption(QCommandLineOption("ping-msg <message>", i18n("Same as ping but you can customize the shown message."), i18n("message")));
     parser.addOption(QCommandLineOption("device", i18n("Device ID"), "dev"));
     about.setupCommandLine(&parser);
 
@@ -70,6 +71,9 @@ int main(int argc, char** argv)
                       << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << ' ' << statusInfo.toStdString() << std::endl;
         }
         std::cout << devices.rowCount() << " devices found" << std::endl;
+    } else if(parser.isSet("refresh")) {
+        QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
+        QDBusConnection::sessionBus().call(msg);
     } else {
         QString device;
         if(!parser.isSet("device")) {
@@ -102,8 +106,12 @@ int main(int argc, char** argv)
                 QDBusPendingReply<void> req = dev.unpair();
                 req.waitForFinished();
             }
-        } else if(parser.isSet("ping")) {
+        } else if(parser.isSet("ping") || parser.isSet("ping-msg")) {
             QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/ping", "org.kde.kdeconnect.device.ping", "sendPing");
+            if (parser.isSet("ping-msg")) {
+                QString message = parser.value("ping-msg");
+                msg.setArguments(QVariantList() << message);
+            }
             QDBusConnection::sessionBus().call(msg);
         } else if(parser.isSet("list-notifications")) {
             NotificationsModel notifications;

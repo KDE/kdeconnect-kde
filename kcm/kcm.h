@@ -61,6 +61,7 @@ private Q_SLOTS:
     void pairingSuccesful();
     void pairingFailed(const QString& error);
     void unpaired();
+    void refresh();
 
 private:
     Ui::KdeConnectKcmUi* kcmUi;

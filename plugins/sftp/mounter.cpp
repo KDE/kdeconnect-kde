@@ -93,7 +93,6 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     
     //TODO implement on android side
     //if (np.get<int>("id") != m_id) return;
-  
 
     //This is the previous code, to access sftp server using KIO. Now we are
     //using the external binary sshfs, and accessing it as a local filesystem.
@@ -120,11 +119,16 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     QDir().mkpath(mpoint);
 
     const QString program = "sshfs";
+
+    QString path;
+    if (np.has("multiPaths")) path = "/";
+    else path = np.get<QString>("path");
+
     const QStringList arguments = QStringList()
         << QString("%1@%2:%3")
             .arg(np.get<QString>("user"))
             .arg(np.get<QString>("ip"))
-            .arg(np.get<QString>("path"))
+            .arg(path)
         << mpoint            
         << "-p" << np.get<QString>("port")
         << "-d"

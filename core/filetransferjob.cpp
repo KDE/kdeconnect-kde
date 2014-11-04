@@ -190,7 +190,7 @@ void FileTransferJob::sourceFinished()
     //Make sure we do not enter this function again
     disconnect(mOrigin.data(), SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
 
-    //TODO: MD5 check the file
+    //TODO: MD5-check the file
     if (mSize > -1 && mWritten != mSize) {
         qCDebug(KDECONNECT_CORE) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
         setError(1);

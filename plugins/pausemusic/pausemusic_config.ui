@@ -9,14 +9,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
-    <height>155</height>
+    <width>368</width>
+    <height>241</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Pause music plugin</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>20</number>
+   </property>
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="sizePolicy">
@@ -26,7 +29,7 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Pause condition</string>
+      <string>Condition</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -47,23 +50,32 @@
     </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
+     <property name="title">
+      <string>Actions</string>
      </property>
-    </spacer>
-   </item>
-   <item>
-    <widget class="QCheckBox" name="check_mute">
-     <property name="text">
-      <string>Mute system instead of pause</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="check_pause">
+        <property name="text">
+         <string>Pause media players</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="check_mute">
+        <property name="text">
+         <string>Mute system sound</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

@@ -62,10 +62,13 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     } else if (event == "talking") {
         return NULL;
     } else {
-        //TODO: return NULL if !debug
+#ifdef NDEBUG
+        return NULL;
+#else
         type = "unknownEvent";
         icon = "pda";
         content = i18n("Unknown telephony event: %2", event);
+#endif
     }
 
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
