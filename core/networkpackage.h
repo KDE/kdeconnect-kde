@@ -75,9 +75,9 @@ public:
     bool has(const QString& key) const { return mBody.contains(key); }
 
     QSharedPointer<QIODevice> payload() const { return mPayload; }
-    void setPayload(const QSharedPointer<QIODevice>& device, int payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
+    void setPayload(const QSharedPointer<QIODevice>& device, qint64 payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
     bool hasPayload() const { return (mPayloadSize != 0); }
-    int payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
+    qint64 payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
     FileTransferJob* createPayloadTransferJob(const KUrl& destination) const;
 
     //To be called by a particular DeviceLink
@@ -90,14 +90,14 @@ private:
     void setId(const QString& id) { mId = id; }
     void setType(const QString& t) { mType = t; }
     void setBody(const QVariantMap& b) { mBody = b; }
-    void setPayloadSize(int s) { mPayloadSize = s; }
+    void setPayloadSize(qint64 s) { mPayloadSize = s; }
 
     QString mId;
     QString mType;
     QVariantMap mBody;
 	
     QSharedPointer<QIODevice> mPayload;
-    int mPayloadSize;
+    qint64 mPayloadSize;
     QVariantMap mPayloadTransferInfo;
 
 };

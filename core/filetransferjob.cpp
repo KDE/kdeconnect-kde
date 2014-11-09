@@ -28,7 +28,7 @@
 
 #include "kdebugnamespace.h"
 
-FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination): KJob()
+FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const KUrl& destination): KJob()
 {
     Q_ASSERT(destination.isLocalFile());
     //TODO: Make a precondition before calling this function that destination file exists

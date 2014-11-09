@@ -37,7 +37,7 @@ class FileTransferJob
     Q_OBJECT
 
 public:
-    FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const KUrl& destination);
+    FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const KUrl& destination);
     virtual void start();
     KUrl destination() const { return mDestination; }
     void setDeviceName(const QString &deviceName) {mDeviceName = deviceName;};
@@ -61,8 +61,8 @@ private:
     KUrl mDestination;
     QTime m_time;
     qulonglong m_speedBytes;
-    int mSize;
-    int mWritten;
+    qint64 mSize;
+    qint64 mWritten;
 
 };
 
