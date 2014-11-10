@@ -43,10 +43,11 @@ int main(int argc, char** argv)
     options.add("pair", ki18n("Request pairing to a said device."));
     options.add("unpair", ki18n("Stop pairing to a said device."));
     options.add("ping", ki18n("Send a ping to said device."));
-    options.add("ping-msg <message>", ki18n("Same as ping but you can customize the shown message."));
+    options.add("ping-msg <message>", ki18n("Same as ping but you can customize the message shown."));
     options.add("share <path>", ki18n("Share a file to a said device."));
     options.add("list-notifications", ki18n("Display the notifications on a said device."));
-    options.add("device <dev>", ki18n("Device ID."));
+    options.add("d")
+           .add("device <dev>", ki18n("Device ID."));
     KCmdLineArgs::addCmdLineOptions( options );
     KCmdLineArgs* args = KCmdLineArgs::parsedArgs();
     KApplication app;
