@@ -24,7 +24,7 @@
 #include <unistd.h>
 
 #include <QSocketNotifier>
-#include <QGuiApplication>
+#include <QApplication>
 
 #include <KDBusService>
 
@@ -59,11 +59,10 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
 int main(int argc, char* argv[])
 {
-    QCoreApplication::setApplicationName("kdeconnect");
-    QCoreApplication::setApplicationVersion("0.1");
-    QCoreApplication::setOrganizationDomain("kde.org");
-
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
+    app.setApplicationName("kdeconnect");
+    app.setApplicationVersion("0.1");
+    app.setOrganizationDomain("kde.org");
     app.setQuitOnLastWindowClosed(false);
 
     KDBusService dbusService(KDBusService::Unique);
