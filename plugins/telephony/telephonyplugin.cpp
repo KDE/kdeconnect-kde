@@ -43,6 +43,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
 
     QString content, type, icon;
+    KNotification::NotificationFlags flags = KNotification::CloseOnTimeout;
 
     const QString title = device()->name();
 
@@ -54,26 +55,28 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         type = "missedCall";
         icon = "call-start";
         content = i18n("Missed call from %1", phoneNumber);
+        flags = KNotification::Persistent;
     } else if (event == "sms") {
         type = "smsReceived";
         icon = "mail-receive";
         QString messageBody = np.get<QString>("messageBody","");
         content = i18n("SMS from %1: %2", phoneNumber, messageBody);
+        flags = KNotification::Persistent;
     } else if (event == "talking") {
         return NULL;
     } else {
-#ifdef NDEBUG
+#ifndef NDEBUG
         return NULL;
 #else
         type = "unknownEvent";
-        icon = "pda";
-        content = i18n("Unknown telephony event: %2", event);
+        icon = "phone";
+        content = i18n("Unknown telephony event: %1", event);
 #endif
     }
 
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
-    KNotification* notification = new KNotification(type, KNotification::CloseOnTimeout, this); //, KNotification::Persistent
+    KNotification* notification = new KNotification(type, flags, this);
     notification->setPixmap(QIcon::fromTheme(icon).pixmap(48, 48));
     notification->setComponentName("kdeconnect");
     notification->setTitle(title);
