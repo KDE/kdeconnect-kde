@@ -20,6 +20,7 @@
 
 #include "daemon.h"
 
+#include <QDir>
 #include <QUuid>
 #include <QFile>
 #include <QFileInfo>
@@ -85,7 +86,8 @@ Daemon::Daemon(QObject *parent)
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
     if (!config->group("myself").hasKey("privateKeyPath"))
     {
-        const QString privateKeyPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::DataLocation, QStringLiteral("key.pem"));
+        QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+        const QString privateKeyPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/key.pem");
 
         QFile privKey(privateKeyPath);
 
@@ -94,7 +96,7 @@ Daemon::Daemon(QObject *parent)
             qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
             return;
         }
-        
+
         if (!privKey.setPermissions(strict))
         {
             qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
