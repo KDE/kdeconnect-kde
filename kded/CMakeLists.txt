@@ -15,4 +15,4 @@ install(TARGETS kded_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 
 #TODO: Split this into several files for core and for each plugin
-install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)
+install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
