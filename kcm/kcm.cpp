@@ -80,7 +80,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
 
 KdeConnectKcm::~KdeConnectKcm()
 {
-
+    delete kcmUi;
 }
 
 void KdeConnectKcm::refresh()
