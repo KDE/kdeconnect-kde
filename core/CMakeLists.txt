@@ -48,7 +48,7 @@ LINK_PRIVATE
 target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 generate_export_header(kdeconnectcore EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectcore_export.h BASE_NAME KDEConnectCore)
 
-include(macros)
+include(DbusInterfaceMacros)
 
 generate_and_install_dbus_interface(
     kdeconnectcore

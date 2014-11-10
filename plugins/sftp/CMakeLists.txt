@@ -11,7 +11,7 @@ target_link_libraries(kdeconnect_sftp kdeconnectcore ${KDE4_KFILE_LIBS})
 install(TARGETS kdeconnect_sftp DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES kdeconnect_sftp.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
-include(macros)
+include(DbusInterfaceMacros)
 
 generate_and_install_dbus_interface(
     kdeconnect_sftp
