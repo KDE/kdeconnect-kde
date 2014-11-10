@@ -25,9 +25,9 @@
 #include <interfaces/devicesmodel.h>
 #include <interfaces/notificationsmodel.h>
 #include <interfaces/dbusinterfaces.h>
-#include <iostream>
 #include <QDBusMessage>
 #include <QDBusConnection>
+#include <QTextStream>
 
 int main(int argc, char** argv)
 {
@@ -66,10 +66,10 @@ int main(int argc, char** argv)
                     statusInfo = "(paired and reachable)";
                     break;
             }
-            std::cout << "- " << idx.data(Qt::DisplayRole).toString().toStdString()
-                      << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << ' ' << statusInfo.toStdString() << std::endl;
+            QTextStream(stdout) << "- " << idx.data(Qt::DisplayRole).toString()
+                      << ": " << idx.data(DevicesModel::IdModelRole).toString() << ' ' << statusInfo << endl;
         }
-        std::cout << devices.rowCount() << " devices found" << std::endl;
+        QTextStream(stdout) << devices.rowCount() << " devices found" << endl;
     } else if(args->isSet("refresh")) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
@@ -92,7 +92,7 @@ int main(int argc, char** argv)
         } else if(args->isSet("pair")) {
             DeviceDbusInterface dev(device);
             if(dev.isPaired())
-                std::cout << "Already paired" << std::endl;
+                QTextStream(stdout) << "Already paired" << endl;
             else {
                 QDBusPendingReply<void> req = dev.requestPair();
                 req.waitForFinished();
@@ -100,7 +100,7 @@ int main(int argc, char** argv)
         } else if(args->isSet("unpair")) {
             DeviceDbusInterface dev(device);
             if(!dev.isPaired())
-                std::cout << "Already not paired" << std::endl;
+                QTextStream(stdout) << "Already not paired" << endl;
             else {
                 QDBusPendingReply<void> req = dev.unpair();
                 req.waitForFinished();
@@ -117,8 +117,8 @@ int main(int argc, char** argv)
             notifications.setDeviceId(device);
             for(int i=0, rows=notifications.rowCount(); i<rows; ++i) {
                 QModelIndex idx = notifications.index(i);
-                std::cout << "- " << idx.data(NotificationsModel::AppNameModelRole).toString().toStdString()
-                << ": " << idx.data(NotificationsModel::NameModelRole).toString().toStdString() << std::endl;
+                QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString()
+                << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
             }
         } else {
             KCmdLineArgs::usageError(i18n("Nothing to be done with the device"));
