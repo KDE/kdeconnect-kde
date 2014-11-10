@@ -78,7 +78,7 @@ Daemon::Daemon(QObject *parent)
     //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
         //TODO: Display this in a notification or another visible way
-        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
+        qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
                    << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
         return;
     }
@@ -93,7 +93,7 @@ Daemon::Daemon(QObject *parent)
 
         if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))
         {
-            qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
+            qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
             return;
         }
 
