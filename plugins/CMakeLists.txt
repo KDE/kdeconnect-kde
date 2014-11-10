@@ -12,3 +12,5 @@ add_subdirectory(share)
 add_subdirectory(notifications)
 add_subdirectory(sftp)
 
+#FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
+install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)

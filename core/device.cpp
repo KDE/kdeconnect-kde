@@ -369,7 +369,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
                 kDebug(debugArea()) << "Pair request";
 
-                KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+                KNotification* notification = new KNotification("pairingRequest");
                 notification->setPixmap(KIcon("dialog-information").pixmap(48, 48));
                 notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
                 notification->setTitle("KDE Connect");
