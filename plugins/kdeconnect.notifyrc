@@ -49,6 +49,19 @@ Comment[tr]=Cihazınızdan bildirimler
 Comment[uk]=Сповіщення з вашого пристрою
 Comment[x-test]=xxNotifications from your devicesxx
 
+[Event/pairingRequest]
+Name=Pairing Request
+Name[nl]=Verzoek om een paar te maken
+Name[pt_BR]=Solicitação de emparelhamento
+Name[uk]=Запит щодо пов’язування
+Name[x-test]=xxPairing Requestxx
+Comment=Pairing request received from a devices
+Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
+Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
+Comment[uk]=Від пристрою отримано запит щодо пов’язування
+Comment[x-test]=xxPairing request received from a devicesxx
+Action=Popup
+
 [Event/callReceived]
 Name=Calling
 Name[bg]=Позвъняване
@@ -355,53 +368,18 @@ Comment[uk]=Отримано сповіщення
 Comment[x-test]=xxNotification receivedxx
 Action=Popup
 
-[Event/unknownEvent]
-Name=Unknown
-Name[bg]=Неизвестно
-Name[bs]=Nepoznato
-Name[ca]=Desconeguda
-Name[cs]=Neznámý
-Name[da]=Ukendt
-Name[de]=Unbekannt
-Name[es]=Desconocido
-Name[fi]=Tuntematon
-Name[fr]=Inconnu
-Name[hu]=Ismeretlen
-Name[it]=Sconsciuto
-Name[ko]=알 수 없음
-Name[nl]=Onbekend
-Name[pl]=Nieznana
-Name[pt]=Desconhecido
-Name[pt_BR]=Desconhecido
-Name[ro]=Necunoscut
-Name[ru]=Неизвестно
-Name[sk]=Neznáme
-Name[sv]=Okänt
-Name[tr]=Bilinmeyen
-Name[uk]=Невідомо
-Name[x-test]=xxUnknownxx
-Comment=Something unknown happened
-Comment[bg]=Случи се нещо неизвестно
-Comment[bs]=Nešto se nepoznato dogodilo
-Comment[ca]=Ha succeït quelcom desconegut
-Comment[cs]=Stalo se něco neznámého
-Comment[da]=Der skete noget ukendt
-Comment[de]=Etwas unbekanntes ist aufgetreten
-Comment[es]=Ha ocurrido algo desconocido
-Comment[fi]=Jotakin outoa sattui
-Comment[fr]=Un évènement inconnu est survenu
-Comment[hu]=Valami ismeretlen történt
-Comment[it]=Errore imprevisto
-Comment[ko]=알 수 없는 일이 일어남
-Comment[nl]=Er is iets onbekends gebeurd
-Comment[pl]=Stało się coś nieznanego
-Comment[pt]=Algo de inesperado aconteceu
-Comment[pt_BR]=Ocorreu algo inesperado
-Comment[ro]=S-a întîmplat ceva necunoscut
-Comment[ru]=Произошло неизвестное событие
-Comment[sk]=Stalo sa niečo neznáme
-Comment[sv]=Någonting okänt inträffade
-Comment[tr]=Bilinmeyen bir durum oluştu
-Comment[uk]=Сталося щось невідоме програмі
-Comment[x-test]=xxSomething unknown happenedxx
+[Event/transferReceived]
+Name=Pairing Request
+Name[nl]=Verzoek om een paar te maken
+Name[pt_BR]=Solicitação de emparelhamento
+Name[uk]=Запит щодо пов’язування
+Name[x-test]=xxPairing Requestxx
+Comment=Pairing request received from a devices
+Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
+Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
+Comment[uk]=Від пристрою отримано запит щодо пов’язування
+Comment[x-test]=xxPairing request received from a devicesxx
 Action=Popup
+
+
+

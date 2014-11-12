@@ -28,7 +28,7 @@
 #include <KIO/RenameDialog>
 #include <KLocalizedString>
 
-FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, int size, const QUrl &destination): KJob()
+FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination): KJob()
 {
     Q_ASSERT(destination.isLocalFile());
     //TODO: Make a precondition before calling this function that destination file exists

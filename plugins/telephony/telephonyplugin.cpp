@@ -68,7 +68,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 #ifndef NDEBUG
         return NULL;
 #else
-        type = "unknownEvent";
+        type = "callReceived";
         icon = "phone";
         content = i18n("Unknown telephony event: %1", event);
 #endif

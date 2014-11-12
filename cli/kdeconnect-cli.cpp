@@ -21,12 +21,12 @@
 #include <interfaces/devicesmodel.h>
 #include <interfaces/notificationsmodel.h>
 #include <interfaces/dbusinterfaces.h>
-#include <iostream>
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QGuiApplication>
 #include <KAboutData>
 #include <KLocalizedString>
+#include <QTextStream>
 
 int main(int argc, char** argv)
 {
@@ -36,15 +36,17 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
     about.addAuthor( i18n("Aleix Pol Gonzalez"), QString(), "aleixpol@kde.org" );
+    about.addAuthor( i18n("Albert Vaca Cintora"), QString(), "albertvaka@gmail.com" );
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringList("l") << "list-devices", i18n("List all devices")));
-    parser.addOption(QCommandLineOption("share", i18n("Share a file to a said device"), "path"));
+    parser.addOption(QCommandLineOption("refresh", i18n("Search for devices in the network and re-establishe connections")));
     parser.addOption(QCommandLineOption("pair", i18n("Request pairing to a said device")));
     parser.addOption(QCommandLineOption("unpair", i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption("ping", i18n("Sends a ping to said device")));
+    parser.addOption(QCommandLineOption("ping-msg", i18n("Same as ping but you can set the message to display"), i18n("message")));
+    parser.addOption(QCommandLineOption("share", i18n("Share a file to a said device"), "path"));
     parser.addOption(QCommandLineOption("list-notifications", i18n("Display the notifications on a said device")));
-    parser.addOption(QCommandLineOption("ping-msg <message>", i18n("Same as ping but you can customize the shown message."), i18n("message")));
-    parser.addOption(QCommandLineOption("device", i18n("Device ID"), "dev"));
+    parser.addOption(QCommandLineOption(QstringList("device") << "d", i18n("Device ID"), "dev"));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -67,11 +69,11 @@ int main(int argc, char** argv)
                     statusInfo = "(paired and reachable)";
                     break;
             }
-            std::cout << "- " << idx.data(Qt::DisplayRole).toString().toStdString()
-                      << ": " << idx.data(DevicesModel::IdModelRole).toString().toStdString() << ' ' << statusInfo.toStdString() << std::endl;
+            QTextStream(stdout) << "- " << idx.data(Qt::DisplayRole).toString()
+                      << ": " << idx.data(DevicesModel::IdModelRole).toString() << ' ' << statusInfo << endl;
         }
-        std::cout << devices.rowCount() << " devices found" << std::endl;
-    } else if(parser.isSet("refresh")) {
+        QTextStream(stdout) << devices.rowCount() << " devices found" << endl;
+    } else if(args->isSet("refresh")) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
@@ -93,7 +95,7 @@ int main(int argc, char** argv)
         } else if(parser.isSet("pair")) {
             DeviceDbusInterface dev(device);
             if(dev.isPaired())
-                std::cout << "Already paired" << std::endl;
+                QTextStream(stdout) << "Already paired" << endl;
             else {
                 QDBusPendingReply<void> req = dev.requestPair();
                 req.waitForFinished();
@@ -101,7 +103,7 @@ int main(int argc, char** argv)
         } else if(parser.isSet("unpair")) {
             DeviceDbusInterface dev(device);
             if(!dev.isPaired())
-                std::cout << "Already not paired" << std::endl;
+                QTextStream(stdout) << "Already not paired" << endl;
             else {
                 QDBusPendingReply<void> req = dev.unpair();
                 req.waitForFinished();
@@ -118,8 +120,8 @@ int main(int argc, char** argv)
             notifications.setDeviceId(device);
             for(int i=0, rows=notifications.rowCount(); i<rows; ++i) {
                 QModelIndex idx = notifications.index(i);
-                std::cout << "- " << idx.data(NotificationsModel::AppNameModelRole).toString().toStdString()
-                << ": " << idx.data(NotificationsModel::NameModelRole).toString().toStdString() << std::endl;
+                QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString()
+                << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
             }
         } else {
             qCritical() << i18n("Nothing to be done with the device");

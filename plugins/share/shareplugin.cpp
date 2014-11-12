@@ -139,7 +139,7 @@ void SharePlugin::finished(KJob* job)
     bool error = (job->error() != 0);
 
     FileTransferJob* transferJob = (FileTransferJob*)job;
-    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+    KNotification* notification = new KNotification("transferReceived");
     notification->setPixmap(QIcon::fromTheme(error? "edit-delete" : "dialog-ok").pixmap(48, 48));
     notification->setComponentName("kdeconnect");
     notification->setTitle(i18n("Transfer finished"));

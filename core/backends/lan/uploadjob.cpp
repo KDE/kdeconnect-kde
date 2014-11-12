@@ -65,17 +65,27 @@ void UploadJob::readyRead()
 {
     //TODO: Implement payload encryption
 
-    qint64 bytes = qMax(mInput->bytesAvailable(), (qint64)4096);
-    int w = mSocket->write(mInput->read(bytes));
-    if (w<0) {
-        qWarning() << "error when writing data to upload" << bytes << mInput->bytesAvailable();
+    while ( mInput->bytesAvailable() > 0 )
+    {
+        qint64 bytes = qMin(mInput->bytesAvailable(), (qint64)4096);
+        int w = mSocket->write(mInput->read(bytes));
+        if (w<0) {
+            qWarning() << "error when writing data to upload" << bytes << mInput->bytesAvailable();
+            break;
+        }
+        else
+        {
+            while ( mSocket->flush() );
+        }
     }
+
+    mInput->close();
 }
 
 void UploadJob::aboutToClose()
 {
-    mSocket->close();
     mSocket->disconnectFromHost();
+    mSocket->close();
     emitResult();
 }
 

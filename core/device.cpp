@@ -376,7 +376,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
                 qCDebug(KDECONNECT_CORE) << "Pair request";
 
-                KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+                KNotification* notification = new KNotification("pairingRequest");
                 notification->setPixmap(QIcon::fromTheme("dialog-information").pixmap(48, 48));
                 notification->setComponentName("kdeconnect");
                 notification->setTitle("KDE Connect");
