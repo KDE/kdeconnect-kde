@@ -46,7 +46,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("ping-msg", i18n("Same as ping but you can set the message to display"), i18n("message")));
     parser.addOption(QCommandLineOption("share", i18n("Share a file to a said device"), "path"));
     parser.addOption(QCommandLineOption("list-notifications", i18n("Display the notifications on a said device")));
-    parser.addOption(QCommandLineOption(QstringList("device") << "d", i18n("Device ID"), "dev"));
+    parser.addOption(QCommandLineOption(QStringList("device") << "d", i18n("Device ID"), "dev"));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
                       << ": " << idx.data(DevicesModel::IdModelRole).toString() << ' ' << statusInfo << endl;
         }
         QTextStream(stdout) << devices.rowCount() << " devices found" << endl;
-    } else if(args->isSet("refresh")) {
+    } else if(parser.isSet("refresh")) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
