@@ -52,11 +52,13 @@ Comment[x-test]=xxNotifications from your devicesxx
 [Event/pairingRequest]
 Name=Pairing Request
 Name[nl]=Verzoek om een paar te maken
+Name[pt]=Pedido de Emparelhamento
 Name[pt_BR]=Solicitação de emparelhamento
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
 Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
+Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
 Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
 Comment[uk]=Від пристрою отримано запит щодо пов’язування
 Comment[x-test]=xxPairing request received from a devicesxx
@@ -371,11 +373,13 @@ Action=Popup
 [Event/transferReceived]
 Name=Pairing Request
 Name[nl]=Verzoek om een paar te maken
+Name[pt]=Pedido de Emparelhamento
 Name[pt_BR]=Solicitação de emparelhamento
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
 Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
+Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
 Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
 Comment[uk]=Від пристрою отримано запит щодо пов’язування
 Comment[x-test]=xxPairing request received from a devicesxx
