@@ -51,6 +51,8 @@ Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/pairingRequest]
 Name=Pairing Request
+Name[ca]=Sol·licitud d'aparellament
+Name[cs]=Požadavek na párování
 Name[es]=Petición de vinculación
 Name[nl]=Verzoek om een paar te maken
 Name[pt]=Pedido de Emparelhamento
@@ -58,6 +60,8 @@ Name[pt_BR]=Solicitação de emparelhamento
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
+Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
+Comment[cs]=Požadavek na párování přijat ze zařízení
 Comment[es]=Petición de vinculación recibida desde un dispositivo
 Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
 Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
@@ -374,6 +378,8 @@ Action=Popup
 
 [Event/transferReceived]
 Name=Pairing Request
+Name[ca]=Sol·licitud d'aparellament
+Name[cs]=Požadavek na párování
 Name[es]=Petición de vinculación
 Name[nl]=Verzoek om een paar te maken
 Name[pt]=Pedido de Emparelhamento
@@ -381,6 +387,8 @@ Name[pt_BR]=Solicitação de emparelhamento
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
+Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
+Comment[cs]=Požadavek na párování přijat ze zařízení
 Comment[es]=Petición de vinculación recibida desde un dispositivo
 Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
 Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
