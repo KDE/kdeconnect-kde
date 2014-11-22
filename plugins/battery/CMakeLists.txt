@@ -16,7 +16,7 @@ target_link_libraries(kdeconnect_battery
 install(TARGETS kdeconnect_battery DESTINATION ${PLUGIN_INSTALL_DIR} )
 install(FILES kdeconnect_battery.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
-include(macros)
+include(DbusInterfaceMacros)
 
 generate_and_install_dbus_interface(
     kdeconnect_battery
