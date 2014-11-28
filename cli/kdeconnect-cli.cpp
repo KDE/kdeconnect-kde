@@ -30,7 +30,7 @@
 
 int main(int argc, char** argv)
 {
-    QGuiApplication app(argc, argv);
+    QCoreApplication app(argc, argv);
     KAboutData about("kdeconnect-cli", i18n("kdeconnect-cli"), "1.0", i18n("KDE Connect CLI tool"),
                      KAboutLicense::GPL, i18n("(C) 2013 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
