@@ -150,6 +150,3 @@ QString NotificationsDbusInterface::newId()
 {
     return QString::number(++mLastId);
 }
-
-
-#include "notificationsdbusinterface.moc"
