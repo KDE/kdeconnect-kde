@@ -97,7 +97,6 @@ QByteArray NetworkPackage::serialize() const
     }
 
     //QVariant -> json
-    bool ok;
     auto jsonDocument = QJsonDocument::fromVariant(variant);
     QByteArray json = jsonDocument.toJson(QJsonDocument::Compact);
     if (json.isEmpty()) {

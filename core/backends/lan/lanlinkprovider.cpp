@@ -75,8 +75,7 @@ LanLinkProvider::LanLinkProvider()
 
 void LanLinkProvider::onStart()
 {
-    bool buildSucceed = mUdpServer->bind(QHostAddress::Any, port, QUdpSocket::ShareAddress);
-    Q_ASSERT(buildSucceed);
+    mUdpServer->bind(QHostAddress::Any, port, QUdpSocket::ShareAddress);
 
     mTcpPort = port;
     while (!mTcpServer->listen(QHostAddress::Any, mTcpPort)) {
