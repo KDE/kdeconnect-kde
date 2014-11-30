@@ -35,7 +35,11 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-
+#ifdef HAVE_TELEPATHY    
+    //keep a reference to the KTP CM so that we can register on DBus
+    m_telepathyInterface = KDEConnectTelepathyProtocolFactory::interface();
+    connect(m_telepathyInterface.constData(), SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)));
+#endif
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
@@ -88,10 +92,11 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         notification->setActions( QStringList(i18n("Mute Call")) );
         connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePackage);
     } else if (event == QLatin1String("sms")) {
+        const QString messageBody = np.get<QString>("messageBody","");
         notification->setActions( QStringList(i18n("Reply")) );
         notification->setProperty("phoneNumber", phoneNumber);
         notification->setProperty("contactName", contactName);
-        notification->setProperty("originalMessage", np.get<QString>("messageBody",""));
+        notification->setProperty("originalMessage", messageBody);
         connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::showSendSmsDialog);
     }
 
@@ -104,15 +109,23 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
     if (np.get<bool>("isCancel")) {
 
         //TODO: Clear the old notification
-
-    } else {
-        KNotification* n = createNotification(np);
-        if (n != nullptr) n->sendEvent();
-
+        return true;
     }
+#ifdef HAVE_TELEPATHY
+    if (np.get<QString>("event") == QLatin1String("sms")) {
+        const QString messageBody = np.get<QString>("messageBody","");
+        const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
+        const QString contactName = np.get<QString>("contactName", phoneNumber);
+        if (m_telepathyInterface->sendMessage(contactName, messageBody)) {
+             return true;
+        }
+    }
+#endif 
+    
+    KNotification* n = createNotification(np);
+    if (n != nullptr) n->sendEvent();
 
     return true;
-
 }
 
 void TelephonyPlugin::sendMutePackage()

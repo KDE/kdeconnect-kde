@@ -27,6 +27,10 @@
 
 #include <core/kdeconnectplugin.h>
 
+#ifdef HAVE_TELEPATHY
+#include "kdeconnecttelepathyprotocolfactory.h"
+#endif
+
 #define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
@@ -50,6 +54,11 @@ private Q_SLOTS:
 
 private:
     KNotification* createNotification(const NetworkPackage& np);
+    
+#ifdef HAVE_TELEPATHY
+    ConnectProtocolPtr m_telepathyInterface;
+#endif
+
 
 };
 
