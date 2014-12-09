@@ -23,5 +23,8 @@ endif()
 
 install(TARGETS kdeconnectd DESTINATION ${LIBEXEC_INSTALL_DIR})
 
-include(DbusActivationMacros)
-dbus_add_activation_service(org.kde.kdeconnect.service.in)
+configure_file(org.kde.kdeconnect.service.in
+               ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service
+    DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
