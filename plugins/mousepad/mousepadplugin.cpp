@@ -87,11 +87,12 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     bool isDoubleClick = np.get<bool>("doubleclick", false);
     bool isMiddleClick = np.get<bool>("middleclick", false);
     bool isRightClick = np.get<bool>("rightclick", false);
+    bool isSingleHold = np.get<bool>("singlehold", false);
     bool isScroll = np.get<bool>("scroll", false);
     QString key = np.get<QString>("key", "");
     int specialKey = np.get<int>("specialKey", 0);
 
-    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isScroll || !key.isEmpty() || specialKey) {
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
 
         if(!m_display) {
             m_display = XOpenDisplay(NULL);
@@ -115,7 +116,9 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
         } else if (isRightClick) {
             XTestFakeButtonEvent(m_display, RightMouseButton, True, 0);
             XTestFakeButtonEvent(m_display, RightMouseButton, False, 0);
-        } else if( isScroll ) {
+        } else if (isSingleHold){
+	  XTestFakeButtonEvent(m_display, LeftMouseButton, True, 0);
+	}else if( isScroll ) {
             if (dy < 0) {
                 XTestFakeButtonEvent(m_display, MouseWheelDown, True, 0);
                 XTestFakeButtonEvent(m_display, MouseWheelDown, False, 0);
