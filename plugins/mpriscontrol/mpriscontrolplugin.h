@@ -43,6 +43,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
     void propertiesChanged(const QString& propertyInterface, const QVariantMap& properties);
+    void seeked(qlonglong);
 
 private:
     void addPlayer(const QString& ifaceName);

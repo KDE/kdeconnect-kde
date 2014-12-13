@@ -83,6 +83,19 @@ void MprisControlPlugin::addPlayer(const QString& service)
     OrgFreedesktopDBusPropertiesInterface* freedesktopInterface = new OrgFreedesktopDBusPropertiesInterface(service, "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus(), this);
     connect(freedesktopInterface, SIGNAL(PropertiesChanged(QString, QVariantMap, QStringList)), this, SLOT(propertiesChanged(QString, QVariantMap)));
 
+    OrgMprisMediaPlayer2PlayerInterface* mprisInterface0  = new OrgMprisMediaPlayer2PlayerInterface(service, "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
+    connect(mprisInterface0, SIGNAL(Seeked(qlonglong)), this, SLOT(seeked(qlonglong)));
+}
+
+void MprisControlPlugin::seeked(qlonglong position){
+    kDebug(debugArea()) << "Seeked in player";
+    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    np.set("pos", position);
+    OrgFreedesktopDBusPropertiesInterface* interface = (OrgFreedesktopDBusPropertiesInterface*)sender();
+    const QString& service = interface->service();
+    const QString& player = playerList.key(service);
+    np.set("player", player);
+    sendPackage(np);
 }
 
 void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, const QVariantMap& properties)
@@ -111,6 +124,16 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
             np.set("nowPlaying",nowPlaying);
             somethingToSend = true;
         }
+        if (nowPlayingMap.contains("mpris:length")) {
+            QString length = "";
+            if (nowPlayingMap.contains("mpris:length")) {
+                length = nowPlayingMap["mpris:length"].toString();
+            }else{
+                length = "Unknown";
+            }
+            np.set("length",length);
+            somethingToSend = true;
+        }
 
     }
     if (properties.contains("PlaybackStatus")) {
@@ -124,6 +147,10 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         const QString& service = interface->service();
         const QString& player = playerList.key(service);
         np.set("player", player);
+        // Always also update the position
+        OrgMprisMediaPlayer2PlayerInterface mprisInterface(playerList[player], "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
+        int pos = (int)mprisInterface.position();
+        np.set("pos", pos);
         sendPackage(np);
     }
 }
@@ -171,6 +198,12 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
         mprisInterface.Seek(offset);
     }
 
+    if (np.has("SetPosition")){
+        int position = np.get<int>("SetPosition") - (int)mprisInterface.position();
+        kDebug(debugArea()) << "Setting position by seeking" << position << "to" << playerList[player];
+        mprisInterface.Seek(position);
+    }
+
     //Send something read from the mpris interface
     NetworkPackage answer(PACKAGE_TYPE_MPRIS);
     bool somethingToSend = false;
@@ -180,7 +213,17 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
         QString nowPlaying = nowPlayingMap["xesam:title"].toString();
         if (nowPlayingMap.contains("xesam:artist")) {
             nowPlaying = nowPlayingMap["xesam:artist"].toString() + " - " + nowPlaying;
+        }if (nowPlayingMap.contains("mpris:length")) {
+            QString length = "";
+            if (nowPlayingMap.contains("mpris:length")) {
+                length = nowPlayingMap["mpris:length"].toString();
+            }else{
+                length = "Unknown";
+            }
+            answer.set("length",length);
         }
+        int pos = (int)mprisInterface.position();
+        answer.set("pos", pos);
 
         answer.set("nowPlaying",nowPlaying);
 
