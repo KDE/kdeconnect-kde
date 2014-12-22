@@ -25,6 +25,8 @@
 
 #include <core/kdeconnectplugin.h>
 
+#define PACKAGE_TYPE_PING QLatin1String("kdeconnect.ping")
+
 class KDE_EXPORT PingPlugin
     : public KdeConnectPlugin
 {
