@@ -30,7 +30,6 @@ Name[sk]=Prehliadač vzdialeného súborového systému
 Name[sv]=Fjärrfilsystembläddrare
 Name[tr]=Uzak dosya sistemi tarayıcı
 Name[uk]=Перегляд віддалених файлових систем
-Name[x-test]=xxRemote filesystem browserxx
 Comment=Browse the remote device filesystem using SFTP
 Comment[bg]=Отдалечено разглеждане на файловете на устройство чрез SFTP
 Comment[ca]=Navega pel sistema de fitxers dels dispositius remots usant SFTP
@@ -50,7 +49,6 @@ Comment[sk]=Prehliadať súborový systém vzdialeného zariadenia pomocou SFTP
 Comment[sv]=Bläddra i fjärrenhetens filsystem med SFTP
 Comment[tr]=SFTP kullanarak uzak aygıt dosya sisteminde gezin
 Comment[uk]=Перегляд файлових систем на сторонніх пристроях за допомогою SFTP
-Comment[x-test]=xxBrowse the remote device filesystem using SFTPxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.sftp
 X-KdeConnect-OutgoingPackageType=kdeconnect.sftp

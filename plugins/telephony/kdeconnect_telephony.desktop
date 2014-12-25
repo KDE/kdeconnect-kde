@@ -34,7 +34,6 @@ Name[sk]=Integrácia telefónie
 Name[sv]=Integrering av telefoni
 Name[tr]=Telefon tümleştirmesi
 Name[uk]=Інтеграція з системою телефонії
-Name[x-test]=xxTelephony integrationxx
 Comment=Show notifications for calls and SMS (answering coming soon)
 Comment[bg]=Показване на уведомления за обаждания и текстови съобщения (а скоро и отговаряне)
 Comment[bs]=Prikaži obavlještenja za pozive i SMS poruke(Odgovor slijedi uskoro)
@@ -57,7 +56,6 @@ Comment[sk]=Zobraziť oznámenia pre hovory a SMS (čoskoro aj odpovede)
 Comment[sv]=Visa underrättelser om samtal och SMS (att svara kommer snart)
 Comment[tr]=Çağrı ve SMS'ler için bildirim göster (yanıtlama yakında geliyor)
 Comment[uk]=Показ сповіщень щодо дзвінків і SMS (скоро буде реалізовано і автовідповідач)
-Comment[x-test]=xxShow notifications for calls and SMS (answering coming soon)xx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.telephony
 X-KdeConnect-OutgoingPackageType=

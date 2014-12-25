@@ -34,7 +34,6 @@ Name[sk]=Ping
 Name[sv]=Ping
 Name[tr]=Ping
 Name[uk]=Луна
-Name[x-test]=xxPingxx
 Comment=Send and receive pings
 Comment[bg]=Изпращане и получаване на пингове
 Comment[bs]=Šalji i primaj ping-ove
@@ -58,7 +57,6 @@ Comment[sk]=Poslať a prijať pingy
 Comment[sv]=Skicka och ta emot ping
 Comment[tr]=Ping gönder ve al
 Comment[uk]=Надсилання і отримання сигналів підтримання зв’язку
-Comment[x-test]=xxSend and receive pingsxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.ping
 X-KdeConnect-OutgoingPackageType=kdeconnect.ping

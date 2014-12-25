@@ -34,7 +34,6 @@ Name[sk]=Monitor batérie
 Name[sv]=Batteriövervakare
 Name[tr]=Pil izleyici
 Name[uk]=Монітор акумулятора
-Name[x-test]=xxBattery monitorxx
 Comment=Show your phone battery next to your computer battery
 Comment[bg]=Показване на батерията на телефона редом с тази на компютъра
 Comment[bs]=Prikažite Vašu bateriju sa mobilnog telefona poted Vaše računarske baterije
@@ -57,7 +56,6 @@ Comment[sk]=Zobraziť batériu vášho telefónu pri batérii počítača
 Comment[sv]=Visa telefonens batteri intill datorbatteriet
 Comment[tr]=Bilgisayar pilinizin yanında telefon pil durumunu göster
 Comment[uk]=Показ даних щодо рівня заряду акумулятора на телефоні поряд з даними щодо рівня заряду акумулятора комп’ютера
-Comment[x-test]=xxShow your phone battery next to your computer batteryxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.battery
 X-KdeConnect-OutgoingPackageType=kdeconnect.battery

@@ -34,7 +34,6 @@ Name[sk]=Synchronizácia pripomienok
 Name[sv]=Synkronisering av underrättelser
 Name[tr]=Bildirim eşitleme
 Name[uk]=Синхронізація сповіщень
-Name[x-test]=xxNotification syncxx
 Comment=Show phone notifications in KDE and keep them in sync
 Comment[bg]=Показване и синхронизиране на уведомления от телефона в КДЕ
 Comment[bs]=Prikaži objavještenja sa mobitela u KDE i održavaj ih sinhronizovanim
@@ -57,7 +56,6 @@ Comment[sk]=Zobraziť oznámenia v KDE a ponechať ich v synchronizácii
 Comment[sv]=Visa telefonunderrättelser i KDE och håll dem synkroniserade
 Comment[tr]=Telefon bildirimlerini KDE içinde eşitler ve eşzamanlı tutar
 Comment[uk]=Показ сповіщень з телефону у KDE та підтримання синхронізації даних сповіщень
-Comment[x-test]=xxShow phone notifications in KDE and keep them in syncxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.notification
 X-KdeConnect-OutgoingPackageType=kdeconnect.notification
