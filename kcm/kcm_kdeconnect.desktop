@@ -33,6 +33,7 @@ Name[sk]=KDE Connect
 Name[sv]=KDE anslut
 Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
+Name[x-test]=xxKDE Connectxx
 
 Comment=Connect and sync your devices with KDE
 Comment[bg]=Свържете и синхронизирайте устройствата си с КДЕ
@@ -56,6 +57,7 @@ Comment[sk]=Pripojiť a synchronizovať vaše zariadenia s KDE
 Comment[sv]=Anslut och synkronisera dina apparater med KDE
 Comment[tr]=Aygıtlarınıza KDE ile bağlanın ve eşitleyin
 Comment[uk]=З’єднання і синхронізація ваших пристроїв з KDE
+Comment[x-test]=xxConnect and sync your devices with KDExx
 
 X-KDE-Keywords=Network,Android,Devices
 X-KDE-Keywords[bg]=Мрежа,Андроид,Устройства
@@ -79,5 +81,6 @@ X-KDE-Keywords[sk]=Sieť,Android,Zariadenia
 X-KDE-Keywords[sv]=Nätverk, Android, apparater
 X-KDE-Keywords[tr]=Ağ,Android,Cihazlar,Aygıtlar
 X-KDE-Keywords[uk]=Network,Android,Devices,мережа,андроїд,пристрої
+X-KDE-Keywords[x-test]=xxNetwork,Android,Devicesxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

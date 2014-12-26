@@ -25,6 +25,7 @@ Name[sk]=Plugin KDEConnect
 Name[sv]=KDE anslutningsinsticksprogram
 Name[tr]=KDEConnect Eklentisi
 Name[uk]=Додаток KDEConnect
+Name[x-test]=xxKDEConnect Pluginxx
 
 # mandatory, list of all the package types supported
 [PropertyDef::X-KdeConnect-SupportedPackageType]

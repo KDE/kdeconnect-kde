@@ -24,5 +24,6 @@ Name[sk]=Nastavenia pluginu prehliadača súborov SFTP
 Name[sv]=Inställningar av insticksprogram för SFTP-filbläddrare
 Name[tr]=SFTP dosya tarayıcı eklenti ayarları
 Name[uk]=Параметри додатка перегляду файлів за допомогою SFTP
+Name[x-test]=xxSFTP filebrowser plugin settingsxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

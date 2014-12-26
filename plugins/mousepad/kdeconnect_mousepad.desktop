@@ -26,6 +26,7 @@ Name[pt_BR]=Touchpad
 Name[sk]=Touchpad
 Name[sv]=Tryckplatta
 Name[uk]=Сенсорна панель
+Name[x-test]=xxTouchpadxx
 Comment=Use your phone as a touchpad
 Comment[ca]=Usa el vostre telèfon com un plafó tàctil
 Comment[cs]=Používejte svůj telefon jako touchpad
@@ -42,6 +43,7 @@ Comment[pt_BR]=Use seu celular como touchpad
 Comment[sk]=Použiť váš mobil ako touchpad
 Comment[sv]=Använd telefonen som en tryckplatta
 Comment[uk]=Використання телефону як сенсорної панелі
+Comment[x-test]=xxUse your phone as a touchpadxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.mousepad
 X-KdeConnect-OutgoingPackageType=kdeconnect.mousepad

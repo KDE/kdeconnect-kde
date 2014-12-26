@@ -24,5 +24,6 @@ Name[sk]=Nastavenia pluginu zdieľania
 Name[sv]=Inställningar av delningsinsticksprogram
 Name[tr]=Paylaşma eklentisi ayarları
 Name[uk]=Параметри додатка оприлюднення даних
+Name[x-test]=xxShare plugin settingsxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

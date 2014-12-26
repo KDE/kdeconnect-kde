@@ -34,6 +34,7 @@ Name[sk]=Schránka
 Name[sv]=Klippbord
 Name[tr]=Pano
 Name[uk]=Буфер обміну
+Name[x-test]=xxClipboardxx
 Comment=Share the clipboard between devices
 Comment[bg]=Споделяне на буфера за обмен между устройства
 Comment[bs]=Podijeli Clipboard među uređajima
@@ -57,6 +58,7 @@ Comment[sk]=Zdieľať schránku medzi zariadeniami
 Comment[sv]=Dela klippbordet mellan apparater
 Comment[tr]=Aygıtlar arasında panoyu paylaştır
 Comment[uk]=Спільне використання буфера обміну даними на пристроях
+Comment[x-test]=xxShare the clipboard between devicesxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.clipboard
 X-KdeConnect-OutgoingPackageType=kdeconnect.clipboard

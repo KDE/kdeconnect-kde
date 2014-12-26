@@ -23,6 +23,7 @@ Name[sk]=KDE Connect
 Name[sv]=KDE anslut
 Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
+Name[x-test]=xxKDE Connectxx
 Comment=Notifications from your devices
 Comment[bg]=Уведомления от устройствата ви
 Comment[bs]=Notifikacija sa Vašeg uređaja
@@ -46,6 +47,7 @@ Comment[sk]=Oznámenia z vašich zariadení
 Comment[sv]=Underrättelser från dina apparater
 Comment[tr]=Cihazınızdan bildirimler
 Comment[uk]=Сповіщення з вашого пристрою
+Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/pairingRequest]
 Name=Pairing Request
@@ -61,6 +63,7 @@ Name[pt]=Pedido de Emparelhamento
 Name[pt_BR]=Solicitação de emparelhamento
 Name[sk]=Požiadavka na spárovanie
 Name[uk]=Запит щодо пов’язування
+Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[cs]=Požadavek na párování přijat ze zařízení
@@ -74,6 +77,7 @@ Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
 Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
 Comment[sk]=Požiadavka na spárovanie prijatá zo zariadenia
 Comment[uk]=Від пристрою отримано запит щодо пов’язування
+Comment[x-test]=xxPairing request received from a devicesxx
 Action=Popup
 
 [Event/callReceived]
@@ -100,6 +104,7 @@ Name[sk]=Volanie
 Name[sv]=Samtal
 Name[tr]=Aranıyor
 Name[uk]=Виклик
+Name[x-test]=xxCallingxx
 Comment=Someone is calling you
 Comment[bg]=Някой ви се обажда
 Comment[bs]=Neko Vas zove
@@ -123,6 +128,7 @@ Comment[sk]=Niekto vám volá
 Comment[sv]=Någon ringer till dig
 Comment[tr]=Biri sizi arıyor
 Comment[uk]=Хтось телефонує вам
+Comment[x-test]=xxSomeone is calling youxx
 Action=Popup
 
 [Event/missedCall]
@@ -149,6 +155,7 @@ Name[sk]=Zmeškané
 Name[sv]=Missat
 Name[tr]=Cevapsız
 Name[uk]=Пропущено
+Name[x-test]=xxMissedxx
 Comment=You have a missed call
 Comment[bg]=Имате неприето обаждане
 Comment[bs]=Imate propušten poziv
@@ -172,6 +179,7 @@ Comment[sk]=Máte zmeškaný hovor
 Comment[sv]=Du har missat ett samtal
 Comment[tr]=Cevapsız çağrınız var
 Comment[uk]=Вами пропущено телефонний дзвінок
+Comment[x-test]=xxYou have a missed callxx
 Action=Popup
 
 [Event/smsReceived]
@@ -198,6 +206,7 @@ Name[sk]=SMS
 Name[sv]=SMS
 Name[tr]=SMS
 Name[uk]=SMS
+Name[x-test]=xxSMSxx
 Comment=Someone sent you an SMS
 Comment[bg]=Някой ви изпрати текстово съобщение
 Comment[bs]=Neko Vam je poslao SMS poruku
@@ -221,6 +230,7 @@ Comment[sk]=Niekto vám poslal SMS
 Comment[sv]=Någon skickade ett SMS till dig
 Comment[tr]=Biri size SMS gönderdi
 Comment[uk]=Хтось надіслав вам SMS
+Comment[x-test]=xxSomeone sent you an SMSxx
 Action=Popup
 
 [Event/batteryLow]
@@ -247,6 +257,7 @@ Name[sk]=Batéria
 Name[sv]=Batteri
 Name[tr]=Pil
 Name[uk]=Акумулятор
+Name[x-test]=xxBatteryxx
 Comment=Your battery is in low state
 Comment[bg]=Батерията ви е с нисък заряд
 Comment[bs]=Vaša baterija je gotovo prazna
@@ -270,6 +281,7 @@ Comment[sk]=Vaša batéria je na nízkom stave
 Comment[sv]=Batteriet är nästan slut
 Comment[tr]=Pilinizin seviyesi düşük
 Comment[uk]=Рівень заряду акумулятора є низьким
+Comment[x-test]=xxYour battery is in low statexx
 Action=Popup
 
 [Event/pingReceived]
@@ -296,6 +308,7 @@ Name[sk]=Ping
 Name[sv]=Ping
 Name[tr]=Ping
 Name[uk]=Луна
+Name[x-test]=xxPingxx
 Comment=Ping received
 Comment[bg]=Пингът е приет
 Comment[bs]=Primili ste ping
@@ -319,6 +332,7 @@ Comment[sk]=Prijatý ping
 Comment[sv]=Ping mottaget
 Comment[tr]=Ping alındı
 Comment[uk]=Отримано сигнал підтримки зв’язку
+Comment[x-test]=xxPing receivedxx
 Action=Popup
 
 [Event/notification]
@@ -345,6 +359,7 @@ Name[sk]=Upozornenie
 Name[sv]=Underrättelse
 Name[tr]=Bildirim
 Name[uk]=Сповіщення
+Name[x-test]=xxNotificationxx
 Comment=Notification received
 Comment[bg]=Уведомлението е прието
 Comment[bs]=Primjeno obavještenje
@@ -368,6 +383,7 @@ Comment[sk]=Prijaté oznámenie
 Comment[sv]=Underrättelse mottagen
 Comment[tr]=Bildirim alındı
 Comment[uk]=Отримано сповіщення
+Comment[x-test]=xxNotification receivedxx
 Action=Popup
 
 [Event/transferReceived]
@@ -384,6 +400,7 @@ Name[pt]=Pedido de Emparelhamento
 Name[pt_BR]=Solicitação de emparelhamento
 Name[sk]=Požiadavka na spárovanie
 Name[uk]=Запит щодо пов’язування
+Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[cs]=Požadavek na párování přijat ze zařízení
@@ -397,6 +414,7 @@ Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
 Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
 Comment[sk]=Požiadavka na spárovanie prijatá zo zariadenia
 Comment[uk]=Від пристрою отримано запит щодо пов’язування
+Comment[x-test]=xxPairing request received from a devicesxx
 Action=Popup
 
 

@@ -31,6 +31,7 @@ Name[sk]=Zdieľať a prijať
 Name[sv]=Dela och ta emot
 Name[tr]=Paylaş ve al
 Name[uk]=Оприлюднення і отримання
+Name[x-test]=xxShare and receivexx
 Comment=Receive and send files, URLs or plain text easily
 Comment[bg]=Лесно получаване и изпращане на файлове, адреси и обикновен текст
 Comment[ca]=Rep i envia fitxers, els URL o text net amb facilitat
@@ -50,6 +51,7 @@ Comment[sk]=Prijať a poslať súbory, URL alebo čisté texty jednoducho
 Comment[sv]=Ta emot och skicka filer, webbadresser eller vanlig text enkelt
 Comment[tr]=Kolaylıkla dosya, adres veya düz metin alıp gönderin
 Comment[uk]=Спрощене отримання і надсилання файлів, адрес або текстових фрагментів
+Comment[x-test]=xxReceive and send files, URLs or plain text easilyxx
 
 X-KdeConnect-SupportedPackageType=kdeconnect.share
 X-KdeConnect-OutgoingPackageType=kdeconnect.share
