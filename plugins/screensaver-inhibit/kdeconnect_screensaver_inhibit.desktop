@@ -1,0 +1,15 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Service
+ServiceTypes=KdeConnect/Plugin
+X-KDE-Library=kdeconnect_screensaver_inhibit
+X-KDE-PluginInfo-Author=Pramod Dematagoda
+X-KDE-PluginInfo-Email=pmdematagoda@mykolab.ch
+X-KDE-PluginInfo-Name=kdeconnect_screensaver_inhibit
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=false
+Icon=preferences-desktop-screensaver
+Name=Inhibit screensaver
+Comment=Inhibit the screensaver when the device is connected
