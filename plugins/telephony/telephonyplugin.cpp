@@ -22,8 +22,8 @@
 
 #include <KLocalizedString>
 #include <KIcon>
-
 #include <core/kdebugnamespace.h>
+
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< TelephonyPlugin >(); )
 K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_telephony", "kdeconnect-plugins") )
@@ -77,6 +77,11 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     notification->setTitle(title);
     notification->setText(content);
 
+    if (event == "ringing") {
+        notification->setActions( QStringList(i18n("Mute call")) );
+        connect(notification, SIGNAL(action1Activated()), this, SLOT(sendMutePackage()));
+    }
+
     return notification;
 
 }
@@ -98,4 +103,11 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 
     return true;
 
+}
+
+void TelephonyPlugin::sendMutePackage()
+{
+    NetworkPackage package(PACKAGE_TYPE_TELEPHONY);
+    package.set<QString>( "action", "mute" );
+    sendPackage(package);
 }
