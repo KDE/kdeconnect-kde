@@ -25,13 +25,8 @@ SocketLineReader::SocketLineReader(QTcpSocket* socket, QObject* parent)
     : QObject(parent)
     , mSocket(socket)
 {
-
-    connect(mSocket, SIGNAL(disconnected()),
-            this, SIGNAL(disconnected()));
-
     connect(mSocket, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
-
 }
 
 void SocketLineReader::dataReceived()

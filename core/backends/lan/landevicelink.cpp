@@ -30,15 +30,23 @@
 #include "downloadjob.h"
 #include "socketlinereader.h"
 
-LanDeviceLink::LanDeviceLink(const QString& d, LinkProvider* a, QTcpSocket* socket)
-    : DeviceLink(d, a)
-    , mSocketLineReader(new SocketLineReader(socket, a))
+LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcpSocket* socket)
+    : DeviceLink(deviceId, parent)
+    , mSocketLineReader(new SocketLineReader(socket))
 {
-    connect(mSocketLineReader, SIGNAL(disconnected()),
-            this, SLOT(deleteLater()));
     connect(mSocketLineReader, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
+
+    //We take ownership of the socket.
+    //When the link provider distroys us,
+    //the socket (and the reader) will be
+    //destroyed as well
+    connect(socket, SIGNAL(disconnected()),
+            this, SLOT(deleteLater()));
+    mSocketLineReader->setParent(this);
+    socket->setParent(this);
 }
+
 
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
@@ -54,7 +62,7 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
 
     //TODO: Actually detect if a package is received or not, now we keep TCP
     //"ESTABLISHED" connections that look legit (return true when we use them),
-    //but that are actually broken
+    //but that are actually broken (until keepalive detects that they are down).
     return (written != -1);
 }
 
@@ -67,9 +75,6 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
     }
 
     int written = mSocketLineReader->write(np.serialize());
-    //TODO: Actually detect if a package is received or not, now we keep TCP
-    //"ESTABLISHED" connections that look legit (return true when we use them),
-    //but that are actually broken
     return (written != -1);
 }
 

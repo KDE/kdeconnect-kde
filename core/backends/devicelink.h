@@ -36,6 +36,7 @@ class DeviceLink
 
 public:
     DeviceLink(const QString& deviceId, LinkProvider* parent);
+    virtual ~DeviceLink() { };
 
     const QString& deviceId() { return mDeviceId; }
     LinkProvider* provider() { return mLinkProvider; }
