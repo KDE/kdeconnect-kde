@@ -26,6 +26,7 @@
 
 #include <KPluginFactory>
 
+
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< TelephonyPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
@@ -82,6 +83,11 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     notification->setTitle(title);
     notification->setText(content);
 
+    if (event == "ringing") {
+        notification->setActions( QStringList(i18n("Mute call")) );
+        connect(notification, SIGNAL(action1Activated()), this, SLOT(sendMutePackage()));
+    }
+
     return notification;
 
 }
@@ -103,6 +109,13 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 
     return true;
 
+}
+
+void TelephonyPlugin::sendMutePackage()
+{
+    NetworkPackage package(PACKAGE_TYPE_TELEPHONY);
+    package.set<QString>( "action", "mute" );
+    sendPackage(package);
 }
 
 #include "telephonyplugin.moc"

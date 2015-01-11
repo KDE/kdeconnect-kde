@@ -52,6 +52,24 @@ int SpecialKeysMap[] = {
     XK_Return,      // 12
     XK_Delete,      // 13
     XK_Escape,      // 14
+    XK_Sys_Req,     // 15
+    XK_Scroll_Lock, // 16
+    0,              // 17
+    0,              // 18
+    0,              // 19
+    0,              // 20
+    XK_F1,          // 21
+    XK_F2,          // 22
+    XK_F3,          // 23
+    XK_F4,          // 24
+    XK_F5,          // 25
+    XK_F6,          // 26
+    XK_F7,          // 27
+    XK_F8,          // 28
+    XK_F9,          // 29
+    XK_F10,         // 30
+    XK_F11,         // 31
+    XK_F12,         // 32
 };
 
 template <typename T, size_t N>
@@ -77,7 +95,9 @@ MousepadPlugin::~MousepadPlugin()
 
 bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 {
-    //TODO: Split mouse/keyboard in two different plugins to avoid big if statements
+    //qDebug() << np.serialize();
+
+    //TODO: Split mouse/keyboard in two different plugins to avoid this big if statement
 
     float dx = np.get<float>("dx", 0);
     float dy = np.get<float>("dy", 0);
@@ -86,11 +106,13 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     bool isDoubleClick = np.get<bool>("doubleclick", false);
     bool isMiddleClick = np.get<bool>("middleclick", false);
     bool isRightClick = np.get<bool>("rightclick", false);
+    bool isSingleHold = np.get<bool>("singlehold", false);
+    bool isSingleRelease = np.get<bool>("singlerelease", false);
     bool isScroll = np.get<bool>("scroll", false);
     QString key = np.get<QString>("key", "");
     int specialKey = np.get<int>("specialKey", 0);
 
-    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isScroll || !key.isEmpty() || specialKey) {
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
 
         if(!m_display) {
             m_display = XOpenDisplay(NULL);
@@ -114,7 +136,13 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
         } else if (isRightClick) {
             XTestFakeButtonEvent(m_display, RightMouseButton, True, 0);
             XTestFakeButtonEvent(m_display, RightMouseButton, False, 0);
-        } else if( isScroll ) {
+        } else if (isSingleHold){
+            //For drag'n drop
+            XTestFakeButtonEvent(m_display, LeftMouseButton, True, 0);
+        } else if (isSingleRelease){
+            //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofnes.
+            XTestFakeButtonEvent(m_display, LeftMouseButton, False, 0);
+        } else if (isScroll) {
             if (dy < 0) {
                 XTestFakeButtonEvent(m_display, MouseWheelDown, True, 0);
                 XTestFakeButtonEvent(m_display, MouseWheelDown, False, 0);
@@ -124,6 +152,14 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
             }
         } else if (!key.isEmpty() || specialKey) {
 
+            bool ctrl = np.get<bool>("ctrl", false);
+            bool alt = np.get<bool>("alt", false);
+            bool shift = np.get<bool>("shift", false);
+
+            if (ctrl) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Control_L), True, 0);
+            if (alt) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Alt_L), True, 0);
+            if (shift) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Shift_L), True, 0);
+
             if (specialKey)
             {
                 if (specialKey > (int)arraySize(SpecialKeysMap)) {
@@ -132,6 +168,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
                 }
 
                 int keycode = XKeysymToKeycode(m_display, SpecialKeysMap[specialKey]);
+
                 XTestFakeKeyEvent (m_display, keycode, True, 0);
                 XTestFakeKeyEvent (m_display, keycode, False, 0);
 
@@ -149,6 +186,10 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
                 fakekey_press(m_fakekey, (const unsigned char*)key.toUtf8().constData(), -1, 0);
                 fakekey_release(m_fakekey);
             }
+
+            if (ctrl) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Control_L), False, 0);
+            if (alt) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Alt_L), False, 0);
+            if (shift) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Shift_L), False, 0);
 
         }
 

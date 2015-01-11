@@ -25,7 +25,7 @@
 #include <QDebug>
 #include <KLocalizedString>
 #include <KPluginFactory>
-
+#include <QLoggingCategory>
 #include <core/device.h>
 #include <QDBusConnection>
 

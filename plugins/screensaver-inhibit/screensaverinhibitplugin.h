@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Pramod Dematagoda <pmdematagoda@mykolab.ch>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,44 +18,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MPRISCONTROLPLUGIN_H
-#define MPRISCONTROLPLUGIN_H
+#ifndef SCREENSAVERINHIBITPLUGIN_H
+#define SCREENSAVERINHIBITPLUGIN_H
 
-#include <QString>
-#include <QHash>
-#include <QLoggingCategory>
+#include <QObject>
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_MPRIS QLatin1String("kdeconnect.mpris")
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS)
-
-class MprisControlPlugin
+class Q_DECL_EXPORT ScreensaverInhibitPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
+    explicit ScreensaverInhibitPlugin(QObject *parent, const QVariantList &args);
+    virtual ~ScreensaverInhibitPlugin();
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
-
-private Q_SLOTS:
-    void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
-    void propertiesChanged(const QString& propertyInterface, const QVariantMap& properties);
-    void seeked(qlonglong);
+    virtual void connected();
 
 private:
-    void addPlayer(const QString& ifaceName);
-    void removePlayer(const QString& ifaceName);
-    void sendPlayerList();
-
-    QHash<QString, QString> playerList;
-    int prevVolume;
-
+    uint inhibitCookie;
 };
 
 #endif

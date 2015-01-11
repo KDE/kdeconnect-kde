@@ -1,0 +1,3 @@
+This plugin inhibits the screensaver from kicking in when the device is connected
+to kdeconnect, it then uninhibits the screensaver if the device was to go out of
+range or be disconnected.

@@ -45,7 +45,6 @@ public:
     qint64 bytesAvailable() { return mPackages.size(); }
 
 Q_SIGNALS:
-    void disconnected();
     void readyRead();
 
 private Q_SLOTS:

@@ -22,11 +22,10 @@
 #define PINGPLUGIN_H
 
 #include <QObject>
-#include <QLoggingCategory>
 
 #include <core/kdeconnectplugin.h>
 
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING)
+#define PACKAGE_TYPE_PING QLatin1String("kdeconnect.ping")
 
 class Q_DECL_EXPORT PingPlugin
     : public KdeConnectPlugin
