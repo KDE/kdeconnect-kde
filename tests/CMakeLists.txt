@@ -8,7 +8,7 @@ set(kdeconnect_libraries
     Qt5::Network
     Qt5::Test
     kdeconnectcore
-    qca
+    qca-qt5
 )
 
 ecm_add_test(networkpackagetests.cpp LINK_LIBRARIES ${kdeconnect_libraries})
