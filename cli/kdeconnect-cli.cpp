@@ -82,7 +82,7 @@ int main(int argc, char** argv)
         device = args->getOption("device");
         QUrl url;
         if(args->isSet("share")) {
-            url = args->makeURL(args->getOption("share").toLatin1());
+            url = args->makeURL(args->getOption("share").toUtf8());
             args->clear();
             if(!url.isEmpty() && !device.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
