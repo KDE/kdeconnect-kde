@@ -49,19 +49,19 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     const QString title = device()->name();
 
     if (event == "ringing") {
-        type = "callReceived";
-        icon = "call-start";
+        type = QStringLiteral("callReceived");
+        icon = QStringLiteral("call-start");
         content = i18n("Incoming call from %1", phoneNumber);
     } else if (event == "missedCall") {
-        type = "missedCall";
-        icon = "call-start";
+        type = QStringLiteral("missedCall");
+        icon = QStringLiteral("call-start");
         content = i18n("Missed call from %1", phoneNumber);
         flags = KNotification::Persistent;
     } else if (event == "sms") {
-        type = "smsReceived";
-        icon = "mail-receive";
+        type = QStringLiteral("smsReceived");
+        icon = QStringLiteral("mail-receive");
         QString messageBody = np.get<QString>("messageBody","");
-        content = i18n("SMS from %1: %2", phoneNumber, messageBody);
+        content = i18n("SMS from %1<br>%2", phoneNumber, messageBody);
         flags = KNotification::Persistent;
     } else if (event == "talking") {
         return NULL;
@@ -69,8 +69,8 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 #ifndef NDEBUG
         return NULL;
 #else
-        type = "callReceived";
-        icon = "phone";
+        type = QStringLiteral("callReceived");
+        icon = QStringLiteral("phone");
         content = i18n("Unknown telephony event: %1", event);
 #endif
     }
@@ -78,14 +78,14 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type, flags, this);
-    notification->setPixmap(QIcon::fromTheme(icon).pixmap(48, 48));
+    notification->setIconName(icon);
     notification->setComponentName("kdeconnect");
     notification->setTitle(title);
     notification->setText(content);
 
-    if (event == "ringing") {
-        notification->setActions( QStringList(i18n("Mute call")) );
-        connect(notification, SIGNAL(action1Activated()), this, SLOT(sendMutePackage()));
+    if (event == QLatin1String("ringing")) {
+        notification->setActions( QStringList(i18n("Mute Call")) );
+        connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePackage);
     }
 
     return notification;

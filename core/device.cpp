@@ -377,13 +377,13 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 qCDebug(KDECONNECT_CORE) << "Pair request";
 
                 KNotification* notification = new KNotification("pairingRequest");
-                notification->setPixmap(QIcon::fromTheme("dialog-information").pixmap(48, 48));
+                notification->setIconName(QStringLiteral("dialog-information"));
                 notification->setComponentName("kdeconnect");
-                notification->setTitle("KDE Connect");
                 notification->setText(i18n("Pairing request from %1", m_deviceName));
                 notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
-                connect(notification, SIGNAL(action1Activated()), this, SLOT(acceptPairing()));
-                connect(notification, SIGNAL(action2Activated()), this, SLOT(rejectPairing()));
+                connect(notification, &KNotification::closed, this, &Device::rejectPairing);
+                connect(notification, &KNotification::action1Activated, this, &Device::acceptPairing);
+                connect(notification, &KNotification::action2Activated, this, &Device::rejectPairing);
                 notification->sendEvent();
 
                 m_pairStatus = Device::RequestedByPeer;
