@@ -55,6 +55,7 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_d(new Pimpl())
 { 
+    deviceId = device()->id();
     addToDolphin();
     kDebug(debugArea()) << "Created device:" << device()->name();
 }
@@ -69,14 +70,14 @@ SftpPlugin::~SftpPlugin()
 void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
-    KUrl kioUrl("kdeconnect://"+device()->id()+"/");
+    KUrl kioUrl("kdeconnect://"+deviceId+"/");
     m_d->placesModel.addPlace(device()->name(), kioUrl, "kdeconnect");
     kDebug(debugArea()) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
-    KUrl kioUrl("kdeconnect://"+device()->id()+"/");
+    KUrl kioUrl("kdeconnect://"+deviceId+"/");
     QModelIndex index = m_d->placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
         m_d->placesModel.removePlace(index);
@@ -133,7 +134,7 @@ bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
         //return new KRun(KUrl::fromLocalFile(mountPoint()), 0);
-        return new KRun(KUrl::fromPathOrUrl("kdeconnect://"+device()->id()), 0);
+        return new KRun(KUrl::fromPathOrUrl("kdeconnect://"+deviceId), 0);
     }
     return false;
 }
@@ -166,7 +167,7 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
 QString SftpPlugin::mountPoint()
 {
     const QString mountDir = KStandardDirs::locateLocal("appdata", "", true, KComponentData("kdeconnect", "kdeconnect"));
-    return QDir(mountDir).absoluteFilePath(device()->id());
+    return QDir(mountDir).absoluteFilePath(deviceId);
 }
 
 void SftpPlugin::onMounted()

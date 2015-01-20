@@ -62,7 +62,7 @@ private Q_SLOTS:
     void onFailed(const QString& message);
     
 private:
-    QString dbusPath() const { return "/modules/kdeconnect/devices/" + device()->id() + "/sftp"; }
+    QString dbusPath() const { return "/modules/kdeconnect/devices/" + deviceId + "/sftp"; }
     void knotify(int type, const QString& text, const QPixmap& icon) const;
     void addToDolphin();
     void removeFromDolphin();
@@ -70,6 +70,7 @@ private:
 private:
     struct Pimpl;
     QScopedPointer<Pimpl> m_d;
+    QString deviceId; //Storing it to avoid accessing device() from the destructor which could cause a crash
 
     QVariantMap remoteDirectories; //Actually a QMap<String, String>, but QDBus preffers this
 };
