@@ -50,6 +50,7 @@ NotificationsModel::NotificationsModel(QObject* parent)
     QHash<int, QByteArray> names = roleNames();
     names.insert(DbusInterfaceRole, "dbusInterface");
     names.insert(AppNameModelRole, "appName");
+    names.insert(IdModelRole, "notificationId");
     names.insert(DismissableModelRole, "dismissable");
     setRoleNames(names);
 
