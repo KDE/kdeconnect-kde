@@ -75,7 +75,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         Notification* noti = new Notification(np, destination, this);
 
         //Do not show updates to existent notification nor answers to a initialization request
-        if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false)) {
+        if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false) && !np.get<bool>("silent", false)) {
             KNotification* notification = new KNotification("notification", KNotification::CloseOnTimeout, this);
             notification->setPixmap(KIcon("preferences-desktop-notification").pixmap(48, 48));
             notification->setComponentData(KComponentData("kdeconnect", "kdeconnect"));
