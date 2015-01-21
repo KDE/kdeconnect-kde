@@ -40,10 +40,10 @@ class KDECONNECTINTERFACES_EXPORT DevicesModel
 
 public:
     enum ModelRoles {
-        NameModelRole = Qt::DisplayRole,
-        IconModelRole = Qt::DecorationRole,
+        NameModelRole   = Qt::DisplayRole,
+        IconModelRole   = Qt::DecorationRole,
         StatusModelRole = Qt::InitialSortOrderRole,
-        IdModelRole = Qt::UserRole,
+        IdModelRole     = Qt::UserRole,
         IconNameRole
     };
     enum StatusFlag {

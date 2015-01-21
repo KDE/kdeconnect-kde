@@ -28,18 +28,17 @@
 #include <KIO/RenameDialog>
 #include <KLocalizedString>
 
-FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination): KJob()
+FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
+    : KJob()
+    , mOrigin(origin)
+    , mDestinationJob(0)
+    , mDeviceName("KDE Connect")
+    , mDestination(destination)
+    , mSpeedBytes(0)
+    , mSize(size)
+    , mWritten(0)
 {
     Q_ASSERT(destination.isLocalFile());
-    //TODO: Make a precondition before calling this function that destination file exists
-    mOrigin = origin;
-    mSize = size;
-    mWritten = 0;
-    m_speedBytes = 0;
-    mDestination = destination;
-    mDestinationJob = 0;
-    mDeviceName = i18nc("Device name that will appear on the jobs", "KDE-Connect");
-
     setCapabilities(Killable);
     qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
 }
@@ -117,14 +116,14 @@ void FileTransferJob::startTransfer()
 {
     setTotalAmount(Bytes, mSize);
     setProcessedAmount(Bytes, 0);
-    m_time = QTime::currentTime();
+    mTime = QTime::currentTime();
     description(this, i18n("Receiving file over KDE-Connect"),
                         QPair<QString, QString>(i18nc("File transfer origin", "From"),
                         QString(mDeviceName)),
                         QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.path()));
 
-    QFile(mDestination.path()).open(QIODevice::WriteOnly | QIODevice::Truncate); //HACK: KIO is so dumb it can't create the file if it doesn't exist
     mDestinationJob = KIO::open(mDestination, QIODevice::WriteOnly);
+    QFile(mDestination.path()).open(QIODevice::WriteOnly | QIODevice::Truncate); //KIO won't create the file if it doesn't exist
     connect(mDestinationJob, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
     connect(mDestinationJob, SIGNAL(result(KJob*)), this, SLOT(openFinished(KJob*)));
 
@@ -165,15 +164,15 @@ void FileTransferJob::readyRead()
 
     if (mSize > -1) {
         //If a least 1 second has passed since last update
-        int secondsSinceLastTime = m_time.secsTo(QTime::currentTime());
-        if (secondsSinceLastTime > 0 && m_speedBytes > 0) {
-            float speed = (mWritten - m_speedBytes) / secondsSinceLastTime;
+        int secondsSinceLastTime = mTime.secsTo(QTime::currentTime());
+        if (secondsSinceLastTime > 0 && mSpeedBytes > 0) {
+            float speed = (mWritten - mSpeedBytes) / secondsSinceLastTime;
             emitSpeed(speed);
 
-            m_time = QTime::currentTime();
-            m_speedBytes = mWritten;
-        } else if(m_speedBytes == 0) {
-            m_speedBytes = mWritten;
+            mTime = QTime::currentTime();
+            mSpeedBytes = mWritten;
+        } else if(mSpeedBytes == 0) {
+            mSpeedBytes = mWritten;
         }
     }
 

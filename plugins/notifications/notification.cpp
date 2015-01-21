@@ -43,3 +43,4 @@ void Notification::dismiss()
         Q_EMIT dismissRequested(this);
     }
 }
+

@@ -38,13 +38,13 @@ class KDECONNECTINTERFACES_EXPORT NotificationsModel
 
 public:
     enum ModelRoles {
-        IconModelRole        = Qt::DecorationRole,
-        NameModelRole        = Qt::DisplayRole,
-        ContentModelRole     = Qt::UserRole,
-        AppNameModelRole     = Qt::UserRole + 1,
-        IdModelRole          = Qt::UserRole + 2,
-        DismissableModelRole = Qt::UserRole + 3,
-        DbusInterfaceRole    = Qt::UserRole + 4
+        IconModelRole      = Qt::DecorationRole,
+        NameModelRole      = Qt::DisplayRole,
+        ContentModelRole   = Qt::UserRole,
+        AppNameModelRole   = Qt::UserRole + 1,
+        IdModelRole,
+        DismissableModelRole,
+        DbusInterfaceRole,
     };
 
     NotificationsModel(QObject* parent = 0);

@@ -48,9 +48,11 @@ NotificationsModel::NotificationsModel(QObject* parent)
 
 QHash<int, QByteArray> NotificationsModel::roleNames() const
 {
+    //Role names for QML
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
-    names.insert(DbusInterfaceRole, "dbusInterface");
-    names.insert(AppNameModelRole, "appName");
+    names.insert(DbusInterfaceRole,    "dbusInterface");
+    names.insert(AppNameModelRole,     "appName");
+    names.insert(IdModelRole,          "notificationId");
     names.insert(DismissableModelRole, "dismissable");
     return names;
 }
@@ -154,7 +156,7 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
 
     NotificationDbusInterface* notification = m_notificationList[index.row()];
 
-    //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache.
+    //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
         case IconModelRole:
             return QIcon::fromTheme("device-notifier").pixmap(32, 32);
