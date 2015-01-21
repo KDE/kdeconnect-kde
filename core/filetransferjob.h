@@ -40,7 +40,7 @@ public:
     FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const KUrl& destination);
     virtual void start();
     KUrl destination() const { return mDestination; }
-    void setDeviceName(const QString &deviceName) {mDeviceName = deviceName;};
+    void setDeviceName(const QString &deviceName) { mDeviceName = deviceName; }
 
 public Q_SLOTS:
     void doStart();
@@ -59,11 +59,10 @@ private:
     KIO::FileJob* mDestinationJob;
     QString mDeviceName;
     KUrl mDestination;
-    QTime m_time;
-    qulonglong m_speedBytes;
+    QTime mTime;
+    qulonglong mSpeedBytes;
     qint64 mSize;
     qint64 mWritten;
-
 };
 
 #endif

@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ANALITZADECLARATIVEPLUGIN_H
-#define ANALITZADECLARATIVEPLUGIN_H
+#ifndef KDECONNECTDECLARATIVEPLUGIN_H
+#define KDECONNECTDECLARATIVEPLUGIN_H
 
 #include <QDeclarativeExtensionPlugin>
 
@@ -30,7 +30,4 @@ class KdeConnectDeclarativePlugin : public QDeclarativeExtensionPlugin
 };
 
 
-
-
-
-#endif // ANALITZADECLARATIVEPLUGIN_H
+#endif
