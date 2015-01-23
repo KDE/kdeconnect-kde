@@ -38,6 +38,11 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     , mSize(size)
     , mWritten(0)
 {
+    if (mDestination.scheme().isEmpty()) {
+        qWarning() << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
+        mDestination.setScheme("file");
+    }
+
     Q_ASSERT(destination.isLocalFile());
     setCapabilities(Killable);
     qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
