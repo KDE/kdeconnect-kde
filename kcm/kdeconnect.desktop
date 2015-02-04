@@ -48,4 +48,4 @@ GenericName[tr]=Akıllı telefonları KDE Plasma Çalışma Alanı'nıza bağlay
 GenericName[uk]=З’єднання смартфонів з вашим робочим простором Плазми KDE
 GenericName[x-test]=xxConnect smartphones to your KDE Plasma Workspacexx
 Categories=Qt;KDE;Settings;HardwareSettings;
-Hidden=true
+NotShowIn=KDE;
