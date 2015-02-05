@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
     app.setApplicationName("kdeconnect");
-    app.setApplicationVersion("0.1");
+    app.setApplicationVersion(QLatin1String(KDECONNECT_VERSION_STRING));
     app.setOrganizationDomain("kde.org");
     app.setQuitOnLastWindowClosed(false);
 

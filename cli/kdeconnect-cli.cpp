@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -28,11 +28,17 @@
 #include <KLocalizedString>
 #include <QTextStream>
 
+#include "../kdeconnect-version.h"
+
 int main(int argc, char** argv)
 {
     QCoreApplication app(argc, argv);
-    KAboutData about("kdeconnect-cli", i18n("kdeconnect-cli"), "1.0", i18n("KDE Connect CLI tool"),
-                     KAboutLicense::GPL, i18n("(C) 2013 Aleix Pol Gonzalez"));
+    KAboutData about("kdeconnect-cli",
+                     "kdeconnect-cli",
+                     QLatin1String(KDECONNECT_VERSION_STRING),
+                     i18n("KDE Connect CLI tool"),
+                     KAboutLicense::GPL, 
+                     i18n("(C) 2015 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
     about.addAuthor( i18n("Aleix Pol Gonzalez"), QString(), "aleixpol@kde.org" );

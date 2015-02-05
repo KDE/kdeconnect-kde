@@ -1,5 +1,10 @@
 project(kdeconnect)
 
+set(KDECONNECT_VERSION_MAJOR 0)
+set(KDECONNECT_VERSION_MINOR 8)
+set(KDECONNECT_VERSION_PATCH 0)
+set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}")
+
 cmake_minimum_required(VERSION 2.8.12)
 
 find_package(ECM 0.0.9 REQUIRED NO_MODULE)
@@ -8,6 +13,8 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DI
 find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Test)
 find_package(KF5 REQUIRED COMPONENTS I18n KIO Notifications ConfigWidgets DBusAddons KCMUtils IconThemes)
 find_package(Qca-qt5 2.1.0 REQUIRED)
+
+configure_file(kdeconnect-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h)
 
 include(KDEInstallDirs)
 include(KDECompilerSettings)
