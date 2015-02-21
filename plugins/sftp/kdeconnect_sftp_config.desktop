@@ -7,6 +7,7 @@ X-KDE-ParentComponents=kdeconnect_sftp
 
 Name=SFTP filebrowser plugin settings
 Name[bg]=Настройки на приставката за достъп до файловете чрез SFTP
+Name[bs]=SFTP pretraživač datoteka postavke dodatka
 Name[ca]=Ajustaments del connector Navegador de fitxers SFTP
 Name[cs]=Nastavení modulu pro prohlížení souborů přes SFTP
 Name[da]=Indstilling af filhåndteringens SFTP-plugin
