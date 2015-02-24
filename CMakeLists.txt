@@ -33,7 +33,7 @@ add_subdirectory(kio)
 add_subdirectory(icon)
 add_subdirectory(interfaces)
 
-add_subdirectory(kded)
+add_subdirectory(daemon)
 add_subdirectory(plugins)
 add_subdirectory(plasmoid)
 add_subdirectory(cli)

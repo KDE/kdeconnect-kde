@@ -88,6 +88,4 @@ public:
     virtual ~SftpDbusInterface();
 };
 
-
-
-#endif // DEVICEINTERFACE_H
+#endif

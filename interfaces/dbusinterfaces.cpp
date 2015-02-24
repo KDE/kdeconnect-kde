@@ -18,11 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #include "dbusinterfaces.h"
 
+QString activatedService() {
+    static const QString service = "org.kde.kdeconnect";
+    QDBusConnection::sessionBus().interface()->startService(service);
+    return service;
+}
+
 DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
-    : OrgKdeKdeconnectDaemonInterface("org.kde.kdeconnect", "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDaemonInterface(activatedService(), "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
 {
 
 }
@@ -33,7 +38,7 @@ DaemonDbusInterface::~DaemonDbusInterface()
 }
 
 DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
-    : OrgKdeKdeconnectDeviceInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceInterface(activatedService(), "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {
 
 }
@@ -44,7 +49,7 @@ DeviceDbusInterface::~DeviceDbusInterface()
 }
 
 DeviceBatteryDbusInterface::DeviceBatteryDbusInterface(const QString& id, QObject* parent)
-    : OrgKdeKdeconnectDeviceBatteryInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceBatteryInterface(activatedService(), "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {
 
 }
@@ -55,7 +60,7 @@ DeviceBatteryDbusInterface::~DeviceBatteryDbusInterface()
 }
 
 DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString& id, QObject* parent)
-    : OrgKdeKdeconnectDeviceNotificationsInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceNotificationsInterface(activatedService(), "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {
 
 }
@@ -66,7 +71,7 @@ DeviceNotificationsDbusInterface::~DeviceNotificationsDbusInterface()
 }
 
 NotificationDbusInterface::NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent)
-    : OrgKdeKdeconnectDeviceNotificationsNotificationInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+deviceId+"/notifications/"+notificationId, QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceNotificationsNotificationInterface(activatedService(), "/modules/kdeconnect/devices/"+deviceId+"/notifications/"+notificationId, QDBusConnection::sessionBus(), parent)
 {
 
 }
@@ -77,7 +82,7 @@ NotificationDbusInterface::~NotificationDbusInterface()
 }
 
 SftpDbusInterface::SftpDbusInterface(const QString& id, QObject* parent)
-    : OrgKdeKdeconnectDeviceSftpInterface("org.kde.kdeconnect", "/modules/kdeconnect/devices/" + id + "/sftp", QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceSftpInterface(activatedService(), "/modules/kdeconnect/devices/" + id + "/sftp", QDBusConnection::sessionBus(), parent)
 {
 
 }
