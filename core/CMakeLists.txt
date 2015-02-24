@@ -10,7 +10,7 @@ add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
 set(kded_kdeconnect_SRCS
-    ${kded_kdeconnect_SRCS}
+    ${backends_kdeconnect_SRCS}
 
     backends/linkprovider.cpp
     backends/devicelink.cpp
