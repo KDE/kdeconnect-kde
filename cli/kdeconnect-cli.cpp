@@ -45,6 +45,8 @@ int main(int argc, char** argv)
     about.addAuthor( i18n("Albert Vaca Cintora"), QString(), "albertvaka@gmail.com" );
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringList("l") << "list-devices", i18n("List all devices")));
+    parser.addOption(QCommandLineOption(QStringList("a") << "list-available", i18n("List available (paired and reachable) devices")));
+    parser.addOption(QCommandLineOption("id-only", i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
     parser.addOption(QCommandLineOption("refresh", i18n("Search for devices in the network and re-establishe connections")));
     parser.addOption(QCommandLineOption("pair", i18n("Request pairing to a said device")));
     parser.addOption(QCommandLineOption("unpair", i18n("Stop pairing to a said device")));
@@ -59,33 +61,45 @@ int main(int argc, char** argv)
     parser.process(app);
     about.processCommandLine(&parser);
 
-    if(parser.isSet("l")) {
+    if(parser.isSet("l") || parser.isSet("a")) {
         DevicesModel devices;
-        for(int i=0, rows=devices.rowCount(); i<rows; ++i) {
-            QModelIndex idx = devices.index(i);
-            QString statusInfo;
-            switch(idx.data(DevicesModel::StatusModelRole).toInt()) {
-                case DevicesModel::StatusPaired:
-                    statusInfo = "(paired)";
-                    break;
-                case DevicesModel::StatusReachable:
-                    statusInfo = "(reachable)";
-                    break;
-                case DevicesModel::StatusReachable | DevicesModel::StatusPaired:
-                    statusInfo = "(paired and reachable)";
-                    break;
-            }
-            QTextStream(stdout) << "- " << idx.data(Qt::DisplayRole).toString()
-                      << ": " << idx.data(DevicesModel::IdModelRole).toString() << ' ' << statusInfo << endl;
+        if (parser.isSet("a")) {
+            devices.setDisplayFilter(DevicesModel::StatusFlag::StatusPaired | DevicesModel::StatusFlag::StatusReachable);
         }
-        QTextStream(stdout) << devices.rowCount() << " devices found" << endl;
+        int deviceCount = devices.rowCount();
+        for(int i=0; i < deviceCount; ++i) {
+            QModelIndex idx = devices.index(i);
+            if (parser.isSet("id-only")) {
+                QTextStream(stdout) << idx.data(DevicesModel::ModelRoles::IdModelRole).toString() << endl;
+            } else {
+                QString statusInfo;
+                switch(idx.data(DevicesModel::StatusModelRole).toInt()) {
+                    case DevicesModel::StatusPaired:
+                        statusInfo = i18n("(paired)");
+                        break;
+                    case DevicesModel::StatusReachable:
+                        statusInfo = i18n("(reachable)");
+                        break;
+                    case DevicesModel::StatusReachable | DevicesModel::StatusPaired:
+                        statusInfo = i18n("(paired and reachable)");
+                        break;
+                }
+                QTextStream(stdout) << "- " << idx.data(Qt::DisplayRole).toString()
+                        << ": " << idx.data(DevicesModel::IdModelRole).toString() << ' ' << statusInfo << endl;
+            }
+        }
+        if (!parser.isSet("id-only")) {
+            QTextStream(stdout) << i18n("%1 device(s) found", deviceCount) << endl;
+        } else if (!deviceCount) {
+            QTextStream(stderr) << i18n("No devices found") << endl;
+        }
     } else if(parser.isSet("refresh")) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
         QString device;
         if(!parser.isSet("device")) {
-            qCritical() << (i18n("No device specified"));
+            QTextStream(stderr) << i18n("No device specified") << endl;
         }
         device = parser.value("device");
         QUrl url;
@@ -96,12 +110,13 @@ int main(int argc, char** argv)
                 QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
                 msg.setArguments(QVariantList() << url.toString());
                 QDBusConnection::sessionBus().call(msg);
-            } else
-                qCritical() << (i18n("Couldn't share %1", url.toString()));
+            } else {
+                QTextStream(stderr) << (i18n("Couldn't share %1", url.toString())) << endl;
+            }
         } else if(parser.isSet("pair")) {
             DeviceDbusInterface dev(device);
             if(dev.isPaired())
-                QTextStream(stdout) << "Already paired" << endl;
+                QTextStream(stderr) << i18n("Already paired") << endl;
             else {
                 QDBusPendingReply<void> req = dev.requestPair();
                 req.waitForFinished();
@@ -109,7 +124,7 @@ int main(int argc, char** argv)
         } else if(parser.isSet("unpair")) {
             DeviceDbusInterface dev(device);
             if(!dev.isPaired())
-                QTextStream(stdout) << "Already not paired" << endl;
+                QTextStream(stderr) << i18n("Already not paired") << endl;
             else {
                 QDBusPendingReply<void> req = dev.unpair();
                 req.waitForFinished();
@@ -127,10 +142,10 @@ int main(int argc, char** argv)
             for(int i=0, rows=notifications.rowCount(); i<rows; ++i) {
                 QModelIndex idx = notifications.index(i);
                 QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString()
-                << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
+                    << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
             }
         } else {
-            qCritical() << i18n("Nothing to be done with the device");
+            QTextStream(stderr) << i18n("Nothing to be done") << endl;
         }
     }
     QMetaObject::invokeMethod(&app, "quit", Qt::QueuedConnection);
