@@ -261,5 +261,15 @@ void KdeConnectKcm::sendPing()
     QDBusConnection::sessionBus().call(msg);
 }
 
+QSize KdeConnectKcm::sizeHint() const
+{
+    return QSize(890,550); //Golden ratio :D
+}
+
+QSize KdeConnectKcm::minimumSizeHint() const
+{
+    return QSize(500,300);
+}
+
 #include "kcm.moc"
 #include "moc_kcm.cpp"

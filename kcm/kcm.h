@@ -51,6 +51,8 @@ public:
 
 private:
     virtual void save();
+    virtual QSize sizeHint() const;
+    virtual QSize minimumSizeHint() const;
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex& current);
