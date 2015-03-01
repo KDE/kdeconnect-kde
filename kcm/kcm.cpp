@@ -68,13 +68,13 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
             this, SLOT(resetSelection()));
     connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)),
             this, SLOT(deviceSelected(QModelIndex)));
-    connect(kcmUi->pair_button, SIGNAL(pressed()),
+    connect(kcmUi->pair_button, SIGNAL(clicked()),
             this, SLOT(requestPair()));
-    connect(kcmUi->unpair_button, SIGNAL(pressed()),
+    connect(kcmUi->unpair_button, SIGNAL(clicked()),
             this, SLOT(unpair()));
-    connect(kcmUi->ping_button, SIGNAL(pressed()),
+    connect(kcmUi->ping_button, SIGNAL(clicked()),
             this, SLOT(sendPing()));
-    connect(kcmUi->refresh_button,SIGNAL(pressed()),
+    connect(kcmUi->refresh_button,SIGNAL(clicked()),
             this, SLOT(refresh()));
 }
 
