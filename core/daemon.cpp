@@ -28,6 +28,7 @@
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
 #include "networkpackage.h"
+#include "backends/bluetooth/bluetoothlinkprovider.h"
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 #include "device.h"
@@ -103,6 +104,11 @@ void Daemon::releaseDiscoveryMode(const QString &key)
     bool oldState = d->mDiscoveryModeAcquisitions.isEmpty();
 
     d->mDiscoveryModeAcquisitions.remove(key);
+
+    //Load backends
+    //d->mLinkProviders.insert(new LoopbackLinkProvider());
+    d->mLinkProviders.insert(new LanLinkProvider());
+    d->mLinkProviders.insert(new BluetoothLinkProvider());
 
     if (oldState != d->mDiscoveryModeAcquisitions.isEmpty()) {
         cleanDevices();

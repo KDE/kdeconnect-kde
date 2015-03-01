@@ -10,9 +10,11 @@ cmake_minimum_required(VERSION 2.8.12)
 find_package(ECM 0.0.9 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake)
 
-find_package(Qt5 5.2 REQUIRED COMPONENTS Quick)
+find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Bluetooth)
+
 find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
 find_package(KF5DocTools)
+
 find_package(Qca-qt5 2.1.0 REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR})

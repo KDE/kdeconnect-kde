@@ -8,6 +8,7 @@ include_directories(
 
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
+add_subdirectory(backends/bluetooth)
 
 find_package(KF5Notifications 5.9 REQUIRED)
 
@@ -17,6 +18,7 @@ set(kdeconnectcore_SRCS
     backends/linkprovider.cpp
     backends/devicelink.cpp
     backends/pairinghandler.cpp
+    backends/devicelinereader.cpp
 
     kdeconnectplugin.cpp
     kdeconnectpluginconfig.cpp
@@ -37,6 +39,7 @@ PUBLIC
     Qt5::Network
     KF5::CoreAddons
     qca-qt5
+    Qt5::Bluetooth
 PRIVATE
     Qt5::DBus
     Qt5::Gui
