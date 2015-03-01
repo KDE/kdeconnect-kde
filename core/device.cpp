@@ -43,6 +43,22 @@
 
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
+QCA::PrivateKey initPrivateKey()
+{
+    QCA::PrivateKey ret;
+    QFile privKey(Device::privateKeyPath());
+    if (privKey.open(QIODevice::ReadOnly))
+        ret = QCA::PrivateKey::fromPEM(privKey.readAll());
+    else {
+        qWarning() << "Could not open the private key" << Device::privateKeyPath();
+    }
+
+    Q_ASSERT(!ret.isNull());
+
+    return ret;
+}
+Q_GLOBAL_STATIC_WITH_ARGS(QCA::PrivateKey, s_privateKey, (initPrivateKey()))
+
 Device::Device(QObject* parent, const QString& id)
     : QObject(parent)
     , m_deviceId(id)
@@ -58,8 +74,6 @@ Device::Device(QObject* parent, const QString& id)
     const QString& key = data.readEntry<QString>("publicKey", QString());
     m_publicKey = QCA::RSAPublicKey::fromPEM(key);
     
-    initPrivateKey();
-
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 }
@@ -74,27 +88,10 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_incomingCapabilities(identityPackage.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet())
     , m_outgoingCapabilities(identityPackage.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet())
 {
-    initPrivateKey();
-
     addLink(identityPackage, dl);
     
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-}
-
-void Device::initPrivateKey()
-{
-    //TODO: It is redundant to have our own private key in every instance of Device, move this to a singleton somewhere (Daemon?)
-    const QString privateKeyPath = QStandardPaths::locate(QStandardPaths::QStandardPaths::DataLocation, QStringLiteral("key.pem"));
-
-    QFile privKey(privateKeyPath);
-    if (privKey.open(QIODevice::ReadOnly))
-        m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
-    else {
-        qWarning() << "Could not open the private key" << privateKeyPath;
-    }
-
-    Q_ASSERT(!m_privateKey.isNull());
 }
 
 Device::~Device()
@@ -274,8 +271,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceName = identityPackage.get<QString>("deviceName");
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
-    Q_ASSERT(!m_privateKey.isNull());
-    link->setPrivateKey(m_privateKey);
+    Q_ASSERT(!s_privateKey->isNull());
+    link->setPrivateKey(*s_privateKey);
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
@@ -313,9 +310,9 @@ void Device::removeLink(DeviceLink* link)
     }
 }
 
-QString Device::privateKeyPath() const
+QString Device::privateKeyPath()
 {
-    return KSharedConfig::openConfig("kdeconnectrc")->group("myself").readEntry("privateKeyPath");
+    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/org.kde.kdeconnect/key.pem");
 }
 
 bool Device::sendPackage(NetworkPackage& np)
@@ -426,7 +423,7 @@ bool Device::sendOwnPublicKey()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", true);
-    np.set("publicKey", m_privateKey.toPublicKey().toPEM());
+    np.set("publicKey", s_privateKey->toPublicKey().toPEM());
     bool success = sendPackage(np);
     return success;
 }

@@ -86,7 +86,7 @@ public:
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
-    QString privateKeyPath() const;
+    static QString privateKeyPath();
     
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
@@ -125,7 +125,6 @@ private:
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;
-    QCA::PrivateKey m_privateKey;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
     int m_protocolVersion;
@@ -142,7 +141,6 @@ private:
     void setAsPaired();
     void storeAsTrusted();
     bool sendOwnPublicKey();
-    void initPrivateKey();
 
 };
 

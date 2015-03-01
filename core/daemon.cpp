@@ -84,10 +84,11 @@ Daemon::Daemon(QObject *parent)
     }
 
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
-    if (!config->group("myself").hasKey("privateKeyPath"))
+
+    const QString privateKeyPath = Device::privateKeyPath();
+    if (!QFile::exists(privateKeyPath))
     {
-        QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
-        const QString privateKeyPath = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QStringLiteral("/key.pem");
+        QDir::root().mkpath(QFileInfo(privateKeyPath).dir().path());
 
         QFile privKey(privateKeyPath);
 
@@ -102,23 +103,12 @@ Daemon::Daemon(QObject *parent)
             qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
         }
 
-        //http://delta.affinix.com/docs/qca/rsatest_8cpp-example.html
-        if (config->group("myself").hasKey("privateKey")) {
-            //Migration from older versions of KDE Connect
-            privKey.write(config->group("myself").readEntry<QString>("privateKey",QCA::KeyGenerator().createRSA(2048).toPEM()).toLatin1());
-        } else {
-            privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toLatin1());
-        }
-        privKey.close();
-
-        //TODO: This should not store an absolute path: it will cause problems if the home folder changes, .kde4 becomes .kde (debian?), or similar...
-        config->group("myself").writeEntry("privateKeyPath", privateKeyPath);
-        config->sync();
+        privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toLatin1());
     }
 
-    if (QFile::permissions(config->group("myself").readEntry("privateKeyPath")) != strict)
+    if (QFile::permissions(privateKeyPath) != strict)
     {
-        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private file " << config->group("myself").readEntry("privateKeyPath");
+        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private file " << privateKeyPath;
     }
 
     //Register on DBus
