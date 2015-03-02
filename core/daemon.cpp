@@ -162,6 +162,17 @@ void Daemon::onDeviceReachableStatusChanged()
     }
 }
 
+void Daemon::setAnnouncedName(QString name)
+{
+    KdeConnectConfig::instance()->setName(name);
+    forceOnNetworkChange();
+}
+
+QString Daemon::announcedName()
+{
+    return KdeConnectConfig::instance()->name();
+}
+
 Daemon::~Daemon()
 {
 

@@ -35,7 +35,6 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
-
 #include "ui_kcm.h"
 #include "interfaces/dbusinterfaces.h"
 #include "interfaces/devicesmodel.h"
@@ -46,11 +45,12 @@ K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KAboutData::pluginData("kdeconnect-kcm"), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
+    , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
     , currentDevice(0)
-    //, config(KSharedConfig::openConfig("kdeconnectrc"))
 {
     kcmUi->setupUi(this);
+
 
     kcmUi->deviceList->setIconSize(QSize(32,32));
 
@@ -61,6 +61,10 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->deviceInfo->setVisible(false);
     kcmUi->progressBar->setVisible(false);
     kcmUi->messages->setVisible(false);
+
+    kcmUi->rename_label->setText(daemon->announcedName());
+    kcmUi->rename_edit->setText(daemon->announcedName());
+    setRenameMode(false);
 
     setButtons(KCModule::NoAdditionalButton);
 
@@ -76,6 +80,38 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
             this, SLOT(sendPing()));
     connect(kcmUi->refresh_button,SIGNAL(clicked()),
             this, SLOT(refresh()));
+    connect(kcmUi->rename_edit,SIGNAL(returnPressed()),
+            this, SLOT(renameDone()));
+    connect(kcmUi->renameDone_button,SIGNAL(clicked()),
+            this, SLOT(renameDone()));
+    connect(kcmUi->renameShow_button,SIGNAL(clicked()),
+            this, SLOT(renameShow()));
+
+}
+
+void KdeConnectKcm::renameShow()
+{
+    setRenameMode(true);
+}
+
+void KdeConnectKcm::renameDone()
+{
+    QString newName = kcmUi->rename_edit->text();
+    if (newName.isEmpty()) {
+        //Rollback changes
+        kcmUi->rename_edit->setText(kcmUi->rename_label->text());
+    } else {
+        kcmUi->rename_label->setText(newName);
+        daemon->setAnnouncedName(newName);
+    }
+    setRenameMode(false);
+}
+
+void KdeConnectKcm::setRenameMode(bool b) {
+    kcmUi->renameDone_button->setVisible(b);
+    kcmUi->rename_edit->setVisible(b);
+    kcmUi->renameShow_button->setVisible(!b);
+    kcmUi->rename_label->setVisible(!b);
 }
 
 KdeConnectKcm::~KdeConnectKcm()
@@ -85,8 +121,7 @@ KdeConnectKcm::~KdeConnectKcm()
 
 void KdeConnectKcm::refresh()
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
-    QDBusConnection::sessionBus().call(msg);
+    daemon->forceOnNetworkChange();
 }
 
 void KdeConnectKcm::resetSelection()

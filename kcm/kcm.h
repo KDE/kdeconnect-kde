@@ -26,6 +26,7 @@
 
 class QModelIndex;
 class DeviceDbusInterface;
+class DaemonDbusInterface;
 class DevicesModel;
 class DevicesSortProxyModel;
 
@@ -56,9 +57,13 @@ private Q_SLOTS:
     void pairingFailed(const QString& error);
     void unpaired();
     void refresh();
+    void renameShow();
+    void renameDone();
+    void setRenameMode(bool b);
 
 private:
     Ui::KdeConnectKcmUi* kcmUi;
+    DaemonDbusInterface* daemon;
     DevicesModel* devicesModel;
     DevicesSortProxyModel* sortProxyModel;
     DeviceDbusInterface* currentDevice;
