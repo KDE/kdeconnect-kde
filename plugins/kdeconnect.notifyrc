@@ -51,6 +51,7 @@ Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/pairingRequest]
 Name=Pairing Request
+Name[bs]=Zahtjev za uparivanje
 Name[ca]=Sol·licitud d'aparellament
 Name[cs]=Požadavek na párování
 Name[da]=Parringsanmodning
@@ -68,6 +69,7 @@ Name[sv]=Begäran om ihopparning
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
+Comment[bs]=Primljen zahtjev za uparivanje od uređaja
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[cs]=Požadavek na párování přijat ze zařízení
 Comment[da]=Parringsanmodning modtaget fra en enhed
@@ -394,39 +396,7 @@ Action=Popup
 
 [Event/transferReceived]
 Name=File Transfer
-Name[ca]=Sol·licitud d'aparellament
-Name[cs]=Požadavek na párování
-Name[da]=Parringsanmodning
-Name[de]=Verbindungsanfrage
-Name[es]=Petición de vinculación
-Name[fi]=Paripyyntö
-Name[hu]=Párosítási kérés
-Name[ko]=페어링 요청
-Name[nl]=Verzoek om een paar te maken
-Name[pl]=Żądanie parowania
-Name[pt]=Pedido de Emparelhamento
-Name[pt_BR]=Solicitação de emparelhamento
-Name[sk]=Požiadavka na spárovanie
-Name[sv]=Begäran om ihopparning
-Name[uk]=Запит щодо пов’язування
-Name[x-test]=xxPairing Requestxx
-Comment=Pairing request received from a devices
-Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
-Comment[cs]=Požadavek na párování přijat ze zařízení
-Comment[da]=Parringsanmodning modtaget fra en enhed
-Comment[de]=Verbindungsanfrage von einem Gerät erhalten
-Comment[es]=Petición de vinculación recibida desde un dispositivo
-Comment[fi]=Saatiin paripyyntö laitteelta
-Comment[hu]=Párosítási kérés érkezett egy eszköztől
-Comment[ko]=장치에서 페어링 요청을 받음
-Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
-Comment[pl]=Otrzymano żądanie parowania z urządzeń
-Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
-Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
-Comment[sk]=Požiadavka na spárovanie prijatá zo zariadenia
-Comment[sv]=Begäran om ihopparning mottagen från en apparat
-Comment[uk]=Від пристрою отримано запит щодо пов’язування
-Comment[x-test]=xxPairing request received from a devicesxx
+Comment=Incoming file
 Action=Popup
 
 
