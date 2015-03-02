@@ -18,6 +18,7 @@ set(kded_kdeconnect_SRCS
     kdeconnectplugin.cpp
     pluginloader.cpp
 
+    kdeconnectconfig.cpp
     dbushelper.cpp
     networkpackage.cpp
     filetransferjob.cpp

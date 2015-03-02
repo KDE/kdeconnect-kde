@@ -44,8 +44,6 @@ public:
     virtual bool sendPackage(NetworkPackage& np) = 0;
     virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) = 0;
 
-    void setPrivateKey(const QCA::PrivateKey& privateKey) { mPrivateKey = privateKey; }
-
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
 

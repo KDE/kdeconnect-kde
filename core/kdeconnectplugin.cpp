@@ -25,10 +25,6 @@ struct KdeConnectPluginPrivate
 {
     Device* mDevice;
     QSet<QString> mOutgoingTypes;
-
-    // The Initializer object sets things up, and also does cleanup when it goes out of scope
-    // Since the plugins use their own memory, they need their own initializer in order to send encrypted packages
-    QCA::Initializer init;
 };
 
 KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)

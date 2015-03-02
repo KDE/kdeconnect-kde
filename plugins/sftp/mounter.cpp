@@ -26,6 +26,7 @@
 
 #include "mounter.h"
 #include "sftp_debug.h"
+#include <kdeconnectconfig.h>
 
 static const char* idleTimeout_c = "idleTimeout";
 
@@ -133,7 +134,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-p" << np.get<QString>("port")
         << "-d"
         << "-f"
-        << "-o" << "IdentityFile=" + m_sftp->device()->privateKeyPath()
+        << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
         << "-o" << "UserKnownHostsFile=/dev/null"; //Prevent storing as a known host
     

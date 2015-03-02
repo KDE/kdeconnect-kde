@@ -21,23 +21,19 @@
 #include "networkpackage.h"
 #include "core_debug.h"
 
-#include <KSharedConfig>
-#include <KConfigGroup>
-
 #include <QMetaObject>
 #include <QMetaProperty>
 #include <QByteArray>
 #include <QDataStream>
-#include <QHostInfo>
-#include <QSslKey>
 #include <QDateTime>
-#include <qjsondocument.h>
+#include <QJsonDocument>
 #include <QtCrypto>
 #include <QDebug>
 
 #include "dbushelper.h"
 #include "filetransferjob.h"
 #include "pluginloader.h"
+#include "kdeconnectconfig.h"
 
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 5;
@@ -53,15 +49,15 @@ NetworkPackage::NetworkPackage(const QString& type)
 
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    const QString id = config->group("myself").readEntry<QString>("id","");
+    KdeConnectConfig* config = KdeConnectConfig::instance();
+    const QString id = config->deviceId();
     np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->mType = PACKAGE_TYPE_IDENTITY;
     np->mPayload = QSharedPointer<QIODevice>();
     np->mPayloadSize = 0;
     np->set("deviceId", id);
-    np->set("deviceName", qgetenv("USER") + "@" + QHostInfo::localHostName());
-    np->set("deviceType", "desktop"); //TODO: Detect laptop, tablet, phone...
+    np->set("deviceName", config->name());
+    np->set("deviceType", config->deviceType());
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
     np->set("SupportedIncomingInterfaces", PluginLoader::instance()->incomingInterfaces().join(","));
     np->set("SupportedOutgoingInterfaces", PluginLoader::instance()->outgoingInterfaces().join(","));

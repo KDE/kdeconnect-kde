@@ -30,10 +30,8 @@
 #include <QTcpServer>
 #include <QUdpSocket>
 
-#include <KSharedConfig>
-#include <KConfigGroup>
-
 #include "landevicelink.h"
+#include <kdeconnectconfig.h>
 
 void LanLinkProvider::configureSocket(QTcpSocket* socket)
 {
@@ -124,10 +122,7 @@ void LanLinkProvider::newUdpConnection()
             return;
         }
 
-        KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-        const QString myId = config->group("myself").readEntry<QString>("id","");
-
-        if (receivedPackage->get<QString>("deviceId") == myId) {
+        if (receivedPackage->get<QString>("deviceId") == KdeConnectConfig::instance()->deviceId()) {
             //kDebug(debugArea()) << "Ignoring my own broadcast";
             delete receivedPackage;
             return;

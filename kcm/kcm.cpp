@@ -142,7 +142,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
         }
     }
 
-    //FIXME: KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
+    //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
     kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
@@ -159,9 +159,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 
     KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
     QList<KPluginInfo> scriptinfos = KPluginInfo::fromServices(offers);
-
-    QString path = QStandardPaths::locate(QStandardPaths::ConfigLocation, "kdeconnect/", QStandardPaths::LocateDirectory);
-    KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(path + currentDevice->id());
+    KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
     kcmUi->pluginSelector->addPlugins(scriptinfos, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),

@@ -23,9 +23,6 @@
 
 #include <QDebug>
 #include <QDBusInterface>
-
-#include <KSharedConfig>
-#include <KConfigGroup>
 #include <QIcon>
 
 #include "dbusinterfaces.h"

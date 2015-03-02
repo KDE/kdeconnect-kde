@@ -19,6 +19,7 @@
  */
 
 #include "devicelink.h"
+#include "kdeconnectconfig.h"
 #include "linkprovider.h"
 
 DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
@@ -29,5 +30,7 @@ DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
     Q_ASSERT(!deviceId.isEmpty());
 
     setProperty("deviceId", deviceId);
+
+    mPrivateKey = KdeConnectConfig::instance()->privateKey();
 }
 

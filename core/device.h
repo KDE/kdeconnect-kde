@@ -62,7 +62,7 @@ class KDECONNECTCORE_EXPORT Device
 
 public:
     /**
-     * Reads the @p device from KConfig
+     * Restores the @p device from the saved configuration
      *
      * We already know it but we need to wait for an incoming DeviceLink to communicate
      */
@@ -85,8 +85,6 @@ public:
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
-
-    static QString privateKeyPath();
     
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
@@ -96,6 +94,8 @@ public:
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
+
+    Q_SCRIPTABLE QString pluginsConfigFile() const;
 
 public Q_SLOTS:
     ///sends a @p np package to the device
@@ -139,7 +139,6 @@ private:
     QSet<QString> m_outgoingCapabilities;
 
     void setAsPaired();
-    void storeAsTrusted();
     bool sendOwnPublicKey();
 
 };

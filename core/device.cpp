@@ -33,6 +33,7 @@
 #include <KNotification>
 #include <KLocalizedString>
 #include <QIcon>
+#include <QDir>
 
 #include "core_debug.h"
 #include "kdeconnectplugin.h"
@@ -40,24 +41,9 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 #include "networkpackage.h"
+#include "kdeconnectconfig.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
-
-QCA::PrivateKey initPrivateKey()
-{
-    QCA::PrivateKey ret;
-    QFile privKey(Device::privateKeyPath());
-    if (privKey.open(QIODevice::ReadOnly))
-        ret = QCA::PrivateKey::fromPEM(privKey.readAll());
-    else {
-        qWarning() << "Could not open the private key" << Device::privateKeyPath();
-    }
-
-    Q_ASSERT(!ret.isNull());
-
-    return ret;
-}
-Q_GLOBAL_STATIC_WITH_ARGS(QCA::PrivateKey, s_privateKey, (initPrivateKey()))
 
 Device::Device(QObject* parent, const QString& id)
     : QObject(parent)
@@ -65,14 +51,11 @@ Device::Device(QObject* parent, const QString& id)
     , m_pairStatus(Device::Paired)
     , m_protocolVersion(NetworkPackage::ProtocolVersion) //We don't know it yet
 {
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    KConfigGroup data = config->group("trusted_devices").group(id);
+    KdeConnectConfig::DeviceInfo info = KdeConnectConfig::instance()->getTrustedDevice(id);
 
-    m_deviceName = data.readEntry<QString>("deviceName", QLatin1String("unnamed"));
-    m_deviceType = str2type(data.readEntry<QString>("deviceType", QLatin1String("unknown")));
-
-    const QString& key = data.readEntry<QString>("publicKey", QString());
-    m_publicKey = QCA::RSAPublicKey::fromPEM(key);
+    m_deviceName = info.deviceName;
+    m_deviceType = str2type(info.deviceType);
+    m_publicKey = QCA::RSAPublicKey::fromPEM(info.publicKey);
     
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -117,8 +100,7 @@ void Device::reloadPlugins()
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
-        QString path = QStandardPaths::locate(QStandardPaths::ConfigLocation, "kdeconnect/", QStandardPaths::LocateDirectory) + id();
-        KConfigGroup pluginStates = KSharedConfig::openConfig(path)->group("Plugins");
+        KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();
 
@@ -183,6 +165,11 @@ void Device::reloadPlugins()
 
 }
 
+QString Device::pluginsConfigFile() const
+{
+    return KdeConnectConfig::instance()->deviceConfigDir(id()).absoluteFilePath("config");
+}
+
 void Device::requestPair()
 {
     switch(m_pairStatus) {
@@ -226,8 +213,7 @@ void Device::unpair()
 {
     m_pairStatus = Device::NotPaired;
 
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    config->group("trusted_devices").deleteGroup(id());
+    KdeConnectConfig::instance()->removeTrustedDevice(id());
 
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
@@ -271,12 +257,9 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceName = identityPackage.get<QString>("deviceName");
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
-    Q_ASSERT(!s_privateKey->isNull());
-    link->setPrivateKey(*s_privateKey);
-
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
-    //Actually, we should not destroy them or the provider will store an invalid ref!
+    //-- Actually, we should not destroy them or the provider will store an invalid ref!
 
     connect(link, SIGNAL(receivedPackage(NetworkPackage)),
             this, SLOT(privateReceivedPackage(NetworkPackage)));
@@ -308,11 +291,6 @@ void Device::removeLink(DeviceLink* link)
         reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
-}
-
-QString Device::privateKeyPath()
-{
-    return QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/org.kde.kdeconnect/key.pem");
 }
 
 bool Device::sendPackage(NetworkPackage& np)
@@ -413,8 +391,10 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         }
     } else {
         qCDebug(KDECONNECT_CORE) << "device" << name() << "not paired, ignoring package" << np.type();
-        unpair();
 
+        //FIXME: Uncommenting this fixes a bug where trying to pair from kde does not work, but I want to investigate the root cause of the bug first (01/03/15)
+        //if (m_pairStatus != Device::Requested)
+            unpair();
     }
 
 }
@@ -423,7 +403,7 @@ bool Device::sendOwnPublicKey()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", true);
-    np.set("publicKey", s_privateKey->toPublicKey().toPEM());
+    np.set("publicKey", KdeConnectConfig::instance()->publicKey().toPEM());
     bool success = sendPackage(np);
     return success;
 }
@@ -466,21 +446,13 @@ void Device::setAsPaired()
 
     m_pairingTimeut.stop(); //Just in case it was started
 
-    storeAsTrusted(); //Save to the config as trusted
+    //Save device info in the config
+    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM());
 
     reloadPlugins(); //Will actually load the plugins
 
     Q_EMIT pairingSuccesful();
 
-}
-
-void Device::storeAsTrusted()
-{
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-    config->group("trusted_devices").group(id()).writeEntry("publicKey", m_publicKey.toPEM());
-    config->group("trusted_devices").group(id()).writeEntry("deviceName", name());
-    config->group("trusted_devices").group(id()).writeEntry("deviceType", type2str(m_deviceType));
-    config->sync();
 }
 
 QStringList Device::availableLinks() const

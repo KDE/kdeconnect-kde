@@ -20,23 +20,14 @@
 
 #include "daemon.h"
 
-#include <QDir>
-#include <QUuid>
-#include <QFile>
-#include <QFileInfo>
 #include <QDBusConnection>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
-#include <QtCrypto>
-#include <QStandardPaths>
 #include <QNetworkAccessManager>
-
-#include <KConfig>
-#include <KConfigGroup>
-#include <KSharedConfig>
+#include <QDebug>
 
 #include "core_debug.h"
-#include "dbushelper.h"
+#include "kdeconnectconfig.h"
 #include "networkpackage.h"
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
@@ -45,7 +36,6 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
-#include <QDebug>
 struct DaemonPrivate
 {
     //Different ways to find devices and connect to them
@@ -53,10 +43,6 @@ struct DaemonPrivate
 
     //Every known device
     QMap<QString, Device*> mDevices;
-
-    // The Initializer object sets things up, and also does cleanup when it goes out of scope
-    // Note it's not being used anywhere. That's inteneded
-    QCA::Initializer mQcaInitializer;
 };
 
 Daemon::Daemon(QObject *parent)
@@ -65,63 +51,12 @@ Daemon::Daemon(QObject *parent)
 {
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-
-    if (!config->group("myself").hasKey("id")) {
-        QString uuid = QUuid::createUuid().toString();
-        DbusHelper::filterNonExportableCharacters(uuid);
-        config->group("myself").writeEntry("id", uuid);
-        config->sync();
-        qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
-    }
-
-    //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
-    if(!QCA::isSupported("rsa")) {
-        //TODO: Display this in a notification or another visible way
-        qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
-                   << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
-        return;
-    }
-
-    const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
-
-    const QString privateKeyPath = Device::privateKeyPath();
-    if (!QFile::exists(privateKeyPath))
-    {
-        QDir::root().mkpath(QFileInfo(privateKeyPath).dir().path());
-
-        QFile privKey(privateKeyPath);
-
-        if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))
-        {
-            qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not create private keys file: " << privateKeyPath;
-            return;
-        }
-
-        if (!privKey.setPermissions(strict))
-        {
-            qCDebug(KDECONNECT_CORE) << "Error: KDE Connect could not set permissions for private file: " << privateKeyPath;
-        }
-
-        privKey.write(QCA::KeyGenerator().createRSA(2048).toPEM().toLatin1());
-    }
-
-    if (QFile::permissions(privateKeyPath) != strict)
-    {
-        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private file " << privateKeyPath;
-    }
-
-    //Register on DBus
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
-
-    //Load backends (hardcoded by now, should be plugins in a future)
+    //Load backends
     d->mLinkProviders.insert(new LanLinkProvider());
     //d->mLinkProviders.insert(new LoopbackLinkProvider());
 
     //Read remebered paired devices
-    const KConfigGroup& known = config->group("trusted_devices");
-    const QStringList& list = known.groupList();
+    const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
     Q_FOREACH(const QString& id, list) {
         Device* device = new Device(this, id);
         connect(device, SIGNAL(reachableStatusChanged()),
@@ -147,6 +82,10 @@ Daemon::Daemon(QObject *parent)
                 a, SLOT(onNetworkChange(QNetworkSession::State)));
     }
 
+    //Register on DBus
+    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
+    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
+
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon started";
 }
 
@@ -158,7 +97,6 @@ void Daemon::setDiscoveryEnabled(bool b)
         else
             a->onStop();
     }
-
 }
 
 void Daemon::forceOnNetworkChange()
@@ -181,7 +119,6 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyVisible) const
 
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
-
     const QString& id = identityPackage.get<QString>("deviceId");
 
     //qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
@@ -201,12 +138,10 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     }
 
     Q_EMIT deviceVisibilityChanged(id, true);
-
 }
 
 void Daemon::onDeviceReachableStatusChanged()
 {
-
     Device* device = (Device*)sender();
     QString id = device->id();
 
@@ -217,6 +152,7 @@ void Daemon::onDeviceReachableStatusChanged()
     if (!device->isReachable()) {
 
         if (!device->isPaired()) {
+
             qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
             Q_EMIT deviceRemoved(id);
             d->mDevices.remove(id);
@@ -224,7 +160,6 @@ void Daemon::onDeviceReachableStatusChanged()
         }
 
     }
-
 }
 
 Daemon::~Daemon()

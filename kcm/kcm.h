@@ -21,18 +21,10 @@
 #ifndef KDECONNECTKCM_H
 #define KDECONNECTKCM_H
 
+#include <KCModule>
 #include <QStandardItemModel>
-#include <QDBusConnection>
-
-#include <kcmodule.h>
-#include <ksharedconfig.h>
 
 class QModelIndex;
-class AccountsModel;
-class AccountWidget;
-class QStackedLayout;
-class QItemSelectionModel;
-class QDBusInterface;
 class DeviceDbusInterface;
 class DevicesModel;
 class DevicesSortProxyModel;
