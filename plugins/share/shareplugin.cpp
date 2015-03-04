@@ -52,22 +52,16 @@ QUrl SharePlugin::destinationDir() const
     //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
     KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
     const QString downloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    QUrl dir = QUrl::fromLocalFile(config->group("receive").readEntry("path", downloadPath));
+    QString dir = config->group("receive").readEntry("path", downloadPath);
 
-    if (!dir.toLocalFile().endsWith('/')) {
-        dir.setPath(dir.toLocalFile() + '/');
+    if (dir.contains("%1")) {
+        dir = dir.arg(device()->name());
     }
 
-    QString url = dir.toLocalFile();
+//     qCDebug(KDECONNECT_PLUGIN_SHARE) << dir;
+    QDir().mkpath(dir);
 
-    if (url.contains("%1")) {
-        url = url.arg(device()->name());
-    }
-
-    qCDebug(KDECONNECT_PLUGIN_SHARE) << url;
-    QDir().mkpath(url);
-
-    return url;
+    return QUrl(dir);
 }
 
 bool SharePlugin::receivePackage(const NetworkPackage& np)
@@ -96,10 +90,9 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
     if (np.hasPayload()) {
         //qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file";
-        QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
-        QUrl destination = destinationDir();
-        destination = destination.adjusted(QUrl::StripTrailingSlash);
-        destination.setPath(destination.toLocalFile() + '/' + filename);
+        const QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
+        const QString dir = destinationDir().adjusted(QUrl::StripTrailingSlash).toString();
+        const QUrl destination(dir + '/' + filename);
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         job->setDeviceName(device()->name());
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
