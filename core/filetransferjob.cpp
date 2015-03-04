@@ -66,8 +66,8 @@ void FileTransferJob::doStart()
         QString(mDeviceName))
     );
     QUrl destCheck = mDestination;
-    if (QFile::exists(destCheck.path())) {
-        QFileInfo destInfo(destCheck.path());
+    if (QFile::exists(destCheck.toLocalFile())) {
+        QFileInfo destInfo(destCheck.toLocalFile());
         KIO::RenameDialog *dialog = new KIO::RenameDialog(Q_NULLPTR,
             i18n("Incoming file exists"),
             QUrl(mDeviceName + ":/" + destCheck.fileName()),
@@ -102,7 +102,7 @@ void FileTransferJob::renameDone(int result)
     case KIO::R_OVERWRITE:
     {
         // Delete the old file if exists
-        QFile oldFile(mDestination.path());
+        QFile oldFile(mDestination.toLocalFile());
         if (oldFile.exists()) {
             oldFile.remove();
         }
@@ -125,10 +125,10 @@ void FileTransferJob::startTransfer()
     description(this, i18n("Receiving file over KDE-Connect"),
                         QPair<QString, QString>(i18nc("File transfer origin", "From"),
                         QString(mDeviceName)),
-                        QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.path()));
+                        QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
     mDestinationJob = KIO::open(mDestination, QIODevice::WriteOnly);
-    QFile(mDestination.path()).open(QIODevice::WriteOnly | QIODevice::Truncate); //KIO won't create the file if it doesn't exist
+    QFile(mDestination.toLocalFile()).open(QIODevice::WriteOnly | QIODevice::Truncate); //KIO won't create the file if it doesn't exist
     connect(mDestinationJob, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
     connect(mDestinationJob, SIGNAL(result(KJob*)), this, SLOT(openFinished(KJob*)));
 

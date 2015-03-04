@@ -54,8 +54,8 @@ QUrl SharePlugin::destinationDir() const
     const QString downloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
     QUrl dir = QUrl::fromLocalFile(config->group("receive").readEntry("path", downloadPath));
 
-    if (!dir.path().endsWith('/')) {
-        dir.setPath(dir.path() + '/');
+    if (!dir.toLocalFile().endsWith('/')) {
+        dir.setPath(dir.toLocalFile() + '/');
     }
 
     QString url = dir.toLocalFile();
@@ -99,7 +99,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         QUrl destination = destinationDir();
         destination = destination.adjusted(QUrl::StripTrailingSlash);
-        destination.setPath(destination.path() + '/' + filename);
+        destination.setPath(destination.toLocalFile() + '/' + filename);
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         job->setDeviceName(device()->name());
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
