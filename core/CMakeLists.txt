@@ -36,7 +36,6 @@ PRIVATE
     Qt5::DBus
     Qt5::Gui
     KF5::KIOWidgets
-    KF5::KCMUtils
     KF5::I18n
     KF5::ConfigCore
     KF5::Notifications
