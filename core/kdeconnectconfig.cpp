@@ -32,7 +32,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
-#include <QApplication>
+#include <QCoreApplication>
 #include <QHostInfo>
 
 #include "core_debug.h"
@@ -94,7 +94,7 @@ KdeConnectConfig::KdeConnectConfig()
         if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
             //TODO: Display this in a more visible way (notification?)
             qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not create private key file: " << keyPath;
-            QApplication::exit(-1);
+            QCoreApplication::exit(-1);
         }
         privKey.setPermissions(strict);
 
