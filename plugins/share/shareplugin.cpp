@@ -112,7 +112,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
             QDesktopServices::openUrl(QUrl::fromLocalFile(tmpFile.fileName()));
         }
     } else if (np.has("url")) {
-        QUrl url(np.get<QString>("url"));
+        QUrl url = QUrl::fromEncoded(np.get<QByteArray>("url"));
         QDesktopServices::openUrl(url);
     } else {
         kDebug(debugArea()) << "Error: Nothing attached!";
