@@ -23,6 +23,8 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <KNotification>
+#include <KLocalizedString>
 
 #include <QtCrypto>
 #include <QFile>
@@ -57,13 +59,15 @@ KdeConnectConfig* KdeConnectConfig::instance()
 }
 
 KdeConnectConfig::KdeConnectConfig()
-    : d(new KdeConnectConfigPrivate) {
-
+    : d(new KdeConnectConfigPrivate)
+{
     //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
-        //TODO: Display this in a more visible way (notification?)
-        qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not find support for RSA in your QCA installation, if your distribution provides"
-        << "separate packages for QCA-ossl and QCA-gnupg plugins, make sure you have them installed and try again";
+        KNotification::event(KNotification::Error,
+                             QLatin1String("KDE Connect failed to start"), //Should not happen, not worth i18n
+                             QLatin1String("Could not find support for RSA in your QCA installation. If your"
+                                  "distribution provides separate packages for QCA-ossl and QCA-gnupg,"
+                                  "make sure you have them installed and try again."));
         return;
     }
 
@@ -85,27 +89,26 @@ KdeConnectConfig::KdeConnectConfig()
 
     QString keyPath = privateKeyPath();
     QFile privKey(keyPath);
-    if (privKey.exists() && privKey.open(QIODevice::ReadOnly))
-    {
+    if (privKey.exists() && privKey.open(QIODevice::ReadOnly)) {
+
         d->privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
-    }
-    else
-    {
-        if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
-            //TODO: Display this in a more visible way (notification?)
-            qCCritical(KDECONNECT_CORE) << "Error: KDE Connect could not create private key file: " << keyPath;
-            QCoreApplication::exit(-1);
-        }
-        privKey.setPermissions(strict);
+
+    } else {
 
         d->privateKey = QCA::KeyGenerator().createRSA(2048);
 
-        privKey.write(d->privateKey.toPEM().toLatin1());
+        if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
+            KNotification::event(KNotification::StandardEvent::Error, QLatin1String("KDE Connect"),
+                                 i18n("Could not store private key file: %1", keyPath));
+        } else {
+            privKey.setPermissions(strict);
+            privKey.write(d->privateKey.toPEM().toLatin1());
+        }
     }
 
     //Extra security check
     if (QFile::permissions(keyPath) != strict) {
-        qCDebug(KDECONNECT_CORE) << "Error: KDE Connect detects wrong permissions for private key file " << keyPath;
+        qCDebug(KDECONNECT_CORE) << "Warning: KDE Connect private key file has too open permissions " << keyPath;
     }
 }
 
