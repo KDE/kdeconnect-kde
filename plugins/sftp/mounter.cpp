@@ -28,9 +28,7 @@
 #include "sftp_debug.h"
 #include <kdeconnectconfig.h>
 
-static const char* idleTimeout_c = "idleTimeout";
-
-Mounter::Mounter(SftpPlugin* sftp, int idleTimeout)
+Mounter::Mounter(SftpPlugin* sftp)
     : QObject(sftp)
     , m_sftp(sftp)
     , m_proc(0)
@@ -47,17 +45,9 @@ Mounter::Mounter(SftpPlugin* sftp, int idleTimeout)
     connect(this, SIGNAL(mounted()), &m_connectTimer, SLOT(stop()));
     connect(this, SIGNAL(failed(QString)), &m_connectTimer, SLOT(stop()));
 
-    if (idleTimeout)
-    {
-        connect(&m_idleTimer, SIGNAL(timeout()), this, SLOT(onIdleTimeout()));
-    }
-
     m_connectTimer.setInterval(10000);
     m_connectTimer.setSingleShot(true);
-    
-    m_idleTimer.setInterval(idleTimeout);
-    m_idleTimer.setSingleShot(false);
-    
+
     QTimer::singleShot(0, this, SLOT(start()));
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created";
 }
@@ -160,11 +150,6 @@ void Mounter::onStarted()
     connect(m_proc.data(), SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessOut()));
     
     m_lastActivity = QDateTime::currentDateTime();
-    
-    if (m_idleTimer.interval())
-    {
-        m_idleTimer.start();
-    }
 }
 
 void Mounter::onError(QProcess::ProcessError error)
@@ -182,15 +167,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     if (exitStatus == QProcess::NormalExit)
     {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process finished (exit code: " << exitCode << ")";
-        
-        if (m_proc->property(idleTimeout_c).toBool())
-        {
-            Q_EMIT unmounted(true);
-        }
-        else
-        {
-            Q_EMIT unmounted(false);
-        }
+        Q_EMIT unmounted();
     }
     else
     {
@@ -209,17 +186,6 @@ void Mounter::onMountTimeout()
     Q_EMIT failed(i18n("Failed to mount filesystem: device not responding"));
 }
 
-void Mounter::onIdleTimeout()
-{
-    Q_ASSERT(m_proc.data());
-    
-    if (m_lastActivity.secsTo(QDateTime::currentDateTime()) >= m_idleTimer.interval() / 1000)
-    {
-        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Timeout: there is no activity on moutned filesystem";
-        m_proc->setProperty(idleTimeout_c, true);
-        unmount();
-    }
-}
 
 void Mounter::readProcessOut()
 {
@@ -234,7 +200,6 @@ void Mounter::start()
     np.set("startBrowsing", true);
     np.set("start", true);
     np.set("id", m_id);
-    np.set("idleTimeout", m_idleTimer.interval());
     m_sftp->sendPackage(np);
     
     m_connectTimer.start();
@@ -253,8 +218,6 @@ void Mounter::cleanMountPoint()
 
 void Mounter::unmount()
 {
-    m_idleTimer.stop();
-    
     if (m_proc)
     {
         cleanMountPoint();

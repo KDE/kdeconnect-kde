@@ -25,9 +25,6 @@
 #include <QDir>
 #include <QDebug>
 
-#include <KConfig>
-#include <KConfigGroup>
-#include <KIconLoader>
 #include <KLocalizedString>
 #include <KNotification>
 #include <KRun>
@@ -35,7 +32,6 @@
 #include <KFilePlacesModel>
 #include <KPluginFactory>
 
-#include "sftp_config.h"
 #include "mounter.h"
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
@@ -100,15 +96,9 @@ void SftpPlugin::mount()
         return;
     }
 
-    KConfigGroup cfg = SftpConfig::config()->group("main");
-    
-    const int idleTimeout = cfg.readEntry("idle", true)
-        ? cfg.readEntry("idletimeout", 60) * 60 * 1000
-        : 0;
-    
-    m_d->mounter = new Mounter(this, idleTimeout);
+    m_d->mounter = new Mounter(this);
     connect(m_d->mounter, SIGNAL(mounted()), this, SLOT(onMounted()));
-    connect(m_d->mounter, SIGNAL(unmounted(bool)), this, SLOT(onUnmounted(bool)));
+    connect(m_d->mounter, SIGNAL(unmounted()), this, SLOT(onUnmounted()));
     connect(m_d->mounter, SIGNAL(failed(QString)), this, SLOT(onFailed(QString)));
 }
 
@@ -179,13 +169,9 @@ void SftpPlugin::onMounted()
     Q_EMIT mounted();
 }
 
-void SftpPlugin::onUnmounted(bool idleTimeout)
+void SftpPlugin::onUnmounted()
 {
-    if (idleTimeout) {
-        qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << "Remote filesystem unmounted by idle timeout";
-    } else {
-        qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << "Remote filesystem unmounted";
-    }
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << "Remote filesystem unmounted";
 
     unmount();
     
@@ -194,21 +180,11 @@ void SftpPlugin::onUnmounted(bool idleTimeout)
 
 void SftpPlugin::onFailed(const QString& message)
 {
-    knotify(KNotification::Error
-        , message
-        , KIconLoader::global()->loadIcon("dialog-error", KIconLoader::Desktop)
-    );
+    KNotification::event(KNotification::Error, device()->name(), message);
 
     unmount();
 
     Q_EMIT unmounted();
-}
-
-void SftpPlugin::knotify(int type, const QString& text, const QPixmap& icon) const
-{
-    KNotification::event(KNotification::StandardEvent(type)
-      , i18n("Device %1", device()->name()), text, icon, 0
-      , KNotification::CloseOnTimeout);
 }
 
 QVariantMap SftpPlugin::getDirectories()

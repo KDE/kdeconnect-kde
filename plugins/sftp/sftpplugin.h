@@ -58,7 +58,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void onMounted();
-    void onUnmounted(bool idleTimeout);
+    void onUnmounted();
     void onFailed(const QString& message);
     
 private:
