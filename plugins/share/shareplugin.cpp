@@ -42,6 +42,41 @@ K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SharePlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share");
 
+static void autoincFilename(QUrl &filename)
+{
+    // Extract the filename from the path
+    QString name= filename.fileName();
+
+    // If the name contains a number then increment it
+    QRegExp numSearch( "(^|[^\\d])(\\d+)" ); // we want to match as far left as possible, and when the number is at the start of the name
+
+    // Does it have a number?
+    int start = numSearch.lastIndexIn( name );
+    if (start != -1) {
+        // It has a number, increment it
+        start = numSearch.pos( 2 ); // we are only interested in the second group
+        QString numAsStr = numSearch.cap(2);
+        QString number = QString::number( numAsStr.toInt() + 1 );
+        number = number.rightJustified( numAsStr.length(), '0' );
+        name.replace( start, numAsStr.length(), number );
+    }
+    else {
+        // no number
+        start = name.lastIndexOf('.');
+        if (start != -1) {
+            // has a . somewhere, e.g. it has an extension
+            name.insert(start, '1');
+        }
+        else {
+            // no extension, just tack it on to the end
+            name += '1';
+        }
+    }
+
+    //Rebuild the path
+    filename.setPath( filename.adjusted(QUrl::RemoveFilename).toLocalFile() + name );
+}
+
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
@@ -92,7 +127,11 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         //qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file";
         const QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         const QString dir = destinationDir().adjusted(QUrl::StripTrailingSlash).toString();
-        const QUrl destination(dir + '/' + filename);
+        QUrl destination(dir + '/' + filename);
+        while (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
+            autoincFilename(destination);
+        }
+
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         job->setDeviceName(device()->name());
         connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));

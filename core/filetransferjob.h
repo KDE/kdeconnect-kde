@@ -44,7 +44,6 @@ public:
 
 public Q_SLOTS:
     void doStart();
-    void renameDone(int result);
     void readyRead();
     void open(KIO::Job*);
     void sourceFinished();

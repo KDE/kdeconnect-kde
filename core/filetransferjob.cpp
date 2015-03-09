@@ -25,7 +25,6 @@
 #include <QFileInfo>
 #include <QDebug>
 
-#include <KIO/RenameDialog>
 #include <KLocalizedString>
 
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
@@ -66,54 +65,12 @@ void FileTransferJob::doStart()
         QString(mDeviceName))
     );
     QUrl destCheck = mDestination;
-    if (QFile::exists(destCheck.toLocalFile())) {
-        QFileInfo destInfo(destCheck.toLocalFile());
-        KIO::RenameDialog *dialog = new KIO::RenameDialog(Q_NULLPTR,
-            i18n("Incoming file exists"),
-            QUrl(mDeviceName + ":/" + destCheck.fileName()),
-            destCheck,
-            KIO::RenameDialog_Overwrite,
-            mSize,
-            destInfo.size(),
-            QDateTime(),
-            destInfo.created(),
-            QDateTime(),
-            destInfo.lastModified()
-        );
-        connect(this, SIGNAL(finished(KJob*)), dialog, SLOT(deleteLater()));
-        connect(dialog, SIGNAL(finished(int)), SLOT(renameDone(int)));
-        dialog->show();
-        return;
-    }
-
-    startTransfer();
-}
-
-void FileTransferJob::renameDone(int result)
-{
-    KIO::RenameDialog *renameDialog = qobject_cast<KIO::RenameDialog*>(sender());
-    switch (result) {
-    case KIO::R_CANCEL:
-        //The user cancelled, killing the job
-        emitResult();
-    case KIO::R_RENAME:
-        mDestination = renameDialog->newDestUrl();
-        break;
-    case KIO::R_OVERWRITE:
-    {
-        // Delete the old file if exists
-        QFile oldFile(mDestination.toLocalFile());
-        if (oldFile.exists()) {
-            oldFile.remove();
-        }
-        break;
-    }
-    default:
-        qCWarning(KDECONNECT_CORE()) << "Unknown Error";
+    if (destCheck.isLocalFile() && QFile::exists(destCheck.toLocalFile())) {
+        setError(2);
+        setErrorText(i18n("Filename already present"));
         emitResult();
     }
 
-    renameDialog->deleteLater();
     startTransfer();
 }
 
