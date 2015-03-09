@@ -11,7 +11,7 @@ set(libkdeconnect_SRC
     dbusinterfaces.cpp
     devicesmodel.cpp
     notificationsmodel.cpp
-    modeltest.cpp
+#    modeltest.cpp
 )
 
 set(libkdeconnect_public_HEADERS
