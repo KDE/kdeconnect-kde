@@ -359,7 +359,7 @@ void ModelTest::checkChildren(const QModelIndex &parent, int currentDepth)
             //qDebug() << "child:" << index;
             //qDebug() << p;
             //qDebug() << parent;
-            Q_ASSERT(model->parent(index) == parent);
+            Q_ASSERT(p == parent);
 
             // recursively go down the children
             if (model->hasChildren(index) && currentDepth < 10 ) {
