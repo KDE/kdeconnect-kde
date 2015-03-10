@@ -1,7 +1,5 @@
 project(kdeconnectd)
 
-include_directories(${CMAKE_SOURCE_DIR})
-
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-daemon")
 
 add_executable(kdeconnectd kdeconnectd.cpp)

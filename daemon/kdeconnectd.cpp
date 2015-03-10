@@ -29,8 +29,7 @@
 #include <KDBusService>
 
 #include "core/daemon.h"
-
-#include "../kdeconnect-version.h"
+#include "kdeconnect-version.h"
 
 static int sigtermfd[2];
 const static char deadbeef = 1;

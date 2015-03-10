@@ -22,11 +22,10 @@
 #define TELEPHONYPLUGIN_H
 
 #include <QLoggingCategory>
-#include <knotification.h>
+
+#include <KNotification>
 
 #include <core/kdeconnectplugin.h>
-
-#include <KStatusNotifierItem>
 
 #define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
 

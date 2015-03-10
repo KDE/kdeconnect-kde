@@ -21,19 +21,16 @@
 #include "shareplugin.h"
 #include "share_debug.h"
 
-#include <QIcon>
-#include <KLocalizedString>
 #include <QStandardPaths>
-#include <KSharedConfig>
-#include <KConfigGroup>
-#include <KJobTrackerInterface>
-#include <KPluginFactory>
-
-#include <qprocess.h>
+#include <QProcess>
 #include <QDir>
 #include <QDesktopServices>
 #include <QDBusConnection>
 #include <QDebug>
+
+#include <KLocalizedString>
+#include <KJobTrackerInterface>
+#include <KPluginFactory>
 
 #include <core/filetransferjob.h>
 #include "autoclosingqfile.h"
@@ -188,7 +185,6 @@ void SharePlugin::openDestinationFolder()
 
 void SharePlugin::shareUrl(const QUrl& url)
 {
-    qDebug() << url;
     NetworkPackage package(PACKAGE_TYPE_SHARE);
     if(url.isLocalFile()) {
         QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));

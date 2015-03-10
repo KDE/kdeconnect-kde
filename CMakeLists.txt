@@ -14,6 +14,8 @@ find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Test)
 find_package(KF5 REQUIRED COMPONENTS I18n KIO Notifications ConfigWidgets DBusAddons KCMUtils IconThemes)
 find_package(Qca-qt5 2.1.0 REQUIRED)
 
+include_directories(${CMAKE_SOURCE_DIR})
+
 configure_file(kdeconnect-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h)
 
 include(KDEInstallDirs)
@@ -29,6 +31,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(core)
 add_subdirectory(kcm)
+add_subdirectory(kcmplugin)
 add_subdirectory(kio)
 add_subdirectory(icon)
 add_subdirectory(interfaces)

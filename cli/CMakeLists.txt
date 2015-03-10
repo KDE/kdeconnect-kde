@@ -1,4 +1,3 @@
-include_directories(${CMAKE_SOURCE_DIR})
 
 add_executable(kdeconnect-cli kdeconnect-cli.cpp)
 

@@ -4,10 +4,10 @@ include_directories(
 )
 
 set(kdeconnect_libraries
+    kdeconnectcore
     KF5::KIOWidgets
     Qt5::Network
     Qt5::Test
-    kdeconnectcore
     qca-qt5
 )
 

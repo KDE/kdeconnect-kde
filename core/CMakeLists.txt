@@ -9,7 +9,9 @@ include_directories(
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
-set(kded_kdeconnect_SRCS
+find_package(KF5Notifications 5.9 REQUIRED)
+
+set(kdeconnectcore_SRCS
     ${backends_kdeconnect_SRCS}
 
     backends/linkprovider.cpp
@@ -26,7 +28,7 @@ set(kded_kdeconnect_SRCS
     device.cpp
 )
 
-add_library(kdeconnectcore SHARED ${kded_kdeconnect_SRCS})
+add_library(kdeconnectcore SHARED ${kdeconnectcore_SRCS})
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network

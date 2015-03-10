@@ -21,13 +21,14 @@
 #include "pingplugin.h"
 
 #include <KNotification>
-#include <QIcon>
-#include <QDebug>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <QLoggingCategory>
-#include <core/device.h>
+
+#include <QDebug>
 #include <QDBusConnection>
+#include <QLoggingCategory>
+
+#include <core/device.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
 

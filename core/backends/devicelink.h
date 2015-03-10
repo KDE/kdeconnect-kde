@@ -24,7 +24,7 @@
 #include <QObject>
 #include <QtCrypto>
 
-#include "../networkpackage.h"
+#include "core/networkpackage.h"
 
 class NetworkPackage;
 class LinkProvider;

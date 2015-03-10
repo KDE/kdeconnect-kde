@@ -18,17 +18,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <interfaces/devicesmodel.h>
-#include <interfaces/notificationsmodel.h>
-#include <interfaces/dbusinterfaces.h>
 #include <QDBusMessage>
 #include <QDBusConnection>
-#include <QGuiApplication>
-#include <KAboutData>
-#include <KLocalizedString>
+#include <QCoreApplication>
 #include <QTextStream>
 
-#include "../kdeconnect-version.h"
+#include <KAboutData>
+#include <KLocalizedString>
+
+#include "interfaces/devicesmodel.h"
+#include "interfaces/notificationsmodel.h"
+#include "interfaces/dbusinterfaces.h"
+#include "kdeconnect-version.h"
 
 int main(int argc, char** argv)
 {
