@@ -79,12 +79,14 @@ ecm_setup_version( "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KD
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_version.h"
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KDEConnectConfigVersion.cmake"
                         SOVERSION ${KDECONNECT_VERSION_MAJOR})
-        
-install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
-#Install header files
-install(FILES ${libkdeconnect_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/kdeconnect COMPONENT Devel)
-install(FILES ${libkdeconnect_public_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDEConnect COMPONENT Devel)
-install(FILES ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake
-              ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfigVersion.cmake
-        DESTINATION ${LIB_INSTALL_DIR}/cmake/KDEConnect)
+install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+message ("INSTALL_TARGETS_DEFAULT_ARGS" ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+## Don't install header files until API/ABI policy is defined
+#
+# install(FILES ${libkdeconnect_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/kdeconnect COMPONENT Devel)
+# install(FILES ${libkdeconnect_public_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KDEConnect COMPONENT Devel)
+# install(FILES ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake
+#               ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfigVersion.cmake
+#         DESTINATION ${LIB_INSTALL_DIR}/cmake/KDEConnect)
