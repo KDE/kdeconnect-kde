@@ -26,6 +26,7 @@ import org.kde.kdeconnect 1.0 as KdeConnect
 
 Item {
     id: kdeconnect
+    property alias devicesModel: devicesView.model
 
     PlasmaExtras.Heading {
         width: parent.width
@@ -44,15 +45,6 @@ Item {
     }
     */
 
-    function shouldPlasmoidBeShown()
-    {
-        if (devicesView.count > 0) {
-            plasmoid.status = PlasmaCore.Types.ActiveStatus;
-        } else {
-            plasmoid.status = PlasmaCore.Types.PassiveStatus;
-        }
-    }
-
     PlasmaExtras.ScrollArea {
         id: dialogItem
         anchors.fill: parent
@@ -60,15 +52,7 @@ Item {
         ListView {
             id: devicesView
             anchors.fill: parent
-            model: KdeConnect.DevicesModel {
-                id: connectDeviceModel
-                displayFilter: KdeConnect.DevicesModel.StatusPaired | KdeConnect.DevicesModel.StatusReachable
-
-            }
             delegate: DeviceDelegate { }
-            onCountChanged: shouldPlasmoidBeShown()
-            Component.onCompleted: shouldPlasmoidBeShown();
         }
     }
-
 }

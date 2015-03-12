@@ -32,8 +32,22 @@ Item
         return (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal);
     }
 
+    DevicesModel {
+        id: connectDeviceModel
+        displayFilter: DevicesModel.StatusPaired | DevicesModel.StatusReachable
+
+    }
+
+    Binding {
+        target: plasmoid
+        property: "status"
+        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    }
+
     Plasmoid.compactRepresentation: CompactRepresentation {}
-    Plasmoid.fullRepresentation: FullRepresentation {}
+    Plasmoid.fullRepresentation: FullRepresentation {
+        devicesModel: connectDeviceModel
+    }
 
     Plasmoid.preferredRepresentation: isConstrained() ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 
