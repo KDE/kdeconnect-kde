@@ -56,7 +56,12 @@ Device::Device(QObject* parent, const QString& id)
     m_deviceName = info.deviceName;
     m_deviceType = str2type(info.deviceType);
     m_publicKey = QCA::RSAPublicKey::fromPEM(info.publicKey);
-    
+
+    m_pairingTimeut.setSingleShot(true);
+    m_pairingTimeut.setInterval(30 * 1000);  //30 seconds of timeout
+    connect(&m_pairingTimeut, SIGNAL(timeout()),
+            this, SLOT(pairingTimeout()));
+
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 }
@@ -202,11 +207,7 @@ void Device::requestPair()
         return;
     }
 
-    m_pairingTimeut.setSingleShot(true);
-    m_pairingTimeut.start(30 * 1000); //30 seconds of timeout
-    connect(&m_pairingTimeut, SIGNAL(timeout()),
-            this, SLOT(pairingTimeout()));
-
+    m_pairingTimeut.start();
 }
 
 void Device::unpair()
