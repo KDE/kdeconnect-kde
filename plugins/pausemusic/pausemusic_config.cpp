@@ -38,6 +38,7 @@ PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& )
 
     connect(m_ui->rad_ringing, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->rad_talking, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->check_pause, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->check_mute, SIGNAL(toggled(bool)), this, SLOT(changed()));
 }
 
