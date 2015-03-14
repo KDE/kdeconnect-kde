@@ -136,6 +136,7 @@ void DevicesModel::refreshDeviceList()
 
 void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
 {
+    watcher->deleteLater();
     clearDevices();
     QDBusPendingReply<QStringList> pendingDeviceIds = *watcher;
     if (pendingDeviceIds.isError()) {
@@ -150,7 +151,6 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
         m_deviceList.append(new DeviceDbusInterface(id, this));
     }
     endInsertRows();
-    watcher->deleteLater();
 }
 
 void DevicesModel::clearDevices()
