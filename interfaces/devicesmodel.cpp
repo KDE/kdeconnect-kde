@@ -85,7 +85,7 @@ void DevicesModel::deviceAdded(const QString& id)
         Q_EMIT dataChanged(idx, idx);
     } else {
         beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
-        m_deviceList.append(new DeviceDbusInterface(id, this));
+        appendDevice(id);
         endInsertRows();
     }
 }
@@ -152,9 +152,24 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
 
     beginInsertRows(QModelIndex(), 0, deviceIds.count()-1);
     Q_FOREACH(const QString& id, deviceIds) {
-        m_deviceList.append(new DeviceDbusInterface(id, this));
+        appendDevice(id);
     }
     endInsertRows();
+}
+
+void DevicesModel::appendDevice(const QString& id)
+{
+    DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
+    m_deviceList.append(dev);
+    connect(dev, SIGNAL(nameChanged(QString)), SLOT(nameChanged(QString)));
+}
+
+void DevicesModel::nameChanged(const QString& newName)
+{
+    int row = m_deviceList.indexOf(static_cast<DeviceDbusInterface*>(sender()));
+    Q_ASSERT(row>=0);
+    const QModelIndex idx = index(row, 0);
+    Q_EMIT dataChanged(idx, idx);
 }
 
 void DevicesModel::clearDevices()

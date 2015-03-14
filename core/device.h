@@ -41,7 +41,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
     Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
-    Q_PROPERTY(QString name READ name)
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
 
     enum PairStatus {
@@ -121,8 +121,11 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingSuccesful();
     Q_SCRIPTABLE void pairingFailed(const QString& error);
     Q_SCRIPTABLE void unpaired();
+    Q_SCRIPTABLE void nameChanged(const QString& name);
 
 private:
+    void setName(const QString &name);
+
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;

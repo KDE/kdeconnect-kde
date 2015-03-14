@@ -75,6 +75,7 @@ private Q_SLOTS:
     void deviceRemoved(const QString& id);
     void refreshDeviceList();
     void receivedDeviceList(QDBusPendingCallWatcher* watcher);
+    void nameChanged(const QString& newName);
 
 Q_SIGNALS:
     void rowsChanged();
@@ -82,6 +83,7 @@ Q_SIGNALS:
 private:
     void clearDevices();
     int rowForDeviceId(const QString& id) const;
+    void appendDevice(const QString& id);
 
     DaemonDbusInterface* m_dbusInterface;
     QVector<DeviceDbusInterface*> m_deviceList;

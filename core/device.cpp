@@ -255,7 +255,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     m_deviceLinks.append(link);
 
     //re-read the device name from the identityPackage because it could have changed
-    m_deviceName = identityPackage.get<QString>("deviceName");
+    setName(identityPackage.get<QString>("deviceName"));
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
@@ -496,4 +496,12 @@ QString Device::iconName() const
             return "unknown";
     }
     return QString();
+}
+
+void Device::setName(const QString &name)
+{
+    if (m_deviceName != name) {
+        m_deviceName = name;
+        Q_EMIT nameChanged(name);
+    }
 }
