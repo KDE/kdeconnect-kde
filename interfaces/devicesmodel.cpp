@@ -65,11 +65,29 @@ DevicesModel::~DevicesModel()
 {
 }
 
+int DevicesModel::rowForDeviceId(const QString& id) const
+{
+    QVector<DeviceDbusInterface*>::const_iterator it = m_deviceList.constBegin(), itEnd = m_deviceList.constEnd();
+    for (int i = 0; it!=itEnd; ++it, ++i) {
+        if ((*it)->id() == id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void DevicesModel::deviceAdded(const QString& id)
 {
-    beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
-    m_deviceList.append(new DeviceDbusInterface(id, this));
-    endInsertRows();
+    //Find whether the device already exists. if so, just report it as modified
+    int row = rowForDeviceId(id);
+    if (row>=0) {
+        const QModelIndex idx = index(row, 0);
+        Q_EMIT dataChanged(idx, idx);
+    } else {
+        beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
+        m_deviceList.append(new DeviceDbusInterface(id, this));
+        endInsertRows();
+    }
 }
 
 void DevicesModel::deviceRemoved(const QString& id)
