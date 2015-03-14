@@ -102,7 +102,7 @@ void DevicesModel::refreshDeviceList()
 {
     if (!m_dbusInterface->isValid()) {
         clearDevices();
-        qCDebug(KDECONNECT_INTERFACES) << "dbus interface not valid";
+        qCWarning(KDECONNECT_INTERFACES) << "dbus interface not valid";
         return;
     }
 
@@ -121,7 +121,7 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
     clearDevices();
     QDBusPendingReply<QStringList> pendingDeviceIds = *watcher;
     if (pendingDeviceIds.isError()) {
-        qCDebug(KDECONNECT_INTERFACES) << pendingDeviceIds.error();
+        qCWarning(KDECONNECT_INTERFACES) << "error while refreshing device list" << pendingDeviceIds.error().message();
         return;
     }
 
