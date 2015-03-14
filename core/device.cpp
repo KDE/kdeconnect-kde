@@ -133,8 +133,8 @@ void Device::reloadPlugins()
                 //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
                 //we asume that the other client doesn't know about capabilities.
                 if (!m_incomingCapabilities.isEmpty() && !m_outgoingCapabilities.isEmpty()
-                    && m_incomingCapabilities.intersect(outgoingInterfaces.toSet()).isEmpty()
-                    && m_outgoingCapabilities.intersect(incomingInterfaces.toSet()).isEmpty()
+                    && (m_incomingCapabilities & outgoingInterfaces.toSet()).isEmpty()
+                    && (m_outgoingCapabilities & incomingInterfaces.toSet()).isEmpty()
                 ) {
                     delete plugin;
                     continue;

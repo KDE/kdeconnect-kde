@@ -135,8 +135,8 @@ private:
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
     QTimer m_pairingTimeut;
-    QSet<QString> m_incomingCapabilities;
-    QSet<QString> m_outgoingCapabilities;
+    const QSet<QString> m_incomingCapabilities;
+    const QSet<QString> m_outgoingCapabilities;
 
     void setAsPaired();
     bool sendOwnPublicKey();
