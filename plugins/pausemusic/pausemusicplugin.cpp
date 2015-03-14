@@ -23,14 +23,11 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusConnectionInterface>
-#include <QDBusReply>
 #include <QDBusMessage>
+#include <QDBusReply>
+#include <QDebug>
 
-#include <KSharedConfig>
-#include <KConfigGroup>
 #include <KPluginFactory>
-
-#include <core/networkpackage.h>
 
 K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
 
@@ -55,7 +52,6 @@ int PauseMusicPlugin::isKMixMuted() {
     return (mixerInterface.property("volume").toInt() == 0);
 }
 
-
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , muted(false)
@@ -65,9 +61,7 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
-    //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/pausemusic");
-    bool pauseOnlyWhenTalking = config->group("condition").readEntry("talking_only", false);
+    bool pauseOnlyWhenTalking = config()->get("conditionTalking", false);
 
     if (pauseOnlyWhenTalking) {
         if (np.get<QString>("event") != "talking") {
@@ -81,8 +75,8 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 
     bool pauseConditionFulfilled = !np.get<bool>("isCancel");
 
-    bool pause = config->group("actions").readEntry("pause", true);
-    bool mute = config->group("actions").readEntry("mute", false);
+    bool pause = config()->get("actionPause", true);
+    bool mute = config()->get("actionMute", false);
 
     if (pauseConditionFulfilled) {
 

@@ -188,6 +188,8 @@ KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(QString id)
 void KdeConnectConfig::removeTrustedDevice(QString deviceId)
 {
     d->config->group("trusted_devices").deleteGroup(deviceId);
+
+    //We do not remove the config files.
 }
 
 QDir KdeConnectConfig::deviceConfigDir(QString deviceId)
@@ -195,3 +197,11 @@ QDir KdeConnectConfig::deviceConfigDir(QString deviceId)
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     return QDir(deviceConfigPath);
 }
+
+QDir KdeConnectConfig::pluginConfigDir(QString deviceId, QString pluginName)
+{
+    QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
+    QString pluginConfigDir = QDir(deviceConfigPath).absoluteFilePath(pluginName);
+    return QDir(pluginConfigDir);
+}
+

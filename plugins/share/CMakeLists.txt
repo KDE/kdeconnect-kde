@@ -26,8 +26,8 @@ ki18n_wrap_ui( kdeconnect_share_config_SRCS share_config.ui )
 
 add_library(kdeconnect_share_config MODULE ${kdeconnect_share_config_SRCS} )
 target_link_libraries( kdeconnect_share_config
+    kdeconnectpluginkcm
     KF5::I18n
-    KF5::KCMUtils
     KF5::CoreAddons
     KF5::ConfigWidgets
     KF5::KIOWidgets

@@ -18,6 +18,7 @@ set(kdeconnectcore_SRCS
     backends/devicelink.cpp
 
     kdeconnectplugin.cpp
+    kdeconnectpluginconfig.cpp
     pluginloader.cpp
 
     kdeconnectconfig.cpp

@@ -19,20 +19,34 @@
  */
 
 #include "kdeconnectplugin.h"
+
 #include <QDebug>
 
 struct KdeConnectPluginPrivate
 {
     Device* mDevice;
+    QString mPluginName;
     QSet<QString> mOutgoingTypes;
+    KdeConnectPluginConfig* mConfig;
 };
 
 KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
     : QObject(parent)
     , d(new KdeConnectPluginPrivate)
 {
-    d->mDevice = qvariant_cast< Device* >(args.first());
-    d->mOutgoingTypes = args.last().toStringList().toSet();
+    d->mDevice = qvariant_cast< Device* >(args.at(0));
+    d->mPluginName = args.at(1).toString();
+    d->mOutgoingTypes = args.at(2).toStringList().toSet();
+    d->mConfig = 0;
+}
+
+KdeConnectPluginConfig* KdeConnectPlugin::config() const
+{
+    //Create on demand, because not every plugin will use it
+    if (!d->mConfig) {
+        d->mConfig = new KdeConnectPluginConfig(d->mDevice->id(), d->mPluginName);
+    }
+    return d->mConfig;
 }
 
 KdeConnectPlugin::~KdeConnectPlugin()

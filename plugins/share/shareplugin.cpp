@@ -81,10 +81,8 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 
 QUrl SharePlugin::destinationDir() const
 {
-    //FIXME: There should be a better way to listen to changes in the config file instead of reading the value each time
-    KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnect/plugins/share");
-    const QString downloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    QString dir = config->group("receive").readEntry("path", downloadPath);
+    const QString defaultDownloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    QString dir = config()->get<QString>("incoming_path", defaultDownloadPath);
 
     if (dir.contains("%1")) {
         dir = dir.arg(device()->name());
@@ -106,7 +104,6 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
         NetworkPackage out(PACKAGE_TYPE_SHARE);
         out.set("filename", mDestinationDir + "itworks.txt");
-         //TODO: Use shared pointers
         AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
 
         out.setPayload(file, file->size());

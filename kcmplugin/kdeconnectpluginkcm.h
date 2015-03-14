@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,31 +18,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PAUSEMUSIC_CONFIG_H
-#define PAUSEMUSIC_CONFIG_H
+#ifndef KDECONNECTPLUGINKCM_H
+#define KDECONNECTPLUGINKCM_H
 
-#include "kcmplugin/kdeconnectpluginkcm.h"
+#include <KCModule>
 
-namespace Ui {
-    class PauseMusicConfigUi;
-}
+#include "core/kdeconnectcore_export.h"
+#include "core/kdeconnectpluginconfig.h"
 
-class PauseMusicConfig
-    : public KdeConnectPluginKcm
+struct KdeConnectPluginKcmPrivate;
+
+/**
+ * Inheriting your plugin's KCM from this class gets you a easy way to share
+ * configuration values between the KCM and the plugin.
+ */
+class KDECONNECTCORE_EXPORT KdeConnectPluginKcm
+    : public KCModule
 {
     Q_OBJECT
-public:
-    PauseMusicConfig(QWidget *parent, const QVariantList&);
-    virtual ~PauseMusicConfig();
 
-public Q_SLOTS:
-    virtual void save();
-    virtual void load();
-    virtual void defaults();
+public:
+    KdeConnectPluginKcm(QWidget* parent, const QVariantList& args, const QString& componentName);
+    virtual ~KdeConnectPluginKcm();
+
+    /**
+     * The device this kcm is instantiated for
+     */
+    QString deviceId() const;
+
+    /**
+     * The object where to save the config, so the plugin can access it
+     */
+    KdeConnectPluginConfig* config() const;
 
 private:
-    Ui::PauseMusicConfigUi* m_ui;
-
+    QScopedPointer<KdeConnectPluginKcmPrivate> d;
 };
 
 #endif

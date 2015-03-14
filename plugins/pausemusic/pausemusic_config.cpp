@@ -19,20 +19,15 @@
  */
 
 #include "pausemusic_config.h"
+#include "ui_pausemusic_config.h"
 
 #include <KPluginFactory>
-#include <KSharedConfig>
-#include <KConfigGroup>
-#include <KAboutData>
-
-#include "ui_pausemusic_config.h"
 
 K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
 
-PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& )
-    : KCModule(KAboutData::pluginData("kdeconnect_pausemusic_config"), parent)
+PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& args)
+    : KdeConnectPluginKcm(parent, args, "kdeconnect_pausemusic_config")
     , m_ui(new Ui::PauseMusicConfigUi())
-    , m_cfg(KSharedConfig::openConfig("kdeconnect/plugins/pausemusic"))
 {
     m_ui->setupUi(this);
 
@@ -57,29 +52,27 @@ void PauseMusicConfig::defaults()
     Q_EMIT changed(true);
 }
 
-
 void PauseMusicConfig::load()
 {
     KCModule::load();
-    bool talking = m_cfg->group("condition").readEntry("talking_only", false);
+    bool talking = config()->get("conditionTalking", false);
     m_ui->rad_talking->setChecked(talking);
     m_ui->rad_ringing->setChecked(!talking);
 
-    bool pause = m_cfg->group("actions").readEntry("pause", true);
-    bool mute = m_cfg->group("actions").readEntry("mute", false);
+    bool pause = config()->get("actionPause", true);
+    bool mute = config()->get("actionMute", false);
     m_ui->check_pause->setChecked(pause);
     m_ui->check_mute->setChecked(mute);
+
     Q_EMIT changed(false);
 }
 
-
 void PauseMusicConfig::save()
 {
-    m_cfg->group("condition").writeEntry("talking_only", m_ui->rad_talking->isChecked());
-    m_cfg->group("actions").writeEntry("pause", m_ui->check_pause->isChecked());
-    m_cfg->group("actions").writeEntry("mute", m_ui->check_mute->isChecked());
+    config()->set("conditionTalking", m_ui->rad_talking->isChecked());
+    config()->set("actionPause", m_ui->check_pause->isChecked());
+    config()->set("actionMute", m_ui->check_mute->isChecked());
     KCModule::save();
-
     Q_EMIT changed(false);
 }
 

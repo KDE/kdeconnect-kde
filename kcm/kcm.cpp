@@ -182,6 +182,8 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     kcmUi->pluginSelector = new KPluginSelector(this);
     kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
 
+    kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
+
     kcmUi->name_label->setText(currentDevice->name());
     kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
 

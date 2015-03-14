@@ -28,7 +28,6 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <KRun>
-#include <QStandardPaths>
 #include <KFilePlacesModel>
 #include <KPluginFactory>
 
@@ -158,8 +157,8 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
 
 QString SftpPlugin::mountPoint()
 {
-    const QString mountDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
-    return QDir(mountDir).absoluteFilePath(deviceId);
+    QDir mountDir = config()->privateDirectory();
+    return mountDir.absoluteFilePath(deviceId);
 }
 
 void SftpPlugin::onMounted()

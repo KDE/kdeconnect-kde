@@ -57,13 +57,13 @@ KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
     return KPluginInfo(service);
 }
 
-KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, Device* device) const
+KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& pluginName, Device* device) const
 {
     KdeConnectPlugin* ret = 0;
 
-    KService::Ptr service = plugins[name];
+    KService::Ptr service = plugins[pluginName];
     if (!service) {
-        qCDebug(KDECONNECT_CORE) << "Plugin unknown" << name;
+        qCDebug(KDECONNECT_CORE) << "Plugin unknown" << pluginName;
         return ret;
     }
 
@@ -77,7 +77,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& name, 
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
-    ret = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << outgoingInterfaces);
+    ret = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << pluginName << outgoingInterfaces);
     if (!ret) {
         qCDebug(KDECONNECT_CORE) << "Error loading plugin";
         return ret;
