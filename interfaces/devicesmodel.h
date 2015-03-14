@@ -83,7 +83,7 @@ private:
     void clearDevices();
 
     DaemonDbusInterface* m_dbusInterface;
-    QList<DeviceDbusInterface*> m_deviceList;
+    QVector<DeviceDbusInterface*> m_deviceList;
     StatusFlags m_displayFilter;
 };
 
