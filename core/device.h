@@ -42,6 +42,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString name READ name)
+    Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
 
     enum PairStatus {
         NotPaired,
@@ -90,7 +91,7 @@ public:
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
 
     Q_SCRIPTABLE QStringList availableLinks() const;
-    Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.isEmpty(); }
+    bool isReachable() const { return !m_deviceLinks.isEmpty(); }
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
