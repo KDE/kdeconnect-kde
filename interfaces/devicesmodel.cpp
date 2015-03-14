@@ -155,9 +155,9 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             return QIcon::fromTheme(icon).pixmap(32, 32);
         }
         case IdModelRole:
-            return QString(device->id());
+            return device->id();
         case NameModelRole:
-            return QString(device->name());
+            return device->name();
         case Qt::ToolTipRole:
             return QVariant(); //To implement
         case StatusModelRole: {
