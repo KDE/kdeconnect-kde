@@ -106,26 +106,33 @@ void NotificationsModel::refreshNotificationList()
         return;
     }
 
-    if (!m_notificationList.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, m_notificationList.size() - 1);
-        qDeleteAll(m_notificationList);
-        m_notificationList.clear();
-        endRemoveRows();
-    }
+    clearNotifications();
 
     if (!m_dbusInterface->isValid()) {
-        qCDebug(KDECONNECT_INTERFACES) << "dbus interface not valid";
+        qCWarning(KDECONNECT_INTERFACES) << "dbus interface not valid";
         return;
     }
 
     QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
-    pendingNotificationIds.waitForFinished();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingNotificationIds, this);
+
+    QObject::connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)),
+                     this, SLOT(receivedNotifications(QDBusPendingCallWatcher*)));
+}
+
+void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher* watcher)
+{
+    watcher->deleteLater();
+    clearNotifications();
+    QDBusPendingReply<QStringList> pendingNotificationIds = *watcher;
+
+    clearNotifications();
     if (pendingNotificationIds.isError()) {
-        qCDebug(KDECONNECT_INTERFACES) << pendingNotificationIds.error();
+        qCWarning(KDECONNECT_INTERFACES) << pendingNotificationIds.error();
         return;
     }
-    const QStringList& notificationIds = pendingNotificationIds.value();
 
+    const QStringList notificationIds = pendingNotificationIds.value();
     if (notificationIds.isEmpty()) {
         return;
     }
@@ -136,8 +143,6 @@ void NotificationsModel::refreshNotificationList()
         m_notificationList.append(dbusInterface);
     }
     endInsertRows();
-
-    Q_EMIT dataChanged(index(0), index(notificationIds.size() - 1));
 }
 
 QVariant NotificationsModel::data(const QModelIndex& index, int role) const
@@ -217,5 +222,15 @@ void NotificationsModel::dismissAll()
         if (notification->dismissable()) {
             notification->dismiss();
         }
+    }
+}
+
+void NotificationsModel::clearNotifications()
+{
+    if (!m_notificationList.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, m_notificationList.size() - 1);
+        qDeleteAll(m_notificationList);
+        m_notificationList.clear();
+        endRemoveRows();
     }
 }
