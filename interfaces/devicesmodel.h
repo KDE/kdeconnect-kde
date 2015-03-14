@@ -21,13 +21,13 @@
 #ifndef DEVICESMODEL_H
 #define DEVICESMODEL_H
 
-#include <QAbstractItemModel>
 #include <QAbstractListModel>
 #include <QPixmap>
 #include <QList>
 
 #include "interfaces/kdeconnectinterfaces_export.h"
 
+class QDBusPendingCallWatcher;
 class DaemonDbusInterface;
 class DeviceDbusInterface;
 
@@ -74,11 +74,14 @@ private Q_SLOTS:
     void deviceAdded(const QString& id);
     void deviceRemoved(const QString& id);
     void refreshDeviceList();
+    void receivedDeviceList(QDBusPendingCallWatcher* watcher);
 
 Q_SIGNALS:
     void rowsChanged();
 
 private:
+    void clearDevices();
+
     DaemonDbusInterface* m_dbusInterface;
     QList<DeviceDbusInterface*> m_deviceList;
     StatusFlags m_displayFilter;

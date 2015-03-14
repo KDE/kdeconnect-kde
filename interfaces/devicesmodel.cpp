@@ -100,13 +100,8 @@ void DevicesModel::setDisplayFilter(int flags)
 
 void DevicesModel::refreshDeviceList()
 {
-    if (!m_deviceList.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
-        m_deviceList.clear();
-        endRemoveRows();
-    }
-
     if (!m_dbusInterface->isValid()) {
+        clearDevices();
         qCDebug(KDECONNECT_INTERFACES) << "dbus interface not valid";
         return;
     }
@@ -115,22 +110,39 @@ void DevicesModel::refreshDeviceList()
     bool onlyReachable = (m_displayFilter & StatusReachable);
 
     QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
-    pendingDeviceIds.waitForFinished();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingDeviceIds, this);
+
+    QObject::connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)),
+                     this, SLOT(receivedDeviceList(QDBusPendingCallWatcher*)));
+}
+
+void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
+{
+    clearDevices();
+    QDBusPendingReply<QStringList> pendingDeviceIds = *watcher;
     if (pendingDeviceIds.isError()) {
         qCDebug(KDECONNECT_INTERFACES) << pendingDeviceIds.error();
         return;
     }
 
-    const QStringList& deviceIds = pendingDeviceIds.value();
+    Q_ASSERT(m_deviceList.isEmpty());
+    const QStringList deviceIds = pendingDeviceIds.value();
+    beginInsertRows(QModelIndex(), 0, deviceIds.count());
     Q_FOREACH(const QString& id, deviceIds) {
-        int firstRow = m_deviceList.size();
-        int lastRow = firstRow;
-        beginInsertRows(QModelIndex(), firstRow, lastRow);
-        m_deviceList.append(new DeviceDbusInterface(id,this));
-        endInsertRows();
+        m_deviceList.append(new DeviceDbusInterface(id, this));
     }
+    endInsertRows();
+    watcher->deleteLater();
+}
 
-    Q_EMIT dataChanged(index(0), index(m_deviceList.size()));
+void DevicesModel::clearDevices()
+{
+    if (!m_deviceList.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
+        qDeleteAll(m_deviceList);
+        m_deviceList.clear();
+        endRemoveRows();
+    }
 }
 
 QVariant DevicesModel::data(const QModelIndex& index, int role) const
