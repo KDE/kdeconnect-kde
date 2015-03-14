@@ -99,7 +99,7 @@ QStringList Device::loadedPlugins() const
 
 void Device::reloadPlugins()
 {
-    QMap<QString, KdeConnectPlugin*> newPluginMap;
+    QHash<QString, KdeConnectPlugin*> newPluginMap;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByOutgoingInterface;
 

@@ -23,7 +23,7 @@
 
 #include <QObject>
 #include <QString>
-#include <QMap>
+#include <QVector>
 #include <QSet>
 #include <QSslKey>
 #include <QTimer>
@@ -129,8 +129,8 @@ private:
     PairStatus m_pairStatus;
     int m_protocolVersion;
 
-    QList<DeviceLink*> m_deviceLinks;
-    QMap<QString, KdeConnectPlugin*> m_plugins;
+    QVector<DeviceLink*> m_deviceLinks;
+    QHash<QString, KdeConnectPlugin*> m_plugins;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
