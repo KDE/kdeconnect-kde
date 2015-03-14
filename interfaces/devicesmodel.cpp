@@ -67,9 +67,9 @@ DevicesModel::~DevicesModel()
 
 void DevicesModel::deviceAdded(const QString& id)
 {
-    //TODO: Actually add instead of refresh
-    Q_UNUSED(id);
-    refreshDeviceList();
+    beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
+    m_deviceList.append(new DeviceDbusInterface(id, this));
+    endInsertRows();
 }
 
 void DevicesModel::deviceRemoved(const QString& id)
