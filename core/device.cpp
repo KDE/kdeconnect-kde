@@ -391,9 +391,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         }
     } else {
         qCDebug(KDECONNECT_CORE) << "device" << name() << "not paired, ignoring package" << np.type();
-
-        //FIXME: Uncommenting this fixes a bug where trying to pair from kde does not work, but I want to investigate the root cause of the bug first (01/03/15)
-        //if (m_pairStatus != Device::Requested)
+        if (m_pairStatus != Device::Requested)
             unpair();
     }
 
