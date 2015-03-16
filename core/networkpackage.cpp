@@ -62,7 +62,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->set("SupportedIncomingInterfaces", PluginLoader::instance()->incomingInterfaces().join(","));
     np->set("SupportedOutgoingInterfaces", PluginLoader::instance()->outgoingInterfaces().join(","));
 
-    //kDebug(kdeconnect_kded()) << "createIdentityPackage" << np->serialize();
+    //qCDebug(KDECONNECT_CORE) << "createIdentityPackage" << np->serialize();
 }
 
 QVariantMap qobject2qvairant(const QObject* object)
@@ -87,7 +87,7 @@ QByteArray NetworkPackage::serialize() const
     QVariantMap variant = qobject2qvairant(this);
 
     if (hasPayload()) {
-        //kDebug(kdeconnect_kded()) << "Serializing payloadTransferInfo";
+        //qCDebug(KDECONNECT_CORE) << "Serializing payloadTransferInfo";
         variant["payloadSize"] = payloadSize();
         variant["payloadTransferInfo"] = mPayloadTransferInfo;
     }
@@ -99,7 +99,7 @@ QByteArray NetworkPackage::serialize() const
         qCDebug(KDECONNECT_CORE) << "Serialization error:";
     } else {
         if (!isEncrypted()) {
-            //kDebug(kDebugArea) << "Serialized package:" << json;
+            //qCDebug(KDECONNECT_CORE) << "Serialized package:" << json;
         }
         json.append('\n');
     }
@@ -141,7 +141,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     qvariant2qobject(variant, np);
 
     if (!np->isEncrypted()) {
-        //kDebug(kDebugArea) << "Unserialized: " << a;
+        //qCDebug(KDECONNECT_CORE) << "Unserialized: " << a;
     }
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
@@ -177,7 +177,7 @@ void NetworkPackage::encrypt(QCA::PublicKey& key)
         chunks.append( encryptedChunk.toBase64() );
     }
 
-    //kDebug(kdeconnect_kded()) << chunks.size() << "chunks";
+    //qCDebug(KDECONNECT_CORE) << chunks.size() << "chunks";
 
     mId = QString::number(QDateTime::currentMSecsSinceEpoch());
     mType = PACKAGE_TYPE_ENCRYPTED;
