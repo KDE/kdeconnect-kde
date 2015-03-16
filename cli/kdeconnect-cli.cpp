@@ -63,35 +63,35 @@ int main(int argc, char** argv)
     about.processCommandLine(&parser);
 
     if(parser.isSet("l") || parser.isSet("a")) {
-        DevicesModel devices;
+        DaemonDbusInterface iface;
+        bool paired = true, reachable = false;
         if (parser.isSet("a")) {
-            devices.setDisplayFilter(DevicesModel::StatusFlag::StatusPaired | DevicesModel::StatusFlag::StatusReachable);
+            reachable = true;
         }
-        int deviceCount = devices.rowCount();
-        for(int i=0; i < deviceCount; ++i) {
-            QModelIndex idx = devices.index(i);
+        QDBusPendingReply<QStringList> reply = iface.devices(paired, reachable);
+        reply.waitForFinished();
+
+        const QStringList devices = reply.value();
+        foreach (const QString& id, devices) {
             if (parser.isSet("id-only")) {
-                QTextStream(stdout) << idx.data(DevicesModel::ModelRoles::IdModelRole).toString() << endl;
+                QTextStream(stdout) << id << endl;
             } else {
+                DeviceDbusInterface deviceIface(id);
                 QString statusInfo;
-                switch(idx.data(DevicesModel::StatusModelRole).toInt()) {
-                    case DevicesModel::StatusPaired:
-                        statusInfo = i18n("(paired)");
-                        break;
-                    case DevicesModel::StatusReachable:
-                        statusInfo = i18n("(reachable)");
-                        break;
-                    case DevicesModel::StatusReachable | DevicesModel::StatusPaired:
-                        statusInfo = i18n("(paired and reachable)");
-                        break;
-                }
-                QTextStream(stdout) << "- " << idx.data(Qt::DisplayRole).toString()
-                        << ": " << idx.data(DevicesModel::IdModelRole).toString() << ' ' << statusInfo << endl;
+                const bool isReachable = deviceIface.isReachable(), isPaired = deviceIface.isPaired();
+                if (isReachable && isPaired) {
+                    statusInfo = i18n("(paired and reachable)");
+                } else if (isReachable) {
+                    statusInfo = i18n("(reachable)");
+                } else if (isPaired)
+                    statusInfo = i18n("(paired)");
+                QTextStream(stdout) << "- " << deviceIface.name()
+                        << ": " << deviceIface.id() << ' ' << statusInfo << endl;
             }
         }
         if (!parser.isSet("id-only")) {
-            QTextStream(stdout) << i18n("%1 device(s) found", deviceCount) << endl;
-        } else if (!deviceCount) {
+            QTextStream(stdout) << i18np("1 device found", "%1 devices found", devices.size()) << endl;
+        } else if (devices.isEmpty()) {
             QTextStream(stderr) << i18n("No devices found") << endl;
         }
     } else if(parser.isSet("refresh")) {
