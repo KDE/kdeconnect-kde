@@ -125,6 +125,7 @@ Q_SIGNALS:
 
 private:
     void setName(const QString &name);
+    void unpairInternal();
 
     const QString m_deviceId;
     QString m_deviceName;

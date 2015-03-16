@@ -212,18 +212,20 @@ void Device::requestPair()
 
 void Device::unpair()
 {
-    m_pairStatus = Device::NotPaired;
-
-    KdeConnectConfig::instance()->removeTrustedDevice(id());
 
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
     sendPackage(np);
 
+    unpairInternal();
+}
+
+void Device::unpairInternal()
+{
+    m_pairStatus = Device::NotPaired;
+    KdeConnectConfig::instance()->removeTrustedDevice(id());
     reloadPlugins(); //Will unload the plugins
-
     Q_EMIT unpaired();
-
 }
 
 void Device::pairingTimeout()
@@ -377,10 +379,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 m_pairingTimeut.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             } else if (prevPairStatus == Device::Paired) {
-                KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
-                config->group("trusted_devices").deleteGroup(id());
-                reloadPlugins();
-                Q_EMIT unpaired();
+                unpairInternal();
             }
 
         }
