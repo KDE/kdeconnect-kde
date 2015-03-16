@@ -83,7 +83,7 @@ Q_SIGNALS:
 private:
     void clearDevices();
     int rowForDeviceId(const QString& id) const;
-    void appendDevice(const QString& id);
+    void appendDevice(DeviceDbusInterface* dev);
 
     DaemonDbusInterface* m_dbusInterface;
     QVector<DeviceDbusInterface*> m_deviceList;

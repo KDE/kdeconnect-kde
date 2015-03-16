@@ -84,9 +84,12 @@ void DevicesModel::deviceAdded(const QString& id)
         const QModelIndex idx = index(row, 0);
         Q_EMIT dataChanged(idx, idx);
     } else {
-        beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
-        appendDevice(id);
-        endInsertRows();
+        DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
+        if (dev->isReachable() == bool(m_displayFilter & StatusReachable) && dev->isPaired() == bool(m_displayFilter & StatusPaired)) {
+            beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
+            appendDevice(dev);
+            endInsertRows();
+        }
     }
 }
 
@@ -152,14 +155,13 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
 
     beginInsertRows(QModelIndex(), 0, deviceIds.count()-1);
     Q_FOREACH(const QString& id, deviceIds) {
-        appendDevice(id);
+        appendDevice(new DeviceDbusInterface(id, this));
     }
     endInsertRows();
 }
 
-void DevicesModel::appendDevice(const QString& id)
+void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 {
-    DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
     m_deviceList.append(dev);
     connect(dev, SIGNAL(nameChanged(QString)), SLOT(nameChanged(QString)));
 }
