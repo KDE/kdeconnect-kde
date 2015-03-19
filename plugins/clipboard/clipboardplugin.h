@@ -23,9 +23,10 @@
 
 #include <QObject>
 #include <QClipboard>
-
+#include <QLoggingCategory>
 #include <core/kdeconnectplugin.h>
 
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD)
 #define PACKAGE_TYPE_CLIPBOARD QLatin1String("kdeconnect.clipboard")
 
 class ClipboardPlugin

@@ -22,10 +22,9 @@
 
 #include "core/networkpackage.h"
 
-#include <qtest_kde.h>
 #include <QtTest>
 
-QTEST_KDEMAIN(NetworkPackageTests, NoGUI);
+QTEST_GUILESS_MAIN(NetworkPackageTests);
 
 void NetworkPackageTests::initTestCase()
 {
@@ -35,7 +34,7 @@ void NetworkPackageTests::initTestCase()
 void NetworkPackageTests::dummyTest()
 {
     QDate date;
-    date.setYMD( 1967, 3, 11 );
+    date.setDate( 1967, 3, 11 );
     QVERIFY( date.isValid() );
     QCOMPARE( date.month(), 3 );
     QCOMPARE( QDate::longMonthName(date.month()), QString("March") );
@@ -56,6 +55,7 @@ void NetworkPackageTests::networkPackageTest()
     np.body().remove("hello");
     QCOMPARE( (np.get<QString>("hello","bye")) , QString("bye") );
 
+    np.set("foo", "bar");
     QByteArray ba = np.serialize();
     //qDebug() << "Serialized package:" << ba;
     NetworkPackage np2("");
@@ -65,7 +65,7 @@ void NetworkPackageTests::networkPackageTest()
     QCOMPARE( np.type(), np2.type() );
     QCOMPARE( np.body(), np2.body() );
 
-    QByteArray json("{ \"id\": \"123\", \"type\": \"test\", \"body\": { \"testing\": true } }");
+    QByteArray json("{\"id\":\"123\",\"type\":\"test\",\"body\":{\"testing\":true}}");
     //qDebug() << json;
     NetworkPackage::unserialize(json,&np2);
     QCOMPARE( np2.id(), QString("123") );
@@ -91,6 +91,12 @@ void NetworkPackageTests::networkPackageIdentityTest()
 
 void NetworkPackageTests::networkPackageEncryptionTest()
 {
+    QCA::Initializer init;
+    if(!QCA::isSupported("rsa")) {
+        QFAIL("RSA isn't supported by your QCA. ");
+        return;
+    }
+
 
     NetworkPackage original("com.test");
     original.set("hello","hola");
@@ -100,8 +106,8 @@ void NetworkPackageTests::networkPackageEncryptionTest()
 
     NetworkPackage decrypted("");
 
-    QCA::Initializer init;
     QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
+    QVERIFY(!privateKey.isNull());
     QCA::PublicKey publicKey = privateKey.toPublicKey();
 
 
@@ -122,7 +128,7 @@ void NetworkPackageTests::networkPackageEncryptionTest()
 
     //Test for long package encryption that need multi-chunk encryption
 
-    QByteArray json = "{ \"body\" : { \"nowPlaying\" : \"A really long song name - A really long artist name\", \"player\" : \"A really long player name\", \"the_meaning_of_life_the_universe_and_everything\" : \"42\" }, \"id\" : \"A really long package id\", \"type\" : \"kdeconnect.a_really_really_long_package_type\" }\n";
+    QByteArray json = "{\"body\":{\"nowPlaying\":\"A really long song name - A really long artist name\",\"player\":\"A really long player name\",\"the_meaning_of_life_the_universe_and_everything\":\"42\"},\"id\":\"A really long package id\",\"type\":\"kdeconnect.a_really_really_long_package_type\"}\n";
     qDebug() << "EME_PKCS1_OAEP maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1_OAEP);
     qDebug() << "EME_PKCS1v15 maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1v15);
     QCOMPARE( json.size() > publicKey.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm), true );
@@ -132,7 +138,7 @@ void NetworkPackageTests::networkPackageEncryptionTest()
     original.decrypt(privateKey, &decrypted);
     QByteArray decryptedJson = decrypted.serialize();
 
-    QCOMPARE(QString(json), QString(decryptedJson));
+    QCOMPARE(QString(decryptedJson), QString(json));
 
 }
 

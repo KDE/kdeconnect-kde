@@ -24,11 +24,12 @@
 #include <unistd.h>
 
 #include <QSocketNotifier>
-#include <KUniqueApplication>
-#include <KAboutData>
-#include <KCmdLineArgs>
+#include <QApplication>
+
+#include <KDBusService>
 
 #include "core/daemon.h"
+#include "kdeconnect-version.h"
 
 static int sigtermfd[2];
 const static char deadbeef = 1;
@@ -47,8 +48,8 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 {
     ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
     QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
-    QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));    
-    
+    QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));
+
     action.sa_handler = sighandler;
     sigemptyset(&action.sa_mask);
     action.sa_flags = 0;
@@ -59,38 +60,17 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
 int main(int argc, char* argv[])
 {
-    KAboutData aboutData("kdeconnect", "kdeconnect-kded",
-                         ki18n("kdeconnect"),
-                         "0.1",
-                         ki18n("Connect your devices and KDE"),
-                         KAboutData::License_GPL,
-                         KLocalizedString(),
-                         KLocalizedString(),
-                         "http://albertvaka.wordpress.com");
-
-    aboutData.setOrganizationDomain("kde.org");
-
-    KCmdLineArgs::init(argc, argv, &aboutData);
-    
-    KUniqueApplication app(true); // WARNING GUI required for QClipboard access
-    app.disableSessionManagement();
+    QApplication app(argc, argv);
+    app.setApplicationName("kdeconnectd");
+    app.setApplicationVersion(QLatin1String(KDECONNECT_VERSION_STRING));
+    app.setOrganizationDomain("kde.org");
     app.setQuitOnLastWindowClosed(false);
 
-    //Force daemon to destroy when KApplications in alive
-    //belongs to bug KApplications resoure freeing
+    KDBusService dbusService(KDBusService::Unique);
+
     Daemon* daemon = new Daemon(0);
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
     initializeTermHandlers(&app, daemon);
-    
+
     return app.exec();
 }
-
-
-
-
-
-
-
-
-
-

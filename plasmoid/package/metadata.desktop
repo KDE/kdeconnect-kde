@@ -52,13 +52,13 @@ Type=Service
 X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
 
 X-Plasma-API=declarativeappletscript
-X-Plasma-MainScript=ui/kdeconnect.qml
+X-Plasma-MainScript=ui/main.qml
 X-Plasma-NotificationArea=true
 X-Plasma-ConfigPlugins=kcm_kdeconnect
 
 X-KDE-PluginInfo-Author=Albert Vaca Cintora
 X-KDE-PluginInfo-Email=albertvaka@gmail.com
-X-KDE-PluginInfo-Name=kdeconnect
+X-KDE-PluginInfo-Name=org.kde.kdeconnect
 X-KDE-PluginInfo-Version=0.1
 X-KDE-PluginInfo-Website=http://albertvaka.wordpress.com
 X-KDE-PluginInfo-Category=System Information

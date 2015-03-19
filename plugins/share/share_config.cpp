@@ -19,24 +19,18 @@
  */
 
 #include "share_config.h"
-
-#include <KConfigGroup>
-#include <KGlobalSettings>
-#include <KPluginFactory>
-#include <KSharedConfig>
-#include <KUrlRequester>
-
-#include <core/kdebugnamespace.h>
-
 #include "ui_share_config.h"
 
-K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
-K_EXPORT_PLUGIN(ShareConfigFactory("kdeconnect_share_config", "kdeconnect_share_config"))
+#include <QStandardPaths>
 
-ShareConfig::ShareConfig(QWidget *parent, const QVariantList& )
-    : KCModule(ShareConfigFactory::componentData(), parent)
+#include <KUrlRequester>
+#include <KPluginFactory>
+
+K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
+
+ShareConfig::ShareConfig(QWidget *parent, const QVariantList& args)
+    : KdeConnectPluginKcm(parent, args, "kdeconnect_share_config")
     , m_ui(new Ui::ShareConfigUi())
-    , m_cfg(KSharedConfig::openConfig("kdeconnect/plugins/share"))
 {
     m_ui->setupUi(this);
 
@@ -52,28 +46,27 @@ void ShareConfig::defaults()
 {
     KCModule::defaults();
 
-    m_ui->kurlrequester->setUrl(KGlobalSettings::downloadPath());
+    m_ui->kurlrequester->setUrl(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
 
     Q_EMIT changed(true);
 }
-
 
 void ShareConfig::load()
 {
     KCModule::load();
 
-    m_ui->kurlrequester->setUrl(m_cfg->group("receive").readEntry("path", KGlobalSettings::downloadPath()));
+    m_ui->kurlrequester->setUrl(config()->get("incoming_path", QStandardPaths::writableLocation(QStandardPaths::DownloadLocation)));
 
     Q_EMIT changed(false);
 }
 
-
 void ShareConfig::save()
 {
-    m_cfg->group("receive").writeEntry("path", m_ui->kurlrequester->text());
+    config()->set("incoming_path", m_ui->kurlrequester->text());
 
     KCModule::save();
 
     Q_EMIT changed(false);
 }
 
+#include "share_config.moc"

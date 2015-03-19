@@ -21,13 +21,13 @@
 #ifndef DEVICESMODEL_H
 #define DEVICESMODEL_H
 
-#include <QAbstractItemModel>
 #include <QAbstractListModel>
 #include <QPixmap>
 #include <QList>
 
 #include "interfaces/kdeconnectinterfaces_export.h"
 
+class QDBusPendingCallWatcher;
 class DaemonDbusInterface;
 class DeviceDbusInterface;
 
@@ -65,6 +65,7 @@ public:
     virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
     DeviceDbusInterface* getDevice(const QModelIndex& index) const;
+    virtual QHash<int, QByteArray> roleNames() const;
 
 public Q_SLOTS:
     void deviceStatusChanged(const QString& id);
@@ -73,13 +74,19 @@ private Q_SLOTS:
     void deviceAdded(const QString& id);
     void deviceRemoved(const QString& id);
     void refreshDeviceList();
+    void receivedDeviceList(QDBusPendingCallWatcher* watcher);
+    void nameChanged(const QString& newName);
 
 Q_SIGNALS:
     void rowsChanged();
 
 private:
+    void clearDevices();
+    int rowForDeviceId(const QString& id) const;
+    void appendDevice(DeviceDbusInterface* dev);
+
     DaemonDbusInterface* m_dbusInterface;
-    QList<DeviceDbusInterface*> m_deviceList;
+    QVector<DeviceDbusInterface*> m_deviceList;
     StatusFlags m_displayFilter;
 };
 

@@ -18,16 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDEBUG_KDECONNECT_KDED_H
-#define KDEBUG_KDECONNECT_KDED_H
+#ifndef CORE_DEBUG_H
+#define CORE_DEBUG_H
 
-#include <KDebug>
+#include <QLoggingCategory>
 
-inline int debugArea()
-{
-    static int theArea = KDebug::registerArea("kdeconnect");
-    return theArea;
-};
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CORE)
 
-#endif
-
+#endif //CORE_DEBUG_H

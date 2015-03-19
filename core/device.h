@@ -23,7 +23,8 @@
 
 #include <QObject>
 #include <QString>
-#include <QMap>
+#include <QVector>
+#include <QSet>
 #include <QSslKey>
 #include <QTimer>
 #include <QtCrypto>
@@ -40,7 +41,8 @@ class KDECONNECTCORE_EXPORT Device
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
     Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
-    Q_PROPERTY(QString name READ name)
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
 
     enum PairStatus {
         NotPaired,
@@ -61,7 +63,7 @@ class KDECONNECTCORE_EXPORT Device
 
 public:
     /**
-     * Reads the @p device from KConfig
+     * Restores the @p device from the saved configuration
      *
      * We already know it but we need to wait for an incoming DeviceLink to communicate
      */
@@ -84,17 +86,17 @@ public:
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
-
-    QString privateKeyPath() const;
     
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
 
     Q_SCRIPTABLE QStringList availableLinks() const;
-    Q_SCRIPTABLE bool isReachable() const { return !m_deviceLinks.isEmpty(); }
+    bool isReachable() const { return !m_deviceLinks.isEmpty(); }
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
+
+    Q_SCRIPTABLE QString pluginsConfigFile() const;
 
 public Q_SLOTS:
     ///sends a @p np package to the device
@@ -119,29 +121,30 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingSuccesful();
     Q_SCRIPTABLE void pairingFailed(const QString& error);
     Q_SCRIPTABLE void unpaired();
+    Q_SCRIPTABLE void nameChanged(const QString& name);
 
 private:
+    void setName(const QString &name);
+    void unpairInternal();
+
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;
-    QCA::PrivateKey m_privateKey;
     QCA::PublicKey m_publicKey;
     PairStatus m_pairStatus;
     int m_protocolVersion;
 
-    QList<DeviceLink*> m_deviceLinks;
-    QMap<QString, KdeConnectPlugin*> m_plugins;
+    QVector<DeviceLink*> m_deviceLinks;
+    QHash<QString, KdeConnectPlugin*> m_plugins;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
     QTimer m_pairingTimeut;
-    QSet<QString> m_incomingCapabilities;
-    QSet<QString> m_outgoingCapabilities;
+    const QSet<QString> m_incomingCapabilities;
+    const QSet<QString> m_outgoingCapabilities;
 
     void setAsPaired();
-    void storeAsTrusted();
     bool sendOwnPublicKey();
-    void initPrivateKey();
 
 };
 

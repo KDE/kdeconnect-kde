@@ -25,7 +25,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-class KDE_EXPORT ScreensaverInhibitPlugin
+class Q_DECL_EXPORT ScreensaverInhibitPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT

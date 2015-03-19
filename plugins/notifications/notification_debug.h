@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Samoilenko Yuri <kinnalrua@gmail.com>
+ * Copyright 2014 Alejandro Fiestas Olivares <afiestas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,41 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SFTP_CONFIG_H
-#define SFTP_CONFIG_H
+#ifndef NOTIFICATION_DEBUG_H
+#define NOTIFICATION_DEBUG_H
 
-#include <kcmodule.h>
-#include <ksharedconfig.h>
+#include <QLoggingCategory>
 
-namespace Ui {
-    class SftpConfigUi;
-}
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION)
 
-class SftpConfig
-    : public KCModule
-{
-    Q_OBJECT
-public:
-    SftpConfig(QWidget *parent, const QVariantList&);
-    virtual ~SftpConfig();
-
-    static inline KSharedConfigPtr config()
-    {
-        return KSharedConfig::openConfig("kdeconnect/plugins/sftp");
-    }
-    
-public Q_SLOTS:
-    virtual void save();
-    virtual void load();
-    virtual void defaults();
-
-private Q_SLOTS:
-    void checkSshfs();
-    
-private:
-    QScopedPointer<Ui::SftpConfigUi> m_ui;
-    KSharedConfigPtr m_cfg;
-
-};
-
-#endif
+#endif //NOTIFICATION_DEBUG_H

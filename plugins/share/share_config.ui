@@ -50,7 +50,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>%1  in the path will be replaced with the specific device name.</string>
+         <string>%1 in the path will be replaced with the specific device name.</string>
         </property>
        </widget>
       </item>
@@ -75,7 +75,7 @@
  <customwidgets>
   <customwidget>
    <class>KUrlRequester</class>
-   <extends>QFrame</extends>
+   <extends>QWidget</extends>
    <header>kurlrequester.h</header>
   </customwidget>
  </customwidgets>

@@ -24,23 +24,14 @@
 #include <QtCore/QThread>
 #include <QDBusMetaType>
 
-#include <KDebug>
-#include <KComponentData>
-#include <KCmdLineArgs>
-#include <KAboutData>
-#include <KProcess>
-#include <KApplication>
-#include <KLocale>
+#include <KLocalizedString>
 
-#include <core/kdebugnamespace.h>
+#include <QDebug>
 
-extern "C" int KDE_EXPORT kdemain(int argc, char **argv)
+Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
+
+extern "C" int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
-    KAboutData about("kiokdeconnect", "kdeconnect-kio", ki18n("kiokdeconnect"), "1.0");
-    KCmdLineArgs::init(&about);
-
-    KApplication app;
-
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_kdeconnect protocol pool app\n");
         exit(-1);
@@ -74,7 +65,7 @@ bool handleDBusError(QDBusReply<T>& reply, KIO::SlaveBase* slave)
 {
     if (!reply.isValid())
     {
-        kDebug(debugArea()) << "Error in DBus request:" << reply.error();
+        qCDebug(KDECONNECT_KIO) << "Error in DBus request:" << reply.error();
         slave->error(toKioError(reply.error().type()),reply.error().message());
         return true;
     }
@@ -115,13 +106,12 @@ void KioKdeconnect::listAllDevices()
         entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
         entry.insert(KIO::UDSEntry::UDS_URL, target);
-        listEntry(entry, false);
+        listEntry(entry);
 
         processedSize(i++);
 
     }
 
-    listEntry(KIO::UDSEntry(), true);
     infoMessage("");
     finished();
 }
@@ -130,7 +120,7 @@ void KioKdeconnect::listDevice()
 {
     infoMessage(i18n("Accessing device..."));
 
-    kDebug(debugArea()) << "ListDevice" << m_currentDevice;
+    qCDebug(KDECONNECT_KIO) << "ListDevice" << m_currentDevice;
 
     SftpDbusInterface interface(m_currentDevice);
     
@@ -166,10 +156,9 @@ void KioKdeconnect::listDevice()
         entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
         entry.insert(KIO::UDSEntry::UDS_URL, path);
-        listEntry(entry, false);
+        listEntry(entry);
     }
 
-    listEntry(KIO::UDSEntry(), true);
     infoMessage("");
     finished();
 
@@ -177,9 +166,9 @@ void KioKdeconnect::listDevice()
 
 
 
-void KioKdeconnect::listDir(const KUrl &url)
+void KioKdeconnect::listDir(const QUrl &url)
 {
-    kDebug(debugArea()) << "Listing..." << url;
+    qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
     /// Url is not used here becuase all we could care about the url is the host, and that's already
     /// handled in @p setHost
@@ -187,7 +176,6 @@ void KioKdeconnect::listDir(const KUrl &url)
 
     if (!m_dbusInterface->isValid()) {
         infoMessage(i18n("Could not contact background service."));
-        listEntry(KIO::UDSEntry(), true);
         finished();
         return;
     }
@@ -199,9 +187,9 @@ void KioKdeconnect::listDir(const KUrl &url)
     }
 }
 
-void KioKdeconnect::stat(const KUrl &url)
+void KioKdeconnect::stat(const QUrl &url)
 {
-    kDebug(debugArea()) << "Stat: " << url;
+    qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
     KIO::UDSEntry entry;
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -210,9 +198,9 @@ void KioKdeconnect::stat(const KUrl &url)
     finished();
 }
 
-void KioKdeconnect::get(const KUrl &url)
+void KioKdeconnect::get(const QUrl &url)
 {
-    kDebug(debugArea()) << "Get: " << url;
+    qCDebug(KDECONNECT_KIO) << "Get: " << url;
     mimeType("");
     finished();
 }
@@ -222,7 +210,7 @@ void KioKdeconnect::setHost(const QString &hostName, quint16 port, const QString
 
     //This is called before everything else to set the file we want to show
 
-    kDebug(debugArea()) << "Setting host: " << hostName;
+    qCDebug(KDECONNECT_KIO) << "Setting host: " << hostName;
 
     // In this kio only the hostname is used
     Q_UNUSED(port)

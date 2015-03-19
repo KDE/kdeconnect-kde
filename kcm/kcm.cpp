@@ -20,21 +20,21 @@
 
 #include "kcm.h"
 
-#include <QtGui/QLabel>
-#include <QtGui/QMenu>
-#include <QtGui/QMenuBar>
-#include <QtGui/QAction>
-#include <QtGui/QStackedLayout>
-#include <QtGui/QListView>
+#include <QLabel>
+#include <QMenu>
+#include <QMenuBar>
+#include <QAction>
+#include <QStackedLayout>
+#include <QListView>
 #include <QDBusConnection>
 #include <QDBusInterface>
 
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
+#include <KPluginMetaData>
 #include <KPluginFactory>
-#include <KStandardDirs>
-
-#include <core/kdebugnamespace.h>
+#include <KAboutData>
+#include <KLocalizedString>
 
 #include "ui_kcm.h"
 #include "interfaces/dbusinterfaces.h"
@@ -42,16 +42,16 @@
 #include "devicessortproxymodel.h"
 
 K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
-K_EXPORT_PLUGIN(KdeConnectKcmFactory("kdeconnect-kcm", "kdeconnect-kcm"))
 
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
-    : KCModule(KdeConnectKcmFactory::componentData(), parent)
+    : KCModule(KAboutData::pluginData("kdeconnect-kcm"), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
+    , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
     , currentDevice(0)
-    //, config(KSharedConfig::openConfig("kdeconnectrc"))
 {
     kcmUi->setupUi(this);
+
 
     kcmUi->deviceList->setIconSize(QSize(32,32));
 
@@ -63,31 +63,66 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->progressBar->setVisible(false);
     kcmUi->messages->setVisible(false);
 
+    kcmUi->rename_label->setText(daemon->announcedName());
+    kcmUi->rename_edit->setText(daemon->announcedName());
+    setRenameMode(false);
+
     setButtons(KCModule::NoAdditionalButton);
 
     connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(resetSelection()));
     connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)),
             this, SLOT(deviceSelected(QModelIndex)));
-    connect(kcmUi->pair_button, SIGNAL(pressed()),
+    connect(kcmUi->pair_button, SIGNAL(clicked()),
             this, SLOT(requestPair()));
-    connect(kcmUi->unpair_button, SIGNAL(pressed()),
+    connect(kcmUi->unpair_button, SIGNAL(clicked()),
             this, SLOT(unpair()));
-    connect(kcmUi->ping_button, SIGNAL(pressed()),
+    connect(kcmUi->ping_button, SIGNAL(clicked()),
             this, SLOT(sendPing()));
-    connect(kcmUi->refresh_button,SIGNAL(pressed()),
+    connect(kcmUi->refresh_button,SIGNAL(clicked()),
             this, SLOT(refresh()));
+    connect(kcmUi->rename_edit,SIGNAL(returnPressed()),
+            this, SLOT(renameDone()));
+    connect(kcmUi->renameDone_button,SIGNAL(clicked()),
+            this, SLOT(renameDone()));
+    connect(kcmUi->renameShow_button,SIGNAL(clicked()),
+            this, SLOT(renameShow()));
+
+}
+
+void KdeConnectKcm::renameShow()
+{
+    setRenameMode(true);
+}
+
+void KdeConnectKcm::renameDone()
+{
+    QString newName = kcmUi->rename_edit->text();
+    if (newName.isEmpty()) {
+        //Rollback changes
+        kcmUi->rename_edit->setText(kcmUi->rename_label->text());
+    } else {
+        kcmUi->rename_label->setText(newName);
+        daemon->setAnnouncedName(newName);
+    }
+    setRenameMode(false);
+}
+
+void KdeConnectKcm::setRenameMode(bool b) {
+    kcmUi->renameDone_button->setVisible(b);
+    kcmUi->rename_edit->setVisible(b);
+    kcmUi->renameShow_button->setVisible(!b);
+    kcmUi->rename_label->setVisible(!b);
 }
 
 KdeConnectKcm::~KdeConnectKcm()
 {
-
+    delete kcmUi;
 }
 
 void KdeConnectKcm::refresh()
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
-    QDBusConnection::sessionBus().call(msg);
+    daemon->forceOnNetworkChange();
 }
 
 void KdeConnectKcm::resetSelection()
@@ -143,10 +178,12 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
         }
     }
 
-    //FIXME: KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
+    //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
     kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
+
+    kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 
     kcmUi->name_label->setText(currentDevice->name());
     kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
@@ -158,12 +195,9 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     connect(currentDevice,SIGNAL(unpaired()),
             this, SLOT(unpaired()));
 
-    KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
-    QList<KPluginInfo> scriptinfos = KPluginInfo::fromServices(offers);
-
-    QString path = KStandardDirs().resourceDirs("config").first()+"kdeconnect/";
-    KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(path + currentDevice->id());
-    kcmUi->pluginSelector->addPlugins(scriptinfos, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
+    const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
+    KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
+    kcmUi->pluginSelector->addPlugins(pluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
             this, SLOT(pluginsConfigChanged()));
@@ -261,3 +295,16 @@ void KdeConnectKcm::sendPing()
     QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+currentDevice->id()+"/ping", "org.kde.kdeconnect.device.ping", "sendPing");
     QDBusConnection::sessionBus().call(msg);
 }
+
+QSize KdeConnectKcm::sizeHint() const
+{
+    return QSize(890,550); //Golden ratio :D
+}
+
+QSize KdeConnectKcm::minimumSizeHint() const
+{
+    return QSize(500,300);
+}
+
+#include "kcm.moc"
+#include "moc_kcm.cpp"

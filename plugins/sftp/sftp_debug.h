@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Yuri Samoilenko <kinnalru@gmail.com>
+ * Copyright 2014 Alejandro Fiestas Olivares <afiestas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,40 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDECONNECT_KDED_H
-#define KDECONNECT_KDED_H
+#ifndef SFTP_DEBUG_H
+#define SFTP_DEBUG_H
 
-#include <KDEDModule>
-#include <KProcess>
+#include <QLoggingCategory>
 
-class Kded
-    : public KDEDModule
-{
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kded.kdeconnect")
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SFTP)
 
-public:
-    Kded(QObject *parent, const QList<QVariant>&);
-    ~Kded();
-
-public Q_SLOTS:
-    
-    Q_SCRIPTABLE void start();
-    Q_SCRIPTABLE void stop();
-    Q_SCRIPTABLE void restart();
-
-Q_SIGNALS:
-    Q_SCRIPTABLE void started();
-    Q_SCRIPTABLE void stopped();
-
-private Q_SLOTS:
-    void onError(QProcess::ProcessError);
-    void onFinished(int, QProcess::ExitStatus);
-    void daemonStarted();
-    void checkIfDaemonTerminated();
-    
-private:
-    KProcess* m_daemon;
-};
-
-#endif
+#endif //SFTP_DEBUG_H

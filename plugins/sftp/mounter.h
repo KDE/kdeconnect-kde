@@ -33,7 +33,7 @@ class Mounter
     Q_OBJECT
 public:
   
-    explicit Mounter(SftpPlugin *sftp, int idleTimeout);
+    explicit Mounter(SftpPlugin *sftp);
     virtual ~Mounter();
     
     bool wait();
@@ -41,7 +41,7 @@ public:
     
 Q_SIGNALS:
     void mounted();
-    void unmounted(bool idleTimeout);    
+    void unmounted();
     void failed(const QString& message);
    
 private Q_SLOTS:
@@ -50,7 +50,6 @@ private Q_SLOTS:
     void onError(QProcess::ProcessError error);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
     void onMountTimeout();
-    void onIdleTimeout();
     void readProcessOut();
     void start();
 
@@ -65,7 +64,6 @@ private:
     int m_id;
     const QString m_mpoint;
     QTimer m_connectTimer;
-    QTimer m_idleTimer;
     QDateTime m_lastActivity;
     MountLoop m_loop;
     bool m_started;

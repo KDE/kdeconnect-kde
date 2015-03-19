@@ -19,6 +19,7 @@
  */
 
 #include "landevicelink.h"
+#include "core_debug.h"
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -85,7 +86,7 @@ void LanDeviceLink::dataReceived()
 
     const QByteArray package = mSocketLineReader->readLine();
 
-    //kDebug(debugArea()) << "LanDeviceLink dataReceived" << package;
+    //qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << package;
 
     NetworkPackage unserialized(QString::null);
     NetworkPackage::unserialize(package, &unserialized);
@@ -95,7 +96,7 @@ void LanDeviceLink::dataReceived()
         unserialized.decrypt(mPrivateKey, &decrypted);
 
         if (decrypted.hasPayloadTransferInfo()) {
-            kDebug(debugArea()) << "HasPayloadTransferInfo";
+            qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
             DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), decrypted.payloadTransferInfo());
             job->start();
             decrypted.setPayload(job->getPayload(), decrypted.payloadSize());

@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=kcmshell4 kcm_kdeconnect
+Exec=kcmshell5 kcm_kdeconnect
 Icon=kdeconnect
 Type=Service
 

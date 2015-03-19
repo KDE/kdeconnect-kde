@@ -20,13 +20,14 @@
 
 #include "notificationsplugin.h"
 
-#include <KIcon>
-
-#include <core/kdebugnamespace.h>
 #include "notificationsdbusinterface.h"
+#include "notification_debug.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< NotificationsPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_notifications", "kdeconnect-plugins") )
+#include <KPluginFactory>
+
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_notifications.json", registerPlugin< NotificationsPlugin >(); )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION, "kdeconnect.plugin.notification")
 
 NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
@@ -62,4 +63,4 @@ bool NotificationsPlugin::receivePackage(const NetworkPackage& np)
     return true;
 }
 
-   
+#include "notificationsplugin.moc"

@@ -51,7 +51,7 @@ private:
     void shareUrl(const QUrl& url);
 
     QString dbusPath() const;
-    KUrl destinationDir() const;
+    QUrl destinationDir() const;
 
 };
 #endif

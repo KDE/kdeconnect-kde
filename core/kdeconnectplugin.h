@@ -24,10 +24,8 @@
 #include <QObject>
 #include <QVariantList>
 
-#include <KPluginFactory>
-#include <KPluginLoader>
-
 #include "kdeconnectcore_export.h"
+#include "kdeconnectpluginconfig.h"
 #include "networkpackage.h"
 #include "device.h"
 
@@ -46,6 +44,8 @@ public:
     Device const* device() const;
 
     bool sendPackage(NetworkPackage& np) const;
+
+    KdeConnectPluginConfig* config() const;
 
 public Q_SLOTS:
     /**

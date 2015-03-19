@@ -91,7 +91,7 @@ Comment[x-test]=xxPairing request received from a devicesxx
 Action=Popup
 
 [Event/callReceived]
-Name=Calling
+Name=Incoming Call
 Name[bg]=Позвъняване
 Name[bs]=Poziva se
 Name[ca]=Trucada
@@ -142,7 +142,7 @@ Comment[x-test]=xxSomeone is calling youxx
 Action=Popup
 
 [Event/missedCall]
-Name=Missed
+Name=Missed Call
 Name[bg]=Пропуснати
 Name[bs]=Propušten
 Name[ca]=Perduda
@@ -193,7 +193,7 @@ Comment[x-test]=xxYou have a missed callxx
 Action=Popup
 
 [Event/smsReceived]
-Name=SMS
+Name=SMS Received
 Name[bg]=Текстово съобщение
 Name[bs]=SMS
 Name[ca]=SMS
@@ -244,7 +244,7 @@ Comment[x-test]=xxSomeone sent you an SMSxx
 Action=Popup
 
 [Event/batteryLow]
-Name=Battery
+Name=Battery Low
 Name[bg]=Батерия
 Name[bs]=Baterija
 Name[ca]=Bateria
@@ -295,7 +295,7 @@ Comment[x-test]=xxYour battery is in low statexx
 Action=Popup
 
 [Event/pingReceived]
-Name=Ping
+Name=Ping Received
 Name[bg]=Пинг
 Name[bs]=Ping
 Name[ca]=Ping
@@ -304,7 +304,7 @@ Name[da]=Ping
 Name[de]=Ping
 Name[es]=Ping
 Name[fi]=Tiedustelupaketti
-Name[fr]=Commande « Ping »
+Name[fr]=Commande « Ping »
 Name[hu]=Ping
 Name[it]=Ping
 Name[ko]=핑
@@ -328,7 +328,7 @@ Comment[da]=Ping modtaget
 Comment[de]=Ping empfangen
 Comment[es]=Ping recibido
 Comment[fi]=Vastaanotettiin tiedustelupaketti
-Comment[fr]=Commande « Ping » reçue
+Comment[fr]=Commande « Ping » reçue
 Comment[hu]=Ping érkezett
 Comment[it]=Hai ricevuto un ping
 Comment[ko]=핑 받음
@@ -346,7 +346,7 @@ Comment[x-test]=xxPing receivedxx
 Action=Popup
 
 [Event/notification]
-Name=Notification
+Name=Generic Notification
 Name[bg]=Уведомление
 Name[bs]=Obavještenje
 Name[ca]=Notificació
@@ -397,44 +397,8 @@ Comment[x-test]=xxNotification receivedxx
 Action=Popup
 
 [Event/transferReceived]
-Name=Pairing Request
-Name[bs]=Zahtjev za uparivanje
-Name[ca]=Sol·licitud d'aparellament
-Name[cs]=Požadavek na párování
-Name[da]=Parringsanmodning
-Name[de]=Verbindungsanfrage
-Name[es]=Petición de vinculación
-Name[fi]=Paripyyntö
-Name[fr]=Demande d'appariement
-Name[hu]=Párosítási kérés
-Name[ko]=페어링 요청
-Name[nl]=Verzoek om een paar te maken
-Name[pl]=Żądanie parowania
-Name[pt]=Pedido de Emparelhamento
-Name[pt_BR]=Solicitação de emparelhamento
-Name[sk]=Požiadavka na spárovanie
-Name[sv]=Begäran om ihopparning
-Name[uk]=Запит щодо пов’язування
-Name[x-test]=xxPairing Requestxx
-Comment=Pairing request received from a devices
-Comment[bs]=Primljen zahtjev za uparivanje od uređaja
-Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
-Comment[cs]=Požadavek na párování přijat ze zařízení
-Comment[da]=Parringsanmodning modtaget fra en enhed
-Comment[de]=Verbindungsanfrage von einem Gerät erhalten
-Comment[es]=Petición de vinculación recibida desde un dispositivo
-Comment[fi]=Saatiin paripyyntö laitteelta
-Comment[fr]=Demande d'appariement provenant d'un périphérique
-Comment[hu]=Párosítási kérés érkezett egy eszköztől
-Comment[ko]=장치에서 페어링 요청을 받음
-Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
-Comment[pl]=Otrzymano żądanie parowania z urządzeń
-Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
-Comment[pt_BR]=Solicitação de emparelhamento recebida de um dispositivo
-Comment[sk]=Požiadavka na spárovanie prijatá zo zariadenia
-Comment[sv]=Begäran om ihopparning mottagen från en apparat
-Comment[uk]=Від пристрою отримано запит щодо пов’язування
-Comment[x-test]=xxPairing request received from a devicesxx
+Name=File Transfer
+Comment=Incoming file
 Action=Popup
 
 

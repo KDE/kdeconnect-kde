@@ -117,6 +117,6 @@ void TestSocketLineReader::newPackage()
 }
 
 
-QTEST_MAIN(TestSocketLineReader)
+QTEST_GUILESS_MAIN(TestSocketLineReader)
 
 #include "testsocketlinereader.moc"

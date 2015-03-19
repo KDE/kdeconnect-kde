@@ -18,35 +18,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
-import org.kde.plasma.core 0.1 as PlasmaCore
+import QtQuick 2.1
+import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: view
-    anchors.fill: parent
-
-    //TODO: Use this to detect if we should be iconized or full size
-    function isConstrained() {
-        return (plasmoid.formFactor == Vertical || plasmoid.formFactor == Horizontal);
-    }
 
     PlasmaCore.IconItem {
         id: icon
         source: "kdeconnect"
         anchors.fill: parent
     }
-
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        onClicked: plasmoid.togglePopup()
-
-        PlasmaCore.ToolTip {
-            id: tooltip
-            target: mouseArea
-            image: QIcon("kdeconnect")
-            subText: i18n("KDE Connect device notifications")
-        }
-    }
-
 }

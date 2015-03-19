@@ -21,14 +21,15 @@
 #include "batteryplugin.h"
 
 #include <KNotification>
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
-#include <core/kdebugnamespace.h>
 #include "batterydbusinterface.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< BatteryPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_battery", "kdeconnect-plugins") )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_battery.json", registerPlugin< BatteryPlugin >(); )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGING_BATTERY, "kdeconnect.plugin.battery")
 
 BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
@@ -72,9 +73,9 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
 
     if ( thresholdEvent == ThresholdBatteryLow && !isCharging ) {
         KNotification* notification = new KNotification("batteryLow");
-        notification->setPixmap(KIcon("battery-040").pixmap(48, 48));
-        notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
-        notification->setTitle(i18nc("device name: low battery", "%1: low battery", device()->name()));
+        notification->setIconName("battery-040");
+        notification->setComponentName("kdeconnect");
+        notification->setTitle(i18nc("device name: low battery", "%1: Low Battery", device()->name()));
         notification->setText(i18n("Battery at %1%", currentCharge));
         notification->sendEvent();
     }
@@ -83,3 +84,4 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
 
 }
 
+#include "batteryplugin.moc"

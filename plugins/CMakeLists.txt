@@ -1,4 +1,5 @@
-include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/core ${QCA2_INCLUDE_DIR})
+include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/core)
+add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-plugins\")
 install(FILES kdeconnect_plugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
 
 add_subdirectory(ping)
@@ -14,4 +15,4 @@ add_subdirectory(sftp)
 add_subdirectory(screensaver-inhibit)
 
 #FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
-install(FILES kdeconnect.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)
+install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})

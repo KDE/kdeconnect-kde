@@ -20,7 +20,7 @@
 
 #include "loopbacklinkprovider.h"
 
-#include "kdebugnamespace.h"
+#include "core_debug.h"
 
 LoopbackLinkProvider::LoopbackLinkProvider()
     : identityPackage(PACKAGE_TYPE_IDENTITY)

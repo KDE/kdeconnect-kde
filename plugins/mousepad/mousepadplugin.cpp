@@ -19,14 +19,13 @@
  */
 
 #include "mousepadplugin.h"
-
-#include <core/networkpackage.h>
+#include <KPluginFactory>
+#include <QDebug>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MousepadPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mousepad", "kdeconnect-plugins") )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mousepad.json", registerPlugin< MousepadPlugin >(); )
 
 enum MouseButtons {
     LeftMouseButton = 1,
@@ -118,7 +117,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
         if(!m_display) {
             m_display = XOpenDisplay(NULL);
             if(!m_display) {
-                kDebug(debugArea()) << "Failed to open X11 display";
+                qWarning() << "Failed to open X11 display";
                 return false;
             }
         }
@@ -164,7 +163,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
             if (specialKey)
             {
                 if (specialKey > (int)arraySize(SpecialKeysMap)) {
-                    kDebug(debugArea()) << "Unsupported special key identifier";
+                    qWarning() << "Unsupported special key identifier";
                     return false;
                 }
 
@@ -178,7 +177,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
                 if (!m_fakekey) {
                     m_fakekey = fakekey_init(m_display);
                     if (!m_fakekey) {
-                        kDebug(debugArea()) << "Failed to initialize libfakekey";
+                        qWarning() << "Failed to initialize libfakekey";
                         return false;
                     }
                 }
@@ -202,3 +201,5 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     }
     return true;
 }
+
+#include "mousepadplugin.moc"

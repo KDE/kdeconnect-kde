@@ -21,19 +21,12 @@
 #ifndef KDECONNECTKCM_H
 #define KDECONNECTKCM_H
 
+#include <KCModule>
 #include <QStandardItemModel>
-#include <QDBusConnection>
-
-#include <kcmodule.h>
-#include <ksharedconfig.h>
 
 class QModelIndex;
-class AccountsModel;
-class AccountWidget;
-class QStackedLayout;
-class QItemSelectionModel;
-class QDBusInterface;
 class DeviceDbusInterface;
+class DaemonDbusInterface;
 class DevicesModel;
 class DevicesSortProxyModel;
 
@@ -51,6 +44,8 @@ public:
 
 private:
     virtual void save();
+    virtual QSize sizeHint() const;
+    virtual QSize minimumSizeHint() const;
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex& current);
@@ -62,9 +57,13 @@ private Q_SLOTS:
     void pairingFailed(const QString& error);
     void unpaired();
     void refresh();
+    void renameShow();
+    void renameDone();
+    void setRenameMode(bool b);
 
 private:
     Ui::KdeConnectKcmUi* kcmUi;
+    DaemonDbusInterface* daemon;
     DevicesModel* devicesModel;
     DevicesSortProxyModel* sortProxyModel;
     DeviceDbusInterface* currentDevice;

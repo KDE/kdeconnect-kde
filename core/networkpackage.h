@@ -30,11 +30,9 @@
 #include <QIODevice>
 #include <QtCrypto>
 #include <QSharedPointer>
-#include <qjson/parser.h>
-#include <KUrl>
+#include <QUrl>
 
 #include "kdeconnectcore_export.h"
-#include "kdebugnamespace.h"
 #include "default_args.h"
 
 class FileTransferJob;
@@ -78,7 +76,7 @@ public:
     void setPayload(const QSharedPointer<QIODevice>& device, qint64 payloadSize) { mPayload = device; mPayloadSize = payloadSize; Q_ASSERT(mPayloadSize >= -1); }
     bool hasPayload() const { return (mPayloadSize != 0); }
     qint64 payloadSize() const { return mPayloadSize; } //-1 means it is an endless stream
-    FileTransferJob* createPayloadTransferJob(const KUrl& destination) const;
+    FileTransferJob* createPayloadTransferJob(const QUrl &destination) const;
 
     //To be called by a particular DeviceLink
     QVariantMap payloadTransferInfo() const { return mPayloadTransferInfo; }

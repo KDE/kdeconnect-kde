@@ -19,16 +19,15 @@
  */
 
 #include "filetransferjob.h"
+#include <core_debug.h>
 
 #include <qalgorithms.h>
 #include <QFileInfo>
+#include <QDebug>
 
-#include <KIO/RenameDialog>
 #include <KLocalizedString>
 
-#include "kdebugnamespace.h"
-
-FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const KUrl& destination)
+FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
     : KJob()
     , mOrigin(origin)
     , mDestinationJob(0)
@@ -38,20 +37,25 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     , mSize(size)
     , mWritten(0)
 {
+    if (mDestination.scheme().isEmpty()) {
+        qWarning() << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
+        mDestination.setScheme("file");
+    }
+
     Q_ASSERT(destination.isLocalFile());
     setCapabilities(Killable);
-    kDebug(debugArea()) << "FileTransferJob Downloading payload to" << destination;
+    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
 }
 
 void FileTransferJob::openFinished(KJob* job)
 {
-    kDebug(debugArea()) << job->errorString();
+    qCDebug(KDECONNECT_CORE) << job->errorString();
 }
 
 void FileTransferJob::start()
 {
     QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
-    //kDebug(debugArea()) << "FileTransferJob start";
+    //qCDebug(KDECONNECT_CORE) << "FileTransferJob start";
 }
 
 void FileTransferJob::doStart()
@@ -60,55 +64,13 @@ void FileTransferJob::doStart()
         QPair<QString, QString>(i18nc("File transfer origin", "From"),
         QString(mDeviceName))
     );
-    KUrl destCheck = mDestination;
-    if (QFile::exists(destCheck.path())) {
-        QFileInfo destInfo(destCheck.path());
-        KIO::RenameDialog *dialog = new KIO::RenameDialog(0,
-            i18n("Incoming file exists"),
-            KUrl(mDeviceName + ":/" + destCheck.fileName()),
-            destCheck,
-            KIO::M_OVERWRITE,
-            mSize,
-            destInfo.size(),
-            -1,
-            destInfo.created().toTime_t(),
-            -1,
-            destInfo.lastModified().toTime_t()
-        );
-        connect(this, SIGNAL(finished(KJob*)), dialog, SLOT(deleteLater()));
-        connect(dialog, SIGNAL(finished(int)), SLOT(renameDone(int)));
-        dialog->show();
-        return;
-    }
-
-    startTransfer();
-}
-
-void FileTransferJob::renameDone(int result)
-{
-    KIO::RenameDialog *renameDialog = qobject_cast<KIO::RenameDialog*>(sender());
-    switch (result) {
-    case KIO::R_CANCEL:
-        //The user cancelled, killing the job
-        emitResult();
-    case KIO::R_RENAME:
-        mDestination = renameDialog->newDestUrl();
-        break;
-    case KIO::R_OVERWRITE:
-    {
-        // Delete the old file if exists
-        QFile oldFile(mDestination.path());
-        if (oldFile.exists()) {
-            oldFile.remove();
-        }
-        break;
-    }
-    default:
-        kWarning() << "Unknown Error";
+    QUrl destCheck = mDestination;
+    if (destCheck.isLocalFile() && QFile::exists(destCheck.toLocalFile())) {
+        setError(2);
+        setErrorText(i18n("Filename already present"));
         emitResult();
     }
 
-    renameDialog->deleteLater();
     startTransfer();
 }
 
@@ -120,10 +82,10 @@ void FileTransferJob::startTransfer()
     description(this, i18n("Receiving file over KDE-Connect"),
                         QPair<QString, QString>(i18nc("File transfer origin", "From"),
                         QString(mDeviceName)),
-                        QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.path()));
+                        QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
     mDestinationJob = KIO::open(mDestination, QIODevice::WriteOnly);
-    QFile(mDestination.path()).open(QIODevice::WriteOnly | QIODevice::Truncate); //KIO won't create the file if it doesn't exist
+    QFile(mDestination.toLocalFile()).open(QIODevice::WriteOnly | QIODevice::Truncate); //KIO won't create the file if it doesn't exist
     connect(mDestinationJob, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
     connect(mDestinationJob, SIGNAL(result(KJob*)), this, SLOT(openFinished(KJob*)));
 
@@ -135,10 +97,10 @@ void FileTransferJob::open(KIO::Job* job)
 {
     Q_UNUSED(job);
 
-    //kDebug(debugArea()) << "FileTransferJob open";
+    //qCDebug(KDECONNECT_CORE) << "FileTransferJob open";
 
     if (!mOrigin) {
-        kDebug(debugArea()) << "FileTransferJob: Origin is null";
+        qCDebug(KDECONNECT_CORE) << "FileTransferJob: Origin is null";
         return;
     }
 
@@ -160,7 +122,7 @@ void FileTransferJob::readyRead()
     mWritten += data.size();
     setProcessedAmount(Bytes, mWritten);
 
-    //kDebug(debugArea()) << "readyRead" << mSize << mWritten << bytes;
+    //qCDebug(KDECONNECT_CORE) << "readyRead" << mSize << mWritten << bytes;
 
     if (mSize > -1) {
         //If a least 1 second has passed since last update
@@ -191,11 +153,11 @@ void FileTransferJob::sourceFinished()
 
     //TODO: MD5-check the file
     if (mSize > -1 && mWritten != mSize) {
-        kDebug(debugArea()) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
+        qCDebug(KDECONNECT_CORE) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
         setError(1);
         setErrorText(i18n("Received incomplete file"));
     } else {
-        kDebug(debugArea()) << "Finished transfer" << mDestinationJob->url();
+        qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestinationJob->url();
     }
     mDestinationJob->close();
     mDestinationJob->deleteLater();

@@ -18,27 +18,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 1.1
-import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
-import org.kde.plasma.extras 0.1 as PlasmaExtras
-import org.kde.plasma.graphicswidgets 0.1 as PlasmaWidgets
-import org.kde.kdeconnect 1.0
+import QtQuick 2.1
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.kdeconnect 1.0 as KdeConnect
 
 Item {
     id: kdeconnect
+    property alias devicesModel: devicesView.model
 
-    property int minimumWidth: 290
-    property int minimumHeight: 340
-
-    //TODO: Show the full widget when it is not docked
-    property Component compactRepresentation: CompactRepresentation { }
-
-    PlasmaComponents.Label {
+    PlasmaExtras.Heading {
+        width: parent.width
+        level: 3
+        opacity: 0.6
+        text: i18n("No Paired Devices Available")
         visible: devicesView.count==0
-        text: i18n("No paired devices available")
-        anchors.fill: parent
-        horizontalAlignment: Text.AlignHCenter
     }
 
     /*
@@ -50,40 +45,14 @@ Item {
     }
     */
 
-    function shouldPlasmoidBeShown()
-    {
-        if (devicesView.count > 0) {
-            plasmoid.status = ActiveStatus;
-        } else {
-            plasmoid.status = PassiveStatus;
-        }
-    }
-
     PlasmaExtras.ScrollArea {
         id: dialogItem
         anchors.fill: parent
 
-        flickableItem: ListView {
+        ListView {
             id: devicesView
             anchors.fill: parent
-            model: DevicesModel {
-                id: connectDeviceModel
-                displayFilter: 3
-            }
             delegate: DeviceDelegate { }
-            onCountChanged: shouldPlasmoidBeShown()
-            Component.onCompleted: shouldPlasmoidBeShown();
         }
     }
-
-/*
-    ListView {
-        anchors.fill: parent
-        id: devicesView
-        model: KdeConnect.DevicesModel {
-        displayFilter: 3
-        }
-        delegate: DeviceDelegate {}
-    }
-*/
 }

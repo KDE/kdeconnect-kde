@@ -6,8 +6,6 @@
 #include <QVariant>
 #include <QTimer>
 
-#include <QDeclarativeEngine>
-
 class QDBusPendingCall;
 class QDBusPendingCallWatcher;
 

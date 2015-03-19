@@ -29,22 +29,23 @@
 #include <QMessageBox>
 #include <QVariantList>
 
-#include <KIcon>
+#include <QIcon>
 #include <KPluginFactory>
 #include <KPluginLoader>
 
-#include <KDebug>
 #include <KProcess>
 #include <KLocalizedString>
+#include <QUrl>
 
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
-K_EXPORT_PLUGIN(SendFileItemActionFactory("SendFileItemAction", "kdeconnect-filetiemaction"))
 
-SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KFileItemActionPlugin(parent)
+Q_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION, "kdeconnect.fileitemaction")
+
+SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KAbstractFileItemActionPlugin(parent)
 {
 }
 
-QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) const
+QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
 {
     DevicesModel m;
 
@@ -79,7 +80,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
 
 void SendFileItemAction::sendFile()
 {
-    QList<QUrl> urls = sender()->property("urls").value<KUrl::List>();
+    QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
     foreach(const QUrl& url, urls) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+sender()->property("id").toString()+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
         msg.setArguments(QVariantList() << url.toString());
@@ -87,3 +88,5 @@ void SendFileItemAction::sendFile()
         QDBusConnection::sessionBus().call(msg);
     }
 }
+
+#include "sendfileitemaction.moc"

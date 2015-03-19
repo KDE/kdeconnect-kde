@@ -20,17 +20,17 @@
 
 #include "screensaverinhibitplugin.h"
 
-#include <KNotification>
-#include <KIcon>
+#include <QDebug>
 #include <KLocalizedString>
-
-#include <core/kdebugnamespace.h>
+#include <KPluginFactory>
+#include <QLoggingCategory>
 #include <core/device.h>
 #include <QDBusConnection>
 #include <QDBusInterface>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ScreensaverInhibitPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_screensaver_inhibit", "kdeconnect-plugins") )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_screensaver_inhibit.json", registerPlugin< ScreensaverInhibitPlugin >(); )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT, "kdeconnect.plugin.screensaverinhibit")
 
 const QString INHIBIT_SERVICE = "org.freedesktop.ScreenSaver";
 const QString INHIBIT_INTERFACE = INHIBIT_SERVICE;
@@ -47,10 +47,10 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVaria
      QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, "kdeconnect", "Phone is connected");
 
      if (reply.errorMessage() != NULL) {
-	    kDebug(debugArea()) << "Unable to inhibit the screensaver: " << reply.errorMessage();
+        qCDebug(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT) << "Unable to inhibit the screensaver: " << reply.errorMessage();
      } else {
-	    // Store the cookie we receive, this will be sent back when sending the uninhibit call.
-	    this->inhibitCookie = reply.arguments().first().toUInt();
+        // Store the cookie we receive, this will be sent back when sending the uninhibit call.
+        this->inhibitCookie = reply.arguments().first().toUInt();
      }
 }
 
@@ -73,6 +73,9 @@ void ScreensaverInhibitPlugin::connected()
 
 bool ScreensaverInhibitPlugin::receivePackage(const NetworkPackage& np)
 {
-      return false;
+    Q_UNUSED(np);
+    return false;
 }
 
+
+#include "screensaverinhibitplugin.moc"

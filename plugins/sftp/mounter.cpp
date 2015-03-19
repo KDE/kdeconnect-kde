@@ -20,17 +20,15 @@
 
 #include <QDir>
 #include <QTimerEvent>
+#include <QDebug>
 
 #include <KLocalizedString>
-#include <KStandardDirs>
-
-#include <core/kdebugnamespace.h>
 
 #include "mounter.h"
+#include "sftp_debug.h"
+#include <kdeconnectconfig.h>
 
-static const char* idleTimeout_c = "idleTimeout";
-
-Mounter::Mounter(SftpPlugin* sftp, int idleTimeout)
+Mounter::Mounter(SftpPlugin* sftp)
     : QObject(sftp)
     , m_sftp(sftp)
     , m_proc(0)
@@ -47,25 +45,17 @@ Mounter::Mounter(SftpPlugin* sftp, int idleTimeout)
     connect(this, SIGNAL(mounted()), &m_connectTimer, SLOT(stop()));
     connect(this, SIGNAL(failed(QString)), &m_connectTimer, SLOT(stop()));
 
-    if (idleTimeout)
-    {
-        connect(&m_idleTimer, SIGNAL(timeout()), this, SLOT(onIdleTimeout()));
-    }
-
     m_connectTimer.setInterval(10000);
     m_connectTimer.setSingleShot(true);
-    
-    m_idleTimer.setInterval(idleTimeout);
-    m_idleTimer.setSingleShot(false);
-    
+
     QTimer::singleShot(0, this, SLOT(start()));
-    kDebug(debugArea()) << "Created";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created";
 }
 
 Mounter::~Mounter()
 {
     unmount();
-    kDebug(debugArea()) << "Destroyed";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroyed";
 }
 
 bool Mounter::wait()
@@ -75,7 +65,7 @@ bool Mounter::wait()
         return true;
     }
     
-    kDebug(debugArea()) << "Starting loop to wait for mount";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting loop to wait for mount";
     
     MountLoop loop;
     connect(this, SIGNAL(mounted()), &loop, SLOT(successed()));
@@ -87,7 +77,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 {
     if (np.get<bool>("stop", false))
     {
-        kDebug(debugArea()) << "SFTP server stopped";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "SFTP server stopped";
         unmount();
         return;
     }
@@ -98,12 +88,12 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     //This is the previous code, to access sftp server using KIO. Now we are
     //using the external binary sshfs, and accessing it as a local filesystem.
   /*
-   *    KUrl url;
-   *    url.setProtocol("sftp");
+   *    QUrl url;
+   *    url.setScheme("sftp");
    *    url.setHost(np.get<QString>("ip"));
    *    url.setPort(np.get<QString>("port").toInt());
-   *    url.setUser(np.get<QString>("user"));
-   *    url.setPass(np.get<QString>("password"));
+   *    url.setUserName(np.get<QString>("user"));
+   *    url.setPassword(np.get<QString>("password"));
    *    url.setPath(np.get<QString>("path"));
    *    new KRun(url, 0);
    *    Q_EMIT mounted();
@@ -134,7 +124,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-p" << np.get<QString>("port")
         << "-d"
         << "-f"
-        << "-o" << "IdentityFile=" + m_sftp->device()->privateKeyPath()
+        << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
         << "-o" << "UserKnownHostsFile=/dev/null"; //Prevent storing as a known host
     
@@ -146,13 +136,13 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
     cleanMountPoint();
     
-    kDebug(debugArea()) << "Staring process: " << m_proc->program().join(" ");
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Staring process: " << m_proc->program().join(" ");
     m_proc->start();
 }
 
 void Mounter::onStarted()
 {
-    kDebug(debugArea()) << "Porcess started";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process started";
     m_started = true;
     Q_EMIT mounted();
     
@@ -160,18 +150,13 @@ void Mounter::onStarted()
     connect(m_proc.data(), SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessOut()));
     
     m_lastActivity = QDateTime::currentDateTime();
-    
-    if (m_idleTimer.interval())
-    {
-        m_idleTimer.start();
-    }
 }
 
 void Mounter::onError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        kDebug(debugArea()) << "Porcess failed to start";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed to start";
         m_started = false;
         Q_EMIT failed(i18n("Failed to start sshfs"));
     }
@@ -181,20 +166,12 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     if (exitStatus == QProcess::NormalExit)
     {
-        kDebug(debugArea()) << "Process finished (exit code: " << exitCode << ")";
-        
-        if (m_proc->property(idleTimeout_c).toBool())
-        {
-            Q_EMIT unmounted(true);
-        }
-        else
-        {
-            Q_EMIT unmounted(false);
-        }
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process finished (exit code: " << exitCode << ")";
+        Q_EMIT unmounted();
     }
     else
     {
-        kDebug(debugArea()) << "Porcess failed (exit code: " << exitCode << ")";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code: " << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
@@ -205,21 +182,10 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 
 void Mounter::onMountTimeout()
 {
-    kDebug(debugArea()) << "Timeout: device not responding";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Timeout: device not responding";
     Q_EMIT failed(i18n("Failed to mount filesystem: device not responding"));
 }
 
-void Mounter::onIdleTimeout()
-{
-    Q_ASSERT(m_proc.data());
-    
-    if (m_lastActivity.secsTo(QDateTime::currentDateTime()) >= m_idleTimer.interval() / 1000)
-    {
-        kDebug(debugArea()) << "Timeout: there is no activity on moutned filesystem";
-        m_proc->setProperty(idleTimeout_c, true);
-        unmount();
-    }
-}
 
 void Mounter::readProcessOut()
 {
@@ -234,7 +200,6 @@ void Mounter::start()
     np.set("startBrowsing", true);
     np.set("start", true);
     np.set("id", m_id);
-    np.set("idleTimeout", m_idleTimer.interval());
     m_sftp->sendPackage(np);
     
     m_connectTimer.start();
@@ -253,8 +218,6 @@ void Mounter::cleanMountPoint()
 
 void Mounter::unmount()
 {
-    m_idleTimer.stop();
-    
     if (m_proc)
     {
         cleanMountPoint();

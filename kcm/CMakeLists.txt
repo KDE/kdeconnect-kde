@@ -1,3 +1,7 @@
+add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kcm")
+
+# FIXME should be 5.9
+find_package(KF5KCMUtils 5.8 REQUIRED)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -9,15 +13,15 @@ set(kcm_SRCS
     devicessortproxymodel.cpp
 )
 
-kde4_add_ui_files(kcm_SRCS kcm.ui)
+ki18n_wrap_ui(kcm_SRCS kcm.ui)
 
-kde4_add_plugin(kcm_kdeconnect ${kcm_SRCS})
+add_library(kcm_kdeconnect MODULE ${kcm_SRCS})
 
 target_link_libraries(kcm_kdeconnect
-    ${QT_QTCORE_LIBRARY}
-    ${QT_QTGUI_LIBRARY}
-    ${KDE4_KDEUI_LIBRARY}
-    ${KDE4_KCMUTILS_LIBS}
+    Qt5::Core
+    Qt5::Gui
+    KF5::I18n
+    KF5::KCMUtils
     kdeconnectinterfaces
 )
 

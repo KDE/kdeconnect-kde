@@ -3,12 +3,15 @@ set(kdeconnect_battery_SRCS
     batterydbusinterface.cpp
 )
 
-kde4_add_plugin(kdeconnect_battery ${kdeconnect_battery_SRCS})
+kdeconnect_add_plugin(kdeconnect_battery JSON kdeconnect_battery.json SOURCES ${kdeconnect_battery_SRCS})
 
-target_link_libraries(kdeconnect_battery kdeconnectcore ${KDE4_KDEUI_LIBS})
-
-install(TARGETS kdeconnect_battery DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_battery.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+target_link_libraries(kdeconnect_battery
+    kdeconnectcore
+    Qt5::DBus
+    KF5::I18n
+    KF5::Service
+    KF5::Notifications
+)
 
 include(DbusInterfaceMacros)
 

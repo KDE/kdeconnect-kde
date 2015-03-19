@@ -1,18 +1,18 @@
 include_directories(${CMAKE_SOURCE_DIR})
+add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kio")
 
 set(kio_kdeconnect_PART_SRCS
    kiokdeconnect.cpp
 )
 
-kde4_add_plugin(kio_kdeconnect ${kio_kdeconnect_PART_SRCS})
+add_library(kio_kdeconnect MODULE ${kio_kdeconnect_PART_SRCS})
 
 target_link_libraries(kio_kdeconnect
-    ${KDE4_KDECORE_LIBS}
-    ${KDE4_KIO_LIBRARY}
-    ${KDE4_KDEUI_LIBRARY}
-    ${QT_QTCORE_LIBRARY}
-    ${QT_QTGUI_LIBRARY}
     kdeconnectinterfaces
+    Qt5::Core
+    Qt5::Gui
+    KF5::KIOCore
+    KF5::I18n
 )
 
 ########### install files ###############

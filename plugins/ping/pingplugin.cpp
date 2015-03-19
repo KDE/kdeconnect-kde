@@ -21,32 +21,35 @@
 #include "pingplugin.h"
 
 #include <KNotification>
-#include <KIcon>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
-#include <core/kdebugnamespace.h>
-#include <core/device.h>
+#include <QDebug>
 #include <QDBusConnection>
+#include <QLoggingCategory>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
-K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_ping", "kdeconnect-plugins") )
+#include <core/device.h>
+
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_ping.json", registerPlugin< PingPlugin >(); )
+
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING, "kdeconnect.plugin.ping")
 
 PingPlugin::PingPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    //kDebug(debugArea()) << "Ping plugin constructor for device" << device()->name();
+//     qCDebug(KDECONNECT_PLUGIN_PING) << "Ping plugin constructor for device" << device()->name();
 }
 
 PingPlugin::~PingPlugin()
 {
-    //kDebug(debugArea()) << "Ping plugin destructor for device" << device()->name();
+//     qCDebug(KDECONNECT_PLUGIN_PING) << "Ping plugin destructor for device" << device()->name();
 }
 
 bool PingPlugin::receivePackage(const NetworkPackage& np)
 {
     KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
-    notification->setPixmap(KIcon("dialog-ok").pixmap(48, 48));
-    notification->setComponentData(KComponentData("kdeconnect", "kdeconnect-kded"));
+    notification->setIconName(QStringLiteral("dialog-ok"));
+    notification->setComponentName("kdeconnect");
     notification->setTitle(device()->name());
     notification->setText(np.get<QString>("message",i18n("Ping!"))); //This can be a source of spam
     notification->sendEvent();
@@ -58,7 +61,7 @@ void PingPlugin::sendPing()
 {
     NetworkPackage np(PACKAGE_TYPE_PING);
     bool success = sendPackage(np);
-    kDebug(debugArea()) << "sendPing:" << success;
+    qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }
 
 void PingPlugin::sendPing(const QString& customMessage)
@@ -68,7 +71,7 @@ void PingPlugin::sendPing(const QString& customMessage)
         np.set("message", customMessage);
     }
     bool success = sendPackage(np);
-    kDebug(debugArea()) << "sendPing:" << success;
+    qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }
 
 void PingPlugin::connected()
@@ -80,3 +83,6 @@ QString PingPlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/ping";
 }
+
+#include "pingplugin.moc"
+

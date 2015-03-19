@@ -23,8 +23,6 @@
 
 #include <QFile>
 
-#include <core/kdebugnamespace.h>
-
 class AutoClosingQFile : public QFile
 {
     Q_OBJECT
