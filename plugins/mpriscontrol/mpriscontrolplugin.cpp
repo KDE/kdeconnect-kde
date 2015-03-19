@@ -33,7 +33,7 @@
 #include "mprisdbusinterface.h"
 #include "propertiesdbusinterface.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MprisControlPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mpriscontrol.json", registerPlugin< MprisControlPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS, "kdeconnect.plugin.mpris")
 

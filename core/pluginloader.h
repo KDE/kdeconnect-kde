@@ -22,11 +22,10 @@
 #define PLUGINLOADER_H
 
 #include <QObject>
-#include <QMap>
+#include <QHash>
 #include <QString>
 
-#include <KPluginFactory>
-#include <KService>
+#include <KPluginMetaData>
 #include <KPluginInfo>
 
 class Device;
@@ -41,13 +40,12 @@ public:
     QStringList incomingInterfaces() const;
     QStringList outgoingInterfaces() const;
     QStringList getPluginList() const;
-    KPluginInfo getPluginInfo(const QString& name) const;
-    KService::Ptr pluginService(const QString& pluginName) const;
+    KPluginMetaData getPluginInfo(const QString& name) const;
     KdeConnectPlugin* instantiatePluginForDevice(const QString& name, Device* device) const;
 
 private:
     PluginLoader();
-    QMap<QString,KService::Ptr> plugins;
+    QHash<QString, KPluginMetaData> plugins;
 
 
 };

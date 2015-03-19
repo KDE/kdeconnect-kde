@@ -35,7 +35,7 @@
 #include <core/filetransferjob.h>
 #include "autoclosingqfile.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SharePlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_share.json", registerPlugin< SharePlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share");
 

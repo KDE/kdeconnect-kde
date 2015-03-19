@@ -34,6 +34,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 #include <QDir>
+#include <QJsonArray>
 
 #include "core_debug.h"
 #include "kdeconnectplugin.h"
@@ -114,7 +115,7 @@ void Device::reloadPlugins()
             QString enabledKey = pluginName + QString::fromLatin1("Enabled");
 
             bool isPluginEnabled = (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
-                                                            : loader->getPluginInfo(pluginName).isPluginEnabledByDefault());
+                                                            : loader->getPluginInfo(pluginName).isEnabledByDefault());
 
             if (isPluginEnabled) {
                 KdeConnectPlugin* plugin = m_plugins.take(pluginName);
@@ -123,9 +124,9 @@ void Device::reloadPlugins()
                     incomingInterfaces = m_pluginsByIncomingInterface.keys(plugin);
                     outgoingInterfaces = m_pluginsByOutgoingInterface.keys(plugin);
                 } else {
-                    KService::Ptr service = loader->pluginService(pluginName);
-                    incomingInterfaces = service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList();
-                    outgoingInterfaces = service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList();
+                    const KPluginMetaData service = loader->getPluginInfo(pluginName);
+                    incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType");
+                    outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType");
                 }
 
                 //If we don't find intersection with the received on one end and the sent on the other, we don't

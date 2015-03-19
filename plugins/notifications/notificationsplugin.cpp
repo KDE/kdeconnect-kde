@@ -25,7 +25,7 @@
 
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< NotificationsPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_notifications.json", registerPlugin< NotificationsPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION, "kdeconnect.plugin.notification")
 

@@ -30,7 +30,7 @@
 
 #include <core/device.h>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PingPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_ping.json", registerPlugin< PingPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING, "kdeconnect.plugin.ping")
 

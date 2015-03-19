@@ -29,7 +29,7 @@
 
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< PauseMusicPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_pausemusic.json", registerPlugin< PauseMusicPlugin >(); )
 
 //TODO: Port this away from KMix to use only Pulseaudio
 int PauseMusicPlugin::isKMixMuted() {

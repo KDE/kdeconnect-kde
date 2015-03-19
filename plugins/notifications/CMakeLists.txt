@@ -4,7 +4,7 @@ set(kdeconnect_notifications_SRCS
     notificationsdbusinterface.cpp
 )
 
-add_library(kdeconnect_notifications MODULE ${kdeconnect_notifications_SRCS})
+kdeconnect_add_plugin(kdeconnect_notifications JSON kdeconnect_notifications.json SOURCES ${kdeconnect_notifications_SRCS})
 
 target_link_libraries(kdeconnect_notifications
     kdeconnectcore
@@ -12,9 +12,6 @@ target_link_libraries(kdeconnect_notifications
     KF5::Service
     KF5::Notifications
 )
-
-install(TARGETS kdeconnect_notifications DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_notifications.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
 include(DbusInterfaceMacros)
 

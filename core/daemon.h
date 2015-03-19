@@ -25,7 +25,6 @@
 #include <QSet>
 #include <QMap>
 
-#include <KPluginFactory>
 #include "kdeconnectcore_export.h"
 
 class DaemonPrivate;

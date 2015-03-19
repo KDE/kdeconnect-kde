@@ -81,7 +81,6 @@ ecm_setup_version( "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KD
                         SOVERSION ${KDECONNECT_VERSION_MAJOR})
 
 install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
-message ("INSTALL_TARGETS_DEFAULT_ARGS" ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ## Don't install header files until API/ABI policy is defined
 #

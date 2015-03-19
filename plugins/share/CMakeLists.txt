@@ -3,7 +3,7 @@ set(kdeconnect_share_SRCS
     autoclosingqfile.cpp
 )
 
-add_library(kdeconnect_share MODULE ${kdeconnect_share_SRCS})
+kdeconnect_add_plugin(kdeconnect_share JSON kdeconnect_share.json SOURCES ${kdeconnect_share_SRCS})
 
 target_link_libraries(kdeconnect_share
     kdeconnectcore
@@ -13,10 +13,6 @@ target_link_libraries(kdeconnect_share
     KF5::I18n
     KF5::KIOWidgets
 )
-
-install(TARGETS kdeconnect_share DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_share.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-
 
 #######################################
 # Config

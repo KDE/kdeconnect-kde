@@ -28,7 +28,7 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ScreensaverInhibitPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_screensaver_inhibit.json", registerPlugin< ScreensaverInhibitPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT, "kdeconnect.plugin.screensaverinhibit")
 

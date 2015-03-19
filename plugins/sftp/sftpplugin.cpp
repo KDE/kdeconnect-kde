@@ -33,7 +33,7 @@
 
 #include "mounter.h"
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< SftpPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_sftp.json", registerPlugin< SftpPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SFTP, "kdeconnect.plugin.sftp")
 

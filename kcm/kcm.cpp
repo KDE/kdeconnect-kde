@@ -31,6 +31,7 @@
 
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
+#include <KPluginMetaData>
 #include <KPluginFactory>
 #include <KAboutData>
 #include <KLocalizedString>
@@ -194,10 +195,9 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     connect(currentDevice,SIGNAL(unpaired()),
             this, SLOT(unpaired()));
 
-    KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
-    QList<KPluginInfo> scriptinfos = KPluginInfo::fromServices(offers);
+    const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
-    kcmUi->pluginSelector->addPlugins(scriptinfos, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
+    kcmUi->pluginSelector->addPlugins(pluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
             this, SLOT(pluginsConfigChanged()));

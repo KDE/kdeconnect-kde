@@ -2,7 +2,7 @@ set(kdeconnect_pausemusic_SRCS
     pausemusicplugin.cpp
 )
 
-add_library(kdeconnect_pausemusic MODULE ${kdeconnect_pausemusic_SRCS})
+kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES  ${kdeconnect_pausemusic_SRCS})
 
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
@@ -10,10 +10,6 @@ target_link_libraries(kdeconnect_pausemusic
     Qt5::DBus
     KF5::Service
 )
-
-install(TARGETS kdeconnect_pausemusic DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_pausemusic.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
-
 
 #######################################
 # Config

@@ -1,0 +1,59 @@
+{
+    "Encoding": "UTF-8",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "ahmedibrahimkhali@gmail.com",
+                "Name": "Ahmed I. Khalil"
+            }
+        ],
+        "Description": "Use your phone as a touchpad",
+        "Description[bs]": "Koristi pametni telefon kao površinu osjetljivu na dodir",
+        "Description[ca]": "Usa el vostre telèfon com un plafó tàctil",
+        "Description[cs]": "Používejte svůj telefon jako touchpad",
+        "Description[da]": "Brug din telefon som touchpad",
+        "Description[de]": "Verwendet Ihr Handy als Touchpad",
+        "Description[es]": "Usar su teléfono como cursor del ratón",
+        "Description[fi]": "Käytä puhelinta kosketuslevynä",
+        "Description[fr]": "Utilisez votre téléphone comme un pavé tactile",
+        "Description[hu]": "A telefon használata érintőtáblaként",
+        "Description[ko]": "내 장치를 터치패드로 사용하기",
+        "Description[nl]": "Uw telefoon gebruiken als touchpad",
+        "Description[pl]": "Użyj swojego telefonu jako gładzika",
+        "Description[pt]": "Usar o seu telemóvel como painel de rato",
+        "Description[pt_BR]": "Use seu celular como touchpad",
+        "Description[sk]": "Použiť váš mobil ako touchpad",
+        "Description[sv]": "Använd telefonen som en tryckplatta",
+        "Description[uk]": "Використання телефону як сенсорної панелі",
+        "Description[x-test]": "xxUse your phone as a touchpadxx",
+        "EnabledByDefault": true,
+        "Icon": "input-mouse",
+        "Id": "kdeconnect_mousepad",
+        "License": "GPL",
+        "Name": "Touchpad",
+        "Name[bs]": "Površina osjetljiva na dodir",
+        "Name[ca]": "Ratolí tàctil",
+        "Name[cs]": "Touchpad",
+        "Name[da]": "Touchpad",
+        "Name[de]": "Touchpad",
+        "Name[es]": "Cursor del ratón",
+        "Name[fi]": "Kosketuslevy",
+        "Name[fr]": "Pavé tactile",
+        "Name[hu]": "Érintőtábla",
+        "Name[ko]": "터치패드",
+        "Name[nl]": "Touchpad",
+        "Name[pl]": "Gładzik",
+        "Name[pt]": "Rato por Toque",
+        "Name[pt_BR]": "Touchpad",
+        "Name[sk]": "Touchpad",
+        "Name[sv]": "Tryckplatta",
+        "Name[uk]": "Сенсорна панель",
+        "Name[x-test]": "xxTouchpadxx",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1"
+    },
+    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.mousepad" ],
+    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.mousepad" ]
+}

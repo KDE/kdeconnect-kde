@@ -26,6 +26,8 @@ include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(FeatureSummary)
 
+include(KDEConnectMacros.cmake)
+
 include(GenerateExportHeader)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 

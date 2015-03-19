@@ -20,7 +20,8 @@
 
 #include "pluginloader.h"
 
-#include <KServiceTypeTrader>
+#include <KPluginMetaData>
+#include <QJsonArray>
 
 #include "core_debug.h"
 #include "device.h"
@@ -34,10 +35,9 @@ PluginLoader* PluginLoader::instance()
 
 PluginLoader::PluginLoader()
 {
-    KService::List offers = KServiceTypeTrader::self()->query("KdeConnect/Plugin");
-    for(KService::List::const_iterator iter = offers.constBegin(); iter != offers.constEnd(); ++iter) {
-        KService::Ptr service = *iter;
-        plugins[service->library()] = service;
+    QVector<KPluginMetaData> data = KPluginLoader::findPlugins("kdeconnect/");
+    foreach (const KPluginMetaData& metadata, data) {
+        plugins[metadata.pluginId()] = metadata;
     }
 }
 
@@ -46,34 +46,29 @@ QStringList PluginLoader::getPluginList() const
     return plugins.keys();
 }
 
-KPluginInfo PluginLoader::getPluginInfo(const QString& name) const
+KPluginMetaData PluginLoader::getPluginInfo(const QString& name) const
 {
-    KService::Ptr service = plugins[name];
-    if (!service) {
-        qCDebug(KDECONNECT_CORE) << "Plugin unknown" << name;
-        return KPluginInfo();
-    }
-
-    return KPluginInfo(service);
+    return plugins.value(name);
 }
 
 KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& pluginName, Device* device) const
 {
-    KdeConnectPlugin* ret = 0;
+    KdeConnectPlugin* ret = Q_NULLPTR;
 
-    KService::Ptr service = plugins[pluginName];
-    if (!service) {
+    KPluginMetaData service = plugins.value(pluginName);
+    if (!service.isValid()) {
         qCDebug(KDECONNECT_CORE) << "Plugin unknown" << pluginName;
         return ret;
     }
 
-    KPluginFactory *factory = KPluginLoader(service->library()).factory();
+    KPluginLoader loader(service.fileName());
+    KPluginFactory *factory = loader.factory();
     if (!factory) {
-        qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service->library();
+        qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service.pluginId() << loader.errorString();
         return ret;
     }
 
-    QStringList outgoingInterfaces = service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList();
+    const QStringList outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType");
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
@@ -83,20 +78,15 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
         return ret;
     }
 
-    qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service->name();
+    qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service.pluginId();
     return ret;
-}
-
-KService::Ptr PluginLoader::pluginService(const QString& pluginName) const
-{
-    return plugins[pluginName];
 }
 
 QStringList PluginLoader::incomingInterfaces() const
 {
     QSet<QString> ret;
-    foreach(const KService::Ptr& service, plugins) {
-        ret += service->property("X-KdeConnect-SupportedPackageType", QVariant::StringList).toStringList().toSet();
+    foreach(const KPluginMetaData& service, plugins) {
+        ret += KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
     }
     return ret.toList();
 }
@@ -104,8 +94,8 @@ QStringList PluginLoader::incomingInterfaces() const
 QStringList PluginLoader::outgoingInterfaces() const
 {
     QSet<QString> ret;
-    foreach(const KService::Ptr& service, plugins) {
-        ret += service->property("X-KdeConnect-OutgoingPackageType", QVariant::StringList).toStringList().toSet();
+    foreach(const KPluginMetaData& service, plugins) {
+        ret += KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
     }
     return ret.toList();
 }

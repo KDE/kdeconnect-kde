@@ -4,7 +4,7 @@ set(kdeconnect_sftp_SRCS
     sftpplugin.cpp
 )
 
-add_library(kdeconnect_sftp MODULE ${kdeconnect_sftp_SRCS})
+kdeconnect_add_plugin(kdeconnect_sftp JSON kdeconnect_sftp.json SOURCES ${kdeconnect_sftp_SRCS})
 
 target_link_libraries(kdeconnect_sftp
     kdeconnectcore
@@ -16,9 +16,6 @@ target_link_libraries(kdeconnect_sftp
     KF5::KIOWidgets
     KF5::Notifications
 )
-
-install(TARGETS kdeconnect_sftp DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_sftp.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 
 include(DbusInterfaceMacros)
 

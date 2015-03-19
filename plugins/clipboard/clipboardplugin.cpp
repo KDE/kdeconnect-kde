@@ -25,7 +25,7 @@
 
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< ClipboardPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_clipboard.json", registerPlugin< ClipboardPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD, "kdeconnect.plugin.clipboard")
 

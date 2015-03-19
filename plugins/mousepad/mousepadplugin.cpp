@@ -25,7 +25,7 @@
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
 
-K_PLUGIN_FACTORY( KdeConnectPluginFactory, registerPlugin< MousepadPlugin >(); )
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mousepad.json", registerPlugin< MousepadPlugin >(); )
 
 enum MouseButtons {
     LeftMouseButton = 1,
