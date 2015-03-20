@@ -48,7 +48,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringList("l") << "list-devices", i18n("List all devices")));
     parser.addOption(QCommandLineOption(QStringList("a") << "list-available", i18n("List available (paired and reachable) devices")));
     parser.addOption(QCommandLineOption("id-only", i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
-    parser.addOption(QCommandLineOption("refresh", i18n("Search for devices in the network and re-establishe connections")));
+    parser.addOption(QCommandLineOption("refresh", i18n("Search for devices in the network and re-establish connections")));
     parser.addOption(QCommandLineOption("pair", i18n("Request pairing to a said device")));
     parser.addOption(QCommandLineOption("unpair", i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption("ping", i18n("Sends a ping to said device")));
