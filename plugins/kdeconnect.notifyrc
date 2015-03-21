@@ -92,6 +92,13 @@ Action=Popup
 
 [Event/callReceived]
 Name=Incoming Call
+Name[de]=Eingehender Anruf
+Name[nl]=Inkomende oproep
+Name[pt]=Chamada Recebida
+Name[pt_BR]=Chamada recebida
+Name[sv]=Inkommande samtal
+Name[uk]=Вхідний дзвінок
+Name[x-test]=xxIncoming Callxx
 Comment=Someone is calling you
 Comment[bg]=Някой ви се обажда
 Comment[bs]=Neko Vas zove
@@ -120,6 +127,13 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed Call
+Name[de]=Verpasster Anruf
+Name[nl]=Gemiste oproep
+Name[pt]=Chamada Não Atendida
+Name[pt_BR]=Chamada não atendida
+Name[sv]=Missat samtal
+Name[uk]=Пропущений дзвінок
+Name[x-test]=xxMissed Callxx
 Comment=You have a missed call
 Comment[bg]=Имате неприето обаждане
 Comment[bs]=Imate propušten poziv
@@ -148,6 +162,13 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS Received
+Name[de]=SMS empfangen
+Name[nl]=SMS ontvangen
+Name[pt]=SMS Recebido
+Name[pt_BR]=SMS recebido
+Name[sv]=SMS mottaget
+Name[uk]=Отримано SMS
+Name[x-test]=xxSMS Receivedxx
 Comment=Someone sent you an SMS
 Comment[bg]=Някой ви изпрати текстово съобщение
 Comment[bs]=Neko Vam je poslao SMS poruku
@@ -176,6 +197,13 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery Low
+Name[de]=Akkuladestand niedrig
+Name[nl]=Batterij op laag niveau
+Name[pt]=Bateria Fraca
+Name[pt_BR]=Bateria fraca
+Name[sv]=Dåligt batteri
+Name[uk]=Низький рівень заряду
+Name[x-test]=xxBattery Lowxx
 Comment=Your battery is in low state
 Comment[bg]=Батерията ви е с нисък заряд
 Comment[bs]=Vaša baterija je gotovo prazna
@@ -204,6 +232,13 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping Received
+Name[de]=Ping empfangen
+Name[nl]=Ping ontvangen
+Name[pt]=Pedido de Contacto Recebido
+Name[pt_BR]=Ping recebido
+Name[sv]=Ping mottaget
+Name[uk]=Отримано сигнал підтримки зв’язку
+Name[x-test]=xxPing Receivedxx
 Comment=Ping received
 Comment[bg]=Пингът е приет
 Comment[bs]=Primili ste ping
@@ -232,6 +267,13 @@ Action=Popup
 
 [Event/notification]
 Name=Generic Notification
+Name[de]=Allgemeine Benachrichtigung
+Name[nl]=Algemene melding
+Name[pt]=Notificação Genérica
+Name[pt_BR]=Notificação genérica
+Name[sv]=Generell underrättelse
+Name[uk]=Загальне сповіщення
+Name[x-test]=xxGeneric Notificationxx
 Comment=Notification received
 Comment[bg]=Уведомлението е прието
 Comment[bs]=Primjeno obavještenje
@@ -260,7 +302,21 @@ Action=Popup
 
 [Event/transferReceived]
 Name=File Transfer
+Name[de]=Dateiübertragung
+Name[nl]=Bestandsoverdracht
+Name[pt]=Transferência de Ficheiro
+Name[pt_BR]=Transferência de arquivo
+Name[sv]=Filöverföring
+Name[uk]=Перенесення файлів
+Name[x-test]=xxFile Transferxx
 Comment=Incoming file
+Comment[de]=Eingehende Datei
+Comment[nl]=Inkomend bestand
+Comment[pt]=Ficheiro recebido
+Comment[pt_BR]=Arquivo recebido
+Comment[sv]=Inkommande fil
+Comment[uk]=Вхідний файл
+Comment[x-test]=xxIncoming filexx
 Action=Popup
 
 

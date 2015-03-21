@@ -8,3 +8,10 @@ OnlyShowIn=KDE;GNOME;Unity;XFCE
 NoDisplay=true
 
 Name=KDEConnect daemon
+Name[de]=KDE-Connect-Dienst
+Name[nl]=KDEConnect-daemon
+Name[pt]=Servidor do KDE Connect
+Name[pt_BR]=Serviço do KDE Connect
+Name[sv]=Demon för KDE-anslut
+Name[uk]=Фонова служба KDEConnect
+Name[x-test]=xxKDEConnect daemonxx
