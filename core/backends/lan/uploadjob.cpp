@@ -36,10 +36,10 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source): KJob()
 void UploadJob::start()
 {
     mPort = 1739;
-    while(!mServer->listen(QHostAddress::Any, mPort)) {
+    while (!mServer->listen(QHostAddress::Any, mPort)) {
         mPort++;
         if (mPort > 1764) { //No ports available?
-            qCDebug(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
+            qWarning(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
             mPort = 0;
             return;
         }

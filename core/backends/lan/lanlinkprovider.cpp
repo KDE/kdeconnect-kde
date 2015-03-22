@@ -77,6 +77,11 @@ void LanLinkProvider::onStart()
     mTcpPort = port;
     while (!mTcpServer->listen(QHostAddress::Any, mTcpPort)) {
         mTcpPort++;
+        if (mTcpPort > 1764) { //No ports available?
+            qCritical(KDECONNECT_CORE) << "Error opening a port in range 1714-1764";
+            mTcpPort = 0;
+            return;
+        }
     }
 
     onNetworkChange(QNetworkSession::Connected);
