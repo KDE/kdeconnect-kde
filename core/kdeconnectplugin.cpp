@@ -51,6 +51,9 @@ KdeConnectPluginConfig* KdeConnectPlugin::config() const
 
 KdeConnectPlugin::~KdeConnectPlugin()
 {
+    if (d->mConfig) {
+        delete d->mConfig;
+    }
 }
 
 const Device* KdeConnectPlugin::device()

@@ -44,7 +44,7 @@ KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget* parent, const QVariantList& ar
 
 KdeConnectPluginKcm::~KdeConnectPluginKcm()
 {
-
+    delete d->mConfig;
 }
 
 KdeConnectPluginConfig* KdeConnectPluginKcm::config() const
