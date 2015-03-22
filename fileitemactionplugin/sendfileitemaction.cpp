@@ -19,23 +19,21 @@
  */
 
 #include "sendfileitemaction.h"
-#include <interfaces/devicesmodel.h>
-#include <interfaces/dbusinterfaces.h>
 
 #include <QList>
 #include <QMenu>
 #include <QAction>
 #include <QWidget>
-#include <QMessageBox>
 #include <QVariantList>
-
+#include <QUrl>
 #include <QIcon>
+
 #include <KPluginFactory>
 #include <KPluginLoader>
-
-#include <KProcess>
 #include <KLocalizedString>
-#include <QUrl>
+
+#include <interfaces/devicesmodel.h>
+#include <interfaces/dbusinterfaces.h>
 
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
 
@@ -47,21 +45,30 @@ SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): K
 
 QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
 {
-    DevicesModel m;
-
     QList<QAction*> actions;
 
-    for(int i = 0; i<m.rowCount(); ++i) {
-        QModelIndex idx = m.index(i);
-        DeviceDbusInterface* dev = m.getDevice(idx);
-        if(dev->isReachable() && dev->isPaired()) {
-            QAction* action = new QAction(QIcon::fromTheme(dev->iconName()), dev->name(), parentWidget);
-            action->setProperty("id", idx.data(DevicesModel::IdModelRole));
-            action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
-            action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
-            connect(action, SIGNAL(triggered(bool)), this, SLOT(sendFile()));
-            actions += action;
+    DaemonDbusInterface iface;
+    if (!iface.isValid()) {
+        return actions;
+    }
+
+    QDBusPendingReply<QStringList> reply = iface.devices(true, true);
+    reply.waitForFinished();
+    const QStringList devices = reply.value();
+    foreach (const QString& id, devices) {
+        DeviceDbusInterface deviceIface(id);
+        if (!deviceIface.isValid()) {
+            continue;
         }
+        if (!deviceIface.hasPlugin("kdeconnect_share")) {
+            continue;
+        }
+        QAction* action = new QAction(QIcon::fromTheme(deviceIface.iconName()), deviceIface.name(), parentWidget);
+        action->setProperty("id", id);
+        action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
+        action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
+        connect(action, SIGNAL(triggered(bool)), this, SLOT(sendFile()));
+        actions += action;
     }
 
     if (actions.count() > 1) {
@@ -81,10 +88,10 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
 void SendFileItemAction::sendFile()
 {
     QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
+    QString id = sender()->property("id").toString();
     foreach(const QUrl& url, urls) {
-        QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+sender()->property("id").toString()+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
+        QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
         msg.setArguments(QVariantList() << url.toString());
-
         QDBusConnection::sessionBus().call(msg);
     }
 }
