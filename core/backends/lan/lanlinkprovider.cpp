@@ -128,14 +128,14 @@ void LanLinkProvider::newUdpConnection()
         }
 
         if (receivedPackage->get<QString>("deviceId") == KdeConnectConfig::instance()->deviceId()) {
-            //kDebug(debugArea()) << "Ignoring my own broadcast";
+            //qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
             delete receivedPackage;
             return;
         }
 
         int tcpPort = receivedPackage->get<int>("tcpPort", port);
 
-        //kDebug(debugArea()) << "Received Udp identity package from" << sender << " asking for a tcp connection on port " << tcpPort;
+        //qCDebug(KDECONNECT_CORE) << "Received Udp identity package from" << sender << " asking for a tcp connection on port " << tcpPort;
 
         QTcpSocket* socket = new QTcpSocket(this);
         receivedIdentityPackages[socket].np = receivedPackage;
@@ -223,7 +223,7 @@ void LanLinkProvider::newConnection()
 {
     //qCDebug(KDECONNECT_CORE) << "LanLinkProvider newConnection";
 
-    while(mTcpServer->hasPendingConnections()) {
+    while (mTcpServer->hasPendingConnections()) {
         QTcpSocket* socket = mTcpServer->nextPendingConnection();
         configureSocket(socket);
         //This socket is still managed by us (and child of the QTcpServer), if
@@ -249,7 +249,7 @@ void LanLinkProvider::dataReceived()
 
     NetworkPackage np("");
     bool success = NetworkPackage::unserialize(data, &np);
-    //kDebug(debugArea()) << "LanLinkProvider received reply:" << data;
+    //qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
 
     if (!success || np.type() != PACKAGE_TYPE_IDENTITY) {
         qCDebug(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
