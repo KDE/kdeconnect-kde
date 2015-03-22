@@ -93,6 +93,7 @@ Action=Popup
 [Event/callReceived]
 Name=Incoming Call
 Name[de]=Eingehender Anruf
+Name[es]=Llamada entrante
 Name[nl]=Inkomende oproep
 Name[pt]=Chamada Recebida
 Name[pt_BR]=Chamada recebida
@@ -128,6 +129,7 @@ Action=Popup
 [Event/missedCall]
 Name=Missed Call
 Name[de]=Verpasster Anruf
+Name[es]=Llamada perdida
 Name[nl]=Gemiste oproep
 Name[pt]=Chamada Não Atendida
 Name[pt_BR]=Chamada não atendida
@@ -163,6 +165,7 @@ Action=Popup
 [Event/smsReceived]
 Name=SMS Received
 Name[de]=SMS empfangen
+Name[es]=SMS recibido
 Name[nl]=SMS ontvangen
 Name[pt]=SMS Recebido
 Name[pt_BR]=SMS recebido
@@ -198,6 +201,7 @@ Action=Popup
 [Event/batteryLow]
 Name=Battery Low
 Name[de]=Akkuladestand niedrig
+Name[es]=Batería baja
 Name[nl]=Batterij op laag niveau
 Name[pt]=Bateria Fraca
 Name[pt_BR]=Bateria fraca
@@ -233,6 +237,7 @@ Action=Popup
 [Event/pingReceived]
 Name=Ping Received
 Name[de]=Ping empfangen
+Name[es]=Ping recibido
 Name[nl]=Ping ontvangen
 Name[pt]=Pedido de Contacto Recebido
 Name[pt_BR]=Ping recebido
@@ -268,6 +273,7 @@ Action=Popup
 [Event/notification]
 Name=Generic Notification
 Name[de]=Allgemeine Benachrichtigung
+Name[es]=Notificación genérica
 Name[nl]=Algemene melding
 Name[pt]=Notificação Genérica
 Name[pt_BR]=Notificação genérica
@@ -303,6 +309,7 @@ Action=Popup
 [Event/transferReceived]
 Name=File Transfer
 Name[de]=Dateiübertragung
+Name[es]=Transferencia de archivo
 Name[nl]=Bestandsoverdracht
 Name[pt]=Transferência de Ficheiro
 Name[pt_BR]=Transferência de arquivo
@@ -311,6 +318,7 @@ Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
 Comment=Incoming file
 Comment[de]=Eingehende Datei
+Comment[es]=Archivo entrante
 Comment[nl]=Inkomend bestand
 Comment[pt]=Ficheiro recebido
 Comment[pt_BR]=Arquivo recebido
