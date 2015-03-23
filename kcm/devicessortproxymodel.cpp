@@ -40,10 +40,23 @@ void DevicesSortProxyModel::sourceDataChanged(QModelIndex , QModelIndex )
 
 bool DevicesSortProxyModel::lessThan(const QModelIndex& left, const QModelIndex& right) const
 {
-    QVariant leftData = sourceModel()->data(left, Qt::InitialSortOrderRole);
-    QVariant rightData = sourceModel()->data(right, Qt::InitialSortOrderRole);
+    QAbstractItemModel* model = sourceModel();
+    Q_ASSERT(qobject_cast<DevicesModel*>(model));
 
-    return leftData.toInt() > rightData.toInt();
+    //Show connected devices first
+    int statusLeft = model->data(left, DevicesModel::StatusModelRole).toInt();
+    int statusRight = model->data(right, DevicesModel::StatusModelRole).toInt();
+
+    if (statusLeft != statusRight) {
+        return statusLeft > statusRight;
+    }
+
+    //Fallback to alphabetical order
+    QString nameLeft = model->data(left, DevicesModel::NameModelRole).toString();
+    QString nameRight = model->data(right, DevicesModel::NameModelRole).toString();
+
+    return nameLeft > nameRight;
+
 }
 
 bool DevicesSortProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
