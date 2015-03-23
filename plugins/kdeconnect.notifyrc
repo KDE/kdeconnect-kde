@@ -92,11 +92,13 @@ Action=Popup
 
 [Event/callReceived]
 Name=Incoming Call
+Name[ca]=Trucada entrant
 Name[de]=Eingehender Anruf
 Name[es]=Llamada entrante
 Name[nl]=Inkomende oproep
 Name[pt]=Chamada Recebida
 Name[pt_BR]=Chamada recebida
+Name[sk]=Prichádzajúci hovor
 Name[sv]=Inkommande samtal
 Name[uk]=Вхідний дзвінок
 Name[x-test]=xxIncoming Callxx
@@ -128,11 +130,13 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed Call
+Name[ca]=Trucada perduda
 Name[de]=Verpasster Anruf
 Name[es]=Llamada perdida
 Name[nl]=Gemiste oproep
 Name[pt]=Chamada Não Atendida
 Name[pt_BR]=Chamada não atendida
+Name[sk]=Zmeškaný hovor
 Name[sv]=Missat samtal
 Name[uk]=Пропущений дзвінок
 Name[x-test]=xxMissed Callxx
@@ -164,11 +168,13 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS Received
+Name[ca]=S'ha rebut un SMS
 Name[de]=SMS empfangen
 Name[es]=SMS recibido
 Name[nl]=SMS ontvangen
 Name[pt]=SMS Recebido
 Name[pt_BR]=SMS recebido
+Name[sk]=Prijatá SMS
 Name[sv]=SMS mottaget
 Name[uk]=Отримано SMS
 Name[x-test]=xxSMS Receivedxx
@@ -200,11 +206,13 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery Low
+Name[ca]=Bateria baixa
 Name[de]=Akkuladestand niedrig
 Name[es]=Batería baja
 Name[nl]=Batterij op laag niveau
 Name[pt]=Bateria Fraca
 Name[pt_BR]=Bateria fraca
+Name[sk]=Batéria je slabá
 Name[sv]=Dåligt batteri
 Name[uk]=Низький рівень заряду
 Name[x-test]=xxBattery Lowxx
@@ -236,11 +244,13 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping Received
+Name[ca]=S'ha rebut un ping
 Name[de]=Ping empfangen
 Name[es]=Ping recibido
 Name[nl]=Ping ontvangen
 Name[pt]=Pedido de Contacto Recebido
 Name[pt_BR]=Ping recebido
+Name[sk]=Prijatý ping
 Name[sv]=Ping mottaget
 Name[uk]=Отримано сигнал підтримки зв’язку
 Name[x-test]=xxPing Receivedxx
@@ -272,11 +282,13 @@ Action=Popup
 
 [Event/notification]
 Name=Generic Notification
+Name[ca]=Notificació genèrica
 Name[de]=Allgemeine Benachrichtigung
 Name[es]=Notificación genérica
 Name[nl]=Algemene melding
 Name[pt]=Notificação Genérica
 Name[pt_BR]=Notificação genérica
+Name[sk]=Všeobecné upozornenie
 Name[sv]=Generell underrättelse
 Name[uk]=Загальне сповіщення
 Name[x-test]=xxGeneric Notificationxx
@@ -308,20 +320,24 @@ Action=Popup
 
 [Event/transferReceived]
 Name=File Transfer
+Name[ca]=Transferència de fitxers
 Name[de]=Dateiübertragung
 Name[es]=Transferencia de archivo
 Name[nl]=Bestandsoverdracht
 Name[pt]=Transferência de Ficheiro
 Name[pt_BR]=Transferência de arquivo
+Name[sk]=Prenos súboru
 Name[sv]=Filöverföring
 Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
 Comment=Incoming file
+Comment[ca]=Fitxer entrant
 Comment[de]=Eingehende Datei
 Comment[es]=Archivo entrante
 Comment[nl]=Inkomend bestand
 Comment[pt]=Ficheiro recebido
 Comment[pt_BR]=Arquivo recebido
+Comment[sk]=Prichádzajúci súbor
 Comment[sv]=Inkommande fil
 Comment[uk]=Вхідний файл
 Comment[x-test]=xxIncoming filexx
