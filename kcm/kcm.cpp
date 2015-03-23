@@ -63,6 +63,10 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->progressBar->setVisible(false);
     kcmUi->messages->setVisible(false);
 
+    //Workaround: If we set this directly (or if we set it in the .ui file), the layout breaks
+    kcmUi->noDeviceLinks->setWordWrap(false);
+    QTimer::singleShot(0, [this] { kcmUi->noDeviceLinks->setWordWrap(true); });
+
     kcmUi->rename_label->setText(daemon->announcedName());
     kcmUi->rename_edit->setText(daemon->announcedName());
     setRenameMode(false);
@@ -133,6 +137,8 @@ void KdeConnectKcm::resetSelection()
 void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
 
+    kcmUi->noDevicePlaceholder->setVisible(false);
+
     if (currentDevice) {
         disconnect(currentDevice,SIGNAL(pairingSuccesful()),
             this, SLOT(pairingSuccesful()));
@@ -181,7 +187,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
-    kcmUi->verticalLayout_2->addWidget(kcmUi->pluginSelector);
+    kcmUi->deviceInfo_layout->addWidget(kcmUi->pluginSelector);
 
     kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 
