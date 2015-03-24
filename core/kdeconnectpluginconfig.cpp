@@ -20,13 +20,9 @@
 
 #include "kdeconnectpluginconfig.h"
 
-#include <KF5/KConfigCore/kconfig.h>
-#include <KConfigGroup>
-#include <KSharedConfig>
-
 #include <QDir>
+#include <QSettings>
 
-#include "interfaces/dbusinterfaces.h"
 #include "kdeconnectconfig.h"
 
 struct KdeConnectPluginConfigPrivate
