@@ -41,7 +41,6 @@ PRIVATE
     Qt5::Gui
     KF5::I18n
     KF5::ConfigCore
-    KF5::Notifications
 )
 
 set_target_properties(kdeconnectcore PROPERTIES

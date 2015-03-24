@@ -30,6 +30,7 @@
 class DaemonPrivate;
 class NetworkPackage;
 class DeviceLink;
+class Device;
 
 class KDECONNECTCORE_EXPORT Daemon
     : public QObject
@@ -42,6 +43,12 @@ public:
     ~Daemon();
 
 public Q_SLOTS:
+    /**
+     * Returns the daemon.
+     *
+     * Note this can't be called before constructing the Daemon.
+     */
+    static Daemon* instance();
 
     //After calling this, signal deviceDiscovered will be triggered for each device
     Q_SCRIPTABLE void setDiscoveryEnabled(bool b);
@@ -53,6 +60,9 @@ public Q_SLOTS:
 
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyVisible = false) const;
+
+    virtual void requestPairing(Device *d) = 0;
+    virtual void reportError(const QString &title, const QString &description) = 0;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);

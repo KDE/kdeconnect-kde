@@ -27,8 +27,11 @@
 #include <QApplication>
 
 #include <KDBusService>
+#include <KNotification>
+#include <KLocalizedString>
 
 #include "core/daemon.h"
+#include "core/device.h"
 #include "kdeconnect-version.h"
 
 static int sigtermfd[2];
@@ -58,6 +61,33 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
     sigaction(SIGINT, &action, NULL);
 }
 
+class DesktopDaemon : public Daemon
+{
+    Q_OBJECT
+public:
+    DesktopDaemon(QObject* parent = Q_NULLPTR)
+        : Daemon(parent)
+    {}
+
+    void requestPairing(Device* d) Q_DECL_OVERRIDE
+    {
+        KNotification* notification = new KNotification("pairingRequest");
+        notification->setIconName(QStringLiteral("dialog-information"));
+        notification->setComponentName("kdeconnect");
+        notification->setText(i18n("Pairing request from %1", d->name()));
+        notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
+        connect(notification, &KNotification::ignored, d, &Device::rejectPairing);
+        connect(notification, &KNotification::action1Activated, d, &Device::acceptPairing);
+        connect(notification, &KNotification::action2Activated, d, &Device::rejectPairing);
+        notification->sendEvent();
+    }
+
+    void reportError(const QString & title, const QString & description) Q_DECL_OVERRIDE
+    {
+        KNotification::event(KNotification::Error, title, description);
+    }
+};
+
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
@@ -68,9 +98,11 @@ int main(int argc, char* argv[])
 
     KDBusService dbusService(KDBusService::Unique);
 
-    Daemon* daemon = new Daemon(0);
+    Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
     initializeTermHandlers(&app, daemon);
 
     return app.exec();
 }
+
+#include "kdeconnectd.moc"

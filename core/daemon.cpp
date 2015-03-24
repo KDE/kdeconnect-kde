@@ -36,6 +36,8 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
+Q_GLOBAL_STATIC(Daemon*, s_instance)
+
 struct DaemonPrivate
 {
     //Different ways to find devices and connect to them
@@ -45,10 +47,18 @@ struct DaemonPrivate
     QMap<QString, Device*> mDevices;
 };
 
+Daemon* Daemon::instance()
+{
+    Q_ASSERT(s_instance.exists());
+    return *s_instance;
+}
+
 Daemon::Daemon(QObject *parent)
     : QObject(parent)
     , d(new DaemonPrivate)
 {
+    Q_ASSERT(!s_instance.exists());
+    *s_instance = this;
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
     //Load backends

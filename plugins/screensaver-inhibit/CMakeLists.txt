@@ -1,3 +1,5 @@
+find_package(KF5 REQUIRED COMPONENTS Notifications)
+
 set(kdeconnect_screensaver_inhibit_SRCS
     screensaverinhibitplugin.cpp
 )

@@ -1,3 +1,5 @@
+find_package(KF5 REQUIRED COMPONENTS Notifications)
+
 set(kdeconnect_share_SRCS
     shareplugin.cpp
     autoclosingqfile.cpp
@@ -27,6 +29,7 @@ target_link_libraries( kdeconnect_share_config
     KF5::CoreAddons
     KF5::ConfigWidgets
     KF5::KIOWidgets
+    KF5::Notifications
 )
 
 install(TARGETS kdeconnect_share_config DESTINATION ${PLUGIN_INSTALL_DIR} )

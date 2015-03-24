@@ -30,7 +30,6 @@
 
 #include <KSharedConfig>
 #include <KConfigGroup>
-#include <KNotification>
 #include <KLocalizedString>
 #include <QIcon>
 #include <QDir>
@@ -43,6 +42,7 @@
 #include "backends/linkprovider.h"
 #include "networkpackage.h"
 #include "kdeconnectconfig.h"
+#include "daemon.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
@@ -352,21 +352,11 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 setAsPaired();
 
             } else {
-
                 qCDebug(KDECONNECT_CORE) << "Pair request";
 
-                KNotification* notification = new KNotification("pairingRequest");
-                notification->setIconName(QStringLiteral("dialog-information"));
-                notification->setComponentName("kdeconnect");
-                notification->setText(i18n("Pairing request from %1", m_deviceName));
-                notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
-                connect(notification, &KNotification::ignored, this, &Device::rejectPairing);
-                connect(notification, &KNotification::action1Activated, this, &Device::acceptPairing);
-                connect(notification, &KNotification::action2Activated, this, &Device::rejectPairing);
-                notification->sendEvent();
+                Daemon::instance()->requestPairing(this);
 
                 m_pairStatus = Device::RequestedByPeer;
-
             }
 
         } else {
