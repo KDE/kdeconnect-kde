@@ -168,6 +168,7 @@ void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 
 void DevicesModel::nameChanged(const QString& newName)
 {
+    Q_UNUSED(newName);
     int row = m_deviceList.indexOf(static_cast<DeviceDbusInterface*>(sender()));
     Q_ASSERT(row>=0);
     const QModelIndex idx = index(row, 0);
