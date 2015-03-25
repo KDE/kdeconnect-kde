@@ -1,69 +1,28 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "albertvaka@gmail.com",
+                "Email": "albertvaka@gmail.com", 
                 "Name": "Albert Vaca"
             }
-        ],
-        "Description": "Show phone notifications in KDE and keep them in sync",
-        "Description[bg]": "Показване и синхронизиране на уведомления от телефона в КДЕ",
-        "Description[bs]": "Prikaži objavještenja sa mobitela u KDE i održavaj ih sinhronizovanim",
-        "Description[ca]": "Mostra les notificacions del telèfon al KDE i les manté sincronitzades",
-        "Description[cs]": "Zobrazit upozornění z telefonu v KDE a udržovat je synchronizovaná",
-        "Description[da]": "Vis telefonbekendtgørelser i KDE og hold dem synkroniseret",
-        "Description[de]": "Benachrichtigungen in KDE anzeigen und abgleichen",
-        "Description[es]": "Mostrar las notificaciones del teléfono en KDE y mantenerlas sincronizadas",
-        "Description[fi]": "Näytä puhelimen ilmoitukset KDE:ssa ja pidä ne ajan tasalla",
-        "Description[fr]": "Affichez les notifications du téléphone dans KDE et conservez-les lors de la synchronisation",
-        "Description[hu]": "Telefonértesítések megjelenítése a KDE-ben és szinkronizálva tartása",
-        "Description[it]": "Mostra e sincronizza le notifiche del telefono in KDE",
-        "Description[ko]": "폰 알림을 KDE에 표시하고 동기화 유지",
-        "Description[nl]": "Telefoonmeldingen in KDE tonen en ze gesynchroniseerd houden",
-        "Description[pl]": "Pokaż powiadomienia telefonu w KDE i synchronizuj je",
-        "Description[pt]": "Mostrar as notificações do telefone no KDE e mantê-las sincronizadas",
-        "Description[pt_BR]": "Mostra as notificações do celular no KDE e as mantem sincronizadas",
-        "Description[ru]": "Показывать телефонные уведомления в KDE и синхронизировать их",
-        "Description[sk]": "Zobraziť oznámenia v KDE a ponechať ich v synchronizácii",
-        "Description[sv]": "Visa telefonunderrättelser i KDE och håll dem synkroniserade",
-        "Description[tr]": "Telefon bildirimlerini KDE içinde eşitler ve eşzamanlı tutar",
-        "Description[uk]": "Показ сповіщень з телефону у KDE та підтримання синхронізації даних сповіщень",
-        "Description[x-test]": "xxShow phone notifications in KDE and keep them in syncxx",
-        "EnabledByDefault": true,
-        "Icon": "preferences-desktop-notification",
-        "Id": "kdeconnect_notifications",
-        "License": "GPL",
-        "Name": "Notification sync",
-        "Name[bg]": "Синхронизиране на уведомленията",
-        "Name[bs]": "Sinhronizovano obavještenje",
-        "Name[ca]": "Sincronitza les notificacions",
-        "Name[cs]": "Synchronizace hlášení",
-        "Name[da]": "Synk. af bekendtgørelser",
-        "Name[de]": "Benachrichtigungs-Abgleich",
-        "Name[es]": "Sincronizar notificaciones",
-        "Name[fi]": "Ilmoitusten synkronointi",
-        "Name[fr]": "Synchronisation de notifications",
-        "Name[hu]": "Értesítés szinkronizáció",
-        "Name[it]": "Sincronizzazione notifiche",
-        "Name[ko]": "알림 동기화",
-        "Name[nl]": "Synchronisatie van meldingen",
-        "Name[pl]": "Powiadomienia synchronizacji",
-        "Name[pt]": "Sincronização de notificações",
-        "Name[pt_BR]": "Sincronização de notificações",
-        "Name[ro]": "Sincronizare notificări",
-        "Name[ru]": "Синхронизация уведомлений",
-        "Name[sk]": "Synchronizácia pripomienok",
-        "Name[sv]": "Synkronisering av underrättelser",
-        "Name[tr]": "Bildirim eşitleme",
-        "Name[uk]": "Синхронізація сповіщень",
-        "Name[x-test]": "xxNotification syncxx",
+        ], 
+        "Description": "Show phone notifications in KDE and keep them in sync", 
+        "EnabledByDefault": true, 
+        "Icon": "preferences-desktop-notification", 
+        "Id": "kdeconnect_notifications", 
+        "License": "GPL", 
+        "Name": "Notification sync", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
-        "Version": "0.1",
+        ], 
+        "Version": "0.1", 
         "Website": "http://albertvaka.wordpress.com"
-    },
-    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.notification" ],
-    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.notification" ]
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.notification"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.notification"
+    ]
 }

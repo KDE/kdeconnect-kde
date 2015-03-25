@@ -1,69 +1,28 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "albertvaka@gmail.com",
+                "Email": "albertvaka@gmail.com", 
                 "Name": "Albert Vaca"
             }
-        ],
-        "Description": "Show notifications for calls and SMS (answering coming soon)",
-        "Description[bg]": "Показване на уведомления за обаждания и текстови съобщения (а скоро и отговаряне)",
-        "Description[bs]": "Prikaži obavlještenja za pozive i SMS poruke(Odgovor slijedi uskoro)",
-        "Description[ca]": "Mostra les notificacions de les trucades i els SMS (en breu es podrà respondre)",
-        "Description[cs]": "Zobrazit upozornění na volání a SMS (odpovídání bude brzy k dispozici)",
-        "Description[da]": "Vis bekendtgørelser af opkald og SMS (at svare kommer snart)",
-        "Description[de]": "Zeigt Benachrichtigungen für Anrufe und SMS",
-        "Description[es]": "Mostrar notificaciones de llamadas y SMS (en breve se podrá responder)",
-        "Description[fi]": "Näytä puhelujen ja tekstiviestien ilmoitukset (vastaaminen tulossa pian)",
-        "Description[fr]": "Affichez les notifications pour les appels et les SMS (la réponse arrive bientôt)",
-        "Description[hu]": "Értesítések megjelenítése hívásokhoz és SMS-ekhez (a fogadásuk hamarosan)",
-        "Description[it]": "Mostra le notifiche di chiamate ed SMS (a breve anche per rispondere)",
-        "Description[ko]": "전화 통화 및 문자 메시지 알림 표시(응답 구현 예정)",
-        "Description[nl]": "Meldingen tonen van oproepen en SMSjes (beantwoorden komt spoedig)",
-        "Description[pl]": "Pokaż powiadomienia dla dzwonienia i SMS (odpowiadanie wkrótce)",
-        "Description[pt]": "Mostrar notificações para as chamadas e SMS's (resposta em breve)",
-        "Description[pt_BR]": "Mostra notificações para chamadas e SMS (resposta em breve)",
-        "Description[ru]": "Показывать уведомления о звонках и SMS (ответы на звонки тоже скоро будут доступны)",
-        "Description[sk]": "Zobraziť oznámenia pre hovory a SMS (čoskoro aj odpovede)",
-        "Description[sv]": "Visa underrättelser om samtal och SMS (att svara kommer snart)",
-        "Description[tr]": "Çağrı ve SMS'ler için bildirim göster (yanıtlama yakında geliyor)",
-        "Description[uk]": "Показ сповіщень щодо дзвінків і SMS (скоро буде реалізовано і автовідповідач)",
-        "Description[x-test]": "xxShow notifications for calls and SMS (answering coming soon)xx",
-        "EnabledByDefault": true,
-        "Icon": "call-start",
-        "Id": "kdeconnect_telephony",
-        "License": "GPL",
-        "Name": "Telephony integration",
-        "Name[bg]": "Интеграция на телефона",
-        "Name[bs]": "Telefonska integracija",
-        "Name[ca]": "Integra amb la telefonia",
-        "Name[cs]": "Integrace telefonie",
-        "Name[da]": "Telefoni-integration",
-        "Name[de]": "Telefon-Integration",
-        "Name[es]": "Integración de telefonía",
-        "Name[fi]": "Puhelinintegrointi",
-        "Name[fr]": "Intégration de la téléphonie",
-        "Name[hu]": "Telefon integráció",
-        "Name[it]": "Integrazione telefono",
-        "Name[ko]": "전화 통합",
-        "Name[nl]": "Telefoonintegratie",
-        "Name[pl]": "Integracja z telefonem",
-        "Name[pt]": "Integração telefónica",
-        "Name[pt_BR]": "Integração telefônica",
-        "Name[ro]": "Integrare telefonie",
-        "Name[ru]": "Интеграция телефонии",
-        "Name[sk]": "Integrácia telefónie",
-        "Name[sv]": "Integrering av telefoni",
-        "Name[tr]": "Telefon tümleştirmesi",
-        "Name[uk]": "Інтеграція з системою телефонії",
-        "Name[x-test]": "xxTelephony integrationxx",
+        ], 
+        "Description": "Show notifications for calls and SMS (answering coming soon)", 
+        "EnabledByDefault": true, 
+        "Icon": "call-start", 
+        "Id": "kdeconnect_telephony", 
+        "License": "GPL", 
+        "Name": "Telephony integration", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
-        "Version": "0.1",
+        ], 
+        "Version": "0.1", 
         "Website": "http://albertvaka.wordpress.com"
-    },
-    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.telephony" ],
-    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.telephony" ]
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.telephony"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.telephony"
+    ]
 }

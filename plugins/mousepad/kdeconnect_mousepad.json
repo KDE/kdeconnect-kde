@@ -1,23 +1,27 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "ahmedibrahimkhali@gmail.com",
+                "Email": "ahmedibrahimkhali@gmail.com", 
                 "Name": "Ahmed I. Khalil"
             }
-        ],
-        "Description": "Use your phone as a touchpad and keyboard",
-        "EnabledByDefault": true,
-        "Icon": "input-mouse",
-        "Id": "kdeconnect_mousepad",
-        "License": "GPL",
-        "Name": "Virtual input",
+        ], 
+        "Description": "Use your phone as a touchpad and keyboard", 
+        "EnabledByDefault": true, 
+        "Icon": "input-mouse", 
+        "Id": "kdeconnect_mousepad", 
+        "License": "GPL", 
+        "Name": "Virtual input", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
+        ], 
         "Version": "0.1"
-    },
-    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.mousepad" ],
-    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.mousepad" ]
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.mousepad"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.mousepad"
+    ]
 }

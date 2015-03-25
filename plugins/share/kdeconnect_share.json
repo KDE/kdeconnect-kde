@@ -1,65 +1,28 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "albertvaka@gmail.com",
+                "Email": "albertvaka@gmail.com", 
                 "Name": "Albert Vaca"
             }
-        ],
-        "Description": "Receive and send files, URLs or plain text easily",
-        "Description[bg]": "Лесно получаване и изпращане на файлове, адреси и обикновен текст",
-        "Description[bs]": "Lako primi i pošalji datotekem URL-ove ili obični tekst",
-        "Description[ca]": "Rep i envia fitxers, els URL o text net amb facilitat",
-        "Description[cs]": "Jednoduše přijímejte a posílejte soubory, URL nebo čistý text",
-        "Description[da]": "Modtag og send filer, URL'er eller klartekst på nem måde",
-        "Description[de]": "Empfang und Senden von Dateien, URLs oder einfacher Text",
-        "Description[es]": "Recibir y enviar archivos, URL o texto sin formato fácilmente",
-        "Description[fi]": "Vastaanota ja lähetä tiedostoja, verkko-osoitteita tai tekstiä helposti",
-        "Description[fr]": "Recevoir et envoyer des fichiers, des URLs ou du texte brut facilement",
-        "Description[hu]": "Fájlok, URL-ek vagy egyszerű szövegek könnyű fogadása és küldése",
-        "Description[ko]": "파일, URL, 일반 텍스트를 주고받기",
-        "Description[nl]": "Bestanden, URL's of platte tekst gemakkelijk ontvangen en verzenden",
-        "Description[pl]": "Udostępniaj i otrzymuj pliki, adresy URL lub zwykły tekst z łatwością",
-        "Description[pt]": "Receber e enviar ficheiros, URL's ou texto de forma simples",
-        "Description[pt_BR]": "Recebe e envia facilmente arquivos, URLs ou texto simples",
-        "Description[sk]": "Prijať a poslať súbory, URL alebo čisté texty jednoducho",
-        "Description[sv]": "Ta emot och skicka filer, webbadresser eller vanlig text enkelt",
-        "Description[tr]": "Kolaylıkla dosya, adres veya düz metin alıp gönderin",
-        "Description[uk]": "Спрощене отримання і надсилання файлів, адрес або текстових фрагментів",
-        "Description[x-test]": "xxReceive and send files, URLs or plain text easilyxx",
-        "EnabledByDefault": true,
-        "Icon": "folder-download",
-        "Id": "kdeconnect_share",
-        "License": "GPL",
-        "Name": "Share and receive",
-        "Name[bg]": "Споделяне и получаване",
-        "Name[bs]": "Podijeli i primi",
-        "Name[ca]": "Comparteix i rep",
-        "Name[cs]": "Sdílet a přijímat",
-        "Name[da]": "Del og modtag",
-        "Name[de]": "Veröffentlichen und Empfangen",
-        "Name[es]": "Compartir y recibir",
-        "Name[fi]": "Jaa ja vastaanota",
-        "Name[fr]": "Partager et recevoir",
-        "Name[hu]": "Megosztás és fogadás",
-        "Name[ko]": "공유하고 받기",
-        "Name[nl]": "Delen en ontvangen",
-        "Name[pl]": "Udostępniaj i otrzymuj",
-        "Name[pt]": "Partilhar e receber",
-        "Name[pt_BR]": "Compartilhar e receber",
-        "Name[ro]": "Partajează și primește",
-        "Name[sk]": "Zdieľať a prijať",
-        "Name[sv]": "Dela och ta emot",
-        "Name[tr]": "Paylaş ve al",
-        "Name[uk]": "Оприлюднення і отримання",
-        "Name[x-test]": "xxShare and receivexx",
+        ], 
+        "Description": "Receive and send files, URLs or plain text easily", 
+        "EnabledByDefault": true, 
+        "Icon": "folder-download", 
+        "Id": "kdeconnect_share", 
+        "License": "GPL", 
+        "Name": "Share and receive", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
-        "Version": "0.1",
+        ], 
+        "Version": "0.1", 
         "Website": "http://albertvaka.wordpress.com"
-    },
-    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.share" ],
-    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.share" ]
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.share"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.share"
+    ]
 }

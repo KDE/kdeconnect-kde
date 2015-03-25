@@ -1,64 +1,28 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "kinnalru@gmail.com",
+                "Email": "kinnalru@gmail.com", 
                 "Name": "Samoilenko Yuri"
             }
-        ],
-        "Description": "Browse the remote device filesystem using SFTP",
-        "Description[bg]": "Отдалечено разглеждане на файловете на устройство чрез SFTP",
-        "Description[bs]": "Pregledajte daljinski uređaj datotečnog sustava koristeći SFTP",
-        "Description[ca]": "Navega pel sistema de fitxers dels dispositius remots usant SFTP",
-        "Description[cs]": "Prohlížení souborového systému na zařízení pomocí SFTP",
-        "Description[da]": "Gennemse filsystemet på den eksterne enhed med SFTP",
-        "Description[de]": "Browsen im Dateisystem des entfernten Geräts mit SFTP",
-        "Description[es]": "Navegar en el sistema de archivos del dispositivo remoto usando SFTP",
-        "Description[fi]": "Selaa etälaitteiden tiedostojärjestelmiä SFTP:llä",
-        "Description[fr]": "Visualiser le système de fichiers de l'appareil distant en utilisant SFTP",
-        "Description[hu]": "A távoli eszköz fájlrendszerének böngészése SFTP használatával",
-        "Description[ko]": "SFTP로 원격 파일 시스템 탐색",
-        "Description[nl]": "Blader door het bestandssysteem met SFTP op het apparaat op afstand",
-        "Description[pl]": "Przeglądaj zdalny system plików przy użyciu SFTP",
-        "Description[pt]": "Navegue pelo sistema de ficheiros do dispositivo por SFTP",
-        "Description[pt_BR]": "Navegue pelo sistema de arquivos do dispositivo usando SFTP",
-        "Description[sk]": "Prehliadať súborový systém vzdialeného zariadenia pomocou SFTP",
-        "Description[sv]": "Bläddra i fjärrenhetens filsystem med SFTP",
-        "Description[tr]": "SFTP kullanarak uzak aygıt dosya sisteminde gezin",
-        "Description[uk]": "Перегляд файлових систем на сторонніх пристроях за допомогою SFTP",
-        "Description[x-test]": "xxBrowse the remote device filesystem using SFTPxx",
-        "EnabledByDefault": true,
-        "Icon": "system-file-manager",
-        "Id": "kdeconnect_sftp",
-        "License": "GPL",
-        "Name": "Remote filesystem browser",
-        "Name[bg]": "Достъп до отдалечена файлова система",
-        "Name[bs]": "Daljinski datotečni preglednik",
-        "Name[ca]": "Navegador pel sistema de fitxers remot",
-        "Name[cs]": "Prohlížeč vzdáleného souborového systému",
-        "Name[da]": "Gennemse eksternt filsystem",
-        "Name[de]": "Datei-Browser für entferne Systeme",
-        "Name[es]": "Navegador de sistemas de archivos remoto",
-        "Name[fi]": "Etätiedostojärjestelmäselain",
-        "Name[fr]": "Contrôlez à distance le navigateur du système de fichiers",
-        "Name[hu]": "Távoli fájlrendszer böngésző",
-        "Name[ko]": "원격 파일 시스템 탐색기",
-        "Name[nl]": "Bestandssysteembrowser op afstand",
-        "Name[pl]": "Przeglądarka zdalnego systemu plików",
-        "Name[pt]": "Navegador do sistema de ficheiros remoto",
-        "Name[pt_BR]": "Navegador do sistema de arquivos remoto",
-        "Name[sk]": "Prehliadač vzdialeného súborového systému",
-        "Name[sv]": "Fjärrfilsystembläddrare",
-        "Name[tr]": "Uzak dosya sistemi tarayıcı",
-        "Name[uk]": "Перегляд віддалених файлових систем",
-        "Name[x-test]": "xxRemote filesystem browserxx",
+        ], 
+        "Description": "Browse the remote device filesystem using SFTP", 
+        "EnabledByDefault": true, 
+        "Icon": "system-file-manager", 
+        "Id": "kdeconnect_sftp", 
+        "License": "GPL", 
+        "Name": "Remote filesystem browser", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
-        "Version": "0.1",
+        ], 
+        "Version": "0.1", 
         "Website": "http://albertvaka.wordpress.com"
-    },
-    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.sftp" ],
-    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.sftp" ]
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.sftp"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.sftp"
+    ]
 }

@@ -1,69 +1,28 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "albertvaka@gmail.com",
+                "Email": "albertvaka@gmail.com", 
                 "Name": "Albert Vaca"
             }
-        ],
-        "Description": "Show your phone battery next to your computer battery",
-        "Description[bg]": "Показване на батерията на телефона редом с тази на компютъра",
-        "Description[bs]": "Prikažite Vašu bateriju sa mobilnog telefona poted Vaše računarske baterije",
-        "Description[ca]": "Mostra la bateria del telèfon al costat de la bateria de l'ordinador",
-        "Description[cs]": "Zobrazit baterku vašeho telefonu vedle baterie vašeho notebooku",
-        "Description[da]": "Vis dit telefonbatteri ved siden af din computers batteri",
-        "Description[de]": "Zeigt den Akku Ihres Telefons neben dem Akku des Rechners",
-        "Description[es]": "Muestra la batería de su teléfono junto a la batería de su equipo",
-        "Description[fi]": "Näytä puhelimesi akku tietokoneen akun rinnalla",
-        "Description[fr]": "Affichez la batterie de votre téléphone près de la batterie de votre ordinateur",
-        "Description[hu]": "A telefon akkumulátorának megjelenítése a számítógép akkumulátora mellett",
-        "Description[it]": "Mostra il livello batteria del tuo telefono accanto a quella del computer",
-        "Description[ko]": "폰 배터리와 컴퓨터 배터리 동시 확인",
-        "Description[nl]": "Uw telefoonbatterij naast uw computerbatterij tonen",
-        "Description[pl]": "Pokaż baterię swojego telefonu obok baterii komputera",
-        "Description[pt]": "Mostra a bateria do seu telemóvel ao lado da do computador",
-        "Description[pt_BR]": "Mostra a bateria do seu celular ao lado da bateria do computador",
-        "Description[ru]": "Показывать значок батареи устройства рядом со значком батареи компьютера",
-        "Description[sk]": "Zobraziť batériu vášho telefónu pri batérii počítača",
-        "Description[sv]": "Visa telefonens batteri intill datorbatteriet",
-        "Description[tr]": "Bilgisayar pilinizin yanında telefon pil durumunu göster",
-        "Description[uk]": "Показ даних щодо рівня заряду акумулятора на телефоні поряд з даними щодо рівня заряду акумулятора комп’ютера",
-        "Description[x-test]": "xxShow your phone battery next to your computer batteryxx",
-        "EnabledByDefault": true,
-        "Icon": "battery-100",
-        "Id": "kdeconnect_battery",
-        "License": "GPL",
-        "Name": "Battery monitor",
-        "Name[bg]": "Наблюдение на батерията",
-        "Name[bs]": "Kontrolor baterije",
-        "Name[ca]": "Monitor de la bateria",
-        "Name[cs]": "Monitor baterie",
-        "Name[da]": "Batteriovervågning",
-        "Name[de]": "Akkuüberwachung",
-        "Name[es]": "Monitor de la batería",
-        "Name[fi]": "Akkuvalvonta",
-        "Name[fr]": "Moniteur de batterie",
-        "Name[hu]": "Akkumulátorfigyelő",
-        "Name[it]": "Monitor batteria",
-        "Name[ko]": "배터리 모니터",
-        "Name[nl]": "Batterijmonitor",
-        "Name[pl]": "Monitor baterii",
-        "Name[pt]": "Monitor da bateria",
-        "Name[pt_BR]": "Monitor de bateria",
-        "Name[ro]": "Monitorul acumulatorului",
-        "Name[ru]": "Индикатор батареи",
-        "Name[sk]": "Monitor batérie",
-        "Name[sv]": "Batteriövervakare",
-        "Name[tr]": "Pil izleyici",
-        "Name[uk]": "Монітор акумулятора",
-        "Name[x-test]": "xxBattery monitorxx",
+        ], 
+        "Description": "Show your phone battery next to your computer battery", 
+        "EnabledByDefault": true, 
+        "Icon": "battery-100", 
+        "Id": "kdeconnect_battery", 
+        "License": "GPL", 
+        "Name": "Battery monitor", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
-        "Version": "0.1",
+        ], 
+        "Version": "0.1", 
         "Website": "http://albertvaka.wordpress.com"
-    },
-    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.battery" ],
-    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.battery" ]
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.battery"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.battery"
+    ]
 }
