@@ -144,6 +144,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed
+Name[ca]=Perduda
 Name[nl]=Gemist
 Name[pt]=Não atendida
 Name[pt_BR]=Não atendidas
@@ -228,6 +229,7 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery
+Name[ca]=Bateria
 Name[nl]=Batterij
 Name[pt]=Bateria
 Name[pt_BR]=Bateria
@@ -312,6 +314,7 @@ Action=Popup
 
 [Event/notification]
 Name=Notification
+Name[ca]=Notificació
 Name[nl]=Melding
 Name[pt]=Notificação
 Name[pt_BR]=Notificação
