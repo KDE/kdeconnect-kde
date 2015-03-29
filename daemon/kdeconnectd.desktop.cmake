@@ -10,6 +10,7 @@ NoDisplay=true
 Name=KDEConnect daemon
 Name[ca]=Dimoni del KDEConnect
 Name[de]=KDE-Connect-Dienst
+Name[en_GB]=KDEConnect daemon
 Name[es]=Demonio de KDE Connect
 Name[gl]=Servizo de KDE Connect
 Name[it]=Demone KDE Connect
