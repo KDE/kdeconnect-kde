@@ -103,6 +103,7 @@ Action=Popup
 [Event/callReceived]
 Name=Incoming Call
 Name[ca]=Trucada entrant
+Name[cs]=Příchozí hovor
 Name[de]=Eingehender Anruf
 Name[en_GB]=Incoming Call
 Name[es]=Llamada entrante
@@ -146,7 +147,10 @@ Action=Popup
 [Event/missedCall]
 Name=Missed Call
 Name[ca]=Trucada perduda
+Name[cs]=Zmeškaný hovor
+Name[de]=Verpasster Anruf
 Name[en_GB]=Missed Call
+Name[es]=Llamada perdida
 Name[gl]=Chamada perdida
 Name[nl]=Gemiste oproep
 Name[pt]=Chamada Não Atendida
@@ -186,6 +190,7 @@ Action=Popup
 [Event/smsReceived]
 Name=SMS Received
 Name[ca]=S'ha rebut un SMS
+Name[cs]=SMS přijata
 Name[de]=SMS empfangen
 Name[en_GB]=SMS Received
 Name[es]=SMS recibido
@@ -228,7 +233,10 @@ Action=Popup
 [Event/batteryLow]
 Name=Battery Low
 Name[ca]=Bateria baixa
+Name[cs]=Baterie je téměř vybitá
+Name[de]=Akku-Ladestand niedrig
 Name[en_GB]=Battery Low
+Name[es]=Batería baja
 Name[gl]=Batería baixa
 Name[nl]=Batterij op laag niveau
 Name[pt]=Bateria Fraca
@@ -268,6 +276,7 @@ Action=Popup
 [Event/pingReceived]
 Name=Ping Received
 Name[ca]=S'ha rebut un ping
+Name[cs]=Ping přijat
 Name[de]=Ping empfangen
 Name[en_GB]=Ping Received
 Name[es]=Ping recibido
@@ -311,6 +320,7 @@ Action=Popup
 [Event/notification]
 Name=Generic Notification
 Name[ca]=Notificació genèrica
+Name[cs]=Obecná hlášení
 Name[de]=Allgemeine Benachrichtigung
 Name[en_GB]=Generic Notification
 Name[es]=Notificación genérica
@@ -354,6 +364,7 @@ Action=Popup
 [Event/transferReceived]
 Name=File Transfer
 Name[ca]=Transferència de fitxers
+Name[cs]=Přenos souboru
 Name[de]=Dateiübertragung
 Name[en_GB]=File Transfer
 Name[es]=Transferencia de archivo
@@ -368,6 +379,7 @@ Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
 Comment=Incoming file
 Comment[ca]=Fitxer entrant
+Comment[cs]=Příchozí soubor
 Comment[de]=Eingehende Datei
 Comment[en_GB]=Incoming file
 Comment[es]=Archivo entrante
