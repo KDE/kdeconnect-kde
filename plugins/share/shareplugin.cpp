@@ -31,6 +31,7 @@
 #include <KLocalizedString>
 #include <KJobTrackerInterface>
 #include <KPluginFactory>
+#include <KIO/MkpathJob>
 
 #include <core/filetransferjob.h>
 #include "autoclosingqfile.h"
@@ -81,17 +82,20 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 
 QUrl SharePlugin::destinationDir() const
 {
-    const QString defaultDownloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    QString dir = config()->get<QString>("incoming_path", defaultDownloadPath);
+    const QUrl defaultDownloadPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
+    QUrl dir = config()->get<QUrl>("incoming_path", defaultDownloadPath);
 
-    if (dir.contains("%1")) {
-        dir = dir.arg(device()->name());
+    if (dir.path().contains("%1")) {
+        dir.setPath(dir.path().arg(device()->name()));
     }
 
-//     qCDebug(KDECONNECT_PLUGIN_SHARE) << dir;
-    QDir().mkpath(dir);
+    KJob* job = KIO::mkpath(dir);
+    bool ret = job->exec();
+    if (!ret) {
+        qWarning() << "couldn't create" << dir;
+    }
 
-    return QUrl(dir);
+    return dir;
 }
 
 bool SharePlugin::receivePackage(const NetworkPackage& np)
