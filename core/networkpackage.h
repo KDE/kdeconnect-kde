@@ -43,6 +43,8 @@ class KDECONNECTCORE_EXPORT NetworkPackage : public QObject
     Q_PROPERTY( QString id READ id WRITE setId )
     Q_PROPERTY( QString type READ type WRITE setType )
     Q_PROPERTY( QVariantMap body READ body WRITE setBody )
+    Q_PROPERTY( QVariantMap payloadTransferInfo READ payloadTransferInfo WRITE setPayloadTransferInfo )
+    Q_PROPERTY( qint64 payloadSize READ payloadSize WRITE setPayloadSize )
 
 public:
 
