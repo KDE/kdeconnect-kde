@@ -111,18 +111,16 @@ void qvariant2qobject(const QVariantMap& variant, QObject* object)
 {
     for ( QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter )
     {
-        QVariant property = object->property( iter.key().toLatin1() );
-        Q_ASSERT( property.isValid() );
-        if ( property.isValid() )
-        {
-            QVariant value = iter.value();
-            if ( value.canConvert( property.type() ) )
-            {
-                value.convert( property.type() );
-                object->setProperty( iter.key().toLatin1(), value );
-            } else if ( QString( QLatin1String("QVariant") ).compare( QLatin1String( property.typeName() ) ) == 0) {
-                object->setProperty( iter.key().toLatin1(), value );
-            }
+        const int propertyIndex = object->metaObject()->indexOfProperty(iter.key().toLatin1());
+        if (propertyIndex < 0) {
+            qCWarning(KDECONNECT_CORE) << "missing property" << object << iter.key();
+            continue;
+        }
+
+        QMetaProperty property = object->metaObject()->property(propertyIndex);
+        bool ret = property.write(object, *iter);
+        if (!ret) {
+            qCWarning(KDECONNECT_CORE) << "couldn't set" << object << "->" << property.name() << '=' << *iter;
         }
     }
 }
