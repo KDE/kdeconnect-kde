@@ -168,7 +168,7 @@ void SharePlugin::finished(KJob* job)
     KNotification* notification = new KNotification("transferReceived");
     notification->setIconName(error ? QStringLiteral("dialog-error") : QStringLiteral("dialog-ok"));
     notification->setComponentName("kdeconnect");
-    notification->setTitle(i18n("Transfer Finished"));
+    notification->setTitle(error ? i18n("Transfer Failed") : i18n("Transfer Finished"));
     notification->setText(transferJob->destination().fileName());
     notification->setActions(QStringList(i18n("Open")));
     connect(notification, &KNotification::action1Activated, this, &SharePlugin::openDestinationFolder);
