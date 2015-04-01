@@ -162,7 +162,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 
             if (specialKey)
             {
-                if (specialKey > (int)arraySize(SpecialKeysMap)) {
+                if (specialKey >= (int)arraySize(SpecialKeysMap)) {
                     qWarning() << "Unsupported special key identifier";
                     return false;
                 }
