@@ -65,7 +65,7 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     //qCDebug(KDECONNECT_CORE) << "createIdentityPackage" << np->serialize();
 }
 
-QVariantMap qobject2qvairant(const QObject* object)
+QVariantMap qobject2qvariant(const QObject* object)
 {
     QVariantMap map;
     auto metaObject = object->metaObject();
@@ -84,7 +84,7 @@ QByteArray NetworkPackage::serialize() const
     //variant["id"] = mId;
     //variant["type"] = mType;
     //variant["body"] = mBody;
-    QVariantMap variant = qobject2qvairant(this);
+    QVariantMap variant = qobject2qvariant(this);
 
     if (hasPayload()) {
         //qCDebug(KDECONNECT_CORE) << "Serializing payloadTransferInfo";
@@ -187,7 +187,7 @@ void NetworkPackage::encrypt(QCA::PublicKey& key)
 bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
 {
 
-    const QStringList& chunks = mBody["data"].toStringList();
+    const QStringList chunks = mBody["data"].toStringList();
 
     QByteArray decryptedJson;
     Q_FOREACH(const QString& chunk, chunks) {
