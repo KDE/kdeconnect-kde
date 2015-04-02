@@ -90,7 +90,10 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         //qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file";
         const QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
         const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
-        const QUrl destination(dir.toString() + '/' + KIO::suggestName(dir, filename));
+        QUrl destination(dir.toString() + '/' + filename);
+        if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
+            destination = QUrl(dir.toString() + '/' + KIO::suggestName(dir, filename));
+        }
 
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         job->setDeviceName(device()->name());
