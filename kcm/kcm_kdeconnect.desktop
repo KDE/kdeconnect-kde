@@ -11,6 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=KDE Connect
+Name[ast]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
 Name[ca]=KDE Connect

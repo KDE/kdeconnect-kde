@@ -9,6 +9,7 @@ X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 
 Name=KDE Connect
+Name[ast]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
 Name[ca]=KDE Connect

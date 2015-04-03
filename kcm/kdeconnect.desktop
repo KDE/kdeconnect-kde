@@ -4,6 +4,7 @@ Icon=kdeconnect
 Terminal=false
 Exec=kcmshell4 kcm_kdeconnect
 Name=KDE Connect
+Name[ast]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
 Name[ca]=KDE Connect
