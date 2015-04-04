@@ -26,6 +26,8 @@
 
 BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     : QDBusAbstractAdaptor(const_cast<Device*>(device))
+	, mCharge(-1)
+	, mIsCharging(false)
 {
 }
 

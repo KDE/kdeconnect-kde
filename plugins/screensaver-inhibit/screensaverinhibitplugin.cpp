@@ -42,34 +42,39 @@ const QString SIMULATE_ACTIVITY_METHOD = "SimulateUserActivity";
 ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-     QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
+    QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
 
-     QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, "kdeconnect", "Phone is connected");
+    QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, "kdeconnect", "Phone is connected");
 
-     if (reply.errorMessage() != NULL) {
+    if (reply.errorMessage() != NULL) {
         qCDebug(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT) << "Unable to inhibit the screensaver: " << reply.errorMessage();
-     } else {
+        inhibitCookie = 0;
+    } else {
         // Store the cookie we receive, this will be sent back when sending the uninhibit call.
-        this->inhibitCookie = reply.arguments().first().toUInt();
-     }
+        inhibitCookie = reply.arguments().first().toUInt();
+    }
 }
 
 ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
 {
-      QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
-      inhibitInterface.call(UNINHIBIT_METHOD, this->inhibitCookie);
+    if (inhibitCookie == 0) return;
 
-      /*
-       * Simulate user activity because what ever manages the screensaver does not seem to start the timer
-       * automatically when all inhibitions are lifted and the user does nothing which results in an
-       * unlocked desktop which would be dangerous. Ideally we should not be doing this and the screen should
-       * be locked anyway.
-       */
-      inhibitInterface.call(SIMULATE_ACTIVITY_METHOD);
+    QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
+    inhibitInterface.call(UNINHIBIT_METHOD, this->inhibitCookie);
+
+    /*
+     * Simulate user activity because what ever manages the screensaver does not seem to start the timer
+     * automatically when all inhibitions are lifted and the user does nothing which results in an
+     * unlocked desktop which would be dangerous. Ideally we should not be doing this and the screen should
+     * be locked anyway.
+     */
+    inhibitInterface.call(SIMULATE_ACTIVITY_METHOD);
 }
 
 void ScreensaverInhibitPlugin::connected()
-{}
+{
+
+}
 
 bool ScreensaverInhibitPlugin::receivePackage(const NetworkPackage& np)
 {

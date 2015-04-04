@@ -40,6 +40,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS, "kdeconnect.plugin.mpris")
 MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
+    prevVolume = -1;
 
     //Detect new interfaces
     connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceOwnerChanged(QString,QString,QString)),
