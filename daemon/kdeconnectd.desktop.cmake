@@ -17,6 +17,7 @@ Name[fi]=KDEConnect-taustapalvelu
 Name[gl]=Servizo de KDE Connect
 Name[it]=Demone KDE Connect
 Name[nl]=KDEConnect-daemon
+Name[pl]=Usługa KDEConnect
 Name[pt]=Serviço do KDE Connect
 Name[pt_BR]=Serviço do KDE Connect
 Name[sk]=KDEConnect démon
