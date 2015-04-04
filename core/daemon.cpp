@@ -45,6 +45,7 @@ struct DaemonPrivate
 
     //Every known device
     QMap<QString, Device*> mDevices;
+
 };
 
 Daemon* Daemon::instance()
@@ -82,15 +83,14 @@ Daemon::Daemon(QObject *parent)
     }
     setDiscoveryEnabled(true);
 
-    //Listen to connectivity changes
-    QNetworkConfigurationManager* manager = new QNetworkConfigurationManager();
-    QNetworkSession* network = new QNetworkSession(manager->defaultConfiguration());
-    connect(manager, SIGNAL(configurationAdded(QNetworkConfiguration)),
-            this, SLOT(forceOnNetworkChange()));
-    Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
-        connect(network, SIGNAL(stateChanged(QNetworkSession::State)),
-                a, SLOT(onNetworkChange(QNetworkSession::State)));
-    }
+    //Detect when a network interface changes status (TODO: Move to the lan link provider?)
+    QNetworkConfigurationManager* networkManager;
+    networkManager = new QNetworkConfigurationManager(this);
+    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, [this, networkManager](QNetworkConfiguration config) {
+        qCDebug(KDECONNECT_CORE()) << config.name() << " state changed to " << config.state();
+        qCDebug(KDECONNECT_CORE()) << "Online status: " << (networkManager->isOnline()? "online":"offline");
+        forceOnNetworkChange();
+    });
 
     //Register on DBus
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
@@ -111,8 +111,9 @@ void Daemon::setDiscoveryEnabled(bool b)
 
 void Daemon::forceOnNetworkChange()
 {
+    qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to " << d->mLinkProviders.size() << " LinkProviders";
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
-        a->onNetworkChange(QNetworkSession::Connected);
+        a->onNetworkChange();
     }
 }
 
@@ -174,6 +175,7 @@ void Daemon::onDeviceReachableStatusChanged()
 
 void Daemon::setAnnouncedName(QString name)
 {
+    qCDebug(KDECONNECT_CORE()) << "Announcing name";
     KdeConnectConfig::instance()->setName(name);
     forceOnNetworkChange();
 }

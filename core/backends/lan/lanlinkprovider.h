@@ -41,7 +41,7 @@ public:
     int priority() { return PRIORITY_HIGH; }
 
 public Q_SLOTS:
-    virtual void onNetworkChange(QNetworkSession::State state);
+    virtual void onNetworkChange();
     virtual void onStart();
     virtual void onStop();
     void connected();

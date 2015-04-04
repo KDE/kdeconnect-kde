@@ -37,7 +37,7 @@ public:
 
     virtual void onStart();
     virtual void onStop();
-    virtual void onNetworkChange(QNetworkSession::State state);
+    virtual void onNetworkChange();
 
 private:
     LoopbackDeviceLink* loopbackDeviceLink;

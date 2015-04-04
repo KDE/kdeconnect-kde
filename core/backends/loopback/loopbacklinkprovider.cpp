@@ -31,14 +31,11 @@ LoopbackLinkProvider::LoopbackLinkProvider()
 
 LoopbackLinkProvider::~LoopbackLinkProvider()
 {
-    //delete echoDeviceLink;
+
 }
 
-void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
+void LoopbackLinkProvider::onNetworkChange()
 {
-    Q_UNUSED(state);
-    //kDebug(kdeconnect_kded()) << "Echo Device discovery emitted";
-
     LoopbackDeviceLink* newLoopbackDeviceLink = new LoopbackDeviceLink("loopback", this);
     Q_EMIT onConnectionReceived(identityPackage, newLoopbackDeviceLink);
 
@@ -51,7 +48,7 @@ void LoopbackLinkProvider::onNetworkChange(QNetworkSession::State state)
 
 void LoopbackLinkProvider::onStart()
 {
-    onNetworkChange(QNetworkSession::Connected);
+    onNetworkChange();
 }
 
 void LoopbackLinkProvider::onStop()

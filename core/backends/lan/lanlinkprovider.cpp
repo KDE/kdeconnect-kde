@@ -65,7 +65,7 @@ void LanLinkProvider::onStart()
         }
     }
 
-    onNetworkChange(QNetworkSession::Connected);
+    onNetworkChange();
 }
 
 void LanLinkProvider::onStop()
@@ -75,16 +75,16 @@ void LanLinkProvider::onStop()
 }
 
 //I'm in a new network, let's be polite and introduce myself
-void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
+void LanLinkProvider::onNetworkChange()
 {
-    Q_UNUSED(state);
-
     if (!mTcpServer->isListening()) {
+        //Not started
         return;
     }
 
     Q_ASSERT(mTcpPort != 0);
 
+    qCDebug(KDECONNECT_CORE()) << "Sending identity packet";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
@@ -136,6 +136,7 @@ void LanLinkProvider::connectError()
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
+    qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
@@ -192,7 +193,7 @@ void LanLinkProvider::connected()
         //I think this will never happen, but if it happens the deviceLink
         //(or the socket that is now inside it) might not be valid. Delete them.
         delete deviceLink;
-        qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection";
+        qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection (send udp packet)";
         mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
     }
 
