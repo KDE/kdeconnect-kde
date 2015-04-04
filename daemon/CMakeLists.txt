@@ -2,7 +2,7 @@ project(kdeconnectd)
 
 find_package(KF5 REQUIRED COMPONENTS Notifications)
 
-add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-daemon")
+add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
 add_executable(kdeconnectd kdeconnectd.cpp)
 target_link_libraries(kdeconnectd kdeconnectcore KF5::DBusAddons KF5::Notifications KF5::I18n Qt5::Widgets)
