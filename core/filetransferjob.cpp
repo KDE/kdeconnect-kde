@@ -166,7 +166,7 @@ void FileTransferJob::readyRead()
         //If a least 1 second has passed since last update
         int secondsSinceLastTime = mTime.secsTo(QTime::currentTime());
         if (secondsSinceLastTime > 0 && mSpeedBytes > 0) {
-            float speed = (mWritten - mSpeedBytes) / secondsSinceLastTime;
+            float speed = (mWritten - mSpeedBytes) / float(secondsSinceLastTime);
             emitSpeed(speed);
 
             mTime = QTime::currentTime();

@@ -28,6 +28,7 @@
 #include <QHostInfo>
 #include <QTcpServer>
 #include <QUdpSocket>
+#include <QtGlobal>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
@@ -35,40 +36,20 @@
 #include "../../kdebugnamespace.h"
 #include "landevicelink.h"
 
-void LanLinkProvider::configureSocket(QTcpSocket* socket)
-{
-    int fd = socket->socketDescriptor();
-
-    socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
-
-    #ifdef TCP_KEEPIDLE
-        // time to start sending keepalive packets (seconds)
-        int maxIdle = 10;
-        setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
-    #endif
-
-    #ifdef TCP_KEEPINTVL
-        // interval between keepalive packets after the initial period (seconds)
-        int interval = 5;
-        setsockopt(fd, IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
-    #endif
-
-    #ifdef TCP_KEEPCNT
-        // number of missed keepalive packets before disconnecting
-        int count = 3;
-        setsockopt(fd, IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
-    #endif
-
-}
-
 LanLinkProvider::LanLinkProvider()
 {
+    mTcpPort = 0;
 
     mUdpServer = new QUdpSocket(this);
     connect(mUdpServer, SIGNAL(readyRead()), this, SLOT(newUdpConnection()));
 
     mTcpServer = new QTcpServer(this);
     connect(mTcpServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
+
+}
+
+LanLinkProvider::~LanLinkProvider()
+{
 
 }
 
@@ -99,6 +80,8 @@ void LanLinkProvider::onNetworkChange(QNetworkSession::State state)
     if (!mTcpServer->isListening()) {
         return;
     }
+
+    Q_ASSERT(mTcpPort != 0);
 
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
@@ -295,7 +278,28 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 
 }
 
-LanLinkProvider::~LanLinkProvider()
+void LanLinkProvider::configureSocket(QTcpSocket* socket)
 {
+    int fd = socket->socketDescriptor();
+
+    socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
+
+    #ifdef TCP_KEEPIDLE
+        // time to start sending keepalive packets (seconds)
+        int maxIdle = 10;
+        setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+    #endif
+
+    #ifdef TCP_KEEPINTVL
+        // interval between keepalive packets after the initial period (seconds)
+        int interval = 5;
+        setsockopt(fd, IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
+    #endif
+
+    #ifdef TCP_KEEPCNT
+        // number of missed keepalive packets before disconnecting
+        int count = 3;
+        setsockopt(fd, IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
+    #endif
 
 }

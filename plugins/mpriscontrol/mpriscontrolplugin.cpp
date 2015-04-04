@@ -38,6 +38,7 @@ K_EXPORT_PLUGIN( KdeConnectPluginFactory("kdeconnect_mpriscontrol", "kdeconnect-
 MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
+    prevVolume = -1;
 
     //Detect new interfaces
     connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceOwnerChanged(QString,QString,QString)),

@@ -42,7 +42,7 @@ private:
     QSharedPointer<QIODevice> mInput;
     QTcpServer* mServer;
     QTcpSocket* mSocket;
-    qint16 mPort;
+    quint16 mPort;
 
 private Q_SLOTS:
     void readyRead();

@@ -46,7 +46,7 @@ Q_SIGNALS:
 
 private:
     int mCharge;
-    bool mIsCharging : 1;
+    bool mIsCharging;
 
 };
 
