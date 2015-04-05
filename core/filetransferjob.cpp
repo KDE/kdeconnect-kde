@@ -109,7 +109,7 @@ void FileTransferJob::open(KIO::Job* job)
     Q_ASSERT(mOrigin->isOpen());
 
     connect(mOrigin.data(), SIGNAL(readyRead()),this, SLOT(readyRead()));
-    connect(mOrigin.data(), SIGNAL(disconnected()),this, SLOT(sourceFinished()));
+    connect(mOrigin.data(), SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
     if (mOrigin->bytesAvailable() > 0) readyRead();
 
 }
