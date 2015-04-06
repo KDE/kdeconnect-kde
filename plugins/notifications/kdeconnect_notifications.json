@@ -23,6 +23,7 @@
         "Description[sv]": "Visa telefonunderrättelser i KDE och håll dem synkroniserade", 
         "Description[uk]": "Показ сповіщень з телефону у KDE та підтримання синхронізації даних сповіщень", 
         "Description[x-test]": "xxShow phone notifications in KDE and keep them in syncxx", 
+        "Description[zh_CN]": "在 KDE 显示手机通知并保持同步", 
         "EnabledByDefault": true, 
         "Icon": "preferences-desktop-notification", 
         "Id": "kdeconnect_notifications", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Underrättelsesynkronisering", 
         "Name[uk]": "Синхронізація сповіщень", 
         "Name[x-test]": "xxNotification syncxx", 
+        "Name[zh_CN]": "通知同步", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

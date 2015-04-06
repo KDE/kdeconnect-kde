@@ -9,7 +9,7 @@ Name[da]=KDE Connect
 Name[de]=KDE-Connect
 Name[en_GB]=KDE Connect
 Name[es]=KDE Connect
-Name[fi]=KDE-Connect
+Name[fi]=KDE Connect
 Name[fr]=KDE Connect
 Name[gl]=KDE Connect
 Name[hu]=KDE csatlakozás
@@ -26,6 +26,7 @@ Name[sv]=KDE anslut
 Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
+Name[zh_CN]=KDE Connect
 Comment=Notifications from your devices
 Comment[bg]=Уведомления от устройствата ви
 Comment[bs]=Notifikacija sa Vašeg uređaja
@@ -52,6 +53,7 @@ Comment[sv]=Underrättelser från dina apparater
 Comment[tr]=Cihazınızdan bildirimler
 Comment[uk]=Сповіщення з вашого пристрою
 Comment[x-test]=xxNotifications from your devicesxx
+Comment[zh_CN]=来自你设备的通知
 
 [Event/pairingRequest]
 Name=Pairing Request
@@ -76,6 +78,7 @@ Name[sk]=Požiadavka na spárovanie
 Name[sv]=Begäran om ihopparning
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
+Name[zh_CN]=配对请求
 Comment=Pairing request received from a devices
 Comment[bs]=Primljen zahtjev za uparivanje od uređaja
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
@@ -98,6 +101,7 @@ Comment[sk]=Požiadavka na spárovanie prijatá zo zariadenia
 Comment[sv]=Begäran om ihopparning mottagen från en apparat
 Comment[uk]=Від пристрою отримано запит щодо пов’язування
 Comment[x-test]=xxPairing request received from a devicesxx
+Comment[zh_CN]=收到来自一个设备的配对请求
 Action=Popup
 
 [Event/callReceived]
@@ -118,6 +122,7 @@ Name[sk]=Prichádzajúci hovor
 Name[sv]=Inkommande samtal
 Name[uk]=Вхідний дзвінок
 Name[x-test]=xxIncoming Callxx
+Name[zh_CN]=收到呼叫
 Comment=Someone is calling you
 Comment[bg]=Някой ви се обажда
 Comment[bs]=Neko Vas zove
@@ -144,6 +149,7 @@ Comment[sv]=Någon ringer till dig
 Comment[tr]=Biri sizi arıyor
 Comment[uk]=Хтось телефонує вам
 Comment[x-test]=xxSomeone is calling youxx
+Comment[zh_CN]=某人正在呼叫您
 Action=Popup
 
 [Event/missedCall]
@@ -155,6 +161,7 @@ Name[en_GB]=Missed Call
 Name[es]=Llamada perdida
 Name[fi]=Vastaamaton puhelu
 Name[gl]=Chamada perdida
+Name[it]=Chiamate perse
 Name[nl]=Gemiste oproep
 Name[pl]=Połączenie nieodebrane
 Name[pt]=Chamada Não Atendida
@@ -163,6 +170,7 @@ Name[sk]=Zmeškaný hovor
 Name[sv]=Missat samtal
 Name[uk]=Пропущений дзвінок
 Name[x-test]=xxMissed Callxx
+Name[zh_CN]=未接来电
 Comment=You have a missed call
 Comment[bg]=Имате неприето обаждане
 Comment[bs]=Imate propušten poziv
@@ -189,6 +197,7 @@ Comment[sv]=Du har missat ett samtal
 Comment[tr]=Cevapsız çağrınız var
 Comment[uk]=Вами пропущено телефонний дзвінок
 Comment[x-test]=xxYou have a missed callxx
+Comment[zh_CN]=您有未接来电
 Action=Popup
 
 [Event/smsReceived]
@@ -200,6 +209,7 @@ Name[en_GB]=SMS Received
 Name[es]=SMS recibido
 Name[fi]=Saatiin tekstiviesti
 Name[gl]=Recibiuse un SMS
+Name[it]=SMS ricevuto
 Name[nl]=SMS ontvangen
 Name[pl]=Otrzymano SMSa
 Name[pt]=SMS Recebido
@@ -208,6 +218,7 @@ Name[sk]=Prijatá SMS
 Name[sv]=SMS mottaget
 Name[uk]=Отримано SMS
 Name[x-test]=xxSMS Receivedxx
+Name[zh_CN]=收到短信
 Comment=Someone sent you an SMS
 Comment[bg]=Някой ви изпрати текстово съобщение
 Comment[bs]=Neko Vam je poslao SMS poruku
@@ -234,6 +245,7 @@ Comment[sv]=Någon skickade ett SMS till dig
 Comment[tr]=Biri size SMS gönderdi
 Comment[uk]=Хтось надіслав вам SMS
 Comment[x-test]=xxSomeone sent you an SMSxx
+Comment[zh_CN]=某人给您发了短信
 Action=Popup
 
 [Event/batteryLow]
@@ -245,6 +257,7 @@ Name[en_GB]=Battery Low
 Name[es]=Batería baja
 Name[fi]=Akku vähissä
 Name[gl]=Batería baixa
+Name[it]=Batteria a livello basso
 Name[nl]=Batterij op laag niveau
 Name[pl]=Bateria na niskim poziomie
 Name[pt]=Bateria Fraca
@@ -253,6 +266,7 @@ Name[sk]=Batéria je slabá
 Name[sv]=Låg batteriladdning
 Name[uk]=Низький рівень заряду
 Name[x-test]=xxBattery Lowxx
+Name[zh_CN]=电池电量低
 Comment=Your battery is in low state
 Comment[bg]=Батерията ви е с нисък заряд
 Comment[bs]=Vaša baterija je gotovo prazna
@@ -279,6 +293,7 @@ Comment[sv]=Batteriet är nästan slut
 Comment[tr]=Pilinizin seviyesi düşük
 Comment[uk]=Рівень заряду акумулятора є низьким
 Comment[x-test]=xxYour battery is in low statexx
+Comment[zh_CN]=您的电池电量低
 Action=Popup
 
 [Event/pingReceived]
@@ -299,6 +314,7 @@ Name[sk]=Prijatý ping
 Name[sv]=Ping mottaget
 Name[uk]=Отримано сигнал підтримки зв’язку
 Name[x-test]=xxPing Receivedxx
+Name[zh_CN]=收到 Ping
 Comment=Ping received
 Comment[bg]=Пингът е приет
 Comment[bs]=Primili ste ping
@@ -325,6 +341,7 @@ Comment[sv]=Ping mottaget
 Comment[tr]=Ping alındı
 Comment[uk]=Отримано сигнал підтримки зв’язку
 Comment[x-test]=xxPing receivedxx
+Comment[zh_CN]=收到 ping
 Action=Popup
 
 [Event/notification]
@@ -345,6 +362,7 @@ Name[sk]=Všeobecné upozornenie
 Name[sv]=Generell underrättelse
 Name[uk]=Загальне сповіщення
 Name[x-test]=xxGeneric Notificationxx
+Name[zh_CN]=一般通知
 Comment=Notification received
 Comment[bg]=Уведомлението е прието
 Comment[bs]=Primjeno obavještenje
@@ -371,6 +389,7 @@ Comment[sv]=Underrättelse mottagen
 Comment[tr]=Bildirim alındı
 Comment[uk]=Отримано сповіщення
 Comment[x-test]=xxNotification receivedxx
+Comment[zh_CN]=收到通知
 Action=Popup
 
 [Event/transferReceived]
@@ -391,6 +410,7 @@ Name[sk]=Prenos súboru
 Name[sv]=Filöverföring
 Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
+Name[zh_CN]=文件传送
 Comment=Incoming file
 Comment[ca]=Fitxer entrant
 Comment[cs]=Příchozí soubor
@@ -408,6 +428,7 @@ Comment[sk]=Prichádzajúci súbor
 Comment[sv]=Inkommande fil
 Comment[uk]=Вхідний файл
 Comment[x-test]=xxIncoming filexx
+Comment[zh_CN]=正在传入的文件
 Action=Popup
 
 

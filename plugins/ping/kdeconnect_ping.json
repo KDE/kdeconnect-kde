@@ -23,6 +23,7 @@
         "Description[sv]": "Skicka och ta emot ping", 
         "Description[uk]": "Надсилання і отримання сигналів підтримання зв’язку", 
         "Description[x-test]": "xxSend and receive pingsxx", 
+        "Description[zh_CN]": "发送和接受 ping", 
         "EnabledByDefault": true, 
         "Icon": "dialog-ok", 
         "Id": "kdeconnect_ping", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Pinga", 
         "Name[uk]": "Луна-імпульс", 
         "Name[x-test]": "xxPingxx", 
+        "Name[zh_CN]": "Ping", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

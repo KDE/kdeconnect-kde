@@ -23,6 +23,7 @@
         "Description[sv]": "Visa telefonens batteri intill datorbatteriet", 
         "Description[uk]": "Показ даних щодо рівня заряду акумулятора на телефоні поряд з даними щодо рівня заряду акумулятора комп’ютера", 
         "Description[x-test]": "xxShow your phone battery next to your computer batteryxx", 
+        "Description[zh_CN]": "在计算机电池旁显示手机电池", 
         "EnabledByDefault": true, 
         "Icon": "battery-100", 
         "Id": "kdeconnect_battery", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Batteriövervakare", 
         "Name[uk]": "Монітор акумулятора", 
         "Name[x-test]": "xxBattery monitorxx", 
+        "Name[zh_CN]": "电池监视器", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

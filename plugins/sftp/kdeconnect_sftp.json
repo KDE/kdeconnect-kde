@@ -23,6 +23,7 @@
         "Description[sv]": "Bläddra i fjärrenhetens filsystem med SFTP", 
         "Description[uk]": "Перегляд файлових систем на сторонніх пристроях за допомогою SFTP", 
         "Description[x-test]": "xxBrowse the remote device filesystem using SFTPxx", 
+        "Description[zh_CN]": "通过 SFTP 浏览远程设备文件系统", 
         "EnabledByDefault": true, 
         "Icon": "system-file-manager", 
         "Id": "kdeconnect_sftp", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Fjärrfilsystembläddrare", 
         "Name[uk]": "Перегляд віддалених файлових систем", 
         "Name[x-test]": "xxRemote filesystem browserxx", 
+        "Name[zh_CN]": "远程文件系统浏览器", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

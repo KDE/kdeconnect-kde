@@ -23,6 +23,7 @@
         "Description[sv]": "Fjärrstyr musik och videor", 
         "Description[uk]": "Віддалене керування відтворенням музики та відео", 
         "Description[x-test]": "xxRemote control your music and videosxx", 
+        "Description[zh_CN]": "远程控制您的音乐和视频", 
         "EnabledByDefault": true, 
         "Icon": "media-playback-start", 
         "Id": "kdeconnect_mpriscontrol", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Mottagare av multimediastyrning", 
         "Name[uk]": "Отримувач команд щодо керування мультимедійними функціями", 
         "Name[x-test]": "xxMultimedia control receiverxx", 
+        "Name[zh_CN]": "多媒体控制接收器", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

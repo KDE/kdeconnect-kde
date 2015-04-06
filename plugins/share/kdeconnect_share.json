@@ -23,6 +23,7 @@
         "Description[sv]": "Ta emot och skicka filer, webbadresser eller vanlig text enkelt", 
         "Description[uk]": "Спрощене отримання і надсилання файлів, адрес або текстових фрагментів", 
         "Description[x-test]": "xxReceive and send files, URLs or plain text easilyxx", 
+        "Description[zh_CN]": "简单地接收和发送文件，URL 或者文本", 
         "EnabledByDefault": true, 
         "Icon": "folder-download", 
         "Id": "kdeconnect_share", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Dela och ta emot", 
         "Name[uk]": "Оприлюднення і отримання", 
         "Name[x-test]": "xxShare and receivexx", 
+        "Name[zh_CN]": "分享和接收", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

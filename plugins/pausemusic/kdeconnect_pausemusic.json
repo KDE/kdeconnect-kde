@@ -23,6 +23,7 @@
         "Description[sv]": "Pausa musik eller videor under ett telefonsamtal", 
         "Description[uk]": "Призупинка відтворення музики і відео на час телефонних дзвінків", 
         "Description[x-test]": "xxPause music/videos during a phone callxx", 
+        "Description[zh_CN]": "手机来电时暂停音乐/视频", 
         "EnabledByDefault": true, 
         "Icon": "media-playback-pause", 
         "Id": "kdeconnect_pausemusic", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Pausa media under samtal", 
         "Name[uk]": "Призупинка відтворення під час дзвінків", 
         "Name[x-test]": "xxPause media during callsxx", 
+        "Name[zh_CN]": "来电时暂停媒体", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

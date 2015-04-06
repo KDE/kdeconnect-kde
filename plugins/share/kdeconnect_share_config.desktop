@@ -18,6 +18,7 @@ Name[fi]=Jakoliitännäisen asetukset
 Name[fr]=Paramètres du module de partage
 Name[gl]=Configuración do complemento de compartir
 Name[hu]=Megosztás bővítmény beállításai
+Name[it]=Impostazioni estensione Condivisione
 Name[ko]=공유 플러그인 설정
 Name[nl]=Plug-in-instellingen van delen
 Name[pl]=Ustawienia wtyczki udostępniania
@@ -28,5 +29,6 @@ Name[sv]=Inställningar av delningsinsticksprogram
 Name[tr]=Paylaşma eklentisi ayarları
 Name[uk]=Параметри додатка оприлюднення даних
 Name[x-test]=xxShare plugin settingsxx
+Name[zh_CN]=分享插件设置
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

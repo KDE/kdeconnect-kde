@@ -23,6 +23,7 @@
         "Description[sv]": "Visa underrättelser om samtal och SMS (att svara kommer snart)", 
         "Description[uk]": "Показ сповіщень щодо дзвінків і SMS (скоро буде реалізовано і автовідповідач)", 
         "Description[x-test]": "xxShow notifications for calls and SMS (answering coming soon)xx", 
+        "Description[zh_CN]": "显示来电和短信通知 (应答稍后实现)", 
         "EnabledByDefault": true, 
         "Icon": "call-start", 
         "Id": "kdeconnect_telephony", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Integrering av telefoni", 
         "Name[uk]": "Інтеграція з системою телефонії", 
         "Name[x-test]": "xxTelephony integrationxx", 
+        "Name[zh_CN]": "Telephony 集成", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

@@ -23,6 +23,7 @@
         "Description[sv]": "Stoppa skärmsläckaren när apparaten ansluts", 
         "Description[uk]": "Забороняє зберігач екрана, якщо з’єднано пристрій", 
         "Description[x-test]": "xxInhibit the screensaver when the device is connectedxx", 
+        "Description[zh_CN]": "连接设备时禁止屏保", 
         "EnabledByDefault": false, 
         "Icon": "preferences-desktop-screensaver", 
         "Id": "kdeconnect_screensaver_inhibit", 
@@ -43,6 +44,7 @@
         "Name[sv]": "Stoppa skärmsläckare", 
         "Name[uk]": "Заборона зберігача екрана", 
         "Name[x-test]": "xxInhibit screensaverxx", 
+        "Name[zh_CN]": "禁止屏保", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

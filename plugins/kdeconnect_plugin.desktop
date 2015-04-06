@@ -11,7 +11,7 @@ Name[da]=KDEConnect-plugin
 Name[de]=KDEConnect-Modul
 Name[en_GB]=KDEConnect Plugin
 Name[es]=Complemento de KDEConnect
-Name[fi]=KDE-Connect-liitännäinen
+Name[fi]=KDE Connect -liitännäinen
 Name[fr]=Module externe KDEConnect
 Name[gl]=Complemento de KDE Connect
 Name[hu]=KDEConnect bővítmény
@@ -28,6 +28,7 @@ Name[sv]=KDE anslutningsinsticksprogram
 Name[tr]=KDEConnect Eklentisi
 Name[uk]=Додаток KDEConnect
 Name[x-test]=xxKDEConnect Pluginxx
+Name[zh_CN]=KDEConnect 插件
 
 # mandatory, list of all the package types supported
 [PropertyDef::X-KdeConnect-SupportedPackageType]
