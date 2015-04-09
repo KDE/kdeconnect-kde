@@ -9,8 +9,7 @@ include_directories(
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
-# FIXME should be 5.9
-find_package(KF5Notifications 5.8 REQUIRED)
+find_package(KF5Notifications 5.9 REQUIRED)
 
 set(kdeconnectcore_SRCS
     ${backends_kdeconnect_SRCS}
