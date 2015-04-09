@@ -75,7 +75,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
 
     connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(resetSelection()));
-    connect(kcmUi->deviceList, SIGNAL(pressed(QModelIndex)),
+    connect(kcmUi->deviceList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
             this, SLOT(deviceSelected(QModelIndex)));
     connect(kcmUi->pair_button, SIGNAL(clicked()),
             this, SLOT(requestPair()));
