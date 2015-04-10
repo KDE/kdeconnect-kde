@@ -10,4 +10,4 @@ kdeconnect_add_plugin(kdeconnect_mousepad JSON kdeconnect_mousepad.json SOURCES 
 
 include_directories(${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
 
-target_link_libraries(kdeconnect_mousepad KF5::Service kdeconnectcore Qt5::Gui ${X11_LIBRARIES} ${XTEST_LIBRARIES} ${LibFakeKey_LIBRARIES})
+target_link_libraries(kdeconnect_mousepad kdeconnectcore Qt5::Gui ${X11_LIBRARIES} ${XTEST_LIBRARIES} ${LibFakeKey_LIBRARIES})

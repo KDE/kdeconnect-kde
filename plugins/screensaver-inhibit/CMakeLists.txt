@@ -9,6 +9,5 @@ kdeconnect_add_plugin(kdeconnect_screensaver_inhibit JSON kdeconnect_screensaver
 target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore 
     Qt5::DBus
     KF5::I18n
-    KF5::Service
     KF5::Notifications
 )

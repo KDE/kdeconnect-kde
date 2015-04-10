@@ -11,7 +11,6 @@ kdeconnect_add_plugin(kdeconnect_notifications JSON kdeconnect_notifications.jso
 target_link_libraries(kdeconnect_notifications
     kdeconnectcore
     Qt5::DBus
-    KF5::Service
     KF5::Notifications
 )
 

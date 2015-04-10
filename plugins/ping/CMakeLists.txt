@@ -10,6 +10,5 @@ target_link_libraries(kdeconnect_ping
     kdeconnectcore
     Qt5::DBus
     KF5::I18n
-    KF5::Service
     KF5::Notifications
 )

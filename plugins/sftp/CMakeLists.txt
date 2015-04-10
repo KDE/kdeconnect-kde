@@ -11,7 +11,6 @@ kdeconnect_add_plugin(kdeconnect_sftp JSON kdeconnect_sftp.json SOURCES ${kdecon
 target_link_libraries(kdeconnect_sftp
     kdeconnectcore
     Qt5::DBus
-    KF5::Service
     KF5::I18n
     KF5::KIOFileWidgets
     KF5::IconThemes

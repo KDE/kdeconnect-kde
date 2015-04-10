@@ -10,7 +10,6 @@ kdeconnect_add_plugin(kdeconnect_share JSON kdeconnect_share.json SOURCES ${kdec
 target_link_libraries(kdeconnect_share
     kdeconnectcore
     Qt5::DBus
-    KF5::Service
     KF5::Notifications
     KF5::I18n
     KF5::KIOWidgets
