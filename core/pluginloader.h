@@ -26,7 +26,6 @@
 #include <QString>
 
 #include <KPluginMetaData>
-#include <KPluginInfo>
 
 class Device;
 class KdeConnectPlugin;

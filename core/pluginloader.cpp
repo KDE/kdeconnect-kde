@@ -21,6 +21,8 @@
 #include "pluginloader.h"
 
 #include <KPluginMetaData>
+#include <KPluginLoader>
+#include <KPluginFactory>
 #include <QJsonArray>
 
 #include "core_debug.h"
