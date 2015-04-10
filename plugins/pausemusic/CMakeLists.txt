@@ -1,8 +1,6 @@
-set(kdeconnect_pausemusic_SRCS
-    pausemusicplugin.cpp
-)
+find_package(KF5 REQUIRED COMPONENTS KCMUtils)
 
-kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES  ${kdeconnect_pausemusic_SRCS})
+kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES pausemusicplugin.cpp)
 
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore

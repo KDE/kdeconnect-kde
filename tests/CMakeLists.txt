@@ -1,3 +1,5 @@
+find_package(KF5 REQUIRED COMPONENTS KIO)
+
 include_directories(
     ${KDEConnectCore_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}

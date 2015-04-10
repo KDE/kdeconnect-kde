@@ -29,7 +29,7 @@ set(kdeconnectcore_SRCS
     device.cpp
 )
 
-add_library(kdeconnectcore SHARED ${kdeconnectcore_SRCS})
+add_library(kdeconnectcore ${kdeconnectcore_SRCS})
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network

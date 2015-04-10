@@ -2,11 +2,9 @@ project(kdeconnectpluginkcm)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
-set(kdeconnectpluginkcm_SRCS
-    kdeconnectpluginkcm.cpp
-)
+find_package(KF5 REQUIRED COMPONENTS KCMUtils)
 
-add_library(kdeconnectpluginkcm SHARED ${kdeconnectpluginkcm_SRCS})
+add_library(kdeconnectpluginkcm kdeconnectpluginkcm.cpp)
 target_link_libraries(kdeconnectpluginkcm
 PUBLIC
     kdeconnectcore

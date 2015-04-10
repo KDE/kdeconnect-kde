@@ -1,3 +1,5 @@
+find_package(KF5 REQUIRED COMPONENTS KIO)
+
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-fileitemaction")
 include_directories(${CMAKE_SOURCE_DIR})
 
