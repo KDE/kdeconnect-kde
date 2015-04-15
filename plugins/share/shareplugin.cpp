@@ -38,7 +38,7 @@
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_share.json", registerPlugin< SharePlugin >(); )
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share");
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share")
 
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
@@ -47,8 +47,8 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 
 QUrl SharePlugin::destinationDir() const
 {
-    const QUrl defaultDownloadPath = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
-    QUrl dir = config()->get<QUrl>("incoming_path", defaultDownloadPath);
+    const QString defaultDownloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+    QUrl dir = QUrl::fromLocalFile(config()->get<QString>("incoming_path", defaultDownloadPath));
 
     if (dir.path().contains("%1")) {
         dir.setPath(dir.path().arg(device()->name()));
