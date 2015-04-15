@@ -33,6 +33,8 @@ ShareConfig::ShareConfig(QWidget *parent, const QVariantList& args)
     , m_ui(new Ui::ShareConfigUi())
 {
     m_ui->setupUi(this);
+    // xgettext:no-c-format
+    m_ui->commentLabel->setText(i18n("%1 in the path will be replaced with the specific device name."));
 
     connect(m_ui->kurlrequester, SIGNAL(textChanged(QString)), this, SLOT(changed()));
 }
@@ -55,7 +57,7 @@ void ShareConfig::load()
 {
     KCModule::load();
 
-    m_ui->kurlrequester->setUrl(config()->get("incoming_path", QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation))));
+    m_ui->kurlrequester->setUrl(QUrl::fromLocalFile(config()->get("incoming_path", QStandardPaths::writableLocation(QStandardPaths::DownloadLocation))));
 
     Q_EMIT changed(false);
 }
