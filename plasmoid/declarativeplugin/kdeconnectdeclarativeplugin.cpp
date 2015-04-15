@@ -55,13 +55,11 @@ QObject* createDBusResponse()
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
-    Q_UNUSED(uri);
-    
-    qmlRegisterType<DevicesModel>("org.kde.kdeconnect", 1, 0, "DevicesModel");
-    qmlRegisterType<NotificationsModel>("org.kde.kdeconnect", 1, 0, "NotificationsModel");
-    qmlRegisterType<DBusAsyncResponse>("org.kde.kdeconnect", 1, 0, "DBusAsyncResponse");
+    qmlRegisterType<DevicesModel>(uri, 1, 0, "DevicesModel");
+    qmlRegisterType<NotificationsModel>(uri, 1, 0, "NotificationsModel");
+    qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<ProcessRunner>(uri, 1, 0, "ProcessRunner");
-    qmlRegisterUncreatableType<DeviceDbusInterface>("org.kde.kdeconnect", 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
+    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
