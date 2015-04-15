@@ -157,7 +157,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     }
 
     currentIndex = sortProxyModel->mapToSource(current);
-    currentDevice = devicesModel->getDevice(currentIndex);
+    currentDevice = devicesModel->getDevice(currentIndex.row());
 
     bool valid = (currentDevice != NULL && currentDevice->isValid());
     kcmUi->deviceInfo->setVisible(valid);
