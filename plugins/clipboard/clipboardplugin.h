@@ -44,7 +44,7 @@ private Q_SLOTS:
     void clipboardChanged(QClipboard::Mode mode);
 
 private:
-    bool ignore_next_clipboard_change;
+    QString currentContent;
     QClipboard *clipboard;
 };
 
