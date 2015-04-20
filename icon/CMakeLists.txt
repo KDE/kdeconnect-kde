@@ -1,15 +1,15 @@
 
 ecm_install_icons(
 ICONS
-    hi128-apps-kdeconnect.png
-    hi16-apps-kdeconnect.png
-    hi22-apps-kdeconnect.png
-    hi256-apps-kdeconnect.png
-    hi32-apps-kdeconnect.png
-    hi48-apps-kdeconnect.png
-    hi64-apps-kdeconnect.png
-    hi8-apps-kdeconnect.png
-    hisc-apps-kdeconnect.svgz
+    256-apps-kdeconnect.png
+    128-apps-kdeconnect.png
+    32-apps-kdeconnect.png
+    64-apps-kdeconnect.png
+    48-apps-kdeconnect.png
+    22-apps-kdeconnect.png
+    16-apps-kdeconnect.png
+    8-apps-kdeconnect.png
+    sc-apps-kdeconnect.svgz
 DESTINATION
     ${ICON_INSTALL_DIR}
 )
