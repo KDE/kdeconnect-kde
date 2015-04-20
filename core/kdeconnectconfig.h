@@ -26,8 +26,6 @@
 
 #include "kdeconnectcore_export.h"
 
-class KdeConnectConfigPrivate;
-
 class KDECONNECTCORE_EXPORT KdeConnectConfig
 {
 public:
@@ -73,7 +71,7 @@ private:
     KdeConnectConfig();
 
 private:
-    QScopedPointer<KdeConnectConfigPrivate> d;
+    QScopedPointer<struct KdeConnectConfigPrivate> d;
 
 };
 

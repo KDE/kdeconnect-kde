@@ -27,7 +27,6 @@
 
 #include "kdeconnectcore_export.h"
 
-class DaemonPrivate;
 class NetworkPackage;
 class DeviceLink;
 class Device;
@@ -74,7 +73,7 @@ private Q_SLOTS:
     void onDeviceReachableStatusChanged();
 
 private:
-    QScopedPointer<DaemonPrivate> d;
+    QScopedPointer<struct DaemonPrivate> d;
 };
 
 #endif
