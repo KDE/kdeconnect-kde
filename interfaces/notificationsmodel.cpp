@@ -164,7 +164,7 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
     //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
         case IconModelRole:
-            return QIcon::fromTheme("device-notifier").pixmap(32, 32);
+            return QIcon::fromTheme("device-notifier");
         case IdModelRole:
             return notification->internalId();
         case NameModelRole:

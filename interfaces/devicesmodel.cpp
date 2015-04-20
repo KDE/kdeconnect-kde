@@ -204,7 +204,7 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             bool paired = device->isPaired();
             bool reachable = device->isReachable();
             QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
-            return QIcon::fromTheme(icon).pixmap(32, 32);
+            return QIcon::fromTheme(icon);
         }
         case IdModelRole:
             return device->id();
