@@ -91,7 +91,7 @@ void MprisControlPlugin::addPlayer(const QString& service)
 }
 
 void MprisControlPlugin::seeked(qlonglong position){
-    qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Seeked in player";
+    //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Seeked in player";
     NetworkPackage np(PACKAGE_TYPE_MPRIS);
     np.set("pos", position/1000); //Send milis instead of nanos
     OrgFreedesktopDBusPropertiesInterface* interface = (OrgFreedesktopDBusPropertiesInterface*)sender();
@@ -185,7 +185,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     OrgMprisMediaPlayer2PlayerInterface mprisInterface(playerList[player], "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
     if (np.has("action")) {
         const QString& action = np.get<QString>("action");
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Calling action" << action << "in" << playerList[player];
+        //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Calling action" << action << "in" << playerList[player];
         //TODO: Check for valid actions, currently we trust anything the other end sends us
         mprisInterface.call(action);
     }
@@ -196,14 +196,14 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     }
     if (np.has("Seek")) {
         int offset = np.get<int>("Seek");
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Seeking" << offset << "to" << playerList[player];
+        //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Seeking" << offset << "to" << playerList[player];
         mprisInterface.Seek(offset);
     }
 
     if (np.has("SetPosition")){
         qlonglong position = np.get<qlonglong>("SetPosition",0)*1000;
         qlonglong seek = position - mprisInterface.position();
-            qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting position by seeking" << seek << "to" << playerList[player];
+        //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting position by seeking" << seek << "to" << playerList[player];
         mprisInterface.Seek(seek);
     }
 
