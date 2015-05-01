@@ -47,7 +47,7 @@ Exec=plasmawindowed org.kde.kdeconnect --statusnotifier
 Icon=kdeconnect
 Type=Application
 Terminal=false
-Categories=Qt;KDE;Network
+Categories=Qt;KDE;Network;
 
-NotShowIn=KDE;Plasma
+NotShowIn=KDE;Plasma;
 
