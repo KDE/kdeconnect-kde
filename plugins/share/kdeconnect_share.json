@@ -26,7 +26,7 @@
         "Description[x-test]": "xxReceive and send files, URLs or plain text easilyxx", 
         "Description[zh_CN]": "简单地接收和发送文件，URL 或者文本", 
         "EnabledByDefault": true, 
-        "Icon": "folder-network",
+        "Icon": "folder-network", 
         "Id": "kdeconnect_share", 
         "License": "GPL", 
         "Name": "Share and receive", 

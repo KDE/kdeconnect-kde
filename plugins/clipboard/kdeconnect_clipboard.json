@@ -26,7 +26,7 @@
         "Description[x-test]": "xxShare the clipboard between devicesxx", 
         "Description[zh_CN]": "在设备间共享剪贴板", 
         "EnabledByDefault": true, 
-        "Icon": "klipper",
+        "Icon": "klipper", 
         "Id": "kdeconnect_clipboard", 
         "License": "GPL", 
         "Name": "Clipboard", 
