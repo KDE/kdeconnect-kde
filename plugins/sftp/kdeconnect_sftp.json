@@ -26,7 +26,7 @@
         "Description[x-test]": "xxBrowse the remote device filesystem using SFTPxx", 
         "Description[zh_CN]": "通过 SFTP 浏览远程设备文件系统", 
         "EnabledByDefault": true, 
-        "Icon": "system-file-manager", 
+        "Icon": "folder-documents",
         "Id": "kdeconnect_sftp", 
         "License": "GPL", 
         "Name": "Remote filesystem browser", 
