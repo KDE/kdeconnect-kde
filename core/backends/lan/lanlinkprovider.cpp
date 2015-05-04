@@ -105,7 +105,7 @@ void LanLinkProvider::newUdpConnection()
 
         if (!success || receivedPackage->type() != PACKAGE_TYPE_IDENTITY) {
             delete receivedPackage;
-            return;
+            continue;
         }
 
         KSharedConfigPtr config = KSharedConfig::openConfig("kdeconnectrc");
@@ -114,7 +114,7 @@ void LanLinkProvider::newUdpConnection()
         if (receivedPackage->get<QString>("deviceId") == myId) {
             //kDebug(debugArea()) << "Ignoring my own broadcast";
             delete receivedPackage;
-            return;
+            continue;
         }
 
         int tcpPort = receivedPackage->get<int>("tcpPort", port);
