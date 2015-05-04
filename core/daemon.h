@@ -30,6 +30,7 @@
 class NetworkPackage;
 class DeviceLink;
 class Device;
+class QNetworkAccessManager;
 
 class KDECONNECTCORE_EXPORT Daemon
     : public QObject
@@ -62,6 +63,7 @@ public Q_SLOTS:
 
     virtual void requestPairing(Device *d) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
+    virtual QNetworkAccessManager* networkAccessManager();
 
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);

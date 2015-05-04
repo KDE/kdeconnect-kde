@@ -25,10 +25,12 @@
 
 #include <QSocketNotifier>
 #include <QApplication>
+#include <QNetworkAccessManager>
 
 #include <KDBusService>
 #include <KNotification>
 #include <KLocalizedString>
+#include <KIO/AccessManager>
 
 #include "core/daemon.h"
 #include "core/device.h"
@@ -68,6 +70,7 @@ class DesktopDaemon : public Daemon
 public:
     DesktopDaemon(QObject* parent = Q_NULLPTR)
         : Daemon(parent)
+        , m_nam(Q_NULLPTR)
     {}
 
     void requestPairing(Device* d) Q_DECL_OVERRIDE
@@ -87,6 +90,17 @@ public:
     {
         KNotification::event(KNotification::Error, title, description);
     }
+
+    QNetworkAccessManager* networkAccessManager() Q_DECL_OVERRIDE
+    {
+        if (!m_nam) {
+            m_nam = new KIO::AccessManager(this);
+        }
+        return m_nam;
+    }
+
+private:
+    QNetworkAccessManager* m_nam;
 };
 
 int main(int argc, char* argv[])

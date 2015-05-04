@@ -1,5 +1,6 @@
 /*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Aleix Pol i Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,6 +20,7 @@
  */
 
 #include "filetransferjob.h"
+#include "daemon.h"
 #include <core_debug.h>
 
 #include <qalgorithms.h>
@@ -30,26 +32,23 @@
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
     : KJob()
     , mOrigin(origin)
-    , mDestinationJob(0)
-    , mDeviceName("KDE Connect")
+    , mReply(Q_NULLPTR)
+    , mDeviceName("KDE Connect") //TODO: Actually fetch the device name
     , mDestination(destination)
     , mSpeedBytes(0)
-    , mSize(size)
     , mWritten(0)
 {
+    Q_ASSERT(mOrigin);
     if (mDestination.scheme().isEmpty()) {
         qWarning() << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
         mDestination.setScheme("file");
     }
 
-    Q_ASSERT(destination.isLocalFile());
+    if (size >= 0) {
+        setTotalAmount(Bytes, size);
+    }
     setCapabilities(Killable);
     qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
-}
-
-void FileTransferJob::openFinished(KJob* job)
-{
-    qCDebug(KDECONNECT_CORE) << job->errorString();
 }
 
 void FileTransferJob::start()
@@ -62,10 +61,10 @@ void FileTransferJob::doStart()
 {
     description(this, i18n("Receiving file over KDE-Connect"),
         QPair<QString, QString>(i18nc("File transfer origin", "From"),
-        QString(mDeviceName))
+        mDeviceName)
     );
-    QUrl destCheck = mDestination;
-    if (destCheck.isLocalFile() && QFile::exists(destCheck.toLocalFile())) {
+
+    if (mDestination.isLocalFile() && QFile::exists(mDestination.toLocalFile())) {
         setError(2);
         setErrorText(i18n("Filename already present"));
         emitResult();
@@ -76,7 +75,6 @@ void FileTransferJob::doStart()
 
 void FileTransferJob::startTransfer()
 {
-    setTotalAmount(Bytes, mSize);
     setProcessedAmount(Bytes, 0);
     mTime = QTime::currentTime();
     description(this, i18n("Receiving file over KDE-Connect"),
@@ -84,90 +82,32 @@ void FileTransferJob::startTransfer()
                         QString(mDeviceName)),
                         QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
-    mDestinationJob = KIO::open(mDestination, QIODevice::WriteOnly);
-    QFile(mDestination.toLocalFile()).open(QIODevice::WriteOnly | QIODevice::Truncate); //KIO won't create the file if it doesn't exist
-    connect(mDestinationJob, SIGNAL(open(KIO::Job*)), this, SLOT(open(KIO::Job*)));
-    connect(mDestinationJob, SIGNAL(result(KJob*)), this, SLOT(openFinished(KJob*)));
-
-    //Open destination file
-    mDestinationJob->start();
+    mReply = Daemon::instance()->networkAccessManager()->put(QNetworkRequest(mDestination), mOrigin.data());
+    connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
+        setProcessedAmount(Bytes, bytesSent);
+        emitSpeed(bytesSent/mTime.elapsed());
+    });
+    connect(mReply, &QNetworkReply::finished, this, &FileTransferJob::transferFinished);
 }
 
-void FileTransferJob::open(KIO::Job* job)
+void FileTransferJob::transferFinished()
 {
-    Q_UNUSED(job);
-
-    //qCDebug(KDECONNECT_CORE) << "FileTransferJob open";
-
-    if (!mOrigin) {
-        qCDebug(KDECONNECT_CORE) << "FileTransferJob: Origin is null";
-        return;
-    }
-
-    //Open source file
-    mOrigin->open(QIODevice::ReadOnly);
-    Q_ASSERT(mOrigin->isOpen());
-
-    connect(mOrigin.data(), SIGNAL(readyRead()),this, SLOT(readyRead()));
-    connect(mOrigin.data(), SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
-    if (mOrigin->bytesAvailable() > 0) readyRead();
-
-}
-
-void FileTransferJob::readyRead()
-{
-    int bytes = qMin(qint64(4096), mOrigin->bytesAvailable());
-    QByteArray data = mOrigin->read(bytes);
-    mDestinationJob->write(data);
-    mWritten += data.size();
-    setProcessedAmount(Bytes, mWritten);
-
-    //qCDebug(KDECONNECT_CORE) << "readyRead" << mSize << mWritten << bytes;
-
-    if (mSize > -1) {
-        //If a least 1 second has passed since last update
-        int secondsSinceLastTime = mTime.secsTo(QTime::currentTime());
-        if (secondsSinceLastTime > 0 && mSpeedBytes > 0) {
-            float speed = (mWritten - mSpeedBytes) / float(secondsSinceLastTime);
-            emitSpeed(speed);
-
-            mTime = QTime::currentTime();
-            mSpeedBytes = mWritten;
-        } else if(mSpeedBytes == 0) {
-            mSpeedBytes = mWritten;
-        }
-    }
-
-    if (mSize > -1 && mWritten >= mSize) { //At the end or expected size reached
-        mOrigin->close();
-        //sourceFinished();
-    } else if (mOrigin->bytesAvailable() > 0) {
-        QMetaObject::invokeMethod(this, "readyRead", Qt::QueuedConnection);
-    }
-}
-
-void FileTransferJob::sourceFinished()
-{
-    //Make sure we do not enter this function again
-    disconnect(mOrigin.data(), SIGNAL(aboutToClose()),this, SLOT(sourceFinished()));
-
     //TODO: MD5-check the file
-    if (mSize > -1 && mWritten != mSize) {
-        qCDebug(KDECONNECT_CORE) << "Received incomplete file (" << mWritten << " of " << mSize << " bytes)";
-        setError(1);
-        setErrorText(i18n("Received incomplete file"));
+    if (mReply->error()) {
+        qCDebug(KDECONNECT_CORE) << "Couldn't transfer the file successfully" << mReply->errorString();
+        setError(mReply->error());
+        setErrorText(i18n("Received incomplete file: %1", mReply->errorString()));
     } else {
-        qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestinationJob->url();
+        qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestination;
     }
-    mDestinationJob->close();
-    mDestinationJob->deleteLater();
+
     emitResult();
 }
 
 bool FileTransferJob::doKill()
 {
-    if (mDestinationJob) {
-        mDestinationJob->close();
+    if (mReply) {
+        mReply->close();
     }
     if (mOrigin) {
         mOrigin->close();

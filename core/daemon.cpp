@@ -25,6 +25,7 @@
 #include <QNetworkConfigurationManager>
 #include <QNetworkAccessManager>
 #include <QDebug>
+#include <QPointer>
 
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
@@ -183,6 +184,15 @@ void Daemon::setAnnouncedName(QString name)
 QString Daemon::announcedName()
 {
     return KdeConnectConfig::instance()->name();
+}
+
+QNetworkAccessManager* Daemon::networkAccessManager()
+{
+    static QPointer<QNetworkAccessManager> manager;
+    if (!manager) {
+        manager = new QNetworkAccessManager(this);
+    }
+    return manager;
 }
 
 Daemon::~Daemon()

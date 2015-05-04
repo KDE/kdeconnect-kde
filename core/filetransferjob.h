@@ -1,5 +1,6 @@
 /*
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Aleix Pol i Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -28,39 +29,48 @@
 
 #include <KJob>
 #include <QUrl>
-#include <KIO/FileJob>
-#include <KIO/Job>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QBuffer>
 
+/**
+ * @short It will stream a device into a url destination
+ *
+ * Given a QIODevice, the file transfer job will use the system's QNetworkAccessManager
+ * for putting the stream into the requested location.
+ */
 class FileTransferJob
     : public KJob
 {
     Q_OBJECT
 
 public:
+    /**
+     * @p origin specifies the data to read from.
+     * @p size specifies the expected size of the stream we're reading.
+     * @p destination specifies where these contents should be stored
+     */
     FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination);
-    virtual void start();
+    virtual void start() Q_DECL_OVERRIDE;
     QUrl destination() const { return mDestination; }
     void setDeviceName(const QString &deviceName) { mDeviceName = deviceName; }
 
-public Q_SLOTS:
+private Q_SLOTS:
     void doStart();
-    void readyRead();
-    void open(KIO::Job*);
-    void sourceFinished();
-    void openFinished(KJob*);
 
 protected:
-    virtual bool doKill();
+    bool doKill() Q_DECL_OVERRIDE;
 
 private:
     void startTransfer();
+    void transferFinished();
+
     QSharedPointer<QIODevice> mOrigin;
-    KIO::FileJob* mDestinationJob;
+    QNetworkReply* mReply;
     QString mDeviceName;
     QUrl mDestination;
     QTime mTime;
     qulonglong mSpeedBytes;
-    qint64 mSize;
     qint64 mWritten;
 };
 
