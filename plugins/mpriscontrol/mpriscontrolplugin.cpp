@@ -26,6 +26,7 @@
 #include <qdbusconnectioninterface.h>
 #include <QDBusReply>
 #include <QDBusMessage>
+#include <QDBusServiceWatcher>
 
 #include <KPluginFactory>
 
@@ -39,12 +40,12 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS, "kdeconnect.plugin.mpris")
 
 MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
+    , prevVolume(-1)
 {
-    prevVolume = -1;
+    m_watcher = new QDBusServiceWatcher("org.mpris.MediaPlayer2", QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
-    //Detect new interfaces
-    connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceOwnerChanged(QString,QString,QString)),
-            this, SLOT(serviceOwnerChanged(QString,QString,QString)));
+    connect(m_watcher, &QDBusServiceWatcher::serviceRegistered, this, &MprisControlPlugin::addPlayer);
+    connect(m_watcher, &QDBusServiceWatcher::serviceUnregistered, this, &MprisControlPlugin::removePlayer);
 
     //Add existing interfaces
     QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
@@ -54,24 +55,6 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
         }
     }
 
-}
-
-void MprisControlPlugin::serviceOwnerChanged(const QString &name,
-                                              const QString &oldOwner,
-                                              const QString &newOwner)
-{
-    Q_UNUSED(oldOwner);
-
-    if (name.startsWith("org.mpris.MediaPlayer2")) {
-
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris (un)registered in bus" << name << oldOwner << newOwner;
-
-        if (oldOwner.isEmpty()) {
-            addPlayer(name);
-        } else if (newOwner.isEmpty()) {
-            removePlayer(name);
-        }
-    }
 }
 
 void MprisControlPlugin::addPlayer(const QString& service)

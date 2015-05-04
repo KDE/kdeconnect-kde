@@ -24,6 +24,7 @@
 #include <QString>
 #include <QHash>
 #include <QLoggingCategory>
+#include <QDBusServiceWatcher>
 
 #include <core/kdeconnectplugin.h>
 
@@ -44,7 +45,6 @@ public Q_SLOTS:
     virtual void connected() { }
 
 private Q_SLOTS:
-    void serviceOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
     void propertiesChanged(const QString& propertyInterface, const QVariantMap& properties);
     void seeked(qlonglong);
 
@@ -55,6 +55,7 @@ private:
 
     QHash<QString, QString> playerList;
     int prevVolume;
+    QDBusServiceWatcher* m_watcher;
 
 };
 
