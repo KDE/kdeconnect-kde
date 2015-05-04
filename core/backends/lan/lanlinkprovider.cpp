@@ -107,13 +107,13 @@ void LanLinkProvider::newUdpConnection()
 
         if (!success || receivedPackage->type() != PACKAGE_TYPE_IDENTITY) {
             delete receivedPackage;
-            return;
+            continue;
         }
 
         if (receivedPackage->get<QString>("deviceId") == KdeConnectConfig::instance()->deviceId()) {
             //qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
             delete receivedPackage;
-            return;
+            continue;
         }
 
         int tcpPort = receivedPackage->get<int>("tcpPort", port);
