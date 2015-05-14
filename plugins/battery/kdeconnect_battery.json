@@ -26,7 +26,7 @@
         "Description[x-test]": "xxShow your phone battery next to your computer batteryxx", 
         "Description[zh_CN]": "在计算机电池旁显示手机电池", 
         "EnabledByDefault": true, 
-        "Icon": "battery-100", 
+        "Icon": "preferences-system-power-management",
         "Id": "kdeconnect_battery", 
         "License": "GPL", 
         "Name": "Battery monitor", 
