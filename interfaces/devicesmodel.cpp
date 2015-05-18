@@ -200,12 +200,10 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
 
     DeviceDbusInterface* device = m_deviceList[index.row()];
 
-    //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache.
+    //This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
         case IconModelRole: {
-            bool paired = device->isPaired();
-            bool reachable = device->isReachable();
-            QString icon = reachable? (paired? "user-online" : "user-busy") : "user-offline";
+            QString icon = data(index, IconNameRole).toString();
             return QIcon::fromTheme(icon);
         }
         case IdModelRole:
