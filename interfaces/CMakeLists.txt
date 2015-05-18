@@ -71,6 +71,7 @@ LINK_PUBLIC
     Qt5::DBus
 LINK_PRIVATE
     KF5::ConfigCore
+    KF5::I18n
 )
 
 configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake @ONLY)

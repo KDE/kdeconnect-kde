@@ -21,6 +21,8 @@
 #include "devicesmodel.h"
 #include "interfaces_debug.h"
 
+#include <KLocalizedString>
+
 #include <QDebug>
 #include <QDBusInterface>
 #include <QIcon>
@@ -210,8 +212,12 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             return device->id();
         case NameModelRole:
             return device->name();
-        case Qt::ToolTipRole:
-            return QVariant(); //To implement
+        case Qt::ToolTipRole: {
+            bool paired = device->isPaired();
+            bool reachable = device->isReachable();
+            QString status = reachable? (paired? i18n("Device trusted and connected") : i18n("Device not trusted")) : i18n("Device disconnected");
+            return status;
+        }
         case StatusModelRole: {
             int status = StatusUnknown;
             if (device->isReachable()) {
