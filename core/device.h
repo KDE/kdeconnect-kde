@@ -40,9 +40,12 @@ class KDECONNECTCORE_EXPORT Device
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
     Q_PROPERTY(QString id READ id CONSTANT)
-    Q_PROPERTY(QString iconName READ iconName CONSTANT)
+    Q_PROPERTY(QString type READ type CONSTANT)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString iconName READ iconName CONSTANT)
+    Q_PROPERTY(QString statusIconName READ statusIconName)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
+    Q_PROPERTY(bool isPaired READ isPaired)
 
     enum PairStatus {
         NotPaired,
@@ -81,12 +84,14 @@ public:
     QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
+    QString type() const { return type2str(m_deviceType); };
     QString iconName() const;
+    QString statusIconName() const;
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
-    
+
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
 
@@ -123,10 +128,14 @@ Q_SIGNALS:
     Q_SCRIPTABLE void unpaired();
     Q_SCRIPTABLE void nameChanged(const QString& name);
 
-private:
+private: //Methods
     void setName(const QString &name);
+    QString iconForStatus(bool reachable, bool paired) const;
     void unpairInternal();
+    void setAsPaired();
+    bool sendOwnPublicKey();
 
+private: //Fields (TODO: dPointer!)
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;
@@ -142,9 +151,6 @@ private:
     QTimer m_pairingTimeut;
     const QSet<QString> m_incomingCapabilities;
     const QSet<QString> m_outgoingCapabilities;
-
-    void setAsPaired();
-    bool sendOwnPublicKey();
 
 };
 

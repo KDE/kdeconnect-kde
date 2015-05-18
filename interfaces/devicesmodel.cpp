@@ -24,7 +24,9 @@
 #include <KLocalizedString>
 
 #include <QDebug>
+#include <QString>
 #include <QDBusInterface>
+#include <QDBusPendingReply>
 #include <QIcon>
 
 #include "dbusinterfaces.h"
@@ -198,7 +200,7 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
         return QVariant();
     }
 
-    DeviceDbusInterface* device = m_deviceList[index.row()];
+    const DeviceDbusInterface* device = m_deviceList[index.row()];
 
     //This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
@@ -225,7 +227,7 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             return status;
         }
         case IconNameRole:
-            return device->iconName();
+            return device->statusIconName();
         default:
             return QVariant();
     }

@@ -456,7 +456,7 @@ QStringList Device::availableLinks() const
 Device::DeviceType Device::str2type(QString deviceType) {
     if (deviceType == "desktop") return Desktop;
     if (deviceType == "laptop") return Laptop;
-    if (deviceType == "phone") return Phone;
+    if (deviceType == "smartphone" || deviceType == "phone") return Phone;
     if (deviceType == "tablet") return Tablet;
     return Unknown;
 }
@@ -464,26 +464,35 @@ Device::DeviceType Device::str2type(QString deviceType) {
 QString Device::type2str(Device::DeviceType deviceType) {
     if (deviceType == Desktop) return "desktop";
     if (deviceType == Laptop) return "laptop";
-    if (deviceType == Phone) return "phone";
+    if (deviceType == Phone) return "smartphone";
     if (deviceType == Tablet) return "tablet";
     return "unknown";
 }
 
+QString Device::statusIconName() const
+{
+    return iconForStatus(isReachable(), isPaired());
+}
+
 QString Device::iconName() const
 {
-    switch(m_deviceType) {
-        case Device::Desktop:
-            return "computer";
-        case Device::Laptop:
-            return "computer-laptop";
-        case Device::Phone:
-            return "smartphone";
-        case Device::Tablet:
-            return "tablet";
-        case Device::Unknown:
-            return "unknown";
+
+    return iconForStatus(true, false);
+}
+
+QString Device::iconForStatus(bool reachable, bool paired) const
+{
+    Device::DeviceType deviceType = m_deviceType;
+    if (deviceType == Device::Unknown) {
+        deviceType = Device::Phone; //Assume phone if we don't know the type
+    } else if (deviceType == Device::Desktop) {
+        deviceType = Device::Device::Laptop; // We don't have desktop icon yet
     }
-    return QString();
+
+    QString status = (reachable? (paired? QStringLiteral("connected") : QStringLiteral("disconnected")) : QStringLiteral("trusted"));
+    QString type = type2str(deviceType);
+
+    return type+"-"+status;
 }
 
 void Device::setName(const QString &name)

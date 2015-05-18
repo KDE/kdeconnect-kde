@@ -13,3 +13,28 @@ ICONS
 DESTINATION
     ${ICON_INSTALL_DIR}
 )
+
+ecm_install_icons(
+ICONS
+    32-status-laptop-connected.png
+    32-status-laptop-disconnected.png
+    32-status-laptop-trusted.png
+    32-status-smartphone-connected.png
+    32-status-smartphone-disconnected.png
+    32-status-smartphone-trusted.png
+    32-status-tablet-connected.png
+    32-status-tablet-disconnected.png
+    32-status-tablet-trusted.png
+    sc-status-laptop-connected.svg
+    sc-status-laptop-disconnected.svg
+    sc-status-laptop-trusted.svg
+    sc-status-smartphone-connected.svg
+    sc-status-smartphone-disconnected.svg
+    sc-status-smartphone-trusted.svg
+    sc-status-tablet-connected.svg
+    sc-status-tablet-disconnected.svg
+    sc-status-tablet-trusted.svg
+DESTINATION
+    ${ICON_INSTALL_DIR}
+)
+
