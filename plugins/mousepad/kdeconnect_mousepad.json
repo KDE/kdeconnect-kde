@@ -26,7 +26,7 @@
         "Description[x-test]": "xxUse your phone as a touchpad and keyboardxx", 
         "Description[zh_CN]": "用您的手机作为触摸板和键盘", 
         "EnabledByDefault": true, 
-        "Icon": "edit-select",
+        "Icon": "edit-select", 
         "Id": "kdeconnect_mousepad", 
         "License": "GPL", 
         "Name": "Virtual input", 
