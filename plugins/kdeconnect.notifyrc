@@ -57,6 +57,7 @@ Comment[zh_CN]=来自你设备的通知
 
 [Event/pairingRequest]
 Name=Pairing Request
+Name[bg]=Заявка за сдвояване
 Name[bs]=Zahtjev za uparivanje
 Name[ca]=Sol·licitud d'aparellament
 Name[cs]=Požadavek na párování
@@ -80,6 +81,7 @@ Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Name[zh_CN]=配对请求
 Comment=Pairing request received from a devices
+Comment[bg]=Получена е заявка за сдвояване от устройство
 Comment[bs]=Primljen zahtjev za uparivanje od uređaja
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[cs]=Požadavek na párování přijat ze zařízení
@@ -106,6 +108,7 @@ Action=Popup
 
 [Event/callReceived]
 Name=Incoming Call
+Name[bg]=Входящо обаждане
 Name[ca]=Trucada entrant
 Name[cs]=Příchozí hovor
 Name[de]=Eingehender Anruf
@@ -155,6 +158,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed Call
+Name[bg]=Пропуснато обаждане
 Name[ca]=Trucada perduda
 Name[cs]=Zmeškaný hovor
 Name[de]=Verpasster Anruf
@@ -204,6 +208,7 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS Received
+Name[bg]=Получен SMS
 Name[ca]=S'ha rebut un SMS
 Name[cs]=SMS přijata
 Name[de]=SMS empfangen
@@ -253,6 +258,7 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery Low
+Name[bg]=Изтощена батерия
 Name[ca]=Bateria baixa
 Name[cs]=Baterie je téměř vybitá
 Name[de]=Akku-Ladestand niedrig
@@ -302,6 +308,7 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping Received
+Name[bg]=Пингът е приет
 Name[ca]=S'ha rebut un ping
 Name[cs]=Ping přijat
 Name[de]=Ping empfangen
@@ -351,6 +358,7 @@ Action=Popup
 
 [Event/notification]
 Name=Generic Notification
+Name[bg]=Общо уведомление
 Name[ca]=Notificació genèrica
 Name[cs]=Obecná hlášení
 Name[de]=Allgemeine Benachrichtigung
@@ -400,6 +408,7 @@ Action=Popup
 
 [Event/transferReceived]
 Name=File Transfer
+Name[bg]=Прехвърляне на файл
 Name[ca]=Transferència de fitxers
 Name[cs]=Přenos souboru
 Name[de]=Dateiübertragung
@@ -419,6 +428,7 @@ Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
 Name[zh_CN]=文件传送
 Comment=Incoming file
+Comment[bg]=Входящ файл
 Comment[ca]=Fitxer entrant
 Comment[cs]=Příchozí soubor
 Comment[de]=Eingehende Datei
