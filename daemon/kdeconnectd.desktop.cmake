@@ -24,6 +24,7 @@ Name[pt]=Serviço do KDE Connect
 Name[pt_BR]=Serviço do KDE Connect
 Name[sk]=KDEConnect démon
 Name[sv]=Demon för KDE-anslut
+Name[tr]=KDEConnect süreci
 Name[uk]=Фонова служба KDEConnect
 Name[x-test]=xxKDEConnect daemonxx
 Name[zh_CN]=KDEConnect 守护进程
