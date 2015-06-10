@@ -39,6 +39,14 @@ Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
 
 Comment=Connect and sync your devices
+Comment[ca]=Connecta i sincronitza els vostres dispositius
+Comment[de]=Verbinden und Abgleichen Ihrer Geräte
+Comment[gl]=Conecte e sincronice os seus dispositivos.
+Comment[nl]=Uw apparaten verbinden en synchroniseren
+Comment[pt_BR]=Conecta e sincroniza seus dispositivos
+Comment[sv]=Anslut och synkronisera dina apparater
+Comment[uk]=З’єднання і синхронізація ваших пристроїв
+Comment[x-test]=xxConnect and sync your devicesxx
 
 X-KDE-Keywords=Network,Android,Devices
 X-KDE-Keywords[bg]=Мрежа,Андроид,Устройства
