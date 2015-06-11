@@ -226,7 +226,7 @@ void Device::unpairInternal()
     m_pairStatus = Device::NotPaired;
     KdeConnectConfig::instance()->removeTrustedDevice(id());
     reloadPlugins(); //Will unload the plugins
-    Q_EMIT unpaired();
+    Q_EMIT pairingChanged(false);
 }
 
 void Device::pairingTimeout()
@@ -440,7 +440,7 @@ void Device::setAsPaired()
 
     reloadPlugins(); //Will actually load the plugins
 
-    Q_EMIT pairingSuccesful();
+    Q_EMIT pairingChanged(true);
 
 }
 

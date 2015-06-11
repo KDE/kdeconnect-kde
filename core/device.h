@@ -45,7 +45,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
-    Q_PROPERTY(bool isPaired READ isPaired)
+    Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChanged)
 
     enum PairStatus {
         NotPaired,
@@ -123,9 +123,8 @@ private Q_SLOTS:
 Q_SIGNALS:
     Q_SCRIPTABLE void reachableStatusChanged();
     Q_SCRIPTABLE void pluginsChanged();
-    Q_SCRIPTABLE void pairingSuccesful();
+    Q_SCRIPTABLE void pairingChanged(bool paired);
     Q_SCRIPTABLE void pairingFailed(const QString& error);
-    Q_SCRIPTABLE void unpaired();
     Q_SCRIPTABLE void nameChanged(const QString& name);
 
 private: //Methods
@@ -134,6 +133,7 @@ private: //Methods
     void unpairInternal();
     void setAsPaired();
     bool sendOwnPublicKey();
+    void setPairing(PairStatus newPairing);
 
 private: //Fields (TODO: dPointer!)
     const QString m_deviceId;
