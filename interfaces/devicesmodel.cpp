@@ -62,6 +62,7 @@ QHash< int, QByteArray > DevicesModel::roleNames() const
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names.insert(IdModelRole, "deviceId");
     names.insert(IconNameRole, "iconName");
+    names.insert(DeviceRole, "device");
     return names;
 }
 
@@ -200,7 +201,7 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
         return QVariant();
     }
 
-    const DeviceDbusInterface* device = m_deviceList[index.row()];
+    DeviceDbusInterface* device = m_deviceList[index.row()];
 
     //This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
@@ -228,6 +229,8 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
         }
         case IconNameRole:
             return device->statusIconName();
+        case DeviceRole:
+            return QVariant::fromValue<QObject*>(device);
         default:
             return QVariant();
     }
