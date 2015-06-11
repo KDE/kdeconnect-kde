@@ -11,6 +11,7 @@ set(libkdeconnect_SRC
     dbusinterfaces.cpp
     devicesmodel.cpp
     notificationsmodel.cpp
+    devicessortproxymodel.cpp
 #    modeltest.cpp
 )
 

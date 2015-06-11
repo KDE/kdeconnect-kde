@@ -9,7 +9,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
 
 set(kcm_SRCS
     kcm.cpp
-    devicessortproxymodel.cpp
 )
 
 ki18n_wrap_ui(kcm_SRCS kcm.ui)

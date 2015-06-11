@@ -22,16 +22,18 @@
 #define DEVICESSORTPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
+#include "interfaces/kdeconnectinterfaces_export.h"
 
 class DevicesModel;
 
-class DevicesSortProxyModel : public QSortFilterProxyModel
+class KDECONNECTINTERFACES_EXPORT DevicesSortProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    DevicesSortProxyModel(DevicesModel* devicesModel);
+    DevicesSortProxyModel(DevicesModel* devicesModel = Q_NULLPTR);
     virtual bool lessThan(const QModelIndex& left, const QModelIndex& right) const;
     virtual bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
+    virtual void setSourceModel(QAbstractItemModel *sourceModel);
 
 public Q_SLOTS:
     void sourceDataChanged(QModelIndex,QModelIndex);

@@ -30,6 +30,7 @@
 #include "responsewaiter.h"
 #include "processrunner.h"
 
+#include "interfaces/devicessortproxymodel.h"
 #include "interfaces/devicesmodel.h"
 #include "interfaces/notificationsmodel.h"
 
@@ -59,6 +60,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<NotificationsModel>(uri, 1, 0, "NotificationsModel");
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<ProcessRunner>(uri, 1, 0, "ProcessRunner");
+    qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
 }
 
