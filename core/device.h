@@ -136,7 +136,6 @@ private: //Methods
     void unpairInternal();
     void setAsPaired();
     bool sendOwnPublicKey();
-    void setPairing(PairStatus newPairing);
 
 private: //Fields (TODO: dPointer!)
     const QString m_deviceId;
