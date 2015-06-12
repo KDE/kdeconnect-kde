@@ -40,12 +40,18 @@ DaemonDbusInterface::~DaemonDbusInterface()
 DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceInterface(activatedService(), "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
 {
-
+    connect(this, &OrgKdeKdeconnectDeviceInterface::pairingChanged, this, &DeviceDbusInterface::pairingChangedProxy);
 }
 
 DeviceDbusInterface::~DeviceDbusInterface()
 {
 
+}
+
+void DeviceDbusInterface::pluginCall(const QString &plugin, const QString &method)
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id()+'/'+plugin, "org.kde.kdeconnect.device."+plugin, method);
+    QDBusConnection::sessionBus().asyncCall(msg);
 }
 
 DeviceBatteryDbusInterface::DeviceBatteryDbusInterface(const QString& id, QObject* parent)

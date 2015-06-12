@@ -47,9 +47,17 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
     : public OrgKdeKdeconnectDeviceInterface
 {
     Q_OBJECT
+//  Workaround because OrgKdeKdeconnectDeviceInterface is not generating
+//  the signals for the properties
+    Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChangedProxy)
 public:
     DeviceDbusInterface(const QString& deviceId, QObject* parent = 0);
     virtual ~DeviceDbusInterface();
+
+    Q_SCRIPTABLE void pluginCall(const QString &plugin, const QString &method);
+
+Q_SIGNALS:
+    void pairingChangedProxy(bool paired);
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceBatteryDbusInterface
