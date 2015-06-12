@@ -127,6 +127,9 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingFailed(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
 
+    QT_DEPRECATED Q_SCRIPTABLE void pairingSuccesful();
+    QT_DEPRECATED Q_SCRIPTABLE void unpaired();
+
 private: //Methods
     void setName(const QString &name);
     QString iconForStatus(bool reachable, bool paired) const;

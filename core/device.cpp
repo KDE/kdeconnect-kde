@@ -81,6 +81,14 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+
+    //Implement deprecated signals
+    connect(this, &Device::pairingChanged, this, [this](bool newPairing) {
+        if (newPairing)
+            Q_EMIT pairingSuccesful();
+        else
+            Q_EMIT unpaired();
+    });
 }
 
 Device::~Device()
