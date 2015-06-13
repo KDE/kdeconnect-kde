@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=KDE Connect Application
+GenericName=Device Synchronization
+Comment=Make all your devices one
+Exec=kcapp
+Icon=kdeconnect
+Type=Application
+Terminal=false
+Categories=Qt;KDE;Network
