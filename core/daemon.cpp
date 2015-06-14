@@ -21,8 +21,6 @@
 #include "daemon.h"
 
 #include <QDBusConnection>
-#include <QNetworkSession>
-#include <QNetworkConfigurationManager>
 #include <QNetworkAccessManager>
 #include <QDebug>
 #include <QPointer>
@@ -83,15 +81,6 @@ Daemon::Daemon(QObject *parent)
                 this, SLOT(onNewDeviceLink(NetworkPackage, DeviceLink*)));
     }
     setDiscoveryEnabled(true);
-
-    //Detect when a network interface changes status (TODO: Move to the lan link provider?)
-    QNetworkConfigurationManager* networkManager;
-    networkManager = new QNetworkConfigurationManager(this);
-    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, [this, networkManager](QNetworkConfiguration config) {
-        qCDebug(KDECONNECT_CORE()) << config.name() << " state changed to " << config.state();
-        qCDebug(KDECONNECT_CORE()) << "Online status: " << (networkManager->isOnline()? "online":"offline");
-        forceOnNetworkChange();
-    });
 
     //Register on DBus
     QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
