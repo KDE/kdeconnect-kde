@@ -46,6 +46,11 @@ NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
 {
+    clearNotifications();
+}
+
+void NotificationsDbusInterface::clearNotifications()
+{
     qDeleteAll(mNotifications);
 }
 

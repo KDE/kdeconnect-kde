@@ -49,9 +49,8 @@ NotificationsPlugin::~NotificationsPlugin()
     // is that disabling the plugin does not remove the interface (that will
     // return outdated values) and that enabling it again instantiates a second
     // adaptor.
-
     //notificationsDbusInterface->deleteLater();
-
+    notificationsDbusInterface->clearNotifications();
 }
 
 bool NotificationsPlugin::receivePackage(const NetworkPackage& np)

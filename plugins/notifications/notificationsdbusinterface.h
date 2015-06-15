@@ -43,6 +43,7 @@ public:
     virtual ~NotificationsDbusInterface();
 
     void processPackage(const NetworkPackage& np);
+    void clearNotifications();
 
 public Q_SLOTS:
     Q_SCRIPTABLE QStringList activeNotifications();
