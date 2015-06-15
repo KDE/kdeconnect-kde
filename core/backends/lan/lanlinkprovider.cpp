@@ -50,6 +50,7 @@ LanLinkProvider::LanLinkProvider()
     QNetworkConfigurationManager* networkManager;
     networkManager = new QNetworkConfigurationManager(this);
     connect(networkManager, &QNetworkConfigurationManager::configurationChanged, [this, networkManager](QNetworkConfiguration config) {
+        Q_UNUSED(config);
         //qCDebug(KDECONNECT_CORE) << config.name() << " state changed to " << config.state();
         //qCDebug(KDECONNECT_CORE) << "Online status: " << (networkManager->isOnline()? "online":"offline");
         onNetworkChange();
