@@ -193,12 +193,17 @@ void Device::requestPair()
         case Device::Requested:
             Q_EMIT pairingFailed(i18n("Pairing already requested for this device"));
             return;
-        default:
-            if (!isReachable()) {
-                Q_EMIT pairingFailed(i18n("Device not reachable"));
-                return;
-            }
-            break;
+        case Device::RequestedByPeer:
+            qCDebug(KDECONNECT_CORE) << "Pairing already started by the other end, accepting their request.";
+            acceptPairing();
+            return;
+        case Device::NotPaired:
+            ;
+    }
+
+    if (!isReachable()) {
+        Q_EMIT pairingFailed(i18n("Device not reachable"));
+        return;
     }
 
     m_pairStatus = Device::Requested;
