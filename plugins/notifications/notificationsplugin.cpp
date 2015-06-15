@@ -46,9 +46,8 @@ NotificationsPlugin::~NotificationsPlugin()
 {
     //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
     // the next dbus access to its parent). The implication of not deleting this
-    // is that disabling the plugin does not remove the interface (that will
-    // return outdated values) and that enabling it again instantiates a second
-    // adaptor.
+    // is that disabling the plugin leaks the interface. As a mitigation we are
+    // cleaning up the notifications inside the adaptor here.
     //notificationsDbusInterface->deleteLater();
     notificationsDbusInterface->clearNotifications();
 }
