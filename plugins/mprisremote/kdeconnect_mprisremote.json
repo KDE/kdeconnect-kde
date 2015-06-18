@@ -3,16 +3,16 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "aleixpol@kde.org",
+                "Email": "aleixpol@kde.org", 
                 "Name": "Aleix Pol"
             }
         ], 
-        "Description": "Control MPRIS services",
+        "Description": "Control MPRIS services", 
         "EnabledByDefault": true, 
-        "Icon": "applications-multimedia",
-        "Id": "kdeconnect_mprisremote",
-        "License": "GPL",
-        "Name": "MprisRemote",
+        "Icon": "applications-multimedia", 
+        "Id": "kdeconnect_mprisremote", 
+        "License": "GPL", 
+        "Name": "MprisRemote", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDE Connect Application
 Name[ca]=Aplicació KDE Connect
+Name[gl]=Programa de KDE Connect
 Name[nl]=KDE Connect-toepassing
 Name[pt]=Aplicação do KDE Connect
 Name[pt_BR]=Aplicativo KDE Connect
@@ -9,6 +10,7 @@ Name[uk]=Програма KDE Connect
 Name[x-test]=xxKDE Connect Applicationxx
 GenericName=Device Synchronization
 GenericName[ca]=Sincronització de dispositius
+GenericName[gl]=Sincronización de dispositivos
 GenericName[nl]=Synchronisatie van apparaat
 GenericName[pt]=Sincronização de Dispositivos
 GenericName[pt_BR]=Sincronização de dispositivo
@@ -17,6 +19,7 @@ GenericName[uk]=Синхронізація із пристроями
 GenericName[x-test]=xxDevice Synchronizationxx
 Comment=Make all your devices one
 Comment[ca]=Fa que tots els vostres dispositius siguin un
+Comment[gl]=Unifique os seus dispositivos.
 Comment[nl]=Al uw apparaten een maken
 Comment[pt]=Unifique todos os seus dispositivos
 Comment[pt_BR]=Torne todos os seus dispositivos em um
