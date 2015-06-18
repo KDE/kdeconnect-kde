@@ -13,18 +13,3 @@ target_link_libraries(kdeconnect_notifications
     Qt5::DBus
     KF5::Notifications
 )
-
-include(DbusInterfaceMacros)
-
-generate_and_install_dbus_interface(
-    kdeconnect_notifications
-    notificationsdbusinterface.h
-    org.kde.kdeconnect.device.notifications.xml
-    OPTIONS -a
-)
-generate_and_install_dbus_interface(
-    kdeconnect_notifications
-    notification.h
-    org.kde.kdeconnect.device.notifications.notification.xml
-    OPTIONS -a
-)

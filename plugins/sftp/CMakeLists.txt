@@ -17,12 +17,3 @@ target_link_libraries(kdeconnect_sftp
     KF5::KIOWidgets
     KF5::Notifications
 )
-
-include(DbusInterfaceMacros)
-
-generate_and_install_dbus_interface(
-    kdeconnect_sftp
-    sftpplugin.h
-    org.kde.kdeconnect.device.sftp.xml
-    OPTIONS -a
-)

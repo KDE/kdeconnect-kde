@@ -50,20 +50,4 @@ set_target_properties(kdeconnectcore PROPERTIES
 target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 generate_export_header(kdeconnectcore EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectcore_export.h BASE_NAME KDEConnectCore)
 
-include(DbusInterfaceMacros)
-
-generate_and_install_dbus_interface(
-    kdeconnectcore
-    ../core/daemon.h
-    org.kde.kdeconnect.daemon.xml
-    OPTIONS -a
-)
-
-generate_and_install_dbus_interface(
-    kdeconnectcore
-    ../core/device.h
-    org.kde.kdeconnect.device.xml
-    OPTIONS -a
-)
-
 install(TARGETS kdeconnectcore EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

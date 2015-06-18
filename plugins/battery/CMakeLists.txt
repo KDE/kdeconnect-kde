@@ -13,12 +13,3 @@ target_link_libraries(kdeconnect_battery
     KF5::I18n
     KF5::Notifications
 )
-
-include(DbusInterfaceMacros)
-
-generate_and_install_dbus_interface(
-    kdeconnect_battery
-    batterydbusinterface.h
-    org.kde.kdeconnect.device.battery.xml
-    OPTIONS -a
-)

@@ -1,11 +1,16 @@
 project(KDEConnectInterfaces)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR}
-                    ${CMAKE_CURRENT_SOURCE_DIR}
-                    ${CMAKE_BINARY_DIR}
-                    ${CMAKE_SOURCE_DIR})
+function(geninterface source_h output_h)
+    set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.xml)
+    qt5_generate_dbus_interface( ${source_h} ${xml_file})
 
-add_definitions(-DKDECONNECT_LIBRARY)
+    list(APPEND libkdeconnect_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/${output_h})
+    set_source_files_properties(${xml_file} PROPERTIES NO_NAMESPACE true)
+
+    get_filename_component(basename ${output_h} NAME_WE)
+    qt5_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${basename})
+    set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
+endfunction()
 
 set(libkdeconnect_SRC
     dbusinterfaces.cpp
@@ -25,32 +30,16 @@ set(libkdeconnect_HEADERS
     notificationsmodel.h
     dbusinterfaces.h
     ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h
-    ${CMAKE_BINARY_DIR}/interfaces/daemoninterface.h
-    ${CMAKE_BINARY_DIR}/interfaces/deviceinterface.h
-    ${CMAKE_BINARY_DIR}/interfaces/devicebatteryinterface.h
-    ${CMAKE_BINARY_DIR}/interfaces/devicesftpinterface.h
-    ${CMAKE_BINARY_DIR}/interfaces/devicenotificationsinterface.h
-    ${CMAKE_BINARY_DIR}/interfaces/notificationinterface.h
-    ${CMAKE_BINARY_DIR}/interfaces/mprisremoteinterface.h
 )
 
-set_source_files_properties(
-    ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml
-    ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml
-    ${CMAKE_BINARY_DIR}/plugins/battery/org.kde.kdeconnect.device.battery.xml
-    ${CMAKE_BINARY_DIR}/plugins/mprisremote/org.kde.kdeconnect.device.mprisremote.xml
-    ${CMAKE_BINARY_DIR}/plugins/sftp/org.kde.kdeconnect.device.sftp.xml
-    ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
-    ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
-    PROPERTIES NO_NAMESPACE true
-)
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml daemoninterface)
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml deviceinterface)
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/battery/org.kde.kdeconnect.device.battery.xml devicebatteryinterface )
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/sftp/org.kde.kdeconnect.device.sftp.xml devicesftpinterface )
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
-qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/mprisremote/org.kde.kdeconnect.device.mprisremote.xml mprisremoteinterface )
+geninterface(${CMAKE_SOURCE_DIR}/core/daemon.h daemoninterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/core/device.h deviceinterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/battery/batterydbusinterface.h devicebatteryinterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/sftp/sftpplugin.h devicesftpinterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notificationsdbusinterface.h devicenotificationsinterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notification.h notificationinterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h mprisremoteinterface)
+
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES
@@ -59,15 +48,6 @@ set_target_properties(kdeconnectinterfaces PROPERTIES
 )
 
 generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
-
-add_dependencies(kdeconnectinterfaces
-        org.kde.kdeconnect.daemon.xml
-        org.kde.kdeconnect.device.xml
-        org.kde.kdeconnect.device.battery.xml
-        org.kde.kdeconnect.device.sftp.xml
-        org.kde.kdeconnect.device.notifications.xml
-        org.kde.kdeconnect.device.notifications.notification.xml
-)
 
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
