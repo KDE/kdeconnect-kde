@@ -97,3 +97,13 @@ SftpDbusInterface::~SftpDbusInterface()
 {
 
 }
+
+MprisDbusInterface::MprisDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceMprisremoteInterface(activatedService(), "/modules/kdeconnect/devices/" + id + "/mprisremote", QDBusConnection::sessionBus(), parent)
+{
+    connect(this, &OrgKdeKdeconnectDeviceMprisremoteInterface::propertiesChanged, this, &MprisDbusInterface::propertiesChangedProxy);
+}
+
+MprisDbusInterface::~MprisDbusInterface()
+{
+}

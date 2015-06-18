@@ -29,6 +29,7 @@
 #include "interfaces/devicesftpinterface.h"
 #include "interfaces/devicenotificationsinterface.h"
 #include "interfaces/notificationinterface.h"
+#include "interfaces/mprisremoteinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -47,7 +48,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
     : public OrgKdeKdeconnectDeviceInterface
 {
     Q_OBJECT
-//  Workaround because OrgKdeKdeconnectDeviceInterface is not generating
+//  TODO: Workaround because OrgKdeKdeconnectDeviceInterface is not generating
 //  the signals for the properties
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChangedProxy)
 public:
@@ -94,6 +95,26 @@ class KDECONNECTINTERFACES_EXPORT SftpDbusInterface
 public:
     SftpDbusInterface(const QString& deviceId, QObject* parent = 0);
     virtual ~SftpDbusInterface();
+};
+
+class KDECONNECTINTERFACES_EXPORT MprisDbusInterface
+    : public OrgKdeKdeconnectDeviceMprisremoteInterface
+{
+    Q_OBJECT
+//  TODO: Workaround because qdbusxml2cpp is not generating
+//  the signals for the properties
+    Q_PROPERTY(bool isPlaying READ isPlaying NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(int length READ length NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(QString nowPlaying READ nowPlaying NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(QStringList playerList READ playerList NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(int volume READ volume WRITE setVolume NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(int position READ position WRITE setPosition NOTIFY propertiesChangedProxy)
+public:
+    MprisDbusInterface(const QString& deviceId, QObject* parent = 0);
+    virtual ~MprisDbusInterface();
+
+Q_SIGNALS:
+    void propertiesChangedProxy();
 };
 
 #endif

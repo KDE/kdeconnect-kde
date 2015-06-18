@@ -131,7 +131,7 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         const QString& player = playerList.key(service);
         np.set("player", player);
         // Always also update the position
-        OrgMprisMediaPlayer2PlayerInterface mprisInterface(playerList[player], "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
+        OrgMprisMediaPlayer2PlayerInterface mprisInterface(service, "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
         if (mprisInterface.canSeek()) {
             long long pos = mprisInterface.position();
             np.set("pos", pos/1000); //Send milis instead of nanos

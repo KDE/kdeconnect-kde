@@ -37,6 +37,7 @@
 
 class FileTransferJob;
 
+// TODO: investigate if we can turn into Q_GADGET, drop QObject
 class KDECONNECTCORE_EXPORT NetworkPackage : public QObject
 {
     Q_OBJECT

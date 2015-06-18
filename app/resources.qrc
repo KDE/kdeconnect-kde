@@ -2,5 +2,6 @@
  <qresource>
     <file>qml/main.qml</file>
     <file>qml/DeviceDelegate.qml</file>
+    <file>qml/mpris.qml</file>
  </qresource>
 </RCC>

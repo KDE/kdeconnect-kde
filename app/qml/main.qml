@@ -92,7 +92,10 @@ ApplicationWindow
                         }
                         Button {
                             text: i18n("Open Multimedia Remote Control")
-                            enabled: false
+                            onClicked: stack.push( {
+                                item: "qrc:/qml/mpris.qml",
+                                properties: { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id) }
+                            } );
                         }
                         Button {
                             text: i18n("Remote touch and keyboard")

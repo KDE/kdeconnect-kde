@@ -49,6 +49,11 @@ QObject* createSftpInterface(QVariant deviceId)
     return new SftpDbusInterface(deviceId.toString());
 }
 
+QObject* createMprisInterface(QVariant deviceId)
+{
+    return new MprisDbusInterface(deviceId.toString());
+}
+
 QObject* createDBusResponse()
 {
     return new DBusAsyncResponse();
@@ -61,6 +66,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<ProcessRunner>(uri, 1, 0, "ProcessRunner");
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
+    qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
 }
 
@@ -76,10 +82,13 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
     
     engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
       , new ObjectFactory(engine, createSftpInterface));
+
+    engine->rootContext()->setContextProperty("MprisDbusInterfaceFactory"
+      , new ObjectFactory(engine, createMprisInterface));
     
     engine->rootContext()->setContextProperty("DBusResponseFactory"
       , new ObjectFactory(engine, createDBusResponse));    
     
     engine->rootContext()->setContextProperty("DBusResponseWaiter"
-      , DBusResponseWaiter::instance());    
+      , DBusResponseWaiter::instance());
 }

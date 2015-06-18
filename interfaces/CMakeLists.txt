@@ -31,12 +31,14 @@ set(libkdeconnect_HEADERS
     ${CMAKE_BINARY_DIR}/interfaces/devicesftpinterface.h
     ${CMAKE_BINARY_DIR}/interfaces/devicenotificationsinterface.h
     ${CMAKE_BINARY_DIR}/interfaces/notificationinterface.h
+    ${CMAKE_BINARY_DIR}/interfaces/mprisremoteinterface.h
 )
 
 set_source_files_properties(
     ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.daemon.xml
     ${CMAKE_BINARY_DIR}/core/org.kde.kdeconnect.device.xml
     ${CMAKE_BINARY_DIR}/plugins/battery/org.kde.kdeconnect.device.battery.xml
+    ${CMAKE_BINARY_DIR}/plugins/mprisremote/org.kde.kdeconnect.device.mprisremote.xml
     ${CMAKE_BINARY_DIR}/plugins/sftp/org.kde.kdeconnect.device.sftp.xml
     ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.xml
     ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml
@@ -48,6 +50,7 @@ qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/battery/org
 qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/sftp/org.kde.kdeconnect.device.sftp.xml devicesftpinterface )
 qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.xml devicenotificationsinterface )
 qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/notifications/org.kde.kdeconnect.device.notifications.notification.xml notificationinterface  )
+qt5_add_dbus_interface(libkdeconnect_SRC ${CMAKE_BINARY_DIR}/plugins/mprisremote/org.kde.kdeconnect.device.mprisremote.xml mprisremoteinterface )
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES

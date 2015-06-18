@@ -14,5 +14,9 @@ add_subdirectory(notifications)
 add_subdirectory(sftp)
 add_subdirectory(screensaver-inhibit)
 
+if(EXPERIMENTALAPP_ENABLED)
+    add_subdirectory(mprisremote)
+endif()
+
 #FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
 install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})

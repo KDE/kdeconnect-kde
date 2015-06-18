@@ -1,0 +1,28 @@
+{
+    "Encoding": "UTF-8", 
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org",
+                "Name": "Aleix Pol"
+            }
+        ], 
+        "Description": "Control MPRIS services",
+        "EnabledByDefault": true, 
+        "Icon": "applications-multimedia",
+        "Id": "kdeconnect_mprisremote",
+        "License": "GPL",
+        "Name": "MprisRemote",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ], 
+        "Version": "0.1", 
+        "Website": "https://kde.org"
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.mpris"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.mpris"
+    ]
+}
