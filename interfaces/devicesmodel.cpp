@@ -63,6 +63,7 @@ QHash< int, QByteArray > DevicesModel::roleNames() const
     names.insert(IdModelRole, "deviceId");
     names.insert(IconNameRole, "iconName");
     names.insert(DeviceRole, "device");
+    names.insert(StatusModelRole, "status");
     return names;
 }
 

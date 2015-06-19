@@ -40,6 +40,25 @@ ApplicationWindow
             Layout.fillHeight: true
             ListView {
                 id: devicesView
+
+                section {
+                    property: "status"
+                    delegate: Label {
+                        text: switch (parseInt(section))
+                        {
+                            case DevicesModel.StatusUnknown:
+                                return i18n("Unknown")
+                            case DevicesModel.StatusPaired:
+                                return i18n("Paired")
+                            case DevicesModel.StatusReachable:
+                                return i18n("Reachable")
+                            case (DevicesModel.StatusReachable | DevicesModel.StatusPaired):
+                                return i18n("Paired & Reachable")
+                        }
+
+                    }
+                }
+
                 spacing: 5
                 model: DevicesSortProxyModel {
                     sourceModel: DevicesModel {
@@ -49,7 +68,7 @@ ApplicationWindow
                 }
                 delegate: DeviceDelegate {
                     width: parent.width
-                   onClicked: {
+                    onClicked: {
                         var data = {
                             item: deviceViewComponent,
                             properties: {currentDevice: device}
