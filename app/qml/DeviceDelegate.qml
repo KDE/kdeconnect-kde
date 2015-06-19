@@ -31,8 +31,9 @@ Item
     QIconItem {
         id: icon
         width: 40
-        height: 40
+        height: parent.height
         icon: iconName
+        anchors.verticalCenter: parent.verticalCenter
     }
     MouseArea {
         anchors.fill: parent
