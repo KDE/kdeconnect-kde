@@ -30,6 +30,17 @@ ApplicationWindow
     width: 400
     height: 500
 
+    toolBar: RowLayout {
+        Button {
+            text: "<"
+            onClicked: stack.pop()
+        }
+        Label {
+            Layout.fillWidth: true
+            text: "KDE Connect"
+            font.pointSize: 20
+        }
+    }
     StackView {
         id: stack
         anchors {
@@ -85,10 +96,6 @@ ApplicationWindow
         ColumnLayout {
             id: deviceView
             property QtObject currentDevice
-            Button {
-                text: "<"
-                onClicked: stack.pop()
-            }
             Loader {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
