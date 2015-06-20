@@ -40,6 +40,7 @@
 #include "interfaces/dbusinterfaces.h"
 #include "interfaces/devicesmodel.h"
 #include "devicessortproxymodel.h"
+#include "kdeconnect-version.h"
 
 K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 
@@ -50,8 +51,19 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     , devicesModel(new DevicesModel(this))
     , currentDevice(0)
 {
-    kcmUi->setupUi(this);
+    KAboutData *about = new KAboutData("kdeconnect-kcm",
+                                       i18n("KDE Connect Settings"),
+                                       QLatin1String(KDECONNECT_VERSION_STRING),
+                                       i18n("KDE Connect Settings module"),
+                                       KAboutLicense::KAboutLicense::GPL_V2,
+                                       i18n("(C) 2015 Albert Vaca Cintora"),
+                                       QString(),
+                                       QLatin1String("https://community.kde.org/KDEConnect")
+    );
+    about->addAuthor(i18n("Albert Vaca Cintora"));
+    setAboutData(about);
 
+    kcmUi->setupUi(this);
 
     kcmUi->deviceList->setIconSize(QSize(32,32));
 
