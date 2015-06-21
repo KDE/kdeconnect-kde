@@ -19,7 +19,6 @@
  */
 
 #include "sftpplugin.h"
-#include "sftp_debug.h"
 
 #include <QDBusConnection>
 #include <QDir>
@@ -32,6 +31,7 @@
 #include <KPluginFactory>
 
 #include "mounter.h"
+#include "sftp_debug.h"
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_sftp.json", registerPlugin< SftpPlugin >(); )
 
@@ -85,7 +85,6 @@ void SftpPlugin::removeFromDolphin()
 void SftpPlugin::connected()
 {
     bool state = QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
-    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Exposing DBUS interface: " << state;
 }
 
 void SftpPlugin::mount()

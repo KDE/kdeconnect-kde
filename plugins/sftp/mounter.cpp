@@ -18,13 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "mounter.h"
+
 #include <QDir>
-#include <QTimerEvent>
 #include <QDebug>
 
 #include <KLocalizedString>
 
-#include "mounter.h"
+#include "mountloop.h"
 #include "sftp_debug.h"
 #include <kdeconnectconfig.h>
 
@@ -32,12 +33,10 @@ Mounter::Mounter(SftpPlugin* sftp)
     : QObject(sftp)
     , m_sftp(sftp)
     , m_proc(0)
-    , m_id(generateId())
-    , m_mpoint(m_sftp->mountPoint())
+    , m_mountPoint(sftp->mountPoint())
     , m_started(false)
-{ 
-    Q_ASSERT(sftp);
-  
+{
+
     connect(m_sftp, SIGNAL(packageReceived(NetworkPackage)), this, SLOT(onPakcageReceived(NetworkPackage)));
 
     connect(&m_connectTimer, SIGNAL(timeout()), this, SLOT(onMountTimeout()));
@@ -81,9 +80,6 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         unmount();
         return;
     }
-    
-    //TODO implement on android side
-    //if (np.get<int>("id") != m_id) return;
 
     //This is the previous code, to access sftp server using KIO. Now we are
     //using the external binary sshfs, and accessing it as a local filesystem.
@@ -106,8 +102,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     connect(m_proc.data(), SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
     connect(m_proc.data(), SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
 
-    const QString mpoint = m_sftp->mountPoint();
-    QDir().mkpath(mpoint);
+    QDir().mkpath(m_mountPoint);
 
     const QString program = "sshfs";
 
@@ -120,9 +115,8 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
             .arg(np.get<QString>("user"))
             .arg(np.get<QString>("ip"))
             .arg(path)
-        << mpoint            
+        << m_mountPoint
         << "-p" << np.get<QString>("port")
-        << "-d"
         << "-f"
         << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
@@ -146,10 +140,12 @@ void Mounter::onStarted()
     m_started = true;
     Q_EMIT mounted();
     
-    connect(m_proc.data(), SIGNAL(readyReadStandardError()), this, SLOT(readProcessOut()));
-    connect(m_proc.data(), SIGNAL(readyReadStandardOutput()), this, SLOT(readProcessOut()));
-    
-    m_lastActivity = QDateTime::currentDateTime();
+    connect(m_proc.data(), &KProcess::readyReadStandardError, [this]() {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "stderr: " << m_proc->readAll();
+    });
+    connect(m_proc.data(), &KProcess::readyReadStandardOutput, [this]() {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "stdout:" << m_proc->readAll();
+    });
 }
 
 void Mounter::onError(QProcess::ProcessError error)
@@ -171,7 +167,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     }
     else
     {
-        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code: " << exitCode << ")";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code:" << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
@@ -186,34 +182,19 @@ void Mounter::onMountTimeout()
     Q_EMIT failed(i18n("Failed to mount filesystem: device not responding"));
 }
 
-
-void Mounter::readProcessOut()
-{
-    Q_ASSERT(m_proc.data());
-    m_lastActivity = QDateTime::currentDateTime();
-    m_proc->readAll();
-}
-
 void Mounter::start()
 {
     NetworkPackage np(PACKAGE_TYPE_SFTP);
     np.set("startBrowsing", true);
-    np.set("start", true);
-    np.set("id", m_id);
     m_sftp->sendPackage(np);
     
     m_connectTimer.start();
 }
 
-int Mounter::generateId()
-{
-    static int id = 0;
-    return id++;
-}
-
 void Mounter::cleanMountPoint()
 {
-    KProcess::execute(QStringList() << "fusermount" << "-u" << m_mpoint, 10000);
+    qCDebug(KDECONNECT_PLUGIN_SFTP()) << "cleanMountPoint";
+    KProcess::execute(QStringList() << "fusermount" << "-u" << m_mountPoint, 10000);
 }
 
 void Mounter::unmount()
