@@ -84,7 +84,7 @@ void SftpPlugin::removeFromDolphin()
 
 void SftpPlugin::connected()
 {
-    bool state = QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
 }
 
 void SftpPlugin::mount()
