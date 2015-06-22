@@ -49,7 +49,7 @@ DevicesModel::DevicesModel(QObject *parent)
     connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),
             this, SLOT(deviceAdded(QString)));
     connect(m_dbusInterface, SIGNAL(deviceVisibilityChanged(QString,bool)),
-            this, SLOT(deviceStatusChanged(QString)));
+            this, SLOT(deviceUpdated(QString)));
     connect(m_dbusInterface, SIGNAL(deviceRemoved(QString)),
             this, SLOT(deviceRemoved(QString)));
 
@@ -93,26 +93,23 @@ void DevicesModel::deviceAdded(const QString& id)
 
 void DevicesModel::deviceRemoved(const QString& id)
 {
-    if (!m_deviceIndexById.contains(id)) {
-        Q_ASSERT(false); //This should only be emited for existing devices
-        return;
+    QMap<QString, int>::iterator it = m_deviceIndexById.find(id);
+    if (it != m_deviceIndexById.end()) {
+        int row = *it;
+        m_deviceIndexById.erase(it);
+        beginRemoveRows(QModelIndex(), row, row);
+        delete m_deviceList.takeAt(row);
+        endRemoveRows();
     }
-    const int row = m_deviceIndexById.take(id);
-    beginRemoveRows(QModelIndex(), row, row);
-    delete m_deviceList.takeAt(row);
-    endRemoveRows();
 }
 
-void DevicesModel::deviceStatusChanged(const QString& id)
+void DevicesModel::deviceUpdated(const QString& id)
 {
-    if (!m_deviceIndexById.contains(id)) {
-        Q_ASSERT(false); //This should only be emited for existing devices
-        return;
+    QMap<QString, int>::iterator it = m_deviceIndexById.find(id);
+    if (it != m_deviceIndexById.end()) {
+        const QModelIndex idx = index(it.value());
+        Q_EMIT dataChanged(idx, idx);
     }
-
-    int row = m_deviceIndexById[id];
-    const QModelIndex idx = index(row);
-    Q_EMIT dataChanged(idx, idx);
 }
 
 int DevicesModel::displayFilter() const
@@ -178,13 +175,8 @@ void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 void DevicesModel::nameChanged(const QString& newName)
 {
     Q_UNUSED(newName);
-
     DeviceDbusInterface* device = static_cast<DeviceDbusInterface*>(sender());
-
-    int row = m_deviceIndexById[device->id()];
-    Q_ASSERT(row >= 0);
-    const QModelIndex idx = index(row);
-    Q_EMIT dataChanged(idx, idx);
+    deviceUpdated(device->id());
 }
 
 void DevicesModel::clearDevices()

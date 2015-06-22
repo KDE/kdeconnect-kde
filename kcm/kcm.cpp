@@ -259,8 +259,6 @@ void KdeConnectKcm::pairingFailed(const QString& error)
 void KdeConnectKcm::pairingChanged(bool paired)
 {
     DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
-    devicesModel->deviceStatusChanged(senderDevice->id());
-
     if (senderDevice != currentDevice) return;
 
     kcmUi->pair_button->setVisible(!paired);

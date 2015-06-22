@@ -69,12 +69,10 @@ public:
     Q_SCRIPTABLE DeviceDbusInterface* getDevice(int row) const;
     virtual QHash<int, QByteArray> roleNames() const;
 
-public Q_SLOTS:
-    void deviceStatusChanged(const QString& id);
-
 private Q_SLOTS:
     void deviceAdded(const QString& id);
     void deviceRemoved(const QString& id);
+    void deviceUpdated(const QString& id);
     void refreshDeviceList();
     void receivedDeviceList(QDBusPendingCallWatcher* watcher);
     void nameChanged(const QString& newName);
