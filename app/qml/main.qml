@@ -57,13 +57,13 @@ ApplicationWindow
                     delegate: Label {
                         text: switch (parseInt(section))
                         {
-                            case DevicesModel.StatusUnknown:
+                            case DevicesModel.Unknown:
                                 return i18n("Unknown")
-                            case DevicesModel.StatusPaired:
+                            case DevicesModel.Paired:
                                 return i18n("Paired")
-                            case DevicesModel.StatusReachable:
+                            case DevicesModel.Reachable:
                                 return i18n("Reachable")
-                            case (DevicesModel.StatusReachable | DevicesModel.StatusPaired):
+                            case (DevicesModel.Reachable | DevicesModel.Paired):
                                 return i18n("Paired & Reachable")
                         }
 
@@ -74,7 +74,7 @@ ApplicationWindow
                 model: DevicesSortProxyModel {
                     sourceModel: DevicesModel {
                         id: connectDeviceModel
-                        displayFilter: DevicesModel.StatusReachable
+                        displayFilter: DevicesModel.Reachable
                     }
                 }
                 delegate: DeviceDelegate {
