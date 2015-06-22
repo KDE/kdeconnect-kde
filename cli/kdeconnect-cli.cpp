@@ -105,7 +105,7 @@ int main(int argc, char** argv)
         device = parser.value("device");
         QUrl url;
         if(parser.isSet("share")) {
-            url = QUrl::fromUserInput(parser.value("share"));
+            url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
             parser.clearPositionalArguments();
             if(!url.isEmpty() && !device.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
