@@ -127,7 +127,11 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     if (d->mDevices.contains(id)) {
         //qCDebug(KDECONNECT_CORE) << "It is a known device";
         Device* device = d->mDevices[id];
+        bool wasReachable = device->isReachable();
         device->addLink(identityPackage, dl);
+        if (!wasReachable) {
+            Q_EMIT deviceVisibilityChanged(id, true);
+        }
     } else {
         //qCDebug(KDECONNECT_CORE) << "It is a new device";
 
@@ -137,8 +141,6 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
         Q_EMIT deviceAdded(id);
     }
-
-    Q_EMIT deviceVisibilityChanged(id, true);
 }
 
 void Daemon::onDeviceReachableStatusChanged()
@@ -146,21 +148,17 @@ void Daemon::onDeviceReachableStatusChanged()
     Device* device = (Device*)sender();
     QString id = device->id();
 
-    Q_EMIT deviceVisibilityChanged(id, device->isReachable());
+    qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
 
-    //qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "reachable status changed:" << device->isReachable();
-
-    if (!device->isReachable()) {
-
-        if (!device->isPaired()) {
-
-            qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
-            Q_EMIT deviceRemoved(id);
-            d->mDevices.remove(id);
-            device->deleteLater();
-        }
-
+    if (!device->isReachable() && !device->isPaired()) {
+        qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
+        d->mDevices.remove(id);
+        device->deleteLater();
+        Q_EMIT deviceRemoved(id);
+    } else {
+        Q_EMIT deviceVisibilityChanged(id, device->isReachable());
     }
+
 }
 
 void Daemon::setAnnouncedName(QString name)

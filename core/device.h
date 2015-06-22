@@ -121,8 +121,8 @@ private Q_SLOTS:
     void pairingTimeout();
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void reachableStatusChanged();
     Q_SCRIPTABLE void pluginsChanged();
+    Q_SCRIPTABLE void reachableStatusChanged();
     Q_SCRIPTABLE void pairingChanged(bool paired);
     Q_SCRIPTABLE void pairingFailed(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
