@@ -72,7 +72,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);
-    void onDeviceReachableStatusChanged();
+    void onDeviceStatusChanged();
 
 private:
     QScopedPointer<struct DaemonPrivate> d;
