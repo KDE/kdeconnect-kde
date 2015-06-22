@@ -143,6 +143,9 @@ void KdeConnectKcm::refresh()
 
 void KdeConnectKcm::resetSelection()
 {
+    if (!currentDevice) {
+        return;
+    }
     kcmUi->deviceList->selectionModel()->setCurrentIndex(sortProxyModel->mapFromSource(currentIndex), QItemSelectionModel::ClearAndSelect);
 }
 
@@ -162,6 +165,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     pluginsConfigChanged();
 
     if (!current.isValid()) {
+        currentDevice = NULL;
         kcmUi->deviceInfo->setVisible(false);
         return;
     }
