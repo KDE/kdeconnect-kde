@@ -57,8 +57,6 @@ ApplicationWindow
                     delegate: Label {
                         text: switch (parseInt(section))
                         {
-                            case DevicesModel.Unknown:
-                                return i18n("Unknown")
                             case DevicesModel.Paired:
                                 return i18n("Paired")
                             case DevicesModel.Reachable:
