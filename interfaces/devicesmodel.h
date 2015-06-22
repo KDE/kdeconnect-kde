@@ -48,14 +48,14 @@ public:
         DeviceRole
     };
     Q_ENUMS(ModelRoles);
-    enum StatusFlag {
-        StatusUnknown   = 0x00,
-        StatusPaired    = 0x01,
-        StatusReachable = 0x02
+    enum StatusFilterFlag {
+        NoFilter   = 0x00,
+        Paired     = 0x01,
+        Reachable  = 0x02
     };
-    Q_DECLARE_FLAGS(StatusFlags, StatusFlag)
-    Q_FLAGS(StatusFlags)
-    Q_ENUMS(StatusFlag)
+    Q_DECLARE_FLAGS(StatusFilterFlags, StatusFilterFlag)
+    Q_FLAGS(StatusFilterFlags)
+    Q_ENUMS(StatusFilterFlag)
 
     DevicesModel(QObject *parent = 0);
     virtual ~DevicesModel();
@@ -84,14 +84,14 @@ Q_SIGNALS:
 
 private:
     void clearDevices();
-    int rowForDeviceId(const QString& id) const;
     void appendDevice(DeviceDbusInterface* dev);
 
     DaemonDbusInterface* m_dbusInterface;
-    QVector<DeviceDbusInterface*> m_deviceList;
-    StatusFlags m_displayFilter;
+    QList<DeviceDbusInterface*> m_deviceList;
+    QMap<QString, int> m_deviceIndexById;
+    StatusFilterFlag m_displayFilter;
 };
 
-//Q_DECLARE_OPERATORS_FOR_FLAGS(DevicesModel::StatusFlags)
+//Q_DECLARE_OPERATORS_FOR_FLAGS(DevicesModel::StatusFilterFlag)
 
 #endif // DEVICESMODEL_H

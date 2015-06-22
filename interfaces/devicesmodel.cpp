@@ -23,7 +23,6 @@
 
 #include <KLocalizedString>
 
-#include <QDebug>
 #include <QString>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
@@ -37,7 +36,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_INTERFACES, "kdeconnect.interfaces");
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
-    , m_displayFilter(DevicesModel::StatusUnknown)
+    , m_displayFilter(StatusFilterFlag::NoFilter)
 {
 
     //new ModelTest(this, this);
@@ -71,47 +70,49 @@ DevicesModel::~DevicesModel()
 {
 }
 
-int DevicesModel::rowForDeviceId(const QString& id) const
-{
-    QVector<DeviceDbusInterface*>::const_iterator it = m_deviceList.constBegin(), itEnd = m_deviceList.constEnd();
-    for (int i = 0; it!=itEnd; ++it, ++i) {
-        if ((*it)->id() == id) {
-            return i;
-        }
-    }
-    return -1;
-}
-
 void DevicesModel::deviceAdded(const QString& id)
 {
-    //Find whether the device already exists. if so, just report it as modified
-    int row = rowForDeviceId(id);
-    if (row>=0) {
-        const QModelIndex idx = index(row, 0);
-        Q_EMIT dataChanged(idx, idx);
-    } else {
-        DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
-        if (dev->isReachable() == bool(m_displayFilter & StatusReachable) && dev->isPaired() == bool(m_displayFilter & StatusPaired)) {
-            beginInsertRows(QModelIndex(), m_deviceList.count(), m_deviceList.count());
-            appendDevice(dev);
-            endInsertRows();
-        }
+    if (m_deviceIndexById.contains(id)) {
+        Q_ASSERT(false); //This should only happen for new devices
+        return;
     }
+
+    DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
+
+    bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
+    bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
+
+    if ((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isPaired())) {
+        return;
+    }
+
+    beginInsertRows(QModelIndex(), m_deviceList.size(), m_deviceList.size());
+    appendDevice(dev);
+    endInsertRows();
 }
 
 void DevicesModel::deviceRemoved(const QString& id)
 {
-    //TODO: Actually remove instead of refresh
-    Q_UNUSED(id);
-    refreshDeviceList();
+    if (!m_deviceIndexById.contains(id)) {
+        Q_ASSERT(false); //This should only be emited for existing devices
+        return;
+    }
+    const int row = m_deviceIndexById.take(id);
+    beginRemoveRows(QModelIndex(), row, row);
+    delete m_deviceList.takeAt(row);
+    endRemoveRows();
 }
 
 void DevicesModel::deviceStatusChanged(const QString& id)
 {
-    Q_UNUSED(id);
-    //FIXME: Emitting dataChanged does not invalidate the view, refreshDeviceList does.
-    //Q_EMIT dataChanged(index(0),index(rowCount()));
-    refreshDeviceList();
+    if (!m_deviceIndexById.contains(id)) {
+        Q_ASSERT(false); //This should only be emited for existing devices
+        return;
+    }
+
+    int row = m_deviceIndexById[id];
+    const QModelIndex idx = index(row);
+    Q_EMIT dataChanged(idx, idx);
 }
 
 int DevicesModel::displayFilter() const
@@ -121,7 +122,7 @@ int DevicesModel::displayFilter() const
 
 void DevicesModel::setDisplayFilter(int flags)
 {
-    m_displayFilter = (StatusFlag)flags;
+    m_displayFilter = (StatusFilterFlag)flags;
     refreshDeviceList();
 }
 
@@ -133,8 +134,8 @@ void DevicesModel::refreshDeviceList()
         return;
     }
 
-    bool onlyPaired = (m_displayFilter & StatusPaired);
-    bool onlyReachable = (m_displayFilter & StatusReachable);
+    bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
+    bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
 
     QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingDeviceIds, this);
@@ -154,6 +155,7 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
     }
 
     Q_ASSERT(m_deviceList.isEmpty());
+    Q_ASSERT(m_deviceIndexById.isEmpty());
     const QStringList deviceIds = pendingDeviceIds.value();
 
     if (deviceIds.isEmpty())
@@ -168,6 +170,7 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
 
 void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 {
+    m_deviceIndexById.insert(dev->id(), m_deviceList.size());
     m_deviceList.append(dev);
     connect(dev, SIGNAL(nameChanged(QString)), SLOT(nameChanged(QString)));
 }
@@ -175,9 +178,12 @@ void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 void DevicesModel::nameChanged(const QString& newName)
 {
     Q_UNUSED(newName);
-    int row = m_deviceList.indexOf(static_cast<DeviceDbusInterface*>(sender()));
-    Q_ASSERT(row>=0);
-    const QModelIndex idx = index(row, 0);
+
+    DeviceDbusInterface* device = static_cast<DeviceDbusInterface*>(sender());
+
+    int row = m_deviceIndexById[device->id()];
+    Q_ASSERT(row >= 0);
+    const QModelIndex idx = index(row);
     Q_EMIT dataChanged(idx, idx);
 }
 
@@ -187,6 +193,7 @@ void DevicesModel::clearDevices()
         beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
         qDeleteAll(m_deviceList);
         m_deviceList.clear();
+        m_deviceIndexById.clear();
         endRemoveRows();
     }
 }
@@ -221,10 +228,10 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             return status;
         }
         case StatusModelRole: {
-            int status = StatusUnknown;
+            int status = StatusFilterFlag::NoFilter;
             if (device->isReachable()) {
-                status |= StatusReachable;
-                if (device->isPaired()) status |= StatusPaired;
+                status |= StatusFilterFlag::Reachable;
+                if (device->isPaired()) status |= StatusFilterFlag::Paired;
             }
             return status;
         }
