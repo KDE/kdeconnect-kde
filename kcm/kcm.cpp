@@ -252,18 +252,18 @@ void KdeConnectKcm::pairingFailed(const QString& error)
     kcmUi->messages->animatedShow();
 }
 
-void KdeConnectKcm::pairingChanged(bool pairing)
+void KdeConnectKcm::pairingChanged(bool paired)
 {
     DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
     devicesModel->deviceStatusChanged(senderDevice->id());
 
     if (senderDevice != currentDevice) return;
 
-    kcmUi->pair_button->setVisible(!pairing);
-    kcmUi->unpair_button->setVisible(pairing);
-    kcmUi->progressBar->setVisible(!pairing);
-    kcmUi->ping_button->setVisible(pairing);
-    kcmUi->status_label->setText(pairing ? i18n("(paired)") : i18n("(unpaired)"));
+    kcmUi->pair_button->setVisible(!paired);
+    kcmUi->unpair_button->setVisible(paired);
+    kcmUi->progressBar->setVisible(senderDevice->pairRequested());
+    kcmUi->ping_button->setVisible(paired);
+    kcmUi->status_label->setText(paired ? i18n("(paired)") : i18n("(unpaired)"));
 }
 
 void KdeConnectKcm::pluginsConfigChanged()
