@@ -32,7 +32,8 @@ ApplicationWindow
 
     toolBar: RowLayout {
         Button {
-            text: "<"
+            iconName: "go-previous"
+            enabled: stack.depth>1
             onClicked: stack.pop()
         }
         Label {
