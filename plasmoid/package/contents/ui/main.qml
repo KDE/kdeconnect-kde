@@ -34,7 +34,7 @@ Item
 
     DevicesModel {
         id: connectDeviceModel
-        displayFilter: DevicesModel.StatusPaired | DevicesModel.StatusReachable
+        displayFilter: DevicesModel.Paired | DevicesModel.Reachable
 
     }
 
