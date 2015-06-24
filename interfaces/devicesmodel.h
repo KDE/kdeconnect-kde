@@ -81,12 +81,12 @@ Q_SIGNALS:
     void rowsChanged();
 
 private:
+    int rowForDevice(const QString& id) const;
     void clearDevices();
     void appendDevice(DeviceDbusInterface* dev);
 
     DaemonDbusInterface* m_dbusInterface;
-    QList<DeviceDbusInterface*> m_deviceList;
-    QMap<QString, int> m_deviceIndexById;
+    QVector<DeviceDbusInterface*> m_deviceList;
     StatusFilterFlag m_displayFilter;
 };
 

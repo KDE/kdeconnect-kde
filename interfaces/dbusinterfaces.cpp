@@ -39,6 +39,7 @@ DaemonDbusInterface::~DaemonDbusInterface()
 
 DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceInterface(activatedService(), "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
+    , m_id(id)
 {
     connect(this, &OrgKdeKdeconnectDeviceInterface::pairingChanged, this, &DeviceDbusInterface::pairingChangedProxy);
 }
@@ -46,6 +47,11 @@ DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
 DeviceDbusInterface::~DeviceDbusInterface()
 {
 
+}
+
+QString DeviceDbusInterface::id() const
+{
+    return m_id;
 }
 
 void DeviceDbusInterface::pluginCall(const QString &plugin, const QString &method)

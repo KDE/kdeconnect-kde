@@ -70,19 +70,31 @@ DevicesModel::~DevicesModel()
 {
 }
 
+int DevicesModel::rowForDevice(const QString& id) const
+{
+    for (int i = 0, c=m_deviceList.size(); i<c; ++i) {
+        if (m_deviceList[i]->id() == id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void DevicesModel::deviceAdded(const QString& id)
 {
-    if (m_deviceIndexById.contains(id)) {
-        Q_ASSERT(false); //This should only happen for new devices
+    if (rowForDevice(id) >= 0) {
+        Q_ASSERT_X(false, "deviceAdded", "Trying to add a device twice");
         return;
     }
 
     DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
+    Q_ASSERT(dev->isValid());
 
     bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
     bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
 
     if ((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isPaired())) {
+        delete dev;
         return;
     }
 
@@ -93,10 +105,8 @@ void DevicesModel::deviceAdded(const QString& id)
 
 void DevicesModel::deviceRemoved(const QString& id)
 {
-    QMap<QString, int>::iterator it = m_deviceIndexById.find(id);
-    if (it != m_deviceIndexById.end()) {
-        int row = *it;
-        m_deviceIndexById.erase(it);
+    int row = rowForDevice(id);
+    if (row>=0) {
         beginRemoveRows(QModelIndex(), row, row);
         delete m_deviceList.takeAt(row);
         endRemoveRows();
@@ -105,9 +115,9 @@ void DevicesModel::deviceRemoved(const QString& id)
 
 void DevicesModel::deviceUpdated(const QString& id)
 {
-    QMap<QString, int>::iterator it = m_deviceIndexById.find(id);
-    if (it != m_deviceIndexById.end()) {
-        const QModelIndex idx = index(it.value());
+    int row = rowForDevice(id);
+    if (row >= 0) {
+        const QModelIndex idx = index(row);
         Q_EMIT dataChanged(idx, idx);
     }
 }
@@ -152,7 +162,6 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
     }
 
     Q_ASSERT(m_deviceList.isEmpty());
-    Q_ASSERT(m_deviceIndexById.isEmpty());
     const QStringList deviceIds = pendingDeviceIds.value();
 
     if (deviceIds.isEmpty())
@@ -167,7 +176,6 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
 
 void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 {
-    m_deviceIndexById.insert(dev->id(), m_deviceList.size());
     m_deviceList.append(dev);
     connect(dev, SIGNAL(nameChanged(QString)), SLOT(nameChanged(QString)));
 }
@@ -185,23 +193,23 @@ void DevicesModel::clearDevices()
         beginRemoveRows(QModelIndex(), 0, m_deviceList.size() - 1);
         qDeleteAll(m_deviceList);
         m_deviceList.clear();
-        m_deviceIndexById.clear();
         endRemoveRows();
     }
 }
 
 QVariant DevicesModel::data(const QModelIndex& index, int role) const
 {
-    if (!m_dbusInterface->isValid()
-        || !index.isValid()
+    if (!index.isValid()
         || index.row() < 0
-        || index.row() >= m_deviceList.size()
-        || !m_deviceList[index.row()]->isValid())
+        || index.row() >= m_deviceList.size())
     {
         return QVariant();
     }
 
+    Q_ASSERT(m_dbusInterface->isValid());
+
     DeviceDbusInterface* device = m_deviceList[index.row()];
+    Q_ASSERT(device->isValid());
 
     //This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
