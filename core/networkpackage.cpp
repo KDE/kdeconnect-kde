@@ -73,13 +73,14 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     //qCDebug(KDECONNECT_CORE) << "createIdentityPackage" << np->serialize();
 }
 
-QVariantMap qobject2qvariant(const QObject* object)
+template<class T>
+QVariantMap qobject2qvariant(const T* object)
 {
     QVariantMap map;
-    auto metaObject = object->metaObject();
-    for(int i = metaObject->propertyOffset(); i < metaObject->propertyCount(); ++i) {
-        const char *name = metaObject->property(i).name();
-        map.insert(QString::fromLatin1(name), object->property(name));
+    auto metaObject = T::staticMetaObject;
+    for(int i = metaObject.propertyOffset(); i < metaObject.propertyCount(); ++i) {
+        QMetaProperty prop = metaObject.property(i);
+        map.insert(QString::fromLatin1(prop.name()), prop.readOnGadget(object));
     }
 
     return map;
@@ -115,18 +116,19 @@ QByteArray NetworkPackage::serialize() const
     return json;
 }
 
-void qvariant2qobject(const QVariantMap& variant, QObject* object)
+template <class T>
+void qvariant2qobject(const QVariantMap& variant, T* object)
 {
     for ( QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter )
     {
-        const int propertyIndex = object->metaObject()->indexOfProperty(iter.key().toLatin1());
+        const int propertyIndex = T::staticMetaObject.indexOfProperty(iter.key().toLatin1());
         if (propertyIndex < 0) {
             qCWarning(KDECONNECT_CORE) << "missing property" << object << iter.key();
             continue;
         }
 
-        QMetaProperty property = object->metaObject()->property(propertyIndex);
-        bool ret = property.write(object, *iter);
+        QMetaProperty property = T::staticMetaObject.property(propertyIndex);
+        bool ret = property.writeOnGadget(object, *iter);
         if (!ret) {
             qCWarning(KDECONNECT_CORE) << "couldn't set" << object << "->" << property.name() << '=' << *iter;
         }
