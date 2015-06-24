@@ -17,6 +17,7 @@
         "Description[pt_BR]": "Controle dos serviços MPRIS", 
         "Description[sk]": "Ovládať MPRIS služby", 
         "Description[sv]": "Styr MPRIS-tjänster", 
+        "Description[tr]": "MPRIS servislerini kontrol et", 
         "Description[uk]": "Керування службами MPRIS", 
         "Description[x-test]": "xxControl MPRIS servicesxx", 
         "EnabledByDefault": true, 
@@ -33,6 +34,7 @@
         "Name[pt_BR]": "MprisRemote", 
         "Name[sk]": "MprisRemote", 
         "Name[sv]": "MPRIS-fjärrkontroll", 
+        "Name[tr]": "MprisRemote", 
         "Name[uk]": "MprisRemote", 
         "Name[x-test]": "xxMprisRemotexx", 
         "ServiceTypes": [
