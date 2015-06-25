@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDE Connect Application
 Name[ca]=Aplicació KDE Connect
+Name[de]=KDE-Connect-Anwendung
 Name[fi]=KDE Connect -sovellus
 Name[gl]=Programa de KDE Connect
 Name[nl]=KDE Connect-toepassing
@@ -14,6 +15,7 @@ Name[uk]=Програма KDE Connect
 Name[x-test]=xxKDE Connect Applicationxx
 GenericName=Device Synchronization
 GenericName[ca]=Sincronització de dispositius
+GenericName[de]=Geräteabgleich
 GenericName[fi]=Laitteiden synkronointi
 GenericName[gl]=Sincronización de dispositivos
 GenericName[nl]=Synchronisatie van apparaat
