@@ -27,6 +27,7 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QIcon>
+#include <QDBusServiceWatcher>
 
 #include "dbusinterfaces.h"
 // #include "modeltest.h"
@@ -52,6 +53,11 @@ DevicesModel::DevicesModel(QObject *parent)
             this, SLOT(deviceUpdated(QString)));
     connect(m_dbusInterface, SIGNAL(deviceRemoved(QString)),
             this, SLOT(deviceRemoved(QString)));
+
+    QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
+                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &DevicesModel::refreshDeviceList);
+    connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &DevicesModel::clearDevices);
 
     refreshDeviceList();
 }

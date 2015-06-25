@@ -42,6 +42,8 @@ class KDECONNECTINTERFACES_EXPORT DaemonDbusInterface
 public:
     DaemonDbusInterface(QObject* parent = 0);
     virtual ~DaemonDbusInterface();
+
+    static QString activatedService();
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface

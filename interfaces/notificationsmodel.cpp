@@ -44,6 +44,12 @@ NotificationsModel::NotificationsModel(QObject* parent)
 
     connect(this, SIGNAL(dataChanged(QModelIndex, QModelIndex)),
             this, SIGNAL(anyDismissableChanged()));
+
+
+    QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
+                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &NotificationsModel::refreshNotificationList);
+    connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &NotificationsModel::clearNotifications);
 }
 
 QHash<int, QByteArray> NotificationsModel::roleNames() const
