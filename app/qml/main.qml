@@ -119,7 +119,7 @@ ApplicationWindow
                             text: i18n("Open Multimedia Remote Control")
                             onClicked: stack.push( {
                                 item: "qrc:/qml/mpris.qml",
-                                properties: { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id) }
+                                properties: { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
                             } );
                         }
                         Button {
