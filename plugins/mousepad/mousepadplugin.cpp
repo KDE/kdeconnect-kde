@@ -1,5 +1,6 @@
 /**
  * Copyright 2014 Ahmed I. Khalil <ahmedibrahimkhali@gmail.com>
+ * Copyright 2015 Martin Gräßlin <mgraesslin@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,11 +21,19 @@
 
 #include "mousepadplugin.h"
 #include <KPluginFactory>
+#include <KLocalizedString>
 #include <QDebug>
+#include <QGuiApplication>
 #include <QX11Info>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
+
+#if HAVE_WAYLAND
+#include <KWayland/Client/connection_thread.h>
+#include <KWayland/Client/fakeinput.h>
+#include <KWayland/Client/registry.h>
+#endif
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mousepad.json", registerPlugin< MousepadPlugin >(); )
 
@@ -78,8 +87,14 @@ size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args), m_fakekey(0), m_x11(QX11Info::isPlatformX11())
+#if HAVE_WAYLAND
+    , m_waylandInput(nullptr)
+    , m_waylandAuthenticationRequested(false)
+#endif
 {
-
+#if HAVE_WAYLAND
+    setupWaylandIntegration();
+#endif
 }
 
 MousepadPlugin::~MousepadPlugin()
@@ -95,6 +110,15 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     if (m_x11) {
         return handlePackageX11(np);
     }
+#if HAVE_WAYLAND
+    if (m_waylandInput) {
+        if (!m_waylandAuthenticationRequested) {
+            m_waylandInput->authenticate(i18n("KDE Connect"), i18n("Use your phone as a touchpad and keyboard"));
+            m_waylandAuthenticationRequested = true;
+        }
+        handPackageWayland(np);
+    }
+#endif
     return false;
 }
 
@@ -202,5 +226,73 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
     }
     return true;
 }
+
+#if HAVE_WAYLAND
+void MousepadPlugin::setupWaylandIntegration()
+{
+    if (!QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
+        // not wayland
+        return;
+    }
+    using namespace KWayland::Client;
+    ConnectionThread *connection = ConnectionThread::fromApplication(this);
+    if (!connection) {
+        // failed to get the Connection from Qt
+        return;
+    }
+    Registry *registry = new Registry(this);
+    registry->create(connection);
+    connect(registry, &Registry::fakeInputAnnounced, this,
+        [this, registry] (quint32 name, quint32 version) {
+            m_waylandInput = registry->createFakeInput(name, version, this);
+        }
+    );
+    registry->setup();
+}
+
+bool MousepadPlugin::handPackageWayland(const NetworkPackage &np)
+{
+    const float dx = np.get<float>("dx", 0);
+    const float dy = np.get<float>("dy", 0);
+
+    const bool isSingleClick = np.get<bool>("singleclick", false);
+    const bool isDoubleClick = np.get<bool>("doubleclick", false);
+    const bool isMiddleClick = np.get<bool>("middleclick", false);
+    const bool isRightClick = np.get<bool>("rightclick", false);
+    const bool isSingleHold = np.get<bool>("singlehold", false);
+    const bool isSingleRelease = np.get<bool>("singlerelease", false);
+    const bool isScroll = np.get<bool>("scroll", false);
+    const QString key = np.get<QString>("key", "");
+    const int specialKey = np.get<int>("specialKey", 0);
+
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
+
+        if (isSingleClick) {
+            m_waylandInput->requestPointerButtonClick(Qt::LeftButton);
+        } else if (isDoubleClick) {
+            m_waylandInput->requestPointerButtonClick(Qt::LeftButton);
+            m_waylandInput->requestPointerButtonClick(Qt::LeftButton);
+        } else if (isMiddleClick) {
+            m_waylandInput->requestPointerButtonClick(Qt::MiddleButton);
+        } else if (isRightClick) {
+            m_waylandInput->requestPointerButtonClick(Qt::RightButton);
+        } else if (isSingleHold){
+            //For drag'n drop
+            m_waylandInput->requestPointerButtonPress(Qt::LeftButton);
+        } else if (isSingleRelease){
+            //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofnes.
+            m_waylandInput->requestPointerButtonRelease(Qt::LeftButton);
+        } else if (isScroll) {
+            m_waylandInput->requestPointerAxis(Qt::Vertical, dy);
+        } else if (!key.isEmpty() || specialKey) {
+            // TODO: implement key support
+        }
+
+    } else { //Is a mouse move event
+        m_waylandInput->requestPointerMove(QSizeF(dx, dy));
+    }
+    return true;
+}
+#endif
 
 #include "mousepadplugin.moc"
