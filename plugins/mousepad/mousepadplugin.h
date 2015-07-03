@@ -41,8 +41,10 @@ public:
     virtual void connected() { }
 
 private:
+    bool handlePackageX11(const NetworkPackage& np);
+
     FakeKey* m_fakekey;
-    bool m_x11;
+    const bool m_x11;
 
 };
 

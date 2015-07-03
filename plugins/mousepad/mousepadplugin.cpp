@@ -92,6 +92,14 @@ MousepadPlugin::~MousepadPlugin()
 
 bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 {
+    if (m_x11) {
+        return handlePackageX11(np);
+    }
+    return false;
+}
+
+bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
+{
     //qDebug() << np.serialize();
 
     //TODO: Split mouse/keyboard in two different plugins to avoid this big if statement
@@ -110,10 +118,6 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     int specialKey = np.get<int>("specialKey", 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
-
-        if (!m_x11) {
-            return false;
-        }
         Display *display = QX11Info::display();
         if(!display) {
             return false;
