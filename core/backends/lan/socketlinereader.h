@@ -24,7 +24,7 @@
 #include <QObject>
 #include <QString>
 #include <QQueue>
-#include <QTcpSocket>
+#include <QSslSocket>
 #include <QHostAddress>
 
 /*
@@ -37,7 +37,7 @@ class SocketLineReader
     Q_OBJECT
 
 public:
-    SocketLineReader(QTcpSocket* socket, QObject* parent = 0);
+    SocketLineReader(QSslSocket* socket, QObject* parent = 0);
 
     QByteArray readLine() { return mPackages.dequeue(); }
     qint64 write(const QByteArray& data) { return mSocket->write(data); }
@@ -52,7 +52,7 @@ private Q_SLOTS:
 
 private:
     QByteArray lastChunk;
-    QTcpSocket* mSocket;
+    QSslSocket* mSocket;
     QQueue<QByteArray> mPackages;
 
 };

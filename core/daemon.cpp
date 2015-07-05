@@ -122,10 +122,10 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 {
     const QString& id = identityPackage.get<QString>("deviceId");
 
-    //qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
+    qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (d->mDevices.contains(id)) {
-        //qCDebug(KDECONNECT_CORE) << "It is a known device";
+        qCDebug(KDECONNECT_CORE) << "It is a known device " << identityPackage.get<QString>("deviceName");
         Device* device = d->mDevices[id];
         bool wasReachable = device->isReachable();
         device->addLink(identityPackage, dl);
@@ -133,7 +133,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
             Q_EMIT deviceVisibilityChanged(id, true);
         }
     } else {
-        //qCDebug(KDECONNECT_CORE) << "It is a new device";
+        qCDebug(KDECONNECT_CORE) << "It is a new device " << identityPackage.get<QString>("deviceName");
 
         Device* device = new Device(this, identityPackage, dl);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));

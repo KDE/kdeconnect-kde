@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Vineet Garg <grg.vineet@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,36 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#ifndef KDECONNECT_PAIRINGHANDLER_H
+#define KDECONNECT_PAIRINGHANDLER_H
 
-#include <QObject>
-#include <QString>
-#include <QSslSocket>
 
-#include "../devicelink.h"
+#include <networkpackage.h>
+#include <device.h>
 
-class SocketLineReader;
-
-class LanDeviceLink
-    : public DeviceLink
-{
-    Q_OBJECT
+class PairingHandler {
 
 public:
-    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket);
+    PairingHandler();
+    virtual ~PairingHandler() { }
 
-    void setOnSsl(bool value);
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
-
-private Q_SLOTS:
-    void dataReceived();
-
-private:
-    SocketLineReader* mSocketLineReader;
-    bool onSsl;
+    virtual NetworkPackage* createPairPackage(Device *device) = 0;
+    virtual void packageReceived(Device *device) = 0;
+    virtual void requestPairing(Device *device) = 0;
+    virtual void acceptPairing(Device *device) = 0;
+    virtual void rejectPairing(Device *device) = 0;
+    virtual void pairingDone(Device *device) = 0;
 
 };
 
-#endif
+
+#endif //KDECONNECT_PAIRINGHANDLER_H

@@ -17,10 +17,10 @@
  *************************************************************************************/
 
 #include "../core/backends/lan/socketlinereader.h"
+#include "../core/backends/lan/server.h"
 
 #include <QTest>
-#include <QTcpServer>
-#include <QTcpSocket>
+#include <QSslSocket>
 #include <QProcess>
 #include <QEventLoop>
 #include <QTimer>
@@ -40,21 +40,22 @@ private:
     QTimer mTimer;
     QEventLoop mLoop;
     QList<QByteArray> mPackages;
-    QTcpServer *mServer;
-    QTcpSocket *mConn;
+    Server *mServer;
+    QSslSocket *mConn;
     SocketLineReader *mReader;
 };
 
 void TestSocketLineReader::initTestCase()
 {
-    mServer = new QTcpServer(this);
+    mServer = new Server(this);
+
     QVERIFY2(mServer->listen(QHostAddress::LocalHost, 8694), "Failed to create local tcp server");
 
     mTimer.setInterval(4000);//For second is more enough to send some data via local socket
     mTimer.setSingleShot(true);
     connect(&mTimer, SIGNAL(timeout()), &mLoop, SLOT(quit()));
 
-    mConn = new QTcpSocket(this);
+    mConn = new QSslSocket(this);
     mConn->connectToHost(QHostAddress::LocalHost, 8694);
     connect(mConn, SIGNAL(connected()), &mLoop, SLOT(quit()));
     mTimer.start();
@@ -78,7 +79,7 @@ void TestSocketLineReader::socketLineReader()
         QTest::qSleep(1000);
     }
 
-    QTcpSocket *sock = mServer->nextPendingConnection();
+    QSslSocket *sock = (QSslSocket*) mServer->nextPendingConnection();
 
     QVERIFY2(sock != 0, "Could not open a connection to the client");
 

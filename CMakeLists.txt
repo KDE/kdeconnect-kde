@@ -50,6 +50,6 @@ add_subdirectory(plasmoid)
 add_subdirectory(cli)
 add_subdirectory(fileitemactionplugin)
 
-add_subdirectory(tests)
+# add_subdirectory(tests)
 
 install(PROGRAMS kdeconnect-non-plasma.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

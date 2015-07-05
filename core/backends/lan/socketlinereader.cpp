@@ -21,7 +21,7 @@
 
 #include "socketlinereader.h"
 
-SocketLineReader::SocketLineReader(QTcpSocket* socket, QObject* parent)
+SocketLineReader::SocketLineReader(QSslSocket* socket, QObject* parent)
     : QObject(parent)
     , mSocket(socket)
 {

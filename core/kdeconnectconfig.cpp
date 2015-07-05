@@ -33,6 +33,7 @@
 #include <QCoreApplication>
 #include <QHostInfo>
 #include <QSettings>
+#include <QtNetwork/qsslcertificate.h>
 
 #include "core_debug.h"
 #include "dbushelper.h"
@@ -41,10 +42,11 @@
 struct KdeConnectConfigPrivate {
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
-    // Note it's not being used anywhere. That's inteneded
+    // Note it's not being used anywhere. That's intended
     QCA::Initializer mQcaInitializer;
 
     QCA::PrivateKey privateKey;
+    QSslCertificate certificate; // Use QSslCertificate instead of QCA::Certificate due to compatibility with QSslSocket
 
     QSettings* config;
 
@@ -106,6 +108,42 @@ KdeConnectConfig::KdeConnectConfig()
         }
     }
 
+    QString certPath = certificatePath();
+    QFile cert(certPath);
+    if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
+
+//        d->certificate = QCA::Certificate::fromPEMFile(certPath);
+        d->certificate = QSslCertificate::fromPath(certPath).value(0);
+
+    } else {
+
+        QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
+        // TODO : Set serial number for certificate. Time millis or any constant number?
+        QCA::BigInteger bigInteger(10);
+        QDateTime startTime = QDateTime::currentDateTime();
+        QDateTime endTime = startTime.addYears(10);
+        QCA::CertificateInfo certificateInfo;
+        certificateInfo.insert(QCA::CommonName,d->config->value("id", "unknown id").toString());
+        certificateInfo.insert(QCA::Organization,"KDE");
+        certificateInfo.insert(QCA::OrganizationalUnit,"Kde connect");
+        certificateOptions.setFormat(QCA::PKCS10);
+
+        certificateOptions.setSerialNumber(bigInteger);
+        certificateOptions.setInfo(certificateInfo);
+        certificateOptions.setValidityPeriod(startTime, endTime);
+    	certificateOptions.setFormat(QCA::PKCS10);
+
+//        d->certificate = QCA::Certificate(certificateOptions, d->privateKey);
+        d->certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->privateKey).toPEM().toLatin1());
+
+        if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
+            Daemon::instance()->reportError(QLatin1String("KDE Connect"), i18n("Could not store certificate file: %1", certPath));
+        } else {
+            cert.setPermissions(strict);
+            cert.write(d->certificate.toPem());
+        }
+    }
+
     //Extra security check
     if (QFile::permissions(keyPath) != strict) {
         qCDebug(KDECONNECT_CORE) << "Warning: KDE Connect private key file has too open permissions " << keyPath;
@@ -157,6 +195,16 @@ QCA::PublicKey KdeConnectConfig::publicKey()
     return d->privateKey.toPublicKey();
 }
 
+QString KdeConnectConfig::certificatePath()
+{
+    return baseConfigDir().absoluteFilePath("certificate.pem");
+}
+
+QSslCertificate KdeConnectConfig::certificate()
+{
+    return d->certificate;
+}
+
 QDir KdeConnectConfig::baseConfigDir()
 {
     QString configPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
@@ -172,13 +220,14 @@ QStringList KdeConnectConfig::trustedDevices()
     return list;
 }
 
-void KdeConnectConfig::addTrustedDevice(QString id, QString name, QString type, QString publicKey)
+void KdeConnectConfig::addTrustedDevice(QString id, QString name, QString type, QString publicKey, QString certificate)
 {
     d->config->beginGroup("trustedDevices");
     d->config->beginGroup(id);
     d->config->setValue("name", name);
     d->config->setValue("type", type);
     d->config->setValue("publicKey", publicKey);
+    d->config->setValue("certificate", certificate);
     d->config->endGroup();
     d->config->endGroup();
     d->config->sync();
@@ -195,6 +244,7 @@ KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(QString id)
     info.deviceName = d->config->value("name", QLatin1String("unnamed")).toString();
     info.deviceType = d->config->value("type", QLatin1String("unknown")).toString();
     info.publicKey = d->config->value("publicKey", QString()).toString();
+    info.certificate = d->config->value("certificate", QString()).toString();
 
     d->config->endGroup();
     d->config->endGroup();
@@ -211,6 +261,29 @@ void KdeConnectConfig::removeTrustedDevice(QString deviceId)
     d->config->sync();
     //We do not remove the config files.
 }
+
+// Utility functions to set and get a value
+void KdeConnectConfig::setDeviceProperty(QString deviceId, QString key, QString value)
+{
+    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(deviceId);
+    d->config->setValue(key, value);
+    d->config->endGroup();
+    d->config->endGroup();
+    d->config->sync();
+}
+
+QString KdeConnectConfig::getDeviceProperty(QString deviceId, QString key, QString defaultValue)
+{
+    QString value;
+    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(deviceId);
+    value = d->config->value(key, defaultValue).toString();
+    d->config->endGroup();
+    d->config->endGroup();
+    return value;
+}
+
 
 QDir KdeConnectConfig::deviceConfigDir(QString deviceId)
 {

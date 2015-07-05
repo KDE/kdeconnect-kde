@@ -58,9 +58,9 @@ Device::Device(QObject* parent, const QString& id)
     m_deviceType = str2type(info.deviceType);
     m_publicKey = QCA::RSAPublicKey::fromPEM(info.publicKey);
 
-    m_pairingTimeut.setSingleShot(true);
-    m_pairingTimeut.setInterval(30 * 1000);  //30 seconds of timeout
-    connect(&m_pairingTimeut, SIGNAL(timeout()),
+    m_pairingTimeout.setSingleShot(true);
+    m_pairingTimeout.setInterval(30 * 1000);  //30 seconds of timeout
+    connect(&m_pairingTimeout, SIGNAL(timeout()),
             this, SLOT(pairingTimeout()));
 
     //Register in bus
@@ -221,7 +221,7 @@ void Device::requestPair()
         return;
     }
 
-    m_pairingTimeut.start();
+    m_pairingTimeout.start();
 }
 
 void Device::unpair()
@@ -276,6 +276,14 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     //re-read the device name from the identityPackage because it could have changed
     setName(identityPackage.get<QString>("deviceName"));
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
+
+    // Set certificate if the link is on ssl, and it is added to identity package
+    // This is always sets certificate when link is added to device
+    if (identityPackage.has("certificate")) {
+        qDebug() << "Got certificate" ;
+        m_certificate = QSslCertificate(identityPackage.get<QByteArray>("certificate"));
+//        qDebug() << m_certificate.toText();
+    }
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
@@ -341,7 +349,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
             if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
-                m_pairingTimeut.stop();
+                m_pairingTimeout.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             }
             return;
@@ -356,7 +364,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 qCDebug(KDECONNECT_CORE) << "ERROR decoding key";
                 if (m_pairStatus == Device::Requested) {
                     m_pairStatus = Device::NotPaired;
-                    m_pairingTimeut.stop();
+                    m_pairingTimeout.stop();
                 }
                 Q_EMIT pairingFailed(i18n("Received incorrect key"));
                 return;
@@ -383,7 +391,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             m_pairStatus = Device::NotPaired;
 
             if (prevPairStatus == Device::Requested) {
-                m_pairingTimeut.stop();
+                m_pairingTimeout.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             } else if (prevPairStatus == Device::Paired) {
                 unpairInternal();
@@ -451,10 +459,10 @@ void Device::setAsPaired()
 
     m_pairStatus = Device::Paired;
 
-    m_pairingTimeut.stop(); //Just in case it was started
+    m_pairingTimeout.stop(); //Just in case it was started
 
     //Save device info in the config
-    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM());
+    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM(), QString(m_certificate.toPem()));
 
     reloadPlugins(); //Will actually load the plugins
 

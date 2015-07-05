@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Vineet Garg <grg.vineet@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,36 +18,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#ifndef KDECONNECT_SERVER_H
+#define KDECONNECT_SERVER_H
 
-#include <QObject>
-#include <QString>
-#include <QSslSocket>
+#include <QTcpServer>
+#include <QSslError>
+#include <QtNetwork/qsslsocket.h>
 
-#include "../devicelink.h"
-
-class SocketLineReader;
-
-class LanDeviceLink
-    : public DeviceLink
+class Server 
+    : public QTcpServer 
 {
+
     Q_OBJECT
 
 public:
-    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket);
+    Server(QObject* parent = 0);
+    virtual ~Server() {}
 
-    void setOnSsl(bool value);
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
+protected:
+    virtual void incomingConnection(qintptr socketDescriptor);
 
-private Q_SLOTS:
-    void dataReceived();
+public Q_SLOTS:
+    void disconnected();
 
-private:
-    SocketLineReader* mSocketLineReader;
-    bool onSsl;
-
+Q_SIGNALS:
+    void newConnection(QSslSocket*);
 };
 
-#endif
+#endif //KDECONNECT_SERVER_H

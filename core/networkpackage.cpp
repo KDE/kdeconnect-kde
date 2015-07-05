@@ -36,7 +36,7 @@
 #include "kdeconnectconfig.h"
 
 const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
-const int NetworkPackage::ProtocolVersion = 5;
+const int NetworkPackage::ProtocolVersion = 6;
 
 NetworkPackage::NetworkPackage(const QString& type)
 {

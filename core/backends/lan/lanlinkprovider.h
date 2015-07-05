@@ -23,10 +23,14 @@
 
 #include <QObject>
 #include <QTcpServer>
+#include <QSslSocket>
 #include <QUdpSocket>
+#include <QtNetwork/qsslsocket.h>
 
 #include "../linkprovider.h"
 #include "netaddress.h"
+#include "server.h"
+#include "landevicelink.h"
 
 class LanLinkProvider
     : public LinkProvider
@@ -39,24 +43,28 @@ public:
 
     QString name() { return "LanLinkProvider"; }
     int priority() { return PRIORITY_HIGH; }
+    void addLink(LanDeviceLink* deviceLink, NetworkPackage* receivedPackage);
 
 public Q_SLOTS:
     virtual void onNetworkChange();
     virtual void onStart();
     virtual void onStop();
     void connected();
+    void encrypted();
     void connectError();
 
 private Q_SLOTS:
     void newUdpConnection();
-    void newConnection();
+    void newConnection(QSslSocket*);
     void dataReceived();
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
+    void sslErrors(QList<QSslError> errors);
 
 private:
-    static void configureSocket(QTcpSocket* socket);
+    static void configureSocket(QSslSocket* socket);
 
-    QTcpServer* mTcpServer;
+
+    Server* mServer;
     QUdpSocket* mUdpServer;
     QUdpSocket mUdpSocket;
     const static quint16 port = 1714;
@@ -68,7 +76,7 @@ private:
         NetworkPackage* np;
         QHostAddress sender;
     };
-    QMap<QTcpSocket*, PendingConnect> receivedIdentityPackages;
+    QMap<QSslSocket*, PendingConnect> receivedIdentityPackages;
 
 };
 

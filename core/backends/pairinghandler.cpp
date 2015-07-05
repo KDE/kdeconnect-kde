@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Vineet Garg <grg.vineet@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,36 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#include "pairinghandler.h"
 
-#include <QObject>
-#include <QString>
-#include <QSslSocket>
-
-#include "../devicelink.h"
-
-class SocketLineReader;
-
-class LanDeviceLink
-    : public DeviceLink
-{
-    Q_OBJECT
-
-public:
-    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket);
-
-    void setOnSsl(bool value);
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
-
-private Q_SLOTS:
-    void dataReceived();
-
-private:
-    SocketLineReader* mSocketLineReader;
-    bool onSsl;
-
-};
-
-#endif
+PairingHandler::PairingHandler() {
+    //gcc complains if we don't add something to compile on a class with virtual functions
+}

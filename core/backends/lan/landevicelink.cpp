@@ -31,9 +31,10 @@
 #include "downloadjob.h"
 #include "socketlinereader.h"
 
-LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcpSocket* socket)
+LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket)
     : DeviceLink(deviceId, parent)
     , mSocketLineReader(new SocketLineReader(socket))
+    , onSsl(false)
 {
     connect(mSocketLineReader, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
@@ -48,6 +49,10 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcp
     socket->setParent(this);
 }
 
+void LanDeviceLink::setOnSsl(bool value) {
+    onSsl = value;
+}
+
 
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
@@ -57,7 +62,9 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
          np.setPayloadTransferInfo(job->getTransferInfo());
     }
 
-    np.encrypt(key);
+    if (!onSsl) {
+        np.encrypt(key);
+    }
 
     int written = mSocketLineReader->write(np.serialize());
 

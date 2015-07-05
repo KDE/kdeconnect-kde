@@ -23,6 +23,7 @@
 
 #include <QtCrypto>
 #include <QDir>
+#include <QtNetwork/qsslcertificate.h>
 
 #include "kdeconnectcore_export.h"
 
@@ -33,6 +34,7 @@ public:
         QString deviceName;
         QString deviceType;
         QString publicKey;
+        QString certificate;
     };
 
     static KdeConnectConfig* instance();
@@ -49,6 +51,9 @@ public:
     QCA::PrivateKey privateKey();
     QCA::PublicKey publicKey();
 
+    QString certificatePath();
+    QSslCertificate certificate();
+
     void setName(QString name);
 
     /*
@@ -57,8 +62,10 @@ public:
 
     QStringList trustedDevices(); //list of ids
     void removeTrustedDevice(QString id);
-    void addTrustedDevice(QString id, QString name, QString type, QString publicKey);
+    void addTrustedDevice(QString id, QString name, QString type, QString publicKey, QString certificate = QString());
     KdeConnectConfig::DeviceInfo getTrustedDevice(QString id);
+    void setDeviceProperty(QString deviceId, QString name, QString value);
+    QString getDeviceProperty(QString deviceId, QString name, QString defaultValue = QString());
 
     /*
      * Paths for config files, there is no guarantee the directories already exist

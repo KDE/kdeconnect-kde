@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Vineet Garg <grg.vineet@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,36 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef LANDEVICELINK_H
-#define LANDEVICELINK_H
+#include "lanpairinghandler.h"
 
-#include <QObject>
-#include <QString>
-#include <QSslSocket>
+LanPairingHandler::LanPairingHandler() {
 
-#include "../devicelink.h"
+}
 
-class SocketLineReader;
+NetworkPackage* LanPairingHandler::createPairPackage(Device *device) {
+    NetworkPackage* np = new NetworkPackage("");
+    return np;
+}
 
-class LanDeviceLink
-    : public DeviceLink
-{
-    Q_OBJECT
+void LanPairingHandler::packageReceived(Device *device) {
 
-public:
-    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket);
+}
 
-    void setOnSsl(bool value);
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
+void LanPairingHandler::requestPairing(Device *device) {
 
-private Q_SLOTS:
-    void dataReceived();
+}
 
-private:
-    SocketLineReader* mSocketLineReader;
-    bool onSsl;
+void LanPairingHandler::acceptPairing(Device *device) {
 
-};
+}
 
-#endif
+void LanPairingHandler::rejectPairing(Device *device) {
+
+}
+
+void LanPairingHandler::pairingDone(Device *device) {
+
+}

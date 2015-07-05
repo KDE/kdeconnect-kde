@@ -28,6 +28,7 @@
 #include <QSslKey>
 #include <QTimer>
 #include <QtCrypto>
+#include <QtNetwork/qsslcertificate.h>
 
 #include "networkpackage.h"
 
@@ -141,6 +142,7 @@ private: //Fields (TODO: dPointer!)
     QString m_deviceName;
     DeviceType m_deviceType;
     QCA::PublicKey m_publicKey;
+    QSslCertificate m_certificate;
     PairStatus m_pairStatus;
     int m_protocolVersion;
 
@@ -149,7 +151,7 @@ private: //Fields (TODO: dPointer!)
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
-    QTimer m_pairingTimeut;
+    QTimer m_pairingTimeout;
     const QSet<QString> m_incomingCapabilities;
     const QSet<QString> m_outgoingCapabilities;
 
