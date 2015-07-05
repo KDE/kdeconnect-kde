@@ -20,16 +20,20 @@
 
 #include <qalgorithms.h>
 #include <QtGlobal>
+#include <kdeconnectconfig.h>
 
 #include "uploadjob.h"
 #include "core_debug.h"
 
-UploadJob::UploadJob(const QSharedPointer<QIODevice>& source): KJob()
+UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap sslInfo): KJob()
 {
     mInput = source;
-    mServer = new QTcpServer(this);
+    mServer = new Server(this);
     mSocket = 0;
     mPort = 0;
+
+    // We will use this info if link is on ssl, to send encrypted payload
+    this->sslInfo = sslInfo;
 
     connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
@@ -46,27 +50,33 @@ void UploadJob::start()
             return;
         }
     }
-    connect(mServer, SIGNAL(newConnection()), this, SLOT(newConnection()));
+    connect(mServer, SIGNAL(newConnection(QSslSocket*)), this, SLOT(newConnection(QSslSocket*)));
 }
 
-void UploadJob::newConnection()
+void UploadJob::newConnection(QSslSocket* socket)
 {
-
-    if (mSocket || !mServer->hasPendingConnections()) return;
-
     if (!mInput->open(QIODevice::ReadOnly)) {
         qWarning() << "error when opening the input to upload";
         return; //TODO: Handle error, clean up...
     }
 
-    mSocket = mServer->nextPendingConnection();
+    mSocket = socket;
+
+    if (sslInfo.value("useSsl", false).toBool()) {
+        mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
+        mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
+        mSocket->setProtocol(QSsl::TlsV1_2);
+        mSocket->setPeerVerifyName(sslInfo.value("deviceId").toString());
+        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(sslInfo.value("deviceId").toString()).certificate.toLatin1()));
+        mSocket->startServerEncryption();
+        mSocket->waitForEncrypted();
+    }
+
     readyRead();
 }
 
 void UploadJob::readyRead()
 {
-    //TODO: Implement payload encryption
-
     while ( mInput->bytesAvailable() > 0 )
     {
         qint64 bytes = qMin(mInput->bytesAvailable(), (qint64)4096);

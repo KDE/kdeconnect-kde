@@ -25,28 +25,29 @@
 
 #include <QIODevice>
 #include <QVariantMap>
-#include <QTcpServer>
-#include <QTcpSocket>
 #include <QSharedPointer>
+#include <QSslSocket>
+#include "server.h"
 
 class UploadJob
     : public KJob
 {
     Q_OBJECT
 public:
-    UploadJob(const QSharedPointer<QIODevice>& source);
+    UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap sslInfo);
     virtual void start();
     QVariantMap getTransferInfo();
 
 private:
     QSharedPointer<QIODevice> mInput;
-    QTcpServer* mServer;
-    QTcpSocket* mSocket;
+    Server* mServer;
+    QSslSocket* mSocket;
     quint16 mPort;
+    QVariantMap sslInfo;
 
 private Q_SLOTS:
     void readyRead();
-    void newConnection();
+    void newConnection(QSslSocket*);
     void aboutToClose();
 };
 

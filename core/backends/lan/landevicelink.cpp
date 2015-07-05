@@ -57,9 +57,14 @@ void LanDeviceLink::setOnSsl(bool value) {
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
     if (np.hasPayload()) {
-         UploadJob* job = new UploadJob(np.payload());
-         job->start();
-         np.setPayloadTransferInfo(job->getTransferInfo());
+        QVariantMap sslInfo;
+        if (onSsl) {
+            sslInfo.insert("useSsl", true);
+            sslInfo.insert("deviceId", deviceId());
+        }
+        UploadJob* job = new UploadJob(np.payload(), sslInfo);
+        job->start();
+        np.setPayloadTransferInfo(job->getTransferInfo());
     }
 
     if (!onSsl) {
@@ -77,9 +82,14 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
 bool LanDeviceLink::sendPackage(NetworkPackage& np)
 {
     if (np.hasPayload()) {
-         UploadJob* job = new UploadJob(np.payload());
-         job->start();
-         np.setPayloadTransferInfo(job->getTransferInfo());
+        QVariantMap sslInfo;
+        if (onSsl) {
+            sslInfo.insert("useSsl", true);
+            sslInfo.insert("deviceId", deviceId());
+        }
+        UploadJob* job = new UploadJob(np.payload(), sslInfo);
+        job->start();
+        np.setPayloadTransferInfo(job->getTransferInfo());
     }
 
     int written = mSocketLineReader->write(np.serialize());

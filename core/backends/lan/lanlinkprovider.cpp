@@ -204,8 +204,7 @@ void LanLinkProvider::connected()
 
             bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
 
-            //TODO : Change it too device id from received package, also correct it on Android side
-            socket->setPeerVerifyName("Vineet Garg");
+            socket->setPeerVerifyName(receivedPackage->get<QString>("deviceId"));
 
             if (isDeviceTrusted) {
                 qDebug() << "Device trusted";
@@ -340,8 +339,7 @@ void LanLinkProvider::dataReceived()
 
         bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
 
-        // TODO : Change it to device id of remote device, correct it on Android side too, certificate name is not set there
-        socket->setPeerVerifyName("Vineet Garg");
+        socket->setPeerVerifyName(np->get<QString>("deviceId"));
 
         if (isDeviceTrusted) {
             qDebug() << "Device trusted";
