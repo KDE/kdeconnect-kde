@@ -21,6 +21,7 @@
 #include "mousepadplugin.h"
 #include <KPluginFactory>
 #include <QDebug>
+#include <QX11Info>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
@@ -76,17 +77,13 @@ template <typename T, size_t N>
 size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args), m_display(0), m_fakekey(0)
+    : KdeConnectPlugin(parent, args), m_fakekey(0), m_x11(QX11Info::isPlatformX11())
 {
 
 }
 
 MousepadPlugin::~MousepadPlugin()
 {
-    if (m_display) {
-        XCloseDisplay(m_display);
-        m_display = 0;
-    }
     if (m_fakekey) {
         free(m_fakekey);
         m_fakekey = 0;
@@ -114,41 +111,41 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
 
-        if(!m_display) {
-            m_display = XOpenDisplay(NULL);
-            if(!m_display) {
-                qWarning() << "Failed to open X11 display";
-                return false;
-            }
+        if (!m_x11) {
+            return false;
+        }
+        Display *display = QX11Info::display();
+        if(!display) {
+            return false;
         }
 
         if (isSingleClick) {
-            XTestFakeButtonEvent(m_display, LeftMouseButton, True, 0);
-            XTestFakeButtonEvent(m_display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
         } else if (isDoubleClick) {
-            XTestFakeButtonEvent(m_display, LeftMouseButton, True, 0);
-            XTestFakeButtonEvent(m_display, LeftMouseButton, False, 0);
-            XTestFakeButtonEvent(m_display, LeftMouseButton, True, 0);
-            XTestFakeButtonEvent(m_display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
         } else if (isMiddleClick) {
-            XTestFakeButtonEvent(m_display, MiddleMouseButton, True, 0);
-            XTestFakeButtonEvent(m_display, MiddleMouseButton, False, 0);
+            XTestFakeButtonEvent(display, MiddleMouseButton, True, 0);
+            XTestFakeButtonEvent(display, MiddleMouseButton, False, 0);
         } else if (isRightClick) {
-            XTestFakeButtonEvent(m_display, RightMouseButton, True, 0);
-            XTestFakeButtonEvent(m_display, RightMouseButton, False, 0);
+            XTestFakeButtonEvent(display, RightMouseButton, True, 0);
+            XTestFakeButtonEvent(display, RightMouseButton, False, 0);
         } else if (isSingleHold){
             //For drag'n drop
-            XTestFakeButtonEvent(m_display, LeftMouseButton, True, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
         } else if (isSingleRelease){
             //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofnes.
-            XTestFakeButtonEvent(m_display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
         } else if (isScroll) {
             if (dy < 0) {
-                XTestFakeButtonEvent(m_display, MouseWheelDown, True, 0);
-                XTestFakeButtonEvent(m_display, MouseWheelDown, False, 0);
+                XTestFakeButtonEvent(display, MouseWheelDown, True, 0);
+                XTestFakeButtonEvent(display, MouseWheelDown, False, 0);
             } else if (dy > 0) {
-                XTestFakeButtonEvent(m_display, MouseWheelUp, True, 0);
-                XTestFakeButtonEvent(m_display, MouseWheelUp, False, 0);
+                XTestFakeButtonEvent(display, MouseWheelUp, True, 0);
+                XTestFakeButtonEvent(display, MouseWheelUp, False, 0);
             }
         } else if (!key.isEmpty() || specialKey) {
 
@@ -156,9 +153,9 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
             bool alt = np.get<bool>("alt", false);
             bool shift = np.get<bool>("shift", false);
 
-            if (ctrl) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Control_L), True, 0);
-            if (alt) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Alt_L), True, 0);
-            if (shift) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Shift_L), True, 0);
+            if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), True, 0);
+            if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), True, 0);
+            if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), True, 0);
 
             if (specialKey)
             {
@@ -167,15 +164,15 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
                     return false;
                 }
 
-                int keycode = XKeysymToKeycode(m_display, SpecialKeysMap[specialKey]);
+                int keycode = XKeysymToKeycode(display, SpecialKeysMap[specialKey]);
 
-                XTestFakeKeyEvent (m_display, keycode, True, 0);
-                XTestFakeKeyEvent (m_display, keycode, False, 0);
+                XTestFakeKeyEvent (display, keycode, True, 0);
+                XTestFakeKeyEvent (display, keycode, False, 0);
 
             } else {
 
                 if (!m_fakekey) {
-                    m_fakekey = fakekey_init(m_display);
+                    m_fakekey = fakekey_init(display);
                     if (!m_fakekey) {
                         qWarning() << "Failed to initialize libfakekey";
                         return false;
@@ -187,13 +184,13 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
                 fakekey_release(m_fakekey);
             }
 
-            if (ctrl) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Control_L), False, 0);
-            if (alt) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Alt_L), False, 0);
-            if (shift) XTestFakeKeyEvent (m_display, XKeysymToKeycode(m_display, XK_Shift_L), False, 0);
+            if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), False, 0);
+            if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), False, 0);
+            if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), False, 0);
 
         }
 
-        XFlush(m_display);
+        XFlush(display);
 
     } else { //Is a mouse move event
         QPoint point = QCursor::pos();
