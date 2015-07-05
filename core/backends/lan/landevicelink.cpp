@@ -109,26 +109,26 @@ void LanDeviceLink::dataReceived()
     NetworkPackage::unserialize(package, &unserialized);
     if (unserialized.isEncrypted()) {
         //mPrivateKey should always be set when device link is added to device, no null-checking done here
-        NetworkPackage decrypted(QString::null);
-        unserialized.decrypt(mPrivateKey, &decrypted);
-
-        if (decrypted.hasPayloadTransferInfo()) {
-            qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
-            DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), decrypted.payloadTransferInfo());
-            job->start();
-            decrypted.setPayload(job->getPayload(), decrypted.payloadSize());
-        }
-
-        Q_EMIT receivedPackage(decrypted);
-
-    } else {
-        if (unserialized.hasPayloadTransferInfo()) {
-            qWarning() << "Ignoring unencrypted payload";
-        }
-
-        Q_EMIT receivedPackage(unserialized);
-
+        // TODO : Check this with old device since package thorough ssl in unencrypted
+        unserialized.decrypt(mPrivateKey, &unserialized);
+        qDebug() << "Serialized " << unserialized.serialize();
     }
+
+    if (unserialized.hasPayloadTransferInfo()) {
+//        qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
+        // FIXME : Directly setting these values to payloadTransferInfo now working
+        QVariantMap sslInfo = unserialized.payloadTransferInfo();
+        if (onSsl) {
+            sslInfo.insert("useSsl", true);
+            sslInfo.insert("deviceId", deviceId());
+        }
+        DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), sslInfo);
+        job->start();
+        qCDebug(KDECONNECT_CORE) << "Checking payload status " << job->getPayload().isNull();
+        unserialized.setPayload(job->getPayload(), unserialized.payloadSize());
+    }
+
+    Q_EMIT receivedPackage(unserialized);
 
     if (mSocketLineReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);

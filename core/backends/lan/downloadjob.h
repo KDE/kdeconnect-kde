@@ -28,6 +28,7 @@
 #include <QHostAddress>
 #include <QTcpSocket>
 #include <QSharedPointer>
+#include <QSslSocket>
 
 class DownloadJob
     : public KJob
@@ -39,9 +40,10 @@ public:
     QSharedPointer<QIODevice> getPayload();
 
 private:
+    bool useSsl;
     QHostAddress mAddress;
     qint16 mPort;
-    QSharedPointer<QTcpSocket> mSocket;
+    QSharedPointer<QSslSocket> mSocket;
 
 
 private Q_SLOTS:

@@ -18,22 +18,40 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <kdeconnectconfig.h>
 #include "downloadjob.h"
 
 DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
 {
     mAddress = address;
     mPort = transferInfo["port"].toInt();
-    mSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
+    mSocket = QSharedPointer<QSslSocket>(new QSslSocket);
+    useSsl = transferInfo.value("useSsl", false).toBool();
+
+    // Setting socket property, but useful only when payload is sent using ssl
+    mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
+    mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
+    mSocket->setProtocol(QSsl::TlsV1_2);
+    mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
+    mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+    mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(transferInfo.value("deviceId").toString()).certificate.toLatin1()));
 }
 
 void DownloadJob::start()
 {
     //kDebug(kdeconnect_kded()) << "DownloadJob Start";
-    mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
+    if (useSsl) {
+        qDebug() << "Connecting to host encrypted";
+        // Cannot use read only, might be due to ssl handshake
+        mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
+        mSocket->waitForEncrypted();
+    } else {
+        qDebug() << "Connectiong to host unencrypted";
+        mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
+        mSocket->waitForConnected();
+    }
     connect(mSocket.data(), SIGNAL(disconnected()),
             this, SLOT(disconnected()));
-    //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
 }
 
 void DownloadJob::disconnected()
