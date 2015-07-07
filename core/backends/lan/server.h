@@ -36,7 +36,7 @@ public:
     virtual ~Server() {}
 
 protected:
-    virtual void incomingConnection(qintptr socketDescriptor);
+    void incomingConnection(qintptr socketDescriptor) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void newConnection(QSslSocket*);
