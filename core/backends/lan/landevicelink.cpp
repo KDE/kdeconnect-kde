@@ -57,14 +57,7 @@ void LanDeviceLink::setOnSsl(bool value) {
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
     if (np.hasPayload()) {
-        QVariantMap sslInfo;
-        if (onSsl) {
-            sslInfo.insert("useSsl", true);
-            sslInfo.insert("deviceId", deviceId());
-        }
-        UploadJob* job = new UploadJob(np.payload(), sslInfo);
-        job->start();
-        np.setPayloadTransferInfo(job->getTransferInfo());
+        np.setPayloadTransferInfo(sendPayload(np)->getTransferInfo());
     }
 
     if (!onSsl) {
@@ -82,18 +75,23 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
 bool LanDeviceLink::sendPackage(NetworkPackage& np)
 {
     if (np.hasPayload()) {
-        QVariantMap sslInfo;
-        if (onSsl) {
-            sslInfo.insert("useSsl", true);
-            sslInfo.insert("deviceId", deviceId());
-        }
-        UploadJob* job = new UploadJob(np.payload(), sslInfo);
-        job->start();
-        np.setPayloadTransferInfo(job->getTransferInfo());
+        np.setPayloadTransferInfo(sendPayload(np)->getTransferInfo());
     }
 
     int written = mSocketLineReader->write(np.serialize());
     return (written != -1);
+}
+
+UploadJob* LanDeviceLink::sendPayload(NetworkPackage& np)
+{
+    QVariantMap transferInfo;
+    if (onSsl) {
+        transferInfo.insert("useSsl", true);
+        transferInfo.insert("deviceId", deviceId());
+    }
+    UploadJob* job = new UploadJob(np.payload(), transferInfo);
+    job->start();
+    return job;
 }
 
 void LanDeviceLink::dataReceived()
@@ -116,15 +114,13 @@ void LanDeviceLink::dataReceived()
 
     if (unserialized.hasPayloadTransferInfo()) {
 //        qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
-        // FIXME : Directly setting these values to payloadTransferInfo now working
-        QVariantMap sslInfo = unserialized.payloadTransferInfo();
+        QVariantMap transferInfo = unserialized.payloadTransferInfo();
         if (onSsl) {
-            sslInfo.insert("useSsl", true);
-            sslInfo.insert("deviceId", deviceId());
+            transferInfo.insert("useSsl", true);
+            transferInfo.insert("deviceId", deviceId());
         }
-        DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), sslInfo);
+        DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), transferInfo);
         job->start();
-        qCDebug(KDECONNECT_CORE) << "Checking payload status " << job->getPayload().isNull();
         unserialized.setPayload(job->getPayload(), unserialized.payloadSize());
     }
 

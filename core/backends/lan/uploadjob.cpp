@@ -25,7 +25,7 @@
 #include "uploadjob.h"
 #include "core_debug.h"
 
-UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap sslInfo): KJob()
+UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap transferInfo): KJob()
 {
     mInput = source;
     mServer = new Server(this);
@@ -33,7 +33,7 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap sslInf
     mPort = 0;
 
     // We will use this info if link is on ssl, to send encrypted payload
-    this->sslInfo = sslInfo;
+    this->transferInfo = transferInfo;
 
     connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
@@ -62,12 +62,12 @@ void UploadJob::newConnection(QSslSocket* socket)
 
     mSocket = socket;
 
-    if (sslInfo.value("useSsl", false).toBool()) {
+    if (transferInfo.value("useSsl", false).toBool()) {
         mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
         mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
         mSocket->setProtocol(QSsl::TlsV1_2);
-        mSocket->setPeerVerifyName(sslInfo.value("deviceId").toString());
-        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(sslInfo.value("deviceId").toString()).certificate.toLatin1()));
+        mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
+        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(transferInfo.value("deviceId").toString()).certificate.toLatin1()));
         mSocket->startServerEncryption();
         mSocket->waitForEncrypted();
     }

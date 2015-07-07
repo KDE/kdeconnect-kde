@@ -28,13 +28,16 @@ DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
     mSocket = QSharedPointer<QSslSocket>(new QSslSocket);
     useSsl = transferInfo.value("useSsl", false).toBool();
 
-    // Setting socket property, but useful only when payload is sent using ssl
-    mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
-    mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    mSocket->setProtocol(QSsl::TlsV1_2);
-    mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
-    mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-    mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(transferInfo.value("deviceId").toString()).certificate.toLatin1()));
+    // Setting ssl related properties for socket when using ssl
+    if (useSsl) {
+        mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
+        mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
+        mSocket->setProtocol(QSsl::TlsV1_2);
+        mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
+        mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(
+                transferInfo.value("deviceId").toString()).certificate.toLatin1()));
+    }
 }
 
 void DownloadJob::start()
@@ -42,7 +45,7 @@ void DownloadJob::start()
     //kDebug(kdeconnect_kded()) << "DownloadJob Start";
     if (useSsl) {
         qDebug() << "Connecting to host encrypted";
-        // Cannot use read only, might be due to ssl handshake
+        // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
         mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
         mSocket->waitForEncrypted();
     } else {

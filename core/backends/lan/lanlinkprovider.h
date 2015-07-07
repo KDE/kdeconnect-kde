@@ -43,7 +43,7 @@ public:
 
     QString name() { return "LanLinkProvider"; }
     int priority() { return PRIORITY_HIGH; }
-    void addLink(LanDeviceLink* deviceLink, NetworkPackage* receivedPackage);
+    void addLink(QString, QSslSocket*, NetworkPackage*);
 
 public Q_SLOTS:
     virtual void onNetworkChange();

@@ -43,7 +43,7 @@ private:
     Server* mServer;
     QSslSocket* mSocket;
     quint16 mPort;
-    QVariantMap sslInfo;
+    QVariantMap transferInfo;
 
 private Q_SLOTS:
     void readyRead();

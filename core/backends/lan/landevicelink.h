@@ -26,6 +26,7 @@
 #include <QSslSocket>
 
 #include "../devicelink.h"
+#include "uploadjob.h"
 
 class SocketLineReader;
 
@@ -40,6 +41,7 @@ public:
     void setOnSsl(bool value);
     bool sendPackage(NetworkPackage& np);
     bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
+    UploadJob* sendPayload(NetworkPackage&);
 
 private Q_SLOTS:
     void dataReceived();

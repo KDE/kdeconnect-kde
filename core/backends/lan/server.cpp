@@ -34,21 +34,11 @@ Server::Server(QObject * parent)
 }
 
 void Server::incomingConnection(qintptr socketDescriptor) {
-    qDebug() << "Incoming connection";
     QSslSocket *serverSocket = new QSslSocket;
     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
-        qDebug() << "Setting socket descriptor";
-        connect(serverSocket, SIGNAL(disconnected()), this, SLOT(disconnected()));
         Q_EMIT newConnection(serverSocket);
-        qDebug()  << "Signal emiited";
     } else {
-	    qDebug() << "Delete socket";
         delete serverSocket;
     }
 }
 
-
-void Server::disconnected() {
-    QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
-    qDebug() << socket->errorString();
-}

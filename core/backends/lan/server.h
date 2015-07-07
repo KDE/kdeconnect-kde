@@ -38,9 +38,6 @@ public:
 protected:
     virtual void incomingConnection(qintptr socketDescriptor);
 
-public Q_SLOTS:
-    void disconnected();
-
 Q_SIGNALS:
     void newConnection(QSslSocket*);
 };
