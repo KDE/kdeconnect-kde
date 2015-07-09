@@ -209,12 +209,14 @@ void Device::requestPair()
     m_pairStatus = Device::Requested;
 
     //Send our own public key
-    bool success = sendOwnPublicKey();
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        bool success = dl->provider()->getPairingHandler()->requestPairing(this);
 
-    if (!success) {
-        m_pairStatus = Device::NotPaired;
-        Q_EMIT pairingFailed(i18n("Error contacting device"));
-        return;
+        if (!success) {
+            m_pairStatus = Device::NotPaired;
+            Q_EMIT pairingFailed(i18n("Error contacting device"));
+            return;
+        }
     }
 
     if (m_pairStatus == Device::Paired) {
@@ -227,9 +229,9 @@ void Device::requestPair()
 void Device::unpair()
 {
 
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", false);
-    sendPackage(np);
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        dl->provider()->getPairingHandler()->unpair(this);
+    }
 
     unpairInternal();
 }
@@ -351,23 +353,27 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
                 m_pairStatus = Device::NotPaired;
                 m_pairingTimeout.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
+            } else if (m_pairStatus == Device::Paired) {
+                // If other request's pairing, and we have pair status Paired, send accept pairing
+                Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+                       dl->provider()->getPairingHandler()->acceptPairing(this);
+                }
             }
             return;
         }
 
         if (wantsPair) {
 
-            //Retrieve their public key
-            const QString& key = np.get<QString>("publicKey");
-            m_publicKey = QCA::RSAPublicKey::fromPEM(key);
-            if (m_publicKey.isNull()) {
-                qCDebug(KDECONNECT_CORE) << "ERROR decoding key";
-                if (m_pairStatus == Device::Requested) {
-                    m_pairStatus = Device::NotPaired;
-                    m_pairingTimeout.stop();
+            Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+                bool success = dl->provider()->getPairingHandler()->packageReceived(this, np);
+                if (!success) {
+                    if (m_pairStatus == Device::Requested) {
+                        m_pairStatus = Device::NotPaired;
+                        m_pairingTimeout.stop();
+                    }
+                    Q_EMIT pairingFailed(i18n("Received incorrect key"));
+                    return;
                 }
-                Q_EMIT pairingFailed(i18n("Received incorrect key"));
-                return;
             }
 
             if (m_pairStatus == Device::Requested)  { //We started pairing
@@ -427,9 +433,9 @@ void Device::rejectPairing()
 
     m_pairStatus = Device::NotPaired;
 
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", false);
-    sendPackage(np);
+    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
+        link->provider()->getPairingHandler()->rejectPairing(this);
+    }
 
     Q_EMIT pairingFailed(i18n("Canceled by the user"));
 
@@ -441,7 +447,10 @@ void Device::acceptPairing()
 
     qCDebug(KDECONNECT_CORE) << "Accepted pairing";
 
-    bool success = sendOwnPublicKey();
+    bool success;
+    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
+        success = link->provider()->getPairingHandler()->acceptPairing(this);
+    }
 
     if (!success) {
         m_pairStatus = Device::NotPaired;

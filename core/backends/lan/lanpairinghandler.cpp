@@ -18,33 +18,60 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <kdeconnectconfig.h>
 #include "lanpairinghandler.h"
+#include "networkpackagetypes.h"
 
 LanPairingHandler::LanPairingHandler() {
 
 }
 
-NetworkPackage* LanPairingHandler::createPairPackage(Device *device) {
-    NetworkPackage* np = new NetworkPackage("");
+NetworkPackage LanPairingHandler::createPairPackage() {
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", true);
+    np.set("publicKey", KdeConnectConfig::instance()->publicKey().toPEM());
     return np;
 }
 
-void LanPairingHandler::packageReceived(Device *device) {
-
+bool LanPairingHandler::packageReceived(Device *device, NetworkPackage np) {
+    //Retrieve their public key
+    const QString& keyString = np.get<QString>("publicKey");
+    device->setPublicKey(QCA::RSAPublicKey::fromPEM(keyString));
+    if (device->publicKey().isNull()) {
+        return false;
+    }
+    return true;
 }
 
-void LanPairingHandler::requestPairing(Device *device) {
-
+bool LanPairingHandler::requestPairing(Device *device) {
+    NetworkPackage np = createPairPackage();
+    bool success = device->sendPackage(np);
+    return success;
 }
 
-void LanPairingHandler::acceptPairing(Device *device) {
-
+bool LanPairingHandler::acceptPairing(Device *device) {
+    NetworkPackage np = createPairPackage();
+    bool success = device->sendPackage(np);
+    return success;
 }
 
 void LanPairingHandler::rejectPairing(Device *device) {
-
+    // TODO : check status of reject pairing
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", false);
+    device->sendPackage(np);
 }
 
 void LanPairingHandler::pairingDone(Device *device) {
+    // TODO : Save certificate and public key here
 
+    // No need to worry, if either of certificate or public key is null an empty qstring will be returned
+    KdeConnectConfig::instance()->setDeviceProperty(device->id(), "key", device->publicKey().toPEM());
+    KdeConnectConfig::instance()->setDeviceProperty(device->id(), "certificate", QString(device->certificate().toPem()));
+}
+
+void LanPairingHandler::unpair(Device *device) {
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", false);
+    bool success = device->sendPackage(np);
 }

@@ -26,6 +26,7 @@
 #include <QMap>
 
 #include "kdeconnectcore_export.h"
+#include "device.h"
 
 class NetworkPackage;
 class DeviceLink;
@@ -76,6 +77,9 @@ private Q_SLOTS:
 
 private:
     QScopedPointer<struct DaemonPrivate> d;
+
+public:
+    Device* getDevice(QString deviceId);
 };
 
 #endif

@@ -26,6 +26,7 @@
 #include <QNetworkSession>
 
 #include "core/networkpackage.h"
+#include "pairinghandler.h"
 
 class DeviceLink;
 
@@ -33,6 +34,9 @@ class LinkProvider
     : public QObject
 {
     Q_OBJECT
+
+protected:
+    PairingHandler* pairingHandler;
 
 public:
 
@@ -45,6 +49,8 @@ public:
 
     virtual QString name() = 0;
     virtual int priority() = 0;
+    PairingHandler* getPairingHandler() { return pairingHandler;}
+
 
 public Q_SLOTS:
     virtual void onStart() = 0;

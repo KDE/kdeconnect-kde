@@ -84,13 +84,18 @@ public:
     QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
-    QString type() const { return type2str(m_deviceType); };
+    QString type() const { return type2str(m_deviceType); }
+    QCA::PublicKey publicKey() const { return m_publicKey; }
+    QSslCertificate certificate() const { return m_certificate; }
     QString iconName() const;
     QString statusIconName() const;
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
+
+    // Setter for public key after pairing, since it is handled by pairinghandler now
+    void setPublicKey(QCA::PublicKey publicKey) { m_publicKey = publicKey; }
 
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
     Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }

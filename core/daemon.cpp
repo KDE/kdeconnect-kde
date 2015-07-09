@@ -107,6 +107,17 @@ void Daemon::forceOnNetworkChange()
     }
 }
 
+// I hate this, but not able to find an alternative now
+Device *Daemon::getDevice(QString deviceId) {
+
+    Q_FOREACH(Device* device, d->mDevices) {
+        if (device->id() == deviceId) {
+            return device;
+        }
+    }
+    return Q_NULLPTR;
+}
+
 QStringList Daemon::devices(bool onlyReachable, bool onlyVisible) const
 {
     QStringList ret;

@@ -47,6 +47,14 @@ NetworkPackage::NetworkPackage(const QString& type)
     mPayloadSize = 0;
 }
 
+NetworkPackage::NetworkPackage(const NetworkPackage &np) {
+    mId = np.id();
+    mType = np.type();
+    mBody = np.body();
+    mPayload = np.payload();
+    mPayloadSize = np.payloadSize();
+}
+
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
     KdeConnectConfig* config = KdeConnectConfig::instance();

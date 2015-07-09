@@ -53,6 +53,7 @@ public:
     const static int ProtocolVersion;
 
     NetworkPackage(const QString& type);
+    NetworkPackage(const NetworkPackage& np);
 
     static void createIdentityPackage(NetworkPackage*);
 

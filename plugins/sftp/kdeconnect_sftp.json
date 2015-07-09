@@ -59,7 +59,7 @@
     }, 
     "X-KdeConnect-OutgoingPackageType": [
         "kdeconnect.sftp"
-    ], 
+    ],
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.sftp"
     ]

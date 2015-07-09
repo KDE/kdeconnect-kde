@@ -31,12 +31,13 @@ public:
     PairingHandler();
     virtual ~PairingHandler() { }
 
-    virtual NetworkPackage* createPairPackage(Device *device) = 0;
-    virtual void packageReceived(Device *device) = 0;
-    virtual void requestPairing(Device *device) = 0;
-    virtual void acceptPairing(Device *device) = 0;
+    virtual NetworkPackage createPairPackage() = 0;
+    virtual bool packageReceived(Device *device, NetworkPackage np) = 0;
+    virtual bool requestPairing(Device *device) = 0;
+    virtual bool acceptPairing(Device *device) = 0;
     virtual void rejectPairing(Device *device) = 0;
     virtual void pairingDone(Device *device) = 0;
+    virtual void unpair(Device *device) = 0;
 
 };
 

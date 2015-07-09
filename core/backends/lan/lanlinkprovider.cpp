@@ -33,9 +33,11 @@
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
 
+#include "../../daemon.h"
 #include "landevicelink.h"
+#include "lanpairinghandler.h"
 #include <kdeconnectconfig.h>
-#include <QtNetwork/qsslkey.h>
+#include <QDBusPendingReply>
 #include <QtNetwork/qsslcipher.h>
 #include <QtNetwork/qsslconfiguration.h>
 
@@ -48,6 +50,8 @@ LanLinkProvider::LanLinkProvider()
 
     mServer = new Server(this);
     connect(mServer,SIGNAL(newConnection(QSslSocket*)),this, SLOT(newConnection(QSslSocket*)));
+
+    pairingHandler = new LanPairingHandler();
 
     //Detect when a network interface changes status, so we announce ourelves in the new network
     QNetworkConfigurationManager* networkManager;
@@ -273,7 +277,21 @@ void LanLinkProvider::sslErrors(QList<QSslError> errors)
 
     foreach(QSslError error, errors) {
         qCDebug(KDECONNECT_CORE) << "SSL Error :" << error.errorString();
-        //TODO: Check for varius error here
+        switch (error.error()) {
+            case QSslError::CertificateSignatureFailed:
+            case QSslError::CertificateNotYetValid:
+            case QSslError::CertificateExpired:
+            case QSslError::CertificateUntrusted:
+            case QSslError::SelfSignedCertificate:
+                qCDebug(KDECONNECT_CORE) << "Unpairing device due to " << error.errorString();
+                // Not able to find an alternative now
+                Daemon::instance()->getDevice(socket->peerVerifyName())->unpair();
+                break;
+            default:
+                continue;
+                // Lots of warnings without this
+
+        }
     }
 
     delete receivedIdentityPackages[socket].np;
