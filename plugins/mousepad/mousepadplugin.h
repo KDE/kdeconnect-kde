@@ -23,10 +23,21 @@
 
 #include <QtGui/QCursor>
 #include <core/kdeconnectplugin.h>
+#include <config-mousepad.h>
 
 #define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
 
 struct FakeKey;
+
+#if HAVE_WAYLAND
+namespace KWayland
+{
+namespace Client
+{
+class FakeInput;
+}
+}
+#endif
 
 class MousepadPlugin
     : public KdeConnectPlugin
@@ -41,9 +52,18 @@ public:
     virtual void connected() { }
 
 private:
-    FakeKey* m_fakekey;
-    bool m_x11;
+    bool handlePackageX11(const NetworkPackage& np);
+#if HAVE_WAYLAND
+    void setupWaylandIntegration();
+    bool handPackageWayland(const NetworkPackage& np);
+#endif
 
+    FakeKey* m_fakekey;
+    const bool m_x11;
+#if HAVE_WAYLAND
+    KWayland::Client::FakeInput *m_waylandInput;
+    bool m_waylandAuthenticationRequested;
+#endif
 };
 
 #endif
