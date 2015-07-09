@@ -30,16 +30,18 @@ class Server
 {
 
     Q_OBJECT
+private:
+    QList<QSslSocket*> pendingConnections;
 
 public:
     Server(QObject* parent = 0);
     virtual ~Server() {}
 
+    QSslSocket* nextPendingConnection() Q_DECL_OVERRIDE;
+    bool hasPendingConnections() const Q_DECL_OVERRIDE;
+
 protected:
     void incomingConnection(qintptr socketDescriptor) Q_DECL_OVERRIDE;
-
-Q_SIGNALS:
-    void newConnection(QSslSocket*);
 };
 
 #endif //KDECONNECT_SERVER_H

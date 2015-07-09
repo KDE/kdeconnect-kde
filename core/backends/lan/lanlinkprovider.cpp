@@ -49,7 +49,7 @@ LanLinkProvider::LanLinkProvider()
     connect(mUdpServer, SIGNAL(readyRead()), this, SLOT(newUdpConnection()));
 
     mServer = new Server(this);
-    connect(mServer,SIGNAL(newConnection(QSslSocket*)),this, SLOT(newConnection(QSslSocket*)));
+    connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
 
     pairingHandler = new LanPairingHandler();
 
@@ -302,17 +302,22 @@ void LanLinkProvider::sslErrors(QList<QSslError> errors)
 
 
 //I'm the new device and this is the answer to my UDP identity package (no data received yet)
-void LanLinkProvider::newConnection(QSslSocket* socket)
+void LanLinkProvider::newConnection()
 {
     qDebug() << "LanLinkProvider newConnection " ;
 
-    configureSocket(socket);
-    //This socket is still managed by us (and child of the QTcpServer), if
-    //it disconnects before we manage to pass it to a LanDeviceLink, it's
-    //our responsibility to delete it. We do so with this connection.
+    while (mServer->hasPendingConnections()) {
+        QSslSocket* socket = mServer->nextPendingConnection();
+        configureSocket(socket);
+        //This socket is still managed by us (and child of the QTcpServer), if
+        //it disconnects before we manage to pass it to a LanDeviceLink, it's
+        //our responsability to delete it. We do so with this connection.
+        connect(socket, SIGNAL(disconnected()),
+                socket, SLOT(deleteLater()));
+        connect(socket, SIGNAL(readyRead()),
+                this, SLOT(dataReceived()));
 
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
-    connect(socket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+    }
 }
 
 //I'm the new device and this is the answer to my UDP identity package (data received)

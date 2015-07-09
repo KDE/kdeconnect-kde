@@ -55,7 +55,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void newUdpConnection();
-    void newConnection(QSslSocket*);
+    void newConnection();
     void dataReceived();
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
     void sslErrors(QList<QSslError> errors);
