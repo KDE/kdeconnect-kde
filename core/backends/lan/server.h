@@ -25,8 +25,8 @@
 #include <QSslError>
 #include <QtNetwork/qsslsocket.h>
 
-class Server 
-    : public QTcpServer 
+class Server
+    : public QTcpServers
 {
 
     Q_OBJECT

@@ -131,7 +131,7 @@ KdeConnectConfig::KdeConnectConfig()
         certificateOptions.setSerialNumber(bigInteger);
         certificateOptions.setInfo(certificateInfo);
         certificateOptions.setValidityPeriod(startTime, endTime);
-    	certificateOptions.setFormat(QCA::PKCS10);
+        certificateOptions.setFormat(QCA::PKCS10);
 
 //        d->certificate = QCA::Certificate(certificateOptions, d->privateKey);
         d->certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->privateKey).toPEM().toLatin1());

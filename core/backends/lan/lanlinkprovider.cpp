@@ -148,7 +148,6 @@ void LanLinkProvider::newUdpConnection()
         connect(socket, SIGNAL(connected()), this, SLOT(connected()));
         connect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
         socket->connectToHost(sender, tcpPort);
-	
     }
 }
 
@@ -160,7 +159,7 @@ void LanLinkProvider::connectError()
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
     qCDebug(KDECONNECT_CORE) << socket->errorString();
-    
+
     qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
@@ -177,7 +176,7 @@ void LanLinkProvider::connectError()
 void LanLinkProvider::connected()
 {
     qCDebug(KDECONNECT_CORE) << "Socket connected";
-    
+
     // TODO : Change the behaviour of these disconnects
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
@@ -248,7 +247,7 @@ void LanLinkProvider::connected()
 void LanLinkProvider::encrypted() {
 
     qCDebug(KDECONNECT_CORE) << "Socket encrypted";
-    
+
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
     disconnect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
@@ -331,7 +330,7 @@ void LanLinkProvider::dataReceived()
 
     NetworkPackage* np = new NetworkPackage("");
     bool success = NetworkPackage::unserialize(data, np);
-    
+
     receivedIdentityPackages[socket].np = np;
 //     receivedIdentityPackages[socket].sender = sender;
 
@@ -446,4 +445,3 @@ void LanLinkProvider::addLink(QString deviceId, QSslSocket* socket, NetworkPacka
     Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 
 }
-
