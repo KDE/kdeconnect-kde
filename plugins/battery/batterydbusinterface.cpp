@@ -24,11 +24,23 @@
 #include <QDebug>
 #include <core/device.h>
 
+BatteryDbusInterface *BatteryDbusInterface::s_currentInterface = 0;
+
 BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     : QDBusAbstractAdaptor(const_cast<Device*>(device))
 	, mCharge(-1)
 	, mIsCharging(false)
 {
+    // FIXME: Workaround to prevent memory leak.
+    // This makes the old BatteryDdbusInterface be deleted only after the new one is
+    // fully operational. That seems to prevent the crash mentioned in BatteryPlugin's
+    // destructor.
+    if (s_currentInterface) {
+        qCDebug(KDECONNECT_PLUGIN_BATTERY) << "Deleting stale BattteryDbusInterface object.";
+        s_currentInterface->deleteLater();
+    }
+
+    s_currentInterface = this;
 }
 
 BatteryDbusInterface::~BatteryDbusInterface()

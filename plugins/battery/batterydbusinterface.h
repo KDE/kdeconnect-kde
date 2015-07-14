@@ -48,6 +48,7 @@ private:
     int mCharge;
     bool mIsCharging;
 
+    static BatteryDbusInterface *s_currentInterface;
 };
 
 #endif
