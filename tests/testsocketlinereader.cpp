@@ -79,7 +79,7 @@ void TestSocketLineReader::socketLineReader()
         QTest::qSleep(1000);
     }
 
-    QSslSocket *sock = (QSslSocket*) mServer->nextPendingConnection();
+    QSslSocket *sock = mServer->nextPendingConnection();
 
     QVERIFY2(sock != 0, "Could not open a connection to the client");
 

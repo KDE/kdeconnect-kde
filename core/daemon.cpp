@@ -133,7 +133,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 {
     const QString& id = identityPackage.get<QString>("deviceId");
 
-    qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
+    //qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (d->mDevices.contains(id)) {
         qCDebug(KDECONNECT_CORE) << "It is a known device " << identityPackage.get<QString>("deviceName");

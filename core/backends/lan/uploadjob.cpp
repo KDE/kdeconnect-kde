@@ -25,7 +25,7 @@
 #include "uploadjob.h"
 #include "core_debug.h"
 
-UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap transferInfo): KJob()
+UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QVariantMap& transferInfo): KJob()
 {
     mInput = source;
     mServer = new Server(this);
@@ -33,7 +33,7 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap transf
     mPort = 0;
 
     // We will use this info if link is on ssl, to send encrypted payload
-    this->transferInfo = transferInfo;
+    this->mTransferInfo = transferInfo;
 
     connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
@@ -50,24 +50,29 @@ void UploadJob::start()
             return;
         }
     }
-    connect(mServer, SIGNAL(newConnection(QSslSocket*)), this, SLOT(newConnection(QSslSocket*)));
+    connect(mServer, SIGNAL(newConnection()), this, SLOT(newConnection()));
 }
 
-void UploadJob::newConnection(QSslSocket* socket)
+void UploadJob::newConnection()
 {
     if (!mInput->open(QIODevice::ReadOnly)) {
         qWarning() << "error when opening the input to upload";
         return; //TODO: Handle error, clean up...
     }
 
-    mSocket = socket;
+    Server* server = qobject_cast<Server*>(sender());
+    // FIXME : It is called again when payload sending is finished. Unsolved mystery :(
+    disconnect(mServer, SIGNAL(newConnection()), this, SLOT(newConnection()));
 
-    if (transferInfo.value("useSsl", false).toBool()) {
+    mSocket = server->nextPendingConnection();
+    connect(mSocket, SIGNAL(disconnected()), mSocket, SLOT(deleteLater()));
+
+    if (mTransferInfo.value("useSsl", false).toBool()) {
         mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
         mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
         mSocket->setProtocol(QSsl::TlsV1_2);
-        mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
-        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(transferInfo.value("deviceId").toString()).certificate.toLatin1()));
+        mSocket->setPeerVerifyName(mTransferInfo.value("deviceId").toString());
+        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(mTransferInfo.value("deviceId").toString()).certificate.toLatin1()));
         mSocket->startServerEncryption();
         mSocket->waitForEncrypted();
     }
@@ -101,7 +106,7 @@ void UploadJob::aboutToClose()
     emitResult();
 }
 
-QVariantMap UploadJob::getTransferInfo()
+QVariantMap UploadJob::transferInfo()
 {
     Q_ASSERT(mPort != 0);
 

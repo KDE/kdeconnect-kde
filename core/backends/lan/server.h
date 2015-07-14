@@ -26,7 +26,7 @@
 #include <QtNetwork/qsslsocket.h>
 
 class Server
-    : public QTcpServers
+    : public QTcpServer
 {
 
     Q_OBJECT
@@ -34,7 +34,7 @@ private:
     QList<QSslSocket*> pendingConnections;
 
 public:
-    Server(QObject* parent = 0);
+    Server(QObject* parent);
     virtual ~Server() {}
 
     QSslSocket* nextPendingConnection() Q_DECL_OVERRIDE;

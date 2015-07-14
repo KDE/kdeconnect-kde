@@ -57,7 +57,7 @@ void LanDeviceLink::setOnSsl(bool value) {
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {
     if (np.hasPayload()) {
-        np.setPayloadTransferInfo(sendPayload(np)->getTransferInfo());
+        np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
     }
 
     if (!onSsl) {
@@ -75,7 +75,7 @@ bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np
 bool LanDeviceLink::sendPackage(NetworkPackage& np)
 {
     if (np.hasPayload()) {
-        np.setPayloadTransferInfo(sendPayload(np)->getTransferInfo());
+        np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
     }
 
     int written = mSocketLineReader->write(np.serialize());
@@ -107,13 +107,12 @@ void LanDeviceLink::dataReceived()
     NetworkPackage::unserialize(package, &unserialized);
     if (unserialized.isEncrypted()) {
         //mPrivateKey should always be set when device link is added to device, no null-checking done here
-        // TODO : Check this with old device since package thorough ssl in unencrypted
+        // TODO : Check this with old device since package through ssl in unencrypted
         unserialized.decrypt(mPrivateKey, &unserialized);
-        qDebug() << "Serialized " << unserialized.serialize();
     }
 
     if (unserialized.hasPayloadTransferInfo()) {
-//        qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
+        //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
         QVariantMap transferInfo = unserialized.payloadTransferInfo();
         if (onSsl) {
             transferInfo.insert("useSsl", true);

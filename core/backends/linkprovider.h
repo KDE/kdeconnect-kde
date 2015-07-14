@@ -35,9 +35,6 @@ class LinkProvider
 {
     Q_OBJECT
 
-protected:
-    PairingHandler* pairingHandler;
-
 public:
 
     const static int PRIORITY_LOW = 0;      //eg: 3g internet
@@ -49,7 +46,10 @@ public:
 
     virtual QString name() = 0;
     virtual int priority() = 0;
-    PairingHandler* getPairingHandler() { return pairingHandler;}
+    PairingHandler* pairingHandler() { return m_pairingHandler;}
+
+protected:
+    PairingHandler* m_pairingHandler;
 
 
 public Q_SLOTS:

@@ -33,7 +33,7 @@
 #include <QCoreApplication>
 #include <QHostInfo>
 #include <QSettings>
-#include <QtNetwork/qsslcertificate.h>
+#include <QSslCertificate>
 
 #include "core_debug.h"
 #include "dbushelper.h"

@@ -22,20 +22,20 @@
 #include "lanpairinghandler.h"
 #include "networkpackagetypes.h"
 
-LanPairingHandler::LanPairingHandler() {
-
+LanPairingHandler::LanPairingHandler()
+{
 }
 
-NetworkPackage LanPairingHandler::createPairPackage() {
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
+void LanPairingHandler::createPairPackage(NetworkPackage& np)
+{
     np.set("pair", true);
     np.set("publicKey", KdeConnectConfig::instance()->publicKey().toPEM());
-    return np;
 }
 
-bool LanPairingHandler::packageReceived(Device *device, NetworkPackage np) {
+bool LanPairingHandler::packageReceived(Device *device,const NetworkPackage& np)
+{
     //Retrieve their public key
-    const QString& keyString = np.get<QString>("publicKey");
+    QString keyString = np.get<QString>("publicKey");
     device->setPublicKey(QCA::RSAPublicKey::fromPEM(keyString));
     if (device->publicKey().isNull()) {
         return false;
@@ -43,28 +43,32 @@ bool LanPairingHandler::packageReceived(Device *device, NetworkPackage np) {
     return true;
 }
 
-bool LanPairingHandler::requestPairing(Device *device) {
-    NetworkPackage np = createPairPackage();
+bool LanPairingHandler::requestPairing(Device *device)
+{
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    createPairPackage(np);
     bool success = device->sendPackage(np);
     return success;
 }
 
-bool LanPairingHandler::acceptPairing(Device *device) {
-    NetworkPackage np = createPairPackage();
+bool LanPairingHandler::acceptPairing(Device *device)
+{
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    createPairPackage(np);
     bool success = device->sendPackage(np);
     return success;
 }
 
-void LanPairingHandler::rejectPairing(Device *device) {
+void LanPairingHandler::rejectPairing(Device *device)
+{
     // TODO : check status of reject pairing
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
     device->sendPackage(np);
 }
 
-void LanPairingHandler::pairingDone(Device *device) {
-    // TODO : Save certificate and public key here
-
+void LanPairingHandler::pairingDone(Device *device)
+{
     // No need to worry, if either of certificate or public key is null an empty qstring will be returned
     KdeConnectConfig::instance()->setDeviceProperty(device->id(), "key", device->publicKey().toPEM());
     KdeConnectConfig::instance()->setDeviceProperty(device->id(), "certificate", QString(device->certificate().toPem()));
@@ -74,4 +78,5 @@ void LanPairingHandler::unpair(Device *device) {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
     bool success = device->sendPackage(np);
+    Q_UNUSED(success);
 }

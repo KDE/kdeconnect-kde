@@ -34,20 +34,20 @@ class UploadJob
 {
     Q_OBJECT
 public:
-    UploadJob(const QSharedPointer<QIODevice>& source, QVariantMap sslInfo);
+    UploadJob(const QSharedPointer<QIODevice>& source,const QVariantMap& sslInfo);
     virtual void start();
-    QVariantMap getTransferInfo();
+    QVariantMap transferInfo();
 
 private:
     QSharedPointer<QIODevice> mInput;
     Server* mServer;
     QSslSocket* mSocket;
     quint16 mPort;
-    QVariantMap transferInfo;
+    QVariantMap mTransferInfo;
 
 private Q_SLOTS:
     void readyRead();
-    void newConnection(QSslSocket*);
+    void newConnection();
     void aboutToClose();
 };
 

@@ -30,8 +30,8 @@ public:
     LanPairingHandler();
     virtual ~LanPairingHandler() { }
 
-    virtual NetworkPackage createPairPackage() Q_DECL_OVERRIDE;
-    virtual bool packageReceived(Device *device, NetworkPackage np) Q_DECL_OVERRIDE;
+    virtual void createPairPackage(NetworkPackage& np) Q_DECL_OVERRIDE;
+    virtual bool packageReceived(Device *device,const NetworkPackage& np) Q_DECL_OVERRIDE;
     virtual bool requestPairing(Device *device) Q_DECL_OVERRIDE;
     virtual bool acceptPairing(Device *device) Q_DECL_OVERRIDE;
     virtual void rejectPairing(Device *device) Q_DECL_OVERRIDE;

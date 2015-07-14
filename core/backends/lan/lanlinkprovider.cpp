@@ -51,7 +51,7 @@ LanLinkProvider::LanLinkProvider()
     mServer = new Server(this);
     connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
 
-    pairingHandler = new LanPairingHandler();
+    m_pairingHandler = new LanPairingHandler();
 
     //Detect when a network interface changes status, so we announce ourelves in the new network
     QNetworkConfigurationManager* networkManager;
@@ -114,7 +114,6 @@ void LanLinkProvider::onNetworkChange()
 void LanLinkProvider::newUdpConnection()
 {
     while (mUdpServer->hasPendingDatagrams()) {
-        qCDebug(KDECONNECT_CORE) << "Udp package received";
 
         QByteArray datagram;
         datagram.resize(mUdpServer->pendingDatagramSize());
@@ -158,8 +157,6 @@ void LanLinkProvider::connectError()
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
-    qCDebug(KDECONNECT_CORE) << socket->errorString();
-
     qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)";
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
@@ -168,8 +165,7 @@ void LanLinkProvider::connectError()
 
     //The socket we created didn't work, and we didn't manage
     //to create a LanDeviceLink from it, deleting everything.
-    delete receivedIdentityPackages[socket].np;
-    receivedIdentityPackages.remove(socket);
+    delete receivedIdentityPackages.take(socket).np;
     delete socket;
 }
 
@@ -177,7 +173,6 @@ void LanLinkProvider::connected()
 {
     qCDebug(KDECONNECT_CORE) << "Socket connected";
 
-    // TODO : Change the behaviour of these disconnects
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
@@ -244,7 +239,8 @@ void LanLinkProvider::connected()
     //We don't delete the socket because now it's owned by the LanDeviceLink
 }
 
-void LanLinkProvider::encrypted() {
+void LanLinkProvider::encrypted()
+{
 
     qCDebug(KDECONNECT_CORE) << "Socket encrypted";
 
@@ -267,7 +263,7 @@ void LanLinkProvider::encrypted() {
 
 }
 
-void LanLinkProvider::sslErrors(QList<QSslError> errors)
+void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
@@ -293,8 +289,7 @@ void LanLinkProvider::sslErrors(QList<QSslError> errors)
         }
     }
 
-    delete receivedIdentityPackages[socket].np;
-    receivedIdentityPackages.remove(socket);
+    delete receivedIdentityPackages.take(socket).np;
     // Socket disconnects itself on ssl error and will be deleted by deleteLater slot, no need to delete manually
 }
 
@@ -303,7 +298,7 @@ void LanLinkProvider::sslErrors(QList<QSslError> errors)
 //I'm the new device and this is the answer to my UDP identity package (no data received yet)
 void LanLinkProvider::newConnection()
 {
-    qDebug() << "LanLinkProvider newConnection " ;
+    //qCDebug(KDECONNECT_CORE) << "LanLinkProvider newConnection";
 
     while (mServer->hasPendingConnections()) {
         QSslSocket* socket = mServer->nextPendingConnection();
@@ -331,13 +326,13 @@ void LanLinkProvider::dataReceived()
     NetworkPackage* np = new NetworkPackage("");
     bool success = NetworkPackage::unserialize(data, np);
 
-    receivedIdentityPackages[socket].np = np;
-//     receivedIdentityPackages[socket].sender = sender;
-
     if (!success || np->type() != PACKAGE_TYPE_IDENTITY) {
         qCDebug(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
         return;
     }
+
+    // Needed in "encrypted" if ssl is used, similar to "connected"
+    receivedIdentityPackages[socket].np = np;
 
     const QString& deviceId = np->get<QString>("deviceId");
     //qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the new device)";
@@ -369,10 +364,13 @@ void LanLinkProvider::dataReceived()
         connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
 
         socket->startClientEncryption();
-
+        return;
     } else {
         addLink(deviceId, socket, np);
     }
+
+    delete np;
+    receivedIdentityPackages.remove(socket);
 
 }
 

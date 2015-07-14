@@ -44,12 +44,10 @@ void DownloadJob::start()
 {
     //kDebug(kdeconnect_kded()) << "DownloadJob Start";
     if (useSsl) {
-        qDebug() << "Connecting to host encrypted";
         // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
         mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
         mSocket->waitForEncrypted();
     } else {
-        qDebug() << "Connectiong to host unencrypted";
         mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
         mSocket->waitForConnected();
     }

@@ -31,8 +31,8 @@ public:
     PairingHandler();
     virtual ~PairingHandler() { }
 
-    virtual NetworkPackage createPairPackage() = 0;
-    virtual bool packageReceived(Device *device, NetworkPackage np) = 0;
+    virtual void createPairPackage(NetworkPackage& np) = 0;
+    virtual bool packageReceived(Device *device,const NetworkPackage& np) = 0;
     virtual bool requestPairing(Device *device) = 0;
     virtual bool acceptPairing(Device *device) = 0;
     virtual void rejectPairing(Device *device) = 0;

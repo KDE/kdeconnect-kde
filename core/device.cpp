@@ -210,7 +210,7 @@ void Device::requestPair()
 
     //Send our own public key
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        bool success = dl->provider()->getPairingHandler()->requestPairing(this);
+        bool success = dl->provider()->pairingHandler()->requestPairing(this);
 
         if (!success) {
             m_pairStatus = Device::NotPaired;
@@ -230,7 +230,7 @@ void Device::unpair()
 {
 
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        dl->provider()->getPairingHandler()->unpair(this);
+        dl->provider()->pairingHandler()->unpair(this);
     }
 
     unpairInternal();
@@ -282,9 +282,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     // Set certificate if the link is on ssl, and it is added to identity package
     // This is always sets certificate when link is added to device
     if (identityPackage.has("certificate")) {
-        qDebug() << "Got certificate" ;
         m_certificate = QSslCertificate(identityPackage.get<QByteArray>("certificate"));
-//        qDebug() << m_certificate.toText();
     }
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
@@ -356,7 +354,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             } else if (m_pairStatus == Device::Paired) {
                 // If other request's pairing, and we have pair status Paired, send accept pairing
                 Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-                       dl->provider()->getPairingHandler()->acceptPairing(this);
+                       dl->provider()->pairingHandler()->acceptPairing(this);
                 }
             }
             return;
@@ -365,7 +363,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         if (wantsPair) {
 
             Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-                bool success = dl->provider()->getPairingHandler()->packageReceived(this, np);
+                bool success = dl->provider()->pairingHandler()->packageReceived(this, np);
                 if (!success) {
                     if (m_pairStatus == Device::Requested) {
                         m_pairStatus = Device::NotPaired;
@@ -434,7 +432,7 @@ void Device::rejectPairing()
     m_pairStatus = Device::NotPaired;
 
     Q_FOREACH(DeviceLink* link, m_deviceLinks) {
-        link->provider()->getPairingHandler()->rejectPairing(this);
+        link->provider()->pairingHandler()->rejectPairing(this);
     }
 
     Q_EMIT pairingFailed(i18n("Canceled by the user"));
@@ -449,7 +447,7 @@ void Device::acceptPairing()
 
     bool success;
     Q_FOREACH(DeviceLink* link, m_deviceLinks) {
-        success = link->provider()->getPairingHandler()->acceptPairing(this);
+        success = link->provider()->pairingHandler()->acceptPairing(this);
     }
 
     if (!success) {

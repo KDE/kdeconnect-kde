@@ -34,9 +34,9 @@ Server::Server(QObject * parent)
 }
 
 void Server::incomingConnection(qintptr socketDescriptor) {
-    QSslSocket *serverSocket = new QSslSocket;
+    QSslSocket *serverSocket = new QSslSocket(parent());
     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
-        pendingConnections.push_back(serverSocket);
+        pendingConnections.append(serverSocket);
         Q_EMIT newConnection();
     } else {
         delete serverSocket;
@@ -44,15 +44,13 @@ void Server::incomingConnection(qintptr socketDescriptor) {
 }
 
 QSslSocket* Server::nextPendingConnection() {
-    if (pendingConnections.size() == 0) {
+    if (pendingConnections.isEmpty()) {
         return Q_NULLPTR;
     } else {
-        QSslSocket *socket = pendingConnections.first();
-        pendingConnections.removeFirst();
-        return socket;
+        return pendingConnections.takeFirst();
     }
 }
 
 bool Server::hasPendingConnections() const {
-    return pendingConnections.size() != 0;
+    return !pendingConnections.isEmpty();
 }
