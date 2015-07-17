@@ -41,27 +41,27 @@ ColumnLayout
         Layout.fillWidth: true
         text: root.mprisInterface.nowPlaying
     }
-    Button {
-        Layout.fillWidth: true
-        text: root.mprisInterface.isPlaying ? "pause" : "play"
-        onClicked: root.mprisInterface.sendAction("PlayPause");
-    }
     RowLayout {
         Layout.fillWidth: true
         Button {
             Layout.fillWidth: true
-            text: "<<"
+            iconName: "media-skip-backward"
             onClicked: root.mprisInterface.sendAction("Previous")
         }
         Button {
             Layout.fillWidth: true
-            text: ">>"
+            iconName: root.mprisInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
+            onClicked: root.mprisInterface.sendAction("PlayPause");
+        }
+        Button {
+            Layout.fillWidth: true
+            iconName: "media-skip-forward"
             onClicked: root.mprisInterface.sendAction("Next")
         }
     }
     RowLayout {
         Layout.fillWidth: true
-        Label { text: "x" }
+        Label { text: i18n("Volume:") }
         Slider {
             value: root.mprisInterface.volume
             maximumValue: 100
