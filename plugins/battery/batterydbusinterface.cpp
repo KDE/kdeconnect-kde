@@ -24,7 +24,7 @@
 #include <QDebug>
 #include <core/device.h>
 
-BatteryDbusInterface *BatteryDbusInterface::s_currentInterface = 0;
+QMap<QString, BatteryDbusInterface *> BatteryDbusInterface::s_dbusInterfaces;
 
 BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     : QDBusAbstractAdaptor(const_cast<Device*>(device))
@@ -35,12 +35,13 @@ BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     // This makes the old BatteryDdbusInterface be deleted only after the new one is
     // fully operational. That seems to prevent the crash mentioned in BatteryPlugin's
     // destructor.
-    if (s_currentInterface) {
-        qCDebug(KDECONNECT_PLUGIN_BATTERY) << "Deleting stale BattteryDbusInterface object.";
-        s_currentInterface->deleteLater();
+    QMap<QString, BatteryDbusInterface *>::iterator oldInterfaceIter = s_dbusInterfaces.find(device->id());
+    if (oldInterfaceIter != s_dbusInterfaces.end()) {
+        qCDebug(KDECONNECT_PLUGIN_BATTERY) << "Deleting stale BattteryDbusInterface for" << device->name();
+        oldInterfaceIter.value()->deleteLater();
     }
 
-    s_currentInterface = this;
+    s_dbusInterfaces[device->id()] = this;
 }
 
 BatteryDbusInterface::~BatteryDbusInterface()
