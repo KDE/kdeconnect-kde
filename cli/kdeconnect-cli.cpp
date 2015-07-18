@@ -21,6 +21,7 @@
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QCoreApplication>
+#include <QSslCertificate>
 #include <QTextStream>
 
 #include <KAboutData>
@@ -56,6 +57,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("share", i18n("Share a file to a said device"), "path"));
     parser.addOption(QCommandLineOption("list-notifications", i18n("Display the notifications on a said device")));
     parser.addOption(QCommandLineOption(QStringList("device") << "d", i18n("Device ID"), "dev"));
+    parser.addOption(QCommandLineOption("encryption-info", i18n("Get encryption info about said device")));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -145,6 +147,12 @@ int main(int argc, char** argv)
                 QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString()
                     << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
             }
+        } else if(parser.isSet("encryption-info")) {
+            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device, "org.kde.kdeconnect.device", "certificate");
+            msg.setArguments(QVariantList() << QSsl::Pem);
+            QDBusMessage reply = QDBusConnection::sessionBus().call(msg);
+            QSslCertificate certificate = QSslCertificate::fromData(reply.arguments().first().toByteArray()).first();
+	        QTextStream(stderr) << certificate.toText() << endl;
         } else {
             QTextStream(stderr) << i18n("Nothing to be done") << endl;
         }

@@ -66,7 +66,7 @@ LanLinkProvider::LanLinkProvider()
 
 LanLinkProvider::~LanLinkProvider()
 {
-
+    delete m_pairingHandler;
 }
 
 void LanLinkProvider::onStart()

@@ -87,6 +87,7 @@ public:
     QString type() const { return type2str(m_deviceType); }
     QCA::PublicKey publicKey() const { return m_publicKey; }
     QSslCertificate certificate() const { return m_certificate; }
+    Q_SCRIPTABLE QByteArray certificate(int format) const { return (format == QSsl::Pem) ? m_certificate.toPem() : m_certificate.toDer() ;} // To expose certificate through dbus
     QString iconName() const;
     QString statusIconName() const;
 

@@ -112,8 +112,7 @@ KdeConnectConfig::KdeConnectConfig()
     QFile cert(certPath);
     if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
 
-//        d->certificate = QCA::Certificate::fromPEMFile(certPath);
-        d->certificate = QSslCertificate::fromPath(certPath).value(0);
+        d->certificate = QSslCertificate::fromPath(certPath).first();
 
     } else {
 

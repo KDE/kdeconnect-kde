@@ -469,7 +469,7 @@ void Device::setAsPaired()
     m_pairingTimeout.stop(); //Just in case it was started
 
     //Save device info in the config
-    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM(), QString(m_certificate.toPem()));
+    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM(), QString::fromLatin1(m_certificate.toPem()));
 
     reloadPlugins(); //Will actually load the plugins
 
