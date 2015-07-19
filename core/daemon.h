@@ -62,6 +62,9 @@ public Q_SLOTS:
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyVisible = false) const;
 
+	//Exposing kdeconnectconfig through daemon, needed to show certificate hash in cli, but this can be extended to name, id, public key etc. if needed
+	Q_SCRIPTABLE QByteArray certificate(int format) const;
+
     virtual void requestPairing(Device *d) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();

@@ -22,7 +22,6 @@
 
 #include <KLocalizedString>
 
-#include <QtCrypto>
 #include <QFile>
 #include <QDebug>
 #include <QFileInfo>
@@ -296,4 +295,5 @@ QDir KdeConnectConfig::pluginConfigDir(QString deviceId, QString pluginName)
     QString pluginConfigDir = QDir(deviceConfigPath).absoluteFilePath(pluginName);
     return QDir(pluginConfigDir);
 }
+
 

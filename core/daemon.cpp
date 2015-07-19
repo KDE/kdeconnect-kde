@@ -129,6 +129,13 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyVisible) const
     return ret;
 }
 
+QByteArray Daemon::certificate(int format) const
+{
+	if (format == QSsl::Pem) return KdeConnectConfig::instance()->certificate().toPem();
+	else return KdeConnectConfig::instance()->certificate().toDer();
+}
+
+
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
     const QString& id = identityPackage.get<QString>("deviceId");

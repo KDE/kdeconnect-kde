@@ -23,7 +23,7 @@
 
 #include <QtCrypto>
 #include <QDir>
-#include <QtNetwork/qsslcertificate.h>
+#include <QSslCertificate>
 
 #include "kdeconnectcore_export.h"
 
