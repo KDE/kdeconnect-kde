@@ -50,7 +50,7 @@ DevicesModel::DevicesModel(QObject *parent)
     connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),
             this, SLOT(deviceAdded(QString)));
     connect(m_dbusInterface, SIGNAL(deviceVisibilityChanged(QString,bool)),
-            this, SLOT(deviceUpdated(QString)));
+            this, SLOT(deviceUpdated(QString,bool)));
     connect(m_dbusInterface, SIGNAL(deviceRemoved(QString)),
             this, SLOT(deviceRemoved(QString)));
 
@@ -119,9 +119,20 @@ void DevicesModel::deviceRemoved(const QString& id)
     }
 }
 
-void DevicesModel::deviceUpdated(const QString& id)
+void DevicesModel::deviceUpdated(const QString& id, bool isVisible)
 {
     int row = rowForDevice(id);
+
+    if (row < 0 && isVisible) {
+        // FIXME: when m_dbusInterface is not valid refreshDeviceList() does
+        // nothing and we can miss some devices.
+        // Someone can reproduce this problem by restarting kdeconnectd while
+        // kdeconnect's plasmoid is still running.
+        qCDebug(KDECONNECT_INTERFACES) << "Adding missing device" << id;
+        deviceAdded(id);
+        row = rowForDevice(id);
+    }
+
     if (row >= 0) {
         const QModelIndex idx = index(row);
         Q_EMIT dataChanged(idx, idx);
@@ -190,7 +201,10 @@ void DevicesModel::nameChanged(const QString& newName)
 {
     Q_UNUSED(newName);
     DeviceDbusInterface* device = static_cast<DeviceDbusInterface*>(sender());
-    deviceUpdated(device->id());
+
+    Q_ASSERT(rowForDevice(device->id()) >= 0);
+
+    deviceUpdated(device->id(), true);
 }
 
 void DevicesModel::clearDevices()

@@ -72,7 +72,7 @@ public:
 private Q_SLOTS:
     void deviceAdded(const QString& id);
     void deviceRemoved(const QString& id);
-    void deviceUpdated(const QString& id);
+    void deviceUpdated(const QString& id, bool isVisible);
     void refreshDeviceList();
     void receivedDeviceList(QDBusPendingCallWatcher* watcher);
     void nameChanged(const QString& newName);
