@@ -49,6 +49,11 @@ QObject* createSftpInterface(QVariant deviceId)
     return new SftpDbusInterface(deviceId.toString());
 }
 
+QObject* createRemoteControlInterface(QVariant deviceId)
+{
+    return new RemoteControlDbusInterface(deviceId.toString());
+}
+
 QObject* createMprisInterface(QVariant deviceId)
 {
     return new MprisDbusInterface(deviceId.toString());
@@ -85,6 +90,9 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
 
     engine->rootContext()->setContextProperty("MprisDbusInterfaceFactory"
       , new ObjectFactory(engine, createMprisInterface));
+
+    engine->rootContext()->setContextProperty("RemoteControlDbusInterfaceFactory"
+      , new ObjectFactory(engine, createRemoteControlInterface));
     
     engine->rootContext()->setContextProperty("DBusResponseFactory"
       , new ObjectFactory(engine, createDBusResponse));    

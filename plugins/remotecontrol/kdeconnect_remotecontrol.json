@@ -1,0 +1,26 @@
+{
+    "Encoding": "UTF-8", 
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org", 
+                "Name": "Aleix Pol"
+            }
+        ], 
+        "Description": "Control Remote systems",
+        "EnabledByDefault": true, 
+        "Icon": "applications-multimedia", 
+        "Id": "kdeconnect_remotecontrol",
+        "License": "GPL", 
+        "Name": "RemoteControl",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ], 
+        "Version": "0.1", 
+        "Website": "https://kde.org"
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.mousepad"
+    ], 
+    "X-KdeConnect-SupportedPackageType": []
+}

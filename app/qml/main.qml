@@ -123,6 +123,13 @@ ApplicationWindow
                             } );
                         }
                         Button {
+                            text: i18n("Mouse Pad")
+                            onClicked: stack.push( {
+                                item: "qrc:/qml/mousepad.qml",
+                                properties: { remoteControlInterface: RemoteControlDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
+                            } );
+                        }
+                        Button {
                             text: i18n("Remote touch and keyboard")
                             enabled: false
                         }

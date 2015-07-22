@@ -30,6 +30,7 @@
 #include "interfaces/devicenotificationsinterface.h"
 #include "interfaces/notificationinterface.h"
 #include "interfaces/mprisremoteinterface.h"
+#include "interfaces/remotecontrolinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -122,6 +123,15 @@ public:
 
 Q_SIGNALS:
     void propertiesChangedProxy();
+};
+
+class KDECONNECTINTERFACES_EXPORT RemoteControlDbusInterface
+    : public OrgKdeKdeconnectDeviceRemotecontrolInterface
+{
+    Q_OBJECT
+public:
+    RemoteControlDbusInterface(const QString& deviceId, QObject* parent = 0);
+    ~RemoteControlDbusInterface() override;
 };
 
 #endif

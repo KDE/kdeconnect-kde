@@ -16,6 +16,7 @@ add_subdirectory(screensaver-inhibit)
 
 if(EXPERIMENTALAPP_ENABLED)
     add_subdirectory(mprisremote)
+    add_subdirectory(remotecontrol)
 endif()
 
 #FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM

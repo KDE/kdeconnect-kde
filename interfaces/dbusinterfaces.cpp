@@ -113,3 +113,12 @@ MprisDbusInterface::MprisDbusInterface(const QString& id, QObject* parent)
 MprisDbusInterface::~MprisDbusInterface()
 {
 }
+
+RemoteControlDbusInterface::RemoteControlDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceRemotecontrolInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + id + "/remotecontrol", QDBusConnection::sessionBus(), parent)
+{
+}
+
+RemoteControlDbusInterface::~RemoteControlDbusInterface()
+{
+}
