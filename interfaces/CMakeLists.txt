@@ -10,6 +10,7 @@ function(geninterface source_h output_h)
     get_filename_component(basename ${output_h} NAME_WE)
     qt5_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${basename})
     set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
+    set(libkdeconnect_HEADERS ${libkdeconnect_HEADERS} PARENT_SCOPE)
 endfunction()
 
 set(libkdeconnect_SRC
@@ -32,12 +33,12 @@ set(libkdeconnect_HEADERS
     ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h
 )
 
-geninterface(${CMAKE_SOURCE_DIR}/core/daemon.h daemoninterface.h)
-geninterface(${CMAKE_SOURCE_DIR}/core/device.h deviceinterface.h)
-geninterface(${CMAKE_SOURCE_DIR}/plugins/battery/batterydbusinterface.h devicebatteryinterface.h)
-geninterface(${CMAKE_SOURCE_DIR}/plugins/sftp/sftpplugin.h devicesftpinterface.h)
-geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notificationsdbusinterface.h devicenotificationsinterface.h)
-geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notification.h notificationinterface.h)
+geninterface(${CMAKE_SOURCE_DIR}/core/daemon.h daemoninterface)
+geninterface(${CMAKE_SOURCE_DIR}/core/device.h deviceinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/battery/batterydbusinterface.h devicebatteryinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/sftp/sftpplugin.h devicesftpinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notificationsdbusinterface.h devicenotificationsinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notification.h notificationinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h mprisremoteinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h remotecontrolinterface)
 
