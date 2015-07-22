@@ -56,7 +56,7 @@
         ], 
         "Version": "0.1"
     }, 
-    "X-KdeConnect-OutgoingPackageType": [],
+    "X-KdeConnect-OutgoingPackageType": [], 
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.mousepad"
     ]

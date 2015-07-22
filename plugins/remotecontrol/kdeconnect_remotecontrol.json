@@ -7,12 +7,12 @@
                 "Name": "Aleix Pol"
             }
         ], 
-        "Description": "Control Remote systems",
+        "Description": "Control Remote systems", 
         "EnabledByDefault": true, 
         "Icon": "applications-multimedia", 
-        "Id": "kdeconnect_remotecontrol",
+        "Id": "kdeconnect_remotecontrol", 
         "License": "GPL", 
-        "Name": "RemoteControl",
+        "Name": "RemoteControl", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 
