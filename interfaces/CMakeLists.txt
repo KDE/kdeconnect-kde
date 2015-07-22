@@ -41,6 +41,7 @@ geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notificationsdbusinterfac
 geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notification.h notificationinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h mprisremoteinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h remotecontrolinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/lockdevice/lockdeviceplugin.h lockdeviceinterface)
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES

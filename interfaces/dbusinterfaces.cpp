@@ -122,3 +122,16 @@ RemoteControlDbusInterface::RemoteControlDbusInterface(const QString& id, QObjec
 RemoteControlDbusInterface::~RemoteControlDbusInterface()
 {
 }
+
+LockDeviceDbusInterface::LockDeviceDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceLockdeviceInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + id + "/lockdevice", QDBusConnection::sessionBus(), parent)
+{
+    connect(this, &OrgKdeKdeconnectDeviceLockdeviceInterface::lockedChanged, this, &LockDeviceDbusInterface::lockedChangedProxy);
+    Q_ASSERT(isValid());
+}
+
+LockDeviceDbusInterface::~LockDeviceDbusInterface()
+{
+}
+
+#include "dbusinterfaces.moc"

@@ -1,0 +1,24 @@
+{
+    "Encoding": "UTF-8", 
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org", 
+                "Name": "Aleix Pol"
+            }
+        ], 
+        "Description": "Locks your systems",
+        "EnabledByDefault": true, 
+        "Icon": "applications-miscelaneaous",
+        "Id": "kdeconnect_lockdevice",
+        "License": "GPL", 
+        "Name": "LockDevice",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ], 
+        "Version": "0.1", 
+        "Website": "https://kde.org"
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.lock" ],
+    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.lock" ]
+}
