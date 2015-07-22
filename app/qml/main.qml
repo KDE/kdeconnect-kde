@@ -29,6 +29,7 @@ ApplicationWindow
     visible: true
     width: 400
     height: 500
+    title: i18n("KDE Connect")
 
     toolBar: RowLayout {
         Button {
