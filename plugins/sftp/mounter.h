@@ -24,6 +24,8 @@
 #include <KJob>
 #include <KProcess>
 
+#include <QTimer>
+
 #include "sftpplugin.h"
 
 class Mounter

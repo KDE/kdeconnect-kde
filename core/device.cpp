@@ -58,11 +58,6 @@ Device::Device(QObject* parent, const QString& id)
     m_deviceType = str2type(info.deviceType);
     m_publicKey = QCA::RSAPublicKey::fromPEM(info.publicKey);
 
-    m_pairingTimeout.setSingleShot(true);
-    m_pairingTimeout.setInterval(30 * 1000);  //30 seconds of timeout
-    connect(&m_pairingTimeout, SIGNAL(timeout()),
-            this, SLOT(pairingTimeout()));
-
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 }
@@ -93,7 +88,7 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
 
 Device::~Device()
 {
-
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers) delete ph; // Delete all pairing handlers on deletion of device
 }
 
 bool Device::hasPlugin(const QString& name) const
@@ -209,8 +204,8 @@ void Device::requestPair()
     m_pairStatus = Device::Requested;
 
     //Send our own public key
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        bool success = dl->provider()->pairingHandler()->requestPairing(this);
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+        bool success = ph->requestPairing();
 
         if (!success) {
             m_pairStatus = Device::NotPaired;
@@ -222,15 +217,13 @@ void Device::requestPair()
     if (m_pairStatus == Device::Paired) {
         return;
     }
-
-    m_pairingTimeout.start();
 }
 
 void Device::unpair()
 {
 
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        dl->provider()->pairingHandler()->unpair(this);
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+        ph->unpair();
     }
 
     unpairInternal();
@@ -249,9 +242,6 @@ void Device::unpairInternal()
 
 void Device::pairingTimeout()
 {
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", false);
-    sendPackage(np);
     m_pairStatus = Device::NotPaired;
     Q_EMIT pairingFailed(i18n("Timed out"));
 }
@@ -302,6 +292,15 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
             plugin->connected();
         }
     }
+
+    // One pairing handler per type of device link, so check if there is already a pairing handler of same type, if not add it to the list
+    if (!m_pairingHandlers.contains(link->name())) {
+        PairingHandler* pairingHandler = link->createPairingHandler(this);
+        m_pairingHandlers.insert(link->name(), pairingHandler);
+        connect(m_pairingHandlers[link->name()], SIGNAL(noLinkAvailable()), this, SLOT(destroyPairingHandler()));
+    }
+    m_pairingHandlers[link->name()]->addLink(link);
+    connect(link, SIGNAL(destroyed(QObject*)), m_pairingHandlers[link->name()], SLOT(linkDestroyed(QObject*)));
 }
 
 void Device::linkDestroyed(QObject* o)
@@ -319,6 +318,13 @@ void Device::removeLink(DeviceLink* link)
         reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
+}
+
+void Device::destroyPairingHandler()
+{
+    PairingHandler* ph = qobject_cast<PairingHandler*>(sender());
+    m_pairingHandlers.remove(m_pairingHandlers.key(ph));
+    delete ph;
 }
 
 bool Device::sendPackage(NetworkPackage& np)
@@ -349,12 +355,11 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
             if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
-                m_pairingTimeout.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             } else if (m_pairStatus == Device::Paired) {
                 // If other request's pairing, and we have pair status Paired, send accept pairing
-                Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-                       dl->provider()->pairingHandler()->acceptPairing(this);
+                Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+                    ph->acceptPairing();
                 }
             }
             return;
@@ -362,12 +367,11 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
         if (wantsPair) {
 
-            Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-                bool success = dl->provider()->pairingHandler()->packageReceived(this, np);
+            Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+                bool success = ph->packageReceived(np);
                 if (!success) {
                     if (m_pairStatus == Device::Requested) {
                         m_pairStatus = Device::NotPaired;
-                        m_pairingTimeout.stop();
                     }
                     Q_EMIT pairingFailed(i18n("Received incorrect key"));
                     return;
@@ -395,7 +399,6 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             m_pairStatus = Device::NotPaired;
 
             if (prevPairStatus == Device::Requested) {
-                m_pairingTimeout.stop();
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
             } else if (prevPairStatus == Device::Paired) {
                 unpairInternal();
@@ -431,8 +434,8 @@ void Device::rejectPairing()
 
     m_pairStatus = Device::NotPaired;
 
-    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
-        link->provider()->pairingHandler()->rejectPairing(this);
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+            ph->rejectPairing();
     }
 
     Q_EMIT pairingFailed(i18n("Canceled by the user"));
@@ -446,8 +449,8 @@ void Device::acceptPairing()
     qCDebug(KDECONNECT_CORE) << "Accepted pairing";
 
     bool success;
-    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
-        success = link->provider()->pairingHandler()->acceptPairing(this);
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+            success = ph->acceptPairing();
     }
 
     if (!success) {
@@ -465,8 +468,6 @@ void Device::setAsPaired()
     bool alreadyPaired = (m_pairStatus == Device::Paired);
 
     m_pairStatus = Device::Paired;
-
-    m_pairingTimeout.stop(); //Just in case it was started
 
     //Save device info in the config
     KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM(), QString::fromLatin1(m_certificate.toPem()));

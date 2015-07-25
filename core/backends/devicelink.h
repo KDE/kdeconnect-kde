@@ -25,6 +25,7 @@
 #include <QtCrypto>
 
 #include "core/networkpackage.h"
+#include "pairinghandler.h"
 
 class NetworkPackage;
 class LinkProvider;
@@ -38,9 +39,12 @@ public:
     DeviceLink(const QString& deviceId, LinkProvider* parent);
     virtual ~DeviceLink() { };
 
+    virtual QString name() = 0;
+
     const QString& deviceId() { return mDeviceId; }
     LinkProvider* provider() { return mLinkProvider; }
 
+    virtual PairingHandler* createPairingHandler(Device* device) = 0;
     virtual bool sendPackage(NetworkPackage& np) = 0;
     virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) = 0;
 

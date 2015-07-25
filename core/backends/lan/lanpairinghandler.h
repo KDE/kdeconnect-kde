@@ -21,22 +21,34 @@
 #ifndef KDECONNECT_LANPAIRINGHANDLER_H
 #define KDECONNECT_LANPAIRINGHANDLER_H
 
+#include <QTimer>
+#include <backends/devicelink.h>
+
+#include "../../device.h"
 #include "../pairinghandler.h"
 
+// This class is used pairing related stuff. It has direct access to links and can directly send packages
 class LanPairingHandler
     : public PairingHandler
 {
+
+private:
+    QTimer m_pairingTimeout;
+
+private Q_SLOTS:
+    void pairingTimeout();
+
 public:
-    LanPairingHandler();
+    LanPairingHandler(Device* device);
     virtual ~LanPairingHandler() { }
 
     virtual void createPairPackage(NetworkPackage& np) Q_DECL_OVERRIDE;
-    virtual bool packageReceived(Device *device,const NetworkPackage& np) Q_DECL_OVERRIDE;
-    virtual bool requestPairing(Device *device) Q_DECL_OVERRIDE;
-    virtual bool acceptPairing(Device *device) Q_DECL_OVERRIDE;
-    virtual void rejectPairing(Device *device) Q_DECL_OVERRIDE;
-    virtual void pairingDone(Device *device) Q_DECL_OVERRIDE;
-    virtual void unpair(Device* device) Q_DECL_OVERRIDE;
+    virtual bool packageReceived(const NetworkPackage& np) Q_DECL_OVERRIDE;
+    virtual bool requestPairing() Q_DECL_OVERRIDE;
+    virtual bool acceptPairing() Q_DECL_OVERRIDE;
+    virtual void rejectPairing() Q_DECL_OVERRIDE;
+    virtual void pairingDone() Q_DECL_OVERRIDE;
+    virtual void unpair() Q_DECL_OVERRIDE;
 
 
 };

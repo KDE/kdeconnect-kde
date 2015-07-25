@@ -20,6 +20,21 @@
 
 #include "pairinghandler.h"
 
-PairingHandler::PairingHandler() {
-    //gcc complains if we don't add something to compile on a class with virtual functions
+PairingHandler::PairingHandler(Device* device)
+{
+    m_device = device;
+}
+
+void PairingHandler::addLink(DeviceLink *dl)
+{
+    m_deviceLinks.append(dl);
+}
+
+void PairingHandler::linkDestroyed(QObject* o)
+{
+    DeviceLink* dl = static_cast<DeviceLink*>(o);
+    m_deviceLinks.removeOne(dl);
+    if (m_deviceLinks.isEmpty()) {
+        Q_EMIT noLinkAvailable();
+    }
 }

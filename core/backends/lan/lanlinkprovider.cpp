@@ -51,8 +51,6 @@ LanLinkProvider::LanLinkProvider()
     mServer = new Server(this);
     connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
 
-    m_pairingHandler = new LanPairingHandler();
-
     //Detect when a network interface changes status, so we announce ourelves in the new network
     QNetworkConfigurationManager* networkManager;
     networkManager = new QNetworkConfigurationManager(this);
@@ -66,7 +64,6 @@ LanLinkProvider::LanLinkProvider()
 
 LanLinkProvider::~LanLinkProvider()
 {
-    delete m_pairingHandler;
 }
 
 void LanLinkProvider::onStart()

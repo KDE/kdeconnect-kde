@@ -30,6 +30,7 @@
 #include "uploadjob.h"
 #include "downloadjob.h"
 #include "socketlinereader.h"
+#include "lanpairinghandler.h"
 
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket)
     : DeviceLink(deviceId, parent)
@@ -49,10 +50,20 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
     socket->setParent(this);
 }
 
-void LanDeviceLink::setOnSsl(bool value) {
+QString LanDeviceLink::name()
+{
+    return "LanDeviceLink";
+}
+
+void LanDeviceLink::setOnSsl(bool value)
+{
     onSsl = value;
 }
 
+PairingHandler* LanDeviceLink::createPairingHandler(Device* device)
+{
+    return new LanPairingHandler(device);
+}
 
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
 {

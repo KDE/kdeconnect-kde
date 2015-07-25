@@ -21,9 +21,15 @@
 #include <kdeconnectconfig.h>
 #include "lanpairinghandler.h"
 #include "networkpackagetypes.h"
+#include "landevicelink.h"
 
-LanPairingHandler::LanPairingHandler()
+LanPairingHandler::LanPairingHandler(Device* device)
+    : PairingHandler(device)
 {
+    m_pairingTimeout.setSingleShot(true);
+    m_pairingTimeout.setInterval(30 * 1000);  //30 seconds of timeout
+    connect(&m_pairingTimeout, SIGNAL(timeout()),
+            this, SLOT(pairingTimeout()));
 }
 
 void LanPairingHandler::createPairPackage(NetworkPackage& np)
@@ -32,51 +38,74 @@ void LanPairingHandler::createPairPackage(NetworkPackage& np)
     np.set("publicKey", KdeConnectConfig::instance()->publicKey().toPEM());
 }
 
-bool LanPairingHandler::packageReceived(Device *device,const NetworkPackage& np)
+bool LanPairingHandler::packageReceived(const NetworkPackage& np)
 {
+    m_pairingTimeout.stop();
     //Retrieve their public key
     QString keyString = np.get<QString>("publicKey");
-    device->setPublicKey(QCA::RSAPublicKey::fromPEM(keyString));
-    if (device->publicKey().isNull()) {
+    m_device->setPublicKey(QCA::RSAPublicKey::fromPEM(keyString));
+    if (m_device->publicKey().isNull()) {
         return false;
     }
     return true;
 }
 
-bool LanPairingHandler::requestPairing(Device *device)
+bool LanPairingHandler::requestPairing()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     createPairPackage(np);
-    bool success = device->sendPackage(np);
+    bool success;
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        success = dl->sendPackage(np);
+    }
+    m_pairingTimeout.start();
     return success;
 }
 
-bool LanPairingHandler::acceptPairing(Device *device)
+bool LanPairingHandler::acceptPairing()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     createPairPackage(np);
-    bool success = device->sendPackage(np);
+    bool success;
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+            success = dl->sendPackage(np);
+    }
     return success;
 }
 
-void LanPairingHandler::rejectPairing(Device *device)
+void LanPairingHandler::rejectPairing()
 {
     // TODO : check status of reject pairing
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
-    device->sendPackage(np);
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        dl->sendPackage(np);
+    }
 }
 
-void LanPairingHandler::pairingDone(Device *device)
+void LanPairingHandler::pairingDone()
 {
     // No need to worry, if either of certificate or public key is null an empty qstring will be returned
-    KdeConnectConfig::instance()->setDeviceProperty(device->id(), "key", device->publicKey().toPEM());
-    KdeConnectConfig::instance()->setDeviceProperty(device->id(), "certificate", QString(device->certificate().toPem()));
+    KdeConnectConfig::instance()->setDeviceProperty(m_device->id(), "key", m_device->publicKey().toPEM());
+    KdeConnectConfig::instance()->setDeviceProperty(m_device->id(), "certificate", QString(m_device->certificate().toPem()));
+
+    m_pairingTimeout.stop(); // Just in case it is started
 }
 
-void LanPairingHandler::unpair(Device *device) {
+void LanPairingHandler::unpair() {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
-    bool success = device->sendPackage(np);
-    Q_UNUSED(success);
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        dl->sendPackage(np);
+    }
+}
+
+void LanPairingHandler::pairingTimeout()
+{
+    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    np.set("pair", false);
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        dl->sendPackage(np);
+    }
+    m_device->pairingTimeout();
 }

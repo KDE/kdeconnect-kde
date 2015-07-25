@@ -21,23 +21,35 @@
 #ifndef KDECONNECT_PAIRINGHANDLER_H
 #define KDECONNECT_PAIRINGHANDLER_H
 
+#include "device.h"
+#include "networkpackage.h"
+#include "devicelink.h"
 
-#include <networkpackage.h>
-#include <device.h>
-
-class PairingHandler {
+class PairingHandler : public QObject
+{
+    Q_OBJECT
+protected:
+    Device* m_device;
+    QVector<DeviceLink*> m_deviceLinks;
 
 public:
-    PairingHandler();
+    PairingHandler(Device* device);
     virtual ~PairingHandler() { }
 
+    void addLink(DeviceLink* dl);
     virtual void createPairPackage(NetworkPackage& np) = 0;
-    virtual bool packageReceived(Device *device,const NetworkPackage& np) = 0;
-    virtual bool requestPairing(Device *device) = 0;
-    virtual bool acceptPairing(Device *device) = 0;
-    virtual void rejectPairing(Device *device) = 0;
-    virtual void pairingDone(Device *device) = 0;
-    virtual void unpair(Device *device) = 0;
+    virtual bool packageReceived(const NetworkPackage& np) = 0;
+    virtual bool requestPairing() = 0;
+    virtual bool acceptPairing() = 0;
+    virtual void rejectPairing() = 0;
+    virtual void pairingDone() = 0;
+    virtual void unpair() = 0;
+
+public Q_SLOTS:
+    void linkDestroyed(QObject*);
+
+Q_SIGNALS:
+    void noLinkAvailable();
 
 };
 

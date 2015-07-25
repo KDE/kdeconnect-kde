@@ -46,11 +46,6 @@ public:
 
     virtual QString name() = 0;
     virtual int priority() = 0;
-    PairingHandler* pairingHandler() { return m_pairingHandler;}
-
-protected:
-    PairingHandler* m_pairingHandler;
-
 
 public Q_SLOTS:
     virtual void onStart() = 0;

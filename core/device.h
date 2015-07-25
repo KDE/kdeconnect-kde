@@ -26,14 +26,14 @@
 #include <QVector>
 #include <QSet>
 #include <QSslKey>
-#include <QTimer>
 #include <QtCrypto>
-#include <QtNetwork/qsslcertificate.h>
+#include <QSslCertificate>
 
 #include "networkpackage.h"
 
 class DeviceLink;
 class KdeConnectPlugin;
+class PairingHandler;
 
 class KDECONNECTCORE_EXPORT Device
     : public QObject
@@ -109,6 +109,8 @@ public:
 
     Q_SCRIPTABLE QString pluginsConfigFile() const;
 
+    void pairingTimeout();
+
 public Q_SLOTS:
     ///sends a @p np package to the device
     virtual bool sendPackage(NetworkPackage& np);
@@ -124,7 +126,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void privateReceivedPackage(const NetworkPackage& np);
     void linkDestroyed(QObject* o);
-    void pairingTimeout();
+    void destroyPairingHandler();
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
@@ -154,10 +156,10 @@ private: //Fields (TODO: dPointer!)
 
     QVector<DeviceLink*> m_deviceLinks;
     QHash<QString, KdeConnectPlugin*> m_plugins;
+    QMap<QString, PairingHandler*> m_pairingHandlers;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
-    QTimer m_pairingTimeout;
     const QSet<QString> m_incomingCapabilities;
     const QSet<QString> m_outgoingCapabilities;
 
