@@ -29,6 +29,7 @@ ApplicationWindow
     visible: true
     width: 400
     height: 500
+    title: i18n("KDE Connect")
 
     toolBar: RowLayout {
         Button {
@@ -123,8 +124,18 @@ ApplicationWindow
                             } );
                         }
                         Button {
-                            text: i18n("Remote touch and keyboard")
-                            enabled: false
+                            text: i18n("Mouse Pad")
+                            onClicked: stack.push( {
+                                item: "qrc:/qml/mousepad.qml",
+                                properties: { remoteControlInterface: RemoteControlDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
+                            } );
+                        }
+                        Button {
+                            property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                            text: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
+                            onClicked: {
+                                lockIface.isLocked = !lockIface.isLocked;
+                            }
                         }
 
                         Item { Layout.fillHeight: true }

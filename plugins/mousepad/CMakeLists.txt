@@ -6,7 +6,7 @@ find_package(XTest REQUIRED)
 find_package(X11 REQUIRED)
 find_package(LibFakeKey REQUIRED)
 find_package(Qt5X11Extras REQUIRED)
-find_package(KF5Wayland)
+find_package(KF5Wayland 5.3.90)
 
 set(HAVE_WAYLAND ${KF5Wayland_FOUND})
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h )

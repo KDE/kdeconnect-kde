@@ -30,6 +30,8 @@
 #include "interfaces/devicenotificationsinterface.h"
 #include "interfaces/notificationinterface.h"
 #include "interfaces/mprisremoteinterface.h"
+#include "interfaces/remotecontrolinterface.h"
+#include "interfaces/lockdeviceinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -122,6 +124,28 @@ public:
 
 Q_SIGNALS:
     void propertiesChangedProxy();
+};
+
+class KDECONNECTINTERFACES_EXPORT RemoteControlDbusInterface
+    : public OrgKdeKdeconnectDeviceRemotecontrolInterface
+{
+    Q_OBJECT
+public:
+    RemoteControlDbusInterface(const QString& deviceId, QObject* parent = 0);
+    ~RemoteControlDbusInterface() override;
+};
+
+class KDECONNECTINTERFACES_EXPORT LockDeviceDbusInterface
+    : public OrgKdeKdeconnectDeviceLockdeviceInterface
+{
+    Q_OBJECT
+    Q_PROPERTY(bool isLocked READ isLocked WRITE setIsLocked NOTIFY lockedChangedProxy)
+public:
+    LockDeviceDbusInterface(const QString& deviceId, QObject* parent = 0);
+    virtual ~LockDeviceDbusInterface();
+
+Q_SIGNALS:
+    void lockedChangedProxy(bool isLocked);
 };
 
 #endif

@@ -113,3 +113,25 @@ MprisDbusInterface::MprisDbusInterface(const QString& id, QObject* parent)
 MprisDbusInterface::~MprisDbusInterface()
 {
 }
+
+RemoteControlDbusInterface::RemoteControlDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceRemotecontrolInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + id + "/remotecontrol", QDBusConnection::sessionBus(), parent)
+{
+}
+
+RemoteControlDbusInterface::~RemoteControlDbusInterface()
+{
+}
+
+LockDeviceDbusInterface::LockDeviceDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceLockdeviceInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + id + "/lockdevice", QDBusConnection::sessionBus(), parent)
+{
+    connect(this, &OrgKdeKdeconnectDeviceLockdeviceInterface::lockedChanged, this, &LockDeviceDbusInterface::lockedChangedProxy);
+    Q_ASSERT(isValid());
+}
+
+LockDeviceDbusInterface::~LockDeviceDbusInterface()
+{
+}
+
+#include "dbusinterfaces.moc"

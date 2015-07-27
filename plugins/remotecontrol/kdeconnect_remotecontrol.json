@@ -1,0 +1,44 @@
+{
+    "Encoding": "UTF-8", 
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org", 
+                "Name": "Aleix Pol"
+            }
+        ], 
+        "Description": "Control Remote systems", 
+        "Description[ca]": "Sistemes de control remot", 
+        "Description[gl]": "Controla sistemas remotos.", 
+        "Description[nl]": "Systemen op afstand bedienen", 
+        "Description[pl]": "Sterowanie zdalnymi systemami", 
+        "Description[pt]": "Comandar sistemas à distância", 
+        "Description[pt_BR]": "Controle remoto de sistemas", 
+        "Description[sv]": "Styr fjärrsystem", 
+        "Description[uk]": "Системи віддаленого керування", 
+        "Description[x-test]": "xxControl Remote systemsxx", 
+        "EnabledByDefault": true, 
+        "Icon": "applications-multimedia", 
+        "Id": "kdeconnect_remotecontrol", 
+        "License": "GPL", 
+        "Name": "RemoteControl", 
+        "Name[ca]": "Control remot", 
+        "Name[gl]": "Mando a distancia", 
+        "Name[nl]": "Afstandsbediening", 
+        "Name[pl]": "ZdalneSterowanie", 
+        "Name[pt]": "Comando à Distância", 
+        "Name[pt_BR]": "Controle remoto", 
+        "Name[sv]": "Fjärrkontroll", 
+        "Name[uk]": "RemoteControl", 
+        "Name[x-test]": "xxRemoteControlxx", 
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ], 
+        "Version": "0.1", 
+        "Website": "https://kde.org"
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.mousepad"
+    ], 
+    "X-KdeConnect-SupportedPackageType": []
+}

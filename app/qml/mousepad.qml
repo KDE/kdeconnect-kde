@@ -24,49 +24,41 @@ import QtQuick.Layouts 1.1
 
 ColumnLayout
 {
-    id: root
-    property QtObject mprisInterface
+    id: mousepad
+    property QtObject remoteControlInterface
 
-    Component.onCompleted: {
-        mprisInterface.requestPlayerList();
-    }
+    MouseArea {
+        id: area
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        property var lastPos: Qt.point(-1, -1)
 
-    Item { Layout.fillHeight: true }
-    ComboBox {
-        Layout.fillWidth: true
-        model: root.mprisInterface.playerList
-        onCurrentTextChanged: root.mprisInterface.player = currentText
-    }
-    Label {
-        Layout.fillWidth: true
-        text: root.mprisInterface.nowPlaying
-    }
-    RowLayout {
-        Layout.fillWidth: true
-        Button {
-            Layout.fillWidth: true
-            iconName: "media-skip-backward"
-            onClicked: root.mprisInterface.sendAction("Previous")
-        }
-        Button {
-            Layout.fillWidth: true
-            iconName: root.mprisInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
-            onClicked: root.mprisInterface.sendAction("PlayPause");
-        }
-        Button {
-            Layout.fillWidth: true
-            iconName: "media-skip-forward"
-            onClicked: root.mprisInterface.sendAction("Next")
+        onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
+
+        onPositionChanged: {
+            if (lastPos.x > -1) {
+//                 console.log("move", mouse.x, mouse.y, lastPos)
+                var delta = Qt.point(mouse.x-lastPos.x, mouse.y-lastPos.y);
+
+                remoteControlInterface.moveCursor(delta);
+            }
+            lastPos = Qt.point(mouse.x, mouse.y);
         }
     }
     RowLayout {
         Layout.fillWidth: true
-        Label { text: i18n("Volume:") }
-        Slider {
-            value: root.mprisInterface.volume
-            maximumValue: 100
+
+        Button {
             Layout.fillWidth: true
+            onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
+        }
+        Button {
+            Layout.fillWidth: true
+            onClicked: mousepad.remoteControlInterface.sendCommand("middleclick", true);
+        }
+        Button {
+            Layout.fillWidth: true
+            onClicked: mousepad.remoteControlInterface.sendCommand("rightclick", true);
         }
     }
-    Item { Layout.fillHeight: true }
 }
