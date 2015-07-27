@@ -179,18 +179,20 @@ QString Device::pluginsConfigFile() const
     return KdeConnectConfig::instance()->deviceConfigDir(id()).absoluteFilePath("config");
 }
 
+bool Device::pairRequested() const
+{
+    bool pr = false;
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
+        pr = pr || ph->pairRequested();
+    }
+    return pr;
+}
+
 void Device::requestPair()
 {
     switch(m_pairStatus) {
         case Device::Paired:
             Q_EMIT pairingFailed(i18n("Already paired"));
-            return;
-        case Device::Requested:
-            Q_EMIT pairingFailed(i18n("Pairing already requested for this device"));
-            return;
-        case Device::RequestedByPeer:
-            qCDebug(KDECONNECT_CORE) << "Pairing already started by the other end, accepting their request.";
-            acceptPairing();
             return;
         case Device::NotPaired:
             ;
@@ -201,17 +203,15 @@ void Device::requestPair()
         return;
     }
 
-    m_pairStatus = Device::Requested;
-
     //Send our own public key
+    bool success = false;
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
-        bool success = ph->requestPairing();
-
-        if (!success) {
-            m_pairStatus = Device::NotPaired;
-            Q_EMIT pairingFailed(i18n("Error contacting device"));
-            return;
-        }
+        success = success || ph->requestPairing(); // If one of many pairing handlers can successfully request pairing, consider it success
+    }
+    if (!success) {
+        m_pairStatus = Device::NotPaired;
+        Q_EMIT pairingFailed(i18n("Error contacting device"));
+        return;
     }
 
     if (m_pairStatus == Device::Paired) {
@@ -221,12 +221,9 @@ void Device::requestPair()
 
 void Device::unpair()
 {
-
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
         ph->unpair();
     }
-
-    unpairInternal();
 }
 
 void Device::unpairInternal()
@@ -297,9 +294,12 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     if (!m_pairingHandlers.contains(link->name())) {
         PairingHandler* pairingHandler = link->createPairingHandler(this);
         m_pairingHandlers.insert(link->name(), pairingHandler);
-        connect(m_pairingHandlers[link->name()], SIGNAL(noLinkAvailable()), this, SLOT(destroyPairingHandler()));
+        connect(m_pairingHandlers[link->name()], SIGNAL(linkNull()), this, SLOT(destroyPairingHandler()));
+        connect(m_pairingHandlers[link->name()], SIGNAL(pairingDone()), this, SLOT(setAsPaired()));
+        connect(m_pairingHandlers[link->name()], SIGNAL(unpairingDone()), this, SLOT(unpairInternal()));
+        connect(m_pairingHandlers[link->name()], SIGNAL(pairingFailed(const QString&)), this, SIGNAL(pairingFailed(const QString&)));
     }
-    m_pairingHandlers[link->name()]->addLink(link);
+    m_pairingHandlers[link->name()]->setLink(link);
     connect(link, SIGNAL(destroyed(QObject*)), m_pairingHandlers[link->name()], SLOT(linkDestroyed(QObject*)));
 }
 
@@ -347,63 +347,9 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 {
     if (np.type() == PACKAGE_TYPE_PAIR) {
 
-        //qCDebug(KDECONNECT_CORE) << "Pair package";
-
-        bool wantsPair = np.get<bool>("pair");
-
-        if (wantsPair == isPaired()) {
-            qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
-            if (m_pairStatus == Device::Requested) {
-                m_pairStatus = Device::NotPaired;
-                Q_EMIT pairingFailed(i18n("Canceled by other peer"));
-            } else if (m_pairStatus == Device::Paired) {
-                // If other request's pairing, and we have pair status Paired, send accept pairing
-                Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
-                    ph->acceptPairing();
-                }
-            }
-            return;
-        }
-
-        if (wantsPair) {
-
-            Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
-                bool success = ph->packageReceived(np);
-                if (!success) {
-                    if (m_pairStatus == Device::Requested) {
-                        m_pairStatus = Device::NotPaired;
-                    }
-                    Q_EMIT pairingFailed(i18n("Received incorrect key"));
-                    return;
-                }
-            }
-
-            if (m_pairStatus == Device::Requested)  { //We started pairing
-
-                qCDebug(KDECONNECT_CORE) << "Pair answer";
-                setAsPaired();
-
-            } else {
-                qCDebug(KDECONNECT_CORE) << "Pair request";
-
-                Daemon::instance()->requestPairing(this);
-
-                m_pairStatus = Device::RequestedByPeer;
-            }
-
-        } else {
-
-            qCDebug(KDECONNECT_CORE) << "Unpair request";
-
-            PairStatus prevPairStatus = m_pairStatus;
-            m_pairStatus = Device::NotPaired;
-
-            if (prevPairStatus == Device::Requested) {
-                Q_EMIT pairingFailed(i18n("Canceled by other peer"));
-            } else if (prevPairStatus == Device::Paired) {
-                unpairInternal();
-            }
-
+        // If PACKAGE_TYPE_PAIR, send it to pairing handlers without thinking
+        Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
+            ph->packageReceived(np);
         }
 
     } else if (isPaired()) {
@@ -413,19 +359,9 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         }
     } else {
         qCDebug(KDECONNECT_CORE) << "device" << name() << "not paired, ignoring package" << np.type();
-        if (m_pairStatus != Device::Requested)
-            unpair();
+        unpair();
     }
 
-}
-
-bool Device::sendOwnPublicKey()
-{
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", true);
-    np.set("publicKey", KdeConnectConfig::instance()->publicKey().toPEM());
-    bool success = sendPackage(np);
-    return success;
 }
 
 void Device::rejectPairing()
@@ -444,21 +380,17 @@ void Device::rejectPairing()
 
 void Device::acceptPairing()
 {
-    if (m_pairStatus != Device::RequestedByPeer) return;
-
     qCDebug(KDECONNECT_CORE) << "Accepted pairing";
 
-    bool success;
+    bool success = false;
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
-            success = ph->acceptPairing();
+            success = success || ph->acceptPairing();
     }
 
     if (!success) {
         m_pairStatus = Device::NotPaired;
         return;
     }
-
-    setAsPaired();
 
 }
 
@@ -470,7 +402,7 @@ void Device::setAsPaired()
     m_pairStatus = Device::Paired;
 
     //Save device info in the config
-    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType), m_publicKey.toPEM(), QString::fromLatin1(m_certificate.toPem()));
+    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType));
 
     reloadPlugins(); //Will actually load the plugins
 

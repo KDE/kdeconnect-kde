@@ -62,7 +62,7 @@ public:
 
     QStringList trustedDevices(); //list of ids
     void removeTrustedDevice(QString id);
-    void addTrustedDevice(QString id, QString name, QString type, QString publicKey, QString certificate = QString());
+    void addTrustedDevice(QString id, QString name, QString type);
     KdeConnectConfig::DeviceInfo getTrustedDevice(QString id);
     void setDeviceProperty(QString deviceId, QString name, QString value);
     QString getDeviceProperty(QString deviceId, QString name, QString defaultValue = QString());

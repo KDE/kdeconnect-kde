@@ -25,16 +25,16 @@ PairingHandler::PairingHandler(Device* device)
     m_device = device;
 }
 
-void PairingHandler::addLink(DeviceLink *dl)
+void PairingHandler::setLink(DeviceLink *dl)
 {
-    m_deviceLinks.append(dl);
+    m_deviceLink =  dl;
 }
 
 void PairingHandler::linkDestroyed(QObject* o)
 {
     DeviceLink* dl = static_cast<DeviceLink*>(o);
-    m_deviceLinks.removeOne(dl);
-    if (m_deviceLinks.isEmpty()) {
-        Q_EMIT noLinkAvailable();
+    if (dl == m_deviceLink) { // Check if same link is destroyed
+        m_deviceLink = Q_NULLPTR;
+        Q_EMIT linkNull();
     }
 }

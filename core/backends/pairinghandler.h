@@ -25,31 +25,52 @@
 #include "networkpackage.h"
 #include "devicelink.h"
 
+#include <QTimer>
+
 class PairingHandler : public QObject
 {
     Q_OBJECT
 protected:
+
+    enum PairStatus {
+        NotPaired,
+        Requested,
+        RequestedByPeer,
+        Paired,
+    };
+
+    QTimer m_pairingTimeout;
     Device* m_device;
-    QVector<DeviceLink*> m_deviceLinks;
+    DeviceLink* m_deviceLink; // We keep the latest link here, if this is destroyed without new link, linkDestroyed is emitted and device will destroy pairing handler
+    PairStatus m_pairStatus;
 
 public:
     PairingHandler(Device* device);
     virtual ~PairingHandler() { }
 
-    void addLink(DeviceLink* dl);
+    void setLink(DeviceLink* dl);
+    bool isPaired() const { return m_pairStatus == PairStatus::Paired; };
+    bool pairRequested() const { return m_pairStatus == PairStatus::Requested; }
+
     virtual void createPairPackage(NetworkPackage& np) = 0;
-    virtual bool packageReceived(const NetworkPackage& np) = 0;
+    virtual void packageReceived(const NetworkPackage& np) = 0;
     virtual bool requestPairing() = 0;
     virtual bool acceptPairing() = 0;
     virtual void rejectPairing() = 0;
-    virtual void pairingDone() = 0;
     virtual void unpair() = 0;
 
 public Q_SLOTS:
     void linkDestroyed(QObject*);
+    virtual void pairingTimeout() = 0;
+
+private:
+    virtual void setAsPaired() = 0;
 
 Q_SIGNALS:
-    void noLinkAvailable();
+    void pairingDone();
+    void unpairingDone();
+    void pairingFailed(const QString& error);
+    void linkNull();
 
 };
 

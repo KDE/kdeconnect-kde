@@ -49,8 +49,6 @@ class KDECONNECTCORE_EXPORT Device
 
     enum PairStatus {
         NotPaired,
-        Requested,
-        RequestedByPeer,
         Paired,
     };
 
@@ -99,7 +97,7 @@ public:
     void setPublicKey(QCA::PublicKey publicKey) { m_publicKey = publicKey; }
 
     Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
-    Q_SCRIPTABLE bool pairRequested() const { return m_pairStatus==Device::Requested; }
+    Q_SCRIPTABLE bool pairRequested() const;
 
     Q_SCRIPTABLE QStringList availableLinks() const;
     bool isReachable() const { return !m_deviceLinks.isEmpty(); }
@@ -128,6 +126,9 @@ private Q_SLOTS:
     void linkDestroyed(QObject* o);
     void destroyPairingHandler();
 
+    void setAsPaired();
+    void unpairInternal();
+
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
     Q_SCRIPTABLE void reachableStatusChanged();
@@ -141,9 +142,6 @@ Q_SIGNALS:
 private: //Methods
     void setName(const QString &name);
     QString iconForStatus(bool reachable, bool paired) const;
-    void unpairInternal();
-    void setAsPaired();
-    bool sendOwnPublicKey();
 
 private: //Fields (TODO: dPointer!)
     const QString m_deviceId;

@@ -116,7 +116,7 @@ KdeConnectConfig::KdeConnectConfig()
     } else {
 
         QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
-        // TODO : Set serial number for certificate. Time millis or any constant number?
+        // FIXME : Set serial number for certificate. Time millis or any constant number?
         QCA::BigInteger bigInteger(10);
         QDateTime startTime = QDateTime::currentDateTime();
         QDateTime endTime = startTime.addYears(10);
@@ -218,14 +218,12 @@ QStringList KdeConnectConfig::trustedDevices()
     return list;
 }
 
-void KdeConnectConfig::addTrustedDevice(QString id, QString name, QString type, QString publicKey, QString certificate)
+void KdeConnectConfig::addTrustedDevice(QString id, QString name, QString type)
 {
     d->config->beginGroup("trustedDevices");
     d->config->beginGroup(id);
     d->config->setValue("name", name);
     d->config->setValue("type", type);
-    d->config->setValue("publicKey", publicKey);
-    d->config->setValue("certificate", certificate);
     d->config->endGroup();
     d->config->endGroup();
     d->config->sync();
