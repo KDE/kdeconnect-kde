@@ -155,7 +155,7 @@ void KioKdeconnect::listDevice()
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
         entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
-        entry.insert(KIO::UDSEntry::UDS_URL, path);
+        entry.insert(KIO::UDSEntry::UDS_URL, QUrl::fromLocalFile(path).toString());
         listEntry(entry);
     }
 
