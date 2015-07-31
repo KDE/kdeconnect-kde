@@ -123,26 +123,26 @@ void KioKdeconnect::listDevice()
     qCDebug(KDECONNECT_KIO) << "ListDevice" << m_currentDevice;
 
     SftpDbusInterface interface(m_currentDevice);
-    
+
     QDBusReply<bool> mountreply = interface.mountAndWait();
-    
+
     if (handleDBusError(mountreply, this)) {
         return;
     }
-    
+
     if (!mountreply.value()) {
         error(KIO::ERR_COULD_NOT_MOUNT, i18n("Could not mount device filesystem"));
         return;
     }
-    
+
     QDBusReply< QVariantMap > urlreply = interface.getDirectories();
-    
+
     if (handleDBusError(urlreply, this)) {
         return;
     }
-    
+
     QVariantMap urls = urlreply.value();
-    
+
     for (QVariantMap::iterator it = urls.begin(); it != urls.end(); it++) {
 
         QString path = it.key();
