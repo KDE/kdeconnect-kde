@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MPRISREMOTEPLUGIN_H
-#define MPRISREMOTEPLUGIN_H
+#ifndef REMOTECONTROLPLUGIN_H
+#define REMOTECONTROLPLUGIN_H
 
 #include <QObject>
 
