@@ -44,6 +44,9 @@ ColumnLayout
             }
             lastPos = Qt.point(mouse.x, mouse.y);
         }
+        onReleased: {
+            lastPos = Qt.point(-1, -1)
+        }
     }
     RowLayout {
         Layout.fillWidth: true
