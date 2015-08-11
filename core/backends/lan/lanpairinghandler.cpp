@@ -56,7 +56,7 @@ void LanPairingHandler::createPairPackage(NetworkPackage& np)
 void LanPairingHandler::packageReceived(const NetworkPackage& np)
 {
 
-    if (!np.get<QString>("link").compare(m_deviceLink->name())) return; // If this package is not received by my type of link
+    if (np.get<QString>("link").compare(m_deviceLink->name()) != 0) return; // If this package is not received by my type of link
 
     m_pairingTimeout.stop();
 
@@ -160,6 +160,7 @@ void LanPairingHandler::rejectPairing()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
+    np.set("link", m_deviceLink->name());
     m_deviceLink->sendPackage(np);
     m_pairStatus = PairStatus::NotPaired;
 }
@@ -167,16 +168,16 @@ void LanPairingHandler::rejectPairing()
 void LanPairingHandler::unpair() {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
+    np.set("link", m_deviceLink->name());
     m_deviceLink->sendPackage(np);
     m_pairStatus = PairStatus::NotPaired;
-
-    Q_EMIT(unpairingDone()); // There will be multiple signals if there are multiple pairing handlers
 }
 
 void LanPairingHandler::pairingTimeout()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
+    np.set("name", m_deviceLink->name());
     m_deviceLink->sendPackage(np);
     m_pairStatus = PairStatus::NotPaired;
     m_device->pairingTimeout(); // Use signal slot, or this is good ?

@@ -35,7 +35,7 @@ private:
     QList<QSslSocket*> pendingConnections;
 
 public:
-    Server(QObject* parent);
+    Server(QObject* parent = 0);
     virtual ~Server() {}
 
     QSslSocket* nextPendingConnection() Q_DECL_OVERRIDE;

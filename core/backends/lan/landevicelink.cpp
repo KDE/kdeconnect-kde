@@ -52,7 +52,7 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
 
 QString LanDeviceLink::name()
 {
-    return "LanDeviceLink";
+    return "LanLink"; // Should be same in both android and kde version
 }
 
 void LanDeviceLink::setOnSsl(bool value)

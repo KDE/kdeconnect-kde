@@ -181,11 +181,11 @@ QString Device::pluginsConfigFile() const
 
 bool Device::pairRequested() const
 {
-    bool pr = false;
+    bool isPairRequested = false;
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
-        pr = pr || ph->pairRequested();
+        isPairRequested = isPairRequested || ph->pairRequested();
     }
-    return pr;
+    return isPairRequested;
 }
 
 void Device::requestPair()
@@ -224,6 +224,7 @@ void Device::unpair()
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
         ph->unpair();
     }
+    unpairInternal(); // We do not depend on pairing handlers for unpairing, this method is likely to be called due to user events
 }
 
 void Device::unpairInternal()
@@ -239,7 +240,6 @@ void Device::unpairInternal()
 
 void Device::pairingTimeout()
 {
-    m_pairStatus = Device::NotPaired;
     Q_EMIT pairingFailed(i18n("Timed out"));
 }
 
@@ -370,6 +370,7 @@ void Device::rejectPairing()
 
     m_pairStatus = Device::NotPaired;
 
+    qDebug(KDECONNECT_CORE) << "Pairing handler count " << m_pairingHandlers.size();
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
             ph->rejectPairing();
     }
