@@ -71,7 +71,7 @@ private:
     void removeTrustedDevice();
     void setSocketAttributes(QSslSocket *socket);
     void testIdentityPackage(QByteArray& identityPackage);
-    
+
 };
 
 void LanLinkProviderTest::initTestCase()

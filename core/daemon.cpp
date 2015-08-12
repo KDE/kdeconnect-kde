@@ -131,10 +131,9 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyVisible) const
 
 QByteArray Daemon::certificate(int format) const
 {
-	if (format == QSsl::Pem) {
+    if (format == QSsl::Pem) {
         return KdeConnectConfig::instance()->certificate().toPem();
-    }
-	else {
+    } else {
         return KdeConnectConfig::instance()->certificate().toDer();
     }
 }
