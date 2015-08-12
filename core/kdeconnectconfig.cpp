@@ -121,7 +121,7 @@ KdeConnectConfig::KdeConnectConfig()
         QDateTime startTime = QDateTime::currentDateTime();
         QDateTime endTime = startTime.addYears(10);
         QCA::CertificateInfo certificateInfo;
-        certificateInfo.insert(QCA::CommonName,d->config->value("id", "unknown id").toString());
+        certificateInfo.insert(QCA::CommonName,deviceId());
         certificateInfo.insert(QCA::Organization,"KDE");
         certificateInfo.insert(QCA::OrganizationalUnit,"Kde connect");
         certificateOptions.setFormat(QCA::PKCS10);
@@ -131,7 +131,6 @@ KdeConnectConfig::KdeConnectConfig()
         certificateOptions.setValidityPeriod(startTime, endTime);
         certificateOptions.setFormat(QCA::PKCS10);
 
-//        d->certificate = QCA::Certificate(certificateOptions, d->privateKey);
         d->certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->privateKey).toPEM().toLatin1());
 
         if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate))  {

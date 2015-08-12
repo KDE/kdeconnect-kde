@@ -370,7 +370,6 @@ void Device::rejectPairing()
 
     m_pairStatus = Device::NotPaired;
 
-    qDebug(KDECONNECT_CORE) << "Pairing handler count " << m_pairingHandlers.size();
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
             ph->rejectPairing();
     }
