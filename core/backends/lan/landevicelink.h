@@ -38,9 +38,9 @@ class LanDeviceLink
 public:
     LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket);
 
-    virtual QString name();
+    virtual QString name() Q_DECL_OVERRIDE;
     void setOnSsl(bool value);
-    virtual PairingHandler* createPairingHandler(Device* device);
+    virtual PairingHandler* createPairingHandler(Device* device) Q_DECL_OVERRIDE;
     bool sendPackage(NetworkPackage& np);
     bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
     UploadJob* sendPayload(NetworkPackage&);

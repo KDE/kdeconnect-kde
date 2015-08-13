@@ -67,11 +67,14 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
         if (m_pairStatus == PairStatus ::Requested) {
             m_pairStatus = PairStatus ::NotPaired;
             Q_EMIT pairingFailed(i18n("Canceled by other peer"));
+            return;
         } else if (m_pairStatus == PairStatus ::Paired) {
-            // Auto accept pairing for the link if device is paired
-            acceptPairing();
+            /**
+             * If wants pair is true and is paired is true, this means other device is trying to pair again, might be because it unpaired this device somehow
+             * and we don't know it, unpair it internally
+             */
+            Q_EMIT unpairingDone();
         }
-        return;
     }
 
     if (wantsPair) {
@@ -94,6 +97,11 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
         } else {
             qCDebug(KDECONNECT_CORE) << "Pair request";
+
+            if (m_device->isPaired()) {
+                acceptPairing();
+                return;
+            }
 
             Daemon::instance()->requestPairing(m_device);
 

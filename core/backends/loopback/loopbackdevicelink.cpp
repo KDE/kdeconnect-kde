@@ -31,7 +31,7 @@ LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProv
 
 QString LoopbackDeviceLink::name()
 {
-    return "LoopbackDeviceLink";
+    return "LoopbackLink"; // Should be similar to android
 }
 
 PairingHandler* LoopbackDeviceLink::createPairingHandler(Device *device)
