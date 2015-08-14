@@ -56,7 +56,7 @@ void LanPairingHandler::createPairPackage(NetworkPackage& np)
 void LanPairingHandler::packageReceived(const NetworkPackage& np)
 {
 
-    if (np.get<QString>("link").compare(m_deviceLink->name()) != 0) return; // If this package is not received by my type of link
+    if (np.get<QString>("link", m_deviceLink->name()).compare(m_deviceLink->name()) != 0) return; // If this package is not received by my type of link
 
     m_pairingTimeout.stop();
 
