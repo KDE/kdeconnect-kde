@@ -118,7 +118,7 @@ KdeConnectConfig::KdeConnectConfig()
         QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
         // FIXME : Set serial number for certificate. Time millis or any constant number?
         QCA::BigInteger bigInteger(10);
-        QDateTime startTime = QDateTime::currentDateTime();
+        QDateTime startTime = QDateTime::currentDateTime().addYears(-1);
         QDateTime endTime = startTime.addYears(10);
         QCA::CertificateInfo certificateInfo;
         certificateInfo.insert(QCA::CommonName,deviceId());
