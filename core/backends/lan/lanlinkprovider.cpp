@@ -391,7 +391,7 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
     // Configure for ssl
     socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    socket->setProtocol(QSsl::TlsV1_2);
+    socket->setProtocol(QSsl::AnyProtocol);
 
     #ifdef TCP_KEEPIDLE
         // time to start sending keepalive packets (seconds)
