@@ -33,7 +33,6 @@ set(kdeconnectconfigtest_sources
 ecm_add_test(kdeconnectconfigtest.cpp ${kdeconnectconfigtest_sources} TEST_NAME kdeconnectconfgtest LINK_LIBRARIES ${kdeconnect_libraries})
 
 set(lanlinkprovidertest_sources
-    ../core/core_debug.h
     ../core/backends/devicelink.cpp
     ../core/backends/lan/downloadjob.cpp
     ../core/backends/lan/landevicelink.cpp
@@ -48,3 +47,5 @@ set(lanlinkprovidertest_sources
     ../core/pluginloader.cpp
 )
 ecm_add_test(lanlinkprovidertest.cpp  ${lanlinkprovidertest_sources}  TEST_NAME lanlinkprovidertest LINK_LIBRARIES ${kdeconnect_libraries})
+
+ecm_add_test(devicetest.cpp ${lanlinkprovidertest_sources} TEST_NAME devicetest LINK_LIBRARIES ${kdeconnect_libraries})
