@@ -57,7 +57,7 @@ public:
     Q_FLAGS(StatusFilterFlags)
     Q_ENUMS(StatusFilterFlag)
 
-    DevicesModel(QObject *parent = 0);
+    explicit DevicesModel(QObject *parent = 0);
     virtual ~DevicesModel();
 
     void setDisplayFilter(int flags);

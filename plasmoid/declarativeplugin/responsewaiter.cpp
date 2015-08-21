@@ -1,10 +1,9 @@
+#include "responsewaiter.h"
 
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
 #include <QDebug>
 #include <QCoreApplication>
-
-#include "responsewaiter.h"
 
 Q_DECLARE_METATYPE(QDBusPendingReply<>)
 Q_DECLARE_METATYPE(QDBusPendingReply<QVariant>)

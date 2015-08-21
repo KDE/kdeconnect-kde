@@ -39,7 +39,7 @@ class KDECONNECTCORE_EXPORT Daemon
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
 
 public:
-    Daemon(QObject *parent);
+    explicit Daemon(QObject *parent);
     ~Daemon();
 
 public Q_SLOTS:

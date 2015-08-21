@@ -47,7 +47,7 @@ public:
         DbusInterfaceRole,
     };
 
-    NotificationsModel(QObject* parent = 0);
+    explicit NotificationsModel(QObject* parent = 0);
     virtual ~NotificationsModel();
 
     QString deviceId() const;

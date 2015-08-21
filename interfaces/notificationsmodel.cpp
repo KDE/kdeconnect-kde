@@ -37,12 +37,12 @@ NotificationsModel::NotificationsModel(QObject* parent)
 
     //new ModelTest(this, this);
 
-    connect(this, SIGNAL(rowsInserted(QModelIndex, int, int)),
+    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
             this, SIGNAL(rowsChanged()));
-    connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
+    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SIGNAL(rowsChanged()));
 
-    connect(this, SIGNAL(dataChanged(QModelIndex, QModelIndex)),
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SIGNAL(anyDismissableChanged()));
 
 

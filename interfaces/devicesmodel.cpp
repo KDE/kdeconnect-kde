@@ -42,9 +42,9 @@ DevicesModel::DevicesModel(QObject *parent)
 
     //new ModelTest(this, this);
 
-    connect(this, SIGNAL(rowsRemoved(QModelIndex, int, int)),
+    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SIGNAL(rowsChanged()));
-    connect(this, SIGNAL(rowsInserted(QModelIndex, int, int)),
+    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
             this, SIGNAL(rowsChanged()));
 
     connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),

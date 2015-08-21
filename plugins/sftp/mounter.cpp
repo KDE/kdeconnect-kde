@@ -107,7 +107,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     const QString program = "sshfs";
 
     QString path;
-    if (np.has("multiPaths")) path = "/";
+    if (np.has("multiPaths")) path = '/';
     else path = np.get<QString>("path");
 
     const QStringList arguments = QStringList()
