@@ -208,7 +208,7 @@ void LanLinkProvider::connected()
                 qDebug() << "Device trusted";
                 QString certString = KdeConnectConfig::instance()->getTrustedDevice(deviceId).certificate;
                 socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
-                socket->setPeerVerifyMode(QSslSocket::QueryPeer);
+                socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
                 connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
             } else {
                 qDebug() << "Device untrusted";
@@ -395,7 +395,7 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
     // Configure for ssl
     socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    socket->setProtocol(QSsl::AnyProtocol);
+    socket->setProtocol(QSsl::TlsV1_0);
 
     #ifdef TCP_KEEPIDLE
         // time to start sending keepalive packets (seconds)
