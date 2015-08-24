@@ -26,7 +26,6 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QUuid>
-#include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
 #include <QCoreApplication>
@@ -149,7 +148,7 @@ KdeConnectConfig::KdeConnectConfig()
 
 QString KdeConnectConfig::name()
 {
-    QString defaultName = qgetenv("USER") + "@" + QHostInfo::localHostName();
+    QString defaultName = qgetenv("USER") + '@' + QHostInfo::localHostName();
     d->config->beginGroup("myself");
     QString name = d->config->value("name", defaultName).toString();
     d->config->endGroup();

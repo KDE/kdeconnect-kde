@@ -18,11 +18,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "uploadjob.h"
+
 #include <qalgorithms.h>
 #include <QtGlobal>
 #include <kdeconnectconfig.h>
 
-#include "uploadjob.h"
 #include "core_debug.h"
 
 UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QVariantMap& transferInfo): KJob()

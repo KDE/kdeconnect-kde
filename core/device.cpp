@@ -135,7 +135,7 @@ void Device::reloadPlugins()
                 //If we don't find intersection with the received on one end and the sent on the other, we don't
                 //let the plugin stay
                 //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
-                //we asume that the other client doesn't know about capabilities.
+                //we assume that the other client doesn't know about capabilities.
                 if (!m_incomingCapabilities.isEmpty() && !m_outgoingCapabilities.isEmpty()
                     && (m_incomingCapabilities & outgoingInterfaces.toSet()).isEmpty()
                     && (m_outgoingCapabilities & incomingInterfaces.toSet()).isEmpty()
@@ -460,7 +460,7 @@ QString Device::iconForStatus(bool reachable, bool paired) const
     QString status = (reachable? (paired? QStringLiteral("connected") : QStringLiteral("disconnected")) : QStringLiteral("trusted"));
     QString type = type2str(deviceType);
 
-    return type+"-"+status;
+    return type+'-'+status;
 }
 
 void Device::setName(const QString &name)

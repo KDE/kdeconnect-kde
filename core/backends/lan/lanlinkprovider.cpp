@@ -306,7 +306,7 @@ void LanLinkProvider::newConnection()
         configureSocket(socket);
         //This socket is still managed by us (and child of the QTcpServer), if
         //it disconnects before we manage to pass it to a LanDeviceLink, it's
-        //our responsability to delete it. We do so with this connection.
+        //our responsibility to delete it. We do so with this connection.
         connect(socket, SIGNAL(disconnected()),
                 socket, SLOT(deleteLater()));
         connect(socket, SIGNAL(readyRead()),

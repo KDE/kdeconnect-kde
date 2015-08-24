@@ -31,7 +31,6 @@
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 #include "device.h"
-#include "networkpackage.h"
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
@@ -77,8 +76,8 @@ Daemon::Daemon(QObject *parent)
 
     //Listen to new devices
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
-        connect(a, SIGNAL(onConnectionReceived(NetworkPackage, DeviceLink*)),
-                this, SLOT(onNewDeviceLink(NetworkPackage, DeviceLink*)));
+        connect(a, SIGNAL(onConnectionReceived(NetworkPackage,DeviceLink*)),
+                this, SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
     }
     setDiscoveryEnabled(true);
 

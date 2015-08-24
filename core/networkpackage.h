@@ -52,8 +52,7 @@ public:
     const static QCA::EncryptionAlgorithm EncryptionAlgorithm;
     const static int ProtocolVersion;
 
-    NetworkPackage(const QString& type);
-    NetworkPackage(const NetworkPackage& np);
+    explicit NetworkPackage(const QString& type);
 
     static void createIdentityPackage(NetworkPackage*);
 

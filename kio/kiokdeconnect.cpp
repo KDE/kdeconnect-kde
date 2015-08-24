@@ -143,7 +143,7 @@ void KioKdeconnect::listDevice()
 
     QVariantMap urls = urlreply.value();
 
-    for (QVariantMap::iterator it = urls.begin(); it != urls.end(); it++) {
+    for (QVariantMap::iterator it = urls.begin(); it != urls.end(); ++it) {
 
         QString path = it.key();
         QString name = it.value().toString();
@@ -170,7 +170,7 @@ void KioKdeconnect::listDir(const QUrl &url)
 {
     qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
-    /// Url is not used here becuase all we could care about the url is the host, and that's already
+    /// Url is not used here because all we could care about the url is the host, and that's already
     /// handled in @p setHost
     Q_UNUSED(url);
 

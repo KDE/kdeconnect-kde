@@ -34,7 +34,9 @@ class UploadJob
 {
     Q_OBJECT
 public:
-    UploadJob(const QSharedPointer<QIODevice>& source,const QVariantMap& sslInfo);
+
+    explicit UploadJob(const QSharedPointer<QIODevice>& source,const QVariantMap& sslInfo);
+
     virtual void start();
     QVariantMap transferInfo();
 
