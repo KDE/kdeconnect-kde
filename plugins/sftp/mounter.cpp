@@ -120,8 +120,9 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-f"
         << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
-        << "-o" << "UserKnownHostsFile=/dev/null"; //Prevent storing as a known host
-    
+        << "-o" << "UserKnownHostsFile=/dev/null" //Prevent storing as a known host
+        << "-o" << "HostKeyAlgorithms=+ssh-dss"; //https://bugs.kde.org/show_bug.cgi?id=351725
+
     m_proc->setProgram(program, arguments);
 
     //To debug
@@ -129,8 +130,8 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     //m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
 
     cleanMountPoint();
-    
-    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Staring process: " << m_proc->program().join(" ");
+
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting process: " << m_proc->program().join(" ");
     m_proc->start();
 }
 
