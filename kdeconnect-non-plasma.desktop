@@ -53,5 +53,5 @@ Type=Application
 Terminal=false
 Categories=Qt;KDE;Network;
 
-NotShowIn=KDE;Plasma;
+NotShowIn=KDE;
 
