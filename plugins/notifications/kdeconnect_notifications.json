@@ -24,6 +24,7 @@
         "Description[tr]": "Telefon bildirimlerini bilgisayarınızla eşitler ve eşzamanlı tutar", 
         "Description[uk]": "Показ сповіщень з телефону на вашому комп’ютері та підтримання синхронізації даних сповіщень", 
         "Description[x-test]": "xxShow phone notifications on your computer and keep them in syncxx", 
+        "Description[zh_CN]": "在电脑显示手机通知并保持同步", 
         "EnabledByDefault": true, 
         "Icon": "preferences-desktop-notification", 
         "Id": "kdeconnect_notifications", 
