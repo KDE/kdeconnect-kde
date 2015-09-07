@@ -42,7 +42,7 @@ void UploadJob::start()
     while (!mServer->listen(QHostAddress::Any, mPort)) {
         mPort++;
         if (mPort > 1764) { //No ports available?
-            qWarning(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
+            qCWarning(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
             mPort = 0;
             return;
         }
@@ -56,7 +56,7 @@ void UploadJob::newConnection()
     if (mSocket || !mServer->hasPendingConnections()) return;
 
     if (!mInput->open(QIODevice::ReadOnly)) {
-        qWarning() << "error when opening the input to upload";
+        qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
         return; //TODO: Handle error, clean up...
     }
 
@@ -73,7 +73,7 @@ void UploadJob::readyRead()
         qint64 bytes = qMin(mInput->bytesAvailable(), (qint64)4096);
         int w = mSocket->write(mInput->read(bytes));
         if (w<0) {
-            qWarning() << "error when writing data to upload" << bytes << mInput->bytesAvailable();
+            qCWarning(KDECONNECT_CORE) << "error when writing data to upload" << bytes << mInput->bytesAvailable();
             break;
         }
         else

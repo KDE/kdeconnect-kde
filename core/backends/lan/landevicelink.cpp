@@ -106,7 +106,7 @@ void LanDeviceLink::dataReceived()
 
     } else {
         if (unserialized.hasPayloadTransferInfo()) {
-            qWarning() << "Ignoring unencrypted payload";
+            qCWarning(KDECONNECT_CORE) << "Ignoring unencrypted payload";
         }
 
         Q_EMIT receivedPackage(unserialized);
