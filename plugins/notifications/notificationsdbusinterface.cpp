@@ -41,12 +41,10 @@ NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
     , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
 {
     imagesDir.mkpath(imagesDir.absolutePath());
-
 }
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
 {
-    clearNotifications();
 }
 
 void NotificationsDbusInterface::clearNotifications()
@@ -64,7 +62,6 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
     if (np.get<bool>("isCancel")) {
         removeNotification(np.get<QString>("id"));
     } else {
-
 
         //TODO: Uncoment when we are able to display app icon on plasmoid
         QString destination;

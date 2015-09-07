@@ -39,6 +39,7 @@ BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     if (oldInterfaceIter != s_dbusInterfaces.end()) {
         qCDebug(KDECONNECT_PLUGIN_BATTERY) << "Deleting stale BattteryDbusInterface for" << device->name();
         oldInterfaceIter.value()->deleteLater();
+        s_dbusInterfaces.erase(oldInterfaceIter);
     }
 
     s_dbusInterfaces[device->id()] = this;
