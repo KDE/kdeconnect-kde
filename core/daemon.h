@@ -55,8 +55,9 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE void forceOnNetworkChange();
 
-    QString announcedName();
-    void setAnnouncedName(QString name);
+    ///don't try to turn into Q_PROPERTY, it doesn't work
+    Q_SCRIPTABLE QString announcedName();
+    Q_SCRIPTABLE void setAnnouncedName(QString name);
 
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyPaired = false) const;
