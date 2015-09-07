@@ -56,13 +56,13 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         type = QStringLiteral("missedCall");
         icon = QStringLiteral("call-start");
         content = i18n("Missed call from %1", phoneNumber);
-        flags = KNotification::Persistent;
+        flags |= KNotification::Persistent;
     } else if (event == "sms") {
         type = QStringLiteral("smsReceived");
         icon = QStringLiteral("mail-receive");
         QString messageBody = np.get<QString>("messageBody","");
         content = i18n("SMS from %1<br>%2", phoneNumber, messageBody);
-        flags = KNotification::Persistent;
+        flags |= KNotification::Persistent;
     } else if (event == "talking") {
         return nullptr;
     } else {
