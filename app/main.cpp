@@ -39,11 +39,13 @@ int main(int argc, char *argv[])
         aboutData.processCommandLine(&parser);
     }
  
-    QQmlApplicationEngine engine(QUrl("qrc:/qml/main.qml"));
+    QQmlApplicationEngine engine;
 
     KDeclarative::KDeclarative kdeclarative;
     kdeclarative.setDeclarativeEngine(&engine);
     kdeclarative.setupBindings();
+
+    engine.load(QUrl("qrc:/qml/main.qml"));
 
     return app.exec();
 }
