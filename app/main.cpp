@@ -26,7 +26,7 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    KAboutData aboutData("kdeconnect-kde", i18n("Awesome App"), "1.0", i18n("KDE Connect App"), KAboutLicense::GPL, i18n("(c) 2015, Aleix Pol Gonzalez"));
+    KAboutData aboutData("kdeconnect.app", i18n("Awesome App"), "1.0", i18n("KDE Connect App"), KAboutLicense::GPL, i18n("(c) 2015, Aleix Pol Gonzalez"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), i18n("Maintainer"), "aleixpol@kde.org");
     KAboutData::setApplicationData(aboutData);
 
