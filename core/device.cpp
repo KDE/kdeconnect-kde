@@ -181,6 +181,10 @@ void Device::reloadPlugins()
 
     Q_EMIT pluginsChanged();
 
+    NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
+    np.set<QStringList>("SupportedIncomingInterfaces", m_pluginsByIncomingInterface.keys());
+    np.set<QStringList>("SupportedOutgoingInterfaces", m_pluginsByOutgoingInterface.keys());
+    sendPackage(np);
 }
 
 QString Device::pluginsConfigFile() const
@@ -395,6 +399,15 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
         }
 
+    } else if (np.type() == PACKAGE_TYPE_CAPABILITIES) {
+        QSet<QString> newIncomingCapabilities = np.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet();
+        QSet<QString> newOutgoingCapabilities = np.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet();
+
+        if (newOutgoingCapabilities != m_outgoingCapabilities || newIncomingCapabilities != m_incomingCapabilities) {
+            m_incomingCapabilities = newIncomingCapabilities;
+            m_outgoingCapabilities = newOutgoingCapabilities;
+            reloadPlugins();
+        }
     } else if (isPaired()) {
         QList<KdeConnectPlugin*> plugins = m_pluginsByIncomingInterface.values(np.type());
         foreach(KdeConnectPlugin* plugin, plugins) {

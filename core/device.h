@@ -154,8 +154,8 @@ private: //Fields (TODO: dPointer!)
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
     QTimer m_pairingTimeut;
-    const QSet<QString> m_incomingCapabilities;
-    const QSet<QString> m_outgoingCapabilities;
+    QSet<QString> m_incomingCapabilities;
+    QSet<QString> m_outgoingCapabilities;
     QStringList m_missingPlugins;
 };
 

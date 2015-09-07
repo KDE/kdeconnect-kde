@@ -23,6 +23,7 @@
 
 #define PACKAGE_TYPE_IDENTITY QLatin1String("kdeconnect.identity")
 #define PACKAGE_TYPE_PAIR QLatin1String("kdeconnect.pair")
+#define PACKAGE_TYPE_CAPABILITIES QLatin1String("kdeconnect.capabilities")
 #define PACKAGE_TYPE_ENCRYPTED QLatin1String("kdeconnect.encrypted")
 
 #endif // NETWORKPACKAGETYPES_H
