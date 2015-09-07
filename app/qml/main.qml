@@ -39,7 +39,7 @@ ApplicationWindow
         }
         Label {
             Layout.fillWidth: true
-            text: "KDE Connect"
+            text: i18n("KDE Connect")
             font.pointSize: 20
         }
     }
