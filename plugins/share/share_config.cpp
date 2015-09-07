@@ -34,7 +34,8 @@ ShareConfig::ShareConfig(QWidget *parent, const QVariantList& args)
 {
     m_ui->setupUi(this);
     // xgettext:no-c-format
-    m_ui->commentLabel->setText(i18n("%1 in the path will be replaced with the specific device name."));
+    m_ui->commentLabel->setTextFormat(Qt::RichText);
+    m_ui->commentLabel->setText(i18n("&percnt;1 in the path will be replaced with the specific device name."));
 
     connect(m_ui->kurlrequester, SIGNAL(textChanged(QString)), this, SLOT(changed()));
 }
