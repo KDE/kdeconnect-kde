@@ -45,6 +45,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString statusIconName READ statusIconName)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChanged)
+    Q_PROPERTY(QStringList missingPlugins READ missingPlugins NOTIFY pluginsChanged)
 
     enum PairStatus {
         NotPaired,
@@ -86,6 +87,7 @@ public:
     QString type() const { return type2str(m_deviceType); };
     QString iconName() const;
     QString statusIconName() const;
+    QStringList missingPlugins() const { return m_missingPlugins; }
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
@@ -154,7 +156,7 @@ private: //Fields (TODO: dPointer!)
     QTimer m_pairingTimeut;
     const QSet<QString> m_incomingCapabilities;
     const QSet<QString> m_outgoingCapabilities;
-
+    QStringList m_missingPlugins;
 };
 
 Q_DECLARE_METATYPE(Device*)

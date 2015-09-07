@@ -213,9 +213,23 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     connect(currentDevice,SIGNAL(pairingFailed(QString)),
             this, SLOT(pairingFailed(QString)));
 
-    const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
+    QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
+    QList<KPluginInfo> missingPluginInfo;
+
+    QStringList missingPluginNames = currentDevice->missingPlugins();
+    missingPluginNames = QStringList("kdeconnect_mpriscontrol");
+    for (auto it = pluginInfo.begin(), itEnd = pluginInfo.end(); it!=itEnd; ) {
+        if (missingPluginNames.contains(it->pluginName())) {
+            missingPluginInfo.append(*it);
+            it = pluginInfo.erase(it);
+        } else {
+            ++it;
+        }
+    }
+
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
-    kcmUi->pluginSelector->addPlugins(pluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins"), QString(), deviceConfig);
+    kcmUi->pluginSelector->addPlugins(pluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
+    kcmUi->pluginSelector->addPlugins(missingPluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins unsupported by the device"), QString(), deviceConfig);
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
             this, SLOT(pluginsConfigChanged()));
