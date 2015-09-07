@@ -52,7 +52,7 @@ Daemon* Daemon::instance()
     return *s_instance;
 }
 
-Daemon::Daemon(QObject *parent)
+Daemon::Daemon(QObject *parent, bool testMode)
     : QObject(parent)
     , d(new DaemonPrivate)
 {
@@ -61,8 +61,10 @@ Daemon::Daemon(QObject *parent)
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
     //Load backends
-    d->mLinkProviders.insert(new LanLinkProvider());
-    //d->mLinkProviders.insert(new LoopbackLinkProvider());
+    if (testMode)
+        d->mLinkProviders.insert(new LoopbackLinkProvider());
+    else
+        d->mLinkProviders.insert(new LanLinkProvider());
 
     //Read remebered paired devices
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
@@ -106,12 +108,12 @@ void Daemon::forceOnNetworkChange()
     }
 }
 
-QStringList Daemon::devices(bool onlyReachable, bool onlyVisible) const
+QStringList Daemon::devices(bool onlyReachable, bool onlyPaired) const
 {
     QStringList ret;
     Q_FOREACH(Device* device, d->mDevices) {
         if (onlyReachable && !device->isReachable()) continue;
-        if (onlyVisible && !device->isPaired()) continue;
+        if (onlyPaired && !device->isPaired()) continue;
         ret.append(device->id());
     }
     return ret;
@@ -180,6 +182,11 @@ QNetworkAccessManager* Daemon::networkAccessManager()
         manager = new QNetworkAccessManager(this);
     }
     return manager;
+}
+
+QList<Device*> Daemon::devicesList() const
+{
+    return d->mDevices.values();
 }
 
 Daemon::~Daemon()

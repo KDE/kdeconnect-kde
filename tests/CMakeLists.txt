@@ -13,5 +13,6 @@ set(kdeconnect_libraries
     qca-qt5
 )
 
+ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(networkpackagetests.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(testsocketlinereader.cpp ../core/backends/lan/socketlinereader.cpp TEST_NAME testsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})

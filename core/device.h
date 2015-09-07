@@ -102,6 +102,8 @@ public:
 
     Q_SCRIPTABLE QString pluginsConfigFile() const;
 
+    KdeConnectPlugin* plugin(const QString& plugin) const;
+
 public Q_SLOTS:
     ///sends a @p np package to the device
     virtual bool sendPackage(NetworkPackage& np);

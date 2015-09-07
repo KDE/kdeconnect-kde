@@ -47,6 +47,9 @@ private Q_SLOTS:
     void finished(KJob*);
     void openDestinationFolder();
 
+Q_SIGNALS:
+    void fileReceived(const QUrl& url);
+
 private:
     void shareUrl(const QUrl& url);
 

@@ -522,3 +522,8 @@ void Device::setName(const QString &name)
         Q_EMIT nameChanged(name);
     }
 }
+
+KdeConnectPlugin* Device::plugin(const QString& pluginName) const
+{
+    return m_plugins[pluginName];
+}

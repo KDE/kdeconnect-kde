@@ -33,13 +33,15 @@
 #include <QNetworkReply>
 #include <QBuffer>
 
+#include "kdeconnectcore_export.h"
+
 /**
  * @short It will stream a device into a url destination
  *
  * Given a QIODevice, the file transfer job will use the system's QNetworkAccessManager
  * for putting the stream into the requested location.
  */
-class FileTransferJob
+class KDECONNECTCORE_EXPORT FileTransferJob
     : public KJob
 {
     Q_OBJECT
