@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=KDE Connect Monitor
+Name[nl]=KDE-Connectmonitor
+Name[pt]=Monitor do KDE Connect
+Name[pt_BR]=Monitor do KDE Connect
+Name[sv]=KDE-anslut övervakning
+Name[uk]=Монітор KDE Connect
+Name[x-test]=xxKDE Connect Monitorxx
 Comment=Display information about your devices
+Comment[nl]=Toon informatie over uw apparaten
+Comment[pt]=Mostrar informações sobre os seus dispositivos
+Comment[pt_BR]=Mostra informações sobre seus dispositivos
+Comment[sv]=Visa information om enheter
+Comment[uk]=Показати дані щодо ваших пристроїв
+Comment[x-test]=xxDisplay information about your devicesxx
 Exec=plasmawindowed org.kde.kdeconnect --statusnotifier
 Icon=kdeconnect
 Type=Application
