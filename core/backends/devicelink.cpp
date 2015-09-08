@@ -24,13 +24,12 @@
 
 DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
     : QObject(parent)
+    , mPrivateKey(KdeConnectConfig::instance()->privateKey())
     , mDeviceId(deviceId)
     , mLinkProvider(parent)
 {
     Q_ASSERT(!deviceId.isEmpty());
 
     setProperty("deviceId", deviceId);
-
-    mPrivateKey = KdeConnectConfig::instance()->privateKey();
 }
 

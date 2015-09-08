@@ -42,7 +42,6 @@ public:
     explicit Daemon(QObject *parent, bool testMode = false);
     ~Daemon();
 
-public Q_SLOTS:
     /**
      * Returns the daemon.
      *
@@ -52,6 +51,13 @@ public Q_SLOTS:
 
     //After calling this, signal deviceDiscovered will be triggered for each device
     Q_SCRIPTABLE void setDiscoveryEnabled(bool b);
+    QList<Device*> devicesList() const;
+
+    virtual void requestPairing(Device *d) = 0;
+    virtual void reportError(const QString &title, const QString &description) = 0;
+    virtual QNetworkAccessManager* networkAccessManager();
+
+public Q_SLOTS:
 
     Q_SCRIPTABLE void forceOnNetworkChange();
 
@@ -61,12 +67,6 @@ public Q_SLOTS:
 
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyPaired = false) const;
-
-    virtual void requestPairing(Device *d) = 0;
-    virtual void reportError(const QString &title, const QString &description) = 0;
-    virtual QNetworkAccessManager* networkAccessManager();
-
-    QList<Device*> devicesList() const;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);

@@ -51,7 +51,7 @@ protected:
     QCA::PrivateKey mPrivateKey;
 
 private:
-    QString mDeviceId;
+    const QString mDeviceId;
     LinkProvider* mLinkProvider;
 
 };
