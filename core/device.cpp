@@ -74,8 +74,6 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
-    , m_incomingCapabilities(identityPackage.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet())
-    , m_outgoingCapabilities(identityPackage.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet())
 {
     addLink(identityPackage, dl);
     
@@ -295,6 +293,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     qSort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
 
     if (m_deviceLinks.size() == 1) {
+        m_incomingCapabilities = identityPackage.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet();
+        m_outgoingCapabilities = identityPackage.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet();
         reloadPlugins(); //Will load the plugins
         Q_EMIT reachableStatusChanged();
     } else {
