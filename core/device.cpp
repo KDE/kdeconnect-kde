@@ -76,7 +76,7 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
 {
     addLink(identityPackage, dl);
-    
+
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
@@ -109,6 +109,7 @@ void Device::reloadPlugins()
     QHash<QString, KdeConnectPlugin*> newPluginMap;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByOutgoingInterface;
+    QSet<QString> supportedIncomingInterfaces;
     QStringList missingPlugins;
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
@@ -119,12 +120,7 @@ void Device::reloadPlugins()
 
         //Code borrowed from KWin
         foreach (const QString& pluginName, loader->getPluginList()) {
-            QString enabledKey = pluginName + QString::fromLatin1("Enabled");
-
-            bool isPluginEnabled = (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
-                                                            : loader->getPluginInfo(pluginName).isEnabledByDefault());
-
-            if (isPluginEnabled) {
+            if (isPluginEnabled(pluginName)) {
                 KdeConnectPlugin* plugin = m_plugins.take(pluginName);
                 QStringList incomingInterfaces, outgoingInterfaces;
                 if (plugin) {
@@ -135,6 +131,7 @@ void Device::reloadPlugins()
                     incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType");
                     outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType");
                 }
+                supportedIncomingInterfaces += incomingInterfaces.toSet();
 
                 //If we don't find intersection with the received on one end and the sent on the other, we don't
                 //let the plugin stay
@@ -167,22 +164,28 @@ void Device::reloadPlugins()
 
     //Erase all left plugins in the original map (meaning that we don't want
     //them anymore, otherwise they would have been moved to the newPluginMap)
+    const QStringList newSupportedIncomingInterfaces = supportedIncomingInterfaces.toList();
+    const bool capabilitiesChanged = (m_pluginsByOutgoingInterface != newPluginsByOutgoingInterface
+                                     || m_supportedIncomingInterfaces != newSupportedIncomingInterfaces);
     qDeleteAll(m_plugins);
     m_plugins = newPluginMap;
-    m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
     m_pluginsByOutgoingInterface = newPluginsByOutgoingInterface;
+    m_supportedIncomingInterfaces = newSupportedIncomingInterfaces;
+    m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
     m_missingPlugins = missingPlugins;
 
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
         plugin->connected();
     }
-
     Q_EMIT pluginsChanged();
 
-    NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
-    np.set<QStringList>("SupportedIncomingInterfaces", m_pluginsByIncomingInterface.keys());
-    np.set<QStringList>("SupportedOutgoingInterfaces", m_pluginsByOutgoingInterface.keys());
-    sendPackage(np);
+    if (capabilitiesChanged)
+    {
+        NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
+        np.set<QStringList>("SupportedIncomingInterfaces", newSupportedIncomingInterfaces);
+        np.set<QStringList>("SupportedOutgoingInterfaces", newPluginsByOutgoingInterface.keys());
+        sendPackage(np);
+    }
 }
 
 QString Device::pluginsConfigFile() const
@@ -543,4 +546,22 @@ void Device::setName(const QString &name)
 KdeConnectPlugin* Device::plugin(const QString& pluginName) const
 {
     return m_plugins[pluginName];
+}
+
+void Device::setPluginEnabled(const QString& pluginName, bool enabled)
+{
+    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
+
+    const QString enabledKey = pluginName + QStringLiteral("Enabled");
+    pluginStates.writeEntry(enabledKey, enabled);
+    reloadPlugins();
+}
+
+bool Device::isPluginEnabled(const QString& pluginName) const
+{
+    const QString enabledKey = pluginName + QStringLiteral("Enabled");
+    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
+
+    return (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
+                                            : PluginLoader::instance()->getPluginInfo(pluginName).isEnabledByDefault());
 }

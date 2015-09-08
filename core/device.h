@@ -104,7 +104,9 @@ public:
 
     Q_SCRIPTABLE QString pluginsConfigFile() const;
 
-    KdeConnectPlugin* plugin(const QString& plugin) const;
+    KdeConnectPlugin* plugin(const QString& pluginName) const;
+    void setPluginEnabled(const QString& pluginName, bool enabled);
+    bool isPluginEnabled(const QString& pluginName) const;
 
 public Q_SLOTS:
     ///sends a @p np package to the device
@@ -156,6 +158,7 @@ private: //Fields (TODO: dPointer!)
     QTimer m_pairingTimeut;
     QSet<QString> m_incomingCapabilities;
     QSet<QString> m_outgoingCapabilities;
+    QStringList m_supportedIncomingInterfaces;
     QStringList m_missingPlugins;
 };
 
