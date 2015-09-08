@@ -110,7 +110,7 @@ void Device::reloadPlugins()
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByOutgoingInterface;
     QSet<QString> supportedIncomingInterfaces;
-    QStringList missingPlugins;
+    QStringList unsupportedPlugins;
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
@@ -139,7 +139,7 @@ void Device::reloadPlugins()
                 ) {
                     qCWarning(KDECONNECT_CORE) << "not loading " << pluginName << "because of unmatched capabilities";
                     delete plugin;
-                    missingPlugins.append(pluginName);
+                    unsupportedPlugins.append(pluginName);
                     continue;
                 }
 
@@ -168,7 +168,7 @@ void Device::reloadPlugins()
     m_pluginsByOutgoingInterface = newPluginsByOutgoingInterface;
     m_supportedIncomingInterfaces = newSupportedIncomingInterfaces;
     m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
-    m_missingPlugins = missingPlugins;
+    m_unsupportedPlugins = unsupportedPlugins;
 
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
         plugin->connected();

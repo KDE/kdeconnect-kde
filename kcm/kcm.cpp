@@ -218,7 +218,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
     QList<KPluginInfo> missingPluginInfo;
 
-    QStringList missingPluginNames = currentDevice->missingPlugins();
+    QStringList missingPluginNames = currentDevice->unsupportedPlugins();
     for (auto it = pluginInfo.begin(), itEnd = pluginInfo.end(); it!=itEnd; ) {
         if (missingPluginNames.contains(it->pluginName())) {
             missingPluginInfo.append(*it);
