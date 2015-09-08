@@ -346,7 +346,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         bool wantsPair = np.get<bool>("pair");
 
         if (wantsPair == isPaired()) {
-            qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
+            qCDebug(KDECONNECT_CORE) << m_deviceName << "already" << (wantsPair? "paired":"unpaired");
             if (m_pairStatus == Device::Requested) {
                 m_pairStatus = Device::NotPaired;
                 m_pairingTimeut.stop();
