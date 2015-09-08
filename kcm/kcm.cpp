@@ -104,6 +104,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     connect(kcmUi->renameShow_button,SIGNAL(clicked()),
             this, SLOT(renameShow()));
 
+    daemon->setDiscoveryEnabled(true);
 }
 
 void KdeConnectKcm::renameShow()
@@ -133,6 +134,7 @@ void KdeConnectKcm::setRenameMode(bool b) {
 
 KdeConnectKcm::~KdeConnectKcm()
 {
+    daemon->setDiscoveryEnabled(false);
     delete kcmUi;
 }
 

@@ -25,7 +25,6 @@
 LoopbackLinkProvider::LoopbackLinkProvider()
     : identityPackage(PACKAGE_TYPE_IDENTITY)
 {
-    loopbackDeviceLink = 0;
     NetworkPackage::createIdentityPackage(&identityPackage);
 }
 
@@ -55,7 +54,6 @@ void LoopbackLinkProvider::onStop()
 {
     if (loopbackDeviceLink) {
         delete loopbackDeviceLink;
-        loopbackDeviceLink = 0;
     }
 }
 

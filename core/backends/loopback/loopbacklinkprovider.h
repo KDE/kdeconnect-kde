@@ -23,6 +23,7 @@
 
 #include "../linkprovider.h"
 #include "loopbackdevicelink.h"
+#include <QPointer>
 
 class LoopbackLinkProvider
     : public LinkProvider
@@ -40,7 +41,7 @@ public:
     virtual void onNetworkChange();
 
 private:
-    LoopbackDeviceLink* loopbackDeviceLink;
+    QPointer<LoopbackDeviceLink> loopbackDeviceLink;
     NetworkPackage identityPackage;
     
 };

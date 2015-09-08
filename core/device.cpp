@@ -93,7 +93,7 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
 
 Device::~Device()
 {
-
+    qDeleteAll(m_deviceLinks);
 }
 
 bool Device::hasPlugin(const QString& name) const
