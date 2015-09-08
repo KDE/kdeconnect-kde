@@ -153,14 +153,8 @@ void KdeConnectKcm::resetSelection()
 
 void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 {
-
-    kcmUi->noDevicePlaceholder->setVisible(false);
-
     if (currentDevice) {
-        disconnect(currentDevice,SIGNAL(pairingChanged(bool)),
-            this, SLOT(pairingChanged(bool)));
-        disconnect(currentDevice,SIGNAL(pairingFailed(QString)),
-            this, SLOT(pairingFailed(QString)));
+        disconnect(currentDevice, 0, this, 0);
     }
 
     //Store previous device config
@@ -175,6 +169,16 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     currentIndex = sortProxyModel->mapToSource(current);
     currentDevice = devicesModel->getDevice(currentIndex.row());
 
+    resetCurrentDevice();
+
+    connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
+    connect(currentDevice, SIGNAL(pairingChanged(bool)), this, SLOT(pairingChanged(bool)));
+    connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
+}
+
+void KdeConnectKcm::resetCurrentDevice()
+{
+    kcmUi->noDevicePlaceholder->setVisible(false);
     bool valid = (currentDevice != nullptr && currentDevice->isValid());
     kcmUi->deviceInfo->setVisible(valid);
     if (!valid) {
@@ -210,11 +214,6 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     kcmUi->name_label->setText(currentDevice->name());
     kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
 
-    connect(currentDevice,SIGNAL(pairingChanged(bool)),
-            this, SLOT(pairingChanged(bool)));
-    connect(currentDevice,SIGNAL(pairingFailed(QString)),
-            this, SLOT(pairingFailed(QString)));
-
     const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
     QList<KPluginInfo> availablePluginInfo;
     QList<KPluginInfo> missingPluginInfo;
@@ -234,7 +233,6 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
             this, SLOT(pluginsConfigChanged()));
-
 }
 
 void KdeConnectKcm::requestPair()

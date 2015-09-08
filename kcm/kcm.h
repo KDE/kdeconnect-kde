@@ -59,6 +59,7 @@ private Q_SLOTS:
     void renameShow();
     void renameDone();
     void setRenameMode(bool b);
+    void resetCurrentDevice();
 
 private:
     Ui::KdeConnectKcmUi* kcmUi;
