@@ -72,7 +72,12 @@ class TestSendFile : public QObject
 
     private Q_SLOTS:
         void testSend() {
-            Device* d = mDaemon->devicesList().first();
+            Device* d = nullptr;
+            foreach(Device* id, mDaemon->devicesList()) {
+                if (id->isReachable())
+                    d = id;
+            }
+            QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
             QCOMPARE(d->isPaired(), true);
 

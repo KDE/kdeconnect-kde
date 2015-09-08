@@ -75,7 +75,12 @@ class PluginLoadTest : public QObject
 
     private Q_SLOTS:
         void testPlugins() {
-            Device* d = mDaemon->devicesList().first();
+            Device* d = nullptr;
+            foreach(Device* id, mDaemon->devicesList()) {
+                if (id->isReachable())
+                    d = id;
+            }
+            QVERIFY(d);
             QVERIFY(d->isPaired());
             QVERIFY(d->isReachable());
 
