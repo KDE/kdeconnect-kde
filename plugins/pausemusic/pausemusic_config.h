@@ -36,9 +36,9 @@ public:
     virtual ~PauseMusicConfig();
 
 public Q_SLOTS:
-    virtual void save();
-    virtual void load();
-    virtual void defaults();
+    virtual void save() override;
+    virtual void load() override;
+    virtual void defaults() override;
 
 private:
     Ui::PauseMusicConfigUi* m_ui;

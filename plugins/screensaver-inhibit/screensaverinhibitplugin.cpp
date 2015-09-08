@@ -46,7 +46,7 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVaria
 
     QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, "kdeconnect", "Phone is connected");
 
-    if (reply.errorMessage() != NULL) {
+    if (reply.errorMessage() != nullptr) {
         qCDebug(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT) << "Unable to inhibit the screensaver: " << reply.errorMessage();
         inhibitCookie = 0;
     } else {

@@ -41,8 +41,8 @@ public:
     Q_SCRIPTABLE void sendPing(const QString& customMessage);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected();
+    virtual bool receivePackage(const NetworkPackage& np) override;
+    virtual void connected() override;
 
 private:
     QString dbusPath() const;

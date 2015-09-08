@@ -35,7 +35,7 @@ class UploadJob
     Q_OBJECT
 public:
     explicit UploadJob(const QSharedPointer<QIODevice>& source);
-    virtual void start();
+    virtual void start() override;
     QVariantMap getTransferInfo();
 
 private:

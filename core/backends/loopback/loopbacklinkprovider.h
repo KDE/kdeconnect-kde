@@ -32,12 +32,12 @@ public:
     LoopbackLinkProvider();
     ~LoopbackLinkProvider();
 
-    QString name() { return "LoopbackLinkProvider"; }
-    int priority() { return PRIORITY_LOW; }
+    QString name() override { return "LoopbackLinkProvider"; }
+    int priority() override { return PRIORITY_LOW; }
 
-    virtual void onStart();
-    virtual void onStop();
-    virtual void onNetworkChange();
+    virtual void onStart() override;
+    virtual void onStop() override;
+    virtual void onNetworkChange() override;
 
 private:
     LoopbackDeviceLink* loopbackDeviceLink;

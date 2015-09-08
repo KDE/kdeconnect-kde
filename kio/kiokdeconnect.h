@@ -37,11 +37,11 @@ class KioKdeconnect : public QObject, public KIO::SlaveBase
 public:
     KioKdeconnect(const QByteArray &pool, const QByteArray &app);
 
-    void get(const QUrl &url);
-    void listDir(const QUrl &url);
-    void stat(const QUrl &url);
+    void get(const QUrl &url) override;
+    void listDir(const QUrl &url) override;
+    void stat(const QUrl &url) override;
 
-    void setHost(const QString &constHostname, quint16 port, const QString &user, const QString &pass);
+    void setHost(const QString &constHostname, quint16 port, const QString &user, const QString &pass) override;
 
     void listAllDevices(); //List all devices exported by m_dbusInterface
     void listDevice(); //List m_currentDevice

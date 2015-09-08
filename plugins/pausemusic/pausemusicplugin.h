@@ -36,8 +36,8 @@ public:
     explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
+    virtual bool receivePackage(const NetworkPackage& np) override;
+    virtual void connected() override { }
 
     /**
      * @returns 0 if not muted, 1 if muted or -1 if there was an error

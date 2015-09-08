@@ -32,8 +32,8 @@ class LoopbackDeviceLink
 public:
     LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
-    virtual bool sendPackage(NetworkPackage& np);
-    virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np);
+    virtual bool sendPackage(NetworkPackage& np) override;
+    virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) override;
 
 };
 

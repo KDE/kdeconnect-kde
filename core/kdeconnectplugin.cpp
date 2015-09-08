@@ -37,7 +37,7 @@ KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
     d->mDevice = qvariant_cast< Device* >(args.at(0));
     d->mPluginName = args.at(1).toString();
     d->mOutgoingTypes = args.at(2).toStringList().toSet();
-    d->mConfig = 0;
+    d->mConfig = nullptr;
 }
 
 KdeConnectPluginConfig* KdeConnectPlugin::config() const

@@ -29,7 +29,7 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source): KJob()
 {
     mInput = source;
     mServer = new QTcpServer(this);
-    mSocket = 0;
+    mSocket = nullptr;
     mPort = 0;
 
     connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
