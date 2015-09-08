@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,39 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef TELEPHONYPLUGIN_H
-#define TELEPHONYPLUGIN_H
+#ifndef SENDSMSDIALOG_H
+#define SENDSMSDIALOG_H
 
-#include <QLoggingCategory>
+#include <QDialog>
+#include <QSize>
 
-#include <KNotification>
+class QTextEdit;
+class QLineEdit;
+class QPushButton;
 
-#include <core/kdeconnectplugin.h>
-
-#define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
-
-class TelephonyPlugin
-    : public KdeConnectPlugin
+class SendSmsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
-
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
-    void sendMutePackage();
+    explicit SendSmsDialog(const QString& originalMessage, const QString& phoneNumber, const QString& contactName, QWidget *parent = 0);
+    virtual QSize sizeHint() const;
 
 private Q_SLOTS:
+    void sendButtonClicked();
+
+Q_SIGNALS:
     void sendSms(const QString& phoneNumber, const QString& messageBody);
-    void showSendSmsDialog();
 
 private:
-    KNotification* createNotification(const NetworkPackage& np);
-
+    QString mPhoneNumber;
+    QTextEdit *mTextEdit;
 };
 
 #endif

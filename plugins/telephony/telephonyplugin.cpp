@@ -20,12 +20,13 @@
 
 #include "telephonyplugin.h"
 
+#include "sendsmsdialog.h"
+
 #include <KLocalizedString>
 #include <QIcon>
 #include <QDebug>
 
 #include <KPluginFactory>
-
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_telephony.json", registerPlugin< TelephonyPlugin >(); )
 
@@ -39,29 +40,29 @@ TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 {
-
     const QString event = np.get<QString>("event");
     const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
+    const QString contactName = np.get<QString>("contactName", phoneNumber);
 
     QString content, type, icon;
-    KNotification::NotificationFlags flags = KNotification::CloseOnTimeout;
+    KNotification::NotificationFlags flags = KNotification::CloseOnTimeout | KNotification::CloseWhenWidgetActivated;
 
     const QString title = device()->name();
 
     if (event == "ringing") {
         type = QStringLiteral("callReceived");
         icon = QStringLiteral("call-start");
-        content = i18n("Incoming call from %1", phoneNumber);
+        content = i18n("Incoming call from %1", contactName);
     } else if (event == "missedCall") {
         type = QStringLiteral("missedCall");
         icon = QStringLiteral("call-start");
-        content = i18n("Missed call from %1", phoneNumber);
+        content = i18n("Missed call from %1", contactName);
         flags |= KNotification::Persistent;
     } else if (event == "sms") {
         type = QStringLiteral("smsReceived");
         icon = QStringLiteral("mail-receive");
         QString messageBody = np.get<QString>("messageBody","");
-        content = i18n("SMS from %1<br>%2", phoneNumber, messageBody);
+        content = i18n("SMS from %1<br>%2", contactName, messageBody);
         flags |= KNotification::Persistent;
     } else if (event == "talking") {
         return NULL;
@@ -86,6 +87,12 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     if (event == QLatin1String("ringing")) {
         notification->setActions( QStringList(i18n("Mute Call")) );
         connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePackage);
+    } else if (event == QLatin1String("sms")) {
+        notification->setActions( QStringList(i18n("Reply")) );
+        notification->setProperty("phoneNumber", phoneNumber);
+        notification->setProperty("contactName", contactName);
+        notification->setProperty("originalMessage", np.get<QString>("messageBody",""));
+        connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::showSendSmsDialog);
     }
 
     return notification;
@@ -96,15 +103,11 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 {
     if (np.get<bool>("isCancel")) {
 
-        //It would be awesome to remove the old notification from the system tray here, but there is no way to do it :(
-        //Now I realize why at the end of the day I have hundreds of notifications from facebook messages that I HAVE ALREADY READ,
-        //...it's just because the telepathy client has no way to remove them! even when it knows that I have read those messages!
+        //TODO: Clear the old notification
 
     } else {
-
         KNotification* n = createNotification(np);
         if (n != NULL) n->sendEvent();
-
     }
 
     return true;
@@ -116,6 +119,25 @@ void TelephonyPlugin::sendMutePackage()
     NetworkPackage package(PACKAGE_TYPE_TELEPHONY);
     package.set<QString>( "action", "mute" );
     sendPackage(package);
+}
+
+void TelephonyPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
+{
+    NetworkPackage np(PACKAGE_TYPE_TELEPHONY);
+    np.set("sendSms", true);
+    np.set("phoneNumber", phoneNumber);
+    np.set("messageBody", messageBody);
+    sendPackage(np);
+}
+
+void TelephonyPlugin::showSendSmsDialog()
+{
+    QString phoneNumber = sender()->property("phoneNumber").toString();
+    QString contactName = sender()->property("contactName").toString();
+    QString originalMessage = sender()->property("originalMessage").toString();
+    SendSmsDialog* dialog = new SendSmsDialog(originalMessage, phoneNumber, contactName);
+    connect(dialog, SIGNAL(sendSms(QString,QString)), this, SLOT(sendSms(QString,QString)));
+    dialog->show();
 }
 
 #include "telephonyplugin.moc"

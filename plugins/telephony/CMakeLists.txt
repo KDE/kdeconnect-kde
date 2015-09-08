@@ -2,6 +2,7 @@ find_package(KF5 REQUIRED COMPONENTS Notifications)
 
 set(kdeconnect_telephony_SRCS
     telephonyplugin.cpp
+    sendsmsdialog.cpp
 )
 
 kdeconnect_add_plugin(kdeconnect_telephony JSON kdeconnect_telephony.json SOURCES ${kdeconnect_telephony_SRCS})
