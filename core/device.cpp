@@ -122,24 +122,20 @@ void Device::reloadPlugins()
         foreach (const QString& pluginName, loader->getPluginList()) {
             if (isPluginEnabled(pluginName)) {
                 KdeConnectPlugin* plugin = m_plugins.take(pluginName);
-                QStringList incomingInterfaces, outgoingInterfaces;
-                if (plugin) {
-                    incomingInterfaces = m_pluginsByIncomingInterface.keys(plugin);
-                    outgoingInterfaces = m_pluginsByOutgoingInterface.keys(plugin);
-                } else {
-                    const KPluginMetaData service = loader->getPluginInfo(pluginName);
-                    incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType");
-                    outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType");
-                }
-                supportedIncomingInterfaces += incomingInterfaces.toSet();
+
+                const KPluginMetaData service = loader->getPluginInfo(pluginName);
+                QSet<QString> incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
+                QSet<QString> outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
+
+                supportedIncomingInterfaces += incomingInterfaces;
 
                 //If we don't find intersection with the received on one end and the sent on the other, we don't
                 //let the plugin stay
                 //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
                 //we assume that the other client doesn't know about capabilities.
                 if (!m_incomingCapabilities.isEmpty() && !m_outgoingCapabilities.isEmpty()
-                    && (m_incomingCapabilities & outgoingInterfaces.toSet()).isEmpty()
-                    && (m_outgoingCapabilities & incomingInterfaces.toSet()).isEmpty()
+                    && (m_incomingCapabilities & outgoingInterfaces).isEmpty()
+                    && (m_outgoingCapabilities & incomingInterfaces).isEmpty()
                 ) {
                     qCWarning(KDECONNECT_CORE) << "not loading " << pluginName << "because of unmatched capabilities";
                     delete plugin;
