@@ -267,7 +267,7 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
 DeviceDbusInterface* DevicesModel::getDevice(int row) const
 {
     if (row < 0 || row >= m_deviceList.size()) {
-        return NULL;
+        return nullptr;
     }
 
     return m_deviceList[row];

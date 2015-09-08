@@ -32,7 +32,7 @@
 
 NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)
-    , m_dbusInterface(0)
+    , m_dbusInterface(nullptr)
 {
 
     //new ModelTest(this, this);
@@ -191,12 +191,12 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
 NotificationDbusInterface* NotificationsModel::getNotification(const QModelIndex& index) const
 {
     if (!index.isValid()) {
-        return NULL;
+        return nullptr;
     }
 
     int row = index.row();
     if (row < 0 || row >= m_notificationList.size()) {
-        return NULL;
+        return nullptr;
     }
 
     return m_notificationList[row];

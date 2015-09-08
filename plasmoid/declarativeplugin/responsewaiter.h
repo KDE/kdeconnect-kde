@@ -36,7 +36,7 @@ class DBusAsyncResponse : public QObject
     Q_PROPERTY(bool autoDelete READ autodelete WRITE setAutodelete)
     
 public:
-    explicit DBusAsyncResponse(QObject* parent = 0);
+    explicit DBusAsyncResponse(QObject* parent = nullptr);
     virtual ~DBusAsyncResponse() {}; 
 
     Q_INVOKABLE void setPendingCall(QVariant e);

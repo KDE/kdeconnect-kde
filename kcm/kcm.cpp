@@ -49,7 +49,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
-    , currentDevice(0)
+    , currentDevice(nullptr)
 {
     KAboutData *about = new KAboutData("kdeconnect-kcm",
                                        i18n("KDE Connect Settings"),
@@ -167,7 +167,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     pluginsConfigChanged();
 
     if (!current.isValid()) {
-        currentDevice = NULL;
+        currentDevice = nullptr;
         kcmUi->deviceInfo->setVisible(false);
         return;
     }
@@ -175,7 +175,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     currentIndex = sortProxyModel->mapToSource(current);
     currentDevice = devicesModel->getDevice(currentIndex.row());
 
-    bool valid = (currentDevice != NULL && currentDevice->isValid());
+    bool valid = (currentDevice != nullptr && currentDevice->isValid());
     kcmUi->deviceInfo->setVisible(valid);
     if (!valid) {
         return;
@@ -289,7 +289,7 @@ void KdeConnectKcm::pluginsConfigChanged()
     if (!currentDevice) return;
 
     DeviceDbusInterface* auxCurrentDevice = currentDevice;
-    currentDevice = 0; //HACK to avoid infinite recursion (for some reason calling save on pluginselector emits changed)
+    currentDevice = nullptr; //HACK to avoid infinite recursion (for some reason calling save on pluginselector emits changed)
     kcmUi->pluginSelector->save();
     currentDevice = auxCurrentDevice;
 

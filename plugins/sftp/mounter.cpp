@@ -32,7 +32,7 @@
 Mounter::Mounter(SftpPlugin* sftp)
     : QObject(sftp)
     , m_sftp(sftp)
-    , m_proc(0)
+    , m_proc(nullptr)
     , m_mountPoint(sftp->mountPoint())
     , m_started(false)
 {

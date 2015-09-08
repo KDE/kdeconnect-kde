@@ -27,7 +27,7 @@ class ProcessRunner : public QObject
     Q_OBJECT
 
 public:
-    explicit ProcessRunner(QObject *parent = 0);
+    explicit ProcessRunner(QObject *parent = nullptr);
     ~ProcessRunner();
 
     Q_INVOKABLE void runKdeconnectKCM();

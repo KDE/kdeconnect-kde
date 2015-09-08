@@ -65,10 +65,10 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         content = i18n("SMS from %1<br>%2", contactName, messageBody);
         flags |= KNotification::Persistent;
     } else if (event == "talking") {
-        return NULL;
+        return nullptr;
     } else {
 #ifndef NDEBUG
-        return NULL;
+        return nullptr;
 #else
         type = QStringLiteral("callReceived");
         icon = QStringLiteral("phone");
@@ -107,7 +107,8 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 
     } else {
         KNotification* n = createNotification(np);
-        if (n != NULL) n->sendEvent();
+        if (n != nullptr) n->sendEvent();
+
     }
 
     return true;

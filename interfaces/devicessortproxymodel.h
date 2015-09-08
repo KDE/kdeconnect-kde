@@ -31,9 +31,9 @@ class KDECONNECTINTERFACES_EXPORT DevicesSortProxyModel : public QSortFilterProx
     Q_OBJECT
 public:
     explicit DevicesSortProxyModel(DevicesModel* devicesModel = Q_NULLPTR);
-    virtual bool lessThan(const QModelIndex& left, const QModelIndex& right) const;
-    virtual bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const;
-    virtual void setSourceModel(QAbstractItemModel *sourceModel);
+    virtual bool lessThan(const QModelIndex& left, const QModelIndex& right) const override;
+    virtual bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const override;
+    virtual void setSourceModel(QAbstractItemModel *sourceModel) override;
 
 public Q_SLOTS:
     void sourceDataChanged(QModelIndex,QModelIndex);

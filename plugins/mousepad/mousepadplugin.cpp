@@ -86,7 +86,7 @@ template <typename T, size_t N>
 size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args), m_fakekey(0), m_x11(QX11Info::isPlatformX11())
+    : KdeConnectPlugin(parent, args), m_fakekey(nullptr), m_x11(QX11Info::isPlatformX11())
 #if HAVE_WAYLAND
     , m_waylandInput(nullptr)
     , m_waylandAuthenticationRequested(false)
@@ -101,7 +101,7 @@ MousepadPlugin::~MousepadPlugin()
 {
     if (m_fakekey) {
         free(m_fakekey);
-        m_fakekey = 0;
+        m_fakekey = nullptr;
     }
 }
 

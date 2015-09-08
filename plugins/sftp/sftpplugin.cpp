@@ -41,7 +41,7 @@ static const QSet<QString> fields_c = QSet<QString>() << "ip" << "port" << "user
 
 struct SftpPlugin::Pimpl
 {
-    Pimpl() : mounter(0) {}
+    Pimpl() : mounter(nullptr) {}
   
     //Add KIO entry to Dolphin's Places
     KFilePlacesModel  placesModel;
@@ -105,7 +105,7 @@ void SftpPlugin::unmount()
     if (m_d->mounter)
     {
         m_d->mounter->deleteLater();
-        m_d->mounter = 0;
+        m_d->mounter = nullptr;
     }
 }
 
@@ -124,7 +124,7 @@ bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
         //return new KRun(QUrl::fromLocalFile(mountPoint()), 0);
-        return new KRun(QUrl("kdeconnect://"+deviceId), 0);
+        return new KRun(QUrl("kdeconnect://"+deviceId), nullptr);
     }
     return false;
 }
