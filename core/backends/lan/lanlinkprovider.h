@@ -52,6 +52,7 @@ private Q_SLOTS:
     void newConnection();
     void dataReceived();
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
+    void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
 
 private:
     static void configureSocket(QTcpSocket* socket);
@@ -69,6 +70,7 @@ private:
         QHostAddress sender;
     };
     QMap<QTcpSocket*, PendingConnect> receivedIdentityPackages;
+    QNetworkConfiguration m_lastConfig;
 
 };
 

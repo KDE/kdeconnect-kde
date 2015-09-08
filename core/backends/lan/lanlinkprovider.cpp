@@ -47,14 +47,16 @@ LanLinkProvider::LanLinkProvider()
     connect(mTcpServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
 
     //Detect when a network interface changes status, so we announce ourelves in the new network
-    QNetworkConfigurationManager* networkManager;
-    networkManager = new QNetworkConfigurationManager(this);
-    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, [this, networkManager](QNetworkConfiguration config) {
-        Q_UNUSED(config);
-        //qCDebug(KDECONNECT_CORE) << config.name() << " state changed to " << config.state();
-        //qCDebug(KDECONNECT_CORE) << "Online status: " << (networkManager->isOnline()? "online":"offline");
+    QNetworkConfigurationManager* networkManager = new QNetworkConfigurationManager(this);
+    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, &LanLinkProvider::onNetworkConfigurationChanged);
+}
+
+void LanLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration &config)
+{
+    if (m_lastConfig != config) {
+        m_lastConfig = config;
         onNetworkChange();
-    });
+    }
 }
 
 LanLinkProvider::~LanLinkProvider()
