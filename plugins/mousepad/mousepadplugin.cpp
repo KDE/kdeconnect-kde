@@ -208,8 +208,11 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
                 }
 
                 //We use fakekey here instead of XTest (above) because it can handle utf characters instead of keycodes.
-                fakekey_press(m_fakekey, (const unsigned char*)key.toUtf8().constData(), -1, 0);
-                fakekey_release(m_fakekey);
+                for (int i=0;i<key.length();i++) {
+                    QByteArray utf8 = QString(key.at(i)).toUtf8();
+                    fakekey_press(m_fakekey, (const uchar*)utf8.constData(), utf8.size(), 0);
+                    fakekey_release(m_fakekey);
+                }
             }
 
             if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), False, 0);
