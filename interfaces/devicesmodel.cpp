@@ -34,6 +34,10 @@
 
 Q_LOGGING_CATEGORY(KDECONNECT_INTERFACES, "kdeconnect.interfaces");
 
+static QString createId() { return QCoreApplication::instance()->applicationName()+QString::number(QCoreApplication::applicationPid()); }
+
+Q_GLOBAL_STATIC_WITH_ARGS(QString, s_keyId, (createId()));
+
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
@@ -59,7 +63,8 @@ DevicesModel::DevicesModel(QObject *parent)
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &DevicesModel::refreshDeviceList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &DevicesModel::clearDevices);
 
-    refreshDeviceList();
+    //refresh the view, acquireDiscoveryMode if necessary
+    setDisplayFilter(NoFilter);
 }
 
 QHash< int, QByteArray > DevicesModel::roleNames() const
@@ -74,6 +79,7 @@ QHash< int, QByteArray > DevicesModel::roleNames() const
 
 DevicesModel::~DevicesModel()
 {
+    m_dbusInterface->releaseDiscoveryMode(*s_keyId);
 }
 
 int DevicesModel::rowForDevice(const QString& id) const
@@ -147,6 +153,13 @@ int DevicesModel::displayFilter() const
 void DevicesModel::setDisplayFilter(int flags)
 {
     m_displayFilter = (StatusFilterFlag)flags;
+
+    const bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
+    if (onlyReachable)
+        m_dbusInterface->releaseDiscoveryMode(*s_keyId);
+    else
+        m_dbusInterface->acquireDiscoveryMode(*s_keyId);
+
     refreshDeviceList();
 }
 

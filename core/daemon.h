@@ -37,7 +37,7 @@ class KDECONNECTCORE_EXPORT Daemon
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
-    Q_PROPERTY(bool discoveryEnabled READ isDiscoveryEnabled WRITE setDiscoveryEnabled)
+    Q_PROPERTY(bool isDiscoveringDevices READ isDiscoveringDevices)
 
 public:
     explicit Daemon(QObject *parent, bool testMode = false);
@@ -50,9 +50,6 @@ public:
      */
     static Daemon* instance();
 
-    bool isDiscoveryEnabled() const;
-    void setDiscoveryEnabled(bool b);
-
     QList<Device*> devicesList() const;
 
     virtual void requestPairing(Device *d) = 0;
@@ -60,6 +57,8 @@ public:
     virtual QNetworkAccessManager* networkAccessManager();
 
 public Q_SLOTS:
+    Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
+    Q_SCRIPTABLE void releaseDiscoveryMode(const QString &id);
 
     Q_SCRIPTABLE void forceOnNetworkChange();
 
@@ -80,6 +79,7 @@ private Q_SLOTS:
     void onDeviceStatusChanged();
 
 private:
+    bool isDiscoveringDevices() const;
     void removeDevice(Device* d);
     void cleanDevices();
 

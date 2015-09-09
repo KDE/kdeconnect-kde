@@ -44,7 +44,7 @@ struct DaemonPrivate
     //Every known device
     QMap<QString, Device*> mDevices;
 
-    bool discoveryMode = false;
+    QSet<QString> mDiscoveryModeAcquisitions;
 };
 
 Daemon* Daemon::instance()
@@ -91,23 +91,26 @@ Daemon::Daemon(QObject *parent, bool testMode)
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon started";
 }
 
-void Daemon::setDiscoveryEnabled(bool b)
+void Daemon::acquireDiscoveryMode(const QString &key)
 {
-//     qDebug() << "setting discover..." << b;
-    if (b == d->discoveryMode)
-        return;
+    bool oldState = d->mDiscoveryModeAcquisitions.isEmpty();
 
-    d->discoveryMode = b;
-    if (b) {
+    d->mDiscoveryModeAcquisitions.insert(key);
+
+    if (oldState != d->mDiscoveryModeAcquisitions.isEmpty()) {
         forceOnNetworkChange();
-    } else {
-        cleanDevices();
     }
 }
 
-bool Daemon::isDiscoveryEnabled() const
+void Daemon::releaseDiscoveryMode(const QString &key)
 {
-    return d->discoveryMode;
+    bool oldState = d->mDiscoveryModeAcquisitions.isEmpty();
+
+    d->mDiscoveryModeAcquisitions.remove(key);
+
+    if (oldState != d->mDiscoveryModeAcquisitions.isEmpty()) {
+        cleanDevices();
+    }
 }
 
 void Daemon::removeDevice(Device* device)
@@ -165,7 +168,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
         //we discard the connections that we created but it's not paired.
         //we keep the remotely initiated ones, since the remotes require them
-        if (!isDiscoveryEnabled() && !device->isPaired() && dl->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
+        if (!isDiscoveringDevices() && !device->isPaired() && dl->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
             device->deleteLater();
         } else {
             connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
@@ -218,8 +221,12 @@ QList<Device*> Daemon::devicesList() const
     return d->mDevices.values();
 }
 
+bool Daemon::isDiscoveringDevices() const
+{
+    return !d->mDiscoveryModeAcquisitions.isEmpty();
+}
+
 Daemon::~Daemon()
 {
 
 }
-
