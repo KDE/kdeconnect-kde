@@ -64,10 +64,14 @@ int main(int argc, char** argv)
     about.processCommandLine(&parser);
 
     if(parser.isSet("l") || parser.isSet("a")) {
+        const QString id = "kdeconnect-cli-"+QString::number(QCoreApplication::applicationPid());
         DaemonDbusInterface iface;
         bool paired = true, reachable = false;
         if (parser.isSet("a")) {
             reachable = true;
+        } else {
+            iface.acquireDiscoveryMode(id);
+            QThread::sleep(2);
         }
         QDBusPendingReply<QStringList> reply = iface.devices(paired, reachable);
         reply.waitForFinished();
@@ -95,6 +99,8 @@ int main(int argc, char** argv)
         } else if (devices.isEmpty()) {
             QTextStream(stderr) << i18n("No devices found") << endl;
         }
+
+        iface.releaseDiscoveryMode(id);
     } else if(parser.isSet("refresh")) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
