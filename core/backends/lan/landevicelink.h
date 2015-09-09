@@ -35,7 +35,7 @@ class LanDeviceLink
     Q_OBJECT
 
 public:
-    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcpSocket* socket);
+    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcpSocket* socket, ConnectionStarted connectionSource);
 
     bool sendPackage(NetworkPackage& np) override;
     bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np) override;

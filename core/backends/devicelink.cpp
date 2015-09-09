@@ -22,10 +22,11 @@
 #include "kdeconnectconfig.h"
 #include "linkprovider.h"
 
-DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
+DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionStarted connectionSource)
     : QObject(parent)
     , mPrivateKey(KdeConnectConfig::instance()->privateKey())
     , mDeviceId(deviceId)
+    , mConnectionSource(connectionSource)
     , mLinkProvider(parent)
 {
     Q_ASSERT(!deviceId.isEmpty());

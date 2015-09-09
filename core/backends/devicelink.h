@@ -35,7 +35,9 @@ class DeviceLink
     Q_OBJECT
 
 public:
-    DeviceLink(const QString& deviceId, LinkProvider* parent);
+    enum ConnectionStarted : bool { Locally, Remotely };
+
+    DeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionStarted connectionSource);
     virtual ~DeviceLink() { };
 
     const QString& deviceId() { return mDeviceId; }
@@ -43,6 +45,10 @@ public:
 
     virtual bool sendPackage(NetworkPackage& np) = 0;
     virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) = 0;
+
+    ConnectionStarted connectionSource() const {
+        return mConnectionSource;
+    }
 
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
@@ -52,6 +58,7 @@ protected:
 
 private:
     const QString mDeviceId;
+    const ConnectionStarted mConnectionSource;
     LinkProvider* mLinkProvider;
 
 };

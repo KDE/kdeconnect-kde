@@ -31,8 +31,8 @@
 #include "downloadjob.h"
 #include "socketlinereader.h"
 
-LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcpSocket* socket)
-    : DeviceLink(deviceId, parent)
+LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QTcpSocket* socket, ConnectionStarted connectionSource)
+    : DeviceLink(deviceId, parent, connectionSource)
     , mSocketLineReader(new SocketLineReader(socket))
 {
     connect(mSocketLineReader, SIGNAL(readyRead()),

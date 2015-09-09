@@ -106,7 +106,7 @@ void LanLinkProvider::onNetworkChange()
 
 //I'm the existing device, a new device is kindly introducing itself.
 //I will create a TcpSocket and try to connect. This can result in either connected() or connectError().
-void LanLinkProvider::newUdpConnection()
+void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
 {
     while (mUdpServer->hasPendingDatagrams()) {
         QByteArray datagram;
@@ -174,8 +174,8 @@ void LanLinkProvider::connected()
     NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
     //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, DeviceLink::Remotely);
 
-    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
 
     NetworkPackage np2("");
     NetworkPackage::createIdentityPackage(&np2);
@@ -262,7 +262,7 @@ void LanLinkProvider::dataReceived()
                socket, SLOT(deleteLater()));
 
     const QString& deviceId = np.get<QString>("deviceId");
-    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, DeviceLink::Locally);
     connect(deviceLink, SIGNAL(destroyed(QObject*)),
             this, SLOT(deviceLinkDestroyed(QObject*)));
 

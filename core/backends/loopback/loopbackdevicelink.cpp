@@ -23,7 +23,7 @@
 #include "loopbacklinkprovider.h"
 
 LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
-    : DeviceLink(deviceId, provider)
+    : DeviceLink(deviceId, provider, Remotely)
 {
 
 }
