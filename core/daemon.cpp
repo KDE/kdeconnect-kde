@@ -166,7 +166,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         //we discard the connections that we created but it's not paired.
         //we keep the remotely initiated ones, since the remotes require them
         if (!isDiscoveryEnabled() && !device->isPaired() && dl->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
-            dl->deleteLater();
+            device->deleteLater();
         } else {
             connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
             connect(device, SIGNAL(pairingChanged(bool)), this, SLOT(onDeviceStatusChanged()));
