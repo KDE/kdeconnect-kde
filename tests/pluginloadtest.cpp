@@ -77,8 +77,10 @@ class PluginLoadTest : public QObject
         void testPlugins() {
             Device* d = nullptr;
             foreach(Device* id, mDaemon->devicesList()) {
-                if (id->isReachable())
+                if (id->isReachable()) {
+                    id->requestPair();
                     d = id;
+                }
             }
             QVERIFY(d);
             QVERIFY(d->isPaired());

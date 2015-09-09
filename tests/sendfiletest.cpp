@@ -24,6 +24,7 @@
 #include <QTest>
 #include <QTemporaryFile>
 #include <QSignalSpy>
+#include <QStandardPaths>
 
 #include <KIO/AccessManager>
 
@@ -68,14 +69,18 @@ class TestSendFile : public QObject
 {
     Q_OBJECT
     public:
-        TestSendFile() : mDaemon(new TestDaemon) {}
+        TestSendFile() : mDaemon(new TestDaemon) {
+            QStandardPaths::setTestModeEnabled(true);
+        }
 
     private Q_SLOTS:
         void testSend() {
             Device* d = nullptr;
             foreach(Device* id, mDaemon->devicesList()) {
-                if (id->isReachable())
+                if (id->isReachable()) {
+                    id->requestPair();
                     d = id;
+                }
             }
             QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
