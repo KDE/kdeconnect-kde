@@ -125,8 +125,10 @@ void Device::reloadPlugins()
             const QSet<QString> outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
 
             const bool pluginEnabled = isPluginEnabled(pluginName);
-            if (pluginEnabled)
+
+            if (pluginEnabled) {
                 supportedIncomingInterfaces += incomingInterfaces;
+            }
 
             //If we don't find intersection with the received on one end and the sent on the other, we don't
             //let the plugin stay
@@ -176,7 +178,7 @@ void Device::reloadPlugins()
     }
     Q_EMIT pluginsChanged();
 
-    if (capabilitiesChanged)
+    if (capabilitiesChanged && isReachable() && isPaired())
     {
         NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
         np.set<QStringList>("SupportedIncomingInterfaces", newSupportedIncomingInterfaces);
