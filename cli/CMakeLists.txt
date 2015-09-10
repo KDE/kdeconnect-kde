@@ -1,5 +1,6 @@
 
 add_executable(kdeconnect-cli kdeconnect-cli.cpp)
+ecm_mark_nongui_executable(kdeconnect-cli)
 
 target_link_libraries(kdeconnect-cli kdeconnectinterfaces KF5::CoreAddons KF5::I18n)
 

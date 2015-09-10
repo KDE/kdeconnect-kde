@@ -18,7 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <sys/socket.h>
 #include <unistd.h>
 #include <signal.h>
 
@@ -35,9 +34,19 @@
 #include "core/device.h"
 #include "kdeconnect-version.h"
 
+
+#ifndef Q_OS_WIN
+#include <sys/socket.h>
+#endif
+
 static int sigtermfd[2];
 const static char deadbeef = 1;
+
+
+// TODO: Implement for Windows.
+#ifndef Q_OS_WIN
 struct sigaction action;
+#endif
 
 void sighandler(int signum)
 {
@@ -50,6 +59,8 @@ void sighandler(int signum)
 
 void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 {
+// TODO: Implement for Windows.
+#ifndef Q_OS_WIN
     ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
     QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
     QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));
@@ -60,6 +71,7 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 
     sigaction(SIGTERM, &action, nullptr);
     sigaction(SIGINT, &action, nullptr);
+#endif
 }
 
 class DesktopDaemon : public Daemon
