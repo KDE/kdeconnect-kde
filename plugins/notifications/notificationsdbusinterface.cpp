@@ -45,6 +45,7 @@ NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
 {
+    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Destroying NotificationsDbusInterface";
 }
 
 void NotificationsDbusInterface::clearNotifications()
@@ -60,7 +61,21 @@ QStringList NotificationsDbusInterface::activeNotifications()
 void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
 {
     if (np.get<bool>("isCancel")) {
-        removeNotification(np.get<QString>("id"));
+        QString id = np.get<QString>("id");
+        // cut off kdeconnect-android's prefix if there:
+        if (id.startsWith("org.kde.kdeconnect_tp::"))
+            id = id.mid(id.indexOf("::") + 2);
+        removeNotification(id);
+    } else if (np.get<bool>("isRequest")) {
+        for (const auto& n: mNotifications) {
+            NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
+            np.set("id", n->internalId());
+            np.set("appName", n->appName());
+            np.set("ticker", n->ticker());
+            np.set("isClearable", n->dismissable());
+            np.set("requestAnswer", true);
+            mPlugin->sendPackage(np);
+        }
     } else {
 
         //TODO: Uncoment when we are able to display app icon on plasmoid
@@ -114,7 +129,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
     qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
 
     if (!mInternalIdToPublicId.contains(internalId)) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found";
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found: " << internalId;
         return;
     }
 

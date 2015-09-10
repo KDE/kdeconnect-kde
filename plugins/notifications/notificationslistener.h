@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Holger Kaelberer <holger.k@elberer.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,39 +18,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NOTIFICATIONSPLUGIN_H
-#define NOTIFICATIONSPLUGIN_H
+#include <QtDBus/QDBusAbstractAdaptor>
+#include <core/device.h>
 
-#include <knotification.h>
-
-#include <core/kdeconnectplugin.h>
-#define PACKAGE_TYPE_NOTIFICATION QLatin1String("kdeconnect.notification")
-
-/*
- * This class is just a proxy for NotificationsDbusInterface
- * because it can not inherit from QDBusAbstractAdaptor and
- * KdeConnectPlugin at the same time (both are QObject)
- */
+class KdeConnectPlugin;
 class NotificationsDbusInterface;
-class NotificationsListener;
+class Notification;
 
-class NotificationsPlugin
-    : public KdeConnectPlugin
+class NotificationsListener : public QDBusAbstractAdaptor
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
 
 public:
-    explicit NotificationsPlugin(QObject *parent, const QVariantList &args);
-    virtual ~NotificationsPlugin();
-    
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    explicit NotificationsListener(KdeConnectPlugin* aPlugin,
+                                   NotificationsDbusInterface* aDbusInterface);
+    virtual ~NotificationsListener();
 
 private:
-    NotificationsDbusInterface* notificationsDbusInterface;
-    NotificationsListener* notificationsListener;
+    KdeConnectPlugin* mPlugin;
+    NotificationsDbusInterface* dbusInterface;
 
+public Q_SLOTS:
+    Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,
+                             const QString&, const QString&,
+                             const QStringList&, const QVariantMap&, int);
 };
-
-#endif
