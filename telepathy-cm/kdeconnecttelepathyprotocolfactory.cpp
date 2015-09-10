@@ -44,7 +44,11 @@ ConnectProtocolPtr KDEConnectTelepathyProtocolFactory::interface() {
         //maybe this should be per device.. with a device ID as a parameter, but lets keep it connect for now
         
         Tp::AccountManagerPtr am = Tp::AccountManager::create(QDBusConnection::sessionBus());
-        QObject::connect(am->becomeReady(), &Tp::PendingOperation::finished, [am]() {
+        Tp::PendingReady *pr = am->becomeReady();
+        QObject::connect(pr, &Tp::PendingOperation::finished, [pr,am]() {
+           if (pr->isError()) {
+               return;
+           }
            Tp::AccountSetPtr accounts = am->accountsByProtocol("kdeconnect");
            if (!accounts) {
                return;
@@ -52,7 +56,7 @@ ConnectProtocolPtr KDEConnectTelepathyProtocolFactory::interface() {
            if (accounts->accounts().isEmpty()) {
                 Tp::PendingAccount* pa = am->createAccount("kdeconnect", "kdeconnect", "kdeconnect", QVariantMap(), QVariantMap());
                 QObject::connect(pa, &Tp::PendingOperation::finished, pa, [pa](){
-                    if (!pa->account()) {
+                    if (pa->isError() || !pa->account()) {
                         return;
                     }
                     pa->account()->setEnabled(true);
