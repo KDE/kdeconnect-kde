@@ -1,5 +1,9 @@
 [Desktop Entry]
 Name=KDE Connect Monitor
+Name[ca]=Controlador del KDE Connect
+Name[cs]=Monitor KDE Connect
+Name[es]=Monitor de KDE Connect
+Name[fi]=KDE Connect -valvonta
 Name[nl]=KDE-Connectmonitor
 Name[pt]=Monitor do KDE Connect
 Name[pt_BR]=Monitor do KDE Connect
@@ -8,6 +12,10 @@ Name[tr]=KDE Bağlantı İzleyicisi
 Name[uk]=Монітор KDE Connect
 Name[x-test]=xxKDE Connect Monitorxx
 Comment=Display information about your devices
+Comment[ca]=Mostra la informació dels vostres dispositius
+Comment[cs]=Zobrazit informace o vašich zařízeních
+Comment[es]=Mostrar información sobre sus dispositivos
+Comment[fi]=Näyttää tietoa laitteistasi
 Comment[nl]=Toon informatie over uw apparaten
 Comment[pt]=Mostrar informações sobre os seus dispositivos
 Comment[pt_BR]=Mostra informações sobre seus dispositivos
