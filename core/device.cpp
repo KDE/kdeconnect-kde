@@ -184,8 +184,8 @@ void Device::reloadPlugins()
     if (capabilitiesChanged && isReachable() && isPaired())
     {
         NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
-        np.set<QStringList>("SupportedIncomingInterfaces", newSupportedIncomingInterfaces);
-        np.set<QStringList>("SupportedOutgoingInterfaces", newPluginsByOutgoingInterface.keys());
+        np.set<QStringList>("IncomingCapabilities", newSupportedIncomingInterfaces);
+        np.set<QStringList>("OutgoingCapabilities", newPluginsByOutgoingInterface.keys());
         sendPackage(np);
     }
 }
@@ -298,8 +298,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     qSort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
 
     if (m_deviceLinks.size() == 1) {
-        m_incomingCapabilities = identityPackage.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet();
-        m_outgoingCapabilities = identityPackage.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet();
+        m_incomingCapabilities = identityPackage.get<QStringList>("IncomingCapabilities", QStringList()).toSet();
+        m_outgoingCapabilities = identityPackage.get<QStringList>("OutgoingCapabilities", QStringList()).toSet();
         reloadPlugins(); //Will load the plugins
         Q_EMIT reachableStatusChanged();
     } else {
@@ -405,8 +405,8 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         }
 
     } else if (np.type() == PACKAGE_TYPE_CAPABILITIES) {
-        QSet<QString> newIncomingCapabilities = np.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet();
-        QSet<QString> newOutgoingCapabilities = np.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet();
+        QSet<QString> newIncomingCapabilities = np.get<QStringList>("IncomingCapabilities", QStringList()).toSet();
+        QSet<QString> newOutgoingCapabilities = np.get<QStringList>("OutgoingCapabilities", QStringList()).toSet();
 
         if (newOutgoingCapabilities != m_outgoingCapabilities || newIncomingCapabilities != m_incomingCapabilities) {
             m_incomingCapabilities = newIncomingCapabilities;
