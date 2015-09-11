@@ -15,7 +15,7 @@ find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes)
 find_package(Qca-qt5 2.1.0 REQUIRED)
 find_package(TelepathyQt5 0.9.5)
 find_package(TelepathyQt5Service 0.9.7)
-if (TelepathyQt5_FOUND)
+if (TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
     add_definitions(-DHAVE_TELEPATHY)
 endif()
 
