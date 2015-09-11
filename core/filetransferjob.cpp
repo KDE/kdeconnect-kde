@@ -80,7 +80,7 @@ void FileTransferJob::startTransfer()
     mTime = QTime::currentTime();
     description(this, i18n("Receiving file over KDE-Connect"),
                         QPair<QString, QString>(i18nc("File transfer origin", "From"),
-                        QString(mDeviceName)),
+                        mDeviceName),
                         QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
     mReply = Daemon::instance()->networkAccessManager()->put(QNetworkRequest(mDestination), mOrigin.data());
