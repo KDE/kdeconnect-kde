@@ -83,7 +83,10 @@ void FileTransferJob::startTransfer()
                         mDeviceName),
                         QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
-    mReply = Daemon::instance()->networkAccessManager()->put(QNetworkRequest(mDestination), mOrigin.data());
+    QNetworkRequest req(mDestination);
+    req.setHeader(QNetworkRequest::ContentLengthHeader, totalAmount(Bytes));
+    mReply = Daemon::instance()->networkAccessManager()->put(req, mOrigin.data());
+
     connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
         setProcessedAmount(Bytes, bytesSent);
         emitSpeed(bytesSent/mTime.elapsed());
