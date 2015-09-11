@@ -184,10 +184,10 @@ void Daemon::onDeviceStatusChanged()
 {
     Device* device = (Device*)sender();
 
-    qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
+    //qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
 
     if (!device->isReachable() && !device->isPaired()) {
-        qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
+        //qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
         removeDevice(device);
     } else {
         Q_EMIT deviceVisibilityChanged(device->id(), device->isReachable());
