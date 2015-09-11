@@ -21,7 +21,6 @@ Tp::WeakPtr<KDEConnectTelepathyProtocol> KDEConnectTelepathyProtocolFactory::s_i
 ConnectProtocolPtr KDEConnectTelepathyProtocolFactory::interface() {
     if (s_interface.isNull()) {
         Tp::registerTypes();
-        Tp::enableDebug(true);
         Tp::enableWarnings(true);
 
         ConnectProtocolPtr protocol = Tp::BaseProtocol::create<KDEConnectTelepathyProtocol>(

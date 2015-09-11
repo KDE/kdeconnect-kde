@@ -45,8 +45,6 @@ Tp::SimpleStatusSpecMap ConnectConnection::getSimpleStatusSpecMap()
 ConnectConnection::ConnectConnection(const QDBusConnection &dbusConnection, const QString &cmName, const QString &protocolName, const QVariantMap &parameters) :
     Tp::BaseConnection(dbusConnection, cmName, protocolName, parameters)
 {
-    qDebug() << "making new connection";
-
     /* Connection.Interface.Contacts */
     contactsIface = Tp::BaseConnectionContactsInterface::create(this);
     contactsIface->setGetContactAttributesCallback(Tp::memFun(this, &ConnectConnection::getContactAttributes));
@@ -98,7 +96,6 @@ ConnectConnection::ConnectConnection(const QDBusConnection &dbusConnection, cons
 
 ConnectConnection::~ConnectConnection()
 {
-    qDebug() << "goodbye connection";
 }
 
 void ConnectConnection::connect(Tp::DBusError *error)
@@ -123,8 +120,6 @@ void ConnectConnection::connect(Tp::DBusError *error)
 
 QStringList ConnectConnection::inspectHandles(uint handleType, const Tp::UIntList &handles, Tp::DBusError *error)
 {
-    qDebug() << Q_FUNC_INFO;
-
     if (handleType != Tp::HandleTypeContact) {
         error->set(TP_QT_ERROR_INVALID_ARGUMENT, "Unsupported handle type");
         return QStringList();
@@ -151,10 +146,6 @@ Tp::BaseChannelPtr ConnectConnection::createChannelCB(const QVariantMap &request
     //note if we ever have this invoked from external clients we need to look for TargetID too and look it up
     const uint targetHandle = request.value(TP_QT_IFACE_CHANNEL + QLatin1String(".TargetHandle")).toUInt();
 
-    qDebug() << "ConnectConnection::createChannel " << channelType
-             << " " << targetHandleType
-             << " " << targetHandle;
- 
     if ((targetHandleType != Tp::HandleTypeContact) || (targetHandle == 0)) {
           error->set(TP_QT_ERROR_INVALID_HANDLE, "createChannel error");
           return Tp::BaseChannelPtr();
@@ -166,7 +157,6 @@ Tp::BaseChannelPtr ConnectConnection::createChannelCB(const QVariantMap &request
 
     if (channelType == TP_QT_IFACE_CHANNEL_TYPE_TEXT) {
         ConnectTextChannelPtr textType = ConnectTextChannel::create(this, baseChannel.data(), targetHandle, identifier);
-        qDebug() << "Text interface is called " << textType->interfaceName();
         baseChannel->plugInterface(Tp::AbstractChannelInterfacePtr::dynamicCast(textType));
     }
 
@@ -175,8 +165,6 @@ Tp::BaseChannelPtr ConnectConnection::createChannelCB(const QVariantMap &request
 
 Tp::UIntList ConnectConnection::requestHandles(uint handleType, const QStringList &identifiers, Tp::DBusError *error)
 {
-    qDebug() << Q_FUNC_INFO << identifiers;
-
     Tp::UIntList result;
 
     if (handleType != Tp::HandleTypeContact) {
@@ -198,8 +186,6 @@ Tp::UIntList ConnectConnection::requestHandles(uint handleType, const QStringLis
 
 Tp::ContactAttributesMap ConnectConnection::getContactListAttributes(const QStringList &interfaces, bool hold, Tp::DBusError *error)
 {
-    qDebug() << Q_FUNC_INFO;
-
     Tp::ContactAttributesMap contactAttributes;
 
     foreach (const uint handle, m_handles.keys()) {
@@ -220,7 +206,6 @@ Tp::ContactAttributesMap ConnectConnection::getContactAttributes(const Tp::UIntL
 {
 //    Connection.Interface.Contacts
 //    http://telepathy.freedesktop.org/spec/Connection_Interface_Contacts.html#Method:GetContactAttributes
-    qDebug() << Q_FUNC_INFO << handles;
 
     Tp::ContactAttributesMap contactAttributes;
 
@@ -247,7 +232,6 @@ Tp::SimplePresence ConnectConnection::getPresence(uint handle)
 
 uint ConnectConnection::setPresence(const QString &status, const QString &message, Tp::DBusError *error)
 {
-    qDebug() << Q_FUNC_INFO << "not implemented";
     return 0;
 }
 
@@ -262,7 +246,6 @@ uint ConnectConnection::ensureContact(const QString &identifier)
 
 uint ConnectConnection::addContacts(const QStringList &identifiers)
 {
-    qDebug() << Q_FUNC_INFO;
     uint handle = 0;
 
     if (!m_handles.isEmpty()) {
@@ -281,7 +264,6 @@ uint ConnectConnection::addContacts(const QStringList &identifiers)
 
 uint ConnectConnection::addContact(const QString &identifier)
 {
-    qDebug() << Q_FUNC_INFO;
     return addContacts(QStringList() << identifier);
 }
 
