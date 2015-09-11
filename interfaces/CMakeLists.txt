@@ -38,10 +38,12 @@ geninterface(${CMAKE_SOURCE_DIR}/core/device.h deviceinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/battery/batterydbusinterface.h devicebatteryinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/sftp/sftpplugin.h devicesftpinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notificationsdbusinterface.h devicenotificationsinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/findmyphone/findmyphoneplugin.h devicefindmyphoneinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notification.h notificationinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h mprisremoteinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h remotecontrolinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/lockdevice/lockdeviceplugin.h lockdeviceinterface)
+
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES

@@ -51,6 +51,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("id-only", i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
     parser.addOption(QCommandLineOption("refresh", i18n("Search for devices in the network and re-establish connections")));
     parser.addOption(QCommandLineOption("pair", i18n("Request pairing to a said device")));
+    parser.addOption(QCommandLineOption("ring", i18n("Find the said device by ringing it.")));
     parser.addOption(QCommandLineOption("unpair", i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption("ping", i18n("Sends a ping to said device")));
     parser.addOption(QCommandLineOption("ping-msg", i18n("Same as ping but you can set the message to display"), i18n("message")));
@@ -143,6 +144,9 @@ int main(int argc, char** argv)
                 QString message = parser.value("ping-msg");
                 msg.setArguments(QVariantList() << message);
             }
+            QDBusConnection::sessionBus().call(msg);
+        } else if(parser.isSet("ring")) {
+            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/findmyphone", "org.kde.kdeconnect.device.findmyphone", "ring");
             QDBusConnection::sessionBus().call(msg);
         } else if(parser.isSet("list-notifications")) {
             NotificationsModel notifications;

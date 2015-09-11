@@ -16,6 +16,8 @@ if(NOT WIN32)
     add_subdirectory(sftp)
 endif()
 
+add_subdirectory(findmyphone)
+
 if(EXPERIMENTALAPP_ENABLED)
     add_subdirectory(mprisremote)
     add_subdirectory(remotecontrol)

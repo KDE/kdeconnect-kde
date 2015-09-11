@@ -1,0 +1,29 @@
+{
+   "KPlugin" : {
+   "Encoding" : "UTF-8",
+      "Name" : "Find My Phone",
+      "Description" : "Find your lost phone by making it play an alarm sound    ",
+      "Id" : "kdeconnect_findmyphone",
+      "Version" : "0.1",
+      "Authors" : [
+         {
+            "Name" : "Apoorv Parle",
+            "Email" : "apparle@gmail.com"
+         },
+         {
+            "Name" : "David Edmundson",
+            "Email" : "davidedmundson@kde.org"
+         }
+      ],
+      "License" : "GPL",
+      "EnabledByDefault" : true,
+      "ServiceTypes" : [
+         "KdeConnect/Plugin"
+      ],
+      "Website" : "http://kde.org",
+      "Icon" : "edit-find"
+   },
+   "X-KdeConnect-OutgoingPackageType" : [
+      "kdeconnect.findmyphone"
+   ]
+}

@@ -44,6 +44,11 @@ QObject* createDeviceBatteryDbusInterface(QVariant deviceId)
     return new DeviceBatteryDbusInterface(deviceId.toString());
 }
 
+QObject* createFindMyPhoneInterface(QVariant deviceId)
+{
+    return new FindMyPhoneDeviceDbusInterface(deviceId.toString());
+}
+
 QObject* createSftpInterface(QVariant deviceId)
 {
     return new SftpDbusInterface(deviceId.toString());
@@ -79,6 +84,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
     qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
+    qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
 }
 
@@ -92,6 +98,9 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
     engine->rootContext()->setContextProperty("DeviceBatteryDbusInterfaceFactory"
       , new ObjectFactory(engine, createDeviceBatteryDbusInterface));
     
+    engine->rootContext()->setContextProperty("FindMyPhoneDbusInterfaceFactory"
+      , new ObjectFactory(engine, createFindMyPhoneInterface));
+
     engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
       , new ObjectFactory(engine, createSftpInterface));
 
