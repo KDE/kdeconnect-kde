@@ -44,6 +44,8 @@
 
 K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 
+static QString createId() { return QStringLiteral("kcm")+QString::number(QCoreApplication::applicationPid()); }
+
 KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     : KCModule(KAboutData::pluginData("kdeconnect-kcm"), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
@@ -103,6 +105,8 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
             this, SLOT(renameDone()));
     connect(kcmUi->renameShow_button,SIGNAL(clicked()),
             this, SLOT(renameShow()));
+
+    daemon->acquireDiscoveryMode(createId());
 }
 
 void KdeConnectKcm::renameShow()
@@ -132,11 +136,13 @@ void KdeConnectKcm::setRenameMode(bool b) {
 
 KdeConnectKcm::~KdeConnectKcm()
 {
+    daemon->releaseDiscoveryMode(createId());
     delete kcmUi;
 }
 
 void KdeConnectKcm::refresh()
 {
+    daemon->acquireDiscoveryMode(createId());
     daemon->forceOnNetworkChange();
 }
 
