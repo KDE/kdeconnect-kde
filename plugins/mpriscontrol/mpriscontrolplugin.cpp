@@ -44,8 +44,8 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
 {
     m_watcher = new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
-    connect(m_watcher, &QDBusServiceWatcher::serviceRegistered, this, &MprisControlPlugin::addPlayer);
-    connect(m_watcher, &QDBusServiceWatcher::serviceUnregistered, this, &MprisControlPlugin::removePlayer);
+    connect(m_watcher, &QDBusServiceWatcher::serviceRegistered, this, &MprisControlPlugin::addService);
+    connect(m_watcher, &QDBusServiceWatcher::serviceUnregistered, this, &MprisControlPlugin::removeService);
 
     //Add existing interfaces
     QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
