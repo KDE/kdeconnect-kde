@@ -117,6 +117,7 @@ void Device::reloadPlugins()
         KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();
+        const bool deviceSupportsCapabilities = !m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty();
 
         //Code borrowed from KWin
         foreach (const QString& pluginName, loader->getPluginList()) {
@@ -141,7 +142,8 @@ void Device::reloadPlugins()
                 //let the plugin stay
                 //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
                 //we assume that the other client doesn't know about capabilities.
-                if (!m_incomingCapabilities.isEmpty() && !m_outgoingCapabilities.isEmpty()
+                const bool capabilitiesSupported = deviceSupportsCapabilities && (!incomingInterfaces.isEmpty() || !outgoingInterfaces.isEmpty());
+                if (capabilitiesSupported
                     && (m_incomingCapabilities & outgoingInterfaces.toSet()).isEmpty()
                     && (m_outgoingCapabilities & incomingInterfaces.toSet()).isEmpty()
                 ) {
