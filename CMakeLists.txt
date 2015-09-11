@@ -55,7 +55,7 @@ add_subdirectory(plasmoid)
 add_subdirectory(cli)
 add_subdirectory(fileitemactionplugin)
 
-if (TelepathyQt5_FOUND)
+if (TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
     add_subdirectory(telepathy-cm)
 endif()
 
