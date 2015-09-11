@@ -54,7 +54,6 @@ private:
     const int PORT = 8520;
     // Add some private fields here
     LanLinkProvider mLanLinkProvider;
-    QEventLoop mLoop;
     Server* mServer;
     SocketLineReader* mReader;
     QUdpSocket* mUdpSocket;
@@ -96,10 +95,9 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     QUdpSocket* mUdpServer = new QUdpSocket;
     mUdpServer->bind(QHostAddress::Any, 1714, QUdpSocket::ShareAddress);
 
-    connect(mUdpServer, SIGNAL(readyRead()), &mLoop, SLOT(quit()));
+    QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
     mLanLinkProvider.onNetworkChange();
-    mLoop.exec();
-    disconnect(mUdpServer, SIGNAL(readyRead()), &mLoop, SLOT(quit())); // This avoids strange behaviour of mLoop due to incoming udp package
+    QVERIFY(spy.wait());
 
     QByteArray datagram;
     datagram.resize(mUdpServer->pendingDatagramSize());
@@ -114,19 +112,17 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     int tcpPort = body.value("tcpPort").toInt();
 
     QSslSocket socket;
-    connect(&socket, SIGNAL(connected()), &mLoop, SLOT(quit()));
-    connect(&socket, SIGNAL(error(QAbstractSocket::SocketError)), &mLoop, SLOT(quit()));
+    QSignalSpy spy2(&socket, SIGNAL(connected()));
 
     socket.connectToHost(sender, tcpPort);
-    mLoop.exec();
+    QVERIFY(spy2.wait());
 
     QVERIFY2(socket.isOpen(), "Socket disconnected immediately");
 
     socket.write(mIdentityPackage.toLatin1());
     socket.waitForBytesWritten(2000);
 
-    connect(&socket, SIGNAL(encrypted()), &mLoop, SLOT(quit()));
-    connect(&socket, SIGNAL(sslErrors(const QList<QSslError>&)), &mLoop, SLOT(quit()));
+    QSignalSpy spy3(&socket, SIGNAL(encrypted()));
 
     setSocketAttributes(&socket);
     socket.addCaCertificate(kcc->certificate());
@@ -134,7 +130,7 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     socket.setPeerVerifyName(kcc->name());
 
     socket.startServerEncryption();
-    mLoop.exec();
+    QVERIFY(spy3.wait());
 
     QCOMPARE(socket.sslErrors().size(), 0);
     QVERIFY2(socket.isValid(), "Server socket disconnected");
@@ -155,13 +151,13 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
 
     mServer->listen(QHostAddress::Any, PORT);
 
-    connect(mServer, SIGNAL(newConnection()), &mLoop, SLOT(quit()));
+    QSignalSpy spy(mServer, SIGNAL(newConnection()));
 
     qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, 1714); // write an identity package to udp socket here, we do not broadcast it here
     QCOMPARE(bytesWritten, mIdentityPackage.size());
 
     // We should have an incoming connection now, wait for incoming connection
-    mLoop.exec();
+    QVERIFY(spy.wait());
 
     QSslSocket* serverSocket = mServer->nextPendingConnection();
 
@@ -169,24 +165,26 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
     mReader = new SocketLineReader(serverSocket, this);
-    connect(mReader, SIGNAL(readyRead()), &mLoop, SLOT(quit()));
-    mLoop.exec();
+    QSignalSpy spy2(mReader, SIGNAL(readyRead()));
+    QVERIFY(spy2.wait());
 
     QByteArray receivedPackage = mReader->readLine();
     testIdentityPackage(receivedPackage);
     // Received identiy package from LanLinkProvider now start ssl
 
-    connect(serverSocket, SIGNAL(encrypted()), &mLoop, SLOT(quit()));
-    connect(serverSocket, SIGNAL(sslErrors(const QList<QSslError>&)), &mLoop, SLOT(quit()));
+    QSignalSpy spy3(serverSocket, SIGNAL(encrypted()));
+    QVERIFY(connect(serverSocket, static_cast<void(QAbstractSocket::*)(QAbstractSocket::SocketError)>(&QSslSocket::error),
+            this, [](QAbstractSocket::SocketError error){ qDebug() << "error:" << error; }));
 
     setSocketAttributes(serverSocket);
     serverSocket->addCaCertificate(kcc->certificate());
     serverSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
     serverSocket->setPeerVerifyName(kcc->deviceId());
 
-
-    serverSocket->startClientEncryption(); // Its TCP server. but SSL client
-    mLoop.exec();
+    serverSocket->startServerEncryption(); // Its TCP server. but SSL client
+    QVERIFY(!serverSocket->isEncrypted());
+    spy3.wait(2000);
+    qDebug() << "xxxxxxxxx" << serverSocket->sslErrors();
 
     QCOMPARE(serverSocket->sslErrors().size(), 0);
     QVERIFY2(serverSocket->isValid(), "Server socket disconnected");
@@ -204,10 +202,9 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
     QUdpSocket* mUdpServer = new QUdpSocket;
     mUdpServer->bind(QHostAddress::Any, 1714, QUdpSocket::ShareAddress);
 
-    connect(mUdpServer, SIGNAL(readyRead()), &mLoop, SLOT(quit()));
+    QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
     mLanLinkProvider.onNetworkChange();
-    mLoop.exec();
-    disconnect(mUdpServer, SIGNAL(readyRead()), &mLoop, SLOT(quit()));
+    QVERIFY(spy.wait());
 
     QByteArray datagram;
     datagram.resize(mUdpServer->pendingDatagramSize());
@@ -222,26 +219,25 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
     int tcpPort = body.value("tcpPort").toInt();
 
     QSslSocket socket;
-    connect(&socket, SIGNAL(connected()), &mLoop, SLOT(quit()));
-    connect(&socket, SIGNAL(error(QAbstractSocket::SocketError)), &mLoop, SLOT(quit()));
+    QSignalSpy spy2(&socket, SIGNAL(connected()));
 
     socket.connectToHost(sender, tcpPort);
-    mLoop.exec();
+    QVERIFY(spy2.wait());
 
     QVERIFY2(socket.isOpen(), "Socket disconnected immediately");
 
     socket.write(mIdentityPackage.toLatin1());
     socket.waitForBytesWritten(2000);
 
-    connect(&socket, SIGNAL(encrypted()), &mLoop, SLOT(quit()));
+    QSignalSpy spy3(&socket, SIGNAL(encrypted()));
     // We don't take care for sslErrors signal here, but signal will emit still we will get successful connection
 
     setSocketAttributes(&socket);
     socket.setPeerVerifyMode(QSslSocket::QueryPeer);
 
-    socket.startServerEncryption();
+    socket.startClientEncryption();
 
-    mLoop.exec();
+    QVERIFY(spy3.wait());
 
     QVERIFY2(socket.isValid(), "Server socket disconnected");
     QVERIFY2(socket.isEncrypted(), "Server socket not yet encrypted");
@@ -257,13 +253,11 @@ void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
 
     mServer->listen(QHostAddress::Any, PORT);
 
-    connect(mServer, SIGNAL(newConnection()), &mLoop, SLOT(quit()));
-
+    QSignalSpy spy(mServer, &Server::newConnection);
     qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, 1714); // write an identity package to udp socket here, we do not broadcast it here
     QCOMPARE(bytesWritten, mIdentityPackage.size());
 
-    // We should have an incoming connection now, wait for incoming connection
-    mLoop.exec();
+    QVERIFY(spy.wait());
 
     QSslSocket* serverSocket = mServer->nextPendingConnection();
 
@@ -271,8 +265,8 @@ void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
     mReader = new SocketLineReader(serverSocket, this);
-    connect(mReader, SIGNAL(readyRead()), &mLoop, SLOT(quit()));
-    mLoop.exec();
+    QSignalSpy spy2(mReader, &SocketLineReader::readyRead);
+    QVERIFY(spy2.wait());
 
     QByteArray receivedPackage = mReader->readLine();
     QVERIFY2(!receivedPackage.isEmpty(), "Empty package received");
@@ -281,13 +275,12 @@ void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
 
     // Received identity package from LanLinkProvider now start ssl
 
-    connect(serverSocket, SIGNAL(encrypted()), &mLoop, SLOT(quit()));
-    connect(serverSocket, SIGNAL(disconnected()), &mLoop, SLOT(quit()));
+    QSignalSpy spy3(serverSocket, SIGNAL(encrypted()));
 
     setSocketAttributes(serverSocket);
     serverSocket->setPeerVerifyMode(QSslSocket::QueryPeer);
     serverSocket->startClientEncryption(); // Its TCP server. but SSL client
-    mLoop.exec();
+    QVERIFY(spy3.wait());
 
     QVERIFY2(serverSocket->isValid(), "Server socket disconnected");
     QVERIFY2(serverSocket->isEncrypted(), "Server socket not yet encrypted");
