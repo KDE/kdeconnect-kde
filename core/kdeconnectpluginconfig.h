@@ -26,7 +26,6 @@
 #include <QStringList>
 #include <QVariant>
 
-#include "default_args.h"
 #include "kdeconnectcore_export.h"
 
 struct KdeConnectPluginConfigPrivate;
@@ -56,7 +55,7 @@ public:
     /**
      * Convenience method that will convert the QVariant to whatever type for you
      */
-    template<typename T> T get(const QString& key, const T& defaultValue = default_arg<T>::get()) {
+    template<typename T> T get(const QString& key, const T& defaultValue = {}) {
         return get(key, QVariant(defaultValue)).template value<T>(); //Important note: Awesome template syntax is awesome
     }
 

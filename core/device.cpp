@@ -73,7 +73,7 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_deviceName(identityPackage.get<QString>("deviceName"))
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
-    , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
+    , m_protocolVersion(identityPackage.get<int>("protocolVersion", -1))
 {
     addLink(identityPackage, dl);
 
@@ -272,7 +272,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
     //qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
 
-    m_protocolVersion = identityPackage.get<int>("protocolVersion");
+    m_protocolVersion = identityPackage.get<int>("protocolVersion", -1);
     if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
         qCWarning(KDECONNECT_CORE) << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
     }
