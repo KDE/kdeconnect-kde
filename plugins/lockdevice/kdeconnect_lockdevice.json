@@ -16,6 +16,7 @@
         "Description[gl]": "Bloquea os seus sistemas.", 
         "Description[it]": "Blocca i tuoi sistemi", 
         "Description[nl]": "Vergrendeld uw systemen", 
+        "Description[nn]": "Lås systemet", 
         "Description[pl]": "Zablokuj swoje systemy", 
         "Description[pt]": "Bloqueia os seus sistemas", 
         "Description[pt_BR]": "Bloqueia seus sistemas", 
@@ -24,6 +25,7 @@
         "Description[tr]": "Sistemlerinizi kilitler", 
         "Description[uk]": "Блокує вашу систему", 
         "Description[x-test]": "xxLocks your systemsxx", 
+        "Description[zh_CN]": "锁定您的系统", 
         "EnabledByDefault": true, 
         "Icon": "applications-miscelaneaous", 
         "Id": "kdeconnect_lockdevice", 
@@ -37,6 +39,7 @@
         "Name[gl]": "Bloqueo do dispositivo", 
         "Name[it]": "Blocco dispositivo", 
         "Name[nl]": "Apparaat vergrendelen", 
+        "Name[nn]": "Lås eining", 
         "Name[pl]": "ZablokujUrządzenie", 
         "Name[pt]": "Bloqueio de Dispositivo", 
         "Name[pt_BR]": "Bloqueio de dispositivo", 
@@ -45,6 +48,7 @@
         "Name[tr]": "AygıtıKilitle", 
         "Name[uk]": "LockDevice", 
         "Name[x-test]": "xxLockDevicexx", 
+        "Name[zh_CN]": "锁定设备", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

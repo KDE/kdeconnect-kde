@@ -21,19 +21,14 @@
 #include "landevicelink.h"
 #include "core_debug.h"
 
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netinet/tcp.h>
-#include <netdb.h>
-
 #include "../linkprovider.h"
 #include "uploadjob.h"
 #include "downloadjob.h"
 #include "socketlinereader.h"
 #include "lanpairinghandler.h"
 
-LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket)
-    : DeviceLink(deviceId, parent)
+LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
+    : DeviceLink(deviceId, parent, connectionSource)
     , mSocketLineReader(new SocketLineReader(socket))
     , onSsl(false)
 {

@@ -20,7 +20,7 @@
 
 #include "kdeconnectplugin.h"
 
-#include <QDebug>
+#include "core_debug.h"
 
 struct KdeConnectPluginPrivate
 {
@@ -37,7 +37,7 @@ KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
     d->mDevice = qvariant_cast< Device* >(args.at(0));
     d->mPluginName = args.at(1).toString();
     d->mOutgoingTypes = args.at(2).toStringList().toSet();
-    d->mConfig = 0;
+    d->mConfig = nullptr;
 }
 
 KdeConnectPluginConfig* KdeConnectPlugin::config() const
@@ -69,9 +69,9 @@ Device const* KdeConnectPlugin::device() const
 bool KdeConnectPlugin::sendPackage(NetworkPackage& np) const
 {
     if(!d->mOutgoingTypes.contains(np.type())) {
-        qWarning() << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->mOutgoingTypes;
+        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->mOutgoingTypes;
         return false;
     }
-//     qWarning() << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
+//     qCWarning(KDECONNECT_CORE) << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
     return d->mDevice->sendPackage(np);
 }

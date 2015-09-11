@@ -41,14 +41,17 @@ public:
     explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
+    virtual bool receivePackage(const NetworkPackage& np) override;
+    virtual void connected() override { }
 
 private Q_SLOTS:
     void propertiesChanged(const QString& propertyInterface, const QVariantMap& properties);
     void seeked(qlonglong);
 
 private:
+    void addService(const QString& service);
+    void removeService(const QString& service);
+
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
     void sendPlayerList();

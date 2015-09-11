@@ -86,7 +86,7 @@ template <typename T, size_t N>
 size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args), m_fakekey(0), m_x11(QX11Info::isPlatformX11())
+    : KdeConnectPlugin(parent, args), m_fakekey(nullptr), m_x11(QX11Info::isPlatformX11())
 #if HAVE_WAYLAND
     , m_waylandInput(nullptr)
     , m_waylandAuthenticationRequested(false)
@@ -101,7 +101,7 @@ MousepadPlugin::~MousepadPlugin()
 {
     if (m_fakekey) {
         free(m_fakekey);
-        m_fakekey = 0;
+        m_fakekey = nullptr;
     }
 }
 
@@ -208,8 +208,11 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
                 }
 
                 //We use fakekey here instead of XTest (above) because it can handle utf characters instead of keycodes.
-                fakekey_press(m_fakekey, (const unsigned char*)key.toUtf8().constData(), -1, 0);
-                fakekey_release(m_fakekey);
+                for (int i=0;i<key.length();i++) {
+                    QByteArray utf8 = QString(key.at(i)).toUtf8();
+                    fakekey_press(m_fakekey, (const uchar*)utf8.constData(), utf8.size(), 0);
+                    fakekey_release(m_fakekey);
+                }
             }
 
             if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), False, 0);

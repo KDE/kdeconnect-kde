@@ -36,13 +36,13 @@ class LanDeviceLink
     Q_OBJECT
 
 public:
-    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket);
+    LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource);
 
     virtual QString name() Q_DECL_OVERRIDE;
     void setOnSsl(bool value);
     virtual PairingHandler* createPairingHandler(Device* device) Q_DECL_OVERRIDE;
-    bool sendPackage(NetworkPackage& np);
-    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np);
+    bool sendPackage(NetworkPackage& np) override;
+    bool sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np) override;
     UploadJob* sendPayload(NetworkPackage&);
 
 private Q_SLOTS:

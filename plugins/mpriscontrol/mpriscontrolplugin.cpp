@@ -42,20 +42,32 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
     : KdeConnectPlugin(parent, args)
     , prevVolume(-1)
 {
-    m_watcher = new QDBusServiceWatcher("org.mpris.MediaPlayer2", QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    m_watcher = new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
-    connect(m_watcher, &QDBusServiceWatcher::serviceRegistered, this, &MprisControlPlugin::addPlayer);
-    connect(m_watcher, &QDBusServiceWatcher::serviceUnregistered, this, &MprisControlPlugin::removePlayer);
+    connect(m_watcher, &QDBusServiceWatcher::serviceRegistered, this, &MprisControlPlugin::addService);
+    connect(m_watcher, &QDBusServiceWatcher::serviceUnregistered, this, &MprisControlPlugin::removeService);
 
     //Add existing interfaces
-    QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
-    Q_FOREACH (const QString& iface, interfaces) {
-        if (iface.startsWith("org.mpris.MediaPlayer2")) {
-            addPlayer(iface);
-        }
+    QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
+    Q_FOREACH (const QString& service, services) {
+        addService(service);
     }
-
 }
+
+void MprisControlPlugin::addService(const QString& service)
+{
+    if (service.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
+        addPlayer(service);
+    }
+}
+
+void MprisControlPlugin::removeService(const QString& service)
+{
+    if (service.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
+        removePlayer(service);
+    }
+}
+
 
 void MprisControlPlugin::addPlayer(const QString& service)
 {

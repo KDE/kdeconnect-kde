@@ -38,12 +38,12 @@ class KDECONNECTCORE_EXPORT Daemon
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
+    Q_PROPERTY(bool isDiscoveringDevices READ isDiscoveringDevices)
 
 public:
-    explicit Daemon(QObject *parent);
+    explicit Daemon(QObject *parent, bool testMode = false);
     ~Daemon();
 
-public Q_SLOTS:
     /**
      * Returns the daemon.
      *
@@ -51,23 +51,27 @@ public Q_SLOTS:
      */
     static Daemon* instance();
 
-    //After calling this, signal deviceDiscovered will be triggered for each device
-    Q_SCRIPTABLE void setDiscoveryEnabled(bool b);
-
-    Q_SCRIPTABLE void forceOnNetworkChange();
-
-    Q_SCRIPTABLE QString announcedName();
-    Q_SCRIPTABLE void setAnnouncedName(QString name);
-
-    //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
-    Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyVisible = false) const;
-
-    //Exposing kdeconnectconfig through daemon, needed to show certificate hash in cli, but this can be extended to name, id, public key etc. if needed
-    Q_SCRIPTABLE QByteArray certificate(int format) const;
+    QList<Device*> devicesList() const;
 
     virtual void requestPairing(Device *d) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();
+
+public Q_SLOTS:
+    Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
+    Q_SCRIPTABLE void releaseDiscoveryMode(const QString &id);
+
+    Q_SCRIPTABLE void forceOnNetworkChange();
+
+    ///don't try to turn into Q_PROPERTY, it doesn't work
+    Q_SCRIPTABLE QString announcedName();
+    Q_SCRIPTABLE void setAnnouncedName(QString name);
+
+    //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
+    Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyPaired = false) const;
+
+    //Exposing kdeconnectconfig through daemon, needed to show certificate hash in cli, but this can be extended to name, id, public key etc. if needed
+    Q_SCRIPTABLE QByteArray certificate(int format) const;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
@@ -79,6 +83,10 @@ private Q_SLOTS:
     void onDeviceStatusChanged();
 
 private:
+    bool isDiscoveringDevices() const;
+    void removeDevice(Device* d);
+    void cleanDevices();
+
     QScopedPointer<struct DaemonPrivate> d;
 
 public:

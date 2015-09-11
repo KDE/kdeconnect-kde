@@ -68,12 +68,10 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_deviceName(identityPackage.get<QString>("deviceName"))
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
     , m_pairStatus(Device::NotPaired)
-    , m_protocolVersion(identityPackage.get<int>("protocolVersion"))
-    , m_incomingCapabilities(identityPackage.get<QStringList>("SupportedIncomingInterfaces", QStringList()).toSet())
-    , m_outgoingCapabilities(identityPackage.get<QStringList>("SupportedOutgoingInterfaces", QStringList()).toSet())
+    , m_protocolVersion(identityPackage.get<int>("protocolVersion", -1))
 {
     addLink(identityPackage, dl);
-    
+
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
@@ -88,7 +86,7 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
 
 Device::~Device()
 {
-    Q_FOREACH(PairingHandler* ph, m_pairingHandlers) delete ph; // Delete all pairing handlers on deletion of device
+    qDeleteAll(m_pairingHandlers);
 }
 
 bool Device::hasPlugin(const QString& name) const
@@ -106,43 +104,45 @@ void Device::reloadPlugins()
     QHash<QString, KdeConnectPlugin*> newPluginMap;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByOutgoingInterface;
+    QSet<QString> supportedIncomingInterfaces;
+    QStringList unsupportedPlugins;
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
         KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();
+        const bool deviceSupportsCapabilities = !m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty();
 
         //Code borrowed from KWin
         foreach (const QString& pluginName, loader->getPluginList()) {
-            QString enabledKey = pluginName + QString::fromLatin1("Enabled");
+            const KPluginMetaData service = loader->getPluginInfo(pluginName);
+            const QSet<QString> incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
+            const QSet<QString> outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
 
-            bool isPluginEnabled = (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
-                                                            : loader->getPluginInfo(pluginName).isEnabledByDefault());
+            const bool pluginEnabled = isPluginEnabled(pluginName);
 
-            if (isPluginEnabled) {
+            if (pluginEnabled) {
+                supportedIncomingInterfaces += incomingInterfaces;
+            }
+
+            //If we don't find intersection with the received on one end and the sent on the other, we don't
+            //let the plugin stay
+            //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
+            //we assume that the other client doesn't know about capabilities.
+
+            const bool capabilitiesSupported = deviceSupportsCapabilities && (!incomingInterfaces.isEmpty() || !outgoingInterfaces.isEmpty());
+            if (capabilitiesSupported
+                && (m_incomingCapabilities & outgoingInterfaces).isEmpty()
+                && (m_outgoingCapabilities & incomingInterfaces).isEmpty()
+            ) {
+                qCWarning(KDECONNECT_CORE) << "not loading " << pluginName << "because of unmatched capabilities";
+                unsupportedPlugins.append(pluginName);
+                continue;
+            }
+
+            if (pluginEnabled) {
                 KdeConnectPlugin* plugin = m_plugins.take(pluginName);
-                QStringList incomingInterfaces, outgoingInterfaces;
-                if (plugin) {
-                    incomingInterfaces = m_pluginsByIncomingInterface.keys(plugin);
-                    outgoingInterfaces = m_pluginsByOutgoingInterface.keys(plugin);
-                } else {
-                    const KPluginMetaData service = loader->getPluginInfo(pluginName);
-                    incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType");
-                    outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType");
-                }
-
-                //If we don't find intersection with the received on one end and the sent on the other, we don't
-                //let the plugin stay
-                //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
-                //we assume that the other client doesn't know about capabilities.
-                if (!m_incomingCapabilities.isEmpty() && !m_outgoingCapabilities.isEmpty()
-                    && (m_incomingCapabilities & outgoingInterfaces.toSet()).isEmpty()
-                    && (m_outgoingCapabilities & incomingInterfaces.toSet()).isEmpty()
-                ) {
-                    delete plugin;
-                    continue;
-                }
 
                 if (!plugin) {
                     plugin = loader->instantiatePluginForDevice(pluginName, this);
@@ -161,17 +161,28 @@ void Device::reloadPlugins()
 
     //Erase all left plugins in the original map (meaning that we don't want
     //them anymore, otherwise they would have been moved to the newPluginMap)
+    const QStringList newSupportedIncomingInterfaces = supportedIncomingInterfaces.toList();
+    const bool capabilitiesChanged = (m_pluginsByOutgoingInterface != newPluginsByOutgoingInterface
+                                     || m_supportedIncomingInterfaces != newSupportedIncomingInterfaces);
     qDeleteAll(m_plugins);
     m_plugins = newPluginMap;
-    m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
     m_pluginsByOutgoingInterface = newPluginsByOutgoingInterface;
+    m_supportedIncomingInterfaces = newSupportedIncomingInterfaces;
+    m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
+    m_unsupportedPlugins = unsupportedPlugins;
 
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
         plugin->connected();
     }
-
     Q_EMIT pluginsChanged();
 
+    if (capabilitiesChanged && isReachable() && isPaired())
+    {
+        NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
+        np.set<QStringList>("IncomingCapabilities", newSupportedIncomingInterfaces);
+        np.set<QStringList>("OutgoingCapabilities", newPluginsByOutgoingInterface.keys());
+        sendPackage(np);
+    }
 }
 
 QString Device::pluginsConfigFile() const
@@ -252,9 +263,9 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
     //qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
 
-    m_protocolVersion = identityPackage.get<int>("protocolVersion");
+    m_protocolVersion = identityPackage.get<int>("protocolVersion", -1);
     if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
-        qWarning() << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+        qCWarning(KDECONNECT_CORE) << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
     }
 
     connect(link, SIGNAL(destroyed(QObject*)),
@@ -282,6 +293,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     qSort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
 
     if (m_deviceLinks.size() == 1) {
+        m_incomingCapabilities = identityPackage.get<QStringList>("IncomingCapabilities", QStringList()).toSet();
+        m_outgoingCapabilities = identityPackage.get<QStringList>("OutgoingCapabilities", QStringList()).toSet();
         reloadPlugins(); //Will load the plugins
         Q_EMIT reachableStatusChanged();
     } else {
@@ -352,6 +365,15 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
             ph->packageReceived(np);
         }
 
+    } else if (np.type() == PACKAGE_TYPE_CAPABILITIES) {
+        QSet<QString> newIncomingCapabilities = np.get<QStringList>("IncomingCapabilities", QStringList()).toSet();
+        QSet<QString> newOutgoingCapabilities = np.get<QStringList>("OutgoingCapabilities", QStringList()).toSet();
+
+        if (newOutgoingCapabilities != m_outgoingCapabilities || newIncomingCapabilities != m_incomingCapabilities) {
+            m_incomingCapabilities = newIncomingCapabilities;
+            m_outgoingCapabilities = newOutgoingCapabilities;
+            reloadPlugins();
+        }
     } else if (isPaired()) {
         QList<KdeConnectPlugin*> plugins = m_pluginsByIncomingInterface.values(np.type());
         foreach(KdeConnectPlugin* plugin, plugins) {
@@ -469,4 +491,27 @@ void Device::setName(const QString &name)
         m_deviceName = name;
         Q_EMIT nameChanged(name);
     }
+}
+
+KdeConnectPlugin* Device::plugin(const QString& pluginName) const
+{
+    return m_plugins[pluginName];
+}
+
+void Device::setPluginEnabled(const QString& pluginName, bool enabled)
+{
+    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
+
+    const QString enabledKey = pluginName + QStringLiteral("Enabled");
+    pluginStates.writeEntry(enabledKey, enabled);
+    reloadPlugins();
+}
+
+bool Device::isPluginEnabled(const QString& pluginName) const
+{
+    const QString enabledKey = pluginName + QStringLiteral("Enabled");
+    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
+
+    return (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
+                                            : PluginLoader::instance()->getPluginInfo(pluginName).isEnabledByDefault());
 }

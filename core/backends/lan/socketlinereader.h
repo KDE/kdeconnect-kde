@@ -37,8 +37,7 @@ class SocketLineReader
     Q_OBJECT
 
 public:
-
-    explicit SocketLineReader(QSslSocket* socket, QObject* parent = 0);
+    explicit SocketLineReader(QSslSocket* socket, QObject* parent = nullptr);
 
     QByteArray readLine() { return mPackages.dequeue(); }
     qint64 write(const QByteArray& data) { return mSocket->write(data); }

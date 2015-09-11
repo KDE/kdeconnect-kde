@@ -28,6 +28,7 @@
 #include <QSslKey>
 #include <QtCrypto>
 #include <QSslCertificate>
+#include <QTimer>
 
 #include "networkpackage.h"
 
@@ -46,6 +47,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString statusIconName READ statusIconName)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChanged)
+    Q_PROPERTY(QStringList unsupportedPlugins READ unsupportedPlugins NOTIFY pluginsChanged)
 
     enum PairStatus {
         NotPaired,
@@ -88,6 +90,7 @@ public:
     Q_SCRIPTABLE QByteArray certificate(int format) const { return (format == QSsl::Pem) ? m_certificate.toPem() : m_certificate.toDer() ;} // To expose certificate through dbus for cli
     QString iconName() const;
     QString statusIconName() const;
+    QStringList unsupportedPlugins() const { return m_unsupportedPlugins; }
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
@@ -108,6 +111,10 @@ public:
     Q_SCRIPTABLE QString pluginsConfigFile() const;
 
     void pairingTimeout();
+
+    KdeConnectPlugin* plugin(const QString& pluginName) const;
+    void setPluginEnabled(const QString& pluginName, bool enabled);
+    bool isPluginEnabled(const QString& pluginName) const;
 
 public Q_SLOTS:
     ///sends a @p np package to the device
@@ -158,9 +165,11 @@ private: //Fields (TODO: dPointer!)
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
-    const QSet<QString> m_incomingCapabilities;
-    const QSet<QString> m_outgoingCapabilities;
-
+    QTimer m_pairingTimeut;
+    QSet<QString> m_incomingCapabilities;
+    QSet<QString> m_outgoingCapabilities;
+    QStringList m_supportedIncomingInterfaces;
+    QStringList m_unsupportedPlugins;
 };
 
 Q_DECLARE_METATYPE(Device*)

@@ -41,14 +41,14 @@ public:
     LanLinkProvider();
     ~LanLinkProvider();
 
-    QString name() { return "LanLinkProvider"; }
-    int priority() { return PRIORITY_HIGH; }
+    QString name() override { return "LanLinkProvider"; }
+    int priority() override { return PRIORITY_HIGH; }
     void addLink(QString, QSslSocket*, NetworkPackage*);
 
 public Q_SLOTS:
-    virtual void onNetworkChange();
-    virtual void onStart();
-    virtual void onStop();
+    virtual void onNetworkChange() override;
+    virtual void onStart() override;
+    virtual void onStop() override;
     void connected();
     void encrypted();
     void connectError();
@@ -62,7 +62,7 @@ private Q_SLOTS:
 
 private:
     static void configureSocket(QSslSocket* socket);
-
+    void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
 
     Server* mServer;
     QUdpSocket* mUdpServer;
@@ -77,7 +77,7 @@ private:
         QHostAddress sender;
     };
     QMap<QSslSocket*, PendingConnect> receivedIdentityPackages;
-
+    QNetworkConfiguration m_lastConfig;
 };
 
 #endif

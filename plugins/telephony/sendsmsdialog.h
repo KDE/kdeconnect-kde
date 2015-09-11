@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,44 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DEFAULTARG_H
-#define DEFAULTARG_H
+#ifndef SENDSMSDIALOG_H
+#define SENDSMSDIALOG_H
 
-#include <QString>
+#include <QDialog>
+#include <QSize>
 
-template<class T>
-struct default_arg {
-    static T get(); //Not defined for any other value
+class QTextEdit;
+class QLineEdit;
+class QPushButton;
+
+class SendSmsDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit SendSmsDialog(const QString& originalMessage, const QString& phoneNumber, const QString& contactName, QWidget *parent = nullptr);
+    virtual QSize sizeHint() const override;
+
+private Q_SLOTS:
+    void sendButtonClicked();
+
+Q_SIGNALS:
+    void sendSms(const QString& phoneNumber, const QString& messageBody);
+
+private:
+    QString mPhoneNumber;
+    QTextEdit *mTextEdit;
 };
 
-//bool -> false
-template<>
-struct default_arg<bool> {
-    static bool get() { return false; }
-};
-
-//int -> -1
-template<>
-struct default_arg<int> {
-    static int get() { return -1; }
-};
-
-//QByteArray-> empty qbytearray
-template<>
-struct default_arg<QByteArray> {
-    static QByteArray get() { return QByteArray(); }
-};
-
-//QStrings -> empty string
-template<>
-struct default_arg<QString> {
-    static QString get() { return QString(); }
-};
-
-template<class T>
-struct default_arg<T*> {
-    static T* get() { return NULL;}
-};
-
-
-#endif // DEFAULTARG_H
+#endif

@@ -19,6 +19,7 @@
  */
 
 #include <QCryptographicHash>
+#include <QIODevice>
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QCoreApplication>
@@ -66,10 +67,14 @@ int main(int argc, char** argv)
     about.processCommandLine(&parser);
 
     if(parser.isSet("l") || parser.isSet("a")) {
+        const QString id = "kdeconnect-cli-"+QString::number(QCoreApplication::applicationPid());
         DaemonDbusInterface iface;
         bool paired = true, reachable = false;
         if (parser.isSet("a")) {
             reachable = true;
+        } else {
+            iface.acquireDiscoveryMode(id);
+            QThread::sleep(2);
         }
         QDBusPendingReply<QStringList> reply = iface.devices(paired, reachable);
         reply.waitForFinished();
@@ -97,6 +102,8 @@ int main(int argc, char** argv)
         } else if (devices.isEmpty()) {
             QTextStream(stderr) << i18n("No devices found") << endl;
         }
+
+        iface.releaseDiscoveryMode(id);
     } else if(parser.isSet("refresh")) {
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
@@ -106,9 +113,8 @@ int main(int argc, char** argv)
             QTextStream(stderr) << i18n("No device specified") << endl;
         }
         device = parser.value("device");
-        QUrl url;
         if(parser.isSet("share")) {
-            url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
+            QUrl url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
             parser.clearPositionalArguments();
             if(!url.isEmpty() && !device.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/share", "org.kde.kdeconnect.device.share", "shareUrl");
@@ -149,24 +155,26 @@ int main(int argc, char** argv)
                     << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
             }
         } else if(parser.isSet("encryption-info")) {
-			DeviceDbusInterface dev(device);
-			QDBusPendingReply<QByteArray> devReply = dev.certificate(1); // QSsl::Der = 1
-			devReply.waitForFinished();
-			if (devReply.value().isEmpty()) {
-				QTextStream(stderr) << i18n("The other device doesn\'t use a recent version of KDE Connect, using the legacy encryption method.") << endl;
-			} else {
-				QByteArray remoteCertificate = QCryptographicHash::hash(devReply.value(), QCryptographicHash::Sha1).toHex();
-				for (int i=2 ; i<remoteCertificate.size() ; i+=3) remoteCertificate.insert(i, ':'); // Improve readability
+            DeviceDbusInterface dev(device);
+            QDBusPendingReply<QByteArray> devReply = dev.certificate(1); // QSsl::Der = 1
+            devReply.waitForFinished();
+            if (devReply.value().isEmpty()) {
+                QTextStream(stderr) << i18n("The other device doesn\'t use a recent version of KDE Connect, using the legacy encryption method.") << endl;
+            } else {
+                QByteArray remoteCertificate = QCryptographicHash::hash(devReply.value(), QCryptographicHash::Sha1).toHex();
+                for (int i=2 ; i<remoteCertificate.size() ; i+=3)
+                    remoteCertificate.insert(i, ':'); // Improve readability
 
-				DaemonDbusInterface iface;
-				QDBusPendingReply<QByteArray> ifaceReply = iface.certificate(1); // QSsl::Der = 1
-				ifaceReply.waitForFinished();
-				QByteArray myCertificate = QCryptographicHash::hash(ifaceReply.value(), QCryptographicHash::Sha1).toHex();
-				for (int i=2 ; i<myCertificate.size() ; i+=3) myCertificate.insert(i, ':'); // Improve readability
+                DaemonDbusInterface iface;
+                QDBusPendingReply<QByteArray> ifaceReply = iface.certificate(1); // QSsl::Der = 1
+                ifaceReply.waitForFinished();
+                QByteArray myCertificate = QCryptographicHash::hash(ifaceReply.value(), QCryptographicHash::Sha1).toHex();
+                for (int i=2 ; i<myCertificate.size() ; i+=3)
+                    myCertificate.insert(i, ':'); // Improve readability
 
-				QTextStream(stderr) << i18n("SHA1 fingerprint of your device certificate is : ") << myCertificate << endl;
-				QTextStream(stderr) << i18n("SHA1 fingerprint of remote device certificate is : ") << remoteCertificate << endl;
-			}
+                QTextStream(stderr) << i18n("SHA1 fingerprint of your device certificate is : ") << myCertificate << endl;
+                QTextStream(stderr) << i18n("SHA1 fingerprint of remote device certificate is : ") << remoteCertificate << endl;
+            }
         } else {
             QTextStream(stderr) << i18n("Nothing to be done") << endl;
         }

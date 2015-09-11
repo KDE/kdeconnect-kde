@@ -22,7 +22,7 @@ set_target_properties(kdeconnectpluginkcm PROPERTIES
 )
 
 target_include_directories(kdeconnectpluginkcm PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
-generate_export_header(kdeconnectpluginkcm EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}../core/kdeconnectcore_export.h BASE_NAME kdeconnectpluginkcm)
+generate_export_header(kdeconnectpluginkcm EXPORT_FILE_NAME kdeconnectpluginkcm_export.h BASE_NAME kdeconnectpluginkcm)
 
 # Remove NAMELINK_SKIP if/when headers are being installed and the library
 # becomes public.

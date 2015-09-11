@@ -39,8 +39,9 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     , mWritten(0)
 {
     Q_ASSERT(mOrigin);
+    Q_ASSERT(mOrigin->isReadable());
     if (mDestination.scheme().isEmpty()) {
-        qWarning() << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
+        qCWarning(KDECONNECT_CORE) << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
         mDestination.setScheme("file");
     }
 
@@ -79,10 +80,13 @@ void FileTransferJob::startTransfer()
     mTime = QTime::currentTime();
     description(this, i18n("Receiving file over KDE-Connect"),
                         QPair<QString, QString>(i18nc("File transfer origin", "From"),
-                        QString(mDeviceName)),
+                        mDeviceName),
                         QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
-    mReply = Daemon::instance()->networkAccessManager()->put(QNetworkRequest(mDestination), mOrigin.data());
+    QNetworkRequest req(mDestination);
+    req.setHeader(QNetworkRequest::ContentLengthHeader, totalAmount(Bytes));
+    mReply = Daemon::instance()->networkAccessManager()->put(req, mOrigin.data());
+
     connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
         setProcessedAmount(Bytes, bytesSent);
         emitSpeed(bytesSent/mTime.elapsed());

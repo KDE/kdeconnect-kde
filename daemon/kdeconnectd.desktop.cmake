@@ -1,10 +1,10 @@
 [Desktop Entry]
-Type=Service
-Exec=${CMAKE_INSTALL_PREFIX}/${LIBEXEC_INSTALL_DIR}/kdeconnectd
+Type=Application
+Exec=${LIBEXEC_INSTALL_DIR}/kdeconnectd
 X-KDE-StartupNotify=false
 X-KDE-autostart-phase=0
 X-GNOME-Autostart-enabled=true
-OnlyShowIn=KDE;GNOME;Unity;XFCE
+OnlyShowIn=KDE;GNOME;Unity;XFCE;
 NoDisplay=true
 
 Name=KDEConnect daemon
@@ -19,6 +19,7 @@ Name[gl]=Servizo de KDE Connect
 Name[hu]=KDEConnect szolgáltatás
 Name[it]=Demone KDE Connect
 Name[nl]=KDEConnect-daemon
+Name[nn]=KDEConnect-teneste
 Name[pl]=Usługa KDEConnect
 Name[pt]=Serviço do KDE Connect
 Name[pt_BR]=Serviço do KDE Connect

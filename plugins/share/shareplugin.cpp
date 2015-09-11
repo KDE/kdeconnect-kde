@@ -129,7 +129,11 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
 void SharePlugin::finished(KJob* job)
 {
-    qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished. Success:" << (!job->error());
+    FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
+    if (ftjob)
+        fileReceived(ftjob->destination());
+
+    qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished. Success:" << (!job->error()) << (ftjob ? ftjob->destination() : QUrl());
 }
 
 void SharePlugin::openDestinationFolder()

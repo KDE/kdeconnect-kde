@@ -16,6 +16,7 @@
         "Description[gl]": "Controle servizos de MPRIS.", 
         "Description[it]": "Servizi di controllo MPRIS", 
         "Description[nl]": "MPRIS-services besturen", 
+        "Description[nn]": "Kontroller MPRIS-tenester", 
         "Description[pl]": "Sterowanie usługami MPRIS", 
         "Description[pt]": "Controlar os serviços MPRIS", 
         "Description[pt_BR]": "Controle dos serviços MPRIS", 
@@ -24,6 +25,7 @@
         "Description[tr]": "MPRIS servislerini kontrol et", 
         "Description[uk]": "Керування службами MPRIS", 
         "Description[x-test]": "xxControl MPRIS servicesxx", 
+        "Description[zh_CN]": "控制 MPRIS 服务", 
         "EnabledByDefault": true, 
         "Icon": "applications-multimedia", 
         "Id": "kdeconnect_mprisremote", 
@@ -37,6 +39,7 @@
         "Name[gl]": "MprisRemote", 
         "Name[it]": "MprisRemote", 
         "Name[nl]": "MprisRemote", 
+        "Name[nn]": "MPRIS-fjernkontroll", 
         "Name[pl]": "PilotMPRIS", 
         "Name[pt]": "Comando MPRIS", 
         "Name[pt_BR]": "MprisRemote", 
@@ -45,6 +48,7 @@
         "Name[tr]": "MprisRemote", 
         "Name[uk]": "MprisRemote", 
         "Name[x-test]": "xxMprisRemotexx", 
+        "Name[zh_CN]": "远程 Mpris", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

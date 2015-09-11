@@ -38,8 +38,8 @@ public:
     explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
+    virtual bool receivePackage(const NetworkPackage& np) override;
+    virtual void connected() override { }
     
 private Q_SLOTS:
     void clipboardChanged(QClipboard::Mode mode);

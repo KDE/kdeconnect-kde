@@ -24,7 +24,7 @@
 #include "../lan/lanpairinghandler.h"
 
 LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
-    : DeviceLink(deviceId, provider)
+    : DeviceLink(deviceId, provider, Remotely)
 {
 
 }
@@ -56,6 +56,8 @@ bool LoopbackDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackag
 
     //LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
+        bool b = input.payload()->open(QIODevice::ReadOnly);
+        Q_ASSERT(b);
         output.setPayload(input.payload(), input.payloadSize());
     }
 
@@ -71,6 +73,8 @@ bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)
 
     //LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
+        bool b = input.payload()->open(QIODevice::ReadOnly);
+        Q_ASSERT(b);
         output.setPayload(input.payload(), input.payloadSize());
     }
 

@@ -21,10 +21,12 @@
 #include "lanlinkprovider.h"
 #include "core_debug.h"
 
+#ifndef Q_OS_WIN
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <netdb.h>
+#endif
 
 #include <QHostInfo>
 #include <QTcpServer>
@@ -52,14 +54,16 @@ LanLinkProvider::LanLinkProvider()
     connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
 
     //Detect when a network interface changes status, so we announce ourelves in the new network
-    QNetworkConfigurationManager* networkManager;
-    networkManager = new QNetworkConfigurationManager(this);
-    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, [this, networkManager](QNetworkConfiguration config) {
-        Q_UNUSED(config);
-        //qCDebug(KDECONNECT_CORE) << config.name() << " state changed to " << config.state();
-        //qCDebug(KDECONNECT_CORE) << "Online status: " << (networkManager->isOnline()? "online":"offline");
+    QNetworkConfigurationManager* networkManager = new QNetworkConfigurationManager(this);
+    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, &LanLinkProvider::onNetworkConfigurationChanged);
+}
+
+void LanLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration &config)
+{
+    if (m_lastConfig != config) {
+        m_lastConfig = config;
         onNetworkChange();
-    });
+    }
 }
 
 LanLinkProvider::~LanLinkProvider()
@@ -108,7 +112,7 @@ void LanLinkProvider::onNetworkChange()
 
 //I'm the existing device, a new device is kindly introducing itself.
 //I will create a TcpSocket and try to connect. This can result in either connected() or connectError().
-void LanLinkProvider::newUdpConnection()
+void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
 {
     while (mUdpServer->hasPendingDatagrams()) {
 
@@ -154,7 +158,7 @@ void LanLinkProvider::connectError()
     disconnect(socket, SIGNAL(connected()), this, SLOT(connected()));
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
 
-    qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)";
+    qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)" << socket->errorString();
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
@@ -183,9 +187,9 @@ void LanLinkProvider::connected()
     NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
     //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, DeviceLink::Remotely);
 
     // If network is on ssl, do not believe when they are connected, believe when handshake is completed
-
     NetworkPackage np2("");
     NetworkPackage::createIdentityPackage(&np2);
     socket->write(np2.serialize());
@@ -341,7 +345,6 @@ void LanLinkProvider::dataReceived()
     //This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
 
-
     if (NetworkPackage::ProtocolVersion <= np->get<int>("protocolVersion")) {
         // since I support ssl and remote device support ssl
         qCDebug(KDECONNECT_CORE) << "Setting up ssl client";
@@ -419,7 +422,7 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
 
 void LanLinkProvider::addLink(QString deviceId, QSslSocket* socket, NetworkPackage* receivedPackage) {
 
-    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket);
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, DeviceLink::Locally);
     connect(deviceLink, SIGNAL(destroyed(QObject*)), this, SLOT(deviceLinkDestroyed(QObject*)));
 
     // Socket disconnection will now be handled by LanDeviceLink

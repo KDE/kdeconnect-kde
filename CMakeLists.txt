@@ -10,9 +10,14 @@ cmake_minimum_required(VERSION 2.8.12)
 find_package(ECM 0.0.9 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake)
 
-find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Test)
+find_package(Qt5 5.2 REQUIRED COMPONENTS Quick)
 find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes)
 find_package(Qca-qt5 2.1.0 REQUIRED)
+find_package(TelepathyQt5 0.9.5)
+find_package(TelepathyQt5Service 0.9.7)
+if (TelepathyQt5_FOUND)
+    add_definitions(-DHAVE_TELEPATHY)
+endif()
 
 include_directories(${CMAKE_SOURCE_DIR})
 
@@ -50,6 +55,11 @@ add_subdirectory(plasmoid)
 add_subdirectory(cli)
 add_subdirectory(fileitemactionplugin)
 
-add_subdirectory(tests)
+if (TelepathyQt5_FOUND)
+    add_subdirectory(telepathy-cm)
+endif()
 
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 install(PROGRAMS kdeconnect-non-plasma.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

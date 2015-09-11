@@ -15,6 +15,7 @@
         "Description[gl]": "Controla sistemas remotos.", 
         "Description[it]": "Controlla i sistemi remoti", 
         "Description[nl]": "Systemen op afstand bedienen", 
+        "Description[nn]": "Fjernkontroller system", 
         "Description[pl]": "Sterowanie zdalnymi systemami", 
         "Description[pt]": "Comandar sistemas à distância", 
         "Description[pt_BR]": "Controle remoto de sistemas", 
@@ -23,6 +24,7 @@
         "Description[tr]": "Uzak Sistemleri Kontrol Et", 
         "Description[uk]": "Системи віддаленого керування", 
         "Description[x-test]": "xxControl Remote systemsxx", 
+        "Description[zh_CN]": "控制远程系统", 
         "EnabledByDefault": true, 
         "Icon": "applications-multimedia", 
         "Id": "kdeconnect_remotecontrol", 
@@ -35,6 +37,7 @@
         "Name[gl]": "Mando a distancia", 
         "Name[it]": "Telecomando", 
         "Name[nl]": "Afstandsbediening", 
+        "Name[nn]": "Fjernkontroll", 
         "Name[pl]": "ZdalneSterowanie", 
         "Name[pt]": "Comando à Distância", 
         "Name[pt_BR]": "Controle remoto", 
@@ -43,6 +46,7 @@
         "Name[tr]": "UzaktanKumanda", 
         "Name[uk]": "RemoteControl", 
         "Name[x-test]": "xxRemoteControlxx", 
+        "Name[zh_CN]": "远程控制", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

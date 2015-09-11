@@ -80,7 +80,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
         return ret;
     }
 
-    qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service.pluginId();
+    //qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service.pluginId();
     return ret;
 }
 

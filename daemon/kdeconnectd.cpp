@@ -18,7 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <sys/socket.h>
 #include <unistd.h>
 #include <signal.h>
 
@@ -35,9 +34,23 @@
 #include "core/device.h"
 #include "kdeconnect-version.h"
 
+#ifdef HAVE_TELEPATHY
+#include "kdeconnecttelepathyprotocolfactory.h"
+#endif
+
+
+#ifndef Q_OS_WIN
+#include <sys/socket.h>
+#endif
+
 static int sigtermfd[2];
 const static char deadbeef = 1;
+
+
+// TODO: Implement for Windows.
+#ifndef Q_OS_WIN
 struct sigaction action;
+#endif
 
 void sighandler(int signum)
 {
@@ -50,6 +63,8 @@ void sighandler(int signum)
 
 void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
 {
+// TODO: Implement for Windows.
+#ifndef Q_OS_WIN
     ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
     QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
     QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));
@@ -58,8 +73,9 @@ void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
     sigemptyset(&action.sa_mask);
     action.sa_flags = 0;
 
-    sigaction(SIGTERM, &action, NULL);
-    sigaction(SIGINT, &action, NULL);
+    sigaction(SIGTERM, &action, nullptr);
+    sigaction(SIGINT, &action, nullptr);
+#endif
 }
 
 class DesktopDaemon : public Daemon
@@ -115,6 +131,11 @@ int main(int argc, char* argv[])
     Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
     initializeTermHandlers(&app, daemon);
+    
+#ifdef HAVE_TELEPATHY
+    //keep a reference to the KTP CM so that we can register on DBus
+    auto telepathyPlugin = KDEConnectTelepathyProtocolFactory::interface();
+#endif
 
     return app.exec();
 }

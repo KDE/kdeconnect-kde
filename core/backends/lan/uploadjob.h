@@ -34,10 +34,10 @@ class UploadJob
 {
     Q_OBJECT
 public:
+    explicit UploadJob(const QSharedPointer<QIODevice>& source, const QVariantMap& sslInfo);
 
-    explicit UploadJob(const QSharedPointer<QIODevice>& source,const QVariantMap& sslInfo);
+    virtual void start() override;
 
-    virtual void start();
     QVariantMap transferInfo();
 
 private:

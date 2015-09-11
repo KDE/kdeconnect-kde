@@ -33,7 +33,6 @@
 #include <QUrl>
 
 #include "kdeconnectcore_export.h"
-#include "default_args.h"
 
 class FileTransferJob;
 
@@ -69,7 +68,7 @@ public:
     const QVariantMap& body() const { return mBody; }
 
     //Get and set info from body. Note that id and type can not be accessed through these.
-    template<typename T> T get(const QString& key, const T& defaultValue = default_arg<T>::get()) const {
+    template<typename T> T get(const QString& key, const T& defaultValue = {}) const {
         return mBody.value(key,defaultValue).template value<T>(); //Important note: Awesome template syntax is awesome
     }
     template<typename T> void set(const QString& key, const T& value) { mBody[key] = QVariant(value); }

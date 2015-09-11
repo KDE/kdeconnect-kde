@@ -42,7 +42,7 @@ class KDECONNECTINTERFACES_EXPORT DaemonDbusInterface
 {
     Q_OBJECT
 public:
-    explicit DaemonDbusInterface(QObject* parent = 0);
+    explicit DaemonDbusInterface(QObject* parent = nullptr);
     virtual ~DaemonDbusInterface();
 
     static QString activatedService();
@@ -57,7 +57,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChangedProxy)
 
 public:
-    explicit DeviceDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit DeviceDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~DeviceDbusInterface();
 
     Q_SCRIPTABLE QString id() const;
@@ -75,7 +75,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceBatteryDbusInterface
 {
     Q_OBJECT
 public:
-    explicit DeviceBatteryDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit DeviceBatteryDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~DeviceBatteryDbusInterface();
 };
 
@@ -84,7 +84,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceNotificationsDbusInterface
 {
     Q_OBJECT
 public:
-    explicit DeviceNotificationsDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit DeviceNotificationsDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~DeviceNotificationsDbusInterface();
 };
 
@@ -93,7 +93,7 @@ class KDECONNECTINTERFACES_EXPORT NotificationDbusInterface
 {
     Q_OBJECT
 public:
-    NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent = 0);
+    NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent = nullptr);
     virtual ~NotificationDbusInterface();
 };
 
@@ -102,7 +102,7 @@ class KDECONNECTINTERFACES_EXPORT SftpDbusInterface
 {
     Q_OBJECT
 public:
-    explicit SftpDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit SftpDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~SftpDbusInterface();
 };
 
@@ -119,7 +119,7 @@ class KDECONNECTINTERFACES_EXPORT MprisDbusInterface
     Q_PROPERTY(int volume READ volume WRITE setVolume NOTIFY propertiesChangedProxy)
     Q_PROPERTY(int position READ position WRITE setPosition NOTIFY propertiesChangedProxy)
 public:
-    explicit MprisDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit MprisDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~MprisDbusInterface();
 
 Q_SIGNALS:
@@ -131,7 +131,7 @@ class KDECONNECTINTERFACES_EXPORT RemoteControlDbusInterface
 {
     Q_OBJECT
 public:
-    explicit RemoteControlDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit RemoteControlDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~RemoteControlDbusInterface() override;
 };
 
@@ -141,7 +141,7 @@ class KDECONNECTINTERFACES_EXPORT LockDeviceDbusInterface
     Q_OBJECT
     Q_PROPERTY(bool isLocked READ isLocked WRITE setIsLocked NOTIFY lockedChangedProxy)
 public:
-    explicit LockDeviceDbusInterface(const QString& deviceId, QObject* parent = 0);
+    explicit LockDeviceDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~LockDeviceDbusInterface();
 
 Q_SIGNALS:

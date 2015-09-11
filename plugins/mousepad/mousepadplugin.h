@@ -48,8 +48,8 @@ public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
     virtual ~MousepadPlugin();
 
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected() { }
+    virtual bool receivePackage(const NetworkPackage& np) override;
+    virtual void connected() override { }
 
 private:
     bool handlePackageX11(const NetworkPackage& np);

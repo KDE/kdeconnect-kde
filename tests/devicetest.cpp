@@ -83,7 +83,7 @@ void DeviceTest::testPairedDevice()
     // Add link
     LanLinkProvider linkProvider;
     QSslSocket socket;
-    LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket);
+    LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket, DeviceLink::Locally);
     device.addLink(*identityPackage, link);
 
     QCOMPARE(device.isReachable(), true);
@@ -104,7 +104,7 @@ void DeviceTest::testUnpairedDevice()
 {
     LanLinkProvider linkProvider;
     QSslSocket socket;
-    LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket);
+    LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket, DeviceLink::Locally);
 
     Device device(this, *identityPackage, link);
 

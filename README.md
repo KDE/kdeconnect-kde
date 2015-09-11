@@ -23,7 +23,7 @@ This explains how to install KDE Connect on your computer. You will also need to
 ### On Linux
 Look in your distribution repo for a package called `kdeconnect-kde`, `kdeconnect-plasma`, or just `kdeconnect`. If it's not there and you know how to build software from sources, you just found the repo :)
 
-If you are not using Plasma 5 or KDE4, you will also need to install [indicator-kdeconnect](https://github.com/vikoadi/indicator-kdeconnect) (available as an [Ubuntu PPA](https://code.launchpad.net/~vikoadi/+archive/ubuntu/ppa/])) for integration with other desktops using appindicator.
+If you are not using Plasma 5 or KDE4, you will also need to install [indicator-kdeconnect](https://github.com/vikoadi/indicator-kdeconnect) (available as an [Ubuntu PPA](https://code.launchpad.net/~vikoadi/+archive/ubuntu/ppa/)) for integration with other desktops using appindicator.
 
 ### On Mac or Windows
 There is no support for Mac or Windows yet. The last time I checked it was compiling on Windows, so it's only lacking a user interface. Same for Mac. Contributions welcome!

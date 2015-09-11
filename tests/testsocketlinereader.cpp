@@ -81,7 +81,7 @@ void TestSocketLineReader::socketLineReader()
 
     QSslSocket *sock = mServer->nextPendingConnection();
 
-    QVERIFY2(sock != 0, "Could not open a connection to the client");
+    QVERIFY2(sock != nullptr, "Could not open a connection to the client");
 
     mReader = new SocketLineReader(sock, this);
     connect(mReader, SIGNAL(readyRead()), SLOT(newPackage()));
