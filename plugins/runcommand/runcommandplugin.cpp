@@ -27,7 +27,6 @@
 #include <QDir>
 #include <QLoggingCategory>
 #include <QSettings>
-#include <qt/QtCore/qjsondocument.h>
 #include <QJsonDocument>
 
 #include <core/networkpackage.h>
