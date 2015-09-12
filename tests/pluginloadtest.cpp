@@ -82,6 +82,11 @@ class PluginLoadTest : public QObject
                     d = id;
                 }
             }
+
+            if (!d->loadedPlugins().contains("kdeconnect_remotecontrol")) {
+                QSKIP("kdeconnect_remotecontrol is required for this test");
+            }
+
             QVERIFY(d);
             QVERIFY(d->isPaired());
             QVERIFY(d->isReachable());
