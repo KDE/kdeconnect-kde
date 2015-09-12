@@ -30,6 +30,7 @@
 #include <QtCrypto>
 
 #include "networkpackage.h"
+#include "backends/devicelink.h"
 
 class DeviceLink;
 class KdeConnectPlugin;
@@ -107,6 +108,8 @@ public:
     KdeConnectPlugin* plugin(const QString& pluginName) const;
     void setPluginEnabled(const QString& pluginName, bool enabled);
     bool isPluginEnabled(const QString& pluginName) const;
+
+    DeviceLink::ConnectionStarted connectionSource() const;
 
 public Q_SLOTS:
     ///sends a @p np package to the device

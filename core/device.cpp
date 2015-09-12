@@ -489,6 +489,18 @@ void Device::setAsPaired()
 
 }
 
+DeviceLink::ConnectionStarted Device::connectionSource() const
+{
+    DeviceLink::ConnectionStarted ret = DeviceLink::Remotely;
+    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
+        if(link->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
+            ret = DeviceLink::ConnectionStarted::Locally;
+            break;
+        }
+    }
+    return ret;
+}
+
 QStringList Device::availableLinks() const
 {
     QStringList sl;

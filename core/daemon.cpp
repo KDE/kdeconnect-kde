@@ -123,7 +123,7 @@ void Daemon::removeDevice(Device* device)
 void Daemon::cleanDevices()
 {
     Q_FOREACH(Device* device, d->mDevices) {
-        if (!device->isPaired()) {
+        if (!device->isPaired() && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
             removeDevice(device);
         }
     }
