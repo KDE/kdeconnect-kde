@@ -159,6 +159,7 @@ private: //Fields (TODO: dPointer!)
     QSet<QString> m_incomingCapabilities;
     QSet<QString> m_outgoingCapabilities;
     QStringList m_supportedIncomingInterfaces;
+    QStringList m_supportedOutgoingInterfaces;
     QStringList m_unsupportedPlugins;
 };
 
