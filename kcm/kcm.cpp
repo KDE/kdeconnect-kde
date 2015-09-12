@@ -207,32 +207,37 @@ void KdeConnectKcm::resetCurrentDevice()
         }
     }
 
-    //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
-    delete kcmUi->pluginSelector;
-    kcmUi->pluginSelector = new KPluginSelector(this);
-    kcmUi->deviceInfo_layout->addWidget(kcmUi->pluginSelector);
+    const QStringList unsupportedPluginNames = currentDevice->unsupportedPlugins();
 
-    kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
+    if (m_oldUnsupportedPluginNames != unsupportedPluginNames) {
+        //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
+        delete kcmUi->pluginSelector;
+        kcmUi->pluginSelector = new KPluginSelector(this);
+        kcmUi->deviceInfo_layout->addWidget(kcmUi->pluginSelector);
 
-    kcmUi->name_label->setText(currentDevice->name());
-    kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
+        kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 
-    const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
-    QList<KPluginInfo> availablePluginInfo;
-    QList<KPluginInfo> missingPluginInfo;
+        kcmUi->name_label->setText(currentDevice->name());
+        kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
 
-    QStringList missingPluginNames = currentDevice->unsupportedPlugins();
-    for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
-        if (missingPluginNames.contains(it->pluginName())) {
-            missingPluginInfo.append(*it);
-        } else {
-            availablePluginInfo.append(*it);
+        const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
+        QList<KPluginInfo> availablePluginInfo;
+        QList<KPluginInfo> unsupportedPluginInfo;
+
+        for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
+            if (unsupportedPluginNames.contains(it->pluginName())) {
+                unsupportedPluginInfo.append(*it);
+            } else {
+                availablePluginInfo.append(*it);
+            }
         }
-    }
 
-    KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
-    kcmUi->pluginSelector->addPlugins(availablePluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
-    kcmUi->pluginSelector->addPlugins(missingPluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins unsupported by the device"), QString(), deviceConfig);
+        KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
+        kcmUi->pluginSelector->addPlugins(availablePluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
+        kcmUi->pluginSelector->addPlugins(unsupportedPluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins unsupported by the device"), QString(), deviceConfig);
+
+        m_oldUnsupportedPluginNames = unsupportedPluginNames;
+    }
 
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
             this, SLOT(pluginsConfigChanged()));
