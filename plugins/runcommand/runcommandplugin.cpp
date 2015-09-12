@@ -41,6 +41,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_RUNCOMMAND, "kdeconnect.plugin.runcommand")
 RunCommandPlugin::RunCommandPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
+    connect(config(), SIGNAL(configChanged()), this, SLOT(configChanged()));
 }
 
 RunCommandPlugin::~RunCommandPlugin()
@@ -82,9 +83,11 @@ void RunCommandPlugin::sendConfig()
     QString commands = config()->get<QString>("commands","{}");
     NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND);
     np.set("commandList", commands);
-    qDebug() << "SENT" << np.serialize();
     sendPackage(np);
 }
 
+void RunCommandPlugin::configChanged() {
+    sendConfig();
+}
 
 #include "runcommandplugin.moc"
