@@ -9,7 +9,17 @@ function(geninterface source_h output_h)
 
     get_filename_component(basename ${output_h} NAME_WE)
     qt5_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${basename})
+
+    #qdbusxml2cpp cannot add an export attribute to a class
+    #we need this as we export our generated classes
+    #this adds it in with a not ideal find and replace
+    add_custom_command(COMMAND
+        TARGET ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.h
+        COMMAND sed -i "s/class/class Q_DECL_EXPORT/" ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.h
+        )
+
     set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
+
     set(libkdeconnect_HEADERS ${libkdeconnect_HEADERS} PARENT_SCOPE)
 endfunction()
 
@@ -43,7 +53,6 @@ geninterface(${CMAKE_SOURCE_DIR}/plugins/notifications/notification.h notificati
 geninterface(${CMAKE_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h mprisremoteinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h remotecontrolinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/lockdevice/lockdeviceplugin.h lockdeviceinterface)
-
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES
