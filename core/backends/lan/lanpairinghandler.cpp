@@ -145,8 +145,10 @@ bool LanPairingHandler::requestPairing()
     createPairPackage(np);
     bool success;
     success = m_deviceLink->sendPackage(np);
-    if (success) m_pairStatus = PairStatus::Requested;
-    m_pairingTimeout.start();
+    if (success) {
+        m_pairStatus = PairStatus::Requested;
+        m_pairingTimeout.start();
+    }
     return success;
 }
 

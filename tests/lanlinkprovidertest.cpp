@@ -181,7 +181,7 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
     serverSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
     serverSocket->setPeerVerifyName(kcc->deviceId());
 
-    serverSocket->startServerEncryption(); // Its TCP server. but SSL client
+    serverSocket->startClientEncryption(); // Its TCP server. but SSL client
     QVERIFY(!serverSocket->isEncrypted());
     spy3.wait(2000);
     qDebug() << "xxxxxxxxx" << serverSocket->sslErrors();
@@ -235,7 +235,7 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
     setSocketAttributes(&socket);
     socket.setPeerVerifyMode(QSslSocket::QueryPeer);
 
-    socket.startClientEncryption();
+    socket.startServerEncryption();
 
     QVERIFY(spy3.wait());
 
