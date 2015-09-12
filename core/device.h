@@ -61,7 +61,7 @@ class KDECONNECTCORE_EXPORT Device
         Phone,
         Tablet,
     };
-    static DeviceType str2type(QString deviceType);
+    static DeviceType str2type(const QString &deviceType);
     static QString type2str(DeviceType deviceType);
 
 public:

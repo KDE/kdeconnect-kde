@@ -195,7 +195,7 @@ void Daemon::onDeviceStatusChanged()
 
 }
 
-void Daemon::setAnnouncedName(QString name)
+void Daemon::setAnnouncedName(const QString &name)
 {
     qCDebug(KDECONNECT_CORE()) << "Announcing name";
     KdeConnectConfig::instance()->setName(name);

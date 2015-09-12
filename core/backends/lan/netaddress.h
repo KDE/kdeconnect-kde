@@ -25,7 +25,7 @@
 
 struct NetAddress {
     NetAddress() { }
-    NetAddress(QHostAddress _ip, quint16 _port) : ip(_ip), port(_port) { }
+    NetAddress(const QHostAddress &_ip, quint16 _port) : ip(_ip), port(_port) { }
     QHostAddress ip;
     quint16 port;
 };

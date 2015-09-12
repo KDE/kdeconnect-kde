@@ -495,7 +495,7 @@ QStringList Device::availableLinks() const
     return sl;
 }
 
-Device::DeviceType Device::str2type(QString deviceType) {
+Device::DeviceType Device::str2type(const QString &deviceType) {
     if (deviceType == "desktop") return Desktop;
     if (deviceType == "laptop") return Laptop;
     if (deviceType == "smartphone" || deviceType == "phone") return Phone;

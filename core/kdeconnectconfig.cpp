@@ -171,7 +171,7 @@ QStringList KdeConnectConfig::trustedDevices()
     return list;
 }
 
-void KdeConnectConfig::addTrustedDevice(QString id, QString name, QString type, QString publicKey)
+void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type, const QString &publicKey)
 {
     d->config->beginGroup("trustedDevices");
     d->config->beginGroup(id);
@@ -185,7 +185,7 @@ void KdeConnectConfig::addTrustedDevice(QString id, QString name, QString type, 
     QDir().mkpath(deviceConfigDir(id).path());
 }
 
-KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(QString id)
+KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
 {
     d->config->beginGroup("trustedDevices");
     d->config->beginGroup(id);
@@ -200,7 +200,7 @@ KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(QString id)
     return info;
 }
 
-void KdeConnectConfig::removeTrustedDevice(QString deviceId)
+void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
 {
     d->config->beginGroup("trustedDevices");
     d->config->beginGroup(deviceId);
@@ -211,13 +211,13 @@ void KdeConnectConfig::removeTrustedDevice(QString deviceId)
     //We do not remove the config files.
 }
 
-QDir KdeConnectConfig::deviceConfigDir(QString deviceId)
+QDir KdeConnectConfig::deviceConfigDir(const QString &deviceId)
 {
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     return QDir(deviceConfigPath);
 }
 
-QDir KdeConnectConfig::pluginConfigDir(QString deviceId, QString pluginName)
+QDir KdeConnectConfig::pluginConfigDir(const QString &deviceId, const QString &pluginName)
 {
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     QString pluginConfigDir = QDir(deviceConfigPath).absoluteFilePath(pluginName);

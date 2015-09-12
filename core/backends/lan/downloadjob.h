@@ -34,7 +34,7 @@ class DownloadJob
 {
     Q_OBJECT
 public:
-    DownloadJob(QHostAddress address, QVariantMap transferInfo);
+    DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo);
     virtual void start() override;
     QSharedPointer<QIODevice> getPayload();
 

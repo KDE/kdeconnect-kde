@@ -34,37 +34,37 @@
 #include "interfaces/devicesmodel.h"
 #include "interfaces/notificationsmodel.h"
 
-QObject* createDeviceDbusInterface(QVariant deviceId)
+QObject* createDeviceDbusInterface(const QVariant &deviceId)
 {
     return new DeviceDbusInterface(deviceId.toString());
 }
 
-QObject* createDeviceBatteryDbusInterface(QVariant deviceId)
+QObject* createDeviceBatteryDbusInterface(const QVariant &deviceId)
 {
     return new DeviceBatteryDbusInterface(deviceId.toString());
 }
 
-QObject* createFindMyPhoneInterface(QVariant deviceId)
+QObject* createFindMyPhoneInterface(const QVariant &deviceId)
 {
     return new FindMyPhoneDeviceDbusInterface(deviceId.toString());
 }
 
-QObject* createSftpInterface(QVariant deviceId)
+QObject* createSftpInterface(const QVariant &deviceId)
 {
     return new SftpDbusInterface(deviceId.toString());
 }
 
-QObject* createRemoteControlInterface(QVariant deviceId)
+QObject* createRemoteControlInterface(const QVariant &deviceId)
 {
     return new RemoteControlDbusInterface(deviceId.toString());
 }
 
-QObject* createMprisInterface(QVariant deviceId)
+QObject* createMprisInterface(const QVariant &deviceId)
 {
     return new MprisDbusInterface(deviceId.toString());
 }
 
-QObject* createDeviceLockInterface(QVariant deviceId)
+QObject* createDeviceLockInterface(const QVariant &deviceId)
 {
     Q_ASSERT(!deviceId.toString().isEmpty());
     return new LockDeviceDbusInterface(deviceId.toString());

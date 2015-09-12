@@ -20,7 +20,7 @@
 
 #include "downloadjob.h"
 
-DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
+DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo): KJob()
 {
     mAddress = address;
     mPort = transferInfo["port"].toInt();
