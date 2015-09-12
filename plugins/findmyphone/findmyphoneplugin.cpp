@@ -39,6 +39,7 @@ FindMyPhonePlugin::~FindMyPhonePlugin()
 
 bool FindMyPhonePlugin::receivePackage(const NetworkPackage& np)
 {
+    Q_UNUSED(np);
     return false;
 }
 
