@@ -28,6 +28,7 @@
 #include <QLoggingCategory>
 #include <QSettings>
 #include <QJsonDocument>
+#include <KShell>
 
 #include <core/networkpackage.h>
 #include <core/device.h>
@@ -63,10 +64,10 @@ bool RunCommandPlugin::receivePackage(const NetworkPackage& np)
         if (value == QJsonValue::Undefined) {
             qCWarning(KDECONNECT_PLUGIN_RUNCOMMAND) << key << "is not a configured command";
         }
-        QJsonObject command = value.toObject();
+        const QJsonObject command = value.toObject();
         QString name = command["name"].toString();
-        QString commandLine = command["command"].toString();
-        QProcess::execute(commandLine);
+        QStringList commandLine = KShell::splitArgs(command["command"].toString());
+        QProcess::startDetached(commandLine.at(0), commandLine.mid(1));
         return true;
     }
 
