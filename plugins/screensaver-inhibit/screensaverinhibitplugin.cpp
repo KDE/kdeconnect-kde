@@ -51,7 +51,7 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVaria
         inhibitCookie = 0;
     } else {
         // Store the cookie we receive, this will be sent back when sending the uninhibit call.
-        inhibitCookie = reply.arguments().first().toUInt();
+        inhibitCookie = reply.arguments().at(0).toUInt();
     }
 }
 

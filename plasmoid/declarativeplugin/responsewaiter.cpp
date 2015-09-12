@@ -49,7 +49,7 @@ QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
 
         if (reply.arguments().count() > 0)
         {
-            return reply.arguments().first();
+            return reply.arguments().at(0);
         }
     }
     return QVariant();
@@ -95,7 +95,7 @@ void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
 
               if (reply.arguments().count() > 0)
               {
-                  Q_EMIT success(reply.arguments().first());
+                  Q_EMIT success(reply.arguments().at(0));
               }
               else
               {
