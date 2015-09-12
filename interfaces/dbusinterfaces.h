@@ -47,6 +47,9 @@ public:
     virtual ~DaemonDbusInterface();
 
     static QString activatedService();
+
+Q_SIGNALS:
+    void deviceAdded(const QString &id);
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
