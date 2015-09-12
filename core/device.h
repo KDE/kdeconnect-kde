@@ -48,6 +48,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChanged)
     Q_PROPERTY(QStringList unsupportedPlugins READ unsupportedPlugins NOTIFY pluginsChanged)
 
+public:
     enum PairStatus {
         NotPaired,
         Requested,
@@ -62,10 +63,7 @@ class KDECONNECTCORE_EXPORT Device
         Phone,
         Tablet,
     };
-    static DeviceType str2type(const QString &deviceType);
-    static QString type2str(DeviceType deviceType);
 
-public:
     /**
      * Restores the @p device from the saved configuration
      *
@@ -109,6 +107,8 @@ public:
     void setPluginEnabled(const QString& pluginName, bool enabled);
     bool isPluginEnabled(const QString& pluginName) const;
 
+    PairStatus pairStatus() const;
+
     DeviceLink::ConnectionStarted connectionSource() const;
 
 public Q_SLOTS:
@@ -139,6 +139,9 @@ Q_SIGNALS:
     QT_DEPRECATED Q_SCRIPTABLE void unpaired();
 
 private: //Methods
+    static DeviceType str2type(const QString &deviceType);
+    static QString type2str(DeviceType deviceType);
+
     void setName(const QString &name);
     QString iconForStatus(bool reachable, bool paired) const;
     void unpairInternal();

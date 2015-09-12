@@ -560,6 +560,11 @@ void Device::setName(const QString &name)
     }
 }
 
+Device::PairStatus Device::pairStatus() const
+{
+    return m_pairStatus;
+}
+
 KdeConnectPlugin* Device::plugin(const QString& pluginName) const
 {
     return m_plugins[pluginName];
