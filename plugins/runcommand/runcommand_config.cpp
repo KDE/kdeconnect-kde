@@ -23,6 +23,7 @@
 #include <QStandardPaths>
 #include <QTableView>
 #include <QHBoxLayout>
+#include <QHeaderView>
 #include <QStandardItemModel>
 #include <QDebug>
 #include <QUuid>
@@ -38,6 +39,8 @@ RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList& args)
     : KdeConnectPluginKcm(parent, args, "kdeconnect_runcommand_config")
 {
     QTableView *table = new QTableView(this);
+    table->horizontalHeader()->setStretchLastSection(true);
+    table->verticalHeader()->setVisible(false);
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(table);
     setLayout(layout);
