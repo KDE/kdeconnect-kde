@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-Library=kdeconnect_runcommand_config
+X-KDE-ParentComponents=kdeconnect_runcommand
+
+Name=Run Command plugin settings
+
+Categories=Qt;KDE;X-KDE-settings-kdeconnect;

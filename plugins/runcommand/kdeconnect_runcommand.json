@@ -1,0 +1,32 @@
+{
+    "Encoding": "UTF-8", 
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "albertvaka@gmail.com", 
+                "Name": "Albert Vaca"
+            },
+            {
+                "Email": "david@davidedmundson.co.uk", 
+                "Name": "David Edmundson"
+            }
+        ], 
+        "Description": "Execute console commands remotely",
+        "EnabledByDefault": true, 
+        "Icon": "system-run",
+        "Id": "kdeconnect_runcommand",
+        "License": "GPL", 
+        "Name": "Run commands",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ], 
+        "Version": "0.1", 
+        "Website": "http://albertvaka.wordpress.com"
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.runcommand"
+    ], 
+    "X-KdeConnect-SupportedPackageType": [
+        "kdeconnect.runcommand"
+    ]
+}
