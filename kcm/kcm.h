@@ -62,6 +62,8 @@ private Q_SLOTS:
     void resetCurrentDevice();
 
 private:
+    void resetDeviceView();
+
     Ui::KdeConnectKcmUi* kcmUi;
     DaemonDbusInterface* daemon;
     DevicesModel* devicesModel;
