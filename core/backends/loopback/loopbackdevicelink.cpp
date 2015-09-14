@@ -21,7 +21,7 @@
 #include "loopbackdevicelink.h"
 
 #include "loopbacklinkprovider.h"
-#include "../lan/lanpairinghandler.h"
+#include "loopbackpairinghandler.h"
 
 LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
     : DeviceLink(deviceId, provider, Remotely)
@@ -36,7 +36,7 @@ QString LoopbackDeviceLink::name()
 
 PairingHandler* LoopbackDeviceLink::createPairingHandler(Device *device)
 {
-    return new LanPairingHandler(device);
+    return new LoopbackPairingHandler(device);
 }
 bool LoopbackDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& input)
 {
