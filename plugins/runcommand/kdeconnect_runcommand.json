@@ -12,11 +12,23 @@
             }
         ], 
         "Description": "Execute console commands remotely", 
+        "Description[nl]": "Commando's in de terminal op afstand laten uitvoeren", 
+        "Description[pt]": "Executar de forma remota comandos da consola", 
+        "Description[pt_BR]": "Executa comandos do console remotamente", 
+        "Description[sv]": "Kör terminalkommandon på distans", 
+        "Description[uk]": "Віддалене виконання консольних команд", 
+        "Description[x-test]": "xxExecute console commands remotelyxx", 
         "EnabledByDefault": true, 
         "Icon": "system-run", 
         "Id": "kdeconnect_runcommand", 
         "License": "GPL", 
         "Name": "Run commands", 
+        "Name[nl]": "Commando's uitvoeren", 
+        "Name[pt]": "Executar comandos", 
+        "Name[pt_BR]": "Executar comandos", 
+        "Name[sv]": "Kör kommandon", 
+        "Name[uk]": "Виконання команд", 
+        "Name[x-test]": "xxRun commandsxx", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 
