@@ -62,6 +62,6 @@ endif()
 if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
-install(PROGRAMS kdeconnect-non-plasma.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
+install(PROGRAMS org.kde.kdeconnect.nonplasma.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
