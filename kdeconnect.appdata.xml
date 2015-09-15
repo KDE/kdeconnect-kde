@@ -6,10 +6,10 @@
   <name>KDE Connect</name>
   <summary>Seamless connection of your devices</summary>
   <description>
-    <p>KDE Connect will ensure that your devices are easily reachable by making it possible to share documents, pictures or even remotely control them.</p>
+    <p>KDE Connect provides integration between your Android phone and your desktop.</p>
   </description>
   <url type="homepage">https://community.kde.org/KDEConnect/</url>
-  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kalgebra</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdeconnect</url>
 <!--   <url type="help">http://docs.kde.org/stable/en/kdeedu/kalgebra/index.html</url> -->
   <screenshots>
     <screenshot type="default">
