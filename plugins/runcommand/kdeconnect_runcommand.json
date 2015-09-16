@@ -12,6 +12,7 @@
             }
         ], 
         "Description": "Execute console commands remotely", 
+        "Description[ca]": "Executa ordres de la consola de forma remota", 
         "Description[nl]": "Commando's in de terminal op afstand laten uitvoeren", 
         "Description[pt]": "Executar de forma remota comandos da consola", 
         "Description[pt_BR]": "Executa comandos do console remotamente", 
@@ -23,6 +24,7 @@
         "Id": "kdeconnect_runcommand", 
         "License": "GPL", 
         "Name": "Run commands", 
+        "Name[ca]": "Executa ordres", 
         "Name[nl]": "Commando's uitvoeren", 
         "Name[pt]": "Executar comandos", 
         "Name[pt_BR]": "Executar comandos", 
