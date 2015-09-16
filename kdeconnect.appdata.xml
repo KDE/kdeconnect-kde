@@ -4,19 +4,40 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
+  <name xml:lang="ca">KDE Connect</name>
+  <name xml:lang="nl">KDE Connect</name>
+  <name xml:lang="pt">KDE Connect</name>
+  <name xml:lang="pt-BR">KDE Connect</name>
+  <name xml:lang="sv">KDE-anslut</name>
+  <name xml:lang="uk">KDE Connect</name>
+  <name xml:lang="x-test">xxKDE Connectxx</name>
   <summary>Seamless connection of your devices</summary>
+  <summary xml:lang="ca">Connexió sense fissures amb els vostres dispositius</summary>
+  <summary xml:lang="nl">Naadloze verbinding met uw apparaten</summary>
+  <summary xml:lang="pt">Ligação transparente aos seus dispositivos</summary>
+  <summary xml:lang="pt-BR">Conexão transparente com seus dispositivos</summary>
+  <summary xml:lang="sv">Sömlös anslutning av dina apparater</summary>
+  <summary xml:lang="uk">Безшовне з’єднання для усіх ваших пристроїв</summary>
+  <summary xml:lang="x-test">xxSeamless connection of your devicesxx</summary>
   <description>
     <p>KDE Connect provides integration between your Android phone and your desktop.</p>
   </description>
   <url type="homepage">https://community.kde.org/KDEConnect/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdeconnect</url>
-<!--   <url type="help">http://docs.kde.org/stable/en/kdeedu/kalgebra/index.html</url> -->
+  <!--   <url type="help">http://docs.kde.org/stable/en/kdeedu/kalgebra/index.html</url> -->
   <screenshots>
     <screenshot type="default">
-<!--       <image>http://kde.org/images/screenshots/kalgebra.png</image> -->
+      <!--       <image>http://kde.org/images/screenshots/kalgebra.png</image> -->
     </screenshot>
   </screenshots>
   <project_group>KDE Connect</project_group>
+  <project_group xml:lang="ca">KDE Connect</project_group>
+  <project_group xml:lang="nl">KDE Connect</project_group>
+  <project_group xml:lang="pt">KDE Connect</project_group>
+  <project_group xml:lang="pt-BR">KDE Connect</project_group>
+  <project_group xml:lang="sv">KDE-anslut</project_group>
+  <project_group xml:lang="uk">KDE Connect</project_group>
+  <project_group xml:lang="x-test">xxKDE Connectxx</project_group>
   <provides>
     <binary>kdeconnectd</binary>
   </provides>
