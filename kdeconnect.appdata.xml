@@ -5,11 +5,13 @@
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
   <name xml:lang="ca">KDE Connect</name>
+  <name xml:lang="es">KDE Connect</name>
   <name xml:lang="fi">KDE Connect</name>
   <name xml:lang="nl">KDE Connect</name>
   <name xml:lang="pl">KDE Connect</name>
   <name xml:lang="pt">KDE Connect</name>
   <name xml:lang="pt-BR">KDE Connect</name>
+  <name xml:lang="sk">KDE Connect</name>
   <name xml:lang="sv">KDE-anslut</name>
   <name xml:lang="uk">KDE Connect</name>
   <name xml:lang="x-test">xxKDE Connectxx</name>
@@ -21,6 +23,7 @@
   <summary xml:lang="pl">Zintegrowane połączenia do twoich urządzeń</summary>
   <summary xml:lang="pt">Ligação transparente aos seus dispositivos</summary>
   <summary xml:lang="pt-BR">Conexão transparente com seus dispositivos</summary>
+  <summary xml:lang="sk">Jednoduché prepojenie vašich zariadení</summary>
   <summary xml:lang="sv">Sömlös anslutning av dina apparater</summary>
   <summary xml:lang="uk">Безшовне з’єднання для усіх ваших пристроїв</summary>
   <summary xml:lang="x-test">xxSeamless connection of your devicesxx</summary>
@@ -33,6 +36,7 @@
     <p xml:lang="pl">KDE Connect integruje twój telefon Android z twoim pulpitem.</p>
     <p xml:lang="pt">O KDE Connect oferece a integração entre o seu dispositivo Android e o seu ambiente de trabalho.</p>
     <p xml:lang="pt-BR">O KDE Connect permite integrar seu telefone Android com seu desktop.</p>
+    <p xml:lang="sk">KDE Connect poskytuje integráciu medzi vašim Androidovým telefónom a vašim počítačom.</p>
     <p xml:lang="sv">KDE-anslut tillhandahåller integrering mellan en Android-telefon och skrivbordet.</p>
     <p xml:lang="uk">KDE Connect забезпечує інтеграцію між вашим телефоном під керуванням Android та вашим робочим комп’ютером.</p>
     <p xml:lang="x-test">xxKDE Connect provides integration between your Android phone and your desktop.xx</p>
@@ -48,11 +52,13 @@
   </screenshots>
   <project_group>KDE Connect</project_group>
   <project_group xml:lang="ca">KDE Connect</project_group>
+  <project_group xml:lang="es">KDE Connect</project_group>
   <project_group xml:lang="fi">KDE Connect</project_group>
   <project_group xml:lang="nl">KDE Connect</project_group>
   <project_group xml:lang="pl">KDE Connect</project_group>
   <project_group xml:lang="pt">KDE Connect</project_group>
   <project_group xml:lang="pt-BR">KDE Connect</project_group>
+  <project_group xml:lang="sk">KDE Connect</project_group>
   <project_group xml:lang="sv">KDE-anslut</project_group>
   <project_group xml:lang="uk">KDE Connect</project_group>
   <project_group xml:lang="x-test">xxKDE Connectxx</project_group>
