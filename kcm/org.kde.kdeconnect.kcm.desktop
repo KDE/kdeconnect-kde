@@ -6,6 +6,7 @@ Exec=kcmshell5 kcm_kdeconnect
 Name=KDE Connect Settings
 Name[ca]=Arranjament del KDE Connect
 Name[cs]=Nastavení KDE Connect
+Name[de]=KDE-Connect-Einstellungen
 Name[en_GB]=KDE Connect Settings
 Name[es]=Ajustes de KDE Connect
 Name[fi]=KDE Connectin asetukset
