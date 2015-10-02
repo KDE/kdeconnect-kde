@@ -24,6 +24,7 @@ Name[nn]=KDEConnect-teneste
 Name[pl]=Usługa KDEConnect
 Name[pt]=Serviço do KDE Connect
 Name[pt_BR]=Serviço do KDE Connect
+Name[ru]=Служба KDE Connect
 Name[sk]=KDEConnect démon
 Name[sv]=Demon för KDE-anslut
 Name[tr]=KDEConnect süreci
