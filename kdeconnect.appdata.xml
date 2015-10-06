@@ -25,6 +25,7 @@
   <summary xml:lang="ca">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="cs">Snadné propojení vašich zařízení</summary>
   <summary xml:lang="en-GB">Seamless connection of your devices</summary>
+  <summary xml:lang="es">Conexión sin interrupciones de sus dispositivos</summary>
   <summary xml:lang="fi">Saumaton yhteys laitteisiisi</summary>
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="nl">Naadloze verbinding met uw apparaten</summary>
@@ -42,6 +43,7 @@
     <p xml:lang="ca">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="cs">KDE Connect poskytuje integraci mezi vaším telefonem s Androidem a vaší pracovní plochou.</p>
     <p xml:lang="en-GB">KDE Connect provides integration between your Android phone and your desktop.</p>
+    <p xml:lang="es">KDE Connect proporciona integración entre su teléfono Android y su escritorio.</p>
     <p xml:lang="fi">KDE Connect tarjoaa integraation Android-puhelimesi ja työpöytäsi välillä.</p>
     <p xml:lang="it">KDE Connect fornisce integrazione tra il tuo telefono Android e il tuo desktop.</p>
     <p xml:lang="nl">KDE Connect biedt integratie tussen uw Android telefoon en uw bureaublad.</p>
