@@ -53,7 +53,7 @@ public:
     FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination);
     virtual void start() Q_DECL_OVERRIDE;
     QUrl destination() const { return mDestination; }
-    void setDeviceName(const QString &deviceName) { mDeviceName = deviceName; }
+    void setOriginName(QString from) { mFrom = from; }
 
 private Q_SLOTS:
     void doStart();
@@ -67,7 +67,7 @@ private:
 
     QSharedPointer<QIODevice> mOrigin;
     QNetworkReply* mReply;
-    QString mDeviceName;
+    QString mFrom;
     QUrl mDestination;
     QTime mTime;
     qulonglong mSpeedBytes;
