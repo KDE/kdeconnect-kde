@@ -98,8 +98,8 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
         removeNotification(internalId);
     }
 
-    connect(noti, SIGNAL(dismissRequested(Notification*)),
-            this, SLOT(dismissRequested(Notification*)));
+    connect(noti, &Notification::dismissRequested,
+            this, &NotificationsDbusInterface::dismissRequested);
 
     const QString& publicId = newId();
     mNotifications[publicId] = noti;
@@ -133,10 +133,8 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
     Q_EMIT notificationRemoved(publicId);
 }
 
-void NotificationsDbusInterface::dismissRequested(Notification* notification)
+void NotificationsDbusInterface::dismissRequested(const QString& internalId)
 {
-    const QString& internalId = notification->internalId();
-
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set<QString>("cancel", internalId);
     mPlugin->sendPackage(np);

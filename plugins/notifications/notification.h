@@ -41,7 +41,7 @@ public:
     Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent);
     virtual ~Notification();
 
-    QString internalId() const { return mId; }
+    QString internalId() const { return mInternalId; }
     QString appName() const { return mAppName; }
     QString ticker() const { return mTicker; }
     QString iconPath() const { return mIconPath; }
@@ -51,10 +51,10 @@ public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
 
 Q_SIGNALS:
-    void dismissRequested(Notification* self);
+    void dismissRequested(const QString& mInternalId);
 
 private:
-    QString mId;
+    QString mInternalId;
     QString mAppName;
     QString mTicker;
     QString mIconPath;

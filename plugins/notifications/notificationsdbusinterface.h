@@ -44,7 +44,7 @@ public:
 
     void processPackage(const NetworkPackage& np);
     void clearNotifications();
-    void dismissRequested(Notification* notification);
+    void dismissRequested(const QString& notification);
 
 public Q_SLOTS:
     Q_SCRIPTABLE QStringList activeNotifications();
