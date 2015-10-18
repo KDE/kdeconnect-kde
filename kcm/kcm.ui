@@ -70,7 +70,9 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="edit-rename"/>
+           <iconset theme="edit-rename">
+            <normaloff/>
+           </iconset>
           </property>
          </widget>
         </item>
@@ -91,7 +93,9 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="dialog-ok"/>
+           <iconset theme="dialog-ok">
+            <normaloff/>
+           </iconset>
           </property>
          </widget>
         </item>
@@ -295,7 +299,38 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>If you have an Android phone, make sure to install the &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;KDE Connect Android app&lt;/span&gt;&lt;/a&gt; (also available &lt;a href=&quot;https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;from F-Droid&lt;/span&gt;&lt;/a&gt;).</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you own Android device, make sure to install the &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;KDE Connect Android app&lt;/span&gt;&lt;/a&gt; (also available &lt;a href=&quot;https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;from F-Droid&lt;/span&gt;&lt;/a&gt;) and it should appear in the list.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::RichText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <property name="margin">
+            <number>40</number>
+           </property>
+           <property name="openExternalLinks">
+            <bool>true</bool>
+           </property>
+           <property name="textInteractionFlags">
+            <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="noDeviceTroubleshoot">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you are having problems, visit the &lt;a href=&quot;https://community.kde.org/KDEConnect&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;KDE Connect Community wiki&lt;/span&gt;&lt;/a&gt; for help.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="textFormat">
             <enum>Qt::RichText</enum>
