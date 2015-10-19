@@ -32,7 +32,7 @@ Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_KIO)
 
 class KioKdeconnect : public QObject, public KIO::SlaveBase
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
     KioKdeconnect(const QByteArray &pool, const QByteArray &app);
