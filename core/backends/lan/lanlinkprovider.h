@@ -26,7 +26,6 @@
 #include <QUdpSocket>
 
 #include "../linkprovider.h"
-#include "netaddress.h"
 
 class LanLinkProvider
     : public LinkProvider
