@@ -85,7 +85,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->rename_edit->setText(daemon->announcedName());
     setRenameMode(false);
 
-    setButtons(KCModule::NoAdditionalButton);
+    setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
     connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(resetSelection()));

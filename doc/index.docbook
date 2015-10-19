@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+
+<article id="kdeconnect" lang="&language;">
+<articleinfo>
+<title>KDE Connect</title>
+<authorgroup>
+<author>&Aleix.Pol;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<date>2015-10-19</date>
+<releaseinfo>0.9</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Connect</keyword>
+<keyword>phone</keyword>
+<keyword>remote</keyword>
+<keyword>device</keyword>
+<keyword>pair</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="kdeconnect-kcm">
+
+<title>KDE Connect</title>
+
+<para>You can use this dialog to configure which devices we're paired to. It's useful since it will specify who we're sharing information with.</para>
+
+</sect1>
+
+</article>

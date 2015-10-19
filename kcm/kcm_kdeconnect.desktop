@@ -91,4 +91,6 @@ X-KDE-Keywords[uk]=Network,Android,Devices,мережа,андроїд,прис�
 X-KDE-Keywords[x-test]=xxNetworkxx,xxAndroidxx,xxDevicesxx
 X-KDE-Keywords[zh_CN]=Network,Android,Devices,网络,安卓,设备
 
+X-DocPath=kdeconnect/index.html
+
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;
