@@ -20,30 +20,50 @@
 
 #include "downloadjob.h"
 
+#include <core/core_debug.h>
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netdb.h>
+
+#include "lanlinkprovider.h"
+
 DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo): KJob()
 {
     mAddress = address;
     mPort = transferInfo["port"].toInt();
-    mSocket = QSharedPointer<QTcpSocket>(new QTcpSocket);
+    mSocket = QSharedPointer<QTcpSocket>(new QTcpSocket());
+}
+
+DownloadJob::~DownloadJob()
+{
 }
 
 void DownloadJob::start()
 {
-    //kDebug(kdeconnect_kded()) << "DownloadJob Start";
+    //TODO: Timeout?
+    connect(mSocket.data(), &QAbstractSocket::disconnected, this, &DownloadJob::done);
+    connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(done()));
+    //connect(mSocket.data(), &QAbstractSocket::connected, [=](){ qDebug() << "Connected"; });
+
     mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
-    connect(mSocket.data(), SIGNAL(disconnected()),
-            this, SLOT(disconnected()));
+
+    //mSocket->open(QIODevice::ReadOnly);
+
     //TODO: Implement payload encryption somehow (create an intermediate iodevice to encrypt the payload here?)
 }
 
-void DownloadJob::disconnected()
+void DownloadJob::done()
 {
-    //kDebug(kdeconnect_kded()) << "DownloadJob End";
+    if (mSocket->error()) {
+        qWarning(KDECONNECT_CORE) << mSocket->errorString();
+    }
     emitResult();
+    deleteLater();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
-    //kDebug(kdeconnect_kded()) << "getPayload";
     return mSocket.staticCast<QIODevice>();
 }

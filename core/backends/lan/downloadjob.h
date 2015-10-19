@@ -35,7 +35,8 @@ class DownloadJob
     Q_OBJECT
 public:
     DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo);
-    virtual void start() override;
+    ~DownloadJob();
+    void start() Q_DECL_OVERRIDE;
     QSharedPointer<QIODevice> getPayload();
 
 private:
@@ -43,9 +44,8 @@ private:
     qint16 mPort;
     QSharedPointer<QTcpSocket> mSocket;
 
-
 private Q_SLOTS:
-    void disconnected();
+    void done();
 
 };
 
