@@ -3,33 +3,6 @@ Type=ServiceType
 X-KDE-ServiceType=KdeConnect/Plugin
 X-KDE-Derived=KPluginInfo
 Name=KDEConnect Plugin
-Name[bg]=Приставка на KDEConnect
-Name[bs]=Priključak za KDE konekciju
-Name[ca]=Connector del KDE Connect
-Name[cs]=Modul KDEConnect
-Name[da]=KDEConnect-plugin
-Name[de]=KDEConnect-Modul
-Name[en_GB]=KDEConnect Plugin
-Name[es]=Complemento de KDEConnect
-Name[fi]=KDE Connect -liitännäinen
-Name[fr]=Module externe KDEConnect
-Name[gl]=Complemento de KDE Connect
-Name[hu]=KDEConnect bővítmény
-Name[it]=Estensione KDEConnect
-Name[ko]=KDEConnect 플러그인
-Name[nl]=Plug-in van KDEConnect
-Name[nn]=KDEConnect-tillegg
-Name[pl]=Wtyczka KDEConnect
-Name[pt]='Plugin' do KDEConnect
-Name[pt_BR]=Plugin do KDEConnect
-Name[ro]=Extensie KDEConnect
-Name[ru]=Модуль KDE Connect
-Name[sk]=Plugin KDEConnect
-Name[sv]=KDE anslutningsinsticksprogram
-Name[tr]=KDEConnect Eklentisi
-Name[uk]=Додаток KDEConnect
-Name[x-test]=xxKDEConnect Pluginxx
-Name[zh_CN]=KDEConnect 插件
 
 # mandatory, list of all the package types supported
 [PropertyDef::X-KdeConnect-SupportedPackageType]
