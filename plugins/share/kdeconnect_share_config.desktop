@@ -6,5 +6,10 @@ X-KDE-Library=kdeconnect_share_config
 X-KDE-ParentComponents=kdeconnect_share
 
 Name=Share plugin settings
+Name[fr]=Paramètres du module de partage
+Name[nl]=Plug-in-instellingen van delen
+Name[pt]=Configuração do 'plugin' de partilha
+Name[sv]=Inställningar av delningsinsticksprogram
+Name[x-test]=xxShare plugin settingsxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

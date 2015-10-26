@@ -11,10 +11,25 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=KDE Connect
+Name[fr]=KDE Connect
+Name[nl]=KDE Connect
+Name[pt]=KDE Connect
+Name[sv]=KDE-anslut
+Name[x-test]=xxKDE Connectxx
 
 Comment=Connect and sync your devices
+Comment[fr]=Connectez et synchronisez vos périphériques
+Comment[nl]=Uw apparaten verbinden en synchroniseren
+Comment[pt]=Ligue e sincronize os seus dispositivos
+Comment[sv]=Anslut och synkronisera dina apparater
+Comment[x-test]=xxConnect and sync your devicesxx
 
 X-KDE-Keywords=Network,Android,Devices
+X-KDE-Keywords[fr]=Réseau,Android,Périphériques
+X-KDE-Keywords[nl]=Netwerk,Android,Apparaten
+X-KDE-Keywords[pt]=Rede,Android,Dispositivos
+X-KDE-Keywords[sv]=Nätverk, Android, apparater
+X-KDE-Keywords[x-test]=xxNetworkxx,xxAndroidxx,xxDevicesxx
 
 X-DocPath=kdeconnect/index.html
 

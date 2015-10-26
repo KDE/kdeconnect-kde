@@ -6,5 +6,10 @@ X-KDE-Library=kdeconnect_pausemusic_config
 X-KDE-ParentComponents=kdeconnect_pausemusic
 
 Name=Pause Music plugin settings
+Name[fr]=Paramètres du module de mise en pause
+Name[nl]=Plug-in-instellingen voor muziek pauzeren
+Name[pt]=Configuração do 'plugin' de Pausa da Música
+Name[sv]=Inställningar av insticksprogram för paus i musik
+Name[x-test]=xxPause Music plugin settingsxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

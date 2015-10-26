@@ -10,5 +10,15 @@ X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 
 Name=KDE Connect
+Name[fr]=KDE Connect
+Name[nl]=KDE Connect
+Name[pt]=KDE Connect
+Name[sv]=KDE-anslut
+Name[x-test]=xxKDE Connectxx
 
 Comment=Connect KDE with your smartphone
+Comment[fr]=Connectez KDE avec votre smartphone
+Comment[nl]=KDE met uw smartphone verbinden
+Comment[pt]=Ligue o KDE ao seu telemóvel
+Comment[sv]=Anslut KDE till din smartphone
+Comment[x-test]=xxConnect KDE with your smartphonexx

@@ -3,6 +3,11 @@ Type=ServiceType
 X-KDE-ServiceType=KdeConnect/Plugin
 X-KDE-Derived=KPluginInfo
 Name=KDEConnect Plugin
+Name[fr]=Module externe KDEConnect
+Name[nl]=Plug-in van KDEConnect
+Name[pt]='Plugin' do KDEConnect
+Name[sv]=KDE anslutningsinsticksprogram
+Name[x-test]=xxKDEConnect Pluginxx
 
 # mandatory, list of all the package types supported
 [PropertyDef::X-KdeConnect-SupportedPackageType]

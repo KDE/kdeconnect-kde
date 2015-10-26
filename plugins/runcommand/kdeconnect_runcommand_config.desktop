@@ -6,5 +6,9 @@ X-KDE-Library=kdeconnect_runcommand_config
 X-KDE-ParentComponents=kdeconnect_runcommand
 
 Name=Run Command plugin settings
+Name[nl]=Plug-in-instellingen van commando Uitvoeren
+Name[pt]=Configuração do 'plugin' de execução de comandos
+Name[sv]=Inställningar av insticksprogram för kör kommando
+Name[x-test]=xxRun Command plugin settingsxx
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

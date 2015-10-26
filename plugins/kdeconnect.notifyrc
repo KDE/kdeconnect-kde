@@ -1,46 +1,136 @@
 [Global]
 IconName=kdeconnect
 Name=KDE Connect
+Name[fr]=KDE Connect
+Name[nl]=KDE Connect
+Name[pt]=KDE Connect
+Name[sv]=KDE-anslut
+Name[x-test]=xxKDE Connectxx
 Comment=Notifications from your devices
+Comment[fr]=Notifications provenant de vos périphériques
+Comment[nl]=Meldingen van uw apparaten
+Comment[pt]=Notificações dos seus dispositivos
+Comment[sv]=Underrättelser från dina apparater
+Comment[x-test]=xxNotifications from your devicesxx
 
 [Event/pairingRequest]
 Name=Pairing Request
+Name[fr]=Demande d'appariement
+Name[nl]=Verzoek om een paar te maken
+Name[pt]=Pedido de Emparelhamento
+Name[sv]=Begäran om ihopparning
+Name[x-test]=xxPairing Requestxx
 Comment=Pairing request received from a devices
+Comment[fr]=Demande d'appariement provenant d'un périphérique
+Comment[nl]=Verzoek om een paar te maken ontvangen van een apparaat
+Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
+Comment[sv]=Begäran om ihopparning mottagen från en apparat
+Comment[x-test]=xxPairing request received from a devicesxx
 Action=Popup
 
 [Event/callReceived]
 Name=Incoming Call
+Name[fr]=Appel entrant
+Name[nl]=Inkomende oproep
+Name[pt]=Chamada Recebida
+Name[sv]=Inkommande samtal
+Name[x-test]=xxIncoming Callxx
 Comment=Someone is calling you
+Comment[fr]=Quelqu'un vous appelle
+Comment[nl]=Iemand belt u op
+Comment[pt]=Alguém está a ligar-lhe
+Comment[sv]=Någon ringer till dig
+Comment[x-test]=xxSomeone is calling youxx
 Action=Popup
 
 [Event/missedCall]
 Name=Missed Call
+Name[fr]=Appel manqué
+Name[nl]=Gemiste oproep
+Name[pt]=Chamada Não Atendida
+Name[sv]=Missat samtal
+Name[x-test]=xxMissed Callxx
 Comment=You have a missed call
+Comment[fr]=Vous avez un appel manqué
+Comment[nl]=U hebt een gemiste oproep
+Comment[pt]=Tem uma chamada não atendida
+Comment[sv]=Du har missat ett samtal
+Comment[x-test]=xxYou have a missed callxx
 Action=Popup
 
 [Event/smsReceived]
 Name=SMS Received
+Name[fr]=SMS reçu
+Name[nl]=SMS ontvangen
+Name[pt]=SMS Recebido
+Name[sv]=SMS mottaget
+Name[x-test]=xxSMS Receivedxx
 Comment=Someone sent you an SMS
+Comment[fr]=Quelqu'un vous a envoyé un SMS
+Comment[nl]=Iemand heeft u een SMS gestuurd
+Comment[pt]=Alguém lhe enviou um SMS
+Comment[sv]=Någon skickade ett SMS till dig
+Comment[x-test]=xxSomeone sent you an SMSxx
 Action=Popup
 
 [Event/batteryLow]
 Name=Battery Low
+Name[fr]=Batterie faible
+Name[nl]=Batterij op laag niveau
+Name[pt]=Bateria Fraca
+Name[sv]=Låg batteriladdning
+Name[x-test]=xxBattery Lowxx
 Comment=Your battery is in low state
+Comment[fr]=Votre batterie est faible
+Comment[nl]=Uw batterij is bijna leeg
+Comment[pt]=A sua bateria está fraca
+Comment[sv]=Batteriet är nästan slut
+Comment[x-test]=xxYour battery is in low statexx
 Action=Popup
 
 [Event/pingReceived]
 Name=Ping Received
+Name[fr]=Ping reçu
+Name[nl]=Ping ontvangen
+Name[pt]=Contacto Recebido
+Name[sv]=Ping mottaget
+Name[x-test]=xxPing Receivedxx
 Comment=Ping received
+Comment[fr]=Ping reçu
+Comment[nl]=Ping ontvangen
+Comment[pt]=Pedido de rede recebido
+Comment[sv]=Ping mottaget
+Comment[x-test]=xxPing receivedxx
 Action=Popup
 
 [Event/notification]
 Name=Generic Notification
+Name[fr]=Notification
+Name[nl]=Algemene melding
+Name[pt]=Notificação Genérica
+Name[sv]=Generell underrättelse
+Name[x-test]=xxGeneric Notificationxx
 Comment=Notification received
+Comment[fr]=Notification reçue
+Comment[nl]=Melding ontvangen
+Comment[pt]=Notificação recebida
+Comment[sv]=Underrättelse mottagen
+Comment[x-test]=xxNotification receivedxx
 Action=Popup
 
 [Event/transferReceived]
 Name=File Transfer
+Name[fr]=Transfert de fichiers
+Name[nl]=Bestandsoverdracht
+Name[pt]=Transferência de Ficheiros
+Name[sv]=Filöverföring
+Name[x-test]=xxFile Transferxx
 Comment=Incoming file
+Comment[fr]=Fichier entrant
+Comment[nl]=Inkomend bestand
+Comment[pt]=Ficheiro recebido
+Comment[sv]=Inkommande fil
+Comment[x-test]=xxIncoming filexx
 Action=Popup
 
 
