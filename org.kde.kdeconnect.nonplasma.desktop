@@ -2,6 +2,7 @@
 Name=KDE Connect Monitor
 Name[ca]=Controlador del KDE Connect
 Name[cs]=Monitor KDE Connect
+Name[de]=KDE-Connect-Monitor
 Name[en_GB]=KDE Connect Monitor
 Name[es]=Monitor de KDE Connect
 Name[fi]=KDE Connect -valvonta
@@ -21,6 +22,7 @@ Name[zh_CN]=KDE Connect 监视器
 Comment=Display information about your devices
 Comment[ca]=Mostra la informació dels vostres dispositius
 Comment[cs]=Zobrazit informace o vašich zařízeních
+Comment[de]=Anzeige von Informationen über Ihre Geräte
 Comment[en_GB]=Display information about your devices
 Comment[es]=Mostrar información sobre sus dispositivos
 Comment[fi]=Näyttää tietoa laitteistasi
