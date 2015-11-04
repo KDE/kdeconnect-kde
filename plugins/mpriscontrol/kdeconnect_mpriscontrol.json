@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Remote control your music and videos", 
+        "Description[ca@valencia]": "Comandament a distància per a la vostra música i vídeos", 
         "Description[ca]": "Comandament a distància per a la vostra música i vídeos", 
         "Description[cs]": "Ovládejte vzdáleně vaši hudbu a videa", 
         "Description[de]": "Fernbedienung für Musik und Videos", 
@@ -34,6 +35,7 @@
         "Id": "kdeconnect_mpriscontrol", 
         "License": "GPL", 
         "Name": "Multimedia control receiver", 
+        "Name[ca@valencia]": "Receptor del comandament multimèdia", 
         "Name[ca]": "Receptor del comandament multimèdia", 
         "Name[cs]": "Dálkový ovladač multimédií", 
         "Name[de]": "Steuerung für Multimedia-Empfänger", 

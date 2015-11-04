@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Share the clipboard between devices", 
+        "Description[ca@valencia]": "Comparteix el porta-retalls entre dispositius", 
         "Description[ca]": "Comparteix el porta-retalls entre dispositius", 
         "Description[cs]": "Sdílet obsah schránky mezi zařízeními", 
         "Description[de]": "Die Zwischenablage mit Geräten teilen", 
@@ -34,6 +35,7 @@
         "Id": "kdeconnect_clipboard", 
         "License": "GPL", 
         "Name": "Clipboard", 
+        "Name[ca@valencia]": "Porta-retalls", 
         "Name[ca]": "Porta-retalls", 
         "Name[cs]": "Schránka", 
         "Name[de]": "Zwischenablage", 

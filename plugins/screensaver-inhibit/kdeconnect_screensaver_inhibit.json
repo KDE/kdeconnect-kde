@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Inhibit the screensaver when the device is connected", 
+        "Description[ca@valencia]": "Inhibeix l'estalvi de pantalla quan es connecta el dispositiu", 
         "Description[ca]": "Inhibeix l'estalvi de pantalla quan es connecta el dispositiu", 
         "Description[cs]": "Potlačit spořič pokud je zařízení připojeno", 
         "Description[de]": "Bildschirmschoner unterbinden wenn ein Gerät angeschlossen ist", 
@@ -34,6 +35,7 @@
         "Id": "kdeconnect_screensaver_inhibit", 
         "License": "GPL", 
         "Name": "Inhibit screensaver", 
+        "Name[ca@valencia]": "Inhibeix l'estalvi de pantalla", 
         "Name[ca]": "Inhibeix l'estalvi de pantalla", 
         "Name[cs]": "Potlačit spořič obrazovky", 
         "Name[de]": "Bildschirmschoner unterbinden", 

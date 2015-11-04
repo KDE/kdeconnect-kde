@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Pause music/videos during a phone call", 
+        "Description[ca@valencia]": "Pausa la música/vídeos durant una trucada telefònica", 
         "Description[ca]": "Pausa la música/vídeos durant una trucada telefònica", 
         "Description[cs]": "Pozastavit hudbu/video během telefonátu", 
         "Description[de]": "Hält Musik oder Videos währen eines Anrufs an", 
@@ -34,6 +35,7 @@
         "Id": "kdeconnect_pausemusic", 
         "License": "GPL", 
         "Name": "Pause media during calls", 
+        "Name[ca@valencia]": "Pausa els suports durant les trucades", 
         "Name[ca]": "Pausa els suports durant les trucades", 
         "Name[cs]": "Pozastavit média během telefonátu", 
         "Name[de]": "Medium bei Anrufen anhalten", 

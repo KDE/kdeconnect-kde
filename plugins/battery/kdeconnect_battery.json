@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Show your phone battery next to your computer battery", 
+        "Description[ca@valencia]": "Mostra la bateria del telèfon al costat de la bateria de l'ordinador", 
         "Description[ca]": "Mostra la bateria del telèfon al costat de la bateria de l'ordinador", 
         "Description[cs]": "Zobrazit baterii vedle baterie počítače", 
         "Description[de]": "Zeigt den Akku Ihres Telefons neben dem Akku des Rechners", 
@@ -34,6 +35,7 @@
         "Id": "kdeconnect_battery", 
         "License": "GPL", 
         "Name": "Battery monitor", 
+        "Name[ca@valencia]": "Monitor de la bateria", 
         "Name[ca]": "Monitor de la bateria", 
         "Name[cs]": "Monitor baterie", 
         "Name[de]": "Akkuüberwachung", 

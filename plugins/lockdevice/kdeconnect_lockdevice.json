@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Locks your systems", 
+        "Description[ca@valencia]": "Bloqueja els vostres sistemes", 
         "Description[ca]": "Bloqueja els vostres sistemes", 
         "Description[cs]": "Zamkne vaše systémy", 
         "Description[de]": "Sperrt Ihre Systeme", 
@@ -33,6 +34,7 @@
         "Id": "kdeconnect_lockdevice", 
         "License": "GPL", 
         "Name": "LockDevice", 
+        "Name[ca@valencia]": "Bloqueja el dispositiu", 
         "Name[ca]": "Bloqueja el dispositiu", 
         "Name[cs]": "Uzamknout zařízení", 
         "Name[de]": "Gerätesperrung", 

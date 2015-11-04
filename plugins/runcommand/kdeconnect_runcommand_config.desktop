@@ -7,6 +7,7 @@ X-KDE-ParentComponents=kdeconnect_runcommand
 
 Name=Run Command plugin settings
 Name[ca]=Ajustaments del connector Executa ordres
+Name[ca@valencia]=Ajustaments del connector Executa ordes
 Name[cs]=Nastavení modulu Spustit příkaz
 Name[de]=Modul-Einstellungen für Befehlsausführung
 Name[en_GB]=Run Command plugin settings

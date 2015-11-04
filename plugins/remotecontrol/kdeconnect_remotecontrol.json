@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Control Remote systems", 
+        "Description[ca@valencia]": "Sistemes de control remot", 
         "Description[ca]": "Sistemes de control remot", 
         "Description[cs]": "Ovládejte vzdálené systémy", 
         "Description[en_GB]": "Control Remote systems", 
@@ -32,6 +33,7 @@
         "Id": "kdeconnect_remotecontrol", 
         "License": "GPL", 
         "Name": "RemoteControl", 
+        "Name[ca@valencia]": "Control remot", 
         "Name[ca]": "Control remot", 
         "Name[cs]": "Dálkové ovládání", 
         "Name[en_GB]": "RemoteControl", 

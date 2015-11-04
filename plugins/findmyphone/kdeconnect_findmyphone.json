@@ -11,6 +11,7 @@
             }
         ], 
         "Description": "Find your lost phone by making it play an alarm sound    ", 
+        "Description[ca@valencia]": "Troba el vostra telèfon perdut fent que reproduïsca un so d'alarma    ", 
         "Description[ca]": "Troba el vostra telèfon perdut fent que reprodueixi un so d'alarma    ", 
         "Description[cs]": "Najděte dsvůj telefon tím, že jej necháte přehrát zvuk upomínky", 
         "Description[en_GB]": "Find your lost phone by making it play an alarm sound    ", 
@@ -34,6 +35,7 @@
         "Id": "kdeconnect_findmyphone", 
         "License": "GPL", 
         "Name": "Find My Phone", 
+        "Name[ca@valencia]": "Troba el meu telèfon", 
         "Name[ca]": "Troba el meu telèfon", 
         "Name[cs]": "Najít můj telefon", 
         "Name[en_GB]": "Find My Phone", 
