@@ -11,6 +11,7 @@
   <name xml:lang="en-GB">KDE Connect</name>
   <name xml:lang="es">KDE Connect</name>
   <name xml:lang="fi">KDE Connect</name>
+  <name xml:lang="gl">KDE Connect</name>
   <name xml:lang="it">KDE Connect</name>
   <name xml:lang="nl">KDE Connect</name>
   <name xml:lang="pl">KDE Connect</name>
@@ -29,6 +30,7 @@
   <summary xml:lang="en-GB">Seamless connection of your devices</summary>
   <summary xml:lang="es">Conexión sin interrupciones de sus dispositivos</summary>
   <summary xml:lang="fi">Saumaton yhteys laitteisiisi</summary>
+  <summary xml:lang="gl">Conexión constante entre dispositivos</summary>
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="nl">Naadloze verbinding met uw apparaten</summary>
   <summary xml:lang="pl">Zintegrowane połączenia do twoich urządzeń</summary>
@@ -48,6 +50,7 @@
     <p xml:lang="en-GB">KDE Connect provides integration between your Android phone and your desktop.</p>
     <p xml:lang="es">KDE Connect proporciona integración entre su teléfono Android y su escritorio.</p>
     <p xml:lang="fi">KDE Connect tarjoaa integraation Android-puhelimesi ja työpöytäsi välillä.</p>
+    <p xml:lang="gl">KDE Connect fornece integración entre os seus teléfonos con Android e o seu computador de escritorio.</p>
     <p xml:lang="it">KDE Connect fornisce integrazione tra il tuo telefono Android e il tuo desktop.</p>
     <p xml:lang="nl">KDE Connect biedt integratie tussen uw Android telefoon en uw bureaublad.</p>
     <p xml:lang="pl">KDE Connect integruje twój telefon Android z twoim pulpitem.</p>
@@ -76,6 +79,7 @@
   <project_group xml:lang="en-GB">KDE Connect</project_group>
   <project_group xml:lang="es">KDE Connect</project_group>
   <project_group xml:lang="fi">KDE Connect</project_group>
+  <project_group xml:lang="gl">KDE Connect</project_group>
   <project_group xml:lang="it">KDE Connect</project_group>
   <project_group xml:lang="nl">KDE Connect</project_group>
   <project_group xml:lang="pl">KDE Connect</project_group>
