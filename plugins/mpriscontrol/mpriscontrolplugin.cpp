@@ -181,6 +181,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 
     //Do something to the mpris interface
     OrgMprisMediaPlayer2PlayerInterface mprisInterface(playerList[player], "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
+    mprisInterface.setTimeout(500);
     if (np.has("action")) {
         const QString& action = np.get<QString>("action");
         //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Calling action" << action << "in" << playerList[player];
