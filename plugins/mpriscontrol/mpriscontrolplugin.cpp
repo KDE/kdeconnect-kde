@@ -215,14 +215,15 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
         QString nowPlaying = nowPlayingMap["xesam:title"].toString();
         if (nowPlayingMap.contains("xesam:artist")) {
             nowPlaying = nowPlayingMap["xesam:artist"].toString() + " - " + nowPlaying;
-        }if (nowPlayingMap.contains("mpris:length")) {
+        }
+        answer.set("nowPlaying",nowPlaying);
+
+        if (nowPlayingMap.contains("mpris:length")) {
             qlonglong length = nowPlayingMap["mpris:length"].toLongLong();
             answer.set("length",length/1000);
         }
         qlonglong pos = mprisInterface.position();
         answer.set("pos", pos/1000);
-
-        answer.set("nowPlaying",nowPlaying);
 
         bool playing = (mprisInterface.playbackStatus() == QLatin1String("Playing"));
         answer.set("isPlaying", playing);
