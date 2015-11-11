@@ -73,7 +73,10 @@ void MprisControlPlugin::addPlayer(const QString& service)
 {
     QDBusInterface mprisInterface(service, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2");
     //FIXME: This call hangs and returns an empty string if KDED is still starting!
-    const QString identity = mprisInterface.property("Identity").toString();
+    QString identity = mprisInterface.property("Identity").toString();
+    if (identity.isEmpty()) {
+        identity = service.mid(sizeof("org.mpris.MediaPlayer2"));
+    }
     playerList[identity] = service;
     qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris addPlayer" << service << "->" << identity;
     sendPlayerList();
