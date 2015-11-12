@@ -44,7 +44,8 @@ NotificationsModel::NotificationsModel(QObject* parent)
 
     connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SIGNAL(anyDismissableChanged()));
-
+    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
+            this, SIGNAL(anyDismissableChanged()));
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
                                                            QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
