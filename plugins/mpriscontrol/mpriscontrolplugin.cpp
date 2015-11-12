@@ -73,7 +73,10 @@ void MprisControlPlugin::addPlayer(const QString& service)
 {
     QDBusInterface mprisInterface(service, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2");
     //FIXME: This call hangs and returns an empty string if KDED is still starting!
-    const QString identity = mprisInterface.property("Identity").toString();
+    QString identity = mprisInterface.property("Identity").toString();
+    if (identity.isEmpty()) {
+        identity = service.mid(sizeof("org.mpris.MediaPlayer2"));
+    }
     playerList[identity] = service;
     qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris addPlayer" << service << "->" << identity;
     sendPlayerList();
@@ -178,6 +181,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 
     //Do something to the mpris interface
     OrgMprisMediaPlayer2PlayerInterface mprisInterface(playerList[player], "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
+    mprisInterface.setTimeout(500);
     if (np.has("action")) {
         const QString& action = np.get<QString>("action");
         //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Calling action" << action << "in" << playerList[player];
@@ -211,14 +215,15 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
         QString nowPlaying = nowPlayingMap["xesam:title"].toString();
         if (nowPlayingMap.contains("xesam:artist")) {
             nowPlaying = nowPlayingMap["xesam:artist"].toString() + " - " + nowPlaying;
-        }if (nowPlayingMap.contains("mpris:length")) {
+        }
+        answer.set("nowPlaying",nowPlaying);
+
+        if (nowPlayingMap.contains("mpris:length")) {
             qlonglong length = nowPlayingMap["mpris:length"].toLongLong();
             answer.set("length",length/1000);
         }
         qlonglong pos = mprisInterface.position();
         answer.set("pos", pos/1000);
-
-        answer.set("nowPlaying",nowPlaying);
 
         bool playing = (mprisInterface.playbackStatus() == QLatin1String("Playing"));
         answer.set("isPlaying", playing);
