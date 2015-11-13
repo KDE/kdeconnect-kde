@@ -12,6 +12,7 @@ Name[bg]=Услуга KDE Connect
 Name[ca]=Dimoni del KDEConnect
 Name[ca@valencia]=Dimoni del KDEConnect
 Name[cs]=Démon KDE Connect
+Name[da]=KDEConnect-dæmon
 Name[de]=KDE-Connect-Dienst
 Name[en_GB]=KDEConnect daemon
 Name[es]=Demonio de KDE Connect
