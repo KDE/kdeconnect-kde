@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
+  <name xml:lang="ast">KDE Connect</name>
   <name xml:lang="ca">KDE Connect</name>
   <name xml:lang="ca-valencia">KDE Connect</name>
   <name xml:lang="cs">KDE Connect</name>
@@ -25,6 +26,7 @@
   <name xml:lang="x-test">xxKDE Connectxx</name>
   <name xml:lang="zh-CN">KDE Connect</name>
   <summary>Seamless connection of your devices</summary>
+  <summary xml:lang="ast">Conexón de los tos preseos ensin esfuerciu</summary>
   <summary xml:lang="ca">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="ca-valencia">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="cs">Snadné propojení vašich zařízení</summary>
@@ -46,6 +48,7 @@
   <summary xml:lang="zh-CN">无缝连接您的设备</summary>
   <description>
     <p>KDE Connect provides integration between your Android phone and your desktop.</p>
+    <p xml:lang="ast">KDE Connect forne integración ente'l to preséu Android y el to escritoriu.</p>
     <p xml:lang="ca">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="ca-valencia">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="cs">KDE Connect poskytuje integraci mezi vaším telefonem s Androidem a vaší pracovní plochou.</p>
@@ -75,6 +78,7 @@
     </screenshot>
   </screenshots>
   <project_group>KDE Connect</project_group>
+  <project_group xml:lang="ast">KDE Connect</project_group>
   <project_group xml:lang="ca">KDE Connect</project_group>
   <project_group xml:lang="ca-valencia">KDE Connect</project_group>
   <project_group xml:lang="cs">KDE Connect</project_group>
