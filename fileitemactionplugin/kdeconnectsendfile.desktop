@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Send file via KDE Connect service
+Name[ast]=Unviar ficheru pente'l serviciu KDE Connect
 Name[bg]=Изпращане на файл през услугата KDE Connect
 Name[bs]=Pošalji datoteku putem KDE Connect servisa
 Name[ca]=Envia un fitxer a través del servei KDE Connect

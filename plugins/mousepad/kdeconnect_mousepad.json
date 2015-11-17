@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Use your phone as a touchpad and keyboard", 
+        "Description[ast]": "Usa'l to preséu como un panel táutil y tecláu", 
         "Description[ca@valencia]": "Empra el telèfon com un ratolí tàctil i teclat", 
         "Description[ca]": "Empra el telèfon com un ratolí tàctil i teclat", 
         "Description[cs]": "Používejte svůj telefon jako touchpad a klávesnici", 
@@ -36,6 +37,7 @@
         "Id": "kdeconnect_mousepad", 
         "License": "GPL", 
         "Name": "Virtual input", 
+        "Name[ast]": "Entrada virtual", 
         "Name[ca@valencia]": "Entrada virtual", 
         "Name[ca]": "Entrada virtual", 
         "Name[cs]": "Virtuální vstup", 

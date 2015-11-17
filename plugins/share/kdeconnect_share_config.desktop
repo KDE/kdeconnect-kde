@@ -6,6 +6,7 @@ X-KDE-Library=kdeconnect_share_config
 X-KDE-ParentComponents=kdeconnect_share
 
 Name=Share plugin settings
+Name[ast]=Axustes del complementu de compartir
 Name[bg]=Настройки на приставката за споделяне
 Name[bs]=Podijeli postavke dodatka
 Name[ca]=Ajustaments del connector Compartició

@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Control MPRIS services", 
+        "Description[ast]": "Controla servicios MPRIS", 
         "Description[ca@valencia]": "Serveis de control del MPRIS", 
         "Description[ca]": "Serveis de control del MPRIS", 
         "Description[cs]": "Ovládejte služby MPRIS", 
@@ -35,6 +36,7 @@
         "Id": "kdeconnect_mprisremote", 
         "License": "GPL", 
         "Name": "MprisRemote", 
+        "Name[ast]": "MprisRemote", 
         "Name[ca@valencia]": "MprisRemote", 
         "Name[ca]": "MprisRemote", 
         "Name[cs]": "MprisRemote", 

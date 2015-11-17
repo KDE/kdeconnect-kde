@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Control Remote systems", 
+        "Description[ast]": "Controla sistemes remotos", 
         "Description[ca@valencia]": "Sistemes de control remot", 
         "Description[ca]": "Sistemes de control remot", 
         "Description[cs]": "Ovládejte vzdálené systémy", 

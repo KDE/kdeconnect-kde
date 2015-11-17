@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Show phone notifications on your computer and keep them in sync", 
+        "Description[ast]": "Amuesa los avisos del preséu nel to ordenador in caltiénlos sincronizaos", 
         "Description[ca@valencia]": "Mostra les notificacions del telèfon a l'ordinador i les manté sincronitzades", 
         "Description[ca]": "Mostra les notificacions del telèfon a l'ordinador i les manté sincronitzades", 
         "Description[cs]": "Zobrazit upozornění telefonu v počítači a udržovat je synchronizovaná", 
@@ -36,6 +37,7 @@
         "Id": "kdeconnect_notifications", 
         "License": "GPL", 
         "Name": "Notification sync", 
+        "Name[ast]": "Sincronización d'avisos", 
         "Name[ca@valencia]": "Sincronització de les notificacions", 
         "Name[ca]": "Sincronització de les notificacions", 
         "Name[cs]": "Synchronizace upozornění", 

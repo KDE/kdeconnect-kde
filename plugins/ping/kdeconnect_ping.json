@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Send and receive pings", 
+        "Description[ast]": "Unvia y recibe pings", 
         "Description[ca@valencia]": "Envia i rep pings", 
         "Description[ca]": "Envia i rep pings", 
         "Description[cs]": "Posílat a přijímat ping", 
@@ -36,6 +37,7 @@
         "Id": "kdeconnect_ping", 
         "License": "GPL", 
         "Name": "Ping", 
+        "Name[ast]": "Ping", 
         "Name[ca@valencia]": "Ping", 
         "Name[ca]": "Ping", 
         "Name[cs]": "Ping", 

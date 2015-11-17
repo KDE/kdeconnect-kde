@@ -8,6 +8,7 @@
             }
         ], 
         "Description": "Locks your systems", 
+        "Description[ast]": "Bloquia los tos sistemes", 
         "Description[ca@valencia]": "Bloqueja els vostres sistemes", 
         "Description[ca]": "Bloqueja els vostres sistemes", 
         "Description[cs]": "Zamkne vaše systémy", 
