@@ -185,7 +185,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed Call
-Name[ast]=Llamad perdida
+Name[ast]=Llamada perdida
 Name[bg]=Пропуснато обаждане
 Name[ca]=Trucada perduda
 Name[ca@valencia]=Trucada perduda
