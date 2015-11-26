@@ -35,8 +35,8 @@ public:
 
 public Q_SLOTS:
     virtual void save() Q_DECL_OVERRIDE;
-    virtual void load();
-    virtual void defaults();
+    virtual void load() Q_DECL_OVERRIDE;
+    virtual void defaults() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
