@@ -19,6 +19,7 @@
  */
 
 import QtQuick 2.1
+import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0
@@ -33,12 +34,34 @@ PlasmaComponents.ListItem
     Column {
         width: parent.width
         
-        Row
+        RowLayout
         {
+            Item {
+                //spacer to make the label centre aligned in a row yet still elide and everything
+                implicitWidth: ring.width + browse.width + parent.spacing
+            }
+
             PlasmaComponents.Label {
-                width: browse.visible? parent.width - browse.width : parent.width
                 horizontalAlignment: Text.AlignHCenter
+                elide: Text.ElideRight
                 text: display
+                Layout.fillWidth: true
+            }
+
+           PlasmaComponents.Button
+            {
+                FindMyPhone {
+                    id: findmyphone
+                    deviceId: root.deviceId
+                }
+
+                id: ring
+                iconSource: "preferences-desktop-notification"
+                visible: findmyphone.available
+
+                onClicked: {
+                    findmyphone.ring()
+                }
             }
 
             PlasmaComponents.Button
@@ -56,7 +79,6 @@ PlasmaComponents.ListItem
                     sftp.browse()
                 }
             }
-
 
             height: browse.height
             width: parent.width

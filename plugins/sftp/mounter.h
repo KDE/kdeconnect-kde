@@ -53,13 +53,12 @@ private Q_SLOTS:
     void onMountTimeout();
     void start();
 
-private: 
-    void cleanMountPoint();
+private:
     void unmount();
     
 private:
     SftpPlugin* m_sftp;
-    QScopedPointer<KProcess> m_proc;
+    KProcess* m_proc;
     QTimer m_connectTimer;
     QString m_mountPoint;
     bool m_started;

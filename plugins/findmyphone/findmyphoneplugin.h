@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2014 Apoorv Parle <apparle@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,20 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETADDRESS_H
-#define NETADDRESS_H
+#ifndef PINGPLUGIN_H
+#define PINGPLUGIN_H
 
-#include <QHostAddress>
+#include <QObject>
 
-struct NetAddress {
-    NetAddress() { }
-    NetAddress(QHostAddress _ip, quint16 _port) : ip(_ip), port(_port) { }
-    QHostAddress ip;
-    quint16 port;
+#include <core/kdeconnectplugin.h>
+
+#define PACKAGE_TYPE_FINDMYPHONE QStringLiteral("kdeconnect.findmyphone")
+
+class FindMyPhonePlugin
+    : public KdeConnectPlugin
+{
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.findmyphone")
+
+public:
+    explicit FindMyPhonePlugin(QObject *parent, const QVariantList &args);
+    virtual ~FindMyPhonePlugin();
+    
+    Q_SCRIPTABLE void ring();
+
+public Q_SLOTS:
+    virtual void connected();
+    virtual bool receivePackage(const NetworkPackage& np);
+
+private:
+    QString dbusPath() const;
 };
 
-inline bool operator< (const NetAddress& a, const NetAddress& b){
-    return (a.ip.toString()+a.port) < (b.ip.toString()+b.port);
-}
-
-#endif // NETADDRESS_H
+#endif

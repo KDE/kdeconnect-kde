@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+]>
+
+<article id="kdeconnect" lang="&language;">
+<articleinfo>
+<title>KDE Connect</title>
+<authorgroup>
+<author>&Aleix.Pol;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<date>2015-10-19</date>
+<releaseinfo>0.9</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Connect</keyword>
+<keyword>phone</keyword>
+<keyword>remote</keyword>
+<keyword>device</keyword>
+<keyword>pair</keyword>
+</keywordset>
+</articleinfo>
+
+<sect1 id="kdeconnect-kcm">
+
+<title>KDE Connect</title>
+
+<para>You can use this dialog to configure which devices we're paired to and what we're sharing. The UI is divided in 2 main parts:</para>
+
+<sect2>
+<title>Devices List</title>
+
+<para>It contains a list of devices separated between paired and unpaired. Select one to pair it and when it's paired, configure it.</para>
+</sect2>
+
+<sect2>
+<title>Device Configuration</title>
+
+<para>It offers a list of the available plugins related to the device. These plugins will correspond to the different features available for the device. This is useful mainly for knowing what plugins are available and, in case there's some information that should not be shared with a device, explicitly disable it.</para>
+</sect2>
+
+<sect2>
+<title>General interaction with the devices</title>
+
+<para>KDE Connect doesn't offer a central place to interact with your devices. It's designed to integrate properly with your operating system, making it possible to share files from the different applications or integrating with the notification system to display information.</para>
+</sect2>
+
+</sect1>
+
+</article>

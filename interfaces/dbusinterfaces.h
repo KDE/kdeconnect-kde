@@ -27,6 +27,7 @@
 #include "interfaces/deviceinterface.h"
 #include "interfaces/devicebatteryinterface.h"
 #include "interfaces/devicesftpinterface.h"
+#include "interfaces/devicefindmyphoneinterface.h"
 #include "interfaces/devicenotificationsinterface.h"
 #include "interfaces/notificationinterface.h"
 #include "interfaces/mprisremoteinterface.h"
@@ -46,6 +47,9 @@ public:
     virtual ~DaemonDbusInterface();
 
     static QString activatedService();
+
+Q_SIGNALS:
+    void deviceAdded(const QString &id);
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
@@ -97,6 +101,7 @@ public:
     virtual ~NotificationDbusInterface();
 };
 
+
 class KDECONNECTINTERFACES_EXPORT SftpDbusInterface
     : public OrgKdeKdeconnectDeviceSftpInterface
 {
@@ -146,6 +151,15 @@ public:
 
 Q_SIGNALS:
     void lockedChangedProxy(bool isLocked);
+};
+
+class KDECONNECTINTERFACES_EXPORT FindMyPhoneDeviceDbusInterface
+    : public OrgKdeKdeconnectDeviceFindmyphoneInterface
+{
+    Q_OBJECT
+public:
+    explicit FindMyPhoneDeviceDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    virtual ~FindMyPhoneDeviceDbusInterface();
 };
 
 #endif

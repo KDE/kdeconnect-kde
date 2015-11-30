@@ -25,5 +25,5 @@ target_link_libraries(kcm_kdeconnect
 
 install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
 
+install(FILES org.kde.kdeconnect.kcm.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 install(FILES kcm_kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES kdeconnect.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

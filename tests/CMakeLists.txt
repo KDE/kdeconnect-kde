@@ -19,6 +19,7 @@ set(kdeconnect_libraries
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(networkpackagetests.cpp LINK_LIBRARIES ${kdeconnect_libraries})
+
 ecm_add_test(testsocketlinereader.cpp ../core/backends/lan/socketlinereader.cpp ../core/backends/lan/server.cpp TEST_NAME testsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})
 
 set(testsslsocketlinereader_sources
@@ -52,3 +53,5 @@ set(lanlinkprovidertest_sources
 ecm_add_test(lanlinkprovidertest.cpp  ${lanlinkprovidertest_sources}  TEST_NAME lanlinkprovidertest LINK_LIBRARIES ${kdeconnect_libraries})
 
 ecm_add_test(devicetest.cpp ${lanlinkprovidertest_sources} TEST_NAME devicetest LINK_LIBRARIES ${kdeconnect_libraries})
+
+ecm_add_test(downloadjobtest.cpp ../core/backends/lan/downloadjob.cpp TEST_NAME downloadjobtest LINK_LIBRARIES ${kdeconnect_libraries})

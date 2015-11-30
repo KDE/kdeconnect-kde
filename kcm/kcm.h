@@ -62,12 +62,15 @@ private Q_SLOTS:
     void resetCurrentDevice();
 
 private:
+    void resetDeviceView();
+
     Ui::KdeConnectKcmUi* kcmUi;
     DaemonDbusInterface* daemon;
     DevicesModel* devicesModel;
     DevicesSortProxyModel* sortProxyModel;
     DeviceDbusInterface* currentDevice;
     QModelIndex currentIndex;
+    QStringList m_oldUnsupportedPluginNames;
 
 public Q_SLOTS:
     void unpair();

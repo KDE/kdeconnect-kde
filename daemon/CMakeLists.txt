@@ -8,7 +8,7 @@ add_executable(kdeconnectd kdeconnectd.cpp)
 target_link_libraries(kdeconnectd kdeconnectcore KF5::KIOWidgets KF5::DBusAddons KF5::Notifications KF5::I18n Qt5::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)
-if(TelepathyQt5_FOUND)
+if(TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
     target_link_libraries(kdeconnectd connectcm)
 endif()
 

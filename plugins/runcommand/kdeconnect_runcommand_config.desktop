@@ -1,0 +1,33 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-Library=kdeconnect_runcommand_config
+X-KDE-ParentComponents=kdeconnect_runcommand
+
+Name=Run Command plugin settings
+Name[ast]=Axustes del complementu d'executar comandos
+Name[ca]=Ajustaments del connector Executa ordres
+Name[ca@valencia]=Ajustaments del connector Executa ordes
+Name[cs]=Nastavení modulu Spustit příkaz
+Name[da]=Indstilling af kør kommando-plugin
+Name[de]=Modul-Einstellungen für Befehlsausführung
+Name[en_GB]=Run Command plugin settings
+Name[es]=Ajustes del complemento de ejecución de órdenes
+Name[fi]=Suorita komento -liitännäisen asetukset
+Name[gl]=Configuración do complemento de orde de executar
+Name[it]=Impostazioni estensione Esegui comando
+Name[ko]=명령 실행 플러그인 설정
+Name[nl]=Plug-in-instellingen van commando Uitvoeren
+Name[pl]=Ustawienia wtyczki wykonywania polecenia
+Name[pt]=Configuração do 'plugin' de execução de comandos
+Name[pt_BR]=Configurações do plugin de execução de comandos
+Name[ru]=Настройка модуля выполнения команд
+Name[sk]=Nastavenia pluginu spustenia príkazu
+Name[sv]=Inställningar av insticksprogram för kör kommando
+Name[tr]=Komut Çalıştır eklenti ayarları
+Name[uk]=Параметри додатка запуску команд
+Name[x-test]=xxRun Command plugin settingsxx
+Name[zh_CN]=执行命令插件设置
+
+Categories=Qt;KDE;X-KDE-settings-kdeconnect;

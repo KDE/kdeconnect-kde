@@ -105,6 +105,7 @@ void Device::reloadPlugins()
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByOutgoingInterface;
     QSet<QString> supportedIncomingInterfaces;
+    QSet<QString> supportedOutgoingInterfaces;
     QStringList unsupportedPlugins;
 
     if (isPaired() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
@@ -114,7 +115,6 @@ void Device::reloadPlugins()
         PluginLoader* loader = PluginLoader::instance();
         const bool deviceSupportsCapabilities = !m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty();
 
-        //Code borrowed from KWin
         foreach (const QString& pluginName, loader->getPluginList()) {
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
             const QSet<QString> incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
@@ -124,13 +124,13 @@ void Device::reloadPlugins()
 
             if (pluginEnabled) {
                 supportedIncomingInterfaces += incomingInterfaces;
+                supportedOutgoingInterfaces += outgoingInterfaces;
             }
 
             //If we don't find intersection with the received on one end and the sent on the other, we don't
             //let the plugin stay
             //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
             //we assume that the other client doesn't know about capabilities.
-
             const bool capabilitiesSupported = deviceSupportsCapabilities && (!incomingInterfaces.isEmpty() || !outgoingInterfaces.isEmpty());
             if (capabilitiesSupported
                 && (m_incomingCapabilities & outgoingInterfaces).isEmpty()
@@ -154,6 +154,7 @@ void Device::reloadPlugins()
                 foreach(const QString& interface, outgoingInterfaces) {
                     newPluginsByOutgoingInterface.insert(interface, plugin);
                 }
+
                 newPluginMap[pluginName] = plugin;
             }
         }
@@ -162,12 +163,14 @@ void Device::reloadPlugins()
     //Erase all left plugins in the original map (meaning that we don't want
     //them anymore, otherwise they would have been moved to the newPluginMap)
     const QStringList newSupportedIncomingInterfaces = supportedIncomingInterfaces.toList();
+    const QStringList newSupportedOutgoingInterfaces = supportedOutgoingInterfaces.toList();
     const bool capabilitiesChanged = (m_pluginsByOutgoingInterface != newPluginsByOutgoingInterface
                                      || m_supportedIncomingInterfaces != newSupportedIncomingInterfaces);
     qDeleteAll(m_plugins);
     m_plugins = newPluginMap;
-    m_pluginsByOutgoingInterface = newPluginsByOutgoingInterface;
     m_supportedIncomingInterfaces = newSupportedIncomingInterfaces;
+    m_supportedOutgoingInterfaces = newSupportedOutgoingInterfaces;
+    m_pluginsByOutgoingInterface = newPluginsByOutgoingInterface;
     m_pluginsByIncomingInterface = newPluginsByIncomingInterface;
     m_unsupportedPlugins = unsupportedPlugins;
 
@@ -180,7 +183,7 @@ void Device::reloadPlugins()
     {
         NetworkPackage np(PACKAGE_TYPE_CAPABILITIES);
         np.set<QStringList>("IncomingCapabilities", newSupportedIncomingInterfaces);
-        np.set<QStringList>("OutgoingCapabilities", newPluginsByOutgoingInterface.keys());
+        np.set<QStringList>("OutgoingCapabilities", newSupportedOutgoingInterfaces);
         sendPackage(np);
     }
 }
@@ -434,6 +437,18 @@ void Device::setAsPaired()
 
 }
 
+DeviceLink::ConnectionStarted Device::connectionSource() const
+{
+    DeviceLink::ConnectionStarted ret = DeviceLink::Remotely;
+    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
+        if(link->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
+            ret = DeviceLink::ConnectionStarted::Locally;
+            break;
+        }
+    }
+    return ret;
+}
+
 QStringList Device::availableLinks() const
 {
     QStringList sl;
@@ -443,7 +458,7 @@ QStringList Device::availableLinks() const
     return sl;
 }
 
-Device::DeviceType Device::str2type(QString deviceType) {
+Device::DeviceType Device::str2type(const QString &deviceType) {
     if (deviceType == "desktop") return Desktop;
     if (deviceType == "laptop") return Laptop;
     if (deviceType == "smartphone" || deviceType == "phone") return Phone;
@@ -491,6 +506,11 @@ void Device::setName(const QString &name)
         m_deviceName = name;
         Q_EMIT nameChanged(name);
     }
+}
+
+Device::PairStatus Device::pairStatus() const
+{
+    return m_pairStatus;
 }
 
 KdeConnectPlugin* Device::plugin(const QString& pluginName) const

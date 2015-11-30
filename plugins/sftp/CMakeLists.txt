@@ -13,7 +13,6 @@ target_link_libraries(kdeconnect_sftp
     Qt5::DBus
     KF5::I18n
     KF5::KIOFileWidgets
-    KF5::IconThemes
     KF5::KIOWidgets
     KF5::Notifications
 )

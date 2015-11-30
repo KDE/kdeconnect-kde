@@ -34,7 +34,7 @@ class KDECONNECTINTERFACES_EXPORT NotificationsModel
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
-    Q_PROPERTY(bool isAnyDimissable READ isAnyDimissable NOTIFY anyDismissableChanged)
+    Q_PROPERTY(bool isAnyDimissable READ isAnyDimissable NOTIFY anyDismissableChanged STORED false)
 
 public:
     enum ModelRoles {

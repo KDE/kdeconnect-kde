@@ -123,7 +123,7 @@ void Daemon::removeDevice(Device* device)
 void Daemon::cleanDevices()
 {
     Q_FOREACH(Device* device, d->mDevices) {
-        if (!device->isPaired()) {
+        if (device->pairStatus() == Device::NotPaired && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
             removeDevice(device);
         }
     }
@@ -216,7 +216,7 @@ void Daemon::onDeviceStatusChanged()
 
 }
 
-void Daemon::setAnnouncedName(QString name)
+void Daemon::setAnnouncedName(const QString &name)
 {
     qCDebug(KDECONNECT_CORE()) << "Announcing name";
     KdeConnectConfig::instance()->setName(name);

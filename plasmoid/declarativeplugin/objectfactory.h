@@ -11,8 +11,8 @@ class ObjectFactory : public QObject
     Q_OBJECT
     
     typedef QObject* (*Func0)();
-    typedef QObject* (*Func1)(QVariant);
-    typedef QObject* (*Func2)(QVariant, QVariant);
+    typedef QObject* (*Func1)(const QVariant&);
+    typedef QObject* (*Func2)(const QVariant&, const QVariant&);
     
 public:
     ObjectFactory(QObject* parent, Func0 f0) : QObject(parent), m_f0(f0), m_f1(nullptr), m_f2(nullptr) {}
@@ -26,12 +26,12 @@ public:
         if (m_f0) return m_f0(); return nullptr;
     }
     
-    Q_INVOKABLE QObject* create(QVariant arg1) {
+    Q_INVOKABLE QObject* create(const QVariant &arg1) {
         if (m_f1) return m_f1(arg1);
         return nullptr;
     }
     
-    Q_INVOKABLE QObject* create(QVariant arg1, QVariant arg2) {
+    Q_INVOKABLE QObject* create(const QVariant &arg1, const QVariant &arg2) {
         if (m_f2) return m_f2(arg1, arg2);
         return nullptr;
     }

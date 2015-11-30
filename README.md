@@ -60,6 +60,6 @@ NetworkPackets can also have binary data attached that can't be serialized to JS
 ## License
 [GNU GPL v2](https://www.gnu.org/licenses/gpl-2.0.html) and [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
 
-If you are reading this from Github, you should know that this is just a mirror of the [KDE Project repo](https://projects.kde.org/projects/playground/base/kdeconnect-kde/repository/).
+If you are reading this from Github, you should know that this is just a mirror of the [KDE Project repo](https://projects.kde.org/projects/extragear/network/kdeconnect-kde/repository/).
 
 [![Build Status](https://build.kde.org/buildStatus/icon?job=kdeconnect-kde master kf5-qt5)](https://build.kde.org/job/kdeconnect-kde%20master%20kf5-qt5/)

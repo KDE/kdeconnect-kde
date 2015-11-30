@@ -21,6 +21,7 @@
 #ifndef KDECONNECTPLUGINCONFIG_H
 #define KDECONNECTPLUGINCONFIG_H
 
+#include <QObject>
 #include <QDir>
 #include <QString>
 #include <QStringList>
@@ -30,8 +31,10 @@
 
 struct KdeConnectPluginConfigPrivate;
 
-class KDECONNECTCORE_EXPORT KdeConnectPluginConfig
+class KDECONNECTCORE_EXPORT KdeConnectPluginConfig : public QObject
 {
+    Q_OBJECT
+
 public:
     KdeConnectPluginConfig(const QString& deviceId, const QString& pluginName);
     ~KdeConnectPluginConfig();
@@ -59,6 +62,11 @@ public:
         return get(key, QVariant(defaultValue)).template value<T>(); //Important note: Awesome template syntax is awesome
     }
 
+private Q_SLOTS:
+    void slotConfigChanged();
+
+Q_SIGNALS:
+    void configChanged();
 
 private:
     QScopedPointer<KdeConnectPluginConfigPrivate> d;

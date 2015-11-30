@@ -25,7 +25,7 @@
 Notification::Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent)
     : QObject(parent)
 {
-    mId = np.get<QString>("id");
+    mInternalId = np.get<QString>("id");
     mAppName = np.get<QString>("appName");
     mTicker = np.get<QString>("ticker");
     mDismissable = np.get<bool>("isClearable");
@@ -40,7 +40,7 @@ Notification::~Notification()
 void Notification::dismiss()
 {
     if (mDismissable) {
-        Q_EMIT dismissRequested(this);
+        Q_EMIT dismissRequested(mInternalId);
     }
 }
 

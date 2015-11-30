@@ -48,13 +48,13 @@ Mounter::Mounter(SftpPlugin* sftp)
     m_connectTimer.setSingleShot(true);
 
     QTimer::singleShot(0, this, SLOT(start()));
-    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created";
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created mounter";
 }
 
 Mounter::~Mounter()
 {
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroy mounter";
     unmount();
-    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroyed";
 }
 
 bool Mounter::wait()
@@ -95,12 +95,14 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
    *    Q_EMIT mounted();
    */
 
-    m_proc.reset(new KProcess(this));
+    unmount();
+
+    m_proc = new KProcess(this);
     m_proc->setOutputChannelMode(KProcess::MergedChannels);
 
-    connect(m_proc.data(), SIGNAL(started()), SLOT(onStarted()));    
-    connect(m_proc.data(), SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
-    connect(m_proc.data(), SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
+    connect(m_proc, SIGNAL(started()), SLOT(onStarted()));
+    connect(m_proc, SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
+    connect(m_proc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
 
     QDir().mkpath(m_mountPoint);
 
@@ -125,12 +127,6 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
     m_proc->setProgram(program, arguments);
 
-    //To debug
-    //m_proc->setStandardOutputFile("/tmp/kdeconnect-sftp.out");
-    //m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
-
-    cleanMountPoint();
-
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting process: " << m_proc->program().join(" ");
     m_proc->start();
 }
@@ -140,11 +136,13 @@ void Mounter::onStarted()
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process started";
     m_started = true;
     Q_EMIT mounted();
-    
-    connect(m_proc.data(), &KProcess::readyReadStandardError, [this]() {
+
+    //m_proc->setStandardOutputFile("/tmp/kdeconnect-sftp.out");
+    //m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
+    connect(m_proc, &KProcess::readyReadStandardError, [this]() {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "stderr: " << m_proc->readAll();
     });
-    connect(m_proc.data(), &KProcess::readyReadStandardOutput, [this]() {
+    connect(m_proc, &KProcess::readyReadStandardOutput, [this]() {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "stdout:" << m_proc->readAll();
     });
 }
@@ -172,9 +170,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
         Q_EMIT failed(i18n("Error when accessing to filesystem"));
     }
     
-    cleanMountPoint();
-    m_proc.reset();
-    m_started = false;  
+    unmount();
 }
 
 void Mounter::onMountTimeout()
@@ -192,25 +188,18 @@ void Mounter::start()
     m_connectTimer.start();
 }
 
-void Mounter::cleanMountPoint()
-{
-    qCDebug(KDECONNECT_PLUGIN_SFTP()) << "cleanMountPoint";
-    KProcess::execute(QStringList() << "fusermount" << "-u" << m_mountPoint, 10000);
-}
-
 void Mounter::unmount()
 {
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Unmount" << m_proc;
     if (m_proc)
     {
-        cleanMountPoint();
-        if (m_proc)
-        {
-            m_proc->terminate();
-            QTimer::singleShot(5000, m_proc.data(), SLOT(kill()));
-            m_proc->waitForFinished();
-        }
+        auto toDestroy = m_proc;
+        m_proc = nullptr; //So we don't reenter this code path when onFinished gets called
+        toDestroy->kill();
+        delete toDestroy;
+        //Free mount point (won't always succeed if the path is in use)
+        KProcess::execute(QStringList() << "fusermount" << "-u" << m_mountPoint, 10000);
     }
-    
-    m_started = false;    
+    m_started = false;
 }
 

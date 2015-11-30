@@ -1,0 +1,71 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "apparle@gmail.com", 
+                "Name": "Apoorv Parle"
+            }, 
+            {
+                "Email": "davidedmundson@kde.org", 
+                "Name": "David Edmundson"
+            }
+        ], 
+        "Description": "Find your lost phone by making it play an alarm sound    ", 
+        "Description[ast]": "Alcuentra'l to preséu perdíu faciéndolu sonar    ", 
+        "Description[ca@valencia]": "Troba el vostra telèfon perdut fent que reproduïsca un so d'alarma    ", 
+        "Description[ca]": "Troba el vostra telèfon perdut fent que reprodueixi un so d'alarma    ", 
+        "Description[cs]": "Najděte dsvůj telefon tím, že jej necháte přehrát zvuk upomínky", 
+        "Description[en_GB]": "Find your lost phone by making it play an alarm sound    ", 
+        "Description[es]": "Encuentre su teléfono perdido haciéndole reproducir un sonido de alarma", 
+        "Description[fi]": "Löydä hukkaamasi puhelin laittamalla se soittamaan hälytysääntä    ", 
+        "Description[gl]": "Reproducir un son de alarma nun teléfono móbil perdido para atopalo.", 
+        "Description[it]": "Trova il tuo telefono smarrito facendogli suonare un allarme sonoro    ", 
+        "Description[ko]": "알람 소리를 울려서 잃어버린 휴대폰 찾기", 
+        "Description[nl]": "Zoek uw verloren telefoon door het te laten een wekkersignaal te laten spelen    ", 
+        "Description[pl]": "Znajdź twój zgubiony telefon odgrywając na nim dźwięk   ", 
+        "Description[pt]": "Descobre o seu telefone perdido, fazendo-o tocar um som de alarme", 
+        "Description[pt_BR]": "Encontre seu telefone fazendo ele tocar um som    ", 
+        "Description[ru]": "Поиск утерянного телефона при помощи звукового сигнала", 
+        "Description[sk]": "Nájsť váš stratený telefón zahraním zvuku budíka", 
+        "Description[sv]": "Hitta din förlorade telefon genom att få den att spela ett alarmljud    ", 
+        "Description[tr]": "Bir alarm sesi çalarak kayıp telefonunuzu bulun    ", 
+        "Description[uk]": "Знайти загублений телефон, наказавши йому відтворити дзвінок", 
+        "Description[x-test]": "xxFind your lost phone by making it play an alarm sound    xx", 
+        "Description[zh_CN]": "通过播放闹铃声来找到您的手机", 
+        "EnabledByDefault": true, 
+        "Encoding": "UTF-8", 
+        "Icon": "edit-find", 
+        "Id": "kdeconnect_findmyphone", 
+        "License": "GPL", 
+        "Name": "Find My Phone", 
+        "Name[ast]": "Alcontrar el mio teléfonu", 
+        "Name[ca@valencia]": "Troba el meu telèfon", 
+        "Name[ca]": "Troba el meu telèfon", 
+        "Name[cs]": "Najít můj telefon", 
+        "Name[en_GB]": "Find My Phone", 
+        "Name[es]": "Encontrar mi teléfono", 
+        "Name[fi]": "Löydä puhelimeni", 
+        "Name[gl]": "Atopar o móbil", 
+        "Name[it]": "Trova il mio telefono", 
+        "Name[ko]": "내 휴대폰 찾기", 
+        "Name[nl]": "Zoek mijn telefoon", 
+        "Name[pl]": "Znajdź mój telefon", 
+        "Name[pt]": "Descobrir o Meu Telefone", 
+        "Name[pt_BR]": "Encontrar meu telefone", 
+        "Name[ru]": "Поиск телефона", 
+        "Name[sk]": "Nájsť môj telefón", 
+        "Name[sv]": "Hitta min telefon", 
+        "Name[tr]": "Telefonumu Bul", 
+        "Name[uk]": "Знайти телефон", 
+        "Name[x-test]": "xxFind My Phonexx", 
+        "Name[zh_CN]": "找到我的手机", 
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ], 
+        "Version": "0.1", 
+        "Website": "http://kde.org"
+    }, 
+    "X-KdeConnect-OutgoingPackageType": [
+        "kdeconnect.findmyphone"
+    ]
+}

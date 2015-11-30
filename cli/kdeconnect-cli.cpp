@@ -52,6 +52,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("id-only", i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
     parser.addOption(QCommandLineOption("refresh", i18n("Search for devices in the network and re-establish connections")));
     parser.addOption(QCommandLineOption("pair", i18n("Request pairing to a said device")));
+    parser.addOption(QCommandLineOption("ring", i18n("Find the said device by ringing it.")));
     parser.addOption(QCommandLineOption("unpair", i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption("ping", i18n("Sends a ping to said device")));
     parser.addOption(QCommandLineOption("ping-msg", i18n("Same as ping but you can set the message to display"), i18n("message")));
@@ -66,9 +67,10 @@ int main(int argc, char** argv)
     parser.process(app);
     about.processCommandLine(&parser);
 
+    const QString id = "kdeconnect-cli-"+QString::number(QCoreApplication::applicationPid());
+    DaemonDbusInterface iface;
+
     if(parser.isSet("l") || parser.isSet("a")) {
-        const QString id = "kdeconnect-cli-"+QString::number(QCoreApplication::applicationPid());
-        DaemonDbusInterface iface;
         bool paired = true, reachable = false;
         if (parser.isSet("a")) {
             reachable = true;
@@ -86,7 +88,7 @@ int main(int argc, char** argv)
             } else {
                 DeviceDbusInterface deviceIface(id);
                 QString statusInfo;
-                const bool isReachable = deviceIface.isReachable(), isPaired = deviceIface.isPaired();
+                const bool isReachable = deviceIface.isReachable(), isPaired = deviceIface.property("isPaired").toBool();
                 if (isReachable && isPaired) {
                     statusInfo = i18n("(paired and reachable)");
                 } else if (isReachable) {
@@ -125,17 +127,40 @@ int main(int argc, char** argv)
             }
         } else if(parser.isSet("pair")) {
             DeviceDbusInterface dev(device);
-            if(dev.isPaired())
+            if (!dev.isReachable()) {
+                //Device doesn't exist, go into discovery mode and wait up to 30 seconds for the device to appear
+                QEventLoop wait;
+                QTextStream(stderr) << i18n("waiting for device...") << endl;
+                iface.acquireDiscoveryMode(id);
+
+                QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, [&](const QString &deviceAddedId) {
+                    if (device == deviceAddedId) {
+                        wait.quit();
+                    }
+                });
+                QTimer::singleShot(30 * 1000, &wait, &QEventLoop::quit);
+
+                wait.exec();
+            }
+
+            if (!dev.isReachable()) {
+                QTextStream(stderr) << i18n("Device not found") << endl;
+            } else if(dev.property("isPaired").toBool()) {
                 QTextStream(stderr) << i18n("Already paired") << endl;
-            else {
+            } else {
+                QTextStream(stderr) << i18n("Pair requested") << endl;
                 QDBusPendingReply<void> req = dev.requestPair();
                 req.waitForFinished();
             }
+            iface.releaseDiscoveryMode(id);
         } else if(parser.isSet("unpair")) {
             DeviceDbusInterface dev(device);
-            if(!dev.isPaired())
+            if (!dev.isReachable()) {
+                QTextStream(stderr) << i18n("Device does not exist") << endl;
+            } else if(!dev.property("isPaired").toBool()) {
                 QTextStream(stderr) << i18n("Already not paired") << endl;
-            else {
+            } else {
+                QTextStream(stderr) << i18n("Unpaired") << endl;
                 QDBusPendingReply<void> req = dev.unpair();
                 req.waitForFinished();
             }
@@ -145,6 +170,9 @@ int main(int argc, char** argv)
                 QString message = parser.value("ping-msg");
                 msg.setArguments(QVariantList() << message);
             }
+            QDBusConnection::sessionBus().call(msg);
+        } else if(parser.isSet("ring")) {
+            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/findmyphone", "org.kde.kdeconnect.device.findmyphone", "ring");
             QDBusConnection::sessionBus().call(msg);
         } else if(parser.isSet("list-notifications")) {
             NotificationsModel notifications;

@@ -44,10 +44,10 @@ public:
 
     void processPackage(const NetworkPackage& np);
     void clearNotifications();
+    void dismissRequested(const QString& notification);
 
 public Q_SLOTS:
     Q_SCRIPTABLE QStringList activeNotifications();
-    void dismissRequested(Notification* notification);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void notificationPosted(const QString& publicId);

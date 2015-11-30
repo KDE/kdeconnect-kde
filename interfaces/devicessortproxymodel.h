@@ -36,7 +36,7 @@ public:
     virtual void setSourceModel(QAbstractItemModel *sourceModel) override;
 
 public Q_SLOTS:
-    void sourceDataChanged(QModelIndex,QModelIndex);
+    void sourceDataChanged();
 };
 
 #endif // DEVICESSORTPROXYMODEL_H

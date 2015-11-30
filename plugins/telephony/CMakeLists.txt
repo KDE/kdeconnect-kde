@@ -13,7 +13,7 @@ target_link_libraries(kdeconnect_telephony
     KF5::Notifications
 )
 
-if (TelepathyQt5_FOUND)
+if (TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
 target_link_libraries(kdeconnect_telephony
     connectcm
 )

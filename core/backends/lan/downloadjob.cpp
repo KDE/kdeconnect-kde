@@ -21,7 +21,16 @@
 #include <kdeconnectconfig.h>
 #include "downloadjob.h"
 
-DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
+#include <core/core_debug.h>
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
+#include <netdb.h>
+
+#include "lanlinkprovider.h"
+
+DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo): KJob()
 {
     mAddress = address;
     mPort = transferInfo["port"].toInt();
@@ -40,9 +49,18 @@ DownloadJob::DownloadJob(QHostAddress address, QVariantMap transferInfo): KJob()
     }
 }
 
+DownloadJob::~DownloadJob()
+{
+
+}
+
 void DownloadJob::start()
 {
-    //kDebug(kdeconnect_kded()) << "DownloadJob Start";
+    //TODO: Timeout?
+    connect(mSocket.data(), &QAbstractSocket::disconnected, this, &DownloadJob::done);
+    connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(done()));
+    //connect(mSocket.data(), &QAbstractSocket::connected, [=](){ qDebug() << "Connected"; });
+
     if (useSsl) {
         // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
         mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
@@ -51,18 +69,21 @@ void DownloadJob::start()
         mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
         mSocket->waitForConnected();
     }
-    connect(mSocket.data(), SIGNAL(disconnected()),
-            this, SLOT(disconnected()));
+
+    //mSocket->open(QIODevice::ReadOnly);
+
 }
 
-void DownloadJob::disconnected()
+void DownloadJob::done()
 {
-    //kDebug(kdeconnect_kded()) << "DownloadJob End";
+    if (mSocket->error()) {
+        qWarning(KDECONNECT_CORE) << mSocket->errorString();
+    }
     emitResult();
+    deleteLater();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
-    //kDebug(kdeconnect_kded()) << "getPayload";
     return mSocket.staticCast<QIODevice>();
 }

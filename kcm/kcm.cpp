@@ -85,7 +85,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->rename_edit->setText(daemon->announcedName());
     setRenameMode(false);
 
-    setButtons(KCModule::NoAdditionalButton);
+    setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
     connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(resetSelection()));
@@ -172,15 +172,6 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     currentIndex = sortProxyModel->mapToSource(current);
     currentDevice = devicesModel->getDevice(currentIndex.row());
 
-    resetCurrentDevice();
-
-    connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
-    connect(currentDevice, SIGNAL(pairingChanged(bool)), this, SLOT(pairingChanged(bool)));
-    connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
-}
-
-void KdeConnectKcm::resetCurrentDevice()
-{
     kcmUi->noDevicePlaceholder->setVisible(false);
     bool valid = (currentDevice != nullptr && currentDevice->isValid());
     kcmUi->deviceInfo->setVisible(valid);
@@ -206,7 +197,24 @@ void KdeConnectKcm::resetCurrentDevice()
             kcmUi->ping_button->setVisible(false);
         }
     }
+    resetDeviceView();
 
+    connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
+    connect(currentDevice, SIGNAL(pairingChanged(bool)), this, SLOT(pairingChanged(bool)));
+    connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
+}
+
+void KdeConnectKcm::resetCurrentDevice()
+{
+    const QStringList unsupportedPluginNames = currentDevice->unsupportedPlugins();
+
+    if (m_oldUnsupportedPluginNames != unsupportedPluginNames) {
+        resetDeviceView();
+    }
+}
+
+void KdeConnectKcm::resetDeviceView()
+{
     //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
@@ -219,12 +227,12 @@ void KdeConnectKcm::resetCurrentDevice()
 
     const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
     QList<KPluginInfo> availablePluginInfo;
-    QList<KPluginInfo> missingPluginInfo;
+    QList<KPluginInfo> unsupportedPluginInfo;
 
-    QStringList missingPluginNames = currentDevice->unsupportedPlugins();
+    m_oldUnsupportedPluginNames = currentDevice->unsupportedPlugins();
     for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
-        if (missingPluginNames.contains(it->pluginName())) {
-            missingPluginInfo.append(*it);
+        if (m_oldUnsupportedPluginNames.contains(it->pluginName())) {
+            unsupportedPluginInfo.append(*it);
         } else {
             availablePluginInfo.append(*it);
         }
@@ -232,10 +240,9 @@ void KdeConnectKcm::resetCurrentDevice()
 
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
     kcmUi->pluginSelector->addPlugins(availablePluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
-    kcmUi->pluginSelector->addPlugins(missingPluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins unsupported by the device"), QString(), deviceConfig);
+    kcmUi->pluginSelector->addPlugins(unsupportedPluginInfo, KPluginSelector::ReadConfigFile, i18n("Plugins unsupported by the device"), QString(), deviceConfig);
+    connect(kcmUi->pluginSelector, SIGNAL(changed(bool)), this, SLOT(pluginsConfigChanged()));
 
-    connect(kcmUi->pluginSelector, SIGNAL(changed(bool)),
-            this, SLOT(pluginsConfigChanged()));
 }
 
 void KdeConnectKcm::requestPair()

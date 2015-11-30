@@ -33,7 +33,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     : KJob()
     , mOrigin(origin)
     , mReply(Q_NULLPTR)
-    , mDeviceName("KDE Connect") //TODO: Actually fetch the device name
+    , mFrom("KDE Connect")
     , mDestination(destination)
     , mSpeedBytes(0)
     , mWritten(0)
@@ -48,6 +48,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     if (size >= 0) {
         setTotalAmount(Bytes, size);
     }
+
     setCapabilities(Killable);
     qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
 }
@@ -60,9 +61,8 @@ void FileTransferJob::start()
 
 void FileTransferJob::doStart()
 {
-    description(this, i18n("Receiving file over KDE-Connect"),
-        QPair<QString, QString>(i18nc("File transfer origin", "From"),
-        mDeviceName)
+    description(this, i18n("Receiving file over KDE Connect"),
+        QPair<QString, QString>(i18nc("File transfer origin", "From"), mFrom)
     );
 
     if (mDestination.isLocalFile() && QFile::exists(mDestination.toLocalFile())) {
@@ -78,9 +78,8 @@ void FileTransferJob::startTransfer()
 {
     setProcessedAmount(Bytes, 0);
     mTime = QTime::currentTime();
-    description(this, i18n("Receiving file over KDE-Connect"),
-                        QPair<QString, QString>(i18nc("File transfer origin", "From"),
-                        mDeviceName),
+    description(this, i18n("Receiving file over KDE Connect"),
+                        QPair<QString, QString>(i18nc("File transfer origin", "From"), mFrom),
                         QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
 
     QNetworkRequest req(mDestination);

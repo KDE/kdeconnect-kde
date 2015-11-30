@@ -137,4 +137,15 @@ LockDeviceDbusInterface::~LockDeviceDbusInterface()
 {
 }
 
+FindMyPhoneDeviceDbusInterface::FindMyPhoneDeviceDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceFindmyphoneInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/findmyphone", QDBusConnection::sessionBus(), parent)
+{
+}
+
+FindMyPhoneDeviceDbusInterface::~FindMyPhoneDeviceDbusInterface()
+{
+}
+
+
+
 #include "dbusinterfaces.moc"
