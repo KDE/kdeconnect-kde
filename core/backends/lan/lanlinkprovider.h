@@ -28,7 +28,6 @@
 #include <QtNetwork/qsslsocket.h>
 
 #include "../linkprovider.h"
-#include "netaddress.h"
 #include "server.h"
 #include "landevicelink.h"
 
@@ -43,7 +42,6 @@ public:
 
     QString name() override { return "LanLinkProvider"; }
     int priority() override { return PRIORITY_HIGH; }
-    void addLink(QString, QSslSocket*, NetworkPackage*);
 
 public Q_SLOTS:
     virtual void onNetworkChange() override;
@@ -63,6 +61,7 @@ private Q_SLOTS:
 private:
     static void configureSocket(QSslSocket* socket);
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
+    void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin);
 
     Server* mServer;
     QUdpSocket* mUdpServer;

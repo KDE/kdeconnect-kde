@@ -30,14 +30,11 @@ class LoopbackPairingHandler
     : public LanPairingHandler
 {
 public:
-    LoopbackPairingHandler(Device* device);
+    LoopbackPairingHandler(const QString& deviceId);
     virtual ~LoopbackPairingHandler() { }
 
     virtual bool requestPairing() Q_DECL_OVERRIDE;
     virtual bool acceptPairing() Q_DECL_OVERRIDE;
-
-private:
-    virtual void setAsPaired() Q_DECL_OVERRIDE;
 
 
 };

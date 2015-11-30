@@ -25,10 +25,11 @@
 #include <QtCrypto>
 
 #include "core/networkpackage.h"
-#include "pairinghandler.h"
 
+class PairingHandler;
 class NetworkPackage;
 class LinkProvider;
+class Device;
 
 class DeviceLink
     : public QObject

@@ -27,23 +27,23 @@
 #include "loopbackpairinghandler.h"
 #include "networkpackagetypes.h"
 
-LoopbackPairingHandler::LoopbackPairingHandler(Device* device)
-    : LanPairingHandler(device)
+LoopbackPairingHandler::LoopbackPairingHandler(const QString& deviceId)
+    : LanPairingHandler(deviceId)
 {
-}
 
+}
 
 bool LoopbackPairingHandler::requestPairing()
 {
-    switch (m_pairStatus) {
+    switch (pairStatus()) {
         case PairStatus::Paired:
-            Q_EMIT pairingFailed(i18n(m_deviceLink->name().append(" : Already paired").toLatin1().data()));
+            Q_EMIT pairingFailed(deviceLink()->name().append(" : Already paired").toLatin1().data());
             return false;
         case PairStatus ::Requested:
-            Q_EMIT pairingFailed(i18n(m_deviceLink->name().append(" : Pairing already requested for this device").toLatin1().data()));
+            Q_EMIT pairingFailed(deviceLink()->name().append(" : Pairing already requested for this device").toLatin1().data());
             return false;
         case PairStatus ::RequestedByPeer:
-            qCDebug(KDECONNECT_CORE) << m_deviceLink->name() << " : Pairing already started by the other end, accepting their request.";
+            qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
             acceptPairing();
             return false;
         case PairStatus::NotPaired:
@@ -52,9 +52,9 @@ bool LoopbackPairingHandler::requestPairing()
 
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     createPairPackage(np);
-    m_pairStatus = PairStatus::Requested;
+    setPairStatus(PairStatus::Requested);
     m_pairingTimeout.start();
-    bool success = m_deviceLink->sendPackage(np);
+    bool success = deviceLink()->sendPackage(np);
     return success;
 }
 
@@ -62,20 +62,10 @@ bool LoopbackPairingHandler::acceptPairing()
 {
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     createPairPackage(np);
-    m_pairStatus = PairStatus::Paired;
-    setAsPaired();
-    bool success = m_deviceLink->sendPackage(np);
-    Q_EMIT(pairingDone());
+    setPairStatus(PairStatus::Paired);
+    bool success = deviceLink()->sendPackage(np);
+    KdeConnectConfig::instance()->setDeviceProperty(m_deviceId, "publicKey", QString::fromLatin1(KdeConnectConfig::instance()->certificate().toPem()));
+    KdeConnectConfig::instance()->setDeviceProperty(m_deviceId, "certificate", QString::fromLatin1(KdeConnectConfig::instance()->certificate().toPem()));
     return success;
 }
 
-void LoopbackPairingHandler::setAsPaired()
-{
-    KdeConnectConfig::instance()->setDeviceProperty(m_device->id(), "publicKey", m_device->publicKey().toPEM());
-    KdeConnectConfig::instance()->setDeviceProperty(m_device->id(), "certificate", QString::fromLatin1(m_device->certificate().toPem()));
-
-    m_pairStatus = PairStatus::Paired;
-    m_pairingTimeout.stop(); // Just in case it is started
-
-    Q_EMIT(pairingDone());
-}

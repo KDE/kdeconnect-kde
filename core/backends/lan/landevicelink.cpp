@@ -57,7 +57,7 @@ void LanDeviceLink::setOnSsl(bool value)
 
 PairingHandler* LanDeviceLink::createPairingHandler(Device* device)
 {
-    return new LanPairingHandler(device);
+    return new LanPairingHandler(device->id());
 }
 
 bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
@@ -95,7 +95,7 @@ UploadJob* LanDeviceLink::sendPayload(NetworkPackage& np)
         transferInfo.insert("useSsl", true);
         transferInfo.insert("deviceId", deviceId());
     }
-    UploadJob* job = new UploadJob(np.payload(), transferInfo);
+    UploadJob* job = new UploadJob(np.payload(), deviceId());
     job->start();
     return job;
 }

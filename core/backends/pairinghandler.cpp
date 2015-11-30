@@ -20,9 +20,11 @@
 
 #include "pairinghandler.h"
 
-PairingHandler::PairingHandler(Device* device)
+PairingHandler::PairingHandler()
+    : m_pairStatus(NotPaired)
+    , m_deviceLink(nullptr)
 {
-    m_device = device;
+
 }
 
 void PairingHandler::setLink(DeviceLink *dl)
@@ -36,5 +38,14 @@ void PairingHandler::linkDestroyed(QObject* o)
     if (dl == m_deviceLink) { // Check if same link is destroyed
         m_deviceLink = Q_NULLPTR;
         Q_EMIT linkNull();
+    }
+}
+
+void PairingHandler::setPairStatus(PairingHandler::PairStatus status)
+{
+    if (m_pairStatus != status) {
+        PairStatus oldStatus = m_pairStatus;
+        m_pairStatus = status;
+        Q_EMIT pairStatusChanged(status, oldStatus);
     }
 }

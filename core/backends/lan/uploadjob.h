@@ -34,7 +34,7 @@ class UploadJob
 {
     Q_OBJECT
 public:
-    explicit UploadJob(const QSharedPointer<QIODevice>& source, const QVariantMap& sslInfo);
+    explicit UploadJob(const QSharedPointer<QIODevice>& source, const QString& deviceId);
 
     virtual void start() override;
 
@@ -45,7 +45,7 @@ private:
     Server* mServer;
     QSslSocket* mSocket;
     quint16 mPort;
-    QVariantMap mTransferInfo;
+    QString mDeviceId;
 
 private Q_SLOTS:
     void readyRead();

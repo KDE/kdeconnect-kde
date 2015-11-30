@@ -30,7 +30,7 @@ class LanPairingHandler
     : public PairingHandler
 {
 public:
-    LanPairingHandler(Device* device);
+    LanPairingHandler(const QString& deviceId);
     virtual ~LanPairingHandler() { }
 
     virtual void createPairPackage(NetworkPackage& np) Q_DECL_OVERRIDE;
@@ -40,12 +40,14 @@ public:
     virtual void rejectPairing() Q_DECL_OVERRIDE;
     virtual void unpair() Q_DECL_OVERRIDE;
 
-public Q_SLOTS:
+private Q_SLOTS:
     virtual void pairingTimeout();
 
-private:
-    virtual void setAsPaired() Q_DECL_OVERRIDE;
-
+protected:
+    QTimer m_pairingTimeout;
+    QString m_deviceId;
+    QCA::PublicKey m_publicKey;
+    QSslCertificate m_certificate;
 
 };
 

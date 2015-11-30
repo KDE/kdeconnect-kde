@@ -21,7 +21,6 @@
 #ifndef KDECONNECT_PAIRINGHANDLER_H
 #define KDECONNECT_PAIRINGHANDLER_H
 
-#include "device.h"
 #include "networkpackage.h"
 #include "devicelink.h"
 
@@ -41,8 +40,10 @@
 class PairingHandler : public QObject
 {
     Q_OBJECT
-protected:
 
+public:
+
+    //TODO: Can we simplify this to just Paired/NotPaired, and leave the detailed status as an backend-specific thing?
     enum PairStatus {
         NotPaired,
         Requested,
@@ -50,18 +51,13 @@ protected:
         Paired,
     };
 
-    QTimer m_pairingTimeout;
-    Device* m_device;
-    DeviceLink* m_deviceLink; // We keep the latest link here, if this is destroyed without new link, linkDestroyed is emitted and device will destroy pairing handler
-    PairStatus m_pairStatus;
-
-public:
-    PairingHandler(Device* device);
+    PairingHandler();
     virtual ~PairingHandler() { }
 
     void setLink(DeviceLink* dl);
-    bool isPaired() const { return m_pairStatus == PairStatus::Paired; };
-    bool pairRequested() const { return m_pairStatus == PairStatus::Requested; }
+    bool isPaired() const { return m_pairStatus == PairStatus::Paired; }
+    bool isPairRequested() const { return m_pairStatus == PairStatus::Requested; }
+
 
     virtual void createPairPackage(NetworkPackage& np) = 0;
     virtual void packageReceived(const NetworkPackage& np) = 0;
@@ -70,12 +66,21 @@ public:
     virtual void rejectPairing() = 0;
     virtual void unpair() = 0;
 
+protected:
+    DeviceLink* deviceLink() const;
+    void setPairStatus(PairStatus status);
+    PairStatus pairStatus() const;
+
 public Q_SLOTS:
     void linkDestroyed(QObject*);
     virtual void pairingTimeout() = 0;
 
+Q_SIGNALS:
+    void pairStatusChanged(PairStatus status, PairStatus previousStatus);
+
 private:
-    virtual void setAsPaired() = 0;
+    DeviceLink* m_deviceLink; // We keep the latest link here, if this is destroyed without new link, linkDestroyed is emitted and device will destroy pairing handler
+    PairStatus m_pairStatus;
 
 Q_SIGNALS:
     void pairingDone();

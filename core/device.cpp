@@ -49,14 +49,12 @@ Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 Device::Device(QObject* parent, const QString& id)
     : QObject(parent)
     , m_deviceId(id)
-    , m_pairStatus(Device::Paired)
     , m_protocolVersion(NetworkPackage::ProtocolVersion) //We don't know it yet
 {
     KdeConnectConfig::DeviceInfo info = KdeConnectConfig::instance()->getTrustedDevice(id);
 
     m_deviceName = info.deviceName;
     m_deviceType = str2type(info.deviceType);
-    m_publicKey = QCA::RSAPublicKey::fromPEM(info.publicKey);
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -67,21 +65,12 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
     , m_deviceId(identityPackage.get<QString>("deviceId"))
     , m_deviceName(identityPackage.get<QString>("deviceName"))
     , m_deviceType(str2type(identityPackage.get<QString>("deviceType")))
-    , m_pairStatus(Device::NotPaired)
     , m_protocolVersion(identityPackage.get<int>("protocolVersion", -1))
 {
     addLink(identityPackage, dl);
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-
-    //Implement deprecated signals
-    connect(this, &Device::pairingChanged, this, [this](bool newPairing) {
-        if (newPairing)
-            Q_EMIT pairingSuccesful();
-        else
-            Q_EMIT unpaired();
-    });
 }
 
 Device::~Device()
@@ -193,23 +182,20 @@ QString Device::pluginsConfigFile() const
     return KdeConnectConfig::instance()->deviceConfigDir(id()).absoluteFilePath("config");
 }
 
-bool Device::pairRequested() const
+bool Device::isPairRequested() const
 {
     bool isPairRequested = false;
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
-        isPairRequested = isPairRequested || ph->pairRequested();
+        isPairRequested = isPairRequested || ph->isPairRequested();
     }
     return isPairRequested;
 }
 
 void Device::requestPair()
 {
-    switch(m_pairStatus) {
-        case Device::Paired:
-            Q_EMIT pairingFailed(i18n("Already paired"));
-            return;
-        case Device::NotPaired:
-            ;
+    if (isPaired()) {
+        Q_EMIT pairingFailed(i18n("Already paired"));
+        return;
     }
 
     if (!isReachable()) {
@@ -217,18 +203,12 @@ void Device::requestPair()
         return;
     }
 
-    //Send our own public key
     bool success = false;
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
         success = success || ph->requestPairing(); // If one of many pairing handlers can successfully request pairing, consider it success
     }
     if (!success) {
-        m_pairStatus = Device::NotPaired;
         Q_EMIT pairingFailed(i18n("Error contacting device"));
-        return;
-    }
-
-    if (m_pairStatus == Device::Paired) {
         return;
     }
 }
@@ -238,23 +218,23 @@ void Device::unpair()
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
         ph->unpair();
     }
-    unpairInternal(); // We do not depend on pairing handlers for unpairing, this method is likely to be called due to user events
 }
 
-void Device::unpairInternal()
+void Device::pairStatusChanged(PairingHandler::PairStatus status, PairingHandler::PairStatus oldStatus)
 {
-    bool alreadyUnpaired = (m_pairStatus != Device::Paired);
-    m_pairStatus = Device::NotPaired;
-    KdeConnectConfig::instance()->removeTrustedDevice(id());
-    reloadPlugins(); //Will unload the plugins
-    if (!alreadyUnpaired) {
-        Q_EMIT pairingChanged(false);
+    if (oldStatus == PairingHandler::Paired && status == PairingHandler::NotPaired) {
+        KdeConnectConfig::instance()->removeTrustedDevice(m_deviceId);
+        Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
+            ph->unpair();
+        }
     }
-}
 
-void Device::pairingTimeout()
-{
-    Q_EMIT pairingFailed(i18n("Timed out"));
+    if (oldStatus == PairingHandler::NotPaired && status == PairingHandler::Paired) {
+        reloadPlugins(); //Will unload the plugins
+    }
+
+    Q_EMIT pairingChanged(status == PairingHandler::Paired);
+
 }
 
 static bool lessThan(DeviceLink* p1, DeviceLink* p2)
@@ -279,12 +259,6 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     //re-read the device name from the identityPackage because it could have changed
     setName(identityPackage.get<QString>("deviceName"));
     m_deviceType = str2type(identityPackage.get<QString>("deviceType"));
-
-    // Set certificate if the link is on ssl, and it is added to identity package
-    // This is always sets certificate when link is added to device
-    if (identityPackage.has("certificate")) {
-        m_certificate = QSslCertificate(identityPackage.get<QByteArray>("certificate"));
-    }
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
@@ -311,8 +285,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
         PairingHandler* pairingHandler = link->createPairingHandler(this);
         m_pairingHandlers.insert(link->name(), pairingHandler);
         connect(m_pairingHandlers[link->name()], SIGNAL(linkNull()), this, SLOT(destroyPairingHandler()));
-        connect(m_pairingHandlers[link->name()], SIGNAL(pairingDone()), this, SLOT(setAsPaired()));
-        connect(m_pairingHandlers[link->name()], SIGNAL(unpairingDone()), this, SLOT(unpairInternal()));
+        connect(m_pairingHandlers[link->name()], SIGNAL(pairStatusChanged(PairStatus, PairStatus)), this, SLOT(pairStatusChanged(PairStatus, PairStatus)));
         connect(m_pairingHandlers[link->name()], SIGNAL(pairingFailed(const QString&)), this, SIGNAL(pairingFailed(const QString&)));
     }
     m_pairingHandlers[link->name()]->setLink(link);
@@ -393,7 +366,7 @@ void Device::rejectPairing()
 {
     qCDebug(KDECONNECT_CORE) << "Rejected pairing";
 
-    m_pairStatus = Device::NotPaired;
+    m_pairStatus = PairingHandler::NotPaired;
 
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
             ph->rejectPairing();
@@ -408,34 +381,19 @@ void Device::acceptPairing()
     qCDebug(KDECONNECT_CORE) << "Accepted pairing";
 
     bool success = false;
-    Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
-            success = success || ph->acceptPairing();
-    }
-
-    if (!success) {
-        m_pairStatus = Device::NotPaired;
-        return;
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
+        success = success || ph->acceptPairing();
     }
 
 }
 
-void Device::setAsPaired()
-{
-
-    bool alreadyPaired = (m_pairStatus == Device::Paired);
-
-    m_pairStatus = Device::Paired;
-
-    //Save device info in the config
-    KdeConnectConfig::instance()->addTrustedDevice(id(), name(), type2str(m_deviceType));
-
-    reloadPlugins(); //Will actually load the plugins
-
-    if (!alreadyPaired) {
-        Q_EMIT pairingChanged(true);
+void Device::isPaired() {
+    Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
+        if (ph->isPaired()) return true;
     }
-
+    return false;
 }
+
 
 DeviceLink::ConnectionStarted Device::connectionSource() const
 {
@@ -535,3 +493,24 @@ bool Device::isPluginEnabled(const QString& pluginName) const
     return (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
                                             : PluginLoader::instance()->getPluginInfo(pluginName).isEnabledByDefault());
 }
+
+//HACK
+QString Device::encryptionInfo() const
+{
+    QString result;
+
+    QByteArray myCertificate = KdeConnectConfig::instance()->certificate().toDer();
+    for (int i=2 ; i<myCertificate.size() ; i+=3) {
+        myCertificate.insert(i, ':'); // Improve readability
+    }
+    result += i18n("SHA1 fingerprint of your device certificate is : ") + myCertificate + endl;
+
+    QString remoteCertificate = KdeConnectConfig::instance()->getDeviceProperty(id(), "certificate");
+    for (int i=2 ; i<remoteCertificate.size() ; i+=3) {
+        remoteCertificate.insert(i, ':'); // Improve readability
+    }
+    result += i18n("SHA1 fingerprint of remote device certificate is : ") << remoteCertificate << endl;
+
+    return result;
+}
+

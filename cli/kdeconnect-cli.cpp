@@ -184,25 +184,9 @@ int main(int argc, char** argv)
             }
         } else if(parser.isSet("encryption-info")) {
             DeviceDbusInterface dev(device);
-            QDBusPendingReply<QByteArray> devReply = dev.certificate(1); // QSsl::Der = 1
+            QDBusPendingReply<QByteArray> devReply = dev.encryptionInfo(); // QSsl::Der = 1
             devReply.waitForFinished();
-            if (devReply.value().isEmpty()) {
-                QTextStream(stderr) << i18n("The other device doesn\'t use a recent version of KDE Connect, using the legacy encryption method.") << endl;
-            } else {
-                QByteArray remoteCertificate = QCryptographicHash::hash(devReply.value(), QCryptographicHash::Sha1).toHex();
-                for (int i=2 ; i<remoteCertificate.size() ; i+=3)
-                    remoteCertificate.insert(i, ':'); // Improve readability
-
-                DaemonDbusInterface iface;
-                QDBusPendingReply<QByteArray> ifaceReply = iface.certificate(1); // QSsl::Der = 1
-                ifaceReply.waitForFinished();
-                QByteArray myCertificate = QCryptographicHash::hash(ifaceReply.value(), QCryptographicHash::Sha1).toHex();
-                for (int i=2 ; i<myCertificate.size() ; i+=3)
-                    myCertificate.insert(i, ':'); // Improve readability
-
-                QTextStream(stderr) << i18n("SHA1 fingerprint of your device certificate is : ") << myCertificate << endl;
-                QTextStream(stderr) << i18n("SHA1 fingerprint of remote device certificate is : ") << remoteCertificate << endl;
-            }
+            QTextStream(stderr) << devReply.value() << endl;
         } else {
             QTextStream(stderr) << i18n("Nothing to be done") << endl;
         }

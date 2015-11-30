@@ -30,12 +30,12 @@
 #include <QSslCertificate>
 #include <QTimer>
 
+#include "backends/pairinghandler.h"
 #include "networkpackage.h"
 #include "backends/devicelink.h"
 
 class DeviceLink;
 class KdeConnectPlugin;
-class PairingHandler;
 
 class KDECONNECTCORE_EXPORT Device
     : public QObject
@@ -51,10 +51,6 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QStringList unsupportedPlugins READ unsupportedPlugins NOTIFY pluginsChanged)
 
 public:
-    enum PairStatus {
-        NotPaired,
-        Paired,
-    };
 
     enum DeviceType {
         Unknown,
@@ -84,22 +80,17 @@ public:
     QString name() const { return m_deviceName; }
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
     QString type() const { return type2str(m_deviceType); }
-    QCA::PublicKey publicKey() const { return m_publicKey; }
-    QSslCertificate certificate() const { return m_certificate; }
-    Q_SCRIPTABLE QByteArray certificate(int format) const { return (format == QSsl::Pem) ? m_certificate.toPem() : m_certificate.toDer() ;} // To expose certificate through dbus for cli
     QString iconName() const;
     QString statusIconName() const;
     QStringList unsupportedPlugins() const { return m_unsupportedPlugins; }
+    QString encryptionInfo() const;
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
-    // Setter for public key after pairing, since it is handled by pairinghandler now
-    void setPublicKey(QCA::PublicKey publicKey) { m_publicKey = publicKey; }
-
-    Q_SCRIPTABLE bool isPaired() const { return m_pairStatus==Device::Paired; }
-    Q_SCRIPTABLE bool pairRequested() const;
+    Q_SCRIPTABLE bool isPaired() const;
+    Q_SCRIPTABLE bool isPairRequested() const;
 
     Q_SCRIPTABLE QStringList availableLinks() const;
     bool isReachable() const { return !m_deviceLinks.isEmpty(); }
@@ -109,13 +100,11 @@ public:
 
     Q_SCRIPTABLE QString pluginsConfigFile() const;
 
-    void pairingTimeout();
-
     KdeConnectPlugin* plugin(const QString& pluginName) const;
     void setPluginEnabled(const QString& pluginName, bool enabled);
     bool isPluginEnabled(const QString& pluginName) const;
 
-    PairStatus pairStatus() const;
+    PairingHandler::PairStatus pairStatus() const;
 
     DeviceLink::ConnectionStarted connectionSource() const;
 
@@ -136,8 +125,8 @@ private Q_SLOTS:
     void linkDestroyed(QObject* o);
     void destroyPairingHandler();
 
-    void setAsPaired();
-    void unpairInternal();
+    void pairStatusChanged(PairingHandler::PairStatus current, PairingHandler::PairStatus old);
+
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
@@ -145,9 +134,6 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingChanged(bool paired);
     Q_SCRIPTABLE void pairingFailed(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
-
-    QT_DEPRECATED Q_SCRIPTABLE void pairingSuccesful();
-    QT_DEPRECATED Q_SCRIPTABLE void unpaired();
 
 private: //Methods
     static DeviceType str2type(const QString &deviceType);
@@ -160,9 +146,6 @@ private: //Fields (TODO: dPointer!)
     const QString m_deviceId;
     QString m_deviceName;
     DeviceType m_deviceType;
-    QCA::PublicKey m_publicKey;
-    QSslCertificate m_certificate;
-    PairStatus m_pairStatus;
     int m_protocolVersion;
 
     QVector<DeviceLink*> m_deviceLinks;
@@ -171,7 +154,6 @@ private: //Fields (TODO: dPointer!)
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
 
-    QTimer m_pairingTimeut;
     QSet<QString> m_incomingCapabilities;
     QSet<QString> m_outgoingCapabilities;
     QStringList m_supportedIncomingInterfaces;

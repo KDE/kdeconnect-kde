@@ -123,7 +123,7 @@ void Daemon::removeDevice(Device* device)
 void Daemon::cleanDevices()
 {
     Q_FOREACH(Device* device, d->mDevices) {
-        if (device->pairStatus() == Device::NotPaired && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
+        if (device->pairStatus() == PairingHandler::NotPaired && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
             removeDevice(device);
         }
     }
@@ -158,16 +158,6 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyPaired) const
     }
     return ret;
 }
-
-QByteArray Daemon::certificate(int format) const
-{
-    if (format == QSsl::Pem) {
-        return KdeConnectConfig::instance()->certificate().toPem();
-    } else {
-        return KdeConnectConfig::instance()->certificate().toDer();
-    }
-}
-
 
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {

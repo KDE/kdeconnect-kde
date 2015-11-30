@@ -37,7 +37,6 @@
 
 #include "../../daemon.h"
 #include "landevicelink.h"
-#include "lanpairinghandler.h"
 #include <kdeconnectconfig.h>
 #include <QDBusPendingReply>
 #include <QtNetwork/qsslcipher.h>
@@ -187,7 +186,6 @@ void LanLinkProvider::connected()
     NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
     //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
-    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, DeviceLink::Remotely);
 
     // If network is on ssl, do not believe when they are connected, believe when handshake is completed
     NetworkPackage np2("");
@@ -210,7 +208,7 @@ void LanLinkProvider::connected()
 
             if (isDeviceTrusted) {
                 qDebug() << "Device trusted";
-                QString certString = KdeConnectConfig::instance()->getTrustedDevice(deviceId).certificate;
+                QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
                 socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
                 socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
                 connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
@@ -225,7 +223,7 @@ void LanLinkProvider::connected()
             socket->startServerEncryption();
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
         } else {
-            addLink(deviceId, socket, receivedPackage);
+            addLink(deviceId, socket, receivedPackage, DeviceLink::Remotely);
         }
 
     } else {
@@ -256,7 +254,7 @@ void LanLinkProvider::encrypted()
 
     receivedPackage->set("certificate", socket->peerCertificate().toPem());
 
-    addLink(deviceId, socket, receivedPackage);
+    addLink(deviceId, socket, receivedPackage, DeviceLink::Remotely);
 
     // Copied from connected slot, now delete received package
     delete receivedPackage;
@@ -355,7 +353,7 @@ void LanLinkProvider::dataReceived()
 
         if (isDeviceTrusted) {
             qDebug() << "Device trusted";
-            QString certString = KdeConnectConfig::instance()->getTrustedDevice(deviceId).certificate;
+            QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
 	        socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
             socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
             connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
@@ -370,7 +368,7 @@ void LanLinkProvider::dataReceived()
         socket->startClientEncryption();
         return;
     } else {
-        addLink(deviceId, socket, np);
+        addLink(deviceId, socket, np, DeviceLink::Locally);
     }
 
     delete np;
@@ -420,9 +418,10 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
 
 }
 
-void LanLinkProvider::addLink(QString deviceId, QSslSocket* socket, NetworkPackage* receivedPackage) {
+void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin)
+{
 
-    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, DeviceLink::Locally);
+    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, connectionOrigin);
     connect(deviceLink, SIGNAL(destroyed(QObject*)), this, SLOT(deviceLinkDestroyed(QObject*)));
 
     // Socket disconnection will now be handled by LanDeviceLink

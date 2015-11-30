@@ -180,7 +180,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     }
 
     kcmUi->messages->setVisible(false);
-    if (currentDevice->pairRequested()) {
+    if (currentDevice->isPairRequested()) {
         kcmUi->progressBar->setVisible(true);
         kcmUi->unpair_button->setVisible(false);
         kcmUi->pair_button->setVisible(false);

@@ -32,6 +32,8 @@
 #include <QHostInfo>
 #include <QSettings>
 #include <QSslCertificate>
+#include <QtCrypto>
+#include <QSslCertificate>
 
 #include "core_debug.h"
 #include "dbushelper.h"
@@ -217,13 +219,12 @@ QStringList KdeConnectConfig::trustedDevices()
 }
 
 
-void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type, const QString &publicKey)
+void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type)
 {
     d->config->beginGroup("trustedDevices");
     d->config->beginGroup(id);
     d->config->setValue("name", name);
     d->config->setValue("type", type);
-    d->config->setValue("publicKey", publicKey);
     d->config->endGroup();
     d->config->endGroup();
     d->config->sync();
@@ -239,8 +240,6 @@ KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &i
     KdeConnectConfig::DeviceInfo info;
     info.deviceName = d->config->value("name", QLatin1String("unnamed")).toString();
     info.deviceType = d->config->value("type", QLatin1String("unknown")).toString();
-    info.publicKey = d->config->value("publicKey", QString()).toString();
-    info.certificate = d->config->value("certificate", QString()).toString();
 
     d->config->endGroup();
     d->config->endGroup();

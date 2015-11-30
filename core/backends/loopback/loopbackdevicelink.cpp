@@ -36,7 +36,7 @@ QString LoopbackDeviceLink::name()
 
 PairingHandler* LoopbackDeviceLink::createPairingHandler(Device *device)
 {
-    return new LoopbackPairingHandler(device);
+    return new LoopbackPairingHandler(device->id());
 }
 bool LoopbackDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& input)
 {

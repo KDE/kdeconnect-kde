@@ -35,18 +35,15 @@ DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transfe
     mAddress = address;
     mPort = transferInfo["port"].toInt();
     mSocket = QSharedPointer<QSslSocket>(new QSslSocket);
-    useSsl = transferInfo.value("useSsl", false).toBool();
 
     // Setting ssl related properties for socket when using ssl
-    if (useSsl) {
-        mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
-        mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-        mSocket->setProtocol(QSsl::TlsV1_2);
-        mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
-        mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-        mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getTrustedDevice(
-                transferInfo.value("deviceId").toString()).certificate.toLatin1()));
-    }
+    mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
+    mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
+    mSocket->setProtocol(QSsl::TlsV1_2);
+    mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
+    mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+    mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getDeviceProperty(transferInfo.value("deviceId").toString(),"certificate").toLatin1()));
+
 }
 
 DownloadJob::~DownloadJob()
@@ -61,14 +58,11 @@ void DownloadJob::start()
     connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(done()));
     //connect(mSocket.data(), &QAbstractSocket::connected, [=](){ qDebug() << "Connected"; });
 
-    if (useSsl) {
-        // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
-        mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
-        mSocket->waitForEncrypted();
-    } else {
-        mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
-        mSocket->waitForConnected();
-    }
+    // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
+    mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
+    mSocket->waitForEncrypted();
+//    mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
+//    mSocket->waitForConnected();
 
     //mSocket->open(QIODevice::ReadOnly);
 
