@@ -32,6 +32,7 @@
         "Description[tr]": "Konsol komutlarını uzaktan çalıştır", 
         "Description[uk]": "Віддалене виконання консольних команд", 
         "Description[x-test]": "xxExecute console commands remotelyxx", 
+        "Description[zh_CN]": "远程执行控制台命令", 
         "EnabledByDefault": true, 
         "Icon": "system-run", 
         "Id": "kdeconnect_runcommand", 
@@ -58,6 +59,7 @@
         "Name[tr]": "Komut çalıştır", 
         "Name[uk]": "Виконання команд", 
         "Name[x-test]": "xxRun commandsxx", 
+        "Name[zh_CN]": "执行命令", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

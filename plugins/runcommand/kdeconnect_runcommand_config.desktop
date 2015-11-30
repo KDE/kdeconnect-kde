@@ -28,5 +28,6 @@ Name[sv]=Inställningar av insticksprogram för kör kommando
 Name[tr]=Komut Çalıştır eklenti ayarları
 Name[uk]=Параметри додатка запуску команд
 Name[x-test]=xxRun Command plugin settingsxx
+Name[zh_CN]=执行命令插件设置
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;
