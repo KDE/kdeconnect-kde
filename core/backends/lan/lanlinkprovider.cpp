@@ -427,10 +427,6 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
     // Socket disconnection will now be handled by LanDeviceLink
     disconnect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
 
-    if (socket->isEncrypted()) {
-        deviceLink->setOnSsl(true);
-    }
-
     //We kill any possible link from this same device
     QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(deviceLink->deviceId());
     if (oldLinkIterator != mLinks.end()) {

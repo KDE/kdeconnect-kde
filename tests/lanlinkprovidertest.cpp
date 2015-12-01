@@ -29,6 +29,7 @@
 #include <QAbstractSocket>
 #include <QSslSocket>
 #include <QtTest>
+#include <QSslKey>
 #include <QUdpSocket>
 
 /*
@@ -322,11 +323,10 @@ QSslCertificate LanLinkProviderTest::generateCertificate(QString& commonName, QC
     return certificate;
 }
 
-void LanLinkProviderTest::setSocketAttributes(QSslSocket *socket) {
-
+void LanLinkProviderTest::setSocketAttributes(QSslSocket *socket)
+{
     socket->setPrivateKey(QSslKey(privateKey.toPEM().toLatin1(), QSsl::Rsa));
     socket->setLocalCertificate(certificate);
-
 }
 
 void LanLinkProviderTest::addTrustedDevice()

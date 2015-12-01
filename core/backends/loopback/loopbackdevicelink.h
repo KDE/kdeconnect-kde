@@ -35,7 +35,7 @@ public:
     virtual QString name() override;
     virtual PairingHandler* createPairingHandler(Device* device) override;
     virtual bool sendPackage(NetworkPackage& np) override;
-    virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) override;
+    virtual bool sendPackageEncrypted(NetworkPackage& np) override;
 
 };
 

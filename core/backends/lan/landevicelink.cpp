@@ -30,7 +30,6 @@
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
     : DeviceLink(deviceId, parent, connectionSource)
     , mSocketLineReader(new SocketLineReader(socket))
-    , onSsl(false)
 {
     connect(mSocketLineReader, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
@@ -50,24 +49,15 @@ QString LanDeviceLink::name()
     return "LanLink"; // Should be same in both android and kde version
 }
 
-void LanDeviceLink::setOnSsl(bool value)
-{
-    onSsl = value;
-}
-
 PairingHandler* LanDeviceLink::createPairingHandler(Device* device)
 {
     return new LanPairingHandler(device->id());
 }
 
-bool LanDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
+bool LanDeviceLink::sendPackageEncrypted(NetworkPackage& np)
 {
     if (np.hasPayload()) {
         np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
-    }
-
-    if (!onSsl) {
-        np.encrypt(key);
     }
 
     int written = mSocketLineReader->write(np.serialize());
@@ -91,10 +81,9 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
 UploadJob* LanDeviceLink::sendPayload(NetworkPackage& np)
 {
     QVariantMap transferInfo;
-    if (onSsl) {
-        transferInfo.insert("useSsl", true);
-        transferInfo.insert("deviceId", deviceId());
-    }
+    //FIXME: The next two lines shouldn't be needed! Why are they here?
+    transferInfo.insert("useSsl", true);
+    transferInfo.insert("deviceId", deviceId());
     UploadJob* job = new UploadJob(np.payload(), deviceId());
     job->start();
     return job;
@@ -120,10 +109,9 @@ void LanDeviceLink::dataReceived()
     if (unserialized.hasPayloadTransferInfo()) {
         //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
         QVariantMap transferInfo = unserialized.payloadTransferInfo();
-        if (onSsl) {
-            transferInfo.insert("useSsl", true);
-            transferInfo.insert("deviceId", deviceId());
-        }
+        //FIXME: The next two lines shouldn't be needed! Why are they here?
+        transferInfo.insert("useSsl", true);
+        transferInfo.insert("deviceId", deviceId());
         DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), transferInfo);
         job->start();
         unserialized.setPayload(job->getPayload(), unserialized.payloadSize());

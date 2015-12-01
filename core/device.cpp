@@ -34,6 +34,7 @@
 #include <QIcon>
 #include <QDir>
 #include <QJsonArray>
+#include <qstringbuilder.h>
 
 #include "core_debug.h"
 #include "kdeconnectplugin.h"
@@ -288,7 +289,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
         connect(m_pairingHandlers[link->name()], SIGNAL(pairStatusChanged(PairStatus, PairStatus)), this, SLOT(pairStatusChanged(PairStatus, PairStatus)));
         connect(m_pairingHandlers[link->name()], SIGNAL(pairingFailed(const QString&)), this, SIGNAL(pairingFailed(const QString&)));
     }
-    m_pairingHandlers[link->name()]->setLink(link);
+    m_pairingHandlers[link->name()]->setDeviceLink(link);
     connect(link, SIGNAL(destroyed(QObject*)), m_pairingHandlers[link->name()], SLOT(linkDestroyed(QObject*)));
 }
 
@@ -320,7 +321,7 @@ bool Device::sendPackage(NetworkPackage& np)
 {
     if (np.type() != PACKAGE_TYPE_PAIR && isPaired()) {
         Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-            if (dl->sendPackageEncrypted(m_publicKey, np)) return true;
+            if (dl->sendPackageEncrypted(np)) return true;
         }
     } else {
         //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
@@ -366,8 +367,6 @@ void Device::rejectPairing()
 {
     qCDebug(KDECONNECT_CORE) << "Rejected pairing";
 
-    m_pairStatus = PairingHandler::NotPaired;
-
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers.values()) {
             ph->rejectPairing();
     }
@@ -387,7 +386,8 @@ void Device::acceptPairing()
 
 }
 
-void Device::isPaired() {
+bool Device::isPaired() const
+{
     Q_FOREACH(PairingHandler* ph, m_pairingHandlers) {
         if (ph->isPaired()) return true;
     }
@@ -466,9 +466,9 @@ void Device::setName(const QString &name)
     }
 }
 
-Device::PairStatus Device::pairStatus() const
+PairingHandler::PairStatus Device::pairStatus() const
 {
-    return m_pairStatus;
+    return isPaired()? PairingHandler::Paired : PairingHandler::NotPaired;
 }
 
 KdeConnectPlugin* Device::plugin(const QString& pluginName) const
@@ -499,17 +499,17 @@ QString Device::encryptionInfo() const
 {
     QString result;
 
-    QByteArray myCertificate = KdeConnectConfig::instance()->certificate().toDer();
+    QString myCertificate = QString::fromLatin1(KdeConnectConfig::instance()->certificate().toDer());
     for (int i=2 ; i<myCertificate.size() ; i+=3) {
         myCertificate.insert(i, ':'); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of your device certificate is : ") + myCertificate + endl;
+    result += i18n("SHA1 fingerprint of your device certificate is: ") + myCertificate + "\n";
 
     QString remoteCertificate = KdeConnectConfig::instance()->getDeviceProperty(id(), "certificate");
     for (int i=2 ; i<remoteCertificate.size() ; i+=3) {
         remoteCertificate.insert(i, ':'); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of remote device certificate is : ") << remoteCertificate << endl;
+    result += i18n("SHA1 fingerprint of remote device certificate is: ") + remoteCertificate + "\n";
 
     return result;
 }

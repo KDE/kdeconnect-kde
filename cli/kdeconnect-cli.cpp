@@ -184,7 +184,7 @@ int main(int argc, char** argv)
             }
         } else if(parser.isSet("encryption-info")) {
             DeviceDbusInterface dev(device);
-            QDBusPendingReply<QByteArray> devReply = dev.encryptionInfo(); // QSsl::Der = 1
+            QDBusPendingReply<QString> devReply = dev.encryptionInfo(); // QSsl::Der = 1
             devReply.waitForFinished();
             QTextStream(stderr) << devReply.value() << endl;
         } else {

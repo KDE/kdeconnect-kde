@@ -286,7 +286,7 @@ void KdeConnectKcm::pairingChanged(bool paired)
 
     kcmUi->pair_button->setVisible(!paired);
     kcmUi->unpair_button->setVisible(paired);
-    kcmUi->progressBar->setVisible(senderDevice->pairRequested());
+    kcmUi->progressBar->setVisible(senderDevice->isPairRequested());
     kcmUi->ping_button->setVisible(paired);
     kcmUi->status_label->setText(paired ? i18n("(paired)") : i18n("(unpaired)"));
 }

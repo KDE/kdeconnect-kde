@@ -83,7 +83,7 @@ public:
     QString iconName() const;
     QString statusIconName() const;
     QStringList unsupportedPlugins() const { return m_unsupportedPlugins; }
-    QString encryptionInfo() const;
+    Q_SCRIPTABLE QString encryptionInfo() const;
 
     //Add and remove links
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);

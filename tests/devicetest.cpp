@@ -18,6 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "../core/device.h"
 #include "../core/backends/lan/lanlinkprovider.h"
 #include "../core/kdeconnectconfig.h"
 
@@ -68,15 +69,8 @@ void DeviceTest::testPairedDevice()
     QCOMPARE(device.name(), deviceName);
     QCOMPARE(device.type(), deviceType);
 
-    QVERIFY2(!device.publicKey().isNull(), "Public key for device is null");
-    QCOMPARE(device.publicKey(), kcc->publicKey());
-
-    QVERIFY2(device.certificate().isNull(), "Certificate should be null before initialisation");
-
-    // TODO : Set certificate via identity package
-
     QCOMPARE(device.isPaired(), true);
-    QCOMPARE(device.pairRequested(), false);
+    QCOMPARE(device.isPairRequested(), false);
 
     QCOMPARE(device.isReachable(), false);
 
@@ -112,11 +106,8 @@ void DeviceTest::testUnpairedDevice()
     QCOMPARE(device.name(), deviceName);
     QCOMPARE(device.type(), deviceType);
 
-    QVERIFY2(device.publicKey().isNull(), "Public key for unpaired device should be null");
-    QVERIFY2(device.certificate().isNull(), "Certificate for unpaired device should be null");
-
     QCOMPARE(device.isPaired(), false);
-    QCOMPARE(device.pairRequested(), false);
+    QCOMPARE(device.isPairRequested(), false);
 
     QCOMPARE(device.isReachable(), true);
     QCOMPARE(device.availableLinks().contains(linkProvider.name()), true);

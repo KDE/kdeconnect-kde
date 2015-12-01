@@ -38,33 +38,9 @@ PairingHandler* LoopbackDeviceLink::createPairingHandler(Device *device)
 {
     return new LoopbackPairingHandler(device->id());
 }
-bool LoopbackDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& input)
+bool LoopbackDeviceLink::sendPackageEncrypted(NetworkPackage& input)
 {
-    if (mPrivateKey.isNull() || key.isNull()) {
-        return false;
-    }
-
-    input.encrypt(key);
-
-    QByteArray serialized = input.serialize();
-
-    NetworkPackage unserialized(QString::null);
-    NetworkPackage::unserialize(serialized, &unserialized);
-
-    NetworkPackage output(QString::null);
-    unserialized.decrypt(mPrivateKey, &output);
-
-    bool b = true;
-    //LoopbackDeviceLink does not need deviceTransferInfo
-    if (input.hasPayload()) {
-        b = input.payload()->open(QIODevice::ReadOnly);
-        Q_ASSERT(b);
-        output.setPayload(input.payload(), input.payloadSize());
-    }
-
-    Q_EMIT receivedPackage(output);
-
-    return b;
+    return sendPackage(input);
 }
 
 bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)

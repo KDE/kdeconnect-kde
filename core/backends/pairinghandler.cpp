@@ -21,15 +21,20 @@
 #include "pairinghandler.h"
 
 PairingHandler::PairingHandler()
-    : m_pairStatus(NotPaired)
-    , m_deviceLink(nullptr)
+    : m_deviceLink(nullptr)
+    , m_pairStatus(NotPaired)
 {
 
 }
 
-void PairingHandler::setLink(DeviceLink *dl)
+void PairingHandler::setDeviceLink(DeviceLink *dl)
 {
     m_deviceLink =  dl;
+}
+
+DeviceLink* PairingHandler::deviceLink() const
+{
+    return m_deviceLink;
 }
 
 void PairingHandler::linkDestroyed(QObject* o)
@@ -49,3 +54,9 @@ void PairingHandler::setPairStatus(PairingHandler::PairStatus status)
         Q_EMIT pairStatusChanged(status, oldStatus);
     }
 }
+
+PairingHandler::PairStatus PairingHandler::pairStatus() const
+{
+    return m_pairStatus;
+}
+

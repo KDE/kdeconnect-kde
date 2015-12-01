@@ -54,7 +54,7 @@ public:
     PairingHandler();
     virtual ~PairingHandler() { }
 
-    void setLink(DeviceLink* dl);
+    void setDeviceLink(DeviceLink* dl);
     bool isPaired() const { return m_pairStatus == PairStatus::Paired; }
     bool isPairRequested() const { return m_pairStatus == PairStatus::Requested; }
 

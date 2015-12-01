@@ -49,7 +49,7 @@ public:
 
     virtual PairingHandler* createPairingHandler(Device* device) = 0;
     virtual bool sendPackage(NetworkPackage& np) = 0;
-    virtual bool sendPackageEncrypted(QCA::PublicKey& publicKey, NetworkPackage& np) = 0;
+    virtual bool sendPackageEncrypted(NetworkPackage& np) = 0;
 
     ConnectionStarted connectionSource() const {
         return mConnectionSource;
