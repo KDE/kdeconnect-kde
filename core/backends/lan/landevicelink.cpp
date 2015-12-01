@@ -25,7 +25,7 @@
 #include "uploadjob.h"
 #include "downloadjob.h"
 #include "socketlinereader.h"
-#include "lanpairinghandler.h"
+#include "lanlinkprovider.h"
 
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
     : DeviceLink(deviceId, parent, connectionSource)
@@ -47,11 +47,6 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
 QString LanDeviceLink::name()
 {
     return "LanLink"; // Should be same in both android and kde version
-}
-
-PairingHandler* LanDeviceLink::createPairingHandler(Device* device)
-{
-    return new LanPairingHandler(device->id());
 }
 
 bool LanDeviceLink::sendPackageEncrypted(NetworkPackage& np)
@@ -123,4 +118,14 @@ void LanDeviceLink::dataReceived()
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
 
+}
+
+void LanDeviceLink::requestPairing()
+{
+    qobject_cast<LanLinkProvider*>(provider())->requestPairing(deviceId());
+}
+
+void LanDeviceLink::unpair()
+{
+    setPairStatus(NotPaired);
 }

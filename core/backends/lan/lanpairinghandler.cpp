@@ -30,20 +30,12 @@
 LanPairingHandler::LanPairingHandler(const QString& deviceId)
     : PairingHandler()
     , m_deviceId(deviceId)
+    , m_status(NotPaired)
 {
     m_pairingTimeout.setSingleShot(true);
     m_pairingTimeout.setInterval(30 * 1000);  //30 seconds of timeout
     connect(&m_pairingTimeout, SIGNAL(timeout()),
             this, SLOT(pairingTimeout()));
-/*
-    m_publicKey = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "publicKey", QString());
-    m_certificate = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
-*/
-    if (!m_publicKey.isNull()) {
-        setPairStatus(PairStatus::Paired);
-    } else {
-        setPairStatus(PairStatus::NotPaired);
-    }
 }
 
 void LanPairingHandler::createPairPackage(NetworkPackage& np)
@@ -65,8 +57,8 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
     if (wantsPair == isPaired()) {
 //        qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
         if (isPairRequested()) {
-            setPairStatus(PairStatus::NotPaired);
-            Q_EMIT pairingFailed(i18n("Canceled by other peer"));
+            setInternalPairStatus(NotPaired);
+            Q_EMIT pairingError(i18n("Canceled by other peer"));
             return;
         } else if (isPaired()) {
             /**
@@ -74,7 +66,7 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
              * and we don't know it, unpair it internally
              */
             KdeConnectConfig::instance()->removeTrustedDevice(m_deviceId);
-            setPairStatus(PairingHandler::NotPaired);
+            setInternalPairStatus(NotPaired);
         }
     }
 
@@ -85,9 +77,9 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
         if (QCA::RSAPublicKey::fromPEM(keyString).isNull()) {
             if (isPairRequested()) {
-                setPairStatus(PairStatus::NotPaired);
+                setInternalPairStatus(NotPaired);
             }
-            Q_EMIT pairingFailed(i18n("Received incorrect key"));
+            Q_EMIT pairingError(i18n("Received incorrect key"));
             return;
         }
 
@@ -105,9 +97,8 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
                 return;
             }
 
-            //Daemon::instance()->requestPairing(m_device);
-            //m_pairStatus = PairStatus::RequestedByPeer;
-            setPairStatus(PairStatus::RequestedByPeer);
+            Daemon::instance()->requestPairing(this);
+            setInternalPairStatus(RequestedByPeer);
         }
 
     } else { //wantsPair == false
@@ -115,27 +106,27 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
         qCDebug(KDECONNECT_CORE) << "Unpair request";
 
         if (isPairRequested()) {
-            Q_EMIT pairingFailed(i18n("Canceled by other peer"));
+            Q_EMIT pairingError(i18n("Canceled by other peer"));
         }
 
-        setPairStatus(PairStatus::NotPaired);
+        setInternalPairStatus(NotPaired);
     }
 }
 
 bool LanPairingHandler::requestPairing()
 {
-    switch (pairStatus()) {
-        case PairStatus::Paired:
-            Q_EMIT pairingFailed(i18n(deviceLink()->name().append(" : Already paired").toLatin1().data()));
+    switch (m_status) {
+        case Paired:
+            Q_EMIT pairingError(i18n(deviceLink()->name().append(" : Already paired").toLatin1().data()));
             return false;
-        case PairStatus::Requested:
-            Q_EMIT pairingFailed(i18n(deviceLink()->name().append(" : Pairing already requested for this device").toLatin1().data()));
+        case Requested:
+            Q_EMIT pairingError(i18n(deviceLink()->name().append(" : Pairing already requested for this device").toLatin1().data()));
             return false;
-        case PairStatus::RequestedByPeer:
+        case RequestedByPeer:
             qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
             acceptPairing();
             return false;
-        case PairStatus::NotPaired:
+        case NotPaired:
             ;
     }
 
@@ -144,7 +135,7 @@ bool LanPairingHandler::requestPairing()
     bool success;
     success = deviceLink()->sendPackage(np);
     if (success) {
-        setPairStatus(PairStatus::Requested);
+        setInternalPairStatus(Requested);
         m_pairingTimeout.start();
     }
     return success;
@@ -158,7 +149,7 @@ bool LanPairingHandler::acceptPairing()
     bool success;
     success = deviceLink()->sendPackage(np);
     if (success) {
-        setPairStatus(PairStatus::Paired);
+        setInternalPairStatus(Paired);
     }
     return success;
 }
@@ -169,7 +160,7 @@ void LanPairingHandler::rejectPairing()
     np.set("pair", false);
     np.set("link", deviceLink()->name());
     deviceLink()->sendPackage(np);
-    setPairStatus(PairStatus::NotPaired);
+    setInternalPairStatus(NotPaired);
 }
 
 void LanPairingHandler::unpair() {
@@ -177,7 +168,7 @@ void LanPairingHandler::unpair() {
     np.set("pair", false);
     np.set("link", deviceLink()->name());
     deviceLink()->sendPackage(np);
-    setPairStatus(PairStatus::NotPaired);
+    setInternalPairStatus(NotPaired);
 }
 
 void LanPairingHandler::pairingTimeout()
@@ -186,6 +177,16 @@ void LanPairingHandler::pairingTimeout()
     np.set("pair", false);
     np.set("name", deviceLink()->name());
     deviceLink()->sendPackage(np);
-    setPairStatus(PairStatus::NotPaired); //Will emit the change as well
-    Q_EMIT pairingFailed(i18n("Timed out"));
+    setInternalPairStatus(NotPaired); //Will emit the change as well
+    Q_EMIT pairingError(i18n("Timed out"));
+}
+
+void LanPairingHandler::setInternalPairStatus(LanPairingHandler::InternalPairStatus status)
+{
+    m_status = status;
+    if (status == Paired) {
+        deviceLink()->setPairStatus(DeviceLink::Paired);
+    } else {
+        deviceLink()->setPairStatus(DeviceLink::NotPaired);
+    }
 }

@@ -44,7 +44,7 @@ DeviceDbusInterface::DeviceDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/"+id, QDBusConnection::sessionBus(), parent)
     , m_id(id)
 {
-    connect(this, &OrgKdeKdeconnectDeviceInterface::pairingChanged, this, &DeviceDbusInterface::pairingChangedProxy);
+    connect(this, &OrgKdeKdeconnectDeviceInterface::trustedChanged, this, &DeviceDbusInterface::trustedChangedProxy);
 }
 
 DeviceDbusInterface::~DeviceDbusInterface()

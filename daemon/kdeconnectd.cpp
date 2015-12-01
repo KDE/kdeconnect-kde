@@ -32,6 +32,7 @@
 
 #include "core/daemon.h"
 #include "core/device.h"
+#include "core/backends/pairinghandler.h"
 #include "kdeconnect-version.h"
 
 #ifdef HAVE_TELEPATHY
@@ -88,16 +89,16 @@ public:
         , m_nam(Q_NULLPTR)
     {}
 
-    void requestPairing(Device* d) Q_DECL_OVERRIDE
+    void requestPairing(PairingHandler* d) Q_DECL_OVERRIDE
     {
         KNotification* notification = new KNotification("pairingRequest");
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName("kdeconnect");
-        notification->setText(i18n("Pairing request from %1", d->name()));
+        notification->setText(i18n("Pairing request from %1", d->deviceLink()->name()));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
-        connect(notification, &KNotification::ignored, d, &Device::rejectPairing);
-        connect(notification, &KNotification::action1Activated, d, &Device::acceptPairing);
-        connect(notification, &KNotification::action2Activated, d, &Device::rejectPairing);
+        connect(notification, &KNotification::ignored, d, &PairingHandler::rejectPairing);
+        connect(notification, &KNotification::action1Activated, d, &PairingHandler::acceptPairing);
+        connect(notification, &KNotification::action2Activated, d, &PairingHandler::rejectPairing);
         notification->sendEvent();
     }
 

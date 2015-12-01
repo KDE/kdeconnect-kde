@@ -69,8 +69,7 @@ void DeviceTest::testPairedDevice()
     QCOMPARE(device.name(), deviceName);
     QCOMPARE(device.type(), deviceType);
 
-    QCOMPARE(device.isPaired(), true);
-    QCOMPARE(device.isPairRequested(), false);
+    QCOMPARE(device.isTrusted(), true);
 
     QCOMPARE(device.isReachable(), false);
 
@@ -90,7 +89,7 @@ void DeviceTest::testPairedDevice()
     QCOMPARE(device.availableLinks().contains(linkProvider.name()), false);
 
     device.unpair();
-    QCOMPARE(device.isPaired(), false);
+    QCOMPARE(device.isTrusted(), false);
 
 }
 
@@ -106,8 +105,7 @@ void DeviceTest::testUnpairedDevice()
     QCOMPARE(device.name(), deviceName);
     QCOMPARE(device.type(), deviceType);
 
-    QCOMPARE(device.isPaired(), false);
-    QCOMPARE(device.isPairRequested(), false);
+    QCOMPARE(device.isTrusted(), false);
 
     QCOMPARE(device.isReachable(), true);
     QCOMPARE(device.availableLinks().contains(linkProvider.name()), true);

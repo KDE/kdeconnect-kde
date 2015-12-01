@@ -30,7 +30,6 @@
 #include <QSslCertificate>
 #include <QTimer>
 
-#include "backends/pairinghandler.h"
 #include "networkpackage.h"
 #include "backends/devicelink.h"
 
@@ -47,7 +46,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
-    Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairingChanged)
+    Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChanged)
     Q_PROPERTY(QStringList unsupportedPlugins READ unsupportedPlugins NOTIFY pluginsChanged)
 
 public:
@@ -58,6 +57,11 @@ public:
         Laptop,
         Phone,
         Tablet,
+    };
+
+    enum TrustStatus {
+        NotTrusted,
+        Trusted
     };
 
     /**
@@ -89,8 +93,7 @@ public:
     void addLink(const NetworkPackage& identityPackage, DeviceLink*);
     void removeLink(DeviceLink*);
 
-    Q_SCRIPTABLE bool isPaired() const;
-    Q_SCRIPTABLE bool isPairRequested() const;
+    Q_SCRIPTABLE bool isTrusted() const;
 
     Q_SCRIPTABLE QStringList availableLinks() const;
     bool isReachable() const { return !m_deviceLinks.isEmpty(); }
@@ -104,8 +107,6 @@ public:
     void setPluginEnabled(const QString& pluginName, bool enabled);
     bool isPluginEnabled(const QString& pluginName) const;
 
-    PairingHandler::PairStatus pairStatus() const;
-
     DeviceLink::ConnectionStarted connectionSource() const;
 
 public Q_SLOTS:
@@ -114,25 +115,20 @@ public Q_SLOTS:
 
     //Dbus operations
 public Q_SLOTS:
-    Q_SCRIPTABLE void requestPair();
-    Q_SCRIPTABLE void unpair();
-    Q_SCRIPTABLE void reloadPlugins(); //From kconf
-    void acceptPairing();
-    void rejectPairing();
+    Q_SCRIPTABLE void requestPair(); //to all links
+    Q_SCRIPTABLE void unpair(); //from all links
+    Q_SCRIPTABLE void reloadPlugins(); //from kconf
 
 private Q_SLOTS:
     void privateReceivedPackage(const NetworkPackage& np);
     void linkDestroyed(QObject* o);
-    void destroyPairingHandler();
-
-    void pairStatusChanged(PairingHandler::PairStatus current, PairingHandler::PairStatus old);
-
+    void pairStatusChanged(DeviceLink::PairStatus current);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
     Q_SCRIPTABLE void reachableStatusChanged();
-    Q_SCRIPTABLE void pairingChanged(bool paired);
-    Q_SCRIPTABLE void pairingFailed(const QString& error);
+    Q_SCRIPTABLE void trustedChanged(bool trusted);
+    Q_SCRIPTABLE void pairingError(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
 
 private: //Methods
@@ -150,10 +146,10 @@ private: //Fields (TODO: dPointer!)
 
     QVector<DeviceLink*> m_deviceLinks;
     QHash<QString, KdeConnectPlugin*> m_plugins;
-    QMap<QString, PairingHandler*> m_pairingHandlers;
+
+    //Capabilities stuff
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
-
     QSet<QString> m_incomingCapabilities;
     QSet<QString> m_outgoingCapabilities;
     QStringList m_supportedIncomingInterfaces;

@@ -34,10 +34,6 @@ QString LoopbackDeviceLink::name()
     return "LoopbackLink"; // Should be similar to android
 }
 
-PairingHandler* LoopbackDeviceLink::createPairingHandler(Device *device)
-{
-    return new LoopbackPairingHandler(device->id());
-}
 bool LoopbackDeviceLink::sendPackageEncrypted(NetworkPackage& input)
 {
     return sendPackage(input);

@@ -53,7 +53,7 @@ public:
 
     QList<Device*> devicesList() const;
 
-    virtual void requestPairing(Device *d) = 0;
+    virtual void requestPairing(PairingHandler *d) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();
 

@@ -31,6 +31,7 @@
 #include "server.h"
 #include "landevicelink.h"
 
+class LanPairingHandler;
 class LanLinkProvider
     : public LinkProvider
 {
@@ -42,6 +43,8 @@ public:
 
     QString name() override { return "LanLinkProvider"; }
     int priority() override { return PRIORITY_HIGH; }
+
+    void requestPairing(const QString &deviceId);
 
 public Q_SLOTS:
     virtual void onNetworkChange() override;
@@ -70,6 +73,7 @@ private:
     quint16 mTcpPort;
 
     QMap<QString, DeviceLink*> mLinks;
+    QMap<QString, LanPairingHandler*> mPairingHandlers;
 
     struct PendingConnect {
         NetworkPackage* np;

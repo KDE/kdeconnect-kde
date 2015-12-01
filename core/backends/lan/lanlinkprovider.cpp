@@ -37,6 +37,7 @@
 
 #include "../../daemon.h"
 #include "landevicelink.h"
+#include "lanpairinghandler.h"
 #include <kdeconnectconfig.h>
 #include <QDBusPendingReply>
 #include <QtNetwork/qsslcipher.h>
@@ -269,7 +270,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     disconnect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
-    foreach(QSslError error, errors) {
+    foreach(const QSslError &error, errors) {
         qCDebug(KDECONNECT_CORE) << "SSL Error :" << error.errorString();
         switch (error.error()) {
             case QSslError::CertificateSignatureFailed:
@@ -438,7 +439,23 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
     }
 
     mLinks[deviceLink->deviceId()] = deviceLink;
+    LanPairingHandler* ph = mPairingHandlers.value(deviceLink->deviceId());
+    if (ph) {
+        ph->setDeviceLink(deviceLink);
+    }
 
     Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 
+}
+
+void LanLinkProvider::requestPairing(const QString& deviceId)
+{
+    LanPairingHandler* ph = mPairingHandlers.value(deviceId);
+    if (!ph) {
+        new LanPairingHandler(deviceId);
+        ph->setDeviceLink(mLinks[deviceId]);
+        mPairingHandlers[deviceId] = ph;
+    }
+
+    ph->requestPairing();
 }

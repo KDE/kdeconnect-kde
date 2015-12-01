@@ -123,7 +123,7 @@ void Daemon::removeDevice(Device* device)
 void Daemon::cleanDevices()
 {
     Q_FOREACH(Device* device, d->mDevices) {
-        if (device->pairStatus() == PairingHandler::NotPaired && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
+        if (!device->isTrusted() && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
             removeDevice(device);
         }
     }
@@ -148,12 +148,12 @@ Device *Daemon::getDevice(QString deviceId) {
     return Q_NULLPTR;
 }
 
-QStringList Daemon::devices(bool onlyReachable, bool onlyPaired) const
+QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;
     Q_FOREACH(Device* device, d->mDevices) {
         if (onlyReachable && !device->isReachable()) continue;
-        if (onlyPaired && !device->isPaired()) continue;
+        if (onlyTrusted && !device->isTrusted()) continue;
         ret.append(device->id());
     }
     return ret;
@@ -179,7 +179,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
 
         //we discard the connections that we created but it's not paired.
         //we keep the remotely initiated ones, since the remotes require them
-        if (!isDiscoveringDevices() && !device->isPaired() && dl->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
+        if (!isDiscoveringDevices() && !device->isTrusted() && dl->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
             device->deleteLater();
         } else {
             connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
@@ -197,7 +197,7 @@ void Daemon::onDeviceStatusChanged()
 
     //qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
 
-    if (!device->isReachable() && !device->isPaired()) {
+    if (!device->isReachable() && !device->isTrusted()) {
         //qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
         removeDevice(device);
     } else {

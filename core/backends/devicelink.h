@@ -37,6 +37,7 @@ class DeviceLink
     Q_OBJECT
 
 public:
+    enum PairStatus : bool { NotPaired, Paired };
     enum ConnectionStarted : bool { Locally, Remotely };
 
     DeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionStarted connectionSource);
@@ -47,16 +48,21 @@ public:
     const QString& deviceId() { return mDeviceId; }
     LinkProvider* provider() { return mLinkProvider; }
 
-    virtual PairingHandler* createPairingHandler(Device* device) = 0;
     virtual bool sendPackage(NetworkPackage& np) = 0;
     virtual bool sendPackageEncrypted(NetworkPackage& np) = 0;
 
-    ConnectionStarted connectionSource() const {
-        return mConnectionSource;
-    }
+    //user actions
+    virtual void requestPairing() = 0;
+    virtual void unpair() = 0;
+
+    ConnectionStarted connectionSource() const { return mConnectionSource; }
+
+    PairStatus pairStatus() const { return mPairStatus; }
+    void setPairStatus(PairStatus status);
 
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
+    void pairStatusChanged(DeviceLink::PairStatus status);
 
 protected:
     QCA::PrivateKey mPrivateKey;
@@ -65,6 +71,7 @@ private:
     const QString mDeviceId;
     const ConnectionStarted mConnectionSource;
     LinkProvider* mLinkProvider;
+    PairStatus mPairStatus;
 
 };
 

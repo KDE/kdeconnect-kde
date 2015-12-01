@@ -105,7 +105,7 @@ void DevicesModel::deviceAdded(const QString& id)
     bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
     bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
 
-    if ((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isPaired())) {
+    if ((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isTrusted())) {
         delete dev;
         return;
     }
@@ -255,16 +255,16 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
         case NameModelRole:
             return device->name();
         case Qt::ToolTipRole: {
-            bool paired = device->isPaired();
+            bool trusted = device->isTrusted();
             bool reachable = device->isReachable();
-            QString status = reachable? (paired? i18n("Device trusted and connected") : i18n("Device not trusted")) : i18n("Device disconnected");
+            QString status = reachable? (trusted? i18n("Device trusted and connected") : i18n("Device not trusted")) : i18n("Device disconnected");
             return status;
         }
         case StatusModelRole: {
             int status = StatusFilterFlag::NoFilter;
             if (device->isReachable()) {
                 status |= StatusFilterFlag::Reachable;
-                if (device->isPaired()) status |= StatusFilterFlag::Paired;
+                if (device->isTrusted()) status |= StatusFilterFlag::Paired;
             }
             return status;
         }

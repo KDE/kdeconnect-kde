@@ -39,18 +39,22 @@ public:
     LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource);
 
     virtual QString name() Q_DECL_OVERRIDE;
-    virtual PairingHandler* createPairingHandler(Device* device) Q_DECL_OVERRIDE;
     bool sendPackage(NetworkPackage& np) override;
     bool sendPackageEncrypted(NetworkPackage& np) override;
     UploadJob* sendPayload(NetworkPackage& np);
+
+    virtual void unpair() override;
+
+    void requestPairing();
 
 private Q_SLOTS:
     void dataReceived();
 
 private:
     SocketLineReader* mSocketLineReader;
-    bool onSsl;
 
+    QCA::PublicKey m_publicKey;
+    QSslCertificate m_certificate;
 };
 
 #endif

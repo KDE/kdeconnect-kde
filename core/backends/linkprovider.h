@@ -30,7 +30,7 @@
 
 class DeviceLink;
 
-class LinkProvider
+class KDECONNECTCORE_EXPORT LinkProvider
     : public QObject
 {
     Q_OBJECT

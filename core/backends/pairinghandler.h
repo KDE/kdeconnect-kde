@@ -37,56 +37,31 @@
  * After that if any one of the link is paired, then we can say that device is paired, so new link will pair automatically
  */
 
-class PairingHandler : public QObject
+class KDECONNECTCORE_EXPORT PairingHandler : public QObject
 {
     Q_OBJECT
 
 public:
-
-    //TODO: Can we simplify this to just Paired/NotPaired, and leave the detailed status as an backend-specific thing?
-    enum PairStatus {
-        NotPaired,
-        Requested,
-        RequestedByPeer,
-        Paired,
-    };
-
-    PairingHandler();
+    PairingHandler(DeviceLink* parent = 0);
     virtual ~PairingHandler() { }
 
+    DeviceLink* deviceLink() const;
     void setDeviceLink(DeviceLink* dl);
-    bool isPaired() const { return m_pairStatus == PairStatus::Paired; }
-    bool isPairRequested() const { return m_pairStatus == PairStatus::Requested; }
-
 
     virtual void createPairPackage(NetworkPackage& np) = 0;
     virtual void packageReceived(const NetworkPackage& np) = 0;
+    virtual void unpair() = 0;
+
+public Q_SLOTS:
     virtual bool requestPairing() = 0;
     virtual bool acceptPairing() = 0;
     virtual void rejectPairing() = 0;
-    virtual void unpair() = 0;
-
-protected:
-    DeviceLink* deviceLink() const;
-    void setPairStatus(PairStatus status);
-    PairStatus pairStatus() const;
-
-public Q_SLOTS:
-    void linkDestroyed(QObject*);
-    virtual void pairingTimeout() = 0;
 
 Q_SIGNALS:
-    void pairStatusChanged(PairStatus status, PairStatus previousStatus);
+    void pairingError(const QString& errorMessage);
 
 private:
     DeviceLink* m_deviceLink; // We keep the latest link here, if this is destroyed without new link, linkDestroyed is emitted and device will destroy pairing handler
-    PairStatus m_pairStatus;
-
-Q_SIGNALS:
-    void pairingDone();
-    void unpairingDone();
-    void pairingFailed(const QString& error);
-    void linkNull();
 
 };
 

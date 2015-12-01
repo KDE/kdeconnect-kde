@@ -33,10 +33,11 @@ public:
     LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
     virtual QString name() override;
-    virtual PairingHandler* createPairingHandler(Device* device) override;
     virtual bool sendPackage(NetworkPackage& np) override;
     virtual bool sendPackageEncrypted(NetworkPackage& np) override;
 
+    virtual void requestPairing() override {}
+    virtual void unpair() override {}
 };
 
 #endif

@@ -28,9 +28,18 @@ DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent, Connection
     , mDeviceId(deviceId)
     , mConnectionSource(connectionSource)
     , mLinkProvider(parent)
+    , mPairStatus(NotPaired)
 {
     Q_ASSERT(!deviceId.isEmpty());
 
     setProperty("deviceId", deviceId);
+}
+
+void DeviceLink::setPairStatus(DeviceLink::PairStatus status)
+{
+    if (mPairStatus != status) {
+        mPairStatus = status;
+        Q_EMIT pairStatusChanged(status);
+    }
 }
 

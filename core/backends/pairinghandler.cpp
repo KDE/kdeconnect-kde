@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Vineet Garg <grg.vineet@gmail.com>
+ * Copyright 2015 Albert Vaca Cintora <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,43 +20,21 @@
 
 #include "pairinghandler.h"
 
-PairingHandler::PairingHandler()
-    : m_deviceLink(nullptr)
-    , m_pairStatus(NotPaired)
+PairingHandler::PairingHandler(DeviceLink* parent)
+    : QObject(parent)
+    , m_deviceLink(parent)
 {
 
 }
 
 void PairingHandler::setDeviceLink(DeviceLink *dl)
 {
+    setParent(dl);
     m_deviceLink =  dl;
 }
 
 DeviceLink* PairingHandler::deviceLink() const
 {
     return m_deviceLink;
-}
-
-void PairingHandler::linkDestroyed(QObject* o)
-{
-    DeviceLink* dl = static_cast<DeviceLink*>(o);
-    if (dl == m_deviceLink) { // Check if same link is destroyed
-        m_deviceLink = Q_NULLPTR;
-        Q_EMIT linkNull();
-    }
-}
-
-void PairingHandler::setPairStatus(PairingHandler::PairStatus status)
-{
-    if (m_pairStatus != status) {
-        PairStatus oldStatus = m_pairStatus;
-        m_pairStatus = status;
-        Q_EMIT pairStatusChanged(status, oldStatus);
-    }
-}
-
-PairingHandler::PairStatus PairingHandler::pairStatus() const
-{
-    return m_pairStatus;
 }
 

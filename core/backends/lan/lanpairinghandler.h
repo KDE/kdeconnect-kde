@@ -30,6 +30,14 @@ class LanPairingHandler
     : public PairingHandler
 {
 public:
+
+    enum InternalPairStatus {
+        NotPaired,
+        Requested,
+        RequestedByPeer,
+        Paired,
+    };
+
     LanPairingHandler(const QString& deviceId);
     virtual ~LanPairingHandler() { }
 
@@ -40,15 +48,19 @@ public:
     virtual void rejectPairing() Q_DECL_OVERRIDE;
     virtual void unpair() Q_DECL_OVERRIDE;
 
+    bool isPairRequested() const { return m_status == Requested; }
+    bool isPaired() const { return m_status == Paired; }
+
 private Q_SLOTS:
-    virtual void pairingTimeout();
+    void pairingTimeout();
 
 protected:
+    void setInternalPairStatus(InternalPairStatus status);
+
     QTimer m_pairingTimeout;
     QString m_deviceId;
-    QCA::PublicKey m_publicKey;
-    QSslCertificate m_certificate;
 
+    InternalPairStatus m_status;
 };
 
 

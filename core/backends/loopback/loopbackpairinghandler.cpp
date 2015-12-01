@@ -39,10 +39,10 @@ bool LoopbackPairingHandler::requestPairing()
         case PairStatus::Paired:
             Q_EMIT pairingFailed(deviceLink()->name().append(" : Already paired").toLatin1().data());
             return false;
-        case PairStatus ::Requested:
+        case PairStatus::Requested:
             Q_EMIT pairingFailed(deviceLink()->name().append(" : Pairing already requested for this device").toLatin1().data());
             return false;
-        case PairStatus ::RequestedByPeer:
+        case PairStatus::RequestedByPeer:
             qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
             acceptPairing();
             return false;

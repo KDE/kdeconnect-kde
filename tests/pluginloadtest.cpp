@@ -31,6 +31,7 @@
 #include "core/daemon.h"
 #include "core/device.h"
 #include "core/kdeconnectplugin.h"
+#include <backends/pairinghandler.h>
 #include "kdeconnect-version.h"
 
 class TestDaemon : public Daemon
@@ -43,7 +44,7 @@ public:
     {
     }
 
-    void requestPairing(Device* d) Q_DECL_OVERRIDE
+    void requestPairing(PairingHandler* d) Q_DECL_OVERRIDE
     {
         d->acceptPairing();
     }
@@ -88,7 +89,7 @@ class PluginLoadTest : public QObject
             }
 
             QVERIFY(d);
-            QVERIFY(d->isPaired());
+            QVERIFY(d->isTrusted());
             QVERIFY(d->isReachable());
 
             d->setPluginEnabled("kdeconnect_mousepad", false);

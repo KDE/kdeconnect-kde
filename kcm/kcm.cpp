@@ -180,22 +180,15 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     }
 
     kcmUi->messages->setVisible(false);
-    if (currentDevice->isPairRequested()) {
-        kcmUi->progressBar->setVisible(true);
-        kcmUi->unpair_button->setVisible(false);
+    kcmUi->progressBar->setVisible(false);
+    if (currentDevice->isTrusted()) {
+        kcmUi->unpair_button->setVisible(true);
         kcmUi->pair_button->setVisible(false);
-        kcmUi->ping_button->setVisible(false);
+        kcmUi->ping_button->setVisible(true);
     } else {
-        kcmUi->progressBar->setVisible(false);
-        if (currentDevice->isPaired()) {
-            kcmUi->unpair_button->setVisible(true);
-            kcmUi->pair_button->setVisible(false);
-            kcmUi->ping_button->setVisible(true);
-        } else {
-            kcmUi->unpair_button->setVisible(false);
-            kcmUi->pair_button->setVisible(true);
-            kcmUi->ping_button->setVisible(false);
-        }
+        kcmUi->unpair_button->setVisible(false);
+        kcmUi->pair_button->setVisible(true);
+        kcmUi->ping_button->setVisible(false);
     }
     resetDeviceView();
 
@@ -223,7 +216,7 @@ void KdeConnectKcm::resetDeviceView()
     kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 
     kcmUi->name_label->setText(currentDevice->name());
-    kcmUi->status_label->setText(currentDevice->isPaired()? i18n("(paired)") : i18n("(unpaired)"));
+    kcmUi->status_label->setText(currentDevice->isTrusted()? i18n("(trusted)") : i18n("(not trusted)"));
 
     const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
     QList<KPluginInfo> availablePluginInfo;
@@ -286,7 +279,7 @@ void KdeConnectKcm::pairingChanged(bool paired)
 
     kcmUi->pair_button->setVisible(!paired);
     kcmUi->unpair_button->setVisible(paired);
-    kcmUi->progressBar->setVisible(senderDevice->isPairRequested());
+    kcmUi->progressBar->setVisible(false);
     kcmUi->ping_button->setVisible(paired);
     kcmUi->status_label->setText(paired ? i18n("(paired)") : i18n("(unpaired)"));
 }

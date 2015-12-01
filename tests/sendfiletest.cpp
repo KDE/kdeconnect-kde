@@ -31,6 +31,7 @@
 #include "core/daemon.h"
 #include "core/device.h"
 #include "core/kdeconnectplugin.h"
+#include <backends/pairinghandler.h>
 #include "kdeconnect-version.h"
 
 class TestDaemon : public Daemon
@@ -43,7 +44,7 @@ public:
     {
     }
 
-    void requestPairing(Device* d) Q_DECL_OVERRIDE
+    void requestPairing(PairingHandler* d) Q_DECL_OVERRIDE
     {
         d->acceptPairing();
     }
@@ -84,7 +85,7 @@ class TestSendFile : public QObject
             }
             QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
-            QCOMPARE(d->isPaired(), true);
+            QCOMPARE(d->isTrusted(), true);
 
             QByteArray content("12312312312313213123213123");
 
