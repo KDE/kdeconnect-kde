@@ -44,7 +44,7 @@ public:
     QString name() override { return "LanLinkProvider"; }
     int priority() override { return PRIORITY_HIGH; }
 
-    void requestPairing(const QString &deviceId);
+    void userRequestsPair(const QString &deviceId);
 
 public Q_SLOTS:
     virtual void onNetworkChange() override;
@@ -65,6 +65,7 @@ private:
     static void configureSocket(QSslSocket* socket);
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
     void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin);
+    void refreshPairingHandler(const QString &deviceId);
 
     Server* mServer;
     QUdpSocket* mUdpServer;

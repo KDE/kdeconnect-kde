@@ -36,8 +36,8 @@ public:
     virtual bool sendPackage(NetworkPackage& np) override;
     virtual bool sendPackageEncrypted(NetworkPackage& np) override;
 
-    virtual void requestPairing() override {}
-    virtual void unpair() override {}
+    virtual void userRequestsPair() override { setPairStatus(Paired); }
+    virtual void userRequestsUnpair() override { setPairStatus(NotPaired); }
 };
 
 #endif

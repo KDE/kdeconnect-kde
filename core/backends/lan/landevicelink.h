@@ -43,9 +43,10 @@ public:
     bool sendPackageEncrypted(NetworkPackage& np) override;
     UploadJob* sendPayload(NetworkPackage& np);
 
-    virtual void unpair() override;
+    virtual void userRequestsPair() override;
+    virtual void userRequestsUnpair() override;
 
-    void requestPairing();
+    void storeTrustedDeviceInformation();
 
 private Q_SLOTS:
     void dataReceived();

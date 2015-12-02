@@ -195,14 +195,14 @@ void Device::requestPair()
     }
 
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        dl->requestPairing();
+        dl->userRequestsPair();
     }
 }
 
 void Device::unpair()
 {
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-        dl->unpair();
+        dl->userRequestsUnpair();
     }
     KdeConnectConfig::instance()->removeTrustedDevice(id());
 }
@@ -214,7 +214,7 @@ void Device::pairStatusChanged(DeviceLink::PairStatus status)
 
         Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
             if (dl != sender()) {
-                dl->unpair();
+                dl->setPairStatus(DeviceLink::NotPaired);
             }
         }
     } else {
@@ -294,15 +294,12 @@ void Device::removeLink(DeviceLink* link)
 
 bool Device::sendPackage(NetworkPackage& np)
 {
-    if (np.type() != PACKAGE_TYPE_PAIR && isTrusted()) {
-        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-            if (dl->sendPackageEncrypted(np)) return true;
-        }
-    } else {
-        //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
-        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
-            if (dl->sendPackage(np)) return true;
-        }
+    Q_ASSERT(np.type() != PACKAGE_TYPE_PAIR);
+    Q_ASSERT(isTrusted());
+
+    //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
+    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        if (dl->sendPackage(np)) return true;
     }
 
     return false;

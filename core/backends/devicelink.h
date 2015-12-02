@@ -52,8 +52,8 @@ public:
     virtual bool sendPackageEncrypted(NetworkPackage& np) = 0;
 
     //user actions
-    virtual void requestPairing() = 0;
-    virtual void unpair() = 0;
+    virtual void userRequestsPair() = 0;
+    virtual void userRequestsUnpair() = 0;
 
     ConnectionStarted connectionSource() const { return mConnectionSource; }
 

@@ -78,6 +78,8 @@ void LanLinkProvider::onStart()
     bool success = mUdpServer->bind(bindAddress, port, QUdpSocket::ShareAddress);
     Q_ASSERT(success);
 
+    qDebug() << "onStart";
+
     mTcpPort = port;
     while (!mServer->listen(bindAddress, mTcpPort)) {
         mTcpPort++;
@@ -93,6 +95,7 @@ void LanLinkProvider::onStart()
 
 void LanLinkProvider::onStop()
 {
+    qDebug() << "onStop";
     mUdpServer->close();
     mServer->close();
 }
@@ -129,7 +132,9 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
         NetworkPackage* receivedPackage = new NetworkPackage("");
         bool success = NetworkPackage::unserialize(datagram, receivedPackage);
 
-        //qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
+        //qDebug() << "udp connection from " << receivedPackage->;
+
+        qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
         if (!success || receivedPackage->type() != PACKAGE_TYPE_IDENTITY) {
             delete receivedPackage;
@@ -442,24 +447,28 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
         mLinks.erase(oldLinkIterator);
     }
 
-    mLinks[deviceLink->deviceId()] = deviceLink;
-    LanPairingHandler* ph = mPairingHandlers.value(deviceLink->deviceId());
-    if (ph) {
-        ph->setDeviceLink(deviceLink);
-    }
-
+    mLinks[deviceId] = deviceLink;
+    refreshPairingHandler(deviceId);
     Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 
 }
 
-void LanLinkProvider::requestPairing(const QString& deviceId)
+void LanLinkProvider::userRequestsPair(const QString& deviceId)
 {
     LanPairingHandler* ph = mPairingHandlers.value(deviceId);
     if (!ph) {
-        new LanPairingHandler(deviceId);
-        ph->setDeviceLink(mLinks[deviceId]);
+        ph = new LanPairingHandler(deviceId);
         mPairingHandlers[deviceId] = ph;
+        refreshPairingHandler(deviceId);
     }
 
     ph->requestPairing();
+}
+
+void LanLinkProvider::refreshPairingHandler(const QString& deviceId) {
+    LanPairingHandler* ph = mPairingHandlers.value(deviceId);
+    if (ph) {
+        ph->setDeviceLink(mLinks[deviceId]);
+
+    }
 }

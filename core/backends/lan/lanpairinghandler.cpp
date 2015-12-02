@@ -97,7 +97,7 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
                 return;
             }
 
-            Daemon::instance()->requestPairing(this);
+            Daemon::instance()->askPairingConfirmation(this);
             setInternalPairStatus(RequestedByPeer);
         }
 
@@ -117,10 +117,10 @@ bool LanPairingHandler::requestPairing()
 {
     switch (m_status) {
         case Paired:
-            Q_EMIT pairingError(i18n(deviceLink()->name().append(" : Already paired").toLatin1().data()));
+            Q_EMIT pairingError(i18n("%1: Already paired", deviceLink()->name()));
             return false;
         case Requested:
-            Q_EMIT pairingError(i18n(deviceLink()->name().append(" : Pairing already requested for this device").toLatin1().data()));
+            Q_EMIT pairingError(i18n("%1: Pairing already requested for this device", deviceLink()->name()));
             return false;
         case RequestedByPeer:
             qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
@@ -189,4 +189,6 @@ void LanPairingHandler::setInternalPairStatus(LanPairingHandler::InternalPairSta
     } else {
         deviceLink()->setPairStatus(DeviceLink::NotPaired);
     }
+    qobject_cast<LanDeviceLink*>(deviceLink())->storeTrustedDeviceInformation();
+    //TODO: Tell link to store certificate and key
 }

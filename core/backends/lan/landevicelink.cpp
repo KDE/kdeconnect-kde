@@ -35,7 +35,7 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
             this, SLOT(dataReceived()));
 
     //We take ownership of the socket.
-    //When the link provider distroys us,
+    //When the link provider destroys us,
     //the socket (and the reader) will be
     //destroyed as well
     connect(socket, SIGNAL(disconnected()),
@@ -57,7 +57,7 @@ bool LanDeviceLink::sendPackageEncrypted(NetworkPackage& np)
 
     int written = mSocketLineReader->write(np.serialize());
 
-    //TODO: Actually detect if a package is received or not, now we keep TCP
+    //Actually we can't detect if a package is received or not. We keep TCP
     //"ESTABLISHED" connections that look legit (return true when we use them),
     //but that are actually broken (until keepalive detects that they are down).
     return (written != -1);
@@ -86,33 +86,36 @@ UploadJob* LanDeviceLink::sendPayload(NetworkPackage& np)
 
 void LanDeviceLink::dataReceived()
 {
-
     if (mSocketLineReader->bytesAvailable() == 0) return;
-
-    const QByteArray package = mSocketLineReader->readLine();
-
     //qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << package;
 
-    NetworkPackage unserialized(QString::null);
-    NetworkPackage::unserialize(package, &unserialized);
-    if (unserialized.isEncrypted()) {
-        //mPrivateKey should always be set when device link is added to device, no null-checking done here
-        // TODO : Check this with old device since package through ssl in unencrypted
-        unserialized.decrypt(mPrivateKey, &unserialized);
+    const QByteArray serializedPackage = mSocketLineReader->readLine();
+    NetworkPackage package(QString::null);
+    NetworkPackage::unserialize(serializedPackage, &package);
+
+    if (package.type() == PACKAGE_TYPE_PAIR) {
+        //TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
+        //qobject_cast<LanLinkProvider*>(provider())->incomingPairRequest(deviceId());
     }
 
-    if (unserialized.hasPayloadTransferInfo()) {
+    if (!package.isEncrypted()) {
+        qWarning() << "Received plain-text package from paired link, ignoring!";
+    }
+
+    package.decrypt(mPrivateKey, &package);
+
+    if (package.hasPayloadTransferInfo()) {
         //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
-        QVariantMap transferInfo = unserialized.payloadTransferInfo();
+        QVariantMap transferInfo = package.payloadTransferInfo();
         //FIXME: The next two lines shouldn't be needed! Why are they here?
         transferInfo.insert("useSsl", true);
         transferInfo.insert("deviceId", deviceId());
         DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), transferInfo);
         job->start();
-        unserialized.setPayload(job->getPayload(), unserialized.payloadSize());
+        package.setPayload(job->getPayload(), package.payloadSize());
     }
 
-    Q_EMIT receivedPackage(unserialized);
+    Q_EMIT receivedPackage(package);
 
     if (mSocketLineReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
@@ -120,12 +123,18 @@ void LanDeviceLink::dataReceived()
 
 }
 
-void LanDeviceLink::requestPairing()
+void LanDeviceLink::userRequestsPair()
 {
-    qobject_cast<LanLinkProvider*>(provider())->requestPairing(deviceId());
+    qobject_cast<LanLinkProvider*>(provider())->userRequestsPair(deviceId());
 }
 
-void LanDeviceLink::unpair()
+void LanDeviceLink::userRequestsUnpair()
 {
     setPairStatus(NotPaired);
+}
+
+void LanDeviceLink::storeTrustedDeviceInformation()
+{
+    Q_ASSERT(!m_certificate.isNull());
+    Q_ASSERT(!m_publicKey.isNull());
 }

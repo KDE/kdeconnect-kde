@@ -89,7 +89,7 @@ public:
         , m_nam(Q_NULLPTR)
     {}
 
-    void requestPairing(PairingHandler* d) Q_DECL_OVERRIDE
+    void askPairingConfirmation(PairingHandler* d) Q_DECL_OVERRIDE
     {
         KNotification* notification = new KNotification("pairingRequest");
         notification->setIconName(QStringLiteral("dialog-information"));
