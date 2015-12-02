@@ -43,7 +43,8 @@
 #include <QtNetwork/qsslcipher.h>
 #include <QtNetwork/qsslconfiguration.h>
 
-LanLinkProvider::LanLinkProvider()
+LanLinkProvider::LanLinkProvider(bool testMode)
+    : mTestMode(testMode)
 {
     mTcpPort = 0;
 
@@ -72,10 +73,13 @@ LanLinkProvider::~LanLinkProvider()
 
 void LanLinkProvider::onStart()
 {
-    mUdpServer->bind(QHostAddress::Any, port, QUdpSocket::ShareAddress);
+    const QHostAddress bindAddress = mTestMode? QHostAddress::LocalHost : QHostAddress::Any;
+
+    bool success = mUdpServer->bind(bindAddress, port, QUdpSocket::ShareAddress);
+    Q_ASSERT(success);
 
     mTcpPort = port;
-    while (!mServer->listen(QHostAddress::Any, mTcpPort)) {
+    while (!mServer->listen(bindAddress, mTcpPort)) {
         mTcpPort++;
         if (mTcpPort > 1764) { //No ports available?
             qCritical(KDECONNECT_CORE) << "Error opening a port in range 1714-1764";
@@ -107,7 +111,7 @@ void LanLinkProvider::onNetworkChange()
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
-    mUdpSocket.writeDatagram(np.serialize(), QHostAddress("255.255.255.255"), port);
+    mUdpSocket.writeDatagram(np.serialize(), mTestMode ? QHostAddress::LocalHost : QHostAddress::Any, port);
 }
 
 //I'm the existing device, a new device is kindly introducing itself.

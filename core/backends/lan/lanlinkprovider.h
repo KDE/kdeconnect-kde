@@ -38,7 +38,7 @@ class LanLinkProvider
     Q_OBJECT
 
 public:
-    LanLinkProvider();
+    LanLinkProvider(bool testMode = false);
     ~LanLinkProvider();
 
     QString name() override { return "LanLinkProvider"; }
@@ -81,6 +81,7 @@ private:
     };
     QMap<QSslSocket*, PendingConnect> receivedIdentityPackages;
     QNetworkConfiguration m_lastConfig;
+    const bool mTestMode;
 };
 
 #endif

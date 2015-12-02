@@ -39,6 +39,7 @@ void Server::incomingConnection(qintptr socketDescriptor) {
         pendingConnections.append(serverSocket);
         Q_EMIT newConnection();
     } else {
+        qWarning() << "setSocketDescriptor failed " + serverSocket->errorString();
         delete serverSocket;
     }
 }
