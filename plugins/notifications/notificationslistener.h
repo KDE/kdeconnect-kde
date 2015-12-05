@@ -36,7 +36,7 @@ public:
                                    NotificationsDbusInterface* aDbusInterface);
     virtual ~NotificationsListener();
 
-private:
+protected:
     KdeConnectPlugin* mPlugin;
     NotificationsDbusInterface* dbusInterface;
     QHash<QString, NotifyingApplication> applications;
