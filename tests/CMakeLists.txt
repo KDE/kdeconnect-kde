@@ -29,12 +29,13 @@ set(testsslsocketlinereader_sources
 ecm_add_test(testsslsocketlinereader.cpp ${testsslsocketlinereader_sources} TEST_NAME testsslsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})
 
 set(kdeconnectconfigtest_sources
+    ../core/backends/devicelink.cpp
     ../core/backends/pairinghandler.cpp
     ../core/dbushelper.cpp
     ../core/device.cpp
     ../core/pluginloader.cpp
 )
-ecm_add_test(kdeconnectconfigtest.cpp ${kdeconnectconfigtest_sources} TEST_NAME kdeconnectconfgtest LINK_LIBRARIES ${kdeconnect_libraries})
+ecm_add_test(kdeconnectconfigtest.cpp ${kdeconnectconfigtest_sources} TEST_NAME kdeconnectconfigtest LINK_LIBRARIES ${kdeconnect_libraries})
 
 set(lanlinkprovidertest_sources
     ../core/backends/devicelink.cpp

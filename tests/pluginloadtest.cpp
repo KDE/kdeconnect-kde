@@ -33,38 +33,7 @@
 #include "core/kdeconnectplugin.h"
 #include <backends/pairinghandler.h>
 #include "kdeconnect-version.h"
-
-class TestDaemon : public Daemon
-{
-Q_OBJECT
-public:
-    TestDaemon(QObject* parent = Q_NULLPTR)
-        : Daemon(parent, true)
-        , m_nam(Q_NULLPTR)
-    {
-    }
-
-    void requestPairing(PairingHandler* d) Q_DECL_OVERRIDE
-    {
-        d->acceptPairing();
-    }
-
-    void reportError(const QString & title, const QString & description) Q_DECL_OVERRIDE
-    {
-        qWarning() << "error:" << title << description;
-    }
-
-    QNetworkAccessManager* networkAccessManager() Q_DECL_OVERRIDE
-    {
-        if (!m_nam) {
-            m_nam = new KIO::AccessManager(this);
-        }
-        return m_nam;
-    }
-
-private:
-    QNetworkAccessManager* m_nam;
-};
+#include "testdaemon.h"
 
 class PluginLoadTest : public QObject
 {
