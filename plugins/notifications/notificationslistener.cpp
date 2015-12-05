@@ -30,6 +30,7 @@
 #include "notificationsplugin.h"
 #include "notification_debug.h"
 #include "notificationsdbusinterface.h"
+#include "notifyingapplication.h"
 
 NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
                                              NotificationsDbusInterface* aDbusInterface)
@@ -37,6 +38,8 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
       mPlugin(aPlugin),
       dbusInterface(aDbusInterface)
 {
+    qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
+
     bool ret = QDBusConnection::sessionBus()
                 .registerObject("/org/freedesktop/Notifications",
                                 this,
@@ -55,6 +58,10 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
                          "org.freedesktop.DBus");
     iface.call("AddMatch",
                "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
+
+    loadApplications();
+
+    connect(mPlugin->config(), SIGNAL(configChanged()), this, SLOT(loadApplications()));
 }
 
 NotificationsListener::~NotificationsListener()
@@ -67,6 +74,18 @@ NotificationsListener::~NotificationsListener()
     QDBusConnection::sessionBus().unregisterObject("/org/freedesktop/Notifications");
 }
 
+void NotificationsListener::loadApplications()
+{
+    applications.clear();
+    QVariantList list = mPlugin->config()->getList("applications");
+    for (const auto& a: list) {
+        NotifyingApplication app = a.value<NotifyingApplication>();
+        if (!applications.contains(app.name))
+            applications.insert(app.name, app);
+    }
+    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Loaded" << applications.size() << " applications";
+}
+
 uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                    const QString &appIcon,
                                    const QString &summary, const QString &body,
@@ -74,20 +93,60 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                    const QVariantMap &hints, int timeout)
 {
     static int id = 0;
-    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
-    Q_UNUSED(hints);
     Q_UNUSED(actions);
-    Q_UNUSED(appIcon);
-    Q_UNUSED(body);
+
+    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
 
     // skip our own notifications
     if (appName == QLatin1String("KDE Connect"))
         return 0;
 
+    NotifyingApplication app;
+    if (!applications.contains(appName)) {
+        // new application -> add to config
+        app.name = appName;
+        app.icon = appIcon;
+        app.active = true;
+        app.blacklistExpression = QRegularExpression();
+        applications.insert(app.name, app);
+        // update config:
+        QVariantList list;
+        for (const auto& a: applications.values())
+            list << QVariant::fromValue<NotifyingApplication>(a);
+        mPlugin->config()->setList("applications", list);
+        //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Added new application to config:" << app;
+    } else
+        app = applications.value(appName);
+
+    if (!app.active)
+        return 0;
+
+    if (timeout > 0 && mPlugin->config()->get("generalPersistent", false))
+        return 0;
+
+    int urgency = -1;
+    bool ok;
+    if (hints.contains("urgency"))
+        urgency = hints["urgency"].toInt(&ok);
+    if (!ok)
+        urgency = -1;
+    if (urgency > -1 && urgency < mPlugin->config()->get<int>("generalUrgency", 0))
+        return 0;
+
+    QString ticker = summary;
+    if (!body.isEmpty() && mPlugin->config()->get("generalIncludeBody", true))
+        ticker += QLatin1String(": ") + body;
+
+    if (app.blacklistExpression.isValid() &&
+            !app.blacklistExpression.pattern().isEmpty() &&
+            app.blacklistExpression.match(ticker).hasMatch())
+        return 0;
+
+    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Sending notification from" << appName << ":" <<ticker;
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set("id", QString::number(replacesId > 0 ? replacesId : ++id));
     np.set("appName", appName);
-    np.set("ticker", summary);
+    np.set("ticker", ticker);
     np.set("isClearable", timeout == 0);  // KNotifications are persistent if
                                           // timeout == 0, for other notifications
                                           // clearability is pointless

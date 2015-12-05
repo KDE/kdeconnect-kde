@@ -18,35 +18,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtDBus/QDBusAbstractAdaptor>
-#include <core/device.h>
+#include "notifyingapplication.h"
 
-class KdeConnectPlugin;
-class NotificationsDbusInterface;
-class Notification;
-class NotifyingApplication;
+#include <QDebug>
+#include <QDataStream>
 
-class NotificationsListener : public QDBusAbstractAdaptor
+QDataStream &operator<<(QDataStream &out, const NotifyingApplication &app)
 {
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
+    out << app.name << app.icon << app.active << app.blacklistExpression.pattern();
+    return out;
+}
 
-public:
-    explicit NotificationsListener(KdeConnectPlugin* aPlugin,
-                                   NotificationsDbusInterface* aDbusInterface);
-    virtual ~NotificationsListener();
+QDataStream &operator>>(QDataStream &in, NotifyingApplication &app)
+{
+    QString pattern;
+    in >> app.name;
+    in >> app.icon;
+    in >> app.active;
+    in >> pattern;
+    app.blacklistExpression.setPattern(pattern);
+    return in;
+}
 
-private:
-    KdeConnectPlugin* mPlugin;
-    NotificationsDbusInterface* dbusInterface;
-    QHash<QString, NotifyingApplication> applications;
-
-public Q_SLOTS:
-    Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,
-                             const QString&, const QString&,
-                             const QStringList&, const QVariantMap&, int);
-
-private Q_SLOTS:
-    void loadApplications();
-
-};
+QDebug operator<<(QDebug dbg, const NotifyingApplication& a) {
+    dbg.nospace() << "{ name=" << a.name
+                  << ", icon=" << a.icon
+                  << ", active=" << a.active
+                  << ", blacklistExpression =" << a.blacklistExpression
+                  << " }";
+    return dbg.space();
+}

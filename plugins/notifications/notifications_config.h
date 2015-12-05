@@ -18,35 +18,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtDBus/QDBusAbstractAdaptor>
-#include <core/device.h>
+#ifndef NOTIFICATIONS_CONFIG_H
+#define NOTIFICATIONS_CONFIG_H
 
-class KdeConnectPlugin;
-class NotificationsDbusInterface;
-class Notification;
-class NotifyingApplication;
+#include "kcmplugin/kdeconnectpluginkcm.h"
 
-class NotificationsListener : public QDBusAbstractAdaptor
+namespace Ui {
+    class NotificationsConfigUi;
+}
+
+class NotifyingApplicationModel;
+
+class NotificationsConfig
+    : public KdeConnectPluginKcm
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
-
 public:
-    explicit NotificationsListener(KdeConnectPlugin* aPlugin,
-                                   NotificationsDbusInterface* aDbusInterface);
-    virtual ~NotificationsListener();
-
-private:
-    KdeConnectPlugin* mPlugin;
-    NotificationsDbusInterface* dbusInterface;
-    QHash<QString, NotifyingApplication> applications;
+    NotificationsConfig(QWidget *parent, const QVariantList&);
+    virtual ~NotificationsConfig();
 
 public Q_SLOTS:
-    Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,
-                             const QString&, const QString&,
-                             const QStringList&, const QVariantMap&, int);
+    virtual void save() override;
+    virtual void load() override;
+    virtual void defaults() override;
 
 private Q_SLOTS:
     void loadApplications();
 
+private:
+    Ui::NotificationsConfigUi* m_ui;
+    NotifyingApplicationModel* appModel;
+
 };
+
+#endif

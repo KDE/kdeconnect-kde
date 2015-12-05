@@ -18,35 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtDBus/QDBusAbstractAdaptor>
-#include <core/device.h>
+#ifndef NOTIFYINGAPPLICATION_H
+#define NOTIFYINGAPPLICATION_H
 
-class KdeConnectPlugin;
-class NotificationsDbusInterface;
-class Notification;
-class NotifyingApplication;
+#include <QRegularExpression>
+#include <QList>
 
-class NotificationsListener : public QDBusAbstractAdaptor
-{
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
+struct NotifyingApplication {
+    QString name;
+    QString icon;
+    bool active;
+    QRegularExpression blacklistExpression;
 
-public:
-    explicit NotificationsListener(KdeConnectPlugin* aPlugin,
-                                   NotificationsDbusInterface* aDbusInterface);
-    virtual ~NotificationsListener();
-
-private:
-    KdeConnectPlugin* mPlugin;
-    NotificationsDbusInterface* dbusInterface;
-    QHash<QString, NotifyingApplication> applications;
-
-public Q_SLOTS:
-    Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,
-                             const QString&, const QString&,
-                             const QStringList&, const QVariantMap&, int);
-
-private Q_SLOTS:
-    void loadApplications();
-
+    bool operator==(const NotifyingApplication& other) const {
+        return (name == other.name);
+    }
 };
+
+Q_DECLARE_METATYPE(NotifyingApplication);
+
+QDataStream &operator<<(QDataStream &out, const NotifyingApplication &app);
+QDataStream &operator>>(QDataStream &in, NotifyingApplication &app);
+QDebug operator<<(QDebug dbg, const NotifyingApplication &a);
+
+#endif //NOTIFYINGAPPLICATION_H
