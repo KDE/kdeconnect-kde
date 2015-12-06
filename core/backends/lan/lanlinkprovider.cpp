@@ -129,6 +129,9 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
 
         mUdpServer->readDatagram(datagram.data(), datagram.size(), &sender);
 
+        if (sender.isLoopback() && !mTestMode)
+            continue;
+
         NetworkPackage* receivedPackage = new NetworkPackage("");
         bool success = NetworkPackage::unserialize(datagram, receivedPackage);
 
