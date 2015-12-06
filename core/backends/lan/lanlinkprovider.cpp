@@ -471,7 +471,8 @@ void LanLinkProvider::userRequestsPair(const QString& deviceId)
 void LanLinkProvider::refreshPairingHandler(const QString& deviceId) {
     LanPairingHandler* ph = mPairingHandlers.value(deviceId);
     if (ph) {
-        ph->setDeviceLink(mLinks[deviceId]);
-
+        DeviceLink* link = mLinks[deviceId];
+        ph->setDeviceLink(link);
+        connect(ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
     }
 }

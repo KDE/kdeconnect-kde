@@ -63,6 +63,7 @@ public:
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
     void pairStatusChanged(DeviceLink::PairStatus status);
+    void pairingError(const QString &error);
 
 protected:
     QCA::PrivateKey mPrivateKey;

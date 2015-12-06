@@ -271,8 +271,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
         }
     }
 
-    connect(link, SIGNAL(pairStatusChanged(PairStatus)), this, SLOT(pairStatusChanged(PairStatus, PairStatus)));
-    connect(link, SIGNAL(pairingFailed(const QString&)), this, SIGNAL(pairingFailed(const QString&)));
+    connect(link, &DeviceLink::pairStatusChanged, this, &Device::pairStatusChanged);
+    connect(link, &DeviceLink::pairingError, this, &Device::pairingError);
 }
 
 void Device::linkDestroyed(QObject* o)
