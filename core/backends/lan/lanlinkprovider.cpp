@@ -476,3 +476,16 @@ void LanLinkProvider::refreshPairingHandler(const QString& deviceId) {
         connect(ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
     }
 }
+
+void LanLinkProvider::incomingPairPackage(DeviceLink* device, const NetworkPackage& np)
+{
+    const QString deviceId = device->deviceId();
+    LanPairingHandler* ph = mPairingHandlers.value(deviceId);
+    if (!ph) {
+        ph = new LanPairingHandler(deviceId);
+        mPairingHandlers[deviceId] = ph;
+        refreshPairingHandler(deviceId);
+    }
+
+    ph->packageReceived(np);
+}

@@ -95,7 +95,8 @@ void LanDeviceLink::dataReceived()
 
     if (package.type() == PACKAGE_TYPE_PAIR) {
         //TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
-        //qobject_cast<LanLinkProvider*>(provider())->incomingPairRequest(deviceId());
+        qobject_cast<LanLinkProvider*>(provider())->incomingPairPackage(this, package);
+        return;
     }
 
     if (!package.isEncrypted()) {
