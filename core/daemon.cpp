@@ -72,7 +72,7 @@ Daemon::Daemon(QObject *parent, bool testMode)
     Q_FOREACH(const QString& id, list) {
         Device* device = new Device(this, id);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
-        connect(device, SIGNAL(pairingChanged(bool)), this, SLOT(onDeviceStatusChanged()));
+        connect(device, SIGNAL(trustedChanged(bool)), this, SLOT(onDeviceStatusChanged()));
         d->mDevices[id] = device;
         Q_EMIT deviceAdded(id);
     }
