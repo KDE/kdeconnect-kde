@@ -34,8 +34,7 @@ LanPairingHandler::LanPairingHandler(const QString& deviceId)
 {
     m_pairingTimeout.setSingleShot(true);
     m_pairingTimeout.setInterval(30 * 1000);  //30 seconds of timeout
-    connect(&m_pairingTimeout, SIGNAL(timeout()),
-            this, SLOT(pairingTimeout()));
+    connect(&m_pairingTimeout, &QTimer::timeout, this, &LanPairingHandler::pairingTimeout);
 }
 
 void LanPairingHandler::createPairPackage(NetworkPackage& np)
