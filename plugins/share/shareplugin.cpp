@@ -114,11 +114,15 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
             tmpFile.open();
             tmpFile.write(text.toUtf8());
             tmpFile.close();
-            QDesktopServices::openUrl(QUrl::fromLocalFile(tmpFile.fileName()));
+
+            const QUrl url = QUrl::fromLocalFile(tmpFile.fileName());
+            Q_EMIT shareReceived(url);
+            QDesktopServices::openUrl(url);
         }
     } else if (np.has("url")) {
         QUrl url = QUrl::fromEncoded(np.get<QByteArray>("url"));
         QDesktopServices::openUrl(url);
+        Q_EMIT shareReceived(url);
     } else {
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "Error: Nothing attached!";
     }
@@ -131,7 +135,7 @@ void SharePlugin::finished(KJob* job)
 {
     FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
     if (ftjob)
-        fileReceived(ftjob->destination());
+        Q_EMIT shareReceived(ftjob->destination());
 
     qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished. Success:" << (!job->error()) << (ftjob ? ftjob->destination() : QUrl());
 }
@@ -156,7 +160,7 @@ void SharePlugin::shareUrl(const QUrl& url)
 
 void SharePlugin::connected()
 {
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
 }
 
 QString SharePlugin::dbusPath() const

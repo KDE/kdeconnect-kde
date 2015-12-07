@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Holger Kaelberer <holger.k@elberer.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,43 +18,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHAREPLUGIN_H
-#define SHAREPLUGIN_H
+#include <QtDBus/QDBusAbstractAdaptor>
+#include <core/device.h>
 
-#include <KNotification>
-#include <KIO/Job>
+class KdeConnectPlugin;
+class NotificationsDbusInterface;
+class Notification;
+struct NotifyingApplication;
 
-#include <core/kdeconnectplugin.h>
-
-#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share")
-
-class SharePlugin
-    : public KdeConnectPlugin
+class NotificationsListener : public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.share")
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
 
 public:
-    explicit SharePlugin(QObject *parent, const QVariantList &args);
+    explicit NotificationsListener(KdeConnectPlugin* aPlugin,
+                                   NotificationsDbusInterface* aDbusInterface);
+    virtual ~NotificationsListener();
 
-    ///Helper method, QDBus won't recognize QUrl
-    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
+protected:
+    KdeConnectPlugin* mPlugin;
+    NotificationsDbusInterface* dbusInterface;
+    QHash<QString, NotifyingApplication> applications;
+
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,
+                             const QString&, const QString&,
+                             const QStringList&, const QVariantMap&, int);
 
 private Q_SLOTS:
-    void finished(KJob*);
-    void openDestinationFolder();
-
-Q_SIGNALS:
-    void shareReceived(const QUrl& url);
-
-private:
-    void shareUrl(const QUrl& url);
-
-    QString dbusPath() const;
-    QUrl destinationDir() const;
+    void loadApplications();
 
 };
-#endif

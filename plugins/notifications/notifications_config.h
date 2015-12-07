@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2015 Holger Kaelberer <holger.k@elberer.de>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,43 +18,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHAREPLUGIN_H
-#define SHAREPLUGIN_H
+#ifndef NOTIFICATIONS_CONFIG_H
+#define NOTIFICATIONS_CONFIG_H
 
-#include <KNotification>
-#include <KIO/Job>
+#include "kcmplugin/kdeconnectpluginkcm.h"
 
-#include <core/kdeconnectplugin.h>
+namespace Ui {
+    class NotificationsConfigUi;
+}
 
-#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share")
+class NotifyingApplicationModel;
 
-class SharePlugin
-    : public KdeConnectPlugin
+class NotificationsConfig
+    : public KdeConnectPluginKcm
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.share")
-
 public:
-    explicit SharePlugin(QObject *parent, const QVariantList &args);
+    NotificationsConfig(QWidget *parent, const QVariantList&);
+    virtual ~NotificationsConfig();
 
-    ///Helper method, QDBus won't recognize QUrl
-    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    virtual void save() override;
+    virtual void load() override;
+    virtual void defaults() override;
 
 private Q_SLOTS:
-    void finished(KJob*);
-    void openDestinationFolder();
-
-Q_SIGNALS:
-    void shareReceived(const QUrl& url);
+    void loadApplications();
 
 private:
-    void shareUrl(const QUrl& url);
-
-    QString dbusPath() const;
-    QUrl destinationDir() const;
+    Ui::NotificationsConfigUi* m_ui;
+    NotifyingApplicationModel* appModel;
 
 };
+
 #endif

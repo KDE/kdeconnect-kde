@@ -45,6 +45,7 @@ public:
     void processPackage(const NetworkPackage& np);
     void clearNotifications();
     void dismissRequested(const QString& notification);
+    void addNotification(Notification* noti);
 
 public Q_SLOTS:
     Q_SCRIPTABLE QStringList activeNotifications();
@@ -54,7 +55,6 @@ Q_SIGNALS:
     Q_SCRIPTABLE void notificationRemoved(const QString& publicId);
 
 private /*methods*/:
-    void addNotification(Notification* noti);
     void removeNotification(const QString& internalId);
     QString newId(); //Generates successive identifitiers to use as public ids
 

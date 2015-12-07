@@ -62,9 +62,39 @@ QVariant KdeConnectPluginConfig::get(const QString& key, const QVariant& default
     return d->mConfig->value(key, defaultValue);
 }
 
+QVariantList KdeConnectPluginConfig::getList(const QString& key,
+                                             const QVariantList& defaultValue)
+{
+    QVariantList list;
+    d->mConfig->sync();  // note: need sync() to get recent changes signalled from other process
+    int size = d->mConfig->beginReadArray(key);
+    if (size < 1) {
+        d->mConfig->endArray();
+        return defaultValue;
+    }
+    for (int i = 0; i < size; ++i) {
+        d->mConfig->setArrayIndex(i);
+        list << d->mConfig->value("value");
+    }
+    d->mConfig->endArray();
+    return list;
+}
+
 void KdeConnectPluginConfig::set(const QString& key, const QVariant& value)
 {
     d->mConfig->setValue(key, value);
+    d->mConfig->sync();
+    QDBusConnection::sessionBus().send(d->signal);
+}
+
+void KdeConnectPluginConfig::setList(const QString& key, const QVariantList& list)
+{
+    d->mConfig->beginWriteArray(key);
+    for (int i = 0; i < list.size(); ++i) {
+        d->mConfig->setArrayIndex(i);
+        d->mConfig->setValue("value", list.at(i));
+    }
+    d->mConfig->endArray();
     d->mConfig->sync();
     QDBusConnection::sessionBus().send(d->signal);
 }

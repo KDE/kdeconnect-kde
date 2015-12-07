@@ -32,6 +32,7 @@
  * KdeConnectPlugin at the same time (both are QObject)
  */
 class NotificationsDbusInterface;
+class NotificationsListener;
 
 class NotificationsPlugin
     : public KdeConnectPlugin
@@ -46,8 +47,9 @@ public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np) override;
     virtual void connected() override;
 
-private:
+protected:
     NotificationsDbusInterface* notificationsDbusInterface;
+    NotificationsListener* notificationsListener;
 
 };
 

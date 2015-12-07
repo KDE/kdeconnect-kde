@@ -1,5 +1,5 @@
 find_package(Qt5 REQUIRED COMPONENTS Test)
-find_package(KF5 REQUIRED COMPONENTS KIO)
+find_package(KF5 REQUIRED COMPONENTS KIO Notifications)
 
 include_directories(
     ${KDEConnectCore_BINARY_DIR}
@@ -56,3 +56,11 @@ ecm_add_test(lanlinkprovidertest.cpp  ${lanlinkprovidertest_sources}  TEST_NAME 
 ecm_add_test(devicetest.cpp ${lanlinkprovidertest_sources} TEST_NAME devicetest LINK_LIBRARIES ${kdeconnect_libraries})
 
 ecm_add_test(downloadjobtest.cpp ../core/backends/lan/downloadjob.cpp TEST_NAME downloadjobtest LINK_LIBRARIES ${kdeconnect_libraries})
+ecm_add_test(testnotificationlistener.cpp
+             ../plugins/notifications/notificationslistener.cpp
+             ../plugins/notifications/notificationsplugin.cpp
+             ../plugins/notifications/notification.cpp
+             ../plugins/notifications/notifyingapplication.cpp
+             ../plugins/notifications/notificationsdbusinterface.cpp
+             TEST_NAME testnotificationlistener
+             LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications)

@@ -51,6 +51,12 @@ public:
     void set(const QString& key, const QVariant& value);
 
     /**
+     * Store a list of values in this config object under the array name
+     * specified in key.
+     */
+    void setList(const QString& key, const QVariantList& list);
+
+    /**
      * Read a key-value pair from this config object
      */
     QVariant get(const QString& key, const QVariant& defaultValue);
@@ -61,6 +67,8 @@ public:
     template<typename T> T get(const QString& key, const T& defaultValue = {}) {
         return get(key, QVariant(defaultValue)).template value<T>(); //Important note: Awesome template syntax is awesome
     }
+
+    QVariantList getList(const QString& key, const QVariantList& defaultValue = {});
 
 private Q_SLOTS:
     void slotConfigChanged();

@@ -21,6 +21,7 @@
 #include "notificationsplugin.h"
 
 #include "notificationsdbusinterface.h"
+#include "notificationslistener.h"
 #include "notification_debug.h"
 
 #include <KPluginFactory>
@@ -33,6 +34,7 @@ NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& ar
     : KdeConnectPlugin(parent, args)
 {
     notificationsDbusInterface = new NotificationsDbusInterface(this);
+    notificationsListener = new NotificationsListener(this, notificationsDbusInterface);
 }
 
 void NotificationsPlugin::connected()
@@ -44,6 +46,7 @@ void NotificationsPlugin::connected()
 
 NotificationsPlugin::~NotificationsPlugin()
 {
+    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Destroying NotificationsPlugin";
     //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
     // the next dbus access to its parent). The implication of not deleting this
     // is that disabling the plugin leaks the interface. As a mitigation we are
