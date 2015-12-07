@@ -141,7 +141,7 @@ void TestNotificationListener::testNotify()
     plugin->config()->set("generalUrgency", 0);
     QCOMPARE(plugin->config()->get<bool>("generalPersistent"), false);
     QCOMPARE(plugin->config()->get<bool>("generalIncludeBody"), true);
-    QCOMPARE(plugin->config()->get<bool>("generalUrgency"), 0);
+    QCOMPARE(plugin->config()->get<bool>("generalUrgency"), false);
 
     // applications are modified directly:
     listener->getApplications().clear();

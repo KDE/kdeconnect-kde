@@ -125,11 +125,12 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
         return 0;
 
     int urgency = -1;
-    bool ok;
-    if (hints.contains("urgency"))
+    if (hints.contains("urgency")) {
+        bool ok;
         urgency = hints["urgency"].toInt(&ok);
-    if (!ok)
-        urgency = -1;
+        if (!ok)
+            urgency = -1;
+    }
     if (urgency > -1 && urgency < mPlugin->config()->get<int>("generalUrgency", 0))
         return 0;
 

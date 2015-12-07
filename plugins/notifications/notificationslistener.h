@@ -24,7 +24,7 @@
 class KdeConnectPlugin;
 class NotificationsDbusInterface;
 class Notification;
-class NotifyingApplication;
+struct NotifyingApplication;
 
 class NotificationsListener : public QDBusAbstractAdaptor
 {
