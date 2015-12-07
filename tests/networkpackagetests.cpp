@@ -23,6 +23,7 @@
 #include "core/networkpackage.h"
 
 #include <QtTest>
+#include <QtCrypto>
 
 QTEST_GUILESS_MAIN(NetworkPackageTests);
 
@@ -88,7 +89,7 @@ void NetworkPackageTests::networkPackageIdentityTest()
     QCOMPARE( np.type() , PACKAGE_TYPE_IDENTITY );
 
 }
-
+/*
 void NetworkPackageTests::networkPackageEncryptionTest()
 {
     QCA::Initializer init;
@@ -140,7 +141,7 @@ void NetworkPackageTests::networkPackageEncryptionTest()
     QCOMPARE(QString(decryptedJson), QString(json));
 
 }
-
+*/
 
 void NetworkPackageTests::cleanupTestCase()
 {

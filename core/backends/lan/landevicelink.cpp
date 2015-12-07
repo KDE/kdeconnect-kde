@@ -99,12 +99,6 @@ void LanDeviceLink::dataReceived()
         return;
     }
 
-    if (!package.isEncrypted()) {
-        qWarning() << "Received plain-text package from paired link, ignoring!";
-    }
-
-    package.decrypt(mPrivateKey, &package);
-
     if (package.hasPayloadTransferInfo()) {
         //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
         QVariantMap transferInfo = package.payloadTransferInfo();

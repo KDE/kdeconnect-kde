@@ -26,9 +26,8 @@
 #include <QObject>
 #include <QString>
 #include <QVariant>
-#include <QStringList>
 #include <QIODevice>
-#include <QtCrypto>
+//#include <QtCrypto>
 #include <QSharedPointer>
 #include <QUrl>
 
@@ -48,7 +47,7 @@ class KDECONNECTCORE_EXPORT NetworkPackage : public QObject
 
 public:
 
-    const static QCA::EncryptionAlgorithm EncryptionAlgorithm;
+    //const static QCA::EncryptionAlgorithm EncryptionAlgorithm;
     const static int ProtocolVersion;
 
     explicit NetworkPackage(const QString& type);
@@ -58,8 +57,8 @@ public:
     QByteArray serialize() const;
     static bool unserialize(const QByteArray& json, NetworkPackage* out);
 
-    void encrypt(QCA::PublicKey& key);
-    bool decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
+    //void encrypt(QCA::PublicKey& key);
+    //bool decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
     bool isEncrypted() const { return mType == PACKAGE_TYPE_ENCRYPTED; }
 
     const QString& id() const { return mId; }

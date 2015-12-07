@@ -27,7 +27,7 @@
 #include <QDataStream>
 #include <QDateTime>
 #include <QJsonDocument>
-#include <QtCrypto>
+//#include <QtCrypto>
 #include <QDebug>
 
 #include "dbushelper.h"
@@ -35,7 +35,7 @@
 #include "pluginloader.h"
 #include "kdeconnectconfig.h"
 
-const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
+//const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 6;
 
 NetworkPackage::NetworkPackage(const QString& type)
@@ -159,7 +159,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     return true;
 
 }
-
+/*
 void NetworkPackage::encrypt(QCA::PublicKey& key)
 {
 
@@ -213,7 +213,7 @@ bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
     return true;
 
 }
-
+*/
 FileTransferJob* NetworkPackage::createPayloadTransferJob(const QUrl &destination) const
 {
     return new FileTransferJob(payload(), payloadSize(), destination);
