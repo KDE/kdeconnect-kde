@@ -433,24 +433,22 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
 
 void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin)
 {
-
-    LanDeviceLink* deviceLink = new LanDeviceLink(deviceId, this, socket, connectionOrigin);
-    connect(deviceLink, SIGNAL(destroyed(QObject*)), this, SLOT(deviceLinkDestroyed(QObject*)));
-
     // Socket disconnection will now be handled by LanDeviceLink
     disconnect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
 
-    //We kill any possible link from this same device
-    QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(deviceLink->deviceId());
-    if (oldLinkIterator != mLinks.end()) {
-        DeviceLink* oldLink = oldLinkIterator.value();
-        disconnect(oldLink, SIGNAL(destroyed(QObject*)),
-                   this, SLOT(deviceLinkDestroyed(QObject*)));
-        oldLink->deleteLater();
-        mLinks.erase(oldLinkIterator);
+    DeviceLink* deviceLink;
+    //Do we have a link for this device already?
+    QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(deviceLink->deviceId());
+    if (linkIterator != mLinks.end()) {
+        deviceLink = linkIterator.value();
+        deviceLink->reset(socket, connectionOrigin);
+    } else {
+        deviceLink = new LanDeviceLink(deviceId, this, socket, connectionOrigin);
+        connect(deviceLink, SIGNAL(destroyed(QObject*)), this, SLOT(deviceLinkDestroyed(QObject*)));
+        mLinks[deviceId] = deviceLink;
     }
 
-    mLinks[deviceId] = deviceLink;
+
     refreshPairingHandler(deviceId);
     Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 

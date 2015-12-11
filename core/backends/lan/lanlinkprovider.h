@@ -74,7 +74,7 @@ private:
     const static quint16 port = 1714;
     quint16 mTcpPort;
 
-    QMap<QString, DeviceLink*> mLinks;
+    QMap<QString, LanDeviceLink*> mLinks;
     QMap<QString, LanPairingHandler*> mPairingHandlers;
 
     struct PendingConnect {

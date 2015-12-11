@@ -37,6 +37,7 @@ class LanDeviceLink
 
 public:
     LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource);
+    void reset(QSslSocket* socket, ConnectionStarted connectionSource);
 
     virtual QString name() Q_DECL_OVERRIDE;
     bool sendPackage(NetworkPackage& np) override;
