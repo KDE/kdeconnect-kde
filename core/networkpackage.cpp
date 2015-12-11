@@ -98,9 +98,9 @@ QByteArray NetworkPackage::serialize() const
     if (json.isEmpty()) {
         qCDebug(KDECONNECT_CORE) << "Serialization error:";
     } else {
-        if (!isEncrypted()) {
+        /*if (!isEncrypted()) {
             //qCDebug(KDECONNECT_CORE) << "Serialized package:" << json;
-        }
+        }*/
         json.append('\n');
     }
 
@@ -138,9 +138,9 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     auto variant = parser.toVariant().toMap();
     qvariant2qobject(variant, np);
 
-    if (!np->isEncrypted()) {
+    /*if (!np->isEncrypted()) {
         //qCDebug(KDECONNECT_CORE) << "Unserialized: " << a;
-    }
+    }*/
 
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
     if (np->mPayloadSize == -1) {
