@@ -393,9 +393,11 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 {
     //qCDebug(KDECONNECT_CORE) << "deviceLinkDestroyed";
     const QString id = destroyedDeviceLink->property("deviceId").toString();
-    QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(id);
-    if (oldLinkIterator != mLinks.end() && oldLinkIterator.value() == destroyedDeviceLink) {
-        mLinks.erase(oldLinkIterator);
+    Q_ASSERT(mLinks.key(static_cast<LanDeviceLink*>(destroyedDeviceLink)) == id);
+    QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(id);
+    if (linkIterator != mLinks.end()) {
+        Q_ASSERT(linkIterator.value() == destroyedDeviceLink);
+        mLinks.erase(linkIterator);
     }
 
 }
@@ -436,7 +438,7 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
     // Socket disconnection will now be handled by LanDeviceLink
     disconnect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
 
-    DeviceLink* deviceLink;
+    LanDeviceLink* deviceLink;
     //Do we have a link for this device already?
     QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(deviceLink->deviceId());
     if (linkIterator != mLinks.end()) {
