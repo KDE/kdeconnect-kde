@@ -397,6 +397,7 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
     if (linkIterator != mLinks.end()) {
         Q_ASSERT(linkIterator.value() == destroyedDeviceLink);
         mLinks.erase(linkIterator);
+        mPairingHandlers.remove(id);
     }
 
 }
@@ -447,6 +448,12 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
         deviceLink = new LanDeviceLink(deviceId, this, socket, connectionOrigin);
         connect(deviceLink, SIGNAL(destroyed(QObject*)), this, SLOT(deviceLinkDestroyed(QObject*)));
         mLinks[deviceId] = deviceLink;
+        if (mPairingHandlers.contains(deviceId)) {
+            //We shouldn't have a pairinghandler if we didn't have a link.
+            //Crash if debug, recover if release (by setting the new devicelink to the old pairinghandler)
+            Q_ASSERT(mPairingHandlers.contains(deviceId));
+            mPairingHandlers[deviceId]->setDeviceLink(deviceLink);
+        }
     }
 
     Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
@@ -457,7 +464,9 @@ void LanLinkProvider::userRequestsPair(const QString& deviceId)
 {
     LanPairingHandler* ph = mPairingHandlers.value(deviceId);
     if (!ph) {
-        ph = new LanPairingHandler(deviceId);
+        LanDeviceLink* link = mLinks.value(deviceId);
+        qDebug() << "Creating LanPairingHandler with link " << link;
+        ph = new LanPairingHandler(link);
         mPairingHandlers[deviceId] = ph;
     }
 
@@ -469,9 +478,10 @@ void LanLinkProvider::incomingPairPackage(DeviceLink* deviceLink, const NetworkP
     const QString deviceId = deviceLink->deviceId();
     LanPairingHandler* ph = mPairingHandlers.value(deviceId);
     if (!ph) {
-        ph = new LanPairingHandler(deviceId);
+        ph = new LanPairingHandler(deviceLink);
         mPairingHandlers[deviceId] = ph;
     }
 
     ph->packageReceived(np);
 }
+

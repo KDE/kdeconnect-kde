@@ -42,7 +42,7 @@ class KDECONNECTCORE_EXPORT PairingHandler : public QObject
     Q_OBJECT
 
 public:
-    PairingHandler(DeviceLink* parent = 0);
+    PairingHandler(DeviceLink* parent);
     virtual ~PairingHandler() { }
 
     DeviceLink* deviceLink() const;

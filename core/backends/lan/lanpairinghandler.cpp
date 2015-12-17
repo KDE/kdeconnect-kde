@@ -27,9 +27,8 @@
 #include "lanpairinghandler.h"
 #include "networkpackagetypes.h"
 
-LanPairingHandler::LanPairingHandler(const QString& deviceId)
-    : PairingHandler()
-    , m_deviceId(deviceId)
+LanPairingHandler::LanPairingHandler(DeviceLink* deviceLink)
+    : PairingHandler(deviceLink)
     , m_status(NotPaired)
 {
     m_pairingTimeout.setSingleShot(true);

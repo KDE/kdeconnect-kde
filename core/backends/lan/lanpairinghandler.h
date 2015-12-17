@@ -38,7 +38,7 @@ public:
         Paired,
     };
 
-    LanPairingHandler(const QString& deviceId);
+    LanPairingHandler(DeviceLink* deviceLink);
     virtual ~LanPairingHandler() { }
 
     virtual void createPairPackage(NetworkPackage& np) Q_DECL_OVERRIDE;
@@ -58,7 +58,6 @@ protected:
     void setInternalPairStatus(InternalPairStatus status);
 
     QTimer m_pairingTimeout;
-    QString m_deviceId;
 
     InternalPairStatus m_status;
 };
