@@ -246,6 +246,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
     //qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
 
+    Q_ASSERT(!m_deviceLinks.contains(link));
+
     m_protocolVersion = identityPackage.get<int>("protocolVersion", -1);
     if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
         qCWarning(KDECONNECT_CORE) << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;

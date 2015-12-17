@@ -454,9 +454,8 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
             Q_ASSERT(mPairingHandlers.contains(deviceId));
             mPairingHandlers[deviceId]->setDeviceLink(deviceLink);
         }
+        Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
     }
-
-    Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 
 }
 
