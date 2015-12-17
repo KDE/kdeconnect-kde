@@ -89,59 +89,6 @@ void NetworkPackageTests::networkPackageIdentityTest()
     QCOMPARE( np.type() , PACKAGE_TYPE_IDENTITY );
 
 }
-/*
-void NetworkPackageTests::networkPackageEncryptionTest()
-{
-    QCA::Initializer init;
-    if(!QCA::isSupported("rsa")) {
-        QFAIL("RSA isn't supported by your QCA. ");
-        return;
-    }
-
-
-    NetworkPackage original("com.test");
-    original.set("hello","hola");
-
-    NetworkPackage copy("");
-    NetworkPackage::unserialize(original.serialize(), &copy);
-
-    NetworkPackage decrypted("");
-
-    QCA::PrivateKey privateKey = QCA::KeyGenerator().createRSA(2048);
-    QVERIFY(!privateKey.isNull());
-    QCA::PublicKey publicKey = privateKey.toPublicKey();
-
-
-    //Encrypt and decrypt np
-    QCOMPARE( original.type(), QString("com.test") );
-    original.encrypt(publicKey);
-    QCOMPARE( original.type(), PACKAGE_TYPE_ENCRYPTED );
-    original.decrypt(privateKey, &decrypted);
-    QCOMPARE( original.type(), PACKAGE_TYPE_ENCRYPTED );
-    QCOMPARE( decrypted.type(), QString("com.test") );
-
-    //np should be equal top np2
-    QCOMPARE( decrypted.id(), copy.id() );
-    QCOMPARE( decrypted.type(), copy.type() );
-    QCOMPARE( decrypted.body(), copy.body() );
-
-
-    //Test for long package encryption that need multi-chunk encryption
-
-    QByteArray json = "{\"body\":{\"nowPlaying\":\"A really long song name - A really long artist name\",\"player\":\"A really long player name\",\"the_meaning_of_life_the_universe_and_everything\":\"42\"},\"id\":\"A really long package id\",\"payloadSize\":0,\"payloadTransferInfo\":{},\"type\":\"kdeconnect.a_really_really_long_package_type\"}\n";
-    qDebug() << "EME_PKCS1_OAEP maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1_OAEP);
-    qDebug() << "EME_PKCS1v15 maximumEncryptSize" << publicKey.maximumEncryptSize(QCA::EME_PKCS1v15);
-    QCOMPARE( json.size() > publicKey.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm), true );
-
-    NetworkPackage::unserialize(json, &original);
-    original.encrypt(publicKey);
-    original.decrypt(privateKey, &decrypted);
-    QByteArray decryptedJson = decrypted.serialize();
-
-    QCOMPARE(QString(decryptedJson), QString(json));
-
-}
-*/
 
 void NetworkPackageTests::cleanupTestCase()
 {

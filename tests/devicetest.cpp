@@ -60,7 +60,6 @@ void DeviceTest::testPairedDevice()
 {
     KdeConnectConfig* kcc = KdeConnectConfig::instance();
     kcc->addTrustedDevice(deviceId, deviceName, deviceType);
-    kcc->setDeviceProperty(deviceId, QString("publicKey"), kcc->publicKey().toPEM()); // Using same public key from kcc, instead of creating new one
     kcc->setDeviceProperty(deviceId, QString("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating one
 
     Device device(this, deviceId);

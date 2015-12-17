@@ -342,7 +342,6 @@ void LanLinkProviderTest::addTrustedDevice()
     KdeConnectConfig *kcc = KdeConnectConfig::instance();
     kcc->addTrustedDevice(deviceId, name, QString("phone"));
     kcc->setDeviceProperty(deviceId, QString("certificate"), QString::fromLatin1(certificate.toPem()));
-    kcc->setDeviceProperty(deviceId, QString("publicKey"), privateKey.toPublicKey().toPEM());
 }
 
 void LanLinkProviderTest::removeTrustedDevice()

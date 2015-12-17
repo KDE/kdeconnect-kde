@@ -64,7 +64,6 @@ bool LoopbackPairingHandler::acceptPairing()
     createPairPackage(np);
     setPairStatus(PairStatus::Paired);
     bool success = deviceLink()->sendPackage(np);
-    KdeConnectConfig::instance()->setDeviceProperty(m_deviceId, "publicKey", QString::fromLatin1(KdeConnectConfig::instance()->certificate().toPem()));
     KdeConnectConfig::instance()->setDeviceProperty(m_deviceId, "certificate", QString::fromLatin1(KdeConnectConfig::instance()->certificate().toPem()));
     return success;
 }
