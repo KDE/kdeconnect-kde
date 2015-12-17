@@ -134,12 +134,11 @@ void LanDeviceLink::userRequestsUnpair()
 
 void LanDeviceLink::setPairStatus(PairStatus status)
 {
+    DeviceLink::setPairStatus(status);
     if (status == Paired) {
         Q_ASSERT(KdeConnectConfig::instance()->trustedDevices().contains(deviceId()));
         Q_ASSERT(!mSocketLineReader->peerCertificate().isNull());
         KdeConnectConfig::instance()->setDeviceProperty(deviceId(), "certificate", mSocketLineReader->peerCertificate().toPem());
     }
-
-    DeviceLink::setPairStatus(status);
 }
 
