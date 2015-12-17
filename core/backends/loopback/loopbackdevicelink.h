@@ -34,7 +34,6 @@ public:
 
     virtual QString name() override;
     virtual bool sendPackage(NetworkPackage& np) override;
-    virtual bool sendPackageEncrypted(NetworkPackage& np) override;
 
     virtual void userRequestsPair() override { setPairStatus(Paired); }
     virtual void userRequestsUnpair() override { setPairStatus(NotPaired); }

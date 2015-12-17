@@ -49,7 +49,6 @@ public:
     LinkProvider* provider() { return mLinkProvider; }
 
     virtual bool sendPackage(NetworkPackage& np) = 0;
-    virtual bool sendPackageEncrypted(NetworkPackage& np) = 0;
 
     //user actions
     virtual void userRequestsPair() = 0;

@@ -71,7 +71,7 @@ QString LanDeviceLink::name()
     return "LanLink"; // Should be same in both android and kde version
 }
 
-bool LanDeviceLink::sendPackageEncrypted(NetworkPackage& np)
+bool LanDeviceLink::sendPackage(NetworkPackage& np)
 {
     if (np.hasPayload()) {
         np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
@@ -82,16 +82,6 @@ bool LanDeviceLink::sendPackageEncrypted(NetworkPackage& np)
     //Actually we can't detect if a package is received or not. We keep TCP
     //"ESTABLISHED" connections that look legit (return true when we use them),
     //but that are actually broken (until keepalive detects that they are down).
-    return (written != -1);
-}
-
-bool LanDeviceLink::sendPackage(NetworkPackage& np)
-{
-    if (np.hasPayload()) {
-        np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
-    }
-
-    int written = mSocketLineReader->write(np.serialize());
     return (written != -1);
 }
 

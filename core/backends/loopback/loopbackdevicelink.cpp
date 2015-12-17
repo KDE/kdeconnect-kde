@@ -34,11 +34,6 @@ QString LoopbackDeviceLink::name()
     return "LoopbackLink"; // Should be similar to android
 }
 
-bool LoopbackDeviceLink::sendPackageEncrypted(NetworkPackage& input)
-{
-    return sendPackage(input);
-}
-
 bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)
 {
     NetworkPackage output(QString::null);
