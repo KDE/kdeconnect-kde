@@ -114,7 +114,7 @@ void LanLinkProvider::onNetworkChange()
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
-    mUdpSocket.writeDatagram(np.serialize(), mTestMode ? QHostAddress::LocalHost : QHostAddress::Any, port);
+    mUdpSocket.writeDatagram(np.serialize(), mTestMode ? QHostAddress::LocalHost : QHostAddress("255.255.255.255"), port);
 }
 
 //I'm the existing device, a new device is kindly introducing itself.
