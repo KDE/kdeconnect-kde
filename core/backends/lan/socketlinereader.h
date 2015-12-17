@@ -42,6 +42,7 @@ public:
     QByteArray readLine() { return mPackages.dequeue(); }
     qint64 write(const QByteArray& data) { return mSocket->write(data); }
     QHostAddress peerAddress() const { return mSocket->peerAddress(); }
+    QSslCertificate peerCertificate() const { return mSocket->peerCertificate(); }
     qint64 bytesAvailable() const { return mPackages.size(); }
 
 Q_SIGNALS:

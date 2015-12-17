@@ -59,19 +59,6 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
     if (wantsPair) {
 
-        QString keyString = np.get<QString>("publicKey");
-        QString certificateString = np.get<QByteArray>("certificate");
-        QCA::PublicKey publicKey = QCA::PublicKey::fromPEM(keyString);
-        QSslCertificate certificate(keyString.toLatin1());
-        if (certificate.isNull()) {
-            if (isPairRequested()) {
-                setInternalPairStatus(NotPaired);
-            }
-            Q_EMIT pairingError(i18n("Received incorrect certificate"));
-            return;
-        }
-        qobject_cast<LanDeviceLink*>(deviceLink())->setCertificate(certificate, publicKey);
-
         if (isPairRequested())  { //We started pairing
 
             qCDebug(KDECONNECT_CORE) << "Pair answer";

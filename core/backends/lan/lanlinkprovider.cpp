@@ -264,8 +264,6 @@ void LanLinkProvider::encrypted()
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
     //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
 
-    receivedPackage->set("certificate", socket->peerCertificate().toPem());
-
     addLink(deviceId, socket, receivedPackage, DeviceLink::Remotely);
 
     // Copied from connected slot, now delete received package

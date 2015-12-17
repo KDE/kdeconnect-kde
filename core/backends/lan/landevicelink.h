@@ -42,14 +42,10 @@ public:
 
     virtual QString name() Q_DECL_OVERRIDE;
     bool sendPackage(NetworkPackage& np) override;
-    bool sendPackageEncrypted(NetworkPackage& np) override;
     UploadJob* sendPayload(NetworkPackage& np);
 
     virtual void userRequestsPair() override;
     virtual void userRequestsUnpair() override;
-
-    void setCertificate(QSslCertificate certificate, QCA::PublicKey publicKey);
-    QSslCertificate certificate() { return m_certificate; }
 
     virtual void setPairStatus(PairStatus status) override;
 
@@ -58,9 +54,6 @@ private Q_SLOTS:
 
 private:
     SocketLineReader* mSocketLineReader;
-
-    QCA::PublicKey m_publicKey;
-    QSslCertificate m_certificate;
 };
 
 #endif
