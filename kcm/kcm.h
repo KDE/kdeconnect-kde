@@ -53,7 +53,7 @@ private Q_SLOTS:
     void pluginsConfigChanged();
     void sendPing();
     void resetSelection();
-    void pairingChanged(bool);
+    void trustedChanged(bool);
     void pairingFailed(const QString& error);
     void refresh();
     void renameShow();

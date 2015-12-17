@@ -183,7 +183,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
             device->deleteLater();
         } else {
             connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
-            connect(device, SIGNAL(pairingChanged(bool)), this, SLOT(onDeviceStatusChanged()));
+            connect(device, SIGNAL(trustedChanged(bool)), this, SLOT(onDeviceStatusChanged()));
             d->mDevices[id] = device;
 
             Q_EMIT deviceAdded(id);

@@ -193,8 +193,8 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     resetDeviceView();
 
     connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
-    connect(currentDevice, SIGNAL(pairingChanged(bool)), this, SLOT(pairingChanged(bool)));
-    connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
+    connect(currentDevice, SIGNAL(trustedChanged(bool)), this, SLOT(trustedChanged(bool)));
+    connect(currentDevice, SIGNAL(pairingError(QString)), this, SLOT(pairingFailed(QString)));
 }
 
 void KdeConnectKcm::resetCurrentDevice()
@@ -266,13 +266,13 @@ void KdeConnectKcm::pairingFailed(const QString& error)
 {
     if (sender() != currentDevice) return;
 
-    pairingChanged(false);
+    trustedChanged(false);
 
     kcmUi->messages->setText(i18n("Error trying to pair: %1",error));
     kcmUi->messages->animatedShow();
 }
 
-void KdeConnectKcm::pairingChanged(bool paired)
+void KdeConnectKcm::trustedChanged(bool paired)
 {
     DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
     if (senderDevice != currentDevice) return;
