@@ -64,9 +64,10 @@ private Q_SLOTS:
 
 private:
     static void configureSocket(QSslSocket* socket);
+    LanPairingHandler* createPairingHandler(DeviceLink* link);
+
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
     void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin);
-    void refreshPairingHandler(const QString &deviceId);
 
     Server* mServer;
     QUdpSocket* mUdpServer;

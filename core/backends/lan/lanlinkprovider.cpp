@@ -460,28 +460,27 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
 
 }
 
+LanPairingHandler* LanLinkProvider::createPairingHandler(DeviceLink* link)
+{
+    LanPairingHandler* ph = mPairingHandlers.value(link->deviceId());
+    if (!ph) {
+        ph = new LanPairingHandler(link);
+        qDebug() << "creating pairing handler for" << link->deviceId();
+        connect (ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
+        mPairingHandlers[link->deviceId()] = ph;
+    }
+    return ph;
+}
+
 void LanLinkProvider::userRequestsPair(const QString& deviceId)
 {
-    LanPairingHandler* ph = mPairingHandlers.value(deviceId);
-    if (!ph) {
-        LanDeviceLink* link = mLinks.value(deviceId);
-        qDebug() << "Creating LanPairingHandler with link " << link;
-        ph = new LanPairingHandler(link);
-        mPairingHandlers[deviceId] = ph;
-    }
-
+    LanPairingHandler* ph = createPairingHandler(mLinks.value(deviceId));
     ph->requestPairing();
 }
 
 void LanLinkProvider::incomingPairPackage(DeviceLink* deviceLink, const NetworkPackage& np)
 {
-    const QString deviceId = deviceLink->deviceId();
-    LanPairingHandler* ph = mPairingHandlers.value(deviceId);
-    if (!ph) {
-        ph = new LanPairingHandler(deviceLink);
-        mPairingHandlers[deviceId] = ph;
-    }
-
+    LanPairingHandler* ph = createPairingHandler(deviceLink);
     ph->packageReceived(np);
 }
 

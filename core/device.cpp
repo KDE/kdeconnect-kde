@@ -47,6 +47,11 @@
 
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
+static void warn(const QString &info)
+{
+    qWarning() << "Device pairing error" << info;
+}
+
 Device::Device(QObject* parent, const QString& id)
     : QObject(parent)
     , m_deviceId(id)
@@ -59,6 +64,8 @@ Device::Device(QObject* parent, const QString& id)
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+
+    connect(this, &Device::pairingError, this, &warn);
 }
 
 Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLink* dl)
@@ -72,6 +79,8 @@ Device::Device(QObject* parent, const NetworkPackage& identityPackage, DeviceLin
 
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+
+    connect(this, &Device::pairingError, this, &warn);
 }
 
 Device::~Device()
