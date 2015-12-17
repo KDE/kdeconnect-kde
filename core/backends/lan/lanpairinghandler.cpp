@@ -53,20 +53,11 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
     bool wantsPair = np.get<bool>("pair");
 
-    if (wantsPair == isPaired()) {
+    if (wantsPair == isPaired() && isPairRequested()) {
 //        qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
-        if (isPairRequested()) {
-            setInternalPairStatus(NotPaired);
-            Q_EMIT pairingError(i18n("Canceled by other peer"));
-            return;
-        } else if (isPaired()) {
-            /**
-             * If wants pair is true and is paired is true, this means other device is trying to pair again, might be because it unpaired this device somehow
-             * and we don't know it, unpair it internally
-             */
-            KdeConnectConfig::instance()->removeTrustedDevice(m_deviceId);
-            setInternalPairStatus(NotPaired);
-        }
+        setInternalPairStatus(NotPaired);
+        Q_EMIT pairingError(i18n("Canceled by other peer"));
+        return;
     }
 
     if (wantsPair) {
@@ -74,19 +65,23 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
         QString keyString = np.get<QString>("publicKey");
         QString certificateString = np.get<QByteArray>("certificate");
 
-        if (QCA::RSAPublicKey::fromPEM(keyString).isNull()) {
+        QCA::PublicKey publicKey = QCA::PublicKey::fromPEM(keyString);
+        QSslCertificate certificate(keyString.toLatin1());
+
+        if (certificate.isNull()) {
             if (isPairRequested()) {
                 setInternalPairStatus(NotPaired);
             }
-            Q_EMIT pairingError(i18n("Received incorrect key"));
+            Q_EMIT pairingError(i18n("Received incorrect certificate"));
             return;
         }
+
+        qobject_cast<LanDeviceLink*>(deviceLink())->setCertificate(certificate, publicKey);
 
         if (isPairRequested())  { //We started pairing
 
             qCDebug(KDECONNECT_CORE) << "Pair answer";
-            KdeConnectConfig::instance()->setDeviceProperty(m_deviceId, "publicKey", keyString);
-            KdeConnectConfig::instance()->setDeviceProperty(m_deviceId, "certificate", certificateString);
+            deviceLink()->setPairStatus(DeviceLink::PairStatus::Paired);
             
         } else {
             qCDebug(KDECONNECT_CORE) << "Pair request";
@@ -188,6 +183,4 @@ void LanPairingHandler::setInternalPairStatus(LanPairingHandler::InternalPairSta
     } else {
         deviceLink()->setPairStatus(DeviceLink::NotPaired);
     }
-    qobject_cast<LanDeviceLink*>(deviceLink())->storeTrustedDeviceInformation();
-    //TODO: Tell link to store certificate and key
 }

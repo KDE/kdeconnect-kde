@@ -20,7 +20,7 @@
 
 #include "landevicelink.h"
 #include "core_debug.h"
-
+#include <kdeconnectconfig.h>
 #include "../linkprovider.h"
 #include "uploadjob.h"
 #include "downloadjob.h"
@@ -36,21 +36,34 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
 
 void LanDeviceLink::reset(QSslSocket* socket, DeviceLink::ConnectionStarted connectionSource)
 {
-    //We take ownership of the socket.
-    //When the link provider destroys us,
-    //the socket (and the reader) will be
-    //destroyed as well
-
     if (mSocketLineReader) {
         delete mSocketLineReader;
     }
 
-    mSocketLineReader = new SocketLineReader(socket);
+    mSocketLineReader = new SocketLineReader(socket, this);
 
     connect(socket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
     connect(mSocketLineReader, SIGNAL(readyRead()), this, SLOT(dataReceived()));
-    mSocketLineReader->setParent(this);
+
+    //We take ownership of the socket.
+    //When the link provider destroys us,
+    //the socket (and the reader) will be
+    //destroyed as well
     socket->setParent(this);
+
+    setConnectionSource(connectionSource);
+
+    if (m_certificate.isNull()) {
+
+        QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId(), "certificate");
+        m_certificate = QSslCertificate(certString.toLatin1());
+
+        QString keyString = KdeConnectConfig::instance()->getDeviceProperty(deviceId(), "publicKey");
+        m_publicKey = QCA::PublicKey::fromPEM(keyString.toLatin1());
+
+        DeviceLink::setPairStatus(m_certificate.isNull()? PairStatus::NotPaired : PairStatus::Paired);
+    }
+
 }
 
 QString LanDeviceLink::name()
@@ -137,8 +150,23 @@ void LanDeviceLink::userRequestsUnpair()
     setPairStatus(NotPaired);
 }
 
-void LanDeviceLink::storeTrustedDeviceInformation()
+void LanDeviceLink::setPairStatus(PairStatus status)
+{
+    if (status == Paired) {
+        Q_ASSERT(KdeConnectConfig::instance()->trustedDevices().contains(deviceId()));
+        Q_ASSERT(!m_certificate.isNull());
+        Q_ASSERT(!m_publicKey.isNull());
+        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), "certificate", m_certificate.toPem());
+        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), "publicKey", m_publicKey.toPEM());
+    }
+
+    DeviceLink::setPairStatus(status);
+}
+
+void LanDeviceLink::setCertificate(QSslCertificate certificate, QCA::PublicKey publicKey)
 {
     Q_ASSERT(!m_certificate.isNull());
     Q_ASSERT(!m_publicKey.isNull());
+    m_certificate = certificate;
+    m_publicKey = publicKey;
 }

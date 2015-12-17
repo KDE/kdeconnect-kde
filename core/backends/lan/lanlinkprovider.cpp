@@ -211,17 +211,15 @@ void LanLinkProvider::connected()
         qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the existing device)";
 
         // if ssl supported
-        if (NetworkPackage::ProtocolVersion <= receivedPackage->get<int>("protocolVersion")) {
+        if (receivedPackage->get<int>("protocolVersion") >= NetworkPackage::ProtocolVersion) {
             // since I support ssl and remote device support ssl
 	        qCDebug(KDECONNECT_CORE) << "Setting up ssl server";
 
-            bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
-
             socket->setPeerVerifyName(receivedPackage->get<QString>("deviceId"));
 
-            if (isDeviceTrusted) {
+            QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
+            if (!certString.isEmpty()) {
                 qDebug() << "Device trusted";
-                QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
                 socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
                 socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
                 connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
@@ -236,6 +234,7 @@ void LanLinkProvider::connected()
             socket->startServerEncryption();
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
         } else {
+            qWarning() << "Incompatible protocol version, this won't work";
             addLink(deviceId, socket, receivedPackage, DeviceLink::Remotely);
         }
 
@@ -440,7 +439,7 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
 
     LanDeviceLink* deviceLink;
     //Do we have a link for this device already?
-    QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(deviceLink->deviceId());
+    QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(deviceId);
     if (linkIterator != mLinks.end()) {
         deviceLink = linkIterator.value();
         deviceLink->reset(socket, connectionOrigin);
@@ -476,10 +475,9 @@ void LanLinkProvider::refreshPairingHandler(const QString& deviceId) {
         connect(ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
     }
 }
-
-void LanLinkProvider::incomingPairPackage(DeviceLink* device, const NetworkPackage& np)
+void LanLinkProvider::incomingPairPackage(DeviceLink* deviceLink, const NetworkPackage& np)
 {
-    const QString deviceId = device->deviceId();
+    const QString deviceId = deviceLink->deviceId();
     LanPairingHandler* ph = mPairingHandlers.value(deviceId);
     if (!ph) {
         ph = new LanPairingHandler(deviceId);

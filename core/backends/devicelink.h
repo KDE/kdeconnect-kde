@@ -55,10 +55,11 @@ public:
     virtual void userRequestsPair() = 0;
     virtual void userRequestsUnpair() = 0;
 
-    ConnectionStarted connectionSource() const { return mConnectionSource; }
+    ConnectionStarted connectionSource() const { return mConnectionSource; } //TODO: Move this down to landevicelink and create an abstraction like "bool keepConnectionOpen()" here.
+    void setConnectionSource(ConnectionStarted source) { mConnectionSource = source; }
 
     PairStatus pairStatus() const { return mPairStatus; }
-    void setPairStatus(PairStatus status);
+    virtual void setPairStatus(PairStatus status);
 
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
@@ -70,7 +71,7 @@ protected:
 
 private:
     const QString mDeviceId;
-    const ConnectionStarted mConnectionSource;
+    ConnectionStarted mConnectionSource;
     LinkProvider* mLinkProvider;
     PairStatus mPairStatus;
 

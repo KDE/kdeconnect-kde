@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QString>
 #include <QSslSocket>
+#include <QSslCertificate>
 
 #include "../devicelink.h"
 #include "uploadjob.h"
@@ -47,7 +48,10 @@ public:
     virtual void userRequestsPair() override;
     virtual void userRequestsUnpair() override;
 
-    void storeTrustedDeviceInformation();
+    void setCertificate(QSslCertificate certificate, QCA::PublicKey publicKey);
+    QSslCertificate certificate() { return m_certificate; }
+
+    virtual void setPairStatus(PairStatus status) override;
 
 private Q_SLOTS:
     void dataReceived();
