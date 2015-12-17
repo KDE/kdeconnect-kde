@@ -41,6 +41,7 @@ void LanPairingHandler::createPairPackage(NetworkPackage& np)
     np.set("link", deviceLink()->name());
     np.set("pair", true);
     np.set("publicKey", KdeConnectConfig::instance()->publicKey().toPEM());
+    np.set("certificate", KdeConnectConfig::instance()->certificate().toPem());
 }
 
 void LanPairingHandler::packageReceived(const NetworkPackage& np)
