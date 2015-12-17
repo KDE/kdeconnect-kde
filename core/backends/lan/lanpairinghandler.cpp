@@ -46,28 +46,23 @@ void LanPairingHandler::createPairPackage(NetworkPackage& np)
 
 void LanPairingHandler::packageReceived(const NetworkPackage& np)
 {
+    qDebug() << "Pairing package received!" << np.serialize();
 
-    if (np.get<QString>("link", deviceLink()->name()).compare(deviceLink()->name()) != 0) return; // If this package is not received by my type of link
+    if (np.get<QString>("link", deviceLink()->name()).compare(deviceLink()->name()) != 0) {
+        // If this package is not received by my type of link
+        return;
+    }
 
     m_pairingTimeout.stop();
 
     bool wantsPair = np.get<bool>("pair");
 
-    if (wantsPair == isPaired() && isPairRequested()) {
-//        qCDebug(KDECONNECT_CORE) << "Already" << (wantsPair? "paired":"unpaired");
-        setInternalPairStatus(NotPaired);
-        Q_EMIT pairingError(i18n("Canceled by other peer"));
-        return;
-    }
-
     if (wantsPair) {
 
         QString keyString = np.get<QString>("publicKey");
         QString certificateString = np.get<QByteArray>("certificate");
-
         QCA::PublicKey publicKey = QCA::PublicKey::fromPEM(keyString);
         QSslCertificate certificate(keyString.toLatin1());
-
         if (certificate.isNull()) {
             if (isPairRequested()) {
                 setInternalPairStatus(NotPaired);
@@ -75,18 +70,17 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
             Q_EMIT pairingError(i18n("Received incorrect certificate"));
             return;
         }
-
         qobject_cast<LanDeviceLink*>(deviceLink())->setCertificate(certificate, publicKey);
 
         if (isPairRequested())  { //We started pairing
 
             qCDebug(KDECONNECT_CORE) << "Pair answer";
-            deviceLink()->setPairStatus(DeviceLink::PairStatus::Paired);
+            setInternalPairStatus(Paired);
             
         } else {
             qCDebug(KDECONNECT_CORE) << "Pair request";
 
-            if (isPaired()) {
+            if (isPaired()) { //I'm already paired, but they think I'm not
                 acceptPairing();
                 return;
             }
@@ -99,11 +93,10 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
         qCDebug(KDECONNECT_CORE) << "Unpair request";
 
-        if (isPairRequested()) {
+        setInternalPairStatus(NotPaired);
+         if (isPairRequested()) {
             Q_EMIT pairingError(i18n("Canceled by other peer"));
         }
-
-        setInternalPairStatus(NotPaired);
     }
 }
 
@@ -137,11 +130,11 @@ bool LanPairingHandler::requestPairing()
 
 bool LanPairingHandler::acceptPairing()
 {
+    qDebug() << "User accepts pairing";
     m_pairingTimeout.stop(); // Just in case it is started
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     createPairPackage(np);
-    bool success;
-    success = deviceLink()->sendPackage(np);
+    bool success = deviceLink()->sendPackage(np);
     if (success) {
         setInternalPairStatus(Paired);
     }
@@ -150,6 +143,7 @@ bool LanPairingHandler::acceptPairing()
 
 void LanPairingHandler::rejectPairing()
 {
+    qDebug() << "User rejects pairing";
     NetworkPackage np(PACKAGE_TYPE_PAIR);
     np.set("pair", false);
     np.set("link", deviceLink()->name());

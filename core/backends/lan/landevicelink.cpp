@@ -109,11 +109,12 @@ UploadJob* LanDeviceLink::sendPayload(NetworkPackage& np)
 void LanDeviceLink::dataReceived()
 {
     if (mSocketLineReader->bytesAvailable() == 0) return;
-    //qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << package;
 
     const QByteArray serializedPackage = mSocketLineReader->readLine();
     NetworkPackage package(QString::null);
     NetworkPackage::unserialize(serializedPackage, &package);
+
+    //qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPackage;
 
     if (package.type() == PACKAGE_TYPE_PAIR) {
         //TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
