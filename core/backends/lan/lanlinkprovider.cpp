@@ -288,7 +288,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
             case QSslError::CertificateUntrusted:
             case QSslError::SelfSignedCertificate: {
                 qCDebug(KDECONNECT_CORE) << "Unpairing device due to " << error.errorString();
-                /* Due to simultaneous multiple connections, it may be possible that device instance does not exist */
+                // Due to simultaneous multiple connections, it may be possible that device instance does not exist anymore
                 Device *device = Daemon::instance()->getDevice(socket->peerVerifyName());
                 if (device != Q_NULLPTR) {
                     device->unpair();

@@ -18,6 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <KLocalizedString>
+
 #include "landevicelink.h"
 #include "core_debug.h"
 #include <kdeconnectconfig.h>
@@ -124,7 +126,11 @@ void LanDeviceLink::dataReceived()
 
 void LanDeviceLink::userRequestsPair()
 {
-    qobject_cast<LanLinkProvider*>(provider())->userRequestsPair(deviceId());
+    if (mSocketLineReader->peerCertificate().isNull()) {
+        Q_EMIT pairingError(i18n("This device can't be paired because is running an old version of KDE Connect."));
+    } else {
+        qobject_cast<LanLinkProvider*>(provider())->userRequestsPair(deviceId());
+    }
 }
 
 void LanDeviceLink::userRequestsUnpair()
