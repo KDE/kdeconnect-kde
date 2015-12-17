@@ -449,8 +449,6 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
         mLinks[deviceId] = deviceLink;
     }
 
-
-    refreshPairingHandler(deviceId);
     Q_EMIT onConnectionReceived(*receivedPackage, deviceLink);
 
 }
@@ -461,20 +459,11 @@ void LanLinkProvider::userRequestsPair(const QString& deviceId)
     if (!ph) {
         ph = new LanPairingHandler(deviceId);
         mPairingHandlers[deviceId] = ph;
-        refreshPairingHandler(deviceId);
     }
 
     ph->requestPairing();
 }
 
-void LanLinkProvider::refreshPairingHandler(const QString& deviceId) {
-    LanPairingHandler* ph = mPairingHandlers.value(deviceId);
-    if (ph) {
-        DeviceLink* link = mLinks[deviceId];
-        ph->setDeviceLink(link);
-        connect(ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
-    }
-}
 void LanLinkProvider::incomingPairPackage(DeviceLink* deviceLink, const NetworkPackage& np)
 {
     const QString deviceId = deviceLink->deviceId();
@@ -482,7 +471,6 @@ void LanLinkProvider::incomingPairPackage(DeviceLink* deviceLink, const NetworkP
     if (!ph) {
         ph = new LanPairingHandler(deviceId);
         mPairingHandlers[deviceId] = ph;
-        refreshPairingHandler(deviceId);
     }
 
     ph->packageReceived(np);
