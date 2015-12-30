@@ -3,11 +3,13 @@
         "Authors": [
             {
                 "Email": "apparle@gmail.com", 
-                "Name": "Apoorv Parle"
+                "Name": "Apoorv Parle", 
+                "Name[x-test]": "xxApoorv Parlexx"
             }, 
             {
                 "Email": "davidedmundson@kde.org", 
-                "Name": "David Edmundson"
+                "Name": "David Edmundson", 
+                "Name[x-test]": "xxDavid Edmundsonxx"
             }
         ], 
         "Description": "Find your lost phone by making it play an alarm sound    ", 

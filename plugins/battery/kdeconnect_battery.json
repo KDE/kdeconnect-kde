@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca"
+                "Name": "Albert Vaca", 
+                "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
         "Description": "Show your phone battery next to your computer battery", 

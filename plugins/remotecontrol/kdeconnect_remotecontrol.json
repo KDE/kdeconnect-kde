@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "aleixpol@kde.org", 
-                "Name": "Aleix Pol"
+                "Name": "Aleix Pol", 
+                "Name[x-test]": "xxAleix Polxx"
             }
         ], 
         "Description": "Control Remote systems", 

@@ -4,7 +4,9 @@
         "Authors": [
             {
                 "Email": "kinnalru@gmail.com", 
-                "Name": "Samoilenko Yuri"
+                "Name": "Samoilenko Yuri", 
+                "Name[uk]": "Юрій Самойленко", 
+                "Name[x-test]": "xxSamoilenko Yurixx"
             }
         ], 
         "Description": "Browse the remote device filesystem using SFTP", 

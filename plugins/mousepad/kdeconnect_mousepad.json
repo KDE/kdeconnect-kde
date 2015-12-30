@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "ahmedibrahimkhali@gmail.com", 
-                "Name": "Ahmed I. Khalil"
+                "Name": "Ahmed I. Khalil", 
+                "Name[x-test]": "xxAhmed I. Khalilxx"
             }
         ], 
         "Description": "Use your phone as a touchpad and keyboard", 

@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "pmdematagoda@mykolab.ch", 
-                "Name": "Pramod Dematagoda"
+                "Name": "Pramod Dematagoda", 
+                "Name[x-test]": "xxPramod Dematagodaxx"
             }
         ], 
         "Description": "Inhibit the screensaver when the device is connected", 

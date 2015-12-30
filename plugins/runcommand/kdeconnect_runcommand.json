@@ -4,11 +4,13 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca"
+                "Name": "Albert Vaca", 
+                "Name[x-test]": "xxAlbert Vacaxx"
             }, 
             {
                 "Email": "david@davidedmundson.co.uk", 
-                "Name": "David Edmundson"
+                "Name": "David Edmundson", 
+                "Name[x-test]": "xxDavid Edmundsonxx"
             }
         ], 
         "Description": "Execute console commands remotely", 
