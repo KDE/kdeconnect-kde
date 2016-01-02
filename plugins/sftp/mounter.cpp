@@ -123,7 +123,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
         << "-o" << "UserKnownHostsFile=/dev/null" //Prevent storing as a known host
-        << "-o" << "HostKeyAlgorithms=+ssh-dss"; //https://bugs.kde.org/show_bug.cgi?id=351725
+        << "-o" << "HostKeyAlgorithms=ssh-dss"; //https://bugs.kde.org/show_bug.cgi?id=351725
 
     m_proc->setProgram(program, arguments);
 
