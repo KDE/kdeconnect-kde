@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca"
+                "Name": "Albert Vaca", 
+                "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
         "Description": "Share the clipboard between devices", 
@@ -12,8 +13,8 @@
         "Description[ca@valencia]": "Comparteix el porta-retalls entre dispositius", 
         "Description[ca]": "Comparteix el porta-retalls entre dispositius", 
         "Description[cs]": "Sdílet obsah schránky mezi zařízeními", 
+        "Description[da]": "Del udklipsholderen mellem enheder", 
         "Description[de]": "Die Zwischenablage mit Geräten teilen", 
-        "Description[en_GB]": "Share the clipboard between devices", 
         "Description[es]": "Compartir portapapeles entre dispositivos", 
         "Description[fi]": "Jaa leikepöytä laitteiden välillä", 
         "Description[gl]": "Comparta o portapapeis entre os dispositivos.", 
@@ -41,8 +42,8 @@
         "Name[ca@valencia]": "Porta-retalls", 
         "Name[ca]": "Porta-retalls", 
         "Name[cs]": "Schránka", 
+        "Name[da]": "Udklipsholder", 
         "Name[de]": "Zwischenablage", 
-        "Name[en_GB]": "Clipboard", 
         "Name[es]": "Portapapeles", 
         "Name[fi]": "Leikepöytä", 
         "Name[gl]": "Portapapeis", 

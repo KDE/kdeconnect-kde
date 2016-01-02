@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca"
+                "Name": "Albert Vaca", 
+                "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
         "Description": "Show notifications for calls and SMS (answering coming soon)", 
@@ -12,8 +13,8 @@
         "Description[ca@valencia]": "Mostra les notificacions de les trucades i SMS (properament es respondrà)", 
         "Description[ca]": "Mostra les notificacions de les trucades i SMS (properament es respondrà)", 
         "Description[cs]": "Zobrazit upozornění pro telefonáty a SMS (na odpovídání se pracuje)", 
+        "Description[da]": "Vis bekendtgørelser for opkald og SMS'er (svarer kommer snart)", 
         "Description[de]": "Zeigt Benachrichtigungen für Anrufe und SMS", 
-        "Description[en_GB]": "Show notifications for calls and SMS (answering coming soon)", 
         "Description[es]": "Mostrar notificaciones para llamadas y SMS (el soporte para las contestaciones es inminente)", 
         "Description[fi]": "Näytä puhelujen ja tekstiviestien ilmoitukset (vastaaminen tulossa pian)", 
         "Description[gl]": "Mostrar notificacións de chamadas e mensaxes SMS (no futuro tamén poderá contestar chamadas).", 
@@ -41,8 +42,8 @@
         "Name[ca@valencia]": "Integració amb la telefonia", 
         "Name[ca]": "Integració amb la telefonia", 
         "Name[cs]": "Integrace telefonu", 
+        "Name[da]": "Telefoniintegration", 
         "Name[de]": "Telefon-Integration", 
-        "Name[en_GB]": "Telephony integration", 
         "Name[es]": "Integración con el teléfono", 
         "Name[fi]": "Puhelinintegrointi", 
         "Name[gl]": "Integración telefónica", 

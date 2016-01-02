@@ -299,7 +299,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you own Android device, make sure to install the &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;KDE Connect Android app&lt;/span&gt;&lt;/a&gt; (also available &lt;a href=&quot;https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;from F-Droid&lt;/span&gt;&lt;/a&gt;) and it should appear in the list.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you own an Android device, make sure to install the &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;KDE Connect Android app&lt;/span&gt;&lt;/a&gt; (also available &lt;a href=&quot;https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;from F-Droid&lt;/span&gt;&lt;/a&gt;) and it should appear in the list.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="textFormat">
             <enum>Qt::RichText</enum>

@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "aleixpol@kde.org", 
-                "Name": "Aleix Pol"
+                "Name": "Aleix Pol", 
+                "Name[x-test]": "xxAleix Polxx"
             }
         ], 
         "Description": "Control Remote systems", 
@@ -13,7 +14,6 @@
         "Description[ca]": "Sistemes de control remot", 
         "Description[cs]": "Ovládejte vzdálené systémy", 
         "Description[de]": "Entfernte Systeme steuern", 
-        "Description[en_GB]": "Control Remote systems", 
         "Description[es]": "Controlar sistemas remotos", 
         "Description[fi]": "Ohjaa järjestelmiä etänä", 
         "Description[gl]": "Controla sistemas remotos.", 
@@ -40,7 +40,6 @@
         "Name[ca]": "Control remot", 
         "Name[cs]": "Dálkové ovládání", 
         "Name[de]": "Fernsteuerung", 
-        "Name[en_GB]": "RemoteControl", 
         "Name[es]": "Control remoto", 
         "Name[fi]": "Kauko-ohjain", 
         "Name[gl]": "Mando a distancia", 
@@ -55,7 +54,6 @@
         "Name[sk]": "Diaľkové ovládanie", 
         "Name[sv]": "Fjärrkontroll", 
         "Name[tr]": "UzaktanKumanda", 
-        "Name[uk]": "RemoteControl", 
         "Name[x-test]": "xxRemoteControlxx", 
         "Name[zh_CN]": "远程控制", 
         "ServiceTypes": [

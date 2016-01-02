@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "aleixpol@kde.org", 
-                "Name": "Aleix Pol"
+                "Name": "Aleix Pol", 
+                "Name[x-test]": "xxAleix Polxx"
             }
         ], 
         "Description": "Locks your systems", 
@@ -12,8 +13,8 @@
         "Description[ca@valencia]": "Bloqueja els vostres sistemes", 
         "Description[ca]": "Bloqueja els vostres sistemes", 
         "Description[cs]": "Zamkne vaše systémy", 
+        "Description[da]": "Låser dine systemer", 
         "Description[de]": "Sperrt Ihre Systeme", 
-        "Description[en_GB]": "Locks your systems", 
         "Description[es]": "Bloquear sus sistemas", 
         "Description[fi]": "Lukitsee järjestelmäsi", 
         "Description[gl]": "Bloquea os seus sistemas.", 
@@ -39,8 +40,8 @@
         "Name[ca@valencia]": "Bloqueja el dispositiu", 
         "Name[ca]": "Bloqueja el dispositiu", 
         "Name[cs]": "Uzamknout zařízení", 
+        "Name[da]": "LåsEnhed", 
         "Name[de]": "Gerätesperrung", 
-        "Name[en_GB]": "LockDevice", 
         "Name[es]": "Bloquear dispositivo", 
         "Name[fi]": "Lukitse laite", 
         "Name[gl]": "Bloqueo do dispositivo", 
@@ -55,7 +56,6 @@
         "Name[sk]": "Zamknúť zariadenie", 
         "Name[sv]": "Lås enhet", 
         "Name[tr]": "AygıtıKilitle", 
-        "Name[uk]": "LockDevice", 
         "Name[x-test]": "xxLockDevicexx", 
         "Name[zh_CN]": "锁定设备", 
         "ServiceTypes": [

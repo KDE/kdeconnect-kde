@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca"
+                "Name": "Albert Vaca", 
+                "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
         "Description": "Pause music/videos during a phone call", 
@@ -12,8 +13,8 @@
         "Description[ca@valencia]": "Pausa la música/vídeos durant una trucada telefònica", 
         "Description[ca]": "Pausa la música/vídeos durant una trucada telefònica", 
         "Description[cs]": "Pozastavit hudbu/video během telefonátu", 
+        "Description[da]": "Sæt musik/video på pause under telefonsamtaler", 
         "Description[de]": "Hält Musik oder Videos währen eines Anrufs an", 
-        "Description[en_GB]": "Pause music/videos during a phone call", 
         "Description[es]": "Pausar música/video durante las llamadas telefónicas", 
         "Description[fi]": "Keskeytä musiikki ja videot puhelun aikana", 
         "Description[gl]": "Deter a reprodución de música ou vídeos durante as chamadas.", 
@@ -41,8 +42,8 @@
         "Name[ca@valencia]": "Pausa els suports durant les trucades", 
         "Name[ca]": "Pausa els suports durant les trucades", 
         "Name[cs]": "Pozastavit média během telefonátu", 
+        "Name[da]": "Sæt medier på pause under opkald", 
         "Name[de]": "Medium bei Anrufen anhalten", 
-        "Name[en_GB]": "Pause media during calls", 
         "Name[es]": "Pausar medios durante las llamadas", 
         "Name[fi]": "Keskeytä toisto puhelujen aikana", 
         "Name[gl]": "Deter a reprodución durante as chamadas.", 

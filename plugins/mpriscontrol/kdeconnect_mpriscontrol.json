@@ -4,7 +4,8 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca"
+                "Name": "Albert Vaca", 
+                "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
         "Description": "Remote control your music and videos", 
@@ -12,8 +13,8 @@
         "Description[ca@valencia]": "Comandament a distància per a la vostra música i vídeos", 
         "Description[ca]": "Comandament a distància per a la vostra música i vídeos", 
         "Description[cs]": "Ovládejte vzdáleně vaši hudbu a videa", 
+        "Description[da]": "Fjernbetjen din musik og videoer", 
         "Description[de]": "Fernbedienung für Musik und Videos", 
-        "Description[en_GB]": "Remote control your music and videos", 
         "Description[es]": "Controlar remotamente vídeos y música", 
         "Description[fi]": "Kauko-ohjain musiikkiisi ja videoihisi", 
         "Description[gl]": "Use o teléfono móbil como mando a distancia para música e vídeos.", 
@@ -40,8 +41,8 @@
         "Name[ca@valencia]": "Receptor del comandament multimèdia", 
         "Name[ca]": "Receptor del comandament multimèdia", 
         "Name[cs]": "Dálkový ovladač multimédií", 
+        "Name[da]": "Multimediekontrol-modtager", 
         "Name[de]": "Steuerung für Multimedia-Empfänger", 
-        "Name[en_GB]": "Multimedia control receiver", 
         "Name[es]": "Receptor de control multimedia", 
         "Name[fi]": "Multimediakauko-ohjain", 
         "Name[gl]": "Receptor de controis multimedia", 
