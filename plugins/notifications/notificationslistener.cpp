@@ -152,9 +152,6 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                           // timeout == 0, for other notifications
                                           // clearability is pointless
 
-    Notification *notification = new Notification(np, QString(), this);
-    dbusInterface->addNotification(notification);
-
     mPlugin->sendPackage(np);
 
     return (replacesId > 0 ? replacesId : id);
