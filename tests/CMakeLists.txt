@@ -1,5 +1,5 @@
 find_package(Qt5 REQUIRED COMPONENTS Test)
-find_package(KF5 REQUIRED COMPONENTS KIO Notifications)
+find_package(KF5 REQUIRED COMPONENTS KIO Notifications IconThemes)
 
 include_directories(
     ${KDEConnectCore_BINARY_DIR}
@@ -26,4 +26,4 @@ ecm_add_test(testnotificationlistener.cpp
              ../plugins/notifications/notifyingapplication.cpp
              ../plugins/notifications/notificationsdbusinterface.cpp
              TEST_NAME testnotificationlistener
-             LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications)
+             LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications KF5::IconThemes)
