@@ -23,10 +23,7 @@
 #include <QNetworkAccessManager>
 #include <QTest>
 #include <QTemporaryFile>
-#include <QSignalSpy>
 #include <QStandardPaths>
-
-#include <KIO/AccessManager>
 
 #include "core/daemon.h"
 #include "core/device.h"
@@ -45,9 +42,6 @@ public:
     explicit TestNotificationsPlugin(QObject *parent, const QVariantList &args)
         : NotificationsPlugin(parent, args)
     {
-        // make notificationPosted() inspectable:
-        connect(notificationsDbusInterface, &NotificationsDbusInterface::notificationPosted,
-                this, &TestNotificationsPlugin::notificationPosted);
     }
 
     virtual ~TestNotificationsPlugin() {};
@@ -67,9 +61,6 @@ public:
     {
         return notificationsDbusInterface;
     }
-
-Q_SIGNALS:
-    void notificationPosted(const QString& publicId);
 };
 
 // Tweaked NotificationsListener for testing:
@@ -153,16 +144,11 @@ void TestNotificationListener::testNotify()
 
     uint replacesId = 99;
     uint retId;
-    int notificationId = 0;
-    QSignalSpy spy(plugin, &TestNotificationsPlugin::notificationPosted);
 
     // regular Notify call that is synchronized ...
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{}}, 0);
     // ... should return replacesId,
     QCOMPARE(retId, replacesId);
-    // ... trigger a notificationPosted signal with incremented id
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     // ... and create a new application internally that is initialized correctly:
     QCOMPARE(listener->getApplications().count(), 1);
     QVERIFY(listener->getApplications().contains("testApp"));
@@ -175,8 +161,6 @@ void TestNotificationListener::testNotify()
     // another one, with other timeout and urgency values:
     retId = listener->Notify("testApp2", replacesId+1, "some-icon2", "summary2", "body2", {}, {{"urgency", 2}}, 10);
     QCOMPARE(retId, replacesId+1);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     QCOMPARE(listener->getApplications().count(), 2);
     QVERIFY(listener->getApplications().contains("testApp2"));
     QVERIFY(listener->getApplications().contains("testApp"));
@@ -185,32 +169,23 @@ void TestNotificationListener::testNotify()
     plugin->config()->set("generalPersistent", true);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{}}, 1);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     retId = listener->Notify("testApp2", replacesId, "some-icon2", "summary2", "body2", {}, {{}}, 3);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     // but timeout == 0 is
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     plugin->config()->set("generalPersistent", false);
 
     // if min-urgency is set, lower urgency levels are not synced:
     plugin->config()->set("generalUrgency", 1);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{"urgency", 0}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     // equal urgency is
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{"urgency", 1}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     // higher urgency as well
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{"urgency", 2}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     plugin->config()->set("generalUrgency", 0);
 
     // notifications for a deactivated application are not synced:
@@ -219,68 +194,47 @@ void TestNotificationListener::testNotify()
     QVERIFY(!listener->getApplications()["testApp"].active);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{"urgency", 0}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     // others are still:
     retId = listener->Notify("testApp2", replacesId+1, "some-icon2", "summary2", "body2", {}, {{}}, 0);
     QCOMPARE(retId, replacesId+1);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     // back to normal:
     listener->getApplications()["testApp"].active = true;
     QVERIFY(listener->getApplications()["testApp"].active);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
 
     // notifications with blacklisted subjects are not synced:
     QVERIFY(listener->getApplications().contains("testApp"));
     listener->getApplications()["testApp"].blacklistExpression.setPattern("black[12]|foo(bar|baz)");
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary black1", "body", {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary foobar", "body", {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     // other subjects are synced:
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary foo", "body", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary black3", "body", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     // also body is checked by blacklist if requested:
     plugin->config()->set("generalIncludeBody", true);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body black1", {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body foobaz", {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(spy.count(), 0);
     // body does not matter if inclusion was not requested:
     plugin->config()->set("generalIncludeBody", false);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body black1", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body foobaz", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
 
     // back to normal:
     listener->getApplications()["testApp"].blacklistExpression.setPattern("");
     plugin->config()->set("generalIncludeBody", true);
     retId = listener->Notify("testApp", replacesId, "some-icon", "summary", "body", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
     retId = listener->Notify("testApp2", replacesId, "some-icon2", "summary2", "body2", {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().at(0).toString(), QString::number(++notificationId));
 }
 
 

@@ -38,7 +38,8 @@ BatteryDbusInterface::BatteryDbusInterface(const Device *device)
     QMap<QString, BatteryDbusInterface *>::iterator oldInterfaceIter = s_dbusInterfaces.find(device->id());
     if (oldInterfaceIter != s_dbusInterfaces.end()) {
         qCDebug(KDECONNECT_PLUGIN_BATTERY) << "Deleting stale BattteryDbusInterface for" << device->name();
-        oldInterfaceIter.value()->deleteLater();
+        //FIXME: This still crashes sometimes even after the workaround made in 38aa970, commented out by now
+        //oldInterfaceIter.value()->deleteLater();
         s_dbusInterfaces.erase(oldInterfaceIter);
     }
 
