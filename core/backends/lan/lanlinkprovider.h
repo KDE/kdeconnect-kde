@@ -67,7 +67,7 @@ private:
     LanPairingHandler* createPairingHandler(DeviceLink* link);
 
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
-    void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin);
+    void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, LanDeviceLink::ConnectionStarted connectionOrigin);
 
     Server* mServer;
     QUdpSocket* mUdpServer;

@@ -37,6 +37,8 @@ class LanDeviceLink
     Q_OBJECT
 
 public:
+    enum ConnectionStarted : bool { Locally, Remotely };
+
     LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource);
     void reset(QSslSocket* socket, ConnectionStarted connectionSource);
 
@@ -49,11 +51,14 @@ public:
 
     virtual void setPairStatus(PairStatus status) override;
 
+    virtual bool linkShouldBeKeptAlive() override;
+
 private Q_SLOTS:
     void dataReceived();
 
 private:
     SocketLineReader* mSocketLineReader;
+    ConnectionStarted mConnectionSource;
 };
 
 #endif

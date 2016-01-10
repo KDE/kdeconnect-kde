@@ -24,14 +24,14 @@
 #include "loopbackpairinghandler.h"
 
 LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
-    : DeviceLink(deviceId, provider, Remotely)
+    : DeviceLink(deviceId, provider)
 {
 
 }
 
 QString LoopbackDeviceLink::name()
 {
-    return "LoopbackLink"; // Should be similar to android
+    return "LoopbackLink";
 }
 
 bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)

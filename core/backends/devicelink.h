@@ -38,9 +38,8 @@ class DeviceLink
 
 public:
     enum PairStatus : bool { NotPaired, Paired };
-    enum ConnectionStarted : bool { Locally, Remotely };
 
-    DeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionStarted connectionSource);
+    DeviceLink(const QString& deviceId, LinkProvider* parent);
     virtual ~DeviceLink() { };
 
     virtual QString name() = 0;
@@ -54,11 +53,11 @@ public:
     virtual void userRequestsPair() = 0;
     virtual void userRequestsUnpair() = 0;
 
-    ConnectionStarted connectionSource() const { return mConnectionSource; } //TODO: Move this down to landevicelink and create an abstraction like "bool keepConnectionOpen()" here.
-    void setConnectionSource(ConnectionStarted source) { mConnectionSource = source; }
-
     PairStatus pairStatus() const { return mPairStatus; }
     virtual void setPairStatus(PairStatus status);
+
+    //The daemon will periodically destroy unpaired links if this returns false
+    virtual bool linkShouldBeKeptAlive() { return false; }
 
 Q_SIGNALS:
     void receivedPackage(const NetworkPackage& np);
@@ -70,7 +69,6 @@ protected:
 
 private:
     const QString mDeviceId;
-    ConnectionStarted mConnectionSource;
     LinkProvider* mLinkProvider;
     PairStatus mPairStatus;
 

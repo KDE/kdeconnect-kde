@@ -235,7 +235,7 @@ void LanLinkProvider::connected()
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
         } else {
             qWarning() << "Incompatible protocol version, this won't work";
-            addLink(deviceId, socket, receivedPackage, DeviceLink::Remotely);
+            addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
         }
 
     } else {
@@ -264,7 +264,7 @@ void LanLinkProvider::encrypted()
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
     //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
 
-    addLink(deviceId, socket, receivedPackage, DeviceLink::Remotely);
+    addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
 
     // Copied from connected slot, now delete received package
     delete receivedPackage;
@@ -378,7 +378,7 @@ void LanLinkProvider::dataReceived()
         socket->startClientEncryption();
         return;
     } else {
-        addLink(deviceId, socket, np, DeviceLink::Locally);
+        addLink(deviceId, socket, np, LanDeviceLink::Locally);
     }
 
     delete np;
@@ -431,7 +431,7 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
 
 }
 
-void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, DeviceLink::ConnectionStarted connectionOrigin)
+void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, LanDeviceLink::ConnectionStarted connectionOrigin)
 {
     // Socket disconnection will now be handled by LanDeviceLink
     disconnect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));

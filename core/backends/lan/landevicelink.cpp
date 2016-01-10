@@ -30,13 +30,13 @@
 #include "lanlinkprovider.h"
 
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
-    : DeviceLink(deviceId, parent, connectionSource)
+    : DeviceLink(deviceId, parent)
     , mSocketLineReader(nullptr)
 {
     reset(socket, connectionSource);
 }
 
-void LanDeviceLink::reset(QSslSocket* socket, DeviceLink::ConnectionStarted connectionSource)
+void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource)
 {
     if (mSocketLineReader) {
         delete mSocketLineReader;
@@ -53,7 +53,7 @@ void LanDeviceLink::reset(QSslSocket* socket, DeviceLink::ConnectionStarted conn
     //destroyed as well
     socket->setParent(this);
 
-    setConnectionSource(connectionSource);
+    mConnectionSource = connectionSource;
 
     QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId(), "certificate");
     DeviceLink::setPairStatus(certString.isEmpty()? PairStatus::NotPaired : PairStatus::Paired);
@@ -148,3 +148,8 @@ void LanDeviceLink::setPairStatus(PairStatus status)
     }
 }
 
+bool LanDeviceLink::linkShouldBeKeptAlive() {
+    //We keep the remotely initiated connections, since the remotes require them if they want to request
+    //pairing to us, or connections that are already paired. TODO: Keep connections in the process of pairing
+    return (mConnectionSource == ConnectionStarted::Remotely || pairStatus() == Paired);
+}

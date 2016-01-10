@@ -345,18 +345,6 @@ bool Device::isTrusted() const
     return KdeConnectConfig::instance()->trustedDevices().contains(id());
 }
 
-DeviceLink::ConnectionStarted Device::connectionSource() const
-{
-    DeviceLink::ConnectionStarted ret = DeviceLink::Remotely;
-    Q_FOREACH(DeviceLink* link, m_deviceLinks) {
-        if(link->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
-            ret = DeviceLink::ConnectionStarted::Locally;
-            break;
-        }
-    }
-    return ret;
-}
-
 QStringList Device::availableLinks() const
 {
     QStringList sl;
@@ -364,6 +352,21 @@ QStringList Device::availableLinks() const
         sl.append(dl->provider()->name());
     }
     return sl;
+}
+
+void Device::cleanUnneededLinks() {
+    if (isTrusted()) {
+        return;
+    }
+    for(int i = 0; i < m_deviceLinks.size(); ) {
+        DeviceLink* dl = m_deviceLinks[i];
+        if (!dl->linkShouldBeKeptAlive()) {
+            dl->deleteLater();
+            m_deviceLinks.remove(i);
+        } else {
+            i++;
+        }
+    }
 }
 
 Device::DeviceType Device::str2type(const QString &deviceType) {
@@ -439,7 +442,6 @@ bool Device::isPluginEnabled(const QString& pluginName) const
                                             : PluginLoader::instance()->getPluginInfo(pluginName).isEnabledByDefault());
 }
 
-//HACK
 QString Device::encryptionInfo() const
 {
     QString result;

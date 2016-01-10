@@ -123,7 +123,12 @@ void Daemon::removeDevice(Device* device)
 void Daemon::cleanDevices()
 {
     Q_FOREACH(Device* device, d->mDevices) {
-        if (!device->isTrusted() && device->connectionSource() == DeviceLink::ConnectionStarted::Remotely) {
+        if (device->isTrusted()) {
+            continue;
+        }
+        device->cleanUnneededLinks();
+        //If there are no links remaining
+        if (!device->isReachable()) {
             removeDevice(device);
         }
     }
@@ -178,8 +183,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         Device* device = new Device(this, identityPackage, dl);
 
         //we discard the connections that we created but it's not paired.
-        //we keep the remotely initiated ones, since the remotes require them
-        if (!isDiscoveringDevices() && !device->isTrusted() && dl->connectionSource() == DeviceLink::ConnectionStarted::Locally) {
+        if (!isDiscoveringDevices() && !device->isTrusted() && !dl->linkShouldBeKeptAlive()) {
             device->deleteLater();
         } else {
             connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
