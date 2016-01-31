@@ -36,6 +36,7 @@
         "Id": "kdeconnect_remotecontrol", 
         "License": "GPL", 
         "Name": "RemoteControl", 
+        "Name[ast]": "Control remotu", 
         "Name[ca@valencia]": "Control remot", 
         "Name[ca]": "Control remot", 
         "Name[cs]": "Dálkové ovládání", 

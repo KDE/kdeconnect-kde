@@ -36,6 +36,7 @@
         "Id": "kdeconnect_lockdevice", 
         "License": "GPL", 
         "Name": "LockDevice", 
+        "Name[ast]": "Bloquiar preséu", 
         "Name[ca@valencia]": "Bloqueja el dispositiu", 
         "Name[ca]": "Bloqueja el dispositiu", 
         "Name[cs]": "Uzamknout zařízení", 
