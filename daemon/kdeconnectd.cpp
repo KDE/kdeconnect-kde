@@ -94,7 +94,7 @@ public:
         KNotification* notification = new KNotification("pairingRequest");
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName("kdeconnect");
-        notification->setText(i18n("Pairing request from %1", d->deviceLink()->name()));
+        notification->setText(i18n("Pairing request from %1", getDevice(d->deviceLink()->deviceId())->name()));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
         connect(notification, &KNotification::ignored, d, &PairingHandler::rejectPairing);
         connect(notification, &KNotification::action1Activated, d, &PairingHandler::acceptPairing);
