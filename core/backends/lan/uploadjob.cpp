@@ -71,7 +71,7 @@ void UploadJob::newConnection()
 
     mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    mSocket->setProtocol(QSsl::TlsV1_2);
+    mSocket->setProtocol(QSsl::TlsV1_0);
     mSocket->setPeerVerifyName(mDeviceId);
     mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getDeviceProperty(mDeviceId, "certificate", QString()).toLatin1()));
     mSocket->startServerEncryption();

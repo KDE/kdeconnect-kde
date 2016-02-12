@@ -39,7 +39,7 @@ DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transfe
     // Setting ssl related properties for socket when using ssl
     mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    mSocket->setProtocol(QSsl::TlsV1_2);
+    mSocket->setProtocol(QSsl::TlsV1_0);
     mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
     mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
     mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getDeviceProperty(transferInfo.value("deviceId").toString(),"certificate").toLatin1()));
