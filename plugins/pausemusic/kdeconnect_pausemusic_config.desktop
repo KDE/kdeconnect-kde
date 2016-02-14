@@ -6,6 +6,7 @@ X-KDE-Library=kdeconnect_pausemusic_config
 X-KDE-ParentComponents=kdeconnect_pausemusic
 
 Name=Pause Music plugin settings
+Name[ar]=إعدادات ملحقة إلباث الموسيقى
 Name[ast]=Axustes del complementu de posar música
 Name[bg]=Настройки на приставката за поставяне на пауза
 Name[bs]=Zaustavi Muziku postavke dodatka

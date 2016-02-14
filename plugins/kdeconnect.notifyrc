@@ -1,6 +1,7 @@
 [Global]
 IconName=kdeconnect
 Name=KDE Connect
+Name[ar]=كدي المتّصل
 Name[ast]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
@@ -32,6 +33,7 @@ Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
 Comment=Notifications from your devices
+Comment[ar]=الإخطارات من أجهزتك
 Comment[ast]=Avisos de los tos preseos
 Comment[bg]=Уведомления от устройствата ви
 Comment[bs]=Notifikacija sa Vašeg uređaja
@@ -65,6 +67,7 @@ Comment[zh_CN]=来自你设备的通知
 
 [Event/pairingRequest]
 Name=Pairing Request
+Name[ar]=طلب اقتران
 Name[ast]=Solicitú d'empareyamientu
 Name[bg]=Заявка за сдвояване
 Name[bs]=Zahtjev za uparivanje
@@ -95,6 +98,7 @@ Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Name[zh_CN]=配对请求
 Comment=Pairing request received from a device
+Comment[ar]=استُلم طلب اقتران من جهاز
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[ca@valencia]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[de]=Verbindungsanfrage von einem Gerät erhalten
@@ -113,6 +117,7 @@ Action=Popup
 
 [Event/callReceived]
 Name=Incoming Call
+Name[ar]=مكالمة واردة
 Name[ast]=Llamada entrante
 Name[bg]=Входящо обаждане
 Name[ca]=Trucada entrant
@@ -142,6 +147,7 @@ Name[uk]=Вхідний дзвінок
 Name[x-test]=xxIncoming Callxx
 Name[zh_CN]=收到呼叫
 Comment=Someone is calling you
+Comment[ar]=ثمّة من يتّصل بك
 Comment[ast]=Daquién ta llamándote
 Comment[bg]=Някой ви се обажда
 Comment[bs]=Neko Vas zove
@@ -176,6 +182,7 @@ Action=Popup
 
 [Event/missedCall]
 Name=Missed Call
+Name[ar]=مكالمة فائتة
 Name[ast]=Llamada perdida
 Name[bg]=Пропуснато обаждане
 Name[ca]=Trucada perduda
@@ -205,6 +212,7 @@ Name[uk]=Пропущений дзвінок
 Name[x-test]=xxMissed Callxx
 Name[zh_CN]=未接来电
 Comment=You have a missed call
+Comment[ar]=لقد فاتتك مكالمة
 Comment[ast]=Tienes una llamada perdida
 Comment[bg]=Имате неприето обаждане
 Comment[bs]=Imate propušten poziv
@@ -239,6 +247,7 @@ Action=Popup
 
 [Event/smsReceived]
 Name=SMS Received
+Name[ar]=استُلمت رسالة
 Name[ast]=SMS recibíu
 Name[bg]=Получен SMS
 Name[ca]=S'ha rebut un SMS
@@ -268,6 +277,7 @@ Name[uk]=Отримано SMS
 Name[x-test]=xxSMS Receivedxx
 Name[zh_CN]=收到短信
 Comment=Someone sent you an SMS
+Comment[ar]=ثمّة من أرسل رسالة إليك
 Comment[ast]=Daquién unvióte un SMS
 Comment[bg]=Някой ви изпрати текстово съобщение
 Comment[bs]=Neko Vam je poslao SMS poruku
@@ -302,6 +312,7 @@ Action=Popup
 
 [Event/batteryLow]
 Name=Battery Low
+Name[ar]=البطّاريّة ضعيفة
 Name[ast]=Batería baxa
 Name[bg]=Изтощена батерия
 Name[ca]=Bateria baixa
@@ -331,6 +342,7 @@ Name[uk]=Низький рівень заряду
 Name[x-test]=xxBattery Lowxx
 Name[zh_CN]=电池电量低
 Comment=Your battery is in low state
+Comment[ar]=بطّاريّتك في الحالة الضعيفة
 Comment[ast]=La to batería ta nun estáu baxu
 Comment[bg]=Батерията ви е с нисък заряд
 Comment[bs]=Vaša baterija je gotovo prazna
@@ -365,6 +377,7 @@ Action=Popup
 
 [Event/pingReceived]
 Name=Ping Received
+Name[ar]=استُلمت وكزة
 Name[ast]=Ping recibíu
 Name[bg]=Пингът е приет
 Name[ca]=S'ha rebut un ping
@@ -394,6 +407,7 @@ Name[uk]=Отримано сигнал підтримки зв’язку
 Name[x-test]=xxPing Receivedxx
 Name[zh_CN]=收到 Ping
 Comment=Ping received
+Comment[ar]=استُلمت وكزة
 Comment[ast]=Recibióse un ping
 Comment[bg]=Пингът е приет
 Comment[bs]=Primili ste ping
@@ -428,6 +442,7 @@ Action=Popup
 
 [Event/notification]
 Name=Generic Notification
+Name[ar]=إخطار عموميّ
 Name[ast]=Avisu xenéricu
 Name[bg]=Общо уведомление
 Name[ca]=Notificació genèrica
@@ -457,6 +472,7 @@ Name[uk]=Загальне сповіщення
 Name[x-test]=xxGeneric Notificationxx
 Name[zh_CN]=一般通知
 Comment=Notification received
+Comment[ar]=استُلم إخطار
 Comment[ast]=Avisu recibíu
 Comment[bg]=Уведомлението е прието
 Comment[bs]=Primjeno obavještenje
@@ -491,6 +507,7 @@ Action=Popup
 
 [Event/transferReceived]
 Name=File Transfer
+Name[ar]=نقل الملفّات
 Name[ast]=Tresferencia de ficheros
 Name[bg]=Прехвърляне на файл
 Name[ca]=Transferència de fitxers
@@ -520,6 +537,7 @@ Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
 Name[zh_CN]=文件传送
 Comment=Incoming file
+Comment[ar]=ملفّ قادم
 Comment[ast]=Ficheru entrante
 Comment[bg]=Входящ файл
 Comment[ca]=Fitxer entrant
