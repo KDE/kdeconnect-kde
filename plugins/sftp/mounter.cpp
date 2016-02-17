@@ -54,7 +54,8 @@ Mounter::Mounter(SftpPlugin* sftp)
 Mounter::~Mounter()
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Destroy mounter";
-    unmount();
+    //FIXME: We don't unmount becuase it crashes if we try to unmount while the filesystem is being used. Potential memory leak.
+    //unmount();
 }
 
 bool Mounter::wait()
