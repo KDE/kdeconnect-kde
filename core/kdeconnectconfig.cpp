@@ -39,6 +39,8 @@
 #include "dbushelper.h"
 #include "daemon.h"
 
+static const QString TRUSTED_DEVICES = QStringLiteral("trusted_devices");
+
 struct KdeConnectConfigPrivate {
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
@@ -212,7 +214,7 @@ QDir KdeConnectConfig::baseConfigDir()
 
 QStringList KdeConnectConfig::trustedDevices()
 {
-    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(TRUSTED_DEVICES);
     const QStringList& list = d->config->childGroups();
     d->config->endGroup();
     return list;
@@ -221,7 +223,7 @@ QStringList KdeConnectConfig::trustedDevices()
 
 void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type)
 {
-    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(TRUSTED_DEVICES);
     d->config->beginGroup(id);
     d->config->setValue("name", name);
     d->config->setValue("type", type);
@@ -234,7 +236,7 @@ void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, 
 
 KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
 {
-    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(TRUSTED_DEVICES);
     d->config->beginGroup(id);
 
     KdeConnectConfig::DeviceInfo info;
@@ -248,7 +250,7 @@ KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &i
 
 void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
 {
-    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(TRUSTED_DEVICES);
     d->config->beginGroup(deviceId);
     d->config->remove(QString());
     d->config->endGroup();
@@ -260,7 +262,7 @@ void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
 // Utility functions to set and get a value
 void KdeConnectConfig::setDeviceProperty(QString deviceId, QString key, QString value)
 {
-    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(TRUSTED_DEVICES);
     d->config->beginGroup(deviceId);
     d->config->setValue(key, value);
     d->config->endGroup();
@@ -271,7 +273,7 @@ void KdeConnectConfig::setDeviceProperty(QString deviceId, QString key, QString 
 QString KdeConnectConfig::getDeviceProperty(QString deviceId, QString key, QString defaultValue)
 {
     QString value;
-    d->config->beginGroup("trustedDevices");
+    d->config->beginGroup(TRUSTED_DEVICES);
     d->config->beginGroup(deviceId);
     value = d->config->value(key, defaultValue).toString();
     d->config->endGroup();
