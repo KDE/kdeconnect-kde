@@ -48,7 +48,6 @@ public:
     DeviceLink* deviceLink() const;
     void setDeviceLink(DeviceLink* dl);
 
-    virtual void createPairPackage(NetworkPackage& np) = 0;
     virtual void packageReceived(const NetworkPackage& np) = 0;
     virtual void unpair() = 0;
 
