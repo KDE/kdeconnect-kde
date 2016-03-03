@@ -45,6 +45,7 @@ public:
     int priority() override { return PRIORITY_HIGH; }
 
     void userRequestsPair(const QString &deviceId);
+    void userRequestsUnpair(const QString &deviceId);
     void incomingPairPackage(DeviceLink* device, const NetworkPackage& np);
 
 public Q_SLOTS:

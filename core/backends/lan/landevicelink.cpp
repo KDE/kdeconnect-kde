@@ -135,7 +135,7 @@ void LanDeviceLink::userRequestsPair()
 
 void LanDeviceLink::userRequestsUnpair()
 {
-    setPairStatus(NotPaired);
+    qobject_cast<LanLinkProvider*>(provider())->userRequestsUnpair(deviceId());
 }
 
 void LanDeviceLink::setPairStatus(PairStatus status)

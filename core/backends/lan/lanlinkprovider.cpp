@@ -475,6 +475,12 @@ void LanLinkProvider::userRequestsPair(const QString& deviceId)
     ph->requestPairing();
 }
 
+void LanLinkProvider::userRequestsUnpair(const QString& deviceId)
+{
+    LanPairingHandler* ph = createPairingHandler(mLinks.value(deviceId));
+    ph->unpair();
+}
+
 void LanLinkProvider::incomingPairPackage(DeviceLink* deviceLink, const NetworkPackage& np)
 {
     LanPairingHandler* ph = createPairingHandler(deviceLink);
