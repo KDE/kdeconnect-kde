@@ -99,6 +99,7 @@ Name[x-test]=xxPairing Requestxx
 Name[zh_CN]=配对请求
 Comment=Pairing request received from a device
 Comment[ar]=استُلم طلب اقتران من جهاز
+Comment[ast]=Solicitú d'empareyamientu recibida d'un preséu
 Comment[ca]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[ca@valencia]=Les sol·licituds d'aparellament rebudes des d'un dispositiu
 Comment[de]=Verbindungsanfrage von einem Gerät erhalten

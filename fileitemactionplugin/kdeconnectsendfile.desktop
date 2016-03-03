@@ -34,6 +34,7 @@ Name[zh_CN]=通过 KDE Connect 服务发送文件
 X-KDE-Library=kdeconnectfiletiemaction
 X-KDE-Submenu=Connect
 X-KDE-Submenu[ar]=اتّصل,اتصل
+X-KDE-Submenu[ast]=Coneutar
 X-KDE-Submenu[bg]=Свързване
 X-KDE-Submenu[bs]=Uspostavi vezu
 X-KDE-Submenu[ca]=Connecta
