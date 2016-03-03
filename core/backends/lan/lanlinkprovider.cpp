@@ -235,7 +235,7 @@ void LanLinkProvider::connected()
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
         } else {
             qWarning() << "Incompatible protocol version, this won't work";
-            addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
+            //addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
         }
 
     } else {
