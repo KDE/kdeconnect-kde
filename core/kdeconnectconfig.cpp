@@ -118,21 +118,21 @@ KdeConnectConfig::KdeConnectConfig()
 
     } else {
 
+        // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.
+        // The same thing we are doing with QCA could be done invoking openssl (altought it's potentially less portable):
+        // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
+
         QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
-        // FIXME : Set serial number for certificate. Time millis or any constant number?
-        QCA::BigInteger bigInteger(10);
         QDateTime startTime = QDateTime::currentDateTime().addYears(-1);
         QDateTime endTime = startTime.addYears(10);
         QCA::CertificateInfo certificateInfo;
         certificateInfo.insert(QCA::CommonName,deviceId());
         certificateInfo.insert(QCA::Organization,"KDE");
         certificateInfo.insert(QCA::OrganizationalUnit,"Kde connect");
-        certificateOptions.setFormat(QCA::PKCS10);
-
-        certificateOptions.setSerialNumber(bigInteger);
         certificateOptions.setInfo(certificateInfo);
-        certificateOptions.setValidityPeriod(startTime, endTime);
         certificateOptions.setFormat(QCA::PKCS10);
+        certificateOptions.setSerialNumber(QCA::BigInteger(10));
+        certificateOptions.setValidityPeriod(startTime, endTime);
 
         d->certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->privateKey).toPEM().toLatin1());
 
