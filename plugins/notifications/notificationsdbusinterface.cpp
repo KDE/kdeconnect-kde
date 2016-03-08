@@ -113,6 +113,8 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
         removeNotification(internalId);
     }
 
+    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
+
     connect(noti, &Notification::dismissRequested,
             this, &NotificationsDbusInterface::dismissRequested);
 

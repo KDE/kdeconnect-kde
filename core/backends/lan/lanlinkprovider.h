@@ -62,6 +62,7 @@ private Q_SLOTS:
     void dataReceived();
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
     void sslErrors(const QList<QSslError>& errors);
+    void sslErrorsLogButIgnore(const QList<QSslError>& errors);
 
 private:
     static void configureSocket(QSslSocket* socket);

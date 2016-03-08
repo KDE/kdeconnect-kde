@@ -78,7 +78,7 @@ void LanLinkProvider::onStart()
     bool success = mUdpServer->bind(bindAddress, port, QUdpSocket::ShareAddress);
     Q_ASSERT(success);
 
-    qDebug() << "onStart";
+    qCDebug(KDECONNECT_CORE) << "onStart";
 
     mTcpPort = port;
     while (!mServer->listen(bindAddress, mTcpPort)) {
@@ -95,7 +95,7 @@ void LanLinkProvider::onStart()
 
 void LanLinkProvider::onStop()
 {
-    qDebug() << "onStop";
+    qCDebug(KDECONNECT_CORE) << "onStop";
     mUdpServer->close();
     mServer->close();
 }
@@ -135,7 +135,7 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
         NetworkPackage* receivedPackage = new NetworkPackage("");
         bool success = NetworkPackage::unserialize(datagram, receivedPackage);
 
-        //qDebug() << "udp connection from " << receivedPackage->;
+        //qCDebug(KDECONNECT_CORE) << "udp connection from " << receivedPackage->;
 
         qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
@@ -219,14 +219,15 @@ void LanLinkProvider::connected()
 
             QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
             if (!certString.isEmpty()) {
-                qDebug() << "Device trusted";
+                qCDebug(KDECONNECT_CORE) << "Device trusted";
                 socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
                 socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
                 connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
             } else {
-                qDebug() << "Device untrusted";
+                qCDebug(KDECONNECT_CORE) << "Device untrusted";
                 // Do not care about ssl errors here, socket will not be closed due to errors because of query peer
                 socket->setPeerVerifyMode(QSslSocket::QueryPeer);
+                connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrorsLogButIgnore(QList<QSslError>)));
             }
             qCDebug(KDECONNECT_CORE) << "Starting server ssl";
             connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
@@ -252,8 +253,7 @@ void LanLinkProvider::connected()
 
 void LanLinkProvider::encrypted()
 {
-
-    qCDebug(KDECONNECT_CORE) << "Socket encrypted";
+    qCDebug(KDECONNECT_CORE) << "Socket succesfully stablished an SSL connection";
 
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
@@ -306,7 +306,12 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     // Socket disconnects itself on ssl error and will be deleted by deleteLater slot, no need to delete manually
 }
 
-
+void LanLinkProvider::sslErrorsLogButIgnore(const QList<QSslError>& errors)
+{
+    foreach(const QSslError &error, errors) {
+        qCDebug(KDECONNECT_CORE) << "SSL Error (ignoring):" << error.errorString();
+    }
+}
 
 //I'm the new device and this is the answer to my UDP identity package (no data received yet)
 void LanLinkProvider::newConnection()
@@ -362,15 +367,16 @@ void LanLinkProvider::dataReceived()
         socket->setPeerVerifyName(deviceId);
 
         if (isDeviceTrusted) {
-            qDebug() << "Device trusted";
+            qCDebug(KDECONNECT_CORE) << "Device trusted";
             QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
 	        socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
             socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
             connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
         } else {
-            qDebug() << "Device untrusted";
+            qCDebug(KDECONNECT_CORE) << "Device untrusted";
             // Do not care about ssl errors here, socket will not be closed due to errors because of query peer
             socket->setPeerVerifyMode(QSslSocket::QueryPeer);
+            connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrorsLogButIgnore(QList<QSslError>)));
         }
         qCDebug(KDECONNECT_CORE) << "Starting client ssl";
         connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
@@ -409,7 +415,7 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
     // Configure for ssl
     socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    socket->setProtocol(QSsl::TlsV1_0);
+    socket->setProtocol(QSsl::AnyProtocol);
 
     #ifdef TCP_KEEPIDLE
         // time to start sending keepalive packets (seconds)
@@ -462,7 +468,7 @@ LanPairingHandler* LanLinkProvider::createPairingHandler(DeviceLink* link)
     LanPairingHandler* ph = mPairingHandlers.value(link->deviceId());
     if (!ph) {
         ph = new LanPairingHandler(link);
-        qDebug() << "creating pairing handler for" << link->deviceId();
+        qCDebug(KDECONNECT_CORE) << "creating pairing handler for" << link->deviceId();
         connect (ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
         mPairingHandlers[link->deviceId()] = ph;
     }
