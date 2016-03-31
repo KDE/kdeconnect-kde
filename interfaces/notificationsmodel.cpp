@@ -133,7 +133,6 @@ void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher* watcher)
     clearNotifications();
     QDBusPendingReply<QStringList> pendingNotificationIds = *watcher;
 
-    clearNotifications();
     if (pendingNotificationIds.isError()) {
         qCWarning(KDECONNECT_INTERFACES) << pendingNotificationIds.error();
         return;
