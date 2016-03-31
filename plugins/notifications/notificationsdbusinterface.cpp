@@ -51,6 +51,7 @@ NotificationsDbusInterface::~NotificationsDbusInterface()
 void NotificationsDbusInterface::clearNotifications()
 {
     qDeleteAll(mNotifications);
+    mNotifications.clear();
 }
 
 QStringList NotificationsDbusInterface::activeNotifications()
