@@ -262,10 +262,10 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
         }
         case StatusModelRole: {
             int status = StatusFilterFlag::NoFilter;
-            if (device->isReachable()) {
+            if (device->isReachable())
                 status |= StatusFilterFlag::Reachable;
-                if (device->isPaired()) status |= StatusFilterFlag::Paired;
-            }
+            if (device->isPaired())
+                status |= StatusFilterFlag::Paired;
             return status;
         }
         case IconNameRole:
