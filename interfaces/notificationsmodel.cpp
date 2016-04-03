@@ -95,16 +95,24 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
 
 void NotificationsModel::notificationAdded(const QString& id)
 {
-    //TODO: Actually add instead of refresh
-    Q_UNUSED(id);
-    refreshNotificationList();
+    int currentSize = m_notificationList.size();
+    beginInsertRows(QModelIndex(),  currentSize, currentSize);
+    NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, id, this);
+    m_notificationList.append(dbusInterface);
+    endInsertRows();
 }
 
 void NotificationsModel::notificationRemoved(const QString& id)
 {
-    //TODO: Actually remove instead of refresh
-    Q_UNUSED(id);
-    refreshNotificationList();
+    for (int i = 0; i < m_notificationList.size(); ++i) {
+        if (m_notificationList[i]->notificationId() == id) {
+            beginRemoveRows(QModelIndex(), i, i);
+            m_notificationList.removeAt(i);
+            endRemoveRows();
+            return;
+        }
+    }
+    qCWarning(KDECONNECT_INTERFACES) << "Attempted to remove unknown notification: " << id;
 }
 
 void NotificationsModel::refreshNotificationList()
