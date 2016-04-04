@@ -25,7 +25,7 @@ include_directories(${CMAKE_SOURCE_DIR})
 configure_file(kdeconnect-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h)
 
 include(KDEInstallDirs)
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMAddTests)
 include(ECMSetupVersion)
