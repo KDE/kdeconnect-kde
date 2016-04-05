@@ -69,6 +69,7 @@ private Q_SLOTS:
     void notificationRemoved(const QString& id);
     void refreshNotificationList();
     void receivedNotifications(QDBusPendingCallWatcher* watcher);
+    void clearNotifications();
 
 Q_SIGNALS:
     void deviceIdChanged(const QString& value);
@@ -76,8 +77,6 @@ Q_SIGNALS:
     void rowsChanged();
 
 private:
-    void clearNotifications();
-
     DeviceNotificationsDbusInterface* m_dbusInterface;
     QList<NotificationDbusInterface*> m_notificationList;
     QString m_deviceId;

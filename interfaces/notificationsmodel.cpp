@@ -87,6 +87,8 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
             this, SLOT(notificationAdded(QString)));
     connect(m_dbusInterface, SIGNAL(notificationRemoved(QString)),
             this, SLOT(notificationRemoved(QString)));
+    connect(m_dbusInterface, SIGNAL(allNotificationsRemoved()),
+            this, SLOT(clearNotifications()));
 
     refreshNotificationList();
 
