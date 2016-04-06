@@ -1,5 +1,6 @@
 /**
  * Copyright 2014 Samoilenko Yuri <kinnalru@gmail.com>
+ * Copyright 2016 David Kahles <david.kahles96@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,37 +19,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.1
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQml 2.2
 import org.kde.kdeconnect 1.0
 
 QtObject {
 
     id: root
 
-    property alias deviceId: checker.deviceId
-    readonly property alias device: checker.device
-    readonly property alias available: checker.available
+    property string deviceId: ""
+    property string pluginName: ""
+    readonly property variant device: DeviceDbusInterfaceFactory.create(deviceId)
+    property bool available: false
 
-    readonly property PluginChecker pluginChecker: PluginChecker {
-        id: checker
-        pluginName: "findmyphone"
+    property Connections connection: Connections {
+        target: device
+        onPluginsChanged: pluginsChanged()
     }
 
-    property variant findMyPhone: null
+    Component.onCompleted: pluginsChanged()
 
-    function ring() {
-        if (findMyPhone) {
-            findMyPhone.ring();
-        }
-    }
-
-    onAvailableChanged: {
-        if (available) {
-            findMyPhone = FindMyPhoneDbusInterfaceFactory.create(deviceId)
-        } else {
-            findMyPhone = null
-        }
+    function pluginsChanged() {
+        var result = DBusResponseWaiter.waitForReply(device.hasPlugin("kdeconnect_" + pluginName))
+        available = (result && result != "error");
     }
 }

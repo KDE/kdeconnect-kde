@@ -27,9 +27,14 @@ QtObject {
 
     id: root
 
-    property string deviceId: ""
-    property variant device: DeviceDbusInterfaceFactory.create(deviceId)
-    property bool available: false
+    property alias deviceId: checker.deviceId
+    readonly property alias device: checker.device
+    readonly property alias available: checker.available
+
+    readonly property PluginChecker pluginChecker: PluginChecker {
+        id: checker
+        pluginName: "sftp"
+    }
 
     property variant sftp: null
 
@@ -38,12 +43,6 @@ QtObject {
             sftp.startBrowsing();
     }
 
-    Component.onCompleted: {
-        device.pluginsChanged.connect(pluginsChanged)
-        pluginsChanged()
-    }
-
-    // Note: magically called by qml
     onAvailableChanged: {
         if (available) {
             sftp = SftpDbusInterfaceFactory.create(deviceId)
@@ -51,10 +50,4 @@ QtObject {
             sftp = null
         }
     }
-
-    function pluginsChanged() {
-        var result = DBusResponseWaiter.waitForReply(device.hasPlugin("kdeconnect_sftp"))
-        available = (result && result != "error");
-    }
-
 }
