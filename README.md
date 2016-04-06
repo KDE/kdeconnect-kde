@@ -50,7 +50,7 @@ The basic structure of a NetworkPacket (before encryption) is the following:
 }
 ```
 
-The content of the `"body"` section is defined by each Plugin. Hence, only the only the emisor and receiver plugins of a given packet type need agree on the contents of the body.
+The content of the `"body"` section is defined by each Plugin. Hence, only the emisor and receiver plugins of a given packet type need agree on the contents of the body.
 
 NetworkPackets can also have binary data attached that can't be serialized to JSON. In this case, two new fields will be added:
 
