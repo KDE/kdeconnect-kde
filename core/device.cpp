@@ -395,13 +395,11 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
 
             qCDebug(KDECONNECT_CORE) << "Unpair request";
 
-            PairStatus prevPairStatus = m_pairStatus;
-            m_pairStatus = Device::NotPaired;
-
-            if (prevPairStatus == Device::Requested) {
+            if (m_pairStatus == Device::Requested) {
                 m_pairingTimeut.stop();
+                m_pairStatus = Device::NotPaired;
                 Q_EMIT pairingFailed(i18n("Canceled by other peer"));
-            } else if (prevPairStatus == Device::Paired) {
+            } else if (m_pairStatus == Device::Paired) {
                 unpairInternal();
             }
 
