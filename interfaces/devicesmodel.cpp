@@ -102,10 +102,7 @@ void DevicesModel::deviceAdded(const QString& id)
     DeviceDbusInterface* dev = new DeviceDbusInterface(id, this);
     Q_ASSERT(dev->isValid());
 
-    bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
-    bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
-
-    if ((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isTrusted())) {
+    if (! passesFilter(dev)) {
         delete dev;
         return;
     }
@@ -127,21 +124,29 @@ void DevicesModel::deviceRemoved(const QString& id)
 
 void DevicesModel::deviceUpdated(const QString& id, bool isVisible)
 {
+    Q_UNUSED(isVisible);
     int row = rowForDevice(id);
 
-    if (row < 0 && isVisible) {
+    if (row < 0) {
         // FIXME: when m_dbusInterface is not valid refreshDeviceList() does
         // nothing and we can miss some devices.
         // Someone can reproduce this problem by restarting kdeconnectd while
         // kdeconnect's plasmoid is still running.
-        qCDebug(KDECONNECT_INTERFACES) << "Adding missing device" << id;
+        // Another reason for this branch is that we removed the device previously
+        // because of the filter settings.
+        qCDebug(KDECONNECT_INTERFACES) << "Adding missing or previously removed device" << id;
         deviceAdded(id);
-        row = rowForDevice(id);
-    }
-
-    if (row >= 0) {
-        const QModelIndex idx = index(row);
-        Q_EMIT dataChanged(idx, idx);
+    } else {
+        DeviceDbusInterface *dev = getDevice(row);
+        if (! passesFilter(dev)) {
+            beginRemoveRows(QModelIndex(), row, row);
+            delete m_deviceList.takeAt(row);
+            endRemoveRows();
+            qCDebug(KDECONNECT_INTERFACES) << "Removed changed device " << id;
+        } else {
+            const QModelIndex idx = index(row);
+            Q_EMIT dataChanged(idx, idx);
+        }
     }
 }
 
@@ -264,7 +269,9 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
             int status = StatusFilterFlag::NoFilter;
             if (device->isReachable()) {
                 status |= StatusFilterFlag::Reachable;
-                if (device->isTrusted()) status |= StatusFilterFlag::Paired;
+            }
+            if (device->isTrusted()) {
+                status |= StatusFilterFlag::Paired;
             }
             return status;
         }
@@ -294,4 +301,12 @@ int DevicesModel::rowCount(const QModelIndex& parent) const
     }
 
     return m_deviceList.size();
+}
+
+bool DevicesModel::passesFilter(DeviceDbusInterface* dev) const
+{
+    bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
+    bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
+
+    return !((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isTrusted()));
 }

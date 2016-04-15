@@ -81,6 +81,22 @@
        </widget>
       </item>
       <item>
+       <widget class="QCheckBox" name="check_icons">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>Synchronize icons of notifying applications if possible?</string>
+        </property>
+        <property name="text">
+         <string>Synchronize icons</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QWidget" name="horizontalWidget" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">

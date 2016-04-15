@@ -49,9 +49,7 @@ private Q_SLOTS:
     void seeked(qlonglong);
 
 private:
-    void addService(const QString& service);
-    void removeService(const QString& service);
-
+    void serviceOwnerChanged(const QString& serviceName, const QString& oldOwner, const QString& newOwner);
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
     void sendPlayerList();

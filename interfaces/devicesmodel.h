@@ -48,10 +48,13 @@ public:
         DeviceRole
     };
     Q_ENUMS(ModelRoles);
+
+    // A device is always paired or reachable or both
+    // You can combine the Paired and Reachable flags
     enum StatusFilterFlag {
         NoFilter   = 0x00,
-        Paired     = 0x01,
-        Reachable  = 0x02
+        Paired     = 0x01, // show device only if it's paired
+        Reachable  = 0x02  // show device only if it's reachable
     };
     Q_DECLARE_FLAGS(StatusFilterFlags, StatusFilterFlag)
     Q_FLAGS(StatusFilterFlags)
@@ -84,6 +87,7 @@ private:
     int rowForDevice(const QString& id) const;
     void clearDevices();
     void appendDevice(DeviceDbusInterface* dev);
+    bool passesFilter(DeviceDbusInterface *dev) const;
 
     DaemonDbusInterface* m_dbusInterface;
     QVector<DeviceDbusInterface*> m_deviceList;

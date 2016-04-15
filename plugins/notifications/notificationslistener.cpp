@@ -23,6 +23,9 @@
 #include <QtDebug>
 #include <QLoggingCategory>
 
+#include <kiconloader.h>
+#include <kicontheme.h>
+
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
 
@@ -143,7 +146,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
             app.blacklistExpression.match(ticker).hasMatch())
         return 0;
 
-    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Sending notification from" << appName << ":" <<ticker;
+    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set("id", QString::number(replacesId > 0 ? replacesId : ++id));
     np.set("appName", appName);
@@ -151,6 +154,28 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
     np.set("isClearable", timeout == 0);  // KNotifications are persistent if
                                           // timeout == 0, for other notifications
                                           // clearability is pointless
+
+    if (!appIcon.isEmpty() && mPlugin->config()->get("generalSynchronizeIcons", true)) {
+        int size = KIconLoader::SizeEnormous;  // use big size to allow for good
+                                               // quality on High-DPI mobile devices
+        QString iconPath = KIconLoader::global()->iconPath(appIcon, -size, true);
+        if (!iconPath.isEmpty()) {
+            if (!iconPath.endsWith(QLatin1String(".png")) &&
+                    KIconLoader::global()->theme()->name() != QLatin1String("hicolor")) {
+                // try falling back to hicolor theme:
+                KIconTheme hicolor(QStringLiteral("hicolor"));
+                if (hicolor.isValid()) {
+                    iconPath = hicolor.iconPath(appIcon + ".png", size, KIconLoader::MatchBest);
+                    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
+                }
+            }
+            if (iconPath.endsWith(QLatin1String(".png"))) {
+                //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Appending icon " << iconPath;
+                QSharedPointer<QIODevice> iconFile(new QFile(iconPath));
+                np.setPayload(iconFile, iconFile->size());
+            }
+        }
+    }
 
     mPlugin->sendPackage(np);
 

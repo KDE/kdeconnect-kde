@@ -8,6 +8,7 @@ OnlyShowIn=KDE;GNOME;Unity;XFCE;
 NoDisplay=true
 
 Name=KDEConnect daemon
+Name[ar]=عفريت KDEConnect
 Name[ast]=Degorriu KDEConnect
 Name[bg]=Услуга KDE Connect
 Name[ca]=Dimoni del KDEConnect
@@ -15,6 +16,7 @@ Name[ca@valencia]=Dimoni del KDEConnect
 Name[cs]=Démon KDE Connect
 Name[da]=KDEConnect-dæmon
 Name[de]=KDE-Connect-Dienst
+Name[el]=Δαίμονας του KDEConnect
 Name[en_GB]=KDEConnect daemon
 Name[es]=Demonio de KDE Connect
 Name[fi]=KDEConnect-taustapalvelu

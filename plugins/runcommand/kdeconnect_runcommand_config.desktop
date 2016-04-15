@@ -6,12 +6,14 @@ X-KDE-Library=kdeconnect_runcommand_config
 X-KDE-ParentComponents=kdeconnect_runcommand
 
 Name=Run Command plugin settings
+Name[ar]=إعدادات ملحقة تشغيل الأوامر
 Name[ast]=Axustes del complementu d'executar comandos
 Name[ca]=Ajustaments del connector Executa ordres
 Name[ca@valencia]=Ajustaments del connector Executa ordes
 Name[cs]=Nastavení modulu Spustit příkaz
 Name[da]=Indstilling af kør kommando-plugin
 Name[de]=Modul-Einstellungen für Befehlsausführung
+Name[el]=Ρυθμίσεις προσθέτου εκτέλεσης εντολής
 Name[en_GB]=Run Command plugin settings
 Name[es]=Ajustes del complemento de ejecución de órdenes
 Name[fi]=Suorita komento -liitännäisen asetukset

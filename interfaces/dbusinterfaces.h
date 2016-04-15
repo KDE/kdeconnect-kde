@@ -99,6 +99,10 @@ class KDECONNECTINTERFACES_EXPORT NotificationDbusInterface
 public:
     NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent = nullptr);
     virtual ~NotificationDbusInterface();
+
+    QString notificationId() { return id; }
+private:
+    const QString id;
 };
 
 

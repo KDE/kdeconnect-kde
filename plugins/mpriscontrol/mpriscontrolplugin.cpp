@@ -44,27 +44,31 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
 {
     m_watcher = new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
-    connect(m_watcher, &QDBusServiceWatcher::serviceRegistered, this, &MprisControlPlugin::addService);
-    connect(m_watcher, &QDBusServiceWatcher::serviceUnregistered, this, &MprisControlPlugin::removeService);
+    // TODO: QDBusConnectionInterface::serviceOwnerChanged is deprecated, maybe query org.freedesktop.DBus directly?
+    connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
 
     //Add existing interfaces
     QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
     Q_FOREACH (const QString& service, services) {
-        addService(service);
+        // The string doesn't matter, it just needs to be empty/non-empty
+        serviceOwnerChanged(service, QLatin1String(""), QLatin1String("1"));
     }
 }
 
-void MprisControlPlugin::addService(const QString& service)
+// Copied from the mpris2 dataengine in the plasma-workspace repository
+void MprisControlPlugin::serviceOwnerChanged(const QString& serviceName, const QString& oldOwner, const QString& newOwner)
 {
-    if (service.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
-        addPlayer(service);
-    }
-}
+    if (!serviceName.startsWith(QLatin1String("org.mpris.MediaPlayer2.")))
+        return;
 
-void MprisControlPlugin::removeService(const QString& service)
-{
-    if (service.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
-        removePlayer(service);
+    if (!oldOwner.isEmpty()) {
+        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "MPRIS service" << serviceName << "just went offline";
+        removePlayer(serviceName);
+    }
+
+    if (!newOwner.isEmpty()) {
+        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "MPRIS service" << serviceName << "just came online";
+        addPlayer(serviceName);
     }
 }
 

@@ -87,6 +87,8 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
             this, SLOT(notificationAdded(QString)));
     connect(m_dbusInterface, SIGNAL(notificationRemoved(QString)),
             this, SLOT(notificationRemoved(QString)));
+    connect(m_dbusInterface, SIGNAL(allNotificationsRemoved()),
+            this, SLOT(clearNotifications()));
 
     refreshNotificationList();
 
@@ -95,16 +97,24 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
 
 void NotificationsModel::notificationAdded(const QString& id)
 {
-    //TODO: Actually add instead of refresh
-    Q_UNUSED(id);
-    refreshNotificationList();
+    int currentSize = m_notificationList.size();
+    beginInsertRows(QModelIndex(),  currentSize, currentSize);
+    NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, id, this);
+    m_notificationList.append(dbusInterface);
+    endInsertRows();
 }
 
 void NotificationsModel::notificationRemoved(const QString& id)
 {
-    //TODO: Actually remove instead of refresh
-    Q_UNUSED(id);
-    refreshNotificationList();
+    for (int i = 0; i < m_notificationList.size(); ++i) {
+        if (m_notificationList[i]->notificationId() == id) {
+            beginRemoveRows(QModelIndex(), i, i);
+            m_notificationList.removeAt(i);
+            endRemoveRows();
+            return;
+        }
+    }
+    qCWarning(KDECONNECT_INTERFACES) << "Attempted to remove unknown notification: " << id;
 }
 
 void NotificationsModel::refreshNotificationList()
@@ -133,7 +143,6 @@ void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher* watcher)
     clearNotifications();
     QDBusPendingReply<QStringList> pendingNotificationIds = *watcher;
 
-    clearNotifications();
     if (pendingNotificationIds.isError()) {
         qCWarning(KDECONNECT_INTERFACES) << pendingNotificationIds.error();
         return;

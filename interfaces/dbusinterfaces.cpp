@@ -87,6 +87,7 @@ DeviceNotificationsDbusInterface::~DeviceNotificationsDbusInterface()
 
 NotificationDbusInterface::NotificationDbusInterface(const QString& deviceId, const QString& notificationId, QObject* parent)
     : OrgKdeKdeconnectDeviceNotificationsNotificationInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/"+deviceId+"/notifications/"+notificationId, QDBusConnection::sessionBus(), parent)
+    , id(notificationId)
 {
 
 }

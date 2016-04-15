@@ -37,6 +37,7 @@
         "Id": "kdeconnect_mpriscontrol", 
         "License": "GPL", 
         "Name": "Multimedia control receiver", 
+        "Name[ast]": "Mandu de control multimedia", 
         "Name[ca@valencia]": "Receptor del comandament multimèdia", 
         "Name[ca]": "Receptor del comandament multimèdia", 
         "Name[cs]": "Dálkový ovladač multimédií", 

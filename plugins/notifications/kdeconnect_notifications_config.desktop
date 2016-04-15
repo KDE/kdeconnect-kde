@@ -6,8 +6,13 @@ X-KDE-Library=kdeconnect_notifications_config
 X-KDE-ParentComponents=kdeconnect_notifications
 
 Name=Notification synchronization plugin settings
-Name[ca]=Ajustament del connector per a la sincronització de les notificacions
-Name[ca@valencia]=Ajustament del connector per a la sincronització de les notificacions
+Name[ar]=إعدادات ملحقة مزامنة الإخطارات
+Name[ast]=Axustes del complementu de sincronización d'avisos
+Name[ca]=Ajustament del connector Sincronitza les notificacions
+Name[ca@valencia]=Ajustament del connector Sincronitza les notificacions
+Name[cs]=Nastavení modulu synchronizace upozornění
+Name[de]=Einstellungen für Benachrichtigungsabgleich-Modul
+Name[el]=Ρυθμίσεις πρόσθετου συγχρονισμού ειδοποιήσεων
 Name[en_GB]=Notification synchronisation plugin settings
 Name[es]=Preferencias del complemento de sincronización de notificaciones
 Name[fi]=Ilmoitusten synkronointiliitännäisen asetukset

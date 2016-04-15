@@ -51,6 +51,7 @@ NotificationsConfig::NotificationsConfig(QWidget *parent, const QVariantList& ar
     connect(m_ui->check_persistent, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->spin_urgency, SIGNAL(editingFinished()), this, SLOT(changed()));
     connect(m_ui->check_body, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->check_icons, SIGNAL(toggled(bool)), this, SLOT(changed()));
 
     connect(appModel, SIGNAL(applicationsChanged()), this, SLOT(changed()));
 
@@ -67,6 +68,8 @@ void NotificationsConfig::defaults()
     KCModule::defaults();
     m_ui->check_persistent->setChecked(false);
     m_ui->spin_urgency->setValue(0);
+    m_ui->check_body->setChecked(true);
+    m_ui->check_icons->setChecked(true);
     Q_EMIT changed(true);
 }
 
@@ -89,6 +92,8 @@ void NotificationsConfig::load()
     m_ui->check_persistent->setChecked(persistent);
     bool body = config()->get("generalIncludeBody", true);
     m_ui->check_body->setChecked(body);
+    bool icons = config()->get("generalSynchronizeIcons", true);
+    m_ui->check_icons->setChecked(icons);
     int urgency = config()->get("generalUrgency", 0);
     m_ui->spin_urgency->setValue(urgency);
 
@@ -100,6 +105,7 @@ void NotificationsConfig::save()
 {
     config()->set("generalPersistent", m_ui->check_persistent->isChecked());
     config()->set("generalIncludeBody", m_ui->check_body->isChecked());
+    config()->set("generalSynchronizeIcons", m_ui->check_icons->isChecked());
     config()->set("generalUrgency", m_ui->spin_urgency->value());
 
     QVariantList list;

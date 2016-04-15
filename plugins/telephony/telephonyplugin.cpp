@@ -47,6 +47,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     const QString event = np.get<QString>("event");
     const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
     const QString contactName = np.get<QString>("contactName", phoneNumber);
+    const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>("phoneThumbnail", ""));
 
     QString content, type, icon;
     KNotification::NotificationFlags flags = KNotification::CloseOnTimeout | KNotification::CloseWhenWidgetActivated;
@@ -83,7 +84,13 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type, flags, this);
-    notification->setIconName(icon);
+    if (!phoneThumbnail.isEmpty()) {
+        QPixmap photo;
+        photo.loadFromData(phoneThumbnail, "JPEG");
+        notification->setPixmap(photo);
+    } else {
+        notification->setIconName(icon);
+    }
     notification->setComponentName("kdeconnect");
     notification->setTitle(title);
     notification->setText(content);
