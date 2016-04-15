@@ -109,6 +109,8 @@ public:
 
     void cleanUnneededLinks();
 
+    int protocolVersion() { return m_protocolVersion; }
+
 public Q_SLOTS:
     ///sends a @p np package to the device
     virtual bool sendPackage(NetworkPackage& np);
