@@ -1,4 +1,4 @@
-find_package(KF5 REQUIRED COMPONENTS Notifications KCMUtils I18n IconThemes)
+find_package(KF5 REQUIRED COMPONENTS Notifications KCMUtils I18n IconThemes Config)
 
 set(kdeconnect_notifications_SRCS
     notification.cpp
@@ -16,6 +16,7 @@ target_link_libraries(kdeconnect_notifications
     KF5::Notifications
     KF5::I18n
     KF5::IconThemes
+    KF5::ConfigCore
 )
 
 #######################################

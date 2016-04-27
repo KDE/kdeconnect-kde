@@ -49,4 +49,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void loadApplications();
 
+private:
+    void setTranslatedAppName();
+    QString mTranslatedAppName;
 };

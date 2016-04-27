@@ -22,6 +22,9 @@
 #include <QtDBus/QDBusInterface>
 #include <QtDebug>
 #include <QLoggingCategory>
+#include <QStandardPaths>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include <kiconloader.h>
 #include <kicontheme.h>
@@ -62,6 +65,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
     iface.call("AddMatch",
                "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
 
+    setTranslatedAppName();
     loadApplications();
 
     connect(mPlugin->config(), SIGNAL(configChanged()), this, SLOT(loadApplications()));
@@ -75,6 +79,20 @@ NotificationsListener::~NotificationsListener()
     QDBusMessage res = iface.call("RemoveMatch",
                                   "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
     QDBusConnection::sessionBus().unregisterObject("/org/freedesktop/Notifications");
+}
+
+void NotificationsListener::setTranslatedAppName()
+{
+    QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
+    if (filePath.isEmpty()) {
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
+        mTranslatedAppName = QStringLiteral("KDE Connect");
+        return;
+    }
+
+    KConfig config(filePath, KConfig::OpenFlag::SimpleConfig);
+    KConfigGroup globalgroup(&config, QStringLiteral("Global"));
+    mTranslatedAppName = globalgroup.readEntry(QStringLiteral("Name"), QStringLiteral("KDE Connect"));
 }
 
 void NotificationsListener::loadApplications()
@@ -101,7 +119,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
     //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
 
     // skip our own notifications
-    if (appName == QLatin1String("KDE Connect"))
+    if (appName == mTranslatedAppName)
         return 0;
 
     NotifyingApplication app;
