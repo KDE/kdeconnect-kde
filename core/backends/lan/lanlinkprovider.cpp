@@ -48,8 +48,7 @@ LanLinkProvider::LanLinkProvider(bool testMode)
 {
     mTcpPort = 0;
 
-    mUdpServer = new QUdpSocket(this);
-    connect(mUdpServer, SIGNAL(readyRead()), this, SLOT(newUdpConnection()));
+    connect(&mUdpSocket, SIGNAL(readyRead()), this, SLOT(newUdpConnection()));
 
     mServer = new Server(this);
     connect(mServer,SIGNAL(newConnection()),this, SLOT(newConnection()));
@@ -75,7 +74,7 @@ void LanLinkProvider::onStart()
 {
     const QHostAddress bindAddress = mTestMode? QHostAddress::LocalHost : QHostAddress::Any;
 
-    bool success = mUdpServer->bind(bindAddress, port, QUdpSocket::ShareAddress);
+    bool success = mUdpSocket.bind(bindAddress, port, QUdpSocket::ShareAddress);
     Q_ASSERT(success);
 
     qCDebug(KDECONNECT_CORE) << "onStart";
@@ -96,7 +95,7 @@ void LanLinkProvider::onStart()
 void LanLinkProvider::onStop()
 {
     qCDebug(KDECONNECT_CORE) << "onStop";
-    mUdpServer->close();
+    mUdpSocket.close();
     mServer->close();
 }
 
@@ -121,13 +120,13 @@ void LanLinkProvider::onNetworkChange()
 //I will create a TcpSocket and try to connect. This can result in either connected() or connectError().
 void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
 {
-    while (mUdpServer->hasPendingDatagrams()) {
+    while (mUdpSocket.hasPendingDatagrams()) {
 
         QByteArray datagram;
-        datagram.resize(mUdpServer->pendingDatagramSize());
+        datagram.resize(mUdpSocket.pendingDatagramSize());
         QHostAddress sender;
 
-        mUdpServer->readDatagram(datagram.data(), datagram.size(), &sender);
+        mUdpSocket.readDatagram(datagram.data(), datagram.size(), &sender);
 
         if (sender.isLoopback() && !mTestMode)
             continue;

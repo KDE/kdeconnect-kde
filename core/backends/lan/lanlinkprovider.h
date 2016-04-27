@@ -72,7 +72,6 @@ private:
     void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, LanDeviceLink::ConnectionStarted connectionOrigin);
 
     Server* mServer;
-    QUdpSocket* mUdpServer;
     QUdpSocket mUdpSocket;
     const static quint16 port = 1714;
     quint16 mTcpPort;
