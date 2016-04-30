@@ -409,10 +409,24 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
 
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
 
+    // Setting supported ciphers manually
+    // Top 3 ciphers are for new Android devices, botton two are for old Android devices
+    // FIXME : These cipher suites should be checked whether they are supported or not on device
+    QList<QSslCipher> socketCiphers;
+    socketCiphers.append(QSslCipher("ECDHE-ECDSA-AES256-GCM-SHA384"));
+    socketCiphers.append(QSslCipher("ECDHE-ECDSA-AES128-GCM-SHA256"));
+    socketCiphers.append(QSslCipher("ECDHE-RSA-AES128-SHA"));
+    socketCiphers.append(QSslCipher("RC4-SHA"));
+    socketCiphers.append(QSslCipher("RC4-MD5"));
+
     // Configure for ssl
+    QSslConfiguration sslConfig;
+    sslConfig.setCiphers(socketCiphers);
+    sslConfig.setProtocol(QSsl::TlsV1_0);
+
+    socket->setSslConfiguration(sslConfig);
     socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    socket->setProtocol(QSsl::AnyProtocol);
 
     #ifdef TCP_KEEPIDLE
         // time to start sending keepalive packets (seconds)
