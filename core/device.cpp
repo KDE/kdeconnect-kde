@@ -57,6 +57,7 @@ Device::Device(QObject* parent, const QString& id)
     m_deviceName = info.deviceName;
     m_deviceType = str2type(info.deviceType);
     m_publicKey = QCA::RSAPublicKey::fromPEM(info.publicKey);
+    Q_ASSERT(m_publicKey.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm)>0);
 
     m_pairingTimeut.setSingleShot(true);
     m_pairingTimeut.setInterval(30 * 1000);  //30 seconds of timeout
