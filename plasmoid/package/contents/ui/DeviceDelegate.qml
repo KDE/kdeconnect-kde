@@ -48,7 +48,8 @@ PlasmaComponents.ListItem
                 Layout.fillWidth: true
             }
 
-           PlasmaComponents.Button
+            //Find my phone
+            PlasmaComponents.Button
             {
                 FindMyPhone {
                     id: findmyphone
@@ -56,14 +57,16 @@ PlasmaComponents.ListItem
                 }
 
                 id: ring
-                iconSource: "preferences-desktop-notification"
+                iconSource: "question"
                 visible: findmyphone.available
+                tooltip: i18n("Ring my phone")
 
                 onClicked: {
                     findmyphone.ring()
                 }
             }
 
+            //SFTP
             PlasmaComponents.Button
             {
                 Sftp {
@@ -74,6 +77,7 @@ PlasmaComponents.ListItem
                 id: browse
                 iconSource: "document-open-folder"
                 visible: sftp.available
+                tooltip: i18n("Browse this device")
 
                 onClicked: {
                     sftp.browse()
