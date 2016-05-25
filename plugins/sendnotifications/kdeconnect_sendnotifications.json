@@ -3,17 +3,17 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "albertvaka@gmail.com", 
-                "Name": "Albert Vaca", 
+                "Email": "holger.k@elberer.de",
+                "Name": "Holger Kaelberer",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
-        "Description": "Show device's notifications on this computer and keep them in sync",
-        "EnabledByDefault": true, 
+        "Description": "Broadcast this computer's notifications, so the can be shown in other devices.",
+        "EnabledByDefault": false,
         "Icon": "preferences-desktop-notification", 
-        "Id": "kdeconnect_notifications", 
+        "Id": "kdeconnect_sendnotifications",
         "License": "GPL", 
-        "Name": "Receive notifications",
+        "Name": "Send notifications",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 
@@ -22,7 +22,7 @@
     }, 
     "X-KdeConnect-OutgoingPackageType": [
         "kdeconnect.notification"
-    ], 
+    ],
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.notification"
     ]

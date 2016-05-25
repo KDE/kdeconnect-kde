@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Holger Kaelberer <holger.k@elberer.de>
+ * Copyright 2014 Alejandro Fiestas Olivares <afiestas@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,37 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NOTIFICATIONS_CONFIG_H
-#define NOTIFICATIONS_CONFIG_H
+#ifndef SENDNOTIFICATION_DEBUG_H
+#define SENDNOTIFICATION_DEBUG_H
 
-#include "kcmplugin/kdeconnectpluginkcm.h"
+#include <QLoggingCategory>
 
-namespace Ui {
-    class NotificationsConfigUi;
-}
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SENDNOTIFICATION)
 
-class NotifyingApplicationModel;
-
-class NotificationsConfig
-    : public KdeConnectPluginKcm
-{
-    Q_OBJECT
-public:
-    NotificationsConfig(QWidget *parent, const QVariantList&);
-    virtual ~NotificationsConfig();
-
-public Q_SLOTS:
-    virtual void save() override;
-    virtual void load() override;
-    virtual void defaults() override;
-
-private Q_SLOTS:
-    void loadApplications();
-
-private:
-    Ui::NotificationsConfigUi* m_ui;
-    NotifyingApplicationModel* appModel;
-
-};
-
-#endif
+#endif //NOTIFICATION_DEBUG_H

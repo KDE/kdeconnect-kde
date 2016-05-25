@@ -21,7 +21,6 @@
 #include "notificationsplugin.h"
 
 #include "notificationsdbusinterface.h"
-#include "notificationslistener.h"
 #include "notification_debug.h"
 
 #include <KPluginFactory>
@@ -34,7 +33,6 @@ NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& ar
     : KdeConnectPlugin(parent, args)
 {
     notificationsDbusInterface = new NotificationsDbusInterface(this);
-    notificationsListener = new NotificationsListener(this, notificationsDbusInterface);
 }
 
 void NotificationsPlugin::connected()

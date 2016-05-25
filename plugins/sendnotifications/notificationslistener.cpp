@@ -30,16 +30,13 @@
 #include <core/kdeconnectplugin.h>
 
 #include "notificationslistener.h"
-#include "notificationsplugin.h"
-#include "notification_debug.h"
-#include "notificationsdbusinterface.h"
+#include "sendnotificationsplugin.h"
+#include "sendnotification_debug.h"
 #include "notifyingapplication.h"
 
-NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
-                                             NotificationsDbusInterface* aDbusInterface)
+NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     : QDBusAbstractAdaptor(aPlugin),
-      mPlugin(aPlugin),
-      dbusInterface(aDbusInterface)
+      mPlugin(aPlugin)
 {
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
@@ -48,12 +45,12 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
                                 this,
                                 QDBusConnection::ExportScriptableContents);
     if (!ret)
-        qCWarning(KDECONNECT_PLUGIN_NOTIFICATION)
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION)
                 << "Error registering notifications listener for device"
                 << mPlugin->device()->name() << ":"
                 << QDBusConnection::sessionBus().lastError();
     else
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION)
+        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION)
                 << "Registered notifications listener for device"
                 << mPlugin->device()->name();
 
@@ -69,7 +66,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin,
 
 NotificationsListener::~NotificationsListener()
 {
-    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Destroying NotificationsListener";
+    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Destroying NotificationsListener";
     QDBusInterface iface("org.freedesktop.DBus", "/org/freedesktop/DBus",
                          "org.freedesktop.DBus");
     QDBusMessage res = iface.call("RemoveMatch",
@@ -86,7 +83,7 @@ void NotificationsListener::loadApplications()
         if (!applications.contains(app.name))
             applications.insert(app.name, app);
     }
-    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Loaded" << applications.size() << " applications";
+    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
 }
 
 uint NotificationsListener::Notify(const QString &appName, uint replacesId,
@@ -98,7 +95,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
     static int id = 0;
     Q_UNUSED(actions);
 
-    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
+    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
 
     // skip our own notifications
     if (appName == QLatin1String("KDE Connect"))
@@ -117,7 +114,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
         for (const auto& a: applications.values())
             list << QVariant::fromValue<NotifyingApplication>(a);
         mPlugin->config()->setList("applications", list);
-        //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Added new application to config:" << app;
+        //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
     } else
         app = applications.value(appName);
 
@@ -146,7 +143,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
             app.blacklistExpression.match(ticker).hasMatch())
         return 0;
 
-    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
+    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
     np.set("id", QString::number(replacesId > 0 ? replacesId : ++id));
     np.set("appName", appName);
@@ -166,11 +163,11 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                 KIconTheme hicolor(QStringLiteral("hicolor"));
                 if (hicolor.isValid()) {
                     iconPath = hicolor.iconPath(appIcon + ".png", size, KIconLoader::MatchBest);
-                    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
+                    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
                 }
             }
             if (iconPath.endsWith(QLatin1String(".png"))) {
-                //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Appending icon " << iconPath;
+                //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Appending icon " << iconPath;
                 QSharedPointer<QIODevice> iconFile(new QFile(iconPath));
                 np.setPayload(iconFile, iconFile->size());
             }
