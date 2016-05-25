@@ -115,7 +115,7 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
         removeNotification(internalId);
     }
 
-    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
+    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
 
     connect(noti, &Notification::dismissRequested,
             this, &NotificationsDbusInterface::dismissRequested);
@@ -130,10 +130,10 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
 void NotificationsDbusInterface::removeNotification(const QString& internalId)
 {
-    qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
+    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
 
     if (!mInternalIdToPublicId.contains(internalId)) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found: " << internalId;
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by internal Id: " << internalId;
         return;
     }
 
@@ -141,7 +141,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
     Notification* noti = mNotifications.take(publicId);
     if (!noti) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found";
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by public Id: " << publicId;
         return;
     }
 
