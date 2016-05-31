@@ -136,7 +136,7 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
 
         //qCDebug(KDECONNECT_CORE) << "udp connection from " << receivedPackage->;
 
-        qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
+        //qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
         if (!success || receivedPackage->type() != PACKAGE_TYPE_IDENTITY) {
             delete receivedPackage;
@@ -337,7 +337,7 @@ void LanLinkProvider::dataReceived()
 
     const QByteArray data = socket->readLine();
 
-    qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
+    //qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
 
     NetworkPackage* np = new NetworkPackage("");
     bool success = NetworkPackage::unserialize(data, np);
