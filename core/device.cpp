@@ -125,7 +125,7 @@ void Device::reloadPlugins()
                 supportedOutgoingInterfaces += outgoingInterfaces;
             }
 
-            const bool pluginNeedsCapabilities = !m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty();
+            const bool pluginNeedsCapabilities = !incomingInterfaces.isEmpty() || !outgoingInterfaces.isEmpty();
 
             //If we don't find intersection with the received on one end and the sent on the other, we don't
             //let the plugin stay
