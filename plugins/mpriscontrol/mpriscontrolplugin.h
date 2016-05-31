@@ -28,7 +28,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_MPRIS QLatin1String("kdeconnect.mpris.request")
+#define PACKAGE_TYPE_MPRIS QLatin1String("kdeconnect.mpris")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS)
 
