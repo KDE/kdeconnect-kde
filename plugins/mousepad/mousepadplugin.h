@@ -25,7 +25,7 @@
 #include <core/kdeconnectplugin.h>
 #include <config-mousepad.h>
 
-#define PACKAGE_TYPE_MOUSEPAD QLatin1String("kdeconnect.mousepad")
+#define PACKAGE_TYPE_INPUT_REQUEST QLatin1String("kdeconnect.input.request")
 
 struct FakeKey;
 
@@ -52,13 +52,17 @@ public:
     virtual void connected() override { }
 
 private:
+#if HAVE_X11
     bool handlePackageX11(const NetworkPackage& np);
+#endif
 #if HAVE_WAYLAND
     void setupWaylandIntegration();
     bool handPackageWayland(const NetworkPackage& np);
 #endif
 
+#if HAVE_X11
     FakeKey* m_fakekey;
+#endif
     const bool m_x11;
 #if HAVE_WAYLAND
     KWayland::Client::FakeInput *m_waylandInput;

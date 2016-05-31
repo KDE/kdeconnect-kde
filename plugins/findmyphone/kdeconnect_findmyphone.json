@@ -12,7 +12,7 @@
                 "Name[x-test]": "xxDavid Edmundsonxx"
             }
         ], 
-        "Description": "Find your lost phone by making it play an alarm sound    ", 
+        "Description": "Find your lost phone by making it play an alarm sound",
         "Description[ast]": "Alcuentra'l to preséu perdíu faciéndolu sonar    ", 
         "Description[ca@valencia]": "Troba el vostra telèfon perdut fent que reproduïsca un so d'alarma    ", 
         "Description[ca]": "Troba el vostra telèfon perdut fent que reprodueixi un so d'alarma    ", 
@@ -39,28 +39,7 @@
         "Icon": "edit-find", 
         "Id": "kdeconnect_findmyphone", 
         "License": "GPL", 
-        "Name": "Find My Phone", 
-        "Name[ast]": "Alcontrar el mio teléfonu", 
-        "Name[ca@valencia]": "Troba el meu telèfon", 
-        "Name[ca]": "Troba el meu telèfon", 
-        "Name[cs]": "Najít můj telefon", 
-        "Name[de]": "Telefon suchen", 
-        "Name[es]": "Encontrar mi teléfono", 
-        "Name[fi]": "Löydä puhelimeni", 
-        "Name[gl]": "Atopar o móbil", 
-        "Name[it]": "Trova il mio telefono", 
-        "Name[ko]": "내 휴대폰 찾기", 
-        "Name[nl]": "Zoek mijn telefoon", 
-        "Name[pl]": "Znajdź mój telefon", 
-        "Name[pt]": "Descobrir o Meu Telefone", 
-        "Name[pt_BR]": "Encontrar meu telefone", 
-        "Name[ru]": "Поиск телефона", 
-        "Name[sk]": "Nájsť môj telefón", 
-        "Name[sv]": "Hitta min telefon", 
-        "Name[tr]": "Telefonumu Bul", 
-        "Name[uk]": "Знайти телефон", 
-        "Name[x-test]": "xxFind My Phonexx", 
-        "Name[zh_CN]": "找到我的手机", 
+        "Name": "Ring my phone",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 
@@ -68,6 +47,6 @@
         "Website": "http://kde.org"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.findmyphone"
+        "kdeconnect.findmyphone.request"
     ]
 }

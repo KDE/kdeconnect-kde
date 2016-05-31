@@ -31,7 +31,8 @@
 #include "kdeconnecttelepathyprotocolfactory.h"
 #endif
 
-#define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony")
+#define PACKAGE_TYPE_TELEPHONY QLatin1String("kdeconnect.telephony.request")
+#define PACKAGE_TYPE_SMS QLatin1String("kdeconnect.sms.request")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 

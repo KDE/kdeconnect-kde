@@ -57,10 +57,8 @@ ecm_add_test(devicetest.cpp ${lanlinkprovidertest_sources} TEST_NAME devicetest 
 
 ecm_add_test(downloadjobtest.cpp ../core/backends/lan/downloadjob.cpp TEST_NAME downloadjobtest LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(testnotificationlistener.cpp
-             ../plugins/notifications/notificationslistener.cpp
-             ../plugins/notifications/notificationsplugin.cpp
-             ../plugins/notifications/notification.cpp
-             ../plugins/notifications/notifyingapplication.cpp
-             ../plugins/notifications/notificationsdbusinterface.cpp
+             ../plugins/sendnotifications/sendnotificationsplugin.cpp
+             ../plugins/sendnotifications/notificationslistener.cpp
+             ../plugins/sendnotifications/notifyingapplication.cpp
              TEST_NAME testnotificationlistener
              LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications KF5::IconThemes)

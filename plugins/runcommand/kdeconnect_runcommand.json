@@ -71,6 +71,6 @@
         "kdeconnect.runcommand"
     ], 
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.runcommand"
+        "kdeconnect.runcommand.request"
     ]
 }

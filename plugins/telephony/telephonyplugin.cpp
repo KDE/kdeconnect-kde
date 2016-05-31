@@ -144,7 +144,7 @@ void TelephonyPlugin::sendMutePackage()
 
 void TelephonyPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
 {
-    NetworkPackage np(PACKAGE_TYPE_TELEPHONY);
+    NetworkPackage np(PACKAGE_TYPE_SMS);
     np.set("sendSms", true);
     np.set("phoneNumber", phoneNumber);
     np.set("messageBody", messageBody);

@@ -67,9 +67,9 @@
         "Website": "http://albertvaka.wordpress.com"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.share"
+        "kdeconnect.share.request"
     ], 
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.share"
+        "kdeconnect.share.request"
     ]
 }

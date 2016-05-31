@@ -18,43 +18,38 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHAREPLUGIN_H
-#define SHAREPLUGIN_H
+#ifndef SENDNOTIFICATIONSPLUGIN_H
+#define SENDNOTIFICATIONSPLUGIN_H
 
-#include <KNotification>
-#include <KIO/Job>
+#include <knotification.h>
 
 #include <core/kdeconnectplugin.h>
+#define PACKAGE_TYPE_NOTIFICATION_REQUEST QLatin1String("kdeconnect.notification")
 
-#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share.request")
+/*
+ * This class is just a proxy for NotificationsDbusInterface
+ * because it can not inherit from QDBusAbstractAdaptor and
+ * KdeConnectPlugin at the same time (both are QObject)
+ */
+class NotificationsDbusInterface;
+class NotificationsListener;
 
-class SharePlugin
+class SendNotificationsPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.share")
 
 public:
-    explicit SharePlugin(QObject *parent, const QVariantList &args);
-
-    ///Helper method, QDBus won't recognize QUrl
-    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
+    explicit SendNotificationsPlugin(QObject *parent, const QVariantList &args);
+    virtual ~SendNotificationsPlugin();
+    
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np) override;
     virtual void connected() override;
 
-private Q_SLOTS:
-    void finished(KJob*);
-    void openDestinationFolder();
-
-Q_SIGNALS:
-    void shareReceived(const QUrl& url);
-
-private:
-    void shareUrl(const QUrl& url);
-
-    QString dbusPath() const;
-    QUrl destinationDir() const;
+protected:
+    NotificationsListener* notificationsListener;
 
 };
+
 #endif

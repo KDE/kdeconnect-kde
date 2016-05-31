@@ -52,7 +52,7 @@ bool LockDevicePlugin::isLocked() const
 }
 void LockDevicePlugin::setLocked(bool locked)
 {
-    NetworkPackage np(PACKAGE_TYPE_LOCK);
+    NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST);
     np.set("setLocked", locked);
     sendPackage(np);
 }
@@ -95,7 +95,7 @@ void LockDevicePlugin::connected()
 {
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
 
-    NetworkPackage np(PACKAGE_TYPE_LOCK);
+    NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST);
     np.set("requestLocked", QVariant());
     sendPackage(np);
 }

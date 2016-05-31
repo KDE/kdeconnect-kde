@@ -166,6 +166,7 @@ void NetworkPackage::encrypt(QCA::PublicKey& key)
     QByteArray serialized = serialize();
 
     int chunkSize = key.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm);
+    Q_ASSERT(chunkSize>0);
 
     QStringList chunks;
     while (!serialized.isEmpty()) {

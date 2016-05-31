@@ -52,7 +52,7 @@ MprisRemotePlugin::~MprisRemotePlugin()
 
 bool MprisRemotePlugin::receivePackage(const NetworkPackage& np)
 {
-    if (np.type() != PACKAGE_TYPE_MPRIS)
+    if (np.type() != PACKAGE_TYPE_MPRIS_REQUEST)
         return false;
 
     if (np.has("nowPlaying") || np.has("volume") || np.has("isPlaying") || np.has("length") || np.has("pos")) {
@@ -97,7 +97,7 @@ QString MprisRemotePlugin::dbusPath() const
 
 void MprisRemotePlugin::requestPlayerStatus()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
     np.set("player",m_player);
     np.set("requestNowPlaying",true);
     np.set("requestVolume",true);
@@ -106,14 +106,14 @@ void MprisRemotePlugin::requestPlayerStatus()
 
 void MprisRemotePlugin::requestPlayerList()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
     np.set("requestPlayerList", true);
     sendPackage(np);
 }
 
 void MprisRemotePlugin::sendAction(const QString& action)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
     np.set("player", m_player);
     np.set("action", action);
     sendPackage(np);
@@ -121,7 +121,7 @@ void MprisRemotePlugin::sendAction(const QString& action)
 
 void MprisRemotePlugin::seek(int offset) const
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
     np.set("player", m_player);
     np.set("Seek", offset);
     sendPackage(np);
@@ -129,7 +129,7 @@ void MprisRemotePlugin::seek(int offset) const
 
 void MprisRemotePlugin::setVolume(int volume)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
     np.set("player", m_player);
     np.set("setVolume",volume);
     sendPackage(np);
@@ -137,7 +137,7 @@ void MprisRemotePlugin::setVolume(int volume)
 
 void MprisRemotePlugin::setPosition(int position)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
     np.set("player", m_player);
     np.set("SetPosition", position);
     sendPackage(np);

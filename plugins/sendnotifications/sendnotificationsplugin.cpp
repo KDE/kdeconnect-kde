@@ -18,43 +18,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHAREPLUGIN_H
-#define SHAREPLUGIN_H
+#include "sendnotificationsplugin.h"
 
-#include <KNotification>
-#include <KIO/Job>
+#include "notificationslistener.h"
+#include "sendnotification_debug.h"
 
-#include <core/kdeconnectplugin.h>
+#include <KPluginFactory>
 
-#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share.request")
+K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_sendnotifications.json", registerPlugin< SendNotificationsPlugin >(); )
 
-class SharePlugin
-    : public KdeConnectPlugin
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SENDNOTIFICATION, "kdeconnect.plugin.sendnotification")
+
+SendNotificationsPlugin::SendNotificationsPlugin(QObject* parent, const QVariantList& args)
+    : KdeConnectPlugin(parent, args)
 {
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.share")
+    notificationsListener = new NotificationsListener(this);
+}
 
-public:
-    explicit SharePlugin(QObject *parent, const QVariantList &args);
+SendNotificationsPlugin::~SendNotificationsPlugin()
+{
+    delete notificationsListener;
+}
 
-    ///Helper method, QDBus won't recognize QUrl
-    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
-public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+bool SendNotificationsPlugin::receivePackage(const NetworkPackage& np)
+{
+    Q_UNUSED(np);
+    return true;
+}
 
-private Q_SLOTS:
-    void finished(KJob*);
-    void openDestinationFolder();
+void SendNotificationsPlugin::connected()
+{
 
-Q_SIGNALS:
-    void shareReceived(const QUrl& url);
+}
 
-private:
-    void shareUrl(const QUrl& url);
-
-    QString dbusPath() const;
-    QUrl destinationDir() const;
-
-};
-#endif
+#include "sendnotificationsplugin.moc"

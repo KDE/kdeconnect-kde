@@ -67,7 +67,7 @@
         "Website": "http://albertvaka.wordpress.com"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.battery"
+        "kdeconnect.battery.request"
     ], 
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.battery"

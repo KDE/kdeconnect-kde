@@ -18,38 +18,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtDBus/QDBusAbstractAdaptor>
-#include <core/device.h>
+#ifndef SENDNOTIFICATIONS_CONFIG_H
+#define SENDNOTIFICATIONS_CONFIG_H
 
-class KdeConnectPlugin;
-class NotificationsDbusInterface;
-class Notification;
-struct NotifyingApplication;
+#include "kcmplugin/kdeconnectpluginkcm.h"
 
-class NotificationsListener : public QDBusAbstractAdaptor
+namespace Ui {
+    class SendNotificationsConfigUi;
+}
+
+class NotifyingApplicationModel;
+
+class SendNotificationsConfig
+    : public KdeConnectPluginKcm
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
-
 public:
-    explicit NotificationsListener(KdeConnectPlugin* aPlugin,
-                                   NotificationsDbusInterface* aDbusInterface);
-    virtual ~NotificationsListener();
-
-protected:
-    KdeConnectPlugin* mPlugin;
-    NotificationsDbusInterface* dbusInterface;
-    QHash<QString, NotifyingApplication> applications;
+    SendNotificationsConfig(QWidget *parent, const QVariantList&);
+    virtual ~SendNotificationsConfig();
 
 public Q_SLOTS:
-    Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,
-                             const QString&, const QString&,
-                             const QStringList&, const QVariantMap&, int);
+    virtual void save() override;
+    virtual void load() override;
+    virtual void defaults() override;
 
 private Q_SLOTS:
     void loadApplications();
 
 private:
-    void setTranslatedAppName();
-    QString mTranslatedAppName;
+    Ui::SendNotificationsConfigUi* m_ui;
+    NotifyingApplicationModel* appModel;
+
 };
+
+#endif

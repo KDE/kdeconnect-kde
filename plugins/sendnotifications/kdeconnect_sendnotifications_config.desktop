@@ -2,8 +2,8 @@
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
-X-KDE-Library=kdeconnect_notifications_config
-X-KDE-ParentComponents=kdeconnect_notifications
+X-KDE-Library=kdeconnect_sendnotifications_config
+X-KDE-ParentComponents=kdeconnect_sendnotifications
 
 Name=Notification synchronization plugin settings
 Name[ar]=إعدادات ملحقة مزامنة الإخطارات

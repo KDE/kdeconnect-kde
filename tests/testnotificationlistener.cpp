@@ -31,18 +31,17 @@
 #include "core/device.h"
 #include "core/kdeconnectplugin.h"
 #include "kdeconnect-version.h"
-#include "plugins/notifications/notificationsplugin.h"
-#include "plugins/notifications/notificationslistener.h"
-#include "plugins/notifications/notificationsdbusinterface.h"
-#include "plugins/notifications/notifyingapplication.h"
+#include "plugins/sendnotifications/sendnotificationsplugin.h"
+#include "plugins/sendnotifications/notificationslistener.h"
+#include "plugins/sendnotifications/notifyingapplication.h"
 
 // Tweaked NotificationsPlugin for testing
-class TestNotificationsPlugin : public NotificationsPlugin
+class TestNotificationsPlugin : public SendNotificationsPlugin
 {
     Q_OBJECT
 public:
     explicit TestNotificationsPlugin(QObject *parent, const QVariantList &args)
-        : NotificationsPlugin(parent, args)
+    : SendNotificationsPlugin(parent, args)
     {
     }
 
@@ -59,10 +58,6 @@ public:
         notificationsListener = value;
     }
 
-    NotificationsDbusInterface* getNotificationsDbusInterface() const
-    {
-        return notificationsDbusInterface;
-    }
 };
 
 // Tweaked Device for testing:
@@ -116,9 +111,8 @@ class TestedNotificationsListener: public NotificationsListener
 {
 
 public:
-    explicit TestedNotificationsListener(KdeConnectPlugin* aPlugin,
-                                         NotificationsDbusInterface* aDbusInterface)
-        : NotificationsListener(aPlugin, aDbusInterface)
+    explicit TestedNotificationsListener(KdeConnectPlugin* aPlugin)
+        : NotificationsListener(aPlugin)
     {}
 
     virtual ~TestedNotificationsListener()
@@ -160,7 +154,7 @@ void TestNotificationListener::testNotify()
     //
 
     QString dId("testid");
-    TestDevice *d = new TestDevice(nullptr, dId); // not setting any parent or we will double free the dbusInterface
+    TestDevice *d = new TestDevice(nullptr, dId);
 
     int proxiedNotifications = 0;
     QCOMPARE(proxiedNotifications, d->getSentPackages());
@@ -172,7 +166,7 @@ void TestNotificationListener::testNotify()
     delete plugin->getNotificationsListener();
 
     // inject our tweaked NotificationsListener:
-    TestedNotificationsListener* listener = new TestedNotificationsListener(plugin, plugin->getNotificationsDbusInterface());
+    TestedNotificationsListener* listener = new TestedNotificationsListener(plugin);
     QVERIFY(listener);
     plugin->setNotificationsListener(listener);
     QCOMPARE(listener, plugin->getNotificationsListener());

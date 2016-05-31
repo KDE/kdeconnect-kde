@@ -18,18 +18,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "notifications_config.h"
-#include "ui_notifications_config.h"
+#include "sendnotifications_config.h"
+#include "ui_sendnotifications_config.h"
 #include "notifyingapplicationmodel.h"
 
 #include <KCModule>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(NotificationsConfigFactory, registerPlugin<NotificationsConfig>();)
+K_PLUGIN_FACTORY(SendNotificationsConfigFactory, registerPlugin<SendNotificationsConfig>();)
 
-NotificationsConfig::NotificationsConfig(QWidget *parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, "kdeconnect_notifications_config")
-    , m_ui(new Ui::NotificationsConfigUi())
+SendNotificationsConfig::SendNotificationsConfig(QWidget *parent, const QVariantList& args)
+    : KdeConnectPluginKcm(parent, args, "kdeconnect_sendnotifications_config")
+    , m_ui(new Ui::SendNotificationsConfigUi())
     , appModel(new NotifyingApplicationModel)
 {
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
@@ -58,12 +58,12 @@ NotificationsConfig::NotificationsConfig(QWidget *parent, const QVariantList& ar
     connect(config(), SIGNAL(configChanged()), this, SLOT(loadApplications()));
 }
 
-NotificationsConfig::~NotificationsConfig()
+SendNotificationsConfig::~SendNotificationsConfig()
 {
     delete m_ui;
 }
 
-void NotificationsConfig::defaults()
+void SendNotificationsConfig::defaults()
 {
     KCModule::defaults();
     m_ui->check_persistent->setChecked(false);
@@ -73,7 +73,7 @@ void NotificationsConfig::defaults()
     Q_EMIT changed(true);
 }
 
-void NotificationsConfig::loadApplications()
+void SendNotificationsConfig::loadApplications()
 {
     appModel->clearApplications();
     QVariantList list = config()->getList("applications");
@@ -85,7 +85,7 @@ void NotificationsConfig::loadApplications()
     }
 }
 
-void NotificationsConfig::load()
+void SendNotificationsConfig::load()
 {
     KCModule::load();
     bool persistent = config()->get("generalPersistent", false);
@@ -101,7 +101,7 @@ void NotificationsConfig::load()
     Q_EMIT changed(false);
 }
 
-void NotificationsConfig::save()
+void SendNotificationsConfig::save()
 {
     config()->set("generalPersistent", m_ui->check_persistent->isChecked());
     config()->set("generalIncludeBody", m_ui->check_body->isChecked());
@@ -116,4 +116,4 @@ void NotificationsConfig::save()
     Q_EMIT changed(false);
 }
 
-#include "notifications_config.moc"
+#include "sendnotifications_config.moc"

@@ -28,6 +28,7 @@
 class OrgFreedesktopScreenSaverInterface;
 
 #define PACKAGE_TYPE_LOCK QLatin1String("kdeconnect.lock")
+#define PACKAGE_TYPE_LOCK_REQUEST QLatin1String("kdeconnect.lock.request")
 
 class Q_DECL_EXPORT LockDevicePlugin
     : public KdeConnectPlugin
