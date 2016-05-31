@@ -133,7 +133,11 @@ void Device::reloadPlugins()
                 && (m_incomingCapabilities & outgoingInterfaces).isEmpty()
                 && (m_outgoingCapabilities & incomingInterfaces).isEmpty()
             ) {
-                qCWarning(KDECONNECT_CORE) << "not loading " << pluginName << "because of unmatched capabilities";
+                if (!m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty()) {
+                    qCWarning(KDECONNECT_CORE) << "not loading " << pluginName << "because of unmatched capabilities" <<
+                        outgoingInterfaces << incomingInterfaces;
+                }
+
                 unsupportedPlugins.append(pluginName);
                 continue;
             }
