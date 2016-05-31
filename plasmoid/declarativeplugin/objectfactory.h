@@ -20,10 +20,10 @@ public:
     ObjectFactory(QObject* parent, Func2 f2) : QObject(parent), m_f0(nullptr), m_f1(nullptr), m_f2(f2) {}
     
     virtual ~ObjectFactory() {}
-    
-    
+
     Q_INVOKABLE QObject* create() {
-        if (m_f0) return m_f0(); return nullptr;
+        if (m_f0) return m_f0();
+        return nullptr;
     }
     
     Q_INVOKABLE QObject* create(const QVariant &arg1) {
