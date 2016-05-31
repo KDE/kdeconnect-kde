@@ -14,6 +14,7 @@ target_link_libraries(kdeconnect_sendnotifications
     KF5::Notifications
     KF5::I18n
     KF5::IconThemes
+    KF5::ConfigCore
 )
 
 #######################################

@@ -82,7 +82,7 @@ void NotificationsListener::setTranslatedAppName()
 {
     QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
     if (filePath.isEmpty()) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
+        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
         mTranslatedAppName = QStringLiteral("KDE Connect");
         return;
     }
