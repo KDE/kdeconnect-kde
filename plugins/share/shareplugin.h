@@ -26,7 +26,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share")
+#define PACKAGE_TYPE_SHARE QLatin1String("kdeconnect.share.request")
 
 class SharePlugin
     : public KdeConnectPlugin

@@ -24,6 +24,6 @@
         "kdeconnect.notification"
     ],
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.notification"
+        "kdeconnect.notification.request"
     ]
 }

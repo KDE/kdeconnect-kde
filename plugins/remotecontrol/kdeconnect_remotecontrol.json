@@ -64,7 +64,7 @@
         "Website": "https://kde.org"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.mousepad"
+        "kdeconnect.input.request"
     ], 
     "X-KdeConnect-SupportedPackageType": []
 }

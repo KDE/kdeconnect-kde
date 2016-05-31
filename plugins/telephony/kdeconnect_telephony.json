@@ -67,7 +67,8 @@
         "Website": "http://albertvaka.wordpress.com"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.telephony"
+        "kdeconnect.telephony.request",
+        "kdeconnect.sms.request"
     ], 
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.telephony"

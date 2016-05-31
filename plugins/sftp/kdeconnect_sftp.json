@@ -68,7 +68,7 @@
         "Website": "http://albertvaka.wordpress.com"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.sftp"
+        "kdeconnect.sftp.request"
     ], 
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.sftp"

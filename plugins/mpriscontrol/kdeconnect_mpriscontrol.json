@@ -70,6 +70,6 @@
         "kdeconnect.mpris"
     ], 
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.mpris"
+        "kdeconnect.mpris.request"
     ]
 }

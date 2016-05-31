@@ -47,6 +47,6 @@
         "Website": "http://kde.org"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.findmyphone"
+        "kdeconnect.findmyphone.request"
     ]
 }

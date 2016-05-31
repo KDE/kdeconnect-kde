@@ -51,7 +51,7 @@
         "Website": "https://kde.org"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.mpris"
+        "kdeconnect.mpris.request"
     ], 
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.mpris"

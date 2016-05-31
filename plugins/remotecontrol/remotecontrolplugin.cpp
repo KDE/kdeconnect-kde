@@ -44,7 +44,7 @@ RemoteControlPlugin::~RemoteControlPlugin()
 
 void RemoteControlPlugin::moveCursor(const QPoint &p)
 {
-    NetworkPackage np(PACKAGE_TYPE_MOUSEPAD);
+    NetworkPackage np(PACKAGE_TYPE_INPUT_REQUEST);
     np.set("dx", p.x());
     np.set("dy", p.y());
     sendPackage(np);
@@ -52,7 +52,7 @@ void RemoteControlPlugin::moveCursor(const QPoint &p)
 
 void RemoteControlPlugin::sendCommand(const QString &name, bool val)
 {
-    NetworkPackage np(PACKAGE_TYPE_MOUSEPAD);
+    NetworkPackage np(PACKAGE_TYPE_INPUT_REQUEST);
     np.set(name, val);
     sendPackage(np);
 }

@@ -67,6 +67,6 @@
     }, 
     "X-KdeConnect-OutgoingPackageType": [], 
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.mousepad"
+        "kdeconnect.input.request"
     ]
 }

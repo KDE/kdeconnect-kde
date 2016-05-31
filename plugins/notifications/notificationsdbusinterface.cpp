@@ -70,7 +70,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         removeNotification(id);
     } else if (np.get<bool>("isRequest")) {
         for (const auto& n: mNotifications) {
-            NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
+            NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
             np.set("id", n->internalId());
             np.set("appName", n->appName());
             np.set("ticker", n->ticker());
@@ -152,7 +152,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
 void NotificationsDbusInterface::dismissRequested(const QString& internalId)
 {
-    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION);
+    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
     np.set<QString>("cancel", internalId);
     mPlugin->sendPackage(np);
 

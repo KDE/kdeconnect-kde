@@ -24,10 +24,13 @@
 #include <KLocalizedString>
 #include <QDebug>
 #include <QGuiApplication>
+
+#if HAVE_X11
 #include <QX11Info>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
+#endif
 
 #if HAVE_WAYLAND
 #include <KWayland/Client/connection_thread.h>
@@ -45,6 +48,7 @@ enum MouseButtons {
     MouseWheelDown = 5
 };
 
+#if HAVE_X11
 //Translation table to keep in sync within all the implementations
 int SpecialKeysMap[] = {
     0,              // Invalid
@@ -81,12 +85,19 @@ int SpecialKeysMap[] = {
     XK_F11,         // 31
     XK_F12,         // 32
 };
+#endif
 
 template <typename T, size_t N>
 size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args), m_fakekey(nullptr), m_x11(QX11Info::isPlatformX11())
+    : KdeConnectPlugin(parent, args)
+#if HAVE_X11
+    , m_fakekey(nullptr)
+    , m_x11(QX11Info::isPlatformX11())
+#else
+    , m_x11(false)
+#endif
 #if HAVE_WAYLAND
     , m_waylandInput(nullptr)
     , m_waylandAuthenticationRequested(false)
@@ -99,17 +110,21 @@ MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
 
 MousepadPlugin::~MousepadPlugin()
 {
+#if HAVE_X11
     if (m_fakekey) {
         free(m_fakekey);
         m_fakekey = nullptr;
     }
+#endif
 }
 
 bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 {
+#if HAVE_X11
     if (m_x11) {
         return handlePackageX11(np);
     }
+#endif
 #if HAVE_WAYLAND
     if (m_waylandInput) {
         if (!m_waylandAuthenticationRequested) {
@@ -122,6 +137,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
     return false;
 }
 
+#if HAVE_X11
 bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
 {
     //qDebug() << np.serialize();
@@ -229,6 +245,7 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
     }
     return true;
 }
+#endif
 
 #if HAVE_WAYLAND
 void MousepadPlugin::setupWaylandIntegration()

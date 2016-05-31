@@ -24,7 +24,7 @@
 #include <core/kdeconnectplugin.h>
 #include <core/device.h>
 
-#define PACKAGE_TYPE_SFTP QLatin1String("kdeconnect.sftp")
+#define PACKAGE_TYPE_SFTP QLatin1String("kdeconnect.sftp.request")
 
 class KNotification;
 
