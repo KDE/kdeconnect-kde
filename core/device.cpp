@@ -111,7 +111,7 @@ void Device::reloadPlugins()
         KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();
-        const bool deviceSupportsCapabilities = !m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty();
+        const bool capabilitiesSupported = (m_protocolVersion >= 6);
 
         foreach (const QString& pluginName, loader->getPluginList()) {
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
@@ -127,9 +127,6 @@ void Device::reloadPlugins()
 
             //If we don't find intersection with the received on one end and the sent on the other, we don't
             //let the plugin stay
-            //Also, if no capabilities are specified on the other end, we don't apply this optimizaton, as
-            //we assume that the other client doesn't know about capabilities.
-            const bool capabilitiesSupported = deviceSupportsCapabilities && (!incomingInterfaces.isEmpty() || !outgoingInterfaces.isEmpty());
             if (capabilitiesSupported
                 && (m_incomingCapabilities & outgoingInterfaces).isEmpty()
                 && (m_outgoingCapabilities & incomingInterfaces).isEmpty()
@@ -272,8 +269,6 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     qSort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
 
     if (m_deviceLinks.size() == 1) {
-        m_incomingCapabilities = identityPackage.get<QStringList>("IncomingCapabilities", QStringList()).toSet();
-        m_outgoingCapabilities = identityPackage.get<QStringList>("OutgoingCapabilities", QStringList()).toSet();
         reloadPlugins(); //Will load the plugins
         Q_EMIT reachableStatusChanged();
     } else {
