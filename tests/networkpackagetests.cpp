@@ -25,22 +25,18 @@
 #include <QtTest>
 #include <QtCrypto>
 
+static void initEnv()
+{
+    // Force LC_TIME=C to make sure longMonthName returns as en_US.
+    setenv("LC_TIME", "C", 1);
+}
+Q_CONSTRUCTOR_FUNCTION(initEnv)
+
 QTEST_GUILESS_MAIN(NetworkPackageTests);
 
 void NetworkPackageTests::initTestCase()
 {
     // Called before the first testfunction is executed
-}
-
-void NetworkPackageTests::dummyTest()
-{
-    QDate date;
-    date.setDate( 1967, 3, 11 );
-    QVERIFY( date.isValid() );
-    QCOMPARE( date.month(), 3 );
-    QCOMPARE( QDate::longMonthName(date.month()), QString("March") );
-
-    QCOMPARE(QString("hello").toUpper(), QString("HELLO"));
 }
 
 void NetworkPackageTests::networkPackageTest()
