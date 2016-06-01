@@ -50,6 +50,7 @@ set(lanlinkprovidertest_sources
     ../core/backends/pairinghandler.cpp
     ../core/device.cpp
     ../core/pluginloader.cpp
+    ../core/core_debug.cpp
 )
 ecm_add_test(lanlinkprovidertest.cpp  ${lanlinkprovidertest_sources}  TEST_NAME lanlinkprovidertest LINK_LIBRARIES ${kdeconnect_libraries})
 

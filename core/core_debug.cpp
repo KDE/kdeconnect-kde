@@ -18,15 +18,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CORE_DEBUG_H
-#define CORE_DEBUG_H
+#include "core_debug.h"
 
-#include <QLoggingCategory>
+#include <execinfo.h>
+#include <stdlib.h>
+#include <execinfo.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-#include "kdeconnectcore_export.h"
-
-KDECONNECTCORE_EXPORT Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CORE)
-
-void logBacktrace();
-
-#endif //CORE_DEBUG_H
+void logBacktrace()
+{
+    void *array[32];
+    size_t size = backtrace (array, 32);
+    char **strings = backtrace_symbols (array, size);
+    backtrace_symbols_fd(array, size, STDERR_FILENO);
+    free (strings);
+}

@@ -28,6 +28,7 @@ set(kdeconnectcore_SRCS
     filetransferjob.cpp
     daemon.cpp
     device.cpp
+    core_debug.cpp
 )
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})
