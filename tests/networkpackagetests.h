@@ -30,7 +30,6 @@ class NetworkPackageTests : public QObject
 private Q_SLOTS:
     void initTestCase();
 
-    void dummyTest();
     void networkPackageTest();
     void networkPackageIdentityTest();
     void networkPackageEncryptionTest();
