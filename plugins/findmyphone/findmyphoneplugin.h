@@ -25,7 +25,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_FINDMYPHONE QStringLiteral("kdeconnect.findmyphone.request")
+#define PACKAGE_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
 
 class FindMyPhonePlugin
     : public KdeConnectPlugin

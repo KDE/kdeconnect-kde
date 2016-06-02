@@ -181,7 +181,7 @@ void Mounter::onMountTimeout()
 
 void Mounter::start()
 {
-    NetworkPackage np(PACKAGE_TYPE_SFTP);
+    NetworkPackage np(PACKAGE_TYPE_SFTP_REQUEST);
     np.set("startBrowsing", true);
     m_sftp->sendPackage(np);
     
