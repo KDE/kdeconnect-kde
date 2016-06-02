@@ -63,6 +63,7 @@ private Q_SLOTS:
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
     void sslErrors(const QList<QSslError>& errors);
     void sslErrorsLogButIgnore(const QList<QSslError>& errors);
+    void broadcastToNetwork();
 
 private:
     static void configureSocket(QSslSocket* socket);
@@ -86,6 +87,7 @@ private:
     QMap<QSslSocket*, PendingConnect> receivedIdentityPackages;
     QNetworkConfiguration m_lastConfig;
     const bool mTestMode;
+    QTimer combineBroadcastsTimer;
 };
 
 #endif

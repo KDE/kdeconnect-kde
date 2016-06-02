@@ -48,6 +48,10 @@ LanLinkProvider::LanLinkProvider(bool testMode)
 {
     mTcpPort = 0;
 
+    combineBroadcastsTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
+    combineBroadcastsTimer.setSingleShot(true);
+    connect(&combineBroadcastsTimer, SIGNAL(timeout()), this, SLOT(broadcastToNetwork()));
+
     connect(&mUdpSocket, SIGNAL(readyRead()), this, SLOT(newUdpConnection()));
 
     mServer = new Server(this);
@@ -56,6 +60,7 @@ LanLinkProvider::LanLinkProvider(bool testMode)
     //Detect when a network interface changes status, so we announce ourelves in the new network
     QNetworkConfigurationManager* networkManager = new QNetworkConfigurationManager(this);
     connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, &LanLinkProvider::onNetworkConfigurationChanged);
+
 }
 
 void LanLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration &config)
@@ -99,9 +104,20 @@ void LanLinkProvider::onStop()
     mServer->close();
 }
 
-//I'm in a new network, let's be polite and introduce myself
 void LanLinkProvider::onNetworkChange()
 {
+    if (combineBroadcastsTimer.isActive()) {
+        qCDebug(KDECONNECT_CORE()) << "Preventing duplicate broadcasts";
+        return;
+    }
+    combineBroadcastsTimer.start();
+}
+
+//I'm in a new network, let's be polite and introduce myself
+void LanLinkProvider::broadcastToNetwork()
+{
+
+
     if (!mServer->isListening()) {
         //Not started
         return;
