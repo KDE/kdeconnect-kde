@@ -76,6 +76,7 @@ bool RunCommandPlugin::receivePackage(const NetworkPackage& np)
 void RunCommandPlugin::connected()
 {
 
+    sendConfig();
 }
 
 void RunCommandPlugin::sendConfig()
