@@ -8,7 +8,7 @@
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ], 
-        "Description": "Broadcast this computer's notifications, so the can be shown in other devices.",
+        "Description": "Broadcast this computer's notifications, so they can be shown on other devices.",
         "EnabledByDefault": false,
         "Icon": "preferences-desktop-notification", 
         "Id": "kdeconnect_sendnotifications",

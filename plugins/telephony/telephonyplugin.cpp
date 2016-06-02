@@ -137,14 +137,14 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 
 void TelephonyPlugin::sendMutePackage()
 {
-    NetworkPackage package(PACKAGE_TYPE_TELEPHONY);
+    NetworkPackage package(PACKAGE_TYPE_TELEPHONY_REQUEST);
     package.set<QString>( "action", "mute" );
     sendPackage(package);
 }
 
 void TelephonyPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
 {
-    NetworkPackage np(PACKAGE_TYPE_SMS);
+    NetworkPackage np(PACKAGE_TYPE_SMS_REQUEST);
     np.set("sendSms", true);
     np.set("phoneNumber", phoneNumber);
     np.set("messageBody", messageBody);

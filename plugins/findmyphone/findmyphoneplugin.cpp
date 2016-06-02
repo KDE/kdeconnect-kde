@@ -45,7 +45,7 @@ bool FindMyPhonePlugin::receivePackage(const NetworkPackage& np)
 
 void FindMyPhonePlugin::ring()
 {
-    NetworkPackage np(PACKAGE_TYPE_FINDMYPHONE);
+    NetworkPackage np(PACKAGE_TYPE_FINDMYPHONE_REQUEST);
     sendPackage(np);
 }
 

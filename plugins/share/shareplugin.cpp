@@ -71,7 +71,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
-        NetworkPackage out(PACKAGE_TYPE_SHARE);
+        NetworkPackage out(PACKAGE_TYPE_SHARE_REQUEST);
         out.set("filename", mDestinationDir + "itworks.txt");
         AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
 
@@ -147,7 +147,7 @@ void SharePlugin::openDestinationFolder()
 
 void SharePlugin::shareUrl(const QUrl& url)
 {
-    NetworkPackage package(PACKAGE_TYPE_SHARE);
+    NetworkPackage package(PACKAGE_TYPE_SHARE_REQUEST);
     if(url.isLocalFile()) {
         QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
         package.setPayload(ioFile, ioFile->size());

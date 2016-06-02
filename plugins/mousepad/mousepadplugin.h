@@ -25,8 +25,6 @@
 #include <core/kdeconnectplugin.h>
 #include <config-mousepad.h>
 
-#define PACKAGE_TYPE_INPUT_REQUEST QLatin1String("kdeconnect.input.request")
-
 struct FakeKey;
 
 #if HAVE_WAYLAND
