@@ -244,8 +244,7 @@ void LanLinkProvider::connected()
         mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
     }
 
-    delete receivedPackage;
-    receivedIdentityPackages.remove(socket);
+    delete receivedIdentityPackages.take(socket).np;
     //We don't delete the socket because now it's owned by the LanDeviceLink
 }
 
@@ -265,8 +264,7 @@ void LanLinkProvider::encrypted()
     addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
 
     // Copied from connected slot, now delete received package
-    delete receivedPackage;
-    receivedIdentityPackages.remove(socket);
+    delete receivedIdentityPackages.take(socket).np;
 
 }
 
@@ -342,8 +340,14 @@ void LanLinkProvider::dataReceived()
     NetworkPackage* np = new NetworkPackage("");
     bool success = NetworkPackage::unserialize(data, np);
 
-    if (!success || np->type() != PACKAGE_TYPE_IDENTITY) {
-        qCDebug(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Not an identification package (wuh?)";
+    if (!success) {
+        delete np;
+        return;
+    }
+
+    if (np->type() != PACKAGE_TYPE_IDENTITY) {
+        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Expected identity, received " << np->type();
+        delete np;
         return;
     }
 
@@ -379,14 +383,10 @@ void LanLinkProvider::dataReceived()
         connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
 
         socket->startClientEncryption();
-        return;
     } else {
         addLink(deviceId, socket, np, LanDeviceLink::Locally);
+        delete receivedIdentityPackages.take(socket).np;
     }
-
-    delete np;
-    receivedIdentityPackages.remove(socket);
-
 }
 
 void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
