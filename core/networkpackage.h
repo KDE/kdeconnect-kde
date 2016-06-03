@@ -101,4 +101,6 @@ private:
 
 };
 
+KDECONNECTCORE_EXPORT QDebug operator<<(QDebug s, const NetworkPackage& pkg);
+
 #endif // NETWORKPACKAGE_H

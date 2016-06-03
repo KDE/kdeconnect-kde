@@ -35,6 +35,16 @@
 #include "pluginloader.h"
 #include "kdeconnectconfig.h"
 
+QDebug operator<<(QDebug s, const NetworkPackage& pkg)
+{
+    s.nospace() << "NetworkPackage(" << pkg.type() << ':' << pkg.body();
+    if (pkg.hasPayload()) {
+        s.nospace() << ":withpayload";
+    }
+    s.nospace() << ')';
+    return s.space();
+}
+
 //const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 6;
 
