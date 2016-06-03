@@ -127,7 +127,7 @@ void LanDeviceLink::dataReceived()
 void LanDeviceLink::userRequestsPair()
 {
     if (mSocketLineReader->peerCertificate().isNull()) {
-        Q_EMIT pairingError(i18n("This device can't be paired because is running an old version of KDE Connect."));
+        Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
     } else {
         qobject_cast<LanLinkProvider*>(provider())->userRequestsPair(deviceId());
     }
@@ -141,7 +141,7 @@ void LanDeviceLink::userRequestsUnpair()
 void LanDeviceLink::setPairStatus(PairStatus status)
 {
     if (status == Paired && mSocketLineReader->peerCertificate().isNull()) {
-        Q_EMIT pairingError(i18n("This device can't be paired because is running an old version of KDE Connect."));
+        Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
         return;
     }
 
