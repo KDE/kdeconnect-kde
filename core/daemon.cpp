@@ -241,6 +241,15 @@ bool Daemon::isDiscoveringDevices() const
     return !d->mDiscoveryModeAcquisitions.isEmpty();
 }
 
+QString Daemon::deviceIdByName(const QString &name) const
+{
+    foreach(Device* d, d->mDevices) {
+        if (d->name() == name && d->isTrusted())
+            return d->id();
+    }
+    return {};
+}
+
 Daemon::~Daemon()
 {
 

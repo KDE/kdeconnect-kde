@@ -60,6 +60,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("list-notifications", i18n("Display the notifications on a said device")));
     parser.addOption(QCommandLineOption("lock", i18n("Lock the specified device")));
     parser.addOption(QCommandLineOption(QStringList("device") << "d", i18n("Device ID"), "dev"));
+    parser.addOption(QCommandLineOption(QStringList("name") << "n", i18n("Device Name"), "name"));
     parser.addOption(QCommandLineOption("encryption-info", i18n("Get encryption info about said device")));
     about.setupCommandLine(&parser);
 
@@ -110,10 +111,18 @@ int main(int argc, char** argv)
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
-        if(!parser.isSet("device")) {
+        QString device = parser.value("device");
+        if (device.isEmpty() && parser.isSet("name")) {
+            device = iface.deviceIdByName(parser.value("name"));
+            if (device.isEmpty()) {
+                QTextStream(stderr) << "Couldn't find device: " << parser.value("name") << endl;
+                return 1;
+            }
+        }
+
+        if(device.isEmpty()) {
             QTextStream(stderr) << i18n("No device specified") << endl;
         }
-        const QString device = parser.value("device");
         if(parser.isSet("share")) {
             QUrl url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
             parser.clearPositionalArguments();

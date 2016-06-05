@@ -70,6 +70,8 @@ public Q_SLOTS:
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyPaired = false) const;
 
+    Q_SCRIPTABLE QString deviceIdByName(const QString &name) const;
+
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
     Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed
