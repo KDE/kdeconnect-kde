@@ -159,11 +159,11 @@ void DevicesModel::setDisplayFilter(int flags)
 {
     m_displayFilter = (StatusFilterFlag)flags;
 
-    const bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
-    if (onlyReachable)
-        m_dbusInterface->releaseDiscoveryMode(*s_keyId);
-    else
+    const bool reachableNeeded = (m_displayFilter & StatusFilterFlag::Reachable);
+    if (reachableNeeded)
         m_dbusInterface->acquireDiscoveryMode(*s_keyId);
+    else
+        m_dbusInterface->releaseDiscoveryMode(*s_keyId);
 
     refreshDeviceList();
 }
