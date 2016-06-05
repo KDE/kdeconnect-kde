@@ -39,19 +39,24 @@ class PluginLoadTest : public QObject
 {
     Q_OBJECT
     public:
-        PluginLoadTest() : mDaemon(new TestDaemon) {
+        PluginLoadTest() {
             QStandardPaths::setTestModeEnabled(true);
+            mDaemon = new TestDaemon;
         }
 
     private Q_SLOTS:
         void testPlugins() {
             Device* d = nullptr;
+            mDaemon->acquireDiscoveryMode("plugintest");
             foreach(Device* id, mDaemon->devicesList()) {
                 if (id->isReachable()) {
-                    id->requestPair();
+                    if (!id->isTrusted())
+                        id->requestPair();
                     d = id;
+                    break;
                 }
             }
+            mDaemon->releaseDiscoveryMode("plugintest");
 
             if (!d->loadedPlugins().contains("kdeconnect_remotecontrol")) {
                 QSKIP("kdeconnect_remotecontrol is required for this test");

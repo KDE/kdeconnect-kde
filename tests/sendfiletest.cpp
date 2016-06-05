@@ -39,19 +39,23 @@ class TestSendFile : public QObject
 {
     Q_OBJECT
     public:
-        TestSendFile() : mDaemon(new TestDaemon) {
+        TestSendFile() {
             QStandardPaths::setTestModeEnabled(true);
+            mDaemon = new TestDaemon;
         }
 
     private Q_SLOTS:
         void testSend() {
+            mDaemon->acquireDiscoveryMode("test");
             Device* d = nullptr;
             foreach(Device* id, mDaemon->devicesList()) {
                 if (id->isReachable()) {
-                    id->requestPair();
+                    if (!id->isTrusted())
+                        id->requestPair();
                     d = id;
                 }
             }
+            mDaemon->releaseDiscoveryMode("test");
             QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
             QCOMPARE(d->isTrusted(), true);
