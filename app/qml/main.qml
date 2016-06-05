@@ -78,7 +78,7 @@ ApplicationWindow
                     }
                 }
                 delegate: DeviceDelegate {
-                    width: parent.width
+                    width: ListView.view.width
                     onClicked: {
                         var data = {
                             item: deviceViewComponent,
@@ -93,65 +93,63 @@ ApplicationWindow
 
     Component {
         id: deviceViewComponent
-        ColumnLayout {
+        Loader {
             id: deviceView
             property QtObject currentDevice
-            Loader {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            Layout.fillHeight: true
+            Layout.fillWidth: true
 
-                sourceComponent: currentDevice.isPaired ? trustedDevice : untrustedDevice
-                Component {
-                    id: trustedDevice
-                    ColumnLayout {
-                        id: trustedView
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
+            sourceComponent: currentDevice.isTrusted ? trustedDevice : untrustedDevice
+            Component {
+                id: trustedDevice
+                ColumnLayout {
+                    id: trustedView
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
 
-                        Button {
-                            text: i18n("Un-Pair")
-                            onClicked: deviceView.currentDevice.unpair()
-                        }
-                        Button {
-                            text: i18n("Send Ping")
-                            onClicked: deviceView.currentDevice.pluginCall("ping", "sendPing");
-                        }
-                        Button {
-                            text: i18n("Open Multimedia Remote Control")
-                            onClicked: stack.push( {
-                                item: "qrc:/qml/mpris.qml",
-                                properties: { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
-                            } );
-                        }
-                        Button {
-                            text: i18n("Mouse Pad")
-                            onClicked: stack.push( {
-                                item: "qrc:/qml/mousepad.qml",
-                                properties: { remoteControlInterface: RemoteControlDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
-                            } );
-                        }
-                        Button {
-                            property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
-                            text: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
-                            onClicked: {
-                                lockIface.isLocked = !lockIface.isLocked;
-                            }
-                        }
-
-                        Item { Layout.fillHeight: true }
+                    Button {
+                        text: i18n("Un-Pair")
+                        onClicked: deviceView.currentDevice.unpair()
                     }
-                }
-                Component {
-                    id: untrustedDevice
-                    ColumnLayout {
-                        id: untrustedView
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-
-                        Button {
-                            text: i18n("Pair")
-                            onClicked: deviceView.currentDevice.requestPair()
+                    Button {
+                        text: i18n("Send Ping")
+                        onClicked: deviceView.currentDevice.pluginCall("ping", "sendPing");
+                    }
+                    Button {
+                        text: i18n("Open Multimedia Remote Control")
+                        onClicked: stack.push( {
+                            item: "qrc:/qml/mpris.qml",
+                            properties: { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
+                        } );
+                    }
+                    Button {
+                        text: i18n("Mouse Pad")
+                        onClicked: stack.push( {
+                            item: "qrc:/qml/mousepad.qml",
+                            properties: { remoteControlInterface: RemoteControlDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
+                        } );
+                    }
+                    Button {
+                        property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                        text: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
+                        onClicked: {
+                            lockIface.isLocked = !lockIface.isLocked;
                         }
+                    }
+
+                    Item { Layout.fillHeight: true }
+                }
+            }
+            Component {
+                id: untrustedDevice
+                ColumnLayout {
+                    id: untrustedView
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+
+                    Button {
+                        text: i18n("Pair")
+                        onClicked: deviceView.currentDevice.requestPair()
                     }
                 }
             }
