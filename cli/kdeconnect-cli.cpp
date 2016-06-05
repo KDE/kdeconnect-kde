@@ -110,11 +110,10 @@ int main(int argc, char** argv)
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
-        QString device;
         if(!parser.isSet("device")) {
             QTextStream(stderr) << i18n("No device specified") << endl;
         }
-        device = parser.value("device");
+        const QString device = parser.value("device");
         if(parser.isSet("share")) {
             QUrl url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
             parser.clearPositionalArguments();

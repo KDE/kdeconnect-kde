@@ -30,12 +30,12 @@
 
 #include "lanlinkprovider.h"
 
-DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo): KJob()
+DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo)
+    : KJob()
+    , mAddress(address)
+    , mPort(transferInfo["port"].toInt())
+    , mSocket(new QSslSocket)
 {
-    mAddress = address;
-    mPort = transferInfo["port"].toInt();
-    mSocket = QSharedPointer<QSslSocket>(new QSslSocket);
-
     // Setting ssl related properties for socket when using ssl
     mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
