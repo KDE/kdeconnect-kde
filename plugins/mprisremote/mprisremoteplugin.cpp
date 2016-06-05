@@ -52,7 +52,7 @@ MprisRemotePlugin::~MprisRemotePlugin()
 
 bool MprisRemotePlugin::receivePackage(const NetworkPackage& np)
 {
-    if (np.type() != PACKAGE_TYPE_MPRIS_REQUEST)
+    if (np.type() != PACKAGE_TYPE_MPRIS)
         return false;
 
     if (np.has("nowPlaying") || np.has("volume") || np.has("isPlaying") || np.has("length") || np.has("pos")) {
