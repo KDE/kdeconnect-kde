@@ -21,47 +21,54 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import org.kde.kirigami 1.0 as Kirigami
 
-ColumnLayout
+Kirigami.Page
 {
     id: mousepad
+    title: i18n("Remote Control")
     property QtObject remoteControlInterface
 
-    MouseArea {
-        id: area
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-        property var lastPos: Qt.point(-1, -1)
+    ColumnLayout
+    {
+        anchors.fill: parent
 
-        onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
-
-        onPositionChanged: {
-            if (lastPos.x > -1) {
-//                 console.log("move", mouse.x, mouse.y, lastPos)
-                var delta = Qt.point(mouse.x-lastPos.x, mouse.y-lastPos.y);
-
-                remoteControlInterface.moveCursor(delta);
-            }
-            lastPos = Qt.point(mouse.x, mouse.y);
-        }
-        onReleased: {
-            lastPos = Qt.point(-1, -1)
-        }
-    }
-    RowLayout {
-        Layout.fillWidth: true
-
-        Button {
+        MouseArea {
+            id: area
             Layout.fillWidth: true
+            Layout.fillHeight: true
+            property var lastPos: Qt.point(-1, -1)
+
             onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
+
+            onPositionChanged: {
+                if (lastPos.x > -1) {
+    //                 console.log("move", mouse.x, mouse.y, lastPos)
+                    var delta = Qt.point(mouse.x-lastPos.x, mouse.y-lastPos.y);
+
+                    remoteControlInterface.moveCursor(delta);
+                }
+                lastPos = Qt.point(mouse.x, mouse.y);
+            }
+            onReleased: {
+                lastPos = Qt.point(-1, -1)
+            }
         }
-        Button {
+        RowLayout {
             Layout.fillWidth: true
-            onClicked: mousepad.remoteControlInterface.sendCommand("middleclick", true);
-        }
-        Button {
-            Layout.fillWidth: true
-            onClicked: mousepad.remoteControlInterface.sendCommand("rightclick", true);
+
+            Button {
+                Layout.fillWidth: true
+                onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
+            }
+            Button {
+                Layout.fillWidth: true
+                onClicked: mousepad.remoteControlInterface.sendCommand("middleclick", true);
+            }
+            Button {
+                Layout.fillWidth: true
+                onClicked: mousepad.remoteControlInterface.sendCommand("rightclick", true);
+            }
         }
     }
 }

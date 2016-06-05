@@ -21,52 +21,59 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.1
+import org.kde.kirigami 1.0 as Kirigami
 
-ColumnLayout
+Kirigami.Page
 {
     id: root
     property QtObject mprisInterface
+    title: i18n("Multimedia Controls")
 
-    Component.onCompleted: {
-        mprisInterface.requestPlayerList();
-    }
+    ColumnLayout
+    {
+        anchors.fill: parent
 
-    Item { Layout.fillHeight: true }
-    ComboBox {
-        Layout.fillWidth: true
-        model: root.mprisInterface.playerList
-        onCurrentTextChanged: root.mprisInterface.player = currentText
-    }
-    Label {
-        Layout.fillWidth: true
-        text: root.mprisInterface.nowPlaying
-    }
-    RowLayout {
-        Layout.fillWidth: true
-        Button {
-            Layout.fillWidth: true
-            iconName: "media-skip-backward"
-            onClicked: root.mprisInterface.sendAction("Previous")
+        Component.onCompleted: {
+            mprisInterface.requestPlayerList();
         }
-        Button {
+
+        Item { Layout.fillHeight: true }
+        ComboBox {
             Layout.fillWidth: true
-            iconName: root.mprisInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
-            onClicked: root.mprisInterface.sendAction("PlayPause");
+            model: root.mprisInterface.playerList
+            onCurrentTextChanged: root.mprisInterface.player = currentText
         }
-        Button {
+        Label {
             Layout.fillWidth: true
-            iconName: "media-skip-forward"
-            onClicked: root.mprisInterface.sendAction("Next")
+            text: root.mprisInterface.nowPlaying
         }
+        RowLayout {
+            Layout.fillWidth: true
+            Button {
+                Layout.fillWidth: true
+                iconName: "media-skip-backward"
+                onClicked: root.mprisInterface.sendAction("Previous")
+            }
+            Button {
+                Layout.fillWidth: true
+                iconName: root.mprisInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
+                onClicked: root.mprisInterface.sendAction("PlayPause");
+            }
+            Button {
+                Layout.fillWidth: true
+                iconName: "media-skip-forward"
+                onClicked: root.mprisInterface.sendAction("Next")
+            }
+        }
+        RowLayout {
+            Layout.fillWidth: true
+            Label { text: i18n("Volume:") }
+            Slider {
+                value: root.mprisInterface.volume
+                maximumValue: 100
+                Layout.fillWidth: true
+            }
+        }
+        Item { Layout.fillHeight: true }
     }
-    RowLayout {
-        Layout.fillWidth: true
-        Label { text: i18n("Volume:") }
-        Slider {
-            value: root.mprisInterface.volume
-            maximumValue: 100
-            Layout.fillWidth: true
-        }
-    }
-    Item { Layout.fillHeight: true }
 }
