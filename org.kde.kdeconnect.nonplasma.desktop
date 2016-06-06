@@ -54,6 +54,7 @@ Comment[uk]=Показати дані щодо ваших пристроїв
 Comment[x-test]=xxDisplay information about your devicesxx
 Comment[zh_CN]=显示您设备的信息
 Exec=plasmawindowed org.kde.kdeconnect --statusnotifier
+TryExec=plasmawindowed
 Icon=kdeconnect
 Type=Application
 Terminal=false
