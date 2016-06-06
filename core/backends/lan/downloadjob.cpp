@@ -58,13 +58,11 @@ void DownloadJob::start()
     connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(done()));
     //connect(mSocket.data(), &QAbstractSocket::connected, [=](){ qDebug() << "Connected"; });
 
-    mSocket->connectToHost(mAddress.toString(), mPort);
-    mSocket->waitForConnected();
-//    mSocket->connectToHost(mAddress, mPort, QIODevice::ReadOnly);
-//    mSocket->waitForConnected();
+    // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
+    mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
+    mSocket->waitForEncrypted();
 
     //mSocket->open(QIODevice::ReadOnly);
-
 }
 
 void DownloadJob::done()
