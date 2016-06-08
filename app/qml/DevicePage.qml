@@ -60,14 +60,14 @@ Kirigami.Page
                 Layout.fillWidth: true
 
                 Kirigami.BasicListItem {
-                    label: i18n("Open Multimedia Remote Control")
+                    label: i18n("Multimedia control")
                     onClicked: pageStack.push(
                         "qrc:/qml/mpris.qml",
                         { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
                     );
                 }
                 Kirigami.BasicListItem {
-                    label: i18n("Mouse Pad")
+                    label: i18n("Remote input")
                     onClicked: pageStack.push(
                         "qrc:/qml/mousepad.qml",
                         { remoteControlInterface: RemoteControlDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
