@@ -47,7 +47,7 @@ public:
         IconNameRole,
         DeviceRole
     };
-    Q_ENUMS(ModelRoles);
+    Q_ENUM(ModelRoles);
 
     // A device is always paired or reachable or both
     // You can combine the Paired and Reachable flags
@@ -58,7 +58,7 @@ public:
     };
     Q_DECLARE_FLAGS(StatusFilterFlags, StatusFilterFlag)
     Q_FLAGS(StatusFilterFlags)
-    Q_ENUMS(StatusFilterFlag)
+    Q_ENUM(StatusFilterFlag)
 
     explicit DevicesModel(QObject *parent = nullptr);
     virtual ~DevicesModel();
