@@ -30,7 +30,10 @@ Kirigami.Page
     property QtObject currentDevice
     title: currentDevice.name
 
+    actions.contextualActions: deviceLoader.item.actions
+
     Loader {
+        id: deviceLoader
         anchors.fill: parent
         Layout.fillHeight: true
         Layout.fillWidth: true
@@ -39,18 +42,23 @@ Kirigami.Page
         Component {
             id: trustedDevice
             ColumnLayout {
+                property list<QtObject> actions: [
+                    Kirigami.Action {
+                        onTriggered: deviceView.currentDevice.unpair()
+                        text: i18n("UnPair")
+                    },
+                    Kirigami.Action {
+                        text: i18n("Send Ping")
+                        onTriggered: {
+                            deviceView.currentDevice.pluginCall("ping", "sendPing");
+                        }
+                    }
+                ]
+
                 id: trustedView
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                Kirigami.BasicListItem {
-                    label: i18n("Un-Pair")
-                    onClicked: deviceView.currentDevice.unpair()
-                }
-                Kirigami.BasicListItem {
-                    label: i18n("Send Ping")
-                    onClicked: deviceView.currentDevice.pluginCall("ping", "sendPing");
-                }
                 Kirigami.BasicListItem {
                     label: i18n("Open Multimedia Remote Control")
                     onClicked: pageStack.push(
@@ -78,13 +86,12 @@ Kirigami.Page
         }
         Component {
             id: untrustedDevice
-            ColumnLayout {
-                id: untrustedView
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            Item {
+                readonly property var actions: []
+                Button {
+                    anchors.centerIn: parent
 
-                Kirigami.BasicListItem {
-                    label: i18n("Pair")
+                    text: i18n("Pair")
                     onClicked: deviceView.currentDevice.requestPair()
                 }
             }
