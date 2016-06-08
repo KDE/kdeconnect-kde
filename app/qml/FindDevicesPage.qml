@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright 2016 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -24,38 +24,36 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 1.0 as Kirigami
 import org.kde.kdeconnect 1.0
 
-Kirigami.ApplicationWindow
+Kirigami.Page
 {
-    id: root
-    visible: true
-    width: 400
-    height: 500
+    title: i18n("Pair")
+    ScrollView {
+        anchors.fill: parent
+        ListView {
+            section {
+                property: "status"
+                delegate: Label {
+                    text: switch (parseInt(section))
+                    {
+                        case DevicesModel.Paired:
+                            return i18n("Paired")
+                        case DevicesModel.Reachable:
+                            return i18n("Reachable")
+                        case (DevicesModel.Reachable | DevicesModel.Paired):
+                            return i18n("Paired & Reachable")
+                    }
 
-    globalDrawer: Kirigami.GlobalDrawer {
-        title: i18n("KDE Connect")
-        titleIcon: "kdeconnect"
-//         bannerImageSource: "/home/apol/devel/kde5/share/wallpapers/Next/contents/images/1024x768.png"
-
-        content: ListView {
-            anchors.fill: parent
-            model: DevicesSortProxyModel {
-                sourceModel: DevicesModel { displayFilter: DevicesModel.Paired }
-            }
-            header: Kirigami.BasicListItem {
-                label: i18n ("Find devices...")
-                icon: "list-add"
-                onClicked: {
-                    root.pageStack.clear()
-                    root.pageStack.push("qrc:/qml/FindDevicesPage.qml");
                 }
             }
 
+            model: DevicesSortProxyModel {
+                sourceModel: DevicesModel { displayFilter: DevicesModel.Reachable }
+            }
             delegate: Kirigami.BasicListItem {
                 width: ListView.view.width
                 icon: iconName
                 label: display + "\n" + toolTip
-                enabled: status & DevicesModel.Reachable
-                checked: root.pageStack.currentDevice == device
+                enabled: !(status & DevicesModel.Paired)
                 onClicked: {
                     root.pageStack.clear()
                     root.pageStack.push(
@@ -66,6 +64,4 @@ Kirigami.ApplicationWindow
             }
         }
     }
-
-    pageStack.initialPage: FindDevicesPage {}
 }

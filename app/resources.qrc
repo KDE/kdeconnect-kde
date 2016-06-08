@@ -3,6 +3,7 @@
     <file>qml/main.qml</file>
     <file>qml/mpris.qml</file>
     <file>qml/mousepad.qml</file>
-    <file>qml/Device.qml</file>
+    <file>qml/DevicePage.qml</file>
+    <file>qml/FindDevicesPage.qml</file>
  </qresource>
 </RCC>
