@@ -23,10 +23,12 @@
 
 #include <core/core_debug.h>
 
+#ifndef Q_OS_WIN
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <netdb.h>
+#endif
 
 #include "lanlinkprovider.h"
 

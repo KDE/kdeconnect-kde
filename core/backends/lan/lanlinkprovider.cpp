@@ -421,10 +421,6 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 
 void LanLinkProvider::configureSocket(QSslSocket* socket)
 {
-    int fd = socket->socketDescriptor();
-
-    socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
-
     // Setting supported ciphers manually
     // Top 3 ciphers are for new Android devices, botton two are for old Android devices
     // FIXME : These cipher suites should be checked whether they are supported or not on device
@@ -444,22 +440,24 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
     socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
 
+    socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
+	
     #ifdef TCP_KEEPIDLE
         // time to start sending keepalive packets (seconds)
         int maxIdle = 10;
-        setsockopt(fd, IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+        setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
     #endif
 
     #ifdef TCP_KEEPINTVL
         // interval between keepalive packets after the initial period (seconds)
         int interval = 5;
-        setsockopt(fd, IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
+        setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
     #endif
 
     #ifdef TCP_KEEPCNT
         // number of missed keepalive packets before disconnecting
         int count = 3;
-        setsockopt(fd, IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
+        setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
     #endif
 
 }

@@ -20,17 +20,19 @@
 
 #include "core_debug.h"
 
-#include <execinfo.h>
-#include <stdlib.h>
+#ifdef Q_OS_LINUX
 #include <execinfo.h>
 #include <stdlib.h>
 #include <unistd.h>
+#endif
 
 void logBacktrace()
 {
+#ifdef Q_OS_LINUX
     void *array[32];
     size_t size = backtrace (array, 32);
     char **strings = backtrace_symbols (array, size);
     backtrace_symbols_fd(array, size, STDERR_FILENO);
     free (strings);
+#endif
 }

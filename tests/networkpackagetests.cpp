@@ -25,13 +25,6 @@
 #include <QtTest>
 #include <QtCrypto>
 
-static void initEnv()
-{
-    // Force LC_TIME=C to make sure longMonthName returns as en_US.
-    setenv("LC_TIME", "C", 1);
-}
-Q_CONSTRUCTOR_FUNCTION(initEnv)
-
 QTEST_GUILESS_MAIN(NetworkPackageTests);
 
 void NetworkPackageTests::initTestCase()
