@@ -29,8 +29,10 @@
 #include <QTcpSocket>
 #include <QSharedPointer>
 #include <QSslSocket>
+#include <kdeconnectcore_export.h>
 
-class DownloadJob
+
+class KDECONNECTCORE_EXPORT DownloadJob
     : public KJob
 {
     Q_OBJECT

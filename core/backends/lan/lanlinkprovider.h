@@ -27,12 +27,14 @@
 #include <QUdpSocket>
 #include <QtNetwork/qsslsocket.h>
 
+
+#include <kdeconnectcore_export.h>
 #include "../linkprovider.h"
 #include "server.h"
 #include "landevicelink.h"
 
 class LanPairingHandler;
-class LanLinkProvider
+class KDECONNECTCORE_EXPORT LanLinkProvider
     : public LinkProvider
 {
     Q_OBJECT
