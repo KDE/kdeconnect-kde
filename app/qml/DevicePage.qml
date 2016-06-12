@@ -60,6 +60,11 @@ Kirigami.Page
                 Layout.fillWidth: true
 
                 Kirigami.BasicListItem {
+                    readonly property var fu: PluginChecker {
+                        id: mprisChecker
+                        pluginName: "mpriscontrol"
+                    }
+                    enabled: mprisChecker.available
                     label: i18n("Multimedia control")
                     onClicked: pageStack.push(
                         "qrc:/qml/mpris.qml",
@@ -67,6 +72,11 @@ Kirigami.Page
                     );
                 }
                 Kirigami.BasicListItem {
+                    readonly property var fu: PluginChecker {
+                        id: mousepadChecker
+                        pluginName: "mousepad"
+                    }
+                    enabled: mousepadChecker.available
                     label: i18n("Remote input")
                     onClicked: pageStack.push(
                         "qrc:/qml/mousepad.qml",
@@ -74,6 +84,11 @@ Kirigami.Page
                     );
                 }
                 Kirigami.BasicListItem {
+                    readonly property var fu: PluginChecker {
+                        id: lockdeviceChecker
+                        pluginName: "lockdevice"
+                    }
+                    enabled: lockdeviceChecker.available
                     property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
                     label: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
                     onClicked: {
