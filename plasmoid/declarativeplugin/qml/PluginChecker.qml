@@ -38,8 +38,14 @@ QtObject {
 
     Component.onCompleted: pluginsChanged()
 
+    readonly property var v: DBusAsyncResponse {
+        id: response
+        autoDelete: false
+        onSuccess: { root.available = result; }
+        onError: { root.available = false }
+    }
+
     function pluginsChanged() {
-        var result = DBusResponseWaiter.waitForReply(device.hasPlugin("kdeconnect_" + pluginName))
-        available = (result && result != "error");
+        response.setPendingCall(device.hasPlugin("kdeconnect_" + pluginName))
     }
 }
