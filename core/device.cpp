@@ -332,7 +332,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
     } else if (isTrusted()) {
         const QList<KdeConnectPlugin*> plugins = m_pluginsByIncomingInterface.values(np.type());
         if (plugins.isEmpty()) {
-            qWarning() << "discarding unsupported package" << np.type();
+            qWarning() << "discarding unsupported package" << np.type() << "for" << name();
         }
         foreach(KdeConnectPlugin* plugin, plugins) {
             plugin->receivePackage(np);
