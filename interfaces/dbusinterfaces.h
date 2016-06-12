@@ -33,6 +33,7 @@
 #include "interfaces/mprisremoteinterface.h"
 #include "interfaces/remotecontrolinterface.h"
 #include "interfaces/lockdeviceinterface.h"
+#include "interfaces/remotecommandsinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -164,6 +165,15 @@ class KDECONNECTINTERFACES_EXPORT FindMyPhoneDeviceDbusInterface
 public:
     explicit FindMyPhoneDeviceDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     virtual ~FindMyPhoneDeviceDbusInterface();
+};
+
+class KDECONNECTINTERFACES_EXPORT RemoteCommandsDbusInterface
+    : public OrgKdeKdeconnectDeviceRemotecommandsInterface
+{
+    Q_OBJECT
+public:
+    explicit RemoteCommandsDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~RemoteCommandsDbusInterface() override;
 };
 
 #endif

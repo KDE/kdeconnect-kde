@@ -147,6 +147,11 @@ FindMyPhoneDeviceDbusInterface::~FindMyPhoneDeviceDbusInterface()
 {
 }
 
+RemoteCommandsDbusInterface::RemoteCommandsDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceRemotecommandsInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/remotecommands", QDBusConnection::sessionBus(), parent)
+{
+}
 
+RemoteCommandsDbusInterface::~RemoteCommandsDbusInterface() = default;
 
 #include "dbusinterfaces.moc"

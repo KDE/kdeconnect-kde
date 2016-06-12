@@ -1,0 +1,21 @@
+{
+    "Encoding": "UTF-8",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org",
+                "Name": "Aleix Pol"
+            }
+        ],
+        "Name": "Execute remote commands",
+        "Description": "Trigger commands predefined on the remote device",
+        "EnabledByDefault": true,
+        "Icon": "system-run",
+        "Id": "kdeconnect_remotecommands",
+        "License": "GPL",
+        "ServiceTypes": [ "KdeConnect/Plugin" ],
+        "Version": "0.1"
+    },
+    "X-KdeConnect-OutgoingPackageType": [ "kdeconnect.runcommand.request" ],
+    "X-KdeConnect-SupportedPackageType": [ "kdeconnect.runcommand" ]
+}

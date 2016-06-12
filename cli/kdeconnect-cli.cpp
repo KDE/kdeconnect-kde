@@ -62,6 +62,8 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringList("device") << "d", i18n("Device ID"), "dev"));
     parser.addOption(QCommandLineOption(QStringList("name") << "n", i18n("Device Name"), "name"));
     parser.addOption(QCommandLineOption("encryption-info", i18n("Get encryption info about said device")));
+    parser.addOption(QCommandLineOption("list-commands", i18n("Lists remote commands and their ids")));
+    parser.addOption(QCommandLineOption("execute-command", i18n("Executes a remote command by id"), "id"));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -190,6 +192,20 @@ int main(int argc, char** argv)
                 QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString()
                     << ": " << idx.data(NotificationsModel::NameModelRole).toString() << endl;
             }
+        } else if(parser.isSet("list-commands")) {
+            RemoteCommandsDbusInterface iface(device);
+            const auto cmds = QJsonDocument::fromJson(iface.commands()).object();
+            for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it!=itEnd; ++it) {
+                const QJsonObject cont = it->toObject();
+                QTextStream(stdout) << it.key() << ": " << cont.value("name").toString() << ": " << cont.value("command").toString() << endl;
+            }
+            const auto err = iface.lastError();
+            if (err.isValid()) {
+                QTextStream(stderr) << err.message() << endl;
+            }
+        } else if(parser.isSet("execute-command")) {
+            RemoteCommandsDbusInterface iface(device);
+            iface.triggerCommand(parser.value("execute-command"));
         } else if(parser.isSet("encryption-info")) {
             DeviceDbusInterface dev(device);
             QDBusPendingReply<QString> devReply = dev.encryptionInfo(); // QSsl::Der = 1
