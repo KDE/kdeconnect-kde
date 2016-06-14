@@ -21,7 +21,6 @@
 #include <unistd.h>
 #include <signal.h>
 
-#include <QSocketNotifier>
 #include <QApplication>
 #include <QNetworkAccessManager>
 
@@ -38,46 +37,6 @@
 #ifdef HAVE_TELEPATHY
 #include "kdeconnecttelepathyprotocolfactory.h"
 #endif
-
-
-#ifndef Q_OS_WIN
-#include <sys/socket.h>
-#endif
-
-static int sigtermfd[2];
-const static char deadbeef = 1;
-
-
-// TODO: Implement for Windows.
-#ifndef Q_OS_WIN
-struct sigaction action;
-#endif
-
-void sighandler(int signum)
-{
-    if( signum == SIGTERM || signum == SIGINT)
-    {
-        ssize_t unused = ::write(sigtermfd[0], &deadbeef, sizeof(deadbeef));
-        Q_UNUSED(unused);
-    }
-}
-
-void initializeTermHandlers(QCoreApplication* app, Daemon* daemon)
-{
-// TODO: Implement for Windows.
-#ifndef Q_OS_WIN
-    ::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermfd);
-    QSocketNotifier* snTerm = new QSocketNotifier(sigtermfd[1], QSocketNotifier::Read, app);
-    QObject::connect(snTerm, SIGNAL(activated(int)), daemon, SLOT(deleteLater()));
-
-    action.sa_handler = sighandler;
-    sigemptyset(&action.sa_mask);
-    action.sa_flags = 0;
-
-    sigaction(SIGTERM, &action, nullptr);
-    sigaction(SIGINT, &action, nullptr);
-#endif
-}
 
 class DesktopDaemon : public Daemon
 {
@@ -131,7 +90,6 @@ int main(int argc, char* argv[])
 
     Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
-    initializeTermHandlers(&app, daemon);
     
 #ifdef HAVE_TELEPATHY
     //keep a reference to the KTP CM so that we can register on DBus
