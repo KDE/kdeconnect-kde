@@ -76,7 +76,7 @@ void DBusAsyncResponse::setPendingCall(QVariant variant)
         connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), watcher, SLOT(deleteLater()));
         connect(&m_timeout, SIGNAL(timeout()), watcher, SLOT(deleteLater()));
         m_timeout.start();
-    };
+    }
 }
 
 void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
