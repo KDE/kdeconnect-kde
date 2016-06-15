@@ -88,9 +88,13 @@ int main(int argc, char* argv[])
 
     KDBusService dbusService(KDBusService::Unique);
 
+#ifdef Q_OS_WIN
+    qputenv("KDE_FORK_SLAVES");
+#endif
+
     Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
-    
+
 #ifdef HAVE_TELEPATHY
     //keep a reference to the KTP CM so that we can register on DBus
     auto telepathyPlugin = KDEConnectTelepathyProtocolFactory::interface();
