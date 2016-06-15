@@ -400,7 +400,8 @@ void LanLinkProvider::dataReceived()
 
         socket->startClientEncryption();
     } else {
-        addLink(deviceId, socket, np, LanDeviceLink::Locally);
+        qWarning() << "Incompatible protocol version, this won't work";
+        //addLink(deviceId, socket, np, LanDeviceLink::Locally);
         delete receivedIdentityPackages.take(socket).np;
     }
 }
