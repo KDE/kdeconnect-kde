@@ -47,6 +47,8 @@ public:
     QSslCertificate peerCertificate() const { return mSocket->peerCertificate(); }
     qint64 bytesAvailable() const { return mPackages.size(); }
 
+    QSslSocket* mSocket;
+    
 Q_SIGNALS:
     void readyRead();
 
@@ -55,7 +57,6 @@ private Q_SLOTS:
 
 private:
     QByteArray lastChunk;
-    QSslSocket* mSocket;
     QQueue<QByteArray> mPackages;
 
 };

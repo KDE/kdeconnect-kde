@@ -473,6 +473,7 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
     //Do we have a link for this device already?
     QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(deviceId);
     if (linkIterator != mLinks.end()) {
+        //qCDebug(KDECONNECT_CORE) << "Reusing link to" << deviceId;
         deviceLink = linkIterator.value();
         deviceLink->reset(socket, connectionOrigin);
     } else {

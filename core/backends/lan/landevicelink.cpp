@@ -39,6 +39,7 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
 void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource)
 {
     if (mSocketLineReader) {
+        disconnect(mSocketLineReader->mSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
         delete mSocketLineReader;
     }
 
@@ -51,7 +52,7 @@ void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource
     //When the link provider destroys us,
     //the socket (and the reader) will be
     //destroyed as well
-    socket->setParent(this);
+    socket->setParent(mSocketLineReader);
 
     mConnectionSource = connectionSource;
 
