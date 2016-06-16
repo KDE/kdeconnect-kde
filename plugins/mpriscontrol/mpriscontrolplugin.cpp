@@ -28,6 +28,10 @@
 #include <QDBusMessage>
 #include <QDBusServiceWatcher>
 
+#include <QImage>
+#include <QBuffer>
+#include <QByteArray>
+
 #include <KPluginFactory>
 
 #include <core/device.h>
@@ -135,6 +139,32 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
                 np.set("length",length/1000); //milis to nanos
             }
             somethingToSend = true;
+        }
+        if (nowPlayingMap.contains("mpris:artUrl")) {
+            const QUrl artUrl(nowPlayingMap["mpris:artUrl"].toString());
+
+            /*
+             * We only handle images stored locally right now but it should be easy
+             * enough to download remote images and send them.
+             */
+            const int artMaxWidth = 512;
+            const int artMaxHeight = 512;
+            if (artUrl.isLocalFile()) {
+                QImage artImage(artUrl.path());
+
+                // Scale the image to a sane size
+                artImage = artImage.scaled({artMaxWidth, artMaxHeight}, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+                QByteArray imageBufferArray;
+                QBuffer imageBuffer(&imageBufferArray);
+                imageBuffer.open(QIODevice::WriteOnly);
+                artImage.save(&imageBuffer, "PNG");
+
+                const QString base64Image = QString::fromLatin1(imageBufferArray.toBase64());
+                np.set("artImage", base64Image);
+                somethingToSend = true;
+            }
+
         }
 
     }
