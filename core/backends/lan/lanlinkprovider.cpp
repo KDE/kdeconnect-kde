@@ -199,6 +199,7 @@ void LanLinkProvider::connectError()
     delete socket;
 }
 
+//We received a UDP package and answered by connecting to them by TCP. This gets called on a succesful connection.
 void LanLinkProvider::connected()
 {
     qCDebug(KDECONNECT_CORE) << "Socket connected";
@@ -225,7 +226,7 @@ void LanLinkProvider::connected()
 
     if (success) {
 
-        qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the existing device)";
+        qCDebug(KDECONNECT_CORE) << "TCP connection done (i'm the existing device)";
 
         // if ssl supported
         if (receivedPackage->get<int>("protocolVersion") >= MIN_VERSION_WITH_SSL_SUPPORT) {
@@ -326,7 +327,7 @@ void LanLinkProvider::sslErrorsLogButIgnore(const QList<QSslError>& errors)
     }
 }
 
-//I'm the new device and this is the answer to my UDP identity package (no data received yet)
+//I'm the new device and this is the answer to my UDP identity package (no data received yet). They are connecting to us through TCP, and they should send an identity.
 void LanLinkProvider::newConnection()
 {
     //qCDebug(KDECONNECT_CORE) << "LanLinkProvider newConnection";
@@ -409,8 +410,8 @@ void LanLinkProvider::dataReceived()
 
 void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 {
-    //qCDebug(KDECONNECT_CORE) << "deviceLinkDestroyed";
     const QString id = destroyedDeviceLink->property("deviceId").toString();
+    //qCDebug(KDECONNECT_CORE) << "deviceLinkDestroyed" << id;
     Q_ASSERT(mLinks.key(static_cast<LanDeviceLink*>(destroyedDeviceLink)) == id);
     QMap< QString, LanDeviceLink* >::iterator linkIterator = mLinks.find(id);
     if (linkIterator != mLinks.end()) {
