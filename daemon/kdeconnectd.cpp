@@ -34,10 +34,6 @@
 #include "core/backends/pairinghandler.h"
 #include "kdeconnect-version.h"
 
-#ifdef HAVE_TELEPATHY
-#include "kdeconnecttelepathyprotocolfactory.h"
-#endif
-
 class DesktopDaemon : public Daemon
 {
     Q_OBJECT
@@ -94,11 +90,6 @@ int main(int argc, char* argv[])
 
     Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
-
-#ifdef HAVE_TELEPATHY
-    //keep a reference to the KTP CM so that we can register on DBus
-    auto telepathyPlugin = KDEConnectTelepathyProtocolFactory::interface();
-#endif
 
     return app.exec();
 }

@@ -48,6 +48,9 @@ KDEConnectTelepathyProtocol::KDEConnectTelepathyProtocol(const QDBusConnection &
     presenceIface->setStatuses(Tp::PresenceSpecList(ConnectConnection::getConnectStatusSpecMap()));
     plugInterface(Tp::AbstractProtocolInterfacePtr::dynamicCast(presenceIface));*/
 
+    auto bus = QDBusConnection::sessionBus();
+    bus.registerObject("/kdeconnect", this, QDBusConnection::ExportAllSignals | QDBusConnection::ExportAllSlots);
+
     Tp::DBusError err;
 }
 

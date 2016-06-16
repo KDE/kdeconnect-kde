@@ -14,16 +14,15 @@
 #ifndef CONNECTCM_PROTOCOL_H
 #define CONNECTCM_PROTOCOL_H
 
-#include "connectcm_export.h"
-
 #include <TelepathyQt/BaseProtocol>
 
 class ConnectConnection;
 
-class CONNECTCM_EXPORT KDEConnectTelepathyProtocol : public Tp::BaseProtocol
+class KDEConnectTelepathyProtocol : public Tp::BaseProtocol
 {
     Q_OBJECT
     Q_DISABLE_COPY(KDEConnectTelepathyProtocol)
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Telepathy.ConnectionManager.kdeconnect")
 
 public:
     KDEConnectTelepathyProtocol(const QDBusConnection &dbusConnection, const QString &name);

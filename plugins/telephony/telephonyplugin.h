@@ -26,10 +26,7 @@
 #include <KNotification>
 
 #include <core/kdeconnectplugin.h>
-
-#ifdef HAVE_TELEPATHY
-#include "kdeconnecttelepathyprotocolfactory.h"
-#endif
+#include "kdeconnectinterface.h"
 
 #define PACKAGE_TYPE_TELEPHONY_REQUEST QLatin1String("kdeconnect.telephony.request")
 #define PACKAGE_TYPE_SMS_REQUEST QLatin1String("kdeconnect.sms.request")
@@ -55,12 +52,8 @@ private Q_SLOTS:
 
 private:
     KNotification* createNotification(const NetworkPackage& np);
-    
-#ifdef HAVE_TELEPATHY
-    ConnectProtocolPtr m_telepathyInterface;
-#endif
 
-
+    OrgFreedesktopTelepathyConnectionManagerKdeconnectInterface* m_telepathyInterface;
 };
 
 #endif

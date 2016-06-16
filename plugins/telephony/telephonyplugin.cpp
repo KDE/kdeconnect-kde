@@ -34,12 +34,9 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 
 TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , m_telepathyInterface(new OrgFreedesktopTelepathyConnectionManagerKdeconnectInterface("org.freedesktop.Telepathy.ConnectionManager.kdeconnect", "/kdeconnect", QDBusConnection::sessionBus(), this))
 {
-#ifdef HAVE_TELEPATHY    
-    //keep a reference to the KTP CM so that we can register on DBus
-    m_telepathyInterface = KDEConnectTelepathyProtocolFactory::interface();
-    connect(m_telepathyInterface.constData(), SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)));
-#endif
+    connect(m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)));
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
@@ -66,7 +63,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     } else if (event == "sms") {
         type = QStringLiteral("smsReceived");
         icon = QStringLiteral("mail-receive");
-        QString messageBody = np.get<QString>("messageBody","");
+        QString messageBody = np.get<QString>("messageBody", "");
         content = i18n("SMS from %1<br>%2", contactName, messageBody);
         flags |= KNotification::Persistent;
     } else if (event == "talking") {
@@ -118,7 +115,6 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
         //TODO: Clear the old notification
         return true;
     }
-#ifdef HAVE_TELEPATHY
     if (np.get<QString>("event") == QLatin1String("sms")) {
         const QString messageBody = np.get<QString>("messageBody","");
         const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
@@ -127,8 +123,7 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
              return true;
         }
     }
-#endif 
-    
+
     KNotification* n = createNotification(np);
     if (n != nullptr) n->sendEvent();
 

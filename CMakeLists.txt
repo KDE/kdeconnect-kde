@@ -14,11 +14,8 @@ find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Gui)
 find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
 find_package(KF5DocTools)
 find_package(Qca-qt5 2.1.0 REQUIRED)
-# find_package(TelepathyQt5 0.9.5)
-# find_package(TelepathyQt5Service 0.9.7)
-if (TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
-    add_definitions(-DHAVE_TELEPATHY)
-endif()
+find_package(TelepathyQt5 0.9.5)
+find_package(TelepathyQt5Service 0.9.7)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
@@ -39,6 +36,8 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 include(GenerateExportHeader)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
+add_subdirectory(telepathy-cm)
+
 add_subdirectory(core)
 add_subdirectory(kcm)
 add_subdirectory(kcmplugin)
@@ -57,10 +56,6 @@ add_subdirectory(cli)
 add_subdirectory(fileitemactionplugin)
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
-endif()
-
-if (TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
-    add_subdirectory(telepathy-cm)
 endif()
 
 if(BUILD_TESTING)

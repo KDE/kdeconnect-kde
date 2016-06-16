@@ -1,7 +1,5 @@
 #include "protocol.h"
 
-#include "connectcm_export.h"
-
 typedef Tp::SharedPtr<KDEConnectTelepathyProtocol> ConnectProtocolPtr;
 
 /*
@@ -9,7 +7,7 @@ typedef Tp::SharedPtr<KDEConnectTelepathyProtocol> ConnectProtocolPtr;
  * Whilst the main process also holds a reference.
  * 
  */
-class CONNECTCM_EXPORT KDEConnectTelepathyProtocolFactory
+class KDEConnectTelepathyProtocolFactory
 {
 public:
     static ConnectProtocolPtr interface();

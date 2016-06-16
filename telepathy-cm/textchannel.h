@@ -14,15 +14,13 @@
 #ifndef CONNECTCM_TEXTCHANNEL_H
 #define CONNECTCM_TEXTCHANNEL_H
 
-#include "connectcm_export.h"
-
 #include <TelepathyQt/BaseChannel>
 
 class ConnectTextChannel;
 
 typedef Tp::SharedPtr<ConnectTextChannel> ConnectTextChannelPtr;
 
-class CONNECTCM_EXPORT ConnectTextChannel : public Tp::BaseChannelTextType
+class ConnectTextChannel : public Tp::BaseChannelTextType
 {
     Q_OBJECT
 public:

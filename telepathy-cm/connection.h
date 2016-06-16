@@ -14,12 +14,10 @@
 #ifndef CONNECTCM_CONNECTION_H
 #define CONNECTCM_CONNECTION_H
 
-#include "connectcm_export.h"
-
 #include <TelepathyQt/BaseConnection>
 #include <TelepathyQt/BaseChannel>
 
-class CONNECTCM_EXPORT ConnectConnection : public Tp::BaseConnection
+class ConnectConnection : public Tp::BaseConnection
 {
     Q_OBJECT
 public:

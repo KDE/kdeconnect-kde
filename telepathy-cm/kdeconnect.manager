@@ -1,6 +1,4 @@
 [ConnectionManager]
-BusName=org.freedesktop.Telepathy.ConnectionManager.kdeconnect
-ObjectPath=/org/freedesktop/Telepathy/ConnectionManager/kdeconnect
-Interfaces=
-
-[Protocol kdeconnect]
+Name = kdeconnect
+BusName = org.freedesktop.Telepathy.ConnectionManager.kdeconnect
+ObjectPath = /org/freedesktop/Telepathy/ConnectionManager/kdeconnect
