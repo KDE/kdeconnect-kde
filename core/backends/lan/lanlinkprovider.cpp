@@ -43,6 +43,8 @@
 #include <QtNetwork/qsslcipher.h>
 #include <QtNetwork/qsslconfiguration.h>
 
+#define MIN_VERSION_WITH_SSL_SUPPORT 6
+
 LanLinkProvider::LanLinkProvider(bool testMode)
     : mTestMode(testMode)
 {
@@ -226,7 +228,7 @@ void LanLinkProvider::connected()
         qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the existing device)";
 
         // if ssl supported
-        if (receivedPackage->get<int>("protocolVersion") >= NetworkPackage::ProtocolVersion) {
+        if (receivedPackage->get<int>("protocolVersion") >= MIN_VERSION_WITH_SSL_SUPPORT) {
             // since I support ssl and remote device support ssl
 
             socket->setPeerVerifyName(deviceId);
@@ -249,7 +251,7 @@ void LanLinkProvider::connected()
             socket->startServerEncryption();
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
         } else {
-            qWarning() << "Incompatible protocol version, this won't work";
+            qWarning() << receivedPackage->get<QString>("deviceName") << "uses an old protocol version, this won't work";
             //addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
         }
 
@@ -275,7 +277,6 @@ void LanLinkProvider::encrypted()
 
     NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
-    //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
 
     addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
 
@@ -376,7 +377,7 @@ void LanLinkProvider::dataReceived()
     //This socket will now be owned by the LanDeviceLink or we don't want more data to be received, forget about it
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
 
-    if (NetworkPackage::ProtocolVersion <= np->get<int>("protocolVersion")) {
+    if (np->get<int>("protocolVersion") >= MIN_VERSION_WITH_SSL_SUPPORT) {
         // since I support ssl and remote device support ssl
 
         bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
@@ -400,7 +401,7 @@ void LanLinkProvider::dataReceived()
 
         socket->startClientEncryption();
     } else {
-        qWarning() << "Incompatible protocol version, this won't work";
+        qWarning() << np->get<QString>("deviceName") << "uses an old protocol version, this won't work";
         //addLink(deviceId, socket, np, LanDeviceLink::Locally);
         delete receivedIdentityPackages.take(socket).np;
     }
