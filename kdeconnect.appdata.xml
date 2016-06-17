@@ -119,5 +119,6 @@
   <project_group xml:lang="zh-CN">KDE Connect</project_group>
   <provides>
     <binary>kdeconnectd</binary>
+    <binary>kdeconnect-cli</binary>
   </provides>
 </component>
