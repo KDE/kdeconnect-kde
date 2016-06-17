@@ -46,7 +46,7 @@ QDebug operator<<(QDebug s, const NetworkPackage& pkg)
 }
 
 //const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
-const int NetworkPackage::ProtocolVersion = 6;
+const int NetworkPackage::ProtocolVersion = 7;
 
 NetworkPackage::NetworkPackage(const QString& type)
 {

@@ -76,7 +76,7 @@ private:
 
     Server* mServer;
     QUdpSocket mUdpSocket;
-    const static quint16 port = 1714;
+    const static quint16 port = 1716;
     quint16 mTcpPort;
 
     QMap<QString, LanDeviceLink*> mLinks;
