@@ -33,25 +33,25 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 
-class TelephonyPlugin
+class TelepathyPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
+    explicit TelepathyPlugin(QObject *parent, const QVariantList &args);
+    void connected() override {}
 
 public Q_SLOTS:
     virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override { }
-    void sendMutePackage();
 
 private Q_SLOTS:
     void sendSms(const QString& phoneNumber, const QString& messageBody);
-    void showSendSmsDialog();
 
 private:
     KNotification* createNotification(const NetworkPackage& np);
+
+    OrgFreedesktopTelepathyConnectionManagerKdeconnectInterface* m_telepathyInterface;
 };
 
 #endif

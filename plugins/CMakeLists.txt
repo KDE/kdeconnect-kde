@@ -24,6 +24,9 @@ if(EXPERIMENTALAPP_ENABLED)
     add_subdirectory(remotecontrol)
     add_subdirectory(lockdevice)
 endif()
+if (TelepathyQt5_FOUND AND TelepathyQt5Service_FOUND)
+    add_subdirectory(telepathy)
+endif()
 
 #FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
 install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})

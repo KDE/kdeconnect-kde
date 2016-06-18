@@ -36,8 +36,6 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 include(GenerateExportHeader)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-add_subdirectory(telepathy-cm)
-
 add_subdirectory(core)
 add_subdirectory(kcm)
 add_subdirectory(kcmplugin)

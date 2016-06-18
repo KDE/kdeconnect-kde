@@ -34,9 +34,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 
 TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , m_telepathyInterface(new OrgFreedesktopTelepathyConnectionManagerKdeconnectInterface("org.freedesktop.Telepathy.ConnectionManager.kdeconnect", "/kdeconnect", QDBusConnection::sessionBus(), this))
 {
-    connect(m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)));
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
@@ -114,14 +112,6 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 
         //TODO: Clear the old notification
         return true;
-    }
-    if (np.get<QString>("event") == QLatin1String("sms")) {
-        const QString messageBody = np.get<QString>("messageBody","");
-        const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
-        const QString contactName = np.get<QString>("contactName", phoneNumber);
-        if (m_telepathyInterface->sendMessage(contactName, messageBody)) {
-             return true;
-        }
     }
 
     KNotification* n = createNotification(np);
