@@ -26,7 +26,6 @@
 #include <KNotification>
 
 #include <core/kdeconnectplugin.h>
-#include "kdeconnectinterface.h"
 
 #define PACKAGE_TYPE_TELEPHONY_REQUEST QLatin1String("kdeconnect.telephony.request")
 #define PACKAGE_TYPE_SMS_REQUEST QLatin1String("kdeconnect.sms.request")
