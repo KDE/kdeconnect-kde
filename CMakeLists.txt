@@ -14,8 +14,6 @@ find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Gui)
 find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
 find_package(KF5DocTools)
 find_package(Qca-qt5 2.1.0 REQUIRED)
-find_package(TelepathyQt5 0.9.5)
-find_package(TelepathyQt5Service 0.9.7)
 
 include_directories(${CMAKE_SOURCE_DIR})
 

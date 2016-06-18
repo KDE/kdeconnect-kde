@@ -1,4 +1,17 @@
-find_package(KF5 REQUIRED COMPONENTS Notifications)
+find_package(TelepathyQt5 0.9.5)
+find_package(TelepathyQt5Service 0.9.7)
+
+set_package_properties(TelepathyQt5 PROPERTIES
+    PURPOSE "Allows integration with Telepathy. We suggest 'plugins/telepathy' to be packaged separately."
+    TYPE OPTIONAL
+)
+set_package_properties(TelepathyQt5Service PROPERTIES
+    PURPOSE "Allows integration with Telepathy. We suggest 'plugins/telepathy' to be packaged separately."
+    TYPE OPTIONAL
+)
+if (NOT TelepathyQt5Service_FOUND OR NOT TelepathyQt5_FOUND)
+    return()
+endif()
 
 include_directories(${CMAKE_BINARY_DIR})
 
@@ -13,6 +26,6 @@ kdeconnect_add_plugin(kdeconnect_telepathy JSON kdeconnect_telepathy.json
 target_link_libraries(kdeconnect_telepathy
     kdeconnectcore
     KF5::I18n
-    KF5::Notifications
     Qt5::DBus
+    Qt5::Gui
 )

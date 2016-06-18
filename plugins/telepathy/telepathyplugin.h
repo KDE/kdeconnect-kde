@@ -23,8 +23,6 @@
 
 #include <QLoggingCategory>
 
-#include <KNotification>
-
 #include <core/kdeconnectplugin.h>
 #include "kdeconnectinterface.h"
 
@@ -49,8 +47,6 @@ private Q_SLOTS:
     void sendSms(const QString& phoneNumber, const QString& messageBody);
 
 private:
-    KNotification* createNotification(const NetworkPackage& np);
-
     OrgFreedesktopTelepathyConnectionManagerKdeconnectInterface* m_telepathyInterface;
 };
 
