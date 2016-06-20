@@ -24,7 +24,6 @@
 #include <QProcess>
 #include <QEventLoop>
 #include <QTimer>
-#include <unistd.h>
 
 class TestSocketLineReader : public QObject
 {

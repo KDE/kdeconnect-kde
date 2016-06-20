@@ -26,7 +26,6 @@
 #include <QTimer>
 #include <QHostAddress>
 #include <KJob>
-#include <unistd.h>
 #include <iostream>
 
 class DownloadJobTest : public QObject

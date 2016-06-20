@@ -18,9 +18,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <unistd.h>
-#include <signal.h>
-
 #include <QApplication>
 #include <QNetworkAccessManager>
 
@@ -83,10 +80,6 @@ int main(int argc, char* argv[])
     app.setQuitOnLastWindowClosed(false);
 
     KDBusService dbusService(KDBusService::Unique);
-
-#ifdef Q_OS_WIN
-    qputenv("KDE_FORK_SLAVES");
-#endif
 
     Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));

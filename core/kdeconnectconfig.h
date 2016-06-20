@@ -81,8 +81,8 @@ private:
     KdeConnectConfig();
 
 private:
-    QScopedPointer<struct KdeConnectConfigPrivate> d;
 
+    struct KdeConnectConfigPrivate* d;
 };
 
 #endif
