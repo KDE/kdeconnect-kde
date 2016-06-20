@@ -125,7 +125,6 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
                 //Calling play does not work for Spotify
                 //mprisInterface->call(QDBus::Block,"Play");
                 //Workaround: Using playpause instead (checking first if it is already playing)
-                QString status = mprisInterface.property("PlaybackStatus").toString();
                 mprisInterface.asyncCall("PlayPause");
                 //End of workaround
             }

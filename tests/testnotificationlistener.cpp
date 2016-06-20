@@ -328,7 +328,7 @@ void TestNotificationListener::testNotify()
 
     // icon synchronization:
     int count = 0;
-    for (const auto& iconName: KIconLoader::global()->queryIcons(-KIconLoader::SizeEnormous, KIconLoader::Application)) {
+    foreach (const auto& iconName, KIconLoader::global()->queryIcons(-KIconLoader::SizeEnormous, KIconLoader::Application)) {
         if (!iconName.endsWith(".png"))
             continue;
         if (count++ > 3) // max 3 iterations
