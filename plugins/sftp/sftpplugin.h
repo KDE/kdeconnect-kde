@@ -36,7 +36,7 @@ class SftpPlugin
     
 public:
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
-    virtual ~SftpPlugin();
+    ~SftpPlugin() override;
 
 Q_SIGNALS:
     void packageReceived(const NetworkPackage& np);
@@ -44,8 +44,8 @@ Q_SIGNALS:
     Q_SCRIPTABLE void unmounted();
     
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
     Q_SCRIPTABLE void mount();
     Q_SCRIPTABLE void unmount();

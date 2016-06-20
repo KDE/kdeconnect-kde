@@ -40,9 +40,10 @@ class TelephonyPlugin
 public:
     explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
 
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override { }
+
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override { }
     void sendMutePackage();
 
 private Q_SLOTS:

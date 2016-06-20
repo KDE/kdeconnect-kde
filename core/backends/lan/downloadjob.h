@@ -38,8 +38,8 @@ class KDECONNECTCORE_EXPORT DownloadJob
     Q_OBJECT
 public:
     DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo);
-    ~DownloadJob();
-    void start() Q_DECL_OVERRIDE;
+    ~DownloadJob() override;
+    void start() override;
     QSharedPointer<QIODevice> getPayload();
 
 private:

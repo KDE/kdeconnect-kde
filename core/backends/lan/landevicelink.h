@@ -43,16 +43,16 @@ public:
     LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource);
     void reset(QSslSocket* socket, ConnectionStarted connectionSource);
 
-    virtual QString name() Q_DECL_OVERRIDE;
+    QString name() override;
     bool sendPackage(NetworkPackage& np) override;
     UploadJob* sendPayload(NetworkPackage& np);
 
-    virtual void userRequestsPair() override;
-    virtual void userRequestsUnpair() override;
+    void userRequestsPair() override;
+    void userRequestsUnpair() override;
 
-    virtual void setPairStatus(PairStatus status) override;
+    void setPairStatus(PairStatus status) override;
 
-    virtual bool linkShouldBeKeptAlive() override;
+    bool linkShouldBeKeptAlive() override;
 
 private Q_SLOTS:
     void dataReceived();

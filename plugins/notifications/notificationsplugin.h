@@ -42,11 +42,11 @@ class NotificationsPlugin
 
 public:
     explicit NotificationsPlugin(QObject *parent, const QVariantList &args);
-    virtual ~NotificationsPlugin();
+    ~NotificationsPlugin() override;
     
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
 protected:
     NotificationsDbusInterface* notificationsDbusInterface;

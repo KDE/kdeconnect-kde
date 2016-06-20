@@ -24,7 +24,7 @@ public:
     ConnectConnection(const QDBusConnection &dbusConnection,
             const QString &cmName, const QString &protocolName,
             const QVariantMap &parameters);
-    ~ConnectConnection();
+    ~ConnectConnection() override;
 
     static Tp::SimpleStatusSpecMap getSimpleStatusSpecMap();
 

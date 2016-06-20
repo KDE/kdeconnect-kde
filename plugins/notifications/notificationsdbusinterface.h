@@ -40,7 +40,7 @@ class NotificationsDbusInterface
 
 public:
     explicit NotificationsDbusInterface(KdeConnectPlugin* plugin);
-    virtual ~NotificationsDbusInterface();
+    ~NotificationsDbusInterface() override;
 
     void processPackage(const NetworkPackage& np);
     void clearNotifications();

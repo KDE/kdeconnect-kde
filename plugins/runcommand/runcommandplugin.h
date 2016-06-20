@@ -37,12 +37,12 @@ class Q_DECL_EXPORT RunCommandPlugin
 
 public:
     explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
-    virtual ~RunCommandPlugin();
+    ~RunCommandPlugin() override;
 
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected();
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
 private Q_SLOTS:
     void configChanged();

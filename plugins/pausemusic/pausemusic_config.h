@@ -33,12 +33,12 @@ class PauseMusicConfig
     Q_OBJECT
 public:
     PauseMusicConfig(QWidget *parent, const QVariantList&);
-    virtual ~PauseMusicConfig();
+    ~PauseMusicConfig() override;
 
 public Q_SLOTS:
-    virtual void save() override;
-    virtual void load() override;
-    virtual void defaults() override;
+    void save() override;
+    void load() override;
+    void defaults() override;
 
 private:
     Ui::PauseMusicConfigUi* m_ui;

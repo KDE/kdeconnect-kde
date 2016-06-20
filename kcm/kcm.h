@@ -40,12 +40,12 @@ class KdeConnectKcm
     Q_OBJECT
 public:
     KdeConnectKcm(QWidget *parent, const QVariantList&);
-    virtual ~KdeConnectKcm();
+    ~KdeConnectKcm() override;
 
 private:
-    virtual void save();
-    virtual QSize sizeHint() const;
-    virtual QSize minimumSizeHint() const;
+    void save() override;
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex& current);

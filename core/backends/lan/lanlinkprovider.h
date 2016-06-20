@@ -41,7 +41,7 @@ class KDECONNECTCORE_EXPORT LanLinkProvider
 
 public:
     LanLinkProvider(bool testMode = false);
-    ~LanLinkProvider();
+    ~LanLinkProvider() override;
 
     QString name() override { return "LanLinkProvider"; }
     int priority() override { return PRIORITY_HIGH; }
@@ -51,9 +51,9 @@ public:
     void incomingPairPackage(DeviceLink* device, const NetworkPackage& np);
 
 public Q_SLOTS:
-    virtual void onNetworkChange() override;
-    virtual void onStart() override;
-    virtual void onStop() override;
+    void onNetworkChange() override;
+    void onStart() override;
+    void onStop() override;
     void connected();
     void encrypted();
     void connectError();

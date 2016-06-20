@@ -39,7 +39,7 @@ class KDECONNECTPLUGINKCM_EXPORT KdeConnectPluginKcm
 
 public:
     KdeConnectPluginKcm(QWidget* parent, const QVariantList& args, const QString& componentName);
-    virtual ~KdeConnectPluginKcm();
+    ~KdeConnectPluginKcm() override;
 
     /**
      * The device this kcm is instantiated for

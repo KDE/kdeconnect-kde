@@ -43,7 +43,7 @@ class Q_DECL_EXPORT MprisRemotePlugin
 
 public:
     explicit MprisRemotePlugin(QObject *parent, const QVariantList &args);
-    virtual ~MprisRemotePlugin();
+    ~MprisRemotePlugin() override;
 
     long position() const;
     int volume() const { return m_volume; }
@@ -58,8 +58,8 @@ public:
     void setPlayer(const QString& player);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np);
-    virtual void connected();
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
     void seek(int offset) const;
     void requestPlayerStatus();

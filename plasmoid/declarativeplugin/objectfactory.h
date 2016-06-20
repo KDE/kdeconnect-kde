@@ -19,7 +19,7 @@ public:
     ObjectFactory(QObject* parent, Func1 f1) : QObject(parent), m_f0(nullptr), m_f1(f1), m_f2(nullptr) {}
     ObjectFactory(QObject* parent, Func2 f2) : QObject(parent), m_f0(nullptr), m_f1(nullptr), m_f2(f2) {}
     
-    virtual ~ObjectFactory() {}
+    ~ObjectFactory() override = default;
 
     Q_INVOKABLE QObject* create() {
         if (m_f0) return m_f0();

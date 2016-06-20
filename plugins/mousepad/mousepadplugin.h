@@ -44,10 +44,10 @@ class MousepadPlugin
 
 public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
-    virtual ~MousepadPlugin();
+    ~MousepadPlugin() override;
 
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override { }
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override { }
 
 private:
 #if HAVE_X11

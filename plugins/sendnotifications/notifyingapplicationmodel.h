@@ -31,15 +31,15 @@ class NotifyingApplicationModel: public QAbstractTableModel
 
 public:
     explicit NotifyingApplicationModel(QObject *parent = nullptr);
-    virtual ~NotifyingApplicationModel();
+    ~NotifyingApplicationModel() override;
 
-    virtual QVariant data(const QModelIndex& index, int role) const override;
-    virtual bool setData(const QModelIndex &index, const QVariant &value, int role) override;
-    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-    virtual int columnCount(const QModelIndex& parent = QModelIndex()) const override;
-    virtual Qt::ItemFlags flags(const QModelIndex & index) const override;
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
-    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    QVariant data(const QModelIndex& index, int role) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex& parent = QModelIndex()) const override;
+    Qt::ItemFlags flags(const QModelIndex & index) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 
     QVector<NotifyingApplication> apps();
     void clearApplications();

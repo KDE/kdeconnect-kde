@@ -31,12 +31,12 @@ class RunCommandConfig
     Q_OBJECT
 public:
     RunCommandConfig(QWidget *parent, const QVariantList&);
-    virtual ~RunCommandConfig();
+    ~RunCommandConfig() override;
 
 public Q_SLOTS:
-    virtual void save() Q_DECL_OVERRIDE;
-    virtual void load() Q_DECL_OVERRIDE;
-    virtual void defaults() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    void defaults() override;
 
 private Q_SLOTS:
     void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);

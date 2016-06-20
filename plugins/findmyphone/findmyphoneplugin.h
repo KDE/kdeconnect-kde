@@ -35,13 +35,13 @@ class FindMyPhonePlugin
 
 public:
     explicit FindMyPhonePlugin(QObject *parent, const QVariantList &args);
-    virtual ~FindMyPhonePlugin();
+    ~FindMyPhonePlugin() override;
     
     Q_SCRIPTABLE void ring();
 
 public Q_SLOTS:
-    virtual void connected();
-    virtual bool receivePackage(const NetworkPackage& np);
+    void connected() override;
+    bool receivePackage(const NetworkPackage& np) override;
 
 private:
     QString dbusPath() const;

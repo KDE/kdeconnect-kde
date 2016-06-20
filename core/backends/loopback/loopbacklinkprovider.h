@@ -31,14 +31,14 @@ class LoopbackLinkProvider
     Q_OBJECT
 public:
     LoopbackLinkProvider();
-    ~LoopbackLinkProvider();
+    ~LoopbackLinkProvider() override;
 
     QString name() override { return "LoopbackLinkProvider"; }
     int priority() override { return PRIORITY_LOW; }
 
-    virtual void onStart() override;
-    virtual void onStop() override;
-    virtual void onNetworkChange() override;
+    void onStart() override;
+    void onStop() override;
+    void onNetworkChange() override;
 
 private:
     QPointer<LoopbackDeviceLink> loopbackDeviceLink;

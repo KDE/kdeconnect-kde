@@ -32,7 +32,7 @@ class NotificationsListener : public QDBusAbstractAdaptor
 
 public:
     explicit NotificationsListener(KdeConnectPlugin* aPlugin);
-    virtual ~NotificationsListener();
+    ~NotificationsListener() override;
 
 protected:
     KdeConnectPlugin* mPlugin;

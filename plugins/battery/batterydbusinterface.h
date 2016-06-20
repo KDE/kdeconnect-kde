@@ -33,7 +33,7 @@ class BatteryDbusInterface
 
 public:
     explicit BatteryDbusInterface(const Device *device);
-    virtual ~BatteryDbusInterface();
+    ~BatteryDbusInterface() override;
     
     Q_SCRIPTABLE int charge() const { return mCharge; }
     Q_SCRIPTABLE bool isCharging() const { return mIsCharging; }

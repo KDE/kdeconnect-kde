@@ -78,7 +78,7 @@ public:
      */
     Device(QObject* parent, const NetworkPackage& np, DeviceLink* dl);
 
-    virtual ~Device();
+    ~Device() override;
 
     QString id() const { return m_deviceId; }
     QString name() const { return m_deviceName; }
@@ -113,6 +113,7 @@ public:
 
 public Q_SLOTS:
     ///sends a @p np package to the device
+    ///virtual for testing purposes.
     virtual bool sendPackage(NetworkPackage& np);
 
     //Dbus operations

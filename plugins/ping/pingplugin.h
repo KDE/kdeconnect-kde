@@ -35,14 +35,14 @@ class Q_DECL_EXPORT PingPlugin
 
 public:
     explicit PingPlugin(QObject *parent, const QVariantList &args);
-    virtual ~PingPlugin();
+    ~PingPlugin() override;
 
     Q_SCRIPTABLE void sendPing();
     Q_SCRIPTABLE void sendPing(const QString& customMessage);
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
 private:
     QString dbusPath() const;

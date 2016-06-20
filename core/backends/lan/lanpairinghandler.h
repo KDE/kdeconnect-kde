@@ -39,13 +39,13 @@ public:
     };
 
     LanPairingHandler(DeviceLink* deviceLink);
-    virtual ~LanPairingHandler() { }
+    ~LanPairingHandler() override { }
 
-    virtual void packageReceived(const NetworkPackage& np) Q_DECL_OVERRIDE;
-    virtual bool requestPairing() Q_DECL_OVERRIDE;
-    virtual bool acceptPairing() Q_DECL_OVERRIDE;
-    virtual void rejectPairing() Q_DECL_OVERRIDE;
-    virtual void unpair() Q_DECL_OVERRIDE;
+    void packageReceived(const NetworkPackage& np) override;
+    bool requestPairing() override;
+    bool acceptPairing() override;
+    void rejectPairing() override;
+    void unpair() override;
 
     bool isPairRequested() const { return m_status == Requested; }
     bool isPaired() const { return m_status == Paired; }

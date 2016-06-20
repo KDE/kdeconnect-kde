@@ -29,7 +29,7 @@ class AutoClosingQFile : public QFile
 public:
 
     explicit AutoClosingQFile(const QString &name);
-    qint64 readData(char* data, qint64 maxlen) Q_DECL_OVERRIDE {
+    qint64 readData(char* data, qint64 maxlen) override {
         qint64 read = QFile::readData(data, maxlen);
         if (read == -1 || read == bytesAvailable()) {
             close();

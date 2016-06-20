@@ -37,7 +37,7 @@ class DBusAsyncResponse : public QObject
     
 public:
     explicit DBusAsyncResponse(QObject* parent = nullptr);
-    virtual ~DBusAsyncResponse() {}; 
+    ~DBusAsyncResponse() override = default;
 
     Q_INVOKABLE void setPendingCall(QVariant e);
     

@@ -37,7 +37,7 @@ class KDECONNECTCORE_EXPORT KdeConnectPluginConfig : public QObject
 
 public:
     KdeConnectPluginConfig(const QString& deviceId, const QString& pluginName);
-    ~KdeConnectPluginConfig();
+    ~KdeConnectPluginConfig() override;
 
     /**
      * A directory to store stuff for this device and plugin. It's private in the sense

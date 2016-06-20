@@ -48,18 +48,18 @@ public:
     };
 
     explicit NotificationsModel(QObject* parent = nullptr);
-    virtual ~NotificationsModel();
+    ~NotificationsModel() override;
 
     QString deviceId() const;
     void setDeviceId(const QString& deviceId);
 
-    virtual QVariant data(const QModelIndex& index, int role) const override;
-    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex& index, int role) const override;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
 
     NotificationDbusInterface* getNotification(const QModelIndex& index) const;
 
     Q_INVOKABLE bool isAnyDimissable() const;
-    virtual QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
 public Q_SLOTS:
     void dismissAll();

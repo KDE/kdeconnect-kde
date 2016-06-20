@@ -45,7 +45,7 @@ public:
     {
     }
 
-    virtual ~TestNotificationsPlugin() {};
+    ~TestNotificationsPlugin() override = default;
 
     // allow to access notificationsListener for testing:
     NotificationsListener* getNotificationsListener() const
@@ -75,7 +75,7 @@ public:
         , lastPackage(nullptr)
     {}
 
-    virtual ~TestDevice()
+    ~TestDevice() override
     {
         delete lastPackage;
     }
@@ -91,7 +91,7 @@ public:
     }
 
 public Q_SLOTS:
-    virtual bool sendPackage(NetworkPackage& np) override
+    bool sendPackage(NetworkPackage& np) override
     {
         ++sentPackages;
         // copy package manually to allow for inspection (can't use copy-constructor)
@@ -115,7 +115,7 @@ public:
         : NotificationsListener(aPlugin)
     {}
 
-    virtual ~TestedNotificationsListener()
+    ~TestedNotificationsListener() override
     {}
 
     QHash<QString, NotifyingApplication>& getApplications()

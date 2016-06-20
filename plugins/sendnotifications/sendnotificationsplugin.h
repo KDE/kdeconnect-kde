@@ -41,11 +41,11 @@ class SendNotificationsPlugin
 
 public:
     explicit SendNotificationsPlugin(QObject *parent, const QVariantList &args);
-    virtual ~SendNotificationsPlugin();
+    ~SendNotificationsPlugin() override;
     
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
 protected:
     NotificationsListener* notificationsListener;

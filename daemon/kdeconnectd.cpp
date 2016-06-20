@@ -41,7 +41,7 @@ public:
         , m_nam(Q_NULLPTR)
     {}
 
-    void askPairingConfirmation(PairingHandler* d) Q_DECL_OVERRIDE
+    void askPairingConfirmation(PairingHandler* d) override
     {
         KNotification* notification = new KNotification("pairingRequest");
         notification->setIconName(QStringLiteral("dialog-information"));
@@ -54,12 +54,12 @@ public:
         notification->sendEvent();
     }
 
-    void reportError(const QString & title, const QString & description) Q_DECL_OVERRIDE
+    void reportError(const QString & title, const QString & description) override
     {
         KNotification::event(KNotification::Error, title, description);
     }
 
-    QNetworkAccessManager* networkAccessManager() Q_DECL_OVERRIDE
+    QNetworkAccessManager* networkAccessManager() override
     {
         if (!m_nam) {
             m_nam = new KIO::AccessManager(this);

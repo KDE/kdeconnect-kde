@@ -38,13 +38,13 @@ private:
 
 public:
     Server(QObject* parent = 0);
-    virtual ~Server() {}
+    ~Server() override = default;
 
-    QSslSocket* nextPendingConnection() Q_DECL_OVERRIDE;
-    bool hasPendingConnections() const Q_DECL_OVERRIDE;
+    QSslSocket* nextPendingConnection() override;
+    bool hasPendingConnections() const override;
 
 protected:
-    void incomingConnection(qintptr socketDescriptor) Q_DECL_OVERRIDE;
+    void incomingConnection(qintptr socketDescriptor) override;
 };
 
 #endif //KDECONNECT_SERVER_H

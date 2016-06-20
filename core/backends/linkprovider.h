@@ -42,7 +42,7 @@ public:
     const static int PRIORITY_HIGH = 100;   //eg: lan
 
     LinkProvider();
-    virtual ~LinkProvider() { }
+    ~LinkProvider() override = default;
 
     virtual QString name() = 0;
     virtual int priority() = 0;

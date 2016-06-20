@@ -41,7 +41,7 @@ public:
     void connected() override {}
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
+    bool receivePackage(const NetworkPackage& np) override;
 
 private Q_SLOTS:
     void sendSms(const QString& phoneNumber, const QString& messageBody);

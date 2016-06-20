@@ -36,11 +36,11 @@ class BatteryPlugin
 
 public:
     explicit BatteryPlugin(QObject *parent, const QVariantList &args);
-    virtual ~BatteryPlugin();
+    ~BatteryPlugin() override;
 
 public Q_SLOTS:
-    virtual bool receivePackage(const NetworkPackage& np) override;
-    virtual void connected() override;
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override;
 
 private:
     // Keep these values in sync with THRESHOLD* constants in

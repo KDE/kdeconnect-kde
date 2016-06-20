@@ -35,7 +35,7 @@ class Mounter
 public:
   
     explicit Mounter(SftpPlugin *sftp);
-    virtual ~Mounter();
+    ~Mounter() override;
     
     bool wait();
     bool isMounted() const { return m_started; }

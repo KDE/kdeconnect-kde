@@ -25,7 +25,7 @@ class ConnectTextChannel : public Tp::BaseChannelTextType
     Q_OBJECT
 public:
     static ConnectTextChannelPtr create(QObject *connection, Tp::BaseChannel *baseChannel, uint targetHandle, const QString &identifier);
-    virtual ~ConnectTextChannel();
+    ~ConnectTextChannel() override;
 
     QString sendMessageCallback(const Tp::MessagePartList &messageParts, uint flags, Tp::DBusError *error);
 

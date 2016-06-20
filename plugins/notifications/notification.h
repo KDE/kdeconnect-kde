@@ -39,7 +39,7 @@ class Notification
 
 public:
     Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent);
-    virtual ~Notification();
+    ~Notification() override;
 
     QString internalId() const { return mInternalId; }
     QString appName() const { return mAppName; }

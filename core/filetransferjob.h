@@ -53,7 +53,7 @@ public:
      * @p destination specifies where these contents should be stored
      */
     FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination);
-    virtual void start() Q_DECL_OVERRIDE;
+    void start() override;
     QUrl destination() const { return mDestination; }
     void setOriginName(QString from) { mFrom = from; }
 
@@ -61,7 +61,7 @@ private Q_SLOTS:
     void doStart();
 
 protected:
-    bool doKill() Q_DECL_OVERRIDE;
+    bool doKill() override;
 
 private:
     void startTransfer();

@@ -42,7 +42,7 @@ class KDECONNECTCORE_EXPORT Daemon
 
 public:
     explicit Daemon(QObject *parent, bool testMode = false);
-    ~Daemon();
+    ~Daemon() override;
 
     /**
      * Returns the daemon.

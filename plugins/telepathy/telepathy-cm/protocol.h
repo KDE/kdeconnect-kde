@@ -26,7 +26,7 @@ class KDEConnectTelepathyProtocol : public Tp::BaseProtocol
 
 public:
     KDEConnectTelepathyProtocol(const QDBusConnection &dbusConnection, const QString &name);
-    virtual ~KDEConnectTelepathyProtocol();
+    ~KDEConnectTelepathyProtocol() override;
 
     QString connectionManagerName() const;
     void setConnectionManagerName(const QString &newName);

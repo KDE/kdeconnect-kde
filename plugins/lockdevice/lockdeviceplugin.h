@@ -39,7 +39,7 @@ class Q_DECL_EXPORT LockDevicePlugin
 
 public:
     explicit LockDevicePlugin(QObject *parent, const QVariantList &args);
-    virtual ~LockDevicePlugin();
+    ~LockDevicePlugin() override;
 
     bool isLocked() const;
     void setLocked(bool b);

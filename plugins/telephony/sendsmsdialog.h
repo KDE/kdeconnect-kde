@@ -34,7 +34,7 @@ class SendSmsDialog : public QDialog
 
 public:
     explicit SendSmsDialog(const QString& originalMessage, const QString& phoneNumber, const QString& contactName, QWidget *parent = nullptr);
-    virtual QSize sizeHint() const override;
+    QSize sizeHint() const override;
 
 private Q_SLOTS:
     void sendButtonClicked();

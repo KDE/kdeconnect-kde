@@ -33,7 +33,7 @@ public:
     {
     }
 
-    void reportError(const QString & title, const QString & description) Q_DECL_OVERRIDE
+    void reportError(const QString & title, const QString & description) override
     {
         qWarning() << "error:" << title << description;
     }
@@ -42,7 +42,7 @@ public:
         d->acceptPairing();
     }
 
-    QNetworkAccessManager* networkAccessManager() Q_DECL_OVERRIDE
+    QNetworkAccessManager* networkAccessManager() override
     {
         if (!m_nam) {
             m_nam = new KIO::AccessManager(this);

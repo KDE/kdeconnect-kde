@@ -40,7 +40,7 @@ public:
     enum PairStatus : bool { NotPaired, Paired };
 
     DeviceLink(const QString& deviceId, LinkProvider* parent);
-    virtual ~DeviceLink() { };
+    virtual ~DeviceLink() = default;
 
     virtual QString name() = 0;
 

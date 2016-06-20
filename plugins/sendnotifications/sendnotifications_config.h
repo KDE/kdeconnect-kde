@@ -35,12 +35,12 @@ class SendNotificationsConfig
     Q_OBJECT
 public:
     SendNotificationsConfig(QWidget *parent, const QVariantList&);
-    virtual ~SendNotificationsConfig();
+    ~SendNotificationsConfig() override;
 
 public Q_SLOTS:
-    virtual void save() override;
-    virtual void load() override;
-    virtual void defaults() override;
+    void save() override;
+    void load() override;
+    void defaults() override;
 
 private Q_SLOTS:
     void loadApplications();
