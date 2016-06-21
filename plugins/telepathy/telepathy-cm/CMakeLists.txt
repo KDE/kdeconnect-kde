@@ -16,8 +16,10 @@ target_link_libraries(connectcm
 
 install (TARGETS connectcm DESTINATION ${CMAKE_INSTALL_LIBEXECDIR})
 
-file(WRITE ${CMAKE_BINARY_DIR}/org.freedesktop.Telepathy.ConnectionManager.kdeconnect.service "Name=org.freedesktop.Telepathy.ConnectionManager.kdeconnect
-Exec=$<TARGET_FILE_DIR:connectcm>")
+file(WRITE ${CMAKE_BINARY_DIR}/org.freedesktop.Telepathy.ConnectionManager.kdeconnect.service "[D-BUS Service]
+Name=org.freedesktop.Telepathy.ConnectionManager.kdeconnect
+Exec=${KDE_INSTALL_FULL_LIBEXECDIR}/connectcm
+")
 
 install(FILES ${CMAKE_BINARY_DIR}/org.freedesktop.Telepathy.ConnectionManager.kdeconnect.service DESTINATION share/dbus-1/services)
 
