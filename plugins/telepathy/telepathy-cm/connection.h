@@ -42,11 +42,11 @@ public:
 
     uint ensureContact(const QString &identifier);
 
-public slots:
+public Q_SLOTS:
     bool receiveMessage(const QString &sender, const QString &message);
     void setContactList(const QStringList &identifiers);
 
-signals:
+Q_SIGNALS:
     void messageReceived(const QString &sender, const QString &message);
 
 private:

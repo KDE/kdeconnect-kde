@@ -54,7 +54,7 @@ SendSmsDialog::SendSmsDialog(const QString& originalMessage, const QString& phon
 
 void SendSmsDialog::sendButtonClicked()
 {
-    emit sendSms(mPhoneNumber, mTextEdit->toPlainText());
+    Q_EMIT sendSms(mPhoneNumber, mTextEdit->toPlainText());
     close();
 }
 

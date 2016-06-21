@@ -31,11 +31,11 @@ public:
     QString connectionManagerName() const;
     void setConnectionManagerName(const QString &newName);
 
-public slots:
+public Q_SLOTS:
     bool sendMessage(QString sender, QString message);
     void setContactList(QStringList list);
 
-signals:
+Q_SIGNALS:
     void contactsListChanged(QStringList);
     void messageReceived(QString sender, QString message);
 
