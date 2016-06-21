@@ -122,11 +122,7 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
         if (pause && !pausedSources.empty()) {
             Q_FOREACH (const QString& iface, pausedSources) {
                 QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
-                //Calling play does not work for Spotify
-                //mprisInterface->call(QDBus::Block,"Play");
-                //Workaround: Using playpause instead (checking first if it is already playing)
                 mprisInterface.asyncCall("PlayPause");
-                //End of workaround
             }
             pausedSources.clear();
         }
