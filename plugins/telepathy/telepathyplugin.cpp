@@ -53,10 +53,11 @@ bool TelepathyPlugin::receivePackage(const NetworkPackage& np)
 
 void TelepathyPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
 {
-    NetworkPackage np(PACKAGE_TYPE_SMS_REQUEST);
-    np.set("sendSms", true);
-    np.set("phoneNumber", phoneNumber);
-    np.set("messageBody", messageBody);
+    NetworkPackage np(PACKAGE_TYPE_SMS_REQUEST, {
+        {"sendSms", true},
+        {"phoneNumber", phoneNumber},
+        {"messageBody", messageBody}
+    });
     sendPackage(np);
 }
 

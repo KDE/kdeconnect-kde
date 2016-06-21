@@ -50,8 +50,7 @@ void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
 
     currentContent = content;
 
-    NetworkPackage np(PACKAGE_TYPE_CLIPBOARD);
-    np.set("content", content);
+    NetworkPackage np(PACKAGE_TYPE_CLIPBOARD, {{"content", content}});
     sendPackage(np);
 }
 

@@ -122,17 +122,17 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
 
 void TelephonyPlugin::sendMutePackage()
 {
-    NetworkPackage package(PACKAGE_TYPE_TELEPHONY_REQUEST);
-    package.set<QString>( "action", "mute" );
+    NetworkPackage package(PACKAGE_TYPE_TELEPHONY_REQUEST, {{"action", "mute"}});
     sendPackage(package);
 }
 
 void TelephonyPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
 {
-    NetworkPackage np(PACKAGE_TYPE_SMS_REQUEST);
-    np.set("sendSms", true);
-    np.set("phoneNumber", phoneNumber);
-    np.set("messageBody", messageBody);
+    NetworkPackage np(PACKAGE_TYPE_SMS_REQUEST, {
+        {"sendSms", true},
+        {"phoneNumber", phoneNumber},
+        {"messageBody", messageBody}
+    });
     sendPackage(np);
 }
 

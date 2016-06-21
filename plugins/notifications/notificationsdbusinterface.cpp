@@ -70,12 +70,13 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         removeNotification(id);
     } else if (np.get<bool>("isRequest")) {
         Q_FOREACH (const auto& n, mNotifications) {
-            NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
-            np.set("id", n->internalId());
-            np.set("appName", n->appName());
-            np.set("ticker", n->ticker());
-            np.set("isClearable", n->dismissable());
-            np.set("requestAnswer", true);
+            NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST, {
+                {"id", n->internalId()},
+                {"appName", n->appName()},
+                {"ticker", n->ticker()},
+                {"isClearable", n->dismissable()},
+                {"requestAnswer", true}
+            });
             mPlugin->sendPackage(np);
         }
     } else {

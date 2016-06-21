@@ -109,9 +109,6 @@ void UploadJob::aboutToClose()
 QVariantMap UploadJob::transferInfo()
 {
     Q_ASSERT(mPort != 0);
-
-    QVariantMap ret;
-    ret["port"] = mPort;
-    return ret;
+    return {{"port", mPort}};
 }
 

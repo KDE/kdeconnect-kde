@@ -98,12 +98,14 @@ void MprisControlPlugin::addPlayer(const QString& service)
 
 void MprisControlPlugin::seeked(qlonglong position){
     //qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Seeked in player";
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
-    np.set("pos", position/1000); //Send milis instead of nanos
     OrgFreedesktopDBusPropertiesInterface* interface = (OrgFreedesktopDBusPropertiesInterface*)sender();
     const QString& service = interface->service();
     const QString& player = playerList.key(service);
-    np.set("player", player);
+
+    NetworkPackage np(PACKAGE_TYPE_MPRIS, {
+        {"pos", position/1000}, //Send milis instead of nanos
+        {"player", player}
+    });
     sendPackage(np);
 }
 
@@ -279,8 +281,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 
 void MprisControlPlugin::sendPlayerList()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
-    np.set("playerList",playerList.keys());
+    NetworkPackage np(PACKAGE_TYPE_MPRIS, QVariantMap{{"playerList", QVariant::fromValue(playerList.keys())}});
     sendPackage(np);
 }
 

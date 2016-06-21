@@ -48,13 +48,13 @@ QDebug operator<<(QDebug s, const NetworkPackage& pkg)
 //const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 7;
 
-NetworkPackage::NetworkPackage(const QString& type)
+NetworkPackage::NetworkPackage(const QString& type, const QVariantMap &body)
+    : mId(QString::number(QDateTime::currentMSecsSinceEpoch()))
+    , mType(type)
+    , mBody(body)
+    , mPayload()
+    , mPayloadSize(0)
 {
-    mId = QString::number(QDateTime::currentMSecsSinceEpoch());
-    mType = type;
-    mBody = QVariantMap();
-    mPayload = QSharedPointer<QIODevice>();
-    mPayloadSize = 0;
 }
 
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)

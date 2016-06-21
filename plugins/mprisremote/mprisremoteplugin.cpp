@@ -97,49 +97,52 @@ QString MprisRemotePlugin::dbusPath() const
 
 void MprisRemotePlugin::requestPlayerStatus()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
-    np.set("player",m_player);
-    np.set("requestNowPlaying",true);
-    np.set("requestVolume",true);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+        {"player", m_player},
+        {"requestNowPlaying", true},
+        {"requestVolume", true}}
+    );
     sendPackage(np);
 }
 
 void MprisRemotePlugin::requestPlayerList()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
-    np.set("requestPlayerList", true);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {{"requestPlayerList", true}});
     sendPackage(np);
 }
 
 void MprisRemotePlugin::sendAction(const QString& action)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
-    np.set("player", m_player);
-    np.set("action", action);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+        {"player", m_player},
+        {"action", action}
+    });
     sendPackage(np);
 }
 
 void MprisRemotePlugin::seek(int offset) const
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
-    np.set("player", m_player);
-    np.set("Seek", offset);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+        {"player", m_player},
+        {"Seek", offset}});
     sendPackage(np);
 }
 
 void MprisRemotePlugin::setVolume(int volume)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
-    np.set("player", m_player);
-    np.set("setVolume",volume);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+        {"player", m_player},
+        {"setVolume",volume}
+    });
     sendPackage(np);
 }
 
 void MprisRemotePlugin::setPosition(int position)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST);
-    np.set("player", m_player);
-    np.set("SetPosition", position);
+    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+        {"player", m_player},
+        {"SetPosition", position}
+    });
     sendPackage(np);
 
     m_lastPosition = position;

@@ -45,7 +45,7 @@ public:
 
     QString name() override;
     bool sendPackage(NetworkPackage& np) override;
-    UploadJob* sendPayload(NetworkPackage& np);
+    UploadJob* sendPayload(const NetworkPackage& np);
 
     void userRequestsPair() override;
     void userRequestsUnpair() override;

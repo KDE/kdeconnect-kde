@@ -61,8 +61,7 @@ void RemoteCommandsPlugin::connected()
 {
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
 
-    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST);
-    np.set("requestCommandList", true);
+    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST, {{"requestCommandList", true}});
     sendPackage(np);
 }
 
@@ -81,8 +80,7 @@ void RemoteCommandsPlugin::setCommands(const QByteArray &cmds)
 
 void RemoteCommandsPlugin::triggerCommand(const QString &key)
 {
-    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST);
-    np.set("key", key);
+    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST, {{ "key", key }});
     sendPackage(np);
 }
 

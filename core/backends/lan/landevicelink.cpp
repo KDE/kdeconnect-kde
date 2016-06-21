@@ -79,12 +79,8 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
     return (written != -1);
 }
 
-UploadJob* LanDeviceLink::sendPayload(NetworkPackage& np)
+UploadJob* LanDeviceLink::sendPayload(const NetworkPackage& np)
 {
-    QVariantMap transferInfo;
-    //FIXME: The next two lines shouldn't be needed! Why are they here?
-    transferInfo.insert("useSsl", true);
-    transferInfo.insert("deviceId", deviceId());
     UploadJob* job = new UploadJob(np.payload(), deviceId());
     job->start();
     return job;

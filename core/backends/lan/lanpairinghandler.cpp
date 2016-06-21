@@ -91,10 +91,8 @@ bool LanPairingHandler::requestPairing()
             ;
     }
 
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", true);
-    bool success;
-    success = deviceLink()->sendPackage(np);
+    NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", true}});
+    const bool success = deviceLink()->sendPackage(np);
     if (success) {
         setInternalPairStatus(Requested);
         m_pairingTimeout.start();
@@ -106,8 +104,7 @@ bool LanPairingHandler::acceptPairing()
 {
     qDebug() << "User accepts pairing";
     m_pairingTimeout.stop(); // Just in case it is started
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", true);
+    NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", true}});
     bool success = deviceLink()->sendPackage(np);
     if (success) {
         setInternalPairStatus(Paired);
@@ -118,23 +115,20 @@ bool LanPairingHandler::acceptPairing()
 void LanPairingHandler::rejectPairing()
 {
     qDebug() << "User rejects pairing";
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", false);
+    NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", false}});
     deviceLink()->sendPackage(np);
     setInternalPairStatus(NotPaired);
 }
 
 void LanPairingHandler::unpair() {
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", false);
+    NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", false}});
     deviceLink()->sendPackage(np);
     setInternalPairStatus(NotPaired);
 }
 
 void LanPairingHandler::pairingTimeout()
 {
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
-    np.set("pair", false);
+    NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", false}});
     deviceLink()->sendPackage(np);
     setInternalPairStatus(NotPaired); //Will emit the change as well
     Q_EMIT pairingError(i18n("Timed out"));

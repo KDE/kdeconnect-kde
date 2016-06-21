@@ -82,8 +82,7 @@ void RunCommandPlugin::connected()
 void RunCommandPlugin::sendConfig()
 {
     QString commands = config()->get<QString>("commands","{}");
-    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND);
-    np.set("commandList", commands);
+    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND, {{"commandList", commands}});
     sendPackage(np);
 }
 

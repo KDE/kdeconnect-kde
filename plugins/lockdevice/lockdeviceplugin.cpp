@@ -52,8 +52,7 @@ bool LockDevicePlugin::isLocked() const
 }
 void LockDevicePlugin::setLocked(bool locked)
 {
-    NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST);
-    np.set("setLocked", locked);
+    NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST, {{"setLocked", locked}});
     sendPackage(np);
 }
 
@@ -73,8 +72,7 @@ bool LockDevicePlugin::receivePackage(const NetworkPackage & np)
         sendState = true;
     }
     if (sendState) {
-        NetworkPackage np(PACKAGE_TYPE_LOCK);
-        np.set("isLocked", iface()->GetActive());
+        NetworkPackage np(PACKAGE_TYPE_LOCK, QVariantMap {{"isLocked", QVariant::fromValue<bool>(iface()->GetActive())}});
         sendPackage(np);
     }
 
@@ -95,8 +93,7 @@ void LockDevicePlugin::connected()
 {
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
 
-    NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST);
-    np.set("requestLocked", QVariant());
+    NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST, {{"requestLocked", QVariant()}});
     sendPackage(np);
 }
 
