@@ -45,6 +45,9 @@
 #include "kdeconnectconfig.h"
 #include "daemon.h"
 
+#define MIN_VERSION_WITH_CAPPABILITIES_SUPPORT 6
+
+
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
 static void warn(const QString &info)
@@ -111,7 +114,7 @@ void Device::reloadPlugins()
         KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
 
         PluginLoader* loader = PluginLoader::instance();
-        const bool capabilitiesSupported = (m_protocolVersion >= 6);
+        const bool capabilitiesSupported = (m_protocolVersion >= MIN_VERSION_WITH_CAPPABILITIES_SUPPORT);
 
         Q_FOREACH (const QString& pluginName, loader->getPluginList()) {
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
