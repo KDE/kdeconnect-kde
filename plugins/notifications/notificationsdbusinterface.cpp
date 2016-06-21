@@ -69,7 +69,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             id = id.mid(id.indexOf("::") + 2);
         removeNotification(id);
     } else if (np.get<bool>("isRequest")) {
-        foreach (const auto& n, mNotifications) {
+        Q_FOREACH (const auto& n, mNotifications) {
             NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
             np.set("id", n->internalId());
             np.set("appName", n->appName());

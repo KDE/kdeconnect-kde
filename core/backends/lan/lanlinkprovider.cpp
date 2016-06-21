@@ -293,7 +293,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     disconnect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
-    foreach(const QSslError &error, errors) {
+    Q_FOREACH (const QSslError &error, errors) {
         qCDebug(KDECONNECT_CORE) << "SSL Error :" << error.errorString();
         switch (error.error()) {
             case QSslError::CertificateSignatureFailed:
@@ -322,7 +322,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
 
 void LanLinkProvider::sslErrorsLogButIgnore(const QList<QSslError>& errors)
 {
-    foreach(const QSslError &error, errors) {
+    Q_FOREACH (const QSslError &error, errors) {
         qCDebug(KDECONNECT_CORE) << "SSL Error (ignoring):" << error.errorString();
     }
 }

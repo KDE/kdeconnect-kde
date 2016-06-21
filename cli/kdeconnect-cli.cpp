@@ -85,7 +85,7 @@ int main(int argc, char** argv)
         reply.waitForFinished();
 
         const QStringList devices = reply.value();
-        foreach (const QString& id, devices) {
+        Q_FOREACH (const QString& id, devices) {
             if (parser.isSet("id-only")) {
                 QTextStream(stdout) << id << endl;
             } else {

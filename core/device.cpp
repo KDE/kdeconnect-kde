@@ -113,7 +113,7 @@ void Device::reloadPlugins()
         PluginLoader* loader = PluginLoader::instance();
         const bool capabilitiesSupported = (m_protocolVersion >= 6);
 
-        foreach (const QString& pluginName, loader->getPluginList()) {
+        Q_FOREACH (const QString& pluginName, loader->getPluginList()) {
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
             const QSet<QString> incomingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
             const QSet<QString> outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
@@ -149,10 +149,10 @@ void Device::reloadPlugins()
                     plugin = loader->instantiatePluginForDevice(pluginName, this);
                 }
 
-                foreach(const QString& interface, incomingInterfaces) {
+                Q_FOREACH (const QString& interface, incomingInterfaces) {
                     newPluginsByIncomingInterface.insert(interface, plugin);
                 }
-                foreach(const QString& interface, outgoingInterfaces) {
+                Q_FOREACH (const QString& interface, outgoingInterfaces) {
                     newPluginsByOutgoingInterface.insert(interface, plugin);
                 }
 
@@ -334,7 +334,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         if (plugins.isEmpty()) {
             qWarning() << "discarding unsupported package" << np.type() << "for" << name();
         }
-        foreach(KdeConnectPlugin* plugin, plugins) {
+        Q_FOREACH (KdeConnectPlugin* plugin, plugins) {
             plugin->receivePackage(np);
         }
     } else {

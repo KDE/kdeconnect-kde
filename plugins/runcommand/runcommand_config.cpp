@@ -70,7 +70,7 @@ void RunCommandConfig::load()
 
     QJsonDocument jsonDocument = QJsonDocument::fromJson(config()->get<QByteArray>("commands", "{}"));
     QJsonObject jsonConfig = jsonDocument.object();
-    foreach(const QString &key, jsonConfig.keys()) {
+    Q_FOREACH (const QString &key, jsonConfig.keys()) {
         const QJsonObject entry = jsonConfig[key].toObject();
         const QString name = entry["name"].toString();
         const QString command = entry["command"].toString();

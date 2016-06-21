@@ -96,7 +96,7 @@ void NotificationsListener::loadApplications()
 {
     applications.clear();
     QVariantList list = mPlugin->config()->getList("applications");
-    foreach (const auto& a, list) {
+    Q_FOREACH (const auto& a, list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
         if (!applications.contains(app.name))
             applications.insert(app.name, app);
@@ -129,7 +129,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
         applications.insert(app.name, app);
         // update config:
         QVariantList list;
-        foreach (const auto& a, applications)
+        Q_FOREACH (const auto& a, applications)
             list << QVariant::fromValue<NotifyingApplication>(a);
         mPlugin->config()->setList("applications", list);
         //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;

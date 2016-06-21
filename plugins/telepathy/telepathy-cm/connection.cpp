@@ -127,7 +127,7 @@ QStringList ConnectConnection::inspectHandles(uint handleType, const Tp::UIntLis
 
     QStringList result;
 
-    foreach (uint handle, handles) {
+    Q_FOREACH (uint handle, handles) {
         if (!m_handles.contains(handle)) {
             return QStringList();
         }
@@ -172,7 +172,7 @@ Tp::UIntList ConnectConnection::requestHandles(uint handleType, const QStringLis
         return result;
     }
 
-    foreach(const QString &identify, identifiers) {
+    Q_FOREACH (const QString &identify, identifiers) {
          uint handle = m_handles.key(identify, 0);
          if (handle) {
              result.append(handle);
@@ -188,7 +188,7 @@ Tp::ContactAttributesMap ConnectConnection::getContactListAttributes(const QStri
 {
     Tp::ContactAttributesMap contactAttributes;
 
-    foreach (const uint handle, m_handles.keys()) {
+    Q_FOREACH (const uint handle, m_handles.keys()) {
         if (handle == selfHandle()) {
             continue;
         }
@@ -209,7 +209,7 @@ Tp::ContactAttributesMap ConnectConnection::getContactAttributes(const Tp::UIntL
 
     Tp::ContactAttributesMap contactAttributes;
 
-    foreach (const uint handle, handles) {
+    Q_FOREACH (const uint handle, handles) {
         if (m_handles.contains(handle)){
             QVariantMap attributes;
             attributes["org.freedesktop.Telepathy.Connection/contact-id"] = m_handles.value(handle);
@@ -253,7 +253,7 @@ uint ConnectConnection::addContacts(const QStringList &identifiers)
     }
 
     QList<uint> newHandles;
-    foreach(const QString &identifier, identifiers) {
+    Q_FOREACH (const QString &identifier, identifiers) {
         ++handle;
         m_handles.insert(handle, identifier);
         newHandles << handle;
@@ -334,7 +334,7 @@ void ConnectConnection::setContactList(const QStringList &identifiers)
 
 uint ConnectConnection::getHandle(const QString &identifier) const
 {
-    foreach (uint key, m_handles.keys()) {
+    Q_FOREACH (uint key, m_handles.keys()) {
         if (m_handles.value(key) == identifier) {
             return key;
         }

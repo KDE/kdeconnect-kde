@@ -69,7 +69,7 @@ Daemon::Daemon(QObject *parent, bool testMode)
 
     //Read remebered paired devices
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
-    Q_FOREACH(const QString& id, list) {
+    Q_FOREACH (const QString& id, list) {
         Device* device = new Device(this, id);
         connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
         connect(device, SIGNAL(trustedChanged(bool)), this, SLOT(onDeviceStatusChanged()));
@@ -122,7 +122,7 @@ void Daemon::removeDevice(Device* device)
 
 void Daemon::cleanDevices()
 {
-    Q_FOREACH(Device* device, d->mDevices) {
+    Q_FOREACH (Device* device, d->mDevices) {
         if (device->isTrusted()) {
             continue;
         }
@@ -145,7 +145,7 @@ void Daemon::forceOnNetworkChange()
 // I hate this, but not able to find an alternative now
 Device *Daemon::getDevice(QString deviceId) {
 
-    Q_FOREACH(Device* device, d->mDevices) {
+    Q_FOREACH (Device* device, d->mDevices) {
         if (device->id() == deviceId) {
             return device;
         }
@@ -156,7 +156,7 @@ Device *Daemon::getDevice(QString deviceId) {
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;
-    Q_FOREACH(Device* device, d->mDevices) {
+    Q_FOREACH (Device* device, d->mDevices) {
         if (onlyReachable && !device->isReachable()) continue;
         if (onlyTrusted && !device->isTrusted()) continue;
         ret.append(device->id());
@@ -243,7 +243,7 @@ bool Daemon::isDiscoveringDevices() const
 
 QString Daemon::deviceIdByName(const QString &name) const
 {
-    foreach(Device* d, d->mDevices) {
+    Q_FOREACH (Device* d, d->mDevices) {
         if (d->name() == name && d->isTrusted())
             return d->id();
     }
