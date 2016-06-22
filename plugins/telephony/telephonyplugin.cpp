@@ -51,7 +51,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     if (event == QLatin1String("sms") && m_telepathyInterface.isValid()) {
         qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Passing a text message to the telepathy interface";
         const QString messageBody = np.get<QString>("messageBody","");
-        m_telepathyInterface.asyncCall("sendMessage", contactName, messageBody);
+        m_telepathyInterface.asyncCall("sendMessage", phoneNumber, contactName, messageBody);
         return nullptr;
     }
 

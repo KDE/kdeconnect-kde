@@ -63,10 +63,10 @@ void KDEConnectTelepathyProtocol::setConnectionManagerName(const QString &newNam
     m_connectionManagerName = newName;
 }
 
-bool KDEConnectTelepathyProtocol::sendMessage(QString sender, QString message)
+bool KDEConnectTelepathyProtocol::sendMessage(QString sender, QString senderName, QString message)
 {
     if (m_connection) {
-        return m_connection->receiveMessage(sender, message);
+        return m_connection->receiveMessage(sender, senderName, message);
     }
     return false;
 }

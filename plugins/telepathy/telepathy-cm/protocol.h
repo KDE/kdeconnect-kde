@@ -32,7 +32,7 @@ public:
     void setConnectionManagerName(const QString &newName);
 
 public Q_SLOTS:
-    bool sendMessage(QString sender, QString message);
+    bool sendMessage(QString sender, QString senderName, QString message);
     void setContactList(QStringList list);
 
 Q_SIGNALS:

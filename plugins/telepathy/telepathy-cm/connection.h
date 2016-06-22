@@ -43,7 +43,7 @@ public:
     uint ensureContact(const QString &identifier);
 
 public Q_SLOTS:
-    bool receiveMessage(const QString &sender, const QString &message);
+    bool receiveMessage(const QString &sender, const QString &senderName, const QString &message);
     void setContactList(const QStringList &identifiers);
 
 Q_SIGNALS:

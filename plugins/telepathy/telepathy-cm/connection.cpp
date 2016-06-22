@@ -268,7 +268,7 @@ uint ConnectConnection::addContact(const QString &identifier)
 }
 
 /* Receive message from someone to ourself */
-bool ConnectConnection::receiveMessage(const QString &sender, const QString &message)
+bool ConnectConnection::receiveMessage(const QString &sender, const QString& senderName, const QString &message)
 {
     uint senderHandle, targetHandle;
 
@@ -305,11 +305,11 @@ bool ConnectConnection::receiveMessage(const QString &sender, const QString &mes
 
     Tp::MessagePartList partList;
     Tp::MessagePart header;
-    header["message-received"]      = QDBusVariant(timestamp);
-    header["message-sender"]        = QDBusVariant(senderHandle);
-    header["message-sender-id"]     = QDBusVariant(sender);
-    //header["sender-nickname"]       = QDBusVariant(pushName);
-    header["message-type"]          = QDBusVariant(Tp::ChannelTextMessageTypeNormal);
+    header["message-received"]  = QDBusVariant(timestamp);
+    header["message-sender"]    = QDBusVariant(senderHandle);
+    header["message-sender-id"] = QDBusVariant(sender);
+    header["sender-nickname"]   = QDBusVariant(senderName);
+    header["message-type"]      = QDBusVariant(Tp::ChannelTextMessageTypeNormal);
 
     partList << header << body;
     textChannel->addReceivedMessage(partList);
