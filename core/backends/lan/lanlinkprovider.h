@@ -50,6 +50,9 @@ public:
     void userRequestsUnpair(const QString &deviceId);
     void incomingPairPackage(DeviceLink* device, const NetworkPackage& np);
 
+    static void configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted);
+    static void configureSocket(QSslSocket* socket);
+
 public Q_SLOTS:
     void onNetworkChange() override;
     void onStart() override;
@@ -64,11 +67,9 @@ private Q_SLOTS:
     void dataReceived();
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
     void sslErrors(const QList<QSslError>& errors);
-    void sslErrorsLogButIgnore(const QList<QSslError>& errors);
     void broadcastToNetwork();
 
 private:
-    static void configureSocket(QSslSocket* socket);
     LanPairingHandler* createPairingHandler(DeviceLink* link);
 
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);

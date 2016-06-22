@@ -19,6 +19,7 @@
  */
 
 #include "uploadjob.h"
+#include "lanlinkprovider.h"
 
 #include <qalgorithms.h>
 #include <QtGlobal>
@@ -69,11 +70,8 @@ void UploadJob::newConnection()
     mSocket = server->nextPendingConnection();
     connect(mSocket, SIGNAL(disconnected()), mSocket, SLOT(deleteLater()));
 
-    mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
-    mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    mSocket->setProtocol(QSsl::TlsV1_0);
-    mSocket->setPeerVerifyName(mDeviceId);
-    mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getDeviceProperty(mDeviceId, "certificate", QString()).toLatin1()));
+    LanLinkProvider::configureSslSocket(mSocket, mDeviceId, true);
+
     mSocket->startServerEncryption();
     mSocket->waitForEncrypted();
 

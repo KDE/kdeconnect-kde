@@ -119,7 +119,6 @@ void LanLinkProvider::onNetworkChange()
 void LanLinkProvider::broadcastToNetwork()
 {
 
-
     if (!mServer->isListening()) {
         //Not started
         return;
@@ -230,26 +229,16 @@ void LanLinkProvider::connected()
 
         // if ssl supported
         if (receivedPackage->get<int>("protocolVersion") >= MIN_VERSION_WITH_SSL_SUPPORT) {
-            // since I support ssl and remote device support ssl
 
-            socket->setPeerVerifyName(deviceId);
+            bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
+            configureSslSocket(socket, deviceId, isDeviceTrusted);
 
-            QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
-            if (!certString.isEmpty()) {
-                qCDebug(KDECONNECT_CORE) << "Device trusted";
-                socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
-                socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-                connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
-            } else {
-                qCDebug(KDECONNECT_CORE) << "Device untrusted";
-                // Do not care about ssl errors here, socket will not be closed due to errors because of query peer
-                socket->setPeerVerifyMode(QSslSocket::QueryPeer);
-                connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrorsLogButIgnore(QList<QSslError>)));
-            }
             qCDebug(KDECONNECT_CORE) << "Starting server ssl (I'm the client TCP socket)";
-            connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
 
+            connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
+            connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
             socket->startServerEncryption();
+
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
         } else {
             qWarning() << receivedPackage->get<QString>("deviceName") << "uses an old protocol version, this won't work";
@@ -294,7 +283,6 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
     Q_FOREACH (const QSslError &error, errors) {
-        qCDebug(KDECONNECT_CORE) << "SSL Error :" << error.errorString();
         switch (error.error()) {
             case QSslError::CertificateSignatureFailed:
             case QSslError::CertificateNotYetValid:
@@ -311,20 +299,11 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
             }
             default:
                 continue;
-                // Lots of warnings without this
-
         }
     }
 
     delete receivedIdentityPackages.take(socket).np;
     // Socket disconnects itself on ssl error and will be deleted by deleteLater slot, no need to delete manually
-}
-
-void LanLinkProvider::sslErrorsLogButIgnore(const QList<QSslError>& errors)
-{
-    Q_FOREACH (const QSslError &error, errors) {
-        qCDebug(KDECONNECT_CORE) << "SSL Error (ignoring):" << error.errorString();
-    }
 }
 
 //I'm the new device and this is the answer to my UDP identity package (no data received yet). They are connecting to us through TCP, and they should send an identity.
@@ -379,28 +358,17 @@ void LanLinkProvider::dataReceived()
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(dataReceived()));
 
     if (np->get<int>("protocolVersion") >= MIN_VERSION_WITH_SSL_SUPPORT) {
-        // since I support ssl and remote device support ssl
 
         bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
+        configureSslSocket(socket, deviceId, isDeviceTrusted);
 
-        socket->setPeerVerifyName(deviceId);
-
-        if (isDeviceTrusted) {
-            qCDebug(KDECONNECT_CORE) << "Device trusted";
-            QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
-	        socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
-            socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-            connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
-        } else {
-            qCDebug(KDECONNECT_CORE) << "Device untrusted";
-            // Do not care about ssl errors here, socket will not be closed due to errors because of query peer
-            socket->setPeerVerifyMode(QSslSocket::QueryPeer);
-            connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrorsLogButIgnore(QList<QSslError>)));
-        }
         qCDebug(KDECONNECT_CORE) << "Starting client ssl (but I'm the server TCP socket)";
-        connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
 
+        connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
+        connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
         socket->startClientEncryption();
+
+
     } else {
         qWarning() << np->get<QString>("deviceName") << "uses an old protocol version, this won't work";
         //addLink(deviceId, socket, np, LanDeviceLink::Locally);
@@ -422,7 +390,7 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 
 }
 
-void LanLinkProvider::configureSocket(QSslSocket* socket)
+void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted)
 {
     // Setting supported ciphers manually
     // Top 3 ciphers are for new Android devices, botton two are for old Android devices
@@ -442,9 +410,30 @@ void LanLinkProvider::configureSocket(QSslSocket* socket)
     socket->setSslConfiguration(sslConfig);
     socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
     socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
+    socket->setPeerVerifyName(deviceId);
+
+    if (isDeviceTrusted) {
+        QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
+        qCDebug(KDECONNECT_CORE) << "Device trusted";
+        socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
+        socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+    } else {
+        qCDebug(KDECONNECT_CORE) << "Device untrusted";
+        socket->setPeerVerifyMode(QSslSocket::QueryPeer);
+    }
+
+    QObject::connect(socket, static_cast<void (QSslSocket::*)(const QList<QSslError>&)>(&QSslSocket::sslErrors), [](const QList<QSslError>& errors)
+    {
+        Q_FOREACH (const QSslError &error, errors) {
+            qCDebug(KDECONNECT_CORE) << "SSL Error:" << error.errorString();
+        }
+    });
+}
+
+void LanLinkProvider::configureSocket(QSslSocket* socket) {
 
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
-	
+
     #ifdef TCP_KEEPIDLE
         // time to start sending keepalive packets (seconds)
         int maxIdle = 10;

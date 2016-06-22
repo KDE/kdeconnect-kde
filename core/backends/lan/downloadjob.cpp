@@ -20,6 +20,7 @@
 
 #include <kdeconnectconfig.h>
 #include "downloadjob.h"
+#include "lanlinkprovider.h"
 
 #include <core/core_debug.h>
 
@@ -38,14 +39,7 @@ DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transfe
     , mPort(transferInfo["port"].toInt())
     , mSocket(new QSslSocket(this))
 {
-    // Setting ssl related properties for socket when using ssl
-    mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
-    mSocket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
-    mSocket->setProtocol(QSsl::TlsV1_0);
-    mSocket->setPeerVerifyName(transferInfo.value("deviceId").toString());
-    mSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-    mSocket->addCaCertificate(QSslCertificate(KdeConnectConfig::instance()->getDeviceProperty(transferInfo.value("deviceId").toString(),"certificate").toLatin1()));
-
+    LanLinkProvider::configureSslSocket(mSocket.data(), transferInfo.value("deviceId").toString(), true);
 }
 
 DownloadJob::~DownloadJob()
