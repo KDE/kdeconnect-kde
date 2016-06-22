@@ -62,13 +62,14 @@ void FileTransferJob::start()
 void FileTransferJob::doStart()
 {
     description(this, i18n("Receiving file over KDE Connect"),
-        QPair<QString, QString>(i18nc("File transfer origin", "From"), mFrom)
+        { i18nc("File transfer origin", "From"), mFrom }
     );
 
     if (mDestination.isLocalFile() && QFile::exists(mDestination.toLocalFile())) {
         setError(2);
         setErrorText(i18n("Filename already present"));
         emitResult();
+        return;
     }
 
     startTransfer();
@@ -79,8 +80,8 @@ void FileTransferJob::startTransfer()
     setProcessedAmount(Bytes, 0);
     mTime = QTime::currentTime();
     description(this, i18n("Receiving file over KDE Connect"),
-                        QPair<QString, QString>(i18nc("File transfer origin", "From"), mFrom),
-                        QPair<QString, QString>(i18nc("File transfer destination", "To"), mDestination.toLocalFile()));
+                        { i18nc("File transfer origin", "From"), mFrom },
+                        { i18nc("File transfer destination", "To"), mDestination.toLocalFile() });
 
     QNetworkRequest req(mDestination);
     req.setHeader(QNetworkRequest::ContentLengthHeader, totalAmount(Bytes));
@@ -90,19 +91,25 @@ void FileTransferJob::startTransfer()
         setProcessedAmount(Bytes, bytesSent);
         emitSpeed(bytesSent/mTime.elapsed());
     });
+    connect(mReply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
+            this, &FileTransferJob::transferFailed);
     connect(mReply, &QNetworkReply::finished, this, &FileTransferJob::transferFinished);
+}
+
+void FileTransferJob::transferFailed(QNetworkReply::NetworkError error)
+{
+    qCDebug(KDECONNECT_CORE) << "Couldn't transfer the file successfully" << error << mReply->errorString();
+    setError(error);
+    setErrorText(i18n("Received incomplete file: %1", mReply->errorString()));
+    emitResult();
+
+    mReply->close();
 }
 
 void FileTransferJob::transferFinished()
 {
     //TODO: MD5-check the file
-    if (mReply->error()) {
-        qCDebug(KDECONNECT_CORE) << "Couldn't transfer the file successfully" << mReply->errorString();
-        setError(mReply->error());
-        setErrorText(i18n("Received incomplete file: %1", mReply->errorString()));
-    } else {
-        qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestination;
-    }
+    qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestination;
 
     emitResult();
 }
