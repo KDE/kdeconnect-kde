@@ -1,3 +1,6 @@
+find_package(TelepathyQt5 0.9.5)
+find_package(TelepathyQt5Service 0.9.7)
+
 project(connectcm)
 
 add_executable(connectcm

@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 #include <QDebug>
+#include <QDBusPendingCall>
 
 #include <KPluginFactory>
 
@@ -34,7 +35,9 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 
 TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , m_telepathyInterface("org.freedesktop.Telepathy.ConnectionManager.kdeconnect", "/kdeconnect")
 {
+    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)));
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
@@ -43,6 +46,14 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     const QString phoneNumber = np.get<QString>("phoneNumber", i18n("unknown number"));
     const QString contactName = np.get<QString>("contactName", phoneNumber);
     const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>("phoneThumbnail", ""));
+
+    // In case telepathy can handle the message, don't do anything else
+    if (event == QLatin1String("sms") && m_telepathyInterface.isValid()) {
+        qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Passing a text message to the telepathy interface";
+        const QString messageBody = np.get<QString>("messageBody","");
+        m_telepathyInterface.asyncCall("sendMessage", contactName, messageBody);
+        return nullptr;
+    }
 
     QString content, type, icon;
     KNotification::NotificationFlags flags = KNotification::CloseOnTimeout | KNotification::CloseWhenWidgetActivated;

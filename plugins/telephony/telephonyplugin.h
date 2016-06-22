@@ -22,6 +22,7 @@
 #define TELEPHONYPLUGIN_H
 
 #include <QLoggingCategory>
+#include <QDBusInterface>
 
 #include <KNotification>
 
@@ -52,6 +53,8 @@ private Q_SLOTS:
 
 private:
     KNotification* createNotification(const NetworkPackage& np);
+
+    QDBusInterface m_telepathyInterface;
 };
 
 #endif
