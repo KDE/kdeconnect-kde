@@ -36,7 +36,7 @@ DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transfe
     : KJob()
     , mAddress(address)
     , mPort(transferInfo["port"].toInt())
-    , mSocket(new QSslSocket)
+    , mSocket(new QSslSocket(this))
 {
     // Setting ssl related properties for socket when using ssl
     mSocket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
@@ -56,24 +56,20 @@ DownloadJob::~DownloadJob()
 void DownloadJob::start()
 {
     //TODO: Timeout?
-    connect(mSocket.data(), &QAbstractSocket::disconnected, this, &DownloadJob::done);
-    connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(done()));
-    //connect(mSocket.data(), &QAbstractSocket::connected, [=](){ qDebug() << "Connected"; });
+    connect(mSocket.data(), &QAbstractSocket::disconnected, this, &DownloadJob::emitResult);
+    connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
+//     connect(mSocket.data(), &QAbstractSocket::stateChanged, [](QAbstractSocket::SocketState state){ qDebug() << "statechange" << state; });
 
     // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
     mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
-    mSocket->waitForEncrypted();
-
-    //mSocket->open(QIODevice::ReadOnly);
 }
 
-void DownloadJob::done()
+void DownloadJob::socketFailed(QAbstractSocket::SocketError error)
 {
-    if (mSocket->error()) {
-        qWarning(KDECONNECT_CORE) << mSocket->errorString();
-    }
+    qWarning(KDECONNECT_CORE) << "error..." << mSocket->errorString();
+    setError(error + 1);
+    setErrorText(mSocket->errorString());
     emitResult();
-    deleteLater();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()

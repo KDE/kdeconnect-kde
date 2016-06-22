@@ -26,6 +26,7 @@
 #include <QTimer>
 #include <QHostAddress>
 #include <KJob>
+#include <QSignalSpy>
 #include <iostream>
 
 class DownloadJobTest : public QObject
@@ -35,70 +36,46 @@ class DownloadJobTest : public QObject
 private Q_SLOTS:
     void failToConnectShouldDestroyTheJob();
     void closingTheConnectionShouldDestroyTheJob();
-private:
 
+private:
     void initServer();
     void initDownloadJob();
     void awaitToBeDestroyedOrTimeOut();
     void stopServer();
 
-    QTimer mTimer;
-    QEventLoop mLoop;
-    DownloadJob* test;
-    QTcpServer *mServer;
+    QPointer<DownloadJob> test;
+    QPointer<QTcpServer> mServer;
 };
 
 void DownloadJobTest::initServer()
 {
+    delete mServer;
     mServer = new QTcpServer(this);
     QVERIFY2(mServer->listen(QHostAddress::LocalHost, 8694), "Failed to create local tcp server");
 }
 
-void DownloadJobTest::stopServer()
-{
-    mServer->close();
-}
-
-void DownloadJobTest::initDownloadJob()
-{
-    QVariantMap transferInfo;
-    transferInfo["port"]= 8694;
-    test = new DownloadJob(QHostAddress::LocalHost, transferInfo);
-    test->start();
-}
-
-void DownloadJobTest::awaitToBeDestroyedOrTimeOut()
-{
-    //Either the job is destroyed
-    connect(test, &QObject::destroyed, &mLoop, &QEventLoop::quit);
-
-    //Or we time out
-    mTimer.setInterval(2000);
-    mTimer.setSingleShot(true);
-    connect(&mTimer, &QTimer::timeout, [this]() {
-        mLoop.quit();
-        QFAIL("Test timed out");
-    });
-    mTimer.start();
-
-    //We wait
-    mLoop.exec();
-
-    mTimer.stop();
-}
-
 void DownloadJobTest::failToConnectShouldDestroyTheJob()
 {
-    initDownloadJob();
-    awaitToBeDestroyedOrTimeOut();
+    // no initServer
+    test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
+
+    QSignalSpy spy(test, &KJob::finished);
+    test->start();
+
+    QVERIFY(spy.count() || spy.wait());
+
+    QCOMPARE(test->error(), 1);
 }
 
 void DownloadJobTest::closingTheConnectionShouldDestroyTheJob()
 {
     initServer();
-    initDownloadJob();
-    stopServer();
-    awaitToBeDestroyedOrTimeOut();
+    test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
+    QSignalSpy spy(test, &KJob::finished);
+    test->start();
+    mServer->close();
+
+    QVERIFY(spy.count() || spy.wait(2000));
 }
 
 QTEST_GUILESS_MAIN(DownloadJobTest)

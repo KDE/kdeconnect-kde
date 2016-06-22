@@ -43,13 +43,12 @@ public:
     QSharedPointer<QIODevice> getPayload();
 
 private:
-    bool useSsl;
     QHostAddress mAddress;
     qint16 mPort;
     QSharedPointer<QSslSocket> mSocket;
 
 private Q_SLOTS:
-    void done();
+    void socketFailed(QAbstractSocket::SocketError error);
 
 };
 
