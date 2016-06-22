@@ -72,7 +72,7 @@ void FileTransferJob::doStart()
         return;
     }
 
-    startTransfer();
+    connect(mOrigin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
 }
 
 void FileTransferJob::startTransfer()

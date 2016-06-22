@@ -29,7 +29,7 @@
 #include <QSslSocket>
 #include "server.h"
 
-class UploadJob
+class KDECONNECTCORE_EXPORT UploadJob
     : public KJob
 {
     Q_OBJECT
@@ -48,9 +48,13 @@ private:
     QString mDeviceId;
 
 private Q_SLOTS:
-    void readyRead();
+    void startUploading();
     void newConnection();
     void aboutToClose();
+    void cleanup();
+
+    void socketFailed(QAbstractSocket::SocketError);
+    void sslErrors(const QList<QSslError> &errors);
 };
 
 #endif // UPLOADJOB_H

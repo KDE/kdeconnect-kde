@@ -29,6 +29,7 @@
 #include <QTcpSocket>
 #include <QSharedPointer>
 #include <QSslSocket>
+#include <QBuffer>
 #include <kdeconnectcore_export.h>
 
 
@@ -46,6 +47,7 @@ private:
     QHostAddress mAddress;
     qint16 mPort;
     QSharedPointer<QSslSocket> mSocket;
+    QSharedPointer<QBuffer> mBuffer;
 
 private Q_SLOTS:
     void socketFailed(QAbstractSocket::SocketError error);

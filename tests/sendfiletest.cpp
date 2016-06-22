@@ -19,6 +19,10 @@
  */
 
 #include <QSocketNotifier>
+#include <backends/lan/downloadjob.h>
+#include <kdeconnectconfig.h>
+#include <backends/lan/uploadjob.h>
+#include <core/filetransferjob.h>
 #include <QApplication>
 #include <QNetworkAccessManager>
 #include <QTest>
@@ -81,6 +85,58 @@ class TestSendFile : public QObject
             QCOMPARE(file.size(), content.size());
             QVERIFY(file.open(QIODevice::ReadOnly));
             QCOMPARE(file.readAll(), content);
+        }
+
+        void testSslJobs()
+        {
+            const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
+            const QString destFile = QDir::tempPath() + "/kdeconnect-test-sentfile";
+            QFile(destFile).remove();
+
+            const QString deviceId = KdeConnectConfig::instance()->deviceId()
+                        , deviceName = "testdevice"
+                        , deviceType = KdeConnectConfig::instance()->deviceType();
+
+            KdeConnectConfig* kcc = KdeConnectConfig::instance();
+            kcc->addTrustedDevice(deviceId, deviceName, deviceType);
+            kcc->setDeviceProperty(deviceId, QString("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating
+
+            QSharedPointer<QFile> f(new QFile(aFile));
+            UploadJob* uj = new UploadJob(f, deviceId);
+            QSignalSpy spyUpload(uj, &KJob::result);
+            uj->start();
+
+            auto info = uj->transferInfo();
+            info.insert("deviceId", deviceId);
+            info.insert("size", aFile.size());
+
+            DownloadJob* dj = new DownloadJob(QHostAddress::LocalHost, info);
+
+            QVERIFY(dj->getPayload()->open(QIODevice::ReadOnly));
+
+            FileTransferJob* ft = new FileTransferJob(dj->getPayload(), uj->transferInfo()["size"].toInt(), QUrl::fromLocalFile(destFile));
+
+            QSignalSpy spyDownload(dj, &KJob::result);
+            QSignalSpy spyTransfer(ft, &KJob::result);
+
+            ft->start();
+            dj->start();
+
+            QVERIFY(spyTransfer.count() || spyTransfer.wait(10000000000000000000));
+
+            if (ft->error()) qWarning() << "fterror" << ft->errorString();
+
+            QCOMPARE(ft->error(), 0);
+            QCOMPARE(spyDownload.count(), 1);
+            QCOMPARE(spyUpload.count(), 1);
+
+            QFile resultFile(destFile), originFile(aFile);
+            QVERIFY(resultFile.open(QIODevice::ReadOnly));
+            QVERIFY(originFile.open(QIODevice::ReadOnly));
+
+            const QByteArray resultContents = resultFile.readAll(), originContents = originFile.readAll();
+            QCOMPARE(resultContents.size(), originContents.size());
+            QCOMPARE(resultFile.readAll(), originFile.readAll());
         }
 
     private:

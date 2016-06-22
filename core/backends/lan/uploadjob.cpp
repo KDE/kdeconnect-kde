@@ -27,7 +27,8 @@
 
 #include "core_debug.h"
 
-UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QString& deviceId): KJob()
+UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QString& deviceId)
+    : KJob()
 {
 //  TODO: initialize in constructor
     mInput = source;
@@ -38,7 +39,7 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QString& dev
     // We will use this info if link is on ssl, to send encrypted payload
     this->mDeviceId = deviceId;
 
-    connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(readyRead()));
+    connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(startUploading()));
     connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
 }
 
@@ -50,6 +51,7 @@ void UploadJob::start()
         if (mPort > 1764) { //No ports available?
             qCWarning(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
             mPort = 0;
+            emitResult();
             return;
         }
     }
@@ -68,17 +70,19 @@ void UploadJob::newConnection()
     disconnect(mServer, SIGNAL(newConnection()), this, SLOT(newConnection()));
 
     mSocket = server->nextPendingConnection();
-    connect(mSocket, SIGNAL(disconnected()), mSocket, SLOT(deleteLater()));
+    mSocket->setParent(this);
+    connect(mSocket, &QSslSocket::disconnected, this, &UploadJob::cleanup);
+    connect(mSocket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
+    connect(mSocket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+    connect(mSocket, &QSslSocket::encrypted, this, &UploadJob::startUploading);
+//     connect(mSocket, &QAbstractSocket::stateChanged, [](QAbstractSocket::SocketState state){ qDebug() << "statechange" << state; });
 
     LanLinkProvider::configureSslSocket(mSocket, mDeviceId, true);
 
     mSocket->startServerEncryption();
-    mSocket->waitForEncrypted();
-
-    readyRead();
 }
 
-void UploadJob::readyRead()
+void UploadJob::startUploading()
 {
     while ( mInput->bytesAvailable() > 0 )
     {
@@ -93,14 +97,19 @@ void UploadJob::readyRead()
             while ( mSocket->flush() );
         }
     }
-
     mInput->close();
 }
 
 void UploadJob::aboutToClose()
 {
+//     qDebug() << "closing...";
     mSocket->disconnectFromHost();
+}
+
+void UploadJob::cleanup()
+{
     mSocket->close();
+//     qDebug() << "closed!";
     emitResult();
 }
 
@@ -110,3 +119,18 @@ QVariantMap UploadJob::transferInfo()
     return {{"port", mPort}};
 }
 
+void UploadJob::socketFailed(QAbstractSocket::SocketError error)
+{
+    qWarning() << "error uploading" << error;
+    setError(2);
+    emitResult();
+    mSocket->close();
+}
+
+void UploadJob::sslErrors(const QList<QSslError>& errors)
+{
+    qWarning() << "ssl errors" << errors;
+    setError(1);
+    emitResult();
+    mSocket->close();
+}
