@@ -25,7 +25,7 @@
 #include <KLocalizedString>
 #include <QIcon>
 #include <QDebug>
-#include <QDBusPendingCall>
+#include <QDBusReply>
 
 #include <KPluginFactory>
 
@@ -51,8 +51,12 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     if (event == QLatin1String("sms") && m_telepathyInterface.isValid()) {
         qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Passing a text message to the telepathy interface";
         const QString messageBody = np.get<QString>("messageBody","");
-        m_telepathyInterface.asyncCall("sendMessage", phoneNumber, contactName, messageBody);
-        return nullptr;
+        QDBusReply<bool> reply = m_telepathyInterface.call("sendMessage", phoneNumber, contactName, messageBody);
+        if (reply) {
+            return nullptr;
+        } else {
+            qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Telepathy failed, falling back to the default handling";
+        }
     }
 
     QString content, type, icon;
