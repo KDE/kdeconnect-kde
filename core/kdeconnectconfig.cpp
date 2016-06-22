@@ -146,7 +146,7 @@ KdeConnectConfig::KdeConnectConfig()
 
     //Extra security check
     if (QFile::permissions(keyPath) != strict) {
-        qCDebug(KDECONNECT_CORE) << "Warning: KDE Connect private key file has too open permissions " << keyPath;
+        qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect private key file has too open permissions " << keyPath;
     }
 }
 
