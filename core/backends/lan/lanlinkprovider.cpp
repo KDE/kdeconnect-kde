@@ -414,11 +414,9 @@ void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& devi
 
     if (isDeviceTrusted) {
         QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, "certificate", QString());
-        qCDebug(KDECONNECT_CORE) << "Device trusted";
         socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
         socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
     } else {
-        qCDebug(KDECONNECT_CORE) << "Device untrusted";
         socket->setPeerVerifyMode(QSslSocket::QueryPeer);
     }
 
