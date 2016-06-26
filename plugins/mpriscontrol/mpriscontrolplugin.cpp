@@ -281,7 +281,8 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 
 void MprisControlPlugin::sendPlayerList()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS, QVariantMap{{"playerList", QVariant::fromValue(playerList.keys())}});
+    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    np.set("playerList",playerList.keys());
     sendPackage(np);
 }
 
