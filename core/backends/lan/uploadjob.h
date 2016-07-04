@@ -41,11 +41,11 @@ public:
     QVariantMap transferInfo();
 
 private:
-    QSharedPointer<QIODevice> mInput;
-    Server* mServer;
+    const QSharedPointer<QIODevice> mInput;
+    Server * const mServer;
     QSslSocket* mSocket;
     quint16 mPort;
-    QString mDeviceId;
+    const QString mDeviceId;
 
 private Q_SLOTS:
     void startUploading();

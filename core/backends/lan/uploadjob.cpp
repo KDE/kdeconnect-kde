@@ -29,16 +29,12 @@
 
 UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QString& deviceId)
     : KJob()
+    , mInput(source)
+    , mServer(new Server(this))
+    , mSocket(nullptr)
+    , mPort(0)
+    , mDeviceId(deviceId) // We will use this info if link is on ssl, to send encrypted payload
 {
-//  TODO: initialize in constructor
-    mInput = source;
-    mServer = new Server(this);
-    mSocket = nullptr;
-    mPort = 0;
-
-    // We will use this info if link is on ssl, to send encrypted payload
-    this->mDeviceId = deviceId;
-
     connect(mInput.data(), SIGNAL(readyRead()), this, SLOT(startUploading()));
     connect(mInput.data(), SIGNAL(aboutToClose()), this, SLOT(aboutToClose()));
 }
