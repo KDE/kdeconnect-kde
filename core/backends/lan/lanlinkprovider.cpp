@@ -236,7 +236,11 @@ void LanLinkProvider::connected()
             qCDebug(KDECONNECT_CORE) << "Starting server ssl (I'm the client TCP socket)";
 
             connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
-            connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+
+            if (isDeviceTrusted) {
+                connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+            }
+
             socket->startServerEncryption();
 
             return; // Return statement prevents from deleting received package, needed in slot "encrypted"
@@ -279,6 +283,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
+
     disconnect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
@@ -289,7 +294,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
             case QSslError::CertificateExpired:
             case QSslError::CertificateUntrusted:
             case QSslError::SelfSignedCertificate: {
-                qCDebug(KDECONNECT_CORE) << "Unpairing device due to " << error.errorString();
+                qCDebug(KDECONNECT_CORE) << "Failing due to " << error.errorString();
                 // Due to simultaneous multiple connections, it may be possible that device instance does not exist anymore
                 Device *device = Daemon::instance()->getDevice(socket->peerVerifyName());
                 if (device != Q_NULLPTR) {
@@ -365,9 +370,12 @@ void LanLinkProvider::dataReceived()
         qCDebug(KDECONNECT_CORE) << "Starting client ssl (but I'm the server TCP socket)";
 
         connect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
-        connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
-        socket->startClientEncryption();
 
+        if (isDeviceTrusted) {
+            connect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
+        }
+
+        socket->startClientEncryption();
 
     } else {
         qWarning() << np->get<QString>("deviceName") << "uses an old protocol version, this won't work";
