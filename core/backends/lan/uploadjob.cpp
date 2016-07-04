@@ -23,6 +23,7 @@
 
 #include <qalgorithms.h>
 #include <QtGlobal>
+#include <KLocalizedString>
 #include <kdeconnectconfig.h>
 
 #include "core_debug.h"
@@ -47,6 +48,8 @@ void UploadJob::start()
         if (mPort > 1764) { //No ports available?
             qCWarning(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
             mPort = 0;
+            setError(1);
+            setErrorText(i18n("Couldn't find an available port"));
             emitResult();
             return;
         }

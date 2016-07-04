@@ -45,6 +45,9 @@ public:
 
 protected:
     void incomingConnection(qintptr socketDescriptor) override;
+
+private:
+    void errorFound(QAbstractSocket::SocketError socketError);
 };
 
 #endif //KDECONNECT_SERVER_H

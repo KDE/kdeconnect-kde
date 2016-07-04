@@ -30,7 +30,7 @@
 Server::Server(QObject * parent)
     :QTcpServer(parent)
 {
-
+    connect(this, &QTcpServer::acceptError, this, &Server::errorFound);
 }
 
 void Server::incomingConnection(qintptr socketDescriptor) {
@@ -56,4 +56,9 @@ QSslSocket* Server::nextPendingConnection() {
 
 bool Server::hasPendingConnections() const {
     return !pendingConnections.isEmpty();
+}
+
+void Server::errorFound(QAbstractSocket::SocketError socketError)
+{
+    qDebug() << "error:" << socketError;
 }
