@@ -122,7 +122,7 @@ class TestSendFile : public QObject
             ft->start();
             dj->start();
 
-            QVERIFY(spyTransfer.count() || spyTransfer.wait(10000000000000000000));
+            QVERIFY(spyTransfer.count() || spyTransfer.wait(1000000000));
 
             if (ft->error()) qWarning() << "fterror" << ft->errorString();
 
