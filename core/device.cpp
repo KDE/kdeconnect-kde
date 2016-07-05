@@ -113,8 +113,6 @@ void Device::reloadPlugins()
 
     if (isTrusted() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
-        KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
-
         PluginLoader* loader = PluginLoader::instance();
         const bool capabilitiesSupported = (m_protocolVersion >= MIN_VERSION_WITH_CAPPABILITIES_SUPPORT);
 
