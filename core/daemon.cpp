@@ -171,7 +171,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
     //qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (d->mDevices.contains(id)) {
-        qCDebug(KDECONNECT_CORE) << "It is a known device " << identityPackage.get<QString>("deviceName");
+        qCDebug(KDECONNECT_CORE) << "It is a known device" << identityPackage.get<QString>("deviceName");
         Device* device = d->mDevices[id];
         bool wasReachable = device->isReachable();
         device->addLink(identityPackage, dl);
@@ -179,7 +179,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
             Q_EMIT deviceVisibilityChanged(id, true);
         }
     } else {
-        qCDebug(KDECONNECT_CORE) << "It is a new device " << identityPackage.get<QString>("deviceName");
+        qCDebug(KDECONNECT_CORE) << "It is a new device" << identityPackage.get<QString>("deviceName");
         Device* device = new Device(this, identityPackage, dl);
 
         //we discard the connections that we created but it's not paired.

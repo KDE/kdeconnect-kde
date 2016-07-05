@@ -25,7 +25,6 @@
 #include <QDBusInterface>
 
 #include <KSharedConfig>
-#include <KConfigGroup>
 #include <QIcon>
 
 //#include "modeltest.h"

@@ -22,8 +22,6 @@
 #define LINKPROVIDER_H
 
 #include <QObject>
-#include <QVector>
-#include <QNetworkSession>
 
 #include "core/networkpackage.h"
 #include "pairinghandler.h"

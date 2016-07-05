@@ -21,6 +21,9 @@
 #ifndef KDECONNECT_LANPAIRINGHANDLER_H
 #define KDECONNECT_LANPAIRINGHANDLER_H
 
+#include <QObject>
+#include <QTimer>
+
 #include "device.h"
 #include "../devicelink.h"
 #include "../pairinghandler.h"

@@ -24,8 +24,6 @@
 #include "networkpackage.h"
 #include "devicelink.h"
 
-#include <QTimer>
-
 /*
  * This class separates the pairing interface for each type of link.
  * Since different links can pair via different methods, like for LanLink certificate and public key should be shared,
@@ -37,7 +35,8 @@
  * After that if any one of the link is paired, then we can say that device is paired, so new link will pair automatically
  */
 
-class KDECONNECTCORE_EXPORT PairingHandler : public QObject
+class KDECONNECTCORE_EXPORT PairingHandler
+    : public QObject
 {
     Q_OBJECT
 

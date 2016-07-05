@@ -25,10 +25,6 @@
 #include <QString>
 #include <QVector>
 #include <QSet>
-#include <QSslKey>
-#include <QtCrypto>
-#include <QSslCertificate>
-#include <QTimer>
 
 #include "networkpackage.h"
 #include "backends/devicelink.h"

@@ -25,16 +25,11 @@
 #endif
 
 #include <QDBusConnection>
-#include <QFile>
-#include <QStandardPaths>
+#include <QSslCertificate>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <QIcon>
-#include <QDir>
-#include <QJsonArray>
-#include <qstringbuilder.h>
 
 #include "core_debug.h"
 #include "kdeconnectplugin.h"
@@ -46,7 +41,6 @@
 #include "daemon.h"
 
 #define MIN_VERSION_WITH_CAPPABILITIES_SUPPORT 6
-
 
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
@@ -137,7 +131,7 @@ void Device::reloadPlugins()
                 && (m_outgoingCapabilities & incomingInterfaces).isEmpty()
             ) {
                 if (!m_incomingCapabilities.isEmpty() || !m_outgoingCapabilities.isEmpty()) {
-                    qCWarning(KDECONNECT_CORE) << "not loading " << pluginName << "because of unmatched capabilities" <<
+                    qCWarning(KDECONNECT_CORE) << "not loading" << pluginName << "because of unmatched capabilities" <<
                         outgoingInterfaces << incomingInterfaces;
                 }
 

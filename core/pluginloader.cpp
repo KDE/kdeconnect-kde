@@ -23,7 +23,6 @@
 #include <KPluginMetaData>
 #include <KPluginLoader>
 #include <KPluginFactory>
-#include <QJsonArray>
 
 #include "core_debug.h"
 #include "device.h"
