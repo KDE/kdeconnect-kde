@@ -27,7 +27,6 @@
 #include <QDataStream>
 #include <QDateTime>
 #include <QJsonDocument>
-//#include <QtCrypto>
 #include <QDebug>
 
 #include "dbushelper.h"
@@ -45,7 +44,6 @@ QDebug operator<<(QDebug s, const NetworkPackage& pkg)
     return s.space();
 }
 
-//const QCA::EncryptionAlgorithm NetworkPackage::EncryptionAlgorithm = QCA::EME_PKCS1v15;
 const int NetworkPackage::ProtocolVersion = 7;
 
 NetworkPackage::NetworkPackage(const QString& type, const QVariantMap &body)
@@ -148,10 +146,6 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     auto variant = parser.toVariant().toMap();
     qvariant2qobject(variant, np);
 
-    /*if (!np->isEncrypted()) {
-        //qCDebug(KDECONNECT_CORE) << "Unserialized: " << a;
-    }*/
-
     np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
     if (np->mPayloadSize == -1) {
         np->mPayloadSize = np->get<int>("size", -1);
@@ -169,62 +163,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     return true;
 
 }
-/*
-void NetworkPackage::encrypt(QCA::PublicKey& key)
-{
 
-    QByteArray serialized = serialize();
-
-    int chunkSize = key.maximumEncryptSize(NetworkPackage::EncryptionAlgorithm);
-    Q_ASSERT(chunkSize>0);
-
-    QStringList chunks;
-    while (!serialized.isEmpty()) {
-        const QByteArray chunk = serialized.left(chunkSize);
-        serialized = serialized.mid(chunkSize);
-        const QByteArray encryptedChunk = key.encrypt(chunk, NetworkPackage::EncryptionAlgorithm).toByteArray();
-        chunks.append( encryptedChunk.toBase64() );
-    }
-
-    //qCDebug(KDECONNECT_CORE) << chunks.size() << "chunks";
-
-    mId = QString::number(QDateTime::currentMSecsSinceEpoch());
-    mType = PACKAGE_TYPE_ENCRYPTED;
-    mBody = QVariantMap();
-    mBody["data"] = chunks;
-
-}
-
-bool NetworkPackage::decrypt(QCA::PrivateKey& key, NetworkPackage* out) const
-{
-
-    const QStringList chunks = mBody["data"].toStringList();
-
-    QByteArray decryptedJson;
-    Q_FOREACH(const QString& chunk, chunks) {
-        const QByteArray encryptedChunk = QByteArray::fromBase64(chunk.toLatin1());
-        QCA::SecureArray decryptedChunk;
-        bool success = key.decrypt(encryptedChunk, &decryptedChunk, NetworkPackage::EncryptionAlgorithm);
-        if (!success) {
-            return false;
-        }
-        decryptedJson.append(decryptedChunk.toByteArray());
-    }
-
-    bool success = unserialize(decryptedJson, out);
-
-    if (!success) {
-        return false;
-    }
-
-    if (hasPayload()) {
-        out->mPayload = mPayload;
-    }
-
-    return true;
-
-}
-*/
 FileTransferJob* NetworkPackage::createPayloadTransferJob(const QUrl &destination) const
 {
     return new FileTransferJob(payload(), payloadSize(), destination);

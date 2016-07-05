@@ -56,10 +56,6 @@ public:
     QByteArray serialize() const;
     static bool unserialize(const QByteArray& json, NetworkPackage* out);
 
-    //void encrypt(QCA::PublicKey& key);
-    //bool decrypt(QCA::PrivateKey& key, NetworkPackage* out) const;
-    //bool isEncrypted() const { return mType == PACKAGE_TYPE_ENCRYPTED; }
-
     const QString& id() const { return mId; }
     const QString& type() const { return mType; }
     QVariantMap& body() { return mBody; }
