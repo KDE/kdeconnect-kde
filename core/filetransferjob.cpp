@@ -72,6 +72,8 @@ void FileTransferJob::doStart()
         return;
     }
 
+    if (mOrigin->bytesAvailable())
+        startTransfer();
     connect(mOrigin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
 }
 
