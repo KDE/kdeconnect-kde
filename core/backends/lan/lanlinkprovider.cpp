@@ -269,14 +269,16 @@ void LanLinkProvider::encrypted()
     disconnect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
+    Q_ASSERT(socket->mode() != QSslSocket::UnencryptedMode);
+    LanDeviceLink::ConnectionStarted connectionOrigin = (socket->mode() == QSslSocket::SslClientMode)? LanDeviceLink::Locally : LanDeviceLink::Remotely;
+
     NetworkPackage* receivedPackage = receivedIdentityPackages[socket].np;
     const QString& deviceId = receivedPackage->get<QString>("deviceId");
 
-    addLink(deviceId, socket, receivedPackage, LanDeviceLink::Remotely);
+    addLink(deviceId, socket, receivedPackage, connectionOrigin);
 
     // Copied from connected slot, now delete received package
     delete receivedIdentityPackages.take(socket).np;
-
 }
 
 void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
