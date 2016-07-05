@@ -21,7 +21,6 @@
 
 #include "findmyphoneplugin.h"
 
-#include <core/device.h>
 #include <QDBusConnection>
 #include <QDebug>
 

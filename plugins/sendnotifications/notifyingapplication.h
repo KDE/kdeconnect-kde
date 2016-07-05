@@ -22,7 +22,6 @@
 #define NOTIFYINGAPPLICATION_H
 
 #include <QRegularExpression>
-#include <QList>
 
 struct NotifyingApplication {
     QString name;

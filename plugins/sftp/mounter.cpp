@@ -27,7 +27,7 @@
 
 #include "mountloop.h"
 #include "sftp_debug.h"
-#include <kdeconnectconfig.h>
+#include "kdeconnectconfig.h"
 
 Mounter::Mounter(SftpPlugin* sftp)
     : QObject(sftp)

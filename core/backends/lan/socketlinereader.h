@@ -22,7 +22,6 @@
 #define SOCKETLINEREADER_H
 
 #include <QObject>
-#include <QString>
 #include <QQueue>
 #include <QSslSocket>
 #include <QHostAddress>

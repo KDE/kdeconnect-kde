@@ -22,16 +22,13 @@
 #ifndef FILETRANSFERJOB_H
 #define FILETRANSFERJOB_H
 
+#include <KJob>
+
 #include <QIODevice>
 #include <QTime>
-#include <QTemporaryFile>
 #include <QSharedPointer>
-
-#include <KJob>
 #include <QUrl>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QBuffer>
 
 #include "kdeconnectcore_export.h"
 

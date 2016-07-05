@@ -27,7 +27,7 @@
 #include <QSslCertificate>
 
 #include <kdeconnectcore_export.h>
-#include "../devicelink.h"
+#include "backends/devicelink.h"
 #include "uploadjob.h"
 
 class SocketLineReader;

@@ -31,17 +31,15 @@
 #include <QHostInfo>
 #include <QTcpServer>
 #include <QUdpSocket>
-#include <QtGlobal>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
+#include <QSslCipher>
+#include <QSslConfiguration>
 
-#include "../../daemon.h"
+#include "daemon.h"
 #include "landevicelink.h"
 #include "lanpairinghandler.h"
-#include <kdeconnectconfig.h>
-#include <QDBusPendingReply>
-#include <QtNetwork/qsslcipher.h>
-#include <QtNetwork/qsslconfiguration.h>
+#include "kdeconnectconfig.h"
 
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
 

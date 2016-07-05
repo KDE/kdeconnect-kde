@@ -26,11 +26,11 @@
 #include <QIODevice>
 #include <QVariantMap>
 #include <QHostAddress>
-#include <QTcpSocket>
 #include <QSharedPointer>
 #include <QSslSocket>
 #include <QBuffer>
-#include <kdeconnectcore_export.h>
+
+#include "kdeconnectcore_export.h"
 
 
 class KDECONNECTCORE_EXPORT DownloadJob

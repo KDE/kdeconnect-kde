@@ -19,13 +19,11 @@
  */
 
 #include "uploadjob.h"
-#include "lanlinkprovider.h"
 
-#include <qalgorithms.h>
-#include <QtGlobal>
 #include <KLocalizedString>
-#include <kdeconnectconfig.h>
 
+#include "lanlinkprovider.h"
+#include "kdeconnectconfig.h"
 #include "core_debug.h"
 
 UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QString& deviceId)

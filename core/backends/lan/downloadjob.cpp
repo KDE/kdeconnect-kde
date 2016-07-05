@@ -18,11 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <kdeconnectconfig.h>
 #include "downloadjob.h"
-#include "lanlinkprovider.h"
-
-#include <core/core_debug.h>
 
 #ifndef Q_OS_WIN
 #include <sys/socket.h>
@@ -31,7 +27,9 @@
 #include <netdb.h>
 #endif
 
+#include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
+#include "core/core_debug.h"
 
 DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo)
     : KJob()

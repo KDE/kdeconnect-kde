@@ -21,9 +21,8 @@
 #ifndef SENDNOTIFICATIONSPLUGIN_H
 #define SENDNOTIFICATIONSPLUGIN_H
 
-#include <knotification.h>
+#include "core/kdeconnectplugin.h"
 
-#include <core/kdeconnectplugin.h>
 #define PACKAGE_TYPE_NOTIFICATION QLatin1String("kdeconnect.notification")
 
 /*

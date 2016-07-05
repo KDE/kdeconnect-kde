@@ -18,13 +18,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "notifyingapplicationmodel.h"
+
+#include <algorithm>
+
 #include <QString>
 #include <QIcon>
 #include <QDebug>
-#include <KLocalizedString>
-#include <algorithm>
 
-#include "notifyingapplicationmodel.h"
+#include <KLocalizedString>
+
 //#include "modeltest.h"
 
 NotifyingApplicationModel::NotifyingApplicationModel(QObject *parent)

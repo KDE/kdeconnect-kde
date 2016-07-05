@@ -27,13 +27,14 @@
 #include <QDesktopServices>
 #include <QDBusConnection>
 #include <QDebug>
+#include <QTemporaryFile>
 
 #include <KLocalizedString>
 #include <KJobTrackerInterface>
 #include <KPluginFactory>
 #include <KIO/MkpathJob>
 
-#include <core/filetransferjob.h>
+#include "core/filetransferjob.h"
 #include "autoclosingqfile.h"
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_share.json", registerPlugin< SharePlugin >(); )

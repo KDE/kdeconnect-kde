@@ -22,8 +22,8 @@
 
 #include "landevicelink.h"
 #include "core_debug.h"
-#include <kdeconnectconfig.h>
-#include "../linkprovider.h"
+#include "kdeconnectconfig.h"
+#include "backends/linkprovider.h"
 #include "uploadjob.h"
 #include "downloadjob.h"
 #include "socketlinereader.h"
