@@ -43,7 +43,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString statusIconName READ statusIconName)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChanged)
-    Q_PROPERTY(QStringList unsupportedPlugins READ unsupportedPlugins NOTIFY pluginsChanged)
+    Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
 
 public:
 
@@ -82,7 +82,6 @@ public:
     QString type() const { return type2str(m_deviceType); }
     QString iconName() const;
     QString statusIconName() const;
-    QStringList unsupportedPlugins() const { return m_unsupportedPlugins; }
     Q_SCRIPTABLE QString encryptionInfo() const;
 
     //Add and remove links
@@ -106,6 +105,7 @@ public:
     void cleanUnneededLinks();
 
     int protocolVersion() { return m_protocolVersion; }
+    QStringList supportedPlugins() const { return m_supportedPlugins.toList(); }
 
 public Q_SLOTS:
     ///sends a @p np package to the device
@@ -147,13 +147,8 @@ private: //Fields (TODO: dPointer!)
     QHash<QString, KdeConnectPlugin*> m_plugins;
 
     //Capabilities stuff
-    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingInterface;
-    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByOutgoingInterface;
-    QSet<QString> m_incomingCapabilities;
-    QSet<QString> m_outgoingCapabilities;
-    QStringList m_supportedIncomingInterfaces;
-    QStringList m_supportedOutgoingInterfaces;
-    QStringList m_unsupportedPlugins;
+    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingCapability;
+    QSet<QString> m_supportedPlugins;
 };
 
 Q_DECLARE_METATYPE(Device*)

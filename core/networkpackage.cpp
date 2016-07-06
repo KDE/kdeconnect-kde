@@ -67,6 +67,8 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->set("deviceName", config->name());
     np->set("deviceType", config->deviceType());
     np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
+    np->set("incomingCapabilities", PluginLoader::instance()->incomingCapabilities());
+    np->set("outgoingCapabilities", PluginLoader::instance()->outgoingCapabilities());
 
     //qCDebug(KDECONNECT_CORE) << "createIdentityPackage" << np->serialize();
 }

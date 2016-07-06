@@ -70,7 +70,7 @@ private:
     DevicesSortProxyModel* sortProxyModel;
     DeviceDbusInterface* currentDevice;
     QModelIndex currentIndex;
-    QStringList m_oldUnsupportedPluginNames;
+    QStringList m_oldSupportedPluginNames;
 
 public Q_SLOTS:
     void unpair();

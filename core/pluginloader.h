@@ -36,11 +36,13 @@ class PluginLoader
 public:
     static PluginLoader* instance();
 
-    QStringList incomingInterfaces() const;
-    QStringList outgoingInterfaces() const;
     QStringList getPluginList() const;
     KPluginMetaData getPluginInfo(const QString& name) const;
     KdeConnectPlugin* instantiatePluginForDevice(const QString& name, Device* device) const;
+
+    QStringList incomingCapabilities() const;
+    QStringList outgoingCapabilities() const;
+    QSet<QString> pluginsForCapabilities(const QSet<QString> &incoming, const QSet<QString> &outgoing);
 
 private:
     PluginLoader();

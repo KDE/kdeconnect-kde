@@ -83,7 +83,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
     return ret;
 }
 
-QStringList PluginLoader::incomingInterfaces() const
+QStringList PluginLoader::incomingCapabilities() const
 {
     QSet<QString> ret;
     Q_FOREACH (const KPluginMetaData& service, plugins) {
@@ -92,11 +92,30 @@ QStringList PluginLoader::incomingInterfaces() const
     return ret.toList();
 }
 
-QStringList PluginLoader::outgoingInterfaces() const
+QStringList PluginLoader::outgoingCapabilities() const
 {
     QSet<QString> ret;
     Q_FOREACH (const KPluginMetaData& service, plugins) {
         ret += KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
     }
     return ret.toList();
+}
+
+QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString>& incoming, const QSet<QString>& outgoing)
+{
+    QSet<QString> ret;
+
+    Q_FOREACH (const KPluginMetaData& service, plugins) {
+        const QSet<QString> pluginIncomingCapabilities = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
+        const QSet<QString> pluginOutgoingCapabilities = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
+
+        if ((pluginIncomingCapabilities.isEmpty() && pluginOutgoingCapabilities.isEmpty())
+            || incoming.intersects(pluginOutgoingCapabilities) || outgoing.intersects(pluginIncomingCapabilities)) {
+            ret += service.pluginId();
+        } else {
+            qDebug() << "discarding..." << service.pluginId();
+        }
+    }
+
+    return ret;
 }

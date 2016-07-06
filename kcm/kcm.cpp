@@ -199,9 +199,9 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
 
 void KdeConnectKcm::resetCurrentDevice()
 {
-    const QStringList unsupportedPluginNames = currentDevice->unsupportedPlugins();
+    const QStringList supportedPluginNames = currentDevice->supportedPlugins();
 
-    if (m_oldUnsupportedPluginNames != unsupportedPluginNames) {
+    if (m_oldSupportedPluginNames != supportedPluginNames) {
         resetDeviceView();
     }
 }
@@ -222,12 +222,12 @@ void KdeConnectKcm::resetDeviceView()
     QList<KPluginInfo> availablePluginInfo;
     QList<KPluginInfo> unsupportedPluginInfo;
 
-    m_oldUnsupportedPluginNames = currentDevice->unsupportedPlugins();
+    m_oldSupportedPluginNames = currentDevice->supportedPlugins();
     for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
-        if (m_oldUnsupportedPluginNames.contains(it->pluginName())) {
-            unsupportedPluginInfo.append(*it);
-        } else {
+        if (m_oldSupportedPluginNames.contains(it->pluginName())) {
             availablePluginInfo.append(*it);
+        } else {
+            unsupportedPluginInfo.append(*it);
         }
     }
 

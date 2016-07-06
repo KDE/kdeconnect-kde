@@ -23,6 +23,5 @@
 
 #define PACKAGE_TYPE_IDENTITY QLatin1String("kdeconnect.identity")
 #define PACKAGE_TYPE_PAIR QLatin1String("kdeconnect.pair")
-#define PACKAGE_TYPE_CAPABILITIES QLatin1String("kdeconnect.capabilities")
 
 #endif // NETWORKPACKAGETYPES_H

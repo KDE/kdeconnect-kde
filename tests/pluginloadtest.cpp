@@ -68,11 +68,11 @@ class PluginLoadTest : public QObject
 
             d->setPluginEnabled("kdeconnect_mousepad", false);
             QCOMPARE(d->isPluginEnabled("kdeconnect_mousepad"), false);
-            QVERIFY(d->unsupportedPlugins().contains("kdeconnect_remotecontrol"));
+            QVERIFY(d->supportedPlugins().contains("kdeconnect_remotecontrol"));
 
             d->setPluginEnabled("kdeconnect_mousepad", true);
             QCOMPARE(d->isPluginEnabled("kdeconnect_mousepad"), true);
-            QVERIFY(!d->unsupportedPlugins().contains("kdeconnect_remotecontrol"));
+            QVERIFY(d->supportedPlugins().contains("kdeconnect_remotecontrol"));
         }
 
     private:
