@@ -451,13 +451,13 @@ QString Device::encryptionInfo() const
     for (int i=2 ; i<myCertificate.size() ; i+=3) {
         myCertificate.insert(i, ':'); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of your device certificate is: ") + myCertificate + "\n";
+    result += i18n("SHA1 fingerprint of your device certificate is: %1\n", myCertificate);
 
     QString remoteCertificate = KdeConnectConfig::instance()->getDeviceProperty(id(), "certificate");
     for (int i=2 ; i<remoteCertificate.size() ; i+=3) {
         remoteCertificate.insert(i, ':'); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of remote device certificate is: ") + remoteCertificate + "\n";
+    result += i18n("SHA1 fingerprint of remote device certificate is: %1\n", remoteCertificate);
 
     return result;
 }
