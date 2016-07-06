@@ -26,7 +26,7 @@ struct KdeConnectPluginPrivate
 {
     Device* mDevice;
     QString mPluginName;
-    QSet<QString> mOutgoingTypes;
+    QSet<QString> mOutgoingCapabilties;
     KdeConnectPluginConfig* mConfig;
 };
 
@@ -36,7 +36,7 @@ KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
 {
     d->mDevice = qvariant_cast< Device* >(args.at(0));
     d->mPluginName = args.at(1).toString();
-    d->mOutgoingTypes = args.at(2).toStringList().toSet();
+    d->mOutgoingCapabilties = args.at(2).toStringList().toSet();
     d->mConfig = nullptr;
 }
 
@@ -68,8 +68,8 @@ Device const* KdeConnectPlugin::device() const
 
 bool KdeConnectPlugin::sendPackage(NetworkPackage& np) const
 {
-    if(!d->mOutgoingTypes.contains(np.type())) {
-        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->mOutgoingTypes;
+    if(!d->mOutgoingCapabilties.contains(np.type())) {
+        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->mOutgoingCapabilties;
         return false;
     }
 //     qCWarning(KDECONNECT_CORE) << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
