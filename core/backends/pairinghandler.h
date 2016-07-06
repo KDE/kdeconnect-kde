@@ -59,7 +59,7 @@ Q_SIGNALS:
     void pairingError(const QString& errorMessage);
 
 private:
-    DeviceLink* m_deviceLink; // We keep the latest link here, if this is destroyed without new link, linkDestroyed is emitted and device will destroy pairing handler
+    DeviceLink* m_deviceLink;
 
 };
 
