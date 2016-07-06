@@ -57,6 +57,8 @@ public:
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();
 
+    Device* getDevice(const QString& deviceId);
+
 public Q_SLOTS:
     Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
     Q_SCRIPTABLE void releaseDiscoveryMode(const QString &id);
@@ -87,9 +89,6 @@ private:
     void cleanDevices();
 
     QScopedPointer<struct DaemonPrivate> d;
-
-public:
-    Device* getDevice(QString deviceId);
 };
 
 #endif

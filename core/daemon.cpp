@@ -142,9 +142,8 @@ void Daemon::forceOnNetworkChange()
     }
 }
 
-// I hate this, but not able to find an alternative now
-Device *Daemon::getDevice(QString deviceId) {
-
+Device*Daemon::getDevice(const QString& deviceId)
+{
     Q_FOREACH (Device* device, d->mDevices) {
         if (device->id() == deviceId) {
             return device;
