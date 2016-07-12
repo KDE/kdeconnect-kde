@@ -287,6 +287,8 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     disconnect(socket, SIGNAL(encrypted()), this, SLOT(encrypted()));
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
+    QString deviceId = socket->peerVerifyName();
+
     Q_FOREACH (const QSslError &error, errors) {
         switch (error.error()) {
             case QSslError::CertificateSignatureFailed:
@@ -295,11 +297,8 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
             case QSslError::CertificateUntrusted:
             case QSslError::SelfSignedCertificate: {
                 qCDebug(KDECONNECT_CORE) << "Failing due to " << error.errorString();
-                // Due to simultaneous multiple connections, it may be possible that device instance does not exist anymore
-                Device *device = Daemon::instance()->getDevice(socket->peerVerifyName());
-                if (device != Q_NULLPTR) {
-                    device->unpair();
-                }
+                LanPairingHandler* ph = createPairingHandler(mLinks.value(deviceId));
+                ph->unpair();
                 break;
             }
             default:
@@ -395,7 +394,6 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
         mLinks.erase(linkIterator);
         mPairingHandlers.remove(id);
     }
-
 }
 
 void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted)
