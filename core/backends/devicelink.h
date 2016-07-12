@@ -37,14 +37,14 @@ class DeviceLink
     Q_OBJECT
 
 public:
-    enum PairStatus : bool { NotPaired, Paired };
+    enum PairStatus { NotPaired, Paired };
 
     DeviceLink(const QString& deviceId, LinkProvider* parent);
     virtual ~DeviceLink() = default;
 
     virtual QString name() = 0;
 
-    const QString& deviceId() { return mDeviceId; }
+    const QString& deviceId() const { return mDeviceId; }
     LinkProvider* provider() { return mLinkProvider; }
 
     virtual bool sendPackage(NetworkPackage& np) = 0;
