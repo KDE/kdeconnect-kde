@@ -44,11 +44,6 @@ public:
     explicit Daemon(QObject *parent, bool testMode = false);
     ~Daemon() override;
 
-    /**
-     * Returns the daemon.
-     *
-     * Note this can't be called before constructing the Daemon.
-     */
     static Daemon* instance();
 
     QList<Device*> devicesList() const;
