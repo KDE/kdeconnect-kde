@@ -232,7 +232,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
                           , incomingCapabilities = identityPackage.get<QStringList>("incomingCapabilities").toSet();
 
         m_supportedPlugins = PluginLoader::instance()->pluginsForCapabilities(incomingCapabilities, outgoingCapabilities);
-        qDebug() << "new plugins for" << m_deviceName << m_supportedPlugins << incomingCapabilities << outgoingCapabilities;
+        //qDebug() << "new plugins for" << m_deviceName << m_supportedPlugins << incomingCapabilities << outgoingCapabilities;
     } else {
         m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet();
     }

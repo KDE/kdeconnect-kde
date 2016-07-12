@@ -113,7 +113,7 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString>& incoming
             || incoming.intersects(pluginOutgoingCapabilities) || outgoing.intersects(pluginIncomingCapabilities)) {
             ret += service.pluginId();
         } else {
-            qDebug() << "discarding..." << service.pluginId();
+            qCDebug(KDECONNECT_CORE) << "Not loading plugin" << service.pluginId() <<  "because device doesn't support it";
         }
     }
 
