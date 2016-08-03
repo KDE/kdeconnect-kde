@@ -52,7 +52,6 @@ public:
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();
 
-protected:
     Device* getDevice(const QString& deviceId);
 
 public Q_SLOTS:
