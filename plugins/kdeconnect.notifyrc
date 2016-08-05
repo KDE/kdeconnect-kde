@@ -92,6 +92,11 @@ Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Name[zh_CN]=配对请求
 Comment=Pairing request received from a device
+Comment[it]=Richiesta di associazione ricevuta da un dispositivo
+Comment[pt]=Pedido de emparelhamento recebido de um dispositivo
+Comment[sv]=Begäran om ihopparning mottagen från en apparat
+Comment[uk]=Від пристрою отримано запит щодо пов’язування
+Comment[x-test]=xxPairing request received from a devicexx
 Action=Popup
 
 [Event/callReceived]
