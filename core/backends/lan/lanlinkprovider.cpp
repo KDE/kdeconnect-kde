@@ -79,12 +79,12 @@ void LanLinkProvider::onStart()
 {
     const QHostAddress bindAddress = mTestMode? QHostAddress::LocalHost : QHostAddress::Any;
 
-    bool success = mUdpSocket.bind(bindAddress, port, QUdpSocket::ShareAddress);
+    bool success = mUdpSocket.bind(bindAddress, PORT, QUdpSocket::ShareAddress);
     Q_ASSERT(success);
 
     qCDebug(KDECONNECT_CORE) << "onStart";
 
-    mTcpPort = port;
+    mTcpPort = PORT;
     while (!mServer->listen(bindAddress, mTcpPort)) {
         mTcpPort++;
         if (mTcpPort > 1764) { //No ports available?
@@ -128,7 +128,7 @@ void LanLinkProvider::broadcastToNetwork()
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
-    mUdpSocket.writeDatagram(np.serialize(), mTestMode ? QHostAddress::LocalHost : QHostAddress("255.255.255.255"), port);
+    mUdpSocket.writeDatagram(np.serialize(), mTestMode ? QHostAddress::LocalHost : QHostAddress("255.255.255.255"), PORT);
 }
 
 //I'm the existing device, a new device is kindly introducing itself.
@@ -164,7 +164,7 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
             continue;
         }
 
-        int tcpPort = receivedPackage->get<int>("tcpPort", port);
+        int tcpPort = receivedPackage->get<int>("tcpPort", PORT);
 
         //qCDebug(KDECONNECT_CORE) << "Received Udp identity package from" << sender << " asking for a tcp connection on port " << tcpPort;
 
@@ -188,7 +188,7 @@ void LanLinkProvider::connectError()
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
-    mUdpSocket.writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, port);
+    mUdpSocket.writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, PORT);
 
     //The socket we created didn't work, and we didn't manage
     //to create a LanDeviceLink from it, deleting everything.
@@ -251,7 +251,7 @@ void LanLinkProvider::connected()
         //I think this will never happen, but if it happens the deviceLink
         //(or the socket that is now inside it) might not be valid. Delete them.
         qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection (send udp packet)";
-        mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, port);
+        mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, PORT);
     }
 
     delete receivedIdentityPackages.take(socket).np;
