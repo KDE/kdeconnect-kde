@@ -100,7 +100,7 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     addTrustedDevice();
 
     QUdpSocket* mUdpServer = new QUdpSocket;
-    bool b = mUdpServer->bind(QHostAddress::LocalHost, 1714, QUdpSocket::ShareAddress);
+    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::PORT, QUdpSocket::ShareAddress);
     QVERIFY(b);
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
@@ -161,7 +161,7 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
 
     QSignalSpy spy(mServer, SIGNAL(newConnection()));
 
-    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, 1714); // write an identity package to udp socket here, we do not broadcast it here
+    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::PORT); // write an identity package to udp socket here, we do not broadcast it here
     QCOMPARE(bytesWritten, mIdentityPackage.size());
 
     // We should have an incoming connection now, wait for incoming connection
@@ -208,7 +208,7 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
 void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
 {
     QUdpSocket* mUdpServer = new QUdpSocket;
-    bool b = mUdpServer->bind(QHostAddress::LocalHost, 1714, QUdpSocket::ShareAddress);
+    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::PORT, QUdpSocket::ShareAddress);
     QVERIFY(b);
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
@@ -263,7 +263,7 @@ void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
     mServer->listen(QHostAddress::LocalHost, PORT);
 
     QSignalSpy spy(mServer, &Server::newConnection);
-    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, 1714); // write an identity package to udp socket here, we do not broadcast it here
+    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::PORT); // write an identity package to udp socket here, we do not broadcast it here
     QCOMPARE(bytesWritten, mIdentityPackage.size());
 
     QVERIFY(!spy.isEmpty() || spy.wait());

@@ -54,6 +54,8 @@ public:
     static void configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket* socket);
 
+    const static quint16 PORT = 1716;
+
 public Q_SLOTS:
     void onNetworkChange() override;
     void onStart() override;
@@ -78,7 +80,6 @@ private:
 
     Server* mServer;
     QUdpSocket mUdpSocket;
-    const static quint16 port = 1716;
     quint16 mTcpPort;
 
     QMap<QString, LanDeviceLink*> mLinks;
