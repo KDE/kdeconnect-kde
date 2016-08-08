@@ -7,6 +7,7 @@ X-KDE-ParentComponents=kdeconnect_runcommand
 
 Name=Run Command plugin settings
 Name[ca]=Ajustaments del connector Executa ordres
+Name[ca@valencia]=Ajustaments del connector Executa ordes
 Name[en_GB]=Run Command plugin settings
 Name[fi]=Suorita komento -liitännäisen asetukset
 Name[it]=Impostazioni estensione Esegui comando
