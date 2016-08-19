@@ -14,6 +14,7 @@
   <name xml:lang="el">KDE Connect</name>
   <name xml:lang="en-GB">KDE Connect</name>
   <name xml:lang="es">KDE Connect</name>
+  <name xml:lang="et">KDE Connect</name>
   <name xml:lang="fi">KDE Connect</name>
   <name xml:lang="fr">KDE Connect</name>
   <name xml:lang="gl">KDE Connect</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="el">Απρόσκοπτη σύνδεση των συσκευών σας</summary>
   <summary xml:lang="en-GB">Seamless connection of your devices</summary>
   <summary xml:lang="es">Conexión sin interrupciones de sus dispositivos</summary>
+  <summary xml:lang="et">Sujuv ühendus oma seadmetega</summary>
   <summary xml:lang="fi">Saumaton yhteys laitteisiisi</summary>
   <summary xml:lang="fr">Connecter vos périphériques avec facilité</summary>
   <summary xml:lang="gl">Conexión constante entre dispositivos</summary>
@@ -69,6 +71,7 @@
     <p xml:lang="el">Το KDE Connect παρέχει ενοποίηση μεταξύ του Android κινητού σας και του γραφικού περιβάλλοντος του υπολογιστή σας.</p>
     <p xml:lang="en-GB">KDE Connect provides integration between your Android phone and your desktop.</p>
     <p xml:lang="es">KDE Connect proporciona integración entre su teléfono Android y su escritorio.</p>
+    <p xml:lang="et">KDE Connect võimaldab kokku siduda oma Androidi telefoni ja arvuti töölaua.</p>
     <p xml:lang="fi">KDE Connect tarjoaa integraation Android-puhelimesi ja työpöytäsi välillä.</p>
     <p xml:lang="fr">KDE Connect permet d'intégrer votre téléphone Android avec votre bureau.</p>
     <p xml:lang="gl">KDE Connect fornece integración entre os seus teléfonos con Android e o seu computador de escritorio.</p>
@@ -105,6 +108,7 @@
   <project_group xml:lang="el">KDE Connect</project_group>
   <project_group xml:lang="en-GB">KDE Connect</project_group>
   <project_group xml:lang="es">KDE Connect</project_group>
+  <project_group xml:lang="et">KDE Connect</project_group>
   <project_group xml:lang="fi">KDE Connect</project_group>
   <project_group xml:lang="fr">KDE Connect</project_group>
   <project_group xml:lang="gl">KDE Connect</project_group>
