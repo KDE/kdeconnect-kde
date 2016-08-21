@@ -26,6 +26,7 @@ import org.kde.kdeconnect 1.0
 
 Kirigami.Page
 {
+    objectName: "FindDevices"
     title: i18n("Pair")
     ScrollView {
         anchors.fill: parent

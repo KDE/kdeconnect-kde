@@ -35,6 +35,9 @@ Kirigami.ApplicationWindow
         id: findDevicesAction
         text: i18n ("Find devices...")
         iconName: "list-add"
+        checkable: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
+        checked: true
+
         onTriggered: {
             root.pageStack.clear()
             root.pageStack.push("qrc:/qml/FindDevicesPage.qml");
@@ -56,8 +59,8 @@ Kirigami.ApplicationWindow
                 iconName: model.iconName
                 text: display + "\n" + toolTip
                 enabled: status & DevicesModel.Reachable
-                checked: root.pageStack.currentDevice == device
-                checkable: true
+                checkable: pageStack.currentItem && pageStack.currentItem.currentDevice == device
+                checked: true
                 onTriggered: {
                     root.pageStack.clear()
                     root.pageStack.push(
