@@ -26,14 +26,12 @@ QtObject {
 
     id: root
 
-    property string deviceId: ""
+    property alias device: conn.target
     property string pluginName: ""
     property bool available: false
-    readonly property alias device: conn.target
 
     readonly property Connections connection: Connections {
         id: conn
-        target: DeviceDbusInterfaceFactory.create(root.deviceId)
         onPluginsChanged: pluginsChanged()
     }
 

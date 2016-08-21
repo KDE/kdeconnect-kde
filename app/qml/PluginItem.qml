@@ -32,7 +32,7 @@ Kirigami.BasicListItem
 
     readonly property var checker: PluginChecker {
         id: checker
-        deviceId: deviceView.currentDevice.id()
+        device: deviceView.currentDevice
     }
     visible: checker.available
     onClicked: {

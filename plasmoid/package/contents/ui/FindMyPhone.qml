@@ -27,8 +27,7 @@ QtObject {
 
     id: root
 
-    property alias deviceId: checker.deviceId
-    readonly property alias device: checker.device
+    property alias device: checker.device
     readonly property alias available: checker.available
 
     readonly property PluginChecker pluginChecker: PluginChecker {
@@ -46,7 +45,7 @@ QtObject {
 
     onAvailableChanged: {
         if (available) {
-            findMyPhone = FindMyPhoneDbusInterfaceFactory.create(deviceId)
+            findMyPhone = FindMyPhoneDbusInterfaceFactory.create(device.id())
         } else {
             findMyPhone = null
         }
