@@ -79,6 +79,14 @@ Kirigami.Page
                         lockIface.isLocked = !lockIface.isLocked;
                     }
                 }
+                PluginItem {
+                    readonly property var findmyphoneIface: FindMyPhoneDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                    pluginName: "findmyphone"
+                    label: i18n("Find Device")
+                    onClicked: {
+                        findmyphoneIface.ring()
+                    }
+                }
 
                 Item { Layout.fillHeight: true }
             }
