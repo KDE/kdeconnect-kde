@@ -45,7 +45,7 @@ Kirigami.Page
                 property list<QtObject> actions: [
                     Kirigami.Action {
                         onTriggered: deviceView.currentDevice.unpair()
-                        text: i18n("UnPair")
+                        text: i18n("Unpair")
                     },
                     Kirigami.Action {
                         text: i18n("Send Ping")
