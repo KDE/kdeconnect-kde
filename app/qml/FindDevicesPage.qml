@@ -55,8 +55,8 @@ Kirigami.Page
                 label: display + "\n" + toolTip
                 enabled: !(status & DevicesModel.Paired)
                 onClicked: {
-                    root.pageStack.clear()
-                    root.pageStack.push(
+                    pageStack.clear()
+                    pageStack.push(
                         "qrc:/qml/DevicePage.qml",
                         {currentDevice: device}
                     );

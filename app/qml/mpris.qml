@@ -26,7 +26,7 @@ import org.kde.kirigami 1.0 as Kirigami
 Kirigami.Page
 {
     id: root
-    property QtObject mprisInterface
+    property QtObject pluginInterface
     title: i18n("Multimedia Controls")
 
     ColumnLayout
@@ -34,42 +34,42 @@ Kirigami.Page
         anchors.fill: parent
 
         Component.onCompleted: {
-            mprisInterface.requestPlayerList();
+            pluginInterface.requestPlayerList();
         }
 
         Item { Layout.fillHeight: true }
         ComboBox {
             Layout.fillWidth: true
-            model: root.mprisInterface.playerList
-            onCurrentTextChanged: root.mprisInterface.player = currentText
+            model: root.pluginInterface.playerList
+            onCurrentTextChanged: root.pluginInterface.player = currentText
         }
         Label {
             Layout.fillWidth: true
-            text: root.mprisInterface.nowPlaying
+            text: root.pluginInterface.nowPlaying
         }
         RowLayout {
             Layout.fillWidth: true
             Button {
                 Layout.fillWidth: true
                 iconName: "media-skip-backward"
-                onClicked: root.mprisInterface.sendAction("Previous")
+                onClicked: root.pluginInterface.sendAction("Previous")
             }
             Button {
                 Layout.fillWidth: true
-                iconName: root.mprisInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
-                onClicked: root.mprisInterface.sendAction("PlayPause");
+                iconName: root.pluginInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
+                onClicked: root.pluginInterface.sendAction("PlayPause");
             }
             Button {
                 Layout.fillWidth: true
                 iconName: "media-skip-forward"
-                onClicked: root.mprisInterface.sendAction("Next")
+                onClicked: root.pluginInterface.sendAction("Next")
             }
         }
         RowLayout {
             Layout.fillWidth: true
             Label { text: i18n("Volume:") }
             Slider {
-                value: root.mprisInterface.volume
+                value: root.pluginInterface.volume
                 maximumValue: 100
                 Layout.fillWidth: true
             }
