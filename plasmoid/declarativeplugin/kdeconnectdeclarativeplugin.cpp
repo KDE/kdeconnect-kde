@@ -86,6 +86,11 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
+    qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface",
+        [](QQmlEngine*, QJSEngine*) -> QObject* {
+            return new DaemonDbusInterface;
+        }
+    );
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)

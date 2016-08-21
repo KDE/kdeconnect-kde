@@ -50,6 +50,24 @@ Kirigami.ApplicationWindow
         titleIcon: "kdeconnect"
 //         bannerImageSource: "/home/apol/devel/kde5/share/wallpapers/Next/contents/images/1024x768.png"
 
+        topContent: [
+            TextField {
+                Layout.fillWidth: true
+
+                DBusProperty {
+                    id: announcedNameProperty
+                    object: DaemonDbusInterface
+                    read: "announcedName"
+                    defaultValue: ""
+                }
+
+                text: announcedNameProperty.value
+                onAccepted: {
+                    DaemonDbusInterface.setAnnouncedName(text)
+                    text = Qt.binding(function() {return announcedNameProperty.value})
+                }
+            }
+        ]
         property var objects: [findDevicesAction]
         Instantiator {
             model: DevicesSortProxyModel {
