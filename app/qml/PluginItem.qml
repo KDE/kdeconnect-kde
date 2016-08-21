@@ -34,7 +34,7 @@ Kirigami.BasicListItem
         id: checker
         deviceId: deviceView.currentDevice.id()
     }
-    enabled: checker.available
+    visible: checker.available
     onClicked: {
         if (component === "")
             return;
