@@ -60,6 +60,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
 //  TODO: Workaround because OrgKdeKdeconnectDeviceInterface is not generating
 //  the signals for the properties
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChangedProxy)
+    Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
 
 public:
     explicit DeviceDbusInterface(const QString& deviceId, QObject* parent = nullptr);
@@ -69,6 +70,7 @@ public:
     Q_SCRIPTABLE void pluginCall(const QString &plugin, const QString &method);
 
 Q_SIGNALS:
+    void nameChangedProxy(const QString &name);
     void trustedChangedProxy(bool paired);
 
 private:
