@@ -31,32 +31,34 @@ Kirigami.ApplicationWindow
     width: 400
     height: 500
 
+    Kirigami.Action {
+        id: findDevicesAction
+        text: i18n ("Find devices...")
+        iconName: "list-add"
+        onTriggered: {
+            root.pageStack.clear()
+            root.pageStack.push("qrc:/qml/FindDevicesPage.qml");
+        }
+    }
+
     globalDrawer: Kirigami.GlobalDrawer {
+        id: drawer
         title: i18n("KDE Connect")
         titleIcon: "kdeconnect"
 //         bannerImageSource: "/home/apol/devel/kde5/share/wallpapers/Next/contents/images/1024x768.png"
 
-        content: ListView {
-            anchors.fill: parent
+        property var objects: [findDevicesAction]
+        Instantiator {
             model: DevicesSortProxyModel {
                 sourceModel: DevicesModel { displayFilter: DevicesModel.Paired }
             }
-            header: Kirigami.BasicListItem {
-                label: i18n ("Find devices...")
-                icon: "list-add"
-                onClicked: {
-                    root.pageStack.clear()
-                    root.pageStack.push("qrc:/qml/FindDevicesPage.qml");
-                }
-            }
-
-            delegate: Kirigami.BasicListItem {
-                width: ListView.view.width
-                icon: iconName
-                label: display + "\n" + toolTip
+            delegate: Kirigami.Action {
+                iconName: model.iconName
+                text: display + "\n" + toolTip
                 enabled: status & DevicesModel.Reachable
                 checked: root.pageStack.currentDevice == device
-                onClicked: {
+                checkable: true
+                onTriggered: {
                     root.pageStack.clear()
                     root.pageStack.push(
                         "qrc:/qml/DevicePage.qml",
@@ -64,7 +66,20 @@ Kirigami.ApplicationWindow
                     );
                 }
             }
+
+            onObjectAdded: {
+                drawer.objects.push(object)
+                drawer.objects = drawer.objects
+            }
+            onObjectRemoved: {
+                var idx = drawer.objects.indexOf(object);
+                if (idx>=0) {
+                    var removed = drawer.objects.splice(idx, 1)
+                    drawer.objects = drawer.objects
+                }
+            }
         }
+        actions: objects
     }
 
     contextDrawer: Kirigami.ContextDrawer {
