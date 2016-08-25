@@ -39,7 +39,7 @@
 #include "dbushelper.h"
 #include "daemon.h"
 
-static const QString TRUSTED_DEVICES = QStringLiteral("trusted_devices");
+static const QString TRUSTED_DEVICES = QStringLiteral("trusted_devices_ssl");
 
 struct KdeConnectConfigPrivate {
 
