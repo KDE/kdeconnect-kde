@@ -175,6 +175,26 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         np.set("isPlaying", playing);
         somethingToSend = true;
     }
+    if (properties.contains("CanPause")) {
+        np.set("canPause", properties["CanPause"].toBool());
+        somethingToSend = true;
+    }
+    if (properties.contains("CanPlay")) {
+        np.set("canPlay", properties["CanPlay"].toBool());
+        somethingToSend = true;
+    }
+    if (properties.contains("CanGoNext")) {
+        np.set("canGoNext", properties["CanGoNext"].toBool());
+        somethingToSend = true;
+    }
+    if (properties.contains("CanGoPrevious")) {
+        np.set("canGoPrevious", properties["CanGoPrevious"].toBool());
+        somethingToSend = true;
+    }
+    if (properties.contains("CanSeek")) {
+        np.set("canSeek", properties["CanSeek"].toBool());
+        somethingToSend = true;
+    }
 
     if (somethingToSend) {
         OrgFreedesktopDBusPropertiesInterface* interface = (OrgFreedesktopDBusPropertiesInterface*)sender();
@@ -263,6 +283,12 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 
         bool playing = (mprisInterface.playbackStatus() == QLatin1String("Playing"));
         answer.set("isPlaying", playing);
+
+        answer.set("canPause", mprisInterface.canPause());
+        answer.set("canPlay", mprisInterface.canPlay());
+        answer.set("canGoNext", mprisInterface.canGoNext());
+        answer.set("canGoPrevious", mprisInterface.canGoPrevious());
+        answer.set("canSeek", mprisInterface.canSeek());
 
         somethingToSend = true;
     }
