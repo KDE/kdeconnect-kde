@@ -20,9 +20,11 @@
 
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusArgument>
 #include <QtDebug>
 #include <QLoggingCategory>
 #include <QStandardPaths>
+#include <QImage>
 #include <KConfig>
 #include <KConfigGroup>
 
@@ -104,6 +106,79 @@ void NotificationsListener::loadApplications()
     //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
 }
 
+bool NotificationsListener::parseImageDataArgument(const QVariant& argument,
+                                                   int& width, int& height,
+                                                   int& rowStride, int& bitsPerSample,
+                                                   int& channels, bool& hasAlpha,
+                                                   QByteArray& imageData) const
+{
+    if (!argument.canConvert<QDBusArgument>())
+        return false;
+    const QDBusArgument dbusArg = argument.value<QDBusArgument>();
+    dbusArg.beginStructure();
+    dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample
+            >> channels  >> imageData;
+    dbusArg.endStructure();
+    return true;
+}
+
+QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant& argument) const
+{
+    int width, height, rowStride, bitsPerSample, channels;
+    bool hasAlpha;
+    QByteArray imageData;
+
+    if (!parseImageDataArgument(argument, width, height, rowStride, bitsPerSample,
+                                channels, hasAlpha, imageData))
+        return QSharedPointer<QIODevice>();
+
+    if (bitsPerSample != 8) {
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Unsupported image format:"
+                                                      << "width=" << width
+                                                      << "height=" << height
+                                                      << "rowStride=" << rowStride
+                                                      << "bitsPerSample=" << bitsPerSample
+                                                      << "channels=" << channels
+                                                      << "hasAlpha=" << hasAlpha;
+        return QSharedPointer<QIODevice>();
+    }
+
+    QImage image(reinterpret_cast<uchar*>(imageData.data()), width, height, rowStride,
+                 hasAlpha ? QImage::Format_ARGB32 : QImage::Format_RGB32);
+    if (hasAlpha)
+        image = image.rgbSwapped();  // RGBA --> ARGB
+
+    QSharedPointer<QBuffer> buffer = QSharedPointer<QBuffer>(new QBuffer);
+    if (!buffer || !buffer->open(QIODevice::WriteOnly) ||
+            !image.save(buffer.data(), "PNG")) {
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Could not initialize image buffer";
+        return QSharedPointer<QIODevice>();
+    }
+
+    return buffer;
+}
+
+QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &iconName) const
+{
+    int size = KIconLoader::SizeEnormous;  // use big size to allow for good
+                                           // quality on high-DPI mobile devices
+    QString iconPath = KIconLoader::global()->iconPath(iconName, -size, true);
+    if (!iconPath.isEmpty()) {
+        if (!iconPath.endsWith(QLatin1String(".png")) &&
+                KIconLoader::global()->theme()->name() != QLatin1String("hicolor")) {
+            // try falling back to hicolor theme:
+            KIconTheme hicolor(QStringLiteral("hicolor"));
+            if (hicolor.isValid()) {
+                iconPath = hicolor.iconPath(iconName + ".png", size, KIconLoader::MatchBest);
+                //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
+            }
+        }
+    }
+
+    if (iconPath.endsWith(QLatin1String(".png")))
+        return QSharedPointer<QIODevice>(new QFile(iconPath));
+    return QSharedPointer<QIODevice>();
+}
 uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                    const QString &appIcon,
                                    const QString &summary, const QString &body,
@@ -171,26 +246,26 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                           // timeout == 0, for other notifications
                                           // clearability is pointless
 
-    if (!appIcon.isEmpty() && mPlugin->config()->get("generalSynchronizeIcons", true)) {
-        int size = KIconLoader::SizeEnormous;  // use big size to allow for good
-                                               // quality on High-DPI mobile devices
-        QString iconPath = KIconLoader::global()->iconPath(appIcon, -size, true);
-        if (!iconPath.isEmpty()) {
-            if (!iconPath.endsWith(QLatin1String(".png")) &&
-                    KIconLoader::global()->theme()->name() != QLatin1String("hicolor")) {
-                // try falling back to hicolor theme:
-                KIconTheme hicolor(QStringLiteral("hicolor"));
-                if (hicolor.isValid()) {
-                    iconPath = hicolor.iconPath(appIcon + ".png", size, KIconLoader::MatchBest);
-                    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
-                }
-            }
-            if (iconPath.endsWith(QLatin1String(".png"))) {
-                //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Appending icon " << iconPath;
-                QSharedPointer<QIODevice> iconFile(new QFile(iconPath));
-                np.setPayload(iconFile, iconFile->size());
-            }
-        }
+    // sync any icon data?
+    if (mPlugin->config()->get("generalSynchronizeIcons", true)) {
+        QSharedPointer<QIODevice> iconSource;
+        // try different image sources according to priorities in notifications-
+        // spec version 1.2:
+        if (hints.contains("image-data"))
+            iconSource = iconForImageData(hints["image-data"]);
+        else if (hints.contains("image_data"))  // 1.1 backward compatibility
+            iconSource = iconForImageData(hints["image_data"]);
+        else if (hints.contains("image-path"))
+            iconSource = iconForIconName(hints["image-path"].toString());
+        else if (hints.contains("image_path"))  // 1.1 backward compatibility
+            iconSource = iconForIconName(hints["image_path"].toString());
+        else if (!appIcon.isEmpty())
+            iconSource = iconForIconName(appIcon);
+        else if (hints.contains("icon_data"))  // < 1.1 backward compatibility
+            iconSource = iconForImageData(hints["icon_data"]);
+
+        if (iconSource)
+            np.setPayload(iconSource, iconSource->size());
     }
 
     mPlugin->sendPackage(np);
