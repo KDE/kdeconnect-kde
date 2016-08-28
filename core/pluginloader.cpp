@@ -109,8 +109,18 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString>& incoming
         const QSet<QString> pluginIncomingCapabilities = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
         const QSet<QString> pluginOutgoingCapabilities = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
 
-        if ((pluginIncomingCapabilities.isEmpty() && pluginOutgoingCapabilities.isEmpty())
-            || incoming.intersects(pluginOutgoingCapabilities) || outgoing.intersects(pluginIncomingCapabilities)) {
+        bool capabilitiesEmpty = (pluginIncomingCapabilities.isEmpty() && pluginOutgoingCapabilities.isEmpty());
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+        bool capabilitiesIntersect = (outgoing.intersects(pluginIncomingCapabilities) || incoming.intersects(pluginOutgoingCapabilities));
+#else
+        QSet<QString> commonIncoming = incoming;
+        commonIncoming.intersect(pluginOutgoingCapabilities);
+        QSet<QString> commonOutgoing = outgoing;
+        commonOutgoing.intersect(pluginIncomingCapabilities);
+        bool capabilitiesIntersect = (!commonIncoming.isEmpty() || !commonOutgoing.isEmpty());
+#endif
+
+        if (capabilitiesIntersect || capabilitiesEmpty) {
             ret += service.pluginId();
         } else {
             qCDebug(KDECONNECT_CORE) << "Not loading plugin" << service.pluginId() <<  "because device doesn't support it";
