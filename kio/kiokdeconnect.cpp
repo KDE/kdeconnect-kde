@@ -93,7 +93,7 @@ void KioKdeconnect::listAllDevices()
 
         if (!interface.hasPlugin("kdeconnect_sftp")) continue;
 
-        const QString target = QString("kdeconnect://").append(deviceId).append("/");
+        const QString path = QString("kdeconnect://").append(deviceId).append("/");
         const QString name = interface.name();
         const QString icon = "kdeconnect";
 
@@ -101,11 +101,19 @@ void KioKdeconnect::listAllDevices()
         entry.insert(KIO::UDSEntry::UDS_NAME, name);
         entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
+        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
-        entry.insert(KIO::UDSEntry::UDS_URL, target);
+        entry.insert(KIO::UDSEntry::UDS_URL, path);
         listEntry(entry);
     }
+
+    // We also need a non-null and writable UDSentry for "."
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
+    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    listEntry(entry);
 
     infoMessage("");
     finished();
@@ -140,19 +148,28 @@ void KioKdeconnect::listDevice()
 
     for (QVariantMap::iterator it = urls.begin(); it != urls.end(); ++it) {
 
-        QString path = it.key();
-        QString name = it.value().toString();
+        const QString path = it.key();
+        const QString name = it.value().toString();
+        const QString icon = QLatin1Literal("folder");
 
         KIO::UDSEntry entry;
         entry.insert(KIO::UDSEntry::UDS_NAME, "files");
         entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, name);
-        entry.insert(KIO::UDSEntry::UDS_ICON_NAME, "folder");
+        entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH);
+        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
         entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, "");
         entry.insert(KIO::UDSEntry::UDS_URL, QUrl::fromLocalFile(path).toString());
         listEntry(entry);
     }
+
+    // We also need a non-null and writable UDSentry for "."
+    KIO::UDSEntry entry;
+    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
+    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    listEntry(entry);
 
     infoMessage("");
     finished();
