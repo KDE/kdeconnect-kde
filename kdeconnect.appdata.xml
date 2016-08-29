@@ -4,21 +4,17 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
-  <name xml:lang="ar">كدي المتّصل</name>
-  <name xml:lang="ast">KDE Connect</name>
   <name xml:lang="ca">KDE Connect</name>
   <name xml:lang="ca-valencia">KDE Connect</name>
   <name xml:lang="cs">KDE Connect</name>
   <name xml:lang="da">KDE Connect</name>
   <name xml:lang="de">KDE-Connect</name>
-  <name xml:lang="el">KDE Connect</name>
   <name xml:lang="en-GB">KDE Connect</name>
   <name xml:lang="es">KDE Connect</name>
   <name xml:lang="et">KDE Connect</name>
   <name xml:lang="fi">KDE Connect</name>
   <name xml:lang="fr">KDE Connect</name>
   <name xml:lang="gl">KDE Connect</name>
-  <name xml:lang="he">KDE Connect</name>
   <name xml:lang="it">KDE Connect</name>
   <name xml:lang="ko">KDE Connect</name>
   <name xml:lang="nl">KDE Connect</name>
@@ -32,21 +28,17 @@
   <name xml:lang="x-test">xxKDE Connectxx</name>
   <name xml:lang="zh-CN">KDE Connect</name>
   <summary>Seamless connection of your devices</summary>
-  <summary xml:lang="ar">اتّصال سلس بين أجهزتك</summary>
-  <summary xml:lang="ast">Conexón de los tos preseos ensin esfuerciu</summary>
   <summary xml:lang="ca">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="ca-valencia">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="cs">Snadné propojení vašich zařízení</summary>
-  <summary xml:lang="da">Umærkbar forbindelse mellem dine enheder</summary>
+  <summary xml:lang="da">Supernem forbindelse mellem dine enheder</summary>
   <summary xml:lang="de">Nahtlose Verbindung zu Ihren Geräten</summary>
-  <summary xml:lang="el">Απρόσκοπτη σύνδεση των συσκευών σας</summary>
   <summary xml:lang="en-GB">Seamless connection of your devices</summary>
   <summary xml:lang="es">Conexión sin interrupciones de sus dispositivos</summary>
   <summary xml:lang="et">Sujuv ühendus oma seadmetega</summary>
   <summary xml:lang="fi">Saumaton yhteys laitteisiisi</summary>
   <summary xml:lang="fr">Connecter vos périphériques avec facilité</summary>
   <summary xml:lang="gl">Conexión constante entre dispositivos</summary>
-  <summary xml:lang="he">חיבור מהיר בין ההתקנים שלך</summary>
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="ko">장치와 항상 연결하기</summary>
   <summary xml:lang="nl">Naadloze verbinding met uw apparaten</summary>
@@ -61,21 +53,17 @@
   <summary xml:lang="zh-CN">无缝连接您的设备</summary>
   <description>
     <p>KDE Connect provides integration between your Android phone and your desktop.</p>
-    <p xml:lang="ar">يوفّر «كدي المتصّل» التّكامل بين هاتف أندرويد وسطح المكتب.</p>
-    <p xml:lang="ast">KDE Connect forne integración ente'l to preséu Android y el to escritoriu.</p>
     <p xml:lang="ca">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="ca-valencia">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="cs">KDE Connect poskytuje integraci mezi vaším telefonem s Androidem a vaší pracovní plochou.</p>
     <p xml:lang="da">KDE Connect giver integration mellem din Android-telefon og din desktop.</p>
     <p xml:lang="de">KDE Connect bietet Integrationsdienste zwischen Ihrem Android-Telefon und Ihrem Desktop-Computer.</p>
-    <p xml:lang="el">Το KDE Connect παρέχει ενοποίηση μεταξύ του Android κινητού σας και του γραφικού περιβάλλοντος του υπολογιστή σας.</p>
     <p xml:lang="en-GB">KDE Connect provides integration between your Android phone and your desktop.</p>
     <p xml:lang="es">KDE Connect proporciona integración entre su teléfono Android y su escritorio.</p>
     <p xml:lang="et">KDE Connect võimaldab kokku siduda oma Androidi telefoni ja arvuti töölaua.</p>
     <p xml:lang="fi">KDE Connect tarjoaa integraation Android-puhelimesi ja työpöytäsi välillä.</p>
     <p xml:lang="fr">KDE Connect permet d'intégrer votre téléphone Android avec votre bureau.</p>
     <p xml:lang="gl">KDE Connect fornece integración entre os seus teléfonos con Android e o seu computador de escritorio.</p>
-    <p xml:lang="he">KDE Connect מספק שילוב בין מכשירי אנדרואיד לשולחן העבודה</p>
     <p xml:lang="it">KDE Connect fornisce integrazione tra il tuo telefono Android e il tuo desktop.</p>
     <p xml:lang="ko">KDE Connect는 안드로이드 휴대폰과 데스크톱을 연결합니다.</p>
     <p xml:lang="nl">KDE Connect biedt integratie tussen uw Android telefoon en uw bureaublad.</p>
@@ -98,21 +86,17 @@
     </screenshot>
   </screenshots>
   <project_group>KDE Connect</project_group>
-  <project_group xml:lang="ar">كدي المتّصل</project_group>
-  <project_group xml:lang="ast">KDE Connect</project_group>
   <project_group xml:lang="ca">KDE Connect</project_group>
   <project_group xml:lang="ca-valencia">KDE Connect</project_group>
   <project_group xml:lang="cs">KDE Connect</project_group>
   <project_group xml:lang="da">KDE Connect</project_group>
   <project_group xml:lang="de">KDE-Connect</project_group>
-  <project_group xml:lang="el">KDE Connect</project_group>
   <project_group xml:lang="en-GB">KDE Connect</project_group>
   <project_group xml:lang="es">KDE Connect</project_group>
   <project_group xml:lang="et">KDE Connect</project_group>
   <project_group xml:lang="fi">KDE Connect</project_group>
   <project_group xml:lang="fr">KDE Connect</project_group>
   <project_group xml:lang="gl">KDE Connect</project_group>
-  <project_group xml:lang="he">KDE Connect</project_group>
   <project_group xml:lang="it">KDE Connect</project_group>
   <project_group xml:lang="ko">KDE Connect</project_group>
   <project_group xml:lang="nl">KDE Connect</project_group>
