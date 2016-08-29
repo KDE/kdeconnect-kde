@@ -401,18 +401,21 @@ bool Device::isPluginEnabled(const QString& pluginName) const
 QString Device::encryptionInfo() const
 {
     QString result;
+    QCryptographicHash::Algorithm digestAlgorithm = QCryptographicHash::Algorithm::Sha1;
 
-    QString myCertificate = QString::fromLatin1(KdeConnectConfig::instance()->certificate().toDer());
-    for (int i=2 ; i<myCertificate.size() ; i+=3) {
-        myCertificate.insert(i, ':'); // Improve readability
+    QString localSha1 = QString::fromLatin1(KdeConnectConfig::instance()->certificate().digest(digestAlgorithm).toHex());
+    for (int i=2 ; i<localSha1.size() ; i+=3) {
+        localSha1.insert(i, ':'); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of your device certificate is: %1\n", myCertificate);
+    result += i18n("SHA1 fingerprint of your device certificate is: %1\n", localSha1);
 
-    QString remoteCertificate = KdeConnectConfig::instance()->getDeviceProperty(id(), "certificate");
-    for (int i=2 ; i<remoteCertificate.size() ; i+=3) {
-        remoteCertificate.insert(i, ':'); // Improve readability
+    std::string  remotePem = KdeConnectConfig::instance()->getDeviceProperty(id(), "certificate").toStdString();
+    QSslCertificate remoteCertificate = QSslCertificate(QByteArray(remotePem.c_str(), remotePem.size()));
+    QString remoteSha1 = QString::fromLatin1(remoteCertificate.digest(digestAlgorithm).toHex());
+    for (int i=2 ; i<remoteSha1.size() ; i+=3) {
+        remoteSha1.insert(i, ':'); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of remote device certificate is: %1\n", remoteCertificate);
+    result += i18n("SHA1 fingerprint of remote device certificate is: %1\n", remoteSha1);
 
     return result;
 }
