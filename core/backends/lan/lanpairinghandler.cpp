@@ -38,8 +38,6 @@ LanPairingHandler::LanPairingHandler(DeviceLink* deviceLink)
 
 void LanPairingHandler::packageReceived(const NetworkPackage& np)
 {
-    qDebug() << "Pairing package received!" << np.serialize();
-
     m_pairingTimeout.stop();
 
     bool wantsPair = np.get<bool>("pair");
@@ -102,7 +100,6 @@ bool LanPairingHandler::requestPairing()
 
 bool LanPairingHandler::acceptPairing()
 {
-    qDebug() << "User accepts pairing";
     m_pairingTimeout.stop(); // Just in case it is started
     NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", true}});
     bool success = deviceLink()->sendPackage(np);
@@ -114,7 +111,6 @@ bool LanPairingHandler::acceptPairing()
 
 void LanPairingHandler::rejectPairing()
 {
-    qDebug() << "User rejects pairing";
     NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", false}});
     deviceLink()->sendPackage(np);
     setInternalPairStatus(NotPaired);
