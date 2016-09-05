@@ -220,20 +220,16 @@ void KdeConnectKcm::resetDeviceView()
 
     const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins("kdeconnect/"));
     QList<KPluginInfo> availablePluginInfo;
-    QList<KPluginInfo> unsupportedPluginInfo;
 
     m_oldSupportedPluginNames = currentDevice->supportedPlugins();
     for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
         if (m_oldSupportedPluginNames.contains(it->pluginName())) {
             availablePluginInfo.append(*it);
-        } else {
-            unsupportedPluginInfo.append(*it);
         }
     }
 
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
     kcmUi->pluginSelector->addPlugins(availablePluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
-    kcmUi->pluginSelector->addPlugins(unsupportedPluginInfo, KPluginSelector::ReadConfigFile, i18n("Unavailable plugins"), QString(), deviceConfig);
     connect(kcmUi->pluginSelector, SIGNAL(changed(bool)), this, SLOT(pluginsConfigChanged()));
 
 }
