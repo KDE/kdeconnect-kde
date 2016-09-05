@@ -60,6 +60,9 @@ Device::Device(QObject* parent, const QString& id)
     //Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
+    //Assume every plugin is supported until addLink is called and we can get the actual list
+    m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet();
+
     connect(this, &Device::pairingError, this, &warn);
 }
 
@@ -259,7 +262,6 @@ void Device::removeLink(DeviceLink* link)
     //qCDebug(KDECONNECT_CORE) << "RemoveLink" << m_deviceLinks.size() << "links remaining";
 
     if (m_deviceLinks.isEmpty()) {
-        m_supportedPlugins.clear();
         reloadPlugins();
         Q_EMIT reachableStatusChanged();
     }
