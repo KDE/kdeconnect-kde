@@ -21,8 +21,10 @@
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 
-Item {
+MouseArea {
     id: view
+
+    onClicked: plasmoid.expanded = !plasmoid.expanded
 
     PlasmaCore.IconItem {
         id: icon
