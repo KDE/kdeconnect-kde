@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2016 Albert Vaca <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,32 +18,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CLIPBOARDPLUGIN_H
-#define CLIPBOARDPLUGIN_H
+#ifndef CLIPBOARDLISTENER_H
+#define CLIPBOARDLISTENER_H
 
 #include <QObject>
 #include <QClipboard>
-#include <QLoggingCategory>
-#include <core/kdeconnectplugin.h>
+#include <QGuiApplication>
 
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD)
-#define PACKAGE_TYPE_CLIPBOARD QLatin1String("kdeconnect.clipboard")
-
-class ClipboardPlugin
-    : public KdeConnectPlugin
+/**
+ * Wrapper around QClipboard, which emits clipboardChanged only when it really changed
+ */
+class ClipboardListener : public QObject 
 {
     Q_OBJECT
 
+private:
+    QString currentContent;
+    QClipboard* clipboard;
+
 public:
-    explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
-public Q_SLOTS:
-    bool receivePackage(const NetworkPackage& np) override;
-    void connected() override { }
-    
-private Q_SLOTS:
-    void propagateClipboard(const QString& content);
+    static ClipboardListener* instance() 
+    {
+        static ClipboardListener* me = nullptr;
+        if (!me) {
+            me = new ClipboardListener();
+        }
+        return me;
+    }
 
+    ClipboardListener();
+
+    void updateClipboard(QClipboard::Mode mode);
+
+    void setText(const QString& content);
+
+Q_SIGNALS:
+    void clipboardChanged(const QString& content);
 };
 
 #endif
