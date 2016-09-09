@@ -56,7 +56,12 @@ void ClipboardPlugin::clipboardChanged(QClipboard::Mode mode)
 
 bool ClipboardPlugin::receivePackage(const NetworkPackage& np)
 {
-    clipboard->setText(np.get<QString>("content"));
+    QString content = np.get<QString>("content");
+
+    currentContent = content;
+
+    clipboard->setText(content);
+
     return true;
 }
 
