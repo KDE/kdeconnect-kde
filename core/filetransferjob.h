@@ -24,8 +24,8 @@
 
 #include <KJob>
 
+#include <QElapsedTimer>
 #include <QIODevice>
-#include <QTime>
 #include <QSharedPointer>
 #include <QUrl>
 #include <QNetworkReply>
@@ -69,7 +69,7 @@ private:
     QNetworkReply* mReply;
     QString mFrom;
     QUrl mDestination;
-    QTime mTime;
+    QElapsedTimer mTimer;
     qulonglong mSpeedBytes;
     qint64 mWritten;
 };

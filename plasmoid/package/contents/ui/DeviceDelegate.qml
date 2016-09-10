@@ -55,7 +55,7 @@ PlasmaComponents.ListItem
                 }
 
                 id: ring
-                iconSource: "question"
+                iconSource: "irc-voice"
                 visible: findmyphone.available
                 tooltip: i18n("Ring my phone")
 

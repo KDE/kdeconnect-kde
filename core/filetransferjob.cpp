@@ -80,7 +80,7 @@ void FileTransferJob::doStart()
 void FileTransferJob::startTransfer()
 {
     setProcessedAmount(Bytes, 0);
-    mTime = QTime::currentTime();
+    mTimer.start();
     description(this, i18n("Receiving file over KDE Connect"),
                         { i18nc("File transfer origin", "From"), mFrom },
                         { i18nc("File transfer destination", "To"), mDestination.toLocalFile() });
@@ -91,7 +91,11 @@ void FileTransferJob::startTransfer()
 
     connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
         setProcessedAmount(Bytes, bytesSent);
-        emitSpeed(bytesSent/mTime.elapsed());
+
+        const auto elapsed = mTimer.elapsed();
+        if (elapsed > 0) {
+            emitSpeed(bytesSent / elapsed);
+        }
     });
     connect(mReply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
             this, &FileTransferJob::transferFailed);
