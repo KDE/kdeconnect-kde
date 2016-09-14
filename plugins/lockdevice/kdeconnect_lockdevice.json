@@ -13,8 +13,11 @@
         "Description[ca@valencia]": "Bloqueja els vostres sistemes", 
         "Description[ca]": "Bloqueja els vostres sistemes", 
         "Description[cs]": "Zamkne vaše systémy", 
+        "Description[da]": "Låser dine systemer", 
         "Description[de]": "Sperrt Ihre Systeme", 
+        "Description[el]": "Κλειδώνει τα συστήματά σας", 
         "Description[es]": "Bloquear sus sistemas", 
+        "Description[et]": "Oma süsteemide lukustamine", 
         "Description[fi]": "Lukitsee järjestelmäsi", 
         "Description[gl]": "Bloquea os seus sistemas.", 
         "Description[it]": "Blocca i tuoi sistemi", 
@@ -40,8 +43,10 @@
         "Name[ca@valencia]": "Bloqueja el dispositiu", 
         "Name[ca]": "Bloqueja el dispositiu", 
         "Name[cs]": "Uzamknout zařízení", 
+        "Name[da]": "LåsEnhed", 
         "Name[de]": "Gerätesperrung", 
         "Name[es]": "Bloquear dispositivo", 
+        "Name[et]": "Seadme lukustamine", 
         "Name[fi]": "Lukitse laite", 
         "Name[gl]": "Bloqueo do dispositivo", 
         "Name[it]": "Blocco dispositivo", 
@@ -64,11 +69,11 @@
         "Website": "https://kde.org"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.lock.request",
+        "kdeconnect.lock.request", 
         "kdeconnect.lock"
     ], 
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.lock.request",
+        "kdeconnect.lock.request", 
         "kdeconnect.lock"
     ]
 }

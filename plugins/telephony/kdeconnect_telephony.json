@@ -13,8 +13,11 @@
         "Description[ca@valencia]": "Mostra les notificacions de les trucades i SMS (properament es respondrà)", 
         "Description[ca]": "Mostra les notificacions de les trucades i SMS (properament es respondrà)", 
         "Description[cs]": "Zobrazit upozornění pro telefonáty a SMS (na odpovídání se pracuje)", 
+        "Description[da]": "Vis bekendtgørelser for opkald og sms (svarefunktionalitet kommer snart)", 
         "Description[de]": "Zeigt Benachrichtigungen für Anrufe und SMS", 
+        "Description[el]": "Εμφάνιση ειδοποιήσεων για κλήσεις και SMS (σύντομα και για απαντήσεις κλήσεων)", 
         "Description[es]": "Mostrar notificaciones para llamadas y SMS (el soporte para las contestaciones es inminente)", 
+        "Description[et]": "Kõnede ja SMS-ide märguannete näitamine (peagi ka vastamine)", 
         "Description[fi]": "Näytä puhelujen ja tekstiviestien ilmoitukset (vastaaminen tulossa pian)", 
         "Description[gl]": "Mostrar notificacións de chamadas e mensaxes SMS (no futuro tamén poderá contestar chamadas).", 
         "Description[hu]": "Értesítések megjelenítése hívásokról és SMS-ekről", 
@@ -41,8 +44,11 @@
         "Name[ca@valencia]": "Integració amb la telefonia", 
         "Name[ca]": "Integració amb la telefonia", 
         "Name[cs]": "Integrace telefonu", 
+        "Name[da]": "Integration af telefoni", 
         "Name[de]": "Telefon-Integration", 
+        "Name[el]": "Ενσωμάτωση τηλεφωνίας", 
         "Name[es]": "Integración con el teléfono", 
+        "Name[et]": "Telefoniga lõimimine", 
         "Name[fi]": "Puhelinintegrointi", 
         "Name[gl]": "Integración telefónica", 
         "Name[hu]": "Telefonintegráció", 
@@ -67,7 +73,7 @@
         "Website": "http://albertvaka.wordpress.com"
     }, 
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.telephony.request",
+        "kdeconnect.telephony.request", 
         "kdeconnect.sms.request"
     ], 
     "X-KdeConnect-SupportedPackageType": [
