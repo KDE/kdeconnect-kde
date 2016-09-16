@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>org.kde.kdeconnect.desktop</id>
+  <id>org.kde.kdeconnect.kcm.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
@@ -85,30 +85,7 @@
       <!--       <image>http://kde.org/images/screenshots/kalgebra.png</image> -->
     </screenshot>
   </screenshots>
-  <project_group>KDE Connect</project_group>
-  <project_group xml:lang="ca">KDE Connect</project_group>
-  <project_group xml:lang="ca-valencia">KDE Connect</project_group>
-  <project_group xml:lang="cs">KDE Connect</project_group>
-  <project_group xml:lang="da">KDE Connect</project_group>
-  <project_group xml:lang="de">KDE-Connect</project_group>
-  <project_group xml:lang="en-GB">KDE Connect</project_group>
-  <project_group xml:lang="es">KDE Connect</project_group>
-  <project_group xml:lang="et">KDE Connect</project_group>
-  <project_group xml:lang="fi">KDE Connect</project_group>
-  <project_group xml:lang="fr">KDE Connect</project_group>
-  <project_group xml:lang="gl">KDE Connect</project_group>
-  <project_group xml:lang="it">KDE Connect</project_group>
-  <project_group xml:lang="ko">KDE Connect</project_group>
-  <project_group xml:lang="nl">KDE Connect</project_group>
-  <project_group xml:lang="pl">KDE Connect</project_group>
-  <project_group xml:lang="pt">KDE Connect</project_group>
-  <project_group xml:lang="pt-BR">KDE Connect</project_group>
-  <project_group xml:lang="ru">KDE Connect</project_group>
-  <project_group xml:lang="sk">KDE Connect</project_group>
-  <project_group xml:lang="sv">KDE-anslut</project_group>
-  <project_group xml:lang="uk">KDE Connect</project_group>
-  <project_group xml:lang="x-test">xxKDE Connectxx</project_group>
-  <project_group xml:lang="zh-CN">KDE Connect</project_group>
+  <project_group>KDE</project_group>
   <provides>
     <binary>kdeconnectd</binary>
     <binary>kdeconnect-cli</binary>
