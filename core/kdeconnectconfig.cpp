@@ -39,8 +39,6 @@
 #include "dbushelper.h"
 #include "daemon.h"
 
-static const QString TRUSTED_DEVICES = QStringLiteral("trusted_devices_ssl");
-
 struct KdeConnectConfigPrivate {
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
@@ -51,6 +49,7 @@ struct KdeConnectConfigPrivate {
     QSslCertificate certificate; // Use QSslCertificate instead of QCA::Certificate due to compatibility with QSslSocket
 
     QSettings* config;
+    QSettings* trusted_devices;
 
 };
 
@@ -78,9 +77,9 @@ KdeConnectConfig::KdeConnectConfig()
 
     //.config/kdeconnect/config
     d->config = new QSettings(baseConfigDir().absoluteFilePath("config"), QSettings::IniFormat);
+    d->trusted_devices = new QSettings(baseConfigDir().absoluteFilePath("trusted_devices"), QSettings::IniFormat);
 
     //Register my own id if not there yet
-    d->config->beginGroup("myself");
     if (!d->config->contains("id")) {
         QString uuid = QUuid::createUuid().toString();
         DbusHelper::filterNonExportableCharacters(uuid);
@@ -88,7 +87,6 @@ KdeConnectConfig::KdeConnectConfig()
         d->config->sync();
         qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
     }
-    d->config->endGroup();
 
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
 
@@ -153,17 +151,13 @@ KdeConnectConfig::KdeConnectConfig()
 QString KdeConnectConfig::name()
 {
     QString defaultName = qgetenv("USER") + '@' + QHostInfo::localHostName();
-    d->config->beginGroup("myself");
     QString name = d->config->value("name", defaultName).toString();
-    d->config->endGroup();
     return name;
 }
 
 void KdeConnectConfig::setName(QString name)
 {
-    d->config->beginGroup("myself");
     d->config->setValue("name", name);
-    d->config->endGroup();
     d->config->sync();
 }
 
@@ -174,9 +168,7 @@ QString KdeConnectConfig::deviceType()
 
 QString KdeConnectConfig::deviceId()
 {
-    d->config->beginGroup("myself");
     QString id = d->config->value("id", "").toString();
-    d->config->endGroup();
     return id;
 }
 
@@ -214,70 +206,56 @@ QDir KdeConnectConfig::baseConfigDir()
 
 QStringList KdeConnectConfig::trustedDevices()
 {
-    d->config->beginGroup(TRUSTED_DEVICES);
-    const QStringList& list = d->config->childGroups();
-    d->config->endGroup();
+    const QStringList& list = d->trusted_devices->childGroups();
     return list;
 }
 
 
 void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type)
 {
-    d->config->beginGroup(TRUSTED_DEVICES);
-    d->config->beginGroup(id);
-    d->config->setValue("name", name);
-    d->config->setValue("type", type);
-    d->config->endGroup();
-    d->config->endGroup();
-    d->config->sync();
+    d->trusted_devices->beginGroup(id);
+    d->trusted_devices->setValue("name", name);
+    d->trusted_devices->setValue("type", type);
+    d->trusted_devices->endGroup();
+    d->trusted_devices->sync();
 
     QDir().mkpath(deviceConfigDir(id).path());
 }
 
 KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
 {
-    d->config->beginGroup(TRUSTED_DEVICES);
-    d->config->beginGroup(id);
+    d->trusted_devices->beginGroup(id);
 
     KdeConnectConfig::DeviceInfo info;
-    info.deviceName = d->config->value("name", QLatin1String("unnamed")).toString();
-    info.deviceType = d->config->value("type", QLatin1String("unknown")).toString();
+    info.deviceName = d->trusted_devices->value("name", QLatin1String("unnamed")).toString();
+    info.deviceType = d->trusted_devices->value("type", QLatin1String("unknown")).toString();
 
-    d->config->endGroup();
-    d->config->endGroup();
+    d->trusted_devices->endGroup();
     return info;
 }
 
 void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
 {
-    d->config->beginGroup(TRUSTED_DEVICES);
-    d->config->beginGroup(deviceId);
-    d->config->remove(QString());
-    d->config->endGroup();
-    d->config->endGroup();
-    d->config->sync();
+    d->trusted_devices->remove(deviceId);
+    d->trusted_devices->sync();
     //We do not remove the config files.
 }
 
 // Utility functions to set and get a value
 void KdeConnectConfig::setDeviceProperty(QString deviceId, QString key, QString value)
 {
-    d->config->beginGroup(TRUSTED_DEVICES);
-    d->config->beginGroup(deviceId);
-    d->config->setValue(key, value);
-    d->config->endGroup();
-    d->config->endGroup();
-    d->config->sync();
+    d->trusted_devices->beginGroup(deviceId);
+    d->trusted_devices->setValue(key, value);
+    d->trusted_devices->endGroup();
+    d->trusted_devices->sync();
 }
 
 QString KdeConnectConfig::getDeviceProperty(QString deviceId, QString key, QString defaultValue)
 {
     QString value;
-    d->config->beginGroup(TRUSTED_DEVICES);
-    d->config->beginGroup(deviceId);
-    value = d->config->value(key, defaultValue).toString();
-    d->config->endGroup();
-    d->config->endGroup();
+    d->trusted_devices->beginGroup(deviceId);
+    value = d->trusted_devices->value(key, defaultValue).toString();
+    d->trusted_devices->endGroup();
     return value;
 }
 
