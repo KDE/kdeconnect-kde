@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Receive and send files, URLs or plain text easily", 
+        "Description[ar]": "استقبل الملفّات أو العناوين أو النّصوص الصّرفة وأرسلها بسهولة", 
         "Description[ast]": "Recibi y unvia ficheros, URLs o testu planu cenciellamente", 
         "Description[ca@valencia]": "Rep i envia fitxers, URL o text pla amb facilitat", 
         "Description[ca]": "Rep i envia fitxers, URL o text pla amb facilitat", 
@@ -40,6 +41,7 @@
         "Id": "kdeconnect_share", 
         "License": "GPL", 
         "Name": "Share and receive", 
+        "Name[ar]": "شارك واستقبل", 
         "Name[ast]": "Compartir y recibir", 
         "Name[ca@valencia]": "Comparteix i rep", 
         "Name[ca]": "Comparteix i rep", 

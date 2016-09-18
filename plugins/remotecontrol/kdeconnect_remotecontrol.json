@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Control Remote systems", 
+        "Description[ar]": "تحكّم بالأنظمة البعيدة", 
         "Description[ast]": "Controla sistemes remotos", 
         "Description[ca@valencia]": "Sistemes de control remot", 
         "Description[ca]": "Sistemes de control remot", 
@@ -39,6 +40,7 @@
         "Id": "kdeconnect_remotecontrol", 
         "License": "GPL", 
         "Name": "RemoteControl", 
+        "Name[ar]": "التّحكّم عن بعد", 
         "Name[ast]": "Control remotu", 
         "Name[ca@valencia]": "Control remot", 
         "Name[ca]": "Control remot", 

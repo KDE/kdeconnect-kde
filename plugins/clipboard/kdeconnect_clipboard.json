@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Share the clipboard between devices", 
+        "Description[ar]": "شارك الحافظة بين الجهازين", 
         "Description[ast]": "Comparte'l cartafueyu ente los preseos", 
         "Description[ca@valencia]": "Comparteix el porta-retalls entre dispositius", 
         "Description[ca]": "Comparteix el porta-retalls entre dispositius", 
@@ -40,6 +41,7 @@
         "Id": "kdeconnect_clipboard", 
         "License": "GPL", 
         "Name": "Clipboard", 
+        "Name[ar]": "الحافظة", 
         "Name[ast]": "Cartafueyu", 
         "Name[ca@valencia]": "Porta-retalls", 
         "Name[ca]": "Porta-retalls", 

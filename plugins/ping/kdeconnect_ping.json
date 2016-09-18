@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Send and receive pings", 
+        "Description[ar]": "أرسل الوخزات واستقبلها", 
         "Description[ast]": "Unvia y recibe pings", 
         "Description[ca@valencia]": "Envia i rep pings", 
         "Description[ca]": "Envia i rep pings", 
@@ -40,6 +41,7 @@
         "Id": "kdeconnect_ping", 
         "License": "GPL", 
         "Name": "Ping", 
+        "Name[ar]": "وخزة", 
         "Name[fi]": "Tiedustelupaketti", 
         "Name[ko]": "핑", 
         "Name[pt]": "Contacto", 

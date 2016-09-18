@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Show notifications for calls and SMS (answering coming soon)", 
+        "Description[ar]": "أظهر إخطارات للمكالمات والرّسائل (الإجابة عليها قادم قريبًا)", 
         "Description[ast]": "Amuesa avisos pa llamaes y SMS (la rempuesta vendrá sero)", 
         "Description[ca@valencia]": "Mostra les notificacions de les trucades i SMS (properament es respondrà)", 
         "Description[ca]": "Mostra les notificacions de les trucades i SMS (properament es respondrà)", 
@@ -40,6 +41,7 @@
         "Id": "kdeconnect_telephony", 
         "License": "GPL", 
         "Name": "Telephony integration", 
+        "Name[ar]": "تكامل الهاتف", 
         "Name[ast]": "Integración telefónica", 
         "Name[ca@valencia]": "Integració amb la telefonia", 
         "Name[ca]": "Integració amb la telefonia", 

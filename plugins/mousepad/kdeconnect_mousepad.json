@@ -5,10 +5,12 @@
             {
                 "Email": "ahmedibrahimkhali@gmail.com", 
                 "Name": "Ahmed I. Khalil", 
+                "Name[ar]": "أحمد إبراهيم خليل", 
                 "Name[x-test]": "xxAhmed I. Khalilxx"
             }
         ], 
         "Description": "Use your phone as a touchpad and keyboard", 
+        "Description[ar]": "استخدم الهاتف كفأرة ولوحة مفاتيح", 
         "Description[ast]": "Usa'l to preséu como un panel táutil y tecláu", 
         "Description[ca@valencia]": "Empra el telèfon com un ratolí tàctil i teclat", 
         "Description[ca]": "Empra el telèfon com un ratolí tàctil i teclat", 
@@ -40,6 +42,7 @@
         "Id": "kdeconnect_mousepad", 
         "License": "GPL", 
         "Name": "Virtual input", 
+        "Name[ar]": "دخل وهميّ", 
         "Name[ast]": "Entrada virtual", 
         "Name[ca@valencia]": "Entrada virtual", 
         "Name[ca]": "Entrada virtual", 

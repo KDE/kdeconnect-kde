@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Inhibit the screensaver when the device is connected", 
+        "Description[ar]": "امنع حافظة الشّاشة إن كان الجهاز متّصلًا", 
         "Description[ast]": "Inhibe'l curiapantalles cuando ta coneutáu'l preséu", 
         "Description[ca@valencia]": "Inhibeix l'estalvi de pantalla quan es connecta el dispositiu", 
         "Description[ca]": "Inhibeix l'estalvi de pantalla quan es connecta el dispositiu", 
@@ -40,6 +41,7 @@
         "Id": "kdeconnect_screensaver_inhibit", 
         "License": "GPL", 
         "Name": "Inhibit screensaver", 
+        "Name[ar]": "امنع حافظة الشّاشة", 
         "Name[ast]": "Inhibir curiapantalles", 
         "Name[ca@valencia]": "Inhibeix l'estalvi de pantalla", 
         "Name[ca]": "Inhibeix l'estalvi de pantalla", 

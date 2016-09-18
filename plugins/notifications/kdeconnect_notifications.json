@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Show device's notifications on this computer and keep them in sync", 
+        "Description[ar]": "أظهر إخطارات الجهاز على هذا الحاسوب وأبقها متزامنة", 
         "Description[ast]": "Amuesa los avisos del preséu nesti ordenador y caltiénlos sincronizaos", 
         "Description[ca@valencia]": "Mostra les notificacions del dispositiu a l'ordinador i les manté sincronitzades", 
         "Description[ca]": "Mostra les notificacions del dispositiu a l'ordinador i les manté sincronitzades", 
@@ -33,6 +34,7 @@
         "Id": "kdeconnect_notifications", 
         "License": "GPL", 
         "Name": "Receive notifications", 
+        "Name[ar]": "استقبل الإخطارات", 
         "Name[ast]": "Recibimientu d'avisos", 
         "Name[ca@valencia]": "Recepció de les notificacions", 
         "Name[ca]": "Recepció de les notificacions", 

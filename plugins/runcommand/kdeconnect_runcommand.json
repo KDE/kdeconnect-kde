@@ -14,6 +14,7 @@
             }
         ], 
         "Description": "Execute console commands remotely", 
+        "Description[ar]": "نفّذ أوامر طرفيّة عن بعد", 
         "Description[ast]": "Executa los comandos de consola de mou remotu", 
         "Description[ca@valencia]": "Executa ordes de la consola de forma remota", 
         "Description[ca]": "Executa ordres de la consola de forma remota", 
@@ -43,6 +44,7 @@
         "Id": "kdeconnect_runcommand", 
         "License": "GPL", 
         "Name": "Run commands", 
+        "Name[ar]": "شغّل أوامر", 
         "Name[ast]": "Executar comandos", 
         "Name[ca@valencia]": "Executa ordes", 
         "Name[ca]": "Executa ordres", 

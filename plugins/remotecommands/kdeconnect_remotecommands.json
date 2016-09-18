@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Trigger commands predefined on the remote device", 
+        "Description[ar]": "نفّذ أوامر معرّفة مسبقًا في الجهاز البعيد", 
         "Description[ast]": "Aiciona comandos predefiníos nel preséu remotu", 
         "Description[ca@valencia]": "Activa ordes predefinides en el dispositiu remot", 
         "Description[ca]": "Activa ordres predefinides en el dispositiu remot", 
@@ -31,6 +32,7 @@
         "Id": "kdeconnect_remotecommands", 
         "License": "GPL", 
         "Name": "Execute remote commands", 
+        "Name[ar]": "نفّذ أوامر بعيدة", 
         "Name[ast]": "Execución de comandos remotos", 
         "Name[ca@valencia]": "Executa ordes remotes", 
         "Name[ca]": "Executa ordres remotes", 
