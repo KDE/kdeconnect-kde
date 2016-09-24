@@ -121,6 +121,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << m_mountPoint
         << "-p" << np.get<QString>("port")
         << "-f"
+        << "-F" << "/dev/null" //Do not use ~/.ssh/config
         << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
         << "-o" << "UserKnownHostsFile=/dev/null" //Prevent storing as a known host
