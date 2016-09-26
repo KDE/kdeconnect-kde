@@ -9,6 +9,13 @@
             }
         ], 
         "Description": "Show notifications for calls and SMS", 
+        "Description[ca]": "Mostra les notificacions de les trucades i els SMS", 
+        "Description[de]": "Benachrichtigungen für Anrufe und SMS anzeigen", 
+        "Description[nl]": "Meldingen tonen van oproepen en SMSjes", 
+        "Description[pt]": "Mostrar notificações para as chamadas e SMS", 
+        "Description[sv]": "Visa underrättelser om samtal och SMS", 
+        "Description[uk]": "Показ сповіщень щодо дзвінків і SMS", 
+        "Description[x-test]": "xxShow notifications for calls and SMSxx", 
         "EnabledByDefault": true, 
         "Icon": "call-start", 
         "Id": "kdeconnect_telephony", 
