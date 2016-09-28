@@ -8,7 +8,7 @@
                 "Name[x-test]": "xxAleix Polxx"
             }
         ], 
-        "Description": "Trigger commands predefined on the remote device", 
+        "Description": "Executes commands from remote devices among a locally defined set",
         "Description[ca@valencia]": "Activa ordes predefinides en el dispositiu remot", 
         "Description[ca]": "Activa ordres predefinides en el dispositiu remot", 
         "Description[cs]": "Spouštět příkazy předpřipravené na vzdáleném zařízení", 
@@ -28,7 +28,7 @@
         "Icon": "system-run", 
         "Id": "kdeconnect_remotecommands", 
         "License": "GPL", 
-        "Name": "Execute remote commands", 
+        "Name": "Host remote commands",
         "Name[ca@valencia]": "Executa ordes remotes", 
         "Name[ca]": "Executa ordres remotes", 
         "Name[cs]": "Spouštět příkazy vzdáleně", 
