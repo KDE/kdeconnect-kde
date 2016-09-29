@@ -214,6 +214,7 @@ void Daemon::setAnnouncedName(const QString &name)
     qCDebug(KDECONNECT_CORE()) << "Announcing name";
     KdeConnectConfig::instance()->setName(name);
     forceOnNetworkChange();
+    Q_EMIT announcedNameChanged(name);
 }
 
 QString Daemon::announcedName()

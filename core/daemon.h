@@ -73,6 +73,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
     Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed
     Q_SCRIPTABLE void deviceVisibilityChanged(const QString& id, bool isVisible);
+    Q_SCRIPTABLE void announcedNameChanged(const QString &announcedName);
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);

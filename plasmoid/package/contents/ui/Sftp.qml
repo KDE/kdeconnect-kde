@@ -27,8 +27,7 @@ QtObject {
 
     id: root
 
-    property alias deviceId: checker.deviceId
-    readonly property alias device: checker.device
+    property alias device: checker.device
     readonly property alias available: checker.available
 
     readonly property PluginChecker pluginChecker: PluginChecker {
@@ -45,7 +44,7 @@ QtObject {
 
     onAvailableChanged: {
         if (available) {
-            sftp = SftpDbusInterfaceFactory.create(deviceId)
+            sftp = SftpDbusInterfaceFactory.create(device.id())
         } else {
             sftp = null
         }

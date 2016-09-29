@@ -27,8 +27,7 @@ QtObject {
   
     id: root
     
-    property alias deviceId: checker.deviceId
-    readonly property alias device: checker.device
+    property alias device: checker.device
     readonly property alias available: checker.available
 
     readonly property PluginChecker pluginChecker: PluginChecker {
@@ -55,7 +54,7 @@ QtObject {
     
     onAvailableChanged: {
         if (available) {
-            battery = DeviceBatteryDbusInterfaceFactory.create(deviceId)
+            battery = DeviceBatteryDbusInterfaceFactory.create(device.id())
             
             battery.stateChanged.connect(function(c) {charging = c})
             battery.chargeChanged.connect(function(c) {charge = c})

@@ -83,6 +83,10 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
 
     kcmUi->rename_label->setText(daemon->announcedName());
     kcmUi->rename_edit->setText(daemon->announcedName());
+    connect(daemon, SIGNAL(announcedNameChanged(QString)),
+            kcmUi->rename_edit, SLOT(setText(QString)));
+    connect(daemon, SIGNAL(announcedNameChanged(QString)),
+            kcmUi->rename_label, SLOT(setText(QString)));
     setRenameMode(false);
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);

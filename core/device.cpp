@@ -97,7 +97,7 @@ QStringList Device::loadedPlugins() const
 
 void Device::reloadPlugins()
 {
-    QHash<QString, KdeConnectPlugin*> newPluginMap;
+    QHash<QString, KdeConnectPlugin*> newPluginMap, oldPluginMap = m_plugins;
     QMultiMap<QString, KdeConnectPlugin*> newPluginsByIncomingCapability;
 
     if (isTrusted() && isReachable()) { //Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
@@ -127,7 +127,7 @@ void Device::reloadPlugins()
         }
     }
 
-    const bool differentPlugins = m_plugins != newPluginMap;
+    const bool differentPlugins = oldPluginMap != newPluginMap;
 
     //Erase all left plugins in the original map (meaning that we don't want
     //them anymore, otherwise they would have been moved to the newPluginMap)

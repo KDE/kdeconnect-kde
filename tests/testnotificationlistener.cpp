@@ -22,8 +22,10 @@
 #include <QApplication>
 #include <QNetworkAccessManager>
 #include <QTest>
-#include <QTemporaryFile>
+#include <QBuffer>
 #include <QStandardPaths>
+#include <QImage>
+#include <QColor>
 
 #include <kiconloader.h>
 
@@ -85,9 +87,15 @@ public:
         return sentPackages;
     }
 
-    const NetworkPackage* getLastPackage() const
+    NetworkPackage* getLastPackage()
     {
         return lastPackage;
+    }
+
+    void deleteLastPackage()
+    {
+        delete lastPackage;
+        lastPackage = nullptr;
     }
 
 public Q_SLOTS:
@@ -95,7 +103,7 @@ public Q_SLOTS:
     {
         ++sentPackages;
         // copy package manually to allow for inspection (can't use copy-constructor)
-        delete lastPackage;
+        deleteLastPackage();
         lastPackage = new NetworkPackage(np.type());
         Q_ASSERT(lastPackage);
         for (QVariantMap::ConstIterator iter = np.body().constBegin();
@@ -126,6 +134,22 @@ public:
     void setApplications(const QHash<QString, NotifyingApplication>& value)
     {
         applications = value;
+    }
+
+protected:
+    bool parseImageDataArgument(const QVariant& argument, int& width,
+                                int& height, int& rowStride, int& bitsPerSample,
+                                int& channels, bool& hasAlpha,
+                                QByteArray& imageData) const override
+    {
+        width = argument.toMap().value("width").toInt();
+        height = argument.toMap().value("height").toInt();
+        rowStride = argument.toMap().value("rowStride").toInt();
+        bitsPerSample = argument.toMap().value("bitsPerSample").toInt();
+        channels = argument.toMap().value("channels").toInt();
+        hasAlpha = argument.toMap().value("hasAlpha").toBool();
+        imageData = argument.toMap().value("imageData").toByteArray();
+        return true;
     }
 
 };
@@ -327,24 +351,37 @@ void TestNotificationListener::testNotify()
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
 
     // icon synchronization:
+    QStringList iconPaths;
+    // appIcon
     int count = 0;
     Q_FOREACH (const auto& iconName, KIconLoader::global()->queryIcons(-KIconLoader::SizeEnormous, KIconLoader::Application)) {
         if (!iconName.endsWith(".png"))
             continue;
         if (count++ > 3) // max 3 iterations
             break;
+        iconPaths.append(iconName); // memorize some paths for later
 
         // existing icons are sync-ed if requested
         plugin->config()->set("generalSynchronizeIcons", true);
         QFileInfo fi(iconName);
-        //qDebug() << "XXX" << iconName << fi.baseName() << fi.size();
         retId = listener->Notify(appName, replacesId, fi.baseName(), summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
         QCOMPARE(++proxiedNotifications, d->getSentPackages());
         QVERIFY(d->getLastPackage()->hasPayload());
         QCOMPARE(d->getLastPackage()->payloadSize(), fi.size());
+        // works also with abolute paths
+        retId = listener->Notify(appName, replacesId, iconName, summary, body, {}, {{}}, 0);
+        QCOMPARE(retId, replacesId);
+        QCOMPARE(++proxiedNotifications, d->getSentPackages());
+        QVERIFY(d->getLastPackage()->hasPayload());
+        QCOMPARE(d->getLastPackage()->payloadSize(), fi.size());
+        // extensions other than png are not accepted:
+        retId = listener->Notify(appName, replacesId, iconName + ".svg", summary, body, {}, {{}}, 0);
+        QCOMPARE(retId, replacesId);
+        QCOMPARE(++proxiedNotifications, d->getSentPackages());
+        QVERIFY(!d->getLastPackage()->hasPayload());
 
-        // otherwise no payload:
+        // if sync not requested no payload:
         plugin->config()->set("generalSynchronizeIcons", false);
         retId = listener->Notify(appName, replacesId, fi.baseName(), summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
@@ -352,6 +389,111 @@ void TestNotificationListener::testNotify()
         QVERIFY(!d->getLastPackage()->hasPayload());
         QCOMPARE(d->getLastPackage()->payloadSize(), 0);
     }
+    plugin->config()->set("generalSynchronizeIcons", true);
+
+    // image-path in hints
+    if (iconPaths.size() > 0) {
+        retId = listener->Notify(appName, replacesId, iconPaths.size() > 1 ? iconPaths[1] : icon, summary, body, {}, {{"image-path", iconPaths[0]}}, 0);
+        QCOMPARE(retId, replacesId);
+        QCOMPARE(++proxiedNotifications, d->getSentPackages());
+        QVERIFY(d->getLastPackage()->hasPayload());
+        QFileInfo hintsFi(iconPaths[0]);
+        // image-path has priority over appIcon parameter:
+        QCOMPARE(d->getLastPackage()->payloadSize(), hintsFi.size());
+    }
+
+    // image_path in hints
+    if (iconPaths.size() > 0) {
+        retId = listener->Notify(appName, replacesId, iconPaths.size() > 1 ? iconPaths[1] : icon, summary, body, {}, {{"image_path", iconPaths[0]}}, 0);
+        QCOMPARE(retId, replacesId);
+        QCOMPARE(++proxiedNotifications, d->getSentPackages());
+        QVERIFY(d->getLastPackage()->hasPayload());
+        QFileInfo hintsFi(iconPaths[0]);
+        // image_path has priority over appIcon parameter:
+        QCOMPARE(d->getLastPackage()->payloadSize(), hintsFi.size());
+    }
+
+    // image-data in hints
+    // set up:
+    QBuffer *buffer;
+    QImage image;
+    int width = 2, height = 2, rowStride = 4*width, bitsPerSample = 8,
+            channels = 4;
+    bool hasAlpha = 1;
+    char rawData[] = { 0x01, 0x02, 0x03, 0x04,  // raw rgba data
+                       0x11, 0x12, 0x13, 0x14,
+                       0x21, 0x22, 0x23, 0x24,
+                       0x31, 0x32, 0x33, 0x34 };
+    QByteArray byteData(rawData, rowStride*height);
+    QVariantMap imageData = {{"width", width}, {"height", height}, {"rowStride", rowStride},
+                            {"bitsPerSample", bitsPerSample}, {"channels", channels},
+                            {"hasAlpha", hasAlpha}, {"imageData", rawData}};
+    QVariantMap hints;
+#define COMPARE_PIXEL(x, y) \
+    QCOMPARE(qRed(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 0]); \
+    QCOMPARE(qGreen(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 1]); \
+    QCOMPARE(qBlue(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 2]); \
+    QCOMPARE(qAlpha(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 3]);
+
+    hints.insert("image-data", imageData);
+    if (iconPaths.size() > 0)
+        hints.insert("image-path", iconPaths[0]);
+    retId = listener->Notify(appName, replacesId, icon, summary, body, {}, hints, 0);
+    QCOMPARE(retId, replacesId);
+    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QVERIFY(d->getLastPackage()->hasPayload());
+    buffer = dynamic_cast<QBuffer*>(d->getLastPackage()->payload().data());
+    QCOMPARE(d->getLastPackage()->payloadSize(), buffer->size());
+    // image-data is attached as png data
+    QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
+    // image-data has priority over image-path:
+    QCOMPARE(image.byteCount(), rowStride*height);
+    // rgba -> argb conversion was done correctly:
+    COMPARE_PIXEL(0,0);
+    COMPARE_PIXEL(1,0);
+    COMPARE_PIXEL(0,1);
+    COMPARE_PIXEL(1,1);
+
+    // same for image_data in hints
+    hints.clear();
+    hints.insert("image-data", imageData);
+    if (iconPaths.size() > 0)
+        hints.insert("image_path", iconPaths[0]);
+    retId = listener->Notify(appName, replacesId, icon, summary, body, {}, hints, 0);
+    QCOMPARE(retId, replacesId);
+    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QVERIFY(d->getLastPackage()->hasPayload());
+    buffer = dynamic_cast<QBuffer*>(d->getLastPackage()->payload().data());
+    QCOMPARE(d->getLastPackage()->payloadSize(), buffer->size());
+    // image-data is attached as png data
+    QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
+    // image_data has priority over image_path/image-path:
+    QCOMPARE(image.byteCount(), rowStride*height);
+    // rgba -> argb conversion was done correctly:
+    COMPARE_PIXEL(0,0);
+    COMPARE_PIXEL(1,0);
+    COMPARE_PIXEL(0,1);
+    COMPARE_PIXEL(1,1);
+
+    // same for icon_data, which has lowest priority
+    hints.clear();
+    hints.insert("icon_data", imageData);
+    retId = listener->Notify(appName, replacesId, "", summary, body, {}, hints, 0);
+    QCOMPARE(retId, replacesId);
+    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QVERIFY(d->getLastPackage());
+    QVERIFY(d->getLastPackage()->hasPayload());
+    buffer = dynamic_cast<QBuffer*>(d->getLastPackage()->payload().data());
+    // image-data is attached as png data
+    QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
+    QCOMPARE(image.byteCount(), rowStride*height);
+    // rgba -> argb conversion was done correctly:
+    COMPARE_PIXEL(0,0);
+    COMPARE_PIXEL(1,0);
+    COMPARE_PIXEL(0,1);
+    COMPARE_PIXEL(1,1);
+
+#undef COMPARE_PIXEL
 }
 
 

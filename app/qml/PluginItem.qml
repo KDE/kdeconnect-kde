@@ -1,5 +1,5 @@
-/**
- * Copyright 2014 Samoilenko Yuri <kinnalru@gmail.com>
+/*
+ * Copyright 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,36 +18,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.1
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQuick 2.2
+import QtQuick.Controls 1.1
+import QtQuick.Layouts 1.1
+import org.kde.kirigami 1.0 as Kirigami
 import org.kde.kdeconnect 1.0
 
-QtObject {
+Kirigami.BasicListItem
+{
+    property alias pluginName: checker.pluginName
+    property var interfaceFactory
+    property string component
 
-    id: root
-
-    property alias device: checker.device
-    readonly property alias available: checker.available
-
-    readonly property PluginChecker pluginChecker: PluginChecker {
+    readonly property var checker: PluginChecker {
         id: checker
-        pluginName: "findmyphone"
+        device: deviceView.currentDevice
     }
+    visible: checker.available
+    onClicked: {
+        if (component === "")
+            return;
 
-    property variant findMyPhone: null
-
-    function ring() {
-        if (findMyPhone) {
-            findMyPhone.ring();
-        }
-    }
-
-    onAvailableChanged: {
-        if (available) {
-            findMyPhone = FindMyPhoneDbusInterfaceFactory.create(device.id())
-        } else {
-            findMyPhone = null
-        }
+        var obj = interfaceFactory.create(checker.deviceId);
+        var page = pageStack.push(
+            component,
+            { pluginInterface: obj }
+        );
+        obj.parent = page
     }
 }

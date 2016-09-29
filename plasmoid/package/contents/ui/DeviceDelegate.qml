@@ -27,10 +27,8 @@ import org.kde.kdeconnect 1.0
 PlasmaComponents.ListItem
 {
     id: root
-    property string deviceId: model.deviceId
-   
+    readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
 
-   
     Column {
         width: parent.width
         
@@ -53,7 +51,7 @@ PlasmaComponents.ListItem
             {
                 FindMyPhone {
                     id: findmyphone
-                    deviceId: root.deviceId
+                    device: root.device
                 }
 
                 id: ring
@@ -71,7 +69,7 @@ PlasmaComponents.ListItem
             {
                 Sftp {
                     id: sftp
-                    deviceId: root.deviceId
+                    device: root.device
                 }
 
                 id: browse
@@ -93,7 +91,7 @@ PlasmaComponents.ListItem
 
             Battery {
                 id: battery
-                deviceId: root.deviceId
+                device: root.device
             }
 
             sectionDelegate: true
@@ -129,7 +127,7 @@ PlasmaComponents.ListItem
             id: notificationsView
             model: NotificationsModel {
                 id: notificationsModel
-                deviceId: root.deviceId
+                deviceId: root.device.id()
             }
             delegate: PlasmaComponents.ListItem {
                 PlasmaComponents.Label {

@@ -45,7 +45,7 @@ Kirigami.Page
                 property list<QtObject> actions: [
                     Kirigami.Action {
                         onTriggered: deviceView.currentDevice.unpair()
-                        text: i18n("UnPair")
+                        text: i18n("Unpair")
                     },
                     Kirigami.Action {
                         text: i18n("Send Ping")
@@ -59,40 +59,32 @@ Kirigami.Page
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                Kirigami.BasicListItem {
-                    readonly property var fu: PluginChecker {
-                        id: mprisChecker
-                        pluginName: "mpriscontrol"
-                    }
-                    enabled: mprisChecker.available
+                PluginItem {
                     label: i18n("Multimedia control")
-                    onClicked: pageStack.push(
-                        "qrc:/qml/mpris.qml",
-                        { mprisInterface: MprisDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
-                    );
+                    interfaceFactory: MprisDbusInterfaceFactory
+                    component: "qrc:/qml/mpris.qml"
+                    pluginName: "mprisremote"
                 }
-                Kirigami.BasicListItem {
-                    readonly property var fu: PluginChecker {
-                        id: mousepadChecker
-                        pluginName: "mousepad"
-                    }
-                    enabled: mousepadChecker.available
+                PluginItem {
                     label: i18n("Remote input")
-                    onClicked: pageStack.push(
-                        "qrc:/qml/mousepad.qml",
-                        { remoteControlInterface: RemoteControlDbusInterfaceFactory.create(deviceView.currentDevice.id()) }
-                    );
+                    interfaceFactory: RemoteControlDbusInterfaceFactory
+                    component: "qrc:/qml/mousepad.qml"
+                    pluginName: "remotecontrol"
                 }
-                Kirigami.BasicListItem {
-                    readonly property var fu: PluginChecker {
-                        id: lockdeviceChecker
-                        pluginName: "lockdevice"
-                    }
-                    enabled: lockdeviceChecker.available
-                    property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                PluginItem {
+                    readonly property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                    pluginName: "lockdevice"
                     label: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
                     onClicked: {
                         lockIface.isLocked = !lockIface.isLocked;
+                    }
+                }
+                PluginItem {
+                    readonly property var findmyphoneIface: FindMyPhoneDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                    pluginName: "findmyphone"
+                    label: i18n("Find Device")
+                    onClicked: {
+                        findmyphoneIface.ring()
                     }
                 }
 

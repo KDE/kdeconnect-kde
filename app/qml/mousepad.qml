@@ -27,7 +27,7 @@ Kirigami.Page
 {
     id: mousepad
     title: i18n("Remote Control")
-    property QtObject remoteControlInterface
+    property QtObject pluginInterface
 
     ColumnLayout
     {
@@ -39,14 +39,14 @@ Kirigami.Page
             Layout.fillHeight: true
             property var lastPos: Qt.point(-1, -1)
 
-            onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
+            onClicked: mousepad.pluginInterface.sendCommand("singleclick", true);
 
             onPositionChanged: {
                 if (lastPos.x > -1) {
     //                 console.log("move", mouse.x, mouse.y, lastPos)
                     var delta = Qt.point(mouse.x-lastPos.x, mouse.y-lastPos.y);
 
-                    remoteControlInterface.moveCursor(delta);
+                    pluginInterface.moveCursor(delta);
                 }
                 lastPos = Qt.point(mouse.x, mouse.y);
             }
@@ -59,15 +59,15 @@ Kirigami.Page
 
             Button {
                 Layout.fillWidth: true
-                onClicked: mousepad.remoteControlInterface.sendCommand("singleclick", true);
+                onClicked: mousepad.pluginInterface.sendCommand("singleclick", true);
             }
             Button {
                 Layout.fillWidth: true
-                onClicked: mousepad.remoteControlInterface.sendCommand("middleclick", true);
+                onClicked: mousepad.pluginInterface.sendCommand("middleclick", true);
             }
             Button {
                 Layout.fillWidth: true
-                onClicked: mousepad.remoteControlInterface.sendCommand("rightclick", true);
+                onClicked: mousepad.pluginInterface.sendCommand("rightclick", true);
             }
         }
     }

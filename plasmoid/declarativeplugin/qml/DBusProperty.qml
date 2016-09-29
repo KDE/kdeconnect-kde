@@ -1,6 +1,5 @@
 /**
- * Copyright 2014 Samoilenko Yuri <kinnalru@gmail.com>
- * Copyright 2016 David Kahles <david.kahles96@gmail.com>
+ * Copyright 2016 Aleix Pol Gonzalez <aleixpol@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -23,28 +22,48 @@ import QtQml 2.2
 import org.kde.kdeconnect 1.0
 
 QtObject {
+    id: prop
+    property QtObject object: null
+    property string read
+    property string change: read+"Changed"
 
-    id: root
+    Component.onCompleted: get();
 
-    property alias device: conn.target
-    property string pluginName: ""
-    property bool available: false
-
-    readonly property Connections connection: Connections {
-        id: conn
-        onPluginsChanged: pluginsChanged()
+    onChangeChanged: {
+        if (object) {
+            var theSignal = object[change];
+            if (theSignal) {
+                theSignal.connect(valueReceived);
+            } else {
+                console.warn("couldn't find signal", change, "for", object)
+            }
+        }
     }
 
-    Component.onCompleted: pluginsChanged()
+    function valueReceived(val) {
+        if (!val) {
+            get();
+        } else {
+            _value = val;
+        }
+    }
+
+    property var defaultValue
+    property var _value: defaultValue
+    readonly property var value: _value
 
     readonly property var v: DBusAsyncResponse {
         id: response
         autoDelete: false
-        onSuccess: { root.available = result; }
-        onError: { root.available = false }
+        onSuccess: {
+            prop._value = result;
+        }
+        onError: {
+            console.warn("failed call", object, read, write, change)
+        }
     }
 
-    function pluginsChanged() {
-        response.setPendingCall(device.hasPlugin("kdeconnect_" + pluginName))
+    function get() {
+        response.setPendingCall(object[read]());
     }
 }

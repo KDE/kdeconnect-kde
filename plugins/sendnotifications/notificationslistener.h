@@ -19,7 +19,10 @@
  */
 
 #include <QtDBus/QDBusAbstractAdaptor>
+#include <QtDBus/QDBusArgument>
 #include <core/device.h>
+#include <QBuffer>
+#include <QFile>
 
 class KdeConnectPlugin;
 class Notification;
@@ -37,6 +40,15 @@ public:
 protected:
     KdeConnectPlugin* mPlugin;
     QHash<QString, NotifyingApplication> applications;
+
+    // virtual helper function to make testing possible (QDBusArgument can not
+    // be injected without making a DBUS-call):
+    virtual bool parseImageDataArgument(const QVariant& argument, int& width,
+                                        int& height, int& rowStride, int& bitsPerSample,
+                                        int& channels, bool& hasAlpha,
+                                        QByteArray& imageData) const;
+    QSharedPointer<QIODevice> iconForImageData(const QVariant& argument) const;
+    QSharedPointer<QIODevice> iconForIconName(const QString& iconName) const;
 
 public Q_SLOTS:
     Q_SCRIPTABLE uint Notify(const QString&, uint, const QString&,

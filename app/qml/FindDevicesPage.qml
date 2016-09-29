@@ -26,6 +26,7 @@ import org.kde.kdeconnect 1.0
 
 Kirigami.Page
 {
+    objectName: "FindDevices"
     title: i18n("Pair")
     ScrollView {
         anchors.fill: parent
@@ -55,8 +56,8 @@ Kirigami.Page
                 label: display + "\n" + toolTip
                 enabled: !(status & DevicesModel.Paired)
                 onClicked: {
-                    root.pageStack.clear()
-                    root.pageStack.push(
+                    pageStack.clear()
+                    pageStack.push(
                         "qrc:/qml/DevicePage.qml",
                         {currentDevice: device}
                     );
