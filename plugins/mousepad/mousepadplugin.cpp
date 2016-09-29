@@ -138,6 +138,21 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
 }
 
 #if HAVE_X11
+bool isLeftHanded(Display * display)
+{
+    unsigned char map[20];
+     int num_buttons = XGetPointerMapping(display, map, 20);
+    if( num_buttons == 1 ) {
+        return false;
+    } else if( num_buttons == 2 ) {
+        return ( (int)map[0] == 2 && (int)map[1] == 1 );
+    } else {
+        return ( (int)map[0] == 3 && (int)map[2] == 1 );
+    }
+}
+#endif
+
+#if HAVE_X11
 bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
 {
     //qDebug() << np.serialize();
@@ -163,26 +178,30 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
             return false;
         }
 
+        bool leftHanded = isLeftHanded(display);
+        int mainMouseButton = leftHanded? RightMouseButton : LeftMouseButton;
+        int secondaryMouseButton = leftHanded? LeftMouseButton : RightMouseButton;
+
         if (isSingleClick) {
-            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
-            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
         } else if (isDoubleClick) {
-            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
-            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
-            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
-            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
         } else if (isMiddleClick) {
             XTestFakeButtonEvent(display, MiddleMouseButton, True, 0);
             XTestFakeButtonEvent(display, MiddleMouseButton, False, 0);
         } else if (isRightClick) {
-            XTestFakeButtonEvent(display, RightMouseButton, True, 0);
-            XTestFakeButtonEvent(display, RightMouseButton, False, 0);
+            XTestFakeButtonEvent(display, secondaryMouseButton, True, 0);
+            XTestFakeButtonEvent(display, secondaryMouseButton, False, 0);
         } else if (isSingleHold){
             //For drag'n drop
-            XTestFakeButtonEvent(display, LeftMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
         } else if (isSingleRelease){
             //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofnes.
-            XTestFakeButtonEvent(display, LeftMouseButton, False, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
         } else if (isScroll) {
             if (dy < 0) {
                 XTestFakeButtonEvent(display, MouseWheelDown, True, 0);
