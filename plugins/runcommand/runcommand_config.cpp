@@ -83,6 +83,9 @@ void RunCommandConfig::load()
 
         m_entriesModel->appendRow(QList<QStandardItem*>() << newName << newCommand);
     }
+
+    m_entriesModel->sort(0);
+
     insertEmptyRow();
     connect(m_entriesModel, &QAbstractItemModel::dataChanged, this, &RunCommandConfig::onDataChanged);
 
