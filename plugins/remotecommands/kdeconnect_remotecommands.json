@@ -32,6 +32,13 @@
         "Id": "kdeconnect_remotecommands", 
         "License": "GPL", 
         "Name": "Host remote commands", 
+        "Name[ca]": "Allotja ordres remotes", 
+        "Name[nl]": "Host voor commando's op afstand", 
+        "Name[pl]": "Wykonuj polecenia zdalne", 
+        "Name[pt]": "Alojar os comandos remotos", 
+        "Name[sv]": "Fjärrkommandon för värddator", 
+        "Name[uk]": "Віддалені команди вузлу", 
+        "Name[x-test]": "xxHost remote commandsxx", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 
