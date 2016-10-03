@@ -130,12 +130,16 @@ PlasmaComponents.ListItem
                 deviceId: root.device.id()
             }
             delegate: PlasmaComponents.ListItem {
+                id: listitem
+                enabled: true
+                onClicked: checked = !checked
+
                 PlasmaComponents.Label {
                     text: appName + ": " + display
                     anchors.right: dismissButton.left
                     anchors.left: parent.left
-                    elide: Text.ElideRight
-                    maximumLineCount: 2
+                    elide: listitem.checked ? Text.ElideNone : Text.ElideRight
+                    maximumLineCount: listitem.checked ? 0 : 1
                     wrapMode: Text.WordWrap
                 }
                 PlasmaComponents.ToolButton {
