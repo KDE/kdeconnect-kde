@@ -4,7 +4,7 @@
         "Authors": [
             {
                 "Email": "holger.k@elberer.de", 
-                "Name": "Holger Kaelberer", 
+                "Name": "Holger Kaelberer"
             }
         ], 
         "Description": "Broadcast this computer's notifications, so they can be shown on other devices.", 
