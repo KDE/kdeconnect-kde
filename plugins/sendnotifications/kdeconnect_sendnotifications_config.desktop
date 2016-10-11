@@ -24,5 +24,6 @@ Name[sk]=Nastavenia pluginu notifikácií synchronizácie
 Name[sv]=Inställningar av insticksprogram för underrättelsesynkronisering
 Name[uk]=Параметри додатка синхронізації сповіщень
 Name[x-test]=xxNotification synchronization plugin settingsxx
+Name[zh_TW]=同步通知擴展插件設定
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

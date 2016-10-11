@@ -32,6 +32,7 @@
         "Description[uk]": "Керування службами MPRIS", 
         "Description[x-test]": "xxControl MPRIS servicesxx", 
         "Description[zh_CN]": "控制 MPRIS 服务", 
+        "Description[zh_TW]": "控制 MPRIS 服務", 
         "EnabledByDefault": true, 
         "Icon": "applications-multimedia", 
         "Id": "kdeconnect_mprisremote", 

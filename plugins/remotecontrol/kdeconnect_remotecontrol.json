@@ -32,6 +32,7 @@
         "Description[uk]": "Системи віддаленого керування", 
         "Description[x-test]": "xxControl Remote systemsxx", 
         "Description[zh_CN]": "控制远程系统", 
+        "Description[zh_TW]": "控制遠端系統", 
         "EnabledByDefault": true, 
         "Icon": "applications-multimedia", 
         "Id": "kdeconnect_remotecontrol", 
@@ -59,6 +60,7 @@
         "Name[tr]": "UzaktanKumanda", 
         "Name[x-test]": "xxRemoteControlxx", 
         "Name[zh_CN]": "远程控制", 
+        "Name[zh_TW]": "遠端控制", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

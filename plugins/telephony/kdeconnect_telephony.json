@@ -22,6 +22,7 @@
         "Description[sv]": "Visa underrättelser om samtal och SMS", 
         "Description[uk]": "Показ сповіщень щодо дзвінків і SMS", 
         "Description[x-test]": "xxShow notifications for calls and SMSxx", 
+        "Description[zh_TW]": "顯示來電與短訊通知", 
         "EnabledByDefault": true, 
         "Icon": "call-start", 
         "Id": "kdeconnect_telephony", 
@@ -51,6 +52,7 @@
         "Name[uk]": "Інтеграція з системою телефонії", 
         "Name[x-test]": "xxTelephony integrationxx", 
         "Name[zh_CN]": "Telephony 集成", 
+        "Name[zh_TW]": "集成電話", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

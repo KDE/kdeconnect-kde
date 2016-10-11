@@ -34,5 +34,6 @@ Name[tr]=Müziği Duraklat eklenti ayarları
 Name[uk]=Параметри додатка призупинення відтворення музики
 Name[x-test]=xxPause Music plugin settingsxx
 Name[zh_CN]=暂停音乐插件设置
+Name[zh_TW]=暫停音樂擴展插件設定
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

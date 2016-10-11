@@ -29,6 +29,7 @@ Name[tr]=KDE Bağlantı servisi ile dosya gönderin
 Name[uk]=Надсилання файла за допомогою служби з’єднання KDE
 Name[x-test]=xxSend file via KDE Connect servicexx
 Name[zh_CN]=通过 KDE Connect 服务发送文件
+Name[zh_TW]=以已經連結到KDE之服務或裝置來傳送檔案
 X-KDE-Library=kdeconnectfileitemaction
 X-KDE-Submenu=Connect
 X-KDE-Submenu[bg]=Свързване
@@ -59,6 +60,7 @@ X-KDE-Submenu[tr]=Bağlan
 X-KDE-Submenu[uk]=З’єднання
 X-KDE-Submenu[x-test]=xxConnectxx
 X-KDE-Submenu[zh_CN]=连接
+X-KDE-Submenu[zh_TW]=連線
 
 Icon=preferences-system-network
 ServiceTypes=KFileItemAction/Plugin

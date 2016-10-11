@@ -40,6 +40,7 @@ Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
+Name[zh_TW]=KDE 連線
 
 Comment=Connect and sync your devices
 Comment[ca]=Connecta i sincronitza els vostres dispositius
@@ -68,6 +69,7 @@ Comment[tr]=Aygıtlarınıza bağlanın ve eşitleyin
 Comment[uk]=З’єднання і синхронізація ваших пристроїв
 Comment[x-test]=xxConnect and sync your devicesxx
 Comment[zh_CN]=连接并同步您的设备
+Comment[zh_TW]=連線並且同步您的裝置
 
 X-KDE-Keywords=Network,Android,Devices
 X-KDE-Keywords[bg]=Мрежа,Андроид,Устройства
@@ -98,6 +100,7 @@ X-KDE-Keywords[tr]=Ağ,Android,Cihazlar,Aygıtlar
 X-KDE-Keywords[uk]=Network,Android,Devices,мережа,андроїд,пристрої
 X-KDE-Keywords[x-test]=xxNetworkxx,xxAndroidxx,xxDevicesxx
 X-KDE-Keywords[zh_CN]=Network,Android,Devices,网络,安卓,设备
+X-KDE-Keywords[zh_TW]=網路，Android裝置，設備
 
 X-DocPath=kdeconnect/index.html
 
