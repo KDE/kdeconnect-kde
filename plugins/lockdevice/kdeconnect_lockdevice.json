@@ -35,6 +35,7 @@
         "Description[uk]": "Блокує вашу систему", 
         "Description[x-test]": "xxLocks your systemsxx", 
         "Description[zh_CN]": "锁定您的系统", 
+        "Description[zh_TW]": "鎖定您的系統", 
         "EnabledByDefault": true, 
         "Icon": "applications-miscelaneaous", 
         "Id": "kdeconnect_lockdevice", 
@@ -64,6 +65,7 @@
         "Name[tr]": "AygıtıKilitle", 
         "Name[x-test]": "xxLockDevicexx", 
         "Name[zh_CN]": "锁定设备", 
+        "Name[zh_TW]": "鎖定裝置", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

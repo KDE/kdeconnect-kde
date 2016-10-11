@@ -29,6 +29,7 @@
         "Description[sv]": "Visa enhetens underrättelser på datorn och håll dem synkroniserade", 
         "Description[uk]": "Показ сповіщень з пристрою на цьому комп’ютері та підтримання синхронізації даних сповіщень", 
         "Description[x-test]": "xxShow device's notifications on this computer and keep them in syncxx", 
+        "Description[zh_TW]": "在電腦上顯示裝置通知並且保持同步", 
         "EnabledByDefault": true, 
         "Icon": "preferences-desktop-notification", 
         "Id": "kdeconnect_notifications", 
@@ -54,6 +55,7 @@
         "Name[sv]": "Ta emot underrättelser", 
         "Name[uk]": "Отримати сповіщення", 
         "Name[x-test]": "xxReceive notificationsxx", 
+        "Name[zh_TW]": "收到通知", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

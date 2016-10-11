@@ -33,5 +33,6 @@ Name[tr]=Komut Çalıştır eklenti ayarları
 Name[uk]=Параметри додатка запуску команд
 Name[x-test]=xxRun Command plugin settingsxx
 Name[zh_CN]=执行命令插件设置
+Name[zh_TW]=命令列擴展插件設定
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

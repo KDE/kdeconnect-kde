@@ -36,6 +36,7 @@ Name[tr]=KDEConnect Eklentisi
 Name[uk]=Додаток KDEConnect
 Name[x-test]=xxKDEConnect Pluginxx
 Name[zh_CN]=KDEConnect 插件
+Name[zh_TW]=KDE 連線擴展功能插件
 
 # mandatory, list of all the package types supported
 [PropertyDef::X-KdeConnect-SupportedPackageType]

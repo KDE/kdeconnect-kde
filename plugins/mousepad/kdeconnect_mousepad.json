@@ -37,6 +37,7 @@
         "Description[uk]": "Скористайтеся телефоном як замінником сенсорної панелі і клавіатури", 
         "Description[x-test]": "xxUse your phone as a touchpad and keyboardxx", 
         "Description[zh_CN]": "用您的手机作为触摸板和键盘", 
+        "Description[zh_TW]": "讓您的智慧型手機當作觸碰板與鍵盤", 
         "EnabledByDefault": true, 
         "Icon": "edit-select", 
         "Id": "kdeconnect_mousepad", 
@@ -69,6 +70,7 @@
         "Name[uk]": "Віртуальне введення даних", 
         "Name[x-test]": "xxVirtual inputxx", 
         "Name[zh_CN]": "虚拟输入", 
+        "Name[zh_TW]": "虛擬輸入", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ], 

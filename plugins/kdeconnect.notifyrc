@@ -34,6 +34,7 @@ Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
+Name[zh_TW]=KDE 連線
 Comment=Notifications from your devices
 Comment[ar]=الإخطارات من أجهزتك
 Comment[ast]=Avisos de los tos preseos
@@ -68,6 +69,7 @@ Comment[tr]=Cihazınızdan bildirimler
 Comment[uk]=Сповіщення з вашого пристрою
 Comment[x-test]=xxNotifications from your devicesxx
 Comment[zh_CN]=来自你设备的通知
+Comment[zh_TW]=從您的裝置接收到通知
 
 [Event/pairingRequest]
 Name=Pairing Request
@@ -103,6 +105,7 @@ Name[tr]=Eşleşme İsteği
 Name[uk]=Запит щодо пов’язування
 Name[x-test]=xxPairing Requestxx
 Name[zh_CN]=配对请求
+Name[zh_TW]=配對請求
 Comment=Pairing request received from a device
 Comment[ar]=استُلم طلب اقتران من جهاز
 Comment[ast]=Solicitú d'empareyamientu recibida d'un preséu
@@ -127,6 +130,7 @@ Comment[sk]=Požiadavka na spárovanie prijatá zo zariadenia
 Comment[sv]=Begäran om ihopparning mottagen från en apparat
 Comment[uk]=Від пристрою отримано запит щодо пов’язування
 Comment[x-test]=xxPairing request received from a devicexx
+Comment[zh_TW]=從您的裝置當中收到配對請求
 Action=Popup
 
 [Event/callReceived]
@@ -162,6 +166,7 @@ Name[tr]=Gelen Çağrı
 Name[uk]=Вхідний дзвінок
 Name[x-test]=xxIncoming Callxx
 Name[zh_CN]=收到呼叫
+Name[zh_TW]=電話來電
 Comment=Someone is calling you
 Comment[ar]=ثمّة من يتّصل بك
 Comment[ast]=Daquién ta llamándote
@@ -196,6 +201,7 @@ Comment[tr]=Biri sizi arıyor
 Comment[uk]=Хтось телефонує вам
 Comment[x-test]=xxSomeone is calling youxx
 Comment[zh_CN]=某人正在呼叫您
+Comment[zh_TW]=有人打電話給您
 Action=Popup
 
 [Event/missedCall]
@@ -231,6 +237,7 @@ Name[tr]=Cevapsız Çağrı
 Name[uk]=Пропущений дзвінок
 Name[x-test]=xxMissed Callxx
 Name[zh_CN]=未接来电
+Name[zh_TW]=未接來電
 Comment=You have a missed call
 Comment[ar]=لقد فاتتك مكالمة
 Comment[ast]=Tienes una llamada perdida
@@ -265,6 +272,7 @@ Comment[tr]=Cevapsız çağrınız var
 Comment[uk]=Вами пропущено телефонний дзвінок
 Comment[x-test]=xxYou have a missed callxx
 Comment[zh_CN]=您有未接来电
+Comment[zh_TW]=您有一通未接來電
 Action=Popup
 
 [Event/smsReceived]
@@ -300,6 +308,7 @@ Name[tr]=SMS Alındı
 Name[uk]=Отримано SMS
 Name[x-test]=xxSMS Receivedxx
 Name[zh_CN]=收到短信
+Name[zh_TW]=您有收到短訊
 Comment=Someone sent you an SMS
 Comment[ar]=ثمّة من أرسل رسالة إليك
 Comment[ast]=Daquién unvióte un SMS
@@ -334,6 +343,7 @@ Comment[tr]=Biri size SMS gönderdi
 Comment[uk]=Хтось надіслав вам SMS
 Comment[x-test]=xxSomeone sent you an SMSxx
 Comment[zh_CN]=某人给您发了短信
+Comment[zh_TW]=有人送來一封簡訊
 Action=Popup
 
 [Event/batteryLow]
@@ -368,6 +378,7 @@ Name[tr]=Pil Zayıf
 Name[uk]=Низький рівень заряду
 Name[x-test]=xxBattery Lowxx
 Name[zh_CN]=电池电量低
+Name[zh_TW]=電池低電量
 Comment=Your battery is in low state
 Comment[ar]=بطّاريّتك في الحالة الضعيفة
 Comment[ast]=La to batería ta nun estáu baxu
@@ -402,6 +413,7 @@ Comment[tr]=Pilinizin seviyesi düşük
 Comment[uk]=Рівень заряду акумулятора є низьким
 Comment[x-test]=xxYour battery is in low statexx
 Comment[zh_CN]=您的电池电量低
+Comment[zh_TW]=您的電池處於低容量狀態
 Action=Popup
 
 [Event/pingReceived]
@@ -437,6 +449,7 @@ Name[tr]=Ping Alındı
 Name[uk]=Отримано сигнал підтримки зв’язку
 Name[x-test]=xxPing Receivedxx
 Name[zh_CN]=收到 Ping
+Name[zh_TW]=收到Ping回應
 Comment=Ping received
 Comment[ar]=استُلمت وكزة
 Comment[ast]=Recibióse un ping
@@ -471,6 +484,7 @@ Comment[tr]=Ping alındı
 Comment[uk]=Отримано сигнал підтримки зв’язку
 Comment[x-test]=xxPing receivedxx
 Comment[zh_CN]=收到 ping
+Comment[zh_TW]=接收到遠端的Ping回應封包
 Action=Popup
 
 [Event/notification]
@@ -506,6 +520,7 @@ Name[tr]=Genel Bildirim
 Name[uk]=Загальне сповіщення
 Name[x-test]=xxGeneric Notificationxx
 Name[zh_CN]=一般通知
+Name[zh_TW]=通用通知
 Comment=Notification received
 Comment[ar]=استُلم إخطار
 Comment[ast]=Avisu recibíu
@@ -540,6 +555,7 @@ Comment[tr]=Bildirim alındı
 Comment[uk]=Отримано сповіщення
 Comment[x-test]=xxNotification receivedxx
 Comment[zh_CN]=收到通知
+Comment[zh_TW]=收到通知
 Action=Popup
 
 [Event/transferReceived]
@@ -575,6 +591,7 @@ Name[tr]=Dosya Aktarımı
 Name[uk]=Перенесення файлів
 Name[x-test]=xxFile Transferxx
 Name[zh_CN]=文件传送
+Name[zh_TW]=檔案傳輸
 Comment=Incoming file
 Comment[ar]=ملفّ قادم
 Comment[ast]=Ficheru entrante
@@ -607,6 +624,7 @@ Comment[tr]=Gelen dosya
 Comment[uk]=Вхідний файл
 Comment[x-test]=xxIncoming filexx
 Comment[zh_CN]=正在传入的文件
+Comment[zh_TW]=接收檔案
 Action=Popup
 
 

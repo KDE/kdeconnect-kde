@@ -43,6 +43,7 @@ Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
+Name[zh_TW]=KDE 連線
 
 Comment=Connect KDE with your smartphone
 Comment[ar]=أوصل كدي بهاتفك الذّكيّ
@@ -77,3 +78,4 @@ Comment[tr]=KDE'yi akıllı telefonunuz ile bağlayın
 Comment[uk]=З’єднання KDE з вашим смартфоном
 Comment[x-test]=xxConnect KDE with your smartphonexx
 Comment[zh_CN]=用您的智能手机连接到 KDE
+Comment[zh_TW]=將您的智慧型手機與KDE連線

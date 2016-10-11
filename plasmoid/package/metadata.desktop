@@ -33,6 +33,7 @@ Name[tr]=KDE Bağlan
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
+Name[zh_TW]=KDE 連線
 Comment=Show notifications from your devices using KDE Connect
 Comment[ar]=أظهر الإخطارات من أجهزتك باستخدام «كدي المتّصل»
 Comment[ast]=Amuesa avisos de los tos preseos usando KDE Connect
@@ -66,6 +67,7 @@ Comment[tr]=KDE Bağlan kullanılarak cihazınızdan bildirimleri görüntüleyi
 Comment[uk]=Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»
 Comment[x-test]=xxShow notifications from your devices using KDE Connectxx
 Comment[zh_CN]=通过 KDE Connect 显示来自您的设备的通知
+Comment[zh_TW]=使用KDE 連線來顯示您的裝置通知
 
 Icon=kdeconnect
 Type=Service
