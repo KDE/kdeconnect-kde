@@ -33,6 +33,7 @@
         "Name": "Host remote commands", 
         "Name[ca@valencia]": "Ordes a la màquina remota", 
         "Name[ca]": "Ordres a la màquina remota", 
+        "Name[cs]": "Přijímat vzdálené příkazy", 
         "Name[da]": "Vært for eksterne kommandoer", 
         "Name[es]": "Órdenes en servidor remoto", 
         "Name[fi]": "Etäkomennot", 
