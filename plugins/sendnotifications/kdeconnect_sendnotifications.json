@@ -6,7 +6,6 @@
                 "Email": "holger.k@elberer.de", 
                 "Name": "Holger Kaelberer", 
                 "Name[da]": "Holger Freyther", 
-                "Name[it]": "Holger Freyther", 
                 "Name[x-test]": "xxHolger Kaelbererxx"
             }
         ], 
@@ -17,6 +16,7 @@
         "Description[da]": "Udsend denne computers bekendtgørelser, så de kan vises på andre enheder.", 
         "Description[de]": "Die Benachrichtigungen dieses Rechners aussenden, sodass sie auf anderen Geräten angezeigt werden können.", 
         "Description[et]": "Arvuti märguannete levitamine, et neid oleks näha ka teistes seadmetes", 
+        "Description[fi]": "Lähetä tämän tietokoneen ilmoitukset, jotta ne voidaan näyttää muilla laitteilla.", 
         "Description[it]": "Trasmetti le notifiche di questo computer, affinché possano essere mostrate su altri dispositivi.", 
         "Description[nl]": "De meldingen van deze computer rondsturen, zodat ze op andere apparaten getoond kunnen worden.", 
         "Description[pl]": "Rozgłaszaj powiadomienia tego komputera, tak aby można je było wyświetlać na innych urządzeniach.", 
@@ -36,6 +36,7 @@
         "Name[da]": "Send bekendtgørelser", 
         "Name[de]": "Benachrichtigungen senden", 
         "Name[et]": "Märguannete saatmine", 
+        "Name[fi]": "Lähetä ilmoituksia", 
         "Name[it]": "Invia notifiche", 
         "Name[nl]": "Stuur meldingen", 
         "Name[pl]": "Wysyłaj powiadomienia", 
