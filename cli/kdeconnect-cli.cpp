@@ -113,6 +113,7 @@ int main(int argc, char** argv)
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
+
         QString device = parser.value("device");
         if (device.isEmpty() && parser.isSet("name")) {
             device = iface.deviceIdByName(parser.value("name"));
@@ -121,10 +122,11 @@ int main(int argc, char** argv)
                 return 1;
             }
         }
-
         if(device.isEmpty()) {
             QTextStream(stderr) << i18n("No device specified") << endl;
+            return 1;
         }
+
         if(parser.isSet("share")) {
             QUrl url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
             parser.clearPositionalArguments();
