@@ -22,6 +22,7 @@
   <name xml:lang="it">KDE Connect</name>
   <name xml:lang="ko">KDE Connect</name>
   <name xml:lang="nl">KDE Connect</name>
+  <name xml:lang="nn">KDE Connect</name>
   <name xml:lang="pl">KDE Connect</name>
   <name xml:lang="pt">KDE Connect</name>
   <name xml:lang="pt-BR">KDE Connect</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="ko">장치와 항상 연결하기</summary>
   <summary xml:lang="nl">Naadloze verbinding met uw apparaten</summary>
+  <summary xml:lang="nn">Sømlaus integrering med andre einingar</summary>
   <summary xml:lang="pl">Zintegrowane połączenia do twoich urządzeń</summary>
   <summary xml:lang="pt">Ligação transparente aos seus dispositivos</summary>
   <summary xml:lang="pt-BR">Conexão transparente com seus dispositivos</summary>
@@ -79,6 +81,7 @@
     <p xml:lang="it">KDE Connect fornisce integrazione tra il tuo telefono Android e il tuo desktop.</p>
     <p xml:lang="ko">KDE Connect는 안드로이드 휴대폰과 데스크톱을 연결합니다.</p>
     <p xml:lang="nl">KDE Connect biedt integratie tussen uw Android telefoon en uw bureaublad.</p>
+    <p xml:lang="nn">KDE Connect integrerer Android-telefonen eller -nettbrettet ditt med datamaskina.</p>
     <p xml:lang="pl">KDE Connect integruje twój telefon Android z twoim pulpitem.</p>
     <p xml:lang="pt">O KDE Connect oferece a integração entre o seu dispositivo Android e o seu ambiente de trabalho.</p>
     <p xml:lang="pt-BR">O KDE Connect permite integrar seu telefone Android com seu desktop.</p>
