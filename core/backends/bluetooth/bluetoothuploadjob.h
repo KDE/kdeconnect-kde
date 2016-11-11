@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
@@ -18,43 +18,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BLUETOOTHDEVICELINK_H
-#define BLUETOOTHDEVICELINK_H
+#ifndef BLUETOOTHUPLOADJOB_H
+#define BLUETOOTHUPLOADJOB_H
 
-#include <QObject>
-#include <QString>
-#include <QtBluetooth/QBluetoothSocket>
+#include <QIODevice>
+#include <QThread>
+#include <QVariantMap>
+#include <QSharedPointer>
+#include <QBluetoothAddress>
+#include <QBluetoothUuid>
+#include <QBluetoothServer>
 
-#include "../devicelink.h"
-#include "../devicelinereader.h"
-#include "bluetoothpairinghandler.h"
-
-class KDECONNECTCORE_EXPORT BluetoothDeviceLink
-    : public DeviceLink
+class BluetoothUploadJob
+    : public QObject
 {
     Q_OBJECT
-
 public:
-    BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, QBluetoothSocket* socket);
+    explicit BluetoothUploadJob(const QSharedPointer<QIODevice> &data, const QBluetoothAddress &remoteAddress, QObject* parent = 0);
 
-    virtual QString name() override;
-    bool sendPackage(NetworkPackage& np) override;
-
-    virtual void userRequestsPair() override;
-    virtual void userRequestsUnpair() override;
-
-    virtual bool linkShouldBeKeptAlive() override;
-
-private Q_SLOTS:
-    void dataReceived();
+    QVariantMap transferInfo() const;
+    void start();
 
 private:
-    DeviceLineReader* mSocketReader;
-    QBluetoothSocket* mBluetoothSocket;
-    BluetoothPairingHandler* mPairingHandler;
+    QSharedPointer<QIODevice> mData;
+    QBluetoothAddress mRemoteAddress;
+    QBluetoothUuid mTransferUuid;
+    QBluetoothServer* mServer;
+    QBluetoothServiceInfo mServiceInfo;
 
-    void sendMessage(const QString mMessage);
-
+private Q_SLOTS:
+    void newConnection();
 };
 
-#endif
+#endif // BLUETOOTHUPLOADJOB_H

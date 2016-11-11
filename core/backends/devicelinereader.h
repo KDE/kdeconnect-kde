@@ -28,7 +28,8 @@
 
 /*
  * Encapsulates a QIODevice and implements the same methods of its API that are
- * used by LanDeviceLink, but readyRead is emitted only when a newline is found.
+ * used by LanDeviceLink and BluetoothDeviceLink, but readyRead is emitted only
+ * when a newline is found.
  */
 class DeviceLineReader
     : public QObject
@@ -40,7 +41,7 @@ public:
 
     QByteArray readLine() { return mPackages.dequeue(); }
     qint64 write(const QByteArray& data) { return mDevice->write(data); }
-    qint64 bytesAvailable() { return mPackages.size(); }
+    qint64 bytesAvailable() const { return mPackages.size(); }
 
 Q_SIGNALS:
     void readyRead();

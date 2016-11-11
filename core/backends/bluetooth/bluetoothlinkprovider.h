@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Saikrishna Arcot <saiarcot895@gmail.com>
+ * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -22,6 +22,7 @@
 #define BLUETOOTHLINKPROVIDER_H
 
 #include <QObject>
+#include <QPointer>
 #include <QTimer>
 #include <QtBluetooth/QBluetoothAddress>
 #include <QtBluetooth/QBluetoothLocalDevice>
@@ -35,28 +36,31 @@
 
 class BluetoothDeviceLink;
 
-class BluetoothLinkProvider
+class KDECONNECTCORE_EXPORT BluetoothLinkProvider
     : public LinkProvider
 {
     Q_OBJECT
 
 public:
     BluetoothLinkProvider();
-    ~BluetoothLinkProvider();
+    virtual ~BluetoothLinkProvider();
 
-    QString name() { return "BluetoothLinkProvider"; }
-    int priority() { return PRIORITY_MEDIUM; }
+    QString name() override { return "BluetoothLinkProvider"; }
+    int priority() override { return PRIORITY_MEDIUM; }
+
 public Q_SLOTS:
-    virtual void onNetworkChange(QNetworkSession::State state);
-    virtual void onStart();
-    virtual void onStop();
+    virtual void onNetworkChange() override;
+    virtual void onStart() override;
+    virtual void onStop() override;
     void connectError();
     void serviceDiscoveryFinished();
 
 private Q_SLOTS:
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
     void socketDisconnected();
+#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
     void connectToPairedDevices();
+#endif
     void serverNewConnection();
     void serverDataReceived();
     void clientConnected();
@@ -66,9 +70,8 @@ private:
     void addLink(BluetoothDeviceLink* deviceLink, const QString& deviceId);
     QList<QBluetoothAddress> getPairedDevices();
 
-    QBluetoothLocalDevice mDevice;
     QBluetoothUuid mServiceUuid;
-    QBluetoothServer* mBluetoothServer;
+    QPointer<QBluetoothServer> mBluetoothServer;
     QBluetoothServiceInfo mKdeconnectService;
     QBluetoothServiceDiscoveryAgent* mServiceDiscoveryAgent;
     QTimer* connectTimer;

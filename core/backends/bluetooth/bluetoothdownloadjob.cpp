@@ -1,5 +1,5 @@
-/**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+/*
+ * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,32 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "kdeconnectplugin_config.h"
-#include <kcm/kcm.h>
+#include "bluetoothdownloadjob.h"
 
-KdeConnectPluginConfig::KdeConnectPluginConfig(QObject* parent, const QVariantList& args)
-    : KCModule(SftpConfigFactory::componentData(), parent)
-    , mGlobalConfig(KSharedConfig::openConfig("kdeconnect/plugins/pausemusic"))
-{
-    KdeConnectKcm* kcm = 0;
-    QObject* kcmCandidate = parent->parentWidget();
-    while (kcmCandidate) {
-        //qDebug() << kcmCandidate;
-        if (kcmCandidate->objectName() == "KdeConnectKcm") {
-            kcm = qobject_cast<KdeConnectKcm*>(kcmCandidate);
-            break;
-        }
-        kcmCandidate = kcmCandidate->parent();
-    }
-    if (kcm) {
-        kcm->selectedDevice()->id();
-    }
-
-}
-
-KdeConnectPluginConfig::~KdeConnectPluginConfig()
+BluetoothDownloadJob::BluetoothDownloadJob(const QBluetoothAddress &remoteAddress, const QVariantMap &transferInfo, QObject *parent)
+    : QObject(parent)
+    , mRemoteAddress(remoteAddress)
+    , mTransferUuid(QBluetoothUuid(transferInfo.value("uuid").toString()))
+    , mSocket(new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol))
 {
 }
 
+QSharedPointer<QIODevice> BluetoothDownloadJob::payload() const
+{
+    return mSocket.staticCast<QIODevice>();
+}
 
-
+void BluetoothDownloadJob::start()
+{
+    connect(mSocket.data(), SIGNAL(disconnected()), this, SLOT(deleteLater()));
+    mSocket->connectToService(mRemoteAddress, mTransferUuid, QIODevice::ReadOnly);
+}

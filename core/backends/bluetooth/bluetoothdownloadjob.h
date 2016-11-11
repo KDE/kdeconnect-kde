@@ -1,5 +1,5 @@
-/**
- * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+/*
+ * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,32 +18,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDECONNECTPLUGINCONFIG_H
-#define KDECONNECTPLUGINCONFIG_H
+#ifndef BLUETOOTHDOWNLOADJOB_H
+#define BLUETOOTHDOWNLOADJOB_H
 
-#include "kdeconnectcore_export.h"
-#include <kcmodule.h>
+#include <QIODevice>
+#include <QThread>
+#include <QVariantMap>
+#include <QSharedPointer>
+#include <QBluetoothAddress>
+#include <QBluetoothUuid>
+#include <QBluetoothSocket>
 
-struct DeviceDbusInterface;
-
-class KDECONNECTCORE_EXPORT KdeConnectPluginConfig
-    : public KCModule
+class BluetoothDownloadJob
+    : public QObject
 {
     Q_OBJECT
-
 public:
-    KdeConnectPluginConfig(QObject* parent, const QVariantList& args);
-    virtual ~KdeConnectPluginConfig();
-    QString deviceId() { return mDeviceId; }
+    explicit BluetoothDownloadJob(const QBluetoothAddress &remoteAddress, const QVariantMap &transferInfo, QObject* parent = 0);
 
-    //TODO: Add these two to the Plugin as well
-    KSharedConfigPtr deviceConfig() { return mDeviceConfig; }
-    KSharedConfigPtr globalConfig() { return mGlobalConfig; }
-
+    QSharedPointer<QIODevice> payload() const;
+    void start();
 private:
-    QString mDeviceId;
-    KSharedConfigPtr mGlobalConfig;
-    KSharedConfigPtr mDeviceConfig;
+    QBluetoothAddress mRemoteAddress;
+    QBluetoothUuid mTransferUuid;
+    QSharedPointer<QBluetoothSocket> mSocket;
 };
 
-#endif
+#endif // BLUETOOTHDOWNLOADJOB_H

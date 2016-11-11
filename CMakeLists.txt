@@ -14,7 +14,6 @@ find_package(Qt5 5.2 REQUIRED COMPONENTS Quick Bluetooth)
 
 find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
 find_package(KF5DocTools)
-
 find_package(Qca-qt5 2.1.0 REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR})

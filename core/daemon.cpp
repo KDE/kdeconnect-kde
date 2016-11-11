@@ -65,8 +65,10 @@ Daemon::Daemon(QObject *parent, bool testMode)
     //Load backends
     if (testMode)
         d->mLinkProviders.insert(new LoopbackLinkProvider());
-    else
+    else {
         d->mLinkProviders.insert(new LanLinkProvider());
+        d->mLinkProviders.insert(new BluetoothLinkProvider());
+    }
 
     //Read remebered paired devices
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
@@ -104,11 +106,6 @@ void Daemon::releaseDiscoveryMode(const QString &key)
     bool oldState = d->mDiscoveryModeAcquisitions.isEmpty();
 
     d->mDiscoveryModeAcquisitions.remove(key);
-
-    //Load backends
-    //d->mLinkProviders.insert(new LoopbackLinkProvider());
-    d->mLinkProviders.insert(new LanLinkProvider());
-    d->mLinkProviders.insert(new BluetoothLinkProvider());
 
     if (oldState != d->mDiscoveryModeAcquisitions.isEmpty()) {
         cleanDevices();

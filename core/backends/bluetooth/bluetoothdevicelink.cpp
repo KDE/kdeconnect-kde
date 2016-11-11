@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Saikrishna Arcot <saiarcot895@gmail.com>
+ * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,90 +21,86 @@
 #include "bluetoothdevicelink.h"
 
 #include "../linkprovider.h"
+#include "bluetoothlinkprovider.h"
+#include "bluetoothuploadjob.h"
+#include "bluetoothdownloadjob.h"
+#include "core_debug.h"
 
 BluetoothDeviceLink::BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, QBluetoothSocket* socket)
     : DeviceLink(deviceId, parent)
-    , mBluetoothSocket(new DeviceLineReader(socket))
+    , mSocketReader(new DeviceLineReader(socket, this))
+    , mBluetoothSocket(socket)
+    , mPairingHandler(new BluetoothPairingHandler(this))
 {
-    connect(mBluetoothSocket, SIGNAL(readyRead()),
+    connect(mSocketReader, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
 
     //We take ownership of the socket.
-    //When the link provider distroys us,
+    //When the link provider destroys us,
     //the socket (and the reader) will be
     //destroyed as well
-    connect(mBluetoothSocket, SIGNAL(disconnected()),
-            this, SLOT(deleteLater()));
     mBluetoothSocket->setParent(this);
+    connect(mBluetoothSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
 }
 
-/*void BluetoothDeviceLink::sendPayload(const QSharedPointer<QIODevice>& mInput)
+QString BluetoothDeviceLink::name()
 {
-    while ( mInput->bytesAvailable() > 0 )
-    {
-        qint64 bytes = qMin(mInput->bytesAvailable(), (qint64)4096);
-        int w = mBluetoothSocket->write(mInput->read(bytes));
-        if (w<0) {
-            qWarning() << "error when writing data to upload" << bytes << mInput->bytesAvailable();
-            break;
-        }
-        else
-        {
-            while ( mBluetoothSocket->flush() );
-        }
-    }
-
-    mInput->close();
-}*/
-
-bool BluetoothDeviceLink::sendPackageEncrypted(QCA::PublicKey& key, NetworkPackage& np)
-{
-    np.encrypt(key);
-    return sendPackage(np);
+    return "BluetoothLink"; // Should be same in both android and kde version
 }
 
 bool BluetoothDeviceLink::sendPackage(NetworkPackage& np)
 {
-    int written = mBluetoothSocket->write(np.serialize());
     if (np.hasPayload()) {
-        qWarning() << "Bluetooth backend does not support payloads.";
+        qCWarning(KDECONNECT_CORE) << "Sending packages with payload over bluetooth not yet supported";
+        /*
+        BluetoothUploadJob* uploadJob = new BluetoothUploadJob(np.payload(), mBluetoothSocket->peerAddress(), this);
+        np.setPayloadTransferInfo(uploadJob->transferInfo());
+        uploadJob->start();
+        */
     }
+    int written = mSocketReader->write(np.serialize());
     return (written != -1);
+}
+
+void BluetoothDeviceLink::userRequestsPair() {
+    mPairingHandler->requestPairing();
+}
+
+void BluetoothDeviceLink::userRequestsUnpair() {
+    mPairingHandler->unpair();
+}
+
+bool BluetoothDeviceLink::linkShouldBeKeptAlive() {
+    return pairStatus() == Paired;
 }
 
 void BluetoothDeviceLink::dataReceived()
 {
+    if (mSocketReader->bytesAvailable() == 0) return;
 
-    if (mBluetoothSocket->bytesAvailable() == 0) return;
+    const QByteArray serializedPackage = mSocketReader->readLine();
 
-    const QByteArray package = mBluetoothSocket->readLine();
+    //qCDebug(KDECONNECT_CORE) << "BluetoothDeviceLink dataReceived" << package;
 
-    //kDebug(debugArea()) << "BluetoothDeviceLink dataReceived" << package;
+    NetworkPackage package(QString::null);
+    NetworkPackage::unserialize(serializedPackage, &package);
 
-    NetworkPackage unserialized(QString::null);
-    NetworkPackage::unserialize(package, &unserialized);
-    if (unserialized.isEncrypted()) {
-        //mPrivateKey should always be set when device link is added to device, no null-checking done here
-        NetworkPackage decrypted(QString::null);
-        unserialized.decrypt(mPrivateKey, &decrypted);
-
-        if (decrypted.hasPayloadTransferInfo()) {
-            qWarning() << "Bluetooth backend does not support payloads.";
-        }
-
-        Q_EMIT receivedPackage(decrypted);
-
-    } else {
-        if (unserialized.hasPayloadTransferInfo()) {
-            qWarning() << "Ignoring unencrypted payload";
-        }
-
-        Q_EMIT receivedPackage(unserialized);
-
+    if (package.type() == PACKAGE_TYPE_PAIR) {
+        //TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
+        mPairingHandler->packageReceived(package);
+        return;
     }
 
-    if (mBluetoothSocket->bytesAvailable() > 0) {
+    if (package.hasPayloadTransferInfo()) {
+        BluetoothDownloadJob* downloadJob = new BluetoothDownloadJob(mBluetoothSocket->peerAddress(),
+                                                                     package.payloadTransferInfo(), this);
+        downloadJob->start();
+        package.setPayload(downloadJob->payload(), package.payloadSize());
+    }
+
+    Q_EMIT receivedPackage(package);
+
+    if (mSocketReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
-
 }

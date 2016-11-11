@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Saikrishna Arcot <saiarcot895@gmail.com>
+ * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -28,22 +28,13 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QBluetoothServiceInfo>
 
 #include "bluetoothdevicelink.h"
 
 BluetoothLinkProvider::BluetoothLinkProvider()
 {
-    if (!mDevice.isValid()) {
-        qCWarning(KDECONNECT_CORE) << "No local device found";
-        mBluetoothServer = NULL;
-        return;
-    }
-
-    mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
-    mBluetoothServer->setSecurityFlags(QBluetooth::Encryption | QBluetooth::Secure);
-    connect(mBluetoothServer, SIGNAL(newConnection()), this, SLOT(serverNewConnection()));
-
-    mServiceUuid = QBluetoothUuid(QString("576bf9a0-98c9-11e4-bc89-0002a5d5c51b"));
+    mServiceUuid = QBluetoothUuid(QString("185f3df4-3268-4e3f-9fca-d4d5059915bd"));
 
     connectTimer = new QTimer(this);
     connectTimer->setInterval(30000);
@@ -60,9 +51,15 @@ BluetoothLinkProvider::BluetoothLinkProvider()
 
 void BluetoothLinkProvider::onStart()
 {
-    if (!mBluetoothServer) {
+    QBluetoothLocalDevice localDevice;
+    if (!localDevice.isValid()) {
+        qCWarning(KDECONNECT_CORE) << "No local bluetooth adapter found";
         return;
     }
+
+    mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
+    mBluetoothServer->setSecurityFlags(QBluetooth::Encryption | QBluetooth::Secure);
+    connect(mBluetoothServer, SIGNAL(newConnection()), this, SLOT(serverNewConnection()));
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
     connectToPairedDevices();
@@ -72,8 +69,6 @@ void BluetoothLinkProvider::onStart()
 
     connectTimer->start();
     mKdeconnectService = mBluetoothServer->listen(mServiceUuid, "KDE Connect");
-
-    onNetworkChange(QNetworkSession::Connected);
 }
 
 void BluetoothLinkProvider::onStop()
@@ -86,14 +81,15 @@ void BluetoothLinkProvider::onStop()
 
     mKdeconnectService.unregisterService();
     mBluetoothServer->close();
+    mBluetoothServer->deleteLater();
 }
 
 //I'm in a new network, let's be polite and introduce myself
-void BluetoothLinkProvider::onNetworkChange(QNetworkSession::State state)
+void BluetoothLinkProvider::onNetworkChange()
 {
-    Q_UNUSED(state);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
 QList<QBluetoothAddress> BluetoothLinkProvider::getPairedDevices() {
     QDBusConnection bus = QDBusConnection::systemBus();
     QDBusInterface manager_iface("org.bluez", "/","org.bluez.Manager", bus);
@@ -142,13 +138,14 @@ void BluetoothLinkProvider::connectToPairedDevices() {
         socket->connectToService(pairedDevice, mServiceUuid);
     }
 }
+#endif
 
 void BluetoothLinkProvider::connectError()
 {
     QBluetoothSocket* socket = qobject_cast<QBluetoothSocket*>(sender());
     if (!socket) return;
 
-    qCWarning(KDECONNECT_CORE) << "connectError: Couldn't connect to socket:" << socket->errorString();
+    qCWarning(KDECONNECT_CORE) << "Couldn't connect to socket:" << socket->errorString();
 
     disconnect(socket, SIGNAL(connected()), this, SLOT(clientConnected()));
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(serverDataReceived()));
@@ -177,7 +174,7 @@ void BluetoothLinkProvider::serviceDiscoveryFinished()
 {
     QList<QBluetoothServiceInfo> services = mServiceDiscoveryAgent->discoveredServices();
 
-    foreach (QBluetoothServiceInfo info, services) {
+    Q_FOREACH (QBluetoothServiceInfo info, services) {
         if (mSockets.contains(info.device().address())) {
             continue;
         }
@@ -189,10 +186,10 @@ void BluetoothLinkProvider::serviceDiscoveryFinished()
 
         socket->connectToService(info);
 
-        qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/serviceDiscoveryFinished: Connecting to " << socket->peerAddress().toString();
+        qCDebug(KDECONNECT_CORE()) << "Connecting to" << info.device().address();
 
         if (socket->error() != QBluetoothSocket::NoSocketError) {
-            qCWarning(KDECONNECT_CORE) << "BluetoothLinkProvider/serviceDiscoveryFinished: Socket connection error: " << socket->errorString();
+            qCWarning(KDECONNECT_CORE) << "Socket connection error:" << socket->errorString();
         }
     }
 }
@@ -203,10 +200,10 @@ void BluetoothLinkProvider::clientConnected()
     QBluetoothSocket* socket = qobject_cast<QBluetoothSocket*>(sender());
     if (!socket) return;
 
-    qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/clientConnected: Connected to " << socket->peerAddress().toString();
+    qCDebug(KDECONNECT_CORE()) << "Connected to" << socket->peerAddress();
 
     if (mSockets.contains(socket->peerAddress())) {
-        qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/clientConnected: Duplicate connection to " << socket->peerAddress().toString();
+        qCWarning(KDECONNECT_CORE()) << "Duplicate connection to" << socket->peerAddress();
         socket->close();
         socket->deleteLater();
         return;
@@ -237,14 +234,14 @@ void BluetoothLinkProvider::clientIdentityReceived()
     bool success = NetworkPackage::unserialize(identityArray, &receivedPackage);
 
     if (!success || receivedPackage.type() != PACKAGE_TYPE_IDENTITY) {
-        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider/clientIdentityReceived: Not an identification package (wuh?)";
+        qCWarning(KDECONNECT_CORE) << "Not an identity package";
         mSockets.remove(socket->peerAddress());
         socket->close();
         socket->deleteLater();
         return;
     }
 
-    qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/clientIdentityReceived: Received identity package from " << socket->peerAddress().toString();
+    qCDebug(KDECONNECT_CORE()) << "Received identity package from" << socket->peerAddress();
 
     disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
 
@@ -280,10 +277,10 @@ void BluetoothLinkProvider::serverNewConnection()
 {
     QBluetoothSocket* socket = mBluetoothServer->nextPendingConnection();
 
-    qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/serverNewConnection:" << "Received connection from " << socket->peerAddress().toString();
+    qCDebug(KDECONNECT_CORE()) << "Received connection from" << socket->peerAddress();
 
     if (mSockets.contains(socket->peerAddress())) {
-        qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/serverNewConnection: Duplicate connection from " << socket->peerAddress().toString();
+        qCDebug(KDECONNECT_CORE()) << "Duplicate connection from" << socket->peerAddress();
         socket->close();
         socket->deleteLater();
         return;
@@ -297,7 +294,7 @@ void BluetoothLinkProvider::serverNewConnection()
     NetworkPackage::createIdentityPackage(&np2);
     socket->write(np2.serialize());
 
-    qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/serverNewConnection: Sent identity package to " << socket->peerAddress().toString();
+    qCDebug(KDECONNECT_CORE()) << "Sent identity package to" << socket->peerAddress();
 
     mSockets.insert(socket->peerAddress(), socket);
 }
@@ -320,14 +317,14 @@ void BluetoothLinkProvider::serverDataReceived()
     bool success = NetworkPackage::unserialize(identityArray, &receivedPackage);
 
     if (!success || receivedPackage.type() != PACKAGE_TYPE_IDENTITY) {
-        qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider/serverDataReceived: Not an identity package.";
+        qCWarning(KDECONNECT_CORE) << "Not an identity package.";
         mSockets.remove(socket->peerAddress());
         socket->close();
         socket->deleteLater();
         return;
     }
 
-    qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/serverDataReceived: Received identity package from " << socket->peerAddress().toString();
+    qCDebug(KDECONNECT_CORE()) << "Received identity package from" << socket->peerAddress();
 
     const QString& deviceId = receivedPackage.get<QString>("deviceId");
     BluetoothDeviceLink* deviceLink = new BluetoothDeviceLink(deviceId, this, socket);
@@ -342,7 +339,6 @@ void BluetoothLinkProvider::serverDataReceived()
 
 void BluetoothLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 {
-    //kDebug(debugArea()) << "deviceLinkDestroyed";
     const QString id = destroyedDeviceLink->property("deviceId").toString();
     qCDebug(KDECONNECT_CORE()) << "Device disconnected:" << id;
     QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(id);
