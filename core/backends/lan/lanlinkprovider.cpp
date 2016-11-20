@@ -125,10 +125,35 @@ void LanLinkProvider::broadcastToNetwork()
     Q_ASSERT(mTcpPort != 0);
 
     qCDebug(KDECONNECT_CORE()) << "Broadcasting identity packet";
+
+    QHostAddress destAddress = mTestMode? QHostAddress::LocalHost : QHostAddress("255.255.255.255");
+
     NetworkPackage np("");
     NetworkPackage::createIdentityPackage(&np);
     np.set("tcpPort", mTcpPort);
-    mUdpSocket.writeDatagram(np.serialize(), mTestMode ? QHostAddress::LocalHost : QHostAddress("255.255.255.255"), PORT);
+
+#ifdef Q_OS_WIN
+    //On Windows we need to broadcast from every local IP address to reach all networks
+    QUdpSocket sendSocket;
+    for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
+        if ( (iface.flags() & QNetworkInterface::IsUp)
+          && (iface.flags() & QNetworkInterface::IsRunning)
+          && (iface.flags() & QNetworkInterface::CanBroadcast)) {
+            for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
+                QHostAddress sourceAddress = ifaceAddress.ip();
+                if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
+                    qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
+                    sendSocket.bind(sourceAddress, PORT);
+                    sendSocket.writeDatagram(np.serialize(), destAddress, PORT);
+                    sendSocket.close();
+                }
+            }
+        }
+    }
+#else
+    mUdpSocket.writeDatagram(np.serialize(), destAddress, PORT);
+#endif
+
 }
 
 //I'm the existing device, a new device is kindly introducing itself.
