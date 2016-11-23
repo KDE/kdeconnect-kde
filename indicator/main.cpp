@@ -47,6 +47,7 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
     DevicesModel model;
+    model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
 
     QMenu menu;
     QSystemTrayIcon systray;
