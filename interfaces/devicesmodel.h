@@ -72,6 +72,8 @@ public:
     Q_SCRIPTABLE DeviceDbusInterface* getDevice(int row) const;
     QHash<int, QByteArray> roleNames() const override;
 
+    QVector<DeviceDbusInterface*> devices() const { return m_deviceList; }
+
 private Q_SLOTS:
     void deviceAdded(const QString& id);
     void deviceRemoved(const QString& id);
