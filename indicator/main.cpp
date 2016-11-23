@@ -70,5 +70,9 @@ int main(int argc, char** argv)
         }
     });
 
+    QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
+        systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
+    });
+
     return app.exec();
 }
