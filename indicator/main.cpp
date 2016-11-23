@@ -50,6 +50,11 @@ int main(int argc, char** argv)
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
 
     QMenu menu;
+    auto configure = menu.addAction(i18n("Configure..."));
+    QObject::connect(configure, &QAction::triggered, configure, [](){
+        QProcess::startDetached("kcmshell5", {"kdeconnect"});
+    });
+
     QSystemTrayIcon systray;
     systray.setIcon(QIcon::fromTheme("kdeconnect"));
     systray.setContextMenu(&menu);
