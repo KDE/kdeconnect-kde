@@ -28,10 +28,6 @@ Item
     width: units.gridUnit * 20
     height: units.gridUnit * 32
 
-    function isConstrained() {
-        return (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal);
-    }
-
     DevicesModel {
         id: connectDeviceModel
         displayFilter: DevicesModel.Paired | DevicesModel.Reachable
@@ -49,7 +45,9 @@ Item
         devicesModel: connectDeviceModel
     }
 
-    Plasmoid.preferredRepresentation: isConstrained() ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
+    readonly property bool isConstrained: (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal)
+
+    Plasmoid.preferredRepresentation: isConstrained ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 
     ProcessRunner {
         id: processRunner
