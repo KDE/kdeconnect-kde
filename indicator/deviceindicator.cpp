@@ -38,7 +38,7 @@ class BatteryAction : public QAction
 Q_OBJECT
 public:
     BatteryAction(DeviceDbusInterface* device)
-        : QAction()
+        : QAction(nullptr)
         , m_batteryIface(new DeviceBatteryDbusInterface(device->id(), this))
     {
         setWhenAvailable(m_batteryIface->charge(), [this](int charge) { setCharge(charge); }, this);
