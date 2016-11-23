@@ -93,13 +93,15 @@ int main(int argc, char** argv)
             } else {
                 DeviceDbusInterface deviceIface(id);
                 QString statusInfo;
-                const bool isReachable = deviceIface.isReachable(), isPaired = deviceIface.property("isPaired").toBool();
-                if (isReachable && isPaired) {
+                const bool isReachable = deviceIface.isReachable();
+                const bool isTrusted = deviceIface.isTrusted();
+                if (isReachable && isTrusted) {
                     statusInfo = i18n("(paired and reachable)");
                 } else if (isReachable) {
                     statusInfo = i18n("(reachable)");
-                } else if (isPaired)
+                } else if (isTrusted) {
                     statusInfo = i18n("(paired)");
+                }
                 QTextStream(stdout) << "- " << deviceIface.name()
                         << ": " << deviceIface.id() << ' ' << statusInfo << endl;
             }
