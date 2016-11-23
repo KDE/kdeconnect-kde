@@ -61,9 +61,8 @@ int main(int argc, char** argv)
     systray.setVisible(true);
 
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, [&menu, &model](const QModelIndex& /*parent*/, int first, int last) {
-        qDebug() << "wooooo" << first << last;
         for (int i=first; i<=last; ++i) {
-            DeviceDbusInterface* device = model.getDevice(first);
+            DeviceDbusInterface* device = model.getDevice(i);
             auto indicator = new DeviceIndicator(device);
             QObject::connect(device, &DeviceDbusInterface::destroyed, indicator, &QObject::deleteLater);
 
