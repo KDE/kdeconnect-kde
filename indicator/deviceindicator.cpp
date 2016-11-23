@@ -54,9 +54,9 @@ public:
         if (m_charge < 0)
             setText(i18n("No Battery"));
         else if (m_charging)
-            setText(i18n("Battery: %1 (Charging)", m_charge));
+            setText(i18n("Battery: %1% (Charging)", m_charge));
         else
-            setText(i18n("Battery: %1", m_charge));
+            setText(i18n("Battery: %1%", m_charge));
     }
 
 private Q_SLOTS:
@@ -77,7 +77,30 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     setIcon(QIcon::fromTheme(device->iconName()));
     setToolTip(device->type());
 
+    connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
+
     addAction(new BatteryAction(device));
+
+    auto browse = addAction(i18n("Browse device"));
+    connect(browse, &QAction::triggered, device, [device](){
+        SftpDbusInterface* sftpIface = new SftpDbusInterface(device->id(), device);
+        sftpIface->startBrowsing();
+        sftpIface->deleteLater();
+    });
+    auto findDevice = addAction(i18n("Find device"));
+    connect(findDevice, &QAction::triggered, device, [device](){
+        FindMyPhoneDeviceDbusInterface* iface = new FindMyPhoneDeviceDbusInterface(device->id(), device);
+        iface->ring();
+        iface->deleteLater();
+    });
+
+//     addAction(i18n("Send file")); //TODO
+
+    addSeparator();
+    auto unpair = addAction(i18n("Unpair"));
+    connect(unpair, &QAction::triggered, device, [device](){
+        device->unpair();
+    });
 }
 
 #include "deviceindicator.moc"

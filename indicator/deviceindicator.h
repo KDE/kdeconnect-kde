@@ -30,6 +30,9 @@ class DeviceIndicator : public QMenu
     public:
         DeviceIndicator(DeviceDbusInterface* device);
 
+    public Q_SLOTS:
+        void setText(const QString &text) { setTitle(text); }
+
     private:
         DeviceDbusInterface* m_device;
 };
