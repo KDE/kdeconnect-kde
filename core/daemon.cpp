@@ -71,8 +71,8 @@ Daemon::Daemon(QObject *parent, bool testMode)
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
     Q_FOREACH (const QString& id, list) {
         Device* device = new Device(this, id);
-        connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
-        connect(device, SIGNAL(trustedChanged(bool)), this, SLOT(onDeviceStatusChanged()));
+        connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
+        connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
         d->mDevices[id] = device;
         Q_EMIT deviceAdded(id);
     }
@@ -185,8 +185,8 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         if (!isDiscoveringDevices() && !device->isTrusted() && !dl->linkShouldBeKeptAlive()) {
             device->deleteLater();
         } else {
-            connect(device, SIGNAL(reachableStatusChanged()), this, SLOT(onDeviceStatusChanged()));
-            connect(device, SIGNAL(trustedChanged(bool)), this, SLOT(onDeviceStatusChanged()));
+            connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
+            connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
             d->mDevices[id] = device;
 
             Q_EMIT deviceAdded(id);

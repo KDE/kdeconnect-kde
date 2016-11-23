@@ -59,6 +59,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
     Q_OBJECT
 //  TODO: Workaround because OrgKdeKdeconnectDeviceInterface is not generating
 //  the signals for the properties
+    Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChangedProxy)
     Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
 
@@ -72,6 +73,7 @@ public:
 Q_SIGNALS:
     void nameChangedProxy(const QString &name);
     void trustedChangedProxy(bool paired);
+    void reachableChangedProxy(bool reachable);
 
 private:
     const QString m_id;

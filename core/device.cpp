@@ -243,7 +243,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     reloadPlugins();
 
     if (m_deviceLinks.size() == 1) {
-        Q_EMIT reachableStatusChanged();
+        Q_EMIT reachableChanged(true);
     }
 
     connect(link, &DeviceLink::pairStatusChanged, this, &Device::pairStatusChanged);
@@ -263,7 +263,7 @@ void Device::removeLink(DeviceLink* link)
 
     if (m_deviceLinks.isEmpty()) {
         reloadPlugins();
-        Q_EMIT reachableStatusChanged();
+        Q_EMIT reachableChanged(false);
     }
 }
 

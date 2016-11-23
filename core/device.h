@@ -41,7 +41,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName)
-    Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableStatusChanged)
+    Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChanged)
     Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
 
@@ -125,7 +125,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
-    Q_SCRIPTABLE void reachableStatusChanged();
+    Q_SCRIPTABLE void reachableChanged(bool reachable);
     Q_SCRIPTABLE void trustedChanged(bool trusted);
     Q_SCRIPTABLE void pairingError(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
