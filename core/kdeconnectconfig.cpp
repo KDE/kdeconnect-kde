@@ -64,6 +64,7 @@ KdeConnectConfig::KdeConnectConfig()
 {
     //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
     if(!QCA::isSupported("rsa")) {
+        qCritical() << "Could not find support for RSA in your QCA installation";
         Daemon::instance()->reportError(
                              i18n("KDE Connect failed to start"),
                              i18n("Could not find support for RSA in your QCA installation. If your "
