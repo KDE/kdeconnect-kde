@@ -32,6 +32,7 @@
   <name xml:lang="uk">KDE Connect</name>
   <name xml:lang="x-test">xxKDE Connectxx</name>
   <name xml:lang="zh-CN">KDE Connect</name>
+  <name xml:lang="zh-TW">KDE Connect</name>
   <summary>Seamless connection of your devices</summary>
   <summary xml:lang="ar">اتّصال سلس بين أجهزتك</summary>
   <summary xml:lang="ast">Conexón de los tos preseos ensin esfuerciu</summary>
@@ -61,6 +62,7 @@
   <summary xml:lang="uk">Безшовне з’єднання для усіх ваших пристроїв</summary>
   <summary xml:lang="x-test">xxSeamless connection of your devicesxx</summary>
   <summary xml:lang="zh-CN">无缝连接您的设备</summary>
+  <summary xml:lang="zh-TW">與您的裝置無縫連線</summary>
   <description>
     <p>KDE Connect provides integration between your Android phone and your desktop.</p>
     <p xml:lang="ar">يوفّر «كدي المتصّل» التّكامل بين هاتف أندرويد وسطح المكتب.</p>
@@ -91,6 +93,7 @@
     <p xml:lang="uk">KDE Connect забезпечує інтеграцію між вашим телефоном під керуванням Android та вашим робочим комп’ютером.</p>
     <p xml:lang="x-test">xxKDE Connect provides integration between your Android phone and your desktop.xx</p>
     <p xml:lang="zh-CN">KDE Connect 提供您的 Android 手机和桌面之间的集成。</p>
+    <p xml:lang="zh-TW">KDE Connect 提供您的 Android 手機與您的桌面間的整合</p>
   </description>
   <url type="homepage">https://community.kde.org/KDEConnect/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdeconnect</url>
