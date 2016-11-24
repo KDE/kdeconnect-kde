@@ -59,6 +59,8 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption("share", i18n("Share a file to a said device"), "path"));
     parser.addOption(QCommandLineOption("list-notifications", i18n("Display the notifications on a said device")));
     parser.addOption(QCommandLineOption("lock", i18n("Lock the specified device")));
+    parser.addOption(QCommandLineOption("send-sms", i18n("Sends an SMS. Requires destination"), i18n("message")));
+    parser.addOption(QCommandLineOption("destination", i18n("Phone number to send the message"), i18n("phone number")));
     parser.addOption(QCommandLineOption(QStringList("device") << "d", i18n("Device ID"), "dev"));
     parser.addOption(QCommandLineOption(QStringList("name") << "n", i18n("Device Name"), "name"));
     parser.addOption(QCommandLineOption("encryption-info", i18n("Get encryption info about said device")));
@@ -91,13 +93,15 @@ int main(int argc, char** argv)
             } else {
                 DeviceDbusInterface deviceIface(id);
                 QString statusInfo;
-                const bool isReachable = deviceIface.isReachable(), isPaired = deviceIface.property("isPaired").toBool();
-                if (isReachable && isPaired) {
+                const bool isReachable = deviceIface.isReachable();
+                const bool isTrusted = deviceIface.isTrusted();
+                if (isReachable && isTrusted) {
                     statusInfo = i18n("(paired and reachable)");
                 } else if (isReachable) {
                     statusInfo = i18n("(reachable)");
-                } else if (isPaired)
+                } else if (isTrusted) {
                     statusInfo = i18n("(paired)");
+                }
                 QTextStream(stdout) << "- " << deviceIface.name()
                         << ": " << deviceIface.id() << ' ' << statusInfo << endl;
             }
@@ -113,6 +117,7 @@ int main(int argc, char** argv)
         QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect", "org.kde.kdeconnect.daemon", "forceOnNetworkChange");
         QDBusConnection::sessionBus().call(msg);
     } else {
+
         QString device = parser.value("device");
         if (device.isEmpty() && parser.isSet("name")) {
             device = iface.deviceIdByName(parser.value("name"));
@@ -121,10 +126,11 @@ int main(int argc, char** argv)
                 return 1;
             }
         }
-
         if(device.isEmpty()) {
             QTextStream(stderr) << i18n("No device specified") << endl;
+            return 1;
         }
+
         if(parser.isSet("share")) {
             QUrl url = QUrl::fromUserInput(parser.value("share"), QDir::currentPath());
             parser.clearPositionalArguments();
@@ -181,6 +187,15 @@ int main(int argc, char** argv)
                 msg.setArguments(QVariantList() << message);
             }
             QDBusConnection::sessionBus().call(msg);
+        } else if(parser.isSet("send-sms")) {
+            if (parser.isSet("destination")) {
+                QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/telephony", "org.kde.kdeconnect.device.telephony", "sendSms");
+                msg.setArguments({ parser.value("destination"), parser.value("send-sms") });
+                QDBusConnection::sessionBus().call(msg);
+            } else {
+                QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
+                return 1;
+            }
         } else if(parser.isSet("ring")) {
             QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/findmyphone", "org.kde.kdeconnect.device.findmyphone", "ring");
             QDBusConnection::sessionBus().call(msg);

@@ -37,21 +37,23 @@ class TelephonyPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.telephony")
 
 public:
     explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
 
     bool receivePackage(const NetworkPackage& np) override;
-    void connected() override { }
+    void connected() override;
 
 public Q_SLOTS:
-    void sendMutePackage();
+    Q_SCRIPTABLE void sendSms(const QString& phoneNumber, const QString& messageBody);
 
 private Q_SLOTS:
-    void sendSms(const QString& phoneNumber, const QString& messageBody);
+    void sendMutePackage();
     void showSendSmsDialog();
 
 private:
+    QString dbusPath() const;
     KNotification* createNotification(const NetworkPackage& np);
 
     QDBusInterface m_telepathyInterface;
