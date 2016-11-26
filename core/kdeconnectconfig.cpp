@@ -156,7 +156,7 @@ QString KdeConnectConfig::name()
     return name;
 }
 
-void KdeConnectConfig::setName(QString name)
+void KdeConnectConfig::setName(const QString& name)
 {
     d->config->setValue(QStringLiteral("name"), name);
     d->config->sync();
@@ -243,7 +243,7 @@ void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
 }
 
 // Utility functions to set and get a value
-void KdeConnectConfig::setDeviceProperty(QString deviceId, QString key, QString value)
+void KdeConnectConfig::setDeviceProperty(const QString& deviceId, const QString& key, const QString& value)
 {
     d->trusted_devices->beginGroup(deviceId);
     d->trusted_devices->setValue(key, value);
@@ -251,7 +251,7 @@ void KdeConnectConfig::setDeviceProperty(QString deviceId, QString key, QString 
     d->trusted_devices->sync();
 }
 
-QString KdeConnectConfig::getDeviceProperty(QString deviceId, QString key, QString defaultValue)
+QString KdeConnectConfig::getDeviceProperty(const QString& deviceId, const QString& key, const QString& defaultValue)
 {
     QString value;
     d->trusted_devices->beginGroup(deviceId);
