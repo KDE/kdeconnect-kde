@@ -34,7 +34,7 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
-Q_GLOBAL_STATIC(Daemon*, s_instance)
+static Daemon* s_instance = nullptr;
 
 struct DaemonPrivate
 {
@@ -49,16 +49,16 @@ struct DaemonPrivate
 
 Daemon* Daemon::instance()
 {
-    Q_ASSERT(s_instance.exists());
-    return *s_instance;
+    Q_ASSERT(s_instance != nullptr);
+    return s_instance;
 }
 
 Daemon::Daemon(QObject *parent, bool testMode)
     : QObject(parent)
     , d(new DaemonPrivate)
 {
-    Q_ASSERT(!s_instance.exists());
-    *s_instance = this;
+    Q_ASSERT(!s_instance);
+    s_instance = this;
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
     //Load backends
