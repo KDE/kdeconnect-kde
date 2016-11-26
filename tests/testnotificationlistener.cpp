@@ -117,7 +117,7 @@ public Q_SLOTS:
 // Tweaked NotificationsListener for testing:
 class TestedNotificationsListener: public NotificationsListener
 {
-
+    Q_OBJECT
 public:
     explicit TestedNotificationsListener(KdeConnectPlugin* aPlugin)
         : NotificationsListener(aPlugin)
@@ -142,13 +142,13 @@ protected:
                                 int& channels, bool& hasAlpha,
                                 QByteArray& imageData) const override
     {
-        width = argument.toMap().value("width").toInt();
-        height = argument.toMap().value("height").toInt();
-        rowStride = argument.toMap().value("rowStride").toInt();
-        bitsPerSample = argument.toMap().value("bitsPerSample").toInt();
-        channels = argument.toMap().value("channels").toInt();
-        hasAlpha = argument.toMap().value("hasAlpha").toBool();
-        imageData = argument.toMap().value("imageData").toByteArray();
+        width = argument.toMap().value(QStringLiteral("width")).toInt();
+        height = argument.toMap().value(QStringLiteral("height")).toInt();
+        rowStride = argument.toMap().value(QStringLiteral("rowStride")).toInt();
+        bitsPerSample = argument.toMap().value(QStringLiteral("bitsPerSample")).toInt();
+        channels = argument.toMap().value(QStringLiteral("channels")).toInt();
+        hasAlpha = argument.toMap().value(QStringLiteral("hasAlpha")).toBool();
+        imageData = argument.toMap().value(QStringLiteral("imageData")).toByteArray();
         return true;
     }
 
@@ -177,7 +177,7 @@ void TestNotificationListener::testNotify()
     // set things up:
     //
 
-    QString dId("testid");
+    QString dId(QStringLiteral("testid"));
     TestDevice *d = new TestDevice(nullptr, dId);
 
     int proxiedNotifications = 0;
@@ -196,9 +196,9 @@ void TestNotificationListener::testNotify()
     QCOMPARE(listener, plugin->getNotificationsListener());
 
     // make sure config is default:
-    plugin->config()->set("generalPersistent", false);
-    plugin->config()->set("generalIncludeBody", true);
-    plugin->config()->set("generalUrgency", 0);
+    plugin->config()->set(QStringLiteral("generalPersistent"), false);
+    plugin->config()->set(QStringLiteral("generalIncludeBody"), true);
+    plugin->config()->set(QStringLiteral("generalUrgency"), 0);
     QCOMPARE(plugin->config()->get<bool>("generalPersistent"), false);
     QCOMPARE(plugin->config()->get<bool>("generalIncludeBody"), true);
     QCOMPARE(plugin->config()->get<bool>("generalUrgency"), false);
@@ -213,10 +213,10 @@ void TestNotificationListener::testNotify()
 
     uint replacesId = 99;
     uint retId;
-    QString appName("some-appName");
-    QString body("some-body");
-    QString icon("some-icon");
-    QString summary("some-summary");
+    QString appName(QStringLiteral("some-appName"));
+    QString body(QStringLiteral("some-body"));
+    QString icon(QStringLiteral("some-icon"));
+    QString summary(QStringLiteral("some-summary"));
 
     // regular Notify call that is synchronized ...
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
@@ -241,10 +241,10 @@ void TestNotificationListener::testNotify()
     QCOMPARE(listener->getApplications()[appName].icon, icon);
 
     // another one, with other timeout and urgency values:
-    QString appName2("some-appName2");
-    QString body2("some-body2");
-    QString icon2("some-icon2");
-    QString summary2("some-summary2");
+    QString appName2(QStringLiteral("some-appName2"));
+    QString body2(QStringLiteral("some-body2"));
+    QString icon2(QStringLiteral("some-icon2"));
+    QString summary2(QStringLiteral("some-summary2"));
 
     retId = listener->Notify(appName2, replacesId+1, icon2, summary2, body2, {}, {{"urgency", 2}}, 10);
     QCOMPARE(retId, replacesId+1);
@@ -259,7 +259,7 @@ void TestNotificationListener::testNotify()
     QVERIFY(listener->getApplications().contains(appName));
 
     // if persistent-only is set, timeouts > 0 are not synced:
-    plugin->config()->set("generalPersistent", true);
+    plugin->config()->set(QStringLiteral("generalPersistent"), true);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 1);
     QCOMPARE(retId, 0U);
     QCOMPARE(proxiedNotifications, d->getSentPackages());
@@ -270,10 +270,10 @@ void TestNotificationListener::testNotify()
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    plugin->config()->set("generalPersistent", false);
+    plugin->config()->set(QStringLiteral("generalPersistent"), false);
 
     // if min-urgency is set, lower urgency levels are not synced:
-    plugin->config()->set("generalUrgency", 1);
+    plugin->config()->set(QStringLiteral("generalUrgency"), 1);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{"urgency", 0}}, 0);
     QCOMPARE(retId, 0U);
     QCOMPARE(proxiedNotifications, d->getSentPackages());
@@ -285,7 +285,7 @@ void TestNotificationListener::testNotify()
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{"urgency", 2}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    plugin->config()->set("generalUrgency", 0);
+    plugin->config()->set(QStringLiteral("generalUrgency"), 0);
 
     // notifications for a deactivated application are not synced:
     QVERIFY(listener->getApplications().contains(appName));
@@ -307,42 +307,42 @@ void TestNotificationListener::testNotify()
 
     // notifications with blacklisted subjects are not synced:
     QVERIFY(listener->getApplications().contains(appName));
-    listener->getApplications()[appName].blacklistExpression.setPattern("black[12]|foo(bar|baz)");
-    retId = listener->Notify(appName, replacesId, icon, "summary black1", body, {}, {{}}, 0);
+    listener->getApplications()[appName].blacklistExpression.setPattern(QStringLiteral("black[12]|foo(bar|baz)"));
+    retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary black1"), body, {}, {{}}, 0);
     QCOMPARE(retId, 0U);
     QCOMPARE(proxiedNotifications, d->getSentPackages());
-    retId = listener->Notify(appName, replacesId, icon, "summary foobar", body, {}, {{}}, 0);
+    retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary foobar"), body, {}, {{}}, 0);
     QCOMPARE(retId, 0U);
     QCOMPARE(proxiedNotifications, d->getSentPackages());
     // other subjects are synced:
-    retId = listener->Notify(appName, replacesId, icon, "summary foo", body, {}, {{}}, 0);
+    retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary foo"), body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    retId = listener->Notify(appName, replacesId, icon, "summary black3", body, {}, {{}}, 0);
+    retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary black3"), body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
     // also body is checked by blacklist if requested:
-    plugin->config()->set("generalIncludeBody", true);
-    retId = listener->Notify(appName, replacesId, icon, summary, "body black1", {}, {{}}, 0);
+    plugin->config()->set(QStringLiteral("generalIncludeBody"), true);
+    retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body black1"), {}, {{}}, 0);
     QCOMPARE(retId, 0U);
     QCOMPARE(proxiedNotifications, d->getSentPackages());
-    retId = listener->Notify(appName, replacesId, icon, summary, "body foobaz", {}, {{}}, 0);
+    retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body foobaz"), {}, {{}}, 0);
     QCOMPARE(retId, 0U);
     QCOMPARE(proxiedNotifications, d->getSentPackages());
     // body does not matter if inclusion was not requested:
-    plugin->config()->set("generalIncludeBody", false);
-    retId = listener->Notify(appName, replacesId, icon, summary, "body black1", {}, {{}}, 0);
+    plugin->config()->set(QStringLiteral("generalIncludeBody"), false);
+    retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body black1"), {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
     // without body, also ticker value is different:
     QCOMPARE(d->getLastPackage()->get<QString>("ticker"), summary);
-    retId = listener->Notify(appName, replacesId, icon, summary, "body foobaz", {}, {{}}, 0);
+    retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body foobaz"), {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
 
     // back to normal:
-    listener->getApplications()[appName].blacklistExpression.setPattern("");
-    plugin->config()->set("generalIncludeBody", true);
+    listener->getApplications()[appName].blacklistExpression.setPattern(QLatin1String(""));
+    plugin->config()->set(QStringLiteral("generalIncludeBody"), true);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
@@ -355,14 +355,14 @@ void TestNotificationListener::testNotify()
     // appIcon
     int count = 0;
     Q_FOREACH (const auto& iconName, KIconLoader::global()->queryIcons(-KIconLoader::SizeEnormous, KIconLoader::Application)) {
-        if (!iconName.endsWith(".png"))
+        if (!iconName.endsWith(QLatin1String(".png")))
             continue;
         if (count++ > 3) // max 3 iterations
             break;
         iconPaths.append(iconName); // memorize some paths for later
 
         // existing icons are sync-ed if requested
-        plugin->config()->set("generalSynchronizeIcons", true);
+        plugin->config()->set(QStringLiteral("generalSynchronizeIcons"), true);
         QFileInfo fi(iconName);
         retId = listener->Notify(appName, replacesId, fi.baseName(), summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
@@ -382,14 +382,14 @@ void TestNotificationListener::testNotify()
         QVERIFY(!d->getLastPackage()->hasPayload());
 
         // if sync not requested no payload:
-        plugin->config()->set("generalSynchronizeIcons", false);
+        plugin->config()->set(QStringLiteral("generalSynchronizeIcons"), false);
         retId = listener->Notify(appName, replacesId, fi.baseName(), summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
         QCOMPARE(++proxiedNotifications, d->getSentPackages());
         QVERIFY(!d->getLastPackage()->hasPayload());
         QCOMPARE(d->getLastPackage()->payloadSize(), 0);
     }
-    plugin->config()->set("generalSynchronizeIcons", true);
+    plugin->config()->set(QStringLiteral("generalSynchronizeIcons"), true);
 
     // image-path in hints
     if (iconPaths.size() > 0) {
@@ -424,7 +424,6 @@ void TestNotificationListener::testNotify()
                        0x11, 0x12, 0x13, 0x14,
                        0x21, 0x22, 0x23, 0x24,
                        0x31, 0x32, 0x33, 0x34 };
-    QByteArray byteData(rawData, rowStride*height);
     QVariantMap imageData = {{"width", width}, {"height", height}, {"rowStride", rowStride},
                             {"bitsPerSample", bitsPerSample}, {"channels", channels},
                             {"hasAlpha", hasAlpha}, {"imageData", rawData}};
@@ -435,9 +434,9 @@ void TestNotificationListener::testNotify()
     QCOMPARE(qBlue(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 2]); \
     QCOMPARE(qAlpha(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 3]);
 
-    hints.insert("image-data", imageData);
+    hints.insert(QStringLiteral("image-data"), imageData);
     if (iconPaths.size() > 0)
-        hints.insert("image-path", iconPaths[0]);
+        hints.insert(QStringLiteral("image-path"), iconPaths[0]);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, hints, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
@@ -456,9 +455,9 @@ void TestNotificationListener::testNotify()
 
     // same for image_data in hints
     hints.clear();
-    hints.insert("image-data", imageData);
+    hints.insert(QStringLiteral("image-data"), imageData);
     if (iconPaths.size() > 0)
-        hints.insert("image_path", iconPaths[0]);
+        hints.insert(QStringLiteral("image_path"), iconPaths[0]);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, hints, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
@@ -477,8 +476,8 @@ void TestNotificationListener::testNotify()
 
     // same for icon_data, which has lowest priority
     hints.clear();
-    hints.insert("icon_data", imageData);
-    retId = listener->Notify(appName, replacesId, "", summary, body, {}, hints, 0);
+    hints.insert(QStringLiteral("icon_data"), imageData);
+    retId = listener->Notify(appName, replacesId, QLatin1String(""), summary, body, {}, hints, 0);
     QCOMPARE(retId, replacesId);
     QCOMPARE(++proxiedNotifications, d->getSentPackages());
     QVERIFY(d->getLastPackage());

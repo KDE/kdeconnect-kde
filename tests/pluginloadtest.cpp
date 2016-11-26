@@ -47,7 +47,7 @@ class PluginLoadTest : public QObject
     private Q_SLOTS:
         void testPlugins() {
             Device* d = nullptr;
-            mDaemon->acquireDiscoveryMode("plugintest");
+            mDaemon->acquireDiscoveryMode(QStringLiteral("plugintest"));
             Q_FOREACH(Device* id, mDaemon->devicesList()) {
                 if (id->isReachable()) {
                     if (!id->isTrusted())
@@ -56,9 +56,9 @@ class PluginLoadTest : public QObject
                     break;
                 }
             }
-            mDaemon->releaseDiscoveryMode("plugintest");
+            mDaemon->releaseDiscoveryMode(QStringLiteral("plugintest"));
 
-            if (!d->loadedPlugins().contains("kdeconnect_remotecontrol")) {
+            if (!d->loadedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol"))) {
                 QSKIP("kdeconnect_remotecontrol is required for this test");
             }
 
@@ -66,11 +66,11 @@ class PluginLoadTest : public QObject
             QVERIFY(d->isTrusted());
             QVERIFY(d->isReachable());
 
-            d->setPluginEnabled("kdeconnect_mousepad", false);
+            d->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), false);
             QCOMPARE(d->isPluginEnabled("kdeconnect_mousepad"), false);
             QVERIFY(d->supportedPlugins().contains("kdeconnect_remotecontrol"));
 
-            d->setPluginEnabled("kdeconnect_mousepad", true);
+            d->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), true);
             QCOMPARE(d->isPluginEnabled("kdeconnect_mousepad"), true);
             QVERIFY(d->supportedPlugins().contains("kdeconnect_remotecontrol"));
         }

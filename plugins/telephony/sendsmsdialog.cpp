@@ -47,7 +47,7 @@ SendSmsDialog::SendSmsDialog(const QString& originalMessage, const QString& phon
 
     setLayout(layout);
     setWindowTitle(contactName);
-    setWindowIcon(QIcon::fromTheme("kdeconnect"));
+    setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     setAttribute(Qt::WA_DeleteOnClose);
 }
 

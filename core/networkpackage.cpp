@@ -63,12 +63,12 @@ void NetworkPackage::createIdentityPackage(NetworkPackage* np)
     np->mType = PACKAGE_TYPE_IDENTITY;
     np->mPayload = QSharedPointer<QIODevice>();
     np->mPayloadSize = 0;
-    np->set("deviceId", id);
-    np->set("deviceName", config->name());
-    np->set("deviceType", config->deviceType());
-    np->set("protocolVersion",  NetworkPackage::ProtocolVersion);
-    np->set("incomingCapabilities", PluginLoader::instance()->incomingCapabilities());
-    np->set("outgoingCapabilities", PluginLoader::instance()->outgoingCapabilities());
+    np->set(QStringLiteral("deviceId"), id);
+    np->set(QStringLiteral("deviceName"), config->name());
+    np->set(QStringLiteral("deviceType"), config->deviceType());
+    np->set(QStringLiteral("protocolVersion"),  NetworkPackage::ProtocolVersion);
+    np->set(QStringLiteral("incomingCapabilities"), PluginLoader::instance()->incomingCapabilities());
+    np->set(QStringLiteral("outgoingCapabilities"), PluginLoader::instance()->outgoingCapabilities());
 
     //qCDebug(KDECONNECT_CORE) << "createIdentityPackage" << np->serialize();
 }
@@ -97,8 +97,8 @@ QByteArray NetworkPackage::serialize() const
 
     if (hasPayload()) {
         //qCDebug(KDECONNECT_CORE) << "Serializing payloadTransferInfo";
-        variant["payloadSize"] = payloadSize();
-        variant["payloadTransferInfo"] = mPayloadTransferInfo;
+        variant[QStringLiteral("payloadSize")] = payloadSize();
+        variant[QStringLiteral("payloadTransferInfo")] = mPayloadTransferInfo;
     }
 
     //QVariant -> json
@@ -148,18 +148,18 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     auto variant = parser.toVariant().toMap();
     qvariant2qobject(variant, np);
 
-    np->mPayloadSize = variant["payloadSize"].toInt(); //Will return 0 if was not present, which is ok
+    np->mPayloadSize = variant[QStringLiteral("payloadSize")].toInt(); //Will return 0 if was not present, which is ok
     if (np->mPayloadSize == -1) {
-        np->mPayloadSize = np->get<int>("size", -1);
+        np->mPayloadSize = np->get<int>(QStringLiteral("size"), -1);
     }
-    np->mPayloadTransferInfo = variant["payloadTransferInfo"].toMap(); //Will return an empty qvariantmap if was not present, which is ok
+    np->mPayloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
     //Ids containing characters that are not allowed as dbus paths would make app crash
-    if (np->mBody.contains("deviceId"))
+    if (np->mBody.contains(QStringLiteral("deviceId")))
     {
-        QString deviceId = np->get<QString>("deviceId");
+        QString deviceId = np->get<QString>(QStringLiteral("deviceId"));
         DbusHelper::filterNonExportableCharacters(deviceId);
-        np->set("deviceId", deviceId);
+        np->set(QStringLiteral("deviceId"), deviceId);
     }
 
     return true;

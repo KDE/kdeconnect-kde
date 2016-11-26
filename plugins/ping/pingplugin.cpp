@@ -47,11 +47,11 @@ PingPlugin::~PingPlugin()
 
 bool PingPlugin::receivePackage(const NetworkPackage& np)
 {
-    KNotification* notification = new KNotification("pingReceived"); //KNotification::Persistent
+    KNotification* notification = new KNotification(QStringLiteral("pingReceived")); //KNotification::Persistent
     notification->setIconName(QStringLiteral("dialog-ok"));
-    notification->setComponentName("kdeconnect");
+    notification->setComponentName(QStringLiteral("kdeconnect"));
     notification->setTitle(device()->name());
-    notification->setText(np.get<QString>("message",i18n("Ping!"))); //This can be a source of spam
+    notification->setText(np.get<QString>(QStringLiteral("message"),i18n("Ping!"))); //This can be a source of spam
     notification->sendEvent();
 
     return true;
@@ -68,7 +68,7 @@ void PingPlugin::sendPing(const QString& customMessage)
 {
     NetworkPackage np(PACKAGE_TYPE_PING);
     if (!customMessage.isEmpty()) {
-        np.set("message", customMessage);
+        np.set(QStringLiteral("message"), customMessage);
     }
     bool success = sendPackage(np);
     qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;

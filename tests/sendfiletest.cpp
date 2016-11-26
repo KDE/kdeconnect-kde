@@ -50,7 +50,7 @@ class TestSendFile : public QObject
 
     private Q_SLOTS:
         void testSend() {
-            mDaemon->acquireDiscoveryMode("test");
+            mDaemon->acquireDiscoveryMode(QStringLiteral("test"));
             Device* d = nullptr;
             Q_FOREACH(Device* id, mDaemon->devicesList()) {
                 if (id->isReachable()) {
@@ -59,7 +59,7 @@ class TestSendFile : public QObject
                     d = id;
                 }
             }
-            mDaemon->releaseDiscoveryMode("test");
+            mDaemon->releaseDiscoveryMode(QStringLiteral("test"));
             QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
             QCOMPARE(d->isTrusted(), true);
@@ -71,7 +71,7 @@ class TestSendFile : public QObject
             temp.write(content);
             temp.close();
 
-            KdeConnectPlugin* plugin = d->plugin("kdeconnect_share");
+            KdeConnectPlugin* plugin = d->plugin(QStringLiteral("kdeconnect_share"));
             QVERIFY(plugin);
             plugin->metaObject()->invokeMethod(plugin, "shareUrl", Q_ARG(QString, QUrl::fromLocalFile(temp.fileName()).toString()));
 
@@ -94,12 +94,12 @@ class TestSendFile : public QObject
             QFile(destFile).remove();
 
             const QString deviceId = KdeConnectConfig::instance()->deviceId()
-                        , deviceName = "testdevice"
+                        , deviceName = QStringLiteral("testdevice")
                         , deviceType = KdeConnectConfig::instance()->deviceType();
 
             KdeConnectConfig* kcc = KdeConnectConfig::instance();
             kcc->addTrustedDevice(deviceId, deviceName, deviceType);
-            kcc->setDeviceProperty(deviceId, QString("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating
+            kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating
 
             QSharedPointer<QFile> f(new QFile(aFile));
             UploadJob* uj = new UploadJob(f, deviceId);
@@ -107,14 +107,14 @@ class TestSendFile : public QObject
             uj->start();
 
             auto info = uj->transferInfo();
-            info.insert("deviceId", deviceId);
-            info.insert("size", aFile.size());
+            info.insert(QStringLiteral("deviceId"), deviceId);
+            info.insert(QStringLiteral("size"), aFile.size());
 
             DownloadJob* dj = new DownloadJob(QHostAddress::LocalHost, info);
 
             QVERIFY(dj->getPayload()->open(QIODevice::ReadOnly));
 
-            FileTransferJob* ft = new FileTransferJob(dj->getPayload(), uj->transferInfo()["size"].toInt(), QUrl::fromLocalFile(destFile));
+            FileTransferJob* ft = new FileTransferJob(dj->getPayload(), uj->transferInfo()[QStringLiteral("size")].toInt(), QUrl::fromLocalFile(destFile));
 
             QSignalSpy spyDownload(dj, &KJob::result);
             QSignalSpy spyTransfer(ft, &KJob::result);

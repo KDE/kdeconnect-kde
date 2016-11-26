@@ -25,7 +25,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_MOUSEPAD_REQUEST QLatin1String("kdeconnect.mousepad.request")
+#define PACKAGE_TYPE_MOUSEPAD_REQUEST QStringLiteral("kdeconnect.mousepad.request")
 
 class Q_DECL_EXPORT RemoteControlPlugin
     : public KdeConnectPlugin

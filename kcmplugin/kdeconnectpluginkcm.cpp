@@ -37,7 +37,7 @@ KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget* parent, const QVariantList& ar
 
     d->mDeviceId = args.at(0).toString();
     //The parent of the config should be the plugin itself
-    d->mPluginName = KService::serviceByDesktopName(componentName).constData()->property("X-KDE-ParentComponents").toString();
+    d->mPluginName = KService::serviceByDesktopName(componentName).constData()->property(QStringLiteral("X-KDE-ParentComponents")).toString();
 
     d->mConfig = new KdeConnectPluginConfig(d->mDeviceId, d->mPluginName);
 }

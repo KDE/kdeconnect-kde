@@ -32,12 +32,12 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_screensaver_inh
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT, "kdeconnect.plugin.screensaverinhibit")
 
-const QString INHIBIT_SERVICE = "org.freedesktop.ScreenSaver";
+const QString INHIBIT_SERVICE = QStringLiteral("org.freedesktop.ScreenSaver");
 const QString INHIBIT_INTERFACE = INHIBIT_SERVICE;
-const QString INHIBIT_PATH = "/ScreenSaver";
-const QString INHIBIT_METHOD = "Inhibit";
-const QString UNINHIBIT_METHOD = "UnInhibit";
-const QString SIMULATE_ACTIVITY_METHOD = "SimulateUserActivity";
+const QString INHIBIT_PATH = QStringLiteral("/ScreenSaver");
+const QString INHIBIT_METHOD = QStringLiteral("Inhibit");
+const QString UNINHIBIT_METHOD = QStringLiteral("UnInhibit");
+const QString SIMULATE_ACTIVITY_METHOD = QStringLiteral("SimulateUserActivity");
 
 ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

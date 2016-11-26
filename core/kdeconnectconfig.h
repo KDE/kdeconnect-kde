@@ -56,7 +56,7 @@ public:
     QString certificatePath();
     QSslCertificate certificate();
 
-    void setName(QString name);
+    void setName(const QString& name);
 
     /*
      * Trusted devices
@@ -67,8 +67,8 @@ public:
     void addTrustedDevice(const QString &id, const QString &name, const QString &type);
     KdeConnectConfig::DeviceInfo getTrustedDevice(const QString &id);
 
-    void setDeviceProperty(QString deviceId, QString name, QString value);
-    QString getDeviceProperty(QString deviceId, QString name, QString defaultValue = QString());
+    void setDeviceProperty(const QString& deviceId, const QString& name, const QString& value);
+    QString getDeviceProperty(const QString& deviceId, const QString& name, const QString& defaultValue = QString());
 
     /*
      * Paths for config files, there is no guarantee the directories already exist

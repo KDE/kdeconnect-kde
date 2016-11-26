@@ -40,10 +40,10 @@ KdeConnectPluginConfig::KdeConnectPluginConfig(const QString& deviceId, const QS
     d->mConfigDir = KdeConnectConfig::instance()->pluginConfigDir(deviceId, pluginName);
     QDir().mkpath(d->mConfigDir.path());
 
-    d->mConfig = new QSettings(d->mConfigDir.absoluteFilePath("config"), QSettings::IniFormat);
+    d->mConfig = new QSettings(d->mConfigDir.absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
 
-    d->signal = QDBusMessage::createSignal("/kdeconnect/"+deviceId+"/"+pluginName, "org.kde.kdeconnect.config", "configChanged");
-    QDBusConnection::sessionBus().connect("", "/kdeconnect/"+deviceId+"/"+pluginName, "org.kde.kdeconnect.config", "configChanged", this, SLOT(slotConfigChanged()));
+    d->signal = QDBusMessage::createSignal("/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"));
+    QDBusConnection::sessionBus().connect(QLatin1String(""), "/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"), this, SLOT(slotConfigChanged()));
 }
 
 KdeConnectPluginConfig::~KdeConnectPluginConfig()
@@ -74,7 +74,7 @@ QVariantList KdeConnectPluginConfig::getList(const QString& key,
     }
     for (int i = 0; i < size; ++i) {
         d->mConfig->setArrayIndex(i);
-        list << d->mConfig->value("value");
+        list << d->mConfig->value(QStringLiteral("value"));
     }
     d->mConfig->endArray();
     return list;
@@ -92,7 +92,7 @@ void KdeConnectPluginConfig::setList(const QString& key, const QVariantList& lis
     d->mConfig->beginWriteArray(key);
     for (int i = 0; i < list.size(); ++i) {
         d->mConfig->setArrayIndex(i);
-        d->mConfig->setValue("value", list.at(i));
+        d->mConfig->setValue(QStringLiteral("value"), list.at(i));
     }
     d->mConfig->endArray();
     d->mConfig->sync();

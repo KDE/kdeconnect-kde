@@ -52,7 +52,7 @@ public:
     FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination);
     void start() override;
     QUrl destination() const { return mDestination; }
-    void setOriginName(QString from) { mFrom = from; }
+    void setOriginName(const QString& from) { mFrom = from; }
 
 private Q_SLOTS:
     void doStart();

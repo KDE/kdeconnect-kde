@@ -29,7 +29,7 @@
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
 
 ShareConfig::ShareConfig(QWidget *parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, "kdeconnect_share_config")
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_share_config"))
     , m_ui(new Ui::ShareConfigUi())
 {
     m_ui->setupUi(this);
@@ -58,14 +58,14 @@ void ShareConfig::load()
 {
     KCModule::load();
 
-    m_ui->kurlrequester->setUrl(QUrl::fromLocalFile(config()->get("incoming_path", QStandardPaths::writableLocation(QStandardPaths::DownloadLocation))));
+    m_ui->kurlrequester->setUrl(QUrl::fromLocalFile(config()->get(QStringLiteral("incoming_path"), QStandardPaths::writableLocation(QStandardPaths::DownloadLocation))));
 
     Q_EMIT changed(false);
 }
 
 void ShareConfig::save()
 {
-    config()->set("incoming_path", m_ui->kurlrequester->text());
+    config()->set(QStringLiteral("incoming_path"), m_ui->kurlrequester->text());
 
     KCModule::save();
 

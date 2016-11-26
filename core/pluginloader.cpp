@@ -36,7 +36,7 @@ PluginLoader* PluginLoader::instance()
 
 PluginLoader::PluginLoader()
 {
-    QVector<KPluginMetaData> data = KPluginLoader::findPlugins("kdeconnect/");
+    QVector<KPluginMetaData> data = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
     Q_FOREACH (const KPluginMetaData& metadata, data) {
         plugins[metadata.pluginId()] = metadata;
     }
@@ -69,7 +69,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
         return ret;
     }
 
-    const QStringList outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType");
+    const QStringList outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPackageType"));
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
@@ -87,7 +87,7 @@ QStringList PluginLoader::incomingCapabilities() const
 {
     QSet<QString> ret;
     Q_FOREACH (const KPluginMetaData& service, plugins) {
-        ret += KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
+        ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPackageType")).toSet();
     }
     return ret.toList();
 }
@@ -96,7 +96,7 @@ QStringList PluginLoader::outgoingCapabilities() const
 {
     QSet<QString> ret;
     Q_FOREACH (const KPluginMetaData& service, plugins) {
-        ret += KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
+        ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPackageType")).toSet();
     }
     return ret.toList();
 }
@@ -106,8 +106,8 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString>& incoming
     QSet<QString> ret;
 
     Q_FOREACH (const KPluginMetaData& service, plugins) {
-        const QSet<QString> pluginIncomingCapabilities = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-SupportedPackageType").toSet();
-        const QSet<QString> pluginOutgoingCapabilities = KPluginMetaData::readStringList(service.rawData(), "X-KdeConnect-OutgoingPackageType").toSet();
+        const QSet<QString> pluginIncomingCapabilities = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPackageType")).toSet();
+        const QSet<QString> pluginOutgoingCapabilities = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPackageType")).toSet();
 
         bool capabilitiesEmpty = (pluginIncomingCapabilities.isEmpty() && pluginOutgoingCapabilities.isEmpty());
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))

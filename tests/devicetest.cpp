@@ -48,11 +48,11 @@ private:
 
 void DeviceTest::initTestCase()
 {
-    deviceId = QString("testdevice");
-    deviceName = QString("Test Device");
-    deviceType = QString("smartphone");
-    QString stringPackage = QString("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\"}}");
-    identityPackage = new NetworkPackage("kdeconnect.identity");
+    deviceId = QStringLiteral("testdevice");
+    deviceName = QStringLiteral("Test Device");
+    deviceType = QStringLiteral("smartphone");
+    QString stringPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\"}}");
+    identityPackage = new NetworkPackage(QStringLiteral("kdeconnect.identity"));
     NetworkPackage::unserialize(stringPackage.toLatin1(), identityPackage);
 }
 
@@ -60,7 +60,7 @@ void DeviceTest::testPairedDevice()
 {
     KdeConnectConfig* kcc = KdeConnectConfig::instance();
     kcc->addTrustedDevice(deviceId, deviceName, deviceType);
-    kcc->setDeviceProperty(deviceId, QString("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating one
+    kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating one
 
     Device device(this, deviceId);
 

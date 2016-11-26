@@ -33,7 +33,7 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_pausemusic.json
 
 //TODO: Port this away from KMix to use only Pulseaudio
 int PauseMusicPlugin::isKMixMuted() {
-    QDBusInterface kmixInterface("org.kde.kmix", "/Mixers", "org.kde.KMix.MixSet");
+    QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/Mixers"), QStringLiteral("org.kde.KMix.MixSet"));
     QString mixer = kmixInterface.property("currentMasterMixer").toString();
     QString control = kmixInterface.property("currentMasterControl").toString();
 
@@ -47,7 +47,7 @@ int PauseMusicPlugin::isKMixMuted() {
     control.replace('.','_');
     control.replace('-','_');
 
-    QDBusInterface mixerInterface("org.kde.kmix", "/Mixers/"+mixer+"/"+control, "org.kde.KMix.Control");
+    QDBusInterface mixerInterface(QStringLiteral("org.kde.kmix"), "/Mixers/"+mixer+"/"+control, QStringLiteral("org.kde.KMix.Control"));
     if (mixerInterface.property("mute").toBool()) return 1;
     return (mixerInterface.property("volume").toInt() == 0);
 }
@@ -56,35 +56,35 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , muted(false)
 {
-    QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
+    QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/kmix/KMixWindow/actions/mute"), QStringLiteral("org.qtproject.Qt.QAction"));
 }
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
-    bool pauseOnlyWhenTalking = config()->get("conditionTalking", false);
+    bool pauseOnlyWhenTalking = config()->get(QStringLiteral("conditionTalking"), false);
 
     if (pauseOnlyWhenTalking) {
-        if (np.get<QString>("event") != "talking") {
+        if (np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
     } else { //Pause as soon as it rings
-        if (np.get<QString>("event") != "ringing" && np.get<QString>("event") != "talking") {
+        if (np.get<QString>(QStringLiteral("event")) != QLatin1String("ringing") && np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
     }
 
-    bool pauseConditionFulfilled = !np.get<bool>("isCancel");
+    bool pauseConditionFulfilled = !np.get<bool>(QStringLiteral("isCancel"));
 
-    bool pause = config()->get("actionPause", true);
-    bool mute = config()->get("actionMute", false);
+    bool pause = config()->get(QStringLiteral("actionPause"), true);
+    bool mute = config()->get(QStringLiteral("actionMute"), false);
 
     if (pauseConditionFulfilled) {
 
         if (mute) {
-            QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
+            QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/kmix/KMixWindow/actions/mute"), QStringLiteral("org.qtproject.Qt.QAction"));
             if (isKMixMuted() == 0) {
                 muted = true;
-                kmixInterface.call("trigger");
+                kmixInterface.call(QStringLiteral("trigger"));
             }
         }
 
@@ -92,16 +92,16 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
             //Search for interfaces currently playing
             QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
             Q_FOREACH (const QString& iface, interfaces) {
-                if (iface.startsWith("org.mpris.MediaPlayer2")) {
-                    QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
+                if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
+                    QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));
                     QString status = mprisInterface.property("PlaybackStatus").toString();
-                    if (status == "Playing") {
+                    if (status == QLatin1String("Playing")) {
                         if (!pausedSources.contains(iface)) {
                             pausedSources.insert(iface);
                             if (mprisInterface.property("CanPause").toBool()) {
-                                mprisInterface.asyncCall("Pause");
+                                mprisInterface.asyncCall(QStringLiteral("Pause"));
                             } else {
-                                mprisInterface.asyncCall("Stop");
+                                mprisInterface.asyncCall(QStringLiteral("Stop"));
                             }
                         }
                     }
@@ -112,17 +112,17 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     } else {
 
         if (mute && muted) {
-             QDBusInterface kmixInterface("org.kde.kmix", "/kmix/KMixWindow/actions/mute", "org.qtproject.Qt.QAction");
+             QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/kmix/KMixWindow/actions/mute"), QStringLiteral("org.qtproject.Qt.QAction"));
              if (isKMixMuted() > 0) {
-                 kmixInterface.call("trigger");
+                 kmixInterface.call(QStringLiteral("trigger"));
              }
              muted = false;
         }
 
         if (pause && !pausedSources.empty()) {
             Q_FOREACH (const QString& iface, pausedSources) {
-                QDBusInterface mprisInterface(iface, "/org/mpris/MediaPlayer2", "org.mpris.MediaPlayer2.Player");
-                mprisInterface.asyncCall("PlayPause");
+                QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));
+                mprisInterface.asyncCall(QStringLiteral("PlayPause"));
             }
             pausedSources.clear();
         }

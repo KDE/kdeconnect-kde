@@ -33,6 +33,7 @@ class ClipboardListener : public QObject
     Q_OBJECT
 
 private:
+    ClipboardListener();
     QString currentContent;
     QClipboard* clipboard;
 
@@ -46,8 +47,6 @@ public:
         }
         return me;
     }
-
-    ClipboardListener();
 
     void updateClipboard(QClipboard::Mode mode);
 

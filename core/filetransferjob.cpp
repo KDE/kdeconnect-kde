@@ -33,7 +33,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     : KJob()
     , mOrigin(origin)
     , mReply(Q_NULLPTR)
-    , mFrom("KDE Connect")
+    , mFrom(QStringLiteral("KDE Connect"))
     , mDestination(destination)
     , mSpeedBytes(0)
     , mWritten(0)
@@ -42,7 +42,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     Q_ASSERT(mOrigin->isReadable());
     if (mDestination.scheme().isEmpty()) {
         qCWarning(KDECONNECT_CORE) << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
-        mDestination.setScheme("file");
+        mDestination.setScheme(QStringLiteral("file"));
     }
 
     if (size >= 0) {

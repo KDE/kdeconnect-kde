@@ -31,5 +31,5 @@ ProcessRunner::~ProcessRunner()
 
 void ProcessRunner::runKdeconnectKCM()
 {
-    QProcess::startDetached("kcmshell5", QStringList() << "kcm_kdeconnect");
+    QProcess::startDetached(QStringLiteral("kcmshell5"), QStringList() << QStringLiteral("kcm_kdeconnect"));
 }

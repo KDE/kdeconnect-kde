@@ -34,11 +34,11 @@
 DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo)
     : KJob()
     , mAddress(address)
-    , mPort(transferInfo["port"].toInt())
+    , mPort(transferInfo[QStringLiteral("port")].toInt())
     , mSocket(new QSslSocket)
     , mBuffer(new QBuffer)
 {
-    LanLinkProvider::configureSslSocket(mSocket.data(), transferInfo.value("deviceId").toString(), true);
+    LanLinkProvider::configureSslSocket(mSocket.data(), transferInfo.value(QStringLiteral("deviceId")).toString(), true);
 
     connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
 //     connect(mSocket.data(), &QAbstractSocket::stateChanged, [](QAbstractSocket::SocketState state){ qDebug() << "statechange" << state; });

@@ -55,21 +55,21 @@ bool MprisRemotePlugin::receivePackage(const NetworkPackage& np)
     if (np.type() != PACKAGE_TYPE_MPRIS)
         return false;
 
-    if (np.has("nowPlaying") || np.has("volume") || np.has("isPlaying") || np.has("length") || np.has("pos")) {
-        if (np.get<QString>("player") == m_player) {
-            m_nowPlaying = np.get<QString>("nowPlaying", m_nowPlaying);
-            m_volume = np.get<int>("volume", m_volume);
-            m_length = np.get<int>("length", m_length);
-            if(np.has("pos")){
-                m_lastPosition = np.get<int>("pos", m_lastPosition);
+    if (np.has(QStringLiteral("nowPlaying")) || np.has(QStringLiteral("volume")) || np.has(QStringLiteral("isPlaying")) || np.has(QStringLiteral("length")) || np.has(QStringLiteral("pos"))) {
+        if (np.get<QString>(QStringLiteral("player")) == m_player) {
+            m_nowPlaying = np.get<QString>(QStringLiteral("nowPlaying"), m_nowPlaying);
+            m_volume = np.get<int>(QStringLiteral("volume"), m_volume);
+            m_length = np.get<int>(QStringLiteral("length"), m_length);
+            if(np.has(QStringLiteral("pos"))){
+                m_lastPosition = np.get<int>(QStringLiteral("pos"), m_lastPosition);
                 m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
             }
-            m_playing = np.get<bool>("isPlaying", m_playing);
+            m_playing = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
         }
     }
 
-    if (np.has("playerList")) {
-        m_playerList = np.get<QStringList>("playerList", QStringList());
+    if (np.has(QStringLiteral("playerList"))) {
+        m_playerList = np.get<QStringList>(QStringLiteral("playerList"), QStringList());
     }
     Q_EMIT propertiesChanged();
 

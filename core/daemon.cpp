@@ -34,7 +34,7 @@
 #include "backends/devicelink.h"
 #include "backends/linkprovider.h"
 
-Q_GLOBAL_STATIC(Daemon*, s_instance)
+static Daemon* s_instance = nullptr;
 
 struct DaemonPrivate
 {
@@ -49,16 +49,16 @@ struct DaemonPrivate
 
 Daemon* Daemon::instance()
 {
-    Q_ASSERT(s_instance.exists());
-    return *s_instance;
+    Q_ASSERT(s_instance != nullptr);
+    return s_instance;
 }
 
 Daemon::Daemon(QObject *parent, bool testMode)
     : QObject(parent)
     , d(new DaemonPrivate)
 {
-    Q_ASSERT(!s_instance.exists());
-    *s_instance = this;
+    Q_ASSERT(!s_instance);
+    s_instance = this;
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
     //Load backends
@@ -85,8 +85,8 @@ Daemon::Daemon(QObject *parent, bool testMode)
     }
 
     //Register on DBus
-    QDBusConnection::sessionBus().registerService("org.kde.kdeconnect");
-    QDBusConnection::sessionBus().registerObject("/modules/kdeconnect", this, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon started";
 }
@@ -165,12 +165,12 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 
 void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl)
 {
-    const QString& id = identityPackage.get<QString>("deviceId");
+    const QString& id = identityPackage.get<QString>(QStringLiteral("deviceId"));
 
     //qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
 
     if (d->mDevices.contains(id)) {
-        qCDebug(KDECONNECT_CORE) << "It is a known device" << identityPackage.get<QString>("deviceName");
+        qCDebug(KDECONNECT_CORE) << "It is a known device" << identityPackage.get<QString>(QStringLiteral("deviceName"));
         Device* device = d->mDevices[id];
         bool wasReachable = device->isReachable();
         device->addLink(identityPackage, dl);
@@ -178,7 +178,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
             Q_EMIT deviceVisibilityChanged(id, true);
         }
     } else {
-        qCDebug(KDECONNECT_CORE) << "It is a new device" << identityPackage.get<QString>("deviceName");
+        qCDebug(KDECONNECT_CORE) << "It is a new device" << identityPackage.get<QString>(QStringLiteral("deviceName"));
         Device* device = new Device(this, identityPackage, dl);
 
         //we discard the connections that we created but it's not paired.

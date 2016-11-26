@@ -97,30 +97,30 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
 {
     QQmlExtensionPlugin::initializeEngine(engine, uri);
  
-    engine->rootContext()->setContextProperty("DeviceDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("DeviceDbusInterfaceFactory")
       , new ObjectFactory(engine, createDeviceDbusInterface));
     
-    engine->rootContext()->setContextProperty("DeviceBatteryDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("DeviceBatteryDbusInterfaceFactory")
       , new ObjectFactory(engine, createDeviceBatteryDbusInterface));
     
-    engine->rootContext()->setContextProperty("FindMyPhoneDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("FindMyPhoneDbusInterfaceFactory")
       , new ObjectFactory(engine, createFindMyPhoneInterface));
 
-    engine->rootContext()->setContextProperty("SftpDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("SftpDbusInterfaceFactory")
       , new ObjectFactory(engine, createSftpInterface));
 
-    engine->rootContext()->setContextProperty("MprisDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("MprisDbusInterfaceFactory")
       , new ObjectFactory(engine, createMprisInterface));
 
-    engine->rootContext()->setContextProperty("RemoteControlDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("RemoteControlDbusInterfaceFactory")
       , new ObjectFactory(engine, createRemoteControlInterface));
 
-    engine->rootContext()->setContextProperty("LockDeviceDbusInterfaceFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("LockDeviceDbusInterfaceFactory")
       , new ObjectFactory(engine, createDeviceLockInterface));
     
-    engine->rootContext()->setContextProperty("DBusResponseFactory"
+    engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseFactory")
       , new ObjectFactory(engine, createDBusResponse));    
     
-    engine->rootContext()->setContextProperty("DBusResponseWaiter"
+    engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseWaiter")
       , DBusResponseWaiter::instance());
 }

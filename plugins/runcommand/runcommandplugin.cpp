@@ -33,7 +33,7 @@
 #include <core/networkpackage.h>
 #include <core/device.h>
 
-#define PACKAGE_TYPE_RUNCOMMAND QLatin1String("kdeconnect.runcommand")
+#define PACKAGE_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_runcommand.json", registerPlugin< RunCommandPlugin >(); )
 
@@ -51,22 +51,22 @@ RunCommandPlugin::~RunCommandPlugin()
 
 bool RunCommandPlugin::receivePackage(const NetworkPackage& np)
 {
-    if (np.get<bool>("requestCommandList", false)) {
+    if (np.get<bool>(QStringLiteral("requestCommandList"), false)) {
         sendConfig();
         return true;
     }
 
-    if (np.has("key")) {
-        QJsonDocument commandsDocument = QJsonDocument::fromJson(config()->get<QByteArray>("commands", "{}"));
+    if (np.has(QStringLiteral("key"))) {
+        QJsonDocument commandsDocument = QJsonDocument::fromJson(config()->get<QByteArray>(QStringLiteral("commands"), "{}"));
         QJsonObject commands = commandsDocument.object();
-        QString key = np.get<QString>("key");
+        QString key = np.get<QString>(QStringLiteral("key"));
         QJsonValue value = commands[key];
         if (value == QJsonValue::Undefined) {
             qCWarning(KDECONNECT_PLUGIN_RUNCOMMAND) << key << "is not a configured command";
         }
         const QJsonObject commandJson = value.toObject();
-        qDebug() << "Running:" << "/bin/sh" << "-c" << commandJson["command"].toString();
-        QProcess::startDetached("/bin/sh", QStringList()<< "-c" << commandJson["command"].toString());
+        qDebug() << "Running:" << "/bin/sh" << "-c" << commandJson[QStringLiteral("command")].toString();
+        QProcess::startDetached(QStringLiteral("/bin/sh"), QStringList()<< QStringLiteral("-c") << commandJson[QStringLiteral("command")].toString());
         return true;
     }
 
@@ -81,7 +81,7 @@ void RunCommandPlugin::connected()
 
 void RunCommandPlugin::sendConfig()
 {
-    QString commands = config()->get<QString>("commands","{}");
+    QString commands = config()->get<QString>(QStringLiteral("commands"),QStringLiteral("{}"));
     NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND, {{"commandList", commands}});
     sendPackage(np);
 }
