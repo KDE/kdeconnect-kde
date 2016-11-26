@@ -49,9 +49,9 @@ SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
 QUrl SharePlugin::destinationDir() const
 {
     const QString defaultDownloadPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    QUrl dir = QUrl::fromLocalFile(config()->get<QString>("incoming_path", defaultDownloadPath));
+    QUrl dir = QUrl::fromLocalFile(config()->get<QString>(QStringLiteral("incoming_path"), defaultDownloadPath));
 
-    if (dir.path().contains("%1")) {
+    if (dir.path().contains(QLatin1String("%1"))) {
         dir.setPath(dir.path().arg(device()->name()));
     }
 
@@ -89,7 +89,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
     if (np.hasPayload()) {
         //qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file";
-        const QString filename = np.get<QString>("filename", QString::number(QDateTime::currentMSecsSinceEpoch()));
+        const QString filename = np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch()));
         const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
         QUrl destination(dir.toString() + '/' + filename);
         if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
@@ -101,12 +101,12 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
         connect(job, &KJob::result, this, &SharePlugin::finished);
         KIO::getJobTracker()->registerJob(job);
         job->start();
-    } else if (np.has("text")) {
-        QString text = np.get<QString>("text");
-        if (!QStandardPaths::findExecutable("kate").isEmpty()) {
+    } else if (np.has(QStringLiteral("text"))) {
+        QString text = np.get<QString>(QStringLiteral("text"));
+        if (!QStandardPaths::findExecutable(QStringLiteral("kate")).isEmpty()) {
             QProcess* proc = new QProcess();
             connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
-            proc->start("kate", QStringList("--stdin"));
+            proc->start(QStringLiteral("kate"), QStringList(QStringLiteral("--stdin")));
             proc->write(text.toUtf8());
             proc->closeWriteChannel();
         } else {
@@ -120,8 +120,8 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
             Q_EMIT shareReceived(url);
             QDesktopServices::openUrl(url);
         }
-    } else if (np.has("url")) {
-        QUrl url = QUrl::fromEncoded(np.get<QByteArray>("url"));
+    } else if (np.has(QStringLiteral("url"))) {
+        QUrl url = QUrl::fromEncoded(np.get<QByteArray>(QStringLiteral("url")));
         QDesktopServices::openUrl(url);
         Q_EMIT shareReceived(url);
     } else {
@@ -152,9 +152,9 @@ void SharePlugin::shareUrl(const QUrl& url)
     if(url.isLocalFile()) {
         QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
         package.setPayload(ioFile, ioFile->size());
-        package.set<QString>("filename", QUrl(url).fileName());
+        package.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
     } else {
-        package.set<QString>("url", url.toString());
+        package.set<QString>(QStringLiteral("url"), url.toString());
     }
     sendPackage(package);
 }

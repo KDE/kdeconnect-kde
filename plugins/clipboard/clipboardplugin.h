@@ -27,7 +27,7 @@
 #include <core/kdeconnectplugin.h>
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD)
-#define PACKAGE_TYPE_CLIPBOARD QLatin1String("kdeconnect.clipboard")
+#define PACKAGE_TYPE_CLIPBOARD QStringLiteral("kdeconnect.clipboard")
 
 class ClipboardPlugin
     : public KdeConnectPlugin

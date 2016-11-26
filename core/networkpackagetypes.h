@@ -21,7 +21,7 @@
 #ifndef NETWORKPACKAGETYPES_H
 #define NETWORKPACKAGETYPES_H
 
-#define PACKAGE_TYPE_IDENTITY QLatin1String("kdeconnect.identity")
-#define PACKAGE_TYPE_PAIR QLatin1String("kdeconnect.pair")
+#define PACKAGE_TYPE_IDENTITY QStringLiteral("kdeconnect.identity")
+#define PACKAGE_TYPE_PAIR QStringLiteral("kdeconnect.pair")
 
 #endif // NETWORKPACKAGETYPES_H

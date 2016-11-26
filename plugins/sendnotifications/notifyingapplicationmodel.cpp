@@ -124,7 +124,7 @@ QVariant NotifyingApplicationModel::data(const QModelIndex& index, int role) con
         }
         case Qt::DecorationRole: {
             if (index.column() == 1)
-                return QIcon::fromTheme(m_apps[index.row()].icon, QIcon::fromTheme("application-x-executable"));
+                return QIcon::fromTheme(m_apps[index.row()].icon, QIcon::fromTheme(QStringLiteral("application-x-executable")));
             else
                 return QVariant();
             break;

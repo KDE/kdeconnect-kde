@@ -40,7 +40,7 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 {
     m_pairingTimeout.stop();
 
-    bool wantsPair = np.get<bool>("pair");
+    bool wantsPair = np.get<bool>(QStringLiteral("pair"));
 
     if (wantsPair) {
 

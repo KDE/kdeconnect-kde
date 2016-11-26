@@ -54,7 +54,7 @@ NotificationsPlugin::~NotificationsPlugin()
 
 bool NotificationsPlugin::receivePackage(const NetworkPackage& np)
 {
-    if (np.get<bool>("request")) return false;
+    if (np.get<bool>(QStringLiteral("request"))) return false;
 
     notificationsDbusInterface->processPackage(np);
 

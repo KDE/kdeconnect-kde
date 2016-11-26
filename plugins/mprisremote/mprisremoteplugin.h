@@ -25,8 +25,8 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_MPRIS_REQUEST QLatin1String("kdeconnect.mpris.request")
-#define PACKAGE_TYPE_MPRIS QLatin1String("kdeconnect.mpris")
+#define PACKAGE_TYPE_MPRIS_REQUEST QStringLiteral("kdeconnect.mpris.request")
+#define PACKAGE_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
 class Q_DECL_EXPORT MprisRemotePlugin
     : public KdeConnectPlugin

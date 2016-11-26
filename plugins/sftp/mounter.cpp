@@ -75,7 +75,7 @@ bool Mounter::wait()
 
 void Mounter::onPakcageReceived(const NetworkPackage& np)
 {
-    if (np.get<bool>("stop", false))
+    if (np.get<bool>(QStringLiteral("stop"), false))
     {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "SFTP server stopped";
         unmount();
@@ -107,35 +107,35 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
 
     QDir().mkpath(m_mountPoint);
 
-    const QString program = "sshfs";
+    const QString program = QStringLiteral("sshfs");
 
     QString path;
-    if (np.has("multiPaths")) path = '/';
-    else path = np.get<QString>("path");
+    if (np.has(QStringLiteral("multiPaths"))) path = '/';
+    else path = np.get<QString>(QStringLiteral("path"));
 
     const QStringList arguments = QStringList()
-        << QString("%1@%2:%3")
-            .arg(np.get<QString>("user"))
-            .arg(np.get<QString>("ip"))
+        << QStringLiteral("%1@%2:%3")
+            .arg(np.get<QString>(QStringLiteral("user")))
+            .arg(np.get<QString>(QStringLiteral("ip")))
             .arg(path)
         << m_mountPoint
-        << "-p" << np.get<QString>("port")
-        << "-f"
-        << "-F" << "/dev/null" //Do not use ~/.ssh/config
-        << "-o" << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
-        << "-o" << "StrictHostKeyChecking=no" //Do not ask for confirmation because it is not a known host
-        << "-o" << "UserKnownHostsFile=/dev/null" //Prevent storing as a known host
-        << "-o" << "HostKeyAlgorithms=ssh-dss" //https://bugs.kde.org/show_bug.cgi?id=351725
-        << "-o" << "password_stdin"
+        << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))
+        << QStringLiteral("-f")
+        << QStringLiteral("-F") << QStringLiteral("/dev/null") //Do not use ~/.ssh/config
+        << QStringLiteral("-o") << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
+        << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") //Do not ask for confirmation because it is not a known host
+        << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
+        << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725
+        << QStringLiteral("-o") << QStringLiteral("password_stdin")
         ;
 
     m_proc->setProgram(program, arguments);
 
-    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting process: " << m_proc->program().join(" ");
+    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting process: " << m_proc->program().join(QStringLiteral(" "));
     m_proc->start();
 
     //qCDebug(KDECONNECT_PLUGIN_SFTP) << "Passing password: " << np.get<QString>("password").toLatin1();
-    m_proc->write(np.get<QString>("password").toLatin1());
+    m_proc->write(np.get<QString>(QStringLiteral("password")).toLatin1());
     m_proc->write("\n");
 
 }
@@ -206,7 +206,7 @@ void Mounter::unmount()
         toDestroy->kill();
         delete toDestroy;
         //Free mount point (won't always succeed if the path is in use)
-        KProcess::execute(QStringList() << "fusermount" << "-u" << m_mountPoint, 10000);
+        KProcess::execute(QStringList() << QStringLiteral("fusermount") << QStringLiteral("-u") << m_mountPoint, 10000);
     }
     m_started = false;
 }

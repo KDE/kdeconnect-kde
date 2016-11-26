@@ -34,21 +34,21 @@ void NetworkPackageTests::initTestCase()
 
 void NetworkPackageTests::networkPackageTest()
 {
-    NetworkPackage np("com.test");
+    NetworkPackage np(QStringLiteral("com.test"));
 
-    np.set("hello","hola");
+    np.set(QStringLiteral("hello"),"hola");
     QCOMPARE( (np.get<QString>("hello","bye")) , QString("hola") );
 
-    np.set("hello","");
+    np.set(QStringLiteral("hello"),"");
     QCOMPARE( (np.get<QString>("hello","bye")) , QString("") );
 
-    np.body().remove("hello");
+    np.body().remove(QStringLiteral("hello"));
     QCOMPARE( (np.get<QString>("hello","bye")) , QString("bye") );
 
-    np.set("foo", "bar");
+    np.set(QStringLiteral("foo"), "bar");
     QByteArray ba = np.serialize();
     //qDebug() << "Serialized package:" << ba;
-    NetworkPackage np2("");
+    NetworkPackage np2(QLatin1String(""));
     NetworkPackage::unserialize(ba,&np2);
 
     QCOMPARE( np.id(), np2.id() );
@@ -71,7 +71,7 @@ void NetworkPackageTests::networkPackageTest()
 
 void NetworkPackageTests::networkPackageIdentityTest()
 {
-    NetworkPackage np("");
+    NetworkPackage np(QLatin1String(""));
     NetworkPackage::createIdentityPackage(&np);
 
     QCOMPARE( np.get<int>("protocolVersion", -1) , NetworkPackage::ProtocolVersion );

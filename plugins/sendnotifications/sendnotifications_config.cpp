@@ -28,7 +28,7 @@
 K_PLUGIN_FACTORY(SendNotificationsConfigFactory, registerPlugin<SendNotificationsConfig>();)
 
 SendNotificationsConfig::SendNotificationsConfig(QWidget *parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, "kdeconnect_sendnotifications_config")
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_sendnotifications_config"))
     , m_ui(new Ui::SendNotificationsConfigUi())
     , appModel(new NotifyingApplicationModel)
 {
@@ -76,7 +76,7 @@ void SendNotificationsConfig::defaults()
 void SendNotificationsConfig::loadApplications()
 {
     appModel->clearApplications();
-    QVariantList list = config()->getList("applications");
+    QVariantList list = config()->getList(QStringLiteral("applications"));
     for (const auto& a: list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
         if (!appModel->containsApp(app.name)) {
@@ -88,13 +88,13 @@ void SendNotificationsConfig::loadApplications()
 void SendNotificationsConfig::load()
 {
     KCModule::load();
-    bool persistent = config()->get("generalPersistent", false);
+    bool persistent = config()->get(QStringLiteral("generalPersistent"), false);
     m_ui->check_persistent->setChecked(persistent);
-    bool body = config()->get("generalIncludeBody", true);
+    bool body = config()->get(QStringLiteral("generalIncludeBody"), true);
     m_ui->check_body->setChecked(body);
-    bool icons = config()->get("generalSynchronizeIcons", true);
+    bool icons = config()->get(QStringLiteral("generalSynchronizeIcons"), true);
     m_ui->check_icons->setChecked(icons);
-    int urgency = config()->get("generalUrgency", 0);
+    int urgency = config()->get(QStringLiteral("generalUrgency"), 0);
     m_ui->spin_urgency->setValue(urgency);
 
     loadApplications();
@@ -103,15 +103,15 @@ void SendNotificationsConfig::load()
 
 void SendNotificationsConfig::save()
 {
-    config()->set("generalPersistent", m_ui->check_persistent->isChecked());
-    config()->set("generalIncludeBody", m_ui->check_body->isChecked());
-    config()->set("generalSynchronizeIcons", m_ui->check_icons->isChecked());
-    config()->set("generalUrgency", m_ui->spin_urgency->value());
+    config()->set(QStringLiteral("generalPersistent"), m_ui->check_persistent->isChecked());
+    config()->set(QStringLiteral("generalIncludeBody"), m_ui->check_body->isChecked());
+    config()->set(QStringLiteral("generalSynchronizeIcons"), m_ui->check_icons->isChecked());
+    config()->set(QStringLiteral("generalUrgency"), m_ui->spin_urgency->value());
 
     QVariantList list;
     for (const auto& a: appModel->apps())
         list << QVariant::fromValue<NotifyingApplication>(a);
-    config()->setList("applications", list);
+    config()->setList(QStringLiteral("applications"), list);
     KCModule::save();
     Q_EMIT changed(false);
 }

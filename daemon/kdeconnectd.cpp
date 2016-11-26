@@ -43,9 +43,9 @@ public:
 
     void askPairingConfirmation(PairingHandler* d) override
     {
-        KNotification* notification = new KNotification("pairingRequest");
+        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"));
         notification->setIconName(QStringLiteral("dialog-information"));
-        notification->setComponentName("kdeconnect");
+        notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setText(i18n("Pairing request from %1", getDevice(d->deviceLink()->deviceId())->name()));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
         connect(notification, &KNotification::ignored, d, &PairingHandler::rejectPairing);
@@ -74,9 +74,9 @@ private:
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    app.setApplicationName("kdeconnectd");
-    app.setApplicationVersion(QLatin1String(KDECONNECT_VERSION_STRING));
-    app.setOrganizationDomain("kde.org");
+    app.setApplicationName(QStringLiteral("kdeconnectd"));
+    app.setApplicationVersion(QStringLiteral(KDECONNECT_VERSION_STRING));
+    app.setOrganizationDomain(QStringLiteral("kde.org"));
     app.setQuitOnLastWindowClosed(false);
 
     KDBusService dbusService(KDBusService::Unique);

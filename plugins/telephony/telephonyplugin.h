@@ -28,8 +28,8 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_TELEPHONY_REQUEST QLatin1String("kdeconnect.telephony.request")
-#define PACKAGE_TYPE_SMS_REQUEST QLatin1String("kdeconnect.sms.request")
+#define PACKAGE_TYPE_TELEPHONY_REQUEST QStringLiteral("kdeconnect.telephony.request")
+#define PACKAGE_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 

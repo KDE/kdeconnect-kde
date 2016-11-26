@@ -84,14 +84,14 @@ void LanLinkProviderTest::initTestCase()
 {
     removeTrustedDevice(); // Remove trusted device if left by chance by any test
 
-    deviceId = QString("testdevice");
-    name = QString("Test Device");
+    deviceId = QStringLiteral("testdevice");
+    name = QStringLiteral("Test Device");
     privateKey = QCA::KeyGenerator().createRSA(2048);
     certificate = generateCertificate(deviceId, privateKey);
 
     mLanLinkProvider.onStart();
 
-    mIdentityPackage = QString("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(PORT) + QString("}}");
+    mIdentityPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(PORT) + QStringLiteral("}}");
 }
 
 void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
@@ -116,8 +116,8 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     testIdentityPackage(datagram);
 
     QJsonDocument jsonDocument = QJsonDocument::fromJson(datagram);
-    QJsonObject body = jsonDocument.object().value("body").toObject();
-    int tcpPort = body.value("tcpPort").toInt();
+    QJsonObject body = jsonDocument.object().value(QStringLiteral("body")).toObject();
+    int tcpPort = body.value(QStringLiteral("tcpPort")).toInt();
 
     QSslSocket socket;
     QSignalSpy spy2(&socket, SIGNAL(connected()));
@@ -224,8 +224,8 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
     testIdentityPackage(datagram);
 
     QJsonDocument jsonDocument = QJsonDocument::fromJson(datagram);
-    QJsonObject body = jsonDocument.object().value("body").toObject();
-    int tcpPort = body.value("tcpPort").toInt();
+    QJsonObject body = jsonDocument.object().value(QStringLiteral("body")).toObject();
+    int tcpPort = body.value(QStringLiteral("tcpPort")).toInt();
 
     QSslSocket socket;
     QSignalSpy spy2(&socket, SIGNAL(connected()));
@@ -303,7 +303,7 @@ void LanLinkProviderTest::testIdentityPackage(QByteArray &identityPackage)
 {
     QJsonDocument jsonDocument = QJsonDocument::fromJson(identityPackage);
     QJsonObject jsonObject = jsonDocument.object();
-    QJsonObject body = jsonObject.value("body").toObject();
+    QJsonObject body = jsonObject.value(QStringLiteral("body")).toObject();
 
     QCOMPARE(jsonObject.value("type").toString(), QString("kdeconnect.identity"));
     QVERIFY2(body.contains("deviceName"), "Device name not found in identity package");
@@ -318,8 +318,8 @@ QSslCertificate LanLinkProviderTest::generateCertificate(QString& commonName, QC
     QDateTime endTime = startTime.addYears(10);
     QCA::CertificateInfo certificateInfo;
     certificateInfo.insert(QCA::CommonName,commonName);
-    certificateInfo.insert(QCA::Organization,"KDE");
-    certificateInfo.insert(QCA::OrganizationalUnit,"Kde connect");
+    certificateInfo.insert(QCA::Organization,QStringLiteral("KDE"));
+    certificateInfo.insert(QCA::OrganizationalUnit,QStringLiteral("Kde connect"));
 
     QCA::CertificateOptions certificateOptions(QCA::PKCS10);
     certificateOptions.setSerialNumber(10);
@@ -340,8 +340,8 @@ void LanLinkProviderTest::setSocketAttributes(QSslSocket *socket)
 void LanLinkProviderTest::addTrustedDevice()
 {
     KdeConnectConfig *kcc = KdeConnectConfig::instance();
-    kcc->addTrustedDevice(deviceId, name, QString("phone"));
-    kcc->setDeviceProperty(deviceId, QString("certificate"), QString::fromLatin1(certificate.toPem()));
+    kcc->addTrustedDevice(deviceId, name, QStringLiteral("phone"));
+    kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(certificate.toPem()));
 }
 
 void LanLinkProviderTest::removeTrustedDevice()

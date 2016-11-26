@@ -58,17 +58,17 @@ void LockDevicePlugin::setLocked(bool locked)
 
 bool LockDevicePlugin::receivePackage(const NetworkPackage & np)
 {
-    if (np.has("isLocked")) {
-        bool locked = np.get<bool>("isLocked");
+    if (np.has(QStringLiteral("isLocked"))) {
+        bool locked = np.get<bool>(QStringLiteral("isLocked"));
         if (m_remoteLocked != locked) {
             m_remoteLocked = locked;
             Q_EMIT lockedChanged(locked);
         }
     }
 
-    bool sendState = np.has("requestLocked");
-    if (np.has("setLocked")) {
-        iface()->SetActive(np.get<bool>("setLocked"));
+    bool sendState = np.has(QStringLiteral("requestLocked"));
+    if (np.has(QStringLiteral("setLocked"))) {
+        iface()->SetActive(np.get<bool>(QStringLiteral("setLocked")));
         sendState = true;
     }
     if (sendState) {
@@ -82,7 +82,7 @@ bool LockDevicePlugin::receivePackage(const NetworkPackage & np)
 OrgFreedesktopScreenSaverInterface* LockDevicePlugin::iface()
 {
     if (!m_iface) {
-        m_iface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver", QDBusConnection::sessionBus());
+        m_iface = new OrgFreedesktopScreenSaverInterface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/org/freedesktop/ScreenSaver"), QDBusConnection::sessionBus());
         if(!m_iface->isValid())
             qCWarning(KDECONNECT_PLUGIN_LOCKREMOTE) << "Couldn't connect to the ScreenSaver interface";
     }

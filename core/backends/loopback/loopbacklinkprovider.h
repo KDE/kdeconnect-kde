@@ -33,7 +33,7 @@ public:
     LoopbackLinkProvider();
     ~LoopbackLinkProvider() override;
 
-    QString name() override { return "LoopbackLinkProvider"; }
+    QString name() override { return QStringLiteral("LoopbackLinkProvider"); }
     int priority() override { return PRIORITY_LOW; }
 
     void onStart() override;

@@ -50,8 +50,8 @@ void KdeConnectConfigTest::initTestCase()
 
 void KdeConnectConfigTest::addTrustedDevice()
 {
-    kcc->addTrustedDevice("testdevice", "Test Device", "phone");
-    KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice("testdevice");
+    kcc->addTrustedDevice(QStringLiteral("testdevice"), QStringLiteral("Test Device"), QStringLiteral("phone"));
+    KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice(QStringLiteral("testdevice"));
     QCOMPARE(devInfo.deviceName, QString("Test Device"));
     QCOMPARE(devInfo.deviceType, QString("phone"));
 }
@@ -83,8 +83,8 @@ void KdeConnectConfigTest::remoteCertificateTest()
 
 void KdeConnectConfigTest::removeTrustedDevice()
 {
-    kcc->removeTrustedDevice("testdevice");
-    KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice("testdevice");
+    kcc->removeTrustedDevice(QStringLiteral("testdevice"));
+    KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice(QStringLiteral("testdevice"));
     QCOMPARE(devInfo.deviceName, QString("unnamed"));
     QCOMPARE(devInfo.deviceType, QString("unknown"));
 }

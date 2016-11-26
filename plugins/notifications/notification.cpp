@@ -25,10 +25,10 @@
 Notification::Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent)
     : QObject(parent)
 {
-    mInternalId = np.get<QString>("id");
-    mAppName = np.get<QString>("appName");
-    mTicker = np.get<QString>("ticker");
-    mDismissable = np.get<bool>("isClearable");
+    mInternalId = np.get<QString>(QStringLiteral("id"));
+    mAppName = np.get<QString>(QStringLiteral("appName"));
+    mTicker = np.get<QString>(QStringLiteral("ticker"));
+    mDismissable = np.get<bool>(QStringLiteral("isClearable"));
     mIconPath = iconPath;
 }
 

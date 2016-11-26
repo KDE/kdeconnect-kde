@@ -159,18 +159,18 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
 
     //TODO: Split mouse/keyboard in two different plugins to avoid this big if statement
 
-    float dx = np.get<float>("dx", 0);
-    float dy = np.get<float>("dy", 0);
+    float dx = np.get<float>(QStringLiteral("dx"), 0);
+    float dy = np.get<float>(QStringLiteral("dy"), 0);
 
-    bool isSingleClick = np.get<bool>("singleclick", false);
-    bool isDoubleClick = np.get<bool>("doubleclick", false);
-    bool isMiddleClick = np.get<bool>("middleclick", false);
-    bool isRightClick = np.get<bool>("rightclick", false);
-    bool isSingleHold = np.get<bool>("singlehold", false);
-    bool isSingleRelease = np.get<bool>("singlerelease", false);
-    bool isScroll = np.get<bool>("scroll", false);
-    QString key = np.get<QString>("key", "");
-    int specialKey = np.get<int>("specialKey", 0);
+    bool isSingleClick = np.get<bool>(QStringLiteral("singleclick"), false);
+    bool isDoubleClick = np.get<bool>(QStringLiteral("doubleclick"), false);
+    bool isMiddleClick = np.get<bool>(QStringLiteral("middleclick"), false);
+    bool isRightClick = np.get<bool>(QStringLiteral("rightclick"), false);
+    bool isSingleHold = np.get<bool>(QStringLiteral("singlehold"), false);
+    bool isSingleRelease = np.get<bool>(QStringLiteral("singlerelease"), false);
+    bool isScroll = np.get<bool>(QStringLiteral("scroll"), false);
+    QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
+    int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
         Display *display = QX11Info::display();
@@ -212,9 +212,9 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
             }
         } else if (!key.isEmpty() || specialKey) {
 
-            bool ctrl = np.get<bool>("ctrl", false);
-            bool alt = np.get<bool>("alt", false);
-            bool shift = np.get<bool>("shift", false);
+            bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
+            bool alt = np.get<bool>(QStringLiteral("alt"), false);
+            bool shift = np.get<bool>(QStringLiteral("shift"), false);
 
             if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), True, 0);
             if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), True, 0);
@@ -291,18 +291,18 @@ void MousepadPlugin::setupWaylandIntegration()
 
 bool MousepadPlugin::handPackageWayland(const NetworkPackage &np)
 {
-    const float dx = np.get<float>("dx", 0);
-    const float dy = np.get<float>("dy", 0);
+    const float dx = np.get<float>(QStringLiteral("dx"), 0);
+    const float dy = np.get<float>(QStringLiteral("dy"), 0);
 
-    const bool isSingleClick = np.get<bool>("singleclick", false);
-    const bool isDoubleClick = np.get<bool>("doubleclick", false);
-    const bool isMiddleClick = np.get<bool>("middleclick", false);
-    const bool isRightClick = np.get<bool>("rightclick", false);
-    const bool isSingleHold = np.get<bool>("singlehold", false);
-    const bool isSingleRelease = np.get<bool>("singlerelease", false);
-    const bool isScroll = np.get<bool>("scroll", false);
-    const QString key = np.get<QString>("key", "");
-    const int specialKey = np.get<int>("specialKey", 0);
+    const bool isSingleClick = np.get<bool>(QStringLiteral("singleclick"), false);
+    const bool isDoubleClick = np.get<bool>(QStringLiteral("doubleclick"), false);
+    const bool isMiddleClick = np.get<bool>(QStringLiteral("middleclick"), false);
+    const bool isRightClick = np.get<bool>(QStringLiteral("rightclick"), false);
+    const bool isSingleHold = np.get<bool>(QStringLiteral("singlehold"), false);
+    const bool isSingleRelease = np.get<bool>(QStringLiteral("singlerelease"), false);
+    const bool isScroll = np.get<bool>(QStringLiteral("scroll"), false);
+    const QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
+    const int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
 

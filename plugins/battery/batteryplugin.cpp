@@ -60,9 +60,9 @@ BatteryPlugin::~BatteryPlugin()
 
 bool BatteryPlugin::receivePackage(const NetworkPackage& np)
 {
-    bool isCharging = np.get<bool>("isCharging", false);
-    int currentCharge = np.get<int>("currentCharge", -1);
-    int thresholdEvent = np.get<int>("thresholdEvent", (int)ThresholdNone);
+    bool isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
+    int currentCharge = np.get<int>(QStringLiteral("currentCharge"), -1);
+    int thresholdEvent = np.get<int>(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
 
     if (batteryDbusInterface->charge() != currentCharge
         || batteryDbusInterface->isCharging() != isCharging
@@ -71,9 +71,9 @@ bool BatteryPlugin::receivePackage(const NetworkPackage& np)
     }
 
     if ( thresholdEvent == ThresholdBatteryLow && !isCharging ) {
-        KNotification* notification = new KNotification("batteryLow");
-        notification->setIconName("battery-040");
-        notification->setComponentName("kdeconnect");
+        KNotification* notification = new KNotification(QStringLiteral("batteryLow"));
+        notification->setIconName(QStringLiteral("battery-040"));
+        notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(i18nc("device name: low battery", "%1: Low Battery", device()->name()));
         notification->setText(i18n("Battery at %1%", currentCharge));
         notification->sendEvent();

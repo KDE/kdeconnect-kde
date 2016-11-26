@@ -44,7 +44,7 @@ public:
     LanLinkProvider(bool testMode = false);
     ~LanLinkProvider() override;
 
-    QString name() override { return "LanLinkProvider"; }
+    QString name() override { return QStringLiteral("LanLinkProvider"); }
     int priority() override { return PRIORITY_HIGH; }
 
     void userRequestsPair(const QString &deviceId);

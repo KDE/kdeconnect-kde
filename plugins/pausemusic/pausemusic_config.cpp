@@ -26,7 +26,7 @@
 K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
 
 PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, "kdeconnect_pausemusic_config")
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_pausemusic_config"))
     , m_ui(new Ui::PauseMusicConfigUi())
 {
     m_ui->setupUi(this);
@@ -55,12 +55,12 @@ void PauseMusicConfig::defaults()
 void PauseMusicConfig::load()
 {
     KCModule::load();
-    bool talking = config()->get("conditionTalking", false);
+    bool talking = config()->get(QStringLiteral("conditionTalking"), false);
     m_ui->rad_talking->setChecked(talking);
     m_ui->rad_ringing->setChecked(!talking);
 
-    bool pause = config()->get("actionPause", true);
-    bool mute = config()->get("actionMute", false);
+    bool pause = config()->get(QStringLiteral("actionPause"), true);
+    bool mute = config()->get(QStringLiteral("actionMute"), false);
     m_ui->check_pause->setChecked(pause);
     m_ui->check_mute->setChecked(mute);
 
@@ -69,9 +69,9 @@ void PauseMusicConfig::load()
 
 void PauseMusicConfig::save()
 {
-    config()->set("conditionTalking", m_ui->rad_talking->isChecked());
-    config()->set("actionPause", m_ui->check_pause->isChecked());
-    config()->set("actionMute", m_ui->check_mute->isChecked());
+    config()->set(QStringLiteral("conditionTalking"), m_ui->rad_talking->isChecked());
+    config()->set(QStringLiteral("actionPause"), m_ui->check_pause->isChecked());
+    config()->set(QStringLiteral("actionMute"), m_ui->check_mute->isChecked());
     KCModule::save();
     Q_EMIT changed(false);
 }

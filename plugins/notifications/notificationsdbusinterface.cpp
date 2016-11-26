@@ -38,7 +38,7 @@ NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
     , mDevice(plugin->device())
     , mPlugin(plugin)
     , mLastId(0)
-    , imagesDir(QDir::temp().absoluteFilePath("kdeconnect"))
+    , imagesDir(QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect")))
 {
     imagesDir.mkpath(imagesDir.absolutePath());
 }
@@ -62,13 +62,13 @@ QStringList NotificationsDbusInterface::activeNotifications()
 
 void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
 {
-    if (np.get<bool>("isCancel")) {
-        QString id = np.get<QString>("id");
+    if (np.get<bool>(QStringLiteral("isCancel"))) {
+        QString id = np.get<QString>(QStringLiteral("id"));
         // cut off kdeconnect-android's prefix if there:
-        if (id.startsWith("org.kde.kdeconnect_tp::"))
-            id = id.mid(id.indexOf("::") + 2);
+        if (id.startsWith(QLatin1String("org.kde.kdeconnect_tp::")))
+            id = id.mid(id.indexOf(QLatin1String("::")) + 2);
         removeNotification(id);
-    } else if (np.get<bool>("isRequest")) {
+    } else if (np.get<bool>(QStringLiteral("isRequest"))) {
         Q_FOREACH (const auto& n, mNotifications) {
             NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST, {
                 {"id", n->internalId()},
@@ -95,10 +95,10 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         Notification* noti = new Notification(np, destination, this);
 
         //Do not show updates to existent notification nor answers to a initialization request
-        if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>("requestAnswer", false) && !np.get<bool>("silent", false)) {
-            KNotification* notification = new KNotification("notification", KNotification::CloseOnTimeout, this);
+        if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>(QStringLiteral("requestAnswer"), false) && !np.get<bool>(QStringLiteral("silent"), false)) {
+            KNotification* notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
             notification->setIconName(QStringLiteral("preferences-desktop-notification"));
-            notification->setComponentName("kdeconnect");
+            notification->setComponentName(QStringLiteral("kdeconnect"));
             notification->setTitle(mDevice->name());
             notification->setText(noti->appName() + ": " + noti->ticker());
             notification->sendEvent();
@@ -156,7 +156,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 void NotificationsDbusInterface::dismissRequested(const QString& internalId)
 {
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
-    np.set<QString>("cancel", internalId);
+    np.set<QString>(QStringLiteral("cancel"), internalId);
     mPlugin->sendPackage(np);
 
     //Workaround: we erase notifications without waiting a repsonse from the

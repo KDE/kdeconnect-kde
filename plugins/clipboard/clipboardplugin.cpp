@@ -43,7 +43,7 @@ void ClipboardPlugin::propagateClipboard(const QString& content)
 
 bool ClipboardPlugin::receivePackage(const NetworkPackage& np)
 {
-    QString content = np.get<QString>("content");
+    QString content = np.get<QString>(QStringLiteral("content"));
     ClipboardListener::instance()->setText(content);
     return true;
 }

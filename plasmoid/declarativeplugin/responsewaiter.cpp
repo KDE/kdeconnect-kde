@@ -112,7 +112,7 @@ void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
 
 void DBusAsyncResponse::onTimeout()
 {
-    Q_EMIT error("timeout when waiting dbus response!");
+    Q_EMIT error(QStringLiteral("timeout when waiting dbus response!"));
 }
 
 const QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const

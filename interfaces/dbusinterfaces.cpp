@@ -21,7 +21,7 @@
 #include "dbusinterfaces.h"
 
 QString DaemonDbusInterface::activatedService() {
-    static const QString service = "org.kde.kdeconnect";
+    static const QString service = QStringLiteral("org.kde.kdeconnect");
     QDBusConnection::sessionBus().interface()->startService(service);
     if (!QDBusConnection::sessionBus().interface()->isValid()) {
         qWarning() << "error activating kdeconnectd:" << QDBusConnection::sessionBus().interface()->lastError();
@@ -30,7 +30,7 @@ QString DaemonDbusInterface::activatedService() {
 }
 
 DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
-    : OrgKdeKdeconnectDaemonInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect", QDBusConnection::sessionBus(), parent)
+    : OrgKdeKdeconnectDaemonInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect"), QDBusConnection::sessionBus(), parent)
 {
 
 }
@@ -60,7 +60,7 @@ QString DeviceDbusInterface::id() const
 
 void DeviceDbusInterface::pluginCall(const QString &plugin, const QString &method)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+id()+'/'+plugin, "org.kde.kdeconnect.device."+plugin, method);
+    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+id()+'/'+plugin, "org.kde.kdeconnect.device."+plugin, method);
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 

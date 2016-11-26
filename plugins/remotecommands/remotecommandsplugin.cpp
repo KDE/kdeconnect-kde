@@ -49,8 +49,8 @@ RemoteCommandsPlugin::~RemoteCommandsPlugin() = default;
 
 bool RemoteCommandsPlugin::receivePackage(const NetworkPackage& np)
 {
-    if (np.has("commandList")) {
-        setCommands(np.get<QByteArray>("commandList"));
+    if (np.has(QStringLiteral("commandList"))) {
+        setCommands(np.get<QByteArray>(QStringLiteral("commandList")));
         return true;
     }
 

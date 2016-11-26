@@ -36,7 +36,7 @@
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
 RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, "kdeconnect_runcommand_config")
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand_config"))
 {
     QTableView *table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
@@ -68,12 +68,12 @@ void RunCommandConfig::load()
 {
     KCModule::load();
 
-    QJsonDocument jsonDocument = QJsonDocument::fromJson(config()->get<QByteArray>("commands", "{}"));
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(config()->get<QByteArray>(QStringLiteral("commands"), "{}"));
     QJsonObject jsonConfig = jsonDocument.object();
     Q_FOREACH (const QString &key, jsonConfig.keys()) {
         const QJsonObject entry = jsonConfig[key].toObject();
-        const QString name = entry["name"].toString();
-        const QString command = entry["command"].toString();
+        const QString name = entry[QStringLiteral("name")].toString();
+        const QString command = entry[QStringLiteral("command")].toString();
 
         QStandardItem *newName = new QStandardItem(name);
         newName->setEditable(true);
@@ -108,13 +108,13 @@ void RunCommandConfig::save()
             key = QUuid::createUuid().toString();
         }
         QJsonObject entry;
-        entry["name"] = name;
-        entry["command"] = command;
+        entry[QStringLiteral("name")] = name;
+        entry[QStringLiteral("command")] = command;
         jsonConfig[key] = entry;
     }
     QJsonDocument document;
     document.setObject(jsonConfig);
-    config()->set("commands", document.toJson());
+    config()->set(QStringLiteral("commands"), document.toJson());
 
     KCModule::save();
 

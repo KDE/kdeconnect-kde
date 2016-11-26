@@ -27,7 +27,7 @@ namespace DbusHelper {
 void filterNonExportableCharacters(QString& s)
 {
     static QRegExp regexp("[^A-Za-z0-9_]", Qt::CaseSensitive, QRegExp::Wildcard);
-    s.replace(regexp,"_");
+    s.replace(regexp,QLatin1String("_"));
 }
 
 }

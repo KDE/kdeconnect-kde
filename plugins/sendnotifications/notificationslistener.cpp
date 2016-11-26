@@ -46,7 +46,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
     bool ret = QDBusConnection::sessionBus()
-                .registerObject("/org/freedesktop/Notifications",
+                .registerObject(QStringLiteral("/org/freedesktop/Notifications"),
                                 this,
                                 QDBusConnection::ExportScriptableContents);
     if (!ret)
@@ -59,9 +59,9 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
                 << "Registered notifications listener for device"
                 << mPlugin->device()->name();
 
-    QDBusInterface iface("org.freedesktop.DBus", "/org/freedesktop/DBus",
-                         "org.freedesktop.DBus");
-    iface.call("AddMatch",
+    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
+                         QStringLiteral("org.freedesktop.DBus"));
+    iface.call(QStringLiteral("AddMatch"),
                "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
 
     setTranslatedAppName();
@@ -73,11 +73,11 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
 NotificationsListener::~NotificationsListener()
 {
     qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Destroying NotificationsListener";
-    QDBusInterface iface("org.freedesktop.DBus", "/org/freedesktop/DBus",
-                         "org.freedesktop.DBus");
-    QDBusMessage res = iface.call("RemoveMatch",
+    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
+                         QStringLiteral("org.freedesktop.DBus"));
+    QDBusMessage res = iface.call(QStringLiteral("RemoveMatch"),
                                   "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
-    QDBusConnection::sessionBus().unregisterObject("/org/freedesktop/Notifications");
+    QDBusConnection::sessionBus().unregisterObject(QStringLiteral("/org/freedesktop/Notifications"));
 }
 
 void NotificationsListener::setTranslatedAppName()
@@ -97,7 +97,7 @@ void NotificationsListener::setTranslatedAppName()
 void NotificationsListener::loadApplications()
 {
     applications.clear();
-    QVariantList list = mPlugin->config()->getList("applications");
+    QVariantList list = mPlugin->config()->getList(QStringLiteral("applications"));
     Q_FOREACH (const auto& a, list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
         if (!applications.contains(app.name))
@@ -206,7 +206,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
         QVariantList list;
         Q_FOREACH (const auto& a, applications)
             list << QVariant::fromValue<NotifyingApplication>(a);
-        mPlugin->config()->setList("applications", list);
+        mPlugin->config()->setList(QStringLiteral("applications"), list);
         //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
     } else
         app = applications.value(appName);
@@ -214,22 +214,22 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
     if (!app.active)
         return 0;
 
-    if (timeout > 0 && mPlugin->config()->get("generalPersistent", false))
+    if (timeout > 0 && mPlugin->config()->get(QStringLiteral("generalPersistent"), false))
         return 0;
 
     int urgency = -1;
-    if (hints.contains("urgency")) {
+    if (hints.contains(QStringLiteral("urgency"))) {
         bool ok;
-        urgency = hints["urgency"].toInt(&ok);
+        urgency = hints[QStringLiteral("urgency")].toInt(&ok);
         if (!ok)
             urgency = -1;
     }
-    if (urgency > -1 && urgency < mPlugin->config()->get<int>("generalUrgency", 0))
+    if (urgency > -1 && urgency < mPlugin->config()->get<int>(QStringLiteral("generalUrgency"), 0))
         return 0;
 
     QString ticker = summary;
-    if (!body.isEmpty() && mPlugin->config()->get("generalIncludeBody", true))
-        ticker += QLatin1String(": ") + body;
+    if (!body.isEmpty() && mPlugin->config()->get(QStringLiteral("generalIncludeBody"), true))
+        ticker += QStringLiteral(": ") + body;
 
     if (app.blacklistExpression.isValid() &&
             !app.blacklistExpression.pattern().isEmpty() &&
@@ -247,22 +247,22 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                           // clearability is pointless
 
     // sync any icon data?
-    if (mPlugin->config()->get("generalSynchronizeIcons", true)) {
+    if (mPlugin->config()->get(QStringLiteral("generalSynchronizeIcons"), true)) {
         QSharedPointer<QIODevice> iconSource;
         // try different image sources according to priorities in notifications-
         // spec version 1.2:
-        if (hints.contains("image-data"))
-            iconSource = iconForImageData(hints["image-data"]);
-        else if (hints.contains("image_data"))  // 1.1 backward compatibility
-            iconSource = iconForImageData(hints["image_data"]);
-        else if (hints.contains("image-path"))
-            iconSource = iconForIconName(hints["image-path"].toString());
-        else if (hints.contains("image_path"))  // 1.1 backward compatibility
-            iconSource = iconForIconName(hints["image_path"].toString());
+        if (hints.contains(QStringLiteral("image-data")))
+            iconSource = iconForImageData(hints[QStringLiteral("image-data")]);
+        else if (hints.contains(QStringLiteral("image_data")))  // 1.1 backward compatibility
+            iconSource = iconForImageData(hints[QStringLiteral("image_data")]);
+        else if (hints.contains(QStringLiteral("image-path")))
+            iconSource = iconForIconName(hints[QStringLiteral("image-path")].toString());
+        else if (hints.contains(QStringLiteral("image_path")))  // 1.1 backward compatibility
+            iconSource = iconForIconName(hints[QStringLiteral("image_path")].toString());
         else if (!appIcon.isEmpty())
             iconSource = iconForIconName(appIcon);
-        else if (hints.contains("icon_data"))  // < 1.1 backward compatibility
-            iconSource = iconForImageData(hints["icon_data"]);
+        else if (hints.contains(QStringLiteral("icon_data")))  // < 1.1 backward compatibility
+            iconSource = iconForImageData(hints[QStringLiteral("icon_data")]);
 
         if (iconSource)
             np.setPayload(iconSource, iconSource->size());
