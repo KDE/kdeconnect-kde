@@ -117,7 +117,7 @@ public Q_SLOTS:
 // Tweaked NotificationsListener for testing:
 class TestedNotificationsListener: public NotificationsListener
 {
-
+    Q_OBJECT
 public:
     explicit TestedNotificationsListener(KdeConnectPlugin* aPlugin)
         : NotificationsListener(aPlugin)
@@ -424,7 +424,6 @@ void TestNotificationListener::testNotify()
                        0x11, 0x12, 0x13, 0x14,
                        0x21, 0x22, 0x23, 0x24,
                        0x31, 0x32, 0x33, 0x34 };
-    QByteArray byteData(rawData, rowStride*height);
     QVariantMap imageData = {{"width", width}, {"height", height}, {"rowStride", rowStride},
                             {"bitsPerSample", bitsPerSample}, {"channels", channels},
                             {"hasAlpha", hasAlpha}, {"imageData", rawData}};

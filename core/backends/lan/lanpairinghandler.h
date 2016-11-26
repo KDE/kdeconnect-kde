@@ -32,6 +32,8 @@
 class LanPairingHandler
     : public PairingHandler
 {
+    Q_OBJECT
+
 public:
 
     enum InternalPairStatus {
