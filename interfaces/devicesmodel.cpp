@@ -46,17 +46,17 @@ DevicesModel::DevicesModel(QObject *parent)
 
     //new ModelTest(this, this);
 
-    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SIGNAL(rowsChanged()));
-    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(rowsChanged()));
+    connect(this, &QAbstractItemModel::rowsRemoved,
+            this, &DevicesModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsInserted,
+            this, &DevicesModel::rowsChanged);
 
     connect(m_dbusInterface, SIGNAL(deviceAdded(QString)),
             this, SLOT(deviceAdded(QString)));
-    connect(m_dbusInterface, SIGNAL(deviceVisibilityChanged(QString,bool)),
-            this, SLOT(deviceUpdated(QString,bool)));
-    connect(m_dbusInterface, SIGNAL(deviceRemoved(QString)),
-            this, SLOT(deviceRemoved(QString)));
+    connect(m_dbusInterface, &OrgKdeKdeconnectDaemonInterface::deviceVisibilityChanged,
+            this, &DevicesModel::deviceUpdated);
+    connect(m_dbusInterface, &OrgKdeKdeconnectDaemonInterface::deviceRemoved,
+            this, &DevicesModel::deviceRemoved);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
                                                            QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
@@ -182,8 +182,8 @@ void DevicesModel::refreshDeviceList()
     QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingDeviceIds, this);
 
-    QObject::connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)),
-                     this, SLOT(receivedDeviceList(QDBusPendingCallWatcher*)));
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished,
+                     this, &DevicesModel::receivedDeviceList);
 }
 
 void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
@@ -212,7 +212,7 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
 void DevicesModel::appendDevice(DeviceDbusInterface* dev)
 {
     m_deviceList.append(dev);
-    connect(dev, SIGNAL(nameChanged(QString)), SLOT(nameChanged(QString)));
+    connect(dev, &OrgKdeKdeconnectDeviceInterface::nameChanged, this, &DevicesModel::nameChanged);
 }
 
 void DevicesModel::nameChanged(const QString& newName)

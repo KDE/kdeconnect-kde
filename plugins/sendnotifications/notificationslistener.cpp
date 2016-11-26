@@ -67,7 +67,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     setTranslatedAppName();
     loadApplications();
 
-    connect(mPlugin->config(), SIGNAL(configChanged()), this, SLOT(loadApplications()));
+    connect(mPlugin->config(), &KdeConnectPluginConfig::configChanged, this, &NotificationsListener::loadApplications);
 }
 
 NotificationsListener::~NotificationsListener()

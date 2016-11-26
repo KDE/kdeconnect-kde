@@ -98,7 +98,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
 
         FileTransferJob* job = np.createPayloadTransferJob(destination);
         job->setOriginName(device()->name() + ": " + filename);
-        connect(job, SIGNAL(result(KJob*)), this, SLOT(finished(KJob*)));
+        connect(job, &KJob::result, this, &SharePlugin::finished);
         KIO::getJobTracker()->registerJob(job);
         job->start();
     } else if (np.has("text")) {

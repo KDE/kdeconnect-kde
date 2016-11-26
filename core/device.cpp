@@ -211,8 +211,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
         qCWarning(KDECONNECT_CORE) << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
     }
 
-    connect(link, SIGNAL(destroyed(QObject*)),
-            this, SLOT(linkDestroyed(QObject*)));
+    connect(link, &QObject::destroyed,
+            this, &Device::linkDestroyed);
 
     m_deviceLinks.append(link);
 
@@ -224,8 +224,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     //the old one before this is called), so we do not have to worry about destroying old links.
     //-- Actually, we should not destroy them or the provider will store an invalid ref!
 
-    connect(link, SIGNAL(receivedPackage(NetworkPackage)),
-            this, SLOT(privateReceivedPackage(NetworkPackage)));
+    connect(link, &DeviceLink::receivedPackage,
+            this, &Device::privateReceivedPackage);
 
     qSort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
 

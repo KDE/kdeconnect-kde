@@ -37,17 +37,17 @@ Mounter::Mounter(SftpPlugin* sftp)
     , m_started(false)
 {
 
-    connect(m_sftp, SIGNAL(packageReceived(NetworkPackage)), this, SLOT(onPakcageReceived(NetworkPackage)));
+    connect(m_sftp, &SftpPlugin::packageReceived, this, &Mounter::onPakcageReceived);
 
-    connect(&m_connectTimer, SIGNAL(timeout()), this, SLOT(onMountTimeout()));
+    connect(&m_connectTimer, &QTimer::timeout, this, &Mounter::onMountTimeout);
 
-    connect(this, SIGNAL(mounted()), &m_connectTimer, SLOT(stop()));
-    connect(this, SIGNAL(failed(QString)), &m_connectTimer, SLOT(stop()));
+    connect(this, &Mounter::mounted, &m_connectTimer, &QTimer::stop);
+    connect(this, &Mounter::failed, &m_connectTimer, &QTimer::stop);
 
     m_connectTimer.setInterval(10000);
     m_connectTimer.setSingleShot(true);
 
-    QTimer::singleShot(0, this, SLOT(start()));
+    QTimer::singleShot(0, this, &Mounter::start);
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created mounter";
 }
 
@@ -68,8 +68,8 @@ bool Mounter::wait()
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting loop to wait for mount";
     
     MountLoop loop;
-    connect(this, SIGNAL(mounted()), &loop, SLOT(successed()));
-    connect(this, SIGNAL(failed(QString)), &loop, SLOT(failed()));
+    connect(this, &Mounter::mounted, &loop, &MountLoop::successed);
+    connect(this, &Mounter::failed, &loop, &MountLoop::failed);
     return loop.exec();
 }
 
@@ -101,7 +101,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     m_proc = new KProcess(this);
     m_proc->setOutputChannelMode(KProcess::MergedChannels);
 
-    connect(m_proc, SIGNAL(started()), SLOT(onStarted()));
+    connect(m_proc, &QProcess::started, this, &Mounter::onStarted);
     connect(m_proc, SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
     connect(m_proc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
 

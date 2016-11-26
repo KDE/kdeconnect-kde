@@ -95,9 +95,9 @@ void SftpPlugin::mount()
     }
 
     m_d->mounter = new Mounter(this);
-    connect(m_d->mounter, SIGNAL(mounted()), this, SLOT(onMounted()));
-    connect(m_d->mounter, SIGNAL(unmounted()), this, SLOT(onUnmounted()));
-    connect(m_d->mounter, SIGNAL(failed(QString)), this, SLOT(onFailed(QString)));
+    connect(m_d->mounter, &Mounter::mounted, this, &SftpPlugin::onMounted);
+    connect(m_d->mounter, &Mounter::unmounted, this, &SftpPlugin::onUnmounted);
+    connect(m_d->mounter, &Mounter::failed, this, &SftpPlugin::onFailed);
 }
 
 void SftpPlugin::unmount()
