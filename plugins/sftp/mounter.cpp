@@ -114,10 +114,10 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     else path = np.get<QString>(QStringLiteral("path"));
 
     const QStringList arguments = QStringList()
-        << QStringLiteral("%1@%2:%3")
-            .arg(np.get<QString>(QStringLiteral("user")))
-            .arg(np.get<QString>(QStringLiteral("ip")))
-            .arg(path)
+        << QStringLiteral("%1@%2:%3").arg(
+            np.get<QString>(QStringLiteral("user")),
+            np.get<QString>(QStringLiteral("ip")),
+            path)
         << m_mountPoint
         << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))
         << QStringLiteral("-f")
