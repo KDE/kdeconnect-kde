@@ -2,7 +2,6 @@ find_package(KF5 REQUIRED COMPONENTS Notifications KIO)
 
 set(kdeconnect_share_SRCS
     shareplugin.cpp
-    autoclosingqfile.cpp
 )
 
 kdeconnect_add_plugin(kdeconnect_share JSON kdeconnect_share.json SOURCES ${kdeconnect_share_SRCS})

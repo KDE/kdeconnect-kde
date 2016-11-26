@@ -35,7 +35,6 @@
 #include <KIO/MkpathJob>
 
 #include "core/filetransferjob.h"
-#include "autoclosingqfile.h"
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_share.json", registerPlugin< SharePlugin >(); )
 
