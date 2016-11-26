@@ -39,14 +39,14 @@ LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSsl
 void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource)
 {
     if (mSocketLineReader) {
-        disconnect(mSocketLineReader->mSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
+        disconnect(mSocketLineReader->mSocket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
         delete mSocketLineReader;
     }
 
     mSocketLineReader = new SocketLineReader(socket, this);
 
-    connect(socket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
-    connect(mSocketLineReader, SIGNAL(readyRead()), this, SLOT(dataReceived()));
+    connect(socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
+    connect(mSocketLineReader, &SocketLineReader::readyRead, this, &LanDeviceLink::dataReceived);
 
     //We take ownership of the socket.
     //When the link provider destroys us,

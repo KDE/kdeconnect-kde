@@ -62,7 +62,7 @@ DBusAsyncResponse::DBusAsyncResponse(QObject* parent)
 {
     m_timeout.setSingleShot(true);
     m_timeout.setInterval(15000);
-    connect(&m_timeout, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    connect(&m_timeout, &QTimer::timeout, this, &DBusAsyncResponse::onTimeout);
 }
 
 
@@ -72,9 +72,9 @@ void DBusAsyncResponse::setPendingCall(QVariant variant)
     {  
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(*call);
         watcher->setProperty("pengingCallVariant", variant);
-        connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(onCallFinished(QDBusPendingCallWatcher*)));
-        connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), watcher, SLOT(deleteLater()));
-        connect(&m_timeout, SIGNAL(timeout()), watcher, SLOT(deleteLater()));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DBusAsyncResponse::onCallFinished);
+        connect(watcher, &QDBusPendingCallWatcher::finished, watcher, &QObject::deleteLater);
+        connect(&m_timeout, &QTimer::timeout, watcher, &QObject::deleteLater);
         m_timeout.start();
     }
 }

@@ -25,8 +25,8 @@ SocketLineReader::SocketLineReader(QSslSocket* socket, QObject* parent)
     : QObject(parent)
     , mSocket(socket)
 {
-    connect(mSocket, SIGNAL(readyRead()),
-            this, SLOT(dataReceived()));
+    connect(mSocket, &QIODevice::readyRead,
+            this, &SocketLineReader::dataReceived);
 }
 
 void SocketLineReader::dataReceived()

@@ -91,24 +91,24 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
-    connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(resetSelection()));
-    connect(kcmUi->deviceList->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            this, SLOT(deviceSelected(QModelIndex)));
-    connect(kcmUi->pair_button, SIGNAL(clicked()),
-            this, SLOT(requestPair()));
-    connect(kcmUi->unpair_button, SIGNAL(clicked()),
-            this, SLOT(unpair()));
-    connect(kcmUi->ping_button, SIGNAL(clicked()),
-            this, SLOT(sendPing()));
-    connect(kcmUi->refresh_button,SIGNAL(clicked()),
-            this, SLOT(refresh()));
-    connect(kcmUi->rename_edit,SIGNAL(returnPressed()),
-            this, SLOT(renameDone()));
-    connect(kcmUi->renameDone_button,SIGNAL(clicked()),
-            this, SLOT(renameDone()));
-    connect(kcmUi->renameShow_button,SIGNAL(clicked()),
-            this, SLOT(renameShow()));
+    connect(devicesModel, &QAbstractItemModel::dataChanged,
+            this, &KdeConnectKcm::resetSelection);
+    connect(kcmUi->deviceList->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &KdeConnectKcm::deviceSelected);
+    connect(kcmUi->pair_button, &QAbstractButton::clicked,
+            this, &KdeConnectKcm::requestPair);
+    connect(kcmUi->unpair_button, &QAbstractButton::clicked,
+            this, &KdeConnectKcm::unpair);
+    connect(kcmUi->ping_button, &QAbstractButton::clicked,
+            this, &KdeConnectKcm::sendPing);
+    connect(kcmUi->refresh_button,&QAbstractButton::clicked,
+            this, &KdeConnectKcm::refresh);
+    connect(kcmUi->rename_edit,&QLineEdit::returnPressed,
+            this, &KdeConnectKcm::renameDone);
+    connect(kcmUi->renameDone_button,&QAbstractButton::clicked,
+            this, &KdeConnectKcm::renameDone);
+    connect(kcmUi->renameShow_button,&QAbstractButton::clicked,
+            this, &KdeConnectKcm::renameShow);
 
     daemon->acquireDiscoveryMode(createId());
 }
@@ -234,7 +234,7 @@ void KdeConnectKcm::resetDeviceView()
 
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
     kcmUi->pluginSelector->addPlugins(availablePluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
-    connect(kcmUi->pluginSelector, SIGNAL(changed(bool)), this, SLOT(pluginsConfigChanged()));
+    connect(kcmUi->pluginSelector, &KPluginSelector::changed, this, &KdeConnectKcm::pluginsConfigChanged);
 
 }
 

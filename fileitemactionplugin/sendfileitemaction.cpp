@@ -67,7 +67,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
         action->setProperty("id", id);
         action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
         action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
-        connect(action, SIGNAL(triggered(bool)), this, SLOT(sendFile()));
+        connect(action, &QAction::triggered, this, &SendFileItemAction::sendFile);
         actions += action;
     }
 

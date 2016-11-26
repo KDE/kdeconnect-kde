@@ -36,15 +36,15 @@ NotificationsModel::NotificationsModel(QObject* parent)
 
     //new ModelTest(this, this);
 
-    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(rowsChanged()));
-    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SIGNAL(rowsChanged()));
+    connect(this, &QAbstractItemModel::rowsInserted,
+            this, &NotificationsModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsRemoved,
+            this, &NotificationsModel::rowsChanged);
 
-    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SIGNAL(anyDismissableChanged()));
-    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(anyDismissableChanged()));
+    connect(this, &QAbstractItemModel::dataChanged,
+            this, &NotificationsModel::anyDismissableChanged);
+    connect(this, &QAbstractItemModel::rowsInserted,
+            this, &NotificationsModel::anyDismissableChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
                                                            QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
@@ -82,12 +82,12 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
 
     m_dbusInterface = new DeviceNotificationsDbusInterface(deviceId, this);
 
-    connect(m_dbusInterface, SIGNAL(notificationPosted(QString)),
-            this, SLOT(notificationAdded(QString)));
-    connect(m_dbusInterface, SIGNAL(notificationRemoved(QString)),
-            this, SLOT(notificationRemoved(QString)));
-    connect(m_dbusInterface, SIGNAL(allNotificationsRemoved()),
-            this, SLOT(clearNotifications()));
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceNotificationsInterface::notificationPosted,
+            this, &NotificationsModel::notificationAdded);
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceNotificationsInterface::notificationRemoved,
+            this, &NotificationsModel::notificationRemoved);
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceNotificationsInterface::allNotificationsRemoved,
+            this, &NotificationsModel::clearNotifications);
 
     refreshNotificationList();
 
@@ -132,8 +132,8 @@ void NotificationsModel::refreshNotificationList()
     QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingNotificationIds, this);
 
-    QObject::connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)),
-                     this, SLOT(receivedNotifications(QDBusPendingCallWatcher*)));
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished,
+                     this, &NotificationsModel::receivedNotifications);
 }
 
 void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher* watcher)

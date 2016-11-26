@@ -79,8 +79,8 @@ Daemon::Daemon(QObject *parent, bool testMode)
 
     //Listen to new devices
     Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
-        connect(a, SIGNAL(onConnectionReceived(NetworkPackage,DeviceLink*)),
-                this, SLOT(onNewDeviceLink(NetworkPackage,DeviceLink*)));
+        connect(a, &LinkProvider::onConnectionReceived,
+                this, &Daemon::onNewDeviceLink);
         a->onStart();
     }
 

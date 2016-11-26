@@ -157,7 +157,7 @@ void TelephonyPlugin::showSendSmsDialog()
     QString contactName = sender()->property("contactName").toString();
     QString originalMessage = sender()->property("originalMessage").toString();
     SendSmsDialog* dialog = new SendSmsDialog(originalMessage, phoneNumber, contactName);
-    connect(dialog, SIGNAL(sendSms(QString,QString)), this, SLOT(sendSms(QString,QString)));
+    connect(dialog, &SendSmsDialog::sendSms, this, &TelephonyPlugin::sendSms);
     dialog->show();
 }
 

@@ -52,11 +52,11 @@ void TestSocketLineReader::initTestCase()
 
     mTimer.setInterval(4000);//For second is more enough to send some data via local socket
     mTimer.setSingleShot(true);
-    connect(&mTimer, SIGNAL(timeout()), &mLoop, SLOT(quit()));
+    connect(&mTimer, &QTimer::timeout, &mLoop, &QEventLoop::quit);
 
     mConn = new QSslSocket(this);
     mConn->connectToHost(QHostAddress::LocalHost, 8694);
-    connect(mConn, SIGNAL(connected()), &mLoop, SLOT(quit()));
+    connect(mConn, &QAbstractSocket::connected, &mLoop, &QEventLoop::quit);
     mTimer.start();
     mLoop.exec();
 
@@ -83,7 +83,7 @@ void TestSocketLineReader::socketLineReader()
     QVERIFY2(sock != nullptr, "Could not open a connection to the client");
 
     mReader = new SocketLineReader(sock, this);
-    connect(mReader, SIGNAL(readyRead()), SLOT(newPackage()));
+    connect(mReader, &SocketLineReader::readyRead, this, &TestSocketLineReader::newPackage);
     mTimer.start();
     mLoop.exec();
 

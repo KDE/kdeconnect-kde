@@ -42,7 +42,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_RUNCOMMAND, "kdeconnect.plugin.runcommand")
 RunCommandPlugin::RunCommandPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    connect(config(), SIGNAL(configChanged()), this, SLOT(configChanged()));
+    connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::configChanged);
 }
 
 RunCommandPlugin::~RunCommandPlugin()

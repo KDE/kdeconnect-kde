@@ -55,7 +55,7 @@ SendNotificationsConfig::SendNotificationsConfig(QWidget *parent, const QVariant
 
     connect(appModel, SIGNAL(applicationsChanged()), this, SLOT(changed()));
 
-    connect(config(), SIGNAL(configChanged()), this, SLOT(loadApplications()));
+    connect(config(), &KdeConnectPluginConfig::configChanged, this, &SendNotificationsConfig::loadApplications);
 }
 
 SendNotificationsConfig::~SendNotificationsConfig()

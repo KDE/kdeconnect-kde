@@ -90,10 +90,10 @@ void MprisControlPlugin::addPlayer(const QString& service)
     sendPlayerList();
 
     OrgFreedesktopDBusPropertiesInterface* freedesktopInterface = new OrgFreedesktopDBusPropertiesInterface(service, "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus(), this);
-    connect(freedesktopInterface, SIGNAL(PropertiesChanged(QString,QVariantMap,QStringList)), this, SLOT(propertiesChanged(QString,QVariantMap)));
+    connect(freedesktopInterface, &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged, this, &MprisControlPlugin::propertiesChanged);
 
     OrgMprisMediaPlayer2PlayerInterface* mprisInterface0  = new OrgMprisMediaPlayer2PlayerInterface(service, "/org/mpris/MediaPlayer2", QDBusConnection::sessionBus());
-    connect(mprisInterface0, SIGNAL(Seeked(qlonglong)), this, SLOT(seeked(qlonglong)));
+    connect(mprisInterface0, &OrgMprisMediaPlayer2PlayerInterface::Seeked, this, &MprisControlPlugin::seeked);
 }
 
 void MprisControlPlugin::seeked(qlonglong position){

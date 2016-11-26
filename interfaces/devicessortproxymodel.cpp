@@ -34,7 +34,7 @@ void DevicesSortProxyModel::setSourceModel(QAbstractItemModel *devicesModel)
     QSortFilterProxyModel::setSourceModel(devicesModel);
     if (devicesModel) {
         setSortRole(DevicesModel::StatusModelRole);
-        connect(devicesModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)), this, SLOT(sourceDataChanged()));
+        connect(devicesModel, &QAbstractItemModel::dataChanged, this, &DevicesSortProxyModel::sourceDataChanged);
     }
     sort(0);
 }
