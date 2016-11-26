@@ -306,6 +306,7 @@ bool Device::isTrusted() const
 QStringList Device::availableLinks() const
 {
     QStringList sl;
+    sl.reserve(m_deviceLinks.size());
     Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
         sl.append(dl->provider()->name());
     }
