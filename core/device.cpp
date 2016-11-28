@@ -40,8 +40,6 @@
 #include "kdeconnectconfig.h"
 #include "daemon.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
-
 static void warn(const QString &info)
 {
     qWarning() << "Device pairing error" << info;
