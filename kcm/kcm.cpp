@@ -67,8 +67,6 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
 
     kcmUi->setupUi(this);
 
-    kcmUi->deviceList->setIconSize(QSize(32,32));
-
     sortProxyModel = new DevicesSortProxyModel(devicesModel);
 
     kcmUi->deviceList->setModel(sortProxyModel);
