@@ -365,7 +365,7 @@ QString Device::iconForStatus(bool reachable, bool trusted) const
     QString status = (reachable? (trusted? QStringLiteral("connected") : QStringLiteral("disconnected")) : QStringLiteral("trusted"));
     QString type = type2str(deviceType);
 
-    return type+'-'+status;
+    return type+status;
 }
 
 void Device::setName(const QString &name)
