@@ -128,7 +128,7 @@ int main(int argc, char** argv)
         }
         if(device.isEmpty()) {
             QTextStream(stderr) << i18n("No device specified") << endl;
-            return 1;
+            parser.showHelp(1);
         }
 
         if(parser.isSet(QStringLiteral("share"))) {
