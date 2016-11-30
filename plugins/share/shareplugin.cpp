@@ -160,7 +160,7 @@ void SharePlugin::shareUrl(const QUrl& url)
 
 void SharePlugin::connected()
 {
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableInvokables);
 }
 
 QString SharePlugin::dbusPath() const
