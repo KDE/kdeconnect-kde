@@ -16,4 +16,4 @@ qt5_add_dbus_interface(
 
 kdeconnect_add_plugin(kdeconnect_mpriscontrol JSON kdeconnect_mpriscontrol.json SOURCES  ${kdeconnect_mpriscontrol_SRCS})
 
-target_link_libraries(kdeconnect_mpriscontrol Qt5::DBus kdeconnectcore Qt5::Gui)
+target_link_libraries(kdeconnect_mpriscontrol Qt5::DBus kdeconnectcore)
