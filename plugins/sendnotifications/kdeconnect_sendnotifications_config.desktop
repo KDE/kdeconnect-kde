@@ -7,7 +7,6 @@ X-KDE-ParentComponents=kdeconnect_sendnotifications
 
 Name=Notification synchronization plugin settings
 Name[ar]=إعدادات ملحقة مزامنة الإخطارات
-Name[ast]=Axustes del complementu de sincronización d'avisos
 Name[ca]=Ajustament del connector Sincronitza les notificacions
 Name[ca@valencia]=Ajustament del connector Sincronitza les notificacions
 Name[cs]=Nastavení modulu synchronizace upozornění

@@ -9,7 +9,6 @@
             }
         ], 
         "Description": "Show notifications for calls and SMS", 
-        "Description[ast]": "Amuesa avisos pa llamaes y SMS", 
         "Description[ca@valencia]": "Mostra les notificacions de les trucades i els SMS", 
         "Description[ca]": "Mostra les notificacions de les trucades i els SMS", 
         "Description[cs]": "Zobrazit upozornění pro telefonáty a SMS", 
@@ -34,7 +33,6 @@
         "License": "GPL", 
         "Name": "Telephony integration", 
         "Name[ar]": "تكامل الهاتف", 
-        "Name[ast]": "Integración telefónica", 
         "Name[ca@valencia]": "Integració amb la telefonia", 
         "Name[ca]": "Integració amb la telefonia", 
         "Name[cs]": "Integrace telefonu", 

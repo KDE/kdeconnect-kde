@@ -48,7 +48,6 @@ Name[zh_TW]=KDE 連線
 
 Comment=Connect and sync your devices
 Comment[ar]=اتّصل وزامن أجهزتك
-Comment[ast]=Coneuta y sincroniza los tos preseos
 Comment[ca]=Connecta i sincronitza els vostres dispositius
 Comment[ca@valencia]=Connecta i sincronitza els vostres dispositius
 Comment[cs]=Připojte a synchronizujte svá zařízení
@@ -81,7 +80,6 @@ Comment[zh_TW]=連線並且同步您的裝置
 
 X-KDE-Keywords=Network,Android,Devices
 X-KDE-Keywords[ar]=شبكة,أندرويد,اندرويد,جهاز,أجهزة
-X-KDE-Keywords[ast]=Rede,Android,Preseos
 X-KDE-Keywords[bg]=Мрежа,Андроид,Устройства
 X-KDE-Keywords[bs]=Mreža,Android,Uređaji
 X-KDE-Keywords[ca]=Xarxa,Android,Dispositius
