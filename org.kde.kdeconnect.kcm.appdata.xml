@@ -35,7 +35,6 @@
   <name xml:lang="zh-TW">KDE Connect</name>
   <summary>Seamless connection of your devices</summary>
   <summary xml:lang="ar">اتّصال سلس بين أجهزتك</summary>
-  <summary xml:lang="ast">Conexón de los tos preseos ensin esfuerciu</summary>
   <summary xml:lang="ca">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="ca-valencia">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="cs">Snadné propojení vašich zařízení</summary>
@@ -66,7 +65,6 @@
   <description>
     <p>KDE Connect provides integration between your Android phone and your desktop.</p>
     <p xml:lang="ar">يوفّر «كدي المتصّل» التّكامل بين هاتف أندرويد وسطح المكتب.</p>
-    <p xml:lang="ast">KDE Connect forne integración ente'l to preséu Android y el to escritoriu.</p>
     <p xml:lang="ca">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="ca-valencia">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
     <p xml:lang="cs">KDE Connect poskytuje integraci mezi vaším telefonem s Androidem a vaší pracovní plochou.</p>
