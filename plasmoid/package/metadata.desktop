@@ -70,7 +70,7 @@ Comment[zh_TW]=使用KDE 連線來顯示您的裝置通知
 
 Icon=kdeconnect
 Type=Service
-X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
+X-KDE-ServiceTypes=Plasma/Applet
 
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
