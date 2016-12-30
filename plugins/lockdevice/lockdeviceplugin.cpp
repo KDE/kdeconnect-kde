@@ -91,8 +91,6 @@ OrgFreedesktopScreenSaverInterface* LockDevicePlugin::iface()
 
 void LockDevicePlugin::connected()
 {
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
-
     NetworkPackage np(PACKAGE_TYPE_LOCK_REQUEST, {{"requestLocked", QVariant()}});
     sendPackage(np);
 }

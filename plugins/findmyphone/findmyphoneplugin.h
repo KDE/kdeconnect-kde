@@ -39,12 +39,9 @@ public:
     
     Q_SCRIPTABLE void ring();
 
-public Q_SLOTS:
-    void connected() override;
+    QString dbusPath() const override;
+    void connected() override {}
     bool receivePackage(const NetworkPackage& np) override;
-
-private:
-    QString dbusPath() const;
 };
 
 #endif

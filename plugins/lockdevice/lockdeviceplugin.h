@@ -44,6 +44,7 @@ public:
     bool isLocked() const;
     void setLocked(bool b);
 
+    QString dbusPath() const override;
     void connected() override;
     bool receivePackage(const NetworkPackage & np) override;
 
@@ -51,7 +52,6 @@ Q_SIGNALS:
     void lockedChanged(bool locked);
 
 private:
-    QString dbusPath() const;
     bool m_remoteLocked;
 
     OrgFreedesktopScreenSaverInterface* iface();

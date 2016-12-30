@@ -42,7 +42,6 @@ public:
     explicit SendNotificationsPlugin(QObject *parent, const QVariantList &args);
     ~SendNotificationsPlugin() override;
     
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override;
 

@@ -38,15 +38,16 @@ public:
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
     ~SftpPlugin() override;
 
+    bool receivePackage(const NetworkPackage& np) override;
+    void connected() override {}
+    QString dbusPath() const override { return "/modules/kdeconnect/devices/" + deviceId + "/sftp"; }
+
 Q_SIGNALS:
     void packageReceived(const NetworkPackage& np);
     Q_SCRIPTABLE void mounted();
     Q_SCRIPTABLE void unmounted();
-    
-public Q_SLOTS:
-    bool receivePackage(const NetworkPackage& np) override;
-    void connected() override;
 
+public Q_SLOTS:
     Q_SCRIPTABLE void mount();
     Q_SCRIPTABLE void unmount();
     Q_SCRIPTABLE bool mountAndWait();
@@ -62,7 +63,6 @@ private Q_SLOTS:
     void onFailed(const QString& message);
     
 private:
-    QString dbusPath() const { return "/modules/kdeconnect/devices/" + deviceId + "/sftp"; }
     void knotify(int type, const QString& text, const QPixmap& icon) const;
     void addToDolphin();
     void removeFromDolphin();

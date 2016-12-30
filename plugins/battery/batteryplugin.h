@@ -38,7 +38,6 @@ public:
     explicit BatteryPlugin(QObject *parent, const QVariantList &args);
     ~BatteryPlugin() override;
 
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override;
 

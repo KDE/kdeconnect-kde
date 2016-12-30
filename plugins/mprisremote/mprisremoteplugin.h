@@ -57,20 +57,19 @@ public:
     void setPosition(int position);
     void setPlayer(const QString& player);
 
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
-    void connected() override;
+    void connected() override {}
+    QString dbusPath() const override;
 
-    void seek(int offset) const;
-    void requestPlayerStatus();
-    void requestPlayerList();
-    void sendAction(const QString& action);
+    Q_SCRIPTABLE void seek(int offset) const;
+    Q_SCRIPTABLE void requestPlayerList();
+    Q_SCRIPTABLE void sendAction(const QString& action);
 
 Q_SIGNALS:
     void propertiesChanged();
 
 private:
-    QString dbusPath() const;
+    void requestPlayerStatus();
 
     QString m_player;
     bool m_playing;

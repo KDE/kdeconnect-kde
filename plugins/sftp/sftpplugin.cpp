@@ -82,11 +82,6 @@ void SftpPlugin::removeFromDolphin()
     }
 }
 
-void SftpPlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
-}
-
 void SftpPlugin::mount()
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Mount device:" << device()->name();

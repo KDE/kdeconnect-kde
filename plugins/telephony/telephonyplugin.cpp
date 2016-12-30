@@ -161,11 +161,6 @@ void TelephonyPlugin::showSendSmsDialog()
     dialog->show();
 }
 
-void TelephonyPlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents);
-}
-
 QString TelephonyPlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/telephony";

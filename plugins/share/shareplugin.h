@@ -39,9 +39,10 @@ public:
 
     ///Helper method, QDBus won't recognize QUrl
     Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
-public Q_SLOTS:
+
     bool receivePackage(const NetworkPackage& np) override;
-    void connected() override;
+    void connected() override {}
+    QString dbusPath() const override;
 
 private Q_SLOTS:
     void finished(KJob*);
@@ -53,7 +54,6 @@ Q_SIGNALS:
 private:
     void shareUrl(const QUrl& url);
 
-    QString dbusPath() const;
     QUrl destinationDir() const;
 
 };

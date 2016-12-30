@@ -43,7 +43,8 @@ public:
     explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
 
     bool receivePackage(const NetworkPackage& np) override;
-    void connected() override;
+    void connected() override {}
+    QString dbusPath() const override;
 
 public Q_SLOTS:
     Q_SCRIPTABLE void sendSms(const QString& phoneNumber, const QString& messageBody);
@@ -53,7 +54,6 @@ private Q_SLOTS:
     void showSendSmsDialog();
 
 private:
-    QString dbusPath() const;
     KNotification* createNotification(const NetworkPackage& np);
 
     QDBusInterface m_telepathyInterface;

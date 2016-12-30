@@ -40,12 +40,10 @@ public:
     Q_SCRIPTABLE void sendPing();
     Q_SCRIPTABLE void sendPing(const QString& customMessage);
 
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
-    void connected() override;
+    void connected() override {}
 
-private:
-    QString dbusPath() const;
+    QString dbusPath() const override;
 };
 
 #endif

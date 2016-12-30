@@ -47,6 +47,8 @@ public:
 
     KdeConnectPluginConfig* config() const;
 
+    virtual QString dbusPath() const;
+
 public Q_SLOTS:
     /**
      * Returns true if it has handled the package in some way

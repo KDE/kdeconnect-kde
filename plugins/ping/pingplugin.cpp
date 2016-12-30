@@ -74,11 +74,6 @@ void PingPlugin::sendPing(const QString& customMessage)
     qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }
 
-void PingPlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
-}
-
 QString PingPlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/ping";

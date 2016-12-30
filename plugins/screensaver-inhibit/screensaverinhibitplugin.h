@@ -34,7 +34,6 @@ public:
     explicit ScreensaverInhibitPlugin(QObject *parent, const QVariantList &args);
     ~ScreensaverInhibitPlugin() override;
 
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override;
 

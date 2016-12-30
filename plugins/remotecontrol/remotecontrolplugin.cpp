@@ -57,11 +57,6 @@ void RemoteControlPlugin::sendCommand(const QString &name, bool val)
     sendPackage(np);
 }
 
-void RemoteControlPlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
-}
-
 QString RemoteControlPlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/remotecontrol";

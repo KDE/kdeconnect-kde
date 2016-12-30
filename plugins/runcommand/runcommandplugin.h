@@ -39,8 +39,6 @@ public:
     explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
     ~RunCommandPlugin() override;
 
-
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override;
 

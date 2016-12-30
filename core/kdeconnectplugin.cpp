@@ -75,3 +75,8 @@ bool KdeConnectPlugin::sendPackage(NetworkPackage& np) const
 //     qCWarning(KDECONNECT_CORE) << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
     return d->mDevice->sendPackage(np);
 }
+
+QString KdeConnectPlugin::dbusPath() const
+{
+    return {};
+}

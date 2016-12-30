@@ -35,10 +35,10 @@ class PauseMusicPlugin
 public:
     explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
 
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override { }
 
+public Q_SLOTS:
     /**
      * @returns 0 if not muted, 1 if muted or -1 if there was an error
      */

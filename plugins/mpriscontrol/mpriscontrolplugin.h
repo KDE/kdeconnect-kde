@@ -40,7 +40,6 @@ class MprisControlPlugin
 public:
     explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
 
-public Q_SLOTS:
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override { }
 

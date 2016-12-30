@@ -59,8 +59,6 @@ bool RemoteCommandsPlugin::receivePackage(const NetworkPackage& np)
 
 void RemoteCommandsPlugin::connected()
 {
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
-
     NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST, {{"requestCommandList", true}});
     sendPackage(np);
 }

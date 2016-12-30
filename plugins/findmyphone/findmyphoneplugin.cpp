@@ -48,11 +48,6 @@ void FindMyPhonePlugin::ring()
     sendPackage(np);
 }
 
-void FindMyPhonePlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
-}
-
 QString FindMyPhonePlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/findmyphone";

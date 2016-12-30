@@ -158,11 +158,6 @@ void SharePlugin::shareUrl(const QUrl& url)
     sendPackage(package);
 }
 
-void SharePlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableInvokables);
-}
-
 QString SharePlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/share";

@@ -85,11 +85,6 @@ long MprisRemotePlugin::position() const
     }
 }
 
-void MprisRemotePlugin::connected()
-{
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportAllContents);
-}
-
 QString MprisRemotePlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/mprisremote";
