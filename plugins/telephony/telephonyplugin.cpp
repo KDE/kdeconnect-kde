@@ -37,7 +37,6 @@ TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
 {
-    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)));
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
@@ -50,6 +49,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     // In case telepathy can handle the message, don't do anything else
     if (event == QLatin1String("sms") && m_telepathyInterface.isValid()) {
         qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Passing a text message to the telepathy interface";
+        connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)), Qt::UniqueConnection);
         const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),QLatin1String(""));
         QDBusReply<bool> reply = m_telepathyInterface.call(QStringLiteral("sendMessage"), phoneNumber, contactName, messageBody);
         if (reply) {
