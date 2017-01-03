@@ -32,7 +32,7 @@ LanPairingHandler::LanPairingHandler(DeviceLink* deviceLink)
     , m_status(NotPaired)
 {
     m_pairingTimeout.setSingleShot(true);
-    m_pairingTimeout.setInterval(30 * 1000);  //30 seconds of timeout
+    m_pairingTimeout.setInterval(pairingTimeoutMsec());
     connect(&m_pairingTimeout, &QTimer::timeout, this, &LanPairingHandler::pairingTimeout);
 }
 

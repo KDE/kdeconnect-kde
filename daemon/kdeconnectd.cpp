@@ -20,6 +20,7 @@
 
 #include <QApplication>
 #include <QNetworkAccessManager>
+#include <QTimer>
 
 #include <KDBusService>
 #include <KNotification>
@@ -43,7 +44,8 @@ public:
 
     void askPairingConfirmation(PairingHandler* d) override
     {
-        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"));
+        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"),
+                                                        KNotification::Persistent);
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setText(i18n("Pairing request from %1", getDevice(d->deviceLink()->deviceId())->name()));
@@ -51,6 +53,7 @@ public:
         connect(notification, &KNotification::ignored, d, &PairingHandler::rejectPairing);
         connect(notification, &KNotification::action1Activated, d, &PairingHandler::acceptPairing);
         connect(notification, &KNotification::action2Activated, d, &PairingHandler::rejectPairing);
+        QTimer::singleShot(d->pairingTimeoutMsec(), notification, &KNotification::close);  // close after pairing timeout, assuming that the peer uses the same timeout value
         notification->sendEvent();
     }
 
