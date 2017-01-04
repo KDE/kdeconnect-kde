@@ -23,6 +23,8 @@
       <arg type="a{sv}" name="changed_properties" direction="out"/>
       <arg type="as" name="invalidated_properties" direction="out"/>
       <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
+      <!-- Aparently some old version of Qt/Dbus thinks interfaces have "input" parameters --> 
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
     </signal>
   </interface>
 </node>
