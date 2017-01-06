@@ -2,6 +2,7 @@
 Type=Service
 Name=Send file via KDE Connect service
 Name[ar]=أرسل ملفًّا عبر خدمة «كدي المتّصل»
+Name[ast]=Unviar ficheru pel serviciu de KDE Connect
 Name[bg]=Изпращане на файл през услугата KDE Connect
 Name[bs]=Pošalji datoteku putem KDE Connect servisa
 Name[ca]=Envia un fitxer a través del servei KDE Connect
@@ -36,6 +37,7 @@ Name[zh_TW]=以已經連結到KDE之服務或裝置來傳送檔案
 X-KDE-Library=kdeconnectfileitemaction
 X-KDE-Submenu=Connect
 X-KDE-Submenu[ar]=اتّصل,اتصل
+X-KDE-Submenu[ast]=Coneutar
 X-KDE-Submenu[bg]=Свързване
 X-KDE-Submenu[bs]=Uspostavi vezu
 X-KDE-Submenu[ca]=Connecta

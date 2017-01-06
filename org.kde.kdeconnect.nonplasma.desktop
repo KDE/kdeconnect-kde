@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDE Connect Monitor
 Name[ar]=مرقاب «كدي المتّصل»
+Name[ast]=Monitor de KDE Connect
 Name[ca]=Controlador del KDE Connect
 Name[ca@valencia]=Controlador del KDE Connect
 Name[cs]=Monitor KDE Connect
@@ -31,6 +32,7 @@ Name[zh_CN]=KDE Connect 监视器
 Name[zh_TW]=KDE 連線監視器
 Comment=Display information about your devices
 Comment[ar]=اعرض معلومات عن أجهزتك
+Comment[ast]=Amuesa información tocante a los tos preseos
 Comment[ca]=Mostra la informació dels vostres dispositius
 Comment[ca@valencia]=Mostra la informació dels vostres dispositius
 Comment[cs]=Zobrazit informace o vašich zařízeních

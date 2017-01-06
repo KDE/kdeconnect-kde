@@ -4,6 +4,7 @@ X-KDE-ServiceType=KdeConnect/Plugin
 X-KDE-Derived=KPluginInfo
 Name=KDEConnect Plugin
 Name[ar]=ملحقة KDEConnect
+Name[ast]=Complementu de KDEConnect
 Name[bg]=Приставка на KDEConnect
 Name[bs]=Priključak za KDE konekciju
 Name[ca]=Connector del KDE Connect
