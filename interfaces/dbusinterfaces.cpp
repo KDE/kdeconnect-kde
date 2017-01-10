@@ -156,4 +156,11 @@ RemoteCommandsDbusInterface::RemoteCommandsDbusInterface(const QString& deviceId
 
 RemoteCommandsDbusInterface::~RemoteCommandsDbusInterface() = default;
 
+RemoteKeyboardDbusInterface::RemoteKeyboardDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceRemotekeyboardInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/remotekeyboard", QDBusConnection::sessionBus(), parent)
+{
+}
+
+RemoteKeyboardDbusInterface::~RemoteKeyboardDbusInterface() = default;
+
 #include "dbusinterfaces.moc"

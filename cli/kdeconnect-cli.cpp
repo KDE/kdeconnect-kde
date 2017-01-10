@@ -24,6 +24,7 @@
 #include <QDBusConnection>
 #include <QCoreApplication>
 #include <QTextStream>
+#include <QFile>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -66,6 +67,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("encryption-info"), i18n("Get encryption info about said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("list-commands"), i18n("Lists remote commands and their ids")));
     parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Executes a remote command by id"), QStringLiteral("id")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device")));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -199,6 +201,24 @@ int main(int argc, char** argv)
         } else if(parser.isSet(QStringLiteral("ring"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/findmyphone", QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
             QDBusConnection::sessionBus().call(msg);
+        } else if(parser.isSet("send-keys")) {
+            QString seq = parser.value("send-keys");
+            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/remotekeyboard", "org.kde.kdeconnect.device.remotekeyboard", "sendKeyPress");
+            if (seq.trimmed() == QLatin1String("-")) {
+                // from file
+                QFile in;
+                if(in.open(stdin,QIODevice::ReadOnly | QIODevice::Unbuffered)) {
+                    while (!in.atEnd()) {
+                        QByteArray line = in.readLine();  // sanitize to ASCII-codes > 31?
+                        msg.setArguments({QString(line), -1, false, false, false});
+                        QDBusConnection::sessionBus().call(msg);
+                    }
+                    in.close();
+                }
+            } else {
+                msg.setArguments({seq, -1, false, false, false});
+                QDBusConnection::sessionBus().call(msg);
+            }
         } else if(parser.isSet(QStringLiteral("list-notifications"))) {
             NotificationsModel notifications;
             notifications.setDeviceId(device);
