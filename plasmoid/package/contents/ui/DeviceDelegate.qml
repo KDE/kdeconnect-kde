@@ -23,30 +23,11 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0
-import QtQuick.Controls.Styles 1.4
 
 PlasmaComponents.ListItem
 {
     id: root
     readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
-
-    RemoteKeyboard {
-        id: remoteKeyboard
-        device: root.device
-        onKeyPressReceived: {
-            if (specialKey == 12)  // Return -> clear
-                remoteKeyboardInput.text = "";
-            else {
-                var sanitized = "";
-                for (var i = 0; i < key.length; i++) {
-                    if (key.charCodeAt(i) > 31)
-                        sanitized += key.charAt(i);
-                }
-                if (sanitized.length > 0 && !ctrl && !alt)
-                    remoteKeyboardInput.text += sanitized;
-            }
-        }
-    }
 
     Column {
         width: parent.width
@@ -103,47 +84,6 @@ PlasmaComponents.ListItem
 
             height: browse.height
             width: parent.width
-        }
-
-        //RemoteKeyboard
-        PlasmaComponents.ListItem {
-            sectionDelegate: true
-            visible: remoteKeyboard.available
-            width: parent.width
-
-            Row {
-                width: parent.width
-                spacing: 5
-
-                PlasmaComponents.Label {
-                    id: remoteKeyboardLabel
-                    //font.bold: true
-                    text: i18n("Remote Keyboard")
-                }
-
-                PlasmaComponents.TextField {
-                    id: remoteKeyboardInput
-                    textColor: "black"
-                    height: parent.height
-                    width: parent.width - 5 - remoteKeyboardLabel.width
-                    verticalAlignment: TextInput.AlignVCenter
-                    style: TextFieldStyle {
-                        textColor: "black"
-                        background: Rectangle {
-                            radius: 2
-                            border.color: "gray"
-                            border.width: 1
-                            color: "white"
-                        }
-                    }
-
-                    Keys.onPressed: {
-                        if (remoteKeyboard.available)
-                            remoteKeyboard.sendEvent(event);
-                        event.accepted = true;
-                    }
-                }
-            }
         }
 
         //Battery
