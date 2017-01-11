@@ -49,26 +49,28 @@ int main(int argc, char** argv)
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
 
-    QMenu menu;
-    auto configure = menu.addAction(i18n("Configure..."));
-    QObject::connect(configure, &QAction::triggered, configure, [](){
-        QProcess::startDetached("kcmshell5", {"kdeconnect"});
-    });
-
     QSystemTrayIcon systray;
     systray.setIcon(QIcon::fromTheme("kdeconnect"));
-    systray.setContextMenu(&menu);
     systray.setVisible(true);
 
-    QObject::connect(&model, &DevicesModel::rowsInserted, &model, [&menu, &model](const QModelIndex& /*parent*/, int first, int last) {
-        for (int i=first; i<=last; ++i) {
+    auto refreshMenu = [&systray, &model]() {
+        QMenu *menu = new QMenu;
+        auto configure = menu->addAction(i18n("Configure..."));
+        QObject::connect(configure, &QAction::triggered, configure, [](){
+            QProcess::startDetached("kcmshell5", {"kdeconnect"});
+        });
+        for (int i=0, count = model.rowCount(); i<count; ++i) {
             DeviceDbusInterface* device = model.getDevice(i);
             auto indicator = new DeviceIndicator(device);
             QObject::connect(device, &DeviceDbusInterface::destroyed, indicator, &QObject::deleteLater);
 
-            menu.addMenu(indicator);
+            menu->addMenu(indicator);
         }
-    });
+        systray.setContextMenu(menu);
+    };
+
+    QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
+    QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
         systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
