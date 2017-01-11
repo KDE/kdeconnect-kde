@@ -19,6 +19,7 @@
  */
 
 #include "deviceindicator.h"
+#include <QFileDialog>
 #include <KLocalizedString>
 
 template <typename T, typename W>
@@ -97,7 +98,17 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     });
     setWhenAvailable(device->hasPlugin("kdeconnect_findmyphone"), [findDevice](bool available) { findDevice->setEnabled(available); }, this);
 
-//     addAction(i18n("Send file")); //TODO
+    auto sendFile = addAction(i18n("Send file"));
+    connect(sendFile, &QAction::triggered, device, [device, this](){
+        const QUrl url = QFileDialog::getOpenFileUrl(parentWidget(), i18n("Select file to send to '%1'", device->name()), QUrl::fromLocalFile(QDir::homePath()));
+        if (url.isEmpty())
+            return;
+
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device->id()+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
+        msg.setArguments(QVariantList() << url.toString());
+        QDBusConnection::sessionBus().call(msg);
+    });
+    setWhenAvailable(device->hasPlugin("kdeconnect_share"), [sendFile](bool available) { sendFile->setEnabled(available); }, this);
 
     addSeparator();
     auto unpair = addAction(i18n("Unpair"));
