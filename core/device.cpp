@@ -140,7 +140,7 @@ void Device::reloadPlugins()
 
         const QString dbusPath = plugin->dbusPath();
         if (!dbusPath.isEmpty()) {
-            bus.registerObject(dbusPath, plugin, QDBusConnection::ExportAllProperties | QDBusConnection::ExportScriptableInvokables);
+            bus.registerObject(dbusPath, plugin, QDBusConnection::ExportAllProperties | QDBusConnection::ExportScriptableInvokables | QDBusConnection::ExportScriptableSignals);
         }
     }
     if (differentPlugins) {
