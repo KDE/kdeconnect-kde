@@ -62,6 +62,7 @@ private Q_SLOTS:
     void resetCurrentDevice();
 
 private:
+    void setCurrentDeviceTrusted(bool trusted);
     void resetDeviceView();
 
     Ui::KdeConnectKcmUi* kcmUi;

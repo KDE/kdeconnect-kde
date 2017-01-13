@@ -184,16 +184,6 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
     }
 
     kcmUi->messages->setVisible(false);
-    kcmUi->progressBar->setVisible(false);
-    if (currentDevice->isTrusted()) {
-        kcmUi->unpair_button->setVisible(true);
-        kcmUi->pair_button->setVisible(false);
-        kcmUi->ping_button->setVisible(true);
-    } else {
-        kcmUi->unpair_button->setVisible(false);
-        kcmUi->pair_button->setVisible(true);
-        kcmUi->ping_button->setVisible(false);
-    }
     resetDeviceView();
 
     connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
@@ -220,7 +210,9 @@ void KdeConnectKcm::resetDeviceView()
     kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 
     kcmUi->name_label->setText(currentDevice->name());
-    kcmUi->status_label->setText(currentDevice->isTrusted()? i18n("(trusted)") : i18n("(not trusted)"));
+    setWhenAvailable(currentDevice->isTrusted(), [this](bool trusted) {
+        setCurrentDeviceTrusted(trusted);
+    }, this);
 
     const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins(QStringLiteral("kdeconnect/")));
     QList<KPluginInfo> availablePluginInfo;
@@ -272,16 +264,20 @@ void KdeConnectKcm::pairingFailed(const QString& error)
     kcmUi->messages->animatedShow();
 }
 
-void KdeConnectKcm::trustedChanged(bool paired)
+void KdeConnectKcm::trustedChanged(bool trusted)
 {
     DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
-    if (senderDevice != currentDevice) return;
+    if (senderDevice == currentDevice)
+        setCurrentDeviceTrusted(trusted);
+}
 
-    kcmUi->pair_button->setVisible(!paired);
-    kcmUi->unpair_button->setVisible(paired);
+void KdeConnectKcm::setCurrentDeviceTrusted(bool trusted)
+{
+    kcmUi->pair_button->setVisible(!trusted);
+    kcmUi->unpair_button->setVisible(trusted);
     kcmUi->progressBar->setVisible(false);
-    kcmUi->ping_button->setVisible(paired);
-    kcmUi->status_label->setText(paired ? i18n("(paired)") : i18n("(unpaired)"));
+    kcmUi->ping_button->setVisible(trusted);
+    kcmUi->status_label->setText(trusted ? i18n("(paired)") : i18n("(not paired)"));
 }
 
 void KdeConnectKcm::pluginsConfigChanged()
