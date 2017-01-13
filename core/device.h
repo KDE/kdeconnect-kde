@@ -55,11 +55,6 @@ public:
         Tablet,
     };
 
-    enum TrustStatus {
-        NotTrusted,
-        Trusted
-    };
-
     /**
      * Restores the @p device from the saved configuration
      *

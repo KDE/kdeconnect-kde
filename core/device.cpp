@@ -195,7 +195,7 @@ void Device::pairStatusChanged(DeviceLink::PairStatus status)
     reloadPlugins(); //Will load/unload plugins
 
     bool isTrusted = (status == DeviceLink::Paired);
-    Q_EMIT trustedChanged(isTrusted? Trusted : NotTrusted);
+    Q_EMIT trustedChanged(isTrusted);
     Q_ASSERT(isTrusted == this->isTrusted());
 }
 
