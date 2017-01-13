@@ -22,18 +22,6 @@
 #include <QFileDialog>
 #include <KLocalizedString>
 
-template <typename T, typename W>
-static void setWhenAvailable(const QDBusPendingReply<T> &pending, W func, QObject* parent)
-{
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pending, parent);
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished,
-                    parent, [func](QDBusPendingCallWatcher* watcher) {
-                        watcher->deleteLater();
-                        QDBusPendingReply<T> reply = *watcher;
-                        func(reply.value());
-                    });
-}
-
 class BatteryAction : public QAction
 {
 Q_OBJECT

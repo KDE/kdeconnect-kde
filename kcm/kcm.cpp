@@ -79,8 +79,10 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
     kcmUi->noDeviceLinks->setWordWrap(false);
     QTimer::singleShot(0, [this] { kcmUi->noDeviceLinks->setWordWrap(true); });
 
-    kcmUi->rename_label->setText(daemon->announcedName());
-    kcmUi->rename_edit->setText(daemon->announcedName());
+    setWhenAvailable(daemon->announcedName(), [this](const QString& announcedName) {
+        kcmUi->rename_label->setText(announcedName);
+        kcmUi->rename_edit->setText(announcedName);
+    }, this);
     connect(daemon, SIGNAL(announcedNameChanged(QString)),
             kcmUi->rename_edit, SLOT(setText(QString)));
     connect(daemon, SIGNAL(announcedNameChanged(QString)),
