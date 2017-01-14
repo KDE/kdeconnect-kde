@@ -133,9 +133,9 @@ void Device::reloadPlugins()
     m_plugins = newPluginMap;
     m_pluginsByIncomingCapability = newPluginsByIncomingCapability;
 
-    //TODO: see how it works in Android (only done once, when created)
     QDBusConnection bus = QDBusConnection::sessionBus();
     Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
+        //TODO: see how it works in Android (only done once, when created)
         plugin->connected();
 
         const QString dbusPath = plugin->dbusPath();
