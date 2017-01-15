@@ -59,7 +59,7 @@ void DownloadJobTest::failToConnectShouldDestroyTheJob()
     // no initServer
     test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
 
-    QSignalSpy spy(test, &KJob::finished);
+    QSignalSpy spy(test.data(), &KJob::finished);
     test->start();
 
     QVERIFY(spy.count() || spy.wait());
@@ -71,7 +71,7 @@ void DownloadJobTest::closingTheConnectionShouldDestroyTheJob()
 {
     initServer();
     test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
-    QSignalSpy spy(test, &KJob::finished);
+    QSignalSpy spy(test.data(), &KJob::finished);
     test->start();
     mServer->close();
 
