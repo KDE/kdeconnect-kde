@@ -34,6 +34,26 @@
 #include "interfaces/dbusinterfaces.h"
 #include "kdeconnect-version.h"
 
+template <typename T>
+Q_REQUIRED_RESULT T blockOnReply(QDBusPendingReply<T> reply)
+{
+    reply.waitForFinished();
+    if (reply.isError()) {
+        QTextStream(stderr) << i18n("error: ") << reply.error().message() << endl;
+        exit(1);
+    }
+    return reply.value();
+}
+
+void blockOnReply(QDBusPendingReply<void> reply)
+{
+    reply.waitForFinished();
+    if (reply.isError()) {
+        QTextStream(stderr) << i18n("error: ") << reply.error().message() << endl;
+        exit(1);
+    }
+}
+
 int main(int argc, char** argv)
 {
     QCoreApplication app(argc, argv);
@@ -82,13 +102,11 @@ int main(int argc, char** argv)
         if (parser.isSet(QStringLiteral("a"))) {
             reachable = true;
         } else {
-            iface.acquireDiscoveryMode(id);
+            blockOnReply(iface.acquireDiscoveryMode(id));
             QThread::sleep(2);
         }
-        QDBusPendingReply<QStringList> reply = iface.devices(paired, reachable);
-        reply.waitForFinished();
+        const QStringList devices = blockOnReply<QStringList>(iface.devices(paired, reachable));
 
-        const QStringList devices = reply.value();
         Q_FOREACH (const QString& id, devices) {
             if (parser.isSet(QStringLiteral("id-only"))) {
                 QTextStream(stdout) << id << endl;
@@ -114,15 +132,15 @@ int main(int argc, char** argv)
             QTextStream(stderr) << i18n("No devices found") << endl;
         }
 
-        iface.releaseDiscoveryMode(id);
+        blockOnReply(iface.releaseDiscoveryMode(id));
     } else if(parser.isSet(QStringLiteral("refresh"))) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect"), QStringLiteral("org.kde.kdeconnect.daemon"), QStringLiteral("forceOnNetworkChange"));
-        QDBusConnection::sessionBus().call(msg);
+        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
     } else {
 
         QString device = parser.value(QStringLiteral("device"));
         if (device.isEmpty() && parser.isSet(QStringLiteral("name"))) {
-            device = iface.deviceIdByName(parser.value(QStringLiteral("name")));
+            device = blockOnReply(iface.deviceIdByName(parser.value(QStringLiteral("name"))));
             if (device.isEmpty()) {
                 QTextStream(stderr) << "Couldn't find device: " << parser.value(QStringLiteral("name")) << endl;
                 return 1;
@@ -139,7 +157,7 @@ int main(int argc, char** argv)
             if(!url.isEmpty() && !device.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
                 msg.setArguments(QVariantList() << url.toString());
-                QDBusConnection::sessionBus().call(msg);
+                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << (i18n("Couldn't share %1", url.toString())) << endl;
             }
@@ -149,7 +167,7 @@ int main(int argc, char** argv)
                 //Device doesn't exist, go into discovery mode and wait up to 30 seconds for the device to appear
                 QEventLoop wait;
                 QTextStream(stderr) << i18n("waiting for device...") << endl;
-                iface.acquireDiscoveryMode(id);
+                blockOnReply(iface.acquireDiscoveryMode(id));
 
                 QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, [&](const QString &deviceAddedId) {
                     if (device == deviceAddedId) {
@@ -163,24 +181,22 @@ int main(int argc, char** argv)
 
             if (!dev.isReachable()) {
                 QTextStream(stderr) << i18n("Device not found") << endl;
-            } else if(dev.property("isPaired").toBool()) {
+            } else if(blockOnReply<bool>(dev.isTrusted())) {
                 QTextStream(stderr) << i18n("Already paired") << endl;
             } else {
                 QTextStream(stderr) << i18n("Pair requested") << endl;
-                QDBusPendingReply<void> req = dev.requestPair();
-                req.waitForFinished();
+                blockOnReply(dev.requestPair());
             }
-            iface.releaseDiscoveryMode(id);
+            blockOnReply(iface.releaseDiscoveryMode(id));
         } else if(parser.isSet(QStringLiteral("unpair"))) {
             DeviceDbusInterface dev(device);
             if (!dev.isReachable()) {
                 QTextStream(stderr) << i18n("Device does not exist") << endl;
-            } else if(!dev.property("isPaired").toBool()) {
+            } else if(!dev.isTrusted()) {
                 QTextStream(stderr) << i18n("Already not paired") << endl;
             } else {
                 QTextStream(stderr) << i18n("Unpaired") << endl;
-                QDBusPendingReply<void> req = dev.unpair();
-                req.waitForFinished();
+                blockOnReply(dev.unpair());
             }
         } else if(parser.isSet(QStringLiteral("ping")) || parser.isSet(QStringLiteral("ping-msg"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/ping", QStringLiteral("org.kde.kdeconnect.device.ping"), QStringLiteral("sendPing"));
@@ -188,19 +204,19 @@ int main(int argc, char** argv)
                 QString message = parser.value(QStringLiteral("ping-msg"));
                 msg.setArguments(QVariantList() << message);
             }
-            QDBusConnection::sessionBus().call(msg);
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("send-sms"))) {
             if (parser.isSet(QStringLiteral("destination"))) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/telephony", QStringLiteral("org.kde.kdeconnect.device.telephony"), QStringLiteral("sendSms"));
                 msg.setArguments({ parser.value("destination"), parser.value("send-sms") });
-                QDBusConnection::sessionBus().call(msg);
+                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
                 return 1;
             }
         } else if(parser.isSet(QStringLiteral("ring"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/findmyphone", QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
-            QDBusConnection::sessionBus().call(msg);
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if(parser.isSet("send-keys")) {
             QString seq = parser.value("send-keys");
             QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/remotekeyboard", "org.kde.kdeconnect.device.remotekeyboard", "sendKeyPress");
@@ -211,13 +227,13 @@ int main(int argc, char** argv)
                     while (!in.atEnd()) {
                         QByteArray line = in.readLine();  // sanitize to ASCII-codes > 31?
                         msg.setArguments({QString(line), -1, false, false, false});
-                        QDBusConnection::sessionBus().call(msg);
+                        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
                     }
                     in.close();
                 }
             } else {
                 msg.setArguments({seq, -1, false, false, false});
-                QDBusConnection::sessionBus().call(msg);
+                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             }
         } else if(parser.isSet(QStringLiteral("list-notifications"))) {
             NotificationsModel notifications;
@@ -234,18 +250,13 @@ int main(int argc, char** argv)
                 const QJsonObject cont = it->toObject();
                 QTextStream(stdout) << it.key() << ": " << cont.value(QStringLiteral("name")).toString() << ": " << cont.value(QStringLiteral("command")).toString() << endl;
             }
-            const auto err = iface.lastError();
-            if (err.isValid()) {
-                QTextStream(stderr) << err.message() << endl;
-            }
         } else if(parser.isSet(QStringLiteral("execute-command"))) {
             RemoteCommandsDbusInterface iface(device);
-            iface.triggerCommand(parser.value(QStringLiteral("execute-command")));
+            blockOnReply(iface.triggerCommand(parser.value(QStringLiteral("execute-command"))));
         } else if(parser.isSet(QStringLiteral("encryption-info"))) {
             DeviceDbusInterface dev(device);
-            QDBusPendingReply<QString> devReply = dev.encryptionInfo(); // QSsl::Der = 1
-            devReply.waitForFinished();
-            QTextStream(stderr) << devReply.value() << endl;
+            QString info = blockOnReply<QString>(dev.encryptionInfo()); // QSsl::Der = 1
+            QTextStream(stdout) << info << endl;
         } else {
             QTextStream(stderr) << i18n("Nothing to be done") << endl;
         }
