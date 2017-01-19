@@ -60,7 +60,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
     }
 
     QString content, type, icon;
-    KNotification::NotificationFlags flags = KNotification::CloseOnTimeout | KNotification::CloseWhenWidgetActivated;
+    KNotification::NotificationFlags flags = KNotification::CloseOnTimeout;
 
     const QString title = device()->name();
 
