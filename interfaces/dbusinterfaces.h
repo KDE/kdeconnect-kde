@@ -34,6 +34,7 @@
 #include "interfaces/remotecontrolinterface.h"
 #include "interfaces/lockdeviceinterface.h"
 #include "interfaces/remotecommandsinterface.h"
+#include "interfaces/remotekeyboardinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -178,6 +179,18 @@ class KDECONNECTINTERFACES_EXPORT RemoteCommandsDbusInterface
 public:
     explicit RemoteCommandsDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~RemoteCommandsDbusInterface() override;
+};
+
+class KDECONNECTINTERFACES_EXPORT RemoteKeyboardDbusInterface
+    : public OrgKdeKdeconnectDeviceRemotekeyboardInterface
+{
+    Q_OBJECT
+    Q_PROPERTY(bool remoteState READ remoteState NOTIFY remoteStateChanged)
+public:
+    explicit RemoteKeyboardDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~RemoteKeyboardDbusInterface() override;
+Q_SIGNALS:
+    void remoteStateChanged(bool state);
 };
 
 template <typename T, typename W>

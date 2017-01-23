@@ -49,6 +49,11 @@ QObject* createFindMyPhoneInterface(const QVariant &deviceId)
     return new FindMyPhoneDeviceDbusInterface(deviceId.toString());
 }
 
+QObject* createRemoteKeyboardInterface(const QVariant &deviceId)
+{
+    return new RemoteKeyboardDbusInterface(deviceId.toString());
+}
+
 QObject* createSftpInterface(const QVariant &deviceId)
 {
     return new SftpDbusInterface(deviceId.toString());
@@ -85,6 +90,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
+    qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri, 1, 0, "RemoteKeyboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface",
         [](QQmlEngine*, QJSEngine*) -> QObject* {
@@ -108,6 +114,9 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
 
     engine->rootContext()->setContextProperty(QStringLiteral("SftpDbusInterfaceFactory")
       , new ObjectFactory(engine, createSftpInterface));
+
+    engine->rootContext()->setContextProperty(QStringLiteral("RemoteKeyboardDbusInterfaceFactory")
+      , new ObjectFactory(engine, createRemoteKeyboardInterface));
 
     engine->rootContext()->setContextProperty(QStringLiteral("MprisDbusInterfaceFactory")
       , new ObjectFactory(engine, createMprisInterface));

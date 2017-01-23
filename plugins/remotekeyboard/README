@@ -1,0 +1,23 @@
+Sends key-events to remote devices. The payload structure corresponds basically
+to that of remote key-presses in the mousepad-plugin (with the exception of the
+"sendAck"-flag) , e.g.:
+
+{
+    "key": "a",
+    "specialKey": 12,
+    "shift": false,
+    "ctrl": false,
+    "alt": false,
+    "sendAck": true
+}
+
+If "specialKey" is a valid keycode according to the internal map (1 <= x <= 32),
+the event is interpreted as a special event and the contents of "key" are not
+considered.
+
+"key" may contain multi-char strings for performance reasons. In that case,
+the peer is expected to print the whole string.
+
+If "sendAck" is set to true, the device expects the remote peer to echo the
+event in case it could be handled. This can be used to determine whether the
+remote device is ready to accept remote keypresses.
