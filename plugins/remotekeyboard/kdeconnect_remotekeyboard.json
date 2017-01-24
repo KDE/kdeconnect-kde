@@ -1,29 +1,29 @@
 {
-    "Encoding": "UTF-8",
+    "Encoding": "UTF-8", 
     "KPlugin": {
         "Authors": [
             {
-                "Email": "holger.k@elberer.de",
-                "Name": "Holger Kaelberer"
+                "Email": "holger.k@elberer.de", 
+                "Name": "Holger Kaelberer", 
+                "Name[x-test]": "xxHolger Kaelbererxx"
             }
-        ],
-        "Description": "Use your keyboard to send key-events to your paired device",
-        "Description[x-test]": "xxUse your keyboard to send key-events to your paired devicexx",
-        "EnabledByDefault": true,
-        "Icon": "edit-select",
-        "Id": "kdeconnect_remotekeyboard",
-        "License": "GPL",
-        "Name": "Remote keyboard from the desktop",
+        ], 
+        "Description": "Use your keyboard to send key-events to your paired device", 
+        "EnabledByDefault": true, 
+        "Icon": "edit-select", 
+        "Id": "kdeconnect_remotekeyboard", 
+        "License": "GPL", 
+        "Name": "Remote keyboard from the desktop", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
-        ],
+        ], 
         "Version": "0.1"
-    },
+    }, 
     "X-KdeConnect-OutgoingPackageType": [
         "kdeconnect.mousepad.request"
-    ],
+    ], 
     "X-KdeConnect-SupportedPackageType": [
-        "kdeconnect.mousepad.echo",
+        "kdeconnect.mousepad.echo", 
         "kdeconnect.mousepad.keyboardstate"
     ]
 }
