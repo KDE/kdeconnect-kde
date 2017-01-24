@@ -251,7 +251,43 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     }
 
     connect(link, &DeviceLink::pairStatusChanged, this, &Device::pairStatusChanged);
+    connect(link, &DeviceLink::pairingRequest, this, &Device::addPairingRequest);
+    connect(link, &DeviceLink::pairingRequestExpired, this, &Device::removePairingRequest);
     connect(link, &DeviceLink::pairingError, this, &Device::pairingError);
+}
+
+void Device::addPairingRequest(PairingHandler* handler)
+{
+    m_pairRequests.insert(handler);
+    Q_EMIT pairingRequestsChanged();
+}
+
+void Device::removePairingRequest(PairingHandler* handler)
+{
+    m_pairRequests.remove(handler);
+    Q_EMIT pairingRequestsChanged();
+}
+
+void Device::acceptPairing()
+{
+    if (m_pairRequests.isEmpty())
+        qWarning() << "no pair requests to accept!";
+
+    //copying because the pairing handler will be removed upon accept
+    const auto prCopy = m_pairRequests;
+    for (auto ph: prCopy)
+        ph->acceptPairing();
+}
+
+void Device::rejectPairing()
+{
+    if (m_pairRequests.isEmpty())
+        qWarning() << "no pair requests to reject!";
+
+    //copying because the pairing handler will be removed upon reject
+    const auto prCopy = m_pairRequests;
+    for (auto ph: prCopy)
+        ph->rejectPairing();
 }
 
 void Device::linkDestroyed(QObject* o)

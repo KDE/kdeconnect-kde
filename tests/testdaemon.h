@@ -38,7 +38,7 @@ public:
         qWarning() << "error:" << title << description;
     }
 
-    void askPairingConfirmation(PairingHandler * d) override {
+    void askPairingConfirmation(Device * d) override {
         d->acceptPairing();
     }
 

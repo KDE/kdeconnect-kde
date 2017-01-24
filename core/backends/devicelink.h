@@ -60,9 +60,11 @@ public:
     virtual bool linkShouldBeKeptAlive() { return false; }
 
 Q_SIGNALS:
-    void receivedPackage(const NetworkPackage& np);
+    void pairingRequest(PairingHandler* handler);
+    void pairingRequestExpired(PairingHandler* handler);
     void pairStatusChanged(DeviceLink::PairStatus status);
     void pairingError(const QString &error);
+    void receivedPackage(const NetworkPackage& np);
 
 protected:
     QCA::PrivateKey mPrivateKey;

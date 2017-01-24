@@ -70,11 +70,7 @@ Daemon::Daemon(QObject *parent, bool testMode)
     //Read remebered paired devices
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
     Q_FOREACH (const QString& id, list) {
-        Device* device = new Device(this, id);
-        connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
-        connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
-        d->mDevices[id] = device;
-        Q_EMIT deviceAdded(id);
+        addDevice(new Device(this, id));
     }
 
     //Listen to new devices
@@ -185,11 +181,7 @@ void Daemon::onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* 
         if (!isDiscoveringDevices() && !device->isTrusted() && !dl->linkShouldBeKeptAlive()) {
             device->deleteLater();
         } else {
-            connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
-            connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
-            d->mDevices[id] = device;
-
-            Q_EMIT deviceAdded(id);
+            addDevice(device);
         }
     }
 }
@@ -248,6 +240,28 @@ QString Daemon::deviceIdByName(const QString &name) const
             return d->id();
     }
     return {};
+}
+
+void Daemon::addDevice(Device* device)
+{
+    const QString id = device->id();
+    connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
+    connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
+    connect(device, &Device::pairingRequestsChanged, this, &Daemon::pairingRequestsChanged);
+    connect(device, &Device::pairingRequestsChanged, this, [this, device]() { askPairingConfirmation(device); } );
+    d->mDevices[id] = device;
+
+    Q_EMIT deviceAdded(id);
+}
+
+QStringList Daemon::pairingRequests() const
+{
+    QStringList ret;
+    for(Device* dev: d->mDevices) {
+        if (dev->hasPairingRequests())
+            ret += dev->id();
+    }
+    return ret;
 }
 
 Daemon::~Daemon()

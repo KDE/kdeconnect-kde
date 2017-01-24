@@ -44,6 +44,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChanged)
     Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
+    Q_PROPERTY(bool hasPairingRequests READ hasPairingRequests NOTIFY pairingRequestsChanged)
 
 public:
 
@@ -102,6 +103,8 @@ public:
     int protocolVersion() { return m_protocolVersion; }
     QStringList supportedPlugins() const { return m_supportedPlugins.toList(); }
 
+    bool hasPairingRequests() const { return !m_pairRequests.isEmpty(); }
+
 public Q_SLOTS:
     ///sends a @p np package to the device
     ///virtual for testing purposes.
@@ -113,10 +116,15 @@ public Q_SLOTS:
     Q_SCRIPTABLE void unpair(); //from all links
     Q_SCRIPTABLE void reloadPlugins(); //from kconf
 
+    Q_SCRIPTABLE void acceptPairing();
+    Q_SCRIPTABLE void rejectPairing();
+
 private Q_SLOTS:
     void privateReceivedPackage(const NetworkPackage& np);
     void linkDestroyed(QObject* o);
     void pairStatusChanged(DeviceLink::PairStatus current);
+    void addPairingRequest(PairingHandler* handler);
+    void removePairingRequest(PairingHandler* handler);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
@@ -124,6 +132,8 @@ Q_SIGNALS:
     Q_SCRIPTABLE void trustedChanged(bool trusted);
     Q_SCRIPTABLE void pairingError(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
+
+    void pairingRequestsChanged();
 
 private: //Methods
     static DeviceType str2type(const QString &deviceType);
@@ -144,6 +154,7 @@ private: //Fields (TODO: dPointer!)
     //Capabilities stuff
     QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingCapability;
     QSet<QString> m_supportedPlugins;
+    QSet<PairingHandler*> m_pairRequests;
 };
 
 Q_DECLARE_METATYPE(Device*)

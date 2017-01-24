@@ -39,6 +39,7 @@ class KDECONNECTCORE_EXPORT Daemon
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
     Q_PROPERTY(bool isDiscoveringDevices READ isDiscoveringDevices)
+    Q_PROPERTY(QStringList pairingRequests READ pairingRequests NOTIFY pairingRequestsChanged)
 
 public:
     explicit Daemon(QObject *parent, bool testMode = false);
@@ -48,11 +49,13 @@ public:
 
     QList<Device*> devicesList() const;
 
-    virtual void askPairingConfirmation(PairingHandler *d) = 0;
+    virtual void askPairingConfirmation(Device *device) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();
 
     Device* getDevice(const QString& deviceId);
+
+    QStringList pairingRequests() const;
 
 public Q_SLOTS:
     Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
@@ -74,12 +77,14 @@ Q_SIGNALS:
     Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed
     Q_SCRIPTABLE void deviceVisibilityChanged(const QString& id, bool isVisible);
     Q_SCRIPTABLE void announcedNameChanged(const QString &announcedName);
+    Q_SCRIPTABLE void pairingRequestsChanged();
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);
     void onDeviceStatusChanged();
 
 private:
+    void addDevice(Device* device);
     bool isDiscoveringDevices() const;
     void removeDevice(Device* d);
     void cleanDevices();
