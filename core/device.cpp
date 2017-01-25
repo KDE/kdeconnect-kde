@@ -258,14 +258,20 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 
 void Device::addPairingRequest(PairingHandler* handler)
 {
+    const bool wasEmpty = m_pairRequests.isEmpty();
     m_pairRequests.insert(handler);
-    Q_EMIT pairingRequestsChanged();
+
+    if (wasEmpty != m_pairRequests.isEmpty())
+        Q_EMIT hasPairingRequestsChanged(!m_pairRequests.isEmpty());
 }
 
 void Device::removePairingRequest(PairingHandler* handler)
 {
+    const bool wasEmpty = m_pairRequests.isEmpty();
     m_pairRequests.remove(handler);
-    Q_EMIT pairingRequestsChanged();
+
+    if (wasEmpty != m_pairRequests.isEmpty())
+        Q_EMIT hasPairingRequestsChanged(!m_pairRequests.isEmpty());
 }
 
 void Device::acceptPairing()

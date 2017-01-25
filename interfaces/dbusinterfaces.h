@@ -52,6 +52,7 @@ public:
 
 Q_SIGNALS:
     void deviceAdded(const QString &id);
+    void pairingRequestsChangedProxy();
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
@@ -63,6 +64,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChangedProxy)
     Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
+    Q_PROPERTY(bool hasPairingRequests READ hasPairingRequests NOTIFY hasPairingRequestsChangedProxy)
 
 public:
     explicit DeviceDbusInterface(const QString& deviceId, QObject* parent = nullptr);
@@ -75,6 +77,7 @@ Q_SIGNALS:
     void nameChangedProxy(const QString &name);
     void trustedChangedProxy(bool paired);
     void reachableChangedProxy(bool reachable);
+    void hasPairingRequestsChangedProxy();
 
 private:
     const QString m_id;

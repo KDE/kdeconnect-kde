@@ -247,8 +247,11 @@ void Daemon::addDevice(Device* device)
     const QString id = device->id();
     connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
     connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
-    connect(device, &Device::pairingRequestsChanged, this, &Daemon::pairingRequestsChanged);
-    connect(device, &Device::pairingRequestsChanged, this, [this, device]() { askPairingConfirmation(device); } );
+    connect(device, &Device::hasPairingRequestsChanged, this, &Daemon::pairingRequestsChanged);
+    connect(device, &Device::hasPairingRequestsChanged, this, [this, device](bool hasPairingRequests) {
+        if (hasPairingRequests)
+            askPairingConfirmation(device);
+    } );
     d->mDevices[id] = device;
 
     Q_EMIT deviceAdded(id);

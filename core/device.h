@@ -44,7 +44,7 @@ class KDECONNECTCORE_EXPORT Device
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChanged)
     Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
-    Q_PROPERTY(bool hasPairingRequests READ hasPairingRequests NOTIFY pairingRequestsChanged)
+    Q_PROPERTY(bool hasPairingRequests READ hasPairingRequests NOTIFY hasPairingRequestsChanged)
 
 public:
 
@@ -133,7 +133,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingError(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
 
-    void pairingRequestsChanged();
+    Q_SCRIPTABLE void hasPairingRequestsChanged(bool hasPairingRequests);
 
 private: //Methods
     static DeviceType str2type(const QString &deviceType);
