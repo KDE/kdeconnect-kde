@@ -44,8 +44,7 @@ public:
 
     void askPairingConfirmation(Device* device) override
     {
-        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"),
-                                                        KNotification::Persistent);
+        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"));
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setText(i18n("Pairing request from %1", device->name()));
