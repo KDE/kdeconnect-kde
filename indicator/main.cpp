@@ -53,7 +53,8 @@ int main(int argc, char** argv)
     systray.setIcon(QIcon::fromTheme("kdeconnect"));
     systray.setVisible(true);
 
-    auto refreshMenu = [&systray, &model]() {
+    DaemonDbusInterface iface;
+    auto refreshMenu = [&systray, &iface, &model]() {
         QMenu *menu = new QMenu;
         auto configure = menu->addAction(i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
@@ -66,9 +67,21 @@ int main(int argc, char** argv)
 
             menu->addMenu(indicator);
         }
+        const QStringList requests = iface.pairingRequests();
+        if (!requests.isEmpty()) {
+            menu->addSection(i18n("Pairing requests"));
+
+            for(const auto &req: requests) {
+                DeviceDbusInterface *dev = new DeviceDbusInterface(req, menu);
+                auto pairMenu = menu->addMenu(dev->name());
+                pairMenu->addAction(i18n("Pair"), dev, &DeviceDbusInterface::acceptPairing);
+                pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::rejectPairing);
+            }
+        }
         systray.setContextMenu(menu);
     };
 
+    QObject::connect(&iface, &DaemonDbusInterface::pairingRequestsChangedProxy, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
