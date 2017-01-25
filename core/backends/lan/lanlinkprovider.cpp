@@ -418,7 +418,7 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
     if (linkIterator != mLinks.end()) {
         Q_ASSERT(linkIterator.value() == destroyedDeviceLink);
         mLinks.erase(linkIterator);
-        mPairingHandlers.remove(id);
+        mPairingHandlers.take(id)->deleteLater();
     }
 
 }
