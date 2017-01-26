@@ -89,5 +89,7 @@ int main(int argc, char** argv)
         systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
     });
 
+	refreshMenu();
+
     return app.exec();
 }
