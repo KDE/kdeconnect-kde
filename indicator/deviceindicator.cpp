@@ -78,7 +78,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     });
     setWhenAvailable(device->hasPlugin("kdeconnect_sftp"), [browse](bool available) { browse->setEnabled(available); }, this);
 
-    auto findDevice = addAction(i18n("Find device"));
+    auto findDevice = addAction(i18n("Ring device"));
     connect(findDevice, &QAction::triggered, device, [device](){
         FindMyPhoneDeviceDbusInterface* iface = new FindMyPhoneDeviceDbusInterface(device->id(), device);
         iface->ring();
