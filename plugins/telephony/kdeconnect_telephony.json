@@ -9,6 +9,7 @@
             }
         ], 
         "Description": "Show notifications for calls and SMS", 
+        "Description[ar]": "أظهر إخطارات المكالمات والرّسائل", 
         "Description[ca@valencia]": "Mostra les notificacions de les trucades i els SMS", 
         "Description[ca]": "Mostra les notificacions de les trucades i els SMS", 
         "Description[cs]": "Zobrazit upozornění pro telefonáty a SMS", 
