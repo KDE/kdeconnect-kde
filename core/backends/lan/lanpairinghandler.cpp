@@ -65,10 +65,10 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
         qCDebug(KDECONNECT_CORE) << "Unpair request";
 
-        setInternalPairStatus(NotPaired);
          if (isPairRequested()) {
             Q_EMIT pairingError(i18n("Canceled by other peer"));
         }
+        setInternalPairStatus(NotPaired);
     }
 }
 
