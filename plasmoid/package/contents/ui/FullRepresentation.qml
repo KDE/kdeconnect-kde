@@ -29,7 +29,7 @@ Item {
     property alias devicesModel: devicesView.model
 
     PlasmaExtras.Heading {
-        anchors.centerIn: parent
+        width: parent.width
         level: 3
         opacity: 0.6
         text: i18n("No paired devices available")
