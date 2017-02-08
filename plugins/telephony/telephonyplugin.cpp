@@ -72,13 +72,13 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
         type = QStringLiteral("missedCall");
         icon = QStringLiteral("call-start");
         content = i18n("Missed call from %1", contactName);
-        flags |= KNotification::Persistent;
+        flags |= KNotification::Persistent; //Note that in Unity this generates a message box!
     } else if (event == QLatin1String("sms")) {
         type = QStringLiteral("smsReceived");
         icon = QStringLiteral("mail-receive");
         QString messageBody = np.get<QString>(QStringLiteral("messageBody"), QLatin1String(""));
         content = i18n("SMS from %1<br>%2", contactName, messageBody);
-        flags |= KNotification::Persistent;
+        flags |= KNotification::Persistent; //Note that in Unity this generates a message box!
     } else if (event == QLatin1String("talking")) {
         return nullptr;
     } else {
