@@ -75,9 +75,6 @@ bool LanPairingHandler::requestPairing()
         case Paired:
             Q_EMIT pairingError(i18n("%1: Already paired", deviceLink()->name()));
             return false;
-        case Requested:
-            Q_EMIT pairingError(i18n("%1: Pairing already requested for this device", deviceLink()->name()));
-            return false;
         case RequestedByPeer:
             qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
             acceptPairing();
