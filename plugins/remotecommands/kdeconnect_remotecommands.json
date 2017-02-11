@@ -29,6 +29,7 @@
         "Description[sv]": "Utför kommandon fördefinierade på den andra apparaten", 
         "Description[uk]": "Запуск команд, попередньо визначених на віддаленому пристрої", 
         "Description[x-test]": "xxTrigger commands predefined on the remote devicexx", 
+        "Description[zh_CN]": "出发远程设备的预设命令", 
         "Description[zh_TW]": "預先設定在遠端設備上的執行命令", 
         "EnabledByDefault": true, 
         "Icon": "system-run", 
@@ -53,6 +54,7 @@
         "Name[sv]": "Fjärrkommandon för värddator", 
         "Name[uk]": "Віддалені команди вузлу", 
         "Name[x-test]": "xxHost remote commandsxx", 
+        "Name[zh_CN]": "主机远程命令", 
         "Name[zh_TW]": "主機與遠端指令", 
         "ServiceTypes": [
             "KdeConnect/Plugin"

@@ -35,6 +35,7 @@
         "Description[sv]": "Hitta din förlorade telefon genom att få den att spela ett alarmljud", 
         "Description[uk]": "Знайти загублений телефон, наказавши йому відтворити дзвінок", 
         "Description[x-test]": "xxFind your lost phone by making it play an alarm soundxx", 
+        "Description[zh_CN]": "通过播放闹铃声来找到您不见的手机", 
         "Description[zh_TW]": "讓您的手機發出警報聲，讓您找到您遺失的手機。", 
         "EnabledByDefault": true, 
         "Encoding": "UTF-8", 
@@ -64,6 +65,7 @@
         "Name[sv]": "Hitta min telefon", 
         "Name[uk]": "Дзвінок на вашому телефоні", 
         "Name[x-test]": "xxRing my phonexx", 
+        "Name[zh_CN]": "让我的手机响铃", 
         "Name[zh_TW]": "撥打我的電話", 
         "ServiceTypes": [
             "KdeConnect/Plugin"

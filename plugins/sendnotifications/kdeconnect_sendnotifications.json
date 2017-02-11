@@ -29,6 +29,7 @@
         "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra enheter.", 
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.", 
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx", 
+        "Description[zh_CN]": "广播此计算机的通知，以被其他设备显示。", 
         "Description[zh_TW]": "廣播此電腦的通知，這樣可以顯示在其他裝置上。", 
         "EnabledByDefault": false, 
         "Icon": "preferences-desktop-notification", 
@@ -57,6 +58,7 @@
         "Name[sv]": "Skicka underrättelser", 
         "Name[uk]": "Надіслати сповіщення", 
         "Name[x-test]": "xxSend notificationsxx", 
+        "Name[zh_CN]": "发送通知", 
         "Name[zh_TW]": "傳送通知", 
         "ServiceTypes": [
             "KdeConnect/Plugin"
