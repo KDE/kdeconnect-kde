@@ -79,16 +79,16 @@ void LanLinkProvider::onStart()
 {
     const QHostAddress bindAddress = mTestMode? QHostAddress::LocalHost : QHostAddress::Any;
 
-    bool success = mUdpSocket.bind(bindAddress, PORT, QUdpSocket::ShareAddress);
+    bool success = mUdpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
     Q_ASSERT(success);
 
     qCDebug(KDECONNECT_CORE) << "onStart";
 
-    mTcpPort = MIN_PORT;
+    mTcpPort = MIN_TCP_PORT;
     while (!mServer->listen(bindAddress, mTcpPort)) {
         mTcpPort++;
-        if (mTcpPort > MAX_PORT) { //No ports available?
-            qCritical(KDECONNECT_CORE) << "Error opening a port in range" << MIN_PORT << "-" << MAX_PORT;
+        if (mTcpPort > MAX_TCP_PORT) { //No ports available?
+            qCritical(KDECONNECT_CORE) << "Error opening a port in range" << MIN_TCP_PORT << "-" << MAX_TCP_PORT;
             mTcpPort = 0;
             return;
         }
@@ -143,15 +143,15 @@ void LanLinkProvider::broadcastToNetwork()
                 QHostAddress sourceAddress = ifaceAddress.ip();
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                     qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
-                    sendSocket.bind(sourceAddress, PORT);
-                    sendSocket.writeDatagram(np.serialize(), destAddress, PORT);
+                    sendSocket.bind(sourceAddress, UDP_PORT);
+                    sendSocket.writeDatagram(np.serialize(), destAddress, UDP_PORT);
                     sendSocket.close();
                 }
             }
         }
     }
 #else
-    mUdpSocket.writeDatagram(np.serialize(), destAddress, PORT);
+    mUdpSocket.writeDatagram(np.serialize(), destAddress, UDP_PORT);
 #endif
 
 }
@@ -189,7 +189,7 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
             continue;
         }
 
-        int tcpPort = receivedPackage->get<int>(QStringLiteral("tcpPort"), PORT);
+        int tcpPort = receivedPackage->get<int>(QStringLiteral("tcpPort"));
 
         //qCDebug(KDECONNECT_CORE) << "Received Udp identity package from" << sender << " asking for a tcp connection on port " << tcpPort;
 
@@ -213,7 +213,7 @@ void LanLinkProvider::connectError()
     NetworkPackage np(QLatin1String(""));
     NetworkPackage::createIdentityPackage(&np);
     np.set(QStringLiteral("tcpPort"), mTcpPort);
-    mUdpSocket.writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, PORT);
+    mUdpSocket.writeDatagram(np.serialize(), receivedIdentityPackages[socket].sender, UDP_PORT);
 
     //The socket we created didn't work, and we didn't manage
     //to create a LanDeviceLink from it, deleting everything.
@@ -276,7 +276,7 @@ void LanLinkProvider::connected()
         //I think this will never happen, but if it happens the deviceLink
         //(or the socket that is now inside it) might not be valid. Delete them.
         qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection (send udp packet)";
-        mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, PORT);
+        mUdpSocket.writeDatagram(np2.serialize(), receivedIdentityPackages[socket].sender, UDP_PORT);
     }
 
     delete receivedIdentityPackages.take(socket).np;

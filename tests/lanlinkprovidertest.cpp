@@ -58,7 +58,7 @@ private Q_SLOTS:
 
 
 private:
-    const int PORT = 8520;
+    const int TEST_PORT = 8520;
     // Add some private fields here
     LanLinkProvider mLanLinkProvider;
     Server* mServer;
@@ -91,7 +91,7 @@ void LanLinkProviderTest::initTestCase()
 
     mLanLinkProvider.onStart();
 
-    mIdentityPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(PORT) + QStringLiteral("}}");
+    mIdentityPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(TEST_PORT) + QStringLiteral("}}");
 }
 
 void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
@@ -100,7 +100,7 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     addTrustedDevice();
 
     QUdpSocket* mUdpServer = new QUdpSocket;
-    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::PORT, QUdpSocket::ShareAddress);
+    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::UDP_PORT, QUdpSocket::ShareAddress);
     QVERIFY(b);
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
@@ -157,11 +157,11 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
     mServer = new Server(this);
     mUdpSocket = new QUdpSocket(this);
 
-    mServer->listen(QHostAddress::LocalHost, PORT);
+    mServer->listen(QHostAddress::LocalHost, TEST_PORT);
 
     QSignalSpy spy(mServer, SIGNAL(newConnection()));
 
-    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::PORT); // write an identity package to udp socket here, we do not broadcast it here
+    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::UDP_PORT); // write an identity package to udp socket here, we do not broadcast it here
     QCOMPARE(bytesWritten, mIdentityPackage.size());
 
     // We should have an incoming connection now, wait for incoming connection
@@ -208,7 +208,7 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
 void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
 {
     QUdpSocket* mUdpServer = new QUdpSocket;
-    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::PORT, QUdpSocket::ShareAddress);
+    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::UDP_PORT, QUdpSocket::ShareAddress);
     QVERIFY(b);
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
@@ -260,10 +260,10 @@ void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
     mServer = new Server(this);
     mUdpSocket = new QUdpSocket(this);
 
-    mServer->listen(QHostAddress::LocalHost, PORT);
+    mServer->listen(QHostAddress::LocalHost, TEST_PORT);
 
     QSignalSpy spy(mServer, &Server::newConnection);
-    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::PORT); // write an identity package to udp socket here, we do not broadcast it here
+    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::UDP_PORT); // write an identity package to udp socket here, we do not broadcast it here
     QCOMPARE(bytesWritten, mIdentityPackage.size());
 
     QVERIFY(!spy.isEmpty() || spy.wait());
