@@ -47,6 +47,9 @@ private:
     quint16 mPort;
     const QString mDeviceId;
 
+    const static quint16 MIN_PORT = 1739;
+    const static quint16 MAX_PORT = 1764;
+
 private Q_SLOTS:
     void startUploading();
     void newConnection();

@@ -84,11 +84,11 @@ void LanLinkProvider::onStart()
 
     qCDebug(KDECONNECT_CORE) << "onStart";
 
-    mTcpPort = PORT;
+    mTcpPort = MIN_PORT;
     while (!mServer->listen(bindAddress, mTcpPort)) {
         mTcpPort++;
-        if (mTcpPort > 1764) { //No ports available?
-            qCritical(KDECONNECT_CORE) << "Error opening a port in range 1714-1764";
+        if (mTcpPort > MAX_PORT) { //No ports available?
+            qCritical(KDECONNECT_CORE) << "Error opening a port in range" << MIN_PORT << "-" << MAX_PORT;
             mTcpPort = 0;
             return;
         }

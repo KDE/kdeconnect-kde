@@ -40,11 +40,11 @@ UploadJob::UploadJob(const QSharedPointer<QIODevice>& source, const QString& dev
 
 void UploadJob::start()
 {
-    mPort = 1739;
+    mPort = MIN_PORT;
     while (!mServer->listen(QHostAddress::Any, mPort)) {
         mPort++;
-        if (mPort > 1764) { //No ports available?
-            qCWarning(KDECONNECT_CORE) << "Error opening a port in range 1739-1764 for file transfer";
+        if (mPort > MAX_PORT) { //No ports available?
+            qCWarning(KDECONNECT_CORE) << "Error opening a port in range" << MIN_PORT << "-" << MAX_PORT;
             mPort = 0;
             setError(1);
             setErrorText(i18n("Couldn't find an available port"));

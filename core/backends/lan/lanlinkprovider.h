@@ -54,7 +54,8 @@ public:
     static void configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket* socket);
 
-    const static quint16 PORT = 1716;
+    const static quint16 MIN_PORT = 1716;
+    const static quint16 MAX_PORT = 1764;
 
 public Q_SLOTS:
     void onNetworkChange() override;
