@@ -81,6 +81,8 @@ bool LanPairingHandler::requestPairing()
             return false;
         case NotPaired:
             ;
+        case Requested:
+            break;
     }
 
     NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", true}});
