@@ -71,16 +71,13 @@ void LanPairingHandler::packageReceived(const NetworkPackage& np)
 
 bool LanPairingHandler::requestPairing()
 {
-    switch (m_status) {
-        case Paired:
-            Q_EMIT pairingError(i18n("%1: Already paired", deviceLink()->name()));
-            return false;
-        case RequestedByPeer:
-            qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
-            acceptPairing();
-            return false;
-        case NotPaired:
-            ;
+    if (m_status == Paired) {
+        Q_EMIT pairingError(i18n("%1: Already paired", deviceLink()->name()));
+        return false;
+    }
+    if (m_status == RequestedByPeer) {
+        qCDebug(KDECONNECT_CORE) << deviceLink()->name() << ": Pairing already started by the other end, accepting their request.";
+        return acceptPairing();
     }
 
     NetworkPackage np(PACKAGE_TYPE_PAIR, {{"pair", true}});
