@@ -51,11 +51,6 @@ KdeConnectPluginConfig::~KdeConnectPluginConfig()
     delete d->mConfig;
 }
 
-QDir KdeConnectPluginConfig::privateDirectory()
-{
-    return d->mConfigDir;
-}
-
 QVariant KdeConnectPluginConfig::get(const QString& key, const QVariant& defaultValue)
 {
     d->mConfig->sync();

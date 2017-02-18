@@ -40,12 +40,6 @@ public:
     ~KdeConnectPluginConfig() override;
 
     /**
-     * A directory to store stuff for this device and plugin. It's private in the sense
-     * of not-shared with other plugins or devices, not from a security point of view.
-     */
-    QDir privateDirectory();
-
-    /**
      * Store a key-value pair in this config object
      */
     void set(const QString& key, const QVariant& value);

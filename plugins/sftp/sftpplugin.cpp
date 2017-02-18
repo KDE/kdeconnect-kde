@@ -23,6 +23,7 @@
 #include <QDBusConnection>
 #include <QDir>
 #include <QDebug>
+#include <QStandardPaths>
 
 #include <KLocalizedString>
 #include <KNotification>
@@ -151,8 +152,11 @@ bool SftpPlugin::receivePackage(const NetworkPackage& np)
 
 QString SftpPlugin::mountPoint()
 {
-    QDir mountDir = config()->privateDirectory();
-    return mountDir.absoluteFilePath(deviceId);
+    QString runtimePath = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation);
+    if (runtimePath.isEmpty()) {
+        runtimePath = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    }
+    return QDir(runtimePath).absoluteFilePath(deviceId);
 }
 
 void SftpPlugin::onMounted()
