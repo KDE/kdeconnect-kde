@@ -103,8 +103,6 @@ public:
     int protocolVersion() { return m_protocolVersion; }
     QStringList supportedPlugins() const { return m_supportedPlugins.toList(); }
 
-    bool hasPairingRequests() const { return !m_pairRequests.isEmpty(); }
-
 public Q_SLOTS:
     ///sends a @p np package to the device
     ///virtual for testing purposes.
@@ -118,6 +116,7 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE void acceptPairing();
     Q_SCRIPTABLE void rejectPairing();
+    Q_SCRIPTABLE bool hasPairingRequests() const;
 
 private Q_SLOTS:
     void privateReceivedPackage(const NetworkPackage& np);

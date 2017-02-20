@@ -60,9 +60,13 @@ private Q_SLOTS:
     void renameDone();
     void setRenameMode(bool b);
     void resetCurrentDevice();
+    void currentDevicePairingChanged(bool pairing);
+    void acceptPairing();
+    void rejectPairing();
 
 private:
-    void setCurrentDeviceTrusted(bool trusted);
+    enum TrustStatus { NotTrusted, Requested, RequestedByPeer, Trusted };
+    void setCurrentDeviceTrusted(TrustStatus trusted);
     void resetDeviceView();
 
     Ui::KdeConnectKcmUi* kcmUi;

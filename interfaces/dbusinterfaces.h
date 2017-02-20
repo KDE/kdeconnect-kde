@@ -77,7 +77,7 @@ Q_SIGNALS:
     void nameChangedProxy(const QString &name);
     void trustedChangedProxy(bool paired);
     void reachableChangedProxy(bool reachable);
-    void hasPairingRequestsChangedProxy();
+    void hasPairingRequestsChangedProxy(bool);
 
 private:
     const QString m_id;

@@ -204,6 +204,20 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="accept_button">
+              <property name="text">
+               <string>Accept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="reject_button">
+              <property name="text">
+               <string>Reject</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="pair_button">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Maximum" vsizetype="Fixed">

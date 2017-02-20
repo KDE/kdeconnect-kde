@@ -274,6 +274,11 @@ void Device::removePairingRequest(PairingHandler* handler)
         Q_EMIT hasPairingRequestsChanged(!m_pairRequests.isEmpty());
 }
 
+bool Device::hasPairingRequests() const
+{
+    return !m_pairRequests.isEmpty();
+}
+
 void Device::acceptPairing()
 {
     if (m_pairRequests.isEmpty())
