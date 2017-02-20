@@ -68,8 +68,10 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
 
+    auto battery = new BatteryAction(device);
+    addAction(battery);
     setWhenAvailable(device->hasPlugin("kdeconnect_battery"),
-                     [this, device](bool available) { if (available) addAction(new BatteryAction(device)); }
+                     [this, battery](bool available) { battery->setVisible(available);  }
                      , this);
 
     auto browse = addAction(i18n("Browse device"));
