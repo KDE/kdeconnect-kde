@@ -97,12 +97,6 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         QDBusConnection::sessionBus().call(msg);
     });
     setWhenAvailable(device->hasPlugin("kdeconnect_share"), [sendFile](bool available) { sendFile->setEnabled(available); }, this);
-
-    addSeparator();
-    auto unpair = addAction(i18n("Unpair"));
-    connect(unpair, &QAction::triggered, device, [device](){
-        device->unpair();
-    });
 }
 
 #include "deviceindicator.moc"
