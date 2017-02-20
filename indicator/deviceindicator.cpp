@@ -68,7 +68,9 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
 
-    addAction(new BatteryAction(device));
+    setWhenAvailable(device->hasPlugin("kdeconnect_battery"),
+                     [this, device](bool available) { if (available) addAction(new BatteryAction(device)); }
+                     , this);
 
     auto browse = addAction(i18n("Browse device"));
     connect(browse, &QAction::triggered, device, [device](){
@@ -76,7 +78,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         sftpIface->startBrowsing();
         sftpIface->deleteLater();
     });
-    setWhenAvailable(device->hasPlugin("kdeconnect_sftp"), [browse](bool available) { browse->setEnabled(available); }, this);
+    setWhenAvailable(device->hasPlugin("kdeconnect_sftp"), [browse](bool available) { browse->setVisible(available); }, this);
 
     auto findDevice = addAction(i18n("Ring device"));
     connect(findDevice, &QAction::triggered, device, [device](){
@@ -84,7 +86,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         iface->ring();
         iface->deleteLater();
     });
-    setWhenAvailable(device->hasPlugin("kdeconnect_findmyphone"), [findDevice](bool available) { findDevice->setEnabled(available); }, this);
+    setWhenAvailable(device->hasPlugin("kdeconnect_findmyphone"), [findDevice](bool available) { findDevice->setVisible(available); }, this);
 
     auto sendFile = addAction(i18n("Send file"));
     connect(sendFile, &QAction::triggered, device, [device, this](){
@@ -96,7 +98,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         msg.setArguments(QVariantList() << url.toString());
         QDBusConnection::sessionBus().call(msg);
     });
-    setWhenAvailable(device->hasPlugin("kdeconnect_share"), [sendFile](bool available) { sendFile->setEnabled(available); }, this);
+    setWhenAvailable(device->hasPlugin("kdeconnect_share"), [sendFile](bool available) { sendFile->setVisible(available); }, this);
 }
 
 #include "deviceindicator.moc"
