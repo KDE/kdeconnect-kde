@@ -113,7 +113,9 @@
   <url type="help">https://docs.kde.org/index.php?application=kdeconnect-kde&amp;language=en</url>
   <screenshots>
     <screenshot type="default">
-      <!--       <image>http://kde.org/images/screenshots/kalgebra.png</image> -->
+        <image>https://cdn.kde.org/screenshots/kdeconnect/plasmoid.png</image>
+        <image>https://cdn.kde.org/screenshots/kdeconnect/kcm.png</image>
+        <image>https://cdn.kde.org/screenshots/kdeconnect/gnome3.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
