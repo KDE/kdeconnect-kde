@@ -64,7 +64,20 @@
   <summary xml:lang="zh-CN">无缝连接您的设备</summary>
   <summary xml:lang="zh-TW">與您的裝置無縫連線</summary>
   <description>
-    <p>KDE Connect provides integration between your Android phone and your desktop.</p>
+    <p>KDE Connect provides several features to integrate your phone and your computer:
+
+        <ul>
+            <li>Shared clipboard: copy and paste between your devices.</li>
+            <li>Share files and URLs to your computers and phone from any application.</li>
+            <li>Virtual touchpad: Use your phone screen as your computer's touchpad.</li>
+            <li>Notifications sync: Read your Android notifications from the desktop.</li>
+            <li>Multimedia remote control: Use your phone as a remote for Linux media players.</li>
+            <li>WiFi connection: no USB wire or bluetooth needed.</li>
+            <li>End-to-end TLS encryption: your information is safe.</li>
+        </ul>
+
+        Please note you will need to install KDE Connect on your computer for this app to work, and keep the desktop version up-to-date with the Android version for the latest features to work.
+    </p>
     <p xml:lang="ar">يوفّر «كدي المتصّل» التّكامل بين هاتف أندرويد وسطح المكتب.</p>
     <p xml:lang="ast">KDE Connect forne integración ente'l to teléfonu android y el to ordenador.</p>
     <p xml:lang="ca">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
