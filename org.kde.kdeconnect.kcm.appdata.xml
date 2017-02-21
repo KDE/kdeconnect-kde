@@ -66,56 +66,19 @@
   <description>
     <p>KDE Connect provides several features to integrate your phone and your computer:
 
-        <ul>
-            <li>Shared clipboard: copy and paste between your devices.</li>
-            <li>Share files and URLs to your computers and phone from any application.</li>
-            <li>Virtual touchpad: Use your phone screen as your computer's touchpad.</li>
-            <li>Notifications sync: Read your Android notifications from the desktop.</li>
-            <li>Multimedia remote control: Use your phone as a remote for Linux media players.</li>
-            <li>WiFi connection: no USB wire or bluetooth needed.</li>
-            <li>End-to-end TLS encryption: your information is safe.</li>
-        </ul>
+        <ul><li>Shared clipboard: copy and paste between your devices.</li><li>Share files and URLs to your computers and phone from any application.</li><li>Virtual touchpad: Use your phone screen as your computer's touchpad.</li><li>Notifications sync: Read your Android notifications from the desktop.</li><li>Multimedia remote control: Use your phone as a remote for Linux media players.</li><li>WiFi connection: no USB wire or bluetooth needed.</li><li>End-to-end TLS encryption: your information is safe.</li></ul>
 
         Please note you will need to install KDE Connect on your computer for this app to work, and keep the desktop version up-to-date with the Android version for the latest features to work.
     </p>
-    <p xml:lang="ar">يوفّر «كدي المتصّل» التّكامل بين هاتف أندرويد وسطح المكتب.</p>
-    <p xml:lang="ast">KDE Connect forne integración ente'l to teléfonu android y el to ordenador.</p>
-    <p xml:lang="ca">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
-    <p xml:lang="ca-valencia">El KDE Connect proporciona la integració entre el telèfon Android i el vostre escriptori.</p>
-    <p xml:lang="cs">KDE Connect poskytuje integraci mezi vaším telefonem s Androidem a vaší pracovní plochou.</p>
-    <p xml:lang="da">KDE Connect giver integration mellem din Android-telefon og din desktop.</p>
-    <p xml:lang="de">KDE Connect bietet Integrationsdienste zwischen Ihrem Android-Telefon und Ihrem Desktop-Computer.</p>
-    <p xml:lang="el">Το KDE Connect παρέχει ενοποίηση μεταξύ του Android κινητού σας και του γραφικού περιβάλλοντος του υπολογιστή σας.</p>
-    <p xml:lang="en-GB">KDE Connect provides integration between your Android phone and your desktop.</p>
-    <p xml:lang="es">KDE Connect proporciona integración entre su teléfono Android y su escritorio.</p>
-    <p xml:lang="et">KDE Connect võimaldab kokku siduda oma Androidi telefoni ja arvuti töölaua.</p>
-    <p xml:lang="fi">KDE Connect tarjoaa integraation Android-puhelimesi ja työpöytäsi välillä.</p>
-    <p xml:lang="fr">KDE Connect permet d'intégrer votre téléphone Android avec votre bureau.</p>
-    <p xml:lang="gl">KDE Connect fornece integración entre os seus teléfonos con Android e o seu computador de escritorio.</p>
-    <p xml:lang="he">KDE Connect מספק שילוב בין מכשירי אנדרואיד לשולחן העבודה</p>
-    <p xml:lang="it">KDE Connect fornisce integrazione tra il tuo telefono Android e il tuo desktop.</p>
-    <p xml:lang="ko">KDE Connect는 안드로이드 휴대폰과 데스크톱을 연결합니다.</p>
-    <p xml:lang="nl">KDE Connect biedt integratie tussen uw Android telefoon en uw bureaublad.</p>
-    <p xml:lang="nn">KDE Connect integrerer Android-telefonen eller -nettbrettet ditt med datamaskina.</p>
-    <p xml:lang="pl">KDE Connect integruje twój telefon Android z twoim pulpitem.</p>
-    <p xml:lang="pt">O KDE Connect oferece a integração entre o seu dispositivo Android e o seu ambiente de trabalho.</p>
-    <p xml:lang="pt-BR">O KDE Connect permite integrar seu telefone Android com seu desktop.</p>
-    <p xml:lang="ru">KDE Connect обеспечивает интеграцию между телефоном на базе ОС Android и компьютером.</p>
-    <p xml:lang="sk">KDE Connect poskytuje integráciu medzi vašim Androidovým telefónom a vašim počítačom.</p>
-    <p xml:lang="sv">KDE-anslut tillhandahåller integrering mellan en Android-telefon och skrivbordet.</p>
-    <p xml:lang="uk">KDE Connect забезпечує інтеграцію між вашим телефоном під керуванням Android та вашим робочим комп’ютером.</p>
-    <p xml:lang="x-test">xxKDE Connect provides integration between your Android phone and your desktop.xx</p>
-    <p xml:lang="zh-CN">KDE Connect 提供您的 Android 手机和桌面之间的集成。</p>
-    <p xml:lang="zh-TW">KDE Connect 提供您的 Android 手機與您的桌面間的整合</p>
   </description>
   <url type="homepage">https://community.kde.org/KDEConnect/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdeconnect</url>
   <url type="help">https://docs.kde.org/index.php?application=kdeconnect-kde&amp;language=en</url>
   <screenshots>
     <screenshot type="default">
-        <image>https://cdn.kde.org/screenshots/kdeconnect/plasmoid.png</image>
-        <image>https://cdn.kde.org/screenshots/kdeconnect/kcm.png</image>
-        <image>https://cdn.kde.org/screenshots/kdeconnect/gnome3.png</image>
+      <image>https://cdn.kde.org/screenshots/kdeconnect/plasmoid.png</image>
+      <image>https://cdn.kde.org/screenshots/kdeconnect/kcm.png</image>
+      <image>https://cdn.kde.org/screenshots/kdeconnect/gnome3.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
