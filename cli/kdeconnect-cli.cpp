@@ -88,6 +88,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("list-commands"), i18n("Lists remote commands and their ids")));
     parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Executes a remote command by id"), QStringLiteral("id")));
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -97,7 +98,9 @@ int main(int argc, char** argv)
     const QString id = "kdeconnect-cli-"+QString::number(QCoreApplication::applicationPid());
     DaemonDbusInterface iface;
 
-    if(parser.isSet(QStringLiteral("l")) || parser.isSet(QStringLiteral("a"))) {
+    if (parser.isSet(QStringLiteral("my-id"))) {
+        QTextStream(stdout) << iface.selfId() << endl;
+    } else if (parser.isSet(QStringLiteral("l")) || parser.isSet(QStringLiteral("a"))) {
         bool paired = true, reachable = false;
         if (parser.isSet(QStringLiteral("a"))) {
             reachable = true;

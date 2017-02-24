@@ -57,6 +57,7 @@ public:
 
     QStringList pairingRequests() const;
 
+    Q_SCRIPTABLE QString selfId() const;
 public Q_SLOTS:
     Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
     Q_SCRIPTABLE void releaseDiscoveryMode(const QString &id);

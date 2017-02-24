@@ -271,3 +271,8 @@ Daemon::~Daemon()
 {
 
 }
+
+QString Daemon::selfId() const
+{
+    return KdeConnectConfig::instance()->deviceId();
+}
