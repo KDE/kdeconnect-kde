@@ -52,6 +52,7 @@ int main(int argc, char** argv)
     QSystemTrayIcon systray;
     systray.setIcon(QIcon::fromTheme("kdeconnect"));
     systray.setVisible(true);
+    systray.setToolTip("KDE Connect");
 
     QMenu *menu = new QMenu;
 

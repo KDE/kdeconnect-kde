@@ -64,7 +64,6 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     , m_device(device)
 {
     setIcon(QIcon::fromTheme(device->iconName()));
-    setToolTip(device->name());
 
     connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
 
