@@ -30,6 +30,7 @@
 
 #include <QHostInfo>
 #include <QTcpServer>
+#include <QNetworkProxy>
 #include <QUdpSocket>
 #include <QNetworkSession>
 #include <QNetworkConfigurationManager>
@@ -55,7 +56,10 @@ LanLinkProvider::LanLinkProvider(bool testMode)
     connect(&mUdpSocket, &QIODevice::readyRead, this, &LanLinkProvider::newUdpConnection);
 
     mServer = new Server(this);
+    mServer->setProxy(QNetworkProxy::NoProxy);
     connect(mServer,&QTcpServer::newConnection,this, &LanLinkProvider::newConnection);
+
+    mUdpSocket.setProxy(QNetworkProxy::NoProxy);
 
     //Detect when a network interface changes status, so we announce ourelves in the new network
     QNetworkConfigurationManager* networkManager = new QNetworkConfigurationManager(this);
@@ -135,6 +139,7 @@ void LanLinkProvider::broadcastToNetwork()
 #ifdef Q_OS_WIN
     //On Windows we need to broadcast from every local IP address to reach all networks
     QUdpSocket sendSocket;
+    sendSocket.setProxy(QNetworkProxy::NoProxy);
     for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
         if ( (iface.flags() & QNetworkInterface::IsUp)
           && (iface.flags() & QNetworkInterface::IsRunning)
@@ -194,6 +199,7 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
         //qCDebug(KDECONNECT_CORE) << "Received Udp identity package from" << sender << " asking for a tcp connection on port " << tcpPort;
 
         QSslSocket* socket = new QSslSocket(this);
+        socket->setProxy(QNetworkProxy::NoProxy);
         receivedIdentityPackages[socket].np = receivedPackage;
         receivedIdentityPackages[socket].sender = sender;
         connect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::connected);
@@ -463,6 +469,8 @@ void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& devi
 }
 
 void LanLinkProvider::configureSocket(QSslSocket* socket) {
+
+    socket->setProxy(QNetworkProxy::NoProxy);
 
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
 
