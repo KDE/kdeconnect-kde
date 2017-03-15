@@ -20,6 +20,7 @@
 
 #include "mounter.h"
 
+#include <unistd.h>
 #include <QDir>
 #include <QDebug>
 
@@ -126,6 +127,8 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
         << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725
         << QStringLiteral("-o") << QStringLiteral("reconnect") //https://bugs.kde.org/show_bug.cgi?id=377040
+        << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid())
+        << QStringLiteral("-o") << QStringLiteral("gid=") + QString::number(getgid())
         << QStringLiteral("-o") << QStringLiteral("password_stdin")
         ;
 
