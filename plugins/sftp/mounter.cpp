@@ -125,6 +125,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") //Do not ask for confirmation because it is not a known host
         << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
         << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725
+        << QStringLiteral("-o") << QStringLiteral("reconnect") //https://bugs.kde.org/show_bug.cgi?id=377040
         << QStringLiteral("-o") << QStringLiteral("password_stdin")
         ;
 
