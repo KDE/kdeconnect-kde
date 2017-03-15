@@ -33,18 +33,18 @@ class Mounter
 {
     Q_OBJECT
 public:
-  
+
     explicit Mounter(SftpPlugin *sftp);
     ~Mounter() override;
-    
+
     bool wait();
     bool isMounted() const { return m_started; }
-    
+
 Q_SIGNALS:
     void mounted();
     void unmounted();
     void failed(const QString& message);
-   
+
 private Q_SLOTS:
     void onPakcageReceived(const NetworkPackage& np);
     void onStarted();
@@ -54,8 +54,8 @@ private Q_SLOTS:
     void start();
 
 private:
-    void unmount();
-    
+    void unmount(bool finished);
+
 private:
     SftpPlugin* m_sftp;
     KProcess* m_proc;
