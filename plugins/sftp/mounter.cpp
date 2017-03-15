@@ -129,6 +129,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
         << QStringLiteral("-o") << QStringLiteral("reconnect") //https://bugs.kde.org/show_bug.cgi?id=377040
         << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid())
         << QStringLiteral("-o") << QStringLiteral("gid=") + QString::number(getgid())
+        << QStringLiteral("-o") << QStringLiteral("ServerAliveInterval=30")
         << QStringLiteral("-o") << QStringLiteral("password_stdin")
         ;
 
