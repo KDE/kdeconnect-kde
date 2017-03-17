@@ -114,7 +114,7 @@ void RunCommandConfig::save()
     }
     QJsonDocument document;
     document.setObject(jsonConfig);
-    config()->set(QStringLiteral("commands"), document.toJson());
+    config()->set(QStringLiteral("commands"), document.toJson(QJsonDocument::Compact));
 
     KCModule::save();
 
