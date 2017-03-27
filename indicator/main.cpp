@@ -24,7 +24,12 @@
 #include <QDBusConnection>
 #include <QApplication>
 #include <QTextStream>
+
+#ifdef QSYSTRAY
 #include <QSystemTrayIcon>
+#else
+#include <KStatusNotifierItem>
+#endif
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -49,15 +54,10 @@ int main(int argc, char** argv)
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
 
-    QSystemTrayIcon systray;
-    systray.setIcon(QIcon::fromTheme("kdeconnect"));
-    systray.setVisible(true);
-    systray.setToolTip("KDE Connect");
-
     QMenu *menu = new QMenu;
 
     DaemonDbusInterface iface;
-    auto refreshMenu = [&systray, &iface, &model, &menu]() {
+    auto refreshMenu = [&iface, &model, &menu]() {
         menu->clear();
         auto configure = menu->addAction(i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
@@ -87,11 +87,31 @@ int main(int argc, char** argv)
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
+#ifdef QSYSTRAY
+    QSystemTrayIcon systray;
+    systray.setIcon(QIcon::fromTheme("kdeconnect"));
+    systray.setVisible(true);
+    systray.setToolTip("KDE Connect");
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
         systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
     });
 
     systray.setContextMenu(menu);
+#else
+    KStatusNotifierItem systray;
+    systray.setIconByName(QStringLiteral("kdeconnect"));
+    systray.setToolTip(QStringLiteral("kdeconnect"), "KDE Connect", "KDE Connect");
+    systray.setCategory(KStatusNotifierItem::Communications);
+    systray.setStatus(KStatusNotifierItem::Passive);
+    systray.setStandardActionsEnabled(false);
+    QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
+        const auto count = model.rowCount();
+        systray.setStatus(count == 0 ? KStatusNotifierItem::Passive : KStatusNotifierItem::Active);
+        systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), i18np("%1 device connected", "%1 devices connected", count));
+    });
+
+    systray.setContextMenu(menu);
+#endif
 
     refreshMenu();
 
