@@ -65,8 +65,6 @@ private /*attributes*/:
     QHash<QString, Notification*> mNotifications;
     QHash<QString, QString> mInternalIdToPublicId;
     int mLastId;
-    QDir imagesDir;
-
 };
 
 #endif

@@ -20,16 +20,24 @@
 
 #include "notification.h"
 
-#include <QDBusConnection>
+#include <KNotification>
+#include <QIcon>
+#include <QString>
+#include <QUrl>
+#include <QPixmap>
 
-Notification::Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent)
+#include <core/filetransferjob.h>
+
+
+Notification::Notification(const NetworkPackage& np, QObject* parent)
     : QObject(parent)
 {
-    mInternalId = np.get<QString>(QStringLiteral("id"));
-    mAppName = np.get<QString>(QStringLiteral("appName"));
-    mTicker = np.get<QString>(QStringLiteral("ticker"));
-    mDismissable = np.get<bool>(QStringLiteral("isClearable"));
-    mIconPath = iconPath;
+    mImagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect"));
+    mImagesDir.mkpath(mImagesDir.absolutePath());
+    mClosed = false;
+
+    parseNetworkPackage(np);
+    createKNotification(false, np);
 }
 
 Notification::~Notification()
@@ -42,5 +50,89 @@ void Notification::dismiss()
     if (mDismissable) {
         Q_EMIT dismissRequested(mInternalId);
     }
+}
+
+void Notification::show()
+{
+    if (!mSilent) {
+        mClosed = false;
+        mNotification->sendEvent();
+    }
+}
+
+void Notification::applyIconAndShow()
+{
+    if (!mSilent) {
+        QPixmap icon(mIconPath, "PNG");
+        mNotification->setPixmap(icon);
+        show();
+    }
+}
+
+void Notification::update(const NetworkPackage &np)
+{
+    parseNetworkPackage(np);
+    createKNotification(!mClosed, np);
+}
+
+KNotification* Notification::createKNotification(bool update, const NetworkPackage &np)
+{
+    if (!update) {
+        mNotification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
+        mNotification->setComponentName(QStringLiteral("kdeconnect"));
+    }
+
+    mNotification->setTitle(mAppName);
+
+    if (mTitle.isEmpty() && mText.isEmpty()) {
+       mNotification->setText(mTicker);
+    } else if (mAppName==mTitle) {
+        mNotification->setText(mText);
+    } else if (mTitle.isEmpty()){
+         mNotification->setText(mText);
+    } else if (mText.isEmpty()){
+         mNotification->setText(mTitle);
+    } else {
+        mNotification->setText(mTitle+": "+mText);
+    }
+
+    if (!mHasIcon) {
+        mNotification->setIconName(QStringLiteral("preferences-desktop-notification"));
+        show();
+    } else {
+        QString filename = mPayloadHash;
+
+        if (filename.isEmpty()) {
+            mHasIcon = false;
+        } else {
+            mIconPath = mImagesDir.absoluteFilePath(filename);
+            QUrl destinationUrl(mIconPath);
+            FileTransferJob* job = np.createPayloadTransferJob(destinationUrl);
+            job->start();
+            connect(job, &FileTransferJob::emitResult, this, &Notification::applyIconAndShow);
+        }
+    }
+
+    connect(mNotification, &KNotification::closed, this, &Notification::closed);
+
+    return mNotification;
+}
+
+void Notification::closed()
+{
+    mClosed = true;
+}
+
+void Notification::parseNetworkPackage(const NetworkPackage &np)
+{
+    mInternalId = np.get<QString>(QStringLiteral("id"));
+    mAppName = np.get<QString>(QStringLiteral("appName"));
+    mTicker = np.get<QString>(QStringLiteral("ticker"));
+    mTitle = np.get<QString>(QStringLiteral("title"));
+    mText = np.get<QString>(QStringLiteral("text"));
+    mDismissable = np.get<bool>(QStringLiteral("isClearable"));
+    mHasIcon = np.hasPayload();
+    mSilent = np.get<bool>(QStringLiteral("silent"));
+    mPayloadHash = np.get<QString>(QStringLiteral("payloadHash"));
 }
 

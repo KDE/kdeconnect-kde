@@ -20,16 +20,11 @@
 
 #include "notificationsdbusinterface.h"
 #include "notification_debug.h"
+#include "notification.h"
 
 #include <QDBusConnection>
-
-#include <KNotification>
-#include <QIcon>
-#include <QCryptographicHash>
-
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
-#include <core/filetransferjob.h>
 
 #include "notificationsplugin.h"
 
@@ -38,9 +33,8 @@ NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
     , mDevice(plugin->device())
     , mPlugin(plugin)
     , mLastId(0)
-    , imagesDir(QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect")))
 {
-    imagesDir.mkpath(imagesDir.absolutePath());
+
 }
 
 NotificationsDbusInterface::~NotificationsDbusInterface()
@@ -79,32 +73,18 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             });
             mPlugin->sendPackage(np);
         }
+    } else if(np.get<bool>(QStringLiteral("requestAnswer"), false)) {
+
     } else {
+        QString id = np.get<QString>(QStringLiteral("id"));
 
-        //TODO: Uncoment when we are able to display app icon on plasmoid
-        QString destination;
-        /*
-        if (np.hasPayload()) {
-            QString filename = KMD5(np.get<QString>("appName").toLatin1()).hexDigest();  //TODO: Store with extension?
-            destination = imagesDir.absoluteFilePath(filename);
-            FileTransferJob* job = np.createPayloadTransferJob(destination);
-            job->start();
+        if (!mInternalIdToPublicId.contains(id)) {
+            Notification* noti = new Notification(np, this);
+            addNotification(noti);
+        } else {
+            QString pubId = mInternalIdToPublicId[id];
+            mNotifications[pubId]->update(np);
         }
-        */
-
-        Notification* noti = new Notification(np, destination, this);
-
-        //Do not show updates to existent notification nor answers to a initialization request
-        if (!mInternalIdToPublicId.contains(noti->internalId()) && !np.get<bool>(QStringLiteral("requestAnswer"), false) && !np.get<bool>(QStringLiteral("silent"), false)) {
-            KNotification* notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
-            notification->setIconName(QStringLiteral("preferences-desktop-notification"));
-            notification->setComponentName(QStringLiteral("kdeconnect"));
-            notification->setTitle(mDevice->name());
-            notification->setText(noti->appName() + ": " + noti->ticker());
-            notification->sendEvent();
-        }
-
-        addNotification(noti);
     }
 }
 

@@ -8,3 +8,8 @@ src/*_automoc.cpp*
 src/moc_*.cpp
 CMakeTmp
 CMakeFiles
+KDEConnect.config
+KDEConnect.creator
+KDEConnect.files
+KDEConnect.includes
+.directory

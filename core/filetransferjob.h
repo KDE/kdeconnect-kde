@@ -54,6 +54,9 @@ public:
     QUrl destination() const { return mDestination; }
     void setOriginName(const QString& from) { mFrom = from; }
 
+    Q_SIGNALS:
+    void emitResult();
+
 private Q_SLOTS:
     void doStart();
 

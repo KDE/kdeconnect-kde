@@ -23,6 +23,8 @@
 
 #include <QObject>
 #include <QString>
+#include <KNotification>
+#include <QDir>
 
 #include <core/networkpackage.h>
 
@@ -34,32 +36,54 @@ class Notification
     Q_PROPERTY(QString internalId READ internalId)
     Q_PROPERTY(QString appName READ appName)
     Q_PROPERTY(QString ticker READ ticker)
+    Q_PROPERTY(QString title READ title)
+    Q_PROPERTY(QString text READ text)
     Q_PROPERTY(QString iconPath READ iconPath)
     Q_PROPERTY(bool dismissable READ dismissable)
+    Q_PROPERTY(bool hasIcon READ hasIcon)
+    Q_PROPERTY(bool silent READ silent)
 
 public:
-    Notification(const NetworkPackage& np, const QString& iconPath, QObject* parent);
+    Notification(const NetworkPackage& np, QObject* parent);
     ~Notification() override;
 
     QString internalId() const { return mInternalId; }
     QString appName() const { return mAppName; }
     QString ticker() const { return mTicker; }
+    QString title() const { return mTitle; }
+    QString text() const { return mText; }
     QString iconPath() const { return mIconPath; }
     bool dismissable() const { return mDismissable; }
+    bool hasIcon() const { return mHasIcon; }
+    void show();
+    bool silent() const { return mSilent; }
+    void update(const NetworkPackage &np);
+    KNotification* createKNotification(bool update, const NetworkPackage &np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
+    Q_SCRIPTABLE void applyIconAndShow();
+    void closed();
 
-Q_SIGNALS:
+    Q_SIGNALS:
     void dismissRequested(const QString& mInternalId);
 
 private:
     QString mInternalId;
     QString mAppName;
     QString mTicker;
+    QString mTitle;
+    QString mText;
     QString mIconPath;
     bool mDismissable;
+    bool mHasIcon;
+    KNotification* mNotification;
+    QDir mImagesDir;
+    bool mSilent;
+    bool mClosed;
+    QString mPayloadHash;
 
+    void parseNetworkPackage(const NetworkPackage& np);
 };
 
 #endif
