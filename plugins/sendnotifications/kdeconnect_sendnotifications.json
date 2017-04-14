@@ -26,6 +26,7 @@
         "Description[pt]": "Difunde as notificações deste computador, para que possam ser apresentadas noutros dispositivos.",
         "Description[sk]": "Vysielať upozornenia tohto počítača, aby sa zobrazili na druhom zariadení.",
         "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra enheter.",
+        "Description[tr]": "Bu bilgisayarın bildirimlerini yayınlayın, böylece diğer cihazlarda gösterilebilirler.",
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.",
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",
         "Description[zh_CN]": "广播此计算机的通知，以被其他设备显示。",
