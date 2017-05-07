@@ -82,18 +82,22 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
         mNotification->setComponentName(QStringLiteral("kdeconnect"));
     }
 
-    mNotification->setTitle(mAppName);
+    QString escapedTitle = mTitle.toHtmlEscaped();
+    QString escapedText = mText.toHtmlEscaped();
+    QString escapedTicker = mTicker.toHtmlEscaped();
+
+    mNotification->setTitle(mAppName.toHtmlEscaped());
 
     if (mTitle.isEmpty() && mText.isEmpty()) {
-       mNotification->setText(mTicker);
+       mNotification->setText(escapedTicker);
     } else if (mAppName==mTitle) {
-        mNotification->setText(mText);
+        mNotification->setText(escapedText);
     } else if (mTitle.isEmpty()){
-         mNotification->setText(mText);
+         mNotification->setText(escapedText);
     } else if (mText.isEmpty()){
-         mNotification->setText(mTitle);
+         mNotification->setText(escapedTitle);
     } else {
-        mNotification->setText(mTitle+": "+mText);
+        mNotification->setText(escapedTitle+": "+escapedText);
     }
 
     if (!mHasIcon) {
