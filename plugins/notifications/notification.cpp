@@ -109,7 +109,7 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
             QUrl destinationUrl(mIconPath);
             FileTransferJob* job = np.createPayloadTransferJob(destinationUrl);
             job->start();
-            connect(job, &FileTransferJob::emitResult, this, &Notification::applyIconAndShow);
+            connect(job, &FileTransferJob::result, this, &Notification::applyIconAndShow);
         }
     }
 
