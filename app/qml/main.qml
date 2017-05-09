@@ -21,22 +21,21 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 1.0 as Kirigami
+import org.kde.kirigami 2.0 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.ApplicationWindow
 {
     id: root
     visible: true
-    width: 400
+    width: 900
     height: 500
 
     Kirigami.Action {
         id: findDevicesAction
         text: i18n ("Find devices...")
         iconName: "list-add"
-        checkable: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
-        checked: true
+        checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
 
         onTriggered: {
             root.pageStack.clear()
@@ -77,8 +76,7 @@ Kirigami.ApplicationWindow
                 iconName: model.iconName
                 text: display + "\n" + toolTip
                 enabled: status & DevicesModel.Reachable
-                checkable: pageStack.currentItem && pageStack.currentItem.currentDevice == device
-                checked: true
+                checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
                 onTriggered: {
                     root.pageStack.clear()
                     root.pageStack.push(
