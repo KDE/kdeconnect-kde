@@ -64,7 +64,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     , m_device(device)
 {
 #ifdef Q_OS_WIN
-    setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, "icons/hicolor/scalable/apps/kdeconnect.svgz")));
+    setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, "icons/hicolor/scalable/status/"+device->iconName()+".svg")));
 #else
     setIcon(QIcon::fromTheme(device->iconName()));
 #endif
