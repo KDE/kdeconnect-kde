@@ -8,7 +8,12 @@ include_directories(
 
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
-add_subdirectory(backends/bluetooth)
+
+option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" OFF)
+if(BLUETOOTH_ENABLED)
+    find_package(Qt5 REQUIRED COMPONENTS Bluetooth)
+    add_subdirectory(backends/bluetooth)
+endif()
 
 find_package(KF5Notifications 5.9 REQUIRED)
 
@@ -39,13 +44,17 @@ PUBLIC
     Qt5::Network
     KF5::CoreAddons
     qca-qt5
-    Qt5::Bluetooth
 PRIVATE
     Qt5::DBus
     Qt5::Gui
     KF5::I18n
     KF5::ConfigCore
 )
+
+if (BLUETOOTH_ENABLED)
+    target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_BLUETOOTH)
+    target_link_libraries(kdeconnectcore PRIVATE Qt5::Bluetooth)
+endif()
 
 set_target_properties(kdeconnectcore PROPERTIES
     VERSION ${KDECONNECT_VERSION}

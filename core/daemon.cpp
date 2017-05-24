@@ -28,7 +28,11 @@
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
 #include "networkpackage.h"
-#include "backends/bluetooth/bluetoothlinkprovider.h"
+
+#ifdef KDECONNECT_BLUETOOTH
+    #include "backends/bluetooth/bluetoothlinkprovider.h"
+#endif
+
 #include "backends/lan/lanlinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 #include "device.h"
@@ -67,7 +71,9 @@ Daemon::Daemon(QObject *parent, bool testMode)
         d->mLinkProviders.insert(new LoopbackLinkProvider());
     else {
         d->mLinkProviders.insert(new LanLinkProvider());
-        d->mLinkProviders.insert(new BluetoothLinkProvider());
+        #ifdef KDECONNECT_BLUETOOTH
+            d->mLinkProviders.insert(new BluetoothLinkProvider());
+        #endif
     }
 
     //Read remebered paired devices
