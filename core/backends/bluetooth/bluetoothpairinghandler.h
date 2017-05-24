@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KDECONNECT_LANPAIRINGHANDLER_H
-#define KDECONNECT_LANPAIRINGHANDLER_H
+#ifndef KDECONNECT_BLUETOOTHPAIRINGHANDLER_H
+#define KDECONNECT_BLUETOOTHPAIRINGHANDLER_H
 
 #include "device.h"
 #include "../devicelink.h"
@@ -64,4 +64,4 @@ protected:
 };
 
 
-#endif //KDECONNECT_LANPAIRINGHANDLER_H
+#endif //KDECONNECT_BLUETOOTHPAIRINGHANDLER_H
