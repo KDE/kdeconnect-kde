@@ -31,6 +31,7 @@
 #include <KStatusNotifierItem>
 #endif
 
+#include <KDBusService>
 #include <KAboutData>
 #include <KCMultiDialog>
 #include <KLocalizedString>
@@ -51,6 +52,8 @@ int main(int argc, char** argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
+
+    KDBusService dbusService(KDBusService::Unique);
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
