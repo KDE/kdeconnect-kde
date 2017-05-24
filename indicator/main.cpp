@@ -69,9 +69,10 @@ int main(int argc, char** argv)
         menu->clear();
         auto configure = menu->addAction(i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
-            KCMultiDialog dialog;
-            dialog.addModule("kcm_kdeconnect");
-            dialog.exec();
+            KCMultiDialog* dialog = new KCMultiDialog;
+            dialog->addModule("kcm_kdeconnect");
+            dialog->setAttribute(Qt::WA_DeleteOnClose);
+            dialog->show();
         });
         for (int i=0, count = model.rowCount(); i<count; ++i) {
             DeviceDbusInterface* device = model.getDevice(i);
