@@ -54,15 +54,14 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
-    KDBusService dbusService(KDBusService::Unique);
-
-    DevicesModel model;
-    model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
-
 #ifdef Q_OS_WIN
     QProcess::startDetached("kdeconnectd.exe");
 #endif
 
+    KDBusService dbusService(KDBusService::Unique);
+
+    DevicesModel model;
+    model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
     QMenu *menu = new QMenu;
 
     DaemonDbusInterface iface;
@@ -73,9 +72,6 @@ int main(int argc, char** argv)
             KCMultiDialog dialog;
             dialog.addModule("kcm_kdeconnect");
             dialog.exec();
-#ifdef Q_OS_WIN
-            QProcess::startDetached("kdeconnectd.exe");
-#endif
         });
         for (int i=0, count = model.rowCount(); i<count; ++i) {
             DeviceDbusInterface* device = model.getDevice(i);
