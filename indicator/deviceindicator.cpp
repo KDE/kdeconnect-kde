@@ -63,7 +63,11 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     : QMenu(device->name(), nullptr)
     , m_device(device)
 {
+#ifdef Q_OS_WIN
+    setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, "icons/hicolor/scalable/apps/kdeconnect.svgz")));
+#else
     setIcon(QIcon::fromTheme(device->iconName()));
+#endif
 
     connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
 
