@@ -46,7 +46,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    KAboutData about("kdeconnect-cli",
+    KAboutData about("kdeconnect-indicator",
                      i18n("KDE Connect Indicator"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
                      i18n("KDE Connect Indicator tool"),
