@@ -58,9 +58,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
     void socketDisconnected();
-#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
-    void connectToPairedDevices();
-#endif
+
     void serverNewConnection();
     void serverDataReceived();
     void clientConnected();

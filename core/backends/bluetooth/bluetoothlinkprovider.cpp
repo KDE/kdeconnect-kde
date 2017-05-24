@@ -39,14 +39,11 @@ BluetoothLinkProvider::BluetoothLinkProvider()
     connectTimer = new QTimer(this);
     connectTimer->setInterval(30000);
     connectTimer->setSingleShot(false);
-#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
-    connect(connectTimer, SIGNAL(timeout()), this, SLOT(connectToPairedDevices()));
-#else
+
     mServiceDiscoveryAgent = new QBluetoothServiceDiscoveryAgent(this);
     mServiceDiscoveryAgent->setUuidFilter(mServiceUuid);
     connect(mServiceDiscoveryAgent, SIGNAL(finished()), this, SLOT(serviceDiscoveryFinished()));
     connect(connectTimer, SIGNAL(timeout()), mServiceDiscoveryAgent, SLOT(start()));
-#endif
 }
 
 void BluetoothLinkProvider::onStart()
@@ -61,11 +58,7 @@ void BluetoothLinkProvider::onStart()
     mBluetoothServer->setSecurityFlags(QBluetooth::Encryption | QBluetooth::Secure);
     connect(mBluetoothServer, SIGNAL(newConnection()), this, SLOT(serverNewConnection()));
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
-    connectToPairedDevices();
-#else
     mServiceDiscoveryAgent->start();
-#endif
 
     connectTimer->start();
     mKdeconnectService = mBluetoothServer->listen(mServiceUuid, "KDE Connect");
@@ -88,57 +81,6 @@ void BluetoothLinkProvider::onStop()
 void BluetoothLinkProvider::onNetworkChange()
 {
 }
-
-#if QT_VERSION < QT_VERSION_CHECK(5, 4, 0)
-QList<QBluetoothAddress> BluetoothLinkProvider::getPairedDevices() {
-    QDBusConnection bus = QDBusConnection::systemBus();
-    QDBusInterface manager_iface("org.bluez", "/","org.bluez.Manager", bus);
-
-    QDBusReply<QDBusObjectPath> devices = manager_iface.call("DefaultAdapter");
-
-    if (!devices.isValid()) {
-        qCWarning(KDECONNECT_CORE) << "Couldn't get default adapter:" << devices.error();
-        return QList<QBluetoothAddress>();
-    }
-
-    QDBusObjectPath defaultAdapter = devices.value();
-    QString defaultAdapterPath = defaultAdapter.path();
-
-    QDBusInterface devices_iface("org.bluez", defaultAdapterPath, "org.bluez.Adapter", bus);
-    QDBusMessage pairedDevices = devices_iface.call("ListDevices");
-
-    QDBusArgument pairedDevicesArg = pairedDevices.arguments().at(0).value<QDBusArgument>();
-    pairedDevicesArg.beginArray();
-    QList<QBluetoothAddress> pairedDevicesList;
-
-    while (!pairedDevicesArg.atEnd()) {
-        QVariant variant = pairedDevicesArg.asVariant();
-        QDBusObjectPath pairedDevice = qvariant_cast<QDBusObjectPath>(variant);
-        QString pairedDevicePath = pairedDevice.path();
-        QString pairedDeviceMac = pairedDevicePath.split(QChar('/')).last().remove("dev_").replace("_", ":");
-        pairedDevicesList.append(QBluetoothAddress(pairedDeviceMac));
-    }
-
-    return pairedDevicesList;
-}
-
-void BluetoothLinkProvider::connectToPairedDevices() {
-    QList<QBluetoothAddress> pairedDevices = getPairedDevices();
-    for (int i = 0; i < pairedDevices.size(); i++) {
-        QBluetoothAddress pairedDevice = pairedDevices.at(i);
-
-        if (mSockets.contains(pairedDevice)) {
-            continue;
-        }
-
-        QBluetoothSocket* socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol, this);
-        connect(socket, SIGNAL(connected()), this, SLOT(clientConnected()));
-        connect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
-        qCDebug(KDECONNECT_CORE()) << "BluetoothLinkProvider/onStart: Connecting to " << pairedDevice.toString();
-        socket->connectToService(pairedDevice, mServiceUuid);
-    }
-}
-#endif
 
 void BluetoothLinkProvider::connectError()
 {
