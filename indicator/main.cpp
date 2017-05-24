@@ -24,6 +24,7 @@
 #include <QDBusConnection>
 #include <QApplication>
 #include <QTextStream>
+#include <QProcess>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -58,6 +59,10 @@ int main(int argc, char** argv)
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
 
+#ifdef Q_OS_WIN
+    QProcess::startDetached("kdeconnectd.exe");
+#endif
+
     QMenu *menu = new QMenu;
 
     DaemonDbusInterface iface;
@@ -68,6 +73,9 @@ int main(int argc, char** argv)
             KCMultiDialog dialog;
             dialog.addModule("kcm_kdeconnect");
             dialog.exec();
+#ifdef Q_OS_WIN
+            QProcess::startDetached("kdeconnectd.exe");
+#endif
         });
         for (int i=0, count = model.rowCount(); i<count; ++i) {
             DeviceDbusInterface* device = model.getDevice(i);
