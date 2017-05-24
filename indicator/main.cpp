@@ -32,6 +32,7 @@
 #endif
 
 #include <KAboutData>
+#include <KCMultiDialog>
 #include <KLocalizedString>
 
 #include "interfaces/devicesmodel.h"
@@ -61,7 +62,9 @@ int main(int argc, char** argv)
         menu->clear();
         auto configure = menu->addAction(i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
-            QProcess::startDetached("kcmshell5", {"kdeconnect"});
+            KCMultiDialog dialog;
+            dialog.addModule("kcm_kdeconnect");
+            dialog.exec();
         });
         for (int i=0, count = model.rowCount(); i<count; ++i) {
             DeviceDbusInterface* device = model.getDevice(i);
@@ -114,6 +117,8 @@ int main(int argc, char** argv)
 #endif
 
     refreshMenu();
+
+    app.setQuitOnLastWindowClosed(false);
 
     return app.exec();
 }
