@@ -58,7 +58,6 @@ void BluetoothPairingHandler::packageReceived(const NetworkPackage& np)
                 return;
             }
 
-            Daemon::instance()->askPairingConfirmation(this);
             setInternalPairStatus(RequestedByPeer);
         }
 
@@ -144,7 +143,9 @@ void BluetoothPairingHandler::setInternalPairStatus(BluetoothPairingHandler::Int
     m_status = status;
     if (status == Paired) {
         deviceLink()->setPairStatus(DeviceLink::Paired);
-    } else {
+    } else if (status == NotPaired){
         deviceLink()->setPairStatus(DeviceLink::NotPaired);
+    } else if (status == RequestedByPeer) {
+        Q_EMIT deviceLink()->pairingRequest(this);
     }
 }
