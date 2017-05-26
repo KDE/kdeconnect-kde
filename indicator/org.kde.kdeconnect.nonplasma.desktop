@@ -1,5 +1,12 @@
 [Desktop Entry]
 Name=KDE Connect Indicator
+Name[ca]=Indicador del KDE Connect
+Name[ca@valencia]=Indicador del KDE Connect
+Name[nl]=KDE-Connect indicator
+Name[pt]=Indicador do KDE Connect
+Name[sv]=KDE-anslut indikator
+Name[uk]=Індикатор KDE Connect
+Name[x-test]=xxKDE Connect Indicatorxx
 Comment=Display information about your devices
 Comment[ar]=اعرض معلومات عن أجهزتك
 Comment[ast]=Amuesa información tocante a los tos preseos
