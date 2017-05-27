@@ -5,6 +5,10 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ],
@@ -30,6 +34,10 @@
         "Description[pt_BR]": "Pausa a música/vídeo durante uma chamada",
         "Description[ru]": "Приостановка воспроизведения музыки и видео во время телефонного звонка",
         "Description[sk]": "Pozastaviť hudbu/videá počas telefónneho hovoru",
+        "Description[sr@ijekavian]": "Паузира музику или видео током телефонског позива",
+        "Description[sr@ijekavianlatin]": "Pauzira muziku ili video tokom telefonskog poziva",
+        "Description[sr@latin]": "Pauzira muziku ili video tokom telefonskog poziva",
+        "Description[sr]": "Паузира музику или видео током телефонског позива",
         "Description[sv]": "Pausa musik eller videor under ett telefonsamtal",
         "Description[tr]": "Bir telefon çağrısı sırasında müzik/videoları duraklat",
         "Description[uk]": "Призупинка відтворення музики і відео на час телефонних дзвінків",
@@ -62,6 +70,10 @@
         "Name[pt_BR]": "Pausar os conteúdos multimídia durante as chamadas",
         "Name[ru]": "Приостановка воспроизведения во время звонка",
         "Name[sk]": "Pozastaviť médiá počas hovorov",
+        "Name[sr@ijekavian]": "Паузирање медија током позива",
+        "Name[sr@ijekavianlatin]": "Pauziranje medija tokom poziva",
+        "Name[sr@latin]": "Pauziranje medija tokom poziva",
+        "Name[sr]": "Паузирање медија током позива",
         "Name[sv]": "Pausa media under samtal",
         "Name[tr]": "Çağrılar sırasında ortamı duraklat",
         "Name[uk]": "Призупинка відтворення під час дзвінків",

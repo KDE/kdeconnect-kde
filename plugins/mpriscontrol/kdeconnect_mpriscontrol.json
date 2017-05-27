@@ -5,6 +5,10 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ],
@@ -30,6 +34,10 @@
         "Description[pt_BR]": "Controle suas músicas e vídeos remotamente",
         "Description[ru]": "Удалённое управление воспроизведением музыки и видео",
         "Description[sk]": "Vzdialene ovládať vašu hudbu a videá",
+        "Description[sr@ijekavian]": "Даљински контролишите вашу музику и видео",
+        "Description[sr@ijekavianlatin]": "Daljinski kontrolišite vašu muziku i video",
+        "Description[sr@latin]": "Daljinski kontrolišite vašu muziku i video",
+        "Description[sr]": "Даљински контролишите вашу музику и видео",
         "Description[sv]": "Fjärrstyr musik och videor",
         "Description[tr]": "Müzik ve videonuzu uzaktan kontrol edin",
         "Description[uk]": "Віддалене керування відтворенням музики та відео",
@@ -62,6 +70,10 @@
         "Name[pt_BR]": "Receptor de controle multimídia",
         "Name[ru]": "Управление мультимедиа",
         "Name[sk]": "Prijímač ovládania multimédií",
+        "Name[sr@ijekavian]": "Мултимедијалне контроле",
+        "Name[sr@ijekavianlatin]": "Multimedijalne kontrole",
+        "Name[sr@latin]": "Multimedijalne kontrole",
+        "Name[sr]": "Мултимедијалне контроле",
         "Name[sv]": "Mottagare av multimediastyrning",
         "Name[tr]": "Çokluortam kontrol alıcısı",
         "Name[uk]": "Отримувач команд щодо керування мультимедійними функціями",

@@ -5,6 +5,10 @@
             {
                 "Email": "holger.k@elberer.de",
                 "Name": "Holger Kaelberer",
+                "Name[sr@ijekavian]": "Холгер Келберер",
+                "Name[sr@ijekavianlatin]": "Holger Kelberer",
+                "Name[sr@latin]": "Holger Kelberer",
+                "Name[sr]": "Холгер Келберер",
                 "Name[x-test]": "xxHolger Kaelbererxx"
             }
         ],
@@ -19,6 +23,10 @@
         "Description[pl]": "Użyj swojej klawiatury do wysyłania naciśnięć klawiszy do swojego sparowanego urządzenia",
         "Description[pt]": "Usar o seu teclado para enviar eventos de teclas para o seu dispositivo emparelhado",
         "Description[ru]": "Используйте клавиатуру для отправки нажатий клавиш на сопряжённое устройство",
+        "Description[sr@ijekavian]": "Користите тастатуру за куцање на упареном уређају",
+        "Description[sr@ijekavianlatin]": "Koristite tastaturu za kucanje na uparenom uređaju",
+        "Description[sr@latin]": "Koristite tastaturu za kucanje na uparenom uređaju",
+        "Description[sr]": "Користите тастатуру за куцање на упареном уређају",
         "Description[sv]": "Använd tangentbordet för att skicka tangenthändelser till den parade enheten",
         "Description[tr]": "Eşleşmiş cihazınıza önemli etkinlikler göndermek için klavyenizi kullanın",
         "Description[uk]": "Скористайтеся вашою клавіатурою для надсилання подій натискання клавіш на пов’язаний пристрій",
@@ -39,6 +47,10 @@
         "Name[pl]": "Zdalna klawiatura z pulpitu",
         "Name[pt]": "Teclado remoto do ambiente de trabalho",
         "Name[ru]": "Удалённая клавиатура с компьютера",
+        "Name[sr@ijekavian]": "Даљинска тастатура са радне површи",
+        "Name[sr@ijekavianlatin]": "Daljinska tastatura sa radne površi",
+        "Name[sr@latin]": "Daljinska tastatura sa radne površi",
+        "Name[sr]": "Даљинска тастатура са радне површи",
         "Name[sv]": "Externt tangentbord från skrivbordet",
         "Name[tr]": "Masaüstünden uzak klavye",
         "Name[uk]": "Віддалена клавіатура з комп’ютера",

@@ -5,6 +5,10 @@
             {
                 "Email": "aleixpol@kde.org",
                 "Name": "Aleix Pol",
+                "Name[sr@ijekavian]": "Алекс Пол Гонзалез",
+                "Name[sr@ijekavianlatin]": "Aleks Pol Gonzalez",
+                "Name[sr@latin]": "Aleks Pol Gonzalez",
+                "Name[sr]": "Алекс Пол Гонзалез",
                 "Name[x-test]": "xxAleix Polxx"
             }
         ],
@@ -29,6 +33,10 @@
         "Description[pt_BR]": "Bloqueia seus sistemas",
         "Description[ru]": "Блокировка ваших систем",
         "Description[sk]": "Zamkne vaše systémy",
+        "Description[sr@ijekavian]": "Закључава ваш систем",
+        "Description[sr@ijekavianlatin]": "Zaključava vaš sistem",
+        "Description[sr@latin]": "Zaključava vaš sistem",
+        "Description[sr]": "Закључава ваш систем",
         "Description[sv]": "Låser dina system",
         "Description[tr]": "Sistemlerinizi kilitler",
         "Description[uk]": "Блокує вашу систему",
@@ -59,6 +67,10 @@
         "Name[pt_BR]": "Bloqueio de dispositivo",
         "Name[ru]": "Блокировка устройства",
         "Name[sk]": "Zamknúť zariadenie",
+        "Name[sr@ijekavian]": "Катанац",
+        "Name[sr@ijekavianlatin]": "Katanac",
+        "Name[sr@latin]": "Katanac",
+        "Name[sr]": "Катанац",
         "Name[sv]": "Lås enhet",
         "Name[tr]": "AygıtıKilitle",
         "Name[x-test]": "xxLockDevicexx",

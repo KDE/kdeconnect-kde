@@ -5,6 +5,10 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ],
@@ -30,6 +34,10 @@
         "Description[pt_BR]": "Recebe e envia facilmente arquivos, URLs ou texto simples",
         "Description[ru]": "Получение и отправка файлов, URL адресов или простого текста",
         "Description[sk]": "Prijať a poslať súbory, URL alebo čisté texty jednoducho",
+        "Description[sr@ijekavian]": "Примај и шаљи фајлове, УРЛ‑ове или обичан текст, са лакоћом",
+        "Description[sr@ijekavianlatin]": "Primaj i šalji fajlove, URL‑ove ili običan tekst, sa lakoćom",
+        "Description[sr@latin]": "Primaj i šalji fajlove, URL‑ove ili običan tekst, sa lakoćom",
+        "Description[sr]": "Примај и шаљи фајлове, УРЛ‑ове или обичан текст, са лакоћом",
         "Description[sv]": "Ta emot och skicka filer, webbadresser eller vanlig text enkelt",
         "Description[tr]": "Dosyaları, adres ve düz metinleri kolayca alın ve gönderin",
         "Description[uk]": "Спрощене отримання і надсилання файлів, адрес або текстових фрагментів",
@@ -62,6 +70,10 @@
         "Name[pt_BR]": "Compartilhar e receber",
         "Name[ru]": "Общий доступ и получение",
         "Name[sk]": "Zdieľať a prijať",
+        "Name[sr@ijekavian]": "Дели и примај",
+        "Name[sr@ijekavianlatin]": "Deli i primaj",
+        "Name[sr@latin]": "Deli i primaj",
+        "Name[sr]": "Дели и примај",
         "Name[sv]": "Dela och ta emot",
         "Name[tr]": "Paylaş ve al",
         "Name[uk]": "Оприлюднення і отримання",

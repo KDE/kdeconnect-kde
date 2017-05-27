@@ -5,6 +5,10 @@
             {
                 "Email": "holger.k@elberer.de",
                 "Name": "Holger Kaelberer",
+                "Name[sr@ijekavian]": "Холгер Келберер",
+                "Name[sr@ijekavianlatin]": "Holger Kelberer",
+                "Name[sr@latin]": "Holger Kelberer",
+                "Name[sr]": "Холгер Келберер",
                 "Name[x-test]": "xxHolger Kaelbererxx"
             }
         ],
@@ -27,6 +31,10 @@
         "Description[pt]": "Difunde as notificações deste computador, para que possam ser apresentadas noutros dispositivos.",
         "Description[ru]": "Трансляция уведомления с этого компьютера, чтобы они могли быть видны на других устройствах",
         "Description[sk]": "Vysielať upozornenia tohto počítača, aby sa zobrazili na druhom zariadení.",
+        "Description[sr@ijekavian]": "Одашиље обавештења са овог рачунара, да се приказују на осталим уређајима.",
+        "Description[sr@ijekavianlatin]": "Odašilje obaveštenja sa ovog računara, da se prikazuju na ostalim uređajima.",
+        "Description[sr@latin]": "Odašilje obaveštenja sa ovog računara, da se prikazuju na ostalim uređajima.",
+        "Description[sr]": "Одашиље обавештења са овог рачунара, да се приказују на осталим уређајима.",
         "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra enheter.",
         "Description[tr]": "Bu bilgisayarın bildirimlerini yayınlayın, böylece diğer cihazlarda gösterilebilirler.",
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.",
@@ -58,6 +66,10 @@
         "Name[pt_BR]": "Enviar notificações",
         "Name[ru]": "Отправка уведомлений",
         "Name[sk]": "Posielať upozornenia",
+        "Name[sr@ijekavian]": "Шаљи обавештења",
+        "Name[sr@ijekavianlatin]": "Šalji obaveštenja",
+        "Name[sr@latin]": "Šalji obaveštenja",
+        "Name[sr]": "Шаљи обавештења",
         "Name[sv]": "Skicka underrättelser",
         "Name[uk]": "Надіслати сповіщення",
         "Name[x-test]": "xxSend notificationsxx",
