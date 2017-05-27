@@ -426,7 +426,7 @@ void TestNotificationListener::testNotify()
                        0x31, 0x32, 0x33, 0x34 };
     QVariantMap imageData = {{"width", width}, {"height", height}, {"rowStride", rowStride},
                             {"bitsPerSample", bitsPerSample}, {"channels", channels},
-                            {"hasAlpha", hasAlpha}, {"imageData", rawData}};
+                            {"hasAlpha", hasAlpha}, {"imageData", QByteArray(rawData, sizeof(rawData))}};
     QVariantMap hints;
 #define COMPARE_PIXEL(x, y) \
     QCOMPARE(qRed(image.pixel(x,y)), (int)rawData[x*4 + y*rowStride + 0]); \
