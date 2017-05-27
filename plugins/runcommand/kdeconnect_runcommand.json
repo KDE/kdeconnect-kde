@@ -5,11 +5,19 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             },
             {
                 "Email": "david@davidedmundson.co.uk",
                 "Name": "David Edmundson",
+                "Name[sr@ijekavian]": "Дејвид Едмундсон",
+                "Name[sr@ijekavianlatin]": "Dejvid Edmundson",
+                "Name[sr@latin]": "Dejvid Edmundson",
+                "Name[sr]": "Дејвид Едмундсон",
                 "Name[x-test]": "xxDavid Edmundsonxx"
             }
         ],
@@ -31,6 +39,10 @@
         "Description[pt_BR]": "Executa comandos do console remotamente",
         "Description[ru]": "Выполнение консольных команд удалённо",
         "Description[sk]": "Spustiť priamo príkazy konzoly",
+        "Description[sr@ijekavian]": "Даљински извршава наредбе у конзоли",
+        "Description[sr@ijekavianlatin]": "Daljinski izvršava naredbe u konzoli",
+        "Description[sr@latin]": "Daljinski izvršava naredbe u konzoli",
+        "Description[sr]": "Даљински извршава наредбе у конзоли",
         "Description[sv]": "Kör terminalkommandon på distans",
         "Description[tr]": "Konsol komutlarını uzaktan çalıştır",
         "Description[uk]": "Віддалене виконання консольних команд",
@@ -58,6 +70,10 @@
         "Name[pt_BR]": "Executar comandos",
         "Name[ru]": "Выполнение команд",
         "Name[sk]": "Spustiť príkazy",
+        "Name[sr@ijekavian]": "Изврши наредбе",
+        "Name[sr@ijekavianlatin]": "Izvrši naredbe",
+        "Name[sr@latin]": "Izvrši naredbe",
+        "Name[sr]": "Изврши наредбе",
         "Name[sv]": "Kör kommandon",
         "Name[tr]": "Komut çalıştır",
         "Name[uk]": "Виконання команд",

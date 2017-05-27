@@ -5,6 +5,10 @@
             {
                 "Email": "aleixpol@kde.org",
                 "Name": "Aleix Pol",
+                "Name[sr@ijekavian]": "Алекс Пол Гонзалез",
+                "Name[sr@ijekavianlatin]": "Aleks Pol Gonzalez",
+                "Name[sr@latin]": "Aleks Pol Gonzalez",
+                "Name[sr]": "Алекс Пол Гонзалез",
                 "Name[x-test]": "xxAleix Polxx"
             }
         ],
@@ -27,6 +31,10 @@
         "Description[pt_BR]": "Controle remoto de sistemas",
         "Description[ru]": "Управление удалёнными системами",
         "Description[sk]": "Ovládať vzdialené systémy",
+        "Description[sr@ijekavian]": "Контролише удаљене системе",
+        "Description[sr@ijekavianlatin]": "Kontroliše udaljene sisteme",
+        "Description[sr@latin]": "Kontroliše udaljene sisteme",
+        "Description[sr]": "Контролише удаљене системе",
         "Description[sv]": "Styr fjärrsystem",
         "Description[tr]": "Uzak Sistemleri Kontrol Et",
         "Description[uk]": "Системи віддаленого керування",
@@ -56,6 +64,10 @@
         "Name[pt_BR]": "Controle remoto",
         "Name[ru]": "Удалённое управление",
         "Name[sk]": "Diaľkové ovládanie",
+        "Name[sr@ijekavian]": "Удаљене контроле",
+        "Name[sr@ijekavianlatin]": "Udaljene kontrole",
+        "Name[sr@latin]": "Udaljene kontrole",
+        "Name[sr]": "Удаљене контроле",
         "Name[sv]": "Fjärrkontroll",
         "Name[tr]": "UzaktanKumanda",
         "Name[x-test]": "xxRemoteControlxx",

@@ -5,6 +5,10 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ],
@@ -25,6 +29,10 @@
         "Description[pt]": "Mostrar notificações para as chamadas e SMS",
         "Description[ru]": "Показ уведомлений для звонков и SMS",
         "Description[sk]": "Zobraziť oznámenia pre hovory a SMS",
+        "Description[sr@ijekavian]": "Приказује обавештења за позиве и СМС",
+        "Description[sr@ijekavianlatin]": "Prikazuje obaveštenja za pozive i SMS",
+        "Description[sr@latin]": "Prikazuje obaveštenja za pozive i SMS",
+        "Description[sr]": "Приказује обавештења за позиве и СМС",
         "Description[sv]": "Visa underrättelser om samtal och SMS",
         "Description[uk]": "Показ сповіщень щодо дзвінків і SMS",
         "Description[x-test]": "xxShow notifications for calls and SMSxx",
@@ -54,6 +62,10 @@
         "Name[pt_BR]": "Integração telefônica",
         "Name[ru]": "Интеграция телефонии",
         "Name[sk]": "Integrácia telefónie",
+        "Name[sr@ijekavian]": "Интегрисана телефонија",
+        "Name[sr@ijekavianlatin]": "Integrisana telefonija",
+        "Name[sr@latin]": "Integrisana telefonija",
+        "Name[sr]": "Интегрисана телефонија",
         "Name[sv]": "Integrering av telefoni",
         "Name[tr]": "Telefon tümleştirmesi",
         "Name[uk]": "Інтеграція з системою телефонії",

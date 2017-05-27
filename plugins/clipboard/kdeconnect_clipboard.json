@@ -5,6 +5,10 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ],
@@ -28,6 +32,10 @@
         "Description[pt_BR]": "Compartilha a área de transferência entre dispositivos",
         "Description[ru]": "Общий буфер обмена между устройствами",
         "Description[sk]": "Zdieľať schránku medzi zariadeniami",
+        "Description[sr@ijekavian]": "Дељење клипборда између уређаја",
+        "Description[sr@ijekavianlatin]": "Deljenje klipborda između uređaja",
+        "Description[sr@latin]": "Deljenje klipborda između uređaja",
+        "Description[sr]": "Дељење клипборда између уређаја",
         "Description[sv]": "Dela klippbordet mellan apparater",
         "Description[tr]": "Aygıtlar arasında panoyu paylaştır",
         "Description[uk]": "Спільне використання буфера обміну даними на пристроях",
@@ -58,6 +66,10 @@
         "Name[pt_BR]": "Área de transferência",
         "Name[ru]": "Буфер обмена",
         "Name[sk]": "Schránka",
+        "Name[sr@ijekavian]": "Клипборд",
+        "Name[sr@ijekavianlatin]": "Klipbord",
+        "Name[sr@latin]": "Klipbord",
+        "Name[sr]": "Клипборд",
         "Name[sv]": "Klippbord",
         "Name[tr]": "Geçici taşıma panosu",
         "Name[uk]": "Буфер обміну",

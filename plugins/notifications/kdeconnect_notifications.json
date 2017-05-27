@@ -5,6 +5,10 @@
             {
                 "Email": "albertvaka@gmail.com",
                 "Name": "Albert Vaca",
+                "Name[sr@ijekavian]": "Алберт Вака Синтора",
+                "Name[sr@ijekavianlatin]": "Albert Vaka Sintora",
+                "Name[sr@latin]": "Albert Vaka Sintora",
+                "Name[sr]": "Алберт Вака Синтора",
                 "Name[x-test]": "xxAlbert Vacaxx"
             }
         ],
@@ -26,6 +30,10 @@
         "Description[pt_BR]": "Mostra as notificações do aparelho neste computador e as mantém sincronizadas",
         "Description[ru]": "Показ уведомлений с устройства на компьютере и их синхронизация",
         "Description[sk]": "Zobraziť oznámenia telefónu na vašom počítači a udržať ich synchronizované",
+        "Description[sr@ijekavian]": "Приказује обавештења са уређаја на рачунару и одржава их ажурним",
+        "Description[sr@ijekavianlatin]": "Prikazuje obaveštenja sa uređaja na računaru i održava ih ažurnim",
+        "Description[sr@latin]": "Prikazuje obaveštenja sa uređaja na računaru i održava ih ažurnim",
+        "Description[sr]": "Приказује обавештења са уређаја на рачунару и одржава их ажурним",
         "Description[sv]": "Visa enhetens underrättelser på datorn och håll dem synkroniserade",
         "Description[uk]": "Показ сповіщень з пристрою на цьому комп’ютері та підтримання синхронізації даних сповіщень",
         "Description[x-test]": "xxShow device's notifications on this computer and keep them in syncxx",
@@ -53,6 +61,10 @@
         "Name[pt_BR]": "Receber notificações",
         "Name[ru]": "Получение уведомлений",
         "Name[sk]": "Prijať upozornenia",
+        "Name[sr@ijekavian]": "Пријем обавештења",
+        "Name[sr@ijekavianlatin]": "Prijem obaveštenja",
+        "Name[sr@latin]": "Prijem obaveštenja",
+        "Name[sr]": "Пријем обавештења",
         "Name[sv]": "Ta emot underrättelser",
         "Name[uk]": "Отримати сповіщення",
         "Name[x-test]": "xxReceive notificationsxx",

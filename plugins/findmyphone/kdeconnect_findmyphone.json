@@ -4,11 +4,19 @@
             {
                 "Email": "apparle@gmail.com",
                 "Name": "Apoorv Parle",
+                "Name[sr@ijekavian]": "Апорв Парле",
+                "Name[sr@ijekavianlatin]": "Aporv Parle",
+                "Name[sr@latin]": "Aporv Parle",
+                "Name[sr]": "Апорв Парле",
                 "Name[x-test]": "xxApoorv Parlexx"
             },
             {
                 "Email": "davidedmundson@kde.org",
                 "Name": "David Edmundson",
+                "Name[sr@ijekavian]": "Дејвид Едмундсон",
+                "Name[sr@ijekavianlatin]": "Dejvid Edmundson",
+                "Name[sr@latin]": "Dejvid Edmundson",
+                "Name[sr]": "Дејвид Едмундсон",
                 "Name[x-test]": "xxDavid Edmundsonxx"
             }
         ],
@@ -30,6 +38,10 @@
         "Description[pt_BR]": "Encontre seu telefone fazendo ele reproduzir um som",
         "Description[ru]": "Поиск утерянного телефона при помощи звукового сигнала",
         "Description[sk]": "Nájsť váš stratený telefón zahraním zvuku budíka",
+        "Description[sr@ijekavian]": "Нађите изгубљени телефон активирањем звука аларма",
+        "Description[sr@ijekavianlatin]": "Nađite izgubljeni telefon aktiviranjem zvuka alarma",
+        "Description[sr@latin]": "Nađite izgubljeni telefon aktiviranjem zvuka alarma",
+        "Description[sr]": "Нађите изгубљени телефон активирањем звука аларма",
         "Description[sv]": "Hitta din förlorade telefon genom att få den att spela ett alarmljud",
         "Description[uk]": "Знайти загублений телефон, наказавши йому відтворити дзвінок",
         "Description[x-test]": "xxFind your lost phone by making it play an alarm soundxx",
@@ -58,6 +70,10 @@
         "Name[pt_BR]": "Tocar meu telefone",
         "Name[ru]": "Поиск телефона",
         "Name[sk]": "Prezvoniť môj telefón",
+        "Name[sr@ijekavian]": "Звони мој телефону",
+        "Name[sr@ijekavianlatin]": "Zvoni moj telefonu",
+        "Name[sr@latin]": "Zvoni moj telefonu",
+        "Name[sr]": "Звони мој телефону",
         "Name[sv]": "Hitta min telefon",
         "Name[uk]": "Дзвінок на вашому телефоні",
         "Name[x-test]": "xxRing my phonexx",

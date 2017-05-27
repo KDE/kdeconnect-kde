@@ -5,6 +5,10 @@
             {
                 "Email": "aleixpol@kde.org",
                 "Name": "Aleix Pol",
+                "Name[sr@ijekavian]": "Алекс Пол Гонзалез",
+                "Name[sr@ijekavianlatin]": "Aleks Pol Gonzalez",
+                "Name[sr@latin]": "Aleks Pol Gonzalez",
+                "Name[sr]": "Алекс Пол Гонзалез",
                 "Name[x-test]": "xxAleix Polxx"
             }
         ],
@@ -25,6 +29,10 @@
         "Description[pt]": "Despoletar os comandos predefinidos para o dispositivo remoto",
         "Description[ru]": "Вызов команд, предопределённых на удалённом устройстве",
         "Description[sk]": "Vyvolať príkazy preddefinované na vzdialenom zariadení",
+        "Description[sr@ijekavian]": "Окида наредбе предефинисане на удаљеном уређају",
+        "Description[sr@ijekavianlatin]": "Okida naredbe predefinisane na udaljenom uređaju",
+        "Description[sr@latin]": "Okida naredbe predefinisane na udaljenom uređaju",
+        "Description[sr]": "Окида наредбе предефинисане на удаљеном уређају",
         "Description[sv]": "Utför kommandon fördefinierade på den andra apparaten",
         "Description[tr]": "Uzak aygıta önceden tanımlanmış komutları tetikleyin",
         "Description[uk]": "Запуск команд, попередньо визначених на віддаленому пристрої",
@@ -51,6 +59,10 @@
         "Name[pt]": "Alojar os comandos remotos",
         "Name[ru]": "Выполнение команд на устройстве",
         "Name[sk]": "Vzdialené príkazy hostiteľa",
+        "Name[sr@ijekavian]": "Даљинске наредбе домаћина",
+        "Name[sr@ijekavianlatin]": "Daljinske naredbe domaćina",
+        "Name[sr@latin]": "Daljinske naredbe domaćina",
+        "Name[sr]": "Даљинске наредбе домаћина",
         "Name[sv]": "Fjärrkommandon för värddator",
         "Name[uk]": "Віддалені команди вузлу",
         "Name[x-test]": "xxHost remote commandsxx",
