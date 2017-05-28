@@ -98,7 +98,7 @@
   <url type="homepage">https://community.kde.org/KDEConnect/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdeconnect</url>
   <url type="help">https://docs.kde.org/index.php?application=kdeconnect-kde&amp;language=en</url>
-<!--
+  <!--
   <screenshots>
     <screenshot type="default">
       <image>http://kde.org/images/screenshots/kalgebra.png</image>
