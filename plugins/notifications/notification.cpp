@@ -25,6 +25,7 @@
 #include <QString>
 #include <QUrl>
 #include <QPixmap>
+#include <KLocalizedString>
 
 #include <core/filetransferjob.h>
 
@@ -116,6 +117,11 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
             connect(job, &FileTransferJob::result, this, &Notification::applyIconAndShow);
         }
     }
+    
+    if(!mRequestReplyId.isEmpty()) {
+        mNotification->setActions( QStringList(i18n("Reply")) );
+        connect(mNotification, &KNotification::action1Activated, this, &Notification::replyRequested);
+    }            
 
     connect(mNotification, &KNotification::closed, this, &Notification::closed);
 
@@ -138,5 +144,6 @@ void Notification::parseNetworkPackage(const NetworkPackage &np)
     mHasIcon = np.hasPayload();
     mSilent = np.get<bool>(QStringLiteral("silent"));
     mPayloadHash = np.get<QString>(QStringLiteral("payloadHash"));
+    mRequestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
 }
 

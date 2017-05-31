@@ -26,6 +26,7 @@
 #include <core/kdeconnectplugin.h>
 
 #define PACKAGE_TYPE_NOTIFICATION_REQUEST QStringLiteral("kdeconnect.notification.request")
+#define PACKAGE_TYPE_NOTIFICATION_REPLY QStringLiteral("kdeconnect.notification.reply")
 
 /*
  * This class is just a proxy for NotificationsDbusInterface

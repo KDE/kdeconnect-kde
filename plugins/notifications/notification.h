@@ -42,6 +42,7 @@ class Notification
     Q_PROPERTY(bool dismissable READ dismissable)
     Q_PROPERTY(bool hasIcon READ hasIcon)
     Q_PROPERTY(bool silent READ silent)
+    Q_PROPERTY(QString replyId READ replyId)
 
 public:
     Notification(const NetworkPackage& np, QObject* parent);
@@ -54,6 +55,7 @@ public:
     QString text() const { return mText; }
     QString iconPath() const { return mIconPath; }
     bool dismissable() const { return mDismissable; }
+    QString replyId() const { return mRequestReplyId; }
     bool hasIcon() const { return mHasIcon; }
     void show();
     bool silent() const { return mSilent; }
@@ -67,6 +69,7 @@ public Q_SLOTS:
 
     Q_SIGNALS:
     void dismissRequested(const QString& mInternalId);
+    void replyRequested();
 
 private:
     QString mInternalId;
@@ -75,6 +78,7 @@ private:
     QString mTitle;
     QString mText;
     QString mIconPath;
+    QString mRequestReplyId;
     bool mDismissable;
     bool mHasIcon;
     KNotification* mNotification;

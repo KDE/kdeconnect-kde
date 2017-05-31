@@ -4,6 +4,7 @@ set(kdeconnect_notifications_SRCS
     notification.cpp
     notificationsplugin.cpp
     notificationsdbusinterface.cpp
+    sendreplydialog.cpp
 )
 
 kdeconnect_add_plugin(kdeconnect_notifications JSON kdeconnect_notifications.json SOURCES ${kdeconnect_notifications_SRCS})

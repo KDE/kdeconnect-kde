@@ -23,10 +23,12 @@
 #include "notification.h"
 
 #include <QDBusConnection>
+
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
 
 #include "notificationsplugin.h"
+#include "sendreplydialog.h"
 
 NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
     : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
@@ -100,6 +102,10 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 
     connect(noti, &Notification::dismissRequested,
             this, &NotificationsDbusInterface::dismissRequested);
+    
+    connect(noti, &Notification::replyRequested, this, [this,noti]{ 
+        replyRequested(noti); 
+    });
 
     const QString& publicId = newId();
     mNotifications[publicId] = noti;
@@ -144,6 +150,24 @@ void NotificationsDbusInterface::dismissRequested(const QString& internalId)
     //notification no longer exists. Ideally, each time we reach the phone
     //after some time disconnected we should re-sync all the notifications.
     removeNotification(internalId);
+}
+
+void NotificationsDbusInterface::replyRequested(Notification* noti)
+{
+    QString replyId = noti->replyId();
+    QString appName = noti->appName();
+    QString originalMessage = noti->ticker();
+    SendReplyDialog* dialog = new SendReplyDialog(originalMessage, replyId, appName);
+    connect(dialog, &SendReplyDialog::sendReply, this, &NotificationsDbusInterface::sendReply);
+    dialog->show();
+}
+
+void NotificationsDbusInterface::sendReply(const QString& replyId, const QString& message)
+{
+    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REPLY);
+    np.set<QString>(QStringLiteral("requestReplyId"), replyId);
+    np.set<QString>(QStringLiteral("message"), message);
+    mPlugin->sendPackage(np);
 }
 
 QString NotificationsDbusInterface::newId()

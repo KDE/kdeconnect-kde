@@ -85,7 +85,8 @@
         "Website": "http://albertvaka.wordpress.com"
     },
     "X-KdeConnect-OutgoingPackageType": [
-        "kdeconnect.notification.request"
+        "kdeconnect.notification.request",
+        "kdeconnect.notification.reply"
     ],
     "X-KdeConnect-SupportedPackageType": [
         "kdeconnect.notification"
