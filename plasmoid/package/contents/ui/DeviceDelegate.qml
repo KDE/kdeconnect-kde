@@ -238,13 +238,28 @@ PlasmaComponents.ListItem
                 enabled: true
                 onClicked: checked = !checked
 
+                PlasmaCore.IconItem {
+                    id: notificationIcon
+                    source: appIcon
+                    width: (valid && appIcon.length) ? dismissButton.width : 0
+                    height: width
+                    anchors.left: parent.left
+                }
                 PlasmaComponents.Label {
                     text: appName + ": " + display
-                    anchors.right: dismissButton.left
-                    anchors.left: parent.left
+                    anchors.right: replyButton.left
+                    anchors.left: notificationIcon.right
                     elide: listitem.checked ? Text.ElideNone : Text.ElideRight
                     maximumLineCount: listitem.checked ? 0 : 1
                     wrapMode: Text.WordWrap
+                }
+                PlasmaComponents.ToolButton {
+                    id: replyButton
+                    visible: repliable
+                    enabled: repliable
+                    anchors.right: dismissButton.left
+                    iconSource: "mail-reply-sender"
+                    onClicked: dbusInterface.reply();
                 }
                 PlasmaComponents.ToolButton {
                     id: dismissButton

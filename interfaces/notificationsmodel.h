@@ -44,7 +44,9 @@ public:
         AppNameModelRole   = Qt::UserRole + 1,
         IdModelRole,
         DismissableModelRole,
-        DbusInterfaceRole,
+        RepliableModelRole,
+        IconPathModelRole,
+        DbusInterfaceRole
     };
 
     explicit NotificationsModel(QObject* parent = nullptr);

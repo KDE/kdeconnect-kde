@@ -65,6 +65,7 @@ public:
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
     Q_SCRIPTABLE void applyIconAndShow();
+    Q_SCRIPTABLE void reply();
     void closed();
 
     Q_SIGNALS:

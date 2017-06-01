@@ -120,12 +120,17 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
     
     if(!mRequestReplyId.isEmpty()) {
         mNotification->setActions( QStringList(i18n("Reply")) );
-        connect(mNotification, &KNotification::action1Activated, this, &Notification::replyRequested);
+        connect(mNotification, &KNotification::action1Activated, this, &Notification::reply);
     }            
 
     connect(mNotification, &KNotification::closed, this, &Notification::closed);
 
     return mNotification;
+}
+
+void Notification::reply()
+{
+    Q_EMIT replyRequested();
 }
 
 void Notification::closed()
