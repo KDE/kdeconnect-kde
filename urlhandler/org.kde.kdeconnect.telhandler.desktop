@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=KDE Connect Phone URL Handler
+Exec=kdeconnect-handler %U
+Icon=kdeconnect
+Type=Application
+NoDisplay=true
+
+MimeType=x-scheme-handler/tel
