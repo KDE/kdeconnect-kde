@@ -1,5 +1,12 @@
 [Desktop Entry]
 Name=KDE Connect Phone URL Handler
+Name[ca]=Gestor d'URL de telèfons del KDE Connect
+Name[nl]=URL behandelaar van KDE-Connect-telefoon
+Name[pl]=KDE Connect - obsługa URL telefonu
+Name[pt]=Tratamento de URL's Telefónicos do KDE Connect
+Name[sv]=KDE-anslut hanterare av telefonwebbadress
+Name[uk]=Обробник телефонних адрес KDE Connect
+Name[x-test]=xxKDE Connect Phone URL Handlerxx
 Exec=kdeconnect-handler %U
 Icon=kdeconnect
 Type=Application
