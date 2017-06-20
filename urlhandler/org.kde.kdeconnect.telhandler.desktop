@@ -2,6 +2,7 @@
 Name=KDE Connect Phone URL Handler
 Name[ca]=Gestor d'URL de telèfons del KDE Connect
 Name[ca@valencia]=Gestor d'URL de telèfons del KDE Connect
+Name[es]=Controlador de URL de teléfonos de KDE Connect
 Name[nl]=URL behandelaar van KDE-Connect-telefoon
 Name[pl]=KDE Connect - obsługa URL telefonu
 Name[pt]=Tratamento de URL's Telefónicos do KDE Connect
@@ -10,6 +11,7 @@ Name[sr@ijekavian]=КДЕ‑конекцијин руковалац телефо
 Name[sr@ijekavianlatin]=KDE‑konekcijin rukovalac telefonskim URL‑ovima
 Name[sr@latin]=KDE‑konekcijin rukovalac telefonskim URL‑ovima
 Name[sv]=KDE-anslut hanterare av telefonwebbadress
+Name[tr]=KDE Connect Telefon URL İşleyici
 Name[uk]=Обробник телефонних адрес KDE Connect
 Name[x-test]=xxKDE Connect Phone URL Handlerxx
 Exec=kdeconnect-handler %U
