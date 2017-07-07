@@ -46,7 +46,7 @@ void Server::incomingConnection(qintptr socketDescriptor) {
 }
 
 QSslSocket* Server::nextPendingConnection() {
-    qDebug() << "nextPendingConnection (emtpy:" << pendingConnections.isEmpty() << ")";
+    qDebug() << "nextPendingConnection (pending:" << pendingConnections.count() << ")";
     if (pendingConnections.isEmpty()) {
         return Q_NULLPTR;
     } else {

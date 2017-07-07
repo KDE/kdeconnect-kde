@@ -230,9 +230,9 @@ void LanLinkProvider::connectError()
 //We received a UDP package and answered by connecting to them by TCP. This gets called on a succesful connection.
 void LanLinkProvider::connected()
 {
-    qCDebug(KDECONNECT_CORE) << "Socket connected";
-
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
+    qCDebug(KDECONNECT_CORE) << "Socket connected" << socket;
+
     if (!socket) return;
     disconnect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::connected);
     disconnect(socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(connectError()));
@@ -334,6 +334,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
                 break;
             }
             default:
+                qCDebug(KDECONNECT_CORE) << "Ignoring ssl issue:" << int(error.error()) << error.errorString();
                 continue;
         }
     }
