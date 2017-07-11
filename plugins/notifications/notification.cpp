@@ -102,7 +102,8 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
     }
 
     if (!mHasIcon) {
-        mNotification->setIconName(QStringLiteral("preferences-desktop-notification"));
+        //HACK The only way to display no icon at all is trying to load a non-existant icon
+        mNotification->setIconName(QString("not_a_real_icon"));
         show();
     } else {
         QString filename = mPayloadHash;
@@ -117,11 +118,11 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
             connect(job, &FileTransferJob::result, this, &Notification::applyIconAndShow);
         }
     }
-    
+
     if(!mRequestReplyId.isEmpty()) {
         mNotification->setActions( QStringList(i18n("Reply")) );
         connect(mNotification, &KNotification::action1Activated, this, &Notification::reply);
-    }            
+    }
 
     connect(mNotification, &KNotification::closed, this, &Notification::closed);
 
@@ -151,4 +152,3 @@ void Notification::parseNetworkPackage(const NetworkPackage &np)
     mPayloadHash = np.get<QString>(QStringLiteral("payloadHash"));
     mRequestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
 }
-
