@@ -47,7 +47,7 @@ public:
         KNotification* notification = new KNotification(QStringLiteral("pairingRequest"));
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
-        notification->setText(i18n("Pairing request from %1", device->name()));
+        notification->setText(i18n("Pairing request from %1", device->name().toHtmlEscaped()));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
 //         notification->setTimeout(PairingHandler::pairingTimeoutMsec());
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
