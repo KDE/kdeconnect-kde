@@ -156,6 +156,9 @@
               <property name="text">
                <string>Device</string>
               </property>
+              <property name="textFormat">
+               <enum>Qt::PlainText</enum>
+              </property>
              </widget>
             </item>
             <item>

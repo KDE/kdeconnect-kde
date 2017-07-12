@@ -44,6 +44,7 @@ PlasmaComponents.ListItem
                 elide: Text.ElideRight
                 text: display
                 Layout.fillWidth: true
+                textFormat: Text.PlainText
             }
 
             //Find my phone
