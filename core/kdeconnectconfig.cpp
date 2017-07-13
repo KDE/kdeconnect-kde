@@ -80,15 +80,6 @@ KdeConnectConfig::KdeConnectConfig()
     d->config = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
     d->trusted_devices = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("trusted_devices")), QSettings::IniFormat);
 
-    //Register my own id if not there yet
-    if (!d->config->contains(QStringLiteral("id"))) {
-        QString uuid = QUuid::createUuid().toString();
-        DbusHelper::filterNonExportableCharacters(uuid);
-        d->config->setValue(QStringLiteral("id"), uuid);
-        d->config->sync();
-        qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
-    }
-
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
 
     QString keyPath = privateKeyPath();
@@ -117,6 +108,12 @@ KdeConnectConfig::KdeConnectConfig()
 
     } else {
 
+        // No certificate yet. Probably first run. Let's generate one!
+
+        QString uuid = QUuid::createUuid().toString();
+        DbusHelper::filterNonExportableCharacters(uuid);
+        qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
+
         // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.
         // The same thing we are doing with QCA could be done invoking openssl (altought it's potentially less portable):
         // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
@@ -125,7 +122,7 @@ KdeConnectConfig::KdeConnectConfig()
         QDateTime startTime = QDateTime::currentDateTime().addYears(-1);
         QDateTime endTime = startTime.addYears(10);
         QCA::CertificateInfo certificateInfo;
-        certificateInfo.insert(QCA::CommonName,deviceId());
+        certificateInfo.insert(QCA::CommonName, uuid);
         certificateInfo.insert(QCA::Organization,QStringLiteral("KDE"));
         certificateInfo.insert(QCA::OrganizationalUnit,QStringLiteral("Kde connect"));
         certificateOptions.setInfo(certificateInfo);
@@ -169,8 +166,7 @@ QString KdeConnectConfig::deviceType()
 
 QString KdeConnectConfig::deviceId()
 {
-    QString id = d->config->value(QStringLiteral("id"), "").toString();
-    return id;
+    return d->certificate.subjectInfo( QSslCertificate::CommonName ).constFirst();
 }
 
 QString KdeConnectConfig::privateKeyPath()
