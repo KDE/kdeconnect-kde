@@ -231,7 +231,6 @@ void LanLinkProvider::connectError()
 void LanLinkProvider::connected()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
-    qCDebug(KDECONNECT_CORE) << "Socket connected" << socket;
 
     if (!socket) return;
     disconnect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::connected);
