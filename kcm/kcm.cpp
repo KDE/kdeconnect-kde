@@ -271,6 +271,7 @@ void KdeConnectKcm::unpair()
         return;
     }
 
+    setCurrentDeviceTrusted(NotTrusted);
     currentDevice->unpair();
 }
 
