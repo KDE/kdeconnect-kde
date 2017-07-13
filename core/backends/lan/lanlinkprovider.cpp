@@ -318,25 +318,10 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     disconnect(socket, &QSslSocket::encrypted, this, &LanLinkProvider::encrypted);
     disconnect(socket, SIGNAL(sslErrors(QList<QSslError>)), this, SLOT(sslErrors(QList<QSslError>)));
 
-    Q_FOREACH (const QSslError &error, errors) {
-        switch (error.error()) {
-            case QSslError::CertificateSignatureFailed:
-            case QSslError::CertificateNotYetValid:
-            case QSslError::CertificateExpired:
-            case QSslError::CertificateUntrusted:
-            case QSslError::SelfSignedCertificate: {
-                qCDebug(KDECONNECT_CORE) << "Failing due to " << error.errorString();
-                // Due to simultaneous multiple connections, it may be possible that device instance does not exist anymore
-                Device *device = Daemon::instance()->getDevice(socket->peerVerifyName());
-                if (device != Q_NULLPTR) {
-                    device->unpair();
-                }
-                break;
-            }
-            default:
-                qCDebug(KDECONNECT_CORE) << "Ignoring ssl issue:" << int(error.error()) << error.errorString();
-                continue;
-        }
+    qCDebug(KDECONNECT_CORE) << "Failing due to " << errors;
+    Device *device = Daemon::instance()->getDevice(socket->peerVerifyName());
+    if (device) {
+        device->unpair();
     }
 
     delete receivedIdentityPackages.take(socket).np;
