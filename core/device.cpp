@@ -176,6 +176,7 @@ void Device::unpair()
         dl->userRequestsUnpair();
     }
     KdeConnectConfig::instance()->removeTrustedDevice(id());
+    Q_EMIT trustedChanged(false);
 }
 
 void Device::pairStatusChanged(DeviceLink::PairStatus status)

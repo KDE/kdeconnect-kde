@@ -34,7 +34,6 @@ Server::Server(QObject * parent)
 }
 
 void Server::incomingConnection(qintptr socketDescriptor) {
-    qDebug() << "incomingConnection";
     QSslSocket *serverSocket = new QSslSocket(parent());
     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
         pendingConnections.append(serverSocket);
@@ -46,7 +45,6 @@ void Server::incomingConnection(qintptr socketDescriptor) {
 }
 
 QSslSocket* Server::nextPendingConnection() {
-    qDebug() << "nextPendingConnection (pending:" << pendingConnections.count() << ")";
     if (pendingConnections.isEmpty()) {
         return Q_NULLPTR;
     } else {
