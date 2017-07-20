@@ -84,9 +84,9 @@ void KioKdeconnect::listAllDevices()
     infoMessage(i18n("Listing devices..."));
 
     //TODO: Change to all devices and show different icons for connected and disconnected?
-    QStringList devices = m_dbusInterface->devices(true, true);
+    const QStringList devices = m_dbusInterface->devices(true, true);
 
-    Q_FOREACH(const QString& deviceId, devices) {
+    for (const QString& deviceId : devices) {
 
         DeviceDbusInterface interface(deviceId);
 

@@ -48,8 +48,8 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
     connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
 
     //Add existing interfaces
-    QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
-    Q_FOREACH (const QString& service, services) {
+    const QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
+    for (const QString& service : services) {
         // The string doesn't matter, it just needs to be empty/non-empty
         serviceOwnerChanged(service, QLatin1String(""), QStringLiteral("1"));
     }

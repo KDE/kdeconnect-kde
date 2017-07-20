@@ -78,12 +78,12 @@ Daemon::Daemon(QObject *parent, bool testMode)
 
     //Read remebered paired devices
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
-    Q_FOREACH (const QString& id, list) {
+    for (const QString& id : list) {
         addDevice(new Device(this, id));
     }
 
     //Listen to new devices
-    Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
+    for (LinkProvider* a : qAsConst(d->mLinkProviders)) {
         connect(a, &LinkProvider::onConnectionReceived,
                 this, &Daemon::onNewDeviceLink);
         a->onStart();
@@ -127,7 +127,7 @@ void Daemon::removeDevice(Device* device)
 
 void Daemon::cleanDevices()
 {
-    Q_FOREACH (Device* device, d->mDevices) {
+    for (Device* device : qAsConst(d->mDevices)) {
         if (device->isTrusted()) {
             continue;
         }
@@ -142,14 +142,14 @@ void Daemon::cleanDevices()
 void Daemon::forceOnNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to " << d->mLinkProviders.size() << " LinkProviders";
-    Q_FOREACH (LinkProvider* a, d->mLinkProviders) {
+    for (LinkProvider* a : qAsConst(d->mLinkProviders)) {
         a->onNetworkChange();
     }
 }
 
 Device*Daemon::getDevice(const QString& deviceId)
 {
-    Q_FOREACH (Device* device, d->mDevices) {
+    for (Device* device : qAsConst(d->mDevices)) {
         if (device->id() == deviceId) {
             return device;
         }
@@ -160,7 +160,7 @@ Device*Daemon::getDevice(const QString& deviceId)
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;
-    Q_FOREACH (Device* device, d->mDevices) {
+    for (Device* device : qAsConst(d->mDevices)) {
         if (onlyReachable && !device->isReachable()) continue;
         if (onlyTrusted && !device->isTrusted()) continue;
         ret.append(device->id());
@@ -244,9 +244,9 @@ bool Daemon::isDiscoveringDevices() const
 
 QString Daemon::deviceIdByName(const QString &name) const
 {
-    Q_FOREACH (Device* d, d->mDevices) {
-        if (d->name() == name && d->isTrusted())
-            return d->id();
+    for (Device* device : qAsConst(d->mDevices)) {
+        if (device->name() == name && device->isTrusted())
+            return device->id();
     }
     return {};
 }

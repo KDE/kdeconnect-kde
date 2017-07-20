@@ -102,7 +102,7 @@ void Device::reloadPlugins()
 
         PluginLoader* loader = PluginLoader::instance();
 
-        Q_FOREACH (const QString& pluginName, m_supportedPlugins) {
+        for (const QString& pluginName : qAsConst(m_supportedPlugins)) {
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
 
             const bool pluginEnabled = isPluginEnabled(pluginName);
@@ -116,7 +116,7 @@ void Device::reloadPlugins()
                 }
                 Q_ASSERT(plugin);
 
-                Q_FOREACH (const QString& interface, incomingCapabilities) {
+                for (const QString& interface : incomingCapabilities) {
                     newPluginsByIncomingCapability.insert(interface, plugin);
                 }
 
@@ -134,7 +134,7 @@ void Device::reloadPlugins()
     m_pluginsByIncomingCapability = newPluginsByIncomingCapability;
 
     QDBusConnection bus = QDBusConnection::sessionBus();
-    Q_FOREACH(KdeConnectPlugin* plugin, m_plugins) {
+    for (KdeConnectPlugin* plugin : qAsConst(m_plugins)) {
         //TODO: see how it works in Android (only done once, when created)
         plugin->connected();
 
@@ -165,14 +165,14 @@ void Device::requestPair()
         return;
     }
 
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+    for (DeviceLink* dl : qAsConst(m_deviceLinks)) {
         dl->userRequestsPair();
     }
 }
 
 void Device::unpair()
 {
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+    for (DeviceLink* dl : qAsConst(m_deviceLinks)) {
         dl->userRequestsUnpair();
     }
     KdeConnectConfig::instance()->removeTrustedDevice(id());
@@ -184,7 +184,7 @@ void Device::pairStatusChanged(DeviceLink::PairStatus status)
     if (status == DeviceLink::NotPaired) {
         KdeConnectConfig::instance()->removeTrustedDevice(id());
 
-        Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+        for (DeviceLink* dl : qAsConst(m_deviceLinks)) {
             if (dl != sender()) {
                 dl->setPairStatus(DeviceLink::NotPaired);
             }
@@ -325,7 +325,7 @@ bool Device::sendPackage(NetworkPackage& np)
     Q_ASSERT(isTrusted());
 
     //Maybe we could block here any package that is not an identity or a pairing package to prevent sending non encrypted data
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+    for (DeviceLink* dl : qAsConst(m_deviceLinks)) {
         if (dl->sendPackage(np)) return true;
     }
 
@@ -340,7 +340,7 @@ void Device::privateReceivedPackage(const NetworkPackage& np)
         if (plugins.isEmpty()) {
             qWarning() << "discarding unsupported package" << np.type() << "for" << name();
         }
-        Q_FOREACH (KdeConnectPlugin* plugin, plugins) {
+        for (KdeConnectPlugin* plugin : plugins) {
             plugin->receivePackage(np);
         }
     } else {
@@ -359,7 +359,7 @@ QStringList Device::availableLinks() const
 {
     QStringList sl;
     sl.reserve(m_deviceLinks.size());
-    Q_FOREACH(DeviceLink* dl, m_deviceLinks) {
+    for (DeviceLink* dl : qAsConst(m_deviceLinks)) {
         sl.append(dl->provider()->name());
     }
     return sl;

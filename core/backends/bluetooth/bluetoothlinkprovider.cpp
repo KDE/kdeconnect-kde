@@ -114,9 +114,9 @@ void BluetoothLinkProvider::addLink(BluetoothDeviceLink* deviceLink, const QStri
 //I'm the new device and I found an existing device
 void BluetoothLinkProvider::serviceDiscoveryFinished()
 {
-    QList<QBluetoothServiceInfo> services = mServiceDiscoveryAgent->discoveredServices();
+    const QList<QBluetoothServiceInfo> services = mServiceDiscoveryAgent->discoveredServices();
 
-    Q_FOREACH (QBluetoothServiceInfo info, services) {
+    for (QBluetoothServiceInfo info : services) {
         if (mSockets.contains(info.device().address())) {
             continue;
         }

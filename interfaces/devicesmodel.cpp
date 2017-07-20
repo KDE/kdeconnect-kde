@@ -203,7 +203,7 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher* watcher)
         return;
 
     beginInsertRows(QModelIndex(), 0, deviceIds.count()-1);
-    Q_FOREACH(const QString& id, deviceIds) {
+    for (const QString& id : deviceIds) {
         appendDevice(new DeviceDbusInterface(id, this));
     }
     endInsertRows();

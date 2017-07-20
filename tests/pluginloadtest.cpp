@@ -48,7 +48,8 @@ class PluginLoadTest : public QObject
         void testPlugins() {
             Device* d = nullptr;
             mDaemon->acquireDiscoveryMode(QStringLiteral("plugintest"));
-            Q_FOREACH(Device* id, mDaemon->devicesList()) {
+            const QList<Device*> devicesList = mDaemon->devicesList();
+            for (Device* id : devicesList) {
                 if (id->isReachable()) {
                     if (!id->isTrusted())
                         id->requestPair();

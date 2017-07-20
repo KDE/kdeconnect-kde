@@ -90,7 +90,7 @@ int main(int argc, char** argv)
         }
         const QStringList devices = blockOnReply<QStringList>(iface.devices(paired, reachable));
 
-        Q_FOREACH (const QString& id, devices) {
+        for (const QString& id : devices) {
             if (parser.isSet(QStringLiteral("id-only"))) {
                 QTextStream(stdout) << id << endl;
             } else {

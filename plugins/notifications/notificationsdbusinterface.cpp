@@ -65,7 +65,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             id = id.mid(id.indexOf(QLatin1String("::")) + 2);
         removeNotification(id);
     } else if (np.get<bool>(QStringLiteral("isRequest"))) {
-        Q_FOREACH (const auto& n, mNotifications) {
+        for (const auto& n : qAsConst(mNotifications)) {
             NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST, {
                 {"id", n->internalId()},
                 {"appName", n->appName()},
