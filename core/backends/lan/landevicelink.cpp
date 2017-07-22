@@ -56,6 +56,9 @@ void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource
 
     mConnectionSource = connectionSource;
 
+    QHostAddress addr = socket->peerAddress();
+    mHostAddress = (addr.protocol() == QAbstractSocket::IPv6Protocol) ? QHostAddress(addr.toIPv4Address()) : addr;
+
     QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId(), QStringLiteral("certificate"));
     DeviceLink::setPairStatus(certString.isEmpty()? PairStatus::NotPaired : PairStatus::Paired);
 }

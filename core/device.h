@@ -25,6 +25,7 @@
 #include <QString>
 #include <QVector>
 #include <QSet>
+#include <QHostAddress>
 
 #include "networkpackage.h"
 #include "backends/devicelink.h"
@@ -102,6 +103,8 @@ public:
 
     int protocolVersion() { return m_protocolVersion; }
     QStringList supportedPlugins() const { return m_supportedPlugins.toList(); }
+
+    QHostAddress getLocalIpAddress() const;
 
 public Q_SLOTS:
     ///sends a @p np package to the device

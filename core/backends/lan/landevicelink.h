@@ -54,12 +54,15 @@ public:
 
     bool linkShouldBeKeptAlive() override;
 
+    QHostAddress hostAddress() const { return mHostAddress; }
+
 private Q_SLOTS:
     void dataReceived();
 
 private:
     SocketLineReader* mSocketLineReader;
     ConnectionStarted mConnectionSource;
+    QHostAddress mHostAddress;
 };
 
 #endif

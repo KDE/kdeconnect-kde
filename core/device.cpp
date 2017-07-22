@@ -35,6 +35,7 @@
 #include "kdeconnectplugin.h"
 #include "pluginloader.h"
 #include "backends/devicelink.h"
+#include "backends/lan/landevicelink.h"
 #include "backends/linkprovider.h"
 #include "networkpackage.h"
 #include "kdeconnectconfig.h"
@@ -378,6 +379,17 @@ void Device::cleanUnneededLinks() {
             i++;
         }
     }
+}
+
+QHostAddress Device::getLocalIpAddress() const
+{
+    for (DeviceLink* dl : m_deviceLinks) {
+        LanDeviceLink* ldl = dynamic_cast<LanDeviceLink*>(dl);
+        if (ldl) {
+            return ldl->hostAddress();
+        }
+    }
+    return QHostAddress::Null;
 }
 
 Device::DeviceType Device::str2type(const QString &deviceType) {
