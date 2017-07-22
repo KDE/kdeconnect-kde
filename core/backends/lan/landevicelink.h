@@ -54,7 +54,7 @@ public:
 
     bool linkShouldBeKeptAlive() override;
 
-    QHostAddress hostAddress() const { return mHostAddress; }
+    QHostAddress hostAddress() const;
 
 private Q_SLOTS:
     void dataReceived();
