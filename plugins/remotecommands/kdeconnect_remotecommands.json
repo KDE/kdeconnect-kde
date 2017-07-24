@@ -45,7 +45,7 @@
         "Id": "kdeconnect_remotecommands",
         "License": "GPL",
         "Name": "Host remote commands",
-        "Name[ca@valencia]": "Ordes a la màquina remota",
+        "Name[ca@valencia]": "Allotja ordes remotes",
         "Name[ca]": "Allotja ordres remotes",
         "Name[cs]": "Přijímat vzdálené příkazy",
         "Name[da]": "Vært for eksterne kommandoer",
