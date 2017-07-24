@@ -155,7 +155,7 @@ void NotificationsModel::receivedNotifications(QDBusPendingCallWatcher* watcher)
     }
 
     beginInsertRows(QModelIndex(), 0, notificationIds.size() - 1);
-    Q_FOREACH (const QString& notificationId, notificationIds) {
+    for (const QString& notificationId : notificationIds) {
         NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, notificationId, this);
         m_notificationList.append(dbusInterface);
     }
@@ -229,7 +229,7 @@ int NotificationsModel::rowCount(const QModelIndex& parent) const
 
 bool NotificationsModel::isAnyDimissable() const
 {
-    Q_FOREACH (NotificationDbusInterface* notification, m_notificationList) {
+    for (NotificationDbusInterface* notification : qAsConst(m_notificationList)) {
         if (notification->dismissable()) {
             return true;
         }
@@ -239,7 +239,7 @@ bool NotificationsModel::isAnyDimissable() const
 
 void NotificationsModel::dismissAll()
 {
-    Q_FOREACH (NotificationDbusInterface* notification, m_notificationList) {
+    for (NotificationDbusInterface* notification : qAsConst(m_notificationList)) {
         if (notification->dismissable()) {
             notification->dismiss();
         }

@@ -52,7 +52,8 @@ class TestSendFile : public QObject
         void testSend() {
             mDaemon->acquireDiscoveryMode(QStringLiteral("test"));
             Device* d = nullptr;
-            Q_FOREACH(Device* id, mDaemon->devicesList()) {
+            const QList<Device*> devicesList = mDaemon->devicesList();
+            for (Device* id : devicesList) {
                 if (id->isReachable()) {
                     if (!id->isTrusted())
                         id->requestPair();

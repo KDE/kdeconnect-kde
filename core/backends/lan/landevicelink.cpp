@@ -60,6 +60,23 @@ void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource
     DeviceLink::setPairStatus(certString.isEmpty()? PairStatus::NotPaired : PairStatus::Paired);
 }
 
+QHostAddress LanDeviceLink::hostAddress() const
+{
+    if (!mSocketLineReader) {
+        return QHostAddress::Null;
+    }
+    QHostAddress addr = mSocketLineReader->mSocket->peerAddress();
+    if (addr.protocol() == QAbstractSocket::IPv6Protocol) {
+        bool success;
+        QHostAddress convertedAddr = QHostAddress(addr.toIPv4Address(&success));
+        if (success) {
+            qCDebug(KDECONNECT_CORE) << "Converting IPv6" << addr << "to IPv4" << convertedAddr;
+            addr = convertedAddr;
+        }
+    }
+    return addr;
+}
+
 QString LanDeviceLink::name()
 {
     return QStringLiteral("LanLink"); // Should be same in both android and kde version

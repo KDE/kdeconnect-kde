@@ -97,8 +97,8 @@ void NotificationsListener::setTranslatedAppName()
 void NotificationsListener::loadApplications()
 {
     applications.clear();
-    QVariantList list = mPlugin->config()->getList(QStringLiteral("applications"));
-    Q_FOREACH (const auto& a, list) {
+    const QVariantList list = mPlugin->config()->getList(QStringLiteral("applications"));
+    for (const auto& a : list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
         if (!applications.contains(app.name))
             applications.insert(app.name, app);
@@ -204,7 +204,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
         applications.insert(app.name, app);
         // update config:
         QVariantList list;
-        Q_FOREACH (const auto& a, applications)
+        for (const auto& a : qAsConst(applications))
             list << QVariant::fromValue<NotifyingApplication>(a);
         mPlugin->config()->setList(QStringLiteral("applications"), list);
         //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;

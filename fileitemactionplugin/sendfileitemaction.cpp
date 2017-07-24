@@ -55,7 +55,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
     QDBusPendingReply<QStringList> reply = iface.devices(true, true);
     reply.waitForFinished();
     const QStringList devices = reply.value();
-    Q_FOREACH (const QString& id, devices) {
+    for (const QString& id : devices) {
         DeviceDbusInterface deviceIface(id);
         if (!deviceIface.isValid()) {
             continue;
@@ -87,9 +87,9 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
 
 void SendFileItemAction::sendFile()
 {
-    QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
+    const QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
     QString id = sender()->property("id").toString();
-    Q_FOREACH (const QUrl& url, urls) {
+    for (const QUrl& url : urls) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+id+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
         QDBusConnection::sessionBus().call(msg);

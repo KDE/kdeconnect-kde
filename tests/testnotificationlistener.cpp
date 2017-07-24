@@ -354,7 +354,8 @@ void TestNotificationListener::testNotify()
     QStringList iconPaths;
     // appIcon
     int count = 0;
-    Q_FOREACH (const auto& iconName, KIconLoader::global()->queryIcons(-KIconLoader::SizeEnormous, KIconLoader::Application)) {
+    const QStringList icons = KIconLoader::global()->queryIcons(-KIconLoader::SizeEnormous, KIconLoader::Application);
+    for (const auto& iconName : icons) {
         if (!iconName.endsWith(QLatin1String(".png")))
             continue;
         if (count++ > 3) // max 3 iterations

@@ -113,10 +113,17 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
     if (np.has(QStringLiteral("multiPaths"))) path = '/';
     else path = np.get<QString>(QStringLiteral("path"));
 
+    QHostAddress addr = m_sftp->device()->getLocalIpAddress();
+    if (addr == QHostAddress::Null) {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Device doesn't have a LanDeviceLink, unable to get IP address";
+        return;
+    }
+    QString ip = addr.toString();
+
     const QStringList arguments = QStringList()
         << QStringLiteral("%1@%2:%3").arg(
             np.get<QString>(QStringLiteral("user")),
-            np.get<QString>(QStringLiteral("ip")),
+            ip,
             path)
         << m_mountPoint
         << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))

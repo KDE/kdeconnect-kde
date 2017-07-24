@@ -138,7 +138,7 @@ void TestSslSocketLineReader::testTrustedDevice()
 
     QList<QByteArray> dataToSend;
     dataToSend << "foobar\n" << "barfoo\n" << "foobar?\n" << "\n" << "barfoo!\n" << "panda\n";
-    Q_FOREACH(const QByteArray &line, dataToSend) {
+    for (const QByteArray &line : dataToSend) {
         mClientSocket->write(line);
     }
     mClientSocket->flush();
@@ -197,7 +197,7 @@ void TestSslSocketLineReader::testUntrustedDevice()
 
     QList<QByteArray> dataToSend;
     dataToSend << "foobar\n" << "barfoo\n" << "foobar?\n" << "\n" << "barfoo!\n" << "panda\n";
-    Q_FOREACH(const QByteArray &line, dataToSend) {
+    for (const QByteArray &line : dataToSend) {
             mClientSocket->write(line);
         }
     mClientSocket->flush();

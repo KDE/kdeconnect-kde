@@ -36,8 +36,8 @@ PluginLoader* PluginLoader::instance()
 
 PluginLoader::PluginLoader()
 {
-    QVector<KPluginMetaData> data = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
-    Q_FOREACH (const KPluginMetaData& metadata, data) {
+    const QVector<KPluginMetaData> data = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
+    for (const KPluginMetaData& metadata : data) {
         plugins[metadata.pluginId()] = metadata;
     }
 }
@@ -86,7 +86,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
 QStringList PluginLoader::incomingCapabilities() const
 {
     QSet<QString> ret;
-    Q_FOREACH (const KPluginMetaData& service, plugins) {
+    for (const KPluginMetaData& service : qAsConst(plugins)) {
         ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPackageType")).toSet();
     }
     return ret.toList();
@@ -95,7 +95,7 @@ QStringList PluginLoader::incomingCapabilities() const
 QStringList PluginLoader::outgoingCapabilities() const
 {
     QSet<QString> ret;
-    Q_FOREACH (const KPluginMetaData& service, plugins) {
+    for (const KPluginMetaData& service : qAsConst(plugins)) {
         ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPackageType")).toSet();
     }
     return ret.toList();
@@ -105,7 +105,7 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString>& incoming
 {
     QSet<QString> ret;
 
-    Q_FOREACH (const KPluginMetaData& service, plugins) {
+    for (const KPluginMetaData& service : qAsConst(plugins)) {
         const QSet<QString> pluginIncomingCapabilities = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPackageType")).toSet();
         const QSet<QString> pluginOutgoingCapabilities = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPackageType")).toSet();
 
