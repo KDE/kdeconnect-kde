@@ -34,6 +34,7 @@
         "Description[tr]": "Eşleşmiş cihazınıza önemli etkinlikler göndermek için klavyenizi kullanın",
         "Description[uk]": "Скористайтеся вашою клавіатурою для надсилання подій натискання клавіш на пов’язаний пристрій",
         "Description[x-test]": "xxUse your keyboard to send key-events to your paired devicexx",
+        "Description[zh_CN]": "使用您的键盘发送按键事件给配对的设备",
         "EnabledByDefault": true,
         "Icon": "edit-select",
         "Id": "kdeconnect_remotekeyboard",
@@ -59,6 +60,7 @@
         "Name[tr]": "Masaüstünden uzak klavye",
         "Name[uk]": "Віддалена клавіатура з комп’ютера",
         "Name[x-test]": "xxRemote keyboard from the desktopxx",
+        "Name[zh_CN]": "来自桌面的远程键盘",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
