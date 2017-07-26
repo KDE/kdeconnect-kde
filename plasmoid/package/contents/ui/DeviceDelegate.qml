@@ -94,13 +94,18 @@ PlasmaComponents.ListItem
         {
             Item {
                 //spacer to make the label centre aligned in a row yet still elide and everything
-                implicitWidth: ring.width + browse.width + parent.spacing
+                implicitWidth: (ring.visible? ring.width : 0) + (browse.visible? browse.width : 0) + parent.spacing
             }
 
+            Battery {
+                id: battery
+                device: root.device
+            }
+            
             PlasmaComponents.Label {
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
-                text: display
+                text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", display, battery.displayString) : display
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
             }
@@ -147,8 +152,7 @@ PlasmaComponents.ListItem
 
         //RemoteKeyboard
         PlasmaComponents.ListItem {
-            sectionDelegate: true
-            visible: remoteKeyboard.available
+            visible: remoteKeyboardInput.available
             width: parent.width
 
             Row {
@@ -157,7 +161,6 @@ PlasmaComponents.ListItem
 
                 PlasmaComponents.Label {
                     id: remoteKeyboardLabel
-                    //font.bold: true
                     text: i18n("Remote Keyboard")
                 }
 
@@ -191,34 +194,12 @@ PlasmaComponents.ListItem
             }
         }
 
-        //Battery
-        PlasmaComponents.ListItem {
-
-            Battery {
-                id: battery
-                device: root.device
-            }
-
-            sectionDelegate: true
-            visible: battery.available
-            PlasmaComponents.Label {
-                //font.bold: true
-                text: i18n("Battery")
-            }
-            PlasmaComponents.Label {
-                text: battery.displayString
-                anchors.right: parent.right
-            }
-        }
-
         //Notifications
         PlasmaComponents.ListItem {
             visible: notificationsModel.count>0
             enabled: true
-            sectionDelegate: true
             PlasmaComponents.Label {
-                //font.bold: true
-                text: i18n("Notifications")
+                text: i18n("Notifications:")
             }
             PlasmaComponents.ToolButton {
                 enabled: true
