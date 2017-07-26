@@ -37,7 +37,7 @@ QtObject {
 
     property bool charging: false
     property int charge: -1
-    property string displayString: (available && charge > -1) ? ((charging) ? (i18n("Charging: %1%", charge)) : (i18n("Discharging: %1%", charge))) : i18n("No info")
+    property string displayString: (available && charge > -1) ? ((charging) ? (i18n("%1% charging", charge)) : (i18n("%1%", charge))) : i18n("No info")
     property variant battery: null
 
     property variant nested1: DBusAsyncResponse {
