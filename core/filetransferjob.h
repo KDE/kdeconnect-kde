@@ -72,6 +72,7 @@ private:
     QElapsedTimer mTimer;
     qulonglong mSpeedBytes;
     qint64 mWritten;
+    qint64 mSize;
 };
 
 #endif

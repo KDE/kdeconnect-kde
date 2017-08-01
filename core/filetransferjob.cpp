@@ -37,16 +37,13 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     , mDestination(destination)
     , mSpeedBytes(0)
     , mWritten(0)
+    , mSize(size)
 {
     Q_ASSERT(mOrigin);
     Q_ASSERT(mOrigin->isReadable());
     if (mDestination.scheme().isEmpty()) {
         qCWarning(KDECONNECT_CORE) << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
         mDestination.setScheme(QStringLiteral("file"));
-    }
-
-    if (size >= 0) {
-        setTotalAmount(Bytes, size);
     }
 
     setCapabilities(Killable);
@@ -89,7 +86,10 @@ void FileTransferJob::startTransfer()
                         { i18nc("File transfer destination", "To"), mDestination.toLocalFile() });
 
     QNetworkRequest req(mDestination);
-    req.setHeader(QNetworkRequest::ContentLengthHeader, totalAmount(Bytes));
+    if (mSize >= 0) {
+        setTotalAmount(Bytes, mSize);
+        req.setHeader(QNetworkRequest::ContentLengthHeader, mSize);
+    }
     mReply = Daemon::instance()->networkAccessManager()->put(req, mOrigin.data());
 
     connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
