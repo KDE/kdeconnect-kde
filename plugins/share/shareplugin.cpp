@@ -115,29 +115,30 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
             tmpFile.write(text.toUtf8());
             tmpFile.close();
 
-            const QUrl url = QUrl::fromLocalFile(tmpFile.fileName());
-            Q_EMIT shareReceived(url);
-            QDesktopServices::openUrl(url);
+            const QString fileName = tmpFile.fileName();
+            Q_EMIT shareReceived(fileName);
+            QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
         }
     } else if (np.has(QStringLiteral("url"))) {
         QUrl url = QUrl::fromEncoded(np.get<QByteArray>(QStringLiteral("url")));
         QDesktopServices::openUrl(url);
-        Q_EMIT shareReceived(url);
+        Q_EMIT shareReceived(url.toString());
     } else {
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "Error: Nothing attached!";
     }
 
     return true;
-
 }
 
 void SharePlugin::finished(KJob* job)
 {
     FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
-    if (ftjob)
-        Q_EMIT shareReceived(ftjob->destination());
-
-    qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished. Success:" << (!job->error()) << (ftjob ? ftjob->destination() : QUrl());
+    if (ftjob && !job->error()) {
+        Q_EMIT shareReceived(ftjob->destination().toString());
+        qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished." << ftjob->destination();
+    } else {
+        qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer failed." << (ftjob ? ftjob->destination() : QUrl());
+    }
 }
 
 void SharePlugin::openDestinationFolder()

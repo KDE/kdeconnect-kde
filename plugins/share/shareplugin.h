@@ -49,7 +49,7 @@ private Q_SLOTS:
     void openDestinationFolder();
 
 Q_SIGNALS:
-    void shareReceived(const QUrl& url);
+    void shareReceived(const QString& url);
 
 private:
     void shareUrl(const QUrl& url);

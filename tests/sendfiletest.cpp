@@ -76,7 +76,7 @@ class TestSendFile : public QObject
             QVERIFY(plugin);
             plugin->metaObject()->invokeMethod(plugin, "shareUrl", Q_ARG(QString, QUrl::fromLocalFile(temp.fileName()).toString()));
 
-            QSignalSpy spy(plugin, SIGNAL(shareReceived(QUrl)));
+            QSignalSpy spy(plugin, SIGNAL(shareReceived(QString)));
             QVERIFY(spy.wait(2000));
 
             QVariantList args = spy.takeFirst();
