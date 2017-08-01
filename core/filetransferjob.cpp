@@ -95,7 +95,7 @@ void FileTransferJob::startTransfer()
 
         const auto elapsed = mTimer.elapsed();
         if (elapsed > 0) {
-            emitSpeed(1000 * (bytesSent / elapsed));
+            emitSpeed((1000 * bytesSent) / elapsed);
         }
     });
     connect(mReply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
