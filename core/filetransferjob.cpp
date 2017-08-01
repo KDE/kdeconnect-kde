@@ -50,7 +50,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     }
 
     setCapabilities(Killable);
-    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
+    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination << "size:" << size;
 }
 
 void FileTransferJob::start()
@@ -84,7 +84,6 @@ void FileTransferJob::startTransfer()
         return;
 
     setProcessedAmount(Bytes, 0);
-    mTimer.start();
     description(this, i18n("Receiving file over KDE Connect"),
                         { i18nc("File transfer origin", "From"), mFrom },
                         { i18nc("File transfer destination", "To"), mDestination.toLocalFile() });
@@ -94,11 +93,13 @@ void FileTransferJob::startTransfer()
     mReply = Daemon::instance()->networkAccessManager()->put(req, mOrigin.data());
 
     connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
+        if (!mTimer.isValid())
+            mTimer.start();
         setProcessedAmount(Bytes, bytesSent);
 
         const auto elapsed = mTimer.elapsed();
         if (elapsed > 0) {
-            emitSpeed(bytesSent / elapsed);
+            emitSpeed(1000 * (bytesSent / elapsed));
         }
     });
     connect(mReply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
