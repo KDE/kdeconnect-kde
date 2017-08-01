@@ -79,10 +79,6 @@ void FileTransferJob::doStart()
 
 void FileTransferJob::startTransfer()
 {
-    // Don't put each ready read
-    if (mTimer.isValid())
-        return;
-
     setProcessedAmount(Bytes, 0);
     description(this, i18n("Receiving file over KDE Connect"),
                         { i18nc("File transfer origin", "From"), mFrom },
