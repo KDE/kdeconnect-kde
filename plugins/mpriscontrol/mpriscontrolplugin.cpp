@@ -81,8 +81,14 @@ void MprisControlPlugin::addPlayer(const QString& service)
     if (identity.isEmpty()) {
         identity = service.mid(sizeof("org.mpris.MediaPlayer2"));
     }
-    playerList[identity] = service;
-    qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris addPlayer" << service << "->" << identity;
+
+    QString uniqueName = identity;
+    for (int i = 1 ; !playerList[uniqueName].isEmpty() ; i++) {
+        uniqueName = identity + " [" + i + "]";
+    }
+
+    playerList[uniqueName] = service;
+    qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris addPlayer" << service << "->" << uniqueName;
     sendPlayerList();
 
     OrgFreedesktopDBusPropertiesInterface* freedesktopInterface = new OrgFreedesktopDBusPropertiesInterface(service, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus(), this);
