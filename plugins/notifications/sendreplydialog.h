@@ -24,9 +24,7 @@
 #include <QDialog>
 #include <QSize>
 
-class QTextEdit;
-class QLineEdit;
-class QPushButton;
+namespace Ui { class SendReplyDialog; }
 
 class SendReplyDialog : public QDialog
 {
@@ -34,6 +32,7 @@ class SendReplyDialog : public QDialog
 
 public:
     explicit SendReplyDialog(const QString& originalMessage, const QString& replyId, const QString& topicName, QWidget *parent = nullptr);
+    ~SendReplyDialog() override;
     QSize sizeHint() const override;
 
 private Q_SLOTS:
@@ -43,8 +42,8 @@ Q_SIGNALS:
     void sendReply(const QString& replyId, const QString& messageBody);
 
 private:
-    QString mReplyId;
-    QTextEdit *mTextEdit;
+    const QString mReplyId;
+    const QScopedPointer<Ui::SendReplyDialog> m_ui;
 };
 
 #endif

@@ -160,6 +160,7 @@ void NotificationsDbusInterface::replyRequested(Notification* noti)
     SendReplyDialog* dialog = new SendReplyDialog(originalMessage, replyId, appName);
     connect(dialog, &SendReplyDialog::sendReply, this, &NotificationsDbusInterface::sendReply);
     dialog->show();
+    dialog->raise();
 }
 
 void NotificationsDbusInterface::sendReply(const QString& replyId, const QString& message)
