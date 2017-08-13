@@ -80,13 +80,19 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
     } else {
         QString id = np.get<QString>(QStringLiteral("id"));
 
+        Notification* noti;
+
         if (!mInternalIdToPublicId.contains(id)) {
-            Notification* noti = new Notification(np, this);
-            addNotification(noti);
+            noti = new Notification(np, this);
         } else {
             QString pubId = mInternalIdToPublicId[id];
-            mNotifications[pubId]->update(np);
+            noti = mNotifications[pubId];
+            noti->update(np);
         }
+
+        connect(noti, &Notification::ready, this, [this, noti]{
+            addNotification(noti);
+        });
     }
 }
 
@@ -95,16 +101,16 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     const QString& internalId = noti->internalId();
 
     if (mInternalIdToPublicId.contains(internalId)) {
-        removeNotification(internalId);
+        removeNotification(internalId, KeepNotification);
     }
 
     //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
 
     connect(noti, &Notification::dismissRequested,
             this, &NotificationsDbusInterface::dismissRequested);
-    
-    connect(noti, &Notification::replyRequested, this, [this,noti]{ 
-        replyRequested(noti); 
+
+    connect(noti, &Notification::replyRequested, this, [this,noti]{
+        replyRequested(noti);
     });
 
     const QString& publicId = newId();
@@ -115,12 +121,12 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     Q_EMIT notificationPosted(publicId);
 }
 
-void NotificationsDbusInterface::removeNotification(const QString& internalId)
+void NotificationsDbusInterface::removeNotification(const QString& internalId, RemoveType removetype)
 {
     //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
 
     if (!mInternalIdToPublicId.contains(internalId)) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by internal Id: " << internalId;
+        //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by internal Id: " << internalId;
         return;
     }
 
@@ -128,13 +134,16 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
     Notification* noti = mNotifications.take(publicId);
     if (!noti) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by public Id: " << publicId;
+        //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by public Id: " << publicId;
         return;
     }
 
     //Deleting the notification will unregister it automatically
-    //QDBusConnection::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
-    noti->deleteLater();
+    if (removetype==KeepNotification){
+        QDBusConnection::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
+    } else if (removetype==DestroyNotification){
+        noti->deleteLater();
+    }
 
     Q_EMIT notificationRemoved(publicId);
 }

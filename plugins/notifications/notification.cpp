@@ -55,6 +55,7 @@ void Notification::dismiss()
 
 void Notification::show()
 {
+    Q_EMIT ready();
     if (!mSilent) {
         mClosed = false;
         mNotification->sendEvent();

@@ -39,6 +39,10 @@ class NotificationsDbusInterface
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.notifications")
 
 public:
+    enum RemoveType{
+        KeepNotification, DestroyNotification
+    };
+
     explicit NotificationsDbusInterface(KdeConnectPlugin* plugin);
     ~NotificationsDbusInterface() override;
 
@@ -58,7 +62,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void allNotificationsRemoved();
 
 private /*methods*/:
-    void removeNotification(const QString& internalId);
+    void removeNotification(const QString& internalId, RemoveType removetype=DestroyNotification);
     QString newId(); //Generates successive identifitiers to use as public ids
 
 private /*attributes*/:

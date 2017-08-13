@@ -71,6 +71,7 @@ public Q_SLOTS:
     Q_SIGNALS:
     void dismissRequested(const QString& mInternalId);
     void replyRequested();
+    void ready();
 
 private:
     QString mInternalId;
