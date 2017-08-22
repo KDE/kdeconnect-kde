@@ -62,6 +62,8 @@ QHash<int, QByteArray> NotificationsModel::roleNames() const
     names.insert(DismissableModelRole, "dismissable");
     names.insert(RepliableModelRole, "repliable");
     names.insert(IconPathModelRole, "appIcon");
+    names.insert(TitleModelRole, "title");
+    names.insert(TextModelRole, "notitext");
     return names;
 }
 
@@ -198,6 +200,10 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
             return !notification->replyId().isEmpty();
         case IconPathModelRole:
             return notification->iconPath();
+        case TitleModelRole:
+            return notification->title();
+        case TextModelRole:
+            return notification->text();
         default:
              return QVariant();
     }

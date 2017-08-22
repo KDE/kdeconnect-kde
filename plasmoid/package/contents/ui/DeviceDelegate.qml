@@ -228,7 +228,7 @@ PlasmaComponents.ListItem
                     anchors.left: parent.left
                 }
                 PlasmaComponents.Label {
-                    text: appName + ": " + display
+                    text: appName + ": " + (title.length>0 ? (appName==title?notitext:title+": "+notitext) : display)
                     anchors.right: replyButton.left
                     anchors.left: notificationIcon.right
                     elide: listitem.checked ? Text.ElideNone : Text.ElideRight
