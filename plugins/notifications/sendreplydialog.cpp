@@ -29,7 +29,7 @@
 
 SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& replyId, const QString& topicName, QWidget* parent)
     : QDialog(parent)
-    , mReplyId(replyId)
+    , m_replyId(replyId)
 {
     QVBoxLayout* layout = new QVBoxLayout;
 
@@ -38,8 +38,8 @@ SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& 
     textView->setText(topicName + ": \n" + originalMessage);
     layout->addWidget(textView);
 
-    mTextEdit = new QTextEdit(this);
-    layout->addWidget(mTextEdit);
+    m_textEdit = new QTextEdit(this);
+    layout->addWidget(m_textEdit);
 
     QPushButton* sendButton = new QPushButton(i18n("Send"), this);
     connect(sendButton, &QAbstractButton::clicked, this, &SendReplyDialog::sendButtonClicked);
@@ -54,7 +54,7 @@ SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& 
 
 void SendReplyDialog::sendButtonClicked()
 {
-    Q_EMIT sendReply(mReplyId, mTextEdit->toPlainText());
+    Q_EMIT sendReply(m_replyId, m_textEdit->toPlainText());
     close();
 }
 

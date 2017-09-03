@@ -38,7 +38,7 @@ class Q_DECL_EXPORT LockDevicePlugin
     Q_PROPERTY(bool isLocked READ isLocked WRITE setLocked NOTIFY lockedChanged)
 
 public:
-    explicit LockDevicePlugin(QObject *parent, const QVariantList &args);
+    explicit LockDevicePlugin(QObject* parent, const QVariantList &args);
     ~LockDevicePlugin() override;
 
     bool isLocked() const;

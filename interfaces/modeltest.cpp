@@ -30,7 +30,7 @@ Q_DECLARE_METATYPE(QModelIndex)
 /*!
     Connect to all of the models signals.  Whenever anything happens recheck everything.
 */
-ModelTest::ModelTest(QAbstractItemModel *_model, QObject *parent) : QObject(parent), model(_model), fetchingMore(false)
+ModelTest::ModelTest(QAbstractItemModel *_model, QObject* parent) : QObject(parent), model(_model), fetchingMore(false)
 {
     Q_ASSERT(model);
 
@@ -215,7 +215,7 @@ void ModelTest::index()
     Q_ASSERT(model->index(rows, columns) == QModelIndex());
     Q_ASSERT(model->index(0, 0).isValid() == true);
 
-    // Make sure that the same index is *always* returned
+    // Make sure that the same index is* always* returned
     QModelIndex a = model->index(0, 0);
     QModelIndex b = model->index(0, 0);
     Q_ASSERT(a == b);

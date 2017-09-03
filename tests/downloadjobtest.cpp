@@ -43,37 +43,37 @@ private:
     void awaitToBeDestroyedOrTimeOut();
     void stopServer();
 
-    QPointer<DownloadJob> test;
-    QPointer<QTcpServer> mServer;
+    QPointer<DownloadJob> m_test;
+    QPointer<QTcpServer> m_server;
 };
 
 void DownloadJobTest::initServer()
 {
-    delete mServer;
-    mServer = new QTcpServer(this);
-    QVERIFY2(mServer->listen(QHostAddress::LocalHost, 8694), "Failed to create local tcp server");
+    delete m_server;
+    m_server = new QTcpServer(this);
+    QVERIFY2(m_server->listen(QHostAddress::LocalHost, 8694), "Failed to create local tcp server");
 }
 
 void DownloadJobTest::failToConnectShouldDestroyTheJob()
 {
     // no initServer
-    test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
+    m_test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
 
-    QSignalSpy spy(test.data(), &KJob::finished);
-    test->start();
+    QSignalSpy spy(m_test.data(), &KJob::finished);
+    m_test->start();
 
     QVERIFY(spy.count() || spy.wait());
 
-    QCOMPARE(test->error(), 1);
+    QCOMPARE(m_test->error(), 1);
 }
 
 void DownloadJobTest::closingTheConnectionShouldDestroyTheJob()
 {
     initServer();
-    test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
-    QSignalSpy spy(test.data(), &KJob::finished);
-    test->start();
-    mServer->close();
+    m_test = new DownloadJob(QHostAddress::LocalHost, {{"port", 8694}});
+    QSignalSpy spy(m_test.data(), &KJob::finished);
+    m_test->start();
+    m_server->close();
 
     QVERIFY(spy.count() || spy.wait(2000));
 }

@@ -29,7 +29,7 @@
 
 SendSmsDialog::SendSmsDialog(const QString& originalMessage, const QString& phoneNumber, const QString& contactName, QWidget* parent)
     : QDialog(parent)
-    , mPhoneNumber(phoneNumber)
+    , m_phoneNumber(phoneNumber)
 {
     QVBoxLayout* layout = new QVBoxLayout;
 
@@ -38,8 +38,8 @@ SendSmsDialog::SendSmsDialog(const QString& originalMessage, const QString& phon
     textView->setText(contactName + ": \n" + originalMessage);
     layout->addWidget(textView);
 
-    mTextEdit = new QTextEdit(this);
-    layout->addWidget(mTextEdit);
+    m_textEdit = new QTextEdit(this);
+    layout->addWidget(m_textEdit);
 
     QPushButton* sendButton = new QPushButton(i18n("Send"), this);
     connect(sendButton, &QAbstractButton::clicked, this, &SendSmsDialog::sendButtonClicked);
@@ -54,7 +54,7 @@ SendSmsDialog::SendSmsDialog(const QString& originalMessage, const QString& phon
 
 void SendSmsDialog::sendButtonClicked()
 {
-    Q_EMIT sendSms(mPhoneNumber, mTextEdit->toPlainText());
+    Q_EMIT sendSms(m_phoneNumber, m_textEdit->toPlainText());
     close();
 }
 

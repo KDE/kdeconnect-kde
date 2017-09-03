@@ -23,33 +23,33 @@
 
 DeviceLineReader::DeviceLineReader(QIODevice* device, QObject* parent)
     : QObject(parent)
-    , mDevice(device)
+    , m_device(device)
 {
-    connect(mDevice, SIGNAL(readyRead()),
+    connect(m_device, SIGNAL(readyRead()),
             this, SLOT(dataReceived()));
-    connect(mDevice, SIGNAL(disconnected()),
+    connect(m_device, SIGNAL(disconnected()),
             this, SIGNAL(disconnected()));
 }
 
 void DeviceLineReader::dataReceived()
 {
-    while(mDevice->canReadLine()) {
-        const QByteArray line = mDevice->readLine();
+    while(m_device->canReadLine()) {
+        const QByteArray line = m_device->readLine();
         if (line.length() > 1) {
-            mPackages.enqueue(line);//we don't want single \n
+            m_packages.enqueue(line);//we don't want single \n
         }
     }
 
     //If we still have things to read from the device, call dataReceived again
     //We do this manually because we do not trust readyRead to be emitted again
     //So we call this method again just in case.
-    if (mDevice->bytesAvailable() > 0) {
+    if (m_device->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
         return;
     }
 
     //If we have any packages, tell it to the world.
-    if (!mPackages.isEmpty()) {
+    if (!m_packages.isEmpty()) {
         Q_EMIT readyRead();
     }
 }

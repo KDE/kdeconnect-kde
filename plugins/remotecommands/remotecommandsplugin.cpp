@@ -68,7 +68,7 @@ QString RemoteCommandsPlugin::dbusPath() const
     return "/modules/kdeconnect/devices/" + device()->id() + "/remotecommands";
 }
 
-void RemoteCommandsPlugin::setCommands(const QByteArray &cmds)
+void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
 {
     if (m_commands != cmds) {
         m_commands = cmds;
@@ -76,7 +76,7 @@ void RemoteCommandsPlugin::setCommands(const QByteArray &cmds)
     }
 }
 
-void RemoteCommandsPlugin::triggerCommand(const QString &key)
+void RemoteCommandsPlugin::triggerCommand(const QString& key)
 {
     NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST, {{ "key", key }});
     sendPackage(np);

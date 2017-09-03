@@ -33,7 +33,7 @@ class SendReplyDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SendReplyDialog(const QString& originalMessage, const QString& replyId, const QString& topicName, QWidget *parent = nullptr);
+    explicit SendReplyDialog(const QString& originalMessage, const QString& replyId, const QString& topicName, QWidget* parent = nullptr);
     QSize sizeHint() const override;
 
 private Q_SLOTS:
@@ -43,8 +43,8 @@ Q_SIGNALS:
     void sendReply(const QString& replyId, const QString& messageBody);
 
 private:
-    QString mReplyId;
-    QTextEdit *mTextEdit;
+    QString m_replyId;
+    QTextEdit* m_textEdit;
 };
 
 #endif

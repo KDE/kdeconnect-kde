@@ -72,8 +72,8 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
     }
 
     if (actions.count() > 1) {
-        QAction *menuAction = new QAction(QIcon::fromTheme(QStringLiteral("preferences-system-network")), i18n("Send via KDE Connect"), parentWidget);
-        QMenu *menu = new QMenu(parentWidget);
+        QAction* menuAction = new QAction(QIcon::fromTheme(QStringLiteral("preferences-system-network")), i18n("Send via KDE Connect"), parentWidget);
+        QMenu* menu = new QMenu(parentWidget);
         menu->addActions(actions);
         menuAction->setMenu(menu);
         return QList<QAction*>() << menuAction;

@@ -35,13 +35,13 @@
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
-RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList& args)
+RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand_config"))
 {
-    QTableView *table = new QTableView(this);
+    QTableView* table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
     table->verticalHeader()->setVisible(false);
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(table);
     setLayout(layout);
 
@@ -76,10 +76,10 @@ void RunCommandConfig::load()
         const QString name = entry[QStringLiteral("name")].toString();
         const QString command = entry[QStringLiteral("command")].toString();
 
-        QStandardItem *newName = new QStandardItem(name);
+        QStandardItem* newName = new QStandardItem(name);
         newName->setEditable(true);
         newName->setData(key);
-        QStandardItem *newCommand = new QStandardItem(command);
+        QStandardItem* newCommand = new QStandardItem(command);
         newName->setEditable(true);
 
         m_entriesModel->appendRow(QList<QStandardItem*>() << newName << newCommand);
@@ -124,9 +124,9 @@ void RunCommandConfig::save()
 
 void RunCommandConfig::insertEmptyRow()
 {
-    QStandardItem *newName = new QStandardItem;
+    QStandardItem* newName = new QStandardItem;
     newName->setEditable(true);
-    QStandardItem *newCommand = new QStandardItem;
+    QStandardItem* newCommand = new QStandardItem;
     newName->setEditable(true);
 
     m_entriesModel->appendRow(QList<QStandardItem*>() << newName << newCommand);

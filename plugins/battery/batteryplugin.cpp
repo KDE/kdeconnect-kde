@@ -31,7 +31,7 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_battery.json", 
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BATTERY, "kdeconnect.plugin.battery")
 
-BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
+BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , batteryDbusInterface(new BatteryDbusInterface(device()))
 {

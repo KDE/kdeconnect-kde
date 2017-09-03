@@ -40,7 +40,7 @@ class TelephonyPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.telephony")
 
 public:
-    explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
+    explicit TelephonyPlugin(QObject* parent, const QVariantList& args);
 
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override {}

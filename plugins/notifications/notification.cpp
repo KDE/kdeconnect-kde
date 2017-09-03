@@ -33,9 +33,9 @@
 Notification::Notification(const NetworkPackage& np, QObject* parent)
     : QObject(parent)
 {
-    mImagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect"));
-    mImagesDir.mkpath(mImagesDir.absolutePath());
-    mClosed = false;
+    m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect"));
+    m_imagesDir.mkpath(m_imagesDir.absolutePath());
+    m_closed = false;
 
     parseNetworkPackage(np);
     createKNotification(false, np);
@@ -48,86 +48,85 @@ Notification::~Notification()
 
 void Notification::dismiss()
 {
-    if (mDismissable) {
-        Q_EMIT dismissRequested(mInternalId);
+    if (m_dismissable) {
+        Q_EMIT dismissRequested(m_internalId);
     }
 }
 
 void Notification::show()
 {
-    Q_EMIT ready();
-    if (!mSilent) {
-        mClosed = false;
-        mNotification->sendEvent();
+    if (!m_silent) {
+        m_closed = false;
+        m_notification->sendEvent();
     }
 }
 
 void Notification::applyIconAndShow()
 {
-    if (!mSilent) {
-        QPixmap icon(mIconPath, "PNG");
-        mNotification->setPixmap(icon);
+    if (!m_silent) {
+        QPixmap icon(m_iconPath, "PNG");
+        m_notification->setPixmap(icon);
         show();
     }
 }
 
-void Notification::update(const NetworkPackage &np)
+void Notification::update(const NetworkPackage& np)
 {
     parseNetworkPackage(np);
-    createKNotification(!mClosed, np);
+    createKNotification(!m_closed, np);
 }
 
-KNotification* Notification::createKNotification(bool update, const NetworkPackage &np)
+KNotification* Notification::createKNotification(bool update, const NetworkPackage& np)
 {
     if (!update) {
-        mNotification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
-        mNotification->setComponentName(QStringLiteral("kdeconnect"));
+        m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
+        m_notification->setComponentName(QStringLiteral("kdeconnect"));
     }
 
-    QString escapedTitle = mTitle.toHtmlEscaped();
-    QString escapedText = mText.toHtmlEscaped();
-    QString escapedTicker = mTicker.toHtmlEscaped();
+    QString escapedTitle = m_title.toHtmlEscaped();
+    QString escapedText = m_text.toHtmlEscaped();
+    QString escapedTicker = m_ticker.toHtmlEscaped();
 
-    mNotification->setTitle(mAppName.toHtmlEscaped());
+    m_notification->setTitle(m_appName.toHtmlEscaped());
 
-    if (mTitle.isEmpty() && mText.isEmpty()) {
-       mNotification->setText(escapedTicker);
-    } else if (mAppName==mTitle) {
-        mNotification->setText(escapedText);
-    } else if (mTitle.isEmpty()){
-         mNotification->setText(escapedText);
-    } else if (mText.isEmpty()){
-         mNotification->setText(escapedTitle);
+    if (m_title.isEmpty() && m_text.isEmpty()) {
+       m_notification->setText(escapedTicker);
+    } else if (m_appName==m_title) {
+        m_notification->setText(escapedText);
+    } else if (m_title.isEmpty()){
+         m_notification->setText(escapedText);
+    } else if (m_text.isEmpty()){
+         m_notification->setText(escapedTitle);
     } else {
-        mNotification->setText(escapedTitle+": "+escapedText);
+        m_notification->setText(escapedTitle+": "+escapedText);
     }
 
-    if (!mHasIcon) {
+    if (!m_hasIcon) {
         //HACK The only way to display no icon at all is trying to load a non-existant icon
-        mNotification->setIconName(QString("not_a_real_icon"));
+        m_notification->setIconName(QString("not_a_real_icon"));
         show();
     } else {
-        QString filename = mPayloadHash;
+        QString filename = m_payloadHash;
 
         if (filename.isEmpty()) {
-            mHasIcon = false;
+            m_hasIcon = false;
         } else {
-            mIconPath = mImagesDir.absoluteFilePath(filename);
-            QUrl destinationUrl(mIconPath);
+            m_iconPath = m_imagesDir.absoluteFilePath(filename);
+            QUrl destinationUrl(m_iconPath);
             FileTransferJob* job = np.createPayloadTransferJob(destinationUrl);
             job->start();
             connect(job, &FileTransferJob::result, this, &Notification::applyIconAndShow);
         }
     }
 
-    if(!mRequestReplyId.isEmpty()) {
-        mNotification->setActions( QStringList(i18n("Reply")) );
-        connect(mNotification, &KNotification::action1Activated, this, &Notification::reply);
+    if(!m_requestReplyId.isEmpty()) {
+        m_notification->setActions( QStringList(i18n("Reply")) );
+        connect(m_notification, &KNotification::action1Activated, this, &Notification::reply);
     }
 
-    connect(mNotification, &KNotification::closed, this, &Notification::closed);
+    connect(m_notification, &KNotification::closed, this, &Notification::closed);
 
-    return mNotification;
+    return m_notification;
 }
 
 void Notification::reply()
@@ -137,19 +136,19 @@ void Notification::reply()
 
 void Notification::closed()
 {
-    mClosed = true;
+    m_closed = true;
 }
 
-void Notification::parseNetworkPackage(const NetworkPackage &np)
+void Notification::parseNetworkPackage(const NetworkPackage& np)
 {
-    mInternalId = np.get<QString>(QStringLiteral("id"));
-    mAppName = np.get<QString>(QStringLiteral("appName"));
-    mTicker = np.get<QString>(QStringLiteral("ticker"));
-    mTitle = np.get<QString>(QStringLiteral("title"));
-    mText = np.get<QString>(QStringLiteral("text"));
-    mDismissable = np.get<bool>(QStringLiteral("isClearable"));
-    mHasIcon = np.hasPayload();
-    mSilent = np.get<bool>(QStringLiteral("silent"));
-    mPayloadHash = np.get<QString>(QStringLiteral("payloadHash"));
-    mRequestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
+    m_internalId = np.get<QString>(QStringLiteral("id"));
+    m_appName = np.get<QString>(QStringLiteral("appName"));
+    m_ticker = np.get<QString>(QStringLiteral("ticker"));
+    m_title = np.get<QString>(QStringLiteral("title"));
+    m_text = np.get<QString>(QStringLiteral("text"));
+    m_dismissable = np.get<bool>(QStringLiteral("isClearable"));
+    m_hasIcon = np.hasPayload();
+    m_silent = np.get<bool>(QStringLiteral("silent"));
+    m_payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
+    m_requestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
 }

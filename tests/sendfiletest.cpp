@@ -45,14 +45,14 @@ class TestSendFile : public QObject
     public:
         TestSendFile() {
             QStandardPaths::setTestModeEnabled(true);
-            mDaemon = new TestDaemon;
+            m_daemon = new TestDaemon;
         }
 
     private Q_SLOTS:
         void testSend() {
-            mDaemon->acquireDiscoveryMode(QStringLiteral("test"));
+            m_daemon->acquireDiscoveryMode(QStringLiteral("test"));
             Device* d = nullptr;
-            const QList<Device*> devicesList = mDaemon->devicesList();
+            const QList<Device*> devicesList = m_daemon->devicesList();
             for (Device* id : devicesList) {
                 if (id->isReachable()) {
                     if (!id->isTrusted())
@@ -60,7 +60,7 @@ class TestSendFile : public QObject
                     d = id;
                 }
             }
-            mDaemon->releaseDiscoveryMode(QStringLiteral("test"));
+            m_daemon->releaseDiscoveryMode(QStringLiteral("test"));
             QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
             QCOMPARE(d->isTrusted(), true);
@@ -141,7 +141,7 @@ class TestSendFile : public QObject
         }
 
     private:
-        TestDaemon* mDaemon;
+        TestDaemon* m_daemon;
 };
 
 QTEST_MAIN(TestSendFile);

@@ -42,16 +42,16 @@ static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("ip") <<
 
 struct SftpPlugin::Pimpl
 {
-    Pimpl() : mounter(nullptr) {}
+    Pimpl() : m_mounter(nullptr) {}
   
     //Add KIO entry to Dolphin's Places
-    KFilePlacesModel  placesModel;
-    Mounter* mounter;
+    KFilePlacesModel  m_placesModel;
+    Mounter* m_mounter;
 };
 
-SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
+SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
-    , m_d(new Pimpl())
+    , d(new Pimpl())
 { 
     deviceId = device()->id();
     addToDolphin();
@@ -69,51 +69,51 @@ void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
     QUrl kioUrl("kdeconnect://"+deviceId+"/");
-    m_d->placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
+    d->m_placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
     QUrl kioUrl("kdeconnect://"+deviceId+"/");
-    QModelIndex index = m_d->placesModel.closestItem(kioUrl);
+    QModelIndex index = d->m_placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
-        m_d->placesModel.removePlace(index);
-        index = m_d->placesModel.closestItem(kioUrl);
+        d->m_placesModel.removePlace(index);
+        index = d->m_placesModel.closestItem(kioUrl);
     }
 }
 
 void SftpPlugin::mount()
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Mount device:" << device()->name();
-    if (m_d->mounter) {
+    if (d->m_mounter) {
         return;
     }
 
-    m_d->mounter = new Mounter(this);
-    connect(m_d->mounter, &Mounter::mounted, this, &SftpPlugin::onMounted);
-    connect(m_d->mounter, &Mounter::unmounted, this, &SftpPlugin::onUnmounted);
-    connect(m_d->mounter, &Mounter::failed, this, &SftpPlugin::onFailed);
+    d->m_mounter = new Mounter(this);
+    connect(d->m_mounter, &Mounter::mounted, this, &SftpPlugin::onMounted);
+    connect(d->m_mounter, &Mounter::unmounted, this, &SftpPlugin::onUnmounted);
+    connect(d->m_mounter, &Mounter::failed, this, &SftpPlugin::onFailed);
 }
 
 void SftpPlugin::unmount()
 {
-    if (m_d->mounter)
+    if (d->m_mounter)
     {
-        m_d->mounter->deleteLater();
-        m_d->mounter = nullptr;
+        d->m_mounter->deleteLater();
+        d->m_mounter = nullptr;
     }
 }
 
 bool SftpPlugin::mountAndWait()
 {
     mount();
-    return m_d->mounter->wait();
+    return d->m_mounter->wait();
 }
 
 bool SftpPlugin::isMounted() const
 {
-    return m_d->mounter && m_d->mounter->isMounted();
+    return d->m_mounter && d->m_mounter->isMounted();
 }
 
 bool SftpPlugin::startBrowsing()

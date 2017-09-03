@@ -28,7 +28,7 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_clipboard.json"
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD, "kdeconnect.plugin.clipboard")
 
-ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
+ClipboardPlugin::ClipboardPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
     connect(ClipboardListener::instance(), &ClipboardListener::clipboardChanged,

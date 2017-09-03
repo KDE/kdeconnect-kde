@@ -41,11 +41,11 @@ public:
     QVariantMap transferInfo();
 
 private:
-    const QSharedPointer<QIODevice> mInput;
-    Server * const mServer;
-    QSslSocket* mSocket;
-    quint16 mPort;
-    const QString mDeviceId;
+    const QSharedPointer<QIODevice> m_input;
+    Server * const m_server;
+    QSslSocket* m_socket;
+    quint16 m_port;
+    const QString m_deviceId;
 
     const static quint16 MIN_PORT = 1739;
     const static quint16 MAX_PORT = 1764;
@@ -57,7 +57,7 @@ private Q_SLOTS:
     void cleanup();
 
     void socketFailed(QAbstractSocket::SocketError);
-    void sslErrors(const QList<QSslError> &errors);
+    void sslErrors(const QList<QSslError>& errors);
 };
 
 #endif // UPLOADJOB_H

@@ -42,7 +42,7 @@ class Q_DECL_EXPORT MprisRemotePlugin
     Q_PROPERTY(QString nowPlaying READ nowPlaying NOTIFY propertiesChanged)
 
 public:
-    explicit MprisRemotePlugin(QObject *parent, const QVariantList &args);
+    explicit MprisRemotePlugin(QObject* parent, const QVariantList &args);
     ~MprisRemotePlugin() override;
 
     long position() const;

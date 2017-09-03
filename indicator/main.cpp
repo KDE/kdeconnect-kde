@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
-    QMenu *menu = new QMenu;
+    QMenu* menu = new QMenu;
 
     DaemonDbusInterface iface;
     auto refreshMenu = [&iface, &model, &menu]() {
@@ -85,8 +85,8 @@ int main(int argc, char** argv)
         if (!requests.isEmpty()) {
             menu->addSection(i18n("Pairing requests"));
 
-            for(const auto &req: requests) {
-                DeviceDbusInterface *dev = new DeviceDbusInterface(req, menu);
+            for(const auto& req: requests) {
+                DeviceDbusInterface* dev = new DeviceDbusInterface(req, menu);
                 auto pairMenu = menu->addMenu(dev->name());
                 pairMenu->addAction(i18n("Pair"), dev, &DeviceDbusInterface::acceptPairing);
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::rejectPairing);

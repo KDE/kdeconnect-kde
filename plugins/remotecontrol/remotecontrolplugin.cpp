@@ -34,7 +34,7 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_remotecontrol.j
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTECONTROL, "kdeconnect.plugin.remotecontrol")
 
-RemoteControlPlugin::RemoteControlPlugin(QObject *parent, const QVariantList &args)
+RemoteControlPlugin::RemoteControlPlugin(QObject* parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }

@@ -39,9 +39,9 @@ class DeviceLineReader
 public:
     DeviceLineReader(QIODevice* device, QObject* parent = 0);
 
-    QByteArray readLine() { return mPackages.dequeue(); }
-    qint64 write(const QByteArray& data) { return mDevice->write(data); }
-    qint64 bytesAvailable() const { return mPackages.size(); }
+    QByteArray readLine() { return m_packages.dequeue(); }
+    qint64 write(const QByteArray& data) { return m_device->write(data); }
+    qint64 bytesAvailable() const { return m_packages.size(); }
 
 Q_SIGNALS:
     void readyRead();
@@ -51,9 +51,9 @@ private Q_SLOTS:
     void dataReceived();
 
 private:
-    QByteArray lastChunk;
-    QIODevice* mDevice;
-    QQueue<QByteArray> mPackages;
+    QByteArray m_lastChunk;
+    QIODevice* m_device;
+    QQueue<QByteArray> m_packages;
 
 };
 

@@ -42,7 +42,7 @@ public:
 
     QStringList incomingCapabilities() const;
     QStringList outgoingCapabilities() const;
-    QSet<QString> pluginsForCapabilities(const QSet<QString> &incoming, const QSet<QString> &outgoing);
+    QSet<QString> pluginsForCapabilities(const QSet<QString>& incoming, const QSet<QString>& outgoing);
 
 private:
     PluginLoader();

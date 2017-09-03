@@ -34,7 +34,7 @@ class BluetoothUploadJob
 {
     Q_OBJECT
 public:
-    explicit BluetoothUploadJob(const QSharedPointer<QIODevice> &data, const QBluetoothAddress &remoteAddress, QObject* parent = 0);
+    explicit BluetoothUploadJob(const QSharedPointer<QIODevice>& data, const QBluetoothAddress& remoteAddress, QObject* parent = 0);
 
     QVariantMap transferInfo() const;
     void start();

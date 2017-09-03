@@ -25,9 +25,9 @@
 
 struct KdeConnectPluginKcmPrivate
 {
-    QString mDeviceId;
-    QString mPluginName;
-    KdeConnectPluginConfig* mConfig;
+    QString m_deviceId;
+    QString m_pluginName;
+    KdeConnectPluginConfig* m_config;
 };
 
 KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget* parent, const QVariantList& args, const QString& componentName)
@@ -35,26 +35,26 @@ KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget* parent, const QVariantList& ar
     , d(new KdeConnectPluginKcmPrivate())
 {
 
-    d->mDeviceId = args.at(0).toString();
+    d->m_deviceId = args.at(0).toString();
     //The parent of the config should be the plugin itself
-    d->mPluginName = KService::serviceByDesktopName(componentName).constData()->property(QStringLiteral("X-KDE-ParentComponents")).toString();
+    d->m_pluginName = KService::serviceByDesktopName(componentName).constData()->property(QStringLiteral("X-KDE-ParentComponents")).toString();
 
-    d->mConfig = new KdeConnectPluginConfig(d->mDeviceId, d->mPluginName);
+    d->m_config = new KdeConnectPluginConfig(d->m_deviceId, d->m_pluginName);
 }
 
 KdeConnectPluginKcm::~KdeConnectPluginKcm()
 {
-    delete d->mConfig;
+    delete d->m_config;
 }
 
 KdeConnectPluginConfig* KdeConnectPluginKcm::config() const
 {
-    return d->mConfig;
+    return d->m_config;
 }
 
 QString KdeConnectPluginKcm::deviceId() const
 {
-    return d->mDeviceId;
+    return d->m_deviceId;
 }
 
 

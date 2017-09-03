@@ -45,8 +45,8 @@ public:
     bool autodelete() const {return m_autodelete;}
     
 Q_SIGNALS:
-    void success(const QVariant &result);
-    void error(const QString &message);
+    void success(const QVariant& result);
+    void error(const QString& message);
     
 private Q_SLOTS:
     void onCallFinished(QDBusPendingCallWatcher* watcher);

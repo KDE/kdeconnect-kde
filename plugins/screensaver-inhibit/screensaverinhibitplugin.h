@@ -31,7 +31,7 @@ class Q_DECL_EXPORT ScreensaverInhibitPlugin
     Q_OBJECT
 
 public:
-    explicit ScreensaverInhibitPlugin(QObject *parent, const QVariantList &args);
+    explicit ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args);
     ~ScreensaverInhibitPlugin() override;
 
     bool receivePackage(const NetworkPackage& np) override;

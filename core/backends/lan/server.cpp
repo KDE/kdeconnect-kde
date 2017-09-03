@@ -34,7 +34,7 @@ Server::Server(QObject * parent)
 }
 
 void Server::incomingConnection(qintptr socketDescriptor) {
-    QSslSocket *serverSocket = new QSslSocket(parent());
+    QSslSocket* serverSocket = new QSslSocket(parent());
     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
         pendingConnections.append(serverSocket);
         Q_EMIT newConnection();

@@ -45,7 +45,7 @@ private:
     bool m_remoteState;
 
 public:
-    explicit RemoteKeyboardPlugin(QObject *parent, const QVariantList &args);
+    explicit RemoteKeyboardPlugin(QObject* parent, const QVariantList& args);
     ~RemoteKeyboardPlugin() override;
 
     bool receivePackage(const NetworkPackage& np) override;

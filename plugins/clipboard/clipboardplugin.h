@@ -35,7 +35,7 @@ class ClipboardPlugin
     Q_OBJECT
 
 public:
-    explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
+    explicit ClipboardPlugin(QObject* parent, const QVariantList& args);
 
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override { }

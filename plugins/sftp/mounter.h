@@ -34,7 +34,7 @@ class Mounter
     Q_OBJECT
 public:
 
-    explicit Mounter(SftpPlugin *sftp);
+    explicit Mounter(SftpPlugin* sftp);
     ~Mounter() override;
 
     bool wait();

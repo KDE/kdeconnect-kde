@@ -29,7 +29,7 @@ DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel* devicesModel)
     setSourceModel(devicesModel);
 }
 
-void DevicesSortProxyModel::setSourceModel(QAbstractItemModel *devicesModel)
+void DevicesSortProxyModel::setSourceModel(QAbstractItemModel* devicesModel)
 {
     QSortFilterProxyModel::setSourceModel(devicesModel);
     if (devicesModel) {

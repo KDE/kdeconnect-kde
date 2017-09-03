@@ -44,8 +44,8 @@ public:
 
     virtual QString name() = 0;
 
-    const QString& deviceId() const { return mDeviceId; }
-    LinkProvider* provider() { return mLinkProvider; }
+    const QString& deviceId() const { return m_deviceId; }
+    LinkProvider* provider() { return m_linkProvider; }
 
     virtual bool sendPackage(NetworkPackage& np) = 0;
 
@@ -53,7 +53,7 @@ public:
     virtual void userRequestsPair() = 0;
     virtual void userRequestsUnpair() = 0;
 
-    PairStatus pairStatus() const { return mPairStatus; }
+    PairStatus pairStatus() const { return m_pairStatus; }
     virtual void setPairStatus(PairStatus status);
 
     //The daemon will periodically destroy unpaired links if this returns false
@@ -63,16 +63,16 @@ Q_SIGNALS:
     void pairingRequest(PairingHandler* handler);
     void pairingRequestExpired(PairingHandler* handler);
     void pairStatusChanged(DeviceLink::PairStatus status);
-    void pairingError(const QString &error);
+    void pairingError(const QString& error);
     void receivedPackage(const NetworkPackage& np);
 
 protected:
-    QCA::PrivateKey mPrivateKey;
+    QCA::PrivateKey m_privateKey;
 
 private:
-    const QString mDeviceId;
-    LinkProvider* mLinkProvider;
-    PairStatus mPairStatus;
+    const QString m_deviceId;
+    LinkProvider* m_linkProvider;
+    PairStatus m_pairStatus;
 
 };
 

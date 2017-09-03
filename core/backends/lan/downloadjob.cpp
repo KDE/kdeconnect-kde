@@ -31,16 +31,16 @@
 #include "lanlinkprovider.h"
 #include "core/core_debug.h"
 
-DownloadJob::DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo)
+DownloadJob::DownloadJob(const QHostAddress& address, const QVariantMap& transferInfo)
     : KJob()
-    , mAddress(address)
-    , mPort(transferInfo[QStringLiteral("port")].toInt())
-    , mSocket(new QSslSocket)
-    , mBuffer(new QBuffer)
+    , m_address(address)
+    , m_port(transferInfo[QStringLiteral("port")].toInt())
+    , m_socket(new QSslSocket)
+    , m_buffer(new QBuffer)
 {
-    LanLinkProvider::configureSslSocket(mSocket.data(), transferInfo.value(QStringLiteral("deviceId")).toString(), true);
+    LanLinkProvider::configureSslSocket(m_socket.data(), transferInfo.value(QStringLiteral("deviceId")).toString(), true);
 
-    connect(mSocket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
+    connect(m_socket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
 //     connect(mSocket.data(), &QAbstractSocket::stateChanged, [](QAbstractSocket::SocketState state){ qDebug() << "statechange" << state; });
 }
 
@@ -53,27 +53,27 @@ void DownloadJob::start()
 {
     //TODO: Timeout?
     // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
-    mSocket->connectToHostEncrypted(mAddress.toString(), mPort, QIODevice::ReadWrite);
+    m_socket->connectToHostEncrypted(m_address.toString(), m_port, QIODevice::ReadWrite);
 
-    bool b = mBuffer->open(QBuffer::ReadWrite);
+    bool b = m_buffer->open(QBuffer::ReadWrite);
     Q_ASSERT(b);
 }
 
 void DownloadJob::socketFailed(QAbstractSocket::SocketError error)
 {
     if (error != QAbstractSocket::RemoteHostClosedError) { //remote host closes when finishes
-        qWarning(KDECONNECT_CORE) << "error..." << mSocket->errorString();
+        qWarning(KDECONNECT_CORE) << "error..." << m_socket->errorString();
         setError(error + 1);
-        setErrorText(mSocket->errorString());
+        setErrorText(m_socket->errorString());
     } else {
-        auto ba = mSocket->readAll();
-        mBuffer->write(ba);
-        mBuffer->seek(0);
+        auto ba = m_socket->readAll();
+        m_buffer->write(ba);
+        m_buffer->seek(0);
     }
     emitResult();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
-    return mBuffer.staticCast<QIODevice>();
+    return m_buffer.staticCast<QIODevice>();
 }

@@ -33,7 +33,7 @@ class PauseMusicPlugin
     Q_OBJECT
 
 public:
-    explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
+    explicit PauseMusicPlugin(QObject* parent, const QVariantList& args);
 
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override { }

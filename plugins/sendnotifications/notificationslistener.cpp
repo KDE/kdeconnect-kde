@@ -41,7 +41,7 @@
 
 NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     : QDBusAbstractAdaptor(aPlugin),
-      mPlugin(aPlugin)
+      m_plugin(aPlugin)
 {
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
@@ -52,12 +52,12 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     if (!ret)
         qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION)
                 << "Error registering notifications listener for device"
-                << mPlugin->device()->name() << ":"
+                << m_plugin->device()->name() << ":"
                 << QDBusConnection::sessionBus().lastError();
     else
         qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION)
                 << "Registered notifications listener for device"
-                << mPlugin->device()->name();
+                << m_plugin->device()->name();
 
     QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
                          QStringLiteral("org.freedesktop.DBus"));
@@ -67,7 +67,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     setTranslatedAppName();
     loadApplications();
 
-    connect(mPlugin->config(), &KdeConnectPluginConfig::configChanged, this, &NotificationsListener::loadApplications);
+    connect(m_plugin->config(), &KdeConnectPluginConfig::configChanged, this, &NotificationsListener::loadApplications);
 }
 
 NotificationsListener::~NotificationsListener()
@@ -85,23 +85,23 @@ void NotificationsListener::setTranslatedAppName()
     QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
     if (filePath.isEmpty()) {
         qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
-        mTranslatedAppName = QStringLiteral("KDE Connect");
+        m_translatedAppName = QStringLiteral("KDE Connect");
         return;
     }
 
     KConfig config(filePath, KConfig::OpenFlag::SimpleConfig);
     KConfigGroup globalgroup(&config, QStringLiteral("Global"));
-    mTranslatedAppName = globalgroup.readEntry(QStringLiteral("Name"), QStringLiteral("KDE Connect"));
+    m_translatedAppName = globalgroup.readEntry(QStringLiteral("Name"), QStringLiteral("KDE Connect"));
 }
 
 void NotificationsListener::loadApplications()
 {
-    applications.clear();
-    const QVariantList list = mPlugin->config()->getList(QStringLiteral("applications"));
+    m_applications.clear();
+    const QVariantList list = m_plugin->config()->getList(QStringLiteral("applications"));
     for (const auto& a : list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
-        if (!applications.contains(app.name))
-            applications.insert(app.name, app);
+        if (!m_applications.contains(app.name))
+            m_applications.insert(app.name, app);
     }
     //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
 }
@@ -158,7 +158,7 @@ QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant
     return buffer;
 }
 
-QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &iconName) const
+QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString& iconName) const
 {
     int size = KIconLoader::SizeEnormous;  // use big size to allow for good
                                            // quality on high-DPI mobile devices
@@ -179,11 +179,11 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &
         return QSharedPointer<QIODevice>(new QFile(iconPath));
     return QSharedPointer<QIODevice>();
 }
-uint NotificationsListener::Notify(const QString &appName, uint replacesId,
-                                   const QString &appIcon,
-                                   const QString &summary, const QString &body,
-                                   const QStringList &actions,
-                                   const QVariantMap &hints, int timeout)
+uint NotificationsListener::Notify(const QString& appName, uint replacesId,
+                                   const QString& appIcon,
+                                   const QString& summary, const QString& body,
+                                   const QStringList& actions,
+                                   const QVariantMap& hints, int timeout)
 {
     static int id = 0;
     Q_UNUSED(actions);
@@ -191,30 +191,30 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
     //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
 
     // skip our own notifications
-    if (appName == mTranslatedAppName)
+    if (appName == m_translatedAppName)
         return 0;
 
     NotifyingApplication app;
-    if (!applications.contains(appName)) {
+    if (!m_applications.contains(appName)) {
         // new application -> add to config
         app.name = appName;
         app.icon = appIcon;
         app.active = true;
         app.blacklistExpression = QRegularExpression();
-        applications.insert(app.name, app);
+        m_applications.insert(app.name, app);
         // update config:
         QVariantList list;
-        for (const auto& a : qAsConst(applications))
+        for (const auto& a : qAsConst(m_applications))
             list << QVariant::fromValue<NotifyingApplication>(a);
-        mPlugin->config()->setList(QStringLiteral("applications"), list);
+        m_plugin->config()->setList(QStringLiteral("applications"), list);
         //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
     } else
-        app = applications.value(appName);
+        app = m_applications.value(appName);
 
     if (!app.active)
         return 0;
 
-    if (timeout > 0 && mPlugin->config()->get(QStringLiteral("generalPersistent"), false))
+    if (timeout > 0 && m_plugin->config()->get(QStringLiteral("generalPersistent"), false))
         return 0;
 
     int urgency = -1;
@@ -224,11 +224,11 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
         if (!ok)
             urgency = -1;
     }
-    if (urgency > -1 && urgency < mPlugin->config()->get<int>(QStringLiteral("generalUrgency"), 0))
+    if (urgency > -1 && urgency < m_plugin->config()->get<int>(QStringLiteral("generalUrgency"), 0))
         return 0;
 
     QString ticker = summary;
-    if (!body.isEmpty() && mPlugin->config()->get(QStringLiteral("generalIncludeBody"), true))
+    if (!body.isEmpty() && m_plugin->config()->get(QStringLiteral("generalIncludeBody"), true))
         ticker += QStringLiteral(": ") + body;
 
     if (app.blacklistExpression.isValid() &&
@@ -247,7 +247,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
                                           // clearability is pointless
 
     // sync any icon data?
-    if (mPlugin->config()->get(QStringLiteral("generalSynchronizeIcons"), true)) {
+    if (m_plugin->config()->get(QStringLiteral("generalSynchronizeIcons"), true)) {
         QSharedPointer<QIODevice> iconSource;
         // try different image sources according to priorities in notifications-
         // spec version 1.2:
@@ -268,7 +268,7 @@ uint NotificationsListener::Notify(const QString &appName, uint replacesId,
             np.setPayload(iconSource, iconSource->size());
     }
 
-    mPlugin->sendPackage(np);
+    m_plugin->sendPackage(np);
 
     return (replacesId > 0 ? replacesId : id);
 }

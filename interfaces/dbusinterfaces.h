@@ -51,7 +51,7 @@ public:
     static QString activatedService();
 
 Q_SIGNALS:
-    void deviceAdded(const QString &id);
+    void deviceAdded(const QString& id);
     void pairingRequestsChangedProxy();
 };
 
@@ -71,10 +71,10 @@ public:
     ~DeviceDbusInterface() override;
 
     Q_SCRIPTABLE QString id() const;
-    Q_SCRIPTABLE void pluginCall(const QString &plugin, const QString &method);
+    Q_SCRIPTABLE void pluginCall(const QString& plugin, const QString& method);
 
 Q_SIGNALS:
-    void nameChangedProxy(const QString &name);
+    void nameChangedProxy(const QString& name);
     void trustedChangedProxy(bool paired);
     void reachableChangedProxy(bool reachable);
     void hasPairingRequestsChangedProxy(bool);
@@ -197,9 +197,9 @@ Q_SIGNALS:
 };
 
 template <typename T, typename W>
-static void setWhenAvailable(const QDBusPendingReply<T> &pending, W func, QObject* parent)
+static void setWhenAvailable(const QDBusPendingReply<T>& pending, W func, QObject* parent)
 {
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pending, parent);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(pending, parent);
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished,
                     parent, [func](QDBusPendingCallWatcher* watcher) {
                         watcher->deleteLater();

@@ -48,19 +48,19 @@ public:
     Notification(const NetworkPackage& np, QObject* parent);
     ~Notification() override;
 
-    QString internalId() const { return mInternalId; }
-    QString appName() const { return mAppName; }
-    QString ticker() const { return mTicker; }
-    QString title() const { return mTitle; }
-    QString text() const { return mText; }
-    QString iconPath() const { return mIconPath; }
-    bool dismissable() const { return mDismissable; }
-    QString replyId() const { return mRequestReplyId; }
-    bool hasIcon() const { return mHasIcon; }
+    QString internalId() const { return m_internalId; }
+    QString appName() const { return m_appName; }
+    QString ticker() const { return m_ticker; }
+    QString title() const { return m_title; }
+    QString text() const { return m_text; }
+    QString iconPath() const { return m_iconPath; }
+    bool dismissable() const { return m_dismissable; }
+    QString replyId() const { return m_requestReplyId; }
+    bool hasIcon() const { return m_hasIcon; }
     void show();
-    bool silent() const { return mSilent; }
-    void update(const NetworkPackage &np);
-    KNotification* createKNotification(bool update, const NetworkPackage &np);
+    bool silent() const { return m_silent; }
+    void update(const NetworkPackage& np);
+    KNotification* createKNotification(bool update, const NetworkPackage& np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
@@ -69,25 +69,24 @@ public Q_SLOTS:
     void closed();
 
     Q_SIGNALS:
-    void dismissRequested(const QString& mInternalId);
+    void dismissRequested(const QString& m_internalId);
     void replyRequested();
-    void ready();
 
 private:
-    QString mInternalId;
-    QString mAppName;
-    QString mTicker;
-    QString mTitle;
-    QString mText;
-    QString mIconPath;
-    QString mRequestReplyId;
-    bool mDismissable;
-    bool mHasIcon;
-    KNotification* mNotification;
-    QDir mImagesDir;
-    bool mSilent;
-    bool mClosed;
-    QString mPayloadHash;
+    QString m_internalId;
+    QString m_appName;
+    QString m_ticker;
+    QString m_title;
+    QString m_text;
+    QString m_iconPath;
+    QString m_requestReplyId;
+    bool m_dismissable;
+    bool m_hasIcon;
+    KNotification* m_notification;
+    QDir m_imagesDir;
+    bool m_silent;
+    bool m_closed;
+    QString m_payloadHash;
 
     void parseNetworkPackage(const NetworkPackage& np);
 };

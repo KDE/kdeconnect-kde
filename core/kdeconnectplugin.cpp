@@ -24,56 +24,56 @@
 
 struct KdeConnectPluginPrivate
 {
-    Device* mDevice;
-    QString mPluginName;
-    QSet<QString> mOutgoingCapabilties;
-    KdeConnectPluginConfig* mConfig;
+    Device* m_device;
+    QString m_pluginName;
+    QSet<QString> m_outgoingCapabilties;
+    KdeConnectPluginConfig* m_config;
 };
 
 KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
     : QObject(parent)
     , d(new KdeConnectPluginPrivate)
 {
-    d->mDevice = qvariant_cast< Device* >(args.at(0));
-    d->mPluginName = args.at(1).toString();
-    d->mOutgoingCapabilties = args.at(2).toStringList().toSet();
-    d->mConfig = nullptr;
+    d->m_device = qvariant_cast< Device* >(args.at(0));
+    d->m_pluginName = args.at(1).toString();
+    d->m_outgoingCapabilties = args.at(2).toStringList().toSet();
+    d->m_config = nullptr;
 }
 
 KdeConnectPluginConfig* KdeConnectPlugin::config() const
 {
     //Create on demand, because not every plugin will use it
-    if (!d->mConfig) {
-        d->mConfig = new KdeConnectPluginConfig(d->mDevice->id(), d->mPluginName);
+    if (!d->m_config) {
+        d->m_config = new KdeConnectPluginConfig(d->m_device->id(), d->m_pluginName);
     }
-    return d->mConfig;
+    return d->m_config;
 }
 
 KdeConnectPlugin::~KdeConnectPlugin()
 {
-    if (d->mConfig) {
-        delete d->mConfig;
+    if (d->m_config) {
+        delete d->m_config;
     }
 }
 
 const Device* KdeConnectPlugin::device()
 {
-    return d->mDevice;
+    return d->m_device;
 }
 
 Device const* KdeConnectPlugin::device() const
 {
-    return d->mDevice;
+    return d->m_device;
 }
 
 bool KdeConnectPlugin::sendPackage(NetworkPackage& np) const
 {
-    if(!d->mOutgoingCapabilties.contains(np.type())) {
-        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->mOutgoingCapabilties;
+    if(!d->m_outgoingCapabilties.contains(np.type())) {
+        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->m_outgoingCapabilties;
         return false;
     }
 //     qCWarning(KDECONNECT_CORE) << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
-    return d->mDevice->sendPackage(np);
+    return d->m_device->sendPackage(np);
 }
 
 QString KdeConnectPlugin::dbusPath() const

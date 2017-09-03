@@ -60,7 +60,7 @@ public:
     Q_FLAGS(StatusFilterFlags)
     Q_ENUM(StatusFilterFlag)
 
-    explicit DevicesModel(QObject *parent = nullptr);
+    explicit DevicesModel(QObject* parent = nullptr);
     ~DevicesModel() override;
 
     void setDisplayFilter(int flags);
@@ -87,7 +87,7 @@ private:
     int rowForDevice(const QString& id) const;
     void clearDevices();
     void appendDevice(DeviceDbusInterface* dev);
-    bool passesFilter(DeviceDbusInterface *dev) const;
+    bool passesFilter(DeviceDbusInterface* dev) const;
 
     DaemonDbusInterface* m_dbusInterface;
     QVector<DeviceDbusInterface*> m_deviceList;

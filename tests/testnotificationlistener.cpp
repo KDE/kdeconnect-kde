@@ -42,7 +42,7 @@ class TestNotificationsPlugin : public SendNotificationsPlugin
 {
     Q_OBJECT
 public:
-    explicit TestNotificationsPlugin(QObject *parent, const QVariantList &args)
+    explicit TestNotificationsPlugin(QObject* parent, const QVariantList& args)
     : SendNotificationsPlugin(parent, args)
     {
     }
@@ -68,7 +68,7 @@ class TestDevice: public Device
     Q_OBJECT
 private:
     int sentPackages;
-    NetworkPackage *lastPackage;
+    NetworkPackage* lastPackage;
 
 public:
     explicit TestDevice(QObject* parent, const QString& id)
@@ -128,12 +128,12 @@ public:
 
     QHash<QString, NotifyingApplication>& getApplications()
     {
-        return applications;
+        return m_applications;
     }
 
     void setApplications(const QHash<QString, NotifyingApplication>& value)
     {
-        applications = value;
+        m_applications = value;
     }
 
 protected:
@@ -178,7 +178,7 @@ void TestNotificationListener::testNotify()
     //
 
     QString dId(QStringLiteral("testid"));
-    TestDevice *d = new TestDevice(nullptr, dId);
+    TestDevice* d = new TestDevice(nullptr, dId);
 
     int proxiedNotifications = 0;
     QCOMPARE(proxiedNotifications, d->getSentPackages());
@@ -416,7 +416,7 @@ void TestNotificationListener::testNotify()
 
     // image-data in hints
     // set up:
-    QBuffer *buffer;
+    QBuffer* buffer;
     QImage image;
     int width = 2, height = 2, rowStride = 4*width, bitsPerSample = 8,
             channels = 4;

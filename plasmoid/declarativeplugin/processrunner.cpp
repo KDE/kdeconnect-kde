@@ -21,7 +21,7 @@
 
 #include <QProcess>
 
-ProcessRunner::ProcessRunner(QObject *parent) : QObject(parent)
+ProcessRunner::ProcessRunner(QObject* parent) : QObject(parent)
 {
 }
 

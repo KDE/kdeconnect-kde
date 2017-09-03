@@ -34,7 +34,7 @@ class FindMyPhonePlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.findmyphone")
 
 public:
-    explicit FindMyPhonePlugin(QObject *parent, const QVariantList &args);
+    explicit FindMyPhonePlugin(QObject* parent, const QVariantList& args);
     ~FindMyPhonePlugin() override;
     
     Q_SCRIPTABLE void ring();

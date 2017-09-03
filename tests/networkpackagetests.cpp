@@ -74,7 +74,7 @@ void NetworkPackageTests::networkPackageIdentityTest()
     NetworkPackage np(QLatin1String(""));
     NetworkPackage::createIdentityPackage(&np);
 
-    QCOMPARE( np.get<int>("protocolVersion", -1) , NetworkPackage::ProtocolVersion );
+    QCOMPARE( np.get<int>("protocolVersion", -1) , NetworkPackage::s_protocolVersion );
     QCOMPARE( np.type() , PACKAGE_TYPE_IDENTITY );
 
 }

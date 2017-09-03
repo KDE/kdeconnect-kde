@@ -38,10 +38,10 @@ class Q_DECL_EXPORT RemoteCommandsPlugin
     Q_PROPERTY(QByteArray commands READ commands NOTIFY commandsChanged)
 
 public:
-    explicit RemoteCommandsPlugin(QObject *parent, const QVariantList &args);
+    explicit RemoteCommandsPlugin(QObject* parent, const QVariantList& args);
     ~RemoteCommandsPlugin() override;
 
-    Q_SCRIPTABLE void triggerCommand(const QString &key);
+    Q_SCRIPTABLE void triggerCommand(const QString& key);
     QByteArray commands() const { return m_commands; }
 
     bool receivePackage(const NetworkPackage& np) override;
@@ -52,7 +52,7 @@ Q_SIGNALS:
     void commandsChanged(const QByteArray& commands);
 
 private:
-    void setCommands(const QByteArray &commands);
+    void setCommands(const QByteArray& commands);
 
     QByteArray m_commands;
 };

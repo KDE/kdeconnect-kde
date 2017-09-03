@@ -36,8 +36,8 @@ struct NotifyingApplication {
 
 Q_DECLARE_METATYPE(NotifyingApplication);
 
-QDataStream &operator<<(QDataStream &out, const NotifyingApplication &app);
-QDataStream &operator>>(QDataStream &in, NotifyingApplication &app);
-QDebug operator<<(QDebug dbg, const NotifyingApplication &a);
+QDataStream& operator<<(QDataStream& out, const NotifyingApplication& app);
+QDataStream& operator>>(QDataStream& in, NotifyingApplication& app);
+QDebug operator<<(QDebug dbg, const NotifyingApplication& a);
 
 #endif //NOTIFYINGAPPLICATION_H

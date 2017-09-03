@@ -31,18 +31,18 @@
 
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
     : KJob()
-    , mOrigin(origin)
-    , mReply(Q_NULLPTR)
-    , mFrom(QStringLiteral("KDE Connect"))
-    , mDestination(destination)
-    , mSpeedBytes(0)
-    , mWritten(0)
+    , m_origin(origin)
+    , m_reply(Q_NULLPTR)
+    , m_from(QStringLiteral("KDE Connect"))
+    , m_destination(destination)
+    , m_speedBytes(0)
+    , m_written(0)
 {
-    Q_ASSERT(mOrigin);
-    Q_ASSERT(mOrigin->isReadable());
-    if (mDestination.scheme().isEmpty()) {
-        qCWarning(KDECONNECT_CORE) << "Destination QUrl" << mDestination << "lacks a scheme. Setting its scheme to 'file'.";
-        mDestination.setScheme(QStringLiteral("file"));
+    Q_ASSERT(m_origin);
+    Q_ASSERT(m_origin->isReadable());
+    if (m_destination.scheme().isEmpty()) {
+        qCWarning(KDECONNECT_CORE) << "Destination QUrl" << m_destination << "lacks a scheme. Setting its scheme to 'file'.";
+        m_destination.setScheme(QStringLiteral("file"));
     }
 
     if (size >= 0) {
@@ -62,71 +62,71 @@ void FileTransferJob::start()
 void FileTransferJob::doStart()
 {
     description(this, i18n("Receiving file over KDE Connect"),
-        { i18nc("File transfer origin", "From"), mFrom }
+        { i18nc("File transfer origin", "From"), m_from }
     );
 
-    if (mDestination.isLocalFile() && QFile::exists(mDestination.toLocalFile())) {
+    if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
         setError(2);
         setErrorText(i18n("Filename already present"));
         emitResult();
         return;
     }
 
-    if (mOrigin->bytesAvailable())
+    if (m_origin->bytesAvailable())
         startTransfer();
-    connect(mOrigin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
+    connect(m_origin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
 }
 
 void FileTransferJob::startTransfer()
 {
     setProcessedAmount(Bytes, 0);
-    mTimer.start();
+    m_timer.start();
     description(this, i18n("Receiving file over KDE Connect"),
-                        { i18nc("File transfer origin", "From"), mFrom },
-                        { i18nc("File transfer destination", "To"), mDestination.toLocalFile() });
+                        { i18nc("File transfer origin", "From"), m_from },
+                        { i18nc("File transfer destination", "To"), m_destination.toLocalFile() });
 
-    QNetworkRequest req(mDestination);
+    QNetworkRequest req(m_destination);
     req.setHeader(QNetworkRequest::ContentLengthHeader, totalAmount(Bytes));
-    mReply = Daemon::instance()->networkAccessManager()->put(req, mOrigin.data());
+    m_reply = Daemon::instance()->networkAccessManager()->put(req, m_origin.data());
 
-    connect(mReply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
+    connect(m_reply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
         setProcessedAmount(Bytes, bytesSent);
 
-        const auto elapsed = mTimer.elapsed();
+        const auto elapsed = m_timer.elapsed();
         if (elapsed > 0) {
             emitSpeed(bytesSent / elapsed);
         }
     });
-    connect(mReply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
+    connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
             this, &FileTransferJob::transferFailed);
-    connect(mReply, &QNetworkReply::finished, this, &FileTransferJob::transferFinished);
+    connect(m_reply, &QNetworkReply::finished, this, &FileTransferJob::transferFinished);
 }
 
 void FileTransferJob::transferFailed(QNetworkReply::NetworkError error)
 {
-    qCDebug(KDECONNECT_CORE) << "Couldn't transfer the file successfully" << error << mReply->errorString();
+    qCDebug(KDECONNECT_CORE) << "Couldn't transfer the file successfully" << error << m_reply->errorString();
     setError(error);
-    setErrorText(i18n("Received incomplete file: %1", mReply->errorString()));
+    setErrorText(i18n("Received incomplete file: %1", m_reply->errorString()));
     emitResult();
 
-    mReply->close();
+    m_reply->close();
 }
 
 void FileTransferJob::transferFinished()
 {
     //TODO: MD5-check the file
-    qCDebug(KDECONNECT_CORE) << "Finished transfer" << mDestination;
+    qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
 
     emitResult();
 }
 
 bool FileTransferJob::doKill()
 {
-    if (mReply) {
-        mReply->close();
+    if (m_reply) {
+        m_reply->close();
     }
-    if (mOrigin) {
-        mOrigin->close();
+    if (m_origin) {
+        m_origin->close();
     }
     return true;
 }

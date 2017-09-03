@@ -153,7 +153,7 @@ bool isLeftHanded(Display * display)
 #endif
 
 #if HAVE_X11
-bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
+bool MousepadPlugin::handlePackageX11(const NetworkPackage& np)
 {
     //qDebug() << np.serialize();
 
@@ -173,7 +173,7 @@ bool MousepadPlugin::handlePackageX11(const NetworkPackage &np)
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
-        Display *display = QX11Info::display();
+        Display* display = QX11Info::display();
         if(!display) {
             return false;
         }
@@ -274,12 +274,12 @@ void MousepadPlugin::setupWaylandIntegration()
         return;
     }
     using namespace KWayland::Client;
-    ConnectionThread *connection = ConnectionThread::fromApplication(this);
+    ConnectionThread* connection = ConnectionThread::fromApplication(this);
     if (!connection) {
         // failed to get the Connection from Qt
         return;
     }
-    Registry *registry = new Registry(this);
+    Registry* registry = new Registry(this);
     registry->create(connection);
     connect(registry, &Registry::fakeInputAnnounced, this,
         [this, registry] (quint32 name, quint32 version) {
@@ -289,7 +289,7 @@ void MousepadPlugin::setupWaylandIntegration()
     registry->setup();
 }
 
-bool MousepadPlugin::handPackageWayland(const NetworkPackage &np)
+bool MousepadPlugin::handPackageWayland(const NetworkPackage& np)
 {
     const float dx = np.get<float>(QStringLiteral("dx"), 0);
     const float dy = np.get<float>(QStringLiteral("dy"), 0);

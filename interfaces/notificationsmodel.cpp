@@ -134,7 +134,7 @@ void NotificationsModel::refreshNotificationList()
     }
 
     QDBusPendingReply<QStringList> pendingNotificationIds = m_dbusInterface->activeNotifications();
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingNotificationIds, this);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(pendingNotificationIds, this);
 
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished,
                      this, &NotificationsModel::receivedNotifications);

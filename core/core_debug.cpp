@@ -31,9 +31,9 @@ Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 void logBacktrace()
 {
 #ifdef Q_OS_LINUX
-    void *array[32];
+    void* array[32];
     size_t size = backtrace (array, 32);
-    char **strings = backtrace_symbols (array, size);
+    char** strings = backtrace_symbols (array, size);
     backtrace_symbols_fd(array, size, STDERR_FILENO);
     free (strings);
 #endif

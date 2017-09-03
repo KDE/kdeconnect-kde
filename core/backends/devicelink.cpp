@@ -24,10 +24,10 @@
 
 DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
     : QObject(parent)
-    , mPrivateKey(KdeConnectConfig::instance()->privateKey())
-    , mDeviceId(deviceId)
-    , mLinkProvider(parent)
-    , mPairStatus(NotPaired)
+    , m_privateKey(KdeConnectConfig::instance()->privateKey())
+    , m_deviceId(deviceId)
+    , m_linkProvider(parent)
+    , m_pairStatus(NotPaired)
 {
     Q_ASSERT(!deviceId.isEmpty());
 
@@ -36,8 +36,8 @@ DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
 
 void DeviceLink::setPairStatus(DeviceLink::PairStatus status)
 {
-    if (mPairStatus != status) {
-        mPairStatus = status;
+    if (m_pairStatus != status) {
+        m_pairStatus = status;
         Q_EMIT pairStatusChanged(status);
     }
 }

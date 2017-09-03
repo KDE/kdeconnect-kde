@@ -41,7 +41,7 @@
 #include "kdeconnectconfig.h"
 #include "daemon.h"
 
-static void warn(const QString &info)
+static void warn(const QString& info)
 {
     qWarning() << "Device pairing error" << info;
 }
@@ -49,7 +49,7 @@ static void warn(const QString &info)
 Device::Device(QObject* parent, const QString& id)
     : QObject(parent)
     , m_deviceId(id)
-    , m_protocolVersion(NetworkPackage::ProtocolVersion) //We don't know it yet
+    , m_protocolVersion(NetworkPackage::s_protocolVersion) //We don't know it yet
 {
     KdeConnectConfig::DeviceInfo info = KdeConnectConfig::instance()->getTrustedDevice(id);
 
@@ -213,8 +213,8 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     Q_ASSERT(!m_deviceLinks.contains(link));
 
     m_protocolVersion = identityPackage.get<int>(QStringLiteral("protocolVersion"), -1);
-    if (m_protocolVersion != NetworkPackage::ProtocolVersion) {
-        qCWarning(KDECONNECT_CORE) << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::ProtocolVersion;
+    if (m_protocolVersion != NetworkPackage::s_protocolVersion) {
+        qCWarning(KDECONNECT_CORE) << m_deviceName << "- warning, device uses a different protocol version" << m_protocolVersion << "expected" << NetworkPackage::s_protocolVersion;
     }
 
     connect(link, &QObject::destroyed,
@@ -392,7 +392,7 @@ QHostAddress Device::getLocalIpAddress() const
     return QHostAddress::Null;
 }
 
-Device::DeviceType Device::str2type(const QString &deviceType) {
+Device::DeviceType Device::str2type(const QString& deviceType) {
     if (deviceType == QLatin1String("desktop")) return Desktop;
     if (deviceType == QLatin1String("laptop")) return Laptop;
     if (deviceType == QLatin1String("smartphone") || deviceType == QLatin1String("phone")) return Phone;
@@ -434,7 +434,7 @@ QString Device::iconForStatus(bool reachable, bool trusted) const
     return type+status;
 }
 
-void Device::setName(const QString &name)
+void Device::setName(const QString& name)
 {
     if (m_deviceName != name) {
         m_deviceName = name;

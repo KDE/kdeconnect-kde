@@ -43,13 +43,13 @@ struct KdeConnectConfigPrivate {
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
     // Note it's not being used anywhere. That's intended
-    QCA::Initializer mQcaInitializer;
+    QCA::Initializer m_qcaInitializer;
 
-    QCA::PrivateKey privateKey;
-    QSslCertificate certificate; // Use QSslCertificate instead of QCA::Certificate due to compatibility with QSslSocket
+    QCA::PrivateKey m_privateKey;
+    QSslCertificate m_certificate; // Use QSslCertificate instead of QCA::Certificate due to compatibility with QSslSocket
 
-    QSettings* config;
-    QSettings* trusted_devices;
+    QSettings* m_config;
+    QSettings* m_trustedDevices;
 
 };
 
@@ -77,8 +77,8 @@ KdeConnectConfig::KdeConnectConfig()
     QDir().mkpath(baseConfigDir().path());
 
     //.config/kdeconnect/config
-    d->config = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
-    d->trusted_devices = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("trusted_devices")), QSettings::IniFormat);
+    d->m_config = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
+    d->m_trustedDevices = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("trusted_devices")), QSettings::IniFormat);
 
     const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
 
@@ -86,17 +86,17 @@ KdeConnectConfig::KdeConnectConfig()
     QFile privKey(keyPath);
     if (privKey.exists() && privKey.open(QIODevice::ReadOnly)) {
 
-        d->privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
+        d->m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
 
     } else {
 
-        d->privateKey = QCA::KeyGenerator().createRSA(2048);
+        d->m_privateKey = QCA::KeyGenerator().createRSA(2048);
 
         if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
             Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store private key file: %1", keyPath));
         } else {
             privKey.setPermissions(strict);
-            privKey.write(d->privateKey.toPEM().toLatin1());
+            privKey.write(d->m_privateKey.toPEM().toLatin1());
         }
     }
 
@@ -104,7 +104,7 @@ KdeConnectConfig::KdeConnectConfig()
     QFile cert(certPath);
     if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
 
-        d->certificate = QSslCertificate::fromPath(certPath).at(0);
+        d->m_certificate = QSslCertificate::fromPath(certPath).at(0);
 
     } else {
 
@@ -130,13 +130,13 @@ KdeConnectConfig::KdeConnectConfig()
         certificateOptions.setSerialNumber(QCA::BigInteger(10));
         certificateOptions.setValidityPeriod(startTime, endTime);
 
-        d->certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->privateKey).toPEM().toLatin1());
+        d->m_certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->m_privateKey).toPEM().toLatin1());
 
         if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
             Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store certificate file: %1", certPath));
         } else {
             cert.setPermissions(strict);
-            cert.write(d->certificate.toPem());
+            cert.write(d->m_certificate.toPem());
         }
     }
 
@@ -149,14 +149,14 @@ KdeConnectConfig::KdeConnectConfig()
 QString KdeConnectConfig::name()
 {
     QString defaultName = qgetenv("USER") + '@' + QHostInfo::localHostName();
-    QString name = d->config->value(QStringLiteral("name"), defaultName).toString();
+    QString name = d->m_config->value(QStringLiteral("name"), defaultName).toString();
     return name;
 }
 
 void KdeConnectConfig::setName(const QString& name)
 {
-    d->config->setValue(QStringLiteral("name"), name);
-    d->config->sync();
+    d->m_config->setValue(QStringLiteral("name"), name);
+    d->m_config->sync();
 }
 
 QString KdeConnectConfig::deviceType()
@@ -166,7 +166,7 @@ QString KdeConnectConfig::deviceType()
 
 QString KdeConnectConfig::deviceId()
 {
-    return d->certificate.subjectInfo( QSslCertificate::CommonName ).constFirst();
+    return d->m_certificate.subjectInfo( QSslCertificate::CommonName ).constFirst();
 }
 
 QString KdeConnectConfig::privateKeyPath()
@@ -176,12 +176,12 @@ QString KdeConnectConfig::privateKeyPath()
 
 QCA::PrivateKey KdeConnectConfig::privateKey()
 {
-    return d->privateKey;
+    return d->m_privateKey;
 }
 
 QCA::PublicKey KdeConnectConfig::publicKey()
 {
-    return d->privateKey.toPublicKey();
+    return d->m_privateKey.toPublicKey();
 }
 
 QString KdeConnectConfig::certificatePath()
@@ -191,7 +191,7 @@ QString KdeConnectConfig::certificatePath()
 
 QSslCertificate KdeConnectConfig::certificate()
 {
-    return d->certificate;
+    return d->m_certificate;
 }
 
 QDir KdeConnectConfig::baseConfigDir()
@@ -203,67 +203,67 @@ QDir KdeConnectConfig::baseConfigDir()
 
 QStringList KdeConnectConfig::trustedDevices()
 {
-    const QStringList& list = d->trusted_devices->childGroups();
+    const QStringList& list = d->m_trustedDevices->childGroups();
     return list;
 }
 
 
-void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type)
+void KdeConnectConfig::addTrustedDevice(const QString& id, const QString& name, const QString& type)
 {
-    d->trusted_devices->beginGroup(id);
-    d->trusted_devices->setValue(QStringLiteral("name"), name);
-    d->trusted_devices->setValue(QStringLiteral("type"), type);
-    d->trusted_devices->endGroup();
-    d->trusted_devices->sync();
+    d->m_trustedDevices->beginGroup(id);
+    d->m_trustedDevices->setValue(QStringLiteral("name"), name);
+    d->m_trustedDevices->setValue(QStringLiteral("type"), type);
+    d->m_trustedDevices->endGroup();
+    d->m_trustedDevices->sync();
 
     QDir().mkpath(deviceConfigDir(id).path());
 }
 
-KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
+KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString& id)
 {
-    d->trusted_devices->beginGroup(id);
+    d->m_trustedDevices->beginGroup(id);
 
     KdeConnectConfig::DeviceInfo info;
-    info.deviceName = d->trusted_devices->value(QStringLiteral("name"), QLatin1String("unnamed")).toString();
-    info.deviceType = d->trusted_devices->value(QStringLiteral("type"), QLatin1String("unknown")).toString();
+    info.deviceName = d->m_trustedDevices->value(QStringLiteral("name"), QLatin1String("unnamed")).toString();
+    info.deviceType = d->m_trustedDevices->value(QStringLiteral("type"), QLatin1String("unknown")).toString();
 
-    d->trusted_devices->endGroup();
+    d->m_trustedDevices->endGroup();
     return info;
 }
 
-void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
+void KdeConnectConfig::removeTrustedDevice(const QString& deviceId)
 {
-    d->trusted_devices->remove(deviceId);
-    d->trusted_devices->sync();
+    d->m_trustedDevices->remove(deviceId);
+    d->m_trustedDevices->sync();
     //We do not remove the config files.
 }
 
 // Utility functions to set and get a value
 void KdeConnectConfig::setDeviceProperty(const QString& deviceId, const QString& key, const QString& value)
 {
-    d->trusted_devices->beginGroup(deviceId);
-    d->trusted_devices->setValue(key, value);
-    d->trusted_devices->endGroup();
-    d->trusted_devices->sync();
+    d->m_trustedDevices->beginGroup(deviceId);
+    d->m_trustedDevices->setValue(key, value);
+    d->m_trustedDevices->endGroup();
+    d->m_trustedDevices->sync();
 }
 
 QString KdeConnectConfig::getDeviceProperty(const QString& deviceId, const QString& key, const QString& defaultValue)
 {
     QString value;
-    d->trusted_devices->beginGroup(deviceId);
-    value = d->trusted_devices->value(key, defaultValue).toString();
-    d->trusted_devices->endGroup();
+    d->m_trustedDevices->beginGroup(deviceId);
+    value = d->m_trustedDevices->value(key, defaultValue).toString();
+    d->m_trustedDevices->endGroup();
     return value;
 }
 
 
-QDir KdeConnectConfig::deviceConfigDir(const QString &deviceId)
+QDir KdeConnectConfig::deviceConfigDir(const QString& deviceId)
 {
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     return QDir(deviceConfigPath);
 }
 
-QDir KdeConnectConfig::pluginConfigDir(const QString &deviceId, const QString &pluginName)
+QDir KdeConnectConfig::pluginConfigDir(const QString& deviceId, const QString& pluginName)
 {
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     QString pluginConfigDir = QDir(deviceConfigPath).absoluteFilePath(pluginName);

@@ -32,7 +32,7 @@ class PauseMusicConfig
 {
     Q_OBJECT
 public:
-    PauseMusicConfig(QWidget *parent, const QVariantList&);
+    PauseMusicConfig(QWidget* parent, const QVariantList&);
     ~PauseMusicConfig() override;
 
 public Q_SLOTS:

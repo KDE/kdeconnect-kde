@@ -35,7 +35,7 @@ class SftpPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.sftp")
     
 public:
-    explicit SftpPlugin(QObject *parent, const QVariantList &args);
+    explicit SftpPlugin(QObject* parent, const QVariantList& args);
     ~SftpPlugin() override;
 
     bool receivePackage(const NetworkPackage& np) override;
@@ -69,7 +69,7 @@ private:
     
 private:
     struct Pimpl;
-    QScopedPointer<Pimpl> m_d;
+    QScopedPointer<Pimpl> d;
     QString deviceId; //Storing it to avoid accessing device() from the destructor which could cause a crash
 
     QVariantMap remoteDirectories; //Actually a QMap<String, String>, but QDBus preffers this

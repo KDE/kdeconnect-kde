@@ -27,7 +27,7 @@ PairingHandler::PairingHandler(DeviceLink* parent)
 
 }
 
-void PairingHandler::setDeviceLink(DeviceLink *dl)
+void PairingHandler::setDeviceLink(DeviceLink* dl)
 {
     setParent(dl);
     m_deviceLink =  dl;

@@ -50,13 +50,13 @@ private Q_SLOTS:
 
 private:
     const int PORT = 7894;
-    QTimer mTimer;
-    QCA::Initializer mQcaInitializer;
-    QEventLoop mLoop;
-    QList<QByteArray> mPackages;
-    Server *mServer;
-    QSslSocket *mClientSocket;
-    SocketLineReader *mReader;
+    QTimer m_timer;
+    QCA::Initializer m_qcaInitializer;
+    QEventLoop m_loop;
+    QList<QByteArray> m_packages;
+    Server* m_server;
+    QSslSocket* m_clientSocket;
+    SocketLineReader* m_reader;
 
 private:
     void setSocketAttributes(QSslSocket* socket, QString deviceName);
@@ -64,224 +64,224 @@ private:
 
 void TestSslSocketLineReader::initTestCase()
 {
-    mServer = new Server(this);
+    m_server = new Server(this);
 
-    QVERIFY2(mServer->listen(QHostAddress::LocalHost, PORT), "Failed to create local tcp server");
+    QVERIFY2(m_server->listen(QHostAddress::LocalHost, PORT), "Failed to create local tcp server");
 
-    mTimer.setInterval(10 * 1000);//Ten second is more enough for this test, just used this so that to break mLoop if stuck
-    mTimer.setSingleShot(true);
-    connect(&mTimer, &QTimer::timeout, &mLoop, &QEventLoop::quit);
+    m_timer.setInterval(10 * 1000);//Ten second is more enough for this test, just used this so that to break mLoop if stuck
+    m_timer.setSingleShot(true);
+    connect(&m_timer, &QTimer::timeout, &m_loop, &QEventLoop::quit);
 
-    mTimer.start();
+    m_timer.start();
 }
 
 void TestSslSocketLineReader::init()
 {
-    mClientSocket = new QSslSocket(this);
-    mClientSocket->connectToHost(QHostAddress::LocalHost, PORT);
-    connect(mClientSocket, &QAbstractSocket::connected, &mLoop, &QEventLoop::quit);
+    m_clientSocket = new QSslSocket(this);
+    m_clientSocket->connectToHost(QHostAddress::LocalHost, PORT);
+    connect(m_clientSocket, &QAbstractSocket::connected, &m_loop, &QEventLoop::quit);
 
-    mLoop.exec();
+    m_loop.exec();
 
-    QVERIFY2(mClientSocket->isOpen(), "Could not connect to local tcp server");
+    QVERIFY2(m_clientSocket->isOpen(), "Could not connect to local tcp server");
 }
 
 void TestSslSocketLineReader::cleanup()
 {
-    mClientSocket->disconnectFromHost();
-    delete mClientSocket;
+    m_clientSocket->disconnectFromHost();
+    delete m_clientSocket;
 }
 
 void TestSslSocketLineReader::cleanupTestCase()
 {
-    delete mServer;
+    delete m_server;
 }
 
 void TestSslSocketLineReader::testTrustedDevice()
 {
 
     int maxAttemps = 5;
-    QCOMPARE(true, mServer->hasPendingConnections());
-    while(!mServer->hasPendingConnections() && maxAttemps > 0) {
+    QCOMPARE(true, m_server->hasPendingConnections());
+    while(!m_server->hasPendingConnections() && maxAttemps > 0) {
         --maxAttemps;
         QTest::qSleep(1000);
     }
 
-    QSslSocket *serverSocket = mServer->nextPendingConnection();
+    QSslSocket* serverSocket = m_server->nextPendingConnection();
 
     QVERIFY2(serverSocket != 0, "Null socket returned by server");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
     setSocketAttributes(serverSocket, QStringLiteral("Test Server"));
-    setSocketAttributes(mClientSocket, QStringLiteral("Test Client"));
+    setSocketAttributes(m_clientSocket, QStringLiteral("Test Client"));
 
     serverSocket->setPeerVerifyName(QStringLiteral("Test Client"));
     serverSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-    serverSocket->addCaCertificate(mClientSocket->localCertificate());
+    serverSocket->addCaCertificate(m_clientSocket->localCertificate());
 
-    mClientSocket->setPeerVerifyName(QStringLiteral("Test Server"));
-    mClientSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-    mClientSocket->addCaCertificate(serverSocket->localCertificate());
+    m_clientSocket->setPeerVerifyName(QStringLiteral("Test Server"));
+    m_clientSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+    m_clientSocket->addCaCertificate(serverSocket->localCertificate());
 
-    connect(mClientSocket, &QSslSocket::encrypted, &mLoop, &QEventLoop::quit);
+    connect(m_clientSocket, &QSslSocket::encrypted, &m_loop, &QEventLoop::quit);
     serverSocket->startServerEncryption();
-    mClientSocket->startClientEncryption();
-    mLoop.exec();
+    m_clientSocket->startClientEncryption();
+    m_loop.exec();
 
     // Both client and server socket should be encrypted here and should have remote certificate because VerifyPeer is used
-    QVERIFY2(mClientSocket->isOpen(), "Client socket already closed");
+    QVERIFY2(m_clientSocket->isOpen(), "Client socket already closed");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
-    QVERIFY2(mClientSocket->isEncrypted(), "Client is not encrypted");
+    QVERIFY2(m_clientSocket->isEncrypted(), "Client is not encrypted");
     QVERIFY2(serverSocket->isEncrypted(), "Server is not encrypted");
-    QVERIFY2(!mClientSocket->peerCertificate().isNull(), "Server certificate not received");
+    QVERIFY2(!m_clientSocket->peerCertificate().isNull(), "Server certificate not received");
     QVERIFY2(!serverSocket->peerCertificate().isNull(), "Client certificate not received");
 
     QList<QByteArray> dataToSend;
     dataToSend << "foobar\n" << "barfoo\n" << "foobar?\n" << "\n" << "barfoo!\n" << "panda\n";
-    for (const QByteArray &line : dataToSend) {
-        mClientSocket->write(line);
+    for (const QByteArray& line : dataToSend) {
+        m_clientSocket->write(line);
     }
-    mClientSocket->flush();
+    m_clientSocket->flush();
 
-    mPackages.clear();
+    m_packages.clear();
 
-    mReader = new SocketLineReader(serverSocket, this);
-    connect(mReader, &SocketLineReader::readyRead, this,&TestSslSocketLineReader::newPackage);
-    mLoop.exec();
+    m_reader = new SocketLineReader(serverSocket, this);
+    connect(m_reader, &SocketLineReader::readyRead, this,&TestSslSocketLineReader::newPackage);
+    m_loop.exec();
 
     /* remove the empty line before compare */
     dataToSend.removeOne("\n");
 
-    QCOMPARE(mPackages.count(), 5);//We expect 5 Packages
+    QCOMPARE(m_packages.count(), 5);//We expect 5 Packages
     for(int x = 0;x < 5; ++x) {
-        QCOMPARE(mPackages[x], dataToSend[x]);
+        QCOMPARE(m_packages[x], dataToSend[x]);
     }
 
-    delete mReader;
+    delete m_reader;
 }
 
 void TestSslSocketLineReader::testUntrustedDevice()
 {
     int maxAttemps = 5;
-    QCOMPARE(true, mServer->hasPendingConnections());
-    while(!mServer->hasPendingConnections() && maxAttemps > 0) {
+    QCOMPARE(true, m_server->hasPendingConnections());
+    while(!m_server->hasPendingConnections() && maxAttemps > 0) {
         --maxAttemps;
         QTest::qSleep(1000);
     }
 
-    QSslSocket *serverSocket = mServer->nextPendingConnection();
+    QSslSocket* serverSocket = m_server->nextPendingConnection();
 
     QVERIFY2(serverSocket != 0, "Null socket returned by server");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
     setSocketAttributes(serverSocket, QStringLiteral("Test Server"));
-    setSocketAttributes(mClientSocket, QStringLiteral("Test Client"));
+    setSocketAttributes(m_clientSocket, QStringLiteral("Test Client"));
 
     serverSocket->setPeerVerifyName(QStringLiteral("Test Client"));
     serverSocket->setPeerVerifyMode(QSslSocket::QueryPeer);
 
-    mClientSocket->setPeerVerifyName(QStringLiteral("Test Server"));
-    mClientSocket->setPeerVerifyMode(QSslSocket::QueryPeer);
+    m_clientSocket->setPeerVerifyName(QStringLiteral("Test Server"));
+    m_clientSocket->setPeerVerifyMode(QSslSocket::QueryPeer);
 
-    connect(mClientSocket, &QSslSocket::encrypted, &mLoop, &QEventLoop::quit);
+    connect(m_clientSocket, &QSslSocket::encrypted, &m_loop, &QEventLoop::quit);
     serverSocket->startServerEncryption();
-    mClientSocket->startClientEncryption();
-    mLoop.exec();
+    m_clientSocket->startClientEncryption();
+    m_loop.exec();
 
-    QVERIFY2(mClientSocket->isOpen(), "Client socket already closed");
+    QVERIFY2(m_clientSocket->isOpen(), "Client socket already closed");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
-    QVERIFY2(mClientSocket->isEncrypted(), "Client is not encrypted");
+    QVERIFY2(m_clientSocket->isEncrypted(), "Client is not encrypted");
     QVERIFY2(serverSocket->isEncrypted(), "Server is not encrypted");
-    QVERIFY2(!mClientSocket->peerCertificate().isNull(), "Server certificate not received");
+    QVERIFY2(!m_clientSocket->peerCertificate().isNull(), "Server certificate not received");
     QVERIFY2(!serverSocket->peerCertificate().isNull(), "Client certificate not received");
 
     QList<QByteArray> dataToSend;
     dataToSend << "foobar\n" << "barfoo\n" << "foobar?\n" << "\n" << "barfoo!\n" << "panda\n";
-    for (const QByteArray &line : dataToSend) {
-            mClientSocket->write(line);
+    for (const QByteArray& line : dataToSend) {
+            m_clientSocket->write(line);
         }
-    mClientSocket->flush();
+    m_clientSocket->flush();
 
-    mPackages.clear();
+    m_packages.clear();
 
-    mReader = new SocketLineReader(serverSocket, this);
-    connect(mReader, &SocketLineReader::readyRead, this, &TestSslSocketLineReader::newPackage);
-    mLoop.exec();
+    m_reader = new SocketLineReader(serverSocket, this);
+    connect(m_reader, &SocketLineReader::readyRead, this, &TestSslSocketLineReader::newPackage);
+    m_loop.exec();
 
     /* remove the empty line before compare */
     dataToSend.removeOne("\n");
 
-    QCOMPARE(mPackages.count(), 5);//We expect 5 Packages
+    QCOMPARE(m_packages.count(), 5);//We expect 5 Packages
     for(int x = 0;x < 5; ++x) {
-        QCOMPARE(mPackages[x], dataToSend[x]);
+        QCOMPARE(m_packages[x], dataToSend[x]);
     }
 
-    delete mReader;
+    delete m_reader;
 }
 
 void TestSslSocketLineReader::testTrustedDeviceWithWrongCertificate()
 {
     int maxAttemps = 5;
-    while(!mServer->hasPendingConnections() && maxAttemps > 0) {
+    while(!m_server->hasPendingConnections() && maxAttemps > 0) {
         --maxAttemps;
         QTest::qSleep(1000);
     }
 
-    QSslSocket *serverSocket = mServer->nextPendingConnection();
+    QSslSocket* serverSocket = m_server->nextPendingConnection();
 
     QVERIFY2(serverSocket != 0, "Could not open a connection to the client");
 
     setSocketAttributes(serverSocket, QStringLiteral("Test Server"));
-    setSocketAttributes(mClientSocket, QStringLiteral("Test Client"));
+    setSocketAttributes(m_clientSocket, QStringLiteral("Test Client"));
 
     // Not adding other device certificate to list of CA certificate, and using VerifyPeer. This should lead to handshake failure
     serverSocket->setPeerVerifyName(QStringLiteral("Test Client"));
     serverSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
 
-    mClientSocket->setPeerVerifyName(QStringLiteral("Test Server"));
-    mClientSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+    m_clientSocket->setPeerVerifyName(QStringLiteral("Test Server"));
+    m_clientSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
 
-    connect(serverSocket, &QSslSocket::encrypted, &mLoop, &QEventLoop::quit); // Encrypted signal should never be emitted
-    connect(mClientSocket, &QSslSocket::encrypted, &mLoop, &QEventLoop::quit); // Encrypted signal should never be emitted
-    connect(serverSocket, &QAbstractSocket::disconnected, &mLoop, &QEventLoop::quit);
-    connect(mClientSocket, &QAbstractSocket::disconnected, &mLoop, &QEventLoop::quit);
+    connect(serverSocket, &QSslSocket::encrypted, &m_loop, &QEventLoop::quit); // Encrypted signal should never be emitted
+    connect(m_clientSocket, &QSslSocket::encrypted, &m_loop, &QEventLoop::quit); // Encrypted signal should never be emitted
+    connect(serverSocket, &QAbstractSocket::disconnected, &m_loop, &QEventLoop::quit);
+    connect(m_clientSocket, &QAbstractSocket::disconnected, &m_loop, &QEventLoop::quit);
 
     serverSocket->startServerEncryption();
-    mClientSocket->startClientEncryption();
-    mLoop.exec();
+    m_clientSocket->startClientEncryption();
+    m_loop.exec();
 
     QVERIFY2(!serverSocket->isEncrypted(), "Server is encrypted, it should not");
-    QVERIFY2(!mClientSocket->isEncrypted(), "lient is encrypted, it should now");
+    QVERIFY2(!m_clientSocket->isEncrypted(), "lient is encrypted, it should now");
 
-    if (serverSocket->state() != QAbstractSocket::UnconnectedState) mLoop.exec(); // Wait until serverSocket is disconnected, It should be in disconnected state
-    if (mClientSocket->state() != QAbstractSocket::UnconnectedState) mLoop.exec(); // Wait until mClientSocket is disconnected, It should be in disconnected state
+    if (serverSocket->state() != QAbstractSocket::UnconnectedState) m_loop.exec(); // Wait until serverSocket is disconnected, It should be in disconnected state
+    if (m_clientSocket->state() != QAbstractSocket::UnconnectedState) m_loop.exec(); // Wait until mClientSocket is disconnected, It should be in disconnected state
 
-    QCOMPARE((int)mClientSocket->state(), 0);
+    QCOMPARE((int)m_clientSocket->state(), 0);
     QCOMPARE((int)serverSocket->state(), 0);
 
 }
 
 void TestSslSocketLineReader::newPackage()
 {
-    if (!mReader->bytesAvailable()) {
+    if (!m_reader->bytesAvailable()) {
         return;
     }
 
     int maxLoops = 5;
-    while(mReader->bytesAvailable() > 0 && maxLoops > 0) {
+    while(m_reader->bytesAvailable() > 0 && maxLoops > 0) {
         --maxLoops;
-        const QByteArray package = mReader->readLine();
+        const QByteArray package = m_reader->readLine();
         if (!package.isEmpty()) {
-            mPackages.append(package);
+            m_packages.append(package);
         }
 
-        if (mPackages.count() == 5) {
-            mLoop.exit();
+        if (m_packages.count() == 5) {
+            m_loop.exit();
         }
     }
 }
 
-void TestSslSocketLineReader::setSocketAttributes(QSslSocket *socket, QString deviceName) {
+void TestSslSocketLineReader::setSocketAttributes(QSslSocket* socket, QString deviceName) {
 
     QDateTime startTime = QDateTime::currentDateTime();
     QDateTime endTime = startTime.addYears(10);

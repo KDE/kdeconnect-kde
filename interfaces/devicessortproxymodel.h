@@ -33,7 +33,7 @@ public:
     explicit DevicesSortProxyModel(DevicesModel* devicesModel = Q_NULLPTR);
     bool lessThan(const QModelIndex& left, const QModelIndex& right) const override;
     bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const override;
-    void setSourceModel(QAbstractItemModel *sourceModel) override;
+    void setSourceModel(QAbstractItemModel* sourceModel) override;
 
 public Q_SLOTS:
     void sourceDataChanged();
