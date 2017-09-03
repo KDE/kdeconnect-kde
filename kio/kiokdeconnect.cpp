@@ -30,7 +30,7 @@
 
 Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
 
-extern "C" int Q_DECL_EXPORT kdemain(int argc, char **argv)
+extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
 {
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_kdeconnect protocol pool app\n");
@@ -72,7 +72,7 @@ bool handleDBusError(QDBusReply<T>& reply, KIO::SlaveBase* slave)
     return false;
 }
 
-KioKdeconnect::KioKdeconnect(const QByteArray &pool, const QByteArray &app)
+KioKdeconnect::KioKdeconnect(const QByteArray& pool, const QByteArray& app)
     : SlaveBase("kdeconnect", pool, app),
     m_dbusInterface(new DaemonDbusInterface(this))
 {
@@ -177,7 +177,7 @@ void KioKdeconnect::listDevice()
 
 
 
-void KioKdeconnect::listDir(const QUrl &url)
+void KioKdeconnect::listDir(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
@@ -198,7 +198,7 @@ void KioKdeconnect::listDir(const QUrl &url)
     }
 }
 
-void KioKdeconnect::stat(const QUrl &url)
+void KioKdeconnect::stat(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
@@ -209,14 +209,14 @@ void KioKdeconnect::stat(const QUrl &url)
     finished();
 }
 
-void KioKdeconnect::get(const QUrl &url)
+void KioKdeconnect::get(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Get: " << url;
     mimeType(QLatin1String(""));
     finished();
 }
 
-void KioKdeconnect::setHost(const QString &hostName, quint16 port, const QString &user, const QString &pass)
+void KioKdeconnect::setHost(const QString& hostName, quint16 port, const QString& user, const QString& pass)
 {
 
     //This is called before everything else to set the file we want to show

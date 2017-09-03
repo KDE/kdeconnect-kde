@@ -23,7 +23,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("kdeconnect.app"), i18n("KDE Connect App"), QStringLiteral("1.0"), i18n("KDE Connect App"), KAboutLicense::GPL, i18n("(c) 2015, Aleix Pol Gonzalez"));

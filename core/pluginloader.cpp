@@ -63,7 +63,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
     }
 
     KPluginLoader loader(service.fileName());
-    KPluginFactory *factory = loader.factory();
+    KPluginFactory* factory = loader.factory();
     if (!factory) {
         qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service.pluginId() << loader.errorString();
         return ret;

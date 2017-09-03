@@ -38,15 +38,15 @@ class KDECONNECTCORE_EXPORT DownloadJob
 {
     Q_OBJECT
 public:
-    DownloadJob(const QHostAddress &address, const QVariantMap &transferInfo);
+    DownloadJob(const QHostAddress& address, const QVariantMap& transferInfo);
     ~DownloadJob() override;
     void start() override;
     QSharedPointer<QIODevice> getPayload();
 
 private:
-    QHostAddress mAddress;
-    qint16 mPort;
-    QSharedPointer<QSslSocket> mSocket;
+    QHostAddress m_address;
+    qint16 m_port;
+    QSharedPointer<QSslSocket> m_socket;
 
 private Q_SLOTS:
     void socketFailed(QAbstractSocket::SocketError error);

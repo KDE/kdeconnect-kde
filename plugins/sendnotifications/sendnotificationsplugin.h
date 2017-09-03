@@ -39,7 +39,7 @@ class SendNotificationsPlugin
     Q_OBJECT
 
 public:
-    explicit SendNotificationsPlugin(QObject *parent, const QVariantList &args);
+    explicit SendNotificationsPlugin(QObject* parent, const QVariantList& args);
     ~SendNotificationsPlugin() override;
     
     bool receivePackage(const NetworkPackage& np) override;

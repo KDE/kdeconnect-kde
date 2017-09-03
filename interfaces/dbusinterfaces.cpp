@@ -60,7 +60,7 @@ QString DeviceDbusInterface::id() const
     return m_id;
 }
 
-void DeviceDbusInterface::pluginCall(const QString &plugin, const QString &method)
+void DeviceDbusInterface::pluginCall(const QString& plugin, const QString& method)
 {
     QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+id()+'/'+plugin, "org.kde.kdeconnect.device."+plugin, method);
     QDBusConnection::sessionBus().asyncCall(msg);

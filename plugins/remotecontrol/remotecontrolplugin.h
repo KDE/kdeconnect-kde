@@ -34,7 +34,7 @@ class Q_DECL_EXPORT RemoteControlPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotecontrol")
 
 public:
-    explicit RemoteControlPlugin(QObject *parent, const QVariantList &args);
+    explicit RemoteControlPlugin(QObject* parent, const QVariantList &args);
     ~RemoteControlPlugin() override;
 
     bool receivePackage(const NetworkPackage& /*np*/) override { return false; }

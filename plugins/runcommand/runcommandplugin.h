@@ -36,7 +36,7 @@ class Q_DECL_EXPORT RunCommandPlugin
     Q_OBJECT
 
 public:
-    explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
+    explicit RunCommandPlugin(QObject* parent, const QVariantList& args);
     ~RunCommandPlugin() override;
 
     bool receivePackage(const NetworkPackage& np) override;

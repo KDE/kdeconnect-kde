@@ -23,13 +23,13 @@
 #include <QDebug>
 #include <QDataStream>
 
-QDataStream &operator<<(QDataStream &out, const NotifyingApplication &app)
+QDataStream& operator<<(QDataStream& out, const NotifyingApplication& app)
 {
     out << app.name << app.icon << app.active << app.blacklistExpression.pattern();
     return out;
 }
 
-QDataStream &operator>>(QDataStream &in, NotifyingApplication &app)
+QDataStream& operator>>(QDataStream& in, NotifyingApplication& app)
 {
     QString pattern;
     in >> app.name;

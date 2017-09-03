@@ -31,30 +31,30 @@
 
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
     : DeviceLink(deviceId, parent)
-    , mSocketLineReader(nullptr)
+    , m_socketLineReader(nullptr)
 {
     reset(socket, connectionSource);
 }
 
 void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource)
 {
-    if (mSocketLineReader) {
-        disconnect(mSocketLineReader->mSocket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
-        delete mSocketLineReader;
+    if (m_socketLineReader) {
+        disconnect(m_socketLineReader->m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
+        delete m_socketLineReader;
     }
 
-    mSocketLineReader = new SocketLineReader(socket, this);
+    m_socketLineReader = new SocketLineReader(socket, this);
 
     connect(socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
-    connect(mSocketLineReader, &SocketLineReader::readyRead, this, &LanDeviceLink::dataReceived);
+    connect(m_socketLineReader, &SocketLineReader::readyRead, this, &LanDeviceLink::dataReceived);
 
     //We take ownership of the socket.
     //When the link provider destroys us,
     //the socket (and the reader) will be
     //destroyed as well
-    socket->setParent(mSocketLineReader);
+    socket->setParent(m_socketLineReader);
 
-    mConnectionSource = connectionSource;
+    m_connectionSource = connectionSource;
 
     QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId(), QStringLiteral("certificate"));
     DeviceLink::setPairStatus(certString.isEmpty()? PairStatus::NotPaired : PairStatus::Paired);
@@ -62,10 +62,10 @@ void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource
 
 QHostAddress LanDeviceLink::hostAddress() const
 {
-    if (!mSocketLineReader) {
+    if (!m_socketLineReader) {
         return QHostAddress::Null;
     }
-    QHostAddress addr = mSocketLineReader->mSocket->peerAddress();
+    QHostAddress addr = m_socketLineReader->m_socket->peerAddress();
     if (addr.protocol() == QAbstractSocket::IPv6Protocol) {
         bool success;
         QHostAddress convertedAddr = QHostAddress(addr.toIPv4Address(&success));
@@ -88,7 +88,7 @@ bool LanDeviceLink::sendPackage(NetworkPackage& np)
         np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
     }
 
-    int written = mSocketLineReader->write(np.serialize());
+    int written = m_socketLineReader->write(np.serialize());
 
     //Actually we can't detect if a package is received or not. We keep TCP
     //"ESTABLISHED" connections that look legit (return true when we use them),
@@ -105,9 +105,9 @@ UploadJob* LanDeviceLink::sendPayload(const NetworkPackage& np)
 
 void LanDeviceLink::dataReceived()
 {
-    if (mSocketLineReader->bytesAvailable() == 0) return;
+    if (m_socketLineReader->bytesAvailable() == 0) return;
 
-    const QByteArray serializedPackage = mSocketLineReader->readLine();
+    const QByteArray serializedPackage = m_socketLineReader->readLine();
     NetworkPackage package(QString::null);
     NetworkPackage::unserialize(serializedPackage, &package);
 
@@ -125,14 +125,14 @@ void LanDeviceLink::dataReceived()
         //FIXME: The next two lines shouldn't be needed! Why are they here?
         transferInfo.insert(QStringLiteral("useSsl"), true);
         transferInfo.insert(QStringLiteral("deviceId"), deviceId());
-        DownloadJob* job = new DownloadJob(mSocketLineReader->peerAddress(), transferInfo);
+        DownloadJob* job = new DownloadJob(m_socketLineReader->peerAddress(), transferInfo);
         job->start();
         package.setPayload(job->getPayload(), package.payloadSize());
     }
 
     Q_EMIT receivedPackage(package);
 
-    if (mSocketLineReader->bytesAvailable() > 0) {
+    if (m_socketLineReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
 
@@ -140,7 +140,7 @@ void LanDeviceLink::dataReceived()
 
 void LanDeviceLink::userRequestsPair()
 {
-    if (mSocketLineReader->peerCertificate().isNull()) {
+    if (m_socketLineReader->peerCertificate().isNull()) {
         Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
     } else {
         qobject_cast<LanLinkProvider*>(provider())->userRequestsPair(deviceId());
@@ -154,7 +154,7 @@ void LanDeviceLink::userRequestsUnpair()
 
 void LanDeviceLink::setPairStatus(PairStatus status)
 {
-    if (status == Paired && mSocketLineReader->peerCertificate().isNull()) {
+    if (status == Paired && m_socketLineReader->peerCertificate().isNull()) {
         Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
         return;
     }
@@ -162,8 +162,8 @@ void LanDeviceLink::setPairStatus(PairStatus status)
     DeviceLink::setPairStatus(status);
     if (status == Paired) {
         Q_ASSERT(KdeConnectConfig::instance()->trustedDevices().contains(deviceId()));
-        Q_ASSERT(!mSocketLineReader->peerCertificate().isNull());
-        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), QStringLiteral("certificate"), mSocketLineReader->peerCertificate().toPem());
+        Q_ASSERT(!m_socketLineReader->peerCertificate().isNull());
+        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), QStringLiteral("certificate"), m_socketLineReader->peerCertificate().toPem());
     }
 }
 

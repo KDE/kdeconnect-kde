@@ -43,7 +43,7 @@ class MousepadPlugin
     Q_OBJECT
 
 public:
-    explicit MousepadPlugin(QObject *parent, const QVariantList &args);
+    explicit MousepadPlugin(QObject* parent, const QVariantList& args);
     ~MousepadPlugin() override;
 
     bool receivePackage(const NetworkPackage& np) override;
@@ -63,7 +63,7 @@ private:
 #endif
     const bool m_x11;
 #if HAVE_WAYLAND
-    KWayland::Client::FakeInput *m_waylandInput;
+    KWayland::Client::FakeInput* m_waylandInput;
     bool m_waylandAuthenticationRequested;
 #endif
 };

@@ -23,31 +23,31 @@
 
 SocketLineReader::SocketLineReader(QSslSocket* socket, QObject* parent)
     : QObject(parent)
-    , mSocket(socket)
+    , m_socket(socket)
 {
-    connect(mSocket, &QIODevice::readyRead,
+    connect(m_socket, &QIODevice::readyRead,
             this, &SocketLineReader::dataReceived);
 }
 
 void SocketLineReader::dataReceived()
 {
-    while (mSocket->canReadLine()) {
-        const QByteArray line = mSocket->readLine();
+    while (m_socket->canReadLine()) {
+        const QByteArray line = m_socket->readLine();
         if (line.length() > 1) { //we don't want a single \n
-            mPackages.enqueue(line);
+            m_packages.enqueue(line);
         }
     }
 
     //If we still have things to read from the socket, call dataReceived again
     //We do this manually because we do not trust readyRead to be emitted again
     //So we call this method again just in case.
-    if (mSocket->bytesAvailable() > 0) {
+    if (m_socket->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
         return;
     }
 
     //If we have any packages, tell it to the world.
-    if (!mPackages.isEmpty()) {
+    if (!m_packages.isEmpty()) {
         Q_EMIT readyRead();
     }
 }

@@ -32,11 +32,11 @@ class BatteryDbusInterface
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
 
 public:
-    explicit BatteryDbusInterface(const Device *device);
+    explicit BatteryDbusInterface(const Device* device);
     ~BatteryDbusInterface() override;
     
-    Q_SCRIPTABLE int charge() const { return mCharge; }
-    Q_SCRIPTABLE bool isCharging() const { return mIsCharging; }
+    Q_SCRIPTABLE int charge() const { return m_charge; }
+    Q_SCRIPTABLE bool isCharging() const { return m_isCharging; }
 
     void updateValues(bool isCharging, int currentCharge);
 
@@ -45,8 +45,8 @@ Q_SIGNALS:
     Q_SCRIPTABLE void chargeChanged(int charge);
 
 private:
-    int mCharge;
-    bool mIsCharging;
+    int m_charge;
+    bool m_isCharging;
 
     // Map to save current BatteryDbusInterface for each device.
     static QMap<QString, BatteryDbusInterface *> s_dbusInterfaces;

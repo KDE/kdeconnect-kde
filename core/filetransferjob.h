@@ -49,10 +49,10 @@ public:
      * @p size specifies the expected size of the stream we're reading.
      * @p destination specifies where these contents should be stored
      */
-    FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl &destination);
+    FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination);
     void start() override;
-    QUrl destination() const { return mDestination; }
-    void setOriginName(const QString& from) { mFrom = from; }
+    QUrl destination() const { return m_destination; }
+    void setOriginName(const QString& from) { m_from = from; }
 
 private Q_SLOTS:
     void doStart();
@@ -65,14 +65,14 @@ private:
     void transferFailed(QNetworkReply::NetworkError error);
     void transferFinished();
 
-    QSharedPointer<QIODevice> mOrigin;
-    QNetworkReply* mReply;
-    QString mFrom;
-    QUrl mDestination;
-    QElapsedTimer mTimer;
-    qulonglong mSpeedBytes;
-    qint64 mWritten;
-    qint64 mSize;
+    QSharedPointer<QIODevice> m_origin;
+    QNetworkReply* m_reply;
+    QString m_from;
+    QUrl m_destination;
+    QElapsedTimer m_timer;
+    qulonglong m_speedBytes;
+    qint64 m_written;
+    qint64 m_size;
 };
 
 #endif

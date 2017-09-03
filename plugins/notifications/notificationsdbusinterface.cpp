@@ -32,9 +32,9 @@
 
 NotificationsDbusInterface::NotificationsDbusInterface(KdeConnectPlugin* plugin)
     : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
-    , mDevice(plugin->device())
-    , mPlugin(plugin)
-    , mLastId(0)
+    , m_device(plugin->device())
+    , m_plugin(plugin)
+    , m_lastId(0)
 {
 
 }
@@ -46,14 +46,14 @@ NotificationsDbusInterface::~NotificationsDbusInterface()
 
 void NotificationsDbusInterface::clearNotifications()
 {
-    qDeleteAll(mNotifications);
-    mNotifications.clear();
+    qDeleteAll(m_notifications);
+    m_notifications.clear();
     Q_EMIT allNotificationsRemoved();
 }
 
 QStringList NotificationsDbusInterface::activeNotifications()
 {
-    return mNotifications.keys();
+    return m_notifications.keys();
 }
 
 void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
@@ -65,7 +65,7 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
             id = id.mid(id.indexOf(QLatin1String("::")) + 2);
         removeNotification(id);
     } else if (np.get<bool>(QStringLiteral("isRequest"))) {
-        for (const auto& n : qAsConst(mNotifications)) {
+        for (const auto& n : qAsConst(m_notifications)) {
             NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST, {
                 {"id", n->internalId()},
                 {"appName", n->appName()},
@@ -73,19 +73,19 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
                 {"isClearable", n->dismissable()},
                 {"requestAnswer", true}
             });
-            mPlugin->sendPackage(np);
+            m_plugin->sendPackage(np);
         }
     } else if(np.get<bool>(QStringLiteral("requestAnswer"), false)) {
 
     } else {
         QString id = np.get<QString>(QStringLiteral("id"));
 
-        if (!mInternalIdToPublicId.contains(id)) {
+        if (!m_internalIdToPublicId.contains(id)) {
             Notification* noti = new Notification(np, this);
             addNotification(noti);
         } else {
-            QString pubId = mInternalIdToPublicId[id];
-            mNotifications[pubId]->update(np);
+            QString pubId = m_internalIdToPublicId[id];
+            m_notifications[pubId]->update(np);
         }
     }
 }
@@ -94,7 +94,7 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
 {
     const QString& internalId = noti->internalId();
 
-    if (mInternalIdToPublicId.contains(internalId)) {
+    if (m_internalIdToPublicId.contains(internalId)) {
         removeNotification(internalId);
     }
 
@@ -108,10 +108,10 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     });
 
     const QString& publicId = newId();
-    mNotifications[publicId] = noti;
-    mInternalIdToPublicId[internalId] = publicId;
+    m_notifications[publicId] = noti;
+    m_internalIdToPublicId[internalId] = publicId;
 
-    QDBusConnection::sessionBus().registerObject(mDevice->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject(m_device->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 }
 
@@ -119,14 +119,14 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 {
     //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
 
-    if (!mInternalIdToPublicId.contains(internalId)) {
+    if (!m_internalIdToPublicId.contains(internalId)) {
         qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by internal Id: " << internalId;
         return;
     }
 
-    QString publicId = mInternalIdToPublicId.take(internalId);
+    QString publicId = m_internalIdToPublicId.take(internalId);
 
-    Notification* noti = mNotifications.take(publicId);
+    Notification* noti = m_notifications.take(publicId);
     if (!noti) {
         qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by public Id: " << publicId;
         return;
@@ -143,7 +143,7 @@ void NotificationsDbusInterface::dismissRequested(const QString& internalId)
 {
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
     np.set<QString>(QStringLiteral("cancel"), internalId);
-    mPlugin->sendPackage(np);
+    m_plugin->sendPackage(np);
 
     //Workaround: we erase notifications without waiting a repsonse from the
     //phone because we won't receive a response if we are out of sync and this
@@ -168,10 +168,10 @@ void NotificationsDbusInterface::sendReply(const QString& replyId, const QString
     NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REPLY);
     np.set<QString>(QStringLiteral("requestReplyId"), replyId);
     np.set<QString>(QStringLiteral("message"), message);
-    mPlugin->sendPackage(np);
+    m_plugin->sendPackage(np);
 }
 
 QString NotificationsDbusInterface::newId()
 {
-    return QString::number(++mLastId);
+    return QString::number(++m_lastId);
 }

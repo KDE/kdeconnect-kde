@@ -38,7 +38,7 @@ static QString createId() { return QCoreApplication::instance()->applicationName
 
 Q_GLOBAL_STATIC_WITH_ARGS(QString, s_keyId, (createId()));
 
-DevicesModel::DevicesModel(QObject *parent)
+DevicesModel::DevicesModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
     , m_displayFilter(StatusFilterFlag::NoFilter)
@@ -137,7 +137,7 @@ void DevicesModel::deviceUpdated(const QString& id, bool isVisible)
         qCDebug(KDECONNECT_INTERFACES) << "Adding missing or previously removed device" << id;
         deviceAdded(id);
     } else {
-        DeviceDbusInterface *dev = getDevice(row);
+        DeviceDbusInterface* dev = getDevice(row);
         if (! passesFilter(dev)) {
             beginRemoveRows(QModelIndex(), row, row);
             delete m_deviceList.takeAt(row);
@@ -180,7 +180,7 @@ void DevicesModel::refreshDeviceList()
     bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
 
     QDBusPendingReply<QStringList> pendingDeviceIds = m_dbusInterface->devices(onlyReachable, onlyPaired);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pendingDeviceIds, this);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(pendingDeviceIds, this);
 
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished,
                      this, &DevicesModel::receivedDeviceList);

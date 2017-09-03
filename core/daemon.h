@@ -42,15 +42,15 @@ class KDECONNECTCORE_EXPORT Daemon
     Q_PROPERTY(QStringList pairingRequests READ pairingRequests NOTIFY pairingRequestsChanged)
 
 public:
-    explicit Daemon(QObject *parent, bool testMode = false);
+    explicit Daemon(QObject* parent, bool testMode = false);
     ~Daemon() override;
 
     static Daemon* instance();
 
     QList<Device*> devicesList() const;
 
-    virtual void askPairingConfirmation(Device *device) = 0;
-    virtual void reportError(const QString &title, const QString &description) = 0;
+    virtual void askPairingConfirmation(Device* device) = 0;
+    virtual void reportError(const QString& title, const QString& description) = 0;
     virtual QNetworkAccessManager* networkAccessManager();
 
     Device* getDevice(const QString& deviceId);
@@ -59,25 +59,25 @@ public:
 
     Q_SCRIPTABLE QString selfId() const;
 public Q_SLOTS:
-    Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
-    Q_SCRIPTABLE void releaseDiscoveryMode(const QString &id);
+    Q_SCRIPTABLE void acquireDiscoveryMode(const QString& id);
+    Q_SCRIPTABLE void releaseDiscoveryMode(const QString& id);
 
     Q_SCRIPTABLE void forceOnNetworkChange();
 
     ///don't try to turn into Q_PROPERTY, it doesn't work
     Q_SCRIPTABLE QString announcedName();
-    Q_SCRIPTABLE void setAnnouncedName(const QString &name);
+    Q_SCRIPTABLE void setAnnouncedName(const QString& name);
 
     //Returns a list of ids. The respective devices can be manipulated using the dbus path: "/modules/kdeconnect/Devices/"+id
     Q_SCRIPTABLE QStringList devices(bool onlyReachable = false, bool onlyPaired = false) const;
 
-    Q_SCRIPTABLE QString deviceIdByName(const QString &name) const;
+    Q_SCRIPTABLE QString deviceIdByName(const QString& name) const;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
     Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed
     Q_SCRIPTABLE void deviceVisibilityChanged(const QString& id, bool isVisible);
-    Q_SCRIPTABLE void announcedNameChanged(const QString &announcedName);
+    Q_SCRIPTABLE void announcedNameChanged(const QString& announcedName);
     Q_SCRIPTABLE void pairingRequestsChanged();
 
 private Q_SLOTS:

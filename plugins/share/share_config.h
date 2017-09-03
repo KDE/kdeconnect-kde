@@ -32,7 +32,7 @@ class ShareConfig
 {
     Q_OBJECT
 public:
-    ShareConfig(QWidget *parent, const QVariantList&);
+    ShareConfig(QWidget* parent, const QVariantList&);
     ~ShareConfig() override;
 
 public Q_SLOTS:

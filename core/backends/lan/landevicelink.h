@@ -60,9 +60,9 @@ private Q_SLOTS:
     void dataReceived();
 
 private:
-    SocketLineReader* mSocketLineReader;
-    ConnectionStarted mConnectionSource;
-    QHostAddress mHostAddress;
+    SocketLineReader* m_socketLineReader;
+    ConnectionStarted m_connectionSource;
+    QHostAddress m_hostAddress;
 };
 
 #endif

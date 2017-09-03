@@ -38,7 +38,7 @@ class MprisControlPlugin
     Q_OBJECT
 
 public:
-    explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
+    explicit MprisControlPlugin(QObject* parent, const QVariantList& args);
 
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override { }

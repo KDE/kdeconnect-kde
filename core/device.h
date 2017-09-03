@@ -138,10 +138,10 @@ Q_SIGNALS:
     Q_SCRIPTABLE void hasPairingRequestsChanged(bool hasPairingRequests);
 
 private: //Methods
-    static DeviceType str2type(const QString &deviceType);
+    static DeviceType str2type(const QString& deviceType);
     static QString type2str(DeviceType deviceType);
 
-    void setName(const QString &name);
+    void setName(const QString& name);
     QString iconForStatus(bool reachable, bool paired) const;
 
 private: //Fields (TODO: dPointer!)

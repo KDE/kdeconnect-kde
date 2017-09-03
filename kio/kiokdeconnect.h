@@ -35,13 +35,13 @@ class KioKdeconnect : public QObject, public KIO::SlaveBase
     Q_OBJECT
 
 public:
-    KioKdeconnect(const QByteArray &pool, const QByteArray &app);
+    KioKdeconnect(const QByteArray& pool, const QByteArray& app);
 
-    void get(const QUrl &url) override;
-    void listDir(const QUrl &url) override;
-    void stat(const QUrl &url) override;
+    void get(const QUrl& url) override;
+    void listDir(const QUrl& url) override;
+    void stat(const QUrl& url) override;
 
-    void setHost(const QString &constHostname, quint16 port, const QString &user, const QString &pass) override;
+    void setHost(const QString& constHostname, quint16 port, const QString& user, const QString& pass) override;
 
     void listAllDevices(); //List all devices exported by m_dbusInterface
     void listDevice(); //List m_currentDevice
@@ -57,7 +57,7 @@ private:
     /**
      * KDED DBus interface, used to communicate to the daemon since we need some status (like connected)
      */
-    DaemonDbusInterface *m_dbusInterface;
+    DaemonDbusInterface* m_dbusInterface;
 
 };
 

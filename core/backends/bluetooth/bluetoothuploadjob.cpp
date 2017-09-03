@@ -24,7 +24,7 @@
 #include "core_debug.h"
 #include <QCoreApplication>
 
-BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice> &data, const QBluetoothAddress &remoteAddress, QObject *parent)
+BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice>& data, const QBluetoothAddress& remoteAddress, QObject* parent)
     : QObject(parent)
     , mData(data)
     , mRemoteAddress(remoteAddress)

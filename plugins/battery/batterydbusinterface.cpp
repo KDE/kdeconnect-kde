@@ -26,10 +26,10 @@
 
 QMap<QString, BatteryDbusInterface *> BatteryDbusInterface::s_dbusInterfaces;
 
-BatteryDbusInterface::BatteryDbusInterface(const Device *device)
+BatteryDbusInterface::BatteryDbusInterface(const Device* device)
     : QDBusAbstractAdaptor(const_cast<Device*>(device))
-	, mCharge(-1)
-	, mIsCharging(false)
+	, m_charge(-1)
+	, m_isCharging(false)
 {
     // FIXME: Workaround to prevent memory leak.
     // This makes the old BatteryDdbusInterface be deleted only after the new one is
@@ -53,11 +53,11 @@ BatteryDbusInterface::~BatteryDbusInterface()
 
 void BatteryDbusInterface::updateValues(bool isCharging, int currentCharge)
 {
-    mIsCharging = isCharging;
-    mCharge = currentCharge;
+    m_isCharging = isCharging;
+    m_charge = currentCharge;
 
-    Q_EMIT stateChanged(mIsCharging);
-    Q_EMIT chargeChanged(mCharge);
+    Q_EMIT stateChanged(m_isCharging);
+    Q_EMIT chargeChanged(m_charge);
 }
 
 

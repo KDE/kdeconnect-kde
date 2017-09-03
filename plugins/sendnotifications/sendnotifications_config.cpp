@@ -27,7 +27,7 @@
 
 K_PLUGIN_FACTORY(SendNotificationsConfigFactory, registerPlugin<SendNotificationsConfig>();)
 
-SendNotificationsConfig::SendNotificationsConfig(QWidget *parent, const QVariantList& args)
+SendNotificationsConfig::SendNotificationsConfig(QWidget* parent, const QVariantList& args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_sendnotifications_config"))
     , m_ui(new Ui::SendNotificationsConfigUi())
     , appModel(new NotifyingApplicationModel)

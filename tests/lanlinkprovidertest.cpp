@@ -41,7 +41,7 @@ class LanLinkProviderTest : public QObject
     Q_OBJECT
 public:
     explicit LanLinkProviderTest()
-    : mLanLinkProvider(true) {
+    : m_lanLinkProvider(true) {
         QStandardPaths::setTestModeEnabled(true);
     }
 
@@ -60,22 +60,22 @@ private Q_SLOTS:
 private:
     const int TEST_PORT = 8520;
     // Add some private fields here
-    LanLinkProvider mLanLinkProvider;
-    Server* mServer;
-    SocketLineReader* mReader;
-    QUdpSocket* mUdpSocket;
-    QString mIdentityPackage;
+    LanLinkProvider m_lanLinkProvider;
+    Server* m_server;
+    SocketLineReader* m_reader;
+    QUdpSocket* m_udpSocket;
+    QString m_identityPackage;
 
     // Attributes for test device
-    QString deviceId;
-    QString name;
-    QCA::PrivateKey privateKey;
-    QSslCertificate certificate;
+    QString m_deviceId;
+    QString m_name;
+    QCA::PrivateKey m_privateKey;
+    QSslCertificate m_certificate;
 
     QSslCertificate generateCertificate(QString&, QCA::PrivateKey&);
     void addTrustedDevice();
     void removeTrustedDevice();
-    void setSocketAttributes(QSslSocket *socket);
+    void setSocketAttributes(QSslSocket* socket);
     void testIdentityPackage(QByteArray& identityPackage);
 
 };
@@ -84,14 +84,14 @@ void LanLinkProviderTest::initTestCase()
 {
     removeTrustedDevice(); // Remove trusted device if left by chance by any test
 
-    deviceId = QStringLiteral("testdevice");
-    name = QStringLiteral("Test Device");
-    privateKey = QCA::KeyGenerator().createRSA(2048);
-    certificate = generateCertificate(deviceId, privateKey);
+    m_deviceId = QStringLiteral("testdevice");
+    m_name = QStringLiteral("Test Device");
+    m_privateKey = QCA::KeyGenerator().createRSA(2048);
+    m_certificate = generateCertificate(m_deviceId, m_privateKey);
 
-    mLanLinkProvider.onStart();
+    m_lanLinkProvider.onStart();
 
-    mIdentityPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(TEST_PORT) + QStringLiteral("}}");
+    m_identityPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(TEST_PORT) + QStringLiteral("}}");
 }
 
 void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
@@ -104,7 +104,7 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
     QVERIFY(b);
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
-    mLanLinkProvider.onNetworkChange();
+    m_lanLinkProvider.onNetworkChange();
     QVERIFY(!spy.isEmpty() || spy.wait());
 
     QByteArray datagram;
@@ -127,7 +127,7 @@ void LanLinkProviderTest::pairedDeviceTcpPackageReceived()
 
     QVERIFY2(socket.isOpen(), "Socket disconnected immediately");
 
-    socket.write(mIdentityPackage.toLatin1());
+    socket.write(m_identityPackage.toLatin1());
     socket.waitForBytesWritten(2000);
 
     QSignalSpy spy3(&socket, SIGNAL(encrypted()));
@@ -154,29 +154,29 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
     KdeConnectConfig* kcc = KdeConnectConfig::instance();
     addTrustedDevice();
 
-    mServer = new Server(this);
-    mUdpSocket = new QUdpSocket(this);
+    m_server = new Server(this);
+    m_udpSocket = new QUdpSocket(this);
 
-    mServer->listen(QHostAddress::LocalHost, TEST_PORT);
+    m_server->listen(QHostAddress::LocalHost, TEST_PORT);
 
-    QSignalSpy spy(mServer, SIGNAL(newConnection()));
+    QSignalSpy spy(m_server, SIGNAL(newConnection()));
 
-    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::UDP_PORT); // write an identity package to udp socket here, we do not broadcast it here
-    QCOMPARE(bytesWritten, mIdentityPackage.size());
+    qint64 bytesWritten = m_udpSocket->writeDatagram(m_identityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::UDP_PORT); // write an identity package to udp socket here, we do not broadcast it here
+    QCOMPARE(bytesWritten, m_identityPackage.size());
 
     // We should have an incoming connection now, wait for incoming connection
     QVERIFY(!spy.isEmpty() || spy.wait());
 
-    QSslSocket* serverSocket = mServer->nextPendingConnection();
+    QSslSocket* serverSocket = m_server->nextPendingConnection();
 
     QVERIFY2(serverSocket != 0, "Server socket is null");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
-    mReader = new SocketLineReader(serverSocket, this);
-    QSignalSpy spy2(mReader, SIGNAL(readyRead()));
+    m_reader = new SocketLineReader(serverSocket, this);
+    QSignalSpy spy2(m_reader, SIGNAL(readyRead()));
     QVERIFY(spy2.wait());
 
-    QByteArray receivedPackage = mReader->readLine();
+    QByteArray receivedPackage = m_reader->readLine();
     testIdentityPackage(receivedPackage);
     // Received identiy package from LanLinkProvider now start ssl
 
@@ -201,8 +201,8 @@ void LanLinkProviderTest::pairedDeviceUdpPackageReceived()
 
     removeTrustedDevice();
 
-    delete mServer;
-    delete mUdpSocket;
+    delete m_server;
+    delete m_udpSocket;
 }
 
 void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
@@ -212,7 +212,7 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
     QVERIFY(b);
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
-    mLanLinkProvider.onNetworkChange();
+    m_lanLinkProvider.onNetworkChange();
     QVERIFY(!spy.isEmpty() || spy.wait());
 
     QByteArray datagram;
@@ -235,7 +235,7 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
 
     QVERIFY2(socket.isOpen(), "Socket disconnected immediately");
 
-    socket.write(mIdentityPackage.toLatin1());
+    socket.write(m_identityPackage.toLatin1());
     socket.waitForBytesWritten(2000);
 
     QSignalSpy spy3(&socket, SIGNAL(encrypted()));
@@ -257,27 +257,27 @@ void LanLinkProviderTest::unpairedDeviceTcpPackageReceived()
 
 void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
 {
-    mServer = new Server(this);
-    mUdpSocket = new QUdpSocket(this);
+    m_server = new Server(this);
+    m_udpSocket = new QUdpSocket(this);
 
-    mServer->listen(QHostAddress::LocalHost, TEST_PORT);
+    m_server->listen(QHostAddress::LocalHost, TEST_PORT);
 
-    QSignalSpy spy(mServer, &Server::newConnection);
-    qint64 bytesWritten = mUdpSocket->writeDatagram(mIdentityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::UDP_PORT); // write an identity package to udp socket here, we do not broadcast it here
-    QCOMPARE(bytesWritten, mIdentityPackage.size());
+    QSignalSpy spy(m_server, &Server::newConnection);
+    qint64 bytesWritten = m_udpSocket->writeDatagram(m_identityPackage.toLatin1(), QHostAddress::LocalHost, LanLinkProvider::UDP_PORT); // write an identity package to udp socket here, we do not broadcast it here
+    QCOMPARE(bytesWritten, m_identityPackage.size());
 
     QVERIFY(!spy.isEmpty() || spy.wait());
 
-    QSslSocket* serverSocket = mServer->nextPendingConnection();
+    QSslSocket* serverSocket = m_server->nextPendingConnection();
 
     QVERIFY2(serverSocket != 0, "Server socket is null");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
-    mReader = new SocketLineReader(serverSocket, this);
-    QSignalSpy spy2(mReader, &SocketLineReader::readyRead);
+    m_reader = new SocketLineReader(serverSocket, this);
+    QSignalSpy spy2(m_reader, &SocketLineReader::readyRead);
     QVERIFY(spy2.wait());
 
-    QByteArray receivedPackage = mReader->readLine();
+    QByteArray receivedPackage = m_reader->readLine();
     QVERIFY2(!receivedPackage.isEmpty(), "Empty package received");
 
     testIdentityPackage(receivedPackage);
@@ -295,11 +295,11 @@ void LanLinkProviderTest::unpairedDeviceUdpPackageReceived()
     QVERIFY2(serverSocket->isEncrypted(), "Server socket not yet encrypted");
     QVERIFY2(!serverSocket->peerCertificate().isNull(), "Peer certificate is null");
 
-    delete mServer;
-    delete mUdpSocket;
+    delete m_server;
+    delete m_udpSocket;
 }
 
-void LanLinkProviderTest::testIdentityPackage(QByteArray &identityPackage)
+void LanLinkProviderTest::testIdentityPackage(QByteArray& identityPackage)
 {
     QJsonDocument jsonDocument = QJsonDocument::fromJson(identityPackage);
     QJsonObject jsonObject = jsonDocument.object();
@@ -331,23 +331,23 @@ QSslCertificate LanLinkProviderTest::generateCertificate(QString& commonName, QC
     return certificate;
 }
 
-void LanLinkProviderTest::setSocketAttributes(QSslSocket *socket)
+void LanLinkProviderTest::setSocketAttributes(QSslSocket* socket)
 {
-    socket->setPrivateKey(QSslKey(privateKey.toPEM().toLatin1(), QSsl::Rsa));
-    socket->setLocalCertificate(certificate);
+    socket->setPrivateKey(QSslKey(m_privateKey.toPEM().toLatin1(), QSsl::Rsa));
+    socket->setLocalCertificate(m_certificate);
 }
 
 void LanLinkProviderTest::addTrustedDevice()
 {
-    KdeConnectConfig *kcc = KdeConnectConfig::instance();
-    kcc->addTrustedDevice(deviceId, name, QStringLiteral("phone"));
-    kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(certificate.toPem()));
+    KdeConnectConfig* kcc = KdeConnectConfig::instance();
+    kcc->addTrustedDevice(m_deviceId, m_name, QStringLiteral("phone"));
+    kcc->setDeviceProperty(m_deviceId, QStringLiteral("certificate"), QString::fromLatin1(m_certificate.toPem()));
 }
 
 void LanLinkProviderTest::removeTrustedDevice()
 {
-    KdeConnectConfig *kcc = KdeConnectConfig::instance();
-    kcc->removeTrustedDevice(deviceId);
+    KdeConnectConfig* kcc = KdeConnectConfig::instance();
+    kcc->removeTrustedDevice(m_deviceId);
 }
 
 

@@ -35,7 +35,7 @@ class BatteryPlugin
     Q_OBJECT
 
 public:
-    explicit BatteryPlugin(QObject *parent, const QVariantList &args);
+    explicit BatteryPlugin(QObject* parent, const QVariantList& args);
     ~BatteryPlugin() override;
 
     bool receivePackage(const NetworkPackage& np) override;

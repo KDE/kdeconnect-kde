@@ -62,11 +62,11 @@ private /*methods*/:
     QString newId(); //Generates successive identifitiers to use as public ids
 
 private /*attributes*/:
-    const Device* mDevice;
-    KdeConnectPlugin* mPlugin;
-    QHash<QString, Notification*> mNotifications;
-    QHash<QString, QString> mInternalIdToPublicId;
-    int mLastId;
+    const Device* m_device;
+    KdeConnectPlugin* m_plugin;
+    QHash<QString, Notification*> m_notifications;
+    QHash<QString, QString> m_internalIdToPublicId;
+    int m_lastId;
 };
 
 #endif

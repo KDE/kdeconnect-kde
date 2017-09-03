@@ -46,7 +46,9 @@ public:
         DismissableModelRole,
         RepliableModelRole,
         IconPathModelRole,
-        DbusInterfaceRole
+        DbusInterfaceRole,
+        TitleModelRole,
+        TextModelRole
     };
 
     explicit NotificationsModel(QObject* parent = nullptr);

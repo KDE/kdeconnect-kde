@@ -35,7 +35,7 @@ class SharePlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.share")
 
 public:
-    explicit SharePlugin(QObject *parent, const QVariantList &args);
+    explicit SharePlugin(QObject* parent, const QVariantList& args);
 
     ///Helper method, QDBus won't recognize QUrl
     Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }

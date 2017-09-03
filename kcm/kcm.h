@@ -39,7 +39,7 @@ class KdeConnectKcm
 {
     Q_OBJECT
 public:
-    KdeConnectKcm(QWidget *parent, const QVariantList&);
+    KdeConnectKcm(QWidget* parent, const QVariantList&);
     ~KdeConnectKcm() override;
 
 private:

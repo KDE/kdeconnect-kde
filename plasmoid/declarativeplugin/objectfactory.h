@@ -26,12 +26,12 @@ public:
         return nullptr;
     }
     
-    Q_INVOKABLE QObject* create(const QVariant &arg1) {
+    Q_INVOKABLE QObject* create(const QVariant& arg1) {
         if (m_f1) return m_f1(arg1);
         return nullptr;
     }
     
-    Q_INVOKABLE QObject* create(const QVariant &arg1, const QVariant &arg2) {
+    Q_INVOKABLE QObject* create(const QVariant& arg1, const QVariant& arg2) {
         if (m_f2) return m_f2(arg1, arg2);
         return nullptr;
     }

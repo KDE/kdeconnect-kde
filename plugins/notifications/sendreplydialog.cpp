@@ -31,7 +31,7 @@
 
 SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& replyId, const QString& topicName, QWidget* parent)
     : QDialog(parent)
-    , mReplyId(replyId)
+    , m_replyId(replyId)
     , m_ui(new Ui::SendReplyDialog)
 {
     m_ui->setupUi(this);
@@ -50,7 +50,7 @@ SendReplyDialog::~SendReplyDialog() = default;
 
 void SendReplyDialog::sendButtonClicked()
 {
-    Q_EMIT sendReply(mReplyId, m_ui->replyEdit->toPlainText());
+    Q_EMIT sendReply(m_replyId, m_ui->replyEdit->toPlainText());
     close();
 }
 

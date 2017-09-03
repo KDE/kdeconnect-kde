@@ -20,7 +20,7 @@
 
 #include "bluetoothdownloadjob.h"
 
-BluetoothDownloadJob::BluetoothDownloadJob(const QBluetoothAddress &remoteAddress, const QVariantMap &transferInfo, QObject *parent)
+BluetoothDownloadJob::BluetoothDownloadJob(const QBluetoothAddress& remoteAddress, const QVariantMap& transferInfo, QObject* parent)
     : QObject(parent)
     , mRemoteAddress(remoteAddress)
     , mTransferUuid(QBluetoothUuid(transferInfo.value("uuid").toString()))

@@ -152,7 +152,7 @@ int main(int argc, char** argv)
                 QTextStream(stderr) << i18n("waiting for device...") << endl;
                 blockOnReply(iface.acquireDiscoveryMode(id));
 
-                QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, [&](const QString &deviceAddedId) {
+                QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, [&](const QString& deviceAddedId) {
                     if (device == deviceAddedId) {
                         wait.quit();
                     }

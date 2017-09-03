@@ -46,14 +46,14 @@ K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 
 static QString createId() { return QStringLiteral("kcm")+QString::number(QCoreApplication::applicationPid()); }
 
-KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList&)
+KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList&)
     : KCModule(KAboutData::pluginData(QStringLiteral("kdeconnect-kcm")), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
     , currentDevice(nullptr)
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kdeconnect-kcm"),
+    KAboutData* about = new KAboutData(QStringLiteral("kdeconnect-kcm"),
                                        i18n("KDE Connect Settings"),
                                        QStringLiteral(KDECONNECT_VERSION_STRING),
                                        i18n("KDE Connect Settings module"),

@@ -47,8 +47,8 @@ public:
     QString name() override { return QStringLiteral("LanLinkProvider"); }
     int priority() override { return PRIORITY_HIGH; }
 
-    void userRequestsPair(const QString &deviceId);
-    void userRequestsUnpair(const QString &deviceId);
+    void userRequestsPair(const QString& deviceId);
+    void userRequestsUnpair(const QString& deviceId);
     void incomingPairPackage(DeviceLink* device, const NetworkPackage& np);
 
     static void configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted);
@@ -77,24 +77,24 @@ private Q_SLOTS:
 private:
     LanPairingHandler* createPairingHandler(DeviceLink* link);
 
-    void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
+    void onNetworkConfigurationChanged(const QNetworkConfiguration& config);
     void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, LanDeviceLink::ConnectionStarted connectionOrigin);
 
-    Server* mServer;
-    QUdpSocket mUdpSocket;
-    quint16 mTcpPort;
+    Server* m_server;
+    QUdpSocket m_udpSocket;
+    quint16 m_tcpPort;
 
-    QMap<QString, LanDeviceLink*> mLinks;
-    QMap<QString, LanPairingHandler*> mPairingHandlers;
+    QMap<QString, LanDeviceLink*> m_links;
+    QMap<QString, LanPairingHandler*> m_pairingHandlers;
 
     struct PendingConnect {
         NetworkPackage* np;
         QHostAddress sender;
     };
-    QMap<QSslSocket*, PendingConnect> receivedIdentityPackages;
+    QMap<QSslSocket*, PendingConnect> m_receivedIdentityPackages;
     QNetworkConfiguration m_lastConfig;
-    const bool mTestMode;
-    QTimer combineBroadcastsTimer;
+    const bool m_testMode;
+    QTimer m_combineBroadcastsTimer;
 };
 
 #endif

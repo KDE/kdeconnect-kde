@@ -30,7 +30,7 @@ class RunCommandConfig
 {
     Q_OBJECT
 public:
-    RunCommandConfig(QWidget *parent, const QVariantList&);
+    RunCommandConfig(QWidget* parent, const QVariantList&);
     ~RunCommandConfig() override;
 
 public Q_SLOTS:
@@ -39,11 +39,11 @@ public Q_SLOTS:
     void defaults() override;
 
 private Q_SLOTS:
-    void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
+    void onDataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight);
 private:
     void insertEmptyRow();
 
-    QStandardItemModel *m_entriesModel;
+    QStandardItemModel* m_entriesModel;
 
 };
 

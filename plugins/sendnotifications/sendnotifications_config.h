@@ -34,7 +34,7 @@ class SendNotificationsConfig
 {
     Q_OBJECT
 public:
-    SendNotificationsConfig(QWidget *parent, const QVariantList&);
+    SendNotificationsConfig(QWidget* parent, const QVariantList&);
     ~SendNotificationsConfig() override;
 
 public Q_SLOTS:

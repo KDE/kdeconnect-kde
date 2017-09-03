@@ -44,28 +44,28 @@ QDebug operator<<(QDebug s, const NetworkPackage& pkg)
     return s.space();
 }
 
-const int NetworkPackage::ProtocolVersion = 7;
+const int NetworkPackage::s_protocolVersion = 7;
 
-NetworkPackage::NetworkPackage(const QString& type, const QVariantMap &body)
-    : mId(QString::number(QDateTime::currentMSecsSinceEpoch()))
-    , mType(type)
-    , mBody(body)
-    , mPayload()
-    , mPayloadSize(0)
+NetworkPackage::NetworkPackage(const QString& type, const QVariantMap& body)
+    : m_id(QString::number(QDateTime::currentMSecsSinceEpoch()))
+    , m_type(type)
+    , m_body(body)
+    , m_payload()
+    , m_payloadSize(0)
 {
 }
 
 void NetworkPackage::createIdentityPackage(NetworkPackage* np)
 {
     KdeConnectConfig* config = KdeConnectConfig::instance();
-    np->mId = QString::number(QDateTime::currentMSecsSinceEpoch());
-    np->mType = PACKAGE_TYPE_IDENTITY;
-    np->mPayload = QSharedPointer<QIODevice>();
-    np->mPayloadSize = 0;
+    np->m_id = QString::number(QDateTime::currentMSecsSinceEpoch());
+    np->m_type = PACKAGE_TYPE_IDENTITY;
+    np->m_payload = QSharedPointer<QIODevice>();
+    np->m_payloadSize = 0;
     np->set(QStringLiteral("deviceId"), config->deviceId());
     np->set(QStringLiteral("deviceName"), config->name());
     np->set(QStringLiteral("deviceType"), config->deviceType());
-    np->set(QStringLiteral("protocolVersion"),  NetworkPackage::ProtocolVersion);
+    np->set(QStringLiteral("protocolVersion"),  NetworkPackage::s_protocolVersion);
     np->set(QStringLiteral("incomingCapabilities"), PluginLoader::instance()->incomingCapabilities());
     np->set(QStringLiteral("outgoingCapabilities"), PluginLoader::instance()->outgoingCapabilities());
 
@@ -97,7 +97,7 @@ QByteArray NetworkPackage::serialize() const
     if (hasPayload()) {
         //qCDebug(KDECONNECT_CORE) << "Serializing payloadTransferInfo";
         variant[QStringLiteral("payloadSize")] = payloadSize();
-        variant[QStringLiteral("payloadTransferInfo")] = mPayloadTransferInfo;
+        variant[QStringLiteral("payloadTransferInfo")] = m_payloadTransferInfo;
     }
 
     //QVariant -> json
@@ -147,14 +147,14 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
     auto variant = parser.toVariant().toMap();
     qvariant2qobject(variant, np);
 
-    np->mPayloadSize = variant[QStringLiteral("payloadSize")].toInt(); //Will return 0 if was not present, which is ok
-    if (np->mPayloadSize == -1) {
-        np->mPayloadSize = np->get<int>(QStringLiteral("size"), -1);
+    np->m_payloadSize = variant[QStringLiteral("payloadSize")].toInt(); //Will return 0 if was not present, which is ok
+    if (np->m_payloadSize == -1) {
+        np->m_payloadSize = np->get<int>(QStringLiteral("size"), -1);
     }
-    np->mPayloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); //Will return an empty qvariantmap if was not present, which is ok
+    np->m_payloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
     //Ids containing characters that are not allowed as dbus paths would make app crash
-    if (np->mBody.contains(QStringLiteral("deviceId")))
+    if (np->m_body.contains(QStringLiteral("deviceId")))
     {
         QString deviceId = np->get<QString>(QStringLiteral("deviceId"));
         DbusHelper::filterNonExportableCharacters(deviceId);
@@ -165,7 +165,7 @@ bool NetworkPackage::unserialize(const QByteArray& a, NetworkPackage* np)
 
 }
 
-FileTransferJob* NetworkPackage::createPayloadTransferJob(const QUrl &destination) const
+FileTransferJob* NetworkPackage::createPayloadTransferJob(const QUrl& destination) const
 {
     return new FileTransferJob(payload(), payloadSize(), destination);
 }

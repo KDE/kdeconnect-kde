@@ -38,8 +38,8 @@ public:
     ~NotificationsListener() override;
 
 protected:
-    KdeConnectPlugin* mPlugin;
-    QHash<QString, NotifyingApplication> applications;
+    KdeConnectPlugin* m_plugin;
+    QHash<QString, NotifyingApplication> m_applications;
 
     // virtual helper function to make testing possible (QDBusArgument can not
     // be injected without making a DBUS-call):
@@ -60,5 +60,5 @@ private Q_SLOTS:
 
 private:
     void setTranslatedAppName();
-    QString mTranslatedAppName;
+    QString m_translatedAppName;
 };
