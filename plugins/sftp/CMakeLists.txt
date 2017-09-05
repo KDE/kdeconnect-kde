@@ -1,3 +1,7 @@
+# Find fusermount -- otherwise fallback to umount
+find_program(HAVE_FUSERMOUNT fusermount)
+configure_file(config-sftp.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-sftp.h )
+
 find_package(KF5 REQUIRED COMPONENTS Notifications KIO)
 
 set(kdeconnect_sftp_SRCS
