@@ -72,7 +72,7 @@ Daemon::Daemon(QObject* parent, bool testMode)
     else {
         d->m_linkProviders.insert(new LanLinkProvider());
         #ifdef KDECONNECT_BLUETOOTH
-            d->mLinkProviders.insert(new BluetoothLinkProvider());
+            d->m_linkProviders.insert(new BluetoothLinkProvider());
         #endif
     }
 
