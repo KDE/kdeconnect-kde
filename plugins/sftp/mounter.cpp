@@ -27,6 +27,7 @@
 #include <KLocalizedString>
 
 #include "mountloop.h"
+#include "config-sftp.h"
 #include "sftp_debug.h"
 #include "kdeconnectconfig.h"
 
@@ -235,7 +236,11 @@ void Mounter::unmount(bool finished)
             m_proc->deleteLater();
 
         //Free mount point (won't always succeed if the path is in use)
+#if defined(HAVE_FUSERMOUNT)
         KProcess::execute(QStringList() << QStringLiteral("fusermount") << QStringLiteral("-u") << m_mountPoint, 10000);
+#else
+        KProcess::execute(QStringList() << QStringLiteral("umount") << m_mountPoint, 10000);
+#endif
         m_proc = nullptr;
     }
     m_started = false;
