@@ -74,7 +74,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     auto battery = new BatteryAction(device);
     addAction(battery);
     setWhenAvailable(device->hasPlugin("kdeconnect_battery"),
-                     [this, battery](bool available) { battery->setVisible(available);  }
+                     [battery](bool available) { battery->setVisible(available);  }
                      , this);
 
     auto browse = addAction(i18n("Browse device"));
