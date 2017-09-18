@@ -128,6 +128,7 @@ void Mounter::onPakcageReceived(const NetworkPackage& np)
             path)
         << m_mountPoint
         << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))
+        << QStringLiteral("-s") // This fixes a bug where file chunks are sent out of order and get corrupted on reception
         << QStringLiteral("-f")
         << QStringLiteral("-F") << QStringLiteral("/dev/null") //Do not use ~/.ssh/config
         << QStringLiteral("-o") << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()

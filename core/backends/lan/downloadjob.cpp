@@ -36,12 +36,14 @@ DownloadJob::DownloadJob(const QHostAddress& address, const QVariantMap& transfe
     , m_address(address)
     , m_port(transferInfo[QStringLiteral("port")].toInt())
     , m_socket(new QSslSocket)
-    , m_buffer(new QBuffer)
 {
     LanLinkProvider::configureSslSocket(m_socket.data(), transferInfo.value(QStringLiteral("deviceId")).toString(), true);
 
     connect(m_socket.data(), SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
-//     connect(mSocket.data(), &QAbstractSocket::stateChanged, [](QAbstractSocket::SocketState state){ qDebug() << "statechange" << state; });
+    connect(m_socket.data(), &QAbstractSocket::connected, this, &DownloadJob::socketConnected);
+    // emit readChannelFinished when the socket gets disconnected. This seems to be a bug in upstream QSslSocket.
+    // Needs investigation and upstreaming of the fix. QTBUG-62257
+    connect(m_socket.data(), &QAbstractSocket::disconnected, m_socket.data(), &QAbstractSocket::readChannelFinished);
 }
 
 DownloadJob::~DownloadJob()
@@ -54,26 +56,22 @@ void DownloadJob::start()
     //TODO: Timeout?
     // Cannot use read only, might be due to ssl handshake, getting QIODevice::ReadOnly error and no connection
     m_socket->connectToHostEncrypted(m_address.toString(), m_port, QIODevice::ReadWrite);
-
-    bool b = m_buffer->open(QBuffer::ReadWrite);
-    Q_ASSERT(b);
 }
 
 void DownloadJob::socketFailed(QAbstractSocket::SocketError error)
 {
-    if (error != QAbstractSocket::RemoteHostClosedError) { //remote host closes when finishes
-        qWarning(KDECONNECT_CORE) << "error..." << m_socket->errorString();
-        setError(error + 1);
-        setErrorText(m_socket->errorString());
-    } else {
-        auto ba = m_socket->readAll();
-        m_buffer->write(ba);
-        m_buffer->seek(0);
-    }
+    qWarning() << error << m_socket->errorString();
+    setError(error + 1);
+    setErrorText(m_socket->errorString());
     emitResult();
 }
 
 QSharedPointer<QIODevice> DownloadJob::getPayload()
 {
-    return m_buffer.staticCast<QIODevice>();
+    return m_socket.staticCast<QIODevice>();
+}
+
+void DownloadJob::socketConnected()
+{
+    emitResult();
 }

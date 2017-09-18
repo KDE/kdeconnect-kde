@@ -20,7 +20,7 @@
 
 #include "telephonyplugin.h"
 
-#include "sendsmsdialog.h"
+#include "sendreplydialog.h"
 
 #include <KLocalizedString>
 #include <QIcon>
@@ -156,9 +156,10 @@ void TelephonyPlugin::showSendSmsDialog()
     QString phoneNumber = sender()->property("phoneNumber").toString();
     QString contactName = sender()->property("contactName").toString();
     QString originalMessage = sender()->property("originalMessage").toString();
-    SendSmsDialog* dialog = new SendSmsDialog(originalMessage, phoneNumber, contactName);
-    connect(dialog, &SendSmsDialog::sendSms, this, &TelephonyPlugin::sendSms);
+    SendReplyDialog* dialog = new SendReplyDialog(originalMessage, phoneNumber, contactName);
+    connect(dialog, &SendReplyDialog::sendReply, this, &TelephonyPlugin::sendSms);
     dialog->show();
+    dialog->raise();
 }
 
 QString TelephonyPlugin::dbusPath() const

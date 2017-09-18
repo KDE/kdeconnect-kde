@@ -65,7 +65,7 @@ bool RunCommandPlugin::receivePackage(const NetworkPackage& np)
             qCWarning(KDECONNECT_PLUGIN_RUNCOMMAND) << key << "is not a configured command";
         }
         const QJsonObject commandJson = value.toObject();
-        qDebug() << "Running:" << "/bin/sh" << "-c" << commandJson[QStringLiteral("command")].toString();
+        qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << "/bin/sh" << "-c" << commandJson[QStringLiteral("command")].toString();
         QProcess::startDetached(QStringLiteral("/bin/sh"), QStringList()<< QStringLiteral("-c") << commandJson[QStringLiteral("command")].toString());
         return true;
     }

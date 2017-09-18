@@ -47,11 +47,10 @@ private:
     QHostAddress m_address;
     qint16 m_port;
     QSharedPointer<QSslSocket> m_socket;
-    QSharedPointer<QBuffer> m_buffer;
 
 private Q_SLOTS:
     void socketFailed(QAbstractSocket::SocketError error);
-
+    void socketConnected();
 };
 
 #endif // UPLOADJOB_H

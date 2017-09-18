@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>350</width>
-    <height>326</height>
+    <height>328</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -25,9 +25,6 @@
     <height>0</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>Pause music plugin</string>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox_2">
@@ -37,25 +34,12 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
      <property name="title">
       <string>General</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QCheckBox" name="check_persistent">
-        <property name="font">
-         <font>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
         <property name="toolTip">
          <string>Synchronize only notifications with a timeout value of 0?</string>
         </property>
@@ -156,12 +140,6 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
      </property>
      <property name="toolTip">
       <string/>

@@ -37,6 +37,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     , m_destination(destination)
     , m_speedBytes(0)
     , m_written(0)
+    , m_size(size)
 {
     Q_ASSERT(m_origin);
     Q_ASSERT(m_origin->isReadable());
@@ -45,12 +46,8 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
         m_destination.setScheme(QStringLiteral("file"));
     }
 
-    if (size >= 0) {
-        setTotalAmount(Bytes, size);
-    }
-
     setCapabilities(Killable);
-    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination;
+    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination << "size:" << size;
 }
 
 void FileTransferJob::start()
@@ -79,22 +76,30 @@ void FileTransferJob::doStart()
 
 void FileTransferJob::startTransfer()
 {
+    // Don't put each ready read
+    if (m_reply)
+        return;
+
     setProcessedAmount(Bytes, 0);
-    m_timer.start();
     description(this, i18n("Receiving file over KDE Connect"),
                         { i18nc("File transfer origin", "From"), m_from },
                         { i18nc("File transfer destination", "To"), m_destination.toLocalFile() });
 
     QNetworkRequest req(m_destination);
-    req.setHeader(QNetworkRequest::ContentLengthHeader, totalAmount(Bytes));
+    if (m_size >= 0) {
+        setTotalAmount(Bytes, m_size);
+        req.setHeader(QNetworkRequest::ContentLengthHeader, m_size);
+    }
     m_reply = Daemon::instance()->networkAccessManager()->put(req, m_origin.data());
 
     connect(m_reply, &QNetworkReply::uploadProgress, this, [this](qint64 bytesSent, qint64 /*bytesTotal*/) {
+        if (!m_timer.isValid())
+            m_timer.start();
         setProcessedAmount(Bytes, bytesSent);
 
         const auto elapsed = m_timer.elapsed();
         if (elapsed > 0) {
-            emitSpeed(bytesSent / elapsed);
+            emitSpeed((1000 * bytesSent) / elapsed);
         }
     });
     connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),

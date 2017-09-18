@@ -325,10 +325,10 @@ void KdeConnectKcm::setCurrentDeviceTrusted(KdeConnectKcm::TrustStatus trusted)
         case NotTrusted:
             kcmUi->status_label->setText(i18n("(not paired)"));
             break;
-        case Requested:
+        case RequestedByPeer:
             kcmUi->status_label->setText(i18n("(incoming pair request)"));
             break;
-        case RequestedByPeer:
+        case Requested:
             kcmUi->status_label->setText(i18n("(pairing requested)"));
             break;
     }

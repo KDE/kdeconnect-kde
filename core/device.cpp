@@ -210,7 +210,11 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
 {
     //qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
 
-    Q_ASSERT(!m_deviceLinks.contains(link));
+    setName(identityPackage.get<QString>(QStringLiteral("deviceName")));
+    m_deviceType = str2type(identityPackage.get<QString>(QStringLiteral("deviceType")));
+
+    if (m_deviceLinks.contains(link))
+        return;
 
     m_protocolVersion = identityPackage.get<int>(QStringLiteral("protocolVersion"), -1);
     if (m_protocolVersion != NetworkPackage::s_protocolVersion) {
@@ -221,10 +225,6 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
             this, &Device::linkDestroyed);
 
     m_deviceLinks.append(link);
-
-    //re-read the device name from the identityPackage because it could have changed
-    setName(identityPackage.get<QString>(QStringLiteral("deviceName")));
-    m_deviceType = str2type(identityPackage.get<QString>(QStringLiteral("deviceType")));
 
     //Theoretically we will never add two links from the same provider (the provider should destroy
     //the old one before this is called), so we do not have to worry about destroying old links.
