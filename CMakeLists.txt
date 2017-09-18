@@ -12,7 +12,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DI
 
 find_package(Qt5 5.2 REQUIRED COMPONENTS Quick)
 
-find_package(KF5 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
+find_package(KF5 5.38.0 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
 find_package(KF5DocTools)
 find_package(Qca-qt5 2.1.0 REQUIRED)
 
