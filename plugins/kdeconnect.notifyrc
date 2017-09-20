@@ -78,7 +78,7 @@ Comment[sv]=Underrättelser från dina apparater
 Comment[tr]=Cihazınızdan bildirimler
 Comment[uk]=Сповіщення з вашого пристрою
 Comment[x-test]=xxNotifications from your devicesxx
-Comment[zh_CN]=来自你设备的通知
+Comment[zh_CN]=来自您设备的通知
 Comment[zh_TW]=從您的裝置接收到通知
 
 [Event/pairingRequest]
