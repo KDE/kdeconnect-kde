@@ -27,6 +27,10 @@
 
 #include <core/kdeconnectplugin.h>
 
+#include <QLoggingCategory>
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PAUSEMUSIC)
+
 class PauseMusicPlugin
     : public KdeConnectPlugin
 {
@@ -37,12 +41,6 @@ public:
 
     bool receivePackage(const NetworkPackage& np) override;
     void connected() override { }
-
-public Q_SLOTS:
-    /**
-     * @returns 0 if not muted, 1 if muted or -1 if there was an error
-     */
-    int isKMixMuted();
     
 private:
     QSet<QString> pausedSources;

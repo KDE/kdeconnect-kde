@@ -26,38 +26,18 @@
 #include <QDBusMessage>
 #include <QDBusReply>
 #include <QDebug>
+#include <QProcess>
 
 #include <KPluginFactory>
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_pausemusic.json", registerPlugin< PauseMusicPlugin >(); )
 
-//TODO: Port this away from KMix to use only Pulseaudio
-int PauseMusicPlugin::isKMixMuted() {
-    QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/Mixers"), QStringLiteral("org.kde.KMix.MixSet"));
-    QString mixer = kmixInterface.property("currentMasterMixer").toString();
-    QString control = kmixInterface.property("currentMasterControl").toString();
-
-    if (mixer.isEmpty() || control.isEmpty())
-        return -1;
-
-    mixer.replace(':','_');
-    mixer.replace('.','_');
-    mixer.replace('-','_');
-    control.replace(':','_');
-    control.replace('.','_');
-    control.replace('-','_');
-
-    QDBusInterface mixerInterface(QStringLiteral("org.kde.kmix"), "/Mixers/"+mixer+"/"+control, QStringLiteral("org.kde.KMix.Control"));
-    if (mixerInterface.property("mute").toBool()) return 1;
-    return (mixerInterface.property("volume").toInt() == 0);
-}
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PAUSEMUSIC, "kdeconnect.plugin.pausemusic")
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , muted(false)
-{
-    QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/kmix/KMixWindow/actions/mute"), QStringLiteral("org.qtproject.Qt.QAction"));
-}
+{}
 
 bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
 {
@@ -81,11 +61,9 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     if (pauseConditionFulfilled) {
 
         if (mute) {
-            QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/kmix/KMixWindow/actions/mute"), QStringLiteral("org.qtproject.Qt.QAction"));
-            if (isKMixMuted() == 0) {
-                muted = true;
-                kmixInterface.call(QStringLiteral("trigger"));
-            }
+            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting system volume";
+            QProcess::startDetached("pactl set-sink-mute @DEFAULT_SINK@ 1");
+            muted = true;
         }
 
         if (pause) {
@@ -112,11 +90,11 @@ bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
     } else {
 
         if (mute && muted) {
-             QDBusInterface kmixInterface(QStringLiteral("org.kde.kmix"), QStringLiteral("/kmix/KMixWindow/actions/mute"), QStringLiteral("org.qtproject.Qt.QAction"));
-             if (isKMixMuted() > 0) {
-                 kmixInterface.call(QStringLiteral("trigger"));
-             }
-             muted = false;
+
+            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
+            QProcess::startDetached("pactl set-sink-mute @DEFAULT_SINK@ 0");
+
+            muted = false;
         }
 
         if (pause && !pausedSources.empty()) {
