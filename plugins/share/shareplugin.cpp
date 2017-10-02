@@ -63,6 +63,12 @@ QUrl SharePlugin::destinationDir() const
     return dir;
 }
 
+static QString cleanFilename(const QString &filename)
+{
+    int idx = filename.lastIndexOf(QLatin1Char('/'));
+    return idx>=0 ? filename.mid(idx + 1) : filename;
+}
+
 bool SharePlugin::receivePackage(const NetworkPackage& np)
 {
 /*
@@ -87,7 +93,7 @@ bool SharePlugin::receivePackage(const NetworkPackage& np)
     qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer";
 
     if (np.hasPayload()) {
-        const QString filename = np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch()));
+        const QString filename = cleanFilename(np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch())));
         const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
         QUrl destination(dir);
         destination.setPath(dir.path() + '/' + filename, QUrl::DecodedMode);
