@@ -55,6 +55,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     Q_SCRIPTABLE void notificationPosted(const QString& publicId);
     Q_SCRIPTABLE void notificationRemoved(const QString& publicId);
+    Q_SCRIPTABLE void notificationUpdated(const QString& publicId);
     Q_SCRIPTABLE void allNotificationsRemoved();
 
 private /*methods*/:

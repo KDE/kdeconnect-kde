@@ -19,6 +19,7 @@
  */
 
 #include "notification.h"
+#include "notification_debug.h"
 
 #include <KNotification>
 #include <QIcon>
@@ -36,6 +37,7 @@ Notification::Notification(const NetworkPackage& np, QObject* parent)
     m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect"));
     m_imagesDir.mkpath(m_imagesDir.absolutePath());
     m_closed = false;
+    m_ready = false;
 
     parseNetworkPackage(np);
     createKNotification(false, np);
@@ -55,18 +57,11 @@ void Notification::dismiss()
 
 void Notification::show()
 {
+    m_ready = true;
+    Q_EMIT ready();
     if (!m_silent) {
         m_closed = false;
         m_notification->sendEvent();
-    }
-}
-
-void Notification::applyIconAndShow()
-{
-    if (!m_silent) {
-        QPixmap icon(m_iconPath, "PNG");
-        m_notification->setPixmap(icon);
-        show();
     }
 }
 
@@ -101,32 +96,61 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
         m_notification->setText(escapedTitle+": "+escapedText);
     }
 
+    m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
+
     if (!m_hasIcon) {
-        //HACK The only way to display no icon at all is trying to load a non-existant icon
-        m_notification->setIconName(QString("not_a_real_icon"));
+        applyNoIcon();
         show();
     } else {
-        QString filename = m_payloadHash;
 
-        if (filename.isEmpty()) {
-            m_hasIcon = false;
+        m_iconPath = m_imagesDir.absoluteFilePath(m_payloadHash);
+
+        if (!QFile::exists(m_iconPath)) {
+            loadIcon(np);
         } else {
-            m_iconPath = m_imagesDir.absoluteFilePath(filename);
-            QUrl destinationUrl(m_iconPath);
-            FileTransferJob* job = np.createPayloadTransferJob(destinationUrl);
-            job->start();
-            connect(job, &FileTransferJob::result, this, &Notification::applyIconAndShow);
+            applyIcon();
+            show();
         }
     }
 
-    if(!m_requestReplyId.isEmpty()) {
-        m_notification->setActions( QStringList(i18n("Reply")) );
+    if (!m_requestReplyId.isEmpty()) {
+        m_notification->setActions(QStringList(i18n("Reply")));
         connect(m_notification, &KNotification::action1Activated, this, &Notification::reply);
     }
 
     connect(m_notification, &KNotification::closed, this, &Notification::closed);
 
     return m_notification;
+}
+
+void Notification::loadIcon(const NetworkPackage& np)
+{
+    m_ready = false;
+    FileTransferJob* job = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
+    job->start();
+
+    connect(job, &FileTransferJob::result, this, [this, job]{
+
+        if (job->error()) {
+            qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << job->errorString();
+            applyNoIcon();
+        } else {
+            applyIcon();
+        }
+        show();
+    });
+}
+
+void Notification::applyIcon()
+{
+    QPixmap icon(m_iconPath, "PNG");
+    m_notification->setPixmap(icon);
+}
+
+void Notification::applyNoIcon()
+{
+    //HACK The only way to display no icon at all is trying to load a non-existant icon
+    m_notification->setIconName(QStringLiteral("not_a_real_icon"));
 }
 
 void Notification::reply()

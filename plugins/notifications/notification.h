@@ -60,17 +60,18 @@ public:
     void show();
     bool silent() const { return m_silent; }
     void update(const NetworkPackage& np);
+    bool isReady() const { return m_ready; }
     KNotification* createKNotification(bool update, const NetworkPackage& np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
-    Q_SCRIPTABLE void applyIconAndShow();
     Q_SCRIPTABLE void reply();
     void closed();
 
     Q_SIGNALS:
     void dismissRequested(const QString& m_internalId);
     void replyRequested();
+    void ready();
 
 private:
     QString m_internalId;
@@ -87,8 +88,12 @@ private:
     bool m_silent;
     bool m_closed;
     QString m_payloadHash;
+    bool m_ready;
 
     void parseNetworkPackage(const NetworkPackage& np);
+    void loadIcon(const NetworkPackage& np);
+    void applyIcon();
+    void applyNoIcon();
 };
 
 #endif

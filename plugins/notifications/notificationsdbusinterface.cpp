@@ -82,11 +82,28 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
 
         if (!m_internalIdToPublicId.contains(id)) {
             Notification* noti = new Notification(np, this);
-            addNotification(noti);
+
+            if (noti->isReady()) {
+                addNotification(noti);
+            } else {
+                connect(noti, &Notification::ready, this, [this, noti]{
+                    addNotification(noti);
+                });
+            }
         } else {
             QString pubId = m_internalIdToPublicId[id];
-            m_notifications[pubId]->update(np);
+            Notification* noti = m_notifications[pubId];
+            noti->update(np);
+
+            if (noti->isReady()) {
+                Q_EMIT notificationUpdated(pubId);
+            } else {
+                connect(noti, &Notification::ready, this, [this, pubId]{
+                    Q_EMIT notificationUpdated(pubId);
+                });
+            }
         }
+
     }
 }
 
