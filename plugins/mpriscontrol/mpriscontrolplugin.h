@@ -52,6 +52,7 @@ private:
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
     void sendPlayerList();
+    void mprisPlayerMetadataToNetworkPackage(NetworkPackage& np, const QVariantMap& nowPlayingMap) const;
 
     QHash<QString, QString> playerList;
     int prevVolume;

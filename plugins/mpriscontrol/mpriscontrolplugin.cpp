@@ -129,22 +129,9 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         QDBusArgument bullshit = qvariant_cast<QDBusArgument>(properties[QStringLiteral("Metadata")]);
         QVariantMap nowPlayingMap;
         bullshit >> nowPlayingMap;
-        if (nowPlayingMap.contains(QStringLiteral("xesam:title"))) {
-            QString nowPlaying = nowPlayingMap[QStringLiteral("xesam:title")].toString();
-            if (nowPlayingMap.contains(QStringLiteral("xesam:artist"))) {
-                nowPlaying = nowPlayingMap[QStringLiteral("xesam:artist")].toString() + " - " + nowPlaying;
-            }
-            np.set(QStringLiteral("nowPlaying"),nowPlaying);
-            somethingToSend = true;
-        }
-        if (nowPlayingMap.contains(QStringLiteral("mpris:length"))) {
-            if (nowPlayingMap.contains(QStringLiteral("mpris:length"))) {
-                long long length = nowPlayingMap[QStringLiteral("mpris:length")].toLongLong();
-                np.set(QStringLiteral("length"),length/1000); //milis to nanos
-            }
-            somethingToSend = true;
-        }
 
+        mprisPlayerMetadataToNetworkPackage(np, nowPlayingMap);
+        somethingToSend = true;
     }
     if (properties.contains(QStringLiteral("PlaybackStatus"))) {
         bool playing = (properties[QStringLiteral("PlaybackStatus")].toString() == QLatin1String("Playing"));
@@ -242,18 +229,9 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     NetworkPackage answer(PACKAGE_TYPE_MPRIS);
     bool somethingToSend = false;
     if (np.get<bool>(QStringLiteral("requestNowPlaying"))) {
-
         QVariantMap nowPlayingMap = mprisInterface.metadata();
-        QString nowPlaying = nowPlayingMap[QStringLiteral("xesam:title")].toString();
-        if (nowPlayingMap.contains(QStringLiteral("xesam:artist"))) {
-            nowPlaying = nowPlayingMap[QStringLiteral("xesam:artist")].toString() + " - " + nowPlaying;
-        }
-        answer.set(QStringLiteral("nowPlaying"),nowPlaying);
+        mprisPlayerMetadataToNetworkPackage(answer, nowPlayingMap);
 
-        if (nowPlayingMap.contains(QStringLiteral("mpris:length"))) {
-            qlonglong length = nowPlayingMap[QStringLiteral("mpris:length")].toLongLong();
-            answer.set(QStringLiteral("length"),length/1000);
-        }
         qlonglong pos = mprisInterface.position();
         answer.set(QStringLiteral("pos"), pos/1000);
 
@@ -286,6 +264,27 @@ void MprisControlPlugin::sendPlayerList()
     NetworkPackage np(PACKAGE_TYPE_MPRIS);
     np.set(QStringLiteral("playerList"),playerList.keys());
     sendPackage(np);
+}
+
+void MprisControlPlugin::mprisPlayerMetadataToNetworkPackage(NetworkPackage& np, const QVariantMap& nowPlayingMap) const {
+    QString title = nowPlayingMap[QStringLiteral("xesam:title")].toString();
+    QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toString();
+    QString album = nowPlayingMap[QStringLiteral("xesam:album")].toString();
+    QString nowPlaying = title;
+    if (!artist.isEmpty()) {
+        nowPlaying = artist + " - " + title;
+    }
+    np.set(QStringLiteral("title"), title);
+    np.set(QStringLiteral("artist"), artist);
+    np.set(QStringLiteral("album"), album);
+    np.set(QStringLiteral("nowPlaying"), nowPlaying);
+
+    bool hasLength = false;
+    long long length = nowPlayingMap[QStringLiteral("mpris:length")].toLongLong(&hasLength) / 1000; //nanoseconds to milliseconds
+    if (!hasLength) {
+        length = -1;
+    }
+    np.set(QStringLiteral("length"), length);
 }
 
 #include "mpriscontrolplugin.moc"
