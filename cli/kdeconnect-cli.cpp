@@ -88,7 +88,7 @@ int main(int argc, char** argv)
             blockOnReply(iface.acquireDiscoveryMode(id));
             QThread::sleep(2);
         }
-        const QStringList devices = blockOnReply<QStringList>(iface.devices(paired, reachable));
+        const QStringList devices = blockOnReply<QStringList>(iface.devices(reachable, paired));
 
         for (const QString& id : devices) {
             if (parser.isSet(QStringLiteral("id-only"))) {
