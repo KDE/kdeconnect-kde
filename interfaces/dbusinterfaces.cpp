@@ -22,8 +22,8 @@
 
 QString DaemonDbusInterface::activatedService() {
     static const QString service = QStringLiteral("org.kde.kdeconnect");
-    QDBusConnection::sessionBus().interface()->startService(service);
-    if (!QDBusConnection::sessionBus().interface()->isValid()) {
+    auto reply = QDBusConnection::sessionBus().interface()->startService(service);
+    if (!reply.isValid()) {
         qWarning() << "error activating kdeconnectd:" << QDBusConnection::sessionBus().interface()->lastError();
     }
     return service;
