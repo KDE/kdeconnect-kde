@@ -270,6 +270,7 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPackage(NetworkPackage& np,
     QString title = nowPlayingMap[QStringLiteral("xesam:title")].toString();
     QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toString();
     QString album = nowPlayingMap[QStringLiteral("xesam:album")].toString();
+    QString albumArtUrl = nowPlayingMap[QStringLiteral("mpris:artUrl")].toString();
     QString nowPlaying = title;
     if (!artist.isEmpty()) {
         nowPlaying = artist + " - " + title;
@@ -277,6 +278,7 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPackage(NetworkPackage& np,
     np.set(QStringLiteral("title"), title);
     np.set(QStringLiteral("artist"), artist);
     np.set(QStringLiteral("album"), album);
+    np.set(QStringLiteral("albumArtUrl"), albumArtUrl);
     np.set(QStringLiteral("nowPlaying"), nowPlaying);
 
     bool hasLength = false;
