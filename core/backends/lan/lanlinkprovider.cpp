@@ -425,6 +425,7 @@ void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& devi
     socketCiphers.append(QSslCipher(QStringLiteral("ECDHE-RSA-AES128-SHA")));
     socketCiphers.append(QSslCipher(QStringLiteral("RC4-SHA")));
     socketCiphers.append(QSslCipher(QStringLiteral("RC4-MD5")));
+    socketCiphers.append(QSslCipher(QStringLiteral("DHE-RSA-AES256-SHA")));
 
     // Configure for ssl
     QSslConfiguration sslConfig;
