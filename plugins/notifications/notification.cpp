@@ -27,6 +27,7 @@
 #include <QUrl>
 #include <QPixmap>
 #include <KLocalizedString>
+#include <QFile>
 
 #include <core/filetransferjob.h>
 
@@ -34,8 +35,17 @@
 Notification::Notification(const NetworkPackage& np, QObject* parent)
     : QObject(parent)
 {
-    m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect"));
+    //Make a own directory for each user so noone can see each others icons
+    QString username;
+    #ifdef Q_OS_WIN
+        username = qgetenv("USERNAME");
+    #else
+        username = qgetenv("USER");
+    #endif
+
+    m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username);
     m_imagesDir.mkpath(m_imagesDir.absolutePath());
+    QFile(m_imagesDir.absolutePath()).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
     m_closed = false;
     m_ready = false;
 
