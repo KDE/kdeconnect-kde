@@ -6,7 +6,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
 set(kdeconnectdeclarativeplugin_SRC
     kdeconnectdeclarativeplugin.cpp
     responsewaiter.cpp
-    processrunner.cpp
 )
 
 set(kdeconnectdeclarativeplugin_MOC

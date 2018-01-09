@@ -28,7 +28,6 @@
 
 #include "objectfactory.h"
 #include "responsewaiter.h"
-#include "processrunner.h"
 
 #include "interfaces/devicessortproxymodel.h"
 #include "interfaces/devicesmodel.h"
@@ -85,7 +84,6 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DevicesModel>(uri, 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>(uri, 1, 0, "NotificationsModel");
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
-    qmlRegisterType<ProcessRunner>(uri, 1, 0, "ProcessRunner");
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
     qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
