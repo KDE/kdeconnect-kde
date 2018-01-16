@@ -26,6 +26,7 @@
 #include <QString>
 #include <QStringList>
 #include <QDir>
+#include <QPointer>
 
 #include "notification.h"
 
@@ -65,7 +66,7 @@ private /*methods*/:
 private /*attributes*/:
     const Device* m_device;
     KdeConnectPlugin* m_plugin;
-    QHash<QString, Notification*> m_notifications;
+    QHash<QString, QPointer<Notification>> m_notifications;
     QHash<QString, QString> m_internalIdToPublicId;
     int m_lastId;
 };

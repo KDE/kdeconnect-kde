@@ -55,7 +55,6 @@ Notification::Notification(const NetworkPackage& np, QObject* parent)
 
 Notification::~Notification()
 {
-
 }
 
 void Notification::dismiss()
