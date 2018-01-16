@@ -65,9 +65,9 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="renameShow_button">
+         <widget class="QToolButton" name="renameShow_button">
           <property name="text">
-           <string/>
+           <string>Edit</string>
           </property>
           <property name="icon">
            <iconset theme="edit-rename">
@@ -87,9 +87,9 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="renameDone_button">
+         <widget class="QToolButton" name="renameDone_button">
           <property name="text">
-           <string/>
+           <string>Save</string>
           </property>
           <property name="icon">
            <iconset theme="dialog-ok">
