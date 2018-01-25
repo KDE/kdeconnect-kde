@@ -89,7 +89,14 @@ int main(int argc, char** argv)
     Ui::Dialog uidialog;
     uidialog.setupUi(&dialog);
     uidialog.devicePicker->setModel(&proxyModel);
-    uidialog.urlLabel->setText(urlToShare.toDisplayString());
+
+    if (urlToShare.scheme() == QLatin1String("tel")) {
+        uidialog.label->setText(i18n("Device to call this phone number with:"));
+        uidialog.urlLabel->setText(urlToShare.toDisplayString(QUrl::RemoveScheme));
+    } else {
+        uidialog.urlLabel->setText(urlToShare.toDisplayString());
+    }
+
     if (dialog.exec() == QDialog::Accepted) {
         QUrl url = urlToShare;
         const int currentDeviceIndex = uidialog.devicePicker->currentIndex();
