@@ -91,8 +91,11 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
                 });
             }
         } else {
-            QString pubId = m_internalIdToPublicId[id];
-            Notification* noti = m_notifications[pubId];
+            QString pubId = m_internalIdToPublicId.value(id);
+            Notification* noti = m_notifications.value(pubId);
+            if (!noti)
+                return;
+
             noti->update(np);
 
             if (noti->isReady()) {
