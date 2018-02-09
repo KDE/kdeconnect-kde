@@ -13,7 +13,7 @@ All this without wires, over the already existing WiFi network, and using TLS en
 
 ## Supported platforms
 - Computers running Linux with Plasma 5, Gnome 3, Elementary OS...
-- Android, by installing the [KDE Connect Android app](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) (also available on [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp)).
+- Android, by installing the [KDE Connect Android app](https://github.com/KDE/kdeconnect-android) (available on [Google Play Store](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) and on [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp)).
 
 ## How to install
 This explains how to install KDE Connect on your computer. You will also need to install it in your phone and pair both devices in the app if you want it to be any useful.
