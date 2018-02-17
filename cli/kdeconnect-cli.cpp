@@ -134,15 +134,27 @@ int main(int argc, char** argv)
             parser.showHelp(1);
         }
 
-        if(parser.isSet(QStringLiteral("share"))) {
-            QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")), QDir::currentPath());
-            parser.clearPositionalArguments();
-            if(!url.isEmpty() && !device.isEmpty()) {
+        if (parser.isSet(QStringLiteral("share"))) {
+            QList<QUrl> urls;
+            QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")));
+            urls.append(url);
+
+            //In case there are more arguments, check if they are files and then send them
+            for (const QString& file : parser.positionalArguments()) {
+                QUrl url = QUrl::fromUserInput(file, QDir::currentPath());
+                if (!url.isLocalFile()) {
+                    QTextStream(stderr) << i18n("Can't find the file: %1", url.toString()) << endl;
+                    return 1;
+                } else {
+                    urls.append(url);
+                }
+            }
+
+            for (const QUrl& url : urls) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
                 msg.setArguments(QVariantList() << url.toString());
                 blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
-            } else {
-                QTextStream(stderr) << (i18n("Couldn't share %1", url.toString())) << endl;
+                QTextStream(stdout) << i18n("Sent %1", url.toString()) << endl;
             }
         } else if(parser.isSet(QStringLiteral("pair"))) {
             DeviceDbusInterface dev(device);
