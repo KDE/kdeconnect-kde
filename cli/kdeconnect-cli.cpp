@@ -51,6 +51,8 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringList(QStringLiteral("l")) << QStringLiteral("list-devices"), i18n("List all devices")));
     parser.addOption(QCommandLineOption(QStringList(QStringLiteral("a")) << QStringLiteral("list-available"), i18n("List available (paired and reachable) devices")));
     parser.addOption(QCommandLineOption(QStringLiteral("id-only"), i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
+    parser.addOption(QCommandLineOption(QStringLiteral("name-only"), i18n("Make --list-devices or --list-available print only the devices name, to ease scripting")));
+    parser.addOption(QCommandLineOption(QStringLiteral("id-name-only"), i18n("Make --list-devices or --list-available print only the devices id and name, to ease scripting")));
     parser.addOption(QCommandLineOption(QStringLiteral("refresh"), i18n("Search for devices in the network and re-establish connections")));
     parser.addOption(QCommandLineOption(QStringLiteral("pair"), i18n("Request pairing to a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ring"), i18n("Find the said device by ringing it.")));
@@ -90,9 +92,19 @@ int main(int argc, char** argv)
         }
         const QStringList devices = blockOnReply<QStringList>(iface.devices(reachable, paired));
 
+        bool displayCount = true;
         for (const QString& id : devices) {
             if (parser.isSet(QStringLiteral("id-only"))) {
                 QTextStream(stdout) << id << endl;
+                displayCount = false;
+            } else if (parser.isSet(QStringLiteral("name-only"))) {
+                DeviceDbusInterface deviceIface(id);
+                QTextStream(stdout) << deviceIface.name() << endl;
+                displayCount = false;
+            } else if (parser.isSet(QStringLiteral("id-name-only"))) {
+                DeviceDbusInterface deviceIface(id);
+                QTextStream(stdout) << id << ' ' << deviceIface.name() << endl;
+                displayCount = false;
             } else {
                 DeviceDbusInterface deviceIface(id);
                 QString statusInfo;
@@ -109,7 +121,7 @@ int main(int argc, char** argv)
                         << ": " << deviceIface.id() << ' ' << statusInfo << endl;
             }
         }
-        if (!parser.isSet(QStringLiteral("id-only"))) {
+        if (displayCount) {
             QTextStream(stdout) << i18np("1 device found", "%1 devices found", devices.size()) << endl;
         } else if (devices.isEmpty()) {
             QTextStream(stderr) << i18n("No devices found") << endl;
