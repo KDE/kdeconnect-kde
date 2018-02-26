@@ -233,7 +233,7 @@ void Device::addLink(const NetworkPackage& identityPackage, DeviceLink* link)
     connect(link, &DeviceLink::receivedPackage,
             this, &Device::privateReceivedPackage);
 
-    qSort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
+    std::sort(m_deviceLinks.begin(), m_deviceLinks.end(), lessThan);
 
     const bool capabilitiesSupported = identityPackage.has(QStringLiteral("incomingCapabilities")) || identityPackage.has(QStringLiteral("outgoingCapabilities"));
     if (capabilitiesSupported) {
