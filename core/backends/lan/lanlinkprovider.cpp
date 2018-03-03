@@ -238,7 +238,7 @@ void LanLinkProvider::connected()
 
     configureSocket(socket);
 
-    // If socket disconnects due to any reason after connection, link on ssl faliure
+    // If socket disconnects due to any reason after connection, link on ssl failure
     connect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
 
     NetworkPackage* receivedPackage = m_receivedIdentityPackages[socket].np;
