@@ -43,7 +43,7 @@ public:
     explicit NotificationsDbusInterface(KdeConnectPlugin* plugin);
     ~NotificationsDbusInterface() override;
 
-    void processPackage(const NetworkPackage& np);
+    void processPacket(const NetworkPacket& np);
     void clearNotifications();
     void dismissRequested(const QString& notification);
     void replyRequested(Notification* noti);

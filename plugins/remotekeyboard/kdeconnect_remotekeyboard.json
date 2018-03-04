@@ -75,10 +75,10 @@
         ],
         "Version": "0.1"
     },
-    "X-KdeConnect-OutgoingPackageType": [
+    "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.request"
     ],
-    "X-KdeConnect-SupportedPackageType": [
+    "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.mousepad.echo",
         "kdeconnect.mousepad.keyboardstate"
     ]

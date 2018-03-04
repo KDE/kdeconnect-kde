@@ -69,21 +69,21 @@ static QString cleanFilename(const QString &filename)
     return idx>=0 ? filename.mid(idx + 1) : filename;
 }
 
-bool SharePlugin::receivePackage(const NetworkPackage& np)
+bool SharePlugin::receivePacket(const NetworkPacket& np)
 {
 /*
     //TODO: Write a test like this
-    if (np.type() == PACKAGE_TYPE_PING) {
+    if (np.type() == PACKET_TYPE_PING) {
 
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
-        NetworkPackage out(PACKAGE_TYPE_SHARE_REQUEST);
+        NetworkPacket out(PACKET_TYPE_SHARE_REQUEST);
         out.set("filename", mDestinationDir + "itworks.txt");
         AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
 
         out.setPayload(file, file->size());
 
-        device()->sendPackage(out);
+        device()->sendPacket(out);
 
         return true;
 
@@ -155,15 +155,15 @@ void SharePlugin::openDestinationFolder()
 
 void SharePlugin::shareUrl(const QUrl& url)
 {
-    NetworkPackage package(PACKAGE_TYPE_SHARE_REQUEST);
+    NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     if(url.isLocalFile()) {
         QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
-        package.setPayload(ioFile, ioFile->size());
-        package.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
+        packet.setPayload(ioFile, ioFile->size());
+        packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
     } else {
-        package.set<QString>(QStringLiteral("url"), url.toString());
+        packet.set<QString>(QStringLiteral("url"), url.toString());
     }
-    sendPackage(package);
+    sendPacket(packet);
 }
 
 QString SharePlugin::dbusPath() const

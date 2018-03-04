@@ -85,11 +85,11 @@
         "Version": "0.1",
         "Website": "https://kde.org"
     },
-    "X-KdeConnect-OutgoingPackageType": [
+    "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.lock.request",
         "kdeconnect.lock"
     ],
-    "X-KdeConnect-SupportedPackageType": [
+    "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.lock.request",
         "kdeconnect.lock"
     ]

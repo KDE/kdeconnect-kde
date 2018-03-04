@@ -28,7 +28,7 @@
 #include "backends/devicelink.h"
 #include "backends/pairinghandler.h"
 
-// This class is used pairing related stuff. It has direct access to links and can directly send packages
+// This class is used pairing related stuff. It has direct access to links and can directly send packets
 class LanPairingHandler
     : public PairingHandler
 {
@@ -46,7 +46,7 @@ public:
     LanPairingHandler(DeviceLink* deviceLink);
     ~LanPairingHandler() override { }
 
-    void packageReceived(const NetworkPackage& np) override;
+    void packetReceived(const NetworkPacket& np) override;
     bool requestPairing() override;
     bool acceptPairing() override;
     void rejectPairing() override;

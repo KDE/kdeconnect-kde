@@ -39,7 +39,7 @@ Mounter::Mounter(SftpPlugin* sftp)
     , m_started(false)
 {
 
-    connect(m_sftp, &SftpPlugin::packageReceived, this, &Mounter::onPakcageReceived);
+    connect(m_sftp, &SftpPlugin::packetReceived, this, &Mounter::onPakcageReceived);
 
     connect(&m_connectTimer, &QTimer::timeout, this, &Mounter::onMountTimeout);
 
@@ -74,7 +74,7 @@ bool Mounter::wait()
     return loop.exec();
 }
 
-void Mounter::onPakcageReceived(const NetworkPackage& np)
+void Mounter::onPakcageReceived(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("stop"), false))
     {
@@ -204,8 +204,8 @@ void Mounter::onMountTimeout()
 
 void Mounter::start()
 {
-    NetworkPackage np(PACKAGE_TYPE_SFTP_REQUEST, {{"startBrowsing", true}});
-    m_sftp->sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_SFTP_REQUEST, {{"startBrowsing", true}});
+    m_sftp->sendPacket(np);
 
     m_connectTimer.start();
 }

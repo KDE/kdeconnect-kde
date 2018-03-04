@@ -43,8 +43,8 @@ BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
 
 void BatteryPlugin::connected()
 {
-    NetworkPackage np(PACKAGE_TYPE_BATTERY_REQUEST, {{"request",true}});
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{"request",true}});
+    sendPacket(np);
 }
 
 BatteryPlugin::~BatteryPlugin()
@@ -58,7 +58,7 @@ BatteryPlugin::~BatteryPlugin()
     //batteryDbusInterface->deleteLater();
 }
 
-bool BatteryPlugin::receivePackage(const NetworkPackage& np)
+bool BatteryPlugin::receivePacket(const NetworkPacket& np)
 {
     bool isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
     int currentCharge = np.get<int>(QStringLiteral("currentCharge"), -1);

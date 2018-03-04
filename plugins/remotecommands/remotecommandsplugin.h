@@ -44,7 +44,7 @@ public:
     Q_SCRIPTABLE void triggerCommand(const QString& key);
     QByteArray commands() const { return m_commands; }
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override;
     QString dbusPath() const override;
 

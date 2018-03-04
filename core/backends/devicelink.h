@@ -24,10 +24,10 @@
 #include <QObject>
 #include <QtCrypto>
 
-#include "core/networkpackage.h"
+#include "core/networkpacket.h"
 
 class PairingHandler;
-class NetworkPackage;
+class NetworkPacket;
 class LinkProvider;
 class Device;
 
@@ -47,7 +47,7 @@ public:
     const QString& deviceId() const { return m_deviceId; }
     LinkProvider* provider() { return m_linkProvider; }
 
-    virtual bool sendPackage(NetworkPackage& np) = 0;
+    virtual bool sendPacket(NetworkPacket& np) = 0;
 
     //user actions
     virtual void userRequestsPair() = 0;
@@ -64,7 +64,7 @@ Q_SIGNALS:
     void pairingRequestExpired(PairingHandler* handler);
     void pairStatusChanged(DeviceLink::PairStatus status);
     void pairingError(const QString& error);
-    void receivedPackage(const NetworkPackage& np);
+    void receivedPacket(const NetworkPacket& np);
 
 protected:
     QCA::PrivateKey m_privateKey;

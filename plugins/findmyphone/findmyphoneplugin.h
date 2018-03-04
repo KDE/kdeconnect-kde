@@ -25,7 +25,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
+#define PACKET_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
 
 class FindMyPhonePlugin
     : public KdeConnectPlugin
@@ -41,7 +41,7 @@ public:
 
     QString dbusPath() const override;
     void connected() override {}
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
 };
 
 #endif

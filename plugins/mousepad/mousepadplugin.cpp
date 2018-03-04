@@ -118,11 +118,11 @@ MousepadPlugin::~MousepadPlugin()
 #endif
 }
 
-bool MousepadPlugin::receivePackage(const NetworkPackage& np)
+bool MousepadPlugin::receivePacket(const NetworkPacket& np)
 {
 #if HAVE_X11
     if (m_x11) {
-        return handlePackageX11(np);
+        return handlePacketX11(np);
     }
 #endif
 #if HAVE_WAYLAND
@@ -131,7 +131,7 @@ bool MousepadPlugin::receivePackage(const NetworkPackage& np)
             m_waylandInput->authenticate(i18n("KDE Connect"), i18n("Use your phone as a touchpad and keyboard"));
             m_waylandAuthenticationRequested = true;
         }
-        handPackageWayland(np);
+        handPacketWayland(np);
     }
 #endif
     return false;
@@ -153,7 +153,7 @@ bool isLeftHanded(Display * display)
 #endif
 
 #if HAVE_X11
-bool MousepadPlugin::handlePackageX11(const NetworkPackage& np)
+bool MousepadPlugin::handlePacketX11(const NetworkPacket& np)
 {
     //qDebug() << np.serialize();
 
@@ -289,7 +289,7 @@ void MousepadPlugin::setupWaylandIntegration()
     registry->setup();
 }
 
-bool MousepadPlugin::handPackageWayland(const NetworkPackage& np)
+bool MousepadPlugin::handPacketWayland(const NetworkPacket& np)
 {
     const float dx = np.get<float>(QStringLiteral("dx"), 0);
     const float dy = np.get<float>(QStringLiteral("dy"), 0);

@@ -32,7 +32,7 @@
 #include <core/filetransferjob.h>
 
 
-Notification::Notification(const NetworkPackage& np, QObject* parent)
+Notification::Notification(const NetworkPacket& np, QObject* parent)
     : QObject(parent)
 {
     //Make a own directory for each user so noone can see each others icons
@@ -49,7 +49,7 @@ Notification::Notification(const NetworkPackage& np, QObject* parent)
     m_closed = false;
     m_ready = false;
 
-    parseNetworkPackage(np);
+    parseNetworkPacket(np);
     createKNotification(false, np);
 }
 
@@ -74,13 +74,13 @@ void Notification::show()
     }
 }
 
-void Notification::update(const NetworkPackage& np)
+void Notification::update(const NetworkPacket& np)
 {
-    parseNetworkPackage(np);
+    parseNetworkPacket(np);
     createKNotification(!m_closed, np);
 }
 
-KNotification* Notification::createKNotification(bool update, const NetworkPackage& np)
+KNotification* Notification::createKNotification(bool update, const NetworkPacket& np)
 {
     if (!update) {
         m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
@@ -132,7 +132,7 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacka
     return m_notification;
 }
 
-void Notification::loadIcon(const NetworkPackage& np)
+void Notification::loadIcon(const NetworkPacket& np)
 {
     m_ready = false;
     FileTransferJob* job = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
@@ -172,7 +172,7 @@ void Notification::closed()
     m_closed = true;
 }
 
-void Notification::parseNetworkPackage(const NetworkPackage& np)
+void Notification::parseNetworkPacket(const NetworkPacket& np)
 {
     m_internalId = np.get<QString>(QStringLiteral("id"));
     m_appName = np.get<QString>(QStringLiteral("appName"));

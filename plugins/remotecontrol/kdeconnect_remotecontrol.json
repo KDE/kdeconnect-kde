@@ -85,8 +85,8 @@
         "Version": "0.1",
         "Website": "https://kde.org"
     },
-    "X-KdeConnect-OutgoingPackageType": [
+    "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.request"
     ],
-    "X-KdeConnect-SupportedPackageType": []
+    "X-KdeConnect-SupportedPacketType": []
 }

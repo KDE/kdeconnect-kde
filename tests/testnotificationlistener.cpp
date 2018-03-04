@@ -67,49 +67,49 @@ class TestDevice: public Device
 {
     Q_OBJECT
 private:
-    int sentPackages;
-    NetworkPackage* lastPackage;
+    int sentPackets;
+    NetworkPacket* lastPacket;
 
 public:
     explicit TestDevice(QObject* parent, const QString& id)
         : Device (parent, id)
-        , sentPackages(0)
-        , lastPackage(nullptr)
+        , sentPackets(0)
+        , lastPacket(nullptr)
     {}
 
     ~TestDevice() override
     {
-        delete lastPackage;
+        delete lastPacket;
     }
 
-    int getSentPackages() const
+    int getSentPackets() const
     {
-        return sentPackages;
+        return sentPackets;
     }
 
-    NetworkPackage* getLastPackage()
+    NetworkPacket* getLastPacket()
     {
-        return lastPackage;
+        return lastPacket;
     }
 
-    void deleteLastPackage()
+    void deleteLastPacket()
     {
-        delete lastPackage;
-        lastPackage = nullptr;
+        delete lastPacket;
+        lastPacket = nullptr;
     }
 
 public Q_SLOTS:
-    bool sendPackage(NetworkPackage& np) override
+    bool sendPacket(NetworkPacket& np) override
     {
-        ++sentPackages;
-        // copy package manually to allow for inspection (can't use copy-constructor)
-        deleteLastPackage();
-        lastPackage = new NetworkPackage(np.type());
-        Q_ASSERT(lastPackage);
+        ++sentPackets;
+        // copy packet manually to allow for inspection (can't use copy-constructor)
+        deleteLastPacket();
+        lastPacket = new NetworkPacket(np.type());
+        Q_ASSERT(lastPacket);
         for (QVariantMap::ConstIterator iter = np.body().constBegin();
              iter != np.body().constEnd(); iter++)
-            lastPackage->set(iter.key(), iter.value());
-        lastPackage->setPayload(np.payload(), np.payloadSize());
+            lastPacket->set(iter.key(), iter.value());
+        lastPacket->setPayload(np.payload(), np.payloadSize());
         return true;
     }
 };
@@ -181,7 +181,7 @@ void TestNotificationListener::testNotify()
     TestDevice* d = new TestDevice(nullptr, dId);
 
     int proxiedNotifications = 0;
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     plugin = new TestNotificationsPlugin(this,
                                          QVariantList({ QVariant::fromValue<Device*>(d),
                                                         "notifications_plugin",
@@ -222,14 +222,14 @@ void TestNotificationListener::testNotify()
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
     // ... should return replacesId,
     QCOMPARE(retId, replacesId);
-    // ... have triggered sending a package
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    // ... have triggered sending a packet
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     // ... with our properties,
-    QCOMPARE(d->getLastPackage()->get<uint>("id"), replacesId);
-    QCOMPARE(d->getLastPackage()->get<QString>("appName"), appName);
-    QCOMPARE(d->getLastPackage()->get<QString>("ticker"), summary + ": " + body);
-    QCOMPARE(d->getLastPackage()->get<bool>("isClearable"), true);
-    QCOMPARE(d->getLastPackage()->hasPayload(), false);
+    QCOMPARE(d->getLastPacket()->get<uint>("id"), replacesId);
+    QCOMPARE(d->getLastPacket()->get<QString>("appName"), appName);
+    QCOMPARE(d->getLastPacket()->get<QString>("ticker"), summary + ": " + body);
+    QCOMPARE(d->getLastPacket()->get<bool>("isClearable"), true);
+    QCOMPARE(d->getLastPacket()->hasPayload(), false);
 
     // ... and create a new application internally that is initialized correctly:
     QCOMPARE(listener->getApplications().count(), 1);
@@ -248,12 +248,12 @@ void TestNotificationListener::testNotify()
 
     retId = listener->Notify(appName2, replacesId+1, icon2, summary2, body2, {}, {{"urgency", 2}}, 10);
     QCOMPARE(retId, replacesId+1);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    QCOMPARE(d->getLastPackage()->get<uint>("id"), replacesId+1);
-    QCOMPARE(d->getLastPackage()->get<QString>("appName"), appName2);
-    QCOMPARE(d->getLastPackage()->get<QString>("ticker"), summary2 + ": " + body2);
-    QCOMPARE(d->getLastPackage()->get<bool>("isClearable"), false);  // timeout != 0
-    QCOMPARE(d->getLastPackage()->hasPayload(), false);
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
+    QCOMPARE(d->getLastPacket()->get<uint>("id"), replacesId+1);
+    QCOMPARE(d->getLastPacket()->get<QString>("appName"), appName2);
+    QCOMPARE(d->getLastPacket()->get<QString>("ticker"), summary2 + ": " + body2);
+    QCOMPARE(d->getLastPacket()->get<bool>("isClearable"), false);  // timeout != 0
+    QCOMPARE(d->getLastPacket()->hasPayload(), false);
     QCOMPARE(listener->getApplications().count(), 2);
     QVERIFY(listener->getApplications().contains(appName2));
     QVERIFY(listener->getApplications().contains(appName));
@@ -262,29 +262,29 @@ void TestNotificationListener::testNotify()
     plugin->config()->set(QStringLiteral("generalPersistent"), true);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 1);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     retId = listener->Notify(appName2, replacesId, icon2, summary2, body2, {}, {{}}, 3);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     // but timeout == 0 is
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     plugin->config()->set(QStringLiteral("generalPersistent"), false);
 
     // if min-urgency is set, lower urgency levels are not synced:
     plugin->config()->set(QStringLiteral("generalUrgency"), 1);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{"urgency", 0}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     // equal urgency is
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{"urgency", 1}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     // higher urgency as well
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{"urgency", 2}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     plugin->config()->set(QStringLiteral("generalUrgency"), 0);
 
     // notifications for a deactivated application are not synced:
@@ -293,62 +293,62 @@ void TestNotificationListener::testNotify()
     QVERIFY(!listener->getApplications()[appName].active);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{"urgency", 0}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     // others are still:
     retId = listener->Notify(appName2, replacesId+1, icon2, summary2, body2, {}, {{}}, 0);
     QCOMPARE(retId, replacesId+1);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     // back to normal:
     listener->getApplications()[appName].active = true;
     QVERIFY(listener->getApplications()[appName].active);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
 
     // notifications with blacklisted subjects are not synced:
     QVERIFY(listener->getApplications().contains(appName));
     listener->getApplications()[appName].blacklistExpression.setPattern(QStringLiteral("black[12]|foo(bar|baz)"));
     retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary black1"), body, {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary foobar"), body, {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     // other subjects are synced:
     retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary foo"), body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     retId = listener->Notify(appName, replacesId, icon, QStringLiteral("summary black3"), body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     // also body is checked by blacklist if requested:
     plugin->config()->set(QStringLiteral("generalIncludeBody"), true);
     retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body black1"), {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body foobaz"), {}, {{}}, 0);
     QCOMPARE(retId, 0U);
-    QCOMPARE(proxiedNotifications, d->getSentPackages());
+    QCOMPARE(proxiedNotifications, d->getSentPackets());
     // body does not matter if inclusion was not requested:
     plugin->config()->set(QStringLiteral("generalIncludeBody"), false);
     retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body black1"), {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     // without body, also ticker value is different:
-    QCOMPARE(d->getLastPackage()->get<QString>("ticker"), summary);
+    QCOMPARE(d->getLastPacket()->get<QString>("ticker"), summary);
     retId = listener->Notify(appName, replacesId, icon, summary, QStringLiteral("body foobaz"), {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
 
     // back to normal:
     listener->getApplications()[appName].blacklistExpression.setPattern(QLatin1String(""));
     plugin->config()->set(QStringLiteral("generalIncludeBody"), true);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
     retId = listener->Notify(appName2, replacesId, icon2, summary2, body2, {}, {{}}, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
 
     // icon synchronization:
     QStringList iconPaths;
@@ -367,28 +367,28 @@ void TestNotificationListener::testNotify()
         QFileInfo fi(iconName);
         retId = listener->Notify(appName, replacesId, fi.baseName(), summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
-        QCOMPARE(++proxiedNotifications, d->getSentPackages());
-        QVERIFY(d->getLastPackage()->hasPayload());
-        QCOMPARE(d->getLastPackage()->payloadSize(), fi.size());
+        QCOMPARE(++proxiedNotifications, d->getSentPackets());
+        QVERIFY(d->getLastPacket()->hasPayload());
+        QCOMPARE(d->getLastPacket()->payloadSize(), fi.size());
         // works also with abolute paths
         retId = listener->Notify(appName, replacesId, iconName, summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
-        QCOMPARE(++proxiedNotifications, d->getSentPackages());
-        QVERIFY(d->getLastPackage()->hasPayload());
-        QCOMPARE(d->getLastPackage()->payloadSize(), fi.size());
+        QCOMPARE(++proxiedNotifications, d->getSentPackets());
+        QVERIFY(d->getLastPacket()->hasPayload());
+        QCOMPARE(d->getLastPacket()->payloadSize(), fi.size());
         // extensions other than png are not accepted:
         retId = listener->Notify(appName, replacesId, iconName + ".svg", summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
-        QCOMPARE(++proxiedNotifications, d->getSentPackages());
-        QVERIFY(!d->getLastPackage()->hasPayload());
+        QCOMPARE(++proxiedNotifications, d->getSentPackets());
+        QVERIFY(!d->getLastPacket()->hasPayload());
 
         // if sync not requested no payload:
         plugin->config()->set(QStringLiteral("generalSynchronizeIcons"), false);
         retId = listener->Notify(appName, replacesId, fi.baseName(), summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
-        QCOMPARE(++proxiedNotifications, d->getSentPackages());
-        QVERIFY(!d->getLastPackage()->hasPayload());
-        QCOMPARE(d->getLastPackage()->payloadSize(), 0);
+        QCOMPARE(++proxiedNotifications, d->getSentPackets());
+        QVERIFY(!d->getLastPacket()->hasPayload());
+        QCOMPARE(d->getLastPacket()->payloadSize(), 0);
     }
     plugin->config()->set(QStringLiteral("generalSynchronizeIcons"), true);
 
@@ -396,22 +396,22 @@ void TestNotificationListener::testNotify()
     if (iconPaths.size() > 0) {
         retId = listener->Notify(appName, replacesId, iconPaths.size() > 1 ? iconPaths[1] : icon, summary, body, {}, {{"image-path", iconPaths[0]}}, 0);
         QCOMPARE(retId, replacesId);
-        QCOMPARE(++proxiedNotifications, d->getSentPackages());
-        QVERIFY(d->getLastPackage()->hasPayload());
+        QCOMPARE(++proxiedNotifications, d->getSentPackets());
+        QVERIFY(d->getLastPacket()->hasPayload());
         QFileInfo hintsFi(iconPaths[0]);
         // image-path has priority over appIcon parameter:
-        QCOMPARE(d->getLastPackage()->payloadSize(), hintsFi.size());
+        QCOMPARE(d->getLastPacket()->payloadSize(), hintsFi.size());
     }
 
     // image_path in hints
     if (iconPaths.size() > 0) {
         retId = listener->Notify(appName, replacesId, iconPaths.size() > 1 ? iconPaths[1] : icon, summary, body, {}, {{"image_path", iconPaths[0]}}, 0);
         QCOMPARE(retId, replacesId);
-        QCOMPARE(++proxiedNotifications, d->getSentPackages());
-        QVERIFY(d->getLastPackage()->hasPayload());
+        QCOMPARE(++proxiedNotifications, d->getSentPackets());
+        QVERIFY(d->getLastPacket()->hasPayload());
         QFileInfo hintsFi(iconPaths[0]);
         // image_path has priority over appIcon parameter:
-        QCOMPARE(d->getLastPackage()->payloadSize(), hintsFi.size());
+        QCOMPARE(d->getLastPacket()->payloadSize(), hintsFi.size());
     }
 
     // image-data in hints
@@ -440,10 +440,10 @@ void TestNotificationListener::testNotify()
         hints.insert(QStringLiteral("image-path"), iconPaths[0]);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, hints, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    QVERIFY(d->getLastPackage()->hasPayload());
-    buffer = dynamic_cast<QBuffer*>(d->getLastPackage()->payload().data());
-    QCOMPARE(d->getLastPackage()->payloadSize(), buffer->size());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
+    QVERIFY(d->getLastPacket()->hasPayload());
+    buffer = dynamic_cast<QBuffer*>(d->getLastPacket()->payload().data());
+    QCOMPARE(d->getLastPacket()->payloadSize(), buffer->size());
     // image-data is attached as png data
     QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
     // image-data has priority over image-path:
@@ -461,10 +461,10 @@ void TestNotificationListener::testNotify()
         hints.insert(QStringLiteral("image_path"), iconPaths[0]);
     retId = listener->Notify(appName, replacesId, icon, summary, body, {}, hints, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    QVERIFY(d->getLastPackage()->hasPayload());
-    buffer = dynamic_cast<QBuffer*>(d->getLastPackage()->payload().data());
-    QCOMPARE(d->getLastPackage()->payloadSize(), buffer->size());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
+    QVERIFY(d->getLastPacket()->hasPayload());
+    buffer = dynamic_cast<QBuffer*>(d->getLastPacket()->payload().data());
+    QCOMPARE(d->getLastPacket()->payloadSize(), buffer->size());
     // image-data is attached as png data
     QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
     // image_data has priority over image_path/image-path:
@@ -480,10 +480,10 @@ void TestNotificationListener::testNotify()
     hints.insert(QStringLiteral("icon_data"), imageData);
     retId = listener->Notify(appName, replacesId, QLatin1String(""), summary, body, {}, hints, 0);
     QCOMPARE(retId, replacesId);
-    QCOMPARE(++proxiedNotifications, d->getSentPackages());
-    QVERIFY(d->getLastPackage());
-    QVERIFY(d->getLastPackage()->hasPayload());
-    buffer = dynamic_cast<QBuffer*>(d->getLastPackage()->payload().data());
+    QCOMPARE(++proxiedNotifications, d->getSentPackets());
+    QVERIFY(d->getLastPacket());
+    QVERIFY(d->getLastPacket()->hasPayload());
+    buffer = dynamic_cast<QBuffer*>(d->getLastPacket()->payload().data());
     // image-data is attached as png data
     QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
     QCOMPARE(image.byteCount(), rowStride*height);

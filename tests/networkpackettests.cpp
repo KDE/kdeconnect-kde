@@ -18,23 +18,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "networkpackagetests.h"
+#include "networkpackettests.h"
 
-#include "core/networkpackage.h"
+#include "core/networkpacket.h"
 
 #include <QtTest>
 #include <QtCrypto>
 
-QTEST_GUILESS_MAIN(NetworkPackageTests);
+QTEST_GUILESS_MAIN(NetworkPacketTests);
 
-void NetworkPackageTests::initTestCase()
+void NetworkPacketTests::initTestCase()
 {
     // Called before the first testfunction is executed
 }
 
-void NetworkPackageTests::networkPackageTest()
+void NetworkPacketTests::networkPacketTest()
 {
-    NetworkPackage np(QStringLiteral("com.test"));
+    NetworkPacket np(QStringLiteral("com.test"));
 
     np.set(QStringLiteral("hello"),"hola");
     QCOMPARE( (np.get<QString>("hello","bye")) , QString("hola") );
@@ -47,9 +47,9 @@ void NetworkPackageTests::networkPackageTest()
 
     np.set(QStringLiteral("foo"), "bar");
     QByteArray ba = np.serialize();
-    //qDebug() << "Serialized package:" << ba;
-    NetworkPackage np2(QLatin1String(""));
-    NetworkPackage::unserialize(ba,&np2);
+    //qDebug() << "Serialized packet:" << ba;
+    NetworkPacket np2(QLatin1String(""));
+    NetworkPacket::unserialize(ba,&np2);
 
     QCOMPARE( np.id(), np2.id() );
     QCOMPARE( np.type(), np2.type() );
@@ -57,39 +57,39 @@ void NetworkPackageTests::networkPackageTest()
 
     QByteArray json("{\"id\":\"123\",\"type\":\"test\",\"body\":{\"testing\":true}}");
     //qDebug() << json;
-    NetworkPackage::unserialize(json,&np2);
+    NetworkPacket::unserialize(json,&np2);
     QCOMPARE( np2.id(), QString("123") );
     QCOMPARE( (np2.get<bool>("testing")), true );
     QCOMPARE( (np2.get<bool>("not_testing")), false );
     QCOMPARE( (np2.get<bool>("not_testing",true)), true );
 
-    //NetworkPackage::unserialize("this is not json",&np2);
+    //NetworkPacket::unserialize("this is not json",&np2);
     //QtTest::ignoreMessage(QtSystemMsg, "json_parser - syntax error found,  forcing abort, Line 1 Column 0");
     //QtTest::ignoreMessage(QtDebugMsg, "Unserialization error: 1 \"syntax error, unexpected string\"");
 
 }
 
-void NetworkPackageTests::networkPackageIdentityTest()
+void NetworkPacketTests::networkPacketIdentityTest()
 {
-    NetworkPackage np(QLatin1String(""));
-    NetworkPackage::createIdentityPackage(&np);
+    NetworkPacket np(QLatin1String(""));
+    NetworkPacket::createIdentityPacket(&np);
 
-    QCOMPARE( np.get<int>("protocolVersion", -1) , NetworkPackage::s_protocolVersion );
-    QCOMPARE( np.type() , PACKAGE_TYPE_IDENTITY );
+    QCOMPARE( np.get<int>("protocolVersion", -1) , NetworkPacket::s_protocolVersion );
+    QCOMPARE( np.type() , PACKET_TYPE_IDENTITY );
 
 }
 
-void NetworkPackageTests::cleanupTestCase()
+void NetworkPacketTests::cleanupTestCase()
 {
     // Called after the last testfunction was executed
 }
 
-void NetworkPackageTests::init()
+void NetworkPacketTests::init()
 {
     // Called before each testfunction is executed
 }
 
-void NetworkPackageTests::cleanup()
+void NetworkPacketTests::cleanup()
 {
     // Called after every testfunction
 }

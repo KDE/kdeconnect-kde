@@ -26,7 +26,7 @@
 #include <KNotification>
 #include <QDir>
 
-#include <core/networkpackage.h>
+#include <core/networkpacket.h>
 
 class Notification
     : public QObject
@@ -45,7 +45,7 @@ class Notification
     Q_PROPERTY(QString replyId READ replyId)
 
 public:
-    Notification(const NetworkPackage& np, QObject* parent);
+    Notification(const NetworkPacket& np, QObject* parent);
     ~Notification() override;
 
     QString internalId() const { return m_internalId; }
@@ -59,9 +59,9 @@ public:
     bool hasIcon() const { return m_hasIcon; }
     void show();
     bool silent() const { return m_silent; }
-    void update(const NetworkPackage& np);
+    void update(const NetworkPacket& np);
     bool isReady() const { return m_ready; }
-    KNotification* createKNotification(bool update, const NetworkPackage& np);
+    KNotification* createKNotification(bool update, const NetworkPacket& np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
@@ -90,8 +90,8 @@ private:
     QString m_payloadHash;
     bool m_ready;
 
-    void parseNetworkPackage(const NetworkPackage& np);
-    void loadIcon(const NetworkPackage& np);
+    void parseNetworkPacket(const NetworkPacket& np);
+    void loadIcon(const NetworkPacket& np);
     void applyIcon();
     void applyNoIcon();
 };

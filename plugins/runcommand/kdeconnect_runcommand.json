@@ -98,10 +98,10 @@
         "Version": "0.1",
         "Website": "http://albertvaka.wordpress.com"
     },
-    "X-KdeConnect-OutgoingPackageType": [
+    "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand"
     ],
-    "X-KdeConnect-SupportedPackageType": [
+    "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.runcommand.request"
     ]
 }

@@ -24,7 +24,7 @@
 #include "daemon.h"
 #include "kdeconnectconfig.h"
 #include "bluetoothpairinghandler.h"
-#include "networkpackagetypes.h"
+#include "networkpackettypes.h"
 
 BluetoothPairingHandler::BluetoothPairingHandler(DeviceLink* deviceLink)
     : PairingHandler(deviceLink)
@@ -35,9 +35,9 @@ BluetoothPairingHandler::BluetoothPairingHandler(DeviceLink* deviceLink)
     connect(&m_pairingTimeout, &QTimer::timeout, this, &BluetoothPairingHandler::pairingTimeout);
 }
 
-void BluetoothPairingHandler::packageReceived(const NetworkPackage& np)
+void BluetoothPairingHandler::packetReceived(const NetworkPacket& np)
 {
-    qCDebug(KDECONNECT_CORE) << "Pairing package received!" << np.serialize();
+    qCDebug(KDECONNECT_CORE) << "Pairing packet received!" << np.serialize();
 
     m_pairingTimeout.stop();
 
@@ -89,10 +89,10 @@ bool BluetoothPairingHandler::requestPairing()
             ;
     }
 
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    NetworkPacket np(PACKET_TYPE_PAIR);
     np.set("pair", true);
     bool success;
-    success = deviceLink()->sendPackage(np);
+    success = deviceLink()->sendPacket(np);
     if (success) {
         setInternalPairStatus(Requested);
         m_pairingTimeout.start();
@@ -104,9 +104,9 @@ bool BluetoothPairingHandler::acceptPairing()
 {
     qCDebug(KDECONNECT_CORE) << "User accepts pairing";
     m_pairingTimeout.stop(); // Just in case it is started
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    NetworkPacket np(PACKET_TYPE_PAIR);
     np.set("pair", true);
-    bool success = deviceLink()->sendPackage(np);
+    bool success = deviceLink()->sendPacket(np);
     if (success) {
         setInternalPairStatus(Paired);
     }
@@ -116,24 +116,24 @@ bool BluetoothPairingHandler::acceptPairing()
 void BluetoothPairingHandler::rejectPairing()
 {
     qCDebug(KDECONNECT_CORE) << "User rejects pairing";
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    NetworkPacket np(PACKET_TYPE_PAIR);
     np.set("pair", false);
-    deviceLink()->sendPackage(np);
+    deviceLink()->sendPacket(np);
     setInternalPairStatus(NotPaired);
 }
 
 void BluetoothPairingHandler::unpair() {
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    NetworkPacket np(PACKET_TYPE_PAIR);
     np.set("pair", false);
-    deviceLink()->sendPackage(np);
+    deviceLink()->sendPacket(np);
     setInternalPairStatus(NotPaired);
 }
 
 void BluetoothPairingHandler::pairingTimeout()
 {
-    NetworkPackage np(PACKAGE_TYPE_PAIR);
+    NetworkPacket np(PACKET_TYPE_PAIR);
     np.set("pair", false);
-    deviceLink()->sendPackage(np);
+    deviceLink()->sendPacket(np);
     setInternalPairStatus(NotPaired); //Will emit the change as well
     Q_EMIT pairingError(i18n("Timed out"));
 }

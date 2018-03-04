@@ -45,7 +45,7 @@ PingPlugin::~PingPlugin()
 //     qCDebug(KDECONNECT_PLUGIN_PING) << "Ping plugin destructor for device" << device()->name();
 }
 
-bool PingPlugin::receivePackage(const NetworkPackage& np)
+bool PingPlugin::receivePacket(const NetworkPacket& np)
 {
     KNotification* notification = new KNotification(QStringLiteral("pingReceived")); //KNotification::Persistent
     notification->setIconName(QStringLiteral("dialog-ok"));
@@ -59,18 +59,18 @@ bool PingPlugin::receivePackage(const NetworkPackage& np)
 
 void PingPlugin::sendPing()
 {
-    NetworkPackage np(PACKAGE_TYPE_PING);
-    bool success = sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_PING);
+    bool success = sendPacket(np);
     qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }
 
 void PingPlugin::sendPing(const QString& customMessage)
 {
-    NetworkPackage np(PACKAGE_TYPE_PING);
+    NetworkPacket np(PACKET_TYPE_PING);
     if (!customMessage.isEmpty()) {
         np.set(QStringLiteral("message"), customMessage);
     }
-    bool success = sendPackage(np);
+    bool success = sendPacket(np);
     qCDebug(KDECONNECT_PLUGIN_PING) << "sendPing:" << success;
 }
 

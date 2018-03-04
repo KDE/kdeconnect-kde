@@ -18,10 +18,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETWORKPACKAGETYPES_H
-#define NETWORKPACKAGETYPES_H
+#ifndef NETWORKPACKETTESTS_H
+#define NETWORKPACKETTESTS_H
 
-#define PACKAGE_TYPE_IDENTITY QStringLiteral("kdeconnect.identity")
-#define PACKAGE_TYPE_PAIR QStringLiteral("kdeconnect.pair")
+#include <QObject>
 
-#endif // NETWORKPACKAGETYPES_H
+class NetworkPacketTests : public QObject
+{
+    Q_OBJECT
+
+private Q_SLOTS:
+    void initTestCase();
+
+    void networkPacketTest();
+    void networkPacketIdentityTest();
+    //void networkPacketEncryptionTest();
+
+    void cleanupTestCase();
+
+    void init();
+    void cleanup();
+
+};
+
+#endif 

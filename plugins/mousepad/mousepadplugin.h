@@ -46,16 +46,16 @@ public:
     explicit MousepadPlugin(QObject* parent, const QVariantList& args);
     ~MousepadPlugin() override;
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override { }
 
 private:
 #if HAVE_X11
-    bool handlePackageX11(const NetworkPackage& np);
+    bool handlePacketX11(const NetworkPacket& np);
 #endif
 #if HAVE_WAYLAND
     void setupWaylandIntegration();
-    bool handPackageWayland(const NetworkPackage& np);
+    bool handPacketWayland(const NetworkPacket& np);
 #endif
 
 #if HAVE_X11

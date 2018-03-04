@@ -267,5 +267,6 @@ void NotificationsModel::clearNotifications()
 void NotificationsModel::notificationUpdated(const QString& id)
 {
     //TODO only emit the affected indices
+    Q_UNUSED(id);
     Q_EMIT dataChanged(index(0,0), index(m_notificationList.size() - 1, 0));
 }

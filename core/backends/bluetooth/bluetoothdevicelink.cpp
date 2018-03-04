@@ -48,10 +48,10 @@ QString BluetoothDeviceLink::name()
     return "BluetoothLink"; // Should be same in both android and kde version
 }
 
-bool BluetoothDeviceLink::sendPackage(NetworkPackage& np)
+bool BluetoothDeviceLink::sendPacket(NetworkPacket& np)
 {
     if (np.hasPayload()) {
-        qCWarning(KDECONNECT_CORE) << "Sending packages with payload over bluetooth not yet supported";
+        qCWarning(KDECONNECT_CORE) << "Sending packets with payload over bluetooth not yet supported";
         /*
         BluetoothUploadJob* uploadJob = new BluetoothUploadJob(np.payload(), mBluetoothSocket->peerAddress(), this);
         np.setPayloadTransferInfo(uploadJob->transferInfo());
@@ -78,27 +78,27 @@ void BluetoothDeviceLink::dataReceived()
 {
     if (mSocketReader->bytesAvailable() == 0) return;
 
-    const QByteArray serializedPackage = mSocketReader->readLine();
+    const QByteArray serializedPacket = mSocketReader->readLine();
 
-    //qCDebug(KDECONNECT_CORE) << "BluetoothDeviceLink dataReceived" << package;
+    //qCDebug(KDECONNECT_CORE) << "BluetoothDeviceLink dataReceived" << packet;
 
-    NetworkPackage package(QString::null);
-    NetworkPackage::unserialize(serializedPackage, &package);
+    NetworkPacket packet(QString::null);
+    NetworkPacket::unserialize(serializedPacket, &packet);
 
-    if (package.type() == PACKAGE_TYPE_PAIR) {
+    if (packet.type() == PACKET_TYPE_PAIR) {
         //TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
-        mPairingHandler->packageReceived(package);
+        mPairingHandler->packetReceived(packet);
         return;
     }
 
-    if (package.hasPayloadTransferInfo()) {
+    if (packet.hasPayloadTransferInfo()) {
         BluetoothDownloadJob* downloadJob = new BluetoothDownloadJob(mBluetoothSocket->peerAddress(),
-                                                                     package.payloadTransferInfo(), this);
+                                                                     packet.payloadTransferInfo(), this);
         downloadJob->start();
-        package.setPayload(downloadJob->payload(), package.payloadSize());
+        packet.setPayload(downloadJob->payload(), packet.payloadSize());
     }
 
-    Q_EMIT receivedPackage(package);
+    Q_EMIT receivedPacket(packet);
 
     if (mSocketReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);

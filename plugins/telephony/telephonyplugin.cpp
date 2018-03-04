@@ -39,7 +39,7 @@ TelephonyPlugin::TelephonyPlugin(QObject* parent, const QVariantList& args)
 {
 }
 
-KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
+KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
 {
     const QString event = np.get<QString>(QStringLiteral("event"));
     const QString phoneNumber = np.get<QString>(QStringLiteral("phoneNumber"), i18n("unknown number"));
@@ -107,7 +107,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
     if (event == QLatin1String("ringing")) {
         notification->setActions( QStringList(i18n("Mute Call")) );
-        connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePackage);
+        connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
     } else if (event == QLatin1String("sms")) {
         const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),QLatin1String(""));
         notification->setActions( QStringList(i18n("Reply")) );
@@ -121,7 +121,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPackage& np)
 
 }
 
-bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
+bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("isCancel"))) {
 
@@ -135,20 +135,20 @@ bool TelephonyPlugin::receivePackage(const NetworkPackage& np)
     return true;
 }
 
-void TelephonyPlugin::sendMutePackage()
+void TelephonyPlugin::sendMutePacket()
 {
-    NetworkPackage package(PACKAGE_TYPE_TELEPHONY_REQUEST, {{"action", "mute"}});
-    sendPackage(package);
+    NetworkPacket packet(PACKET_TYPE_TELEPHONY_REQUEST, {{"action", "mute"}});
+    sendPacket(packet);
 }
 
 void TelephonyPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
 {
-    NetworkPackage np(PACKAGE_TYPE_SMS_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_SMS_REQUEST, {
         {"sendSms", true},
         {"phoneNumber", phoneNumber},
         {"messageBody", messageBody}
     });
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void TelephonyPlugin::showSendSmsDialog()

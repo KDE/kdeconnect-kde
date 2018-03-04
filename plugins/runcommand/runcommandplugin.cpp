@@ -30,10 +30,10 @@
 #include <QJsonDocument>
 #include <KShell>
 
-#include <core/networkpackage.h>
+#include <core/networkpacket.h>
 #include <core/device.h>
 
-#define PACKAGE_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
+#define PACKET_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_runcommand.json", registerPlugin< RunCommandPlugin >(); )
 
@@ -49,7 +49,7 @@ RunCommandPlugin::~RunCommandPlugin()
 {
 }
 
-bool RunCommandPlugin::receivePackage(const NetworkPackage& np)
+bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("requestCommandList"), false)) {
         sendConfig();
@@ -82,8 +82,8 @@ void RunCommandPlugin::connected()
 void RunCommandPlugin::sendConfig()
 {
     QString commands = config()->get<QString>(QStringLiteral("commands"),QStringLiteral("{}"));
-    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND, {{"commandList", commands}});
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{"commandList", commands}});
+    sendPacket(np);
 }
 
 void RunCommandPlugin::configChanged() {

@@ -77,12 +77,12 @@ RemoteKeyboardPlugin::~RemoteKeyboardPlugin()
 {
 }
 
-bool RemoteKeyboardPlugin::receivePackage(const NetworkPackage& np)
+bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket& np)
 {
-    if (np.type() == PACKAGE_TYPE_MOUSEPAD_ECHO) {
+    if (np.type() == PACKET_TYPE_MOUSEPAD_ECHO) {
         if (!np.has("isAck") || !np.has("key")) {
             qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Invalid packet of type"
-                                                        << PACKAGE_TYPE_MOUSEPAD_ECHO;
+                                                        << PACKET_TYPE_MOUSEPAD_ECHO;
             return false;
         }
         //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keypress" << np;
@@ -92,7 +92,7 @@ bool RemoteKeyboardPlugin::receivePackage(const NetworkPackage& np)
                                 np.get<int>("ctrl", false),
                                 np.get<int>("alt", false));
         return true;
-    } else if (np.type() == PACKAGE_TYPE_MOUSEPAD_KEYBOARDSTATE) {
+    } else if (np.type() == PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE) {
 //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keyboardstate" << np;
         if (m_remoteState != np.get<bool>("state")) {
             m_remoteState = np.get<bool>("state");
@@ -107,7 +107,7 @@ void RemoteKeyboardPlugin::sendKeyPress(const QString& key, int specialKey,
                                         bool shift, bool ctrl,
                                         bool alt, bool sendAck) const
 {
-    NetworkPackage np(PACKAGE_TYPE_MOUSEPAD_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, {
                           {"key", key},
                           {"specialKey", specialKey},
                           {"shift", shift},
@@ -115,7 +115,7 @@ void RemoteKeyboardPlugin::sendKeyPress(const QString& key, int specialKey,
                           {"alt", alt},
                           {"sendAck", sendAck}
                       });
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap& keyEvent, bool sendAck) const

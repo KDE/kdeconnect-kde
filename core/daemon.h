@@ -28,7 +28,7 @@
 #include "kdeconnectcore_export.h"
 #include "device.h"
 
-class NetworkPackage;
+class NetworkPacket;
 class DeviceLink;
 class Device;
 class QNetworkAccessManager;
@@ -81,7 +81,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void pairingRequestsChanged();
 
 private Q_SLOTS:
-    void onNewDeviceLink(const NetworkPackage& identityPackage, DeviceLink* dl);
+    void onNewDeviceLink(const NetworkPacket& identityPacket, DeviceLink* dl);
     void onDeviceStatusChanged();
 
 private:

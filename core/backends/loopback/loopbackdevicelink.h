@@ -33,7 +33,7 @@ public:
     LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
 
     QString name() override;
-    bool sendPackage(NetworkPackage& np) override;
+    bool sendPacket(NetworkPacket& np) override;
 
     void userRequestsPair() override { setPairStatus(Paired); }
     void userRequestsUnpair() override { setPairStatus(NotPaired); }

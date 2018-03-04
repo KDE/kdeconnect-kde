@@ -42,7 +42,7 @@ private:
     QString deviceId;
     QString deviceName;
     QString deviceType;
-    NetworkPackage* identityPackage;
+    NetworkPacket* identityPacket;
 
 };
 
@@ -51,9 +51,9 @@ void DeviceTest::initTestCase()
     deviceId = QStringLiteral("testdevice");
     deviceName = QStringLiteral("Test Device");
     deviceType = QStringLiteral("smartphone");
-    QString stringPackage = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\"}}");
-    identityPackage = new NetworkPackage(QStringLiteral("kdeconnect.identity"));
-    NetworkPackage::unserialize(stringPackage.toLatin1(), identityPackage);
+    QString stringPacket = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\"}}");
+    identityPacket = new NetworkPacket(QStringLiteral("kdeconnect.identity"));
+    NetworkPacket::unserialize(stringPacket.toLatin1(), identityPacket);
 }
 
 void DeviceTest::testPairedDevice()
@@ -76,7 +76,7 @@ void DeviceTest::testPairedDevice()
     LanLinkProvider linkProvider;
     QSslSocket socket;
     LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket, LanDeviceLink::Locally);
-    device.addLink(*identityPackage, link);
+    device.addLink(*identityPacket, link);
 
     QCOMPARE(device.isReachable(), true);
     QCOMPARE(device.availableLinks().contains(linkProvider.name()), true);
@@ -98,7 +98,7 @@ void DeviceTest::testUnpairedDevice()
     QSslSocket socket;
     LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket, LanDeviceLink::Locally);
 
-    Device device(this, *identityPackage, link);
+    Device device(this, *identityPacket, link);
 
     QCOMPARE(device.id(), deviceId);
     QCOMPARE(device.name(), deviceName);
@@ -118,7 +118,7 @@ void DeviceTest::testUnpairedDevice()
 
 void DeviceTest::cleanupTestCase()
 {
-    delete identityPackage;
+    delete identityPacket;
 }
 
 QTEST_GUILESS_MAIN(DeviceTest)

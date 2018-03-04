@@ -24,7 +24,7 @@
 #include <core/kdeconnectplugin.h>
 #include <core/device.h>
 
-#define PACKAGE_TYPE_SFTP_REQUEST QStringLiteral("kdeconnect.sftp.request")
+#define PACKET_TYPE_SFTP_REQUEST QStringLiteral("kdeconnect.sftp.request")
 
 class KNotification;
 
@@ -38,12 +38,12 @@ public:
     explicit SftpPlugin(QObject* parent, const QVariantList& args);
     ~SftpPlugin() override;
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
     QString dbusPath() const override { return "/modules/kdeconnect/devices/" + deviceId + "/sftp"; }
 
 Q_SIGNALS:
-    void packageReceived(const NetworkPackage& np);
+    void packetReceived(const NetworkPacket& np);
     Q_SCRIPTABLE void mounted();
     Q_SCRIPTABLE void unmounted();
 

@@ -40,11 +40,11 @@ class KDECONNECTCORE_EXPORT SocketLineReader
 public:
     explicit SocketLineReader(QSslSocket* socket, QObject* parent = nullptr);
 
-    QByteArray readLine() { return m_packages.dequeue(); }
+    QByteArray readLine() { return m_packets.dequeue(); }
     qint64 write(const QByteArray& data) { return m_socket->write(data); }
     QHostAddress peerAddress() const { return m_socket->peerAddress(); }
     QSslCertificate peerCertificate() const { return m_socket->peerCertificate(); }
-    qint64 bytesAvailable() const { return m_packages.size(); }
+    qint64 bytesAvailable() const { return m_packets.size(); }
 
     QSslSocket* m_socket;
     
@@ -56,7 +56,7 @@ private Q_SLOTS:
 
 private:
     QByteArray m_lastChunk;
-    QQueue<QByteArray> m_packages;
+    QQueue<QByteArray> m_packets;
 
 };
 

@@ -50,9 +50,9 @@ MprisRemotePlugin::~MprisRemotePlugin()
 {
 }
 
-bool MprisRemotePlugin::receivePackage(const NetworkPackage& np)
+bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
 {
-    if (np.type() != PACKAGE_TYPE_MPRIS)
+    if (np.type() != PACKET_TYPE_MPRIS)
         return false;
 
     if (np.has(QStringLiteral("nowPlaying")) || np.has(QStringLiteral("volume")) || np.has(QStringLiteral("isPlaying")) || np.has(QStringLiteral("length")) || np.has(QStringLiteral("pos"))) {
@@ -92,53 +92,53 @@ QString MprisRemotePlugin::dbusPath() const
 
 void MprisRemotePlugin::requestPlayerStatus()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
         {"player", m_player},
         {"requestNowPlaying", true},
         {"requestVolume", true}}
     );
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void MprisRemotePlugin::requestPlayerList()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {{"requestPlayerList", true}});
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{"requestPlayerList", true}});
+    sendPacket(np);
 }
 
 void MprisRemotePlugin::sendAction(const QString& action)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
         {"player", m_player},
         {"action", action}
     });
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void MprisRemotePlugin::seek(int offset) const
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
         {"player", m_player},
         {"Seek", offset}});
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void MprisRemotePlugin::setVolume(int volume)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
         {"player", m_player},
         {"setVolume",volume}
     });
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void MprisRemotePlugin::setPosition(int position)
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS_REQUEST, {
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
         {"player", m_player},
         {"SetPosition", position}
     });
-    sendPackage(np);
+    sendPacket(np);
 
     m_lastPosition = position;
     m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();

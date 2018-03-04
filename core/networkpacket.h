@@ -18,10 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETWORKPACKAGE_H
-#define NETWORKPACKAGE_H
+#ifndef NETWORKPACKET_H
+#define NETWORKPACKET_H
 
-#include "networkpackagetypes.h"
+#include "networkpackettypes.h"
 
 #include <QObject>
 #include <QString>
@@ -35,7 +35,7 @@
 
 class FileTransferJob;
 
-class KDECONNECTCORE_EXPORT NetworkPackage
+class KDECONNECTCORE_EXPORT NetworkPacket
 {
     Q_GADGET
     Q_PROPERTY( QString id READ id WRITE setId )
@@ -49,12 +49,12 @@ public:
     //const static QCA::EncryptionAlgorithm EncryptionAlgorithm;
     const static int s_protocolVersion;
 
-    explicit NetworkPackage(const QString& type, const QVariantMap& body = {});
+    explicit NetworkPacket(const QString& type, const QVariantMap& body = {});
 
-    static void createIdentityPackage(NetworkPackage*);
+    static void createIdentityPacket(NetworkPacket*);
 
     QByteArray serialize() const;
-    static bool unserialize(const QByteArray& json, NetworkPackage* out);
+    static bool unserialize(const QByteArray& json, NetworkPacket* out);
 
     const QString& id() const { return m_id; }
     const QString& type() const { return m_type; }
@@ -96,6 +96,6 @@ private:
 
 };
 
-KDECONNECTCORE_EXPORT QDebug operator<<(QDebug s, const NetworkPackage& pkg);
+KDECONNECTCORE_EXPORT QDebug operator<<(QDebug s, const NetworkPacket& pkg);
 
-#endif // NETWORKPACKAGE_H
+#endif // NETWORKPACKET_H

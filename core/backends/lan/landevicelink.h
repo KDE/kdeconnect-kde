@@ -44,8 +44,8 @@ public:
     void reset(QSslSocket* socket, ConnectionStarted connectionSource);
 
     QString name() override;
-    bool sendPackage(NetworkPackage& np) override;
-    UploadJob* sendPayload(const NetworkPackage& np);
+    bool sendPacket(NetworkPacket& np) override;
+    UploadJob* sendPayload(const NetworkPacket& np);
 
     void userRequestsPair() override;
     void userRequestsUnpair() override;

@@ -1,4 +1,4 @@
-﻿Writting a plugin for KDE Connect
+Writting a plugin for KDE Connect
 =================================
 
 For the desktop client (this project):
@@ -18,9 +18,9 @@ For the desktop client (this project):
   A. Replace "ping" with "findmyphone".
   B. Change name, description, icon, author, email, version, website, license info.
   C. Remove all the translations
-  D. Set X-KDEConnect-SupportedPackageType and X-KDEConnect-OutgoingPackageType to the package type your plugin will receive
+  D. Set X-KDEConnect-SupportedPacketType and X-KDEConnect-OutgoingPacketType to the packet type your plugin will receive
      and send, respectively. In this example this is "kdeconnect.findmyphone". Make sure that this matches what is defined in
-     the findmyplugin.h file (in the line "#define PACKAGE_TYPE_..."), and also in Android.
+     the findmyplugin.h file (in the line "#define PACKET_TYPE_..."), and also in Android.
 10. Now you have an empty skeleton to implement your new plugin logic.
 
 For Android (project kdeconnect-android):
@@ -37,6 +37,6 @@ For Android (project kdeconnect-android):
 7. Open src/org/kde/kdeconnect/Plugins/PluginFactory.java.
   A. Copy "import … PingPlugin" line with replacing "PingPlugin" with "FindMyPhonePlugin".
   B. Copy "PluginFactory.registerPlugin(PingPlugin.class);" line with replacing "PingPlugin" with "FindMyPhonePlugin".
-8. Open src/org/kde/kdeconnect/NetworkPackage.java. Copy a "public final static String PACKAGE_TYPE_PING = …" line
-   replacing "PING" with the package type you will be using (should match the desktop client).
+8. Open src/org/kde/kdeconnect/NetworkPacket.java. Copy a "public final static String PACKET_TYPE_PING = …" line
+   replacing "PING" with the packet type you will be using (should match the desktop client).
 9. Now you have an empty skeleton to implement your new plugin logic.

@@ -25,8 +25,8 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_MPRIS_REQUEST QStringLiteral("kdeconnect.mpris.request")
-#define PACKAGE_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
+#define PACKET_TYPE_MPRIS_REQUEST QStringLiteral("kdeconnect.mpris.request")
+#define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
 class Q_DECL_EXPORT MprisRemotePlugin
     : public KdeConnectPlugin
@@ -57,7 +57,7 @@ public:
     void setPosition(int position);
     void setPlayer(const QString& player);
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
     QString dbusPath() const override;
 

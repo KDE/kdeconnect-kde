@@ -104,18 +104,18 @@ void MprisControlPlugin::seeked(qlonglong position){
     const QString& service = interface->service();
     const QString& player = playerList.key(service);
 
-    NetworkPackage np(PACKAGE_TYPE_MPRIS, {
+    NetworkPacket np(PACKET_TYPE_MPRIS, {
         {"pos", position/1000}, //Send milis instead of nanos
         {"player", player}
     });
-    sendPackage(np);
+    sendPacket(np);
 }
 
 void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, const QVariantMap& properties)
 {
     Q_UNUSED(propertyInterface);
 
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPacket np(PACKET_TYPE_MPRIS);
     bool somethingToSend = false;
     if (properties.contains(QStringLiteral("Volume"))) {
         int volume = (int) (properties[QStringLiteral("Volume")].toDouble()*100);
@@ -130,7 +130,7 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         QVariantMap nowPlayingMap;
         bullshit >> nowPlayingMap;
 
-        mprisPlayerMetadataToNetworkPackage(np, nowPlayingMap);
+        mprisPlayerMetadataToNetworkPacket(np, nowPlayingMap);
         somethingToSend = true;
     }
     if (properties.contains(QStringLiteral("PlaybackStatus"))) {
@@ -170,7 +170,7 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
             long long pos = mprisInterface.position();
             np.set(QStringLiteral("pos"), pos/1000); //Send milis instead of nanos
         }
-        sendPackage(np);
+        sendPacket(np);
     }
 }
 
@@ -182,7 +182,7 @@ void MprisControlPlugin::removePlayer(const QString& ifaceName)
     sendPlayerList();
 }
 
-bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
+bool MprisControlPlugin::receivePacket (const NetworkPacket& np)
 {
     if (np.has(QStringLiteral("playerList"))) {
         return false; //Whoever sent this is an mpris client and not an mpris control!
@@ -226,11 +226,11 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     }
 
     //Send something read from the mpris interface
-    NetworkPackage answer(PACKAGE_TYPE_MPRIS);
+    NetworkPacket answer(PACKET_TYPE_MPRIS);
     bool somethingToSend = false;
     if (np.get<bool>(QStringLiteral("requestNowPlaying"))) {
         QVariantMap nowPlayingMap = mprisInterface.metadata();
-        mprisPlayerMetadataToNetworkPackage(answer, nowPlayingMap);
+        mprisPlayerMetadataToNetworkPacket(answer, nowPlayingMap);
 
         qlonglong pos = mprisInterface.position();
         answer.set(QStringLiteral("pos"), pos/1000);
@@ -253,7 +253,7 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
     }
     if (somethingToSend) {
         answer.set(QStringLiteral("player"), player);
-        sendPackage(answer);
+        sendPacket(answer);
     }
 
     return true;
@@ -261,12 +261,12 @@ bool MprisControlPlugin::receivePackage (const NetworkPackage& np)
 
 void MprisControlPlugin::sendPlayerList()
 {
-    NetworkPackage np(PACKAGE_TYPE_MPRIS);
+    NetworkPacket np(PACKET_TYPE_MPRIS);
     np.set(QStringLiteral("playerList"),playerList.keys());
-    sendPackage(np);
+    sendPacket(np);
 }
 
-void MprisControlPlugin::mprisPlayerMetadataToNetworkPackage(NetworkPackage& np, const QVariantMap& nowPlayingMap) const {
+void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket& np, const QVariantMap& nowPlayingMap) const {
     QString title = nowPlayingMap[QStringLiteral("xesam:title")].toString();
     QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toString();
     QString album = nowPlayingMap[QStringLiteral("xesam:album")].toString();

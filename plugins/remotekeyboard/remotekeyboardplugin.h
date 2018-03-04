@@ -30,9 +30,9 @@ struct FakeKey;
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTEKEYBOARD);
 
-#define PACKAGE_TYPE_MOUSEPAD_REQUEST QLatin1String("kdeconnect.mousepad.request")
-#define PACKAGE_TYPE_MOUSEPAD_ECHO QLatin1String("kdeconnect.mousepad.echo")
-#define PACKAGE_TYPE_MOUSEPAD_KEYBOARDSTATE QLatin1String("kdeconnect.mousepad.keyboardstate")
+#define PACKET_TYPE_MOUSEPAD_REQUEST QLatin1String("kdeconnect.mousepad.request")
+#define PACKET_TYPE_MOUSEPAD_ECHO QLatin1String("kdeconnect.mousepad.echo")
+#define PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE QLatin1String("kdeconnect.mousepad.keyboardstate")
 
 class RemoteKeyboardPlugin
     : public KdeConnectPlugin
@@ -48,7 +48,7 @@ public:
     explicit RemoteKeyboardPlugin(QObject* parent, const QVariantList& args);
     ~RemoteKeyboardPlugin() override;
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     QString dbusPath() const override;
     void connected() override;
 

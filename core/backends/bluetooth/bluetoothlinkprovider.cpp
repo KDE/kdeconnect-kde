@@ -172,27 +172,27 @@ void BluetoothLinkProvider::clientIdentityReceived()
 
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(clientIdentityReceived()));
 
-    NetworkPackage receivedPackage("");
-    bool success = NetworkPackage::unserialize(identityArray, &receivedPackage);
+    NetworkPacket receivedPacket("");
+    bool success = NetworkPacket::unserialize(identityArray, &receivedPacket);
 
-    if (!success || receivedPackage.type() != PACKAGE_TYPE_IDENTITY) {
-        qCWarning(KDECONNECT_CORE) << "Not an identity package";
+    if (!success || receivedPacket.type() != PACKET_TYPE_IDENTITY) {
+        qCWarning(KDECONNECT_CORE) << "Not an identity packet";
         mSockets.remove(socket->peerAddress());
         socket->close();
         socket->deleteLater();
         return;
     }
 
-    qCDebug(KDECONNECT_CORE()) << "Received identity package from" << socket->peerAddress();
+    qCDebug(KDECONNECT_CORE()) << "Received identity packet from" << socket->peerAddress();
 
     disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
 
-    const QString& deviceId = receivedPackage.get<QString>("deviceId");
+    const QString& deviceId = receivedPacket.get<QString>("deviceId");
     BluetoothDeviceLink* deviceLink = new BluetoothDeviceLink(deviceId, this, socket);
 
-    NetworkPackage np2("");
-    NetworkPackage::createIdentityPackage(&np2);
-    success = deviceLink->sendPackage(np2);
+    NetworkPacket np2("");
+    NetworkPacket::createIdentityPacket(&np2);
+    success = deviceLink->sendPacket(np2);
 
     if (success) {
 
@@ -201,7 +201,7 @@ void BluetoothLinkProvider::clientIdentityReceived()
         connect(deviceLink, SIGNAL(destroyed(QObject*)),
                 this, SLOT(deviceLinkDestroyed(QObject*)));
 
-        Q_EMIT onConnectionReceived(receivedPackage, deviceLink);
+        Q_EMIT onConnectionReceived(receivedPacket, deviceLink);
 
         //We kill any possible link from this same device
         addLink(deviceLink, deviceId);
@@ -232,16 +232,16 @@ void BluetoothLinkProvider::serverNewConnection()
     connect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
     connect(socket, SIGNAL(disconnected()), this, SLOT(socketDisconnected()));
 
-    NetworkPackage np2("");
-    NetworkPackage::createIdentityPackage(&np2);
+    NetworkPacket np2("");
+    NetworkPacket::createIdentityPacket(&np2);
     socket->write(np2.serialize());
 
-    qCDebug(KDECONNECT_CORE()) << "Sent identity package to" << socket->peerAddress();
+    qCDebug(KDECONNECT_CORE()) << "Sent identity packet to" << socket->peerAddress();
 
     mSockets.insert(socket->peerAddress(), socket);
 }
 
-//I'm the existing device and this is the answer to my identity package (data received)
+//I'm the existing device and this is the answer to my identity packet (data received)
 void BluetoothLinkProvider::serverDataReceived()
 {
     QBluetoothSocket* socket = qobject_cast<QBluetoothSocket*>(sender());
@@ -255,26 +255,26 @@ void BluetoothLinkProvider::serverDataReceived()
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(serverDataReceived()));
     disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
 
-    NetworkPackage receivedPackage("");
-    bool success = NetworkPackage::unserialize(identityArray, &receivedPackage);
+    NetworkPacket receivedPacket("");
+    bool success = NetworkPacket::unserialize(identityArray, &receivedPacket);
 
-    if (!success || receivedPackage.type() != PACKAGE_TYPE_IDENTITY) {
-        qCWarning(KDECONNECT_CORE) << "Not an identity package.";
+    if (!success || receivedPacket.type() != PACKET_TYPE_IDENTITY) {
+        qCWarning(KDECONNECT_CORE) << "Not an identity packet.";
         mSockets.remove(socket->peerAddress());
         socket->close();
         socket->deleteLater();
         return;
     }
 
-    qCDebug(KDECONNECT_CORE()) << "Received identity package from" << socket->peerAddress();
+    qCDebug(KDECONNECT_CORE()) << "Received identity packet from" << socket->peerAddress();
 
-    const QString& deviceId = receivedPackage.get<QString>("deviceId");
+    const QString& deviceId = receivedPacket.get<QString>("deviceId");
     BluetoothDeviceLink* deviceLink = new BluetoothDeviceLink(deviceId, this, socket);
 
     connect(deviceLink, SIGNAL(destroyed(QObject*)),
             this, SLOT(deviceLinkDestroyed(QObject*)));
 
-    Q_EMIT onConnectionReceived(receivedPackage, deviceLink);
+    Q_EMIT onConnectionReceived(receivedPacket, deviceLink);
 
     addLink(deviceLink, deviceId);
 }

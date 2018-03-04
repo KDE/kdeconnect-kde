@@ -36,7 +36,7 @@ FindMyPhonePlugin::~FindMyPhonePlugin()
 {
 }
 
-bool FindMyPhonePlugin::receivePackage(const NetworkPackage& np)
+bool FindMyPhonePlugin::receivePacket(const NetworkPacket& np)
 {
     Q_UNUSED(np);
     return false;
@@ -44,8 +44,8 @@ bool FindMyPhonePlugin::receivePackage(const NetworkPackage& np)
 
 void FindMyPhonePlugin::ring()
 {
-    NetworkPackage np(PACKAGE_TYPE_FINDMYPHONE_REQUEST);
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_FINDMYPHONE_REQUEST);
+    sendPacket(np);
 }
 
 QString FindMyPhonePlugin::dbusPath() const

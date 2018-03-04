@@ -36,7 +36,7 @@ void DeviceLineReader::dataReceived()
     while(m_device->canReadLine()) {
         const QByteArray line = m_device->readLine();
         if (line.length() > 1) {
-            m_packages.enqueue(line);//we don't want single \n
+            m_packets.enqueue(line);//we don't want single \n
         }
     }
 
@@ -48,8 +48,8 @@ void DeviceLineReader::dataReceived()
         return;
     }
 
-    //If we have any packages, tell it to the world.
-    if (!m_packages.isEmpty()) {
+    //If we have any packets, tell it to the world.
+    if (!m_packets.isEmpty()) {
         Q_EMIT readyRead();
     }
 }

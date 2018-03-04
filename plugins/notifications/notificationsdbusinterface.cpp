@@ -56,7 +56,7 @@ QStringList NotificationsDbusInterface::activeNotifications()
     return m_notifications.keys();
 }
 
-void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
+void NotificationsDbusInterface::processPacket(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("isCancel"))) {
         QString id = np.get<QString>(QStringLiteral("id"));
@@ -148,9 +148,9 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
 
 void NotificationsDbusInterface::dismissRequested(const QString& internalId)
 {
-    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST);
+    NetworkPacket np(PACKET_TYPE_NOTIFICATION_REQUEST);
     np.set<QString>(QStringLiteral("cancel"), internalId);
-    m_plugin->sendPackage(np);
+    m_plugin->sendPacket(np);
 
     //Workaround: we erase notifications without waiting a repsonse from the
     //phone because we won't receive a response if we are out of sync and this
@@ -172,10 +172,10 @@ void NotificationsDbusInterface::replyRequested(Notification* noti)
 
 void NotificationsDbusInterface::sendReply(const QString& replyId, const QString& message)
 {
-    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REPLY);
+    NetworkPacket np(PACKET_TYPE_NOTIFICATION_REPLY);
     np.set<QString>(QStringLiteral("requestReplyId"), replyId);
     np.set<QString>(QStringLiteral("message"), message);
-    m_plugin->sendPackage(np);
+    m_plugin->sendPacket(np);
 }
 
 QString NotificationsDbusInterface::newId()

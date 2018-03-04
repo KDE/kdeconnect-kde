@@ -26,7 +26,7 @@
 
 #include "kdeconnectcore_export.h"
 #include "kdeconnectpluginconfig.h"
-#include "networkpackage.h"
+#include "networkpacket.h"
 #include "device.h"
 
 struct KdeConnectPluginPrivate;
@@ -43,7 +43,7 @@ public:
     const Device* device();
     Device const* device() const;
 
-    bool sendPackage(NetworkPackage& np) const;
+    bool sendPacket(NetworkPacket& np) const;
 
     KdeConnectPluginConfig* config() const;
 
@@ -51,10 +51,10 @@ public:
 
 public Q_SLOTS:
     /**
-     * Returns true if it has handled the package in some way
-     * device.sendPackage can be used to send an answer back to the device
+     * Returns true if it has handled the packet in some way
+     * device.sendPacket can be used to send an answer back to the device
      */
-    virtual bool receivePackage(const NetworkPackage& np) = 0;
+    virtual bool receivePacket(const NetworkPacket& np) = 0;
 
     /**
      * This method will be called when a device is connected to this computer.

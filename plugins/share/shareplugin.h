@@ -26,7 +26,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_SHARE_REQUEST QStringLiteral("kdeconnect.share.request")
+#define PACKET_TYPE_SHARE_REQUEST QStringLiteral("kdeconnect.share.request")
 
 class SharePlugin
     : public KdeConnectPlugin
@@ -40,7 +40,7 @@ public:
     ///Helper method, QDBus won't recognize QUrl
     Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
     QString dbusPath() const override;
 

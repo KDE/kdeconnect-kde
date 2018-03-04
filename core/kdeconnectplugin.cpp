@@ -66,14 +66,14 @@ Device const* KdeConnectPlugin::device() const
     return d->m_device;
 }
 
-bool KdeConnectPlugin::sendPackage(NetworkPackage& np) const
+bool KdeConnectPlugin::sendPacket(NetworkPacket& np) const
 {
     if(!d->m_outgoingCapabilties.contains(np.type())) {
-        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported package type" << np.type() << ". Supported:" << d->m_outgoingCapabilties;
+        qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an unsupported packet type" << np.type() << ". Supported:" << d->m_outgoingCapabilties;
         return false;
     }
 //     qCWarning(KDECONNECT_CORE) << metaObject()->className() << "sends" << np.type() << ". Supported:" << d->mOutgoingTypes;
-    return d->m_device->sendPackage(np);
+    return d->m_device->sendPacket(np);
 }
 
 QString KdeConnectPlugin::dbusPath() const

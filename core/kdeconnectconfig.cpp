@@ -68,7 +68,7 @@ KdeConnectConfig::KdeConnectConfig()
         Daemon::instance()->reportError(
                              i18n("KDE Connect failed to start"),
                              i18n("Could not find support for RSA in your QCA installation. If your "
-                                  "distribution provides separate packages for QCA-ossl and QCA-gnupg, "
+                                  "distribution provides separate packets for QCA-ossl and QCA-gnupg, "
                                   "make sure you have them installed and try again."));
         return;
     }

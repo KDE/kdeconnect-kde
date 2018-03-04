@@ -18,7 +18,7 @@ set(kdeconnect_libraries
 
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
-ecm_add_test(networkpackagetests.cpp LINK_LIBRARIES ${kdeconnect_libraries})
+ecm_add_test(networkpackettests.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(testsocketlinereader.cpp TEST_NAME testsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(testsslsocketlinereader.cpp TEST_NAME testsslsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(kdeconnectconfigtest.cpp TEST_NAME kdeconnectconfigtest LINK_LIBRARIES ${kdeconnect_libraries})

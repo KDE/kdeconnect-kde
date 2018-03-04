@@ -27,7 +27,7 @@
 
 #include <QTimer>
 
-// This class is used pairing related stuff. It has direct access to links and can directly send packages
+// This class is used pairing related stuff. It has direct access to links and can directly send packets
 class BluetoothPairingHandler
     : public PairingHandler
 {
@@ -43,7 +43,7 @@ public:
     BluetoothPairingHandler(DeviceLink* deviceLink);
     virtual ~BluetoothPairingHandler() { }
 
-    virtual void packageReceived(const NetworkPackage& np) Q_DECL_OVERRIDE;
+    virtual void packetReceived(const NetworkPacket& np) Q_DECL_OVERRIDE;
     virtual bool requestPairing() Q_DECL_OVERRIDE;
     virtual bool acceptPairing() Q_DECL_OVERRIDE;
     virtual void rejectPairing() Q_DECL_OVERRIDE;

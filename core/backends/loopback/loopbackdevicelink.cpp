@@ -33,10 +33,10 @@ QString LoopbackDeviceLink::name()
     return QStringLiteral("LoopbackLink");
 }
 
-bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)
+bool LoopbackDeviceLink::sendPacket(NetworkPacket& input)
 {
-    NetworkPackage output(QString::null);
-    NetworkPackage::unserialize(input.serialize(), &output);
+    NetworkPacket output(QString::null);
+    NetworkPacket::unserialize(input.serialize(), &output);
 
     //LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
@@ -45,7 +45,7 @@ bool LoopbackDeviceLink::sendPackage(NetworkPackage& input)
         output.setPayload(input.payload(), input.payloadSize());
     }
 
-    Q_EMIT receivedPackage(output);
+    Q_EMIT receivedPacket(output);
 
     return true;
 }

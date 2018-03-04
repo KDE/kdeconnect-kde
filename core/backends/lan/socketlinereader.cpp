@@ -34,7 +34,7 @@ void SocketLineReader::dataReceived()
     while (m_socket->canReadLine()) {
         const QByteArray line = m_socket->readLine();
         if (line.length() > 1) { //we don't want a single \n
-            m_packages.enqueue(line);
+            m_packets.enqueue(line);
         }
     }
 
@@ -46,8 +46,8 @@ void SocketLineReader::dataReceived()
         return;
     }
 
-    //If we have any packages, tell it to the world.
-    if (!m_packages.isEmpty()) {
+    //If we have any packets, tell it to the world.
+    if (!m_packets.isEmpty()) {
         Q_EMIT readyRead();
     }
 }

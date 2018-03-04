@@ -34,7 +34,7 @@ public:
     explicit ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args);
     ~ScreensaverInhibitPlugin() override;
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override;
 
 private:

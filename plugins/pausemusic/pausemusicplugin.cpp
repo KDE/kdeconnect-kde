@@ -39,7 +39,7 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     , muted(false)
 {}
 
-bool PauseMusicPlugin::receivePackage(const NetworkPackage& np)
+bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 {
     bool pauseOnlyWhenTalking = config()->get(QStringLiteral("conditionTalking"), false);
 

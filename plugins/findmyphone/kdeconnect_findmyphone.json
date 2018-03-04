@@ -97,7 +97,7 @@
         "Version": "0.1",
         "Website": "http://kde.org"
     },
-    "X-KdeConnect-OutgoingPackageType": [
+    "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.findmyphone.request"
     ]
 }

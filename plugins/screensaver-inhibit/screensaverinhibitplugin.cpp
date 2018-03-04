@@ -76,7 +76,7 @@ void ScreensaverInhibitPlugin::connected()
 
 }
 
-bool ScreensaverInhibitPlugin::receivePackage(const NetworkPackage& np)
+bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket& np)
 {
     Q_UNUSED(np);
     return false;

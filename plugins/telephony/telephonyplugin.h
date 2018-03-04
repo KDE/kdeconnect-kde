@@ -28,8 +28,8 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_TELEPHONY_REQUEST QStringLiteral("kdeconnect.telephony.request")
-#define PACKAGE_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
+#define PACKET_TYPE_TELEPHONY_REQUEST QStringLiteral("kdeconnect.telephony.request")
+#define PACKET_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 
@@ -42,7 +42,7 @@ class TelephonyPlugin
 public:
     explicit TelephonyPlugin(QObject* parent, const QVariantList& args);
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
     QString dbusPath() const override;
 
@@ -50,11 +50,11 @@ public Q_SLOTS:
     Q_SCRIPTABLE void sendSms(const QString& phoneNumber, const QString& messageBody);
 
 private Q_SLOTS:
-    void sendMutePackage();
+    void sendMutePacket();
     void showSendSmsDialog();
 
 private:
-    KNotification* createNotification(const NetworkPackage& np);
+    KNotification* createNotification(const NetworkPacket& np);
 
     QDBusInterface m_telepathyInterface;
 };

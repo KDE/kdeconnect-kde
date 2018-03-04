@@ -27,7 +27,7 @@
 #include <QSet>
 #include <QHostAddress>
 
-#include "networkpackage.h"
+#include "networkpacket.h"
 #include "backends/devicelink.h"
 
 class DeviceLink;
@@ -69,7 +69,7 @@ public:
      *
      * We know everything but we don't trust it yet
      */
-    Device(QObject* parent, const NetworkPackage& np, DeviceLink* dl);
+    Device(QObject* parent, const NetworkPacket& np, DeviceLink* dl);
 
     ~Device() override;
 
@@ -82,7 +82,7 @@ public:
     Q_SCRIPTABLE QString encryptionInfo() const;
 
     //Add and remove links
-    void addLink(const NetworkPackage& identityPackage, DeviceLink*);
+    void addLink(const NetworkPacket& identityPacket, DeviceLink*);
     void removeLink(DeviceLink*);
 
     Q_SCRIPTABLE bool isTrusted() const;
@@ -107,9 +107,9 @@ public:
     QHostAddress getLocalIpAddress() const;
 
 public Q_SLOTS:
-    ///sends a @p np package to the device
+    ///sends a @p np packet to the device
     ///virtual for testing purposes.
-    virtual bool sendPackage(NetworkPackage& np);
+    virtual bool sendPacket(NetworkPacket& np);
 
     //Dbus operations
 public Q_SLOTS:
@@ -122,7 +122,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool hasPairingRequests() const;
 
 private Q_SLOTS:
-    void privateReceivedPackage(const NetworkPackage& np);
+    void privateReceivedPacket(const NetworkPacket& np);
     void linkDestroyed(QObject* o);
     void pairStatusChanged(DeviceLink::PairStatus current);
     void addPairingRequest(PairingHandler* handler);

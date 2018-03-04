@@ -34,7 +34,7 @@ class TestSslSocketLineReader : public QObject
 {
     Q_OBJECT
 public Q_SLOTS:
-    void newPackage();
+    void newPacket();
 
 private Q_SLOTS:
 
@@ -53,7 +53,7 @@ private:
     QTimer m_timer;
     QCA::Initializer m_qcaInitializer;
     QEventLoop m_loop;
-    QList<QByteArray> m_packages;
+    QList<QByteArray> m_packets;
     Server* m_server;
     QSslSocket* m_clientSocket;
     SocketLineReader* m_reader;
@@ -143,18 +143,18 @@ void TestSslSocketLineReader::testTrustedDevice()
     }
     m_clientSocket->flush();
 
-    m_packages.clear();
+    m_packets.clear();
 
     m_reader = new SocketLineReader(serverSocket, this);
-    connect(m_reader, &SocketLineReader::readyRead, this,&TestSslSocketLineReader::newPackage);
+    connect(m_reader, &SocketLineReader::readyRead, this,&TestSslSocketLineReader::newPacket);
     m_loop.exec();
 
     /* remove the empty line before compare */
     dataToSend.removeOne("\n");
 
-    QCOMPARE(m_packages.count(), 5);//We expect 5 Packages
+    QCOMPARE(m_packets.count(), 5);//We expect 5 Packets
     for(int x = 0;x < 5; ++x) {
-        QCOMPARE(m_packages[x], dataToSend[x]);
+        QCOMPARE(m_packets[x], dataToSend[x]);
     }
 
     delete m_reader;
@@ -202,18 +202,18 @@ void TestSslSocketLineReader::testUntrustedDevice()
         }
     m_clientSocket->flush();
 
-    m_packages.clear();
+    m_packets.clear();
 
     m_reader = new SocketLineReader(serverSocket, this);
-    connect(m_reader, &SocketLineReader::readyRead, this, &TestSslSocketLineReader::newPackage);
+    connect(m_reader, &SocketLineReader::readyRead, this, &TestSslSocketLineReader::newPacket);
     m_loop.exec();
 
     /* remove the empty line before compare */
     dataToSend.removeOne("\n");
 
-    QCOMPARE(m_packages.count(), 5);//We expect 5 Packages
+    QCOMPARE(m_packets.count(), 5);//We expect 5 Packets
     for(int x = 0;x < 5; ++x) {
-        QCOMPARE(m_packages[x], dataToSend[x]);
+        QCOMPARE(m_packets[x], dataToSend[x]);
     }
 
     delete m_reader;
@@ -261,7 +261,7 @@ void TestSslSocketLineReader::testTrustedDeviceWithWrongCertificate()
 
 }
 
-void TestSslSocketLineReader::newPackage()
+void TestSslSocketLineReader::newPacket()
 {
     if (!m_reader->bytesAvailable()) {
         return;
@@ -270,12 +270,12 @@ void TestSslSocketLineReader::newPackage()
     int maxLoops = 5;
     while(m_reader->bytesAvailable() > 0 && maxLoops > 0) {
         --maxLoops;
-        const QByteArray package = m_reader->readLine();
-        if (!package.isEmpty()) {
-            m_packages.append(package);
+        const QByteArray packet = m_reader->readLine();
+        if (!packet.isEmpty()) {
+            m_packets.append(packet);
         }
 
-        if (m_packages.count() == 5) {
+        if (m_packets.count() == 5) {
             m_loop.exit();
         }
     }

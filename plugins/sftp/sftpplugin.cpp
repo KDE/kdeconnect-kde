@@ -125,14 +125,14 @@ bool SftpPlugin::startBrowsing()
     return false;
 }
 
-bool SftpPlugin::receivePackage(const NetworkPackage& np)
+bool SftpPlugin::receivePacket(const NetworkPacket& np)
 {
     if (!(fields_c - np.body().keys().toSet()).isEmpty()) {
-        // package is invalid
+        // packet is invalid
         return false;
     }
     
-    Q_EMIT packageReceived(np);
+    Q_EMIT packetReceived(np);
 
     remoteDirectories.clear();
     if (np.has(QStringLiteral("multiPaths"))) {

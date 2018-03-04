@@ -42,7 +42,7 @@ public:
 
 private:
     QPointer<LoopbackDeviceLink> loopbackDeviceLink;
-    NetworkPackage identityPackage;
+    NetworkPacket identityPacket;
     
 };
 

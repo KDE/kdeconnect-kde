@@ -70,10 +70,10 @@
         "Version": "0.1",
         "Website": "https://kde.org"
     },
-    "X-KdeConnect-OutgoingPackageType": [
+    "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mpris.request"
     ],
-    "X-KdeConnect-SupportedPackageType": [
+    "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.mpris"
     ]
 }

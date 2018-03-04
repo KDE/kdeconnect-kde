@@ -37,8 +37,8 @@ NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& ar
 
 void NotificationsPlugin::connected()
 {
-    NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST, {{"request", true}});
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_NOTIFICATION_REQUEST, {{"request", true}});
+    sendPacket(np);
 }
 
 NotificationsPlugin::~NotificationsPlugin()
@@ -52,11 +52,11 @@ NotificationsPlugin::~NotificationsPlugin()
     notificationsDbusInterface->clearNotifications();
 }
 
-bool NotificationsPlugin::receivePackage(const NetworkPackage& np)
+bool NotificationsPlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("request"))) return false;
 
-    notificationsDbusInterface->processPackage(np);
+    notificationsDbusInterface->processPacket(np);
 
     return true;
 }

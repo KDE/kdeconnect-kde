@@ -28,7 +28,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-#define PACKAGE_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
+#define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS)
 
@@ -40,7 +40,7 @@ class MprisControlPlugin
 public:
     explicit MprisControlPlugin(QObject* parent, const QVariantList& args);
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override { }
 
 private Q_SLOTS:
@@ -52,7 +52,7 @@ private:
     void addPlayer(const QString& ifaceName);
     void removePlayer(const QString& ifaceName);
     void sendPlayerList();
-    void mprisPlayerMetadataToNetworkPackage(NetworkPackage& np, const QVariantMap& nowPlayingMap) const;
+    void mprisPlayerMetadataToNetworkPacket(NetworkPacket& np, const QVariantMap& nowPlayingMap) const;
 
     QHash<QString, QString> playerList;
     int prevVolume;

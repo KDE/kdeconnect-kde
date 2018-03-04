@@ -49,7 +49,7 @@ public:
 
     void userRequestsPair(const QString& deviceId);
     void userRequestsUnpair(const QString& deviceId);
-    void incomingPairPackage(DeviceLink* device, const NetworkPackage& np);
+    void incomingPairPacket(DeviceLink* device, const NetworkPacket& np);
 
     static void configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket* socket);
@@ -78,7 +78,7 @@ private:
     LanPairingHandler* createPairingHandler(DeviceLink* link);
 
     void onNetworkConfigurationChanged(const QNetworkConfiguration& config);
-    void addLink(const QString& deviceId, QSslSocket* socket, NetworkPackage* receivedPackage, LanDeviceLink::ConnectionStarted connectionOrigin);
+    void addLink(const QString& deviceId, QSslSocket* socket, NetworkPacket* receivedPacket, LanDeviceLink::ConnectionStarted connectionOrigin);
 
     Server* m_server;
     QUdpSocket m_udpSocket;
@@ -88,10 +88,10 @@ private:
     QMap<QString, LanPairingHandler*> m_pairingHandlers;
 
     struct PendingConnect {
-        NetworkPackage* np;
+        NetworkPacket* np;
         QHostAddress sender;
     };
-    QMap<QSslSocket*, PendingConnect> m_receivedIdentityPackages;
+    QMap<QSslSocket*, PendingConnect> m_receivedIdentityPackets;
     QNetworkConfiguration m_lastConfig;
     const bool m_testMode;
     QTimer m_combineBroadcastsTimer;

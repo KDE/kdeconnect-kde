@@ -38,7 +38,7 @@ public:
     BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, QBluetoothSocket* socket);
 
     virtual QString name() override;
-    bool sendPackage(NetworkPackage& np) override;
+    bool sendPacket(NetworkPacket& np) override;
 
     virtual void userRequestsPair() override;
     virtual void userRequestsUnpair() override;

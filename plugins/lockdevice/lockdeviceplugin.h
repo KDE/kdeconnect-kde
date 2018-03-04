@@ -27,8 +27,8 @@
 
 class OrgFreedesktopScreenSaverInterface;
 
-#define PACKAGE_TYPE_LOCK QStringLiteral("kdeconnect.lock")
-#define PACKAGE_TYPE_LOCK_REQUEST QStringLiteral("kdeconnect.lock.request")
+#define PACKET_TYPE_LOCK QStringLiteral("kdeconnect.lock")
+#define PACKET_TYPE_LOCK_REQUEST QStringLiteral("kdeconnect.lock.request")
 
 class Q_DECL_EXPORT LockDevicePlugin
     : public KdeConnectPlugin
@@ -46,7 +46,7 @@ public:
 
     QString dbusPath() const override;
     void connected() override;
-    bool receivePackage(const NetworkPackage & np) override;
+    bool receivePacket(const NetworkPacket & np) override;
 
 Q_SIGNALS:
     void lockedChanged(bool locked);

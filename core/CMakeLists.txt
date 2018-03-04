@@ -31,7 +31,7 @@ set(kdeconnectcore_SRCS
 
     kdeconnectconfig.cpp
     dbushelper.cpp
-    networkpackage.cpp
+    networkpacket.cpp
     filetransferjob.cpp
     daemon.cpp
     device.cpp

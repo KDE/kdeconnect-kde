@@ -39,7 +39,7 @@ MousepadPlugin::~MousepadPlugin()
 {
 }
 
-bool MousepadPlugin::receivePackage(const NetworkPackage& np)
+bool MousepadPlugin::receivePacket(const NetworkPacket& np)
 {
     float dx = np.get<float>(QStringLiteral("dx"), 0);
     float dy = np.get<float>(QStringLiteral("dy"), 0);

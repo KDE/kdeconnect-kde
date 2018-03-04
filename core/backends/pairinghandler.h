@@ -21,7 +21,7 @@
 #ifndef KDECONNECT_PAIRINGHANDLER_H
 #define KDECONNECT_PAIRINGHANDLER_H
 
-#include "networkpackage.h"
+#include "networkpacket.h"
 #include "devicelink.h"
 
 /*
@@ -47,7 +47,7 @@ public:
     DeviceLink* deviceLink() const;
     void setDeviceLink(DeviceLink* dl);
 
-    virtual void packageReceived(const NetworkPackage& np) = 0;
+    virtual void packetReceived(const NetworkPacket& np) = 0;
     virtual void unpair() = 0;
     static int pairingTimeoutMsec() { return 30 * 1000; } // 30 seconds of timeout (default), subclasses that use different values should override
 

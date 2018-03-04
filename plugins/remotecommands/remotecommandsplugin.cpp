@@ -30,10 +30,10 @@
 #include <QJsonDocument>
 #include <KShell>
 
-#include <core/networkpackage.h>
+#include <core/networkpacket.h>
 #include <core/device.h>
 
-#define PACKAGE_TYPE_RUNCOMMAND_REQUEST QLatin1String("kdeconnect.runcommand.request")
+#define PACKET_TYPE_RUNCOMMAND_REQUEST QLatin1String("kdeconnect.runcommand.request")
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_remotecommands.json", registerPlugin< RemoteCommandsPlugin >(); )
 
@@ -47,7 +47,7 @@ RemoteCommandsPlugin::RemoteCommandsPlugin(QObject* parent, const QVariantList& 
 
 RemoteCommandsPlugin::~RemoteCommandsPlugin() = default;
 
-bool RemoteCommandsPlugin::receivePackage(const NetworkPackage& np)
+bool RemoteCommandsPlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.has(QStringLiteral("commandList"))) {
         setCommands(np.get<QByteArray>(QStringLiteral("commandList")));
@@ -59,8 +59,8 @@ bool RemoteCommandsPlugin::receivePackage(const NetworkPackage& np)
 
 void RemoteCommandsPlugin::connected()
 {
-    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST, {{"requestCommandList", true}});
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{"requestCommandList", true}});
+    sendPacket(np);
 }
 
 QString RemoteCommandsPlugin::dbusPath() const
@@ -78,8 +78,8 @@ void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
 
 void RemoteCommandsPlugin::triggerCommand(const QString& key)
 {
-    NetworkPackage np(PACKAGE_TYPE_RUNCOMMAND_REQUEST, {{ "key", key }});
-    sendPackage(np);
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{ "key", key }});
+    sendPacket(np);
 }
 
 #include "remotecommandsplugin.moc"

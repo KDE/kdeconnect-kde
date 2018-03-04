@@ -27,7 +27,7 @@
 #include <core/kdeconnectplugin.h>
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD)
-#define PACKAGE_TYPE_CLIPBOARD QStringLiteral("kdeconnect.clipboard")
+#define PACKET_TYPE_CLIPBOARD QStringLiteral("kdeconnect.clipboard")
 
 class ClipboardPlugin
     : public KdeConnectPlugin
@@ -37,7 +37,7 @@ class ClipboardPlugin
 public:
     explicit ClipboardPlugin(QObject* parent, const QVariantList& args);
 
-    bool receivePackage(const NetworkPackage& np) override;
+    bool receivePacket(const NetworkPacket& np) override;
     void connected() override { }
 
 private Q_SLOTS:
