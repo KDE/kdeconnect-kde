@@ -64,19 +64,6 @@ void NotificationsDbusInterface::processPackage(const NetworkPackage& np)
         if (id.startsWith(QLatin1String("org.kde.kdeconnect_tp::")))
             id = id.mid(id.indexOf(QLatin1String("::")) + 2);
         removeNotification(id);
-    } else if (np.get<bool>(QStringLiteral("isRequest"))) {
-        for (const auto& n : qAsConst(m_notifications)) {
-            NetworkPackage np(PACKAGE_TYPE_NOTIFICATION_REQUEST, {
-                {"id", n->internalId()},
-                {"appName", n->appName()},
-                {"ticker", n->ticker()},
-                {"isClearable", n->dismissable()},
-                {"requestAnswer", true}
-            });
-            m_plugin->sendPackage(np);
-        }
-    } else if(np.get<bool>(QStringLiteral("requestAnswer"), false)) {
-
     } else {
         QString id = np.get<QString>(QStringLiteral("id"));
 
