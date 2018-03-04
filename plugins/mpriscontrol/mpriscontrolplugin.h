@@ -76,6 +76,7 @@ private:
     void removePlayer(const QString& serviceName);
     void sendPlayerList();
     void mprisPlayerMetadataToNetworkPacket(NetworkPacket& np, const QVariantMap& nowPlayingMap) const;
+    bool sendAlbumArt(const NetworkPacket& np);
 
     QHash<QString, MprisPlayer> playerList;
     int prevVolume;

@@ -225,10 +225,52 @@ void MprisControlPlugin::removePlayer(const QString& serviceName)
     sendPlayerList();
 }
 
+bool MprisControlPlugin::sendAlbumArt(const NetworkPacket& np)
+{
+    const QString player = np.get<QString>(QStringLiteral("player"));
+    auto it = playerList.find(player);
+    bool valid_player = (it != playerList.end());
+    if (!valid_player) {
+        return false;
+    }
+
+    //Get mpris information
+    auto& mprisInterface = *it.value().mediaPlayer2PlayerInterface();
+    QVariantMap nowPlayingMap = mprisInterface.metadata();
+
+    //Check if the supplied album art url indeed belongs to this mpris player
+    QUrl playerAlbumArtUrl{nowPlayingMap[QStringLiteral("mpris:artUrl")].toString()};
+    QString requestedAlbumArtUrl = np.get<QString>(QStringLiteral("albumArtUrl"));
+    if (!playerAlbumArtUrl.isValid() || playerAlbumArtUrl != QUrl(requestedAlbumArtUrl)) {
+        return false;
+    }
+
+    //Only support sending local files
+    if (playerAlbumArtUrl.scheme() != "file") {
+        return false;
+    }
+
+    //Open the file to send
+    QSharedPointer<QFile> art{new QFile(playerAlbumArtUrl.toLocalFile())};
+
+    //Send the album art as payload
+    NetworkPacket answer(PACKET_TYPE_MPRIS);
+    answer.set(QStringLiteral("transferringAlbumArt"), true);
+    answer.set(QStringLiteral("player"), player);
+    answer.set(QStringLiteral("albumArtUrl"), requestedAlbumArtUrl);
+    answer.setPayload(art, art->size());
+    sendPacket(answer);
+    return true;
+}
+
 bool MprisControlPlugin::receivePacket (const NetworkPacket& np)
 {
     if (np.has(QStringLiteral("playerList"))) {
         return false; //Whoever sent this is an mpris client and not an mpris control!
+    }
+
+    if (np.has(QStringLiteral("albumArtUrl"))) {
+        return sendAlbumArt(np);
     }
 
     //Send the player list
@@ -310,6 +352,7 @@ void MprisControlPlugin::sendPlayerList()
 {
     NetworkPacket np(PACKET_TYPE_MPRIS);
     np.set(QStringLiteral("playerList"),playerList.keys());
+    np.set(QStringLiteral("supportAlbumArtPayload"), true);
     sendPacket(np);
 }
 
