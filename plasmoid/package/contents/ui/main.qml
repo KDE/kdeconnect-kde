@@ -41,7 +41,6 @@ Item
         value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     }
 
-    Plasmoid.compactRepresentation: CompactRepresentation {}
     Plasmoid.fullRepresentation: FullRepresentation {
         devicesModel: connectDeviceModel
     }
