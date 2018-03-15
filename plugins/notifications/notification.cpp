@@ -134,14 +134,17 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacke
 
 void Notification::loadIcon(const NetworkPacket& np)
 {
+    if (m_job)
+        return;
+
     m_ready = false;
-    FileTransferJob* job = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
-    job->start();
+    m_job = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
+    m_job->start();
 
-    connect(job, &FileTransferJob::result, this, [this, job]{
+    connect(m_job, &FileTransferJob::result, this, [this]{
 
-        if (job->error()) {
-            qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << job->errorString();
+        if (m_job->error()) {
+            qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << m_job->errorString();
             applyNoIcon();
         } else {
             applyIcon();

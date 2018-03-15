@@ -25,6 +25,7 @@
 #include <QString>
 #include <KNotification>
 #include <QDir>
+#include <QPointer>
 
 #include <core/networkpacket.h>
 
@@ -89,6 +90,7 @@ private:
     bool m_closed;
     QString m_payloadHash;
     bool m_ready;
+    QPointer<FileTransferJob> m_job;
 
     void parseNetworkPacket(const NetworkPacket& np);
     void loadIcon(const NetworkPacket& np);
