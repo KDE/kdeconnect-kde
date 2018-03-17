@@ -96,8 +96,8 @@ void MprisControlPlugin::addPlayer(const QString& service)
     }
 
     QString uniqueName = identity;
-    for (int i = 1; playerList.contains(uniqueName); ++i) {
-        uniqueName = identity + " [" + i + "]";
+    for (int i = 2; playerList.contains(uniqueName); ++i) {
+        uniqueName = identity + QLatin1String(" [") + QString::number(i) + QLatin1Char(']');
     }
 
     MprisPlayer player(service, mediaPlayerObjectPath, QDBusConnection::sessionBus());
