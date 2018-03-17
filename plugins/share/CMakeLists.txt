@@ -1,5 +1,3 @@
-find_package(KF5 REQUIRED COMPONENTS Notifications KIO)
-
 set(kdeconnect_share_SRCS
     shareplugin.cpp
 )

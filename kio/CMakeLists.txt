@@ -1,6 +1,5 @@
 include_directories(${CMAKE_SOURCE_DIR})
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kio")
-find_package(KF5 REQUIRED COMPONENTS KIO)
 
 set(kio_kdeconnect_PART_SRCS
    kiokdeconnect.cpp

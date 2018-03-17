@@ -1,3 +1,5 @@
+cmake_minimum_required(VERSION 3.0)
+
 project(kdeconnect)
 
 set(KDECONNECT_VERSION_MAJOR 1)
@@ -5,15 +7,16 @@ set(KDECONNECT_VERSION_MINOR 2)
 set(KDECONNECT_VERSION_PATCH 1)
 set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}")
 
-cmake_minimum_required(VERSION 2.8.12)
+set(QT_MIN_VERSION "5.7.0")
+set(KF5_MIN_VERSION "5.42.0")
 
-find_package(ECM 0.0.9 REQUIRED NO_MODULE)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake)
 
-find_package(Qt5 5.2 REQUIRED COMPONENTS Quick)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick)
 
-find_package(KF5 5.42.0 REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons)
-find_package(KF5DocTools)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils)
+find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS DocTools)
 find_package(Qca-qt5 2.1.0 REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR})

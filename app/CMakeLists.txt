@@ -1,4 +1,4 @@
-find_package(KF5 COMPONENTS Declarative)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Declarative)
 
 qt5_add_resources(kcapp_SRCS resources.qrc)
 

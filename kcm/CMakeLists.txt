@@ -1,7 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kcm")
 
-find_package(KF5KCMUtils 5.9 REQUIRED)
-
 include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_SOURCE_DIR}

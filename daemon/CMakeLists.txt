@@ -1,7 +1,5 @@
 project(kdeconnectd)
 
-find_package(KF5 REQUIRED COMPONENTS Notifications KIO)
-
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
 add_executable(kdeconnectd kdeconnectd.cpp)

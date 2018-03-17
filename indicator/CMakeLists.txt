@@ -1,6 +1,3 @@
-find_package(KF5Notifications REQUIRED)
-find_package(KF5KCMUtils REQUIRED)
-
 set(indicator_SRCS
     main.cpp
     deviceindicator.cpp

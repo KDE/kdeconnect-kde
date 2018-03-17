@@ -1,5 +1,3 @@
-find_package(KF5 REQUIRED COMPONENTS Notifications KCMUtils I18n IconThemes)
-
 set(kdeconnect_sendnotifications_SRCS
     sendnotificationsplugin.cpp
     notificationslistener.cpp

@@ -1,5 +1,3 @@
-find_package(KF5 REQUIRED COMPONENTS Notifications)
-
 set(kdeconnect_battery_SRCS
     batteryplugin.cpp
     batterydbusinterface.cpp

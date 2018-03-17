@@ -1,4 +1,3 @@
-find_package(KF5 REQUIRED COMPONENTS KCMUtils)
 find_program(PACTL pactl)
 
 kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES pausemusicplugin.cpp)

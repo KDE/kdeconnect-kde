@@ -1,5 +1,3 @@
-find_package(KF5 REQUIRED COMPONENTS Notifications)
-
 include_directories(${CMAKE_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../notifications/) # needed for the sendreplydialog
 

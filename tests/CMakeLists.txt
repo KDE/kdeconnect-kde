@@ -1,5 +1,4 @@
-find_package(Qt5 REQUIRED COMPONENTS Test)
-find_package(KF5 REQUIRED COMPONENTS KIO Notifications IconThemes)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 
 include_directories(
     ${KDEConnectCore_BINARY_DIR}

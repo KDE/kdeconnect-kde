@@ -11,11 +11,9 @@ add_subdirectory(backends/loopback)
 
 option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" OFF)
 if(BLUETOOTH_ENABLED)
-    find_package(Qt5 REQUIRED COMPONENTS Bluetooth)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
     add_subdirectory(backends/bluetooth)
 endif()
-
-find_package(KF5Notifications 5.9 REQUIRED)
 
 set(kdeconnectcore_SRCS
     ${backends_kdeconnect_SRCS}

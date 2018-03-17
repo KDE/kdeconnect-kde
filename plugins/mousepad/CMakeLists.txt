@@ -8,9 +8,9 @@ set_package_properties(LibFakeKey PROPERTIES DESCRIPTION "fake key events"
 if (LibFakeKey_FOUND)
     find_package(XTest REQUIRED)
     find_package(X11 REQUIRED)
-    find_package(Qt5X11Extras REQUIRED)
+    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
 endif()
-find_package(KF5Wayland 5.3.90)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Wayland)
 
 set(HAVE_X11 ${LibFakeKey_FOUND})
 set(HAVE_WAYLAND ${KF5Wayland_FOUND})

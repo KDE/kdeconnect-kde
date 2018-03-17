@@ -2,8 +2,6 @@ project(kdeconnectpluginkcm)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
-find_package(KF5 REQUIRED COMPONENTS KCMUtils)
-
 add_library(kdeconnectpluginkcm kdeconnectpluginkcm.cpp)
 target_link_libraries(kdeconnectpluginkcm
 PUBLIC
