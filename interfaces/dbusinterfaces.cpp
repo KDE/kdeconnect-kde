@@ -164,5 +164,3 @@ RemoteKeyboardDbusInterface::RemoteKeyboardDbusInterface(const QString& deviceId
 }
 
 RemoteKeyboardDbusInterface::~RemoteKeyboardDbusInterface() = default;
-
-#include "dbusinterfaces.moc"
