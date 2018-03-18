@@ -68,6 +68,17 @@ public:
         return m_nam;
     }
 
+    Q_SCRIPTABLE void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override
+    {
+        KNotification* notification = new KNotification(eventId); //KNotification::Persistent
+        notification->setIconName(iconName);
+        notification->setComponentName(QStringLiteral("kdeconnect"));
+        notification->setTitle(title);
+        notification->setText(text);
+        notification->sendEvent();
+    }
+
+
 private:
     QNetworkAccessManager* m_nam;
 };

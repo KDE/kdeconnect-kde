@@ -20,7 +20,6 @@
 
 #include "pingplugin.h"
 
-#include <KNotification>
 #include <KLocalizedString>
 #include <KPluginFactory>
 
@@ -29,6 +28,7 @@
 #include <QLoggingCategory>
 
 #include <core/device.h>
+#include <core/daemon.h>
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_ping.json", registerPlugin< PingPlugin >(); )
 
@@ -47,12 +47,7 @@ PingPlugin::~PingPlugin()
 
 bool PingPlugin::receivePacket(const NetworkPacket& np)
 {
-    KNotification* notification = new KNotification(QStringLiteral("pingReceived")); //KNotification::Persistent
-    notification->setIconName(QStringLiteral("dialog-ok"));
-    notification->setComponentName(QStringLiteral("kdeconnect"));
-    notification->setTitle(device()->name());
-    notification->setText(np.get<QString>(QStringLiteral("message"),i18n("Ping!"))); //This can be a source of spam
-    notification->sendEvent();
+    Daemon::instance()->sendSimpleNotification(QStringLiteral("pingReceived"), device()->name(), np.get<QString>(QStringLiteral("message"),i18n("Ping!")), QStringLiteral("dialog-ok"));
 
     return true;
 }

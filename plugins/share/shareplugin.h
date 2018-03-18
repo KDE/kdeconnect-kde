@@ -21,7 +21,6 @@
 #ifndef SHAREPLUGIN_H
 #define SHAREPLUGIN_H
 
-#include <KNotification>
 #include <KIO/Job>
 
 #include <core/kdeconnectplugin.h>

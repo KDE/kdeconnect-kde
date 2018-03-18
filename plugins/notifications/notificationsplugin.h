@@ -21,8 +21,6 @@
 #ifndef NOTIFICATIONSPLUGIN_H
 #define NOTIFICATIONSPLUGIN_H
 
-#include <knotification.h>
-
 #include <core/kdeconnectplugin.h>
 
 #define PACKET_TYPE_NOTIFICATION_REQUEST QStringLiteral("kdeconnect.notification.request")
@@ -44,7 +42,7 @@ class NotificationsPlugin
 public:
     explicit NotificationsPlugin(QObject* parent, const QVariantList& args);
     ~NotificationsPlugin() override;
-    
+
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override;
 

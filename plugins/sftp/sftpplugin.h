@@ -26,14 +26,12 @@
 
 #define PACKET_TYPE_SFTP_REQUEST QStringLiteral("kdeconnect.sftp.request")
 
-class KNotification;
-
 class SftpPlugin
     : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.sftp")
-    
+
 public:
     explicit SftpPlugin(QObject* parent, const QVariantList& args);
     ~SftpPlugin() override;
@@ -61,12 +59,12 @@ private Q_SLOTS:
     void onMounted();
     void onUnmounted();
     void onFailed(const QString& message);
-    
+
 private:
     void knotify(int type, const QString& text, const QPixmap& icon) const;
     void addToDolphin();
     void removeFromDolphin();
-    
+
 private:
     struct Pimpl;
     QScopedPointer<Pimpl> d;
