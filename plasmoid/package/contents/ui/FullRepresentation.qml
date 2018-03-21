@@ -19,7 +19,6 @@
  */
 
 import QtQuick 2.1
-import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
@@ -29,25 +28,12 @@ Item {
     id: kdeconnect
     property alias devicesModel: devicesView.model
 
-    RowLayout {
-        visible: devicesView.count==0
+    PlasmaExtras.Heading {
         width: parent.width
-
-        PlasmaExtras.Heading {
-            Layout.fillWidth: true
-            level: 3
-            opacity: 0.6
-            text: i18n("No paired devices available")
-        }
-
-        PlasmaComponents.Button {
-            iconSource: "view-refresh"
-            tooltip: i18n("Search for devices")
-
-            onClicked: {
-                KdeConnect.DaemonDbusInterface.forceOnNetworkChange();
-            }
-        }
+        level: 3
+        opacity: 0.6
+        text: i18n("No paired devices available")
+        visible: devicesView.count==0
     }
 
     /*
@@ -62,7 +48,6 @@ Item {
     PlasmaExtras.ScrollArea {
         id: dialogItem
         anchors.fill: parent
-        visible: devicesView.count > 0
 
         ListView {
             id: devicesView
