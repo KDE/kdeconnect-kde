@@ -330,7 +330,7 @@
   </customwidget>
   <customwidget>
    <class>KMessageWidget</class>
-   <extends>QWidget</extends>
+   <extends>QFrame</extends>
    <header>kmessagewidget.h</header>
    <container>1</container>
   </customwidget>
