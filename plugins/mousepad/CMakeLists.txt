@@ -10,7 +10,7 @@ if (LibFakeKey_FOUND)
     find_package(X11 REQUIRED)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
 endif()
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Wayland)
+find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Wayland)
 
 set(HAVE_X11 ${LibFakeKey_FOUND})
 set(HAVE_WAYLAND ${KF5Wayland_FOUND})
