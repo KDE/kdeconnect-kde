@@ -90,12 +90,13 @@ private:
     bool m_closed;
     QString m_payloadHash;
     bool m_ready;
-    QPointer<FileTransferJob> m_job;
 
     void parseNetworkPacket(const NetworkPacket& np);
     void loadIcon(const NetworkPacket& np);
     void applyIcon();
     void applyNoIcon();
+
+    static QMap<QString, FileTransferJob*> s_downloadsInProgress;
 };
 
 #endif

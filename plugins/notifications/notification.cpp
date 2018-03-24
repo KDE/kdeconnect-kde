@@ -31,6 +31,7 @@
 
 #include <core/filetransferjob.h>
 
+QMap<QString, FileTransferJob*> Notification::s_downloadsInProgress;
 
 Notification::Notification(const NetworkPacket& np, QObject* parent)
     : QObject(parent)
@@ -111,15 +112,8 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacke
         applyNoIcon();
         show();
     } else {
-
         m_iconPath = m_imagesDir.absoluteFilePath(m_payloadHash);
-
-        if (!QFile::exists(m_iconPath)) {
-            loadIcon(np);
-        } else {
-            applyIcon();
-            show();
-        }
+        loadIcon(np);
     }
 
     if (!m_requestReplyId.isEmpty()) {
@@ -134,23 +128,30 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacke
 
 void Notification::loadIcon(const NetworkPacket& np)
 {
-    if (m_job)
-        return;
-
     m_ready = false;
-    m_job = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
-    m_job->start();
 
-    connect(m_job, &FileTransferJob::result, this, [this]{
-
-        if (m_job->error()) {
-            qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << m_job->errorString();
-            applyNoIcon();
-        } else {
-            applyIcon();
-        }
+    if (QFileInfo::exists(m_iconPath)) {
+        applyIcon();
         show();
-    });
+    } else {
+        FileTransferJob* fileTransferJob = s_downloadsInProgress.value(m_iconPath);
+        if (!fileTransferJob) {
+            fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
+            fileTransferJob->start();
+            s_downloadsInProgress[m_iconPath] = fileTransferJob;
+        }
+
+        connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob]{
+            s_downloadsInProgress.remove(m_iconPath);
+            if (fileTransferJob->error()) {
+                qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << fileTransferJob->errorString();
+                applyNoIcon();
+            } else {
+                applyIcon();
+            }
+            show();
+        });
+    }
 }
 
 void Notification::applyIcon()
