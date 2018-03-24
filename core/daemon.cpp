@@ -21,6 +21,7 @@
 #include "daemon.h"
 
 #include <QDBusConnection>
+#include <QDBusMetaType>
 #include <QNetworkAccessManager>
 #include <QDebug>
 #include <QPointer>
@@ -90,6 +91,7 @@ Daemon::Daemon(QObject* parent, bool testMode)
     }
 
     //Register on DBus
+    qDBusRegisterMetaType< QMap<QString,QString> >();
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 
@@ -164,6 +166,17 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
         if (onlyReachable && !device->isReachable()) continue;
         if (onlyTrusted && !device->isTrusted()) continue;
         ret.append(device->id());
+    }
+    return ret;
+}
+
+QMap<QString, QString> Daemon::deviceNames(bool onlyReachable, bool onlyTrusted) const
+{
+    QMap<QString, QString> ret;
+    for (Device* device : qAsConst(d->m_devices)) {
+        if (onlyReachable && !device->isReachable()) continue;
+        if (onlyTrusted && !device->isTrusted()) continue;
+        ret[device->id()] = device->name();
     }
     return ret;
 }
