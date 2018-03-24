@@ -23,6 +23,7 @@
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
+class QMenu;
 class QStandardItemModel;
 
 class RunCommandConfig
@@ -41,6 +42,8 @@ public Q_SLOTS:
 private Q_SLOTS:
     void onDataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight);
 private:
+    void addSuggestedCommand(QMenu* menu, const QString &name, const QString &command);
+    void insertRow(int i, const QString &name, const QString &command);
     void insertEmptyRow();
 
     QStandardItemModel* m_entriesModel;

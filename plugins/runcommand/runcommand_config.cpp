@@ -24,6 +24,8 @@
 #include <QTableView>
 #include <QHBoxLayout>
 #include <QHeaderView>
+#include <QPushButton>
+#include <QMenu>
 #include <QStandardItemModel>
 #include <QDebug>
 #include <QUuid>
@@ -35,14 +37,23 @@
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
+
 RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand_config"))
 {
+    QMenu* defaultMenu = new QMenu(this);
+    addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("systemctl suspend"));
+    addSuggestedCommand(defaultMenu, i18n("Maximum Brightness"), QStringLiteral("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`"));
+
     QTableView* table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
     table->verticalHeader()->setVisible(false);
     QVBoxLayout* layout = new QVBoxLayout(this);
     layout->addWidget(table);
+    QPushButton* button = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Sample commands"), this);
+    button->setMenu(defaultMenu);
+    layout->addWidget(button);
+
     setLayout(layout);
 
     m_entriesModel = new QStandardItemModel(this);
@@ -54,6 +65,16 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
 
 RunCommandConfig::~RunCommandConfig()
 {
+}
+
+void RunCommandConfig::addSuggestedCommand(QMenu* menu, const QString &name, const QString &command)
+{
+    auto action = new QAction(name);
+    connect(action, &QAction::triggered, action, [this, name, command]() {
+        insertRow(0, name, command);
+        Q_EMIT changed(true);
+    });
+    menu->addAction(action);
 }
 
 void RunCommandConfig::defaults()
@@ -124,12 +145,17 @@ void RunCommandConfig::save()
 
 void RunCommandConfig::insertEmptyRow()
 {
-    QStandardItem* newName = new QStandardItem;
+    insertRow(m_entriesModel->rowCount(), {}, {});
+}
+
+void RunCommandConfig::insertRow(int i, const QString& name, const QString& command)
+{
+    QStandardItem* newName = new QStandardItem(name);
     newName->setEditable(true);
-    QStandardItem* newCommand = new QStandardItem;
+    QStandardItem* newCommand = new QStandardItem(command);
     newName->setEditable(true);
 
-    m_entriesModel->appendRow(QList<QStandardItem*>() << newName << newCommand);
+    m_entriesModel->insertRow(i, QList<QStandardItem*>() << newName << newCommand);
 }
 
 void RunCommandConfig::onDataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight)
