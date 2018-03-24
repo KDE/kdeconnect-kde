@@ -56,6 +56,13 @@ QStringList NotificationsDbusInterface::activeNotifications()
     return m_notifications.keys();
 }
 
+void NotificationsDbusInterface::notificationReady()
+{
+    Notification* noti = static_cast<Notification*>(sender());
+    disconnect(noti, &Notification::ready, this, &NotificationsDbusInterface::notificationReady);
+    addNotification(noti);
+}
+
 void NotificationsDbusInterface::processPacket(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("isCancel"))) {
@@ -73,9 +80,7 @@ void NotificationsDbusInterface::processPacket(const NetworkPacket& np)
             if (noti->isReady()) {
                 addNotification(noti);
             } else {
-                connect(noti, &Notification::ready, this, [this, noti]{
-                    addNotification(noti);
-                });
+                connect(noti, &Notification::ready, this, &NotificationsDbusInterface::notificationReady);
             }
         } else {
             QString pubId = m_internalIdToPublicId.value(id);

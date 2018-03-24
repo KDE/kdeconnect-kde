@@ -62,6 +62,7 @@ Q_SIGNALS:
 private /*methods*/:
     void removeNotification(const QString& internalId);
     QString newId(); //Generates successive identifitiers to use as public ids
+    void notificationReady();
 
 private /*attributes*/:
     const Device* m_device;
