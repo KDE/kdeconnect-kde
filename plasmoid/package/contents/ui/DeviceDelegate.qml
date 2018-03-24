@@ -206,6 +206,7 @@ PlasmaComponents.ListItem
                 visible: notificationsModel.isAnyDimissable;
                 anchors.right: parent.right
                 iconSource: "window-close"
+                tooltip: i18n("Dismiss all notifications")
                 onClicked: notificationsModel.dismissAll();
             }
         }
@@ -241,6 +242,7 @@ PlasmaComponents.ListItem
                     enabled: repliable
                     anchors.right: dismissButton.left
                     iconSource: "mail-reply-sender"
+                    tooltip: i18n("Reply")
                     onClicked: dbusInterface.reply();
                 }
                 PlasmaComponents.ToolButton {
@@ -249,6 +251,7 @@ PlasmaComponents.ListItem
                     enabled: dismissable
                     anchors.right: parent.right
                     iconSource: "window-close"
+                    tooltip: i18n("Dismiss")
                     onClicked: dbusInterface.dismiss();
                 }
             }
