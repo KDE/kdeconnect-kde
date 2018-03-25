@@ -26,7 +26,8 @@ import org.kde.kirigami 2.4 as Kirigami
 Kirigami.ScrollablePage
 {
     id: page
-    title: i18n("%1: %2", person.name, person.phone)
+    readonly property string phoneNumber: person.contactCustomProperty("phoneNumber")
+    title: i18n("%1: %2", person.name, phoneNumber)
     property QtObject person
     property QtObject device
 
@@ -57,8 +58,8 @@ Kirigami.ScrollablePage
         Button {
             text: "Send"
             onClicked: {
-                console.log("sending sms", page.person.phone)
-                page.telephony.sendSms(page.person.phone, message.text)
+                console.log("sending sms", page.phoneNumber)
+                page.telephony.sendSms(page.phoneNumber, message.text)
             }
         }
     }
