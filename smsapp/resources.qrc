@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+ <qresource>
+    <file>qml/main.qml</file>
+    <file>qml/ContactList.qml</file>
+    <file>qml/ConversationDisplay.qml</file>
+ </qresource>
+</RCC>

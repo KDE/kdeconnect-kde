@@ -35,6 +35,7 @@
 #include "interfaces/lockdeviceinterface.h"
 #include "interfaces/remotecommandsinterface.h"
 #include "interfaces/remotekeyboardinterface.h"
+#include "interfaces/telephonyinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -194,6 +195,15 @@ public:
     ~RemoteKeyboardDbusInterface() override;
 Q_SIGNALS:
     void remoteStateChanged(bool state);
+};
+
+class KDECONNECTINTERFACES_EXPORT TelephonyDbusInterface
+    : public OrgKdeKdeconnectDeviceTelephonyInterface
+{
+    Q_OBJECT
+public:
+    explicit TelephonyDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~TelephonyDbusInterface() override;
 };
 
 template <typename T, typename W>

@@ -74,6 +74,11 @@ QObject* createDeviceLockInterface(const QVariant& deviceId)
     return new LockDeviceDbusInterface(deviceId.toString());
 }
 
+QObject* createTelephonyInterface(const QVariant& deviceId)
+{
+    return new TelephonyDbusInterface(deviceId.toString());
+}
+
 QObject* createDBusResponse()
 {
     return new DBusAsyncResponse();
@@ -124,6 +129,9 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
 
     engine->rootContext()->setContextProperty(QStringLiteral("LockDeviceDbusInterfaceFactory")
       , new ObjectFactory(engine, createDeviceLockInterface));
+
+    engine->rootContext()->setContextProperty(QStringLiteral("TelephonyDbusInterfaceFactory")
+      , new ObjectFactory(engine, createTelephonyInterface));
     
     engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseFactory")
       , new ObjectFactory(engine, createDBusResponse));    

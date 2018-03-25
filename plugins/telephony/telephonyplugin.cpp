@@ -148,6 +148,7 @@ void TelephonyPlugin::sendSms(const QString& phoneNumber, const QString& message
         {"phoneNumber", phoneNumber},
         {"messageBody", messageBody}
     });
+    qDebug() << "sending sms!";
     sendPacket(np);
 }
 
