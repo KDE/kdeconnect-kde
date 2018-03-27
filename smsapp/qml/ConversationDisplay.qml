@@ -21,7 +21,7 @@
 import QtQuick 2.1
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.2 as Kirigami
 
 Kirigami.ScrollablePage
 {
@@ -33,7 +33,7 @@ Kirigami.ScrollablePage
 
     readonly property QtObject telephony: TelephonyDbusInterfaceFactory.create(device.id())
 
-    Kirigami.CardsListView {
+    ListView {
         model: ListModel {
             ListElement { display: "aaa"; fromMe: true }
             ListElement { display: "aaa" }
@@ -42,7 +42,7 @@ Kirigami.ScrollablePage
             ListElement { display: "aaa" }
             ListElement { display: "aaa" }
         }
-        delegate: Kirigami.AbstractCard {
+        delegate: Kirigami.BasicListItem {
             readonly property real margin: 100
             x: fromMe ? Kirigami.Units.gridUnit : margin
             width: parent.width - margin - Kirigami.Units.gridUnit
