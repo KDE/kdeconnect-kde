@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "kossebau@kde.org",
+                "Name": "Friedrich W. H. Kossebau"
+            }
+        ],
+        "Description": "Find this device by making it play an alarm sound",
+        "EnabledByDefault": true,
+        "Icon": "edit-find",
+        "Id": "kdeconnect_findthisdevice",
+        "License": "GPL",
+        "Name": "Find this device",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "https://kde.org"
+    },
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.findmyphone.request"
+    ]
+}
