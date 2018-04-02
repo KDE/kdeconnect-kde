@@ -1,5 +1,5 @@
 /**
- * Copyright 2014 Ahmed I. Khalil <albertvaka@gmail.com>
+ * Copyright 2018 Albert Vaca Cintora <albertvaka@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,25 +18,34 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MOUSEPADPLUGIN_H
-#define MOUSEPADPLUGIN_H
+#ifndef WAYLANDREMOTEINPUT_H
+#define WAYLANDREMOTEINPUT_H
 
-#include <QObject>
-#include <QVariant>
+#include "abstractremoteinput.h"
 
-#include <core/kdeconnectplugin.h>
+namespace KWayland
+{
+    namespace Client
+    {
+        class FakeInput;
+    }
+}
 
-class MousepadPlugin
-    : public KdeConnectPlugin
+class WaylandRemoteInput
+    : public AbstractRemoteInput
 {
     Q_OBJECT
 
 public:
-    explicit MousepadPlugin(QObject* parent, const QVariantList &args);
-    ~MousepadPlugin() override;
+    explicit WaylandRemoteInput(QObject* parent);
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override { }
+    bool handlePacket(const NetworkPacket& np) override;
+
+private:
+    void setupWaylandIntegration();
+
+    KWayland::Client::FakeInput* m_waylandInput;
+    bool m_waylandAuthenticationRequested;
 };
 
 #endif

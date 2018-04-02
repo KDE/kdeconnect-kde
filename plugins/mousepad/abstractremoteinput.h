@@ -1,7 +1,5 @@
 /**
  * Copyright 2018 Albert Vaca Cintora <albertvaka@gmail.com>
- * Copyright 2015 Martin Gräßlin <mgraesslin@kde.org>
- * Copyright 2014 Ahmed I. Khalil <ahmedibrahimkhali@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,29 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MOUSEPADPLUGIN_H
-#define MOUSEPADPLUGIN_H
+#ifndef ABSTRACTREMOTEINPUT_H
+#define ABSTRACTREMOTEINPUT_H
 
-#include <core/kdeconnectplugin.h>
-#include <config-mousepad.h>
+#include <QObject>
 
-#include "abstractremoteinput.h"
+#include <core/networkpacket.h>
 
-class MousepadPlugin
-    : public KdeConnectPlugin
+class AbstractRemoteInput
+    : public QObject
 {
     Q_OBJECT
-
 public:
-    explicit MousepadPlugin(QObject* parent, const QVariantList& args);
-    ~MousepadPlugin() override;
+    explicit AbstractRemoteInput(QObject* parent = nullptr);
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override { }
-
-private:
-    AbstractRemoteInput* m_impl;
-
+    virtual bool handlePacket(const NetworkPacket& np) = 0;
 };
 
 #endif

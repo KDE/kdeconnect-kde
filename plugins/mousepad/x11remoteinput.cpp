@@ -1,6 +1,6 @@
 /**
+ * Copyright 2018 Albert Vaca Cintora <albertvaka@gmail.com>
  * Copyright 2014 Ahmed I. Khalil <ahmedibrahimkhali@gmail.com>
- * Copyright 2015 Martin Gräßlin <mgraesslin@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -19,27 +19,94 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "mousepadplugin_windows.h"
-#include <KPluginFactory>
-#include <KLocalizedString>
-#include <QDebug>
-#include <QGuiApplication>
+#include "x11remoteinput.h"
+
+#include <QX11Info>
 #include <QCursor>
+#include <QDebug>
 
-#include <Windows.h>
+#include <X11/extensions/XTest.h>
+#include <X11/keysym.h>
+#include <fakekey/fakekey.h>
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mousepad.json", registerPlugin< MousepadPlugin >(); )
-  
-MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args)
+enum MouseButtons {
+    LeftMouseButton = 1,
+    MiddleMouseButton = 2,
+    RightMouseButton = 3,
+    MouseWheelUp = 4,
+    MouseWheelDown = 5
+};
+
+//Translation table to keep in sync within all the implementations
+int SpecialKeysMap[] = {
+    0,              // Invalid
+    XK_BackSpace,   // 1
+    XK_Tab,         // 2
+    XK_Linefeed,    // 3
+    XK_Left,        // 4
+    XK_Up,          // 5
+    XK_Right,       // 6
+    XK_Down,        // 7
+    XK_Page_Up,     // 8
+    XK_Page_Down,   // 9
+    XK_Home,        // 10
+    XK_End,         // 11
+    XK_Return,      // 12
+    XK_Delete,      // 13
+    XK_Escape,      // 14
+    XK_Sys_Req,     // 15
+    XK_Scroll_Lock, // 16
+    0,              // 17
+    0,              // 18
+    0,              // 19
+    0,              // 20
+    XK_F1,          // 21
+    XK_F2,          // 22
+    XK_F3,          // 23
+    XK_F4,          // 24
+    XK_F5,          // 25
+    XK_F6,          // 26
+    XK_F7,          // 27
+    XK_F8,          // 28
+    XK_F9,          // 29
+    XK_F10,         // 30
+    XK_F11,         // 31
+    XK_F12,         // 32
+};
+
+template <typename T, size_t N>
+size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
+
+
+X11RemoteInput::X11RemoteInput(QObject* parent)
+    : AbstractRemoteInput(parent)
+    , m_fakekey(nullptr)
 {
+
 }
 
-MousepadPlugin::~MousepadPlugin()
+X11RemoteInput::~X11RemoteInput()
 {
+    if (m_fakekey) {
+        free(m_fakekey);
+        m_fakekey = nullptr;
+    }
 }
 
-bool MousepadPlugin::receivePacket(const NetworkPacket& np)
+bool isLeftHanded(Display * display)
+{
+    unsigned char map[20];
+     int num_buttons = XGetPointerMapping(display, map, 20);
+    if( num_buttons == 1 ) {
+        return false;
+    } else if( num_buttons == 2 ) {
+        return ( (int)map[0] == 2 && (int)map[1] == 1 );
+    } else {
+        return ( (int)map[0] == 3 && (int)map[2] == 1 );
+    }
+}
+
+bool X11RemoteInput::handlePacket(const NetworkPacket& np)
 {
     float dx = np.get<float>(QStringLiteral("dx"), 0);
     float dy = np.get<float>(QStringLiteral("dy"), 0);
@@ -55,46 +122,44 @@ bool MousepadPlugin::receivePacket(const NetworkPacket& np)
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
+        Display* display = QX11Info::display();
+        if(!display) {
+            return false;
+        }
 
-		INPUT input={0};
-		input.type = INPUT_MOUSE;
+        bool leftHanded = isLeftHanded(display);
+        int mainMouseButton = leftHanded? RightMouseButton : LeftMouseButton;
+        int secondaryMouseButton = leftHanded? LeftMouseButton : RightMouseButton;
 
         if (isSingleClick) {
-			input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-			::SendInput(1,&input,sizeof(INPUT));
-			input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
-			::SendInput(1,&input,sizeof(INPUT));
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
         } else if (isDoubleClick) {
-			input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-			::SendInput(1,&input,sizeof(INPUT));
-			input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
-			::SendInput(1,&input,sizeof(INPUT));
-			input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-			::SendInput(1,&input,sizeof(INPUT));
-			input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
-			::SendInput(1,&input,sizeof(INPUT));
-		} else if (isMiddleClick) {
-			input.mi.dwFlags = MOUSEEVENTF_MIDDLEDOWN;
-			::SendInput(1,&input,sizeof(INPUT));
-			input.mi.dwFlags = MOUSEEVENTF_MIDDLEUP;
-			::SendInput(1,&input,sizeof(INPUT));
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
+        } else if (isMiddleClick) {
+            XTestFakeButtonEvent(display, MiddleMouseButton, True, 0);
+            XTestFakeButtonEvent(display, MiddleMouseButton, False, 0);
         } else if (isRightClick) {
-			input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
-			::SendInput(1,&input,sizeof(INPUT));
-			input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
-			::SendInput(1,&input,sizeof(INPUT));
+            XTestFakeButtonEvent(display, secondaryMouseButton, True, 0);
+            XTestFakeButtonEvent(display, secondaryMouseButton, False, 0);
         } else if (isSingleHold){
-			input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-			::SendInput(1,&input,sizeof(INPUT));
+            //For drag'n drop
+            XTestFakeButtonEvent(display, mainMouseButton, True, 0);
         } else if (isSingleRelease){
-			input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
-			::SendInput(1,&input,sizeof(INPUT));
+            //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofnes.
+            XTestFakeButtonEvent(display, mainMouseButton, False, 0);
         } else if (isScroll) {
-			input.mi.dwFlags = MOUSEEVENTF_WHEEL;
-			input.mi.mouseData = dy;
-			::SendInput(1,&input,sizeof(INPUT));
-/*
-		} else if (!key.isEmpty() || specialKey) {
+            if (dy < 0) {
+                XTestFakeButtonEvent(display, MouseWheelDown, True, 0);
+                XTestFakeButtonEvent(display, MouseWheelDown, False, 0);
+            } else if (dy > 0) {
+                XTestFakeButtonEvent(display, MouseWheelUp, True, 0);
+                XTestFakeButtonEvent(display, MouseWheelUp, False, 0);
+            }
+        } else if (!key.isEmpty() || specialKey) {
 
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
@@ -137,8 +202,10 @@ bool MousepadPlugin::receivePacket(const NetworkPacket& np)
             if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), False, 0);
             if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), False, 0);
             if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), False, 0);
-*/
+
         }
+
+        XFlush(display);
 
     } else { //Is a mouse move event
         QPoint point = QCursor::pos();
@@ -146,5 +213,3 @@ bool MousepadPlugin::receivePacket(const NetworkPacket& np)
     }
     return true;
 }
-
-#include "mousepadplugin_windows.moc"
