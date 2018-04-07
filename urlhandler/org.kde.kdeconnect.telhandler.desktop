@@ -26,6 +26,7 @@ Name[tr]=KDE Connect Telefon URL İşleyici
 Name[uk]=Обробник телефонних адрес KDE Connect
 Name[x-test]=xxKDE Connect Phone URL Handlerxx
 Name[zh_CN]=KDE Connect 电话 URL 处理程序
+Name[zh_TW]=KDE 連線手機網址處理器
 Exec=kdeconnect-handler %U
 Icon=kdeconnect
 Type=Application
