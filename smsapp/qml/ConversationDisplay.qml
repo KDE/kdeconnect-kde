@@ -54,12 +54,15 @@ Kirigami.ScrollablePage
             id: message
             Layout.fillWidth: true
             placeholderText: i18n("Say hi...")
+            onAccepted: {
+                console.log("sending sms", page.phoneNumber)
+                page.telephony.sendSms(page.phoneNumber, message.text)
+            }
         }
         Button {
             text: "Send"
             onClicked: {
-                console.log("sending sms", page.phoneNumber)
-                page.telephony.sendSms(page.phoneNumber, message.text)
+                message.accepted()
             }
         }
     }
