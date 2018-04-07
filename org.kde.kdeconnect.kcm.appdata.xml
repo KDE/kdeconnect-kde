@@ -108,6 +108,7 @@
     <p xml:lang="uk">У KDE Connect передбачено декілька можливостей для інтеграції вашого телефону з вашим комп’ютером. Будь ласка, зауважте, що вам доведеться встановити KDE Connect на ваш комп’ютер, щоб скористатися цією програмою, а також підтримувати актуальність версії на комп’ютері та версії для Android, щоб мати змогу скористатися найсвіжішими можливостями.</p>
     <p xml:lang="x-test">xxKDE Connect provides several features to integrate your phone and your computer: Please note you will need to install KDE Connect on your computer for this app to work, and keep the desktop version up-to-date with the Android version for the latest features to work.xx</p>
     <p xml:lang="zh-CN">KDE Connect 提供了很多整合手机和电脑的功能特性：请注意您需要在电脑上安装 KDE Connect 应用才能使其工作，为了使最新特性能够生效，您必须更新桌面应用和 Android 应用到最新版本。</p>
+    <p xml:lang="zh-TW">KDE 連線提供了一些功能以整合您的手機與電腦：請注意，你將需要在您的電腦上安裝 KDE 連線使這個應用程式能運作，並保持桌面版本與手機版本保持最新狀態以保證最新版本能運作。</p>
   </description>
   <url type="homepage">https://community.kde.org/KDEConnect</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kdeconnect</url>
