@@ -86,10 +86,13 @@ Kirigami.ScrollablePage
     }
     footer: ComboBox {
         id: devicesCombo
-        readonly property QtObject device: model.data(model.index(currentIndex, 0), DevicesModel.DeviceRole)
+        readonly property QtObject device: currentIndex>0 ? model.data(model.index(currentIndex, 0), DevicesModel.DeviceRole) : null
         model: DevicesSortProxyModel {
             //TODO: make it possible to sort only if they can do sms
             sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
+            onRowsInserted: if (devicesCombo.currentIndex < 0) {
+                devicesCombo.currentIndex = 0
+            }
         }
         textRole: "display"
     }
