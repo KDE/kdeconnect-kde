@@ -27,7 +27,6 @@
 #if HAVE_WINDOWS
     #include "windowsremoteinput.h"
 #else
-    #include <QX11Info>
     #include <QGuiApplication>
     #if HAVE_X11
         #include "x11remoteinput.h"
@@ -42,25 +41,28 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mousepad.json",
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
+    , m_impl(nullptr)
 {
 #if HAVE_WINDOWS
     m_impl = new WindowsRemoteInput(this);
 #else
-    if (QX11Info::isPlatformX11()) {
     #if HAVE_X11
+    if (QGuiApplication::platformName() == QLatin1String("xcb")) {
         m_impl = new X11RemoteInput(this);
-    #else
-        qDebug() << "KDE Connect was built without X11 support";
-    #endif
-    } else {
-        Q_ASSERT(QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive));
-    #if HAVE_WAYLAND
-        m_impl = new WaylandRemoteInput(this);
-    #else
-        qDebug() << "KDE Connect was built without Wayland support";
-    #endif
     }
+    #endif
+
+    #if HAVE_WAYLAND
+    if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
+        m_impl = new WaylandRemoteInput(this);
+    }
+    #endif
 #endif
+
+    if (!m_impl) {
+        qDebug() << "KDE Connect was built without" << QGuiApplication::platformName() << "support";
+    }
+
 }
 
 MousepadPlugin::~MousepadPlugin()
@@ -70,7 +72,11 @@ MousepadPlugin::~MousepadPlugin()
 
 bool MousepadPlugin::receivePacket(const NetworkPacket& np)
 {
-    return m_impl->handlePacket(np);
+    if (m_impl) {
+        return m_impl->handlePacket(np);
+    } else {
+        return false;
+    }
 }
 
 #include "mousepadplugin.moc"
