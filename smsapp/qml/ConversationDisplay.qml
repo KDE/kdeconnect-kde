@@ -50,6 +50,7 @@ Kirigami.ScrollablePage
         }
     }
     footer: RowLayout {
+        enabled: page.device
         TextField {
             id: message
             Layout.fillWidth: true
