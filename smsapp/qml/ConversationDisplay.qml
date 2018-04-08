@@ -26,12 +26,12 @@ import org.kde.kirigami 2.2 as Kirigami
 Kirigami.ScrollablePage
 {
     id: page
-    readonly property string phoneNumber: person.contactCustomProperty("phoneNumber")
-    title: i18n("%1: %2", person.name, phoneNumber)
     property QtObject person
     property QtObject device
 
-    readonly property QtObject telephony: TelephonyDbusInterfaceFactory.create(device.id())
+    readonly property string phoneNumber: person.contactCustomProperty("phoneNumber")
+    readonly property QtObject telephony: device ? TelephonyDbusInterfaceFactory.create(device.id()) : null
+    title: i18n("%1: %2", person.name, phoneNumber)
 
     ListView {
         model: ListModel {

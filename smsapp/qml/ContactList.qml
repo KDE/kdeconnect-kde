@@ -35,22 +35,19 @@ Kirigami.ScrollablePage
 
     ListView {
         id: view
-        spacing: 3
         currentIndex: 0
 
         model: PersonsSortFilterProxyModel {
             requiredProperties: ["phoneNumber"]
             sortRole: Qt.DisplayRole
             sortCaseSensitivity: Qt.CaseInsensitive
-            sourceModel: PersonsModel {
-                id: people
-            }
+            sourceModel: PersonsModel {}
         }
 
         header: TextField {
             id: filter
             placeholderText: i18n("Filter...")
-            Layout.fillWidth: true
+            width: parent.width
             onTextChanged: {
                 view.model.filterRegExp = new RegExp(filter.text)
                 view.currentIndex = 0
@@ -68,7 +65,6 @@ Kirigami.ScrollablePage
 
         delegate: Kirigami.BasicListItem
         {
-            id: mouse
             hoverEnabled: true
 
             readonly property var person: PersonData {
