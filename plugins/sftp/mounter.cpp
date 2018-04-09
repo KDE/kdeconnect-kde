@@ -137,6 +137,7 @@ void Mounter::onPakcageReceived(const NetworkPacket& np)
         << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725
         << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid())
         << QStringLiteral("-o") << QStringLiteral("gid=") + QString::number(getgid())
+        << QStringLiteral("-o") << QStringLiteral("reconnect")
         << QStringLiteral("-o") << QStringLiteral("ServerAliveInterval=30")
         << QStringLiteral("-o") << QStringLiteral("password_stdin")
         ;
