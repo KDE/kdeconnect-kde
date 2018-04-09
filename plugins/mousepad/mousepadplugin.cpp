@@ -23,11 +23,11 @@
 #include "mousepadplugin.h"
 #include <KPluginFactory>
 #include <KLocalizedString>
+#include <QGuiApplication>
 
 #if HAVE_WINDOWS
     #include "windowsremoteinput.h"
 #else
-    #include <QGuiApplication>
     #if HAVE_X11
         #include "x11remoteinput.h"
     #endif
