@@ -1,5 +1,5 @@
 if(UNIX)
-    find_package(KF5 ${KF5_MIN_VERSION} QUIET COMPONENTS Wayland)
+    find_package(KF5 ${KF5_MIN_VERSION} QUIET OPTIONAL_COMPONENTS Wayland)
 
     find_package(LibFakeKey QUIET)
     set_package_properties(LibFakeKey PROPERTIES DESCRIPTION "fake key events"

@@ -15,8 +15,10 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DI
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick)
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils)
-find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS DocTools)
+find_package(KF5 ${KF5_MIN_VERSION}
+    REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils
+    OPTIONAL_COMPONENTS DocTools
+)
 find_package(Qca-qt5 2.1.0 REQUIRED)
 
 include_directories(${CMAKE_SOURCE_DIR})
