@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
+ * Copyright 2018 Matthijs TIjink <matthijstijink@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -45,9 +46,14 @@ private:
     QBluetoothUuid mTransferUuid;
     QBluetoothServer* mServer;
     QBluetoothServiceInfo mServiceInfo;
+    QBluetoothSocket* m_socket;
+
+    void closeConnection();
 
 private Q_SLOTS:
     void newConnection();
+    void writeSome();
+    void finishWrites();
 };
 
 #endif // BLUETOOTHUPLOADJOB_H

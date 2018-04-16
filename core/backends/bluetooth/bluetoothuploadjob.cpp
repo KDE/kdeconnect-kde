@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 Saikrishna Arcot <saiarcot895@gmail.com>
+ * Copyright 2018 Matthijs TIjink <matthijstijink@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -43,43 +44,70 @@ QVariantMap BluetoothUploadJob::transferInfo() const
 
 void BluetoothUploadJob::start()
 {
-    connect(mServer, SIGNAL(newConnection()), this, SLOT(newConnection()));
+    connect(mServer, &QBluetoothServer::newConnection, this, &BluetoothUploadJob::newConnection);
     mServiceInfo = mServer->listen(mTransferUuid, "KDE Connect Transfer Job");
     Q_ASSERT(mServiceInfo.isValid());
 }
 
 void BluetoothUploadJob::newConnection()
 {
-    QBluetoothSocket* socket = mServer->nextPendingConnection();
-    connect(socket, SIGNAL(disconnected()), socket, SLOT(deleteLater()));
+    m_socket = mServer->nextPendingConnection();
+    Q_ASSERT(m_socket);
+    m_socket->setParent(this);
+    connect(m_socket, &QBluetoothSocket::disconnected, this, &BluetoothUploadJob::deleteLater);
 
-    if (socket->peerAddress() != mRemoteAddress) {
-        socket->close();
+    if (m_socket->peerAddress() != mRemoteAddress) {
+        m_socket->close();
     } else {
         mServer->close();
-        disconnect(mServer, SIGNAL(newConnection()), this, SLOT(newConnection()));
+        disconnect(mServer, &QBluetoothServer::newConnection, this, &BluetoothUploadJob::newConnection);
         mServiceInfo.unregisterService();
 
         if (!mData->open(QIODevice::ReadOnly)) {
             qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
-            socket->close();
+            m_socket->close();
             deleteLater();
             return;
         }
     }
 
-    while (mData->bytesAvailable() > 0 && socket->isWritable()) {
-        qint64 bytes = qMin(mData->bytesAvailable(), (qint64)4096);
-        int w = socket->write(mData->read(bytes));
-        if (w < 0) {
-            qCWarning(KDECONNECT_CORE()) << "error when writing data to upload" << bytes << mData->bytesAvailable();
+    connect(m_socket, &QBluetoothSocket::bytesWritten, this, &BluetoothUploadJob::writeSome);
+    connect(m_socket, &QBluetoothSocket::disconnected, this, &BluetoothUploadJob::closeConnection);
+    writeSome();
+}
+
+void BluetoothUploadJob::writeSome() {
+    Q_ASSERT(m_socket);
+
+    bool errorOccurred = false;
+    while (m_socket->bytesToWrite() == 0 && mData->bytesAvailable() && m_socket->isWritable()) {
+        qint64 bytes = qMin<qint64>(mData->bytesAvailable(), 4096);
+        int bytesWritten = m_socket->write(mData->read(bytes));
+
+        if (bytesWritten < 0) {
+            qCWarning(KDECONNECT_CORE()) << "error when writing data to bluetooth upload" << bytes << mData->bytesAvailable();
+            errorOccurred = true;
             break;
-        } else {
-            QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents, 2000);
         }
     }
 
+    if (mData->atEnd() || errorOccurred) {
+        disconnect(m_socket, &QBluetoothSocket::bytesWritten, this, &BluetoothUploadJob::writeSome);
+        mData->close();
+
+        connect(m_socket, &QBluetoothSocket::bytesWritten, this, &BluetoothUploadJob::finishWrites);
+        finishWrites();
+    }
+}
+
+void BluetoothUploadJob::finishWrites() {
+    Q_ASSERT(m_socket);
+    if (m_socket->bytesToWrite() == 0) {
+        closeConnection();
+    }
+}
+
+void BluetoothUploadJob::closeConnection() {
     mData->close();
-    socket->close();
     deleteLater();
 }

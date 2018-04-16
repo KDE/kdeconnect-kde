@@ -51,12 +51,9 @@ QString BluetoothDeviceLink::name()
 bool BluetoothDeviceLink::sendPacket(NetworkPacket& np)
 {
     if (np.hasPayload()) {
-        qCWarning(KDECONNECT_CORE) << "Sending packets with payload over bluetooth not yet supported";
-        /*
         BluetoothUploadJob* uploadJob = new BluetoothUploadJob(np.payload(), mBluetoothSocket->peerAddress(), this);
         np.setPayloadTransferInfo(uploadJob->transferInfo());
         uploadJob->start();
-        */
     }
     int written = mSocketReader->write(np.serialize());
     return (written != -1);
