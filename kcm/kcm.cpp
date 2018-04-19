@@ -46,7 +46,7 @@ K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 
 static QString createId() { return QStringLiteral("kcm")+QString::number(QCoreApplication::applicationPid()); }
 
-KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList&)
+KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
     : KCModule(KAboutData::pluginData(QStringLiteral("kdeconnect-kcm")), parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
@@ -115,6 +115,25 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList&)
             this, &KdeConnectKcm::renameShow);
 
     daemon->acquireDiscoveryMode(createId());
+
+    if (!args.isEmpty() && args.first().type() == QVariant::String) {
+        const QString input = args.first().toString();
+        const auto colonIdx = input.indexOf(QLatin1Char(':'));
+        const QString deviceId = input.left(colonIdx);
+        const QString pluginCM = colonIdx < 0 ? QString() : input.mid(colonIdx+1);
+
+        connect(devicesModel, &DevicesModel::rowsInserted, this, [this, deviceId, pluginCM]() {
+            auto row = devicesModel->rowForDevice(deviceId);
+            if (row >= 0) {
+                const QModelIndex idx = sortProxyModel->mapFromSource(devicesModel->index(row));
+                kcmUi->deviceList->selectionModel()->setCurrentIndex(idx, QItemSelectionModel::ClearAndSelect);
+            }
+            if (!pluginCM.isEmpty()) {
+                kcmUi->pluginSelector->showConfiguration(pluginCM);
+            }
+            disconnect(devicesModel, &DevicesModel::rowsInserted, this, nullptr);
+        });
+    }
 }
 
 void KdeConnectKcm::renameShow()

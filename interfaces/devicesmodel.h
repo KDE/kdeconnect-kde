@@ -71,6 +71,7 @@ public:
 
     Q_SCRIPTABLE DeviceDbusInterface* getDevice(int row) const;
     QHash<int, QByteArray> roleNames() const override;
+    int rowForDevice(const QString& id) const;
 
 private Q_SLOTS:
     void deviceAdded(const QString& id);
@@ -84,7 +85,6 @@ Q_SIGNALS:
     void rowsChanged();
 
 private:
-    int rowForDevice(const QString& id) const;
     void clearDevices();
     void appendDevice(DeviceDbusInterface* dev);
     bool passesFilter(DeviceDbusInterface* dev) const;
