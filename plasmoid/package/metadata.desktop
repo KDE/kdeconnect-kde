@@ -86,6 +86,7 @@ X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/main.qml
 X-Plasma-NotificationArea=true
+X-Plasma-NotificationAreaCategory=Hardware
 X-Plasma-ConfigPlugins=kcm_kdeconnect
 
 X-KDE-PluginInfo-Author=Albert Vaca Cintora
