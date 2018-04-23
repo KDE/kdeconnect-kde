@@ -1,0 +1,33 @@
+{
+    "Encoding": "UTF-8",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "simon@ergotech.com",
+                "Name": "Simon Redman",
+                "Name[x-test]": "xxSimon Redmanxx"
+            }
+        ],
+        "Description": "Synchronize Contacts Between the Desktop and the Connected Device",
+        "Description[x-test]": "xxSynchronize Contacts Between the Desktop and the Connected Devicexx",
+        "EnabledByDefault": true,
+        "Icon": "dialog-ok",
+        "Id": "kdeconnect_contacts",
+        "License": "GPL",
+        "Name": "Contacts",
+        "Name[x-test]": "xxContactsxx",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "http://albertvaka.wordpress.com"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.contacts.request_all_uids_timestamps",
+        "kdeconnect.contacts.request_vcards_by_uid"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.contacts.response_uids_timestamps",
+        "kdeconnect.contacts.response_vcards"
+    ]
+}

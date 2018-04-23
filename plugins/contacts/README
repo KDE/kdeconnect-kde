@@ -1,0 +1,3 @@
+This plugin allows communicating with the paired device to access its contacts
+book, either by downloading the entire list of contacts or by requesting a
+specific contact
