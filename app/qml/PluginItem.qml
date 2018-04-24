@@ -39,7 +39,7 @@ Kirigami.BasicListItem
         if (component === "")
             return;
 
-        var obj = interfaceFactory.create(checker.deviceId);
+        var obj = interfaceFactory.create(checker.device.id());
         var page = pageStack.push(
             component,
             { pluginInterface: obj }
