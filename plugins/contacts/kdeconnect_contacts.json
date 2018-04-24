@@ -4,18 +4,15 @@
         "Authors": [
             {
                 "Email": "simon@ergotech.com",
-                "Name": "Simon Redman",
-                "Name[x-test]": "xxSimon Redmanxx"
+                "Name": "Simon Redman"
             }
         ],
         "Description": "Synchronize Contacts Between the Desktop and the Connected Device",
-        "Description[x-test]": "xxSynchronize Contacts Between the Desktop and the Connected Devicexx",
         "EnabledByDefault": true,
         "Icon": "dialog-ok",
         "Id": "kdeconnect_contacts",
         "License": "GPL",
         "Name": "Contacts",
-        "Name[x-test]": "xxContactsxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
