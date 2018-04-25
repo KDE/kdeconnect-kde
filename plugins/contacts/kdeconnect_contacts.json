@@ -4,15 +4,26 @@
         "Authors": [
             {
                 "Email": "simon@ergotech.com",
-                "Name": "Simon Redman"
+                "Name": "Simon Redman",
+                "Name[x-test]": "xxSimon Redmanxx"
             }
         ],
         "Description": "Synchronize Contacts Between the Desktop and the Connected Device",
+        "Description[ca]": "Sincronitza els contactes entre l'escriptori i el dispositiu connectat",
+        "Description[pt]": "Sincronizar os Contactos entre o Sistema e o Dispositivo Ligado",
+        "Description[uk]": "Синхронізація контактів між комп'ютером і з'єднаним пристроєм",
+        "Description[x-test]": "xxSynchronize Contacts Between the Desktop and the Connected Devicexx",
+        "Description[zh_TW]": "在電腦與連線裝置之間同步聯絡人",
         "EnabledByDefault": true,
         "Icon": "dialog-ok",
         "Id": "kdeconnect_contacts",
         "License": "GPL",
         "Name": "Contacts",
+        "Name[ca]": "Contactes",
+        "Name[pt]": "Contactos",
+        "Name[uk]": "Контакти",
+        "Name[x-test]": "xxContactsxx",
+        "Name[zh_TW]": "聯絡人",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
