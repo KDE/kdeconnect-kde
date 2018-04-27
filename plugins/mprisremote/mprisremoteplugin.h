@@ -25,6 +25,8 @@
 
 #include <core/kdeconnectplugin.h>
 
+#include "mprisremoteplayer.h"
+
 #define PACKET_TYPE_MPRIS_REQUEST QStringLiteral("kdeconnect.mpris.request")
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
@@ -40,18 +42,24 @@ class Q_DECL_EXPORT MprisRemotePlugin
     Q_PROPERTY(QStringList playerList READ playerList NOTIFY propertiesChanged)
     Q_PROPERTY(QString player READ player WRITE setPlayer)
     Q_PROPERTY(QString nowPlaying READ nowPlaying NOTIFY propertiesChanged)
+    Q_PROPERTY(QString title READ title NOTIFY propertiesChanged)
+    Q_PROPERTY(QString artist READ artist NOTIFY propertiesChanged)
+    Q_PROPERTY(QString album READ album NOTIFY propertiesChanged)
 
 public:
     explicit MprisRemotePlugin(QObject* parent, const QVariantList &args);
     ~MprisRemotePlugin() override;
 
     long position() const;
-    int volume() const { return m_volume; }
-    int length() const { return m_length; }
-    bool isPlaying() const { return m_playing; }
-    QStringList playerList() const { return m_playerList; }
-    QString player() const { return m_player; }
-    QString nowPlaying() const { return m_nowPlaying; }
+    int volume() const;
+    int length() const;
+    bool isPlaying() const;
+    QStringList playerList() const;
+    QString player() const;
+    QString nowPlaying() const;
+    QString title() const;
+    QString artist() const;
+    QString album() const;
 
     void setVolume(int volume);
     void setPosition(int position);
@@ -71,14 +79,8 @@ Q_SIGNALS:
 private:
     void requestPlayerStatus();
 
-    QString m_player;
-    bool m_playing;
-    QString m_nowPlaying;
-    int m_volume;
-    long m_length;
-    long m_lastPosition;
-    qint64 m_lastPositionTime;
-    QStringList m_playerList;
+    QString m_currentPlayer;
+    QMap<QString, MprisRemotePlayer*> m_players;
 };
 
 #endif

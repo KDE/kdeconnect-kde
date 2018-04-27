@@ -35,14 +35,8 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRISREMOTE, "kdeconnect.plugin.mprisremote
 
 MprisRemotePlugin::MprisRemotePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
-    , m_player()
-    , m_playing(false)
-    , m_nowPlaying()
-    , m_volume(50)
-    , m_length(0)
-    , m_lastPosition(0)
-    , m_lastPositionTime()
-    , m_playerList()
+    , m_currentPlayer()
+    , m_players()
 {
 }
 
@@ -55,21 +49,24 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
     if (np.type() != PACKET_TYPE_MPRIS)
         return false;
 
-    if (np.has(QStringLiteral("nowPlaying")) || np.has(QStringLiteral("volume")) || np.has(QStringLiteral("isPlaying")) || np.has(QStringLiteral("length")) || np.has(QStringLiteral("pos"))) {
-        if (np.get<QString>(QStringLiteral("player")) == m_player) {
-            m_nowPlaying = np.get<QString>(QStringLiteral("nowPlaying"), m_nowPlaying);
-            m_volume = np.get<int>(QStringLiteral("volume"), m_volume);
-            m_length = np.get<int>(QStringLiteral("length"), m_length);
-            if(np.has(QStringLiteral("pos"))){
-                m_lastPosition = np.get<int>(QStringLiteral("pos"), m_lastPosition);
-                m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
-            }
-            m_playing = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
-        }
+    if (np.has(QStringLiteral("player"))) {
+        m_players[m_currentPlayer]->parseNetworkPacket(np);
     }
 
     if (np.has(QStringLiteral("playerList"))) {
-        m_playerList = np.get<QStringList>(QStringLiteral("playerList"), QStringList());
+        QStringList players = np.get<QStringList>(QStringLiteral("playerList"));
+        qDeleteAll(m_players);
+        m_players.clear();
+        for (const QString& player : players) {
+            m_players[player] = new MprisRemotePlayer();
+        }
+
+        if (m_players.empty()) {
+            m_currentPlayer = QString();
+        } else if (!m_players.contains(m_currentPlayer)) {
+            m_currentPlayer = m_players.keys().first();
+        }
+
     }
     Q_EMIT propertiesChanged();
 
@@ -78,11 +75,8 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
 
 long MprisRemotePlugin::position() const
 {
-    if(m_playing) {
-        return m_lastPosition + (QDateTime::currentMSecsSinceEpoch() - m_lastPositionTime);
-    } else {
-        return m_lastPosition;
-    }
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->position() : 0;
 }
 
 QString MprisRemotePlugin::dbusPath() const
@@ -93,7 +87,7 @@ QString MprisRemotePlugin::dbusPath() const
 void MprisRemotePlugin::requestPlayerStatus()
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_player},
+        {"player", m_currentPlayer},
         {"requestNowPlaying", true},
         {"requestVolume", true}}
     );
@@ -109,7 +103,7 @@ void MprisRemotePlugin::requestPlayerList()
 void MprisRemotePlugin::sendAction(const QString& action)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_player},
+        {"player", m_currentPlayer},
         {"action", action}
     });
     sendPacket(np);
@@ -118,7 +112,7 @@ void MprisRemotePlugin::sendAction(const QString& action)
 void MprisRemotePlugin::seek(int offset) const
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_player},
+        {"player", m_currentPlayer},
         {"Seek", offset}});
     sendPacket(np);
 }
@@ -126,7 +120,7 @@ void MprisRemotePlugin::seek(int offset) const
 void MprisRemotePlugin::setVolume(int volume)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_player},
+        {"player", m_currentPlayer},
         {"setVolume",volume}
     });
     sendPacket(np);
@@ -135,21 +129,75 @@ void MprisRemotePlugin::setVolume(int volume)
 void MprisRemotePlugin::setPosition(int position)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_player},
+        {"player", m_currentPlayer},
         {"SetPosition", position}
     });
     sendPacket(np);
 
-    m_lastPosition = position;
-    m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
+    m_players[m_currentPlayer]->setPosition(position);
 }
 
 void MprisRemotePlugin::setPlayer(const QString& player)
 {
-    if (m_player != player) {
-        m_player = player;
+    if (m_currentPlayer != player) {
+        m_currentPlayer = player;
         requestPlayerStatus();
+        Q_EMIT propertiesChanged();
     }
+}
+
+bool MprisRemotePlugin::isPlaying() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->playing() : false;
+}
+
+int MprisRemotePlugin::length() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->length() : 0;
+}
+
+int MprisRemotePlugin::volume() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->volume() : 0;
+}
+
+QString MprisRemotePlugin::player() const
+{
+    if (m_currentPlayer.isEmpty())
+        return QString();
+    return m_currentPlayer;
+}
+
+QStringList MprisRemotePlugin::playerList() const
+{
+    return m_players.keys();
+}
+
+QString MprisRemotePlugin::nowPlaying() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->nowPlaying() : QString();
+}
+
+QString MprisRemotePlugin::title() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->title() : QString();
+}
+
+QString MprisRemotePlugin::album() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->album() : QString();
+}
+
+QString MprisRemotePlugin::artist() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->artist() : QString();
 }
 
 #include "mprisremoteplugin.moc"
