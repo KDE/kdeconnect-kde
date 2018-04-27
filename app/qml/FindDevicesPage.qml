@@ -26,6 +26,11 @@ import org.kde.kdeconnect 1.0
 
 Kirigami.Page
 {
+    Component {
+        id: deviceComp
+        DevicePage {}
+    }
+
     objectName: "FindDevices"
     title: i18n("Pair")
     ScrollView {
@@ -58,7 +63,7 @@ Kirigami.Page
                 onClicked: {
                     pageStack.clear()
                     pageStack.push(
-                        "qrc:/qml/DevicePage.qml",
+                        deviceComp,
                         {currentDevice: device}
                     );
                 }
