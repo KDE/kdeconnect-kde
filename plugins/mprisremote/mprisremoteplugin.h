@@ -77,7 +77,7 @@ Q_SIGNALS:
     void propertiesChanged();
 
 private:
-    void requestPlayerStatus();
+    void requestPlayerStatus(const QString& player);
 
     QString m_currentPlayer;
     QMap<QString, MprisRemotePlayer*> m_players;
