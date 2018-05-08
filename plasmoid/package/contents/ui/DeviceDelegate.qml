@@ -34,10 +34,6 @@ PlasmaComponents.ListItem
         id: remoteKeyboard
         device: root.device
 
-        onRemoteStateChanged: {
-            remoteKeyboardInput.available = remoteKeyboard.remoteState;
-        }
-
         onKeyPressReceived: {
 //            console.log("XXX received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + remoteKeyboardInput.text + " cursorPos=" + remoteKeyboardInput.cursorPosition);
             // interpret some special keys:
@@ -89,7 +85,7 @@ PlasmaComponents.ListItem
 
     Column {
         width: parent.width
-        
+
         RowLayout
         {
             Item {
@@ -101,7 +97,7 @@ PlasmaComponents.ListItem
                 id: battery
                 device: root.device
             }
-            
+
             PlasmaComponents.Label {
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
@@ -152,7 +148,7 @@ PlasmaComponents.ListItem
 
         //RemoteKeyboard
         PlasmaComponents.ListItem {
-            visible: remoteKeyboardInput.available
+            visible: remoteKeyboard.remoteState
             width: parent.width
 
             Row {
@@ -167,21 +163,15 @@ PlasmaComponents.ListItem
                 PlasmaComponents.TextField {
                     id: remoteKeyboardInput
 
-                    property bool available: remoteKeyboard.remoteState
-
-                    textColor: "black"
                     height: parent.height
                     width: parent.width - 5 - remoteKeyboardLabel.width
                     verticalAlignment: TextInput.AlignVCenter
-                    readOnly: !available
-                    enabled: available
                     style: TextFieldStyle {
-                        textColor: "black"
                         background: Rectangle {
                             radius: 2
                             border.color: "gray"
                             border.width: 1
-                            color: remoteKeyboardInput.available ? "white" : "lightgray"
+                            color: "white"
                         }
                     }
 
