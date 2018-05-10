@@ -24,6 +24,9 @@ ICONS
     32-status-tabletconnected.png
     32-status-tabletdisconnected.png
     32-status-tablettrusted.png
+    32-status-tvconnected.png
+    32-status-tvdisconnected.png
+    32-status-tvtrusted.png
     sc-status-laptopconnected.svg
     sc-status-laptopdisconnected.svg
     sc-status-laptoptrusted.svg
@@ -33,6 +36,9 @@ ICONS
     sc-status-tabletconnected.svg
     sc-status-tabletdisconnected.svg
     sc-status-tablettrusted.svg
+    sc-status-tvconnected.svg
+    sc-status-tvdisconnected.svg
+    sc-status-tvtrusted.svg
 DESTINATION
     ${ICON_INSTALL_DIR}
 )

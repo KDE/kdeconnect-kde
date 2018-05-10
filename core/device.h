@@ -55,6 +55,7 @@ public:
         Laptop,
         Phone,
         Tablet,
+        Tv,
     };
 
     /**
