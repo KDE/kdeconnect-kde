@@ -29,6 +29,7 @@
 #include <QSettings>
 #include <QJsonDocument>
 #include <KShell>
+#include <kcmutils_version.h>
 
 #include <core/networkpacket.h>
 #include <core/device.h>
@@ -85,7 +86,11 @@ void RunCommandPlugin::sendConfig()
 {
     QString commands = config()->get<QString>(QStringLiteral("commands"),QStringLiteral("{}"));
     NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{"commandList", commands}});
-    np.set<bool>(QStringLiteral("canAddCommand"), true);
+
+    #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
+        np.set<bool>(QStringLiteral("canAddCommand"), true);
+    #endif
+
     sendPacket(np);
 }
 

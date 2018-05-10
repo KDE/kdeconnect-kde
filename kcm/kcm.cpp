@@ -35,6 +35,7 @@
 #include <KPluginFactory>
 #include <KAboutData>
 #include <KLocalizedString>
+#include <kcmutils_version.h>
 
 #include "ui_kcm.h"
 #include "interfaces/dbusinterfaces.h"
@@ -116,6 +117,8 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
 
     daemon->acquireDiscoveryMode(createId());
 
+    #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
+
     if (!args.isEmpty() && args.first().type() == QVariant::String) {
         const QString input = args.first().toString();
         const auto colonIdx = input.indexOf(QLatin1Char(':'));
@@ -134,6 +137,8 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
             disconnect(devicesModel, &DevicesModel::rowsInserted, this, nullptr);
         });
     }
+
+    #endif
 }
 
 void KdeConnectKcm::renameShow()
