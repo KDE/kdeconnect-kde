@@ -44,8 +44,36 @@ Kirigami.Page
             onCurrentTextChanged: root.pluginInterface.player = currentText
         }
         Label {
+            id: nowPlaying
             Layout.fillWidth: true
             text: root.pluginInterface.nowPlaying
+            visible: root.pluginInterface.title.length == 0
+            wrapMode: Text.Wrap
+        }
+        Label {
+            Layout.fillWidth: true
+            text: root.pluginInterface.title
+            visible: !nowPlaying.visible
+            wrapMode: Text.Wrap
+        }
+        Label {
+            Layout.fillWidth: true
+            text: root.pluginInterface.artist
+            visible: !nowPlaying.visible && !artistAlbum.visible && root.pluginInterface.artist.length > 0
+            wrapMode: Text.Wrap
+        }
+        Label {
+            Layout.fillWidth: true
+            text: root.pluginInterface.album
+            visible: !nowPlaying.visible && !artistAlbum.visible && root.pluginInterface.album.length > 0
+            wrapMode: Text.Wrap
+        }
+        Label {
+            id: artistAlbum
+            Layout.fillWidth: true
+            text: i18n("%1 - %2", root.pluginInterface.artist, root.pluginInterface.album)
+            visible: !nowPlaying.visible && root.pluginInterface.album.length > 0 && root.pluginInterface.artist.length > 0
+            wrapMode: Text.Wrap
         }
         RowLayout {
             Layout.fillWidth: true
