@@ -33,6 +33,7 @@ public:
     explicit AbstractRemoteInput(QObject* parent = nullptr);
 
     virtual bool handlePacket(const NetworkPacket& np) = 0;
+    virtual bool hasKeyboardSupport() { return false; };
 };
 
 #endif

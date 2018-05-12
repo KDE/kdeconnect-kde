@@ -28,6 +28,8 @@
 
 #include "abstractremoteinput.h"
 
+#define PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE QLatin1String("kdeconnect.mousepad.keyboardstate")
+
 class MousepadPlugin
     : public KdeConnectPlugin
 {
@@ -38,7 +40,7 @@ public:
     ~MousepadPlugin() override;
 
     bool receivePacket(const NetworkPacket& np) override;
-    void connected() override { }
+    void connected() override;
 
 private:
     AbstractRemoteInput* m_impl;

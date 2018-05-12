@@ -213,3 +213,8 @@ bool X11RemoteInput::handlePacket(const NetworkPacket& np)
     }
     return true;
 }
+
+bool X11RemoteInput::hasKeyboardSupport()
+{
+    return true;
+}

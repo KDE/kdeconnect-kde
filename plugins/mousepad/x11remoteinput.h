@@ -35,6 +35,7 @@ public:
     ~X11RemoteInput() override;
 
     bool handlePacket(const NetworkPacket& np) override;
+    bool hasKeyboardSupport() override;
 
 private:
     FakeKey* m_fakekey;
