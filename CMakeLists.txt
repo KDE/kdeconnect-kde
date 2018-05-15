@@ -20,12 +20,6 @@ find_package(KF5 ${KF5_MIN_VERSION}
     OPTIONAL_COMPONENTS DocTools
 )
 find_package(Qca-qt5 2.1.0 REQUIRED)
-find_package(Phonon4Qt5 4.9.0 NO_MODULE)
-set_package_properties(Phonon4Qt5 PROPERTIES
-   DESCRIPTION "Qt-based audio library"
-   TYPE OPTIONAL
-   PURPOSE "Required for Find My Device plugin"
-)
 
 include_directories(${CMAKE_SOURCE_DIR})
 
