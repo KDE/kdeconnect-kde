@@ -23,8 +23,6 @@
 
 #include <QObject>
 #include <QString>
-#include <QVector>
-#include <QSet>
 #include <QHostAddress>
 
 #include "networkpacket.h"
@@ -74,10 +72,10 @@ public:
 
     ~Device() override;
 
-    QString id() const { return m_deviceId; }
-    QString name() const { return m_deviceName; }
+    QString id() const;
+    QString name() const;
     QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
-    QString type() const { return type2str(m_deviceType); }
+    QString type() const;
     QString iconName() const;
     QString statusIconName() const;
     Q_SCRIPTABLE QString encryptionInfo() const;
@@ -89,7 +87,7 @@ public:
     Q_SCRIPTABLE bool isTrusted() const;
 
     Q_SCRIPTABLE QStringList availableLinks() const;
-    bool isReachable() const { return !m_deviceLinks.isEmpty(); }
+    bool isReachable() const;
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
@@ -102,8 +100,8 @@ public:
 
     void cleanUnneededLinks();
 
-    int protocolVersion() { return m_protocolVersion; }
-    QStringList supportedPlugins() const { return m_supportedPlugins.toList(); }
+    int protocolVersion();
+    QStringList supportedPlugins() const;
 
     QHostAddress getLocalIpAddress() const;
 
@@ -145,19 +143,9 @@ private: //Methods
     void setName(const QString& name);
     QString iconForStatus(bool reachable, bool paired) const;
 
-private: //Fields (TODO: dPointer!)
-    const QString m_deviceId;
-    QString m_deviceName;
-    DeviceType m_deviceType;
-    int m_protocolVersion;
-
-    QVector<DeviceLink*> m_deviceLinks;
-    QHash<QString, KdeConnectPlugin*> m_plugins;
-
-    //Capabilities stuff
-    QMultiMap<QString, KdeConnectPlugin*> m_pluginsByIncomingCapability;
-    QSet<QString> m_supportedPlugins;
-    QSet<PairingHandler*> m_pairRequests;
+private:
+    class DevicePrivate;
+    DevicePrivate *d;
 };
 
 Q_DECLARE_METATYPE(Device*)
