@@ -22,6 +22,7 @@ import QtQuick 2.1
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kdeconnect.sms 1.0
 
 Kirigami.ScrollablePage
 {
@@ -34,14 +35,12 @@ Kirigami.ScrollablePage
     title: i18n("%1: %2", person.name, phoneNumber)
 
     ListView {
-        model: ListModel {
-            ListElement { display: "aaa"; fromMe: true }
-            ListElement { display: "aaa" }
-            ListElement { display: "aaa"; fromMe: true }
-            ListElement { display: "aaa" }
-            ListElement { display: "aaa" }
-            ListElement { display: "aaa" }
+        model: ConversationModel {
+            id: model
+            deviceId: device.id()
+            threadId: "xxxx"
         }
+
         delegate: Kirigami.BasicListItem {
             readonly property real margin: 100
             x: fromMe ? Kirigami.Units.gridUnit : margin

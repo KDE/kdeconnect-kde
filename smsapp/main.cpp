@@ -26,7 +26,9 @@
 #include <KLocalizedString>
 #include <KLocalizedContext>
 #include <KDBusService>
+#include "conversationmodel.h"
 #include "kdeconnect-version.h"
+#include <QtQml>
 
 int main(int argc, char *argv[])
 {
@@ -46,6 +48,8 @@ int main(int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique);
  
+    qmlRegisterType<ConversationModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationModel");
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.load(QUrl("qrc:/qml/main.qml"));
