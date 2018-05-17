@@ -3,15 +3,30 @@
         "Authors": [
             {
                 "Email": "kossebau@kde.org",
-                "Name": "Friedrich W. H. Kossebau"
+                "Name": "Friedrich W. H. Kossebau",
+                "Name[x-test]": "xxFriedrich W. H. Kossebauxx"
             }
         ],
         "Description": "Find this device by making it play an alarm sound",
+        "Description[ca]": "Troba aquest dispositiu fent que reprodueixi un so d'alarma",
+        "Description[gl]": "Reproducir un son de alarma neste dispositivo para atopalo.",
+        "Description[nl]": "Zoek dit apparaat door het een wekkersignaal te laten spelen",
+        "Description[pt]": "Descubra este dispositivo, pondo-o a tocar um alarme de som",
+        "Description[sv]": "Hitta apparaten genom att få den att spela ett alarmljud",
+        "Description[uk]": "Знайти цей пристрій, наказавши йому відтворити дзвінок",
+        "Description[x-test]": "xxFind this device by making it play an alarm soundxx",
         "EnabledByDefault": true,
         "Icon": "edit-find",
         "Id": "kdeconnect_findthisdevice",
         "License": "GPL",
         "Name": "Find this device",
+        "Name[ca]": "Troba aquest dispositiu",
+        "Name[gl]": "Atopar o dispositivo",
+        "Name[nl]": "Dit apparaat zoeken",
+        "Name[pt]": "Procurar este dispositivo",
+        "Name[sv]": "Hitta apparaten",
+        "Name[uk]": "Знайти цей пристрій",
+        "Name[x-test]": "xxFind this devicexx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
