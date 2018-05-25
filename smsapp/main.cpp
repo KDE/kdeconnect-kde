@@ -18,6 +18,10 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
+#include "conversationmodel.h"
+#include "conversationlistmodel.h"
+#include "kdeconnect-version.h"
+
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
@@ -26,8 +30,6 @@
 #include <KLocalizedString>
 #include <KLocalizedContext>
 #include <KDBusService>
-#include "conversationmodel.h"
-#include "kdeconnect-version.h"
 #include <QtQml>
 
 int main(int argc, char *argv[])
@@ -47,8 +49,10 @@ int main(int argc, char *argv[])
     }
 
     KDBusService service(KDBusService::Unique);
- 
+
+    qmlRegisterType<OurSortFilterProxyModel>("org.kde.kdeconnect.sms", 1, 0, "QSortFilterProxyModel");
     qmlRegisterType<ConversationModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationModel");
+    qmlRegisterType<ConversationListModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationListModel");
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

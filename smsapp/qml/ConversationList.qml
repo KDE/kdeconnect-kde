@@ -25,9 +25,27 @@ import org.kde.people 1.0
 import org.kde.plasma.core 2.0 as Core
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.kdeconnect 1.0
+import org.kde.kdeconnect.sms 1.0
 
 Kirigami.ScrollablePage
 {
+    footer: ComboBox {
+        id: devicesCombo
+        enabled: count > 0
+        displayText: enabled ? undefined : i18n("No devices available")
+        model: DevicesSortProxyModel {
+            id: devicesModel
+            //TODO: make it possible to sort only if they can do sms
+            sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
+            onRowsInserted: if (devicesCombo.currentIndex < 0) {
+                devicesCombo.currentIndex = 0
+            }
+        }
+        textRole: "display"
+    }
+
+    readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
+
     Component {
         id: chatView
         ConversationDisplay {}
@@ -37,11 +55,12 @@ Kirigami.ScrollablePage
         id: view
         currentIndex: 0
 
-        model: PersonsSortFilterProxyModel {
-            requiredProperties: ["phoneNumber"]
-            sortRole: Qt.DisplayRole
-            sortCaseSensitivity: Qt.CaseInsensitive
-            sourceModel: PersonsModel {}
+        model: QSortFilterProxyModel {
+            sortOrder: Qt.DescendingOrder
+            sortRole: ConversationListModel.DateRole
+            sourceModel: ConversationListModel {
+                deviceId: device ? device.id() : ""
+            }
         }
 
         header: TextField {
@@ -67,31 +86,17 @@ Kirigami.ScrollablePage
         {
             hoverEnabled: true
 
-            readonly property var person: PersonData {
-                personUri: model.personUri
-            }
-
-            label: display
+            label: i18n("<b>%1</b> - %2", display, toolTip)
             icon: decoration
             function startChat() {
-                applicationWindow().pageStack.push(chatView, { person: person.person, device: Qt.binding(function() {return devicesCombo.device })})
+                applicationWindow().pageStack.push(chatView, {
+                                                       personUri: model.personUri,
+                                                       phoneNumber: address,
+                                                       conversationId: model.conversationId,
+                                                       device: device})
             }
             onClicked: { startChat(); }
         }
 
-    }
-    footer: ComboBox {
-        id: devicesCombo
-        readonly property QtObject device: currentIndex>=0 ? model.data(model.index(currentIndex, 0), DevicesModel.DeviceRole) : null
-        enabled: count > 0
-        displayText: enabled ? undefined : i18n("No devices available")
-        model: DevicesSortProxyModel {
-            //TODO: make it possible to sort only if they can do sms
-            sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
-            onRowsInserted: if (devicesCombo.currentIndex < 0) {
-                devicesCombo.currentIndex = 0
-            }
-        }
-        textRole: "display"
     }
 }

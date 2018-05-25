@@ -20,6 +20,7 @@
 
 import QtQuick 2.1
 import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kdeconnect 1.0
  
 Kirigami.ApplicationWindow
 {
@@ -30,7 +31,7 @@ Kirigami.ApplicationWindow
 
     header: Kirigami.ToolBarApplicationHeader {}
 
-    pageStack.initialPage: ContactList {
+    pageStack.initialPage: ConversationList {
         title: i18n("KDE Connect SMS")
     }
 }

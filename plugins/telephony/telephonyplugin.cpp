@@ -1,5 +1,6 @@
 /**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2018 Simon Redman <simon@ergotech.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -21,13 +22,15 @@
 #include "telephonyplugin.h"
 
 #include "sendreplydialog.h"
+#include "conversationsdbusinterface.h"
+#include "interfaces/conversationmessage.h"
 
 #include <KLocalizedString>
-#include <QIcon>
 #include <QDebug>
 #include <QDBusReply>
 
 #include <KPluginFactory>
+#include <KNotification>
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_telephony.json", registerPlugin< TelephonyPlugin >(); )
 
@@ -36,7 +39,17 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 TelephonyPlugin::TelephonyPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
+    , m_conversationInterface(new ConversationsDbusInterface(this))
 {
+}
+
+TelephonyPlugin::~TelephonyPlugin()
+{
+    // FIXME: Same problem as discussed in the BatteryPlugin destructor and for the same reason:
+    // QtDbus does not allow us to delete m_conversationInterface. If we do so, we get a crash in the
+    // next DBus access to the parent
+
+    //m_conversationInterface->deleteLater();
 }
 
 KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
@@ -45,18 +58,14 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
     const QString phoneNumber = np.get<QString>(QStringLiteral("phoneNumber"), i18n("unknown number"));
     const QString contactName = np.get<QString>(QStringLiteral("contactName"), phoneNumber);
     const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>(QStringLiteral("phoneThumbnail"), ""));
+    const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),{});
 
     // In case telepathy can handle the message, don't do anything else
     if (event == QLatin1String("sms") && m_telepathyInterface.isValid()) {
-        qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Passing a text message to the telepathy interface";
-        connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)), Qt::UniqueConnection);
-        const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),QLatin1String(""));
-        QDBusReply<bool> reply = m_telepathyInterface.call(QStringLiteral("sendMessage"), phoneNumber, contactName, messageBody);
-        if (reply) {
-            return nullptr;
-        } else {
-            qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Telepathy failed, falling back to the default handling";
-        }
+        // Telepathy has already been tried (in receivePacket)
+        // There is a chance that it somehow failed, but since nobody uses Telepathy anyway...
+        // TODO: When upgrading telepathy, handle failure case (in case m_telepathyInterface.call returns false)
+        return nullptr;
     }
 
     QString content, type, icon;
@@ -109,7 +118,6 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
         notification->setActions( QStringList(i18n("Mute Call")) );
         connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
     } else if (event == QLatin1String("sms")) {
-        const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),QLatin1String(""));
         notification->setActions( QStringList(i18n("Reply")) );
         notification->setProperty("phoneNumber", phoneNumber);
         notification->setProperty("contactName", contactName);
@@ -129,8 +137,27 @@ bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
         return true;
     }
 
-    KNotification* n = createNotification(np);
-    if (n != nullptr) n->sendEvent();
+    const QString& event = np.get<QString>(QStringLiteral("event"), QStringLiteral("unknown"));
+
+    // Handle old-style packets
+    if (np.type() == PACKET_TYPE_TELEPHONY)
+    {
+        if (event == QLatin1String("sms"))
+        {
+            // New-style packets should be a PACKET_TYPE_TELEPHONY_MESSAGE (15 May 2018)
+            qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Handled an old-style Telephony sms packet. You should update your Android app to get the latest features!";
+            ConversationMessage message(np.body());
+            forwardToTelepathy(message);
+        }
+        KNotification* n = createNotification(np);
+        if (n != nullptr) n->sendEvent();
+        return true;
+    }
+
+    if (np.type() == PACKET_TYPE_TELEPHONY_MESSAGE)
+    {
+        return handleBatchMessages(np);
+    }
 
     return true;
 }
@@ -161,6 +188,48 @@ void TelephonyPlugin::showSendSmsDialog()
     connect(dialog, &SendReplyDialog::sendReply, this, &TelephonyPlugin::sendSms);
     dialog->show();
     dialog->raise();
+}
+
+void TelephonyPlugin::requestAllConversations()
+{
+    NetworkPacket np(PACKET_TYPE_TELEPHONY_REQUEST_CONVERSATIONS);
+
+    sendPacket(np);
+}
+
+void TelephonyPlugin::requestConversation (const QString& conversationID) const
+{
+    NetworkPacket np(PACKET_TYPE_TELEPHONY_REQUEST_CONVERSATION);
+    np.set("threadID", conversationID.toInt());
+
+    sendPacket(np);
+}
+
+void TelephonyPlugin::forwardToTelepathy(const ConversationMessage& message)
+{
+    // In case telepathy can handle the message, don't do anything else
+    if (m_telepathyInterface.isValid()) {
+        qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Passing a text message to the telepathy interface";
+        connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)), Qt::UniqueConnection);
+        const QString messageBody = message.body();
+        const QString contactName; // TODO: When telepathy support is improved, look up the contact with KPeople
+        const QString phoneNumber = message.address();
+        m_telepathyInterface.call(QDBus::NoBlock, QStringLiteral("sendMessage"), phoneNumber, contactName, messageBody);
+    }
+}
+
+bool TelephonyPlugin::handleBatchMessages(const NetworkPacket& np)
+{
+    const auto messages = np.get<QVariantList>("messages");
+
+    for (const QVariant& body : messages)
+    {
+        ConversationMessage message(body.toMap());
+        forwardToTelepathy(message);
+        m_conversationInterface->addMessage(message);
+    }
+
+    return true;
 }
 
 QString TelephonyPlugin::dbusPath() const

@@ -21,24 +21,28 @@
 import QtQuick 2.1
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
+import org.kde.people 1.0
 import org.kde.kirigami 2.2 as Kirigami
 import org.kde.kdeconnect.sms 1.0
 
 Kirigami.ScrollablePage
 {
     id: page
-    property QtObject person
+    property alias personUri: person.personUri
+    readonly property QtObject person: PersonData {
+        id: person
+    }
     property QtObject device
+    property string conversationId
 
-    readonly property string phoneNumber: person.contactCustomProperty("phoneNumber")
-    readonly property QtObject telephony: device ? TelephonyDbusInterfaceFactory.create(device.id()) : null
-    title: i18n("%1: %2", person.name, phoneNumber)
+    property string phoneNumber
+    title: person && person.name ? i18n("%1: %2", person.name, phoneNumber) : phoneNumber
 
     ListView {
         model: ConversationModel {
             id: model
             deviceId: device.id()
-            threadId: "xxxx"
+            threadId: page.conversationId
         }
 
         delegate: Kirigami.BasicListItem {
@@ -56,7 +60,7 @@ Kirigami.ScrollablePage
             placeholderText: i18n("Say hi...")
             onAccepted: {
                 console.log("sending sms", page.phoneNumber)
-                page.telephony.sendSms(page.phoneNumber, message.text)
+                model.sendReplyToConversation(message.text)
             }
         }
         Button {

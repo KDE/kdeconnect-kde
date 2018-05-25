@@ -40,7 +40,8 @@ K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_contacts.json",
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CONTACTS, "kdeconnect.plugin.contacts")
 
 ContactsPlugin::ContactsPlugin (QObject* parent, const QVariantList& args) :
-        KdeConnectPlugin(parent, args) {
+        KdeConnectPlugin(parent, args)
+{
     vcardsPath = QString(*vcardsLocation).append("/kdeconnect-").append(device()->id());
 
     // Register custom types with dbus

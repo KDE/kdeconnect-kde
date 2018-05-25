@@ -100,6 +100,17 @@ NotificationDbusInterface::~NotificationDbusInterface()
 
 }
 
+DeviceConversationsDbusInterface::DeviceConversationsDbusInterface(const QString& deviceId, QObject* parent)
+    : OrgKdeKdeconnectDeviceConversationsInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/"+deviceId, QDBusConnection::sessionBus(), parent)
+{
+
+}
+
+DeviceConversationsDbusInterface::~DeviceConversationsDbusInterface()
+{
+
+}
+
 SftpDbusInterface::SftpDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceSftpInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + id + "/sftp", QDBusConnection::sessionBus(), parent)
 {

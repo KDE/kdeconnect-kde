@@ -19,25 +19,68 @@
  */
 
 #include "conversationmodel.h"
+#include <QLoggingCategory>
+#include "interfaces/conversationmessage.h"
+
+Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL, "kdeconnect.sms.conversation")
 
 ConversationModel::ConversationModel(QObject* parent)
     : QStandardItemModel(parent)
+    , m_conversationsInterface(nullptr)
 {
     auto roles = roleNames();
     roles.insert(FromMeRole, "fromMe");
+    roles.insert(DateRole, "date");
     setItemRoleNames(roles);
+}
+
+ConversationModel::~ConversationModel()
+{
 }
 
 QString ConversationModel::threadId() const
 {
-    return {};
+    return m_threadId;
 }
 
 void ConversationModel::setThreadId(const QString &threadId)
 {
+    if (m_threadId == threadId)
+        return;
+
+    m_threadId = threadId;
     clear();
-    appendRow(new QStandardItem(threadId + QStringLiteral(" - A")));
-    appendRow(new QStandardItem(threadId + QStringLiteral(" - A1")));
-    appendRow(new QStandardItem(threadId + QStringLiteral(" - A2")));
-    appendRow(new QStandardItem(threadId + QStringLiteral(" - A3")));
+    if (!threadId.isEmpty()) {
+        m_conversationsInterface->requestConversation(threadId, 0, 10);
+    }
+}
+
+void ConversationModel::setDeviceId(const QString& deviceId)
+{
+    if (deviceId == m_deviceId)
+        return;
+
+    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
+    if (m_conversationsInterface) delete m_conversationsInterface;
+
+    m_deviceId = deviceId;
+
+    m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
+    connect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap, int)), this, SLOT(createRowFromMessage(QVariantMap, int)));
+}
+
+void ConversationModel::sendReplyToConversation(const QString& message)
+{
+    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to conversation with ID" << m_threadId;
+    m_conversationsInterface->replyToConversation(m_threadId, message);
+}
+
+void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
+{
+    const ConversationMessage message(msg);
+    auto item = new QStandardItem;
+    item->setText(message.body());
+    item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
+    item->setData(message.date(), DateRole);
+    insertRow(pos, item);
 }

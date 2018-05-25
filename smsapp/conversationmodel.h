@@ -22,8 +22,16 @@
 #define CONVERSATIONMODEL_H
 
 #include <QStandardItemModel>
+#include <QLoggingCategory>
 
-class ConversationModel : public QStandardItemModel
+#include "interfaces/dbusinterfaces.h"
+
+#include "interfaces/kdeconnectinterfaces_export.h"
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL)
+
+class KDECONNECTINTERFACES_EXPORT ConversationModel
+    : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY(QString threadId READ threadId WRITE setThreadId)
@@ -31,14 +39,28 @@ class ConversationModel : public QStandardItemModel
 
 public:
     ConversationModel(QObject* parent = nullptr);
+    ~ConversationModel();
 
-    enum Roles { FromMeRole = Qt::UserRole };
+    enum Roles {
+        FromMeRole = Qt::UserRole,
+        DateRole,
+    };
 
     QString threadId() const;
     void setThreadId(const QString &threadId);
 
-    QString deviceId() const { return {}; }
-    void setDeviceId(const QString &/*deviceId*/) {}
+    QString deviceId() const { return m_deviceId; }
+    void setDeviceId(const QString &/*deviceId*/);
+
+    Q_INVOKABLE void sendReplyToConversation(const QString& message);
+
+private Q_SLOTS:
+    void createRowFromMessage(const QVariantMap &msg, int pos);
+
+private:
+    DeviceConversationsDbusInterface* m_conversationsInterface;
+    QString m_deviceId;
+    QString m_threadId;
 };
 
 #endif // CONVERSATIONMODEL_H
