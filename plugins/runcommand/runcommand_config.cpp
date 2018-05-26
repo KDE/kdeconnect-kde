@@ -44,6 +44,10 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     QMenu* defaultMenu = new QMenu(this);
     addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("systemctl suspend"));
     addSuggestedCommand(defaultMenu, i18n("Maximum Brightness"), QStringLiteral("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`"));
+    addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("loginctl lock-session"));
+    addSuggestedCommand(defaultMenu, i18n("Unlock Screen"), QStringLiteral("loginctl unlock-session"));
+    addSuggestedCommand(defaultMenu, i18n("Close All Vaults"), QStringLiteral("qdbus org.kde.kded5 /modules/plasmavault closeAllVaults"));
+    addSuggestedCommand(defaultMenu, i18n("Forcefully Close All Vaults"), QStringLiteral("qdbus org.kde.kded5 /modules/plasmavault forceCloseAllVaults"));
 
     QTableView* table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
