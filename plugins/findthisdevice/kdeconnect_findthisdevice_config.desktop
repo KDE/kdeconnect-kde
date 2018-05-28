@@ -8,6 +8,7 @@ X-KDE-ParentComponents=kdeconnect_findthisdevice
 Name=Find This Device plugin settings
 Name[ca]=Troba els ajustaments d'aquest connector de dispositiu
 Name[ca@valencia]=Troba els ajustaments d'aquest connector de dispositiu
+Name[en_GB]=Find This Device plugin settings
 Name[gl]=Configuración do complemento de atopar o dispositivo
 Name[it]=Impostazioni estensione Trova questo dispositivo
 Name[nl]=Plug-in-instellingen van dit apparaat zoeken
