@@ -81,6 +81,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
     Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed
     Q_SCRIPTABLE void deviceVisibilityChanged(const QString& id, bool isVisible);
+    Q_SCRIPTABLE void deviceListChanged(); //Emitted when any of deviceAdded, deviceRemoved or deviceVisibilityChanged is emitted
     Q_SCRIPTABLE void announcedNameChanged(const QString& announcedName);
     Q_SCRIPTABLE void pairingRequestsChanged();
 

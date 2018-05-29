@@ -125,6 +125,7 @@ void Daemon::removeDevice(Device* device)
     d->m_devices.remove(device->id());
     device->deleteLater();
     Q_EMIT deviceRemoved(device->id());
+    Q_EMIT deviceListChanged();
 }
 
 void Daemon::cleanDevices()
@@ -194,6 +195,7 @@ void Daemon::onNewDeviceLink(const NetworkPacket& identityPacket, DeviceLink* dl
         device->addLink(identityPacket, dl);
         if (!wasReachable) {
             Q_EMIT deviceVisibilityChanged(id, true);
+            Q_EMIT deviceListChanged();
         }
     } else {
         qCDebug(KDECONNECT_CORE) << "It is a new device" << identityPacket.get<QString>(QStringLiteral("deviceName"));
@@ -219,6 +221,7 @@ void Daemon::onDeviceStatusChanged()
         removeDevice(device);
     } else {
         Q_EMIT deviceVisibilityChanged(device->id(), device->isReachable());
+        Q_EMIT deviceListChanged();
     }
 
 }
@@ -277,6 +280,7 @@ void Daemon::addDevice(Device* device)
     d->m_devices[id] = device;
 
     Q_EMIT deviceAdded(id);
+    Q_EMIT deviceListChanged();
 }
 
 QStringList Daemon::pairingRequests() const
