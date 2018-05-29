@@ -113,7 +113,7 @@ class KdeConnectShareExtension(GObject.GObject, Nautilus.MenuProvider):
             return
 
         if len(devices) == 1:
-            deviceId, deviceName = devices[0], devices[0]
+            deviceId, deviceName = list(devices.items())[0]
             item = Nautilus.MenuItem(
                         name='KdeConnectShareExtension::Devices::' + deviceId,
                         label=_("Send to %s via KDE Connect") % deviceName,
