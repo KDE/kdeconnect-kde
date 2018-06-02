@@ -290,7 +290,7 @@ void LanLinkProvider::connected()
 
 void LanLinkProvider::encrypted()
 {
-    qCDebug(KDECONNECT_CORE) << "Socket succesfully stablished an SSL connection";
+    qCDebug(KDECONNECT_CORE) << "Socket successfully established an SSL connection";
 
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
