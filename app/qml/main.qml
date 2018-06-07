@@ -31,6 +31,8 @@ Kirigami.ApplicationWindow
     width: 900
     height: 500
 
+    header: Kirigami.ApplicationHeader {}
+
     Component {
         id: findDevicesComp
         FindDevicesPage {}
