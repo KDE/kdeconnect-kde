@@ -61,7 +61,6 @@ Kirigami.Page
                 label: display + "\n" + toolTip
                 enabled: !(status & DevicesModel.Paired)
                 onClicked: {
-                    pageStack.clear()
                     pageStack.push(
                         deviceComp,
                         {currentDevice: device}
