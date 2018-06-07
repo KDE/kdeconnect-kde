@@ -19,7 +19,7 @@
  */
 
 import QtQuick 2.2
-import QtQuick.Controls 1.2
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.0 as Kirigami
 
@@ -79,17 +79,17 @@ Kirigami.Page
             Layout.fillWidth: true
             Button {
                 Layout.fillWidth: true
-                iconName: "media-skip-backward"
+                icon.name: "media-skip-backward"
                 onClicked: root.pluginInterface.sendAction("Previous")
             }
             Button {
                 Layout.fillWidth: true
-                iconName: root.pluginInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
+                icon.name: root.pluginInterface.isPlaying ? "media-playback-pause" : "media-playback-start"
                 onClicked: root.pluginInterface.sendAction("PlayPause");
             }
             Button {
                 Layout.fillWidth: true
-                iconName: "media-skip-forward"
+                icon.name: "media-skip-forward"
                 onClicked: root.pluginInterface.sendAction("Next")
             }
         }
@@ -98,7 +98,7 @@ Kirigami.Page
             Label { text: i18n("Volume:") }
             Slider {
                 value: root.pluginInterface.volume
-                maximumValue: 100
+                to: 100
                 Layout.fillWidth: true
             }
         }
