@@ -36,7 +36,7 @@ Kirigami.BasicListItem
     }
     visible: checker.available
     onClicked: {
-        if (component === "")
+        if (component === "" || !interfaceFactory)
             return;
 
         var obj = interfaceFactory.create(checker.device.id());
