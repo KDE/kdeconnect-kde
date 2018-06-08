@@ -28,7 +28,7 @@ Kirigami.BasicListItem
 {
     property alias pluginName: checker.pluginName
     property var interfaceFactory
-    property string component
+    property var component
 
     readonly property var checker: PluginChecker {
         id: checker

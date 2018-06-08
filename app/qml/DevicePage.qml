@@ -31,6 +31,10 @@ Kirigami.Page
     title: currentDevice.name
 
     actions.contextualActions: deviceLoader.item.actions
+    leftPadding: 0
+    rightPadding: 0
+    topPadding: 0
+    bottomPadding: 0
 
     Loader {
         id: deviceLoader
@@ -56,6 +60,7 @@ Kirigami.Page
                 ]
 
                 id: trustedView
+                spacing: 0
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 

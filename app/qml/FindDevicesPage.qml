@@ -24,7 +24,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.kdeconnect 1.0
 
-Kirigami.Page
+Kirigami.ScrollablePage
 {
     Component {
         id: deviceComp
@@ -33,39 +33,37 @@ Kirigami.Page
 
     objectName: "FindDevices"
     title: i18n("Pair")
-    ScrollView {
-        anchors.fill: parent
-        ListView {
-            section {
-                property: "status"
-                delegate: Label {
-                    text: switch (parseInt(section))
-                    {
-                        case DevicesModel.Paired:
-                            return i18n("Paired")
-                        case DevicesModel.Reachable:
-                            return i18n("Reachable")
-                        case (DevicesModel.Reachable | DevicesModel.Paired):
-                            return i18n("Paired & Reachable")
-                    }
-
+    ListView {
+        section {
+            property: "status"
+            delegate: Kirigami.Heading {
+                level: 4
+                text: switch (parseInt(section))
+                {
+                    case DevicesModel.Paired:
+                        return i18n("Paired")
+                    case DevicesModel.Reachable:
+                        return i18n("Reachable")
+                    case (DevicesModel.Reachable | DevicesModel.Paired):
+                        return i18n("Paired & Reachable")
                 }
-            }
 
-            model: DevicesSortProxyModel {
-                sourceModel: DevicesModel { displayFilter: DevicesModel.Reachable }
             }
-            delegate: Kirigami.BasicListItem {
-                width: ListView.view.width
-                icon: iconName
-                label: display + "\n" + toolTip
-                enabled: !(status & DevicesModel.Paired)
-                onClicked: {
-                    pageStack.push(
-                        deviceComp,
-                        {currentDevice: device}
-                    );
-                }
+        }
+
+        model: DevicesSortProxyModel {
+            sourceModel: DevicesModel { displayFilter: DevicesModel.Reachable }
+        }
+        delegate: Kirigami.BasicListItem {
+            width: ListView.view.width
+            icon: iconName
+            label: display + "\n" + toolTip
+            enabled: !(status & DevicesModel.Paired)
+            onClicked: {
+                pageStack.push(
+                    deviceComp,
+                    {currentDevice: device}
+                );
             }
         }
     }
