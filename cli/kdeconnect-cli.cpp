@@ -228,7 +228,7 @@ int main(int argc, char** argv)
             QString seq = parser.value("send-keys");
             QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/remotekeyboard", "org.kde.kdeconnect.device.remotekeyboard", "sendKeyPress");
             if (seq.trimmed() == QLatin1String("-")) {
-                // from file
+                // from stdin
                 QFile in;
                 if(in.open(stdin,QIODevice::ReadOnly | QIODevice::Unbuffered)) {
                     while (!in.atEnd()) {
