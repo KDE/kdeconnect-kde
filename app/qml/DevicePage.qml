@@ -72,6 +72,12 @@ Kirigami.Page
                     pluginName: "remotecontrol"
                 }
                 PluginItem {
+                    label: i18n("Presentation Remote")
+                    interfaceFactory: RemoteKeyboardDbusInterfaceFactory
+                    component: "qrc:/qml/presentationRemote.qml"
+                    pluginName: "remotecontrol"
+                }
+                PluginItem {
                     readonly property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
                     pluginName: "lockdevice"
                     label: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
