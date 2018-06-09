@@ -22,7 +22,7 @@
 
 Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
-#ifdef Q_OS_LINUX
+#if defined(__GNU_LIBRARY__)
 #include <execinfo.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -30,7 +30,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
 
 void logBacktrace()
 {
-#ifdef Q_OS_LINUX
+#if defined(__GNU_LIBRARY__)
     void* array[32];
     size_t size = backtrace (array, 32);
     char** strings = backtrace_symbols (array, size);
