@@ -66,7 +66,7 @@ public:
     Q_SCRIPTABLE void sendAction(const QString& action);
 
 Q_SIGNALS:
-    void propertiesChanged();
+    Q_SCRIPTABLE void propertiesChanged();
 
 private:
     void requestPlayerStatus();
