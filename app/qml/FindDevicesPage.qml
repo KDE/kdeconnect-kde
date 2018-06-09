@@ -58,7 +58,6 @@ Kirigami.ScrollablePage
             width: ListView.view.width
             icon: iconName
             label: display + "\n" + toolTip
-            enabled: !(status & DevicesModel.Paired)
             onClicked: {
                 pageStack.push(
                     deviceComp,
