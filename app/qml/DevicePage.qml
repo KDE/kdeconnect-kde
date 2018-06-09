@@ -42,7 +42,7 @@ Kirigami.Page
         Layout.fillHeight: true
         Layout.fillWidth: true
 
-        sourceComponent: deviceView.currentDevice.isTrusted ? trustedDevice : untrustedDevice
+        sourceComponent: deviceView.currentDevice.hasPairingRequests ? pairDevice : deviceView.currentDevice.isTrusted ? trustedDevice : untrustedDevice
         Component {
             id: trustedDevice
             ColumnLayout {
@@ -111,6 +111,25 @@ Kirigami.Page
 
                     text: i18n("Pair")
                     onClicked: deviceView.currentDevice.requestPair()
+                }
+            }
+        }
+
+        Component {
+            id: pairDevice
+            Item {
+                readonly property var actions: []
+                RowLayout {
+                        anchors.centerIn: parent
+                    Button {
+                        text: i18n("Accept")
+                        onClicked: deviceView.currentDevice.acceptPairing()
+                    }
+
+                    Button {
+                        text: i18n("Reject")
+                        onClicked: deviceView.currentDevice.rejectPairing()
+                    }
                 }
             }
         }
