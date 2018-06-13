@@ -22,6 +22,7 @@
         "Description[sv]": "Hitta apparaten genom att få den att spela ett alarmljud",
         "Description[uk]": "Знайти цей пристрій, наказавши йому відтворити дзвінок",
         "Description[x-test]": "xxFind this device by making it play an alarm soundxx",
+        "Description[zh_CN]": "通过播放铃声来找到您不见的手机",
         "EnabledByDefault": true,
         "Icon": "edit-find",
         "Id": "kdeconnect_findthisdevice",
@@ -40,6 +41,7 @@
         "Name[sv]": "Hitta apparaten",
         "Name[uk]": "Знайти цей пристрій",
         "Name[x-test]": "xxFind this devicexx",
+        "Name[zh_CN]": "查找此设备",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
