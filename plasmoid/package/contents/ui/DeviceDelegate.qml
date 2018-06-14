@@ -195,7 +195,7 @@ PlasmaComponents.ListItem
                 enabled: true
                 visible: notificationsModel.isAnyDimissable;
                 anchors.right: parent.right
-                iconSource: "window-close"
+                iconSource: "edit-delete"
                 tooltip: i18n("Dismiss all notifications")
                 onClicked: notificationsModel.dismissAll();
             }
