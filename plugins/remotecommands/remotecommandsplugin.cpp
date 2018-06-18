@@ -42,6 +42,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTECOMMANDS, "kdeconnect.plugin.remoteco
 RemoteCommandsPlugin::RemoteCommandsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , m_commands("{}")
+    , m_canAddCommand(false)
 {
 }
 
@@ -50,6 +51,7 @@ RemoteCommandsPlugin::~RemoteCommandsPlugin() = default;
 bool RemoteCommandsPlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.has(QStringLiteral("commandList"))) {
+        m_canAddCommand = np.get<bool>(QStringLiteral("canAddCommand"));
         setCommands(np.get<QByteArray>(QStringLiteral("commandList")));
         return true;
     }
@@ -79,6 +81,12 @@ void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
 void RemoteCommandsPlugin::triggerCommand(const QString& key)
 {
     NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{ "key", key }});
+    sendPacket(np);
+}
+
+void RemoteCommandsPlugin::editCommands()
+{
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{ "setup", true }});
     sendPacket(np);
 }
 

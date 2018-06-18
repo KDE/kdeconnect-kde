@@ -99,6 +99,13 @@ Kirigami.Page
                     }
                 }
 
+                PluginItem {
+                    label: i18n("Run command")
+                    interfaceFactory: RemoteCommandsDbusInterfaceFactory
+                    component: "qrc:/qml/runcommand.qml"
+                    pluginName: "remotecommands"
+                }
+
                 Item { Layout.fillHeight: true }
             }
         }

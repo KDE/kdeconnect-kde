@@ -32,6 +32,7 @@
 #include "interfaces/devicessortproxymodel.h"
 #include "interfaces/devicesmodel.h"
 #include "interfaces/notificationsmodel.h"
+#include <remotecommandsmodel.h>
 
 QObject* createDeviceDbusInterface(const QVariant& deviceId)
 {
@@ -84,10 +85,16 @@ QObject* createDBusResponse()
     return new DBusAsyncResponse();
 }
 
+QObject* createRemoteCommandsInterface(const QVariant& deviceId)
+{
+    return new RemoteCommandsDbusInterface(deviceId.toString());
+}
+
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
     qmlRegisterType<DevicesModel>(uri, 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>(uri, 1, 0, "NotificationsModel");
+    qmlRegisterType<RemoteCommandsModel>(uri, 1, 0, "RemoteCommandsModel");
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
     qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
@@ -95,6 +102,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri, 1, 0, "RemoteKeyboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
+    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "RemoteCommandsDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
     qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface",
         [](QQmlEngine*, QJSEngine*) -> QObject* {
             return new DaemonDbusInterface;
@@ -105,13 +113,13 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
 {
     QQmlExtensionPlugin::initializeEngine(engine, uri);
- 
+
     engine->rootContext()->setContextProperty(QStringLiteral("DeviceDbusInterfaceFactory")
       , new ObjectFactory(engine, createDeviceDbusInterface));
-    
+
     engine->rootContext()->setContextProperty(QStringLiteral("DeviceBatteryDbusInterfaceFactory")
       , new ObjectFactory(engine, createDeviceBatteryDbusInterface));
-    
+
     engine->rootContext()->setContextProperty(QStringLiteral("FindMyPhoneDbusInterfaceFactory")
       , new ObjectFactory(engine, createFindMyPhoneInterface));
 
@@ -132,10 +140,13 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
 
     engine->rootContext()->setContextProperty(QStringLiteral("TelephonyDbusInterfaceFactory")
       , new ObjectFactory(engine, createTelephonyInterface));
-    
+
     engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseFactory")
-      , new ObjectFactory(engine, createDBusResponse));    
-    
+      , new ObjectFactory(engine, createDBusResponse));
+
     engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseWaiter")
       , DBusResponseWaiter::instance());
+
+    engine->rootContext()->setContextProperty(QStringLiteral("RemoteCommandsDbusInterfaceFactory")
+      , new ObjectFactory(engine, createRemoteCommandsInterface));
 }

@@ -8,5 +8,6 @@
     <file>qml/PluginItem.qml</file>
     <file>qml/DevicePage.qml</file>
     <file>qml/FindDevicesPage.qml</file>
+    <file>qml/runcommand.qml</file>
  </qresource>
 </RCC>
