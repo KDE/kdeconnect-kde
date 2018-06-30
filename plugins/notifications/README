@@ -12,17 +12,22 @@ The received packages will contain the following fields:
 
 "id" (string): A unique notification id.
 "appName" (string): The app that generated the notification
-"ticker" (string): The title or headline of the notification.
+"ticker" (string): The title or headline of the notification, for compatibility with older Android versions.
 "isClearable" (boolean): True if we can request to dismiss the notification.
 "isCancel" (boolean): True if the notification was dismissed in the peer device.
 "requestAnswer" (boolean): True if this is an answer to a "request" package.
+"title" (string): The title of the notification.
+"text" (string): The text/content of the notification.
+"requestReplyId" (string): Used to reply to messages.
+"silent" (bool): Handle this notification silent, i.e. don't show a notification, but show it in the plasmoid.
 
 Additionally the package can contain a payload with the icon of the notification
-in PNG format.
+in PNG format. If there another field will be present:
+
+"payloadHash" (string): MD5 hash of the payload. Used as a filename to store the payload.
 
 The content of these fields is used to display the notifications to the user.
-Note that if we receive a second notification with the same "id", we should
-update the existent notification instead of creating a new one.
+Note that if we receive a second notification with the same "id", the existing notification is updated.
 
 If the user dismisses a notification from this device, we have to request the
 other device to remove it. This is done by sending a package with the fields
