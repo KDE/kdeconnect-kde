@@ -64,7 +64,6 @@ add_subdirectory(daemon)
 add_subdirectory(plugins)
 add_subdirectory(cli)
 add_subdirectory(indicator)
-add_subdirectory(fileitemactionplugin)
 add_subdirectory(urlhandler)
 add_subdirectory(nautilus-extension)
 
