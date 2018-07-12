@@ -29,9 +29,17 @@ Kirigami.Page
     property QtObject pluginInterface
     title: i18n("Multimedia Controls")
 
+    Label {
+        id: noPlayersText
+        text: i18n("No players available")
+        anchors.centerIn: parent
+        visible: pluginInterface.playerList.length == 0
+    }
+
     ColumnLayout
     {
         anchors.fill: parent
+        visible: !noPlayersText.visible
 
         Component.onCompleted: {
             pluginInterface.requestPlayerList();
