@@ -82,7 +82,9 @@ bool MousepadPlugin::receivePacket(const NetworkPacket& np)
 
 void MousepadPlugin::connected() {
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE);
-    np.set<bool>(QStringLiteral("state"), m_impl->hasKeyboardSupport());
+    if (m_impl) {
+        np.set<bool>(QStringLiteral("state"), m_impl->hasKeyboardSupport());
+    }
     sendPacket(np);
 }
 

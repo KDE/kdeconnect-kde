@@ -94,6 +94,9 @@ void DeviceTest::testPairedDevice()
 
 void DeviceTest::testUnpairedDevice()
 {
+    KdeConnectConfig* kcc = KdeConnectConfig::instance();
+    kcc->removeTrustedDevice(deviceId);
+
     LanLinkProvider linkProvider;
     QSslSocket socket;
     LanDeviceLink* link = new LanDeviceLink(deviceId, &linkProvider, &socket, LanDeviceLink::Locally);
