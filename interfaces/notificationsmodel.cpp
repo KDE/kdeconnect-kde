@@ -102,10 +102,9 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
 
 void NotificationsModel::notificationAdded(const QString& id)
 {
-    int currentSize = m_notificationList.size();
-    beginInsertRows(QModelIndex(),  currentSize, currentSize);
+    beginInsertRows(QModelIndex(),  0, 0);
     NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, id, this);
-    m_notificationList.append(dbusInterface);
+    m_notificationList.prepend(dbusInterface);
     endInsertRows();
 }
 
