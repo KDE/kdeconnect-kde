@@ -23,6 +23,7 @@ Name[pt_BR]=Configurações do plugin Procurar Este Dispositivo
 Name[sv]=Inställningar av insticksprogrammet Hitta apparaten
 Name[uk]=Параметри додатка пошуку пристрою
 Name[x-test]=xxFind This Device plugin settingsxx
+Name[zh_CN]=查找此设备插件设置
 Name[zh_TW]=尋找此裝置的外掛設定
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;
