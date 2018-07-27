@@ -227,7 +227,7 @@ void LanLinkProvider::connectError()
     delete socket;
 }
 
-//We received a UDP packet and answered by connecting to them by TCP. This gets called on a succesful connection.
+//We received a UDP packet and answered by connecting to them by TCP. This gets called on a successful connection.
 void LanLinkProvider::connected()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());

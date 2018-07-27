@@ -1,4 +1,4 @@
-Writting a plugin for KDE Connect
+Writing a plugin for KDE Connect
 =================================
 
 For the desktop client (this project):
