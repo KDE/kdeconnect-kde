@@ -247,7 +247,33 @@ PlasmaComponents.ListItem
             }
         }
 
-        //NOTE: More information could be displayed here
+        RemoteCommands {
+            id: rc
+            device: root.device
+        }
 
+        // Commands
+        PlasmaComponents.Label {
+            visible: rc.available && commandsModel.rowCount() > 0
+            text: i18n("Run command")
+        }
+
+        Repeater {
+            id: commandsView
+            visible: rc.available
+            model: RemoteCommandsModel {
+                id: commandsModel
+                deviceId: rc.device.id()
+            }
+            delegate: PlasmaComponents.ListItem {
+                enabled: true
+                onClicked: rc.plugin.triggerCommand(key)
+
+                PlasmaComponents.Label {
+                    text: name + "\n" + command
+                }
+            }
+        }
+        //NOTE: More information could be displayed here
     }
 }
