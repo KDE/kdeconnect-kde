@@ -17,7 +17,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network)
 
 find_package(KF5 ${KF5_MIN_VERSION}
     REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils
-    OPTIONAL_COMPONENTS DocTools
+    OPTIONAL_COMPONENTS DocTools PulseAudioQt
 )
 find_package(Qca-qt5 2.1.0 REQUIRED)
 find_package(Phonon4Qt5 4.9.0 NO_MODULE)

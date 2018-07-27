@@ -1,0 +1,28 @@
+{
+    "Encoding": "UTF-8",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "nicolas.fella@gmx.de",
+                "Name": "Nicolas Fella"
+            }
+        ],
+        "Description": "Control the system volume from your phone",
+        "EnabledByDefault": true,
+        "Icon": "audio-volume-high",
+        "Id": "kdeconnect_systemvolume",
+        "License": "GPL",
+        "Name": "System volume",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "http://nicolasfella.wordpress.com"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.systemvolume"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.systemvolume.request"
+    ]
+}

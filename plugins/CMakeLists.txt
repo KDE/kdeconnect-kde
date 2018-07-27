@@ -30,5 +30,10 @@ if(EXPERIMENTALAPP_ENABLED)
     add_subdirectory(lockdevice)
 endif()
 
+if(KF5PulseAudioQt_FOUND)
+    add_subdirectory(systemvolume)
+endif()
+
+
 #FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
 install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
