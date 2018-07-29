@@ -4,15 +4,28 @@
         "Authors": [
             {
                 "Email": "nicolas.fella@gmx.de",
-                "Name": "Nicolas Fella"
+                "Name": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx"
             }
         ],
         "Description": "Control the system volume from your phone",
+        "Description[ca]": "Controla el volum del sistema des del telèfon",
+        "Description[nl]": "Bestuur het systeemvolume vanaf uw telefoon",
+        "Description[pt]": "Controle o volume do sistema a partir do seu telemóvel",
+        "Description[sv]": "Kontrollera systemvolymen från telefonen",
+        "Description[uk]": "Керування системним томом з вашого телефону",
+        "Description[x-test]": "xxControl the system volume from your phonexx",
         "EnabledByDefault": true,
         "Icon": "audio-volume-high",
         "Id": "kdeconnect_systemvolume",
         "License": "GPL",
         "Name": "System volume",
+        "Name[ca]": "Volum del sistema",
+        "Name[nl]": "Systeemvolume",
+        "Name[pt]": "Volume do sistema",
+        "Name[sv]": "Systemvolym",
+        "Name[uk]": "Системний том",
+        "Name[x-test]": "xxSystem volumexx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
