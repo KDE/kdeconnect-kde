@@ -9,6 +9,7 @@
             }
         ],
         "Description": "Control the system volume from your phone",
+        "Description[ca@valencia]": "Controla el volum del sistema des del telèfon",
         "Description[ca]": "Controla el volum del sistema des del telèfon",
         "Description[nl]": "Bestuur het systeemvolume vanaf uw telefoon",
         "Description[pt]": "Controle o volume do sistema a partir do seu telemóvel",
@@ -20,6 +21,7 @@
         "Id": "kdeconnect_systemvolume",
         "License": "GPL",
         "Name": "System volume",
+        "Name[ca@valencia]": "Volum del sistema",
         "Name[ca]": "Volum del sistema",
         "Name[nl]": "Systeemvolume",
         "Name[pt]": "Volume do sistema",
