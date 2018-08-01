@@ -22,8 +22,10 @@
 #define KDECONNECT_DBUSHELPER_H
 #include <QString>
 
+#include "kdeconnectcore_export.h"
+
 namespace DbusHelper {
-    void filterNonExportableCharacters(QString& s);
+    void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString& s);
 }
 
 #endif
