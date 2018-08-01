@@ -20,7 +20,6 @@
 
 #include "runcommand_config.h"
 
-#include <QStandardPaths>
 #include <QTableView>
 #include <QHBoxLayout>
 #include <QHeaderView>
@@ -32,8 +31,9 @@
 #include <QJsonDocument>
 
 #include <KLocalizedString>
-
 #include <KPluginFactory>
+
+#include <core/dbushelper.h>
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
@@ -128,6 +128,7 @@ void RunCommandConfig::save()
 
         if (key.isEmpty()) {
             key = QUuid::createUuid().toString();
+            DbusHelper::filterNonExportableCharacters(key);
         }
         QJsonObject entry;
         entry[QStringLiteral("name")] = name;

@@ -15,6 +15,7 @@ set( kdeconnect_runcommand_config_SRCS runcommand_config.cpp )
 
 add_library(kdeconnect_runcommand_config MODULE ${kdeconnect_runcommand_config_SRCS} )
 target_link_libraries( kdeconnect_runcommand_config
+    kdeconnectcore
     kdeconnectpluginkcm
     KF5::I18n
     KF5::CoreAddons
