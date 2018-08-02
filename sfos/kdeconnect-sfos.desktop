@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=generic
+Icon=kdeconnect
+Exec=kdeconnect-sfos
+Name=KDE Connect
+# translation example:
+# your app name in German locale (de)
+#
+# Remember to comment out the following line, if you do not want to use
+# a different app name in German locale (de).
+#Name[de]=kdeconnect-sfos

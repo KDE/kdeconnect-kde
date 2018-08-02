@@ -21,6 +21,7 @@
 #include "batteryplugin.h"
 
 #include <QIcon>
+
 #include <KLocalizedString>
 #include <KPluginFactory>
 
@@ -73,7 +74,6 @@ bool BatteryPlugin::receivePacket(const NetworkPacket& np)
 
     if ( thresholdEvent == ThresholdBatteryLow && !isCharging ) {
         Daemon::instance()->sendSimpleNotification(QStringLiteral("batteryLow"), i18nc("device name: low battery", "%1: Low Battery", device()->name()), i18n("Battery at %1%", currentCharge), QStringLiteral("battery-040"));
-
     }
 
     return true;

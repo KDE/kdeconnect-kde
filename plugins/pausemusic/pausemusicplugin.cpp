@@ -30,6 +30,9 @@
 
 #include <KPluginFactory>
 
+//In older Qt released, qAsConst isnt available
+#include "qtcompat_p.h"
+
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_pausemusic.json", registerPlugin< PauseMusicPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PAUSEMUSIC, "kdeconnect.plugin.pausemusic")

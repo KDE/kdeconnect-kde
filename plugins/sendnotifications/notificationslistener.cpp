@@ -27,7 +27,6 @@
 #include <QImage>
 #include <KConfig>
 #include <KConfigGroup>
-
 #include <kiconloader.h>
 #include <kicontheme.h>
 
@@ -38,6 +37,9 @@
 #include "sendnotificationsplugin.h"
 #include "sendnotification_debug.h"
 #include "notifyingapplication.h"
+
+//In older Qt released, qAsConst isnt available
+#include "qtcompat_p.h"
 
 NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     : QDBusAbstractAdaptor(aPlugin),
@@ -179,6 +181,7 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString& 
         return QSharedPointer<QIODevice>(new QFile(iconPath));
     return QSharedPointer<QIODevice>();
 }
+
 uint NotificationsListener::Notify(const QString& appName, uint replacesId,
                                    const QString& appIcon,
                                    const QString& summary, const QString& body,

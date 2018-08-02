@@ -29,6 +29,9 @@
 
 //#include "modeltest.h"
 
+//In older Qt released, qAsConst isnt available
+#include "core/qtcompat_p.h"
+
 NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(nullptr)

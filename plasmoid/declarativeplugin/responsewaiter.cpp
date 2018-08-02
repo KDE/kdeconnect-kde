@@ -5,6 +5,9 @@
 #include <QDebug>
 #include <QCoreApplication>
 
+//In older Qt released, qAsConst isnt available
+#include "core/qtcompat_p.h"
+
 Q_DECLARE_METATYPE(QDBusPendingReply<>)
 Q_DECLARE_METATYPE(QDBusPendingReply<QVariant>)
 Q_DECLARE_METATYPE(QDBusPendingReply<bool>)
@@ -29,7 +32,7 @@ DBusResponseWaiter::DBusResponseWaiter()
         << qRegisterMetaType<QDBusPendingReply<> >("QDBusPendingReply<>")
         << qRegisterMetaType<QDBusPendingReply<QVariant> >("QDBusPendingReply<QVariant>")
         << qRegisterMetaType<QDBusPendingReply<bool> >("QDBusPendingReply<bool>")
-        << qRegisterMetaType<QDBusPendingReply<int> >("QDBusPendingReply<int>")      
+        << qRegisterMetaType<QDBusPendingReply<int> >("QDBusPendingReply<int>")
         << qRegisterMetaType<QDBusPendingReply<QString> >("QDBusPendingReply<QString>")
     ;
 }
@@ -39,13 +42,13 @@ QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
     if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(extractPendingCall(variant)))
     {
         call->waitForFinished();
-        
+
         if (call->isError())
         {
             qWarning() << "error:" << call->error();
             return QVariant("error");
         }
-        
+
         QDBusMessage reply = call->reply();
 
         if (reply.arguments().count() > 0)
@@ -69,7 +72,7 @@ DBusAsyncResponse::DBusAsyncResponse(QObject* parent)
 void DBusAsyncResponse::setPendingCall(QVariant variant)
 {
     if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
-    {  
+    {
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(*call);
         watcher->setProperty("pengingCallVariant", variant);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &DBusAsyncResponse::onCallFinished);
@@ -83,7 +86,7 @@ void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher* watcher)
 {
     m_timeout.stop();
     QVariant variant = watcher->property("pengingCallVariant");
-    
+
     if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
     {
         if (call->isError())
@@ -121,10 +124,10 @@ const QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant
     {
         if (variant.canConvert(QVariant::Type(type)))
         {
-            return reinterpret_cast<const QDBusPendingCall*>(variant.constData());  
+            return reinterpret_cast<const QDBusPendingCall*>(variant.constData());
         }
     }
-    
+
     return nullptr;
 }
 

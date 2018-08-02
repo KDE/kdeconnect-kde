@@ -22,6 +22,7 @@
 #define DEVICELINK_H
 
 #include <QObject>
+#include <QIODevice> //Fix build on older QCA
 #include <QtCrypto>
 
 #include "core/networkpacket.h"

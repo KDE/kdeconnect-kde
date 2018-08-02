@@ -39,6 +39,9 @@
 #include "kdeconnectconfig.h"
 #include "daemon.h"
 
+//In older Qt released, qAsConst isnt available
+#include "qtcompat_p.h"
+
 class Device::DevicePrivate
 {
 public:

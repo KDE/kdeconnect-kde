@@ -28,6 +28,9 @@
 #include "device.h"
 #include "kdeconnectplugin.h"
 
+//In older Qt released, qAsConst isnt available
+#include "qtcompat_p.h"
+
 PluginLoader* PluginLoader::instance()
 {
     static PluginLoader* instance = new PluginLoader();

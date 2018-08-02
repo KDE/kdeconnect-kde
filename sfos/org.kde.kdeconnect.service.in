@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.kde.kdeconnect
+Exec=@KDE_INSTALL_FULL_LIBEXECDIR@/kdeconnectd
