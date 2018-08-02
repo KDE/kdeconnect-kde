@@ -76,7 +76,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
 
     QVariant deviceVariant = QVariant::fromValue<Device*>(device);
 
-    ret = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << pluginName << outgoingInterfaces);
+    ret = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << pluginName << outgoingInterfaces << service.iconName());
     if (!ret) {
         qCDebug(KDECONNECT_CORE) << "Error loading plugin";
         return ret;

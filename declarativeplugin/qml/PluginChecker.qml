@@ -29,6 +29,7 @@ QtObject {
     property alias device: conn.target
     property string pluginName: ""
     property bool available: false
+    property string iconName: ""
 
     readonly property Connections connection: Connections {
         id: conn
@@ -38,13 +39,22 @@ QtObject {
     Component.onCompleted: pluginsChanged()
 
     readonly property var v: DBusAsyncResponse {
-        id: response
+        id: availableResponse
         autoDelete: false
         onSuccess: { root.available = result; }
         onError: { root.available = false }
     }
 
     function pluginsChanged() {
-        response.setPendingCall(device.hasPlugin("kdeconnect_" + pluginName))
+        availableResponse.setPendingCall(device.hasPlugin("kdeconnect_" + pluginName))
+        iconResponse.setPendingCall(device.pluginIconName("kdeconnect_" + pluginName))
+
+    }
+
+    readonly property var vv: DBusAsyncResponse {
+        id: iconResponse
+        autoDelete: false
+        onSuccess: { root.iconName = result; }
+        onError: { root.iconName = "" }
     }
 }

@@ -120,6 +120,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE void rejectPairing();
     Q_SCRIPTABLE bool hasPairingRequests() const;
 
+    Q_SCRIPTABLE QString pluginIconName(const QString& pluginName);
 private Q_SLOTS:
     void privateReceivedPacket(const NetworkPacket& np);
     void linkDestroyed(QObject* o);

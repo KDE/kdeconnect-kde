@@ -49,6 +49,8 @@ public:
 
     virtual QString dbusPath() const;
 
+    QString iconName() const;
+
 public Q_SLOTS:
     /**
      * Returns true if it has handled the packet in some way

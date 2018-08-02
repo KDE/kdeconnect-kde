@@ -46,7 +46,7 @@
         "Description[zh_CN]": "锁定您的系统",
         "Description[zh_TW]": "鎖定您的系統",
         "EnabledByDefault": true,
-        "Icon": "applications-miscelaneaous",
+        "Icon": "lock",
         "Id": "kdeconnect_lockdevice",
         "License": "GPL",
         "Name": "LockDevice",

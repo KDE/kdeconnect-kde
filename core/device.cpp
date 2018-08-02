@@ -547,3 +547,10 @@ QString Device::encryptionInfo() const
     return result;
 }
 
+QString Device::pluginIconName(const QString& pluginName)
+{
+    if (hasPlugin(pluginName)) {
+        return d->m_plugins[pluginName]->iconName();
+    }
+    return QString();
+}

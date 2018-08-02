@@ -28,6 +28,7 @@ struct KdeConnectPluginPrivate
     QString m_pluginName;
     QSet<QString> m_outgoingCapabilties;
     KdeConnectPluginConfig* m_config;
+    QString iconName;
 };
 
 KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
@@ -38,6 +39,7 @@ KdeConnectPlugin::KdeConnectPlugin(QObject* parent, const QVariantList& args)
     d->m_pluginName = args.at(1).toString();
     d->m_outgoingCapabilties = args.at(2).toStringList().toSet();
     d->m_config = nullptr;
+    d->iconName = args.at(3).toString();
 }
 
 KdeConnectPluginConfig* KdeConnectPlugin::config() const
@@ -79,4 +81,9 @@ bool KdeConnectPlugin::sendPacket(NetworkPacket& np) const
 QString KdeConnectPlugin::dbusPath() const
 {
     return {};
+}
+
+QString KdeConnectPlugin::iconName() const
+{
+    return d->iconName;
 }

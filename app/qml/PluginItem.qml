@@ -35,6 +35,7 @@ Kirigami.BasicListItem
         device: deviceView.currentDevice
     }
     visible: checker.available
+    icon: checker.iconName
     onClicked: {
         if (component === "" || !interfaceFactory)
             return;

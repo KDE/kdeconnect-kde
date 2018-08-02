@@ -46,7 +46,7 @@
         "Description[zh_CN]": "控制远程系统",
         "Description[zh_TW]": "控制遠端系統",
         "EnabledByDefault": true,
-        "Icon": "applications-multimedia",
+        "Icon": "edit-select",
         "Id": "kdeconnect_remotecontrol",
         "License": "GPL",
         "Name": "RemoteControl",
