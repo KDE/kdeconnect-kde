@@ -38,6 +38,9 @@ Kirigami.ScrollablePage
             property: "status"
             delegate: Kirigami.Heading {
                 level: 4
+                background: Rectangle {
+                    color: "#21be2b"
+                }
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:

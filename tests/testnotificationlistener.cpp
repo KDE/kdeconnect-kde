@@ -185,7 +185,8 @@ void TestNotificationListener::testNotify()
     plugin = new TestNotificationsPlugin(this,
                                          QVariantList({ QVariant::fromValue<Device*>(d),
                                                         "notifications_plugin",
-                                                        {"kdeconnect.notification"}}));
+                                                        {"kdeconnect.notification"},
+                                                        "preferences-desktop-notification"}));
     QVERIFY(plugin->getNotificationsListener());
     delete plugin->getNotificationsListener();
 
