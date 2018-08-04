@@ -61,6 +61,7 @@ Kirigami.ScrollablePage
             onAccepted: {
                 console.log("sending sms", page.phoneNumber)
                 model.sendReplyToConversation(message.text)
+                text = ""
             }
         }
         Button {
