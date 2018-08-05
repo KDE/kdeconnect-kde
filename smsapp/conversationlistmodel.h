@@ -30,8 +30,6 @@
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 
-#include "interfaces/kdeconnectinterfaces_export.h"
-
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL)
 
 
@@ -65,7 +63,7 @@ private:
     Qt::SortOrder m_sortOrder = Qt::AscendingOrder;
 };
 
-class KDECONNECTINTERFACES_EXPORT ConversationListModel
+class ConversationListModel
     : public QStandardItemModel
 {
     Q_OBJECT

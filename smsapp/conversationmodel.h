@@ -26,11 +26,9 @@
 
 #include "interfaces/dbusinterfaces.h"
 
-#include "interfaces/kdeconnectinterfaces_export.h"
-
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL)
 
-class KDECONNECTINTERFACES_EXPORT ConversationModel
+class ConversationModel
     : public QStandardItemModel
 {
     Q_OBJECT
