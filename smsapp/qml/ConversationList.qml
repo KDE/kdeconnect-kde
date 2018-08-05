@@ -68,7 +68,7 @@ Kirigami.ScrollablePage
             placeholderText: i18n("Filter...")
             width: parent.width
             onTextChanged: {
-                view.model.filterRegExp = new RegExp(filter.text)
+                view.model.filterRegExp = new RegExp(filter.text, "i")
                 view.currentIndex = 0
             }
             Keys.onUpPressed: view.currentIndex = Math.max(view.currentIndex-1, 0)
