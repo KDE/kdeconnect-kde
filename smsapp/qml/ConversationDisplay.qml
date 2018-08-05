@@ -39,11 +39,14 @@ Kirigami.ScrollablePage
     title: person && person.name ? i18n("%1: %2", person.name, phoneNumber) : phoneNumber
 
     ListView {
-
-        model: ConversationModel {
+        model: QSortFilterProxyModel {
             id: model
-            deviceId: device.id()
-            threadId: page.conversationId
+            sortOrder: Qt.AscendingOrder
+            sortRole: ConversationModel.DateRole
+            sourceModel: ConversationModel {
+                deviceId: device.id()
+                threadId: page.conversationId
+            }
         }
 
         spacing: Kirigami.Units.largeSpacing
@@ -62,7 +65,7 @@ Kirigami.ScrollablePage
             placeholderText: i18n("Say hi...")
             onAccepted: {
                 console.log("sending sms", page.phoneNumber)
-                model.sendReplyToConversation(message.text)
+                model.sourceModel.sendReplyToConversation(message.text)
                 text = ""
             }
         }
