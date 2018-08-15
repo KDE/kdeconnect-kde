@@ -25,7 +25,6 @@
 #include "kdeconnectconfig.h"
 #include "backends/linkprovider.h"
 #include "uploadjob.h"
-#include "downloadjob.h"
 #include "socketlinereader.h"
 #include "lanlinkprovider.h"
 
@@ -122,12 +121,19 @@ void LanDeviceLink::dataReceived()
     if (packet.hasPayloadTransferInfo()) {
         //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
         QVariantMap transferInfo = packet.payloadTransferInfo();
-        //FIXME: The next two lines shouldn't be needed! Why are they here?
-        transferInfo.insert(QStringLiteral("useSsl"), true);
-        transferInfo.insert(QStringLiteral("deviceId"), deviceId());
-        DownloadJob* job = new DownloadJob(m_socketLineReader->peerAddress(), transferInfo);
-        job->start();
-        packet.setPayload(job->getPayload(), packet.payloadSize());
+
+        QSharedPointer<QSslSocket> socket(new QSslSocket);
+
+        LanLinkProvider::configureSslSocket(socket.data(), transferInfo.value(QStringLiteral("deviceId")).toString(), true);
+
+        // emit readChannelFinished when the socket gets disconnected. This seems to be a bug in upstream QSslSocket.
+        // Needs investigation and upstreaming of the fix. QTBUG-62257
+        connect(socket.data(), &QAbstractSocket::disconnected, socket.data(), &QAbstractSocket::readChannelFinished);
+
+        const QString address = m_socketLineReader->peerAddress().toString();
+        const quint16 port = transferInfo[QStringLiteral("port")].toInt();
+        socket->connectToHostEncrypted(address, port, QIODevice::ReadWrite);
+        packet.setPayload(socket, packet.payloadSize());
     }
 
     Q_EMIT receivedPacket(packet);
