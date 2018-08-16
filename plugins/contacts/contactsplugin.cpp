@@ -67,8 +67,8 @@ ContactsPlugin::~ContactsPlugin () {
 }
 
 bool ContactsPlugin::receivePacket (const NetworkPacket& np) {
-    qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
-    qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
+    //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
+    //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
 
     if (np.type() == PACKAGE_TYPE_CONTACTS_RESPONSE_UIDS_TIMESTAMPS) {
         return this->handleResponseUIDsTimestamps(np);
