@@ -20,6 +20,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtQuick.Layouts 1.0
 import org.kde.kdeconnect 1.0
 
 Page
@@ -27,19 +28,22 @@ Page
     id: root
     property QtObject pluginInterface
 
-    Column
+    Label {
+        id: noPlayersText
+        text: "No players available"
+        anchors.centerIn: parent
+        visible: pluginInterface.playerList.length == 0
+    }
+    ColumnLayout
     {
         anchors.fill: parent
+        anchors.margins: Theme.paddingMedium
         PageHeader { title: "Multimedia Controls" }
+        visible: !noPlayersText.visible
 
-        Component.onCompleted: {
-            pluginInterface.requestPlayerList();
-        }
-
-        Item { height: parent.height }
         ComboBox {
             label: "Player"
-            width: parent.width
+            Layout.fillWidth: true
             onCurrentIndexChanged: root.pluginInterface.player = value
 
             menu: ContextMenu {
@@ -49,34 +53,86 @@ Page
                 }
             }
         }
+
         Label {
-            width: parent.width
+            id: nowPlaying
+            Layout.fillWidth: true
             text: root.pluginInterface.nowPlaying
+            visible: root.pluginInterface.title.length == 0
+            wrapMode: Text.Wrap
         }
-        Row {
-            width: parent.width
+        Label {
+            Layout.fillWidth: true
+            text: root.pluginInterface.title
+            visible: !nowPlaying.visible
+            wrapMode: Text.Wrap
+        }
+        Label {
+            Layout.fillWidth: true
+            text: root.pluginInterface.artist
+            visible: !nowPlaying.visible && !artistAlbum.visible && root.pluginInterface.artist.length > 0
+            wrapMode: Text.Wrap
+        }
+        Label {
+            Layout.fillWidth: true
+            text: root.pluginInterface.album
+            visible: !nowPlaying.visible && !artistAlbum.visible && root.pluginInterface.album.length > 0
+            wrapMode: Text.Wrap
+        }
+        Label {
+            id: artistAlbum
+            Layout.fillWidth: true
+            text: "%1 - %2", root.pluginInterface.artist, root.pluginInterface.album
+            visible: !nowPlaying.visible && root.pluginInterface.album.length > 0 && root.pluginInterface.artist.length > 0
+            wrapMode: Text.Wrap
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            height: childrenRect.height
             IconButton {
+                id: btnPrev
+                Layout.fillWidth: true
                 icon.source: "image://theme/icon-m-previous"
                 onClicked: root.pluginInterface.sendAction("Previous")
             }
             IconButton {
-                icon.source: root.pluginInterface.isPlaying ? "icon-m-image://theme/pause" : "image://theme/icon-m-play"
+                id: btnPlay
+                Layout.fillWidth: true
+                icon.source: root.pluginInterface.isPlaying ? "image://theme/icon-m-pause" : "image://theme/icon-m-play"
                 onClicked: root.pluginInterface.sendAction("PlayPause");
             }
             IconButton {
+                id: btnNext
+                Layout.fillWidth: true
                 icon.source: "image://theme/icon-m-next"
                 onClicked: root.pluginInterface.sendAction("Next")
             }
         }
-        Row {
-            width: parent.width
-            Label { text: ("Volume:") }
-            Slider {
-                value: root.pluginInterface.volume
-                maximumValue: 100
-                width: parent.width
+
+        Slider {
+            id: sldVolume
+            label: "Volume"
+            maximumValue: 100
+            Layout.fillWidth: true
+            //value: root.pluginInterface.volume
+            onValueChanged: {
+                root.pluginInterface.volume = value;
             }
         }
+
         Item { height: parent.height }
+    }
+
+
+    Connections {
+        target: root.pluginInterface
+        onPropertiesChanged: {
+            sldVolume.value = root.pluginInterface.volume;
+        }
+    }
+
+    Component.onCompleted: {
+        pluginInterface.requestPlayerList();
     }
 }
