@@ -50,7 +50,7 @@ QStringList ConversationsDbusInterface::activeConversations()
 
 void ConversationsDbusInterface::requestConversation(const QString& conversationID, int start, int end)
 {
-    const auto messagesList = m_conversations[conversationID];
+    const auto messagesList = m_conversations[conversationID].values();
 
     if (messagesList.isEmpty())
     {
@@ -60,9 +60,17 @@ void ConversationsDbusInterface::requestConversation(const QString& conversation
 
     m_telephonyInterface.requestConversation(conversationID);
 
-    for(int i=start; i<end; ++i) {
-        if (i<messagesList.size()) {
-            Q_EMIT conversationMessageReceived(messagesList.at(i).toVariant(), i);
+    // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
+    // messages (smallest timestamp number)
+    // Therefore, return the end of the list first (most recent messages)
+    int i = start;
+    for(auto it = messagesList.crbegin(); it != messagesList.crend(); ++it)
+    {
+        Q_EMIT conversationMessageReceived(it->toVariant(), i);
+        i++;
+        if (i >= end)
+        {
+            break;
         }
     }
 }
@@ -79,7 +87,7 @@ void ConversationsDbusInterface::addMessage(const ConversationMessage &message)
 
     // Store the Message in the list corresponding to its thread
     bool newConversation = !m_conversations.contains(threadId);
-    m_conversations[threadId].append(message);
+    m_conversations[threadId].insert(message.date(), message);
     m_known_messages[threadId].insert(message.uID());
 
     // Tell the world about what just happened
@@ -106,7 +114,11 @@ void ConversationsDbusInterface::replyToConversation(const QString& conversation
         qCWarning(KDECONNECT_PLUGIN_TELEPHONY) << "Got a conversationID for a conversation with no messages!";
         return;
     }
-    const QString& address = messagesList.front().address();
+    // Caution:
+    // This method assumes that the address of any message (in this case, whichever one pops out
+    // with .first()) will be the same. This works fine for single-target SMS but might break down
+    // for group MMS, etc.
+    const QString& address = messagesList.first().address();
     m_telephonyInterface.sendSms(address, message);
 }
 

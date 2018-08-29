@@ -24,6 +24,7 @@
 #include <QDBusAbstractAdaptor>
 #include <QHash>
 #include <QList>
+#include <QMap>
 #include <QString>
 #include <QStringList>
 #include <QDir>
@@ -80,9 +81,12 @@ private /*attributes*/:
     KdeConnectPlugin* m_plugin;
 
     /**
-     * Mapping of threadID to the list of messages which make up that thread
+     * Mapping of threadID to the messages which make up that thread
+     *
+     * The messages are stored as a QMap of the timestamp to the actual message object so that
+     * we can use .values() to get a sorted list of messages from least- to most-recent
      */
-    QHash<QString, QVector<ConversationMessage>> m_conversations;
+    QHash<QString, QMap<qint64, ConversationMessage>> m_conversations;
 
     /**
      * Mapping of threadID to the set of uIDs known in the corresponding conversation
