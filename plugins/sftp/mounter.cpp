@@ -134,7 +134,7 @@ void Mounter::onPakcageReceived(const NetworkPacket& np)
         << QStringLiteral("-o") << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
         << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") //Do not ask for confirmation because it is not a known host
         << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
-        << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-rsa") //https://bugs.kde.org/show_bug.cgi?id=351725
+        << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725
         << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid())
         << QStringLiteral("-o") << QStringLiteral("gid=") + QString::number(getgid())
         << QStringLiteral("-o") << QStringLiteral("reconnect")
