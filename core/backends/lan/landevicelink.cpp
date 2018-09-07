@@ -120,11 +120,11 @@ void LanDeviceLink::dataReceived()
 
     if (packet.hasPayloadTransferInfo()) {
         //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
-        QVariantMap transferInfo = packet.payloadTransferInfo();
+        const QVariantMap transferInfo = packet.payloadTransferInfo();
 
         QSharedPointer<QSslSocket> socket(new QSslSocket);
 
-        LanLinkProvider::configureSslSocket(socket.data(), transferInfo.value(QStringLiteral("deviceId")).toString(), true);
+        LanLinkProvider::configureSslSocket(socket.data(), deviceId(), true);
 
         // emit readChannelFinished when the socket gets disconnected. This seems to be a bug in upstream QSslSocket.
         // Needs investigation and upstreaming of the fix. QTBUG-62257
