@@ -31,7 +31,7 @@
         "Description[zh_CN]": "同步电脑和已连接设备的通讯录",
         "Description[zh_TW]": "在電腦與連線裝置之間同步聯絡人",
         "EnabledByDefault": true,
-        "Icon": "dialog-ok",
+        "Icon": "tag-people",
         "Id": "kdeconnect_contacts",
         "License": "GPL",
         "Name": "Contacts",
