@@ -41,7 +41,7 @@ int main(int argc, char** argv)
                      QStringLiteral("kdeconnect-cli"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
                      i18n("KDE Connect CLI tool"),
-                     KAboutLicense::GPL, 
+                     KAboutLicense::GPL,
                      i18n("(C) 2015 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
@@ -214,7 +214,7 @@ int main(int argc, char** argv)
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("send-sms"))) {
             if (parser.isSet(QStringLiteral("destination"))) {
-                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/telephony", QStringLiteral("org.kde.kdeconnect.device.telephony"), QStringLiteral("sendSms"));
+                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/sms", QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
                 msg.setArguments({ parser.value("destination"), parser.value("send-sms") });
                 blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             } else {

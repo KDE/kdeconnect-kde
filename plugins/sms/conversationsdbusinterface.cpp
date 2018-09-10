@@ -27,14 +27,14 @@
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
 
-#include "telephonyplugin.h"
+Q_LOGGING_CATEGORY(KDECONNECT_CONVERSATIONS, "kdeconnect.conversations")
 
 ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin* plugin)
     : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
     , m_device(plugin->device())
     , m_plugin(plugin)
     , m_lastId(0)
-    , m_telephonyInterface(m_device->id())
+    , m_smsInterface(m_device->id())
 {
     ConversationMessage::registerDbusType();
 }
@@ -55,10 +55,10 @@ void ConversationsDbusInterface::requestConversation(const QString& conversation
     if (messagesList.isEmpty())
     {
         // Since there are no messages in the conversation, it's likely that it is a junk ID, but go ahead anyway
-        qCWarning(KDECONNECT_PLUGIN_TELEPHONY) << "Got a conversationID for a conversation with no messages!" << conversationID;
+        qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!" << conversationID;
     }
 
-    m_telephonyInterface.requestConversation(conversationID);
+    m_smsInterface.requestConversation(conversationID);
 
     // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
     // messages (smallest timestamp number)
@@ -111,7 +111,7 @@ void ConversationsDbusInterface::replyToConversation(const QString& conversation
     if (messagesList.isEmpty())
     {
         // Since there are no messages in the conversation, we can't do anything sensible
-        qCWarning(KDECONNECT_PLUGIN_TELEPHONY) << "Got a conversationID for a conversation with no messages!";
+        qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!";
         return;
     }
     // Caution:
@@ -119,13 +119,13 @@ void ConversationsDbusInterface::replyToConversation(const QString& conversation
     // with .first()) will be the same. This works fine for single-target SMS but might break down
     // for group MMS, etc.
     const QString& address = messagesList.first().address();
-    m_telephonyInterface.sendSms(address, message);
+    m_smsInterface.sendSms(address, message);
 }
 
 void ConversationsDbusInterface::requestAllConversationThreads()
 {
     // Prepare the list of conversations by requesting the first in every thread
-    m_telephonyInterface.requestAllConversations();
+    m_smsInterface.requestAllConversations();
 }
 
 QString ConversationsDbusInterface::newId()

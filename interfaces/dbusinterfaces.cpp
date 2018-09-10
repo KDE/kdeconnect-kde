@@ -176,9 +176,9 @@ RemoteKeyboardDbusInterface::RemoteKeyboardDbusInterface(const QString& deviceId
 
 RemoteKeyboardDbusInterface::~RemoteKeyboardDbusInterface() = default;
 
-TelephonyDbusInterface::TelephonyDbusInterface(const QString& deviceId, QObject* parent):
-    OrgKdeKdeconnectDeviceTelephonyInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/telephony", QDBusConnection::sessionBus(), parent)
+SmsDbusInterface::SmsDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceSmsInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/sms", QDBusConnection::sessionBus(), parent)
 {
 }
 
-TelephonyDbusInterface::~TelephonyDbusInterface() = default;
+SmsDbusInterface::~SmsDbusInterface() = default;

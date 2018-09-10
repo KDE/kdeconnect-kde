@@ -48,8 +48,8 @@ geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h rem
 geninterface(${CMAKE_SOURCE_DIR}/plugins/lockdevice/lockdeviceplugin.h lockdeviceinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecommands/remotecommandsplugin.h remotecommandsinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotekeyboard/remotekeyboardplugin.h remotekeyboardinterface)
-geninterface(${CMAKE_SOURCE_DIR}/plugins/telephony/telephonyplugin.h telephonyinterface)
-geninterface(${CMAKE_SOURCE_DIR}/plugins/telephony/conversationsdbusinterface.h conversationsinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/sms/smsplugin.h smsinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h conversationsinterface)
 
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})

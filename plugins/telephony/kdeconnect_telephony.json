@@ -89,13 +89,9 @@
         "Website": "http://albertvaka.wordpress.com"
     },
     "X-KdeConnect-OutgoingPacketType": [
-        "kdeconnect.telephony.request",
-        "kdeconnect.sms.request",
-        "kdeconnect.telephony.request_conversations",
-        "kdeconnect.telephony.request_conversation"
+        "kdeconnect.telephony.request"
     ],
     "X-KdeConnect-SupportedPacketType": [
-        "kdeconnect.telephony",
-        "kdeconnect.telephony.message"
+        "kdeconnect.telephony"
     ]
 }

@@ -1,0 +1,30 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "simon@ergotech.com",
+                "Name": "Simon Redman"
+            }
+        ],
+        "Description": "Send and receive SMS",
+        "EnabledByDefault": true,
+        "Icon": "dialog-ok",
+        "Id": "kdeconnect_sms",
+        "License": "GPL",
+        "Name": "SMS",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "https://nicolasfella.wordpress.com"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.sms.request",
+        "kdeconnect.telephony.request_conversations",
+        "kdeconnect.telephony.request_conversation"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.telephony.message",
+        "kdeconnect.telephony"
+    ]
+}

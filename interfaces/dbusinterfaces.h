@@ -35,7 +35,7 @@
 #include "interfaces/lockdeviceinterface.h"
 #include "interfaces/remotecommandsinterface.h"
 #include "interfaces/remotekeyboardinterface.h"
-#include "interfaces/telephonyinterface.h"
+#include "interfaces/smsinterface.h"
 #include "interfaces/conversationsinterface.h"
 
 /**
@@ -210,13 +210,13 @@ Q_SIGNALS:
     void remoteStateChanged(bool state);
 };
 
-class KDECONNECTINTERFACES_EXPORT TelephonyDbusInterface
-    : public OrgKdeKdeconnectDeviceTelephonyInterface
+class KDECONNECTINTERFACES_EXPORT SmsDbusInterface
+    : public OrgKdeKdeconnectDeviceSmsInterface
 {
     Q_OBJECT
 public:
-    explicit TelephonyDbusInterface(const QString& deviceId, QObject* parent = nullptr);
-    ~TelephonyDbusInterface() override;
+    explicit SmsDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~SmsDbusInterface() override;
 };
 
 template <typename T, typename W>

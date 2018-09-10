@@ -36,6 +36,8 @@
 class KdeConnectPlugin;
 class Device;
 
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CONVERSATIONS)
+
 class ConversationsDbusInterface
     : public QDBusAbstractAdaptor
 {
@@ -95,7 +97,7 @@ private /*attributes*/:
 
     int m_lastId;
 
-    TelephonyDbusInterface m_telephonyInterface;
+    SmsDbusInterface m_smsInterface;
 };
 
 #endif // CONVERSATIONSDBUSINTERFACE_H
