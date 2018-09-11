@@ -3,7 +3,8 @@
         "Authors": [
             {
                 "Email": "simon@ergotech.com",
-                "Name": "Simon Redman"
+                "Name": "Simon Redman",
+                "Name[x-test]": "xxSimon Redmanxx"
             }
         ],
         "Description": "Send and receive SMS",
