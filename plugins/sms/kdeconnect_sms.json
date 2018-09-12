@@ -14,7 +14,7 @@
         "Description[uk]": "Надсилання і отримання SMS",
         "Description[x-test]": "xxSend and receive SMSxx",
         "EnabledByDefault": true,
-        "Icon": "dialog-ok",
+        "Icon": "mail-message-new-list",
         "Id": "kdeconnect_sms",
         "License": "GPL",
         "Name": "SMS",
