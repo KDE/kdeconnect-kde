@@ -8,11 +8,17 @@
             }
         ],
         "Description": "Send and receive SMS",
+        "Description[ca]": "Envia i rep SMS",
+        "Description[nl]": "SMS verzenden en ontvangen",
+        "Description[pt]": "Enviar e receber SMS's",
+        "Description[uk]": "Надсилання і отримання SMS",
+        "Description[x-test]": "xxSend and receive SMSxx",
         "EnabledByDefault": true,
         "Icon": "dialog-ok",
         "Id": "kdeconnect_sms",
         "License": "GPL",
         "Name": "SMS",
+        "Name[x-test]": "xxSMSxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
