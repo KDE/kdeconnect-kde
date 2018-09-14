@@ -8,6 +8,7 @@
             }
         ],
         "Description": "Send and receive SMS",
+        "Description[ca@valencia]": "Envia i rep SMS",
         "Description[ca]": "Envia i rep SMS",
         "Description[nl]": "SMS verzenden en ontvangen",
         "Description[pt]": "Enviar e receber SMS's",
