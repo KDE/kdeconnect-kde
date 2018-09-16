@@ -123,7 +123,7 @@ bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
 
 void TelephonyPlugin::sendMutePacket()
 {
-    NetworkPacket packet(PACKET_TYPE_TELEPHONY_REQUEST, {{"action", "mute"}});
+    NetworkPacket packet(PACKET_TYPE_TELEPHONY_REQUEST_MUTE, {{"action", "mute"}});
     sendPacket(packet);
 }
 

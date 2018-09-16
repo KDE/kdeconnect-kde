@@ -36,11 +36,14 @@
  *  - "ringing" - A phone call is incoming
  *  - "missedCall" - An incoming call was not answered
  *
- *  Depending on the event, other fields may be defined
+ * Historically, "sms" was a valid event, but support for that has been dropped in favour
+ * of the SMS plugin's more expressive interfaces
+ *
+ * Depending on the event, other fields may be defined
  */
 #define PACKET_TYPE_TELEPHONY QStringLiteral("kdeconnect.telephony")
 
-#define PACKET_TYPE_TELEPHONY_REQUEST QStringLiteral("kdeconnect.telephony.request")
+#define PACKET_TYPE_TELEPHONY_REQUEST_MUTE QStringLiteral("kdeconnect.telephony.request_mute")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 

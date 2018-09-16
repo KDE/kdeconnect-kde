@@ -23,16 +23,12 @@
 
 #include <QObject>
 
-#include <KNotification>
-
 #include <core/kdeconnectplugin.h>
 
 #include "conversationsdbusinterface.h"
 #include "interfaces/conversationmessage.h"
 
 #include "sendreplydialog.h"
-
-#define PACKET_TYPE_TELEPHONY QStringLiteral("kdeconnect.telephony")
 
 /**
  * Packet used to indicate a batch of messages has been pushed from the remote device
@@ -41,9 +37,9 @@
  *
  * For example:
  * { "messages" : [
- *   { "event" : "sms",
- *     "messageBody" : "Hello",
- *     "phoneNumber" : "2021234567",
+ *   {  "event" : "sms",
+ *      "messageBody" : "Hello",
+ *      "phoneNumber" : "2021234567",
  *      "messageDate" : "1518846484880",
  *      "messageType" : "2",
  *      "threadID" : "132"
@@ -53,26 +49,37 @@
  *   ]
  * }
  */
+#define PACKET_TYPE_SMS_MESSAGES QStringLiteral("kdeconnect.sms.messages")
 
-#define PACKET_TYPE_TELEPHONY_MESSAGE QStringLiteral("kdeconnect.telephony.message")
-
+/**
+ * Packet sent to request a message be sent
+ *
+ * This will almost certainly need to be replaced or augmented to support MMS,
+ * but be sure the Android side remains compatible with old desktop apps!
+ *
+ * The body should look like so:
+ * { "sendSms": true,
+ *   "phoneNumber": "542904563213",
+ *   "messageBody": "Hi mom!"
+ * }
+ */
 #define PACKET_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
 
 /**
- * Packet sent to request all the most-recent messages in all conversations on the device
+ * Packet sent to request the most-recent message in each conversations on the device
  *
  * The request packet shall contain no body
  */
-#define PACKET_TYPE_TELEPHONY_REQUEST_CONVERSATIONS QStringLiteral("kdeconnect.telephony.request_conversations")
+#define PACKET_TYPE_SMS_REQUEST_CONVERSATIONS QStringLiteral("kdeconnect.sms.request_conversations")
 
 /**
  * Packet sent to request all the messages in a particular conversation
  *
- * The body should contain the key "threadID" mapping to the threadID (as a string) being requested
+ * The body should contain the key "threadID" mapping to the threadID being requested
  * For example:
  * { "threadID": 203 }
  */
-#define PACKET_TYPE_TELEPHONY_REQUEST_CONVERSATION QStringLiteral("kdeconnect.telephony.request_conversation")
+#define PACKET_TYPE_SMS_REQUEST_CONVERSATION QStringLiteral("kdeconnect.sms.request_conversation")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS)
 
@@ -104,22 +111,12 @@ public Q_SLOTS:
      */
     Q_SCRIPTABLE void requestConversation(const QString& conversationID) const;
 
-private Q_SLOTS:
-    void showSendSmsDialog();
-
 private:
 
     /**
      * Send to the telepathy plugin if it is available
      */
     void forwardToTelepathy(const ConversationMessage& message);
-
-    /**
-     * Create a notification for incoming SMS (with the option to reply)
-     * This comment is being written while SMS handling is in the process of being improved.
-     * As such, any code in createNotification which deals with SMS is legacy support
-     */
-    KNotification* createNotification(const NetworkPacket& np);
 
     /**
      * Handle a packet which contains many messages, such as PACKET_TYPE_TELEPHONY_MESSAGE

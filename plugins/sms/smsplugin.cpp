@@ -49,81 +49,11 @@ SmsPlugin::~SmsPlugin()
 
 bool SmsPlugin::receivePacket(const NetworkPacket& np)
 {
-    if (np.get<bool>(QStringLiteral("isCancel"))) {
-
-        //TODO: Clear the old notification
-        return true;
-    }
-
-    const QString& event = np.get<QString>(QStringLiteral("event"), QStringLiteral("unknown"));
-
-    // Handle old-style packets
-    // TODO Drop support?
-    if (np.type() == PACKET_TYPE_TELEPHONY)
-    {
-        if (event == QLatin1String("sms"))
-        {
-            // New-style packets should be a PACKET_TYPE_TELEPHONY_MESSAGE (15 May 2018)
-            qCDebug(KDECONNECT_PLUGIN_SMS) << "Handled an old-style Telephony sms packet. You should update your Android app to get the latest features!";
-            ConversationMessage message(np.body());
-
-            // In case telepathy can handle the message, don't do anything else
-            if (m_telepathyInterface.isValid()) {
-                forwardToTelepathy(message);
-                return true;
-            }
-
-            KNotification* n = createNotification(np);
-            if (n != nullptr) n->sendEvent();
-                return true;
-
-        }
-    }
-
-    if (np.type() == PACKET_TYPE_TELEPHONY_MESSAGE) {
+    if (np.type() == PACKET_TYPE_SMS_MESSAGES) {
         return handleBatchMessages(np);
     }
 
     return true;
-}
-
-KNotification* SmsPlugin::createNotification(const NetworkPacket& np)
-{
-    const QString event = np.get<QString>(QStringLiteral("event"));
-    const QString phoneNumber = np.get<QString>(QStringLiteral("phoneNumber"), i18n("unknown number"));
-    const QString contactName = np.get<QString>(QStringLiteral("contactName"), phoneNumber);
-    const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>(QStringLiteral("phoneThumbnail"), ""));
-    const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),{});
-
-    const QString title = device()->name();
-
-    QString type = QStringLiteral("smsReceived");
-    QString icon = QStringLiteral("mail-receive");
-    QString content = i18n("SMS from %1<br>%2", contactName, messageBody);
-    KNotification::NotificationFlags flags = KNotification::Persistent; //Note that in Unity this generates a message box!
-
-    qCDebug(KDECONNECT_PLUGIN_SMS) << "Creating notification with type:" << type;
-
-    KNotification* notification = new KNotification(type, flags, this);
-    if (!phoneThumbnail.isEmpty()) {
-        QPixmap photo;
-        photo.loadFromData(phoneThumbnail, "JPEG");
-        notification->setPixmap(photo);
-    } else {
-        notification->setIconName(icon);
-    }
-    notification->setComponentName(QStringLiteral("kdeconnect"));
-    notification->setTitle(title);
-    notification->setText(content);
-
-    notification->setActions( QStringList(i18n("Reply")) );
-    notification->setProperty("phoneNumber", phoneNumber);
-    notification->setProperty("contactName", contactName);
-    notification->setProperty("originalMessage", messageBody);
-    connect(notification, &KNotification::action1Activated, this, &SmsPlugin::showSendSmsDialog);
-
-    return notification;
-
 }
 
 void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
@@ -133,32 +63,20 @@ void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
         {"phoneNumber", phoneNumber},
         {"messageBody", messageBody}
     });
-    qDebug() << "sending sms!";
+    qDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
     sendPacket(np);
-}
-
-void SmsPlugin::showSendSmsDialog()
-{
-    qCDebug(KDECONNECT_PLUGIN_SMS) << "Show dialog";
-    QString phoneNumber = sender()->property("phoneNumber").toString();
-    QString contactName = sender()->property("contactName").toString();
-    QString originalMessage = sender()->property("originalMessage").toString();
-    SendReplyDialog* dialog = new SendReplyDialog(originalMessage, phoneNumber, contactName);
-    connect(dialog, &SendReplyDialog::sendReply, this, &SmsPlugin::sendSms);
-    dialog->show();
-    dialog->raise();
 }
 
 void SmsPlugin::requestAllConversations()
 {
-    NetworkPacket np(PACKET_TYPE_TELEPHONY_REQUEST_CONVERSATIONS);
+    NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATIONS);
 
     sendPacket(np);
 }
 
 void SmsPlugin::requestConversation (const QString& conversationID) const
 {
-    NetworkPacket np(PACKET_TYPE_TELEPHONY_REQUEST_CONVERSATION);
+    NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATION);
     np.set("threadID", conversationID.toInt());
 
     sendPacket(np);
