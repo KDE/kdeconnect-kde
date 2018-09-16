@@ -56,6 +56,7 @@ public:
 
 private Q_SLOTS:
     void createRowFromMessage(const QVariantMap &msg, int pos);
+    void handleConversationUpdate(const QVariantMap &msg);
 
 private:
     DeviceConversationsDbusInterface* m_conversationsInterface;

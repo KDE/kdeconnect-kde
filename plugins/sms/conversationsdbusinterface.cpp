@@ -96,7 +96,7 @@ void ConversationsDbusInterface::addMessage(const ConversationMessage &message)
         Q_EMIT conversationCreated(threadId);
     } else
     {
-        Q_EMIT conversationUpdated(threadId);
+        Q_EMIT conversationUpdated(message.toVariant());
     }
 }
 

@@ -67,6 +67,7 @@ void ConversationModel::setDeviceId(const QString& deviceId)
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
     connect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap, int)), this, SLOT(createRowFromMessage(QVariantMap, int)));
+    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
 }
 
 void ConversationModel::sendReplyToConversation(const QString& message)
@@ -78,9 +79,35 @@ void ConversationModel::sendReplyToConversation(const QString& message)
 void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
 {
     const ConversationMessage message(msg);
+
+    if (!(message.threadID() == m_threadId.toInt())) {
+        // Because of the asynchronous nature of the current implementation of this model, if the
+        // user clicks quickly between threads or for some other reason a message comes when we're
+        // not expecting it, we should not display it in the wrong place
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
+                << "Got a message for a thread" << message.threadID()
+                << "but we are currently viewing" << m_threadId
+                << "Discarding.";
+        return;
+    }
     auto item = new QStandardItem;
     item->setText(message.body());
     item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
     item->setData(message.date(), DateRole);
     insertRow(pos, item);
+}
+
+void ConversationModel::handleConversationUpdate(const QVariantMap& msg)
+{
+    const ConversationMessage message(msg);
+
+    if (!(message.threadID() == m_threadId.toInt())) {
+        // If a conversation which we are not currently viewing was updated, discard the information
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
+                << "Saw update for thread" << message.threadID()
+                << "but we are currently viewing" << m_threadId;
+        return;
+    }
+
+    createRowFromMessage(msg, 0);
 }
