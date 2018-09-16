@@ -56,7 +56,13 @@ Kirigami.ScrollablePage
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
         }
+
+        // Set the view to start at the bottom of the page and track new elements if it was not manually scrolled up
+        currentIndex: atYEnd ?
+                        count - 1 :
+                        currentIndex
     }
+
     footer: RowLayout {
         enabled: page.device
         TextField {
