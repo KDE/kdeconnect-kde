@@ -15,6 +15,7 @@
         "Description[nl]": "SMS verzenden en ontvangen",
         "Description[pt]": "Enviar e receber SMS's",
         "Description[pt_BR]": "Envia e recebe SMS",
+        "Description[sv]": "Skicka och ta emot SMS",
         "Description[uk]": "Надсилання і отримання SMS",
         "Description[x-test]": "xxSend and receive SMSxx",
         "EnabledByDefault": true,
