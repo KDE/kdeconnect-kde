@@ -197,9 +197,7 @@ int main(int argc, char** argv)
             blockOnReply(iface.releaseDiscoveryMode(id));
         } else if(parser.isSet(QStringLiteral("unpair"))) {
             DeviceDbusInterface dev(device);
-            if (!dev.isReachable()) {
-                QTextStream(stderr) << i18n("Device does not exist") << endl;
-            } else if(!dev.isTrusted()) {
+            if (!dev.isTrusted()) {
                 QTextStream(stderr) << i18n("Already not paired") << endl;
             } else {
                 QTextStream(stderr) << i18n("Unpaired") << endl;
