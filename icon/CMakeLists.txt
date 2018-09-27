@@ -9,12 +9,6 @@ ICONS
     22-apps-kdeconnect.png
     16-apps-kdeconnect.png
     sc-apps-kdeconnect.svgz
-DESTINATION
-    ${ICON_INSTALL_DIR}
-)
-
-ecm_install_icons(
-ICONS
     32-status-laptopconnected.png
     32-status-laptopdisconnected.png
     32-status-laptoptrusted.png
