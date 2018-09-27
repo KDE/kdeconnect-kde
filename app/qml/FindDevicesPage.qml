@@ -33,7 +33,15 @@ Kirigami.ScrollablePage
 
     objectName: "FindDevices"
     title: i18n("Pair")
+
+    Label {
+        text: i18n("No devices found")
+        anchors.centerIn: parent
+        visible: devices.count === 0
+    }
+
     ListView {
+        id: devices
         section {
             property: "status"
             delegate: Kirigami.Heading {
