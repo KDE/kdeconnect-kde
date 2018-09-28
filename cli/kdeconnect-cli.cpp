@@ -148,7 +148,7 @@ int main(int argc, char** argv)
 
         if (parser.isSet(QStringLiteral("share"))) {
             QList<QUrl> urls;
-            QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")));
+            QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")), QDir::currentPath());
             urls.append(url);
 
             //In case there are more arguments, check if they are files and then send them
