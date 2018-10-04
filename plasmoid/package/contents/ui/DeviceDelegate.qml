@@ -195,7 +195,7 @@ PlasmaComponents.ListItem
                 enabled: true
                 visible: notificationsModel.isAnyDimissable;
                 anchors.right: parent.right
-                iconSource: "edit-delete"
+                iconSource: "edit-clear-history"
                 tooltip: i18n("Dismiss all notifications")
                 onClicked: notificationsModel.dismissAll();
             }
