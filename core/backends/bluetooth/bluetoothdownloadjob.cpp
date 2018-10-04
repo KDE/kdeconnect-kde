@@ -35,6 +35,7 @@ QSharedPointer<QIODevice> BluetoothDownloadJob::payload() const
 
 void BluetoothDownloadJob::start()
 {
-    connect(mSocket.data(), SIGNAL(disconnected()), this, SLOT(deleteLater()));
+    connect(mSocket.data(), &QBluetoothSocket::disconnected, mSocket.data(), &QBluetoothSocket::readyRead);
+    connect(mSocket.data(), &QBluetoothSocket::disconnected, mSocket.data(), &QBluetoothSocket::readChannelFinished);
     mSocket->connectToService(mRemoteAddress, mTransferUuid, QIODevice::ReadOnly);
 }

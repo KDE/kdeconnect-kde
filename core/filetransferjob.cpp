@@ -40,7 +40,8 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     , m_size(size)
 {
     Q_ASSERT(m_origin);
-    Q_ASSERT(m_origin->isReadable());
+    //Disabled this assert: QBluetoothSocket doesn't report "->isReadable() == true" until it's connected
+    //Q_ASSERT(m_origin->isReadable());
     if (m_destination.scheme().isEmpty()) {
         qCWarning(KDECONNECT_CORE) << "Destination QUrl" << m_destination << "lacks a scheme. Setting its scheme to 'file'.";
         m_destination.setScheme(QStringLiteral("file"));
