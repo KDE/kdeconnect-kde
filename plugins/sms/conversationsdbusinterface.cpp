@@ -52,8 +52,7 @@ void ConversationsDbusInterface::requestConversation(const QString& conversation
 {
     const auto messagesList = m_conversations[conversationID].values();
 
-    if (messagesList.isEmpty())
-    {
+    if (messagesList.isEmpty()) {
         // Since there are no messages in the conversation, it's likely that it is a junk ID, but go ahead anyway
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!" << conversationID;
     }
@@ -64,12 +63,10 @@ void ConversationsDbusInterface::requestConversation(const QString& conversation
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)
     int i = start;
-    for(auto it = messagesList.crbegin(); it != messagesList.crend(); ++it)
-    {
+    for(auto it = messagesList.crbegin(); it != messagesList.crend(); ++it) {
         Q_EMIT conversationMessageReceived(it->toVariant(), i);
         i++;
-        if (i >= end)
-        {
+        if (i >= end) {
             break;
         }
     }
@@ -79,8 +76,7 @@ void ConversationsDbusInterface::addMessage(const ConversationMessage &message)
 {
     const QString& threadId = QString::number(message.threadID());
 
-    if (m_known_messages[threadId].contains(message.uID()))
-    {
+    if (m_known_messages[threadId].contains(message.uID())) {
         // This message has already been processed. Don't do anything.
         return;
     }
@@ -91,11 +87,9 @@ void ConversationsDbusInterface::addMessage(const ConversationMessage &message)
     m_known_messages[threadId].insert(message.uID());
 
     // Tell the world about what just happened
-    if (newConversation)
-    {
+    if (newConversation) {
         Q_EMIT conversationCreated(threadId);
-    } else
-    {
+    } else {
         Q_EMIT conversationUpdated(message.toVariant());
     }
 }
@@ -108,8 +102,7 @@ void ConversationsDbusInterface::removeMessage(const QString& internalId)
 void ConversationsDbusInterface::replyToConversation(const QString& conversationID, const QString& message)
 {
     const auto messagesList = m_conversations[conversationID];
-    if (messagesList.isEmpty())
-    {
+    if (messagesList.isEmpty()) {
         // Since there are no messages in the conversation, we can't do anything sensible
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!";
         return;

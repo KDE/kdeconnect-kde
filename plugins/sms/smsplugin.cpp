@@ -1,5 +1,6 @@
 /**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2018 Simon Redman <simon@ergotech.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -99,8 +100,7 @@ bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
 {
     const auto messages = np.get<QVariantList>("messages");
 
-    for (const QVariant& body : messages)
-    {
+    for (const QVariant& body : messages) {
         ConversationMessage message(body.toMap());
         forwardToTelepathy(message);
         m_conversationInterface->addMessage(message);

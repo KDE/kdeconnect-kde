@@ -33,7 +33,7 @@ ConversationMessage::ConversationMessage(const QVariantMap& args, QObject* paren
       m_read(args["read"].toInt()),
       m_threadID(args["thread_id"].toInt()),
       m_uID(args["_id"].toInt())
-      {
+{
 }
 
 ConversationMessage::ConversationMessage (const QString& body, const QString& address, const qint64& date,
@@ -49,7 +49,6 @@ ConversationMessage::ConversationMessage (const QString& body, const QString& ad
     , m_threadID(threadID)
     , m_uID(uID)
 {
-
 }
 
 ConversationMessage::ConversationMessage(const ConversationMessage& other, QObject* parent)
@@ -62,7 +61,6 @@ ConversationMessage::ConversationMessage(const ConversationMessage& other, QObje
     , m_threadID(other.m_threadID)
     , m_uID(other.m_uID)
 {
-
 }
 
 ConversationMessage::~ConversationMessage() { }

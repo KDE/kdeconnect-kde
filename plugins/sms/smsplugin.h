@@ -1,5 +1,6 @@
 /**
  * Copyright 2013 Albert Vaca <albertvaka@gmail.com>
+ * Copyright 2018 Simon Redman <simon@ergotech.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -122,7 +123,6 @@ private:
      * Handle a packet which contains many messages, such as PACKET_TYPE_TELEPHONY_MESSAGE
      */
     bool handleBatchMessages(const NetworkPacket& np);
-
 
     QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface* m_conversationInterface;

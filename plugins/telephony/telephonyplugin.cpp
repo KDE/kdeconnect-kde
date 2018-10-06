@@ -107,10 +107,8 @@ bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
     const QString& event = np.get<QString>(QStringLiteral("event"), QStringLiteral("unknown"));
 
     // Handle old-style packets
-    if (np.type() == PACKET_TYPE_TELEPHONY)
-    {
-        if (event == QLatin1String("sms"))
-        {
+    if (np.type() == PACKET_TYPE_TELEPHONY) {
+        if (event == QLatin1String("sms")) {
             return false;
         }
         KNotification* n = createNotification(np);

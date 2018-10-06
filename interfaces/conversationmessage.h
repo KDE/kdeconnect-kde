@@ -42,8 +42,7 @@ class KDECONNECTINTERFACES_EXPORT ConversationMessage
 
 public:
     // TYPE field values from Android
-    enum Types
-    {
+    enum Types {
         MessageTypeAll = 0,
         MessageTypeInbox = 1,
         MessageTypeSent = 2,

@@ -2,6 +2,7 @@
  * This file is part of KDE Telepathy Chat
  *
  * Copyright (C) 2018 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright (C) 2018 Simon Redman <simon@ergotech.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -104,8 +105,7 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg, int row
         return;
 
     const ConversationMessage message(msg);
-    if (message.type() == -1)
-    {
+    if (message.type() == -1) {
         // The Android side currently hacks in -1 if something weird comes up
         // TODO: Remove this hack when MMS support is implemented
         return;
@@ -117,14 +117,11 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg, int row
         toadd = true;
         item = new QStandardItem();
         QScopedPointer<KPeople::PersonData> personData(lookupPersonByAddress(message.address()));
-        if (personData)
-        {
+        if (personData) {
             item->setText(personData->name());
             item->setIcon(QIcon(personData->photo()));
             item->setData(personData->personUri(), PersonUriRole);
-        }
-        else
-        {
+        } else {
             item->setData(QString(), PersonUriRole);
             item->setText(message.address());
         }
@@ -142,16 +139,14 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg, int row
 KPeople::PersonData* ConversationListModel::lookupPersonByAddress(const QString& address)
 {
     int rowIndex = 0;
-    for (rowIndex = 0; rowIndex < m_people.rowCount(); rowIndex++)
-    {
+    for (rowIndex = 0; rowIndex < m_people.rowCount(); rowIndex++) {
         const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
         KPeople::PersonData* person = new KPeople::PersonData(uri);
 
         const QString& email = person->email();
         const QString& phoneNumber = canonicalizePhoneNumber(person->contactCustomProperty("phoneNumber").toString());
 
-        if (address == email || canonicalizePhoneNumber(address) == phoneNumber)
-        {
+        if (address == email || canonicalizePhoneNumber(address) == phoneNumber) {
             qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
             return person;
         }

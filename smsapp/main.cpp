@@ -1,7 +1,8 @@
 /*
  * This file is part of KDE Telepathy Chat
  *
- * Copyright (C) 2015 Aleix Pol Gonzalez <aleixpol@blue-systems.com>
+ * Copyright (C) 2018 Aleix Pol Gonzalez <aleixpol@blue-systems.com>
+ * Copyright (C) 2018 Simon Redman <simon@ergotech.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -37,6 +38,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     KAboutData aboutData("org.kde.kdeconnect.sms", i18n("SMS Instant Messaging"), QStringLiteral(KDECONNECT_VERSION_STRING), i18n("KDE Connect SMS"), KAboutLicense::GPL, i18n("(c) 2018, Aleix Pol Gonzalez"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, "aleixpol@kde.org");
+    aboutData.addAuthor(i18n("Nicolas Fella"), {}, "nicolas.fella@gmx.de");
+    aboutData.addAuthor(i18n("Simon Redman"), {}, "simon@ergotech.com");
     KAboutData::setApplicationData(aboutData);
 
     {

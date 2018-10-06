@@ -2,6 +2,7 @@
  * This file is part of KDE Telepathy Chat
  *
  * Copyright (C) 2018 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright (C) 2018 Simon Redman <simon@ergotech.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
