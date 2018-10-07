@@ -178,7 +178,7 @@ void LanLinkProviderTest::pairedDeviceUdpPacketReceived()
 
     QByteArray receivedPacket = m_reader->readLine();
     testIdentityPacket(receivedPacket);
-    // Received identiy packet from LanLinkProvider now start ssl
+    // Received identity packet from LanLinkProvider now start ssl
 
     QSignalSpy spy3(serverSocket, SIGNAL(encrypted()));
     QVERIFY(connect(serverSocket, static_cast<void(QAbstractSocket::*)(QAbstractSocket::SocketError)>(&QSslSocket::error),

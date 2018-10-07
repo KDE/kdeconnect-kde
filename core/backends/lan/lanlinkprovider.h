@@ -27,7 +27,6 @@
 #include <QUdpSocket>
 #include <QTimer>
 #include <QNetworkSession>
-#include <QSslSocket>
 
 #include "kdeconnectcore_export.h"
 #include "backends/linkprovider.h"

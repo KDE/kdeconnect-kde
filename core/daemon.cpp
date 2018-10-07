@@ -80,7 +80,7 @@ Daemon::Daemon(QObject* parent, bool testMode)
         #endif
     }
 
-    //Read remebered paired devices
+    //Read remembered paired devices
     const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
     for (const QString& id : list) {
         addDevice(new Device(this, id));

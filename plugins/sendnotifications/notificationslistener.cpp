@@ -18,9 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusArgument>
 #include <QtDebug>
 #include <QLoggingCategory>
 #include <QStandardPaths>

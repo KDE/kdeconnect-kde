@@ -21,7 +21,7 @@
 
 #include "kiokdeconnect.h"
 
-#include <QtCore/QThread>
+#include <QThread>
 #include <QDBusMetaType>
 
 #include <KLocalizedString>

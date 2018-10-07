@@ -53,7 +53,7 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE bool startBrowsing();
     Q_SCRIPTABLE QString mountPoint();
-    Q_SCRIPTABLE QVariantMap getDirectories(); //Actually a QMap<String, String>, but QDBus preffers this
+    Q_SCRIPTABLE QVariantMap getDirectories(); //Actually a QMap<String, String>, but QDBus prefers this
 
 private Q_SLOTS:
     void onMounted();
@@ -70,7 +70,7 @@ private:
     QScopedPointer<Pimpl> d;
     QString deviceId; //Storing it to avoid accessing device() from the destructor which could cause a crash
 
-    QVariantMap remoteDirectories; //Actually a QMap<String, String>, but QDBus preffers this
+    QVariantMap remoteDirectories; //Actually a QMap<String, String>, but QDBus prefers this
 };
 
 

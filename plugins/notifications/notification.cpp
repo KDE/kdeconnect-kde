@@ -162,7 +162,7 @@ void Notification::applyIcon()
 
 void Notification::applyNoIcon()
 {
-    //HACK The only way to display no icon at all is trying to load a non-existant icon
+    //HACK The only way to display no icon at all is trying to load a non-existent icon
     m_notification->setIconName(QStringLiteral("not_a_real_icon"));
 }
 

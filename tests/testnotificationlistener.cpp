@@ -371,7 +371,7 @@ void TestNotificationListener::testNotify()
         QCOMPARE(++proxiedNotifications, d->getSentPackets());
         QVERIFY(d->getLastPacket()->hasPayload());
         QCOMPARE(d->getLastPacket()->payloadSize(), fi.size());
-        // works also with abolute paths
+        // works also with absolute paths
         retId = listener->Notify(appName, replacesId, iconName, summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
         QCOMPARE(++proxiedNotifications, d->getSentPackets());

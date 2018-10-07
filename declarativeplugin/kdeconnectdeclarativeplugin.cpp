@@ -97,12 +97,12 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<RemoteCommandsModel>(uri, 1, 0, "RemoteCommandsModel");
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
-    qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
-    qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
-    qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
-    qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri, 1, 0, "RemoteKeyboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
-    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
-    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "RemoteCommandsDbusInterface", QStringLiteral("You're not supposed to instantiate interfacess"));
+    qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri, 1, 0, "RemoteKeyboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "RemoteCommandsDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface",
         [](QQmlEngine*, QJSEngine*) -> QObject* {
             return new DaemonDbusInterface;

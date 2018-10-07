@@ -420,7 +420,7 @@ void LanLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
 void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted)
 {
     // Setting supported ciphers manually
-    // Top 3 ciphers are for new Android devices, botton two are for old Android devices
+    // Top 3 ciphers are for new Android devices, bottom two are for old Android devices
     // FIXME : These cipher suites should be checked whether they are supported or not on device
     QList<QSslCipher> socketCiphers;
     socketCiphers.append(QSslCipher(QStringLiteral("ECDHE-ECDSA-AES256-GCM-SHA384")));

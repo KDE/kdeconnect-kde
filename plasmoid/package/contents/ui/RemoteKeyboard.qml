@@ -46,7 +46,7 @@ QtObject {
             var transEvent = JSON.parse(JSON.stringify(event)); // transform to anonymous object
             if (transEvent.modifiers & Qt.ControlModifier) {
                 // special handling for ctrl+c/v/x/a, for which only 'key' gets
-                // set, but no visbile 'text', which is expected by the remoteKeyboard
+                // set, but no visible 'text', which is expected by the remoteKeyboard
                 // wire-format:
                 if (transEvent.key === Qt.Key_C)
                     transEvent.text = 'c';

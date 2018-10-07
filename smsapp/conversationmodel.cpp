@@ -66,7 +66,7 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     m_deviceId = deviceId;
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap, int)), this, SLOT(createRowFromMessage(QVariantMap, int)));
+    connect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap,int)), this, SLOT(createRowFromMessage(QVariantMap,int)));
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
 }
 

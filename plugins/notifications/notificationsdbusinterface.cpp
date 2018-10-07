@@ -160,7 +160,7 @@ void NotificationsDbusInterface::dismissRequested(const QString& internalId)
     np.set<QString>(QStringLiteral("cancel"), internalId);
     m_plugin->sendPacket(np);
 
-    //Workaround: we erase notifications without waiting a repsonse from the
+    //Workaround: we erase notifications without waiting a response from the
     //phone because we won't receive a response if we are out of sync and this
     //notification no longer exists. Ideally, each time we reach the phone
     //after some time disconnected we should re-sync all the notifications.

@@ -33,7 +33,6 @@
 #include <QSettings>
 #include <QSslCertificate>
 #include <QtCrypto>
-#include <QSslCertificate>
 
 #include "core_debug.h"
 #include "dbushelper.h"
@@ -115,7 +114,7 @@ KdeConnectConfig::KdeConnectConfig()
         qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
 
         // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.
-        // The same thing we are doing with QCA could be done invoking openssl (altought it's potentially less portable):
+        // The same thing we are doing with QCA could be done invoking openssl (although it's potentially less portable):
         // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
 
         QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();

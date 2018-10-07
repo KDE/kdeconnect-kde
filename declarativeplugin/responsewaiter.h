@@ -17,7 +17,7 @@ public:
   
     static DBusResponseWaiter* instance();
   
-    ///extract QDbusPendingCall from \p variant and blocks untill completed
+    ///extract QDbusPendingCall from \p variant and blocks until completed
     Q_INVOKABLE QVariant waitForReply(QVariant variant) const;
     
     const QDBusPendingCall* extractPendingCall(QVariant& variant) const;
