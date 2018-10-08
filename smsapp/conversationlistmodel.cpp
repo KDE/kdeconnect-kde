@@ -23,6 +23,7 @@
 
 #include <QLoggingCategory>
 #include "interfaces/conversationmessage.h"
+#include "interfaces/dbusinterfaces.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL, "kdeconnect.sms.conversations_list")
 
@@ -30,7 +31,7 @@ ConversationListModel::ConversationListModel(QObject* parent)
     : QStandardItemModel(parent)
     , m_conversationsInterface(nullptr)
 {
-    qCCritical(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
+    qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
     auto roles = roleNames();
     roles.insert(FromMeRole, "fromMe");
     roles.insert(AddressRole, "address");
@@ -48,19 +49,31 @@ ConversationListModel::~ConversationListModel()
 
 void ConversationListModel::setDeviceId(const QString& deviceId)
 {
-    qCCritical(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "setDeviceId" << deviceId << "of" << this;
-    if (deviceId == m_deviceId)
+    if (deviceId == m_deviceId) {
         return;
+    }
+
+    qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "setDeviceId" << deviceId << "of" << this;
 
     if (m_conversationsInterface) {
-        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QString)), this, SLOT(handleCreatedConversation(QString)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QVariantMap)), this, SLOT(handleCreatedConversation(QVariantMap)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdated(QVariantMap)));
         delete m_conversationsInterface;
+        m_conversationsInterface = nullptr;
     }
 
     m_deviceId = deviceId;
+
+    // This method still gets called *with a valid deviceID* when the device is not connected while the component is setting up
+    // Detect that case and don't do anything.
+    DeviceDbusInterface device(deviceId);
+    if (!(device.isValid() && device.isReachable())) {
+        return;
+    }
+
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationCreated(QString)), this, SLOT(handleCreatedConversation(QString)));
-    connect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap,int)), this, SLOT(createRowFromMessage(QVariantMap,int)));
+    connect(m_conversationsInterface, SIGNAL(conversationCreated(QVariantMap)), this, SLOT(handleCreatedConversation(QVariantMap)));
+    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdated(QVariantMap)));
     prepareConversationsList();
 
     m_conversationsInterface->requestAllConversationThreads();
@@ -68,20 +81,31 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
 
 void ConversationListModel::prepareConversationsList()
 {
+    if (!m_conversationsInterface->isValid()) {
+        qCWarning(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Tried to prepareConversationsList with an invalid interface!";
+        return;
+    }
+    QDBusPendingReply<QVariantList> validThreadIDsReply = m_conversationsInterface->activeConversations();
 
-    QDBusPendingReply<QStringList> validThreadIDsReply = m_conversationsInterface->activeConversations();
-
-    setWhenAvailable(validThreadIDsReply, [this](const QStringList& convs) {
-        clear();
-        for (const QString& conversationId : convs) {
-            handleCreatedConversation(conversationId);
+    setWhenAvailable(validThreadIDsReply, [this](const QVariantList& convs) {
+        clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
+        for (const QVariant& headMessage : convs) {
+            QDBusArgument data = headMessage.value<QDBusArgument>();
+            QVariantMap message;
+            data >> message;
+            handleCreatedConversation(message);
         }
     }, this);
 }
 
-void ConversationListModel::handleCreatedConversation(const QString& conversationId)
+void ConversationListModel::handleCreatedConversation(const QVariantMap& msg)
 {
-    m_conversationsInterface->requestConversation(conversationId, 0, 1);
+    createRowFromMessage(msg);
+}
+
+void ConversationListModel::handleConversationUpdated(const QVariantMap& msg)
+{
+    createRowFromMessage(msg);
 }
 
 void ConversationListModel::printDBusError(const QDBusError& error)
@@ -99,11 +123,8 @@ QStandardItem * ConversationListModel::conversationForThreadId(qint32 threadId)
     return nullptr;
 }
 
-void ConversationListModel::createRowFromMessage(const QVariantMap& msg, int row)
+void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
 {
-    if (row != 0)
-        return;
-
     const ConversationMessage message(msg);
     if (message.type() == -1) {
         // The Android side currently hacks in -1 if something weird comes up
@@ -127,10 +148,19 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg, int row
         }
         item->setData(message.threadID(), ConversationIdRole);
     }
-    item->setData(message.address(), AddressRole);
-    item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
-    item->setData(message.body(), Qt::ToolTipRole);
-    item->setData(message.date(), DateRole);
+
+    // Update the message if the data is newer
+    // This will be true if a conversation receives a new message, but false when the user
+    // does something to trigger past conversation history loading
+    bool oldDateExists;
+    qint64 oldDate = item->data(DateRole).toLongLong(&oldDateExists);
+    if (!oldDateExists || message.date() >= oldDate) {
+        // If there was no old data or incoming data is newer, update the record
+        item->setData(message.address(), AddressRole);
+        item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
+        item->setData(message.body(), Qt::ToolTipRole);
+        item->setData(message.date(), DateRole);
+    }
 
     if (toadd)
         appendRow(item);

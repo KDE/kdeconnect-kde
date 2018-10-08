@@ -43,9 +43,25 @@ ConversationsDbusInterface::~ConversationsDbusInterface()
 {
 }
 
-QStringList ConversationsDbusInterface::activeConversations()
+QVariantList ConversationsDbusInterface::activeConversations()
 {
-    return m_conversations.keys();
+    QList<QVariant> toReturn;
+    toReturn.reserve(m_conversations.size());
+
+    for (auto it = m_conversations.cbegin(); it != m_conversations.cend(); ++it) {
+        const auto& conversation = it.value().values();
+        if (conversation.isEmpty()) {
+            // This should really never happen because we create a conversation at the same time
+            // as adding a message, but better safe than sorry
+            qCWarning(KDECONNECT_CONVERSATIONS)
+                    << "Conversation with ID" << it.key() << "is unexpectedly empty";
+            break;
+        }
+        const QVariantMap& message = (*conversation.crbegin()).toVariant();
+        toReturn.append(message);
+    }
+
+    return toReturn;
 }
 
 void ConversationsDbusInterface::requestConversation(const QString& conversationID, int start, int end)
@@ -57,13 +73,15 @@ void ConversationsDbusInterface::requestConversation(const QString& conversation
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!" << conversationID;
     }
 
+    // TODO: Check local cache before requesting new messages
+    // TODO: Make Android interface capable of requesting small window of messages
     m_smsInterface.requestConversation(conversationID);
 
     // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)
     int i = start;
-    for(auto it = messagesList.crbegin(); it != messagesList.crend(); ++it) {
+    for(auto it = messagesList.crbegin() + start; it != messagesList.crend(); ++it) {
         Q_EMIT conversationMessageReceived(it->toVariant(), i);
         i++;
         if (i >= end) {
@@ -88,7 +106,7 @@ void ConversationsDbusInterface::addMessage(const ConversationMessage &message)
 
     // Tell the world about what just happened
     if (newConversation) {
-        Q_EMIT conversationCreated(threadId);
+        Q_EMIT conversationCreated(message.toVariant());
     } else {
         Q_EMIT conversationUpdated(message.toVariant());
     }

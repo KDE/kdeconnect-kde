@@ -87,8 +87,9 @@ public:
     void setDeviceId(const QString &/*deviceId*/);
 
 public Q_SLOTS:
-    void handleCreatedConversation(const QString& conversationId);
-    void createRowFromMessage(const QVariantMap& message, int row);
+    void handleCreatedConversation(const QVariantMap& msg);
+    void handleConversationUpdated(const QVariantMap& msg);
+    void createRowFromMessage(const QVariantMap& message);
     void printDBusError(const QDBusError& error);
 
 private:

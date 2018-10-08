@@ -54,9 +54,12 @@ public:
 
 public Q_SLOTS:
     /**
-     * Return a list of the threadID for all valid conversations
+     * Return a list of the first message in every conversation
+     *
+     * Note that the return value is a list of QVariants, which in turn have a value of
+     * QVariantMap created from each message
      */
-    QStringList activeConversations();
+    QVariantList activeConversations();
 
     void requestConversation(const QString &conversationID, int start, int end);
 
@@ -71,7 +74,7 @@ public Q_SLOTS:
     void requestAllConversationThreads();
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void conversationCreated(const QString& threadID);
+    Q_SCRIPTABLE void conversationCreated(const QVariantMap& msg);
     Q_SCRIPTABLE void conversationRemoved(const QString& threadID);
     Q_SCRIPTABLE void conversationUpdated(const QVariantMap& msg) const;
     Q_SCRIPTABLE void conversationMessageReceived(const QVariantMap& msg, int pos) const;

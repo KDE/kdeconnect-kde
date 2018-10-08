@@ -61,7 +61,11 @@ void ConversationModel::setDeviceId(const QString& deviceId)
         return;
 
     qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
-    if (m_conversationsInterface) delete m_conversationsInterface;
+    if (m_conversationsInterface) {
+        disconnect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap, int)), this, SLOT(createRowFromMessage(QVariantMap, int)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
+        delete m_conversationsInterface;
+    }
 
     m_deviceId = deviceId;
 
