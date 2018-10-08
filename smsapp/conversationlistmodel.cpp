@@ -138,6 +138,7 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg, int row
 
 KPeople::PersonData* ConversationListModel::lookupPersonByAddress(const QString& address)
 {
+    const QString& canonicalAddress = canonicalizePhoneNumber(address);
     int rowIndex = 0;
     for (rowIndex = 0; rowIndex < m_people.rowCount(); rowIndex++) {
         const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
@@ -146,7 +147,16 @@ KPeople::PersonData* ConversationListModel::lookupPersonByAddress(const QString&
         const QString& email = person->email();
         const QString& phoneNumber = canonicalizePhoneNumber(person->contactCustomProperty("phoneNumber").toString());
 
-        if (address == email || canonicalizePhoneNumber(address) == phoneNumber) {
+        // To decide if a phone number matches:
+        // 1. Are they similar lengths? If two numbers are very different, probably one is junk data and should be ignored
+        // 2. Is one a superset of the other? Phone number digits get more specific the further towards the end of the string,
+        //    so if one phone number ends with the other, it is probably just a more-complete version of the same thing
+        const QString& longerNumber = canonicalAddress.length() >= phoneNumber.length() ? canonicalAddress : phoneNumber;
+        const QString& shorterNumber = canonicalAddress.length() < phoneNumber.length() ? canonicalAddress : phoneNumber;
+
+        bool matchingPhoneNumber = longerNumber.endsWith(shorterNumber) && shorterNumber.length() * 2 >= longerNumber.length();
+
+        if (address == email || matchingPhoneNumber) {
             qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
             return person;
         }
@@ -165,5 +175,6 @@ QString ConversationListModel::canonicalizePhoneNumber(const QString& phoneNumbe
     toReturn = toReturn.remove('(');
     toReturn = toReturn.remove(')');
     toReturn = toReturn.remove('+');
+    toReturn = toReturn.remove(QRegularExpression("^0*")); // Strip leading zeroes
     return toReturn;
 }
