@@ -36,7 +36,7 @@ Kirigami.ScrollablePage
     property string conversationId
 
     property string phoneNumber
-    title: person.person && person.person.name ? i18n("%1: %2", person.person.name, phoneNumber) : phoneNumber
+    title: person.person && person.person.name ? person.person.name : phoneNumber
 
     ListView {
         model: QSortFilterProxyModel {
