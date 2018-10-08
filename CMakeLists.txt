@@ -101,6 +101,13 @@ endif()
 option(SMSAPP_ENABLED OFF)
 if(SMSAPP_ENABLED)
     find_package(KF5People REQUIRED)
+    find_package(KF5PeopleVCard)
+    set_package_properties(KF5PeopleVCard PROPERTIES
+        PURPOSE "Read vcards from the file system"
+        URL "https://phabricator.kde.org/source/kpeoplevcard/"
+        TYPE RUNTIME
+    )
+
     add_subdirectory(smsapp)
 endif()
 
