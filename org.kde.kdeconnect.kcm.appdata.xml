@@ -5,7 +5,6 @@
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
   <name xml:lang="ar">كدي المتّصل</name>
-  <name xml:lang="ast">KDE Connect</name>
   <name xml:lang="ca">KDE Connect</name>
   <name xml:lang="ca-valencia">KDE Connect</name>
   <name xml:lang="cs">KDE Connect</name>
@@ -42,7 +41,6 @@
   <name xml:lang="zh-TW">KDE Connect</name>
   <summary>Seamless connection of your devices</summary>
   <summary xml:lang="ar">اتّصال سلس بين أجهزتك</summary>
-  <summary xml:lang="ast">Conexón ensin torgues de los tos preseos</summary>
   <summary xml:lang="ca">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="ca-valencia">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="cs">Snadné propojení vašich zařízení</summary>
