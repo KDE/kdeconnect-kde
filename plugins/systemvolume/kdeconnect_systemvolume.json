@@ -23,6 +23,7 @@
         "Description[sv]": "Kontrollera systemvolymen från telefonen",
         "Description[uk]": "Керування системним томом з вашого телефону",
         "Description[x-test]": "xxControl the system volume from your phonexx",
+        "Description[zh_CN]": "用手机控制电脑音量",
         "EnabledByDefault": true,
         "Icon": "audio-volume-high",
         "Id": "kdeconnect_systemvolume",
@@ -42,6 +43,7 @@
         "Name[sv]": "Systemvolym",
         "Name[uk]": "Системний том",
         "Name[x-test]": "xxSystem volumexx",
+        "Name[zh_CN]": "系统音量",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],

@@ -9,7 +9,6 @@ NoDisplay=true
 
 Name=KDEConnect daemon
 Name[ar]=عفريت KDEConnect
-Name[ast]=Degorriu KDEConnect
 Name[bg]=Услуга KDE Connect
 Name[ca]=Dimoni del KDEConnect
 Name[ca@valencia]=Dimoni del KDEConnect
