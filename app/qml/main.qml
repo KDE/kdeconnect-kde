@@ -61,6 +61,9 @@ Kirigami.ApplicationWindow
         titleIcon: "kdeconnect"
 //         bannerImageSource: "/home/apol/devel/kde5/share/wallpapers/Next/contents/images/1024x768.png"
 
+        modal: !root.wideScreen
+        handleVisible: !root.wideScreen
+
         topContent: [
             TextField {
                 Layout.fillWidth: true
