@@ -30,6 +30,9 @@
 #include "kdeconnect-version.h"
 
 #include <notification.h>
+#include <backgroundactivity.h>
+#include <QFile>
+#include <QTextStream>
 
 class SailfishDaemon : public Daemon
 {
@@ -38,8 +41,14 @@ class SailfishDaemon : public Daemon
 public:
     SailfishDaemon(QObject* parent = Q_NULLPTR)
         : Daemon(parent)
-        , m_nam(Q_NULLPTR)
-    {}
+        , m_background(new BackgroundActivity())
+    {
+        connect(m_background, &BackgroundActivity::running,
+            [=]( ) { qDebug() << "Received wakeup";
+                m_background->wait(BackgroundActivity::ThirtySeconds);
+            } );
+        m_background->wait(BackgroundActivity::ThirtySeconds);
+    }
 
     void askPairingConfirmation(Device* device) override
     {
@@ -93,11 +102,47 @@ public:
 
 
 private:
-    QNetworkAccessManager* m_nam;
+    QNetworkAccessManager* m_nam = nullptr;
+    BackgroundActivity *m_background = nullptr;
+
 };
+
+
+void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    QByteArray localMsg = msg.toLocal8Bit();
+
+    QString txt;
+    QString typ;
+
+    switch (type) {
+    case QtDebugMsg:
+        typ = "Debug";
+        break;
+    case QtInfoMsg:
+        typ = "Info";
+        break;
+    case QtWarningMsg:
+        typ = "Warning";
+        break;
+    case QtCriticalMsg:
+        typ = "Critical";
+        break;
+    case QtFatalMsg:
+        break;
+    }
+
+    txt = QString("%1 %2: %3 (%4:%5, %6)").arg(QDateTime::currentDateTime().toString("yyyyMMdd:HHmmss")).arg(typ).arg(localMsg.constData()).arg(context.file).arg(context.line).arg(context.function);
+
+    QFile outFile("/home/nemo/kdeconnectd.log");
+    outFile.open(QIODevice::WriteOnly | QIODevice::Append);
+    QTextStream ts(&outFile);
+    ts << txt << endl;
+}
 
 int main(int argc, char* argv[])
 {
+    qInstallMessageHandler(myMessageOutput); // Install the handler
     QCoreApplication app(argc, argv);
 
     app.setApplicationName(QStringLiteral("kdeconnectd"));

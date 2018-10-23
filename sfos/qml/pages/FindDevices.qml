@@ -46,6 +46,15 @@ Page {
             title: qsTr("Devices")
         }
 
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Refresh")
+                onClicked: {
+                    DaemonDbusInterface.forceOnNetworkChange();
+                }
+            }
+        }
+
         // Place our content in a Column.  The PageHeader is always placed at the top
         // of the page, followed by our content.
 

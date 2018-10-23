@@ -330,7 +330,7 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
 //I'm the new device and this is the answer to my UDP identity packet (no data received yet). They are connecting to us through TCP, and they should send an identity.
 void LanLinkProvider::newConnection()
 {
-    //qCDebug(KDECONNECT_CORE) << "LanLinkProvider newConnection";
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider newConnection";
 
     while (m_server->hasPendingConnections()) {
         QSslSocket* socket = m_server->nextPendingConnection();
@@ -353,7 +353,7 @@ void LanLinkProvider::dataReceived()
 
     const QByteArray data = socket->readLine();
 
-    //qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider received reply:" << data;
 
     NetworkPacket* np = new NetworkPacket(QLatin1String(""));
     bool success = NetworkPacket::unserialize(data, np);

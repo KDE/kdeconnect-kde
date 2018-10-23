@@ -9,13 +9,12 @@ Name:       kdeconnect-sfos
 # << macros
 
 Summary:    KDEConnect client for Sailfish
-Version:    0.1
+Version:    1.3.1
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
 URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  kdeconnect-sfos.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   qt5-qtquickcontrols-layouts
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
@@ -32,9 +31,10 @@ BuildRequires:  kdbusaddons-devel >= 5.31.0
 BuildRequires:  ki18n-devel >= 5.31.0
 BuildRequires:  kconfig-devel >= 5.31.0
 BuildRequires:  kiconthemes-devel >= 5.31.0
+BuildRequires:  pkgconfig(keepalive)
 
 %description
-Short description of my Sailfish OS Application
+KDE Connect provides several features to integrate your phone and your computer
 
 
 %prep

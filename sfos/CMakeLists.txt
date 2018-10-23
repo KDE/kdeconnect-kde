@@ -3,6 +3,9 @@ find_package(Qt5 5.2 REQUIRED COMPONENTS DBus)
 pkg_check_modules(NNQT5 REQUIRED nemonotifications-qt5)
 include_directories(${NNQT5_INCLUDE_DIRS})
 
+pkg_check_modules(KEEPALIVE REQUIRED keepalive)
+include_directories(${KEEPALIVE_INCLUDE_DIRS})
+
 set(kdeconnectsfos_SRCS
     kdeconnect-sfos.cpp
 )
@@ -16,7 +19,7 @@ INSTALL( DIRECTORY qml DESTINATION ${SHARE_INSTALL_PREFIX}/kdeconnect-sfos/ )
 
 #Daemon
 add_executable(kdeconnectd sailfishdaemon.cpp)
-target_link_libraries(kdeconnectd kdeconnectcore KF5::DBusAddons ${NNQT5_LIBRARIES} KF5::I18n)
+target_link_libraries(kdeconnectd kdeconnectcore KF5::DBusAddons ${NNQT5_LIBRARIES} KF5::I18n ${KEEPALIVE_LIBRARIES})
 
 configure_file(kdeconnectd.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectd.desktop)
 configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
