@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PINGPLUGIN_H
-#define PINGPLUGIN_H
+#ifndef FINDMYPHONEPLUGIN_H
+#define FINDMYPHONEPLUGIN_H
 
 #include <QObject>
 
@@ -44,4 +44,4 @@ public:
     bool receivePacket(const NetworkPacket& np) override;
 };
 
-#endif
+#endif // FINDMYPHONEPLUGIN_H

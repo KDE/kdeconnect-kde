@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHARE_CONFIG_H
-#define SHARE_CONFIG_H
+#ifndef RUNCOMMAND_CONFIG_H
+#define RUNCOMMAND_CONFIG_H
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
@@ -50,4 +50,4 @@ private:
 
 };
 
-#endif
+#endif // RUNCOMMAND_CONFIG_H
