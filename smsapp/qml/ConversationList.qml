@@ -32,7 +32,6 @@ Kirigami.ScrollablePage
     footer: ComboBox {
         id: devicesCombo
         enabled: count > 0
-        displayText: enabled ? undefined : i18n("No devices available")
         model: DevicesSortProxyModel {
             id: devicesModel
             //TODO: make it possible to sort only if they can do sms
@@ -42,6 +41,12 @@ Kirigami.ScrollablePage
             }
         }
         textRole: "display"
+    }
+    
+    Label {
+        text: i18n("No devices available")
+        anchors.centerIn: parent
+        visible: !devicesCombo.enabled
     }
 
     readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
