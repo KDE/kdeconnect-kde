@@ -46,6 +46,8 @@
 
 LanLinkProvider::LanLinkProvider(bool testMode)
     : m_testMode(testMode)
+    , m_udpSocket(this)
+    , m_combineBroadcastsTimer(this)
 {
     m_tcpPort = 0;
 
