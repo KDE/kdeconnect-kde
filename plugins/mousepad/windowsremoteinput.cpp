@@ -21,8 +21,50 @@
 #include "windowsremoteinput.h"
 
 #include <QCursor>
+#include <QDebug>
 
 #include <Windows.h>
+
+//Translation table to keep in sync within all the implementations
+int SpecialKeysMap[] = {
+    0,              // Invalid
+    VK_BACK,        // 1
+    VK_TAB,         // 2
+    VK_RETURN,      // 3
+    VK_LEFT,        // 4
+    VK_UP,          // 5
+    VK_RIGHT,       // 6
+    VK_DOWN,        // 7
+    VK_PRIOR,       // 8
+    VK_NEXT,        // 9
+    VK_HOME,        // 10
+    VK_END,         // 11
+    VK_RETURN,      // 12
+    VK_DELETE,      // 13
+    VK_ESCAPE,      // 14
+    VK_SNAPSHOT,    // 15
+    VK_SCROLL,      // 16
+    0,              // 17
+    0,              // 18
+    0,              // 19
+    0,              // 20
+    VK_F1,          // 21
+    VK_F2,          // 22
+    VK_F3,          // 23
+    VK_F4,          // 24
+    VK_F5,          // 25
+    VK_F6,          // 26
+    VK_F7,          // 27
+    VK_F8,          // 28
+    VK_F9,          // 29
+    VK_F10,         // 30
+    VK_F11,         // 31
+    VK_F12,         // 32
+};
+
+template <typename T, size_t N>
+size_t arraySize(T(&arr)[N]) { (void)arr; return N; }
+
 
 WindowsRemoteInput::WindowsRemoteInput(QObject* parent)
     : AbstractRemoteInput(parent)
@@ -84,17 +126,31 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
 			input.mi.dwFlags = MOUSEEVENTF_WHEEL;
 			input.mi.mouseData = dy;
 			::SendInput(1,&input,sizeof(INPUT));
-//TODO: Keyboard input support
-/*
-		} else if (!key.isEmpty() || specialKey) {
+
+        } else if (!key.isEmpty() || specialKey) {
+            input.type = INPUT_KEYBOARD;
+
+            input.ki.time = 0;
+            input.ki.dwExtraInfo = 0;
+            input.ki.wScan = 0;
+            input.ki.dwFlags = 0;
 
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
             bool shift = np.get<bool>(QStringLiteral("shift"), false);
 
-            if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), True, 0);
-            if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), True, 0);
-            if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), True, 0);
+            if (ctrl) {
+                input.ki.wVk = VK_LCONTROL;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
+            if (alt) {
+                input.ki.wVk = VK_LMENU;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
+            if (shift) {
+                input.ki.wVk = VK_LSHIFT;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
 
             if (specialKey)
             {
@@ -103,33 +159,84 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
                     return false;
                 }
 
-                int keycode = XKeysymToKeycode(display, SpecialKeysMap[specialKey]);
+                input.ki.wVk = SpecialKeysMap[specialKey];
+                ::SendInput(1,&input,sizeof(INPUT));
 
-                XTestFakeKeyEvent (display, keycode, True, 0);
-                XTestFakeKeyEvent (display, keycode, False, 0);
+                input.ki.dwFlags = KEYEVENTF_KEYUP;
+                ::SendInput(1,&input,sizeof(INPUT));
 
             } else {
 
-                if (!m_fakekey) {
-                    m_fakekey = fakekey_init(display);
-                    if (!m_fakekey) {
-                        qWarning() << "Failed to initialize libfakekey";
-                        return false;
-                    }
-                }
-
-                //We use fakekey here instead of XTest (above) because it can handle utf characters instead of keycodes.
                 for (int i=0;i<key.length();i++) {
-                    QByteArray utf8 = QString(key.at(i)).toUtf8();
-                    fakekey_press(m_fakekey, (const uchar*)utf8.constData(), utf8.size(), 0);
-                    fakekey_release(m_fakekey);
+                    wchar_t inputChar = *QString(key.at(i)).utf16();
+                    short inputVk = VkKeyScanExW(inputChar, GetKeyboardLayout(0));
+
+                    if(inputVk != -1) {
+                        // Uses virtual keycodes so key combinations work
+                        input.ki.wScan = 0;
+                        input.ki.dwFlags = 0;
+
+                        if (inputVk & 0x100){
+                            input.ki.wVk = VK_LSHIFT;
+                            ::SendInput(1,&input,sizeof(INPUT));
+                        }
+                        if (inputVk & 0x200) {
+                            input.ki.wVk = VK_LCONTROL;
+                            ::SendInput(1,&input,sizeof(INPUT));
+                        }
+                        if (inputVk & 0x400) {
+                            input.ki.wVk = VK_LMENU;
+                            ::SendInput(1,&input,sizeof(INPUT));
+                        }
+
+                        input.ki.wVk = inputVk & 0xFF;
+                        ::SendInput(1,&input,sizeof(INPUT));
+
+                        input.ki.dwFlags = KEYEVENTF_KEYUP;
+                        ::SendInput(1,&input,sizeof(INPUT));
+
+                        if ((inputVk & 0x100) && !shift) {
+                            input.ki.wVk = VK_LSHIFT;
+                            ::SendInput(1,&input,sizeof(INPUT));
+                        }
+                        if ((inputVk & 0x200) && !ctrl) {
+                            input.ki.wVk = VK_LCONTROL;
+                            ::SendInput(1,&input,sizeof(INPUT));
+                        }
+                        if ((inputVk & 0x400) && !alt) {
+                            input.ki.wVk = VK_LMENU;
+                            ::SendInput(1,&input,sizeof(INPUT));
+                        }
+
+                    } else {
+                        // Falls back to KEYEVENTF_UNICODE
+                        input.ki.wVk = 0;
+                        input.ki.wScan = inputChar;
+                        input.ki.dwFlags = KEYEVENTF_UNICODE;
+                        ::SendInput(1,&input,sizeof(INPUT));
+
+                        input.ki.dwFlags = KEYEVENTF_KEYUP | KEYEVENTF_UNICODE;
+                        ::SendInput(1,&input,sizeof(INPUT));
+                    }
                 }
             }
 
-            if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), False, 0);
-            if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), False, 0);
-            if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), False, 0);
-*/
+            input.ki.dwFlags = KEYEVENTF_KEYUP;
+            input.ki.wScan = 0;
+
+            if (ctrl) {
+                input.ki.wVk = VK_LCONTROL;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
+            if (alt) {
+                input.ki.wVk = VK_LMENU;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
+            if (shift) {
+                input.ki.wVk = VK_LSHIFT;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
+
         }
 
     } else { //Is a mouse move event
