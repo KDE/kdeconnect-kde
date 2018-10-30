@@ -32,21 +32,21 @@ import QtQuick 2.6
 import QtGraphicalEffects 1.0
 
 Image {
-	id: img
-	property bool isRound: true
+    id: img
+    property bool isRound: true
 
-	layer.enabled: isRound
-	layer.effect: OpacityMask {
-		maskSource: Item {
-			width: img.paintedWidth
-			height: img.paintedHeight
+    layer.enabled: isRound
+    layer.effect: OpacityMask {
+        maskSource: Item {
+            width: img.paintedWidth
+            height: img.paintedHeight
 
-			Rectangle {
-				anchors.centerIn: parent
-				width: Math.min(img.width, img.height)
-				height: width
-				radius: Math.min(width, height)
-			}
-		}
-	}
+            Rectangle {
+                anchors.centerIn: parent
+                width: Math.min(img.width, img.height)
+                height: width
+                radius: Math.min(width, height)
+            }
+        }
+    }
 }
