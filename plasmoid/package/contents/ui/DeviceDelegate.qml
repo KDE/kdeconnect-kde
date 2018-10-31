@@ -24,6 +24,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Dialogs 1.0
 
 PlasmaComponents.ListItem
 {
@@ -104,6 +105,29 @@ PlasmaComponents.ListItem
                 text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", display, battery.displayString) : display
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
+            }
+
+            //Share
+            PlasmaComponents.Button
+            {
+                Share {
+                    id: share
+                    device: root.device
+                }
+                FileDialog {
+                    id: fileDialog
+                    title: "Please choose a file"
+                    folder: shortcuts.home
+                }
+
+                id: shareFile
+                iconSource: "document-share"
+                visible: share.available
+                tooltip: i18n("Share file")
+                onClicked: {
+                    fileDialog.open()
+                    share.plugin.shareUrl(fileDialog.fileUrl)
+                }
             }
 
             //Find my phone
