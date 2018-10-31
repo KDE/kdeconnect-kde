@@ -50,6 +50,7 @@ geninterface(${CMAKE_SOURCE_DIR}/plugins/remotecommands/remotecommandsplugin.h r
 geninterface(${CMAKE_SOURCE_DIR}/plugins/remotekeyboard/remotekeyboardplugin.h remotekeyboardinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/sms/smsplugin.h smsinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h conversationsinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/share/shareplugin.h shareinterface)
 
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})

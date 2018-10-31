@@ -90,6 +90,11 @@ QObject* createRemoteCommandsInterface(const QVariant& deviceId)
     return new RemoteCommandsDbusInterface(deviceId.toString());
 }
 
+QObject* createShareInterface(const QVariant& deviceId)
+{
+    return new ShareDbusInterface(deviceId.toString());
+}
+
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
     qmlRegisterType<DevicesModel>(uri, 1, 0, "DevicesModel");
@@ -103,6 +108,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri, 1, 0, "RemoteKeyboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "RemoteCommandsDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "ShareDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface",
         [](QQmlEngine*, QJSEngine*) -> QObject* {
             return new DaemonDbusInterface;
@@ -149,4 +155,7 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const cha
 
     engine->rootContext()->setContextProperty(QStringLiteral("RemoteCommandsDbusInterfaceFactory")
       , new ObjectFactory(engine, createRemoteCommandsInterface));
+
+    engine->rootContext()->setContextProperty(QStringLiteral("ShareDbusInterfaceFactory")
+      , new ObjectFactory(engine, createShareInterface));
 }

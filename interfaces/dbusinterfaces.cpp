@@ -182,3 +182,10 @@ SmsDbusInterface::SmsDbusInterface(const QString& deviceId, QObject* parent):
 }
 
 SmsDbusInterface::~SmsDbusInterface() = default;
+
+ShareDbusInterface::ShareDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceShareInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/share", QDBusConnection::sessionBus(), parent)
+{
+}
+
+ShareDbusInterface::~ShareDbusInterface() = default;

@@ -37,6 +37,7 @@
 #include "interfaces/remotekeyboardinterface.h"
 #include "interfaces/smsinterface.h"
 #include "interfaces/conversationsinterface.h"
+#include "interfaces/shareinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -217,6 +218,15 @@ class KDECONNECTINTERFACES_EXPORT SmsDbusInterface
 public:
     explicit SmsDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~SmsDbusInterface() override;
+};
+
+class KDECONNECTINTERFACES_EXPORT ShareDbusInterface
+    : public OrgKdeKdeconnectDeviceShareInterface
+{
+    Q_OBJECT
+public:
+    explicit ShareDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~ShareDbusInterface() override;
 };
 
 template <typename T, typename W>
