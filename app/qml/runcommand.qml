@@ -33,7 +33,10 @@ Kirigami.Page
     actions.main: Kirigami.Action {
         icon.name: "document-edit"
         text: i18n("Edit commands")
-        onTriggered: pluginInterface.editCommands()
+        onTriggered: {
+            pluginInterface.editCommands();
+            showPassiveNotification(i18n("You can edit commands on the connected device"));
+        }
     }
 
     ListView {
