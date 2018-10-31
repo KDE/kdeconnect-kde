@@ -79,28 +79,27 @@ RowLayout {
             samples: 10
             spread: 0.1
         }
-    }
 
-    ColumnLayout {
-        id: content
-        spacing: 0
-        anchors.centerIn: box
+        ColumnLayout {
+            id: content
+            spacing: 0
+            anchors.centerIn: box
 
-        Controls.Label {
-            text: messageBody
-            textFormat: Text.PlainText
-            wrapMode: Text.Wrap
-            color: sentByMe ? Kirigami.Theme.buttonTextColor : Kirigami.Theme.complementaryTextColor
-
-            Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
-        }
-
-        RowLayout {
             Controls.Label {
-                id: dateLabel
-                text: Qt.formatDateTime(dateTime, "dd. MMM yyyy, hh:mm")
-                color: Kirigami.Theme.disabledTextColor
-                font.pixelSize: Kirigami.Units.gridUnit * 0.8
+                text: messageBody
+                textFormat: Text.PlainText
+                wrapMode: Text.Wrap
+                color: sentByMe ? Kirigami.Theme.buttonTextColor : Kirigami.Theme.complementaryTextColor
+                Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+            }
+
+            RowLayout {
+                Controls.Label {
+                    id: dateLabel
+                    text: Qt.formatDateTime(dateTime, "dd. MMM yyyy, hh:mm")
+                    color: Kirigami.Theme.disabledTextColor
+                    font.pixelSize: Kirigami.Units.gridUnit * 0.8
+                }
             }
         }
     }
