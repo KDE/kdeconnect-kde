@@ -45,6 +45,7 @@
         "Description[uk]": "Надсилання і отримання SMS",
         "Description[x-test]": "xxSend and receive SMSxx",
         "Description[zh_CN]": "发送和接收短信",
+        "Description[zh_TW]": "傳送和接收文字簡訊",
         "EnabledByDefault": true,
         "Icon": "mail-message-new-list",
         "Id": "kdeconnect_sms",
@@ -67,6 +68,7 @@
         "Name[uk]": "SMS",
         "Name[x-test]": "xxSMSxx",
         "Name[zh_CN]": "短信",
+        "Name[zh_TW]": "文字簡訊",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
