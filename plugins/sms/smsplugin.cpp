@@ -64,7 +64,7 @@ void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
         {"phoneNumber", phoneNumber},
         {"messageBody", messageBody}
     });
-    qDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
+    qCDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
     sendPacket(np);
 }
 
