@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Version=0.1
+Encoding=UTF-8
+Exec=kdeconnect-handler %F
+Icon=kdeconnect
+Name=Send via KDE Connect
