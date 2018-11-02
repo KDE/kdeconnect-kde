@@ -91,7 +91,7 @@ PlasmaComponents.ListItem
         {
             Item {
                 //spacer to make the label centre aligned in a row yet still elide and everything
-                implicitWidth: (ring.visible? ring.width : 0) + (browse.visible? browse.width : 0) + parent.spacing
+                implicitWidth: (ring.visible? ring.width : 0) + (browse.visible? browse.width : 0) + (shareFile.visible? shareFile.width : 0) + parent.spacing
             }
 
             Battery {
