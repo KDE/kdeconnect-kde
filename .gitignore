@@ -13,3 +13,5 @@ KDEConnect.creator
 KDEConnect.files
 KDEConnect.includes
 .directory
+*.qmlc
+*.rej
