@@ -85,7 +85,7 @@ int main(int argc, char** argv)
     proxyModel.setSourceModel(&model);
 
     QDialog dialog;
-    dialog.setWindowTitle(urlToShare.toDisplayString());
+    dialog.setWindowTitle(urlToShare.toDisplayString(QUrl::PreferLocalFile));
     Ui::Dialog uidialog;
     uidialog.setupUi(&dialog);
     uidialog.devicePicker->setModel(&proxyModel);
@@ -93,6 +93,9 @@ int main(int argc, char** argv)
     if (urlToShare.scheme() == QLatin1String("tel")) {
         uidialog.label->setText(i18n("Device to call this phone number with:"));
         uidialog.urlLabel->setText(urlToShare.toDisplayString(QUrl::RemoveScheme));
+    } else if (urlToShare.isLocalFile()) {
+        uidialog.label->setText(i18n("Device to send this file to:"));
+        uidialog.urlLabel->setText(urlToShare.toDisplayString(QUrl::PreferLocalFile));
     } else {
         uidialog.urlLabel->setText(urlToShare.toDisplayString());
     }
