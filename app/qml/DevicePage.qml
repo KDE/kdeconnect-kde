@@ -21,6 +21,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
+import QtQuick.Dialogs 1.0
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.kdeconnect 1.0
 
@@ -98,12 +99,20 @@ Kirigami.Page
                         findmyphoneIface.ring()
                     }
                 }
-
                 PluginItem {
                     label: i18n("Run command")
                     interfaceFactory: RemoteCommandsDbusInterfaceFactory
                     component: "qrc:/qml/runcommand.qml"
                     pluginName: "remotecommands"
+                }
+                PluginItem {
+                    readonly property var shareIface: ShareDbusInterfaceFactory.create(deviceView.currentDevice.id())
+                    pluginName: "share"
+                    label: i18n("Share File")
+                    onClicked: {
+                        fileDialog.open()
+                        shareIface.shareUrl(fileDialog.fileUrl)
+                    }
                 }
 
                 Item { Layout.fillHeight: true }
@@ -121,7 +130,6 @@ Kirigami.Page
                 }
             }
         }
-
         Component {
             id: pairDevice
             Item {
@@ -140,5 +148,11 @@ Kirigami.Page
                 }
             }
         }
+    }
+
+    FileDialog {
+        id: fileDialog
+        title: i18n("Please choose a file")
+        folder: shortcuts.home
     }
 }
