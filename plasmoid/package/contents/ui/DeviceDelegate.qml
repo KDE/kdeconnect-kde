@@ -282,7 +282,7 @@ PlasmaComponents.ListItem
             width: parent.width
 
             PlasmaComponents.Label {
-                text: i18n("Run command:")
+                text: i18n("Run command")
                 Layout.fillWidth: true
             }
 
@@ -292,6 +292,7 @@ PlasmaComponents.ListItem
                 iconSource: "list-add"
                 tooltip: i18n("Add command")
                 onClicked: rc.plugin.editCommands()
+                visible: rc.plugin.canAddCommand
             }
         }
         Repeater {
