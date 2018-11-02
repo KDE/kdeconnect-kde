@@ -1,0 +1,7 @@
+[Contractor Entry]
+Name=Send via KDE Connect
+Icon=kdeconnect
+Description=Send files via KDE Connect
+MimeType=!inode;
+Exec=kdeconnect-handler %F
+Gettext-Domain=kdeconnect

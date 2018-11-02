@@ -81,6 +81,7 @@ endif()
 
 add_subdirectory(icon)
 add_subdirectory(interfaces)
+add_subdirectory(data)
 
 option(EXPERIMENTALAPP_ENABLED OFF)
 if(EXPERIMENTALAPP_ENABLED)
@@ -119,7 +120,4 @@ if(BUILD_TESTING AND NOT SAILFISHOS)
     add_subdirectory(tests)
 endif()
 
-if(NOT SAILFISHOS)
-    install(FILES org.kde.kdeconnect.kcm.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-endif()
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
