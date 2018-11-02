@@ -277,16 +277,19 @@ PlasmaComponents.ListItem
         }
 
         // Commands
-        PlasmaComponents.ListItem {
+        RowLayout {
             visible: rc.available
+            width: parent.width
+
             PlasmaComponents.Label {
                 text: i18n("Run command:")
+                Layout.fillWidth: true
             }
+
             PlasmaComponents.Button
             {
                 id: addCommandButton
                 iconSource: "list-add"
-                anchors.right: parent.right
                 tooltip: i18n("Add command")
                 onClicked: rc.plugin.editCommands()
             }
