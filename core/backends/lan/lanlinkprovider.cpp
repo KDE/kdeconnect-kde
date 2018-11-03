@@ -45,8 +45,8 @@
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
 
 LanLinkProvider::LanLinkProvider(bool testMode)
-    : m_testMode(testMode)
-    , m_udpSocket(this)
+    : m_udpSocket(this)
+    , m_testMode(testMode)
     , m_combineBroadcastsTimer(this)
 {
     m_tcpPort = 0;
