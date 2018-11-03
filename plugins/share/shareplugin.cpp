@@ -166,6 +166,13 @@ void SharePlugin::shareUrl(const QUrl& url)
     sendPacket(packet);
 }
 
+void SharePlugin::shareText(const QString& text)
+{
+    NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
+    packet.set<QString>(QStringLiteral("text"), text);
+    sendPacket(packet);
+}
+
 QString SharePlugin::dbusPath() const
 {
     return "/modules/kdeconnect/devices/" + device()->id() + "/share";

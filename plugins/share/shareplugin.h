@@ -38,6 +38,7 @@ public:
 
     ///Helper method, QDBus won't recognize QUrl
     Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
+    Q_SCRIPTABLE void shareText(const QString& text);
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
