@@ -20,13 +20,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="urlLabel">
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item>
