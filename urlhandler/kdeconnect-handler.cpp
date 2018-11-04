@@ -64,9 +64,11 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
     QUrl urlToShare;
+    bool open;
     {
         QCommandLineParser parser;
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
+        parser.addOption(QCommandLineOption(QStringLiteral("open"), QStringLiteral("Open the file on the remote device")));
         parser.addHelpOption();
         about.setupCommandLine(&parser);
         parser.process(app);
@@ -77,6 +79,7 @@ int main(int argc, char** argv)
         }
 
         urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst());
+        open = parser.isSet(QStringLiteral("open"));
     }
 
     DevicesModel model;
@@ -95,7 +98,7 @@ int main(int argc, char** argv)
     if (urlToShare.scheme() == QLatin1String("tel")) {
         displayUrl = urlToShare.toDisplayString(QUrl::RemoveScheme);
         uidialog.label->setText(i18n("Device to call %1 with:", displayUrl));
-    } else if (urlToShare.isLocalFile()) {
+    } else if (urlToShare.isLocalFile() && open) {
         displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
         uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
     } else {
@@ -110,8 +113,9 @@ int main(int argc, char** argv)
         const int currentDeviceIndex = uidialog.devicePicker->currentIndex();
         if(!url.isEmpty() && currentDeviceIndex >= 0) {
             const QString device = proxyModel.index(currentDeviceIndex, 0).data(DevicesModel::IdModelRole).toString();
+            const QString action = open && url.isLocalFile() ? QStringLiteral("openFile") : QStringLiteral("shareUrl");
 
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), action);
             msg.setArguments({ url.toString() });
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             return 0;
