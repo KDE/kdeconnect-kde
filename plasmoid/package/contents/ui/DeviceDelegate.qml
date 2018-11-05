@@ -23,6 +23,7 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0
+import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Dialogs 1.0
 
@@ -110,10 +111,6 @@ PlasmaComponents.ListItem
             //Share
             PlasmaComponents.Button
             {
-                Share {
-                    id: share
-                    device: root.device
-                }
                 FileDialog {
                     id: fileDialog
                     title: "Please choose a file"
@@ -309,6 +306,31 @@ PlasmaComponents.ListItem
                 PlasmaComponents.Label {
                     text: name + "\n" + command
                 }
+            }
+        }
+
+        // Share
+        Share {
+            id: share
+            device: root.device
+        }
+	
+        PlasmaComponents.Label {
+            text: i18n("Share text")
+        }
+        TextArea {
+            id: shareText
+            wrapMode: TextEdit.NoWrap
+            width: parent.width;
+            height: Math.max(shareText.contentHeight + shareText.textMargin * 3, shareText.textMargin * 7 + shareText.font.pixelSize)
+        }
+        PlasmaComponents.Button
+        {
+            id: submitTextButton
+            anchors.right: shareText.right
+            iconSource: "document-send"
+            onClicked: {
+               share.plugin.shareText(shareText.getText(0, shareText.length))
             }
         }
         //NOTE: More information could be displayed here
