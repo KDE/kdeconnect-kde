@@ -76,6 +76,7 @@ Kirigami.ApplicationWindow
                     id: nameField
                     visible: false
                     Layout.fillWidth: true
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
                     text: announcedNameProperty.value
                     onAccepted: {
                         DaemonDbusInterface.setAnnouncedName(text)
@@ -88,6 +89,7 @@ Kirigami.ApplicationWindow
                     visible: !nameField.visible
                     Layout.fillWidth: true
                     font.pointSize: 18
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
                 }
 
                 Button {
