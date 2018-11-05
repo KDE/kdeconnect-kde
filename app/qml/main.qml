@@ -63,8 +63,7 @@ Kirigami.ApplicationWindow
         handleVisible: !root.wideScreen
 
         topContent: [
-            TextField {
-                Layout.fillWidth: true
+            RowLayout {
 
                 DBusProperty {
                     id: announcedNameProperty
@@ -73,10 +72,30 @@ Kirigami.ApplicationWindow
                     defaultValue: ""
                 }
 
-                text: announcedNameProperty.value
-                onAccepted: {
-                    DaemonDbusInterface.setAnnouncedName(text)
-                    text = Qt.binding(function() {return announcedNameProperty.value})
+                TextField {
+                    id: nameField
+                    visible: false
+                    Layout.fillWidth: true
+                    text: announcedNameProperty.value
+                    onAccepted: {
+                        DaemonDbusInterface.setAnnouncedName(text)
+                        text = Qt.binding(function() {return announcedNameProperty.value})
+                    }
+                }
+
+                Label {
+                    text: announcedNameProperty.value
+                    visible: !nameField.visible
+                    Layout.fillWidth: true
+                    font.pointSize: 18
+                }
+
+                Button {
+                    icon.name: nameField.visible ? "dialog-ok-apply" : "entry-edit"
+                    onClicked: {
+                        nameField.visible = !nameField.visible
+                        nameField.accepted()
+                    }
                 }
             }
         ]
