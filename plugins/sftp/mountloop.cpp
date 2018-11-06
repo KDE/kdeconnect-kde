@@ -31,18 +31,18 @@ bool MountLoop::exec(QEventLoop::ProcessEventsFlags flags)
 
 void MountLoop::failed()
 {
-    Q_EMIT(result(false));
+    Q_EMIT result(false);
     exit(1);
 }
 
 void MountLoop::successed()
 {
-    Q_EMIT(result(true));
+    Q_EMIT result(true);
     exit(0);
 }
 
 void MountLoop::exitWith(bool status)
 {
-    Q_EMIT(result(status));
+    Q_EMIT result(status);
     exit(status ? 0 : 1);
 }
