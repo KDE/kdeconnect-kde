@@ -17,5 +17,6 @@ target_link_libraries(kio_kdeconnect
 )
 
 ########### install files ###############
-install(TARGETS kio_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES kdeconnect.protocol DESTINATION ${SERVICES_INSTALL_DIR})
+set_target_properties(kio_kdeconnect PROPERTIES OUTPUT_NAME "kdeconnect")
+set_target_properties(kio_kdeconnect PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf5/kio")
+install(TARGETS kio_kdeconnect DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kio)
