@@ -47,7 +47,6 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
     const QString phoneNumber = np.get<QString>(QStringLiteral("phoneNumber"), i18n("unknown number"));
     const QString contactName = np.get<QString>(QStringLiteral("contactName"), phoneNumber);
     const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>(QStringLiteral("phoneThumbnail"), ""));
-    const QString messageBody = np.get<QString>(QStringLiteral("messageBody"),{});
 
     QString content, type, icon;
     KNotification::NotificationFlags flags = KNotification::CloseOnTimeout;
