@@ -42,6 +42,7 @@
  */
 class ShareDevicesProxyModel : public DevicesSortProxyModel
 {
+    Q_OBJECT
 public:
     bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override {
         const QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
@@ -127,3 +128,5 @@ int main(int argc, char** argv)
         return 1;
     }
 }
+
+#include "kdeconnect-handler.moc"
