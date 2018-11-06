@@ -27,11 +27,21 @@
 #include <KLocalizedString>
 
 #include <QDebug>
+#include <QtPlugin>
 
 Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
 
+class KIOPluginForMetaData : public QObject
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.kio.slave.kdeconnect" FILE "kdeconnect.json")
+};
+
 extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
 {
+    QCoreApplication app(argc, argv);
+    app.setApplicationName(QStringLiteral("kio_kdeconnect"));
+    
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_kdeconnect protocol pool app\n");
         exit(-1);
@@ -232,3 +242,5 @@ void KioKdeconnect::setHost(const QString& hostName, quint16 port, const QString
 
 }
 
+//needed for JSON file embedding
+#include "kiokdeconnect.moc"
