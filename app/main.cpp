@@ -21,9 +21,10 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
-#include <KDeclarative/KDeclarative>
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KLocalizedContext>
+#include <QtQml>
 
 int main(int argc, char* argv[])
 {
@@ -42,11 +43,7 @@ int main(int argc, char* argv[])
     }
 
     QQmlApplicationEngine engine;
-
-    KDeclarative::KDeclarative kdeclarative;
-    kdeclarative.setDeclarativeEngine(&engine);
-    kdeclarative.setupBindings();
-
+    engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();
