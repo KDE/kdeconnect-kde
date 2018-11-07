@@ -151,6 +151,10 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
                 input.ki.wVk = VK_LSHIFT;
                 ::SendInput(1,&input,sizeof(INPUT));
             }
+            if (super) {
+                input.ki.wVk = VK_LWIN;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
 
             if (specialKey)
             {
@@ -234,6 +238,10 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
             }
             if (shift) {
                 input.ki.wVk = VK_LSHIFT;
+                ::SendInput(1,&input,sizeof(INPUT));
+            }
+            if (super) {
+                input.ki.wVk = VK_LWIN;
                 ::SendInput(1,&input,sizeof(INPUT));
             }
 

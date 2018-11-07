@@ -164,10 +164,12 @@ bool X11RemoteInput::handlePacket(const NetworkPacket& np)
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
             bool shift = np.get<bool>(QStringLiteral("shift"), false);
+            bool super = np.get<bool>(QStringLiteral("super"), false);
 
             if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), True, 0);
             if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), True, 0);
             if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), True, 0);
+            if (super) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Super_L), True, 0);
 
             if (specialKey)
             {
@@ -202,6 +204,7 @@ bool X11RemoteInput::handlePacket(const NetworkPacket& np)
             if (ctrl) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Control_L), False, 0);
             if (alt) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Alt_L), False, 0);
             if (shift) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Shift_L), False, 0);
+            if (super) XTestFakeKeyEvent (display, XKeysymToKeycode(display, XK_Super_L), False, 0);
 
         }
 
