@@ -37,6 +37,7 @@ if(SAILFISHOS OR EXPERIMENTALAPP_ENABLED)
     add_subdirectory(mprisremote)
     add_subdirectory(remotecontrol)
     add_subdirectory(lockdevice)
+    add_subdirectory(remotesystemvolume)
 endif()
 
 if(KF5PulseAudioQt_FOUND)

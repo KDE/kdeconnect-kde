@@ -19,6 +19,7 @@ set(libkdeconnect_SRC
     devicessortproxymodel.cpp
     conversationmessage.cpp
     remotecommandsmodel.cpp
+    remotesinksmodel.cpp
 #    modeltest.cpp
 )
 
@@ -51,6 +52,8 @@ geninterface(${CMAKE_SOURCE_DIR}/plugins/remotekeyboard/remotekeyboardplugin.h r
 geninterface(${CMAKE_SOURCE_DIR}/plugins/sms/smsplugin.h smsinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h conversationsinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/share/shareplugin.h shareinterface)
+geninterface(${CMAKE_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolumeplugin.h remotesystemvolumeinterface)
+
 
 
 add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})

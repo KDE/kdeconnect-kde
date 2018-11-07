@@ -38,6 +38,7 @@
 #include "interfaces/smsinterface.h"
 #include "interfaces/conversationsinterface.h"
 #include "interfaces/shareinterface.h"
+#include "interfaces/remotesystemvolumeinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -227,6 +228,15 @@ class KDECONNECTINTERFACES_EXPORT ShareDbusInterface
 public:
     explicit ShareDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~ShareDbusInterface() override;
+};
+
+class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface
+    : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
+{
+    Q_OBJECT
+public:
+    explicit RemoteSystemVolumeDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~RemoteSystemVolumeDbusInterface() = default;
 };
 
 template <typename T, typename W>

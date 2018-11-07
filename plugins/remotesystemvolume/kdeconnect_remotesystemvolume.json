@@ -1,0 +1,27 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "nicolas.fella@gmx.de",
+                "Name": "Nicolas Fella"
+            }
+        ],
+        "Description": "Control the volume of the connected device",
+        "EnabledByDefault": true,
+        "Icon": "player-volume",
+        "Id": "kdeconnect_remotesystemvolume",
+        "License": "GPL",
+        "Name": "Remote system volume",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "https://nicolasfella.wordpress.com"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.systemvolume.request"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.systemvolume"
+    ]
+}

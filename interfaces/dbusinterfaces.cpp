@@ -189,3 +189,8 @@ ShareDbusInterface::ShareDbusInterface(const QString& deviceId, QObject* parent)
 }
 
 ShareDbusInterface::~ShareDbusInterface() = default;
+
+RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceRemotesystemvolumeInterface(DaemonDbusInterface::activatedService(), "/modules/kdeconnect/devices/" + deviceId + "/remotesystemvolume", QDBusConnection::sessionBus(), parent)
+{
+}

@@ -114,6 +114,12 @@ Kirigami.Page
                         shareIface.shareUrl(fileDialog.fileUrl)
                     }
                 }
+                PluginItem {
+                    label: i18n("Volume control")
+                    interfaceFactory: RemoteSystemVolumeDbusInterfaceFactory
+                    component: "qrc:/qml/volume.qml"
+                    pluginName: "remotesystemvolume"
+                }
 
                 Item { Layout.fillHeight: true }
             }

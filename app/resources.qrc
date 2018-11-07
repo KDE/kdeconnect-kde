@@ -9,5 +9,6 @@
     <file>qml/DevicePage.qml</file>
     <file>qml/FindDevicesPage.qml</file>
     <file>qml/runcommand.qml</file>
+    <file>qml/volume.qml</file>
  </qresource>
 </RCC>
