@@ -85,7 +85,14 @@ add_subdirectory(data)
 
 option(EXPERIMENTALAPP_ENABLED OFF)
 if(EXPERIMENTALAPP_ENABLED)
-    add_subdirectory(app)
+  find_package(KF5Kirigami2)
+  set_package_properties(KF5Kirigami2 PROPERTIES
+    DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
+    PURPOSE "Required for kcapp"
+    URL "https://www.kde.org/products/kirigami/"
+    TYPE RUNTIME
+)
+  add_subdirectory(app)
 endif()
 add_subdirectory(plugins)
 add_subdirectory(cli)
