@@ -46,6 +46,7 @@ WaylandRemoteInput::WaylandRemoteInput(QObject* parent)
             m_waylandInput = registry->createFakeInput(name, version, this);
         }
     );
+    connect(registry, &Registry::fakeInputRemoved, m_waylandInput, &QObject::deleteLater);
     registry->setup();
 }
 
