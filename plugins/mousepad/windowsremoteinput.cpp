@@ -138,6 +138,7 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
             bool shift = np.get<bool>(QStringLiteral("shift"), false);
+            bool super = np.get<bool>(QStringLiteral("super"), false);
 
             if (ctrl) {
                 input.ki.wVk = VK_LCONTROL;
