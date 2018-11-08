@@ -36,6 +36,16 @@
 
 #define PACKET_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
 
+#ifdef Q_OS_WIN
+#define COMMAND "cmd"
+#define ARGS "/c"
+
+#else
+#define COMMAND "/bin/sh"
+#define ARGS "-c"
+
+#endif
+
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_runcommand.json", registerPlugin< RunCommandPlugin >(); )
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_RUNCOMMAND, "kdeconnect.plugin.runcommand")
@@ -66,8 +76,8 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
             qCWarning(KDECONNECT_PLUGIN_RUNCOMMAND) << key << "is not a configured command";
         }
         const QJsonObject commandJson = value.toObject();
-        qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << "/bin/sh" << "-c" << commandJson[QStringLiteral("command")].toString();
-        QProcess::startDetached(QStringLiteral("/bin/sh"), QStringList()<< QStringLiteral("-c") << commandJson[QStringLiteral("command")].toString());
+        qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
+        QProcess::startDetached(QStringLiteral(COMMAND), QStringList()<< QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
         return true;
     } else if (np.has("setup")) {
         QProcess::startDetached(QStringLiteral("kcmshell5"), {QStringLiteral("kdeconnect"), QStringLiteral("--args"), QString(device()->id() + QStringLiteral(":kdeconnect_runcommand")) });
