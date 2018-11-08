@@ -8,6 +8,12 @@ set(kdeconnectdeclarativeplugin_SRC
     responsewaiter.cpp
 )
 
+set(qml_SRC
+    qml/RemoteKeyboard.qml
+    qml/PluginChecker.qml
+    qml/DBusProperty.qml
+)
+
 set(kdeconnectdeclarativeplugin_MOC
   objectfactory.h
 )
@@ -20,4 +26,4 @@ target_link_libraries(kdeconnectdeclarativeplugin
     kdeconnectinterfaces
 )
 install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
-install(FILES qmldir qml/PluginChecker.qml qml/DBusProperty.qml DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
+install(FILES qmldir ${qml_SRC} DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)

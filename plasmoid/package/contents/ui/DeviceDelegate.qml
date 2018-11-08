@@ -26,64 +26,12 @@ import org.kde.kdeconnect 1.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Dialogs 1.0
+import QtQuick.Controls 2.4
 
 PlasmaComponents.ListItem
 {
     id: root
     readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
-
-    RemoteKeyboard {
-        id: remoteKeyboard
-        device: root.device
-
-        onKeyPressReceived: {
-//            console.log("XXX received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + remoteKeyboardInput.text + " cursorPos=" + remoteKeyboardInput.cursorPosition);
-            // interpret some special keys:
-            if (specialKey == 12 || specialKey == 14)  // Return/Esc -> clear
-                remoteKeyboardInput.text = "";
-            else if (specialKey == 4  // Left
-                     && remoteKeyboardInput.cursorPosition > 0)
-                --remoteKeyboardInput.cursorPosition;
-            else if (specialKey == 6  // Right
-                     && remoteKeyboardInput.cursorPosition < remoteKeyboardInput.text.length)
-                ++remoteKeyboardInput.cursorPosition;
-            else if (specialKey == 1) {    // Backspace -> delete left
-                var pos = remoteKeyboardInput.cursorPosition;
-                if (pos > 0) {
-                    remoteKeyboardInput.text = remoteKeyboardInput.text.substring(0, pos-1)
-                                               + remoteKeyboardInput.text.substring(pos, remoteKeyboardInput.text.length);
-                    remoteKeyboardInput.cursorPosition = pos - 1;
-                }
-            } else if (specialKey == 13) {    // Delete -> delete right
-                var pos = remoteKeyboardInput.cursorPosition;
-                if (pos < remoteKeyboardInput.text.length) {
-                        remoteKeyboardInput.text = remoteKeyboardInput.text.substring(0, pos)
-                          + remoteKeyboardInput.text.substring(pos+1, remoteKeyboardInput.text.length);
-                    remoteKeyboardInput.cursorPosition = pos; // seems to be set to text.length automatically!
-                }
-            } else if (specialKey == 10)    // Home
-                remoteKeyboardInput.cursorPosition = 0;
-            else if (specialKey == 11)    // End
-                remoteKeyboardInput.cursorPosition = remoteKeyboardInput.text.length;
-            else {
-                // echo visible keys
-                var sanitized = "";
-                for (var i = 0; i < key.length; i++) {
-                    if (key.charCodeAt(i) > 31)
-                        sanitized += key.charAt(i);
-                }
-                if (sanitized.length > 0 && !ctrl && !alt) {
-                    // insert sanitized at current pos:
-                    var pos = remoteKeyboardInput.cursorPosition;
-                    remoteKeyboardInput.text = remoteKeyboardInput.text.substring(0, pos)
-                                               + sanitized
-                                               + remoteKeyboardInput.text.substring(pos, remoteKeyboardInput.text.length);
-                    remoteKeyboardInput.cursorPosition = pos + 1; // seems to be set to text.length automatically!
-                }
-            }
-//            console.log("XXX After received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + remoteKeyboardInput.text + " cursorPos=" + remoteKeyboardInput.cursorPosition);
-        }
-    }
 
     Column {
         width: parent.width
@@ -172,7 +120,7 @@ PlasmaComponents.ListItem
             visible: remoteKeyboard.remoteState
             width: parent.width
 
-            Row {
+            RowLayout {
                 width: parent.width
                 spacing: 5
 
@@ -181,26 +129,10 @@ PlasmaComponents.ListItem
                     text: i18n("Remote Keyboard")
                 }
 
-                PlasmaComponents.TextField {
-                    id: remoteKeyboardInput
-
-                    height: parent.height
-                    width: parent.width - 5 - remoteKeyboardLabel.width
-                    verticalAlignment: TextInput.AlignVCenter
-                    style: TextFieldStyle {
-                        background: Rectangle {
-                            radius: 2
-                            border.color: "gray"
-                            border.width: 1
-                            color: "white"
-                        }
-                    }
-
-                    Keys.onPressed: {
-                        if (remoteKeyboard.available)
-                            remoteKeyboard.sendEvent(event);
-                        event.accepted = true;
-                    }
+                RemoteKeyboard {
+                    id: remoteKeyboard
+                    device: root.device
+                    Layout.fillWidth: true
                 }
             }
         }
