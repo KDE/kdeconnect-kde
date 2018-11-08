@@ -43,7 +43,9 @@ Kirigami.BasicListItem
         var obj = interfaceFactory.create(checker.device.id());
         var page = pageStack.push(
             component,
-            { pluginInterface: obj }
+            { pluginInterface: obj,
+              device: checker.device
+            }
         );
         obj.parent = page
     }

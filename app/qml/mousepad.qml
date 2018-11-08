@@ -22,12 +22,14 @@ import QtQuick 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kdeconnect 1.0
 
 Kirigami.Page
 {
     id: mousepad
     title: i18n("Remote Control")
     property QtObject pluginInterface
+    property QtObject device
 
     ColumnLayout
     {
@@ -54,6 +56,13 @@ Kirigami.Page
                 lastPos = Qt.point(-1, -1)
             }
         }
+
+        RemoteKeyboard {
+            device: mousepad.device
+            Layout.fillWidth: true
+            visible: remoteState
+        }
+
         RowLayout {
             Layout.fillWidth: true
 
