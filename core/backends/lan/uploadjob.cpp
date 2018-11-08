@@ -62,11 +62,10 @@ void UploadJob::newConnection()
         return; //TODO: Handle error, clean up...
     }
 
-    Server* server = qobject_cast<Server*>(sender());
     // FIXME : It is called again when payload sending is finished. Unsolved mystery :(
     disconnect(m_server, &QTcpServer::newConnection, this, &UploadJob::newConnection);
 
-    m_socket = server->nextPendingConnection();
+    m_socket = m_server->nextPendingConnection();
     m_socket->setParent(this);
     connect(m_socket, &QSslSocket::disconnected, this, &UploadJob::cleanup);
     connect(m_socket, SIGNAL(error(QAbstractSocket::SocketError)), this, SLOT(socketFailed(QAbstractSocket::SocketError)));
