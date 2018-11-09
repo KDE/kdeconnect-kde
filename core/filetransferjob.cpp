@@ -102,6 +102,8 @@ void FileTransferJob::startTransfer()
         if (elapsed > 0) {
             emitSpeed((1000 * bytesSent) / elapsed);
         }
+        
+        m_written = bytesSent;
     });
     connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
             this, &FileTransferJob::transferFailed);
@@ -121,9 +123,21 @@ void FileTransferJob::transferFailed(QNetworkReply::NetworkError error)
 void FileTransferJob::transferFinished()
 {
     //TODO: MD5-check the file
-    qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
+    if (m_size == m_written) {
+        qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
 
-    emitResult();
+        emitResult();
+    } else {
+        qCDebug(KDECONNECT_CORE) << "Received incomplete file, deleting";
+        
+        if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
+            QFile::remove(m_destination.toLocalFile());
+        }
+        
+        setError(3);
+        setErrorText(i18n("Received incomplete file from: %1", m_from));
+        emitResult();
+    }
 }
 
 bool FileTransferJob::doKill()
