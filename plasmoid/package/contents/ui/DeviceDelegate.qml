@@ -22,9 +22,8 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.kdeconnect 1.0
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.4
 import QtQuick.Dialogs 1.0
 import QtQuick.Controls 2.4
 
@@ -250,11 +249,9 @@ PlasmaComponents.ListItem
         PlasmaComponents.Label {
             text: i18n("Share text")
         }
-        TextArea {
+        PlasmaComponents3.TextArea {
             id: shareText
-            wrapMode: TextEdit.NoWrap
-            width: parent.width;
-            height: Math.max(shareText.contentHeight + shareText.textMargin * 3, shareText.textMargin * 7 + shareText.font.pixelSize)
+            width: parent.width
         }
         PlasmaComponents.Button
         {
@@ -262,7 +259,8 @@ PlasmaComponents.ListItem
             anchors.right: shareText.right
             iconSource: "document-send"
             onClicked: {
-               share.plugin.shareText(shareText.getText(0, shareText.length))
+                share.plugin.shareText(shareText.getText(0, shareText.length))
+                shareText.clear()
             }
         }
         //NOTE: More information could be displayed here
