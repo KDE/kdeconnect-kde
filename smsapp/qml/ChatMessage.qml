@@ -98,7 +98,6 @@ RowLayout {
                     id: dateLabel
                     text: Qt.formatDateTime(dateTime, "dd. MMM yyyy, hh:mm")
                     color: Kirigami.Theme.disabledTextColor
-                    font.pixelSize: Kirigami.Units.gridUnit * 0.8
                 }
             }
         }
