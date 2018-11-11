@@ -70,6 +70,7 @@ DevicesModel::DevicesModel(QObject* parent)
 QHash< int, QByteArray > DevicesModel::roleNames() const
 {
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
+    names.insert(NameModelRole, "deviceName");
     names.insert(IdModelRole, "deviceId");
     names.insert(IconNameRole, "iconName");
     names.insert(DeviceRole, "device");
