@@ -103,7 +103,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
         if (pause && !pausedSources.empty()) {
             for (const QString& iface : qAsConst(pausedSources)) {
                 QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));
-                mprisInterface.asyncCall(QStringLiteral("PlayPause"));
+                mprisInterface.asyncCall(QStringLiteral("Play"));
             }
             pausedSources.clear();
         }
