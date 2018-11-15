@@ -38,17 +38,20 @@
  *
  * For example:
  * { "messages" : [
- *   {  "event" : "sms",
- *      "messageBody" : "Hello",
- *      "phoneNumber" : "2021234567",
- *      "messageDate" : "1518846484880",
- *      "messageType" : "2",
- *      "threadID" : "132"
- *    },
- *    { ... },
- *     ...
- *   ]
- * }
+ *   { "event"     : 1,               // 32-bit field containing a bitwise-or of event flags
+ *                                    // See constants declared in SMSHelper.Message for defined
+ *                                    // values and explanations
+ *     "body"      : "Hello",         // Text message body
+ *     "address"   : "2021234567",    // Sending or receiving address of the message
+ *     "date"      : "1518846484880", // Timestamp of the message
+ *     "type"      : "2",   // Compare with Android's
+ *                          // Telephony.TextBasedSmsColumns.MESSAGE_TYPE_*
+ *     "thread_id" : "132"  // Thread to which the message belongs
+ *     "read"      : true   // Boolean representing whether a message is read or unread
+ *   },
+ *   { ... },
+ *   ...
+ * ]
  */
 #define PACKET_TYPE_SMS_MESSAGES QStringLiteral("kdeconnect.sms.messages")
 

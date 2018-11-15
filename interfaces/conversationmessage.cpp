@@ -26,6 +26,7 @@
 
 ConversationMessage::ConversationMessage(const QVariantMap& args, QObject* parent)
     : QObject(parent),
+      m_eventField(args["event"].toInt()),
       m_body(args["body"].toString()),
       m_address(args["address"].toString()),
       m_date(args["date"].toLongLong()),
@@ -36,11 +37,14 @@ ConversationMessage::ConversationMessage(const QVariantMap& args, QObject* paren
 {
 }
 
-ConversationMessage::ConversationMessage (const QString& body, const QString& address, const qint64& date,
-                                          const qint32& type, const qint32& read, const qint32& threadID,
+ConversationMessage::ConversationMessage (const qint32& eventField, const QString& body,
+                                          const QString& address, const qint64& date,
+                                          const qint32& type, const qint32& read,
+                                          const qint32& threadID,
                                           const qint32& uID,
                                           QObject* parent)
     : QObject(parent)
+    , m_eventField(eventField)
     , m_body(body)
     , m_address(address)
     , m_date(date)
@@ -53,6 +57,7 @@ ConversationMessage::ConversationMessage (const QString& body, const QString& ad
 
 ConversationMessage::ConversationMessage(const ConversationMessage& other, QObject* parent)
     : QObject(parent)
+    , m_eventField(other.m_eventField)
     , m_body(other.m_body)
     , m_address(other.m_address)
     , m_date(other.m_date)
@@ -67,6 +72,7 @@ ConversationMessage::~ConversationMessage() { }
 
 ConversationMessage& ConversationMessage::operator=(const ConversationMessage& other)
 {
+    this->m_eventField = other.m_eventField;
     this->m_body = other.m_body;
     this->m_address = other.m_address;
     this->m_date = other.m_date;
@@ -80,6 +86,7 @@ ConversationMessage& ConversationMessage::operator=(const ConversationMessage& o
 QVariantMap ConversationMessage::toVariant() const
 {
     return {
+        {"event", m_eventField},
         {"body", m_body},
         {"address", m_address},
         {"date", m_date},
@@ -93,14 +100,21 @@ QVariantMap ConversationMessage::toVariant() const
 QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMessage &message)
 {
     argument.beginStructure();
-    argument << message.body() << message.address() << message.date() << message.type()
-            << message.read() << message.threadID() << message.uID();
+    argument << message.eventField()
+             << message.body()
+             << message.address()
+             << message.date()
+             << message.type()
+             << message.read()
+             << message.threadID()
+             << message.uID();
     argument.endStructure();
     return argument;
 }
 
 const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationMessage &message)
 {
+    qint32 event;
     QString body;
     QString address;
     qint64 date;
@@ -110,6 +124,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationMessa
     qint32 uID;
 
     argument.beginStructure();
+    argument >> event;
     argument >> body;
     argument >> address;
     argument >> date;
@@ -119,7 +134,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationMessa
     argument >> uID;
     argument.endStructure();
 
-    message = ConversationMessage(body, address, date, type, read, threadID, uID);
+    message = ConversationMessage(event, body, address, date, type, read, threadID, uID);
 
     return argument;
 }

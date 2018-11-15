@@ -32,6 +32,7 @@ class KDECONNECTINTERFACES_EXPORT ConversationMessage
     : public QObject {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.telephony.messages")
+    Q_PROPERTY(qint32 eventField READ eventField)
     Q_PROPERTY(QString body READ body)
     Q_PROPERTY(QString address READ address)
     Q_PROPERTY(qint64 date READ date)
@@ -54,15 +55,25 @@ public:
     Q_ENUM(Types);
 
     /**
+     * Values describing the possible type of events contained in a message
+     * A message's eventField is constructed as a bitwise-OR of events
+     * Any events which are unsupported should be ignored
+     */
+    enum Events {
+        EventTextMessage = 0x1, // This message has a body field which contains pure, human-readable text
+    };
+    Q_ENUM(Events)
+
+    /**
      * Build a new message from a keyword argument dictionary
      *
      * @param args mapping of field names to values as might be contained in a network packet containing a message
      */
     ConversationMessage(const QVariantMap& args = QVariantMap(), QObject* parent = Q_NULLPTR);
 
-    ConversationMessage(const QString& body, const QString& address, const qint64& date,
-                        const qint32& type, const qint32& read, const qint32& threadID,
-                        const qint32& uID,
+    ConversationMessage(const qint32& eventField, const QString& body, const QString& address,
+                        const qint64& date, const qint32& type, const qint32& read,
+                        const qint32& threadID, const qint32& uID,
                         QObject* parent = Q_NULLPTR);
 
     ConversationMessage(const ConversationMessage& other, QObject* parent = Q_NULLPTR);
@@ -70,6 +81,7 @@ public:
     ConversationMessage& operator=(const ConversationMessage& other);
     static void registerDbusType();
 
+    qint32 eventField() const { return m_eventField; }
     QString body() const { return m_body; }
     QString address() const { return m_address; }
     qint64 date() const { return m_date; }
@@ -80,7 +92,15 @@ public:
 
     QVariantMap toVariant() const;
 
+    bool containsTextBody() const { return (eventField() & ConversationMessage::EventTextMessage); }
+
 protected:
+    /**
+     * Bitwise OR of event flags
+     * Unsupported flags shall cause the message to be ignored
+     */
+    qint32 m_eventField;
+
     /**
      * Body of the message
      */
