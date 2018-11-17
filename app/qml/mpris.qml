@@ -27,7 +27,36 @@ Kirigami.Page
 {
     id: root
     property QtObject pluginInterface
+    property bool muted: false
+    property int volumeUnmuted
+    property var volume: pluginInterface.volume
     title: i18n("Multimedia Controls")
+
+    onVolumeChanged: {
+        if (muted && volume != 0) {
+            toggleMute()
+            volumeUnmuted = volume
+        } else if (!muted) {
+            volumeUnmuted = volume
+        }
+    }
+
+    function soundState(volume)
+    {
+        if (volume <= 25) {
+            return "audio-volume-low"
+        } else if (volume <= 75) {
+            return "audio-volume-medium"
+        } else {
+            return "audio-volume-high"
+        }
+    }
+
+    function toggleMute() {
+        muted = !muted
+        root.pluginInterface.volume = muted ? 0 : volumeUnmuted
+        muteButton.icon.name = muted ? "audio-volume-muted" : soundState(root.pluginInterface.volume)
+    }
 
     Label {
         id: noPlayersText
@@ -103,13 +132,26 @@ Kirigami.Page
         }
         RowLayout {
             Layout.fillWidth: true
-            Label { text: i18n("Volume:") }
+            Button {
+                id: muteButton
+                icon.name: soundState(root.pluginInterface.volume)
+                onClicked: toggleMute()
+            }
             Slider {
-                value: root.pluginInterface.volume
-                to: 100
+                id: volumeSlider
+                value: volumeUnmuted
+                to: 99
+                enabled: !muted
                 Layout.fillWidth: true
+                onValueChanged: {
+                    volumeUnmuted = value
+                    root.pluginInterface.volume = value
+                    muteButton.icon.name = soundState(root.pluginInterface.volume)
+                }
             }
         }
         Item { Layout.fillHeight: true }
     }
+
+    Component.onCompleted: volumeUnmuted = root.pluginInterface.volume
 }
