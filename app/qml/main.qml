@@ -108,7 +108,7 @@ Kirigami.ApplicationWindow
             }
             delegate: Kirigami.Action {
                 iconName: model.iconName
-                text: display + "\n" + toolTip
+                text: deviceName + "\n" + toolTip
                 enabled: status & DevicesModel.Reachable
                 checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
                 onTriggered: {
