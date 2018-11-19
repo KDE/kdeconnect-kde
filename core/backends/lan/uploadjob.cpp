@@ -62,9 +62,6 @@ void UploadJob::newConnection()
         return; //TODO: Handle error, clean up...
     }
 
-    // FIXME : It is called again when payload sending is finished. Unsolved mystery :(
-    disconnect(m_server, &QTcpServer::newConnection, this, &UploadJob::newConnection);
-
     m_socket = m_server->nextPendingConnection();
     m_socket->setParent(this);
     connect(m_socket, &QSslSocket::disconnected, this, &UploadJob::cleanup);

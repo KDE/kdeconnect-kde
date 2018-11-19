@@ -30,17 +30,13 @@
 class KDECONNECTCORE_EXPORT Server
     : public QTcpServer
 {
-
     Q_OBJECT
-private:
-    QList<QSslSocket*> pendingConnections;
 
 public:
     Server(QObject* parent = 0);
     ~Server() override = default;
 
     QSslSocket* nextPendingConnection() override;
-    bool hasPendingConnections() const override;
 
 protected:
     void incomingConnection(qintptr socketDescriptor) override;
