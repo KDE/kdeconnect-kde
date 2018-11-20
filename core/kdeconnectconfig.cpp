@@ -147,7 +147,13 @@ KdeConnectConfig::KdeConnectConfig()
 
 QString KdeConnectConfig::name()
 {
-    QString defaultName = qgetenv("USER") + '@' + QHostInfo::localHostName();
+    QString username;
+    #ifdef Q_OS_WIN
+        username = qgetenv("USERNAME");
+    #else
+        username = qgetenv("USER");
+    #endif
+    QString defaultName = username + '@' + QHostInfo::localHostName();
     QString name = d->m_config->value(QStringLiteral("name"), defaultName).toString();
     return name;
 }
