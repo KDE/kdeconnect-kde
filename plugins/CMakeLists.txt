@@ -40,7 +40,7 @@ if(SAILFISHOS OR EXPERIMENTALAPP_ENABLED)
     add_subdirectory(remotesystemvolume)
 endif()
 
-if(KF5PulseAudioQt_FOUND)
+if(KF5PulseAudioQt_FOUND OR WIN32)
     add_subdirectory(systemvolume)
 endif()
 

@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SYSTEMVOLUMEPLUGIN_H
-#define SYSTEMVOLUMEPLUGIN_H
+#ifndef SYSTEMVOLUMEPLUGINPULSE_H
+#define SYSTEMVOLUMEPLUGINPULSE_H
 
 #include <QObject>
 #include <QMap>

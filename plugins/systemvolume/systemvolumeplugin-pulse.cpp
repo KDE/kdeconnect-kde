@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "systemvolumeplugin.h"
+#include "systemvolumeplugin-pulse.h"
 
 #include <KPluginFactory>
 
@@ -123,5 +123,5 @@ void SystemvolumePlugin::connected()
     }
 }
 
-#include "systemvolumeplugin.moc"
+#include "systemvolumeplugin-pulse.moc"
 
