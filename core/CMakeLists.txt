@@ -41,6 +41,7 @@ target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network
     KF5::CoreAddons
+    KF5::KIOCore
     qca-qt5
 PRIVATE
     Qt5::DBus

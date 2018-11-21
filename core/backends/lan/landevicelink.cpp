@@ -24,9 +24,11 @@
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
 #include "backends/linkprovider.h"
-#include "uploadjob.h"
 #include "socketlinereader.h"
 #include "lanlinkprovider.h"
+#include <kio/global.h>
+#include <KJobTrackerInterface>
+#include <plugins/share/shareplugin.h>
 
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
     : DeviceLink(deviceId, parent)
@@ -98,6 +100,9 @@ bool LanDeviceLink::sendPacket(NetworkPacket& np)
 UploadJob* LanDeviceLink::sendPayload(const NetworkPacket& np)
 {
     UploadJob* job = new UploadJob(np.payload(), deviceId());
+    if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payloadSize() >= 0) {
+        KIO::getJobTracker()->registerJob(job);
+    }
     job->start();
     return job;
 }
