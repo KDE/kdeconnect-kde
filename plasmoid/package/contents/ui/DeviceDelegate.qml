@@ -50,7 +50,7 @@ PlasmaComponents.ListItem
             PlasmaComponents.Label {
                 horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
-                text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", display, battery.displayString) : display
+                text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", deviceName, battery.displayString) : deviceName
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
             }
