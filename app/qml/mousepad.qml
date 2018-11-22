@@ -68,14 +68,17 @@ Kirigami.Page
 
             Button {
                 Layout.fillWidth: true
+                icon.name: "input-mouse-click-left"
                 onClicked: mousepad.pluginInterface.sendCommand("singleclick", true);
             }
             Button {
                 Layout.fillWidth: true
+                icon.name: "input-mouse-click-middle"
                 onClicked: mousepad.pluginInterface.sendCommand("middleclick", true);
             }
             Button {
                 Layout.fillWidth: true
+                icon.name: "input-mouse-click-right"
                 onClicked: mousepad.pluginInterface.sendCommand("rightclick", true);
             }
         }
