@@ -66,8 +66,8 @@ public:
 Q_SIGNALS:
     Q_SCRIPTABLE void keyPressReceived(const QString& key, int specialKey = 0,
                                        bool shift = false, bool ctrl = false,
-                                       bool alt = false) const;
-    Q_SCRIPTABLE void remoteStateChanged(bool state) const;
+                                       bool alt = false);
+    Q_SCRIPTABLE void remoteStateChanged(bool state);
 };
 
 #endif

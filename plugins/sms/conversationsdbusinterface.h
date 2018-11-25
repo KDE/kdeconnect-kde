@@ -76,8 +76,8 @@ public Q_SLOTS:
 Q_SIGNALS:
     Q_SCRIPTABLE void conversationCreated(const QVariantMap& msg);
     Q_SCRIPTABLE void conversationRemoved(const QString& threadID);
-    Q_SCRIPTABLE void conversationUpdated(const QVariantMap& msg) const;
-    Q_SCRIPTABLE void conversationMessageReceived(const QVariantMap& msg, int pos) const;
+    Q_SCRIPTABLE void conversationUpdated(const QVariantMap& msg);
+    Q_SCRIPTABLE void conversationMessageReceived(const QVariantMap& msg, int pos);
 
 private /*methods*/:
     QString newId(); //Generates successive identifitiers to use as public ids
