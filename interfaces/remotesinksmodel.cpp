@@ -76,7 +76,7 @@ void RemoteSinksModel::setDeviceId(const QString& deviceId)
             this, &RemoteSinksModel::refreshSinkList);
 
     connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::volumeChanged, this, [this](const QString& name, int volume) {
-        for (Sink* s: m_sinkList) {
+        for (Sink* s: qAsConst(m_sinkList)) {
             if (s->name == name) {
                 s->volume = volume;
                 Q_EMIT dataChanged(index(0,0), index(m_sinkList.size() - 1, 0));
@@ -85,7 +85,7 @@ void RemoteSinksModel::setDeviceId(const QString& deviceId)
     });
 
     connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::mutedChanged, this, [this](const QString& name, bool muted) {
-        for (Sink* s: m_sinkList) {
+        for (Sink* s: qAsConst(m_sinkList)) {
             if (s->name == name) {
                 s->muted = muted;
                 Q_EMIT dataChanged(index(0,0), index(m_sinkList.size() - 1, 0));

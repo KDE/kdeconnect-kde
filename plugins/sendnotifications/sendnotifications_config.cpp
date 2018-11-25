@@ -109,8 +109,9 @@ void SendNotificationsConfig::save()
     config()->set(QStringLiteral("generalUrgency"), m_ui->spin_urgency->value());
 
     QVariantList list;
-    list.reserve(appModel->apps().size());
-    for (const auto& a: appModel->apps()) {
+    const auto apps = appModel->apps();
+    list.reserve(apps.size());
+    for (const auto& a: apps) {
         list.append(QVariant::fromValue<NotifyingApplication>(a));
     }
     config()->setList(QStringLiteral("applications"), list);

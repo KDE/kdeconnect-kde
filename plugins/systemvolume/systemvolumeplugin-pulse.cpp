@@ -74,7 +74,8 @@ void SystemvolumePlugin::sendSinkList() {
 
     sinksMap.clear();
 
-    for (PulseAudioQt::Sink* sink : PulseAudioQt::Context::instance()->sinks()) {
+    const auto sinks = PulseAudioQt::Context::instance()->sinks();
+    for (PulseAudioQt::Sink* sink : sinks) {
         sinksMap.insert(sink->name(), sink);
 
         connect(sink, &PulseAudioQt::Sink::volumeChanged, this, [this, sink] {
@@ -118,7 +119,8 @@ void SystemvolumePlugin::connected()
         sendSinkList();
     });
 
-    for (PulseAudioQt::Sink* sink : PulseAudioQt::Context::instance()->sinks()) {
+    const auto sinks = PulseAudioQt::Context::instance()->sinks();
+    for (PulseAudioQt::Sink* sink : sinks) {
         sinksMap.insert(sink->name(), sink);
     }
 }

@@ -289,7 +289,7 @@ void Daemon::addDevice(Device* device)
 QStringList Daemon::pairingRequests() const
 {
     QStringList ret;
-    for(Device* dev: d->m_devices) {
+    for(Device* dev: qAsConst(d->m_devices)) {
         if (dev->hasPairingRequests())
             ret += dev->id();
     }

@@ -67,7 +67,7 @@ void TestSocketLineReader::socketLineReader()
 {
     QList<QByteArray> dataToSend;
     dataToSend << "foobar\n" << "barfoo\n" << "foobar?\n" << "\n" << "barfoo!\n" << "panda\n";
-    for (const QByteArray& line : dataToSend) {
+    for (const QByteArray& line : qAsConst(dataToSend)) {
         m_conn->write(line);
     }
     m_conn->flush();

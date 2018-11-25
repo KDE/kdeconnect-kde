@@ -152,7 +152,8 @@ int main(int argc, char** argv)
             urls.append(url);
 
             // Check for more arguments
-            for (const QString& input : parser.positionalArguments()) {
+            const auto args = parser.positionalArguments();
+            for (const QString& input : args) {
                 QUrl url = QUrl::fromUserInput(input, QDir::currentPath());
                 urls.append(url);
             }
