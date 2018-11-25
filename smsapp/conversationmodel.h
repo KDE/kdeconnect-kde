@@ -45,7 +45,7 @@ public:
         DateRole,
     };
 
-    Q_ENUMS(Roles)
+    Q_ENUM(Roles)
 
     QString threadId() const;
     void setThreadId(const QString &threadId);
