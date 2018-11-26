@@ -59,7 +59,7 @@ void FileTransferJob::start()
 
 void FileTransferJob::doStart()
 {
-    description(this, i18n("Receiving file over KDE Connect"),
+    Q_EMIT description(this, i18n("Receiving file over KDE Connect"),
         { i18nc("File transfer origin", "From"), m_from }
     );
 
@@ -82,7 +82,7 @@ void FileTransferJob::startTransfer()
         return;
 
     setProcessedAmount(Bytes, 0);
-    description(this, i18n("Receiving file over KDE Connect"),
+    Q_EMIT description(this, i18n("Receiving file over KDE Connect"),
                         { i18nc("File transfer origin", "From"), m_from },
                         { i18nc("File transfer destination", "To"), m_destination.toLocalFile() });
 
