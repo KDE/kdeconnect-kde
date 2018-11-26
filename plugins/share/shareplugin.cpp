@@ -63,6 +63,17 @@ QUrl SharePlugin::destinationDir() const
     return dir;
 }
 
+QUrl SharePlugin::getFileDestination(const QString filename) const
+{
+    const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
+    QUrl destination(dir);
+    destination.setPath(dir.path() + '/' + filename, QUrl::DecodedMode);
+    if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
+        destination.setPath(dir.path() + '/' + KIO::suggestName(dir, filename), QUrl::DecodedMode);
+    }
+    return destination;
+}
+
 static QString cleanFilename(const QString &filename)
 {
     int idx = filename.lastIndexOf(QLatin1Char('/'));
@@ -92,21 +103,22 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 
     qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer";
 
-    if (np.hasPayload()) {
-        const QString filename = cleanFilename(np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch())));
-        const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
-        QUrl destination(dir);
-        destination.setPath(dir.path() + '/' + filename, QUrl::DecodedMode);
-        if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
-            destination.setPath(dir.path() + '/' + KIO::suggestName(dir, filename), QUrl::DecodedMode);
-        }
+    if (np.hasPayload() || np.has(QStringLiteral("filename"))) {
 //         qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file" << filename << "in" << dir << "into" << destination;
-
-        FileTransferJob* job = np.createPayloadTransferJob(destination);
-        job->setOriginName(device()->name() + ": " + filename);
-        connect(job, &KJob::result, this, &SharePlugin::finished);
-        KIO::getJobTracker()->registerJob(job);
-        job->start();
+        const QString filename = cleanFilename(np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch())));
+        QUrl destination = getFileDestination(filename);
+        
+        if (np.hasPayload()) {
+            FileTransferJob* job = np.createPayloadTransferJob(destination);
+            job->setOriginName(device()->name() + ": " + filename);
+            connect(job, &KJob::result, this, &SharePlugin::finished);
+            KIO::getJobTracker()->registerJob(job);
+            job->start();
+        } else {
+            QFile file(destination.toLocalFile());
+            file.open(QIODevice::WriteOnly);
+            file.close();
+        }
     } else if (np.has(QStringLiteral("text"))) {
         QString text = np.get<QString>(QStringLiteral("text"));
         if (!QStandardPaths::findExecutable(QStringLiteral("kate")).isEmpty()) {

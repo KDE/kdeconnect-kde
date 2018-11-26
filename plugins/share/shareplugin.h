@@ -56,8 +56,7 @@ private:
     void shareUrl(const QUrl& url);
     void openFile(const QUrl& url);
 
-
     QUrl destinationDir() const;
-
+    QUrl getFileDestination(const QString filename) const;
 };
 #endif
