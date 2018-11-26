@@ -33,7 +33,7 @@ Kirigami.ScrollablePage
         enabled: count > 0
         model: DevicesSortProxyModel {
             id: devicesModel
-            //TODO: make it possible to sort only if they can do sms
+            //TODO: make it possible to filter if they can do sms
             sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
             onRowsInserted: if (devicesCombo.currentIndex < 0) {
                 devicesCombo.currentIndex = 0
