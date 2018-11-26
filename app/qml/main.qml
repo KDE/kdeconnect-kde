@@ -104,12 +104,12 @@ Kirigami.ApplicationWindow
         property var objects: [findDevicesAction]
         Instantiator {
             model: DevicesSortProxyModel {
-                sourceModel: DevicesModel { displayFilter: DevicesModel.Paired }
+                sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
             }
             delegate: Kirigami.Action {
                 iconName: model.iconName
                 text: display + "\n" + toolTip
-                enabled: status & DevicesModel.Reachable
+                visible: status & DevicesModel.Reachable
                 checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
                 onTriggered: {
                     root.pageStack.clear()

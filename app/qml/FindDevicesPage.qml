@@ -49,18 +49,18 @@ Kirigami.ScrollablePage
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:
-                        return i18n("Paired")
+                        return i18n("Remembered")
                     case DevicesModel.Reachable:
-                        return i18n("Reachable")
+                        return i18n("Available")
                     case (DevicesModel.Reachable | DevicesModel.Paired):
-                        return i18n("Paired & Reachable")
+                        return i18n("Connected")
                 }
 
             }
         }
 
         model: DevicesSortProxyModel {
-            sourceModel: DevicesModel { displayFilter: DevicesModel.Reachable }
+            sourceModel: DevicesModel {}
         }
         delegate: Kirigami.BasicListItem {
             width: ListView.view.width
