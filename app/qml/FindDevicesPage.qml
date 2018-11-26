@@ -65,7 +65,7 @@ Kirigami.ScrollablePage
         delegate: Kirigami.BasicListItem {
             width: ListView.view.width
             icon: iconName
-            label: deviceName + "\n" + toolTip
+            label: display + "\n" + toolTip
             onClicked: {
                 pageStack.push(
                     deviceComp,
