@@ -43,7 +43,22 @@ Kirigami.Page
         Layout.fillHeight: true
         Layout.fillWidth: true
 
-        sourceComponent: deviceView.currentDevice.hasPairingRequests ? pairDevice : deviceView.currentDevice.isTrusted ? trustedDevice : untrustedDevice
+        sourceComponent: {
+            if (deviceView.currentDevice.hasPairingRequests) {
+                return pairDevice;
+            }
+
+            if (deviceView.currentDevice.isReachable) {
+                if (deviceView.currentDevice.isTrusted) {
+                    return trustedDevice;
+                } else {
+                    return untrustedDevice;
+                }
+            } else {
+                return notReachableDevice;
+            }
+        }
+
         Component {
             id: trustedDevice
             ColumnLayout {
@@ -151,6 +166,18 @@ Kirigami.Page
                         text: i18n("Reject")
                         onClicked: deviceView.currentDevice.rejectPairing()
                     }
+                }
+            }
+        }
+
+        Component {
+            id: notReachableDevice
+            Item {
+                property var actions: []
+
+                Label {
+                    anchors.centerIn: parent
+                    text: i18n("This device is not reachable")
                 }
             }
         }
