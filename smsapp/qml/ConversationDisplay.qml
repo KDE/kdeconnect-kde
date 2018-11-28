@@ -19,7 +19,7 @@
  */
 
 import QtQuick 2.1
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
 import org.kde.kirigami 2.4 as Kirigami
@@ -37,6 +37,12 @@ Kirigami.ScrollablePage
 
     property string phoneNumber
     title: person.person && person.person.name ? person.person.name : phoneNumber
+
+    function sendMessage() {
+        console.log("sending sms", page.phoneNumber)
+        model.sourceModel.sendReplyToConversation(message.text)
+        message.text = ""
+    }
 
     ListView {
         model: QSortFilterProxyModel {
@@ -65,20 +71,29 @@ Kirigami.ScrollablePage
 
     footer: RowLayout {
         enabled: page.device
-        TextField {
-            id: message
+        ScrollView {
+            Layout.maximumHeight: page.height / 3
             Layout.fillWidth: true
-            placeholderText: i18n("Say hi...")
-            onAccepted: {
-                console.log("sending sms", page.phoneNumber)
-                model.sourceModel.sendReplyToConversation(message.text)
-                text = ""
+            Layout.fillHeight: true
+            clip: true
+
+            TextArea {
+                id: message
+                Layout.fillWidth: true
+                wrapMode: TextEdit.Wrap
+                placeholderText: i18n("Say hi...")
+                Keys.onPressed: {
+                    if ((event.key == Qt.Key_Return) && !(event.modifiers & Qt.ShiftModifier)) {
+                        sendMessage()
+                        event.accepted = true
+                    }
+                }
             }
         }
         Button {
             text: "Send"
             onClicked: {
-                message.accepted()
+                sendMessage()
             }
         }
     }
