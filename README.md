@@ -5,26 +5,25 @@ KDE Connect is a multi-platform app that allows your devices to communicate (eg:
 ## (Some) Features
 - **Shared clipboard**: copy and paste between your phone and your computer (or any other device).
 - **Notification sync**: Read and reply to your Android notifications from the desktop.
-- **Share files and URLs** instantly from one device to another.
+- **Share files and URLs** instantly from one device to another including some filesystem integration.
 - **Multimedia remote control**: Use your phone as a remote for Linux media players.
 - **Virtual touchpad**: Use your phone screen as your computer's touchpad and keyboard.
+- **Presentation remote**: Advance your presentation slides straight from your phone.
 
-All this without wires, over the already existing WiFi network, and using TLS encryption.
+All this is done completely wirelessly, utilising TLS encryption.
 
 ## Supported platforms
-- Computers running Linux with Plasma 5, Gnome 3, Elementary OS...
-- Android, by installing the [KDE Connect Android app](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) (also available on [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp)).
+- Computers running Linux with Plasma 5, Gnome 3, Elementary OS... any distro with Qt5 support given a little work :)
+- Android, by installing the KDE Connect app from the [Play Store](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) or [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp).
 
 ## How to install
-This explains how to install KDE Connect on your computer. You will also need to install it in your phone and pair both devices in the app if you want it to be any useful.
+These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Andriod device and pair them together in the app before using this application. The Android app repository can be found [here](https://cgit.kde.org/kdeconnect-android.git/)
 
 ### On Linux
-Look in your distribution repo for a package called `kdeconnect-kde`, `kdeconnect-plasma`, or just `kdeconnect`. If it's not there and you know how to build software from sources, you just found the repo :)
-
-If you are not using Plasma 5, you might want to install a user interface for your platform. The [indicator-kdeconnect](https://github.com/bajoja/indicator-kdeconnect) project provides an appindicator icon plus integration with Nautilus.
+Look in your distribution repo for a package called `kdeconnect-kde`, `kdeconnect-plasma`, or just `kdeconnect`. If it's not there and you know how to build software from sources, you just found the repo :), instructions are [here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
 
 ### On Mac or Windows
-Platforms other than Linux are not officially supported, but it should be possible to run KDE Connect there. You can compile KDE Connect for Windows using [Craft](https://community.kde.org/Craft) and it works except for some plugins. I haven't tried on Mac. Contributions welcome!
+Platforms other than Linux are not officially supported, as there has yet to be an official release of KDE Connect for MacOS or Windows. However, most of the features have already been ported to windows so you can compile KDE Connect for Windows using [Craft](https://community.kde.org/Craft). It hasn't yet been completely tested on MacOS, contributions and feedback are welcome!
 
 ### On BSD
 It should work, but no promises :)
@@ -57,10 +56,9 @@ NetworkPackets can also have binary data attached that can't be serialized to JS
 
 ## Contributing
 
-To contribute patches, use [KDE Connect's Phabricator](https://phabricator.kde.org/project/profile/159/). There you can also find a task list with stuff to do, and links to other relevant resources. It is a good idea to also subscribe to the [KDE Connect mailing list](https://mail.kde.org/mailman/listinfo/kdeconnect).
+To contribute patches, use [KDE Connect's Phabricator](https://phabricator.kde.org/project/profile/159/). There you can also find a task list with stuff to do, and links to other relevant resources. It is a good idea to also subscribe to the [KDE Connect mailing list](https://mail.kde.org/mailman/listinfo/kdeconnect). We can also be reached on IRC at #kdeconnect on freenode or on [telegram](https://t.me/joinchat/AOS6gA37orb2dZCLhqbZjg), contributions and feedback are warmly welcomed.
 
 ## License
 [GNU GPL v2](https://www.gnu.org/licenses/gpl-2.0.html) and [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
 
 If you are reading this from Github, you should know that this is just a mirror of the [KDE Project repo](https://cgit.kde.org/kdeconnect-kde.git).
-
