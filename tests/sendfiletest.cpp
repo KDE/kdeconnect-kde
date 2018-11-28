@@ -37,6 +37,8 @@
 #include <backends/pairinghandler.h>
 #include "kdeconnect-version.h"
 #include "testdaemon.h"
+#include <plugins/share/shareplugin.h>
+#include <backends/lan/compositeuploadjob.h>
 
 class TestSendFile : public QObject
 {
@@ -102,17 +104,18 @@ class TestSendFile : public QObject
             kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating
 
             QSharedPointer<QFile> f(new QFile(aFile));
-            UploadJob* uj = new UploadJob(f, deviceId);
-            QSignalSpy spyUpload(uj, &KJob::result);
-            uj->start();
-
-            auto info = uj->transferInfo();
-            info.insert(QStringLiteral("deviceId"), deviceId);
-            info.insert(QStringLiteral("size"), aFile.size());
+            NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
+            np.setPayload(f, aFile.size());
+            CompositeUploadJob* job = new CompositeUploadJob(deviceId, false);
+            UploadJob* uj = new UploadJob(np);
+            job->addSubjob(uj);
+            
+            QSignalSpy spyUpload(job, &KJob::result);
+            job->start();
 
             f->open(QIODevice::ReadWrite);
 
-            FileTransferJob* ft = new FileTransferJob(f, uj->transferInfo()[QStringLiteral("size")].toInt(), QUrl::fromLocalFile(destFile));
+            FileTransferJob* ft = new FileTransferJob(f, aFile.size(), QUrl::fromLocalFile(destFile));
 
             QSignalSpy spyTransfer(ft, &KJob::result);
 

@@ -26,9 +26,7 @@
 #include "backends/linkprovider.h"
 #include "socketlinereader.h"
 #include "lanlinkprovider.h"
-#include <kio/global.h>
-#include <KJobTrackerInterface>
-#include <plugins/share/shareplugin.h>
+#include "plugins/share/shareplugin.h"
 
 LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
     : DeviceLink(deviceId, parent)
@@ -85,26 +83,32 @@ QString LanDeviceLink::name()
 
 bool LanDeviceLink::sendPacket(NetworkPacket& np)
 {
-    if (np.hasPayload()) {
-        np.setPayloadTransferInfo(sendPayload(np)->transferInfo());
+    if (np.payload()) {
+        if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payloadSize() >= 0) {
+            if (!m_compositeUploadJob || !m_compositeUploadJob->isRunning()) {
+                m_compositeUploadJob = new CompositeUploadJob(deviceId(), true);
+            }
+        
+            m_compositeUploadJob->addSubjob(new UploadJob(np));
+    
+            if (!m_compositeUploadJob->isRunning()) {
+                m_compositeUploadJob->start();
+            }
+        } else { //Infinite stream
+            CompositeUploadJob* fireAndForgetJob = new CompositeUploadJob(deviceId(), false);
+            fireAndForgetJob->addSubjob(new UploadJob(np));
+            fireAndForgetJob->start();
+        }
+        
+        return true;
+    } else {
+        int written = m_socketLineReader->write(np.serialize());
+
+        //Actually we can't detect if a packet is received or not. We keep TCP
+        //"ESTABLISHED" connections that look legit (return true when we use them),
+        //but that are actually broken (until keepalive detects that they are down).
+        return (written != -1);
     }
-
-    int written = m_socketLineReader->write(np.serialize());
-
-    //Actually we can't detect if a packet is received or not. We keep TCP
-    //"ESTABLISHED" connections that look legit (return true when we use them),
-    //but that are actually broken (until keepalive detects that they are down).
-    return (written != -1);
-}
-
-UploadJob* LanDeviceLink::sendPayload(const NetworkPacket& np)
-{
-    UploadJob* job = new UploadJob(np.payload(), deviceId());
-    if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payloadSize() >= 0) {
-        KIO::getJobTracker()->registerJob(job);
-    }
-    job->start();
-    return job;
 }
 
 void LanDeviceLink::dataReceived()

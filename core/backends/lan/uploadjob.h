@@ -25,49 +25,37 @@
 
 #include <QIODevice>
 #include <QVariantMap>
-#include <QSharedPointer>
 #include <QSslSocket>
 #include "server.h"
 #include <QElapsedTimer>
-#include <QTimer>
+#include <networkpacket.h>
 
 class KDECONNECTCORE_EXPORT UploadJob
     : public KJob
 {
     Q_OBJECT
 public:
-    explicit UploadJob(const QSharedPointer<QIODevice>& source, const QString& deviceId);
+    explicit UploadJob(const NetworkPacket& networkPacket);
 
+    void setSocket(QSslSocket* socket);
     void start() override;
-
-    QVariantMap transferInfo();
+    bool stop();
+    const NetworkPacket getNetworkPacket();
 
 private:
-    const QSharedPointer<QIODevice> m_input;
-    Server * const m_server;
+    const NetworkPacket m_networkPacket;
+    QSharedPointer<QIODevice> m_input;
     QSslSocket* m_socket;
-    quint16 m_port;
-    const QString m_deviceId;
     qint64 bytesUploading;
     qint64 bytesUploaded;
-    QElapsedTimer m_timer;
 
     const static quint16 MIN_PORT = 1739;
     const static quint16 MAX_PORT = 1764;
     
-protected:
-    bool doKill() override;
-
 private Q_SLOTS:
-    void startUploading();
     void uploadNextPacket();
-    void newConnection();
     void encryptedBytesWritten(qint64 bytes);
     void aboutToClose();
-    void cleanup();
-
-    void socketFailed(QAbstractSocket::SocketError);
-    void sslErrors(const QList<QSslError>& errors);
 };
 
 #endif // UPLOADJOB_H

@@ -147,22 +147,26 @@ int main(int argc, char** argv)
         }
 
         if (parser.isSet(QStringLiteral("share"))) {
-            QList<QUrl> urls;
+            QStringList urls;
+            
             QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")), QDir::currentPath());
-            urls.append(url);
+            urls.append(url.toString());
 
             // Check for more arguments
             const auto args = parser.positionalArguments();
             for (const QString& input : args) {
                 QUrl url = QUrl::fromUserInput(input, QDir::currentPath());
-                urls.append(url);
+                urls.append(url.toString());
             }
 
-            for (const QUrl& url : urls) {
-                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
-                msg.setArguments(QVariantList() << url.toString());
-                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
-                QTextStream(stdout) << i18n("Shared %1", url.toString()) << endl;
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", 
+                                                              QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrls"));
+            
+            msg.setArguments(QVariantList() << QVariant(urls));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+        
+            for (const QString& url : qAsConst(urls)) {
+                QTextStream(stdout) << i18n("Shared %1", url) << endl;
             }
         } else if(parser.isSet(QStringLiteral("pair"))) {
             DeviceDbusInterface dev(device);

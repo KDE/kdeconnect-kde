@@ -178,6 +178,12 @@ void SharePlugin::shareUrl(const QUrl& url)
     sendPacket(packet);
 }
 
+void SharePlugin::shareUrls(const QStringList& urls) {
+    for(const QString url : urls) {
+        shareUrl(QUrl(url));
+    }
+}
+
 void SharePlugin::shareText(const QString& text)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);

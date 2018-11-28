@@ -22,6 +22,7 @@
 #define LANDEVICELINK_H
 
 #include <QObject>
+#include <QPointer>
 #include <QString>
 #include <QSslSocket>
 #include <QSslCertificate>
@@ -29,6 +30,7 @@
 #include <kdeconnectcore_export.h>
 #include "backends/devicelink.h"
 #include "uploadjob.h"
+#include "compositeuploadjob.h"
 
 class SocketLineReader;
 
@@ -45,7 +47,6 @@ public:
 
     QString name() override;
     bool sendPacket(NetworkPacket& np) override;
-    UploadJob* sendPayload(const NetworkPacket& np);
 
     void userRequestsPair() override;
     void userRequestsUnpair() override;
@@ -63,6 +64,7 @@ private:
     SocketLineReader* m_socketLineReader;
     ConnectionStarted m_connectionSource;
     QHostAddress m_hostAddress;
+    QPointer<CompositeUploadJob> m_compositeUploadJob;
 };
 
 #endif
