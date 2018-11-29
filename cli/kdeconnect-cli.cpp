@@ -60,6 +60,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("ping"), i18n("Sends a ping to said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ping-msg"), i18n("Same as ping but you can set the message to display"), i18n("message")));
     parser.addOption(QCommandLineOption(QStringLiteral("share"), i18n("Share a file to a said device"), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringLiteral("share-text"), i18n("Share text to a said device"), QStringLiteral("text")));
     parser.addOption(QCommandLineOption(QStringLiteral("list-notifications"), i18n("Display the notifications on a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("lock"), i18n("Lock the specified device")));
     parser.addOption(QCommandLineOption(QStringLiteral("send-sms"), i18n("Sends an SMS. Requires destination"), i18n("message")));
@@ -168,6 +169,11 @@ int main(int argc, char** argv)
             for (const QString& url : qAsConst(urls)) {
                 QTextStream(stdout) << i18n("Shared %1", url) << endl;
             }
+        } else if (parser.isSet(QStringLiteral("share-text"))) {
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareText"));
+            msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << endl;
         } else if(parser.isSet(QStringLiteral("pair"))) {
             DeviceDbusInterface dev(device);
             if (!dev.isReachable()) {
