@@ -170,7 +170,7 @@ bool ContactsPlugin::handleResponseVCards (const NetworkPacket& np) {
 
     // Loop over all IDs, extract the VCard from the packet and write the file
     for (const auto& ID : uIDs) {
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Got VCard:" << np.get<QString>(ID);
+        //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Got VCard:" << np.get<QString>(ID);
         QString filename = vcardsDir.filePath(ID + VCARD_EXTENSION);
         QFile vcardFile(filename);
         bool vcardFileOpened = vcardFile.open(QIODevice::WriteOnly); // Want to smash anything that might have already been there
