@@ -2,7 +2,7 @@
 Type=Application
 Icon=kdeconnect
 Terminal=false
-Exec=kcmshell5 kcm_kdeconnect
+Exec=kdeconnect-settings
 Name=KDE Connect Settings
 Name[ar]=إعدادات كدي المتّصل
 Name[ca]=Arranjament del KDE Connect
