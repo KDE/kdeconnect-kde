@@ -67,7 +67,7 @@ int main(int argc, char** argv)
     DaemonDbusInterface iface;
     auto refreshMenu = [&iface, &model, &menu]() {
         menu->clear();
-        auto configure = menu->addAction(i18n("Configure..."));
+        auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
             KCMultiDialog* dialog = new KCMultiDialog;
             dialog->addModule("kcm_kdeconnect");

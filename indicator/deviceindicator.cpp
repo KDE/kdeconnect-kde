@@ -36,6 +36,8 @@ public:
         connect(m_batteryIface, SIGNAL(chargeChanged(int)), this, SLOT(setCharge(int)));
         connect(m_batteryIface, SIGNAL(stateChanged(bool)), this, SLOT(setCharging(bool)));
 
+        setIcon(QIcon::fromTheme(QStringLiteral("battery")));
+
         update();
     }
 
@@ -77,7 +79,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
                      [battery](bool available) { battery->setVisible(available);  }
                      , this);
 
-    auto browse = addAction(i18n("Browse device"));
+    auto browse = addAction(QIcon::fromTheme(QStringLiteral("document-open-folder")), i18n("Browse device"));
     connect(browse, &QAction::triggered, device, [device](){
         SftpDbusInterface* sftpIface = new SftpDbusInterface(device->id(), device);
         sftpIface->startBrowsing();
@@ -85,7 +87,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     });
     setWhenAvailable(device->hasPlugin("kdeconnect_sftp"), [browse](bool available) { browse->setVisible(available); }, this);
 
-    auto findDevice = addAction(i18n("Ring device"));
+    auto findDevice = addAction(QIcon::fromTheme(QStringLiteral("irc-voice")), i18n("Ring device"));
     connect(findDevice, &QAction::triggered, device, [device](){
         FindMyPhoneDeviceDbusInterface* iface = new FindMyPhoneDeviceDbusInterface(device->id(), device);
         iface->ring();
@@ -93,7 +95,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     });
     setWhenAvailable(device->hasPlugin("kdeconnect_findmyphone"), [findDevice](bool available) { findDevice->setVisible(available); }, this);
 
-    auto sendFile = addAction(i18n("Send file"));
+    auto sendFile = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send file"));
     connect(sendFile, &QAction::triggered, device, [device, this](){
         const QUrl url = QFileDialog::getOpenFileUrl(parentWidget(), i18n("Select file to send to '%1'", device->name()), QUrl::fromLocalFile(QDir::homePath()));
         if (url.isEmpty())
