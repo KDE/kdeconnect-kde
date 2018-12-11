@@ -80,7 +80,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void conversationMessageReceived(const QVariantMap& msg, int pos);
 
 private /*methods*/:
-    QString newId(); //Generates successive identifitiers to use as public ids
+    QString newId(); //Generates successive identifiers to use as public ids
 
 private /*attributes*/:
     const Device* m_device;

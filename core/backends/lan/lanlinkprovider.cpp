@@ -63,7 +63,7 @@ LanLinkProvider::LanLinkProvider(bool testMode)
 
     m_udpSocket.setProxy(QNetworkProxy::NoProxy);
 
-    //Detect when a network interface changes status, so we announce ourelves in the new network
+    //Detect when a network interface changes status, so we announce ourselves in the new network
     QNetworkConfigurationManager* networkManager = new QNetworkConfigurationManager(this);
     connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, &LanLinkProvider::onNetworkConfigurationChanged);
 

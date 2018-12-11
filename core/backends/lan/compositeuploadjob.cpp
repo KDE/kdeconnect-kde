@@ -54,7 +54,7 @@ bool CompositeUploadJob::isRunning()
 
 void CompositeUploadJob::start() {
     if (m_running) {
-        qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::start() - allready running";
+        qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::start() - already running";
         return;
     }
     
