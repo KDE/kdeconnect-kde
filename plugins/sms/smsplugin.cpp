@@ -78,7 +78,7 @@ void SmsPlugin::requestAllConversations()
 void SmsPlugin::requestConversation (const QString& conversationID) const
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATION);
-    np.set("threadID", conversationID.toInt());
+    np.set("threadID", conversationID.toLongLong());
 
     sendPacket(np);
 }

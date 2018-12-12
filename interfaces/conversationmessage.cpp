@@ -32,7 +32,7 @@ ConversationMessage::ConversationMessage(const QVariantMap& args, QObject* paren
       m_date(args["date"].toLongLong()),
       m_type(args["type"].toInt()),
       m_read(args["read"].toInt()),
-      m_threadID(args["thread_id"].toInt()),
+      m_threadID(args["thread_id"].toLongLong()),
       m_uID(args["_id"].toInt())
 {
 }
@@ -40,7 +40,7 @@ ConversationMessage::ConversationMessage(const QVariantMap& args, QObject* paren
 ConversationMessage::ConversationMessage (const qint32& eventField, const QString& body,
                                           const QString& address, const qint64& date,
                                           const qint32& type, const qint32& read,
-                                          const qint32& threadID,
+                                          const qint64& threadID,
                                           const qint32& uID,
                                           QObject* parent)
     : QObject(parent)
@@ -120,7 +120,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationMessa
     qint64 date;
     qint32 type;
     qint32 read;
-    qint32 threadID;
+    qint64 threadID;
     qint32 uID;
 
     argument.beginStructure();
