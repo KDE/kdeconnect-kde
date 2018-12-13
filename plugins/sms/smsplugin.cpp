@@ -81,8 +81,6 @@ void SmsPlugin::requestConversation (const qint64& conversationID) const
     np.set("threadID", conversationID);
 
     sendPacket(np);
-
-    return;
 }
 
 void SmsPlugin::forwardToTelepathy(const ConversationMessage& message)

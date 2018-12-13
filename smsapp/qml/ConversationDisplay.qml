@@ -38,6 +38,19 @@ Kirigami.ScrollablePage
     property string phoneNumber
     title: person.person && person.person.name ? person.person.name : phoneNumber
 
+    /**
+     * Build a chat message which is representative of all chat messages
+     *
+     * In other words, one which I can use to get a reasonable height guess
+     */
+    ChatMessage {
+        id: genericMessage
+        messageBody: "Generic Message Body"
+        dateTime: new Date('2000-0-0')
+        visible: false
+        enabled: false
+    }
+
     function sendMessage() {
         console.log("sending sms", page.phoneNumber)
         model.sourceModel.sendReplyToConversation(message.text)
@@ -45,6 +58,7 @@ Kirigami.ScrollablePage
     }
 
     ListView {
+        id: viewport
         model: QSortFilterProxyModel {
             id: model
             sortOrder: Qt.AscendingOrder
@@ -61,12 +75,46 @@ Kirigami.ScrollablePage
             messageBody: model.display
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
+
+            ListView.onAdd: {
+                if (index == viewport.count - 1)
+                    // This message is being inserted at the newest position
+                    // We want to scroll to show it if the user is "almost" looking at it
+
+                    // Define some fudge area. If the message is being drawn offscreen but within
+                    // this distance, we move to show it anyway.
+                    // Selected to be genericMessage.height because that value scales for different
+                    // font sizes / DPI / etc. -- Better ideas are welcome!
+                    // Double the value works nicely
+                    var offscreenFudge = 2 * genericMessage.height
+
+                    var viewportYBottom = viewport.contentY + viewport.height
+
+                    if (y < viewportYBottom + genericMessage.height) {
+                        viewport.currentIndex = index
+                    }
+            }
         }
 
-        // Set the view to start at the bottom of the page and track new elements if it was not manually scrolled up
-        currentIndex: atYEnd ?
-                        count - 1 :
-                        currentIndex
+        onMovementEnded: {
+            // Unset the highlightRangeMode if it was set previously
+            highlightRangeMode = ListView.ApplyRange
+            highlightMoveDuration: -1 // "Re-enable" the highlight animation
+
+            if (atYBeginning) {
+                // "Lock" the view to the message currently at the beginning of the view
+                // This prevents the view from snapping to the top of the messages we are about to request
+                currentIndex = 0 // Index 0 is the beginning of the view
+                preferredHighlightBegin = visibleArea.yPosition
+                preferredHighlightEnd = preferredHighlightBegin + currentItem.height
+                highlightRangeMode = ListView.StrictlyEnforceRange
+
+                highlightMoveDuration = 1 // This is not ideal: I would like to disable the highlight animation altogether
+
+                // Get more messages
+                model.sourceModel.requestMoreMessages()
+            }
+        }
     }
 
     footer: RowLayout {
