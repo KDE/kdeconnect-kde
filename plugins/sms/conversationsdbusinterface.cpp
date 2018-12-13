@@ -77,7 +77,7 @@ void ConversationsDbusInterface::requestConversation(const qint64& conversationI
 
 void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &messages)
 {
-    QSet<qint32> updatedConversationIDs;
+    QSet<qint64> updatedConversationIDs;
 
     for (const auto& message : messages) {
         const qint32& threadId = message.threadID();
@@ -122,7 +122,7 @@ QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qin
     return m_conversations.value(conversationID).values();
 }
 
-void ConversationsDbusInterface::updateConversation(const qint32& conversationID)
+void ConversationsDbusInterface::updateConversation(const qint64& conversationID)
 {
     waitingForMessagesLock.lock();
     qCDebug(KDECONNECT_CONVERSATIONS) << "Requesting conversation with ID" << conversationID << "from remote";

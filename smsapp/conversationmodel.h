@@ -50,7 +50,7 @@ public:
 
     Q_ENUM(Roles)
 
-    qint32 threadId() const;
+    qint64 threadId() const;
     void setThreadId(const qint64& threadId);
 
     QString deviceId() const { return m_deviceId; }
@@ -67,7 +67,7 @@ private:
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;
     qint64 m_threadId = INVALID_THREAD_ID;
-    QSet<qint32> knownMessageIDs;
+    QSet<qint32> knownMessageIDs; // Set of known Message uIDs
 };
 
 #endif // CONVERSATIONMODEL_H
