@@ -33,7 +33,7 @@ Kirigami.ScrollablePage
         id: person
     }
     property QtObject device
-    property string conversationId
+    property int conversationId
 
     property string phoneNumber
     title: person.person && person.person.name ? person.person.name : phoneNumber

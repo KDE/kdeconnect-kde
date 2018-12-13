@@ -75,12 +75,14 @@ void SmsPlugin::requestAllConversations()
     sendPacket(np);
 }
 
-void SmsPlugin::requestConversation (const QString& conversationID) const
+void SmsPlugin::requestConversation (const qint64& conversationID) const
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATION);
-    np.set("threadID", conversationID.toLongLong());
+    np.set("threadID", conversationID);
 
     sendPacket(np);
+
+    return;
 }
 
 void SmsPlugin::forwardToTelepathy(const ConversationMessage& message)
@@ -99,14 +101,18 @@ void SmsPlugin::forwardToTelepathy(const ConversationMessage& message)
 bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
 {
     const auto messages = np.get<QVariantList>("messages");
+    QList<ConversationMessage> messagesList;
+    messagesList.reserve(messages.count());
 
     for (const QVariant& body : messages) {
         ConversationMessage message(body.toMap());
         if (message.containsTextBody()) {
             forwardToTelepathy(message);
-            m_conversationInterface->addMessage(message);
+        messagesList.append(message);
         }
     }
+
+    m_conversationInterface->addMessages(messagesList);
 
     return true;
 }

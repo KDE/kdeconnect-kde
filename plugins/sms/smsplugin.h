@@ -112,8 +112,10 @@ public Q_SLOTS:
 
     /**
      * Send a request to the remote for a particular conversation
+     *
+     * TODO: Make interface capable of requesting limited window of messages
      */
-    Q_SCRIPTABLE void requestConversation(const QString& conversationID) const;
+    Q_SCRIPTABLE void requestConversation(const qint64& conversationID) const;
 
 private:
 
@@ -129,7 +131,6 @@ private:
 
     QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface* m_conversationInterface;
-
 };
 
 #endif

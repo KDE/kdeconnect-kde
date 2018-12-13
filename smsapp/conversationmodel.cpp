@@ -39,20 +39,20 @@ ConversationModel::~ConversationModel()
 {
 }
 
-QString ConversationModel::threadId() const
+qint64 ConversationModel::threadId() const
 {
     return m_threadId;
 }
 
-void ConversationModel::setThreadId(const QString &threadId)
+void ConversationModel::setThreadId(const qint64& threadId)
 {
     if (m_threadId == threadId)
         return;
 
     m_threadId = threadId;
     clear();
-    if (!threadId.isEmpty()) {
-        m_conversationsInterface->requestConversation(threadId, 0, 10);
+    if (threadId != INVALID_THREAD_ID) {
+        requestMoreMessages();
     }
 }
 
@@ -63,7 +63,6 @@ void ConversationModel::setDeviceId(const QString& deviceId)
 
     qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
     if (m_conversationsInterface) {
-        disconnect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap, int)), this, SLOT(createRowFromMessage(QVariantMap, int)));
         disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
         delete m_conversationsInterface;
     }
@@ -71,21 +70,29 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     m_deviceId = deviceId;
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationMessageReceived(QVariantMap,int)), this, SLOT(createRowFromMessage(QVariantMap,int)));
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
 }
 
 void ConversationModel::sendReplyToConversation(const QString& message)
 {
-    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to conversation with ID" << m_threadId;
+    //qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to conversation with ID" << m_threadId;
     m_conversationsInterface->replyToConversation(m_threadId, message);
+}
+
+void ConversationModel::requestMoreMessages(const quint32& howMany)
+{
+    if (m_threadId == INVALID_THREAD_ID) {
+        return;
+    }
+    const auto& numMessages = rowCount();
+    m_conversationsInterface->requestConversation(m_threadId, numMessages, numMessages + howMany);
 }
 
 void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
 {
     const ConversationMessage message(msg);
 
-    if (!(message.threadID() == m_threadId.toInt())) {
+    if (message.threadID() != m_threadId) {
         // Because of the asynchronous nature of the current implementation of this model, if the
         // user clicks quickly between threads or for some other reason a message comes when we're
         // not expecting it, we should not display it in the wrong place
@@ -95,18 +102,26 @@ void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
                 << "Discarding.";
         return;
     }
+
+    if (knownMessageIDs.contains(message.uID())) {
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
+                << "Ignoring duplicate message with ID" << message.uID();
+        return;
+    }
+
     auto item = new QStandardItem;
     item->setText(message.body());
     item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
     item->setData(message.date(), DateRole);
     insertRow(pos, item);
+    knownMessageIDs.insert(message.uID());
 }
 
 void ConversationModel::handleConversationUpdate(const QVariantMap& msg)
 {
     const ConversationMessage message(msg);
 
-    if (!(message.threadID() == m_threadId.toInt())) {
+    if (message.threadID() != m_threadId) {
         // If a conversation which we are not currently viewing was updated, discard the information
         qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
                 << "Saw update for thread" << message.threadID()

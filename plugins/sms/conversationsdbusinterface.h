@@ -49,8 +49,19 @@ public:
     explicit ConversationsDbusInterface(KdeConnectPlugin* plugin);
     ~ConversationsDbusInterface() override;
 
-    void addMessage(const ConversationMessage &message);
+    void addMessages(const QList<ConversationMessage> &messages);
     void removeMessage(const QString& internalId);
+
+    /**
+     * Return a shallow copy of the requested conversation
+     */
+    QList<ConversationMessage> getConversation(const qint64& conversationID) const;
+
+    /**
+     * Get all of the messages in the requested conversation from the remote device
+     * TODO: Make interface capable of requesting smaller window of messages
+     */
+    void updateConversation(const qint64& conversationID);
 
 public Q_SLOTS:
     /**
@@ -61,12 +72,20 @@ public Q_SLOTS:
      */
     QVariantList activeConversations();
 
-    void requestConversation(const QString &conversationID, int start, int end);
+    /**
+     * Request the specified range of the specified conversation
+     *
+     * Emits conversationUpdated for every message in the requested range
+     *
+     * If the conversation does not have enough messages to fill the request,
+     * this method may return fewer messages
+     */
+    void requestConversation(const qint64 &conversationID, int start, int end);
 
     /**
      * Send a new message to this conversation
      */
-    void replyToConversation(const QString& conversationID, const QString& message);
+    void replyToConversation(const qint64& conversationID, const QString& message);
 
     /**
      * Send the request to the Telephony plugin to update the list of conversation threads
@@ -74,13 +93,25 @@ public Q_SLOTS:
     void requestAllConversationThreads();
 
 Q_SIGNALS:
+    /**
+     * Emitted whenever a conversation with no cached messages is added, either because the cache
+     * is being populated or because a new conversation has been created
+     */
     Q_SCRIPTABLE void conversationCreated(const QVariantMap& msg);
-    Q_SCRIPTABLE void conversationRemoved(const QString& threadID);
+
+    /**
+     * Emitted whenever a conversation is being deleted
+     */
+    Q_SCRIPTABLE void conversationRemoved(const qint64& conversationID);
+
+    /**
+     * Emitted whenever a message is added to a conversation and it is the newest message in the
+     * conversation
+     */
     Q_SCRIPTABLE void conversationUpdated(const QVariantMap& msg);
-    Q_SCRIPTABLE void conversationMessageReceived(const QVariantMap& msg, int pos);
 
 private /*methods*/:
-    QString newId(); //Generates successive identifiers to use as public ids
+    QString newId(); //Generates successive identifitiers to use as public ids
 
 private /*attributes*/:
     const Device* m_device;
@@ -92,16 +123,20 @@ private /*attributes*/:
      * The messages are stored as a QMap of the timestamp to the actual message object so that
      * we can use .values() to get a sorted list of messages from least- to most-recent
      */
-    QHash<QString, QMap<qint64, ConversationMessage>> m_conversations;
+    QHash<qint64, QMap<qint64, ConversationMessage>> m_conversations;
 
     /**
      * Mapping of threadID to the set of uIDs known in the corresponding conversation
      */
-    QHash<QString, QSet<qint32>> m_known_messages;
+    QHash<qint64, QSet<qint32>> m_known_messages;
 
     int m_lastId;
 
     SmsDbusInterface m_smsInterface;
+
+    QSet<qint64> conversationsWaitingForMessages;
+    QMutex waitingForMessagesLock;
+    QWaitCondition waitingForMessages;
 };
 
 #endif // CONVERSATIONSDBUSINTERFACE_H

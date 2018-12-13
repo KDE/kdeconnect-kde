@@ -24,16 +24,19 @@
 
 #include <QStandardItemModel>
 #include <QLoggingCategory>
+#include <QSet>
 
 #include "interfaces/dbusinterfaces.h"
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL)
 
+#define INVALID_THREAD_ID -1
+
 class ConversationModel
     : public QStandardItemModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString threadId READ threadId WRITE setThreadId)
+    Q_PROPERTY(qint64 threadId READ threadId WRITE setThreadId)
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId)
 
 public:
@@ -47,13 +50,14 @@ public:
 
     Q_ENUM(Roles)
 
-    QString threadId() const;
-    void setThreadId(const QString &threadId);
+    qint32 threadId() const;
+    void setThreadId(const qint64& threadId);
 
     QString deviceId() const { return m_deviceId; }
     void setDeviceId(const QString &/*deviceId*/);
 
     Q_INVOKABLE void sendReplyToConversation(const QString& message);
+    Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
 
 private Q_SLOTS:
     void createRowFromMessage(const QVariantMap &msg, int pos);
@@ -62,7 +66,8 @@ private Q_SLOTS:
 private:
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;
-    QString m_threadId;
+    qint64 m_threadId = INVALID_THREAD_ID;
+    QSet<qint32> knownMessageIDs;
 };
 
 #endif // CONVERSATIONMODEL_H

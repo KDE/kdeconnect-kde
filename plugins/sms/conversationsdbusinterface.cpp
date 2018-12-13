@@ -22,6 +22,8 @@
 #include "interfaces/dbusinterfaces.h"
 #include "interfaces/conversationmessage.h"
 
+#include "requestconversationworker.h"
+
 #include <QDBusConnection>
 
 #include <core/device.h>
@@ -64,52 +66,50 @@ QVariantList ConversationsDbusInterface::activeConversations()
     return toReturn;
 }
 
-void ConversationsDbusInterface::requestConversation(const QString& conversationID, int start, int end)
+void ConversationsDbusInterface::requestConversation(const qint64& conversationID, int start, int end)
 {
-    const auto messagesList = m_conversations[conversationID].values();
-
-    if (messagesList.isEmpty()) {
-        // Since there are no messages in the conversation, it's likely that it is a junk ID, but go ahead anyway
-        qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!" << conversationID;
-    }
-
-    // TODO: Check local cache before requesting new messages
-    // TODO: Make Android interface capable of requesting small window of messages
-    m_smsInterface.requestConversation(conversationID);
-
-    // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
-    // messages (smallest timestamp number)
-    // Therefore, return the end of the list first (most recent messages)
-    int i = start;
-    for(auto it = messagesList.crbegin() + start; it != messagesList.crend(); ++it) {
-        Q_EMIT conversationMessageReceived(it->toVariant(), i);
-        i++;
-        if (i >= end) {
-            break;
-        }
-    }
+    RequestConversationWorker* worker = new RequestConversationWorker(conversationID, start, end, this);
+    connect(worker, &RequestConversationWorker::conversationMessageRead,
+            this, &ConversationsDbusInterface::conversationUpdated,
+            Qt::QueuedConnection);
+    worker->work();
 }
 
-void ConversationsDbusInterface::addMessage(const ConversationMessage &message)
+void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &messages)
 {
-    const QString& threadId = QString::number(message.threadID());
+    QSet<qint32> updatedConversationIDs;
 
-    if (m_known_messages[threadId].contains(message.uID())) {
-        // This message has already been processed. Don't do anything.
-        return;
+    for (const auto& message : messages) {
+        const qint32& threadId = message.threadID();
+
+        if (m_known_messages[threadId].contains(message.uID())) {
+            // This message has already been processed. Don't do anything.
+            continue;
+        }
+
+        updatedConversationIDs.insert(message.threadID());
+
+        // Store the Message in the list corresponding to its thread
+        bool newConversation = !m_conversations.contains(threadId);
+        const auto& threadPosition = m_conversations[threadId].insert(message.date(), message);
+        m_known_messages[threadId].insert(message.uID());
+
+        // If this message was inserted at the end of the list, it is the latest message in the conversation
+        bool latestMessage = threadPosition == m_conversations[threadId].end() - 1;
+
+        // Tell the world about what just happened
+        if (newConversation) {
+            Q_EMIT conversationCreated(message.toVariant());
+        } else if (latestMessage) {
+            Q_EMIT conversationUpdated(message.toVariant());
+        }
     }
 
-    // Store the Message in the list corresponding to its thread
-    bool newConversation = !m_conversations.contains(threadId);
-    m_conversations[threadId].insert(message.date(), message);
-    m_known_messages[threadId].insert(message.uID());
-
-    // Tell the world about what just happened
-    if (newConversation) {
-        Q_EMIT conversationCreated(message.toVariant());
-    } else {
-        Q_EMIT conversationUpdated(message.toVariant());
-    }
+    waitingForMessagesLock.lock();
+    // Remove the waiting flag for all conversations which we just processed
+    conversationsWaitingForMessages.subtract(updatedConversationIDs);
+    waitingForMessages.wakeAll();
+    waitingForMessagesLock.unlock();
 }
 
 void ConversationsDbusInterface::removeMessage(const QString& internalId)
@@ -117,7 +117,24 @@ void ConversationsDbusInterface::removeMessage(const QString& internalId)
     // TODO: Delete the specified message from our internal structures
 }
 
-void ConversationsDbusInterface::replyToConversation(const QString& conversationID, const QString& message)
+QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qint64& conversationID) const
+{
+    return m_conversations.value(conversationID).values();
+}
+
+void ConversationsDbusInterface::updateConversation(const qint32& conversationID)
+{
+    waitingForMessagesLock.lock();
+    qCDebug(KDECONNECT_CONVERSATIONS) << "Requesting conversation with ID" << conversationID << "from remote";
+    conversationsWaitingForMessages.insert(conversationID);
+    m_smsInterface.requestConversation(conversationID);
+    while (conversationsWaitingForMessages.contains(conversationID)) {
+        waitingForMessages.wait(&waitingForMessagesLock);
+    }
+    waitingForMessagesLock.unlock();
+}
+
+void ConversationsDbusInterface::replyToConversation(const qint64& conversationID, const QString& message)
 {
     const auto messagesList = m_conversations[conversationID];
     if (messagesList.isEmpty()) {

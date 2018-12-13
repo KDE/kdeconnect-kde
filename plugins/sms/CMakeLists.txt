@@ -1,6 +1,7 @@
 set(kdeconnect_sms_SRCS
     smsplugin.cpp
     conversationsdbusinterface.cpp
+    requestconversationworker.cpp
 )
 
 include_directories(${CMAKE_BINARY_DIR})
