@@ -52,6 +52,9 @@ void RequestConversationWorker::handleRequestConversation()
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!" << conversationID;
     }
 
+    // TODO: Reply with all messages we currently have available, even if we don't have enough to completely fill the request
+    // In case the remote takes awhile to respond, we should go ahead and do anything we can from the cache
+
     if (messagesList.length() <= end) {
         // If we don't have enough messages in cache, go get some more
         // TODO: Make Android interface capable of requesting small window of messages

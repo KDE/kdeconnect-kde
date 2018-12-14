@@ -82,12 +82,17 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
     for (const auto& message : messages) {
         const qint32& threadId = message.threadID();
 
+        // We might discover that there are no new messages in this conversation, thus calling it
+        // "updated" might turn out to be a bit misleading
+        // However, we need to report it as updated regardless, for the case where we have already
+        // cached every message of the conversation but we have received a request for more, otherwise
+        // we will never respond to that request
+        updatedConversationIDs.insert(message.threadID());
+
         if (m_known_messages[threadId].contains(message.uID())) {
             // This message has already been processed. Don't do anything.
             continue;
         }
-
-        updatedConversationIDs.insert(message.threadID());
 
         // Store the Message in the list corresponding to its thread
         bool newConversation = !m_conversations.contains(threadId);
