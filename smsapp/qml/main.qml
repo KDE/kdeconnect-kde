@@ -29,8 +29,6 @@ Kirigami.ApplicationWindow
     width: 800
     height: 600
 
-    header: Kirigami.ApplicationHeader {}
-
     pageStack.initialPage: ConversationList {
         title: i18n("KDE Connect SMS")
     }
