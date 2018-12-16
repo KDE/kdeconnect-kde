@@ -46,7 +46,7 @@ Q_SIGNALS:
     void failed(const QString& message);
 
 private Q_SLOTS:
-    void onPakcageReceived(const NetworkPacket& np);
+    void onPackageReceived(const NetworkPacket& np);
     void onStarted();
     void onError(QProcess::ProcessError error);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
