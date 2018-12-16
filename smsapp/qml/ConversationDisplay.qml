@@ -1,5 +1,7 @@
 /**
  * Copyright (C) 2018 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * Copyright (C) 2018 Nicolas Fella <nicolas.fella@gmx.de>
+ * Copyright (C) 2018 Simon Redman <simon@ergotech.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
