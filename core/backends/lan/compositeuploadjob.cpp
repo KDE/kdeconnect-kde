@@ -117,7 +117,7 @@ void CompositeUploadJob::startNextSubJob()
     } else {
         setError(SendingNetworkPacketFailed);
         setErrorText(i18n("Failed to send packet to %1", Daemon::instance()->getDevice(m_deviceId)->name()));
-        //TODO: cleanup/resend remaining jobs
+
         emitResult();
     }
 }
@@ -154,10 +154,10 @@ void CompositeUploadJob::socketError(QAbstractSocket::SocketError error)
 {
     Q_UNUSED(error);
     
-    m_socket->close();
+    //Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a segv
     setError(SocketError);
     emitResult();
-    //TODO: cleanup jobs?
+
     m_running = false;
 }
 
@@ -168,7 +168,7 @@ void CompositeUploadJob::sslError(const QList<QSslError>& errors)
     m_socket->close();
     setError(SslError);
     emitResult();
-    //TODO: cleanup jobs?
+
     m_running = false;
 }
 
@@ -213,8 +213,6 @@ bool CompositeUploadJob::addSubjob(KJob* job)
 
 bool CompositeUploadJob::doKill()
 {
-    //TODO: Remove all subjobs?
-    //TODO: cleanup jobs?
     if (m_running) {
         m_running = false;
         
@@ -241,9 +239,7 @@ void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulongl
 void CompositeUploadJob::slotResult(KJob *job) {
     //Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
     KCompositeJob::slotResult(job);
-    
-    //TODO: cleanup jobs?
-    
+        
     if (error() || !m_running) {
         return;
     }
