@@ -71,23 +71,36 @@ Kirigami.ScrollablePage
         }
 
         header: TextField {
+            /**
+             * Used as the filter of the list of messages
+             */
             id: filter
             placeholderText: i18n("Filter...")
             width: parent.width
+            z: 10
             onTextChanged: {
                 view.model.setFilterFixedString(filter.text);
                 view.currentIndex = 0
             }
-            Keys.onUpPressed: view.currentIndex = Math.max(view.currentIndex-1, 0)
-            Keys.onDownPressed: view.currentIndex = Math.min(view.currentIndex+1, view.count-1)
             onAccepted: {
                 view.currentItem.startChat()
+            }
+            Keys.onReturnPressed: {
+                event.accepted = true
+                filter.onAccepted()
+            }
+            Keys.onEscapePressed: {
+                event.accepted = filter.text != ""
+                filter.text = ""
             }
             Shortcut {
                 sequence: "Ctrl+F"
                 onActivated: filter.forceActiveFocus()
             }
         }
+        headerPositioning: ListView.OverlayHeader
+
+        Keys.forwardTo: [headerItem]
 
         delegate: Kirigami.BasicListItem
         {
