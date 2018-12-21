@@ -5,10 +5,7 @@ install(FILES kdeconnect_plugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
 add_subdirectory(ping)
 add_subdirectory(battery)
 add_subdirectory(sendnotifications)
-
-if (NOT WIN32)
-    add_subdirectory(mpriscontrol)
-endif()
+add_subdirectory(mpriscontrol)
 
 if(NOT SAILFISHOS)
     add_subdirectory(clipboard)
