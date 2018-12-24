@@ -24,7 +24,6 @@
 
 DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
     : QObject(parent)
-    , m_privateKey(KdeConnectConfig::instance()->privateKey())
     , m_deviceId(deviceId)
     , m_linkProvider(parent)
     , m_pairStatus(NotPaired)

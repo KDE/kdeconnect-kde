@@ -67,9 +67,6 @@ Q_SIGNALS:
     void pairingError(const QString& error);
     void receivedPacket(const NetworkPacket& np);
 
-protected:
-    QCA::PrivateKey m_privateKey;
-
 private:
     const QString m_deviceId;
     LinkProvider* m_linkProvider;
