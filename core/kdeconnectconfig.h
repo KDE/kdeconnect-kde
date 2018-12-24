@@ -26,10 +26,6 @@
 #include "kdeconnectcore_export.h"
 
 class QSslCertificate;
-namespace QCA {
-    class PrivateKey;
-    class PublicKey;
-}
 
 class KDECONNECTCORE_EXPORT KdeConnectConfig
 {
@@ -50,9 +46,6 @@ public:
     QString deviceType();
 
     QString privateKeyPath();
-    QCA::PrivateKey privateKey();
-    QCA::PublicKey publicKey();
-
     QString certificatePath();
     QSslCertificate certificate();
 
