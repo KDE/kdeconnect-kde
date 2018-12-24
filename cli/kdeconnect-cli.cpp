@@ -83,14 +83,14 @@ int main(int argc, char** argv)
     if (parser.isSet(QStringLiteral("my-id"))) {
         QTextStream(stdout) << iface.selfId() << endl;
     } else if (parser.isSet(QStringLiteral("l")) || parser.isSet(QStringLiteral("a"))) {
-        bool paired = true, reachable = false;
+        bool reachable = false;
         if (parser.isSet(QStringLiteral("a"))) {
             reachable = true;
         } else {
             blockOnReply(iface.acquireDiscoveryMode(id));
             QThread::sleep(2);
         }
-        const QStringList devices = blockOnReply<QStringList>(iface.devices(reachable, paired));
+        const QStringList devices = blockOnReply<QStringList>(iface.devices(reachable, false));
 
         bool displayCount = true;
         for (const QString& id : devices) {
