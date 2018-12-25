@@ -46,7 +46,6 @@ class KDECONNECTCORE_EXPORT NetworkPacket
 
 public:
 
-    //const static QCA::EncryptionAlgorithm EncryptionAlgorithm;
     const static int s_protocolVersion;
 
     explicit NetworkPacket(const QString& type = QStringLiteral("empty"), const QVariantMap& body = {});
