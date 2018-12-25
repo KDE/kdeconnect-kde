@@ -109,7 +109,7 @@ QString KdeConnectConfig::deviceType()
 
 QString KdeConnectConfig::deviceId()
 {
-    return d->m_certificate.subjectInfo( QSslCertificate::CommonName ).constFirst();
+    return d->m_certificate.subjectInfo(QSslCertificate::CommonName).constFirst();
 }
 
 QString KdeConnectConfig::privateKeyPath()
