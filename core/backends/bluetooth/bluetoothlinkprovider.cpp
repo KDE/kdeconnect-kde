@@ -166,9 +166,20 @@ void BluetoothLinkProvider::clientIdentityReceived()
     if (!socket) return;
 
     QByteArray identityArray;
-    while (socket->bytesAvailable() > 0 || !identityArray.contains('\n')) {
+
+    if (socket->property("identityArray").isValid()) {
+        identityArray = socket->property("identityArray").toByteArray();
+    }
+
+    while (!identityArray.contains('\n') && socket->bytesAvailable() > 0) {
         identityArray += socket->readAll();
     }
+    if (!identityArray.contains('\n')) {
+        // This method will get retriggered when more data is available.
+        socket->setProperty("identityArray", identityArray);
+        return;
+    }
+    socket->setProperty("identityArray", QVariant());
 
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(clientIdentityReceived()));
 
@@ -248,9 +259,19 @@ void BluetoothLinkProvider::serverDataReceived()
     if (!socket) return;
 
     QByteArray identityArray;
-    while (socket->bytesAvailable() > 0 || !identityArray.contains('\n')) {
+    if (socket->property("identityArray").isValid()) {
+        identityArray = socket->property("identityArray").toByteArray();
+    }
+
+    while (!identityArray.contains('\n') && socket->bytesAvailable() > 0) {
         identityArray += socket->readAll();
     }
+    if (!identityArray.contains('\n')) {
+        // This method will get retriggered when more data is available.
+        socket->setProperty("identityArray", identityArray);
+        return;
+    }
+    socket->setProperty("identityArray", QVariant());
 
     disconnect(socket, SIGNAL(readyRead()), this, SLOT(serverDataReceived()));
     disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
