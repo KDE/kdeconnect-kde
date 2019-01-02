@@ -32,6 +32,41 @@ PlasmaComponents.ListItem
     id: root
     readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
 
+    DropArea {
+        id: fileDropArea
+        anchors.fill: parent
+
+        onDropped: {
+            if (drop.hasUrls) {
+
+                var urls = [];
+
+                for (var v in drop.urls) {
+                    if (drop.urls[v] != null) {
+                        if (urls.indexOf(drop.urls[v].toString()) == -1) {
+                            urls.push(drop.urls[v].toString());
+                        }
+                    }
+                }
+
+                var i;
+                for (i = 0; i < urls.length; i++) {
+                    share.plugin.shareUrl(urls[i]);
+                }
+            }
+            drop.accepted = true;
+        }
+
+        PlasmaCore.ToolTipArea {
+            id: dropAreaToolTip
+            anchors.fill: parent
+            location: plasmoid.location
+            active: true
+            mainText: i18n("File Transfer")
+            subText: i18n("Drop a file to transfer it onto your phone.")
+        }
+    }
+
     Column {
         width: parent.width
 
