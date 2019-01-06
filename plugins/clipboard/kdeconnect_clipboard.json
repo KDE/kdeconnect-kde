@@ -115,7 +115,7 @@
         "Name[tr]": "Geçici taşıma panosu",
         "Name[uk]": "Буфер обміну",
         "Name[x-test]": "xxClipboardxx",
-        "Name[zh_CN]": "剪贴板",
+        "Name[zh_CN]": "剪切板",
         "Name[zh_TW]": "剪貼板",
         "ServiceTypes": [
             "KdeConnect/Plugin"
