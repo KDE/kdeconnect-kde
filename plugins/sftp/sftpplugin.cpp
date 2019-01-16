@@ -68,6 +68,7 @@ SftpPlugin::~SftpPlugin()
 void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
+    
     QUrl kioUrl("kdeconnect://"+deviceId+"/");
     d->m_placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "add to dolphin";

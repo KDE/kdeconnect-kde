@@ -162,8 +162,7 @@ void KioKdeconnect::listDevice()
         const QString icon = QStringLiteral("folder");
 
         KIO::UDSEntry entry;
-        entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("files"));
-        entry.insert(KIO::UDSEntry::UDS_DISPLAY_NAME, name);
+        entry.insert(KIO::UDSEntry::UDS_NAME, name);
         entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
         entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
@@ -178,6 +177,7 @@ void KioKdeconnect::listDevice()
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
     entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+
     listEntry(entry);
 
     infoMessage(QLatin1String(""));
