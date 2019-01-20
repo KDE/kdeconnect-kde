@@ -43,11 +43,11 @@ Where the message type can be one of the following.
 This message should be the first message send, and never at a later time. Its format is as follows:
 
 ```
-| MESSAGE_PROTOCOL_VERSION header | Lowest version supported | Highest version supported |
-| 19 bytes (UUID ignored)         | 2 bytes (Big-Endian)     | 2 bytes (Big-Endian)      |
+| MESSAGE_PROTOCOL_VERSION header | Lowest version supported | Highest version supported | Other data           |
+| 19 bytes (UUID ignored)         | 2 bytes (Big-Endian)     | 2 bytes (Big-Endian)      | Remaining data bytes |
 ```
 
-This message should be the first message to send. Use the maximum version supported by both endpoints (if any), or otherwise close the connection.
+This message should be the first message to send. Use the maximum version supported by both endpoints (if any), or otherwise close the connection. The other data field is not used (and should be empty for protocol version 1), but it implies that message lengths of more than 4 need to be supported for future compatability.
 
 Currently, no client will send this message with a version other than 1, but you *must* accept and check it, for forward compatibility.
 
