@@ -143,7 +143,7 @@ void KioKdeconnect::listDevice()
     }
 
     if (!mountreply.value()) {
-        error(KIO::ERR_COULD_NOT_MOUNT, i18n("Could not mount device filesystem"));
+        error(KIO::ERR_COULD_NOT_MOUNT, interface.getMountError());
         return;
     }
 

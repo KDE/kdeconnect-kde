@@ -117,6 +117,16 @@ bool SftpPlugin::isMounted() const
     return d->m_mounter && d->m_mounter->isMounted();
 }
 
+QString SftpPlugin::getMountError()
+{    
+    if (!mountError.isEmpty()) {
+        return mountError;
+    } else {
+        return i18n("Could not mount device filesystem");
+    }
+}
+
+
 bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
@@ -128,7 +138,7 @@ bool SftpPlugin::startBrowsing()
 
 bool SftpPlugin::receivePacket(const NetworkPacket& np)
 {
-    if (!(fields_c - np.body().keys().toSet()).isEmpty()) {
+    if (!(fields_c - np.body().keys().toSet()).isEmpty() && !np.has("errorMessage")) {
         // packet is invalid
         return false;
     }
@@ -146,6 +156,10 @@ bool SftpPlugin::receivePacket(const NetworkPacket& np)
     } else {
         remoteDirectories.insert(mountPoint(), i18n("All files"));
         remoteDirectories.insert(mountPoint() + "/DCIM/Camera", i18n("Camera pictures"));
+    }
+    
+    if (np.has("errorMessage")) {
+        mountError = np.get<QString>("errorMessage");
     }
 
     return true;
