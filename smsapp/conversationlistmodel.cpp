@@ -53,6 +53,10 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
         return;
     }
 
+    if (deviceId == "") {
+        return;
+    }
+
     qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "setDeviceId" << deviceId << "of" << this;
 
     if (m_conversationsInterface) {

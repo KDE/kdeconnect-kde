@@ -30,6 +30,7 @@ import org.kde.kdeconnect.sms 1.0
 
 Kirigami.ScrollablePage
 {
+    id: page
     footer: ComboBox {
         id: devicesCombo
         enabled: count > 0
@@ -50,11 +51,16 @@ Kirigami.ScrollablePage
         visible: !devicesCombo.enabled
     }
 
+    readonly property bool deviceConnected: devicesCombo.enabled
     readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
+    readonly property alias lastDeviceId: conversationListModel.deviceId
 
     Component {
         id: chatView
-        ConversationDisplay {}
+        ConversationDisplay {
+            deviceId: page.lastDeviceId
+            deviceConnected: page.deviceConnected
+        }
     }
 
     ListView {
@@ -66,6 +72,7 @@ Kirigami.ScrollablePage
             sortRole: ConversationListModel.DateRole
             filterCaseSensitivity: Qt.CaseInsensitive
             sourceModel: ConversationListModel {
+                id: conversationListModel
                 deviceId: device ? device.id() : ""
             }
         }
@@ -113,7 +120,7 @@ Kirigami.ScrollablePage
                                                        personUri: model.personUri,
                                                        phoneNumber: address,
                                                        conversationId: model.conversationId,
-                                                       device: device})
+                })
             }
             onClicked: { startChat(); }
         }

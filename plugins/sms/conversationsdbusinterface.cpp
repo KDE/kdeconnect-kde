@@ -43,6 +43,12 @@ ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin* plugin)
 
 ConversationsDbusInterface::~ConversationsDbusInterface()
 {
+    // Wake all threads which were waiting for a reply from this interface
+    // This might result in some noise on dbus, but it's better than leaking a bunch of resources!
+    waitingForMessagesLock.lock();
+    conversationsWaitingForMessages.clear();
+    waitingForMessages.wakeAll();
+    waitingForMessagesLock.unlock();
 }
 
 QVariantList ConversationsDbusInterface::activeConversations()
@@ -130,6 +136,12 @@ QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qin
 void ConversationsDbusInterface::updateConversation(const qint64& conversationID)
 {
     waitingForMessagesLock.lock();
+    if (conversationsWaitingForMessages.contains(conversationID)) {
+        // This conversation is already being waited on, don't allow more than one thread to wait at a time
+        qCDebug(KDECONNECT_CONVERSATIONS) << "Not allowing two threads to wait for conversationID" << conversationID;
+        waitingForMessagesLock.unlock();
+        return;
+    }
     qCDebug(KDECONNECT_CONVERSATIONS) << "Requesting conversation with ID" << conversationID << "from remote";
     conversationsWaitingForMessages.insert(conversationID);
     m_smsInterface.requestConversation(conversationID);

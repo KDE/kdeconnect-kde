@@ -34,7 +34,9 @@ Kirigami.ScrollablePage
     readonly property QtObject person: PersonData {
         id: person
     }
-    property QtObject device
+
+    property bool deviceConnected
+    property string deviceId
     property int conversationId
 
     property string phoneNumber
@@ -66,7 +68,7 @@ Kirigami.ScrollablePage
             sortOrder: Qt.AscendingOrder
             sortRole: ConversationModel.DateRole
             sourceModel: ConversationModel {
-                deviceId: device.id()
+                deviceId: page.deviceId
                 threadId: page.conversationId
             }
         }
@@ -120,7 +122,7 @@ Kirigami.ScrollablePage
     }
 
     footer: RowLayout {
-        enabled: page.device
+        enabled: page.deviceConnected
         ScrollView {
             Layout.maximumHeight: page.height / 3
             Layout.fillWidth: true
