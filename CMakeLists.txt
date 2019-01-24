@@ -50,6 +50,13 @@ set_package_properties(Phonon4Qt5 PROPERTIES
    PURPOSE "Required for Find My Device plugin"
 )
 
+set_package_properties(KF5Kirigami2 PROPERTIES
+  DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
+  PURPOSE "Required for KDE Connect's QML-based GUI applications"
+  URL "https://www.kde.org/products/kirigami/"
+  TYPE RUNTIME
+)
+
 include_directories(${CMAKE_SOURCE_DIR})
 
 configure_file(kdeconnect-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h)
@@ -86,12 +93,6 @@ add_subdirectory(data)
 option(EXPERIMENTALAPP_ENABLED OFF)
 if(EXPERIMENTALAPP_ENABLED)
   find_package(KF5Kirigami2)
-  set_package_properties(KF5Kirigami2 PROPERTIES
-    DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
-    PURPOSE "Required for kcapp"
-    URL "https://www.kde.org/products/kirigami/"
-    TYPE RUNTIME
-)
   add_subdirectory(app)
 endif()
 add_subdirectory(plugins)
@@ -108,6 +109,7 @@ endif()
 
 option(SMSAPP_ENABLED OFF)
 if(SMSAPP_ENABLED)
+    find_package(KF5Kirigami2)
     find_package(KF5People REQUIRED)
     find_package(KF5PeopleVCard)
     set_package_properties(KF5PeopleVCard PROPERTIES

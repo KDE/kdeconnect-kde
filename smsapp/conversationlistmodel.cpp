@@ -31,7 +31,7 @@ ConversationListModel::ConversationListModel(QObject* parent)
     : QStandardItemModel(parent)
     , m_conversationsInterface(nullptr)
 {
-    qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
+    //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
     auto roles = roleNames();
     roles.insert(FromMeRole, "fromMe");
     roles.insert(AddressRole, "address");
@@ -191,7 +191,7 @@ KPeople::PersonData* ConversationListModel::lookupPersonByAddress(const QString&
         bool matchingPhoneNumber = longerNumber.endsWith(shorterNumber) && shorterNumber.length() * 2 >= longerNumber.length();
 
         if (address == email || matchingPhoneNumber) {
-            qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
+            //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
             return person;
         }
 

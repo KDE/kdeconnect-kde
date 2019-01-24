@@ -21,7 +21,7 @@
  */
 
 import QtQuick 2.1
-import QtQuick.Controls 2.4
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
 import org.kde.kirigami 2.4 as Kirigami
@@ -56,7 +56,6 @@ Kirigami.ScrollablePage
     }
 
     function sendMessage() {
-        console.log("sending sms", page.phoneNumber)
         model.sourceModel.sendReplyToConversation(message.text)
         message.text = ""
     }
