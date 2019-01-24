@@ -74,35 +74,26 @@ void NotificationsDbusInterface::processPacket(const NetworkPacket& np)
         if (id.startsWith(QLatin1String("org.kde.kdeconnect_tp::")))
             id = id.mid(id.indexOf(QLatin1String("::")) + 2);
         removeNotification(id);
-    } else {
-        QString id = np.get<QString>(QStringLiteral("id"));
-
-        if (!m_internalIdToPublicId.contains(id)) {
-            Notification* noti = new Notification(np, this);
-
-            if (noti->isReady()) {
-                addNotification(noti);
-            } else {
-                connect(noti, &Notification::ready, this, &NotificationsDbusInterface::notificationReady);
-            }
-        } else {
-            QString pubId = m_internalIdToPublicId.value(id);
-            Notification* noti = m_notifications.value(pubId);
-            if (!noti)
-                return;
-
-            noti->update(np);
-
-            if (noti->isReady()) {
-                Q_EMIT notificationUpdated(pubId);
-            } else {
-                connect(noti, &Notification::ready, this, [this, pubId]{
-                    Q_EMIT notificationUpdated(pubId);
-                });
-            }
-        }
-
+        return;
     }
+
+    QString id = np.get<QString>(QStringLiteral("id"));
+
+    Notification* noti = nullptr;
+
+    if (!m_internalIdToPublicId.contains(id)) {
+        noti = new Notification(np, this);
+
+        if (noti->isReady()) {
+            addNotification(noti);
+        } else {
+            connect(noti, &Notification::ready, this, &NotificationsDbusInterface::notificationReady);
+        }
+    } else {
+        QString pubId = m_internalIdToPublicId.value(id);
+        noti = m_notifications.value(pubId);
+    }
+    noti->update(np);
 }
 
 void NotificationsDbusInterface::addNotification(Notification* noti)

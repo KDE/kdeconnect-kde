@@ -71,7 +71,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void notificationAdded(const QString& id);
     void notificationRemoved(const QString& id);
-    void notificationUpdated(const QString& id);
+    void notificationUpdated();
     void refreshNotificationList();
     void receivedNotifications(QDBusPendingCallWatcher* watcher);
     void clearNotifications();

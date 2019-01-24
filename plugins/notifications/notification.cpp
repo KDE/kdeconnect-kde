@@ -47,11 +47,10 @@ Notification::Notification(const NetworkPacket& np, QObject* parent)
     m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username);
     m_imagesDir.mkpath(m_imagesDir.absolutePath());
     QFile(m_imagesDir.absolutePath()).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
-    m_closed = false;
     m_ready = false;
 
     parseNetworkPacket(np);
-    createKNotification(false, np);
+    createKNotification(np);
 }
 
 Notification::~Notification()
@@ -70,7 +69,6 @@ void Notification::show()
     m_ready = true;
     Q_EMIT ready();
     if (!m_silent) {
-        m_closed = false;
         m_notification->sendEvent();
     }
 }
@@ -78,12 +76,12 @@ void Notification::show()
 void Notification::update(const NetworkPacket& np)
 {
     parseNetworkPacket(np);
-    createKNotification(!m_closed, np);
+    createKNotification(np);
 }
 
-KNotification* Notification::createKNotification(bool update, const NetworkPacket& np)
+KNotification* Notification::createKNotification(const NetworkPacket& np)
 {
-    if (!update) {
+    if (!m_notification) {
         m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
         m_notification->setComponentName(QStringLiteral("kdeconnect"));
     }
@@ -120,8 +118,6 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacke
         m_notification->setActions(QStringList(i18n("Reply")));
         connect(m_notification, &KNotification::action1Activated, this, &Notification::reply);
     }
-
-    connect(m_notification, &KNotification::closed, this, &Notification::closed);
 
     return m_notification;
 }
@@ -169,11 +165,6 @@ void Notification::applyNoIcon()
 void Notification::reply()
 {
     Q_EMIT replyRequested();
-}
-
-void Notification::closed()
-{
-    m_closed = true;
 }
 
 void Notification::parseNetworkPacket(const NetworkPacket& np)
