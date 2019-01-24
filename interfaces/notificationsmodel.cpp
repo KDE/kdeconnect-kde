@@ -92,8 +92,6 @@ void NotificationsModel::setDeviceId(const QString& deviceId)
             this, &NotificationsModel::notificationRemoved);
     connect(m_dbusInterface, &OrgKdeKdeconnectDeviceNotificationsInterface::allNotificationsRemoved,
             this, &NotificationsModel::clearNotifications);
-    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceNotificationsInterface::notificationUpdated,
-            this, &NotificationsModel::notificationUpdated);
 
     refreshNotificationList();
 
@@ -104,6 +102,7 @@ void NotificationsModel::notificationAdded(const QString& id)
 {
     beginInsertRows(QModelIndex(),  0, 0);
     NotificationDbusInterface* dbusInterface = new NotificationDbusInterface(m_deviceId, id, this);
+    connect(dbusInterface, &NotificationDbusInterface::ready, this, &NotificationsModel::notificationUpdated);
     m_notificationList.prepend(dbusInterface);
     endInsertRows();
 }
@@ -263,9 +262,7 @@ void NotificationsModel::clearNotifications()
     }
 }
 
-void NotificationsModel::notificationUpdated(const QString& id)
+void NotificationsModel::notificationUpdated()
 {
-    //TODO only emit the affected indices
-    Q_UNUSED(id);
     Q_EMIT dataChanged(index(0,0), index(m_notificationList.size() - 1, 0));
 }
