@@ -82,6 +82,11 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         unmount(false);
         return;
     }
+    
+    if (np.has("errorMessage")) {
+        Q_EMIT failed(np.get<QString>("errorMessage", ""));
+        return;
+    }
 
     //This is the previous code, to access sftp server using KIO. Now we are
     //using the external binary sshfs, and accessing it as a local filesystem.
