@@ -22,6 +22,7 @@
 #include <QNetworkAccessManager>
 #include <QTimer>
 
+#include <KAboutData>
 #include <KDBusService>
 #include <KNotification>
 #include <KLocalizedString>
@@ -86,9 +87,14 @@ private:
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    app.setApplicationName(QStringLiteral("kdeconnectd"));
-    app.setApplicationVersion(QStringLiteral(KDECONNECT_VERSION_STRING));
-    app.setOrganizationDomain(QStringLiteral("kde.org"));
+    KAboutData aboutData(
+        QStringLiteral("kdeconnectd"),
+        i18n("KDE Connect Daemon"),
+        QStringLiteral(KDECONNECT_VERSION_STRING),
+        i18n("KDE Connect Daemon"),
+        KAboutLicense::GPL
+    );
+    KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
 
     KDBusService dbusService(KDBusService::Unique);
