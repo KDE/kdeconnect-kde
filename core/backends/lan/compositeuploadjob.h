@@ -66,6 +66,7 @@ private:
     quint64 m_totalPayloadSize;
     UploadJob *m_currentJob;
     QElapsedTimer m_timer;
+    quint64 m_prevElapsedTime;
 
     const static quint16 MIN_PORT = 1739;
     const static quint16 MAX_PORT = 1764;

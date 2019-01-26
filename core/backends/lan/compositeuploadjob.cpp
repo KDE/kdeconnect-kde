@@ -39,6 +39,7 @@ CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNoti
     , m_totalSendPayloadSize(0)
     , m_totalPayloadSize(0)
     , m_currentJob(nullptr)
+    , m_prevElapsedTime(0)
 {
     setCapabilities(Killable);
     
@@ -226,13 +227,16 @@ void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulongl
     Q_UNUSED(job);
     
     m_currentJobSendPayloadSize = amount;
-    
     quint64 uploaded = m_totalSendPayloadSize + m_currentJobSendPayloadSize;
-    setProcessedAmount(unit, uploaded);
     
-    const auto elapsed = m_timer.elapsed();
-    if (elapsed > 0) {
-        emitSpeed((1000 * uploaded) / elapsed);
+    if (uploaded == m_totalPayloadSize || m_prevElapsedTime == 0 || m_timer.elapsed() - m_prevElapsedTime >= 100) {
+        m_prevElapsedTime = m_timer.elapsed();
+        setProcessedAmount(unit, uploaded);
+    
+        const auto elapsed = m_timer.elapsed();
+        if (elapsed > 0) {
+            emitSpeed((1000 * uploaded) / elapsed);
+        }
     }
 }
 
