@@ -123,7 +123,8 @@
         "Website": "http://albertvaka.wordpress.com"
     },
     "X-KdeConnect-OutgoingPacketType": [
-        "kdeconnect.share.request"
+        "kdeconnect.share.request",
+        "kdeconnect.share.request.update"
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.share.request"

@@ -25,6 +25,7 @@
 #include <KJobTrackerInterface>
 #include "lanlinkprovider.h"
 #include <daemon.h>
+#include "plugins/share/shareplugin.h"
 
 CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNotification) 
     : KCompositeJob()
@@ -39,6 +40,7 @@ CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNoti
     , m_totalSendPayloadSize(0)
     , m_totalPayloadSize(0)
     , m_currentJob(nullptr)
+    , m_updatePacketPending(false)
 {
     setCapabilities(Killable);
     
@@ -204,11 +206,26 @@ bool CompositeUploadJob::addSubjob(KJob* job)
         
         emitDescription(filename);
         
+        if (m_running && !m_updatePacketPending) {
+            m_updatePacketPending = true;
+            QMetaObject::invokeMethod(this, "sendUpdatePacket", Qt::QueuedConnection);
+        }
+        
         return KCompositeJob::addSubjob(job);
     } else {
         qCDebug(KDECONNECT_CORE) << "CompositeUploadJob::addSubjob() - you can only add UploadJob's, ignoring";
         return false;
     }
+}
+
+void CompositeUploadJob::sendUpdatePacket() {
+    NetworkPacket np(PACKET_TYPE_SHARE_REQUEST_UPDATE);
+    np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
+    np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
+    
+    Daemon::instance()->getDevice(m_deviceId)->sendPacket(np);
+    
+    m_updatePacketPending = false;
 }
 
 bool CompositeUploadJob::doKill()
