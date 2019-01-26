@@ -67,6 +67,7 @@ private:
     UploadJob *m_currentJob;
     QElapsedTimer m_timer;
     quint64 m_prevElapsedTime;
+    bool m_updatePacketPending;
 
     const static quint16 MIN_PORT = 1739;
     const static quint16 MAX_PORT = 1764;
@@ -80,6 +81,7 @@ private Q_SLOTS:
     void slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount);
     void slotResult(KJob *job) override;
     void startNextSubJob();
+    void sendUpdatePacket();
 };
 
 #endif //COMPOSITEUPLOADJOB_H
