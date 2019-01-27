@@ -206,8 +206,8 @@ bool CompositeUploadJob::addSubjob(KJob* job)
         }
         
         emitDescription(filename);
-        
-        if (m_running && !m_updatePacketPending) {
+
+        if (m_running && m_currentJob && !m_updatePacketPending) {
             m_updatePacketPending = true;
             QMetaObject::invokeMethod(this, "sendUpdatePacket", Qt::QueuedConnection);
         }
