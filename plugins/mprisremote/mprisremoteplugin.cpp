@@ -50,7 +50,11 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
         return false;
 
     if (np.has(QStringLiteral("player"))) {
-        m_players[np.get<QString>(QStringLiteral("player"))]->parseNetworkPacket(np);
+        const QString player = np.get<QString>(QStringLiteral("player"));
+        if(!m_players.contains(player)) {
+             m_players[player] = new MprisRemotePlayer();
+        }
+        m_players[player]->parseNetworkPacket(np);
     }
 
     if (np.has(QStringLiteral("playerList"))) {
