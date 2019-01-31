@@ -255,7 +255,7 @@ PlasmaComponents.ListItem
                 iconSource: "list-add"
                 tooltip: i18n("Add command")
                 onClicked: rc.plugin.editCommands()
-                visible: rc.plugin.canAddCommand
+                visible: rc.plugin && rc.plugin.canAddCommand
             }
         }
         Repeater {
