@@ -79,7 +79,7 @@ void BluetoothDeviceLink::dataReceived()
 
     //qCDebug(KDECONNECT_CORE) << "BluetoothDeviceLink dataReceived" << packet;
 
-    NetworkPacket packet(QString::null);
+    NetworkPacket packet((QString()));
     NetworkPacket::unserialize(serializedPacket, &packet);
 
     if (packet.type() == PACKET_TYPE_PAIR) {

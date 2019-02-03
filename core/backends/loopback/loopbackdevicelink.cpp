@@ -35,7 +35,7 @@ QString LoopbackDeviceLink::name()
 
 bool LoopbackDeviceLink::sendPacket(NetworkPacket& input)
 {
-    NetworkPacket output(QString::null);
+    NetworkPacket output((QString()));
     NetworkPacket::unserialize(input.serialize(), &output);
 
     //LoopbackDeviceLink does not need deviceTransferInfo
