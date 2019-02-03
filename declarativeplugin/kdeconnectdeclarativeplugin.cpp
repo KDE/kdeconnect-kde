@@ -24,7 +24,6 @@
 #include <QQmlContext>
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
-#include <QtQml>
 
 #include "objectfactory.h"
 #include "responsewaiter.h"

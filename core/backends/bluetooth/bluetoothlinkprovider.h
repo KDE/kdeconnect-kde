@@ -24,13 +24,13 @@
 #include <QObject>
 #include <QPointer>
 #include <QTimer>
-#include <QtBluetooth/QBluetoothAddress>
-#include <QtBluetooth/QBluetoothLocalDevice>
-#include <QtBluetooth/QBluetoothUuid>
-#include <QtBluetooth/QBluetoothServer>
-#include <QtBluetooth/QBluetoothDeviceDiscoveryAgent>
-#include <QtBluetooth/QBluetoothServiceDiscoveryAgent>
-#include <QtBluetooth/QBluetoothSocket>
+#include <QBluetoothAddress>
+#include <QBluetoothLocalDevice>
+#include <QBluetoothUuid>
+#include <QBluetoothServer>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothServiceDiscoveryAgent>
+#include <QBluetoothSocket>
 
 #include "../linkprovider.h"
 

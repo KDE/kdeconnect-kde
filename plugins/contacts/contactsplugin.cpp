@@ -25,7 +25,7 @@
 
 #include <QDebug>
 #include <QDBusConnection>
-#include <QtDBus>
+#include <QDBusMetaType>
 #include <QEventLoop>
 #include <QLoggingCategory>
 #include <QFile>

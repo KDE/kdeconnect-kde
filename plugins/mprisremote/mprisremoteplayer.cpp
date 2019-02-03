@@ -18,10 +18,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <networkpacket.h>
+#include "mprisremoteplayer.h"
+
 #include <QDateTime>
 
-#include "mprisremoteplayer.h"
+#include <networkpacket.h>
 
 MprisRemotePlayer::MprisRemotePlayer() :
     m_playing(false)

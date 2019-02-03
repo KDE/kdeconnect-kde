@@ -17,6 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "notificationslistener.h"
 
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -33,7 +34,6 @@
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
 
-#include "notificationslistener.h"
 #include "sendnotificationsplugin.h"
 #include "sendnotification_debug.h"
 #include "notifyingapplication.h"

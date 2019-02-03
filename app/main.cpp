@@ -21,10 +21,11 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
+#include <QQmlContext>
+
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KLocalizedContext>
-#include <QtQml>
 
 int main(int argc, char* argv[])
 {

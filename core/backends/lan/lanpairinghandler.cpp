@@ -18,13 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "lanpairinghandler.h"
+
 #include <KLocalizedString>
 
 #include "core_debug.h"
 #include "daemon.h"
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
-#include "lanpairinghandler.h"
 #include "networkpackettypes.h"
 
 LanPairingHandler::LanPairingHandler(DeviceLink* deviceLink)

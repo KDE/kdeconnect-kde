@@ -23,7 +23,7 @@
 
 #include <QObject>
 #include <QString>
-#include <QtBluetooth/QBluetoothSocket>
+#include <QBluetoothSocket>
 
 #include "../devicelink.h"
 #include "../devicelinereader.h"

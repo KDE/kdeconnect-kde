@@ -18,9 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "landevicelink.h"
+
 #include <KLocalizedString>
 
-#include "landevicelink.h"
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
 #include "backends/linkprovider.h"

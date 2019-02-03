@@ -21,6 +21,8 @@
 
 #include <QString>
 
+class NetworkPacket;
+
 class MprisRemotePlayer {
 
 public:

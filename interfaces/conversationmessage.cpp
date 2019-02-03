@@ -20,7 +20,6 @@
 
 #include "conversationmessage.h"
 
-#include <QtCore>
 #include <QVariantMap>
 
 

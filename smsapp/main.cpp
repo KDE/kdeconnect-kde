@@ -31,7 +31,6 @@
 #include <KLocalizedString>
 #include <KLocalizedContext>
 #include <KDBusService>
-#include <QtQml>
 
 int main(int argc, char *argv[])
 {
