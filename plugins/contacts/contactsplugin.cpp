@@ -135,7 +135,7 @@ bool ContactsPlugin::handleResponseUIDsTimestamps (const NetworkPacket& np) {
             if (!line.startsWith("X-KDECONNECT-TIMESTAMP:")) {
                 continue;
             }
-            QStringList parts = line.split(":");
+            QStringList parts = line.split(QLatin1Char(':'));
             QString timestamp = parts[1];
 
             qint32 remoteTimestamp = np.get<qint32>(ID);
