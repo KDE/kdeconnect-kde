@@ -5,4 +5,7 @@
 # Thoroughly inspired in kdevplatform_add_plugin
 function(kdeconnect_add_plugin)
     kcoreaddons_add_plugin(${ARGN} INSTALL_NAMESPACE kdeconnect)
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${ARGV0}_config.qml")
+        install(FILES "${ARGV0}_config.qml" DESTINATION ${DATA_INSTALL_DIR}/kdeconnect)
+    endif()
 endfunction()

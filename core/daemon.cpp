@@ -71,9 +71,9 @@ Daemon::Daemon(QObject* parent, bool testMode)
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
     //Load backends
-    if (testMode)
-        d->m_linkProviders.insert(new LoopbackLinkProvider());
+    if (testMode){}
     else {
+        d->m_linkProviders.insert(new LoopbackLinkProvider());
         d->m_linkProviders.insert(new LanLinkProvider());
         #ifdef KDECONNECT_BLUETOOTH
             d->m_linkProviders.insert(new BluetoothLinkProvider());

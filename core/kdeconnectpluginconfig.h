@@ -27,7 +27,7 @@
 #include <QStringList>
 #include <QVariant>
 
-#include "kdeconnectcore_export.h"
+#include "core/kdeconnectcore_export.h"
 
 struct KdeConnectPluginConfigPrivate;
 
@@ -35,14 +35,18 @@ class KDECONNECTCORE_EXPORT KdeConnectPluginConfig : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY configChanged)
+    Q_PROPERTY(QString pluginName READ pluginName WRITE setPluginName NOTIFY configChanged)
+
 public:
+    KdeConnectPluginConfig();
     KdeConnectPluginConfig(const QString& deviceId, const QString& pluginName);
     ~KdeConnectPluginConfig() override;
 
     /**
      * Store a key-value pair in this config object
      */
-    void set(const QString& key, const QVariant& value);
+    Q_SCRIPTABLE void set(const QString& key, const QVariant& value);
 
     /**
      * Store a list of values in this config object under the array name
@@ -53,7 +57,7 @@ public:
     /**
      * Read a key-value pair from this config object
      */
-    QVariant get(const QString& key, const QVariant& defaultValue);
+    Q_SCRIPTABLE QVariant get(const QString& key, const QVariant& defaultValue);
 
     /**
      * Convenience method that will convert the QVariant to whatever type for you
@@ -64,6 +68,12 @@ public:
 
     QVariantList getList(const QString& key, const QVariantList& defaultValue = {});
 
+    QString deviceId();
+    void setDeviceId(const QString& deviceId);
+
+    QString pluginName();
+    void setPluginName(const QString& pluginName);
+
 private Q_SLOTS:
     void slotConfigChanged();
 
@@ -71,7 +81,11 @@ Q_SIGNALS:
     void configChanged();
 
 private:
+    void loadConfig();
+
     QScopedPointer<KdeConnectPluginConfigPrivate> d;
+    QString m_deviceId;
+    QString m_pluginName;
 };
 
 #endif

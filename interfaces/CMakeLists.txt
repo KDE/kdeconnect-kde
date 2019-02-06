@@ -20,6 +20,7 @@ set(libkdeconnect_SRC
     conversationmessage.cpp
     remotecommandsmodel.cpp
     remotesinksmodel.cpp
+    pluginmodel.cpp
 #    modeltest.cpp
 )
 
@@ -34,6 +35,7 @@ set(libkdeconnect_HEADERS
     conversationmessage.h
     dbusinterfaces.h
     remotecommandsmodel.h
+    pluginmodel.h
     ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h
 )
 
@@ -67,9 +69,11 @@ generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BIN
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
     Qt5::DBus
+    KF5::Service
 LINK_PRIVATE
     KF5::ConfigCore
     KF5::I18n
+    KF5::CoreAddons
 )
 
 configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake @ONLY)

@@ -10,5 +10,7 @@
     <file>qml/FindDevicesPage.qml</file>
     <file>qml/runcommand.qml</file>
     <file>qml/volume.qml</file>
+    <file>qml/PluginSettings.qml</file>
+    <file>qml/PluginInfoPage.qml</file>
  </qresource>
 </RCC>
