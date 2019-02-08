@@ -107,7 +107,8 @@ Kirigami.ApplicationWindow
                 sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
             }
             delegate: Kirigami.Action {
-                iconName: model.iconName
+                icon.name: model.iconName
+                icon.color: "transparent"
                 text: display + "\n" + toolTip
                 visible: status & DevicesModel.Reachable
                 checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
