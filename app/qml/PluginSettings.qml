@@ -39,7 +39,6 @@ Kirigami.ScrollablePage
         }
 
         anchors.fill: parent
-        spacing: Kirigami.Units.smallSpacing
 
         model: PluginModel {
             deviceId: device
