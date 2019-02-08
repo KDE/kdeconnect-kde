@@ -36,6 +36,7 @@ Kirigami.BasicListItem
     }
     visible: checker.available
     icon: checker.iconName
+    iconColor: "transparent"
     onClicked: {
         if (component === "" || !interfaceFactory)
             return;

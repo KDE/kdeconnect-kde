@@ -65,6 +65,7 @@ Kirigami.ScrollablePage
         delegate: Kirigami.BasicListItem {
             width: ListView.view.width
             icon: iconName
+            iconColor: "transparent"
             label: display + "\n" + toolTip
             onClicked: {
                 pageStack.push(
