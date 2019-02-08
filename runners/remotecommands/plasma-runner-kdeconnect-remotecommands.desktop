@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Run command
+Comment=Run commands on connected devices
+Icon=kdeconnect
+Type=Service
+X-KDE-ServiceTypes=Plasma/Runner
+
+X-KDE-Library=krunner_kdeconnect_remotecommands
+X-KDE-PluginInfo-Author=Nicolas Fella
+X-KDE-PluginInfo-Email=nicolas.fella@gmx.de
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
