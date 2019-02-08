@@ -10,6 +10,7 @@ target_link_libraries(kdeconnect_share
     KF5::Notifications
     KF5::I18n
     KF5::KIOWidgets
+    KF5::Service
 )
 
 #######################################
