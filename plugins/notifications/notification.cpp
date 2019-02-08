@@ -22,12 +22,15 @@
 #include "notification_debug.h"
 
 #include <KNotification>
+#include <QtGlobal>
 #include <QIcon>
 #include <QString>
 #include <QUrl>
 #include <QPixmap>
 #include <KLocalizedString>
 #include <QFile>
+
+#include <QJsonArray>
 
 #include <core/filetransferjob.h>
 
@@ -104,6 +107,15 @@ KNotification* Notification::createKNotification(const NetworkPacket& np)
         m_notification->setText(escapedTitle+": "+escapedText);
     }
 
+    connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this] (unsigned int actionIndex) {
+        // Do nothing for our own reply action
+        if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
+            return;
+        }
+        // Notification action idices start at 1
+        Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
+    });
+
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 
     if (!m_hasIcon) {
@@ -115,9 +127,10 @@ KNotification* Notification::createKNotification(const NetworkPacket& np)
     }
 
     if (!m_requestReplyId.isEmpty()) {
-        m_notification->setActions(QStringList(i18n("Reply")));
+        m_actions.prepend(i18n("Reply"));
         connect(m_notification, &KNotification::action1Activated, this, &Notification::reply);
     }
+    m_notification->setActions(m_actions);
 
     return m_notification;
 }
@@ -179,4 +192,11 @@ void Notification::parseNetworkPacket(const NetworkPacket& np)
     m_silent = np.get<bool>(QStringLiteral("silent"));
     m_payloadHash = np.get<QString>(QStringLiteral("payloadHash"));
     m_requestReplyId = np.get<QString>(QStringLiteral("requestReplyId"), QString());
+
+    m_actions.clear();
+
+    for (QJsonValue value : np.get<QJsonArray>(QStringLiteral("actions"))) {
+        m_actions.append(value.toString());
+    }
+
 }

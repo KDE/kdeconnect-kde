@@ -113,6 +113,8 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
         replyRequested(noti);
     });
 
+    connect(noti, &Notification::actionTriggered, this, &NotificationsDbusInterface::sendAction);
+
     const QString& publicId = newId();
     m_notifications[publicId] = noti;
     m_internalIdToPublicId[internalId] = publicId;
@@ -174,6 +176,14 @@ void NotificationsDbusInterface::sendReply(const QString& replyId, const QString
     NetworkPacket np(PACKET_TYPE_NOTIFICATION_REPLY);
     np.set<QString>(QStringLiteral("requestReplyId"), replyId);
     np.set<QString>(QStringLiteral("message"), message);
+    m_plugin->sendPacket(np);
+}
+
+void NotificationsDbusInterface::sendAction(const QString& key, const QString& action)
+{
+    NetworkPacket np(PACKET_TYPE_NOTIFICATION_ACTION);
+    np.set<QString>("key", key);
+    np.set<QString>("action", action);
     m_plugin->sendPacket(np);
 }
 

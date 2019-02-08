@@ -52,6 +52,7 @@ public:
 public Q_SLOTS:
     Q_SCRIPTABLE QStringList activeNotifications();
     Q_SCRIPTABLE void sendReply(const QString& replyId, const QString& message);
+    Q_SCRIPTABLE void sendAction(const QString& key, const QString& action);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void notificationPosted(const QString& publicId);

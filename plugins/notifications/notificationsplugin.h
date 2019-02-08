@@ -25,6 +25,8 @@
 
 #define PACKET_TYPE_NOTIFICATION_REQUEST QStringLiteral("kdeconnect.notification.request")
 #define PACKET_TYPE_NOTIFICATION_REPLY QStringLiteral("kdeconnect.notification.reply")
+#define PACKET_TYPE_NOTIFICATION_ACTION QStringLiteral("kdeconnect.notification.action")
+
 
 /*
  * This class is just a proxy for NotificationsDbusInterface

@@ -122,7 +122,8 @@
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.notification.request",
-        "kdeconnect.notification.reply"
+        "kdeconnect.notification.reply",
+        "kdeconnect.notification.action"
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.notification"

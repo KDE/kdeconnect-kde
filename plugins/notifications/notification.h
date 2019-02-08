@@ -72,6 +72,7 @@ public Q_SLOTS:
     void dismissRequested(const QString& m_internalId);
     void replyRequested();
     Q_SCRIPTABLE void ready();
+    void actionTriggered(const QString& key, const QString& action);
 
 private:
     QString m_internalId;
@@ -88,6 +89,7 @@ private:
     bool m_silent;
     QString m_payloadHash;
     bool m_ready;
+    QStringList m_actions;
 
     void parseNetworkPacket(const NetworkPacket& np);
     void loadIcon(const NetworkPacket& np);
