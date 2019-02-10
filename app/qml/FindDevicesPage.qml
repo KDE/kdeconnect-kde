@@ -46,6 +46,7 @@ Kirigami.ScrollablePage
             property: "status"
             delegate: Kirigami.Heading {
                 level: 4
+                leftPadding: Kirigami.Units.smallSpacing
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:
