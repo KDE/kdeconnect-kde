@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Run command
 Name[ca]=Executa una ordre
+Name[ca@valencia]=Executa una ordre
 Name[gl]=Executar unha orde
 Name[nl]=Commando uitvoeren
 Name[pt]=Executar um comando
@@ -9,6 +10,7 @@ Name[uk]=Виконати команду
 Name[x-test]=xxRun commandxx
 Comment=Run commands on connected devices
 Comment[ca]=Executa les ordres als dispositius connectats
+Comment[ca@valencia]=Executa les ordres als dispositius connectats
 Comment[gl]=Executar ordes nos dispositivos conectados
 Comment[nl]=Commando's op verbonden apparaten uitvoeren
 Comment[pt]=Executar comandos nos dispositivos ligados

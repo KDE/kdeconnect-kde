@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name= Find my device
 Name[ca]= Troba el meu dispositiu
+Name[ca@valencia]= Troba el meu dispositiu
 Name[gl]=Atopar o meu dispositivo
 Name[nl]= Zoek mijn apparaat
 Name[pt]= Procurar o meu dispositivo
@@ -9,6 +10,7 @@ Name[uk]=Знайти пристрій
 Name[x-test]=xx Find my devicexx
 Comment=Ring connected devices
 Comment[ca]=Fa sonar als dispositius connectats
+Comment[ca@valencia]=Fa sonar als dispositius connectats
 Comment[gl]=Facer soar os dispositivos conectados
 Comment[nl]=Bel verbonden apparaten
 Comment[pt]=Tocar os dispositivos ligados
