@@ -23,7 +23,6 @@
 #include "core/networkpacket.h"
 
 #include <QtTest>
-#include <QtCrypto>
 
 QTEST_GUILESS_MAIN(NetworkPacketTests);
 

@@ -27,7 +27,6 @@
 #include <QString>
 #include <QVariant>
 #include <QIODevice>
-//#include <QtCrypto>
 #include <QSharedPointer>
 #include <QUrl>
 

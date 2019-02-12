@@ -31,6 +31,7 @@
 #include <QtTest>
 #include <QSslKey>
 #include <QUdpSocket>
+#include <QtCrypto>
 
 /*
  * This class tests the working of LanLinkProvider under different conditions that when identity packet is received over TCP, over UDP and same when the device is paired.
