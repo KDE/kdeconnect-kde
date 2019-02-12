@@ -109,7 +109,8 @@ class TestSendFile : public QObject
 
             QSharedPointer<QFile> f(new QFile(aFile));
             NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
-            np.setPayload(f, aFile.size());
+            np.setPayload(f, f->size());
+
             CompositeUploadJob* job = new CompositeUploadJob(deviceId, false);
             UploadJob* uj = new UploadJob(np);
             job->addSubjob(uj);
@@ -119,7 +120,7 @@ class TestSendFile : public QObject
 
             f->open(QIODevice::ReadWrite);
 
-            FileTransferJob* ft = new FileTransferJob(f, aFile.size(), QUrl::fromLocalFile(destFile));
+            FileTransferJob* ft = np.createPayloadTransferJob(QUrl::fromLocalFile(destFile));
 
             QSignalSpy spyTransfer(ft, &KJob::result);
 
