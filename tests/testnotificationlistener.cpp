@@ -136,6 +136,10 @@ public:
         m_applications = value;
     }
 
+    QSharedPointer<QIODevice> iconForIconName(const QString& iconName) const {
+        return NotificationsListener::iconForIconName(iconName);
+    }
+
 protected:
     bool parseImageDataArgument(const QVariant& argument, int& width,
                                 int& height, int& rowStride, int& bitsPerSample,
@@ -370,7 +374,7 @@ void TestNotificationListener::testNotify()
         QCOMPARE(retId, replacesId);
         QCOMPARE(++proxiedNotifications, d->getSentPackets());
         QVERIFY(d->getLastPacket()->hasPayload());
-        QCOMPARE(d->getLastPacket()->payloadSize(), QFile(fi.baseName()).size());
+        QCOMPARE(d->getLastPacket()->payloadSize(), listener->iconForIconName(fi.baseName())->size());
         // works also with absolute paths
         retId = listener->Notify(appName, replacesId, iconName, summary, body, {}, {{}}, 0);
         QCOMPARE(retId, replacesId);
