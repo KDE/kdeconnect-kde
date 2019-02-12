@@ -103,6 +103,10 @@ class TestSendFile : public QObject
             kcc->addTrustedDevice(deviceId, deviceName, deviceType);
             kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating
 
+            //We need the device to be loaded on the daemon, otherwise CompositeUploadJob will get a null device
+            Device* device = new Device(this, deviceId);
+            m_daemon->addDevice(device);
+
             QSharedPointer<QFile> f(new QFile(aFile));
             NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
             np.setPayload(f, aFile.size());

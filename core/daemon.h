@@ -89,7 +89,7 @@ private Q_SLOTS:
     void onNewDeviceLink(const NetworkPacket& identityPacket, DeviceLink* dl);
     void onDeviceStatusChanged();
 
-private:
+protected:
     void addDevice(Device* device);
     bool isDiscoveringDevices() const;
     void removeDevice(Device* d);

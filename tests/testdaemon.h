@@ -33,6 +33,10 @@ public:
     {
     }
 
+    void addDevice(Device* device) {
+        Daemon::addDevice(device);
+    }
+
     void reportError(const QString & title, const QString & description) override
     {
         qWarning() << "error:" << title << description;
@@ -50,7 +54,7 @@ public:
         return m_nam;
     }
 
-        Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override
+    Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override
     {
         qDebug() << eventId << title << text << iconName;
     }
