@@ -126,13 +126,15 @@ class TestSendFile : public QObject
 
             ft->start();
 
-            QVERIFY(spyTransfer.count() || spyTransfer.wait(1000000000));
+            QVERIFY(spyTransfer.count() || spyTransfer.wait());
 
-            if (ft->error()) qWarning() << "fterror" << ft->errorString();
+            if (ft->error()) {
+                qWarning() << "fterror" << ft->errorString();
+            }
 
             QCOMPARE(ft->error(), 0);
-            // HACK | FIXME: Why does this break the test?
-            //QCOMPARE(spyUpload.count(), 1);
+
+            QCOMPARE(spyUpload.count(), 1);
 
             QFile resultFile(destFile), originFile(aFile);
             QVERIFY(resultFile.open(QIODevice::ReadOnly));
