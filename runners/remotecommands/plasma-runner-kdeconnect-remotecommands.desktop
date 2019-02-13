@@ -2,6 +2,7 @@
 Name=Run command
 Name[ca]=Executa una ordre
 Name[ca@valencia]=Executa una ordre
+Name[cs]=Spustit příkaz
 Name[es]=Ejecutar orden
 Name[gl]=Executar unha orde
 Name[nl]=Commando uitvoeren
@@ -12,6 +13,7 @@ Name[x-test]=xxRun commandxx
 Comment=Run commands on connected devices
 Comment[ca]=Executa les ordres als dispositius connectats
 Comment[ca@valencia]=Executa les ordres als dispositius connectats
+Comment[cs]=Spustit příkazy na připojených zařízeních
 Comment[es]=Ejecutar órdenes en los dispositivos conectados
 Comment[gl]=Executar ordes nos dispositivos conectados
 Comment[nl]=Commando's op verbonden apparaten uitvoeren
