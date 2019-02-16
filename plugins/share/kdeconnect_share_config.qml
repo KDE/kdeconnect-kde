@@ -9,8 +9,10 @@ Kirigami.FormLayout {
 
     property string device
 
-    function apply() {
-        config.set("incoming_path", path.text)
+    property var action: Kirigami.Action {
+        icon.name: "dialog-ok"
+        text: i18n("Apply")
+        onTriggered: config.set("incoming_path", path.text)
     }
 
     FolderDialog {

@@ -57,14 +57,10 @@ public:
     /**
      * Read a key-value pair from this config object
      */
-    Q_SCRIPTABLE QVariant get(const QString& key, const QVariant& defaultValue);
-
-    /**
-     * Convenience method that will convert the QVariant to whatever type for you
-     */
-    template<typename T> T get(const QString& key, const T& defaultValue = {}) {
-        return get(key, QVariant(defaultValue)).template value<T>(); //Important note: Awesome template syntax is awesome
-    }
+    Q_SCRIPTABLE QString getString(const QString& key, const QString& defaultValue);
+    Q_SCRIPTABLE bool getBool(const QString& key, const bool defaultValue);
+    Q_SCRIPTABLE int getInt(const QString& key, const int defaultValue);
+    Q_SCRIPTABLE QByteArray getByteArray(const QString& key, const QByteArray defaultValue);
 
     QVariantList getList(const QString& key, const QVariantList& defaultValue = {});
 

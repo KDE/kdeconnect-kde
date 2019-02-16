@@ -88,13 +88,13 @@ void SendNotificationsConfig::loadApplications()
 void SendNotificationsConfig::load()
 {
     KCModule::load();
-    bool persistent = config()->get(QStringLiteral("generalPersistent"), false);
+    bool persistent = config()->getBool(QStringLiteral("generalPersistent"), false);
     m_ui->check_persistent->setChecked(persistent);
-    bool body = config()->get(QStringLiteral("generalIncludeBody"), true);
+    bool body = config()->getBool(QStringLiteral("generalIncludeBody"), true);
     m_ui->check_body->setChecked(body);
-    bool icons = config()->get(QStringLiteral("generalSynchronizeIcons"), true);
+    bool icons = config()->getBool(QStringLiteral("generalSynchronizeIcons"), true);
     m_ui->check_icons->setChecked(icons);
-    int urgency = config()->get(QStringLiteral("generalUrgency"), 0);
+    int urgency = config()->getInt(QStringLiteral("generalUrgency"), 0);
     m_ui->spin_urgency->setValue(urgency);
 
     loadApplications();

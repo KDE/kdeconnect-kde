@@ -22,26 +22,22 @@ import QtQuick 2.2
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.0 as Kirigami
 
-Kirigami.ScrollablePage
+Kirigami.Page
 {
     id: root
     property string configFile
     property string device
 
-    Loader {
-        id: loader
+    actions.main: loader.item.action
 
+    Loader {
+        anchors.fill: parent
+        id: loader
         Component.onCompleted: {
             setSource(configFile, {
                 device: root.device
             })
         }
-    }
-
-    actions.main: Kirigami.Action {
-        icon.name: "dialog-ok"
-        text: i18n("Apply")
-        onTriggered: loader.item.apply()
     }
 }
 

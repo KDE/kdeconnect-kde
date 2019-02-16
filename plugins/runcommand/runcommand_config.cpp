@@ -93,7 +93,7 @@ void RunCommandConfig::load()
 {
     KCModule::load();
 
-    QJsonDocument jsonDocument = QJsonDocument::fromJson(config()->get<QByteArray>(QStringLiteral("commands"), "{}"));
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(config()->getByteArray(QStringLiteral("commands"), "{}"));
     QJsonObject jsonConfig = jsonDocument.object();
     const QStringList keys = jsonConfig.keys();
     for (const QString& key : keys) {

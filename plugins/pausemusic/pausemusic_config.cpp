@@ -55,12 +55,12 @@ void PauseMusicConfig::defaults()
 void PauseMusicConfig::load()
 {
     KCModule::load();
-    bool talking = config()->get(QStringLiteral("conditionTalking"), false);
+    bool talking = config()->getBool(QStringLiteral("conditionTalking"), false);
     m_ui->rad_talking->setChecked(talking);
     m_ui->rad_ringing->setChecked(!talking);
 
-    bool pause = config()->get(QStringLiteral("actionPause"), true);
-    bool mute = config()->get(QStringLiteral("actionMute"), false);
+    bool pause = config()->getBool(QStringLiteral("actionPause"), true);
+    bool mute = config()->getBool(QStringLiteral("actionMute"), false);
     m_ui->check_pause->setChecked(pause);
     m_ui->check_mute->setChecked(mute);
 

@@ -59,14 +59,44 @@ KdeConnectPluginConfig::~KdeConnectPluginConfig()
     delete d->m_config;
 }
 
-QVariant KdeConnectPluginConfig::get(const QString& key, const QVariant& defaultValue)
+QString KdeConnectPluginConfig::getString(const QString& key, const QString& defaultValue)
 {
     if (!d->m_config) {
         loadConfig();
     }
 
     d->m_config->sync();
-    return d->m_config->value(key, defaultValue);
+    return d->m_config->value(key, defaultValue).toString();
+}
+
+bool KdeConnectPluginConfig::getBool(const QString& key, const bool defaultValue)
+{
+    if (!d->m_config) {
+        loadConfig();
+    }
+
+    d->m_config->sync();
+    return d->m_config->value(key, defaultValue).toBool();
+}
+
+int KdeConnectPluginConfig::getInt(const QString& key, const int defaultValue)
+{
+    if (!d->m_config) {
+        loadConfig();
+    }
+
+    d->m_config->sync();
+    return d->m_config->value(key, defaultValue).toInt();
+}
+
+QByteArray KdeConnectPluginConfig::getByteArray(const QString& key, const QByteArray defaultValue)
+{
+    if (!d->m_config) {
+        loadConfig();
+    }
+
+    d->m_config->sync();
+    return d->m_config->value(key, defaultValue).toByteArray();
 }
 
 QVariantList KdeConnectPluginConfig::getList(const QString& key,

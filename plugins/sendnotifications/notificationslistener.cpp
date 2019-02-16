@@ -217,7 +217,7 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
     if (!app.active)
         return 0;
 
-    if (timeout > 0 && m_plugin->config()->get(QStringLiteral("generalPersistent"), false))
+    if (timeout > 0 && m_plugin->config()->getBool(QStringLiteral("generalPersistent"), false))
         return 0;
 
     int urgency = -1;
@@ -227,11 +227,11 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
         if (!ok)
             urgency = -1;
     }
-    if (urgency > -1 && urgency < m_plugin->config()->get<int>(QStringLiteral("generalUrgency"), 0))
+    if (urgency > -1 && urgency < m_plugin->config()->getInt(QStringLiteral("generalUrgency"), 0))
         return 0;
 
     QString ticker = summary;
-    if (!body.isEmpty() && m_plugin->config()->get(QStringLiteral("generalIncludeBody"), true))
+    if (!body.isEmpty() && m_plugin->config()->getBool(QStringLiteral("generalIncludeBody"), true))
         ticker += QStringLiteral(": ") + body;
 
     if (app.blacklistExpression.isValid() &&
@@ -250,7 +250,7 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
                                           // clearability is pointless
 
     // sync any icon data?
-    if (m_plugin->config()->get(QStringLiteral("generalSynchronizeIcons"), true)) {
+    if (m_plugin->config()->getBool(QStringLiteral("generalSynchronizeIcons"), true)) {
         QSharedPointer<QIODevice> iconSource;
         // try different image sources according to priorities in notifications-
         // spec version 1.2:

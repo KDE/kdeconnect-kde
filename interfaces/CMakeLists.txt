@@ -21,6 +21,7 @@ set(libkdeconnect_SRC
     remotecommandsmodel.cpp
     remotesinksmodel.cpp
     pluginmodel.cpp
+    commandsmodel.cpp
 #    modeltest.cpp
 )
 
@@ -71,6 +72,7 @@ LINK_PUBLIC
     Qt5::DBus
     KF5::Service
 LINK_PRIVATE
+    kdeconnectcore
     KF5::ConfigCore
     KF5::I18n
     KF5::CoreAddons

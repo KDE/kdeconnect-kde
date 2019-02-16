@@ -9,8 +9,10 @@ Kirigami.FormLayout {
 
     property string device
 
-    function apply() {
-        config.set("ringtone", path.text)
+    property var action: Kirigami.Action {
+        icon.name: "dialog-ok"
+        text: i18n("Apply")
+        onTriggered: config.set("ringtone", path.text)
     }
 
     FileDialog {

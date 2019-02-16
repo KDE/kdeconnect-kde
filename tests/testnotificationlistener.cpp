@@ -204,9 +204,9 @@ void TestNotificationListener::testNotify()
     plugin->config()->set(QStringLiteral("generalPersistent"), false);
     plugin->config()->set(QStringLiteral("generalIncludeBody"), true);
     plugin->config()->set(QStringLiteral("generalUrgency"), 0);
-    QCOMPARE(plugin->config()->get<bool>("generalPersistent"), false);
-    QCOMPARE(plugin->config()->get<bool>("generalIncludeBody"), true);
-    QCOMPARE(plugin->config()->get<bool>("generalUrgency"), false);
+    QCOMPARE(plugin->config()->getBool("generalPersistent", false), false);
+    QCOMPARE(plugin->config()->getBool("generalIncludeBody", true), true);
+    QCOMPARE(plugin->config()->getBool("generalUrgency", false), false);
 
     // applications are modified directly:
     listener->getApplications().clear();
