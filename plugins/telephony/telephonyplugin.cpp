@@ -74,6 +74,8 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
 #endif
     }
 
+    Q_EMIT callReceived(type, phoneNumber, contactName);
+
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
     KNotification* notification = new KNotification(type, flags, this);

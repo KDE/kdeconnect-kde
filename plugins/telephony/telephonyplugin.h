@@ -63,6 +63,7 @@ public:
 
 public:
 Q_SIGNALS:
+    Q_SCRIPTABLE void callReceived(const QString& event, const QString& number, const QString contactName);
 
 private Q_SLOTS:
     void sendMutePacket();
