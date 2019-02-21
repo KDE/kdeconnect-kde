@@ -20,7 +20,6 @@
 
 #include "findmyphonerunner.h"
 
-#include <QIcon>
 #include <QDebug>
 #include <KLocalizedString>
 
@@ -63,7 +62,7 @@ void FindMyPhoneRunner::match(Plasma::RunnerContext &context)
                 Plasma::QueryMatch match(this);
                 match.setType(Plasma::QueryMatch::PossibleMatch);
                 match.setId(deviceId);
-                match.setIcon(QIcon::fromTheme("kdeconnect"));
+                match.setIconName(QStringLiteral("kdeconnect"));
                 match.setText(i18n("Find %1", deviceName));
                 match.setData(deviceId);
                 context.addMatch(match);

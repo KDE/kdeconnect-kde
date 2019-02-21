@@ -20,7 +20,6 @@
 
 #include "remotecommandsrunner.h"
 
-#include <QIcon>
 #include <QDebug>
 
 #include "interfaces/dbusinterfaces.h"
@@ -70,7 +69,7 @@ void RemoteCommandsRunner::match(Plasma::RunnerContext &context)
                     Plasma::QueryMatch match(this);
                     match.setType(Plasma::QueryMatch::PossibleMatch);
                     match.setId(it.key());
-                    match.setIcon(QIcon::fromTheme("kdeconnect"));
+                    match.setIconName(QStringLiteral("kdeconnect"));
                     match.setText(deviceName + ": " + commandName);
                     match.setSubtext(cont.value(QStringLiteral("command")).toString());
                     match.setData(deviceId + "$" + it.key());
