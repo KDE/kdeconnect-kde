@@ -67,6 +67,7 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
     }
 
     m_deviceId = deviceId;
+    Q_EMIT deviceIdChanged();
 
     // This method still gets called *with a valid deviceID* when the device is not connected while the component is setting up
     // Detect that case and don't do anything.

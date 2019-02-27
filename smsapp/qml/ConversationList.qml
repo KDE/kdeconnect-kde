@@ -55,7 +55,7 @@ Kirigami.ScrollablePage
     readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
     readonly property alias lastDeviceId: conversationListModel.deviceId
 
-    Component {
+    ConversationDisplay {
         id: chatView
         ConversationDisplay {
             deviceId: page.lastDeviceId
@@ -122,7 +122,17 @@ Kirigami.ScrollablePage
                                                        conversationId: model.conversationId,
                 })
             }
-            onClicked: { startChat(); }
+            onClicked: {
+                startChat();
+                view.currentIndex = index
+            }
+            // Keep the currently-open chat highlighted even if this element is not focused
+            highlighted: chatView.conversationId == model.conversationId
+        }
+
+        Component.onCompleted: {
+            currentIndex = -1
+            focus = true
         }
 
     }
