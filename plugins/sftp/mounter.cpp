@@ -168,10 +168,10 @@ void Mounter::onStarted()
     //m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
 
     auto proc = m_proc;
-    connect(m_proc, &KProcess::readyReadStandardError, [proc]() {
+    connect(m_proc, &KProcess::readyReadStandardError, this, [proc]() {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "stderr: " << proc->readAll();
     });
-    connect(m_proc, &KProcess::readyReadStandardOutput, [proc]() {
+    connect(m_proc, &KProcess::readyReadStandardOutput, this, [proc]() {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "stdout:" << proc->readAll();
     });
 }
