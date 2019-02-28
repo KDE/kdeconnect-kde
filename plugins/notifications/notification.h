@@ -34,16 +34,16 @@ class Notification
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.notifications.notification")
-    Q_PROPERTY(QString internalId READ internalId)
-    Q_PROPERTY(QString appName READ appName)
-    Q_PROPERTY(QString ticker READ ticker)
-    Q_PROPERTY(QString title READ title)
-    Q_PROPERTY(QString text READ text)
-    Q_PROPERTY(QString iconPath READ iconPath)
-    Q_PROPERTY(bool dismissable READ dismissable)
-    Q_PROPERTY(bool hasIcon READ hasIcon)
-    Q_PROPERTY(bool silent READ silent)
-    Q_PROPERTY(QString replyId READ replyId)
+    Q_PROPERTY(QString internalId READ internalId CONSTANT)
+    Q_PROPERTY(QString appName READ appName NOTIFY ready)
+    Q_PROPERTY(QString ticker READ ticker NOTIFY ready)
+    Q_PROPERTY(QString title READ title NOTIFY ready)
+    Q_PROPERTY(QString text READ text NOTIFY ready)
+    Q_PROPERTY(QString iconPath READ iconPath NOTIFY ready)
+    Q_PROPERTY(bool dismissable READ dismissable NOTIFY ready)
+    Q_PROPERTY(bool hasIcon READ hasIcon NOTIFY ready)
+    Q_PROPERTY(bool silent READ silent NOTIFY ready)
+    Q_PROPERTY(QString replyId READ replyId NOTIFY ready)
 
 public:
     Notification(const NetworkPacket& np, QObject* parent);
@@ -68,7 +68,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
     Q_SCRIPTABLE void reply();
 
-    Q_SIGNALS:
+Q_SIGNALS:
     void dismissRequested(const QString& m_internalId);
     void replyRequested();
     Q_SCRIPTABLE void ready();
