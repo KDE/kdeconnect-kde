@@ -272,7 +272,7 @@ void CompositeUploadJob::slotResult(KJob *job) {
         startNextSubJob();
     } else {
         Q_EMIT description(this, i18n("Finished sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()),
-                           { QStringLiteral(""), i18np("Sent 1 file", "Sent %1 files", m_totalJobs) }
+                           { QString(), i18np("Sent 1 file", "Sent %1 files", m_totalJobs) }
         );
         emitResult();
     }
