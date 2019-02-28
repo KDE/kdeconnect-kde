@@ -46,7 +46,8 @@ void RemoteCommandsRunner::match(Plasma::RunnerContext &context)
 
     if (devicesReply.isValid()) {
 
-        for (const QString& deviceId : devicesReply.value()) {
+        const auto devices = devicesReply.value();
+        for (const QString& deviceId : devices) {
 
             DeviceDbusInterface deviceInterface(deviceId, this);
 
