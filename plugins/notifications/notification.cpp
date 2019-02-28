@@ -195,7 +195,8 @@ void Notification::parseNetworkPacket(const NetworkPacket& np)
 
     m_actions.clear();
 
-    for (QJsonValue value : np.get<QJsonArray>(QStringLiteral("actions"))) {
+    const auto actions = np.get<QJsonArray>(QStringLiteral("actions"));
+    for (const QJsonValue& value : actions) {
         m_actions.append(value.toString());
     }
 
