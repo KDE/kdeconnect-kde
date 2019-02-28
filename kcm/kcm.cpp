@@ -20,19 +20,8 @@
 
 #include "kcm.h"
 
-#include <QLabel>
-#include <QMenu>
-#include <QMenuBar>
-#include <QAction>
-#include <QStackedLayout>
-#include <QListView>
-#include <QDBusConnection>
-#include <QDBusInterface>
-
-#include <KServiceTypeTrader>
 #include <KPluginInfo>
 #include <KPluginMetaData>
-#include <KPluginFactory>
 #include <KAboutData>
 #include <KLocalizedString>
 #include <kcmutils_version.h>
