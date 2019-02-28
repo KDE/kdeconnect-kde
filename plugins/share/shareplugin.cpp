@@ -185,7 +185,7 @@ void SharePlugin::shareUrl(const QUrl& url)
 }
 
 void SharePlugin::shareUrls(const QStringList& urls) {
-    for(const QString url : urls) {
+    for(const QString& url : urls) {
         shareUrl(QUrl(url));
     }
 }
