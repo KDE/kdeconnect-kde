@@ -78,7 +78,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
 
     //Workaround: If we set this directly (or if we set it in the .ui file), the layout breaks
     kcmUi->noDeviceLinks->setWordWrap(false);
-    QTimer::singleShot(0, [this] { kcmUi->noDeviceLinks->setWordWrap(true); });
+    QTimer::singleShot(0, this, [this] { kcmUi->noDeviceLinks->setWordWrap(true); });
 
     setWhenAvailable(daemon->announcedName(), [this](const QString& announcedName) {
         kcmUi->rename_label->setText(announcedName);
