@@ -1,7 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.5
 import org.kde.kirigami 2.4 as Kirigami
-import QtQuick.Dialogs 1.2
 import org.kde.kdeconnect 1.0
 
 ListView {
@@ -46,7 +45,7 @@ ListView {
         id: addDialog
         title: "Add command"
 
-        standardButtons: StandardButton.Save | StandardButton.Cancel
+        standardButtons: Dialog.Save | Dialog.Cancel
 
         Kirigami.FormLayout {
             TextField {
