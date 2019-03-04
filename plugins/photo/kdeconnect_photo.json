@@ -1,0 +1,27 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "nicolas.fella@gmx.de",
+                "Name": "Nicolas Fella"
+            }
+        ],
+        "Description": "Use a connected device to take a photo",
+        "EnabledByDefault": true,
+        "Icon": "camera-photo",
+        "Id": "kdeconnect_photo",
+        "License": "GPL",
+        "Name": "Photo",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "http://nicolasfella.wordpress.com"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.photo.request"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.photo"
+    ]
+}

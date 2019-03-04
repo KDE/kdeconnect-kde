@@ -72,6 +72,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Executes a remote command by id"), QStringLiteral("id")));
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
+    parser.addOption(QCommandLineOption(QStringLiteral("photo"), i18n("Open the connected device's camera and transfer the photo")));
     about.setupCommandLine(&parser);
 
     parser.addHelpOption();
@@ -227,6 +228,9 @@ int main(int argc, char** argv)
             }
         } else if(parser.isSet(QStringLiteral("ring"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/findmyphone", QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+        } else if(parser.isSet(QStringLiteral("photo"))) {
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/photo", QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if(parser.isSet("send-keys")) {
             QString seq = parser.value("send-keys");

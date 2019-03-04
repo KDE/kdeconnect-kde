@@ -6,6 +6,7 @@ add_subdirectory(ping)
 add_subdirectory(battery)
 add_subdirectory(sendnotifications)
 add_subdirectory(mpriscontrol)
+add_subdirectory(photo)
 
 if(NOT SAILFISHOS)
     add_subdirectory(clipboard)
