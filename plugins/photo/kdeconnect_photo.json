@@ -30,11 +30,21 @@
             }
         ],
         "Description": "Use a connected device to take a photo",
+        "Description[ca@valencia]": "Usa un dispositiu connectat per fer una fotografia",
+        "Description[ca]": "Usa un dispositiu connectat per fer una fotografia",
+        "Description[nl]": "Gebruik een verbonden apparaat om een foto te nemen",
+        "Description[uk]": "Скористатися з'єднаним пристроєм для фотографування",
+        "Description[x-test]": "xxUse a connected device to take a photoxx",
         "EnabledByDefault": true,
         "Icon": "camera-photo",
         "Id": "kdeconnect_photo",
         "License": "GPL",
         "Name": "Photo",
+        "Name[ca@valencia]": "Fotografia",
+        "Name[ca]": "Fotografia",
+        "Name[nl]": "Foto",
+        "Name[uk]": "Фото",
+        "Name[x-test]": "xxPhotoxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
