@@ -75,7 +75,7 @@ size_t RequestConversationWorker::replyForConversation(const QList<ConversationM
     // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)
-    int i = 0;
+    size_t i = 0;
     for(auto it = conversation.crbegin() + start; it != conversation.crend(); ++it) {
         if (i >= howMany) {
             break;

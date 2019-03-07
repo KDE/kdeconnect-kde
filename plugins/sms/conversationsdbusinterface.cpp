@@ -126,6 +126,7 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
 void ConversationsDbusInterface::removeMessage(const QString& internalId)
 {
     // TODO: Delete the specified message from our internal structures
+    Q_UNUSED(internalId);
 }
 
 QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qint64& conversationID) const
