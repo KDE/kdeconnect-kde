@@ -22,7 +22,7 @@ import QtQuick 2.2
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.0
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.7 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.Page
@@ -80,6 +80,7 @@ Kirigami.Page
                 delegate: Kirigami.BasicListItem {
                     label: name
                     icon: iconName
+                    iconColor: "transparent"
                     visible: loaded
                     onClicked: onClick()
                 }
