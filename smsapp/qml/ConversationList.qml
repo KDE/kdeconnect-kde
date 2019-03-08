@@ -55,7 +55,7 @@ Kirigami.ScrollablePage
     readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
     readonly property alias lastDeviceId: conversationListModel.deviceId
 
-    ConversationDisplay {
+    Component {
         id: chatView
         ConversationDisplay {
             deviceId: page.lastDeviceId
