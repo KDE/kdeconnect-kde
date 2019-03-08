@@ -31,7 +31,7 @@
 /**
  * The default channel uuid. This channel is opened implicitely (without communication).
  */
-constexpr const char DEFAULT_CHANNEL_UUID[] = "a0d0aaf4-1072-4d81-aa35-902a954b1266";
+#define DEFAULT_CHANNEL_UUID "a0d0aaf4-1072-4d81-aa35-902a954b1266"
 
 //Message type constants
 constexpr char MESSAGE_PROTOCOL_VERSION = 0;
@@ -60,7 +60,7 @@ ConnectionMultiplexer::ConnectionMultiplexer(QBluetoothSocket *socket, QObject *
     QMetaObject::invokeMethod(this, &ConnectionMultiplexer::bytesWritten, Qt::QueuedConnection);
 
     //Always open the default channel
-    addChannel(QBluetoothUuid{QString{DEFAULT_CHANNEL_UUID}});
+    addChannel(QBluetoothUuid{QStringLiteral(DEFAULT_CHANNEL_UUID)});
 
     //Immediately check if we can read stuff ("readyRead" may not be called in that case)
     if (mSocket->bytesAvailable()) {
@@ -283,7 +283,7 @@ std::unique_ptr<MultiplexChannel> ConnectionMultiplexer::getChannel(QBluetoothUu
 }
 
 std::unique_ptr<MultiplexChannel> ConnectionMultiplexer::getDefaultChannel() {
-    return getChannel(QBluetoothUuid{QString{DEFAULT_CHANNEL_UUID}});
+    return getChannel(QBluetoothUuid{QStringLiteral(DEFAULT_CHANNEL_UUID)});
 }
 
 void ConnectionMultiplexer::bytesWritten() {

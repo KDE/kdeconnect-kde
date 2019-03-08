@@ -25,10 +25,8 @@ DeviceLineReader::DeviceLineReader(QIODevice* device, QObject* parent)
     : QObject(parent)
     , m_device(device)
 {
-    connect(m_device, SIGNAL(readyRead()),
-            this, SLOT(dataReceived()));
-    connect(m_device, SIGNAL(disconnected()),
-            this, SIGNAL(disconnected()));
+    connect(m_device, &QIODevice::readyRead, this, &DeviceLineReader::dataReceived);
+    connect(m_device, &QIODevice::aboutToClose, this, &DeviceLineReader::disconnected);
 }
 
 void DeviceLineReader::dataReceived()

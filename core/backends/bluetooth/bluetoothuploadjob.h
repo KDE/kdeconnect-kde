@@ -30,30 +30,28 @@
 #include <QBluetoothUuid>
 #include <QBluetoothServer>
 
+class ConnectionMultiplexer;
+class MultiplexChannel;
+
 class BluetoothUploadJob
     : public QObject
 {
     Q_OBJECT
 public:
-    explicit BluetoothUploadJob(const QSharedPointer<QIODevice>& data, const QBluetoothAddress& remoteAddress, QObject* parent = 0);
+    explicit BluetoothUploadJob(const QSharedPointer<QIODevice>& data, ConnectionMultiplexer *connection, QObject* parent = 0);
 
     QVariantMap transferInfo() const;
     void start();
 
 private:
     QSharedPointer<QIODevice> mData;
-    QBluetoothAddress mRemoteAddress;
     QBluetoothUuid mTransferUuid;
-    QBluetoothServer* mServer;
-    QBluetoothServiceInfo mServiceInfo;
-    QBluetoothSocket* m_socket;
+    QSharedPointer<MultiplexChannel> mSocket;
 
     void closeConnection();
 
 private Q_SLOTS:
-    void newConnection();
     void writeSome();
-    void finishWrites();
 };
 
 #endif // BLUETOOTHUPLOADJOB_H

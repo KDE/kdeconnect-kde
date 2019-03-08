@@ -19,13 +19,14 @@
  */
 
 #include "bluetoothdownloadjob.h"
+#include "connectionmultiplexer.h"
+#include "multiplexchannel.h"
 
-BluetoothDownloadJob::BluetoothDownloadJob(const QBluetoothAddress& remoteAddress, const QVariantMap& transferInfo, QObject* parent)
+BluetoothDownloadJob::BluetoothDownloadJob(ConnectionMultiplexer *connection, const QVariantMap& transferInfo, QObject* parent)
     : QObject(parent)
-    , mRemoteAddress(remoteAddress)
-    , mTransferUuid(QBluetoothUuid(transferInfo.value(QStringLiteral("uuid")).toString()))
-    , mSocket(new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol))
 {
+    QBluetoothUuid id{transferInfo.value(QStringLiteral("uuid")).toString()};
+    mSocket = QSharedPointer<MultiplexChannel>{connection->getChannel(id).release()};
 }
 
 QSharedPointer<QIODevice> BluetoothDownloadJob::payload() const
@@ -35,7 +36,4 @@ QSharedPointer<QIODevice> BluetoothDownloadJob::payload() const
 
 void BluetoothDownloadJob::start()
 {
-    connect(mSocket.data(), &QBluetoothSocket::disconnected, mSocket.data(), &QBluetoothSocket::readyRead);
-    connect(mSocket.data(), &QBluetoothSocket::disconnected, mSocket.data(), &QBluetoothSocket::readChannelFinished);
-    mSocket->connectToService(mRemoteAddress, mTransferUuid, QIODevice::ReadOnly);
 }

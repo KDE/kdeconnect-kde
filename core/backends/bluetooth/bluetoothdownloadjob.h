@@ -29,19 +29,20 @@
 #include <QBluetoothUuid>
 #include <QBluetoothSocket>
 
+class ConnectionMultiplexer;
+class MultiplexChannel;
+
 class BluetoothDownloadJob
     : public QObject
 {
     Q_OBJECT
 public:
-    explicit BluetoothDownloadJob(const QBluetoothAddress& remoteAddress, const QVariantMap& transferInfo, QObject* parent = 0);
+    explicit BluetoothDownloadJob(ConnectionMultiplexer *connection, const QVariantMap& transferInfo, QObject* parent = 0);
 
     QSharedPointer<QIODevice> payload() const;
     void start();
 private:
-    QBluetoothAddress mRemoteAddress;
-    QBluetoothUuid mTransferUuid;
-    QSharedPointer<QBluetoothSocket> mSocket;
+    QSharedPointer<MultiplexChannel> mSocket;
 };
 
 #endif // BLUETOOTHDOWNLOADJOB_H

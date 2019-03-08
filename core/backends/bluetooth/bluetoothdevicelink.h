@@ -29,13 +29,16 @@
 #include "../devicelinereader.h"
 #include "bluetoothpairinghandler.h"
 
+class ConnectionMultiplexer;
+class MultiplexChannel;
+
 class KDECONNECTCORE_EXPORT BluetoothDeviceLink
     : public DeviceLink
 {
     Q_OBJECT
 
 public:
-    BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, QBluetoothSocket* socket);
+    BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionMultiplexer* connection, QSharedPointer<MultiplexChannel> socket);
 
     virtual QString name() override;
     bool sendPacket(NetworkPacket& np) override;
@@ -50,7 +53,8 @@ private Q_SLOTS:
 
 private:
     DeviceLineReader* mSocketReader;
-    QBluetoothSocket* mBluetoothSocket;
+    ConnectionMultiplexer* mConnection;
+    QSharedPointer<MultiplexChannel> mChannel;
     BluetoothPairingHandler* mPairingHandler;
 
     void sendMessage(const QString mMessage);

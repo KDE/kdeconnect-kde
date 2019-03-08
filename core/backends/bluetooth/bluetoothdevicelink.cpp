@@ -25,22 +25,24 @@
 #include "bluetoothuploadjob.h"
 #include "bluetoothdownloadjob.h"
 #include "core_debug.h"
+#include "connectionmultiplexer.h"
+#include "multiplexchannel.h"
 
-BluetoothDeviceLink::BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, QBluetoothSocket* socket)
+BluetoothDeviceLink::BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionMultiplexer* connection, QSharedPointer<MultiplexChannel> socket)
     : DeviceLink(deviceId, parent)
-    , mSocketReader(new DeviceLineReader(socket, this))
-    , mBluetoothSocket(socket)
+    , mSocketReader(new DeviceLineReader(socket.data(), this))
+    , mConnection(connection)
+    , mChannel(socket)
     , mPairingHandler(new BluetoothPairingHandler(this))
 {
-    connect(mSocketReader, SIGNAL(readyRead()),
-            this, SLOT(dataReceived()));
+    connect(mSocketReader, &DeviceLineReader::readyRead, this, &BluetoothDeviceLink::dataReceived);
 
-    //We take ownership of the socket.
+    //We take ownership of the connection.
     //When the link provider destroys us,
     //the socket (and the reader) will be
     //destroyed as well
-    mBluetoothSocket->setParent(this);
-    connect(mBluetoothSocket, SIGNAL(disconnected()), this, SLOT(deleteLater()));
+    mConnection->setParent(this);
+    connect(socket.data(), &MultiplexChannel::aboutToClose, this, &QObject::deleteLater);
 }
 
 QString BluetoothDeviceLink::name()
@@ -51,10 +53,11 @@ QString BluetoothDeviceLink::name()
 bool BluetoothDeviceLink::sendPacket(NetworkPacket& np)
 {
     if (np.hasPayload()) {
-        BluetoothUploadJob* uploadJob = new BluetoothUploadJob(np.payload(), mBluetoothSocket->peerAddress(), this);
+        BluetoothUploadJob* uploadJob = new BluetoothUploadJob(np.payload(), mConnection, this);
         np.setPayloadTransferInfo(uploadJob->transferInfo());
         uploadJob->start();
     }
+    //TODO: handle too-big packets
     int written = mSocketReader->write(np.serialize());
     return (written != -1);
 }
@@ -89,8 +92,7 @@ void BluetoothDeviceLink::dataReceived()
     }
 
     if (packet.hasPayloadTransferInfo()) {
-        BluetoothDownloadJob* downloadJob = new BluetoothDownloadJob(mBluetoothSocket->peerAddress(),
-                                                                     packet.payloadTransferInfo(), this);
+        BluetoothDownloadJob* downloadJob = new BluetoothDownloadJob(mConnection, packet.payloadTransferInfo(), this);
         downloadJob->start();
         packet.setPayload(downloadJob->payload(), packet.payloadSize());
     }
@@ -98,6 +100,6 @@ void BluetoothDeviceLink::dataReceived()
     Q_EMIT receivedPacket(packet);
 
     if (mSocketReader->bytesAvailable() > 0) {
-        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, &BluetoothDeviceLink::dataReceived, Qt::QueuedConnection);
     }
 }

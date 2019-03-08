@@ -35,6 +35,8 @@
 #include "../linkprovider.h"
 
 class BluetoothDeviceLink;
+class ConnectionMultiplexer;
+class MultiplexChannel;
 
 class KDECONNECTCORE_EXPORT BluetoothLinkProvider
     : public LinkProvider
@@ -53,16 +55,17 @@ public Q_SLOTS:
     virtual void onStart() override;
     virtual void onStop() override;
     void connectError();
-    void serviceDiscoveryFinished();
 
 private Q_SLOTS:
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);
-    void socketDisconnected();
+    void socketDisconnected(const QBluetoothAddress &peerAddress, MultiplexChannel *socket);
 
     void serverNewConnection();
-    void serverDataReceived();
-    void clientConnected();
-    void clientIdentityReceived();
+    void serverDataReceived(const QBluetoothAddress &peerAddress, QSharedPointer<MultiplexChannel> socket);
+    void clientConnected(QPointer<QBluetoothSocket> socket);
+    void clientIdentityReceived(const QBluetoothAddress &peerAddress, QSharedPointer<MultiplexChannel> socket);
+
+    void serviceDiscovered(const QBluetoothServiceInfo &info);
 
 private:
     void addLink(BluetoothDeviceLink* deviceLink, const QString& deviceId);
@@ -76,7 +79,7 @@ private:
 
     QMap<QString, DeviceLink*> mLinks;
 
-    QMap<QBluetoothAddress, QBluetoothSocket*> mSockets;
+    QMap<QBluetoothAddress, ConnectionMultiplexer*> mSockets;
 
 };
 

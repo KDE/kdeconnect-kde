@@ -20,19 +20,19 @@
  */
 
 #include "bluetoothuploadjob.h"
+#include "connectionmultiplexer.h"
+#include "multiplexchannel.h"
 
 #include <QBluetoothSocket>
 #include "core_debug.h"
 #include <QCoreApplication>
 
-BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice>& data, const QBluetoothAddress& remoteAddress, QObject* parent)
+BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice>& data, ConnectionMultiplexer *connection, QObject* parent)
     : QObject(parent)
     , mData(data)
-    , mRemoteAddress(remoteAddress)
-    , mTransferUuid(QBluetoothUuid::createUuid())
-    , mServer(new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this))
+    , mTransferUuid(connection->newChannel())
 {
-    mServer->setSecurityFlags(QBluetooth::Encryption | QBluetooth::Secure);
+    mSocket = QSharedPointer<MultiplexChannel>{connection->getChannel(mTransferUuid).release()};
 }
 
 QVariantMap BluetoothUploadJob::transferInfo() const
@@ -44,45 +44,20 @@ QVariantMap BluetoothUploadJob::transferInfo() const
 
 void BluetoothUploadJob::start()
 {
-    connect(mServer, &QBluetoothServer::newConnection, this, &BluetoothUploadJob::newConnection);
-    mServiceInfo = mServer->listen(mTransferUuid, QStringLiteral("KDE Connect Transfer Job"));
-    Q_ASSERT(mServiceInfo.isValid());
-}
-
-void BluetoothUploadJob::newConnection()
-{
-    m_socket = mServer->nextPendingConnection();
-    Q_ASSERT(m_socket);
-    m_socket->setParent(this);
-    connect(m_socket, &QBluetoothSocket::disconnected, this, &BluetoothUploadJob::deleteLater);
-
-    if (m_socket->peerAddress() != mRemoteAddress) {
-        m_socket->close();
-    } else {
-        mServer->close();
-        disconnect(mServer, &QBluetoothServer::newConnection, this, &BluetoothUploadJob::newConnection);
-        mServiceInfo.unregisterService();
-
-        if (!mData->open(QIODevice::ReadOnly)) {
-            qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
-            m_socket->close();
-            deleteLater();
-            return;
-        }
+    if (!mData->open(QIODevice::ReadOnly)) {
+        qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
+        return; //TODO: Handle error, clean up...
     }
-
-    connect(m_socket, &QBluetoothSocket::bytesWritten, this, &BluetoothUploadJob::writeSome);
-    connect(m_socket, &QBluetoothSocket::disconnected, this, &BluetoothUploadJob::closeConnection);
+    connect(mSocket.data(), &MultiplexChannel::bytesWritten, this, &BluetoothUploadJob::writeSome);
+    connect(mSocket.data(), &MultiplexChannel::aboutToClose, this, &BluetoothUploadJob::closeConnection);
     writeSome();
 }
 
 void BluetoothUploadJob::writeSome() {
-    Q_ASSERT(m_socket);
-
     bool errorOccurred = false;
-    while (m_socket->bytesToWrite() == 0 && mData->bytesAvailable() && m_socket->isWritable()) {
+    while (mSocket->bytesToWrite() == 0 && mData->bytesAvailable() && mSocket->isWritable()) {
         qint64 bytes = qMin<qint64>(mData->bytesAvailable(), 4096);
-        int bytesWritten = m_socket->write(mData->read(bytes));
+        int bytesWritten = mSocket->write(mData->read(bytes));
 
         if (bytesWritten < 0) {
             qCWarning(KDECONNECT_CORE()) << "error when writing data to bluetooth upload" << bytes << mData->bytesAvailable();
@@ -92,18 +67,8 @@ void BluetoothUploadJob::writeSome() {
     }
 
     if (mData->atEnd() || errorOccurred) {
-        disconnect(m_socket, &QBluetoothSocket::bytesWritten, this, &BluetoothUploadJob::writeSome);
         mData->close();
-
-        connect(m_socket, &QBluetoothSocket::bytesWritten, this, &BluetoothUploadJob::finishWrites);
-        finishWrites();
-    }
-}
-
-void BluetoothUploadJob::finishWrites() {
-    Q_ASSERT(m_socket);
-    if (m_socket->bytesToWrite() == 0) {
-        closeConnection();
+        mSocket->close();
     }
 }
 
