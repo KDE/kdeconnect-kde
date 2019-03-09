@@ -138,6 +138,36 @@ void KioKdeconnect::listDevice(const QString& device)
 
     QDBusReply<bool> mountreply = interface.mountAndWait();
 
+    if (mountreply.error().type() == QDBusError::UnknownObject) {
+
+        DaemonDbusInterface daemon;
+
+        auto devsRepl = daemon.devices(false, false);
+        devsRepl.waitForFinished();
+
+        if (!devsRepl.value().contains(device)) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("No such device: %0").arg(device));
+            return;
+        }
+
+        DeviceDbusInterface dev(device);
+
+        if (!dev.isTrusted()) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not paired").arg(dev.name()));
+            return;
+        }
+
+        if (!dev.isReachable()) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not connected").arg(dev.name()));
+            return;
+        }
+
+        if (!dev.hasPlugin(QStringLiteral("kdeconnect_sftp"))) {
+            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 has no SFTP plugin").arg(dev.name()));
+            return;
+        }
+    }
+
     if (handleDBusError(mountreply, this)) {
         return;
     }
