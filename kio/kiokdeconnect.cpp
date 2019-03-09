@@ -128,13 +128,13 @@ void KioKdeconnect::listAllDevices()
     finished();
 }
 
-void KioKdeconnect::listDevice()
+void KioKdeconnect::listDevice(const QString& device)
 {
     infoMessage(i18n("Accessing device..."));
 
-    qCDebug(KDECONNECT_KIO) << "ListDevice" << m_currentDevice;
+    qCDebug(KDECONNECT_KIO) << "ListDevice" << device;
 
-    SftpDbusInterface interface(m_currentDevice);
+    SftpDbusInterface interface(device);
 
     QDBusReply<bool> mountreply = interface.mountAndWait();
 
@@ -191,20 +191,18 @@ void KioKdeconnect::listDir(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
-    /// Url is not used here because all we could care about the url is the host, and that's already
-    /// handled in @p setHost
-    Q_UNUSED(url);
-
     if (!m_dbusInterface->isValid()) {
         infoMessage(i18n("Could not contact background service."));
         finished();
         return;
     }
 
-    if (m_currentDevice.isEmpty()) {
+    QString currentDevice = url.host();
+
+    if (currentDevice.isEmpty()) {
         listAllDevices();
     } else {
-        listDevice();
+        listDevice(currentDevice);
     }
 }
 
@@ -231,22 +229,6 @@ void KioKdeconnect::get(const QUrl& url)
     qCDebug(KDECONNECT_KIO) << "Get: " << url;
     mimeType(QLatin1String(""));
     finished();
-}
-
-void KioKdeconnect::setHost(const QString& hostName, quint16 port, const QString& user, const QString& pass)
-{
-
-    //This is called before everything else to set the file we want to show
-
-    qCDebug(KDECONNECT_KIO) << "Setting host: " << hostName;
-
-    // In this kio only the hostname is used
-    Q_UNUSED(port)
-    Q_UNUSED(user)
-    Q_UNUSED(pass)
-
-    m_currentDevice = hostName;
-
 }
 
 //needed for JSON file embedding
