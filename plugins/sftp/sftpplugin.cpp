@@ -156,11 +156,6 @@ bool SftpPlugin::receivePacket(const NetworkPacket& np)
         remoteDirectories.insert(mountPoint(), i18n("All files"));
         remoteDirectories.insert(mountPoint() + "/DCIM/Camera", i18n("Camera pictures"));
     }
-    
-    if (np.has("errorMessage")) {
-        mountError = np.get<QString>("errorMessage");
-    }
-
     return true;
 }
 
@@ -191,6 +186,7 @@ void SftpPlugin::onUnmounted()
 
 void SftpPlugin::onFailed(const QString& message)
 {
+    mountError = message;
     KNotification::event(KNotification::Error, device()->name(), message);
 
     unmount();
