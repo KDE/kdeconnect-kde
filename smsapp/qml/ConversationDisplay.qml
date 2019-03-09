@@ -37,10 +37,19 @@ Kirigami.ScrollablePage
 
     property bool deviceConnected
     property string deviceId
-    property int conversationId
+//     property QtObject device
+    property string conversationId
+    property string initialMessage
 
     property string phoneNumber
     title: person.person && person.person.name ? person.person.name : phoneNumber
+
+    Component.onCompleted: {
+        if (initialMessage.length > 0) {
+            message.text = initialMessage;
+            initialMessage = ""
+        }
+    }
 
     /**
      * Build a chat message which is representative of all chat messages

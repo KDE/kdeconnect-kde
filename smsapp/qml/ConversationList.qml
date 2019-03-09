@@ -24,13 +24,29 @@ import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
-import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 import org.kde.kdeconnect 1.0
 import org.kde.kdeconnect.sms 1.0
 
 Kirigami.ScrollablePage
 {
     id: page
+    property string initialMessage
+
+    header: Kirigami.InlineMessage {
+        Layout.fillWidth: true
+        visible: page.initialMessage.length > 0
+        text: i18n("Choose recipient")
+
+        actions: [
+          Kirigami.Action {
+              iconName: "dialog-cancel"
+              text: "Cancel"
+              onTriggered: initialMessage = ""
+            }
+        ]
+    }
+
     footer: ComboBox {
         id: devicesCombo
         enabled: count > 0
@@ -120,7 +136,9 @@ Kirigami.ScrollablePage
                                                        personUri: model.personUri,
                                                        phoneNumber: address,
                                                        conversationId: model.conversationId,
-                })
+                                                       initialMessage: page.initialMessage,
+                                                       device: device})
+                initialMessage = ""
             }
             onClicked: {
                 startChat();
@@ -134,6 +152,5 @@ Kirigami.ScrollablePage
             currentIndex = -1
             focus = true
         }
-
     }
 }
