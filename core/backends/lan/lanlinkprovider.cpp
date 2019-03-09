@@ -350,6 +350,7 @@ void LanLinkProvider::newConnection()
 void LanLinkProvider::dataReceived()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
+    socket->startTransaction();
 
     const QByteArray data = socket->readLine();
 
@@ -360,8 +361,10 @@ void LanLinkProvider::dataReceived()
 
     if (!success) {
         delete np;
+        socket->rollbackTransaction();
         return;
     }
+    socket->commitTransaction();
 
     if (np->type() != PACKET_TYPE_IDENTITY) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Expected identity, received " << np->type();
