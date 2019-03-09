@@ -121,9 +121,8 @@ QString SftpPlugin::getMountError()
 {    
     if (!mountError.isEmpty()) {
         return mountError;
-    } else {
-        return i18n("Could not mount device filesystem");
     }
+    return QString();
 }
 
 
