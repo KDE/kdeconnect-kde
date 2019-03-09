@@ -66,7 +66,7 @@ KIO::Error toKioError(const QDBusError::ErrorType type)
         case QDBusError::TimedOut:          
             return KIO::ERR_SERVER_TIMEOUT;
         default:
-            return KIO::ERR_INTERNAL;
+            return KIO::ERR_SLAVE_DEFINED;
     };
 };
 
@@ -143,7 +143,7 @@ void KioKdeconnect::listDevice(const QString& device)
     }
 
     if (!mountreply.value()) {
-        error(KIO::ERR_COULD_NOT_MOUNT, interface.getMountError());
+        error(KIO::ERR_SLAVE_DEFINED, interface.getMountError());
         return;
     }
 
