@@ -41,18 +41,11 @@ public:
     void listDir(const QUrl& url) override;
     void stat(const QUrl& url) override;
 
-    void setHost(const QString& constHostname, quint16 port, const QString& user, const QString& pass) override;
-
     void listAllDevices(); //List all devices exported by m_dbusInterface
-    void listDevice(); //List m_currentDevice
+    void listDevice(const QString& device); //List m_currentDevice
 
 
 private:
-
-    /**
-     * Contains the ID of the current device or is empty when no device is set.
-     */
-    QString m_currentDevice;
 
     /**
      * KDED DBus interface, used to communicate to the daemon since we need some status (like connected)
