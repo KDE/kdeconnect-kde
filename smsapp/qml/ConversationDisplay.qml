@@ -132,6 +132,7 @@ Kirigami.ScrollablePage
 
     footer: Pane {
         id: sendingArea
+        enabled: page.deviceConnected
         layer.enabled: sendingArea.enabled
         layer.effect: DropShadow {
             verticalOffset: 1
