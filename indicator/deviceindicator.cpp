@@ -22,6 +22,8 @@
 #include <QFileDialog>
 #include <KLocalizedString>
 
+#include "interfaces/dbusinterfaces.h"
+
 class BatteryAction : public QAction
 {
 Q_OBJECT

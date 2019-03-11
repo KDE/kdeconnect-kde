@@ -22,7 +22,8 @@
 #define DEVICEINDICATOR_H
 
 #include <QMenu>
-#include "interfaces/dbusinterfaces.h"
+
+class DeviceDbusInterface;
 
 class DeviceIndicator : public QMenu
 {
