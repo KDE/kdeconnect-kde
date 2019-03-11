@@ -22,13 +22,7 @@
 
 #include <KPluginFactory>
 
-#include <QDBusConnection>
-#include <QProcess>
-#include <QDir>
 #include <QLoggingCategory>
-#include <QSettings>
-#include <QJsonDocument>
-#include <KShell>
 
 #include <core/networkpacket.h>
 #include <core/device.h>

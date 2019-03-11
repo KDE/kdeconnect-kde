@@ -21,13 +21,9 @@
 #ifndef REMOTECOMMANDSPLUGIN_H
 #define REMOTECOMMANDSPLUGIN_H
 
-#include <QObject>
+class QObject;
 
 #include <core/kdeconnectplugin.h>
-#include <QFile>
-#include <QFileSystemWatcher>
-#include <QMap>
-#include <QPair>
 #include <QString>
 
 class Q_DECL_EXPORT RemoteCommandsPlugin
