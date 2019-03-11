@@ -10,7 +10,6 @@ add_library(kio_kdeconnect MODULE ${kio_kdeconnect_PART_SRCS})
 target_link_libraries(kio_kdeconnect
     kdeconnectinterfaces
     Qt5::Core
-    Qt5::Gui
     Qt5::Network
     KF5::KIOCore
     KF5::I18n
