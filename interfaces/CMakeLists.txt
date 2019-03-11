@@ -66,7 +66,6 @@ generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BIN
 
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
-    Qt5::Gui
     Qt5::DBus
 LINK_PRIVATE
     KF5::ConfigCore

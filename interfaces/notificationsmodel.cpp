@@ -24,8 +24,6 @@
 #include <QDebug>
 #include <QDBusInterface>
 
-#include <QIcon>
-
 //#include "modeltest.h"
 
 //In older Qt released, qAsConst isnt available
@@ -184,8 +182,6 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
 
     //FIXME: This function gets called lots of times, producing lots of dbus calls. Add a cache?
     switch (role) {
-        case IconModelRole:
-            return QIcon::fromTheme(QStringLiteral("device-notifier"));
         case IdModelRole:
             return notification->internalId();
         case NameModelRole:

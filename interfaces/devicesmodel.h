@@ -22,7 +22,6 @@
 #define DEVICESMODEL_H
 
 #include <QAbstractListModel>
-#include <QPixmap>
 #include <QList>
 
 #include "interfaces/kdeconnectinterfaces_export.h"
