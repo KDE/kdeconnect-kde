@@ -20,8 +20,6 @@
 
 #include "batteryplugin.h"
 
-#include <QIcon>
-
 #include <KLocalizedString>
 #include <KPluginFactory>
 
