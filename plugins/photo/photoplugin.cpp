@@ -20,15 +20,11 @@
 
 #include "photoplugin.h"
 
-#include <KLocalizedString>
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QDBusConnection>
 #include <QLoggingCategory>
 
-#include <core/device.h>
-#include <core/daemon.h>
 #include <core/filetransferjob.h>
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_photo.json", registerPlugin< PhotoPlugin >(); )

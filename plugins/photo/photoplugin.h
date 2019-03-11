@@ -21,7 +21,7 @@
 #ifndef PHOTOPLUGIN_H
 #define PHOTOPLUGIN_H
 
-#include <QObject>
+class QObject;
 
 #include <core/kdeconnectplugin.h>
 
