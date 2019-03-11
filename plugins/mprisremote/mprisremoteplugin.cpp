@@ -20,11 +20,9 @@
 
 #include "mprisremoteplugin.h"
 
-#include <KLocalizedString>
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QDBusConnection>
 #include <QLoggingCategory>
 
 #include <core/device.h>
