@@ -45,7 +45,6 @@ PUBLIC
     qca-qt5
 PRIVATE
     Qt5::DBus
-    Qt5::Gui
     KF5::I18n
     KF5::ConfigCore
 )
