@@ -38,6 +38,8 @@
 #include "dbushelper.h"
 #include "daemon.h"
 
+const QFile::Permissions strictPermissions = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
+
 struct KdeConnectConfigPrivate {
 
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
@@ -69,7 +71,7 @@ KdeConnectConfig::KdeConnectConfig()
                              i18n("Could not find support for RSA in your QCA installation. If your "
                                   "distribution provides separate packets for QCA-ossl and QCA-gnupg, "
                                   "make sure you have them installed and try again."));
-        return;
+        Daemon::instance()->quit();
     }
 
     //Make sure base directory exists
@@ -207,67 +209,118 @@ void KdeConnectConfig::loadPrivateKey()
 {
     QString keyPath = privateKeyPath();
     QFile privKey(keyPath);
-    if (privKey.exists() && privKey.open(QIODevice::ReadOnly)) {
 
-        d->m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll());
-
-    } else {
-
-        d->m_privateKey = QCA::KeyGenerator().createRSA(2048);
-
-        if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
-            Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store private key file: %1", keyPath));
-        } else {
-            privKey.setPermissions(strict);
-            privKey.write(d->m_privateKey.toPEM().toLatin1());
+    bool needsToGenerateKey = false;
+    if (privKey.exists() && privKey.open(QIODevice::ReadOnly) && privKey.size() > 0) {
+        QCA::ConvertResult result;
+        d->m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll(), QCA::SecureArray(), &result);
+        if (result != QCA::ConvertResult::ConvertGood) {
+            needsToGenerateKey = true;
         }
+    } else {
+        needsToGenerateKey = true;
+    }
+
+    if (needsToGenerateKey) {
+        generatePrivateKey(keyPath);
     }
 
     //Extra security check
-    if (QFile::permissions(keyPath) != strict) {
+    if (QFile::permissions(keyPath) != strictPermissions) {
         qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect private key file has too open permissions " << keyPath;
     }
+}
+
+void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
+{
+    bool error = false;
+
+    d->m_privateKey = QCA::KeyGenerator().createRSA(2048);
+
+    QFile privKey(keyPath);
+    if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
+        error = true;
+    } else {
+        privKey.setPermissions(strictPermissions);
+        int written = privKey.write(d->m_privateKey.toPEM().toLatin1());
+        if (written <= 0) {
+            error = true;
+        }
+    }
+
+    if (error) {
+        Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store private key file: %1", keyPath));
+        Daemon::instance()->quit();
+    }
+
 }
 
 void KdeConnectConfig::loadCertificate()
 {
     QString certPath = certificatePath();
     QFile cert(certPath);
-    if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
 
-        d->m_certificate = QSslCertificate::fromPath(certPath).at(0);
-
-    } else {
-
-        // No certificate yet. Probably first run. Let's generate one!
-
-        QString uuid = QUuid::createUuid().toString();
-        DbusHelper::filterNonExportableCharacters(uuid);
-        qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
-
-        // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.
-        // The same thing we are doing with QCA could be done invoking openssl (although it's potentially less portable):
-        // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
-
-        QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
-        QDateTime startTime = QDateTime::currentDateTime().addYears(-1);
-        QDateTime endTime = startTime.addYears(10);
-        QCA::CertificateInfo certificateInfo;
-        certificateInfo.insert(QCA::CommonName, uuid);
-        certificateInfo.insert(QCA::Organization,QStringLiteral("KDE"));
-        certificateInfo.insert(QCA::OrganizationalUnit,QStringLiteral("Kde connect"));
-        certificateOptions.setInfo(certificateInfo);
-        certificateOptions.setFormat(QCA::PKCS10);
-        certificateOptions.setSerialNumber(QCA::BigInteger(10));
-        certificateOptions.setValidityPeriod(startTime, endTime);
-
-        d->m_certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->m_privateKey).toPEM().toLatin1());
-
-        if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
-            Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store certificate file: %1", certPath));
+    bool needsToGenerateCert = false;
+    if (cert.exists() && cert.open(QIODevice::ReadOnly) && cert.size() > 0) {
+        auto loadedCerts = QSslCertificate::fromPath(certPath);
+        if (loadedCerts.empty()) {
+            needsToGenerateCert = true;
         } else {
-            cert.setPermissions(strict);
-            cert.write(d->m_certificate.toPem());
+            d->m_certificate = loadedCerts.at(0);
         }
+    } else {
+        needsToGenerateCert = true;
+    }
+
+    if (needsToGenerateCert) {
+        generateCertificate(certPath);
+    }
+
+    //Extra security check
+    if (QFile::permissions(certPath) != strictPermissions) {
+        qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect certificate file has too open permissions " << certPath;
+    }
+}
+
+void KdeConnectConfig::generateCertificate(const QString& certPath)
+{
+    bool error = false;
+
+    QString uuid = QUuid::createUuid().toString();
+    DbusHelper::filterNonExportableCharacters(uuid);
+    qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
+
+    // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.
+    // The same thing we are doing with QCA could be done invoking openssl (although it's potentially less portable):
+    // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
+
+    QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
+    QDateTime startTime = QDateTime::currentDateTime().addYears(-1);
+    QDateTime endTime = startTime.addYears(10);
+    QCA::CertificateInfo certificateInfo;
+    certificateInfo.insert(QCA::CommonName, uuid);
+    certificateInfo.insert(QCA::Organization,QStringLiteral("KDE"));
+    certificateInfo.insert(QCA::OrganizationalUnit,QStringLiteral("Kde connect"));
+    certificateOptions.setInfo(certificateInfo);
+    certificateOptions.setFormat(QCA::PKCS10);
+    certificateOptions.setSerialNumber(QCA::BigInteger(10));
+    certificateOptions.setValidityPeriod(startTime, endTime);
+
+    d->m_certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->m_privateKey).toPEM().toLatin1());
+
+    QFile cert(certPath);
+    if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
+        error = true;
+    } else {
+        cert.setPermissions(strictPermissions);
+        int written = cert.write(d->m_certificate.toPem());
+        if (written <= 0) {
+            error = true;
+        }
+    }
+
+    if (error) {
+        Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store certificate file: %1", certPath));
+        Daemon::instance()->quit();
     }
 }

@@ -74,12 +74,11 @@ private:
     KdeConnectConfig();
 
     void loadPrivateKey();
+    void generatePrivateKey(const QString&  path);
     void loadCertificate();
+    void generateCertificate(const QString&  path);
 
     struct KdeConnectConfigPrivate* d;
-
-    const QFile::Permissions strict = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
-
 };
 
 #endif

@@ -59,6 +59,10 @@ public:
         qDebug() << eventId << title << text << iconName;
     }
 
+    void quit() override {
+        qDebug() << "quit was called";
+    }
+
 private:
     QNetworkAccessManager* m_nam;
 };

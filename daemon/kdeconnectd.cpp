@@ -21,6 +21,7 @@
 #include <QApplication>
 #include <QNetworkAccessManager>
 #include <QTimer>
+#include <QLoggingCategory>
 
 #include <KAboutData>
 #include <KDBusService>
@@ -32,6 +33,9 @@
 #include "core/device.h"
 #include "core/backends/pairinghandler.h"
 #include "kdeconnect-version.h"
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_DAEMON)
+Q_LOGGING_CATEGORY(KDECONNECT_DAEMON, "kdeconnect.daemon")
 
 class DesktopDaemon : public Daemon
 {
@@ -58,6 +62,7 @@ public:
 
     void reportError(const QString & title, const QString & description) override
     {
+        QCWarning(KDECONNECT_DAEMON) << title << ":" << description;
         KNotification::event(KNotification::Error, title, description);
     }
 
@@ -79,6 +84,9 @@ public:
         notification->sendEvent();
     }
 
+    void quit() override {
+        QApplication::quit();
+    }
 
 private:
     QNetworkAccessManager* m_nam;
