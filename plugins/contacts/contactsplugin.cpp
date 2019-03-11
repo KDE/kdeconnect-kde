@@ -20,13 +20,10 @@
 
 #include <contactsplugin.h>
 
-#include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include <QDBusConnection>
 #include <QDBusMetaType>
-#include <QEventLoop>
 #include <QLoggingCategory>
 #include <QFile>
 #include <QDir>

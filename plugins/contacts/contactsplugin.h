@@ -21,7 +21,7 @@
 #ifndef CONTACTSPLUGIN_H
 #define CONTACTSPLUGIN_H
 
-#include <QObject>
+class QObject;
 #include <QStandardPaths>
 
 #include <core/kdeconnectplugin.h>
