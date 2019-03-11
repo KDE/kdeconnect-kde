@@ -18,12 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QCryptographicHash>
-#include <QIODevice>
-#include <QDBusMessage>
-#include <QDBusConnection>
 #include <QApplication>
-#include <QTextStream>
 #include <QProcess>
 
 #ifdef QSYSTRAY
@@ -38,7 +33,6 @@
 #include <KLocalizedString>
 
 #include "interfaces/devicesmodel.h"
-#include "interfaces/notificationsmodel.h"
 #include "interfaces/dbusinterfaces.h"
 #include "kdeconnect-version.h"
 #include "deviceindicator.h"
