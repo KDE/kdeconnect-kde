@@ -20,7 +20,6 @@
 
 #include "remotekeyboardplugin.h"
 #include <KPluginFactory>
-#include <KLocalizedString>
 #include <QDebug>
 #include <QString>
 #include <QVariantMap>

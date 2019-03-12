@@ -3,6 +3,5 @@ kdeconnect_add_plugin(kdeconnect_remotekeyboard JSON kdeconnect_remotekeyboard.j
 
 target_link_libraries(kdeconnect_remotekeyboard
     kdeconnectcore
-    KF5::I18n
     Qt5::DBus
 )
