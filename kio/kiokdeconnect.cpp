@@ -163,7 +163,7 @@ void KioKdeconnect::listDevice(const QString& device)
         }
 
         if (!dev.hasPlugin(QStringLiteral("kdeconnect_sftp"))) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 has no SFTP plugin").arg(dev.name()));
+            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
             return;
         }
     }
