@@ -78,6 +78,9 @@ Daemon::Daemon(QObject* parent, bool testMode)
         #ifdef KDECONNECT_BLUETOOTH
             d->m_linkProviders.insert(new BluetoothLinkProvider());
         #endif
+        #ifdef KDECONNECT_LOOPBACK
+            d->m_linkProviders.insert(new LoopbackLinkProvider());
+        #endif
     }
 
     //Read remembered paired devices

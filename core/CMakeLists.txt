@@ -15,6 +15,8 @@ if(BLUETOOTH_ENABLED)
     add_subdirectory(backends/bluetooth)
 endif()
 
+option(LOOPBACK_ENABLED "Loopback backend enabled" OFF)
+
 set(kdeconnectcore_SRCS
     ${backends_kdeconnect_SRCS}
 
@@ -52,6 +54,10 @@ PRIVATE
 if (BLUETOOTH_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_BLUETOOTH)
     target_link_libraries(kdeconnectcore PRIVATE Qt5::Bluetooth)
+endif()
+
+if (LOOPBACK_ENABLED)
+    target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_LOOPBACK)
 endif()
 
 set_target_properties(kdeconnectcore PROPERTIES
