@@ -153,13 +153,13 @@ int main(int argc, char** argv)
             //Description: "device name (paired/unpaired)"
             QString description = deviceIface.name() + " " + statusInfo;
             //Replace characters
-            description.replace('\\', "\\\\");
-            description.replace('[', "\\[");
-            description.replace(']', "\\]");
-            description.replace('\'', "\\'");
-            description.replace('\"', "\\\"");
-            description.replace('\n', ' ');
-            description.replace('\0', "");
+            description.replace(QChar('\\'), QStringLiteral("\\\\"));
+            description.replace(QChar('['),  QStringLiteral("\\["));
+            description.replace(QChar(']'),  QStringLiteral("\\]"));
+            description.replace(QChar('\''), QStringLiteral("\\'"));
+            description.replace(QChar('\"'), QStringLiteral("\\\""));
+            description.replace(QChar('\n'), QChar(' '));
+            description.remove(QChar('\0'));
 
             //Output id and description
             QTextStream(stdout) << id << '[' << description << ']' << endl;
