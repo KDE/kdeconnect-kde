@@ -101,11 +101,11 @@ void TestSslSocketLineReader::testTrustedDevice()
 {
 
     int maxAttemps = 5;
-    QCOMPARE(true, m_server->hasPendingConnections());
     while(!m_server->hasPendingConnections() && maxAttemps > 0) {
         --maxAttemps;
         QTest::qSleep(1000);
     }
+    QCOMPARE(true, m_server->hasPendingConnections());
 
     QSslSocket* serverSocket = m_server->nextPendingConnection();
 
@@ -171,11 +171,11 @@ void TestSslSocketLineReader::testTrustedDevice()
 void TestSslSocketLineReader::testUntrustedDevice()
 {
     int maxAttemps = 5;
-    QCOMPARE(true, m_server->hasPendingConnections());
     while(!m_server->hasPendingConnections() && maxAttemps > 0) {
         --maxAttemps;
         QTest::qSleep(1000);
     }
+    QCOMPARE(true, m_server->hasPendingConnections());
 
     QSslSocket* serverSocket = m_server->nextPendingConnection();
 
@@ -242,6 +242,7 @@ void TestSslSocketLineReader::testTrustedDeviceWithWrongCertificate()
         --maxAttemps;
         QTest::qSleep(1000);
     }
+    QCOMPARE(true, m_server->hasPendingConnections());
 
     QSslSocket* serverSocket = m_server->nextPendingConnection();
 
