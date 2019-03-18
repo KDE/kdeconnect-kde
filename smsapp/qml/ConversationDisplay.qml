@@ -156,7 +156,7 @@ Kirigami.ScrollablePage
                 background: Item {}
                 Keys.onReturnPressed: {
                     if (event.key === Qt.Key_Return) {
-                        if (event.modifiers & Qt.ControlModifier) {
+                        if (event.modifiers & Qt.ShiftModifier) {
                             messageField.append("")
                         } else {
                             sendButton.onClicked()
