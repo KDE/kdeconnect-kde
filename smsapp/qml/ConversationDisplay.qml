@@ -47,7 +47,7 @@ Kirigami.ScrollablePage
 
     Component.onCompleted: {
         if (initialMessage.length > 0) {
-            message.text = initialMessage;
+            messageField.text = initialMessage;
             initialMessage = ""
         }
     }
@@ -63,11 +63,6 @@ Kirigami.ScrollablePage
         dateTime: new Date('2000-0-0')
         visible: false
         enabled: false
-    }
-
-    function sendMessage() {
-        model.sourceModel.sendReplyToConversation(message.text)
-        message.text = ""
     }
 
     ListView {
