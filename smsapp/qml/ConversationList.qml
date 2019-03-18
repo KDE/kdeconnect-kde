@@ -31,6 +31,24 @@ import org.kde.kdeconnect.sms 1.0
 Kirigami.ScrollablePage
 {
     id: page
+    ToolTip {
+        id: noDevicesWarning
+        visible: !devicesCombo.enabled
+        timeout: -1
+        text: "⚠️ " + i18n("No devices available") + " ⚠️"
+
+        MouseArea {
+            // Detect mouseover and show another tooltip with more information
+            anchors.fill: parent
+            hoverEnabled: true
+
+            ToolTip.visible: containsMouse
+            ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+            // TODO: Wrap text if line is too long for the screen
+            ToolTip.text: i18n("No new messages can be sent or received, but you can browse cached content")
+        }
+    }
+
     property string initialMessage
 
     header: Kirigami.InlineMessage {
@@ -50,6 +68,7 @@ Kirigami.ScrollablePage
     footer: ComboBox {
         id: devicesCombo
         enabled: count > 0
+        displayText: !enabled ? i18n("No devices available") : undefined
         model: DevicesSortProxyModel {
             id: devicesModel
             //TODO: make it possible to filter if they can do sms
@@ -59,12 +78,6 @@ Kirigami.ScrollablePage
             }
         }
         textRole: "display"
-    }
-    
-    Label {
-        text: i18n("No devices available")
-        anchors.centerIn: parent
-        visible: !devicesCombo.enabled
     }
 
     readonly property bool deviceConnected: devicesCombo.enabled
