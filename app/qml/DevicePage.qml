@@ -62,10 +62,12 @@ Kirigami.Page
             ListView {
                 property list<QtObject> actions: [
                     Kirigami.Action {
+                        iconName:"network-disconnect"
                         onTriggered: deviceView.currentDevice.unpair()
                         text: i18n("Unpair")
                     },
                     Kirigami.Action {
+                        iconName:"hands-free"
                         text: i18n("Send Ping")
                         onTriggered: {
                             deviceView.currentDevice.pluginCall("ping", "sendPing");
