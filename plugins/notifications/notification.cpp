@@ -82,7 +82,7 @@ void Notification::update(const NetworkPacket& np)
     createKNotification(np);
 }
 
-KNotification* Notification::createKNotification(const NetworkPacket& np)
+void Notification::createKNotification(const NetworkPacket& np)
 {
     if (!m_notification) {
         m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
@@ -130,9 +130,8 @@ KNotification* Notification::createKNotification(const NetworkPacket& np)
         m_actions.prepend(i18n("Reply"));
         connect(m_notification, &KNotification::action1Activated, this, &Notification::reply);
     }
-    m_notification->setActions(m_actions);
 
-    return m_notification;
+    m_notification->setActions(m_actions);
 }
 
 void Notification::loadIcon(const NetworkPacket& np)

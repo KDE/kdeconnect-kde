@@ -62,7 +62,7 @@ public:
     bool silent() const { return m_silent; }
     void update(const NetworkPacket& np);
     bool isReady() const { return m_ready; }
-    KNotification* createKNotification(const NetworkPacket& np);
+    void createKNotification(const NetworkPacket& np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
