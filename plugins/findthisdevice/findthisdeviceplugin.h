@@ -29,6 +29,14 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_FINDTHISDEVICE)
 
+inline QString defaultSound(){
+            #ifdef Q_OS_WIN
+            return QStringLiteral("Ring01.wav");
+            #else
+            return QStringLiteral("Oxygen-Im-Phone-Ring.ogg");
+            #endif
+        }
+
 class FindThisDevicePlugin
     : public KdeConnectPlugin
 {

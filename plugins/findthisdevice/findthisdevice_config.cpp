@@ -19,6 +19,7 @@
  */
 
 #include "findthisdevice_config.h"
+#include "findthisdeviceplugin.h"
 
 #include "ui_findthisdevice_config.h"
 // Phonon
@@ -32,12 +33,6 @@
 
 K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfig>();)
 
-
-namespace {
-namespace Strings {
-inline QString defaultSound() { return QStringLiteral("Oxygen-Im-Phone-Ring.ogg"); }
-}
-}
 
 FindThisDeviceConfig::FindThisDeviceConfig(QWidget* parent, const QVariantList& args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_findthisdevice_config"))
@@ -68,7 +63,7 @@ void FindThisDeviceConfig::defaults()
 {
     KCModule::defaults();
 
-    m_ui->soundFileRequester->setText(Strings::defaultSound());
+    m_ui->soundFileRequester->setText(defaultSound());
 
     Q_EMIT changed(true);
 }
@@ -77,7 +72,7 @@ void FindThisDeviceConfig::load()
 {
     KCModule::load();
 
-    const QString ringTone = config()->get<QString>(QStringLiteral("ringtone"), Strings::defaultSound());
+    const QString ringTone = config()->get<QString>(QStringLiteral("ringtone"), defaultSound());
     m_ui->soundFileRequester->setText(ringTone);
 
     Q_EMIT changed(false);

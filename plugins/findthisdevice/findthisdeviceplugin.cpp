@@ -36,12 +36,6 @@ K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_findthisdevice.j
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_FINDTHISDEVICE, "kdeconnect.plugin.findthisdevice")
 
-namespace {
-namespace Strings {
-inline QString defaultSound() { return QStringLiteral("Oxygen-Im-Phone-Ring.ogg"); }
-}
-}
-
 FindThisDevicePlugin::FindThisDevicePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
@@ -57,9 +51,21 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
 {
     Q_UNUSED(np);
 
-    const QString soundFilename = config()->get<QString>(QStringLiteral("ringtone"), Strings::defaultSound());
+    const QString soundFilename = config()->get<QString>(QStringLiteral("ringtone"), defaultSound());
 
     QUrl soundURL;
+    #ifdef Q_OS_WIN
+    QString winDirPath = qEnvironmentVariable("WINDIR") + QStringLiteral("/media");
+
+    if (!winDirPath.isEmpty()) {
+        soundURL = QUrl::fromUserInput(soundFilename,
+                                       winDirPath,
+                                       QUrl::AssumeLocalFile);
+    } 
+    else {
+        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sounds, system doesn't know WINDIR : " << soundFilename;
+    }
+    #else
     const auto dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
     for (const QString &dataLocation : dataLocations) {
         soundURL = QUrl::fromUserInput(soundFilename,
@@ -76,6 +82,7 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
         }
         soundURL.clear();
     }
+    #endif
     if (soundURL.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sounds, could not find ring tone" << soundFilename;
         return true;
