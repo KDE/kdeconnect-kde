@@ -60,7 +60,6 @@ class KdeConnectShareExtension(GObject.GObject, Nautilus.MenuProvider):
             gettext.bindtextdomain('kdeconnect-nautilus-extension')
         except Exception as e:
             print(e)
-            pass
 
         self.dbus = Gio.DBusProxy.new_for_bus_sync(
             Gio.BusType.SESSION,
