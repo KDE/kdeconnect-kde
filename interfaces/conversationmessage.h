@@ -21,25 +21,12 @@
 #ifndef PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_
 #define PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_
 
-#include <QObject>
 #include <QDBusMetaType>
-#include <QDBusArgument>
-#include <QVariantMap>
 
 #include "interfaces/kdeconnectinterfaces_export.h"
 
 class KDECONNECTINTERFACES_EXPORT ConversationMessage
-    : public QObject {
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.telephony.messages")
-    Q_PROPERTY(qint32 eventField READ eventField)
-    Q_PROPERTY(QString body READ body)
-    Q_PROPERTY(QString address READ address)
-    Q_PROPERTY(qint64 date READ date)
-    Q_PROPERTY(qint32 type READ type)
-    Q_PROPERTY(qint32 read READ read)
-    Q_PROPERTY(qint64 threadID READ threadID)
-    Q_PROPERTY(qint32 uID READ uID)
+{
 
 public:
     // TYPE field values from Android
@@ -52,7 +39,6 @@ public:
         MessageTypeFailed = 5,
         MessageTypeQueued = 6,
     };
-    Q_ENUM(Types);
 
     /**
      * Values describing the possible type of events contained in a message
@@ -62,21 +48,19 @@ public:
     enum Events {
         EventTextMessage = 0x1, // This message has a body field which contains pure, human-readable text
     };
-    Q_ENUM(Events)
 
     /**
      * Build a new message from a keyword argument dictionary
      *
      * @param args mapping of field names to values as might be contained in a network packet containing a message
      */
-    ConversationMessage(const QVariantMap& args = QVariantMap(), QObject* parent = Q_NULLPTR);
+    ConversationMessage(const QVariantMap& args = QVariantMap());
 
     ConversationMessage(const qint32& eventField, const QString& body, const QString& address,
                         const qint64& date, const qint32& type, const qint32& read,
-                        const qint64& threadID, const qint32& uID,
-                        QObject* parent = Q_NULLPTR);
+                        const qint64& threadID, const qint32& uID);
 
-    ConversationMessage(const ConversationMessage& other, QObject* parent = Q_NULLPTR);
+    ConversationMessage(const ConversationMessage& other);
     ~ConversationMessage();
     ConversationMessage& operator=(const ConversationMessage& other);
     static void registerDbusType();

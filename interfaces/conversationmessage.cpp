@@ -23,9 +23,8 @@
 #include <QVariantMap>
 
 
-ConversationMessage::ConversationMessage(const QVariantMap& args, QObject* parent)
-    : QObject(parent),
-      m_eventField(args["event"].toInt()),
+ConversationMessage::ConversationMessage(const QVariantMap& args)
+    : m_eventField(args["event"].toInt()),
       m_body(args["body"].toString()),
       m_address(args["address"].toString()),
       m_date(args["date"].toLongLong()),
@@ -40,10 +39,8 @@ ConversationMessage::ConversationMessage (const qint32& eventField, const QStrin
                                           const QString& address, const qint64& date,
                                           const qint32& type, const qint32& read,
                                           const qint64& threadID,
-                                          const qint32& uID,
-                                          QObject* parent)
-    : QObject(parent)
-    , m_eventField(eventField)
+                                          const qint32& uID)
+    : m_eventField(eventField)
     , m_body(body)
     , m_address(address)
     , m_date(date)
@@ -54,9 +51,8 @@ ConversationMessage::ConversationMessage (const qint32& eventField, const QStrin
 {
 }
 
-ConversationMessage::ConversationMessage(const ConversationMessage& other, QObject* parent)
-    : QObject(parent)
-    , m_eventField(other.m_eventField)
+ConversationMessage::ConversationMessage(const ConversationMessage& other)
+    : m_eventField(other.m_eventField)
     , m_body(other.m_body)
     , m_address(other.m_address)
     , m_date(other.m_date)
