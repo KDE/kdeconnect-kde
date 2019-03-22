@@ -37,30 +37,16 @@ K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_sms.json", regi
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS, "kdeconnect.plugin.sms")
 
-QMap<QString, ConversationsDbusInterface*> SmsPlugin::conversationInterfaces;
-
 SmsPlugin::SmsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
     , m_conversationInterface(new ConversationsDbusInterface(this))
 {
-    // Once the new ConversationsDbusInterface has been fully set up, the old one can safely be
-    // deleted
-    const auto& oldInterfaceItr = SmsPlugin::conversationInterfaces.find(device()->id());
-    if (oldInterfaceItr != SmsPlugin::conversationInterfaces.end()) {
-        ConversationsDbusInterface* oldInterface = oldInterfaceItr.value();
-        oldInterface->deleteLater();
-        SmsPlugin::conversationInterfaces.erase(oldInterfaceItr);
-    }
 }
 
 SmsPlugin::~SmsPlugin()
 {
-    // Because of how Qt's Dbus is designed, we are unable to immediately delete m_conversationInterface,
-    // See the comment in ~NotificationsPlugin() for more information
-    // We save the old pointer for now; the internal data can be used as a cache.
-    // The next time we construct an SmsPlugin, we access the old pointer and delete it
-    SmsPlugin::conversationInterfaces[device()->id()] = m_conversationInterface;
+    // m_conversationInterface is self-deleting, see ~ConversationsDbusInterface for more information
 }
 
 bool SmsPlugin::receivePacket(const NetworkPacket& np)

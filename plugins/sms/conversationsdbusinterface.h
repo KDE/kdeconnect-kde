@@ -130,6 +130,15 @@ private /*attributes*/:
      */
     QHash<qint64, QSet<qint32>> m_known_messages;
 
+    /*
+     * Keep a map of all interfaces ever constructed
+     * Because of how Qt's Dbus is designed, we are unable to immediately delete the interface once
+     * the device has disconnected. We save the list of existing interfaces and delete them only after
+     * we have replaced them (in ConversationsDbusInterface's constructor)
+     * See the comment in ~NotificationsPlugin() for more information
+     */
+    static QMap<QString, ConversationsDbusInterface*> liveConversationInterfaces;
+
     int m_lastId;
 
     SmsDbusInterface m_smsInterface;

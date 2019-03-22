@@ -131,13 +131,6 @@ private:
 
     QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface* m_conversationInterface;
-
-    /*
-     * Keep a map of all interfaces ever constructed
-     * See comments in ~SmsPlugin() for the reason
-     */
-    static QMap<QString, ConversationsDbusInterface*> conversationInterfaces;
-
 };
 
 #endif
