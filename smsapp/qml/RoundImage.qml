@@ -25,7 +25,7 @@
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with Kaidan.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 import QtQuick 2.6
