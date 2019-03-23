@@ -86,7 +86,7 @@
             "KdeConnect/Plugin"
         ],
         "Version": "0.1",
-        "Website": "http://nicolasfella.wordpress.com"
+        "Website": "https://nicolasfella.wordpress.com"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.systemvolume"

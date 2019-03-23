@@ -157,7 +157,7 @@
             "KdeConnect/Plugin"
         ],
         "Version": "0.1",
-        "Website": "http://kde.org"
+        "Website": "https://kde.org"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.findmyphone.request"
