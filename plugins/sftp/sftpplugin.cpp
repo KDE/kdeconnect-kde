@@ -176,7 +176,6 @@ void SftpPlugin::onUnmounted()
 
 void SftpPlugin::onFailed(const QString& message)
 {
-    mountError = message;
     KNotification::event(KNotification::Error, device()->name(), message);
 
     unmount();
