@@ -23,6 +23,7 @@
 
 #include <QAbstractItemModel>
 #include <QAbstractListModel>
+#include <QPixmap>
 #include <QList>
 
 #include "interfaces/dbusinterfaces.h"

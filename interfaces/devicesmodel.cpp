@@ -26,6 +26,7 @@
 #include <QString>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
+#include <QIcon>
 #include <QDBusServiceWatcher>
 
 #include "dbusinterfaces.h"
@@ -252,6 +253,10 @@ QVariant DevicesModel::data(const QModelIndex& index, int role) const
     switch (role) {
         case Qt::SizeHintRole:
             return QSize(0, 32);
+        case IconModelRole: {
+            QString icon = data(index, IconNameRole).toString();
+            return QIcon::fromTheme(icon);
+        }
         case IdModelRole:
             return device->id();
         case NameModelRole:
