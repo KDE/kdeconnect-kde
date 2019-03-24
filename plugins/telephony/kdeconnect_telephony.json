@@ -41,6 +41,12 @@
             }
         ],
         "Description": "Show notifications for incoming calls",
+        "Description[ca]": "Mostra les notificacions de les trucades entrants",
+        "Description[gl]": "Mostrar notificacións de chamadas entrantes",
+        "Description[nl]": "Meldingen tonen van inkomende oproepen",
+        "Description[sv]": "Visa underrättelser om inkommande samtal",
+        "Description[uk]": "Показ сповіщень щодо вхідних дзвінків",
+        "Description[x-test]": "xxShow notifications for incoming callsxx",
         "EnabledByDefault": true,
         "Icon": "call-start",
         "Id": "kdeconnect_telephony",
