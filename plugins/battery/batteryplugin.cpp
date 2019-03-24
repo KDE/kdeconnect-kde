@@ -37,7 +37,7 @@ BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
 {
 
     //TODO: Add battery reporting, could be based on:
-    // http://kde-apps.org/content/show.php/battery+plasmoid+with+remaining+time?content=120309
+    // https://www.linux-apps.com/content/show.php/battery+plasmoid+with+remaining+time?content=120309
 
 }
 
