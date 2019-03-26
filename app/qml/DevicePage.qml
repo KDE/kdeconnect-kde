@@ -153,8 +153,8 @@ Kirigami.Page
                 readonly property var actions: []
                 Button {
                     anchors.centerIn: parent
-
                     text: i18n("Pair")
+                    icon.name:"network-connect"
                     onClicked: deviceView.currentDevice.requestPair()
                 }
             }
@@ -167,11 +167,13 @@ Kirigami.Page
                         anchors.centerIn: parent
                     Button {
                         text: i18n("Accept")
+                        icon.name:"dialog-ok"
                         onClicked: deviceView.currentDevice.acceptPairing()
                     }
 
                     Button {
                         text: i18n("Reject")
+                        icon.name:"dialog-cancel"                        
                         onClicked: deviceView.currentDevice.rejectPairing()
                     }
                 }
