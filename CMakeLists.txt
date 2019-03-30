@@ -44,6 +44,10 @@ if (KF5_OPTIONAL_COMPONENTS)
 find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
 endif()
 
+if (NOT ZSH_AUTOCOMPLETE_DIR)
+set(ZSH_AUTOCOMPLETE_DIR "${CMAKE_INSTALL_PREFIX}/share/zsh/site-functions")
+endif()
+
 find_package(Phonon4Qt5 4.9.0 NO_MODULE)
 set_package_properties(Phonon4Qt5 PROPERTIES
    DESCRIPTION "Qt-based audio library"
