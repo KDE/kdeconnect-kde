@@ -10,4 +10,4 @@ target_link_libraries(kdeconnect-handler
 )
 
 install(TARGETS kdeconnect-handler ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS org.kde.kdeconnect.telhandler.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install(PROGRAMS org.kde.kdeconnect.telhandler.desktop org.kde.kdeconnect.smshandler.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
