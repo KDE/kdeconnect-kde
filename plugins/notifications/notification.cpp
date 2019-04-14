@@ -106,14 +106,14 @@ void Notification::createKNotification(const NetworkPacket& np)
 
     if (m_title.isEmpty() && m_text.isEmpty()) {
        m_notification->setText(escapedTicker);
-    } else if (m_appName==m_title) {
+    } else if (m_appName == m_title) {
         m_notification->setText(escapedText);
-    } else if (m_title.isEmpty()){
+    } else if (m_title.isEmpty()) {
          m_notification->setText(escapedText);
-    } else if (m_text.isEmpty()){
+    } else if (m_text.isEmpty()) {
          m_notification->setText(escapedTitle);
     } else {
-        m_notification->setText(escapedTitle+": "+escapedText);
+        m_notification->setText(escapedTitle + ": " + escapedText);
     }
 
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
