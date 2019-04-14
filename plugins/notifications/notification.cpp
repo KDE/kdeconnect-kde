@@ -118,7 +118,7 @@ KNotification* Notification::createKNotification(bool update, const NetworkPacke
 
     if (!m_requestReplyId.isEmpty()) {
         m_notification->setActions(QStringList(i18n("Reply")));
-        connect(m_notification, &KNotification::action1Activated, this, &Notification::reply);
+        connect(m_notification, &KNotification::action1Activated, this, &Notification::reply, Qt::UniqueConnection);
     }
 
     connect(m_notification, &KNotification::closed, this, &Notification::closed);
