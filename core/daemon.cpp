@@ -136,7 +136,8 @@ void Daemon::removeDevice(Device* device)
 
 void Daemon::cleanDevices()
 {
-    for (Device* device : qAsConst(d->m_devices)) {
+    const auto devs = d->m_devices;
+    for (Device* device : devs) {
         if (device->isTrusted()) {
             continue;
         }
