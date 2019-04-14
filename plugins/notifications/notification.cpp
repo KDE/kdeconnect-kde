@@ -54,6 +54,15 @@ Notification::Notification(const NetworkPacket& np, QObject* parent)
 
     parseNetworkPacket(np);
     createKNotification(np);
+
+    connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this] (unsigned int actionIndex) {
+        // Do nothing for our own reply action
+        if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
+            return;
+        }
+        // Notification action idices start at 1
+        Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
+    });
 }
 
 Notification::~Notification()
@@ -106,15 +115,6 @@ void Notification::createKNotification(const NetworkPacket& np)
     } else {
         m_notification->setText(escapedTitle+": "+escapedText);
     }
-
-    connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this] (unsigned int actionIndex) {
-        // Do nothing for our own reply action
-        if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
-            return;
-        }
-        // Notification action idices start at 1
-        Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
-    });
 
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 
