@@ -1,5 +1,13 @@
 [Desktop Entry]
 Name=KDE Connect SMS URL Handler
+Name[ca]=Gestor d'URL de SMS del KDE Connect
+Name[en_GB]=KDE Connect SMS URL Handler
+Name[nl]=URL behandelaar van KDE-Connect-SMS
+Name[pt]=Tratamento de URL's de SMS do KDE Connect
+Name[sv]=KDE-anslut hanterare av SMS-webbadress
+Name[uk]=Обробник адрес у SMS KDE Connect
+Name[x-test]=xxKDE Connect SMS URL Handlerxx
+Name[zh_TW]=KDE 連線簡訊網址處理器
 Exec=kdeconnect-handler %U
 Icon=kdeconnect
 Type=Application
