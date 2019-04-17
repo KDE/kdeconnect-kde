@@ -1,11 +1,16 @@
 [Desktop Entry]
 Type=Service
 Name=Send file via KDE Connect service
+Name[ca]=Envia el fitxer a través del servei KDE Connect
+Name[uk]=Надіслати файл за допомогою служби KDE Connect
+Name[x-test]=xxSend file via KDE Connect servicexx
+Name[zh_TW]=使用 KDE Connect 服務傳送檔案
 X-KDE-Library=kdeconnectfileitemaction
 X-KDE-Submenu=Connect
 X-KDE-Submenu[ar]=اتّصل,اتصل
 X-KDE-Submenu[bg]=Свързване
 X-KDE-Submenu[bs]=Uspostavi vezu
+X-KDE-Submenu[ca]=Connecta
 X-KDE-Submenu[da]=Forbind
 X-KDE-Submenu[de]=Verbinden
 X-KDE-Submenu[el]=Σύνδεση
@@ -28,6 +33,8 @@ X-KDE-Submenu[sk]=Pripojiť
 X-KDE-Submenu[sv]=Anslut
 X-KDE-Submenu[tr]=Bağlan
 X-KDE-Submenu[uk]=З’єднання
+X-KDE-Submenu[x-test]=xxConnectxx
+X-KDE-Submenu[zh_TW]=連線
 
 Icon=preferences-system-network
 ServiceTypes=KFileItemAction/Plugin
