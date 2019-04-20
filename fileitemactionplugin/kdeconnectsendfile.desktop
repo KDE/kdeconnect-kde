@@ -3,6 +3,7 @@ Type=Service
 Name=Send file via KDE Connect service
 Name[ca]=Envia el fitxer a través del servei KDE Connect
 Name[ca@valencia]=Envia el fitxer a través del servei KDE Connect
+Name[gl]=Enviar o ficheiro mediante o servizo de KDE Connect
 Name[nl]=Bestand via KDE Connect-service versturen
 Name[pt]=Enviar o ficheiro pelo serviço do KDE Connect
 Name[sv]=Skicka fil via KDE:s anslutningstjänst
