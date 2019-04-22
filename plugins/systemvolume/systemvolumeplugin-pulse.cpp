@@ -92,12 +92,13 @@ void SystemvolumePlugin::sendSinkList() {
             sendPacket(np);
         });
 
-        QJsonObject sinkObject;
-        sinkObject.insert("name", sink->name());
-        sinkObject.insert("description", sink->description());
-        sinkObject.insert("muted", sink->isMuted());
-        sinkObject.insert("volume", sink->volume());
-        sinkObject.insert("maxVolume", PulseAudioQt::normalVolume());
+        QJsonObject sinkObject {
+            {"name", sink->name()},
+            {"muted", sink->isMuted()},
+            {"description", sink->description()},
+            {"volume", sink->volume()},
+            {"maxVolume", PulseAudioQt::normalVolume()}
+        };
 
         array.append(sinkObject);
     }
