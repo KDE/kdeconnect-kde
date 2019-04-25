@@ -175,15 +175,23 @@ void Mounter::onError(QProcess::ProcessError error)
 {
     if (error == QProcess::FailedToStart)
     {
-        qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed to start";
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "sshfs process failed to start";
         m_started = false;
         Q_EMIT failed(i18n("Failed to start sshfs"));
+    } else if(error == QProcess::ProcessError::Crashed) {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "sshfs process crashed";
+        m_started = false;
+        Q_EMIT failed(i18n("sshfs process crashed"));
+    } else {
+        qCDebug(KDECONNECT_PLUGIN_SFTP) << "sshfs process error" << error;
+        m_started = false;
+        Q_EMIT failed(i18n("Unknown error in sshfs"));
     }
 }
 
 void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if (exitStatus == QProcess::NormalExit)
+    if (exitStatus == QProcess::NormalExit && exitCode == 0)
     {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process finished (exit code: " << exitCode << ")";
         Q_EMIT unmounted();
@@ -191,7 +199,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     else
     {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code:" << exitCode << ")";
-        Q_EMIT failed(i18n("Error when accessing to filesystem"));
+        Q_EMIT failed(i18n("Error when accessing to filesystem. sshfs finished with exit code %0").arg(exitCode));
     }
 
     unmount(true);
