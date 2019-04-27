@@ -22,6 +22,10 @@
 #include <QNetworkAccessManager>
 #include <QTimer>
 #include <QLoggingCategory>
+#include <QCommandLineOption>
+#include <QCommandLineParser>
+#include <QDBusMessage>
+#include <QDBusConnection>
 
 #include <KAboutData>
 #include <KDBusService>
@@ -105,6 +109,21 @@ int main(int argc, char* argv[])
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
     app.setDesktopFileName(QStringLiteral("org.kde.kdeconnect.daemon"));
+
+    QCommandLineParser parser;
+    QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
+    parser.addOption(replaceOption);
+    aboutData.setupCommandLine(&parser);
+
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
+    if (parser.isSet(replaceOption)) {
+        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnectd"),
+                                                    QStringLiteral("/MainApplication"),
+                                                    QStringLiteral("org.qtproject.Qt.QCoreApplication"),
+                                                    QStringLiteral("quit"));
+        QDBusConnection::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
+    }
 
     KDBusService dbusService(KDBusService::Unique);
 
