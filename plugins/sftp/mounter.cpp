@@ -199,7 +199,7 @@ void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
     else
     {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code:" << exitCode << ")";
-        Q_EMIT failed(i18n("Error when accessing to filesystem. sshfs finished with exit code %0").arg(exitCode));
+        Q_EMIT failed(i18n("Error when accessing filesystem. sshfs finished with exit code %0").arg(exitCode));
     }
 
     unmount(true);
