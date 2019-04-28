@@ -108,8 +108,8 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
     m_proc->setOutputChannelMode(KProcess::MergedChannels);
 
     connect(m_proc, &QProcess::started, this, &Mounter::onStarted);
-    connect(m_proc, SIGNAL(error(QProcess::ProcessError)), SLOT(onError(QProcess::ProcessError)));
-    connect(m_proc, SIGNAL(finished(int,QProcess::ExitStatus)), SLOT(onFinished(int,QProcess::ExitStatus)));
+    connect(m_proc, &QProcess::errorOccurred, this, &Mounter::onError);
+    connect(m_proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Mounter::onFinished);
 
     QDir().mkpath(m_mountPoint);
 
