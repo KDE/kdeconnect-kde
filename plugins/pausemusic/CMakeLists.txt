@@ -6,6 +6,7 @@ target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
     Qt5::Core
     Qt5::DBus
+    KF5::PulseAudioQt
 )
 
 #######################################

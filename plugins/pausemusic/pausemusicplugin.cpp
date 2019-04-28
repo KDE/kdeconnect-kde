@@ -25,10 +25,10 @@
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
 #include <QDBusReply>
-#include <QDebug>
-#include <QProcess>
 
 #include <KPluginFactory>
+#include <PulseAudioQt/Context>
+#include <PulseAudioQt/Sink>
 
 //In older Qt released, qAsConst isnt available
 #include "qtcompat_p.h"
@@ -39,7 +39,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PAUSEMUSIC, "kdeconnect.plugin.pausemusic")
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
-    , muted(false)
+    , mutedSinks()
 {}
 
 bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
@@ -65,8 +65,13 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting system volume";
-            QProcess::startDetached("pactl set-sink-mute @DEFAULT_SINK@ 1");
-            muted = true;
+            const auto sinks = PulseAudioQt::Context::instance()->sinks();
+            for (const auto sink : sinks) {
+                if (!sink->isMuted()) {
+                    sink->setMuted(true);
+                    mutedSinks.insert(sink->name());
+                }
+            }
         }
 
         if (pause) {
@@ -92,12 +97,17 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
     } else {
 
-        if (mute && muted) {
+        if (mute) {
 
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
-            QProcess::startDetached("pactl set-sink-mute @DEFAULT_SINK@ 0");
 
-            muted = false;
+            const auto sinks = PulseAudioQt::Context::instance()->sinks();
+            for (const auto sink : sinks) {
+                if (mutedSinks.contains(sink->name())) {
+                    sink->setMuted(false);
+                }
+            }
+            mutedSinks.clear();
         }
 
         if (pause && !pausedSources.empty()) {
