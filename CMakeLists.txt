@@ -48,12 +48,7 @@ if (NOT ZSH_AUTOCOMPLETE_DIR)
 set(ZSH_AUTOCOMPLETE_DIR "${CMAKE_INSTALL_PREFIX}/share/zsh/site-functions")
 endif()
 
-find_package(Phonon4Qt5 4.9.0 NO_MODULE)
-set_package_properties(Phonon4Qt5 PROPERTIES
-   DESCRIPTION "Qt-based audio library"
-   TYPE OPTIONAL
-   PURPOSE "Required for Find My Device plugin"
-)
+find_package(Qt5Multimedia)
 
 set_package_properties(KF5Kirigami2 PROPERTIES
   DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"

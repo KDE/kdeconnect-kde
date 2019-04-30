@@ -20,8 +20,6 @@
 
 #include "findthisdeviceplugin.h"
 
-// Phonon
-#include <phonon/mediaobject.h>
 // KF
 #include <KPluginFactory>
 // Qt
@@ -29,7 +27,7 @@
 #include <QStandardPaths>
 #include <QFile>
 #include <QUrl>
-
+#include <QMediaPlayer>
 
 K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_findthisdevice.json",
                            registerPlugin<FindThisDevicePlugin>();)
@@ -88,10 +86,12 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
         return true;
     }
 
-    Phonon::MediaObject *media = Phonon::createPlayer(Phonon::NotificationCategory, soundURL);  // or CommunicationCategory?
-    media->play();
-    connect(media, &Phonon::MediaObject::finished, media, &QObject::deleteLater);
-
+    QMediaPlayer* player = new QMediaPlayer;
+    player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
+    player->setMedia(soundURL);
+    player->setVolume(100);
+    player->play();
+    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
     // TODO: by-pass volume settings in case it is muted
     // TODO: ensure to use built-in loudspeakers
 

@@ -22,13 +22,12 @@
 #include "findthisdeviceplugin.h"
 
 #include "ui_findthisdevice_config.h"
-// Phonon
-#include <phonon/mediaobject.h>
 // KF
 #include <KLocalizedString>
 #include <KPluginFactory>
 // Qt
 #include <QStandardPaths>
+#include <QMediaPlayer>
 
 
 K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfig>();)
@@ -108,10 +107,13 @@ void FindThisDeviceConfig::playSound()
         }
         soundURL.clear();
     }
+    QMediaPlayer* player = new QMediaPlayer;
+    player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
+    player->setMedia(soundURL);
+    player->setVolume(100);
+    player->play();
+    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
 
-    Phonon::MediaObject *media = Phonon::createPlayer(Phonon::NotificationCategory, soundURL);
-    media->play();
-    connect(media, SIGNAL(finished()), media, SLOT(deleteLater()));
 }
 
 

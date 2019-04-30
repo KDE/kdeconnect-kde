@@ -24,7 +24,7 @@ if(NOT SAILFISHOS)
         add_subdirectory(sftp)
     endif()
 
-    if(Phonon4Qt5_FOUND)
+    if(Qt5Multimedia_FOUND)
         add_subdirectory(findthisdevice)
     endif()
 endif()
