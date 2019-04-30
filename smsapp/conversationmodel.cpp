@@ -52,7 +52,7 @@ void ConversationModel::setThreadId(const qint64& threadId)
     m_threadId = threadId;
     clear();
     knownMessageIDs.clear();
-    if (m_threadId != INVALID_THREAD_ID && m_deviceId != "") {
+    if (m_threadId != INVALID_THREAD_ID && !m_deviceId.isEmpty()) {
         requestMoreMessages();
     }
 }

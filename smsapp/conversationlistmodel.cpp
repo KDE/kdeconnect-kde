@@ -53,7 +53,7 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
         return;
     }
 
-    if (deviceId == "") {
+    if (deviceId.isEmpty()) {
         return;
     }
 
