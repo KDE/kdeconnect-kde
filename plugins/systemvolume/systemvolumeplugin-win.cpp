@@ -263,9 +263,11 @@ bool SystemvolumePlugin::sendSinkList()
         name = QString::fromWCharArray(deviceProperty.pwszVal);
         //PropVariantClear(&deviceProperty);
 
+#ifndef __MINGW32__
         deviceProperties->GetValue(PKEY_Device_DeviceDesc, &deviceProperty);
         desc = QString::fromWCharArray(deviceProperty.pwszVal);
         //PropVariantClear(&deviceProperty);
+#endif
 
         QJsonObject sinkObject;
         sinkObject.insert("name", name);

@@ -30,6 +30,10 @@
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
 
+#ifdef __MINGW32__
+#include <initguid.h>
+#endif
+
 #define PACKET_TYPE_SYSTEMVOLUME QStringLiteral("kdeconnect.systemvolume")
 #define PACKET_TYPE_SYSTEMVOLUME_REQUEST QStringLiteral("kdeconnect.systemvolume.request")
 
