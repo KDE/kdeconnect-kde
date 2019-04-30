@@ -3,6 +3,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 include_directories(
     ${KDEConnectCore_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}
+    ${CMAKE_BINARY_DIR}
     ${CMAKE_BINARY_DIR}/plugins/sendnotifications/
 )
 

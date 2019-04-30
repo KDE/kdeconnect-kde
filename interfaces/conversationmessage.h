@@ -23,7 +23,7 @@
 
 #include <QDBusMetaType>
 
-#include "interfaces/kdeconnectinterfaces_export.h"
+#include "kdeconnectinterfaces_export.h"
 
 class KDECONNECTINTERFACES_EXPORT ConversationMessage
 {

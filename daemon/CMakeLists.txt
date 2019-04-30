@@ -3,6 +3,7 @@ project(kdeconnectd)
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
 add_executable(kdeconnectd kdeconnectd.cpp)
+target_include_directories(kdeconnectd PUBLIC ${CMAKE_BINARY_DIR})
 target_link_libraries(kdeconnectd kdeconnectcore KF5::KIOWidgets KF5::DBusAddons KF5::Notifications KF5::I18n Qt5::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)

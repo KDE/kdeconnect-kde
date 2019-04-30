@@ -20,8 +20,8 @@
 
 #include "devicessortproxymodel.h"
 
-#include <interfaces/dbusinterfaces.h>
-#include <interfaces/devicesmodel.h>
+#include "dbusinterfaces.h"
+#include "devicesmodel.h"
 
 DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel* devicesModel)
     : QSortFilterProxyModel(devicesModel)

@@ -15,6 +15,7 @@ ecm_add_app_icon(indicator_SRCS ICONS
 )
 
 add_executable(kdeconnect-indicator ${indicator_SRCS})
+target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_BINARY_DIR})
 target_link_libraries(kdeconnect-indicator Qt5::Widgets KF5::CoreAddons KF5::I18n KF5::Notifications KF5::DBusAddons KF5::KCMUtils kdeconnectinterfaces)
 
 install(TARGETS kdeconnect-indicator ${INSTALL_TARGETS_DEFAULT_ARGS})

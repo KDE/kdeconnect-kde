@@ -21,24 +21,24 @@
 #ifndef DBUSINTERFACES_H
 #define DBUSINTERFACES_H
 
-#include "interfaces/kdeconnectinterfaces_export.h"
+#include "kdeconnectinterfaces_export.h"
 
-#include "interfaces/daemoninterface.h"
-#include "interfaces/deviceinterface.h"
-#include "interfaces/devicebatteryinterface.h"
-#include "interfaces/devicesftpinterface.h"
-#include "interfaces/devicefindmyphoneinterface.h"
-#include "interfaces/devicenotificationsinterface.h"
-#include "interfaces/notificationinterface.h"
-#include "interfaces/mprisremoteinterface.h"
-#include "interfaces/remotecontrolinterface.h"
-#include "interfaces/lockdeviceinterface.h"
-#include "interfaces/remotecommandsinterface.h"
-#include "interfaces/remotekeyboardinterface.h"
-#include "interfaces/smsinterface.h"
-#include "interfaces/conversationsinterface.h"
-#include "interfaces/shareinterface.h"
-#include "interfaces/remotesystemvolumeinterface.h"
+#include "daemoninterface.h"
+#include "deviceinterface.h"
+#include "devicebatteryinterface.h"
+#include "devicesftpinterface.h"
+#include "devicefindmyphoneinterface.h"
+#include "devicenotificationsinterface.h"
+#include "notificationinterface.h"
+#include "mprisremoteinterface.h"
+#include "remotecontrolinterface.h"
+#include "lockdeviceinterface.h"
+#include "remotecommandsinterface.h"
+#include "remotekeyboardinterface.h"
+#include "smsinterface.h"
+#include "conversationsinterface.h"
+#include "shareinterface.h"
+#include "remotesystemvolumeinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the

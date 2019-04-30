@@ -22,7 +22,7 @@
 #define DEVICESSORTPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
-#include "interfaces/kdeconnectinterfaces_export.h"
+#include "kdeconnectinterfaces_export.h"
 
 class DevicesModel;
 

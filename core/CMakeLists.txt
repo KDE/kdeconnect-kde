@@ -39,6 +39,9 @@ set(kdeconnectcore_SRCS
 )
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})
+
+target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR})
+
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network
@@ -65,7 +68,6 @@ set_target_properties(kdeconnectcore PROPERTIES
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
 
-target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 generate_export_header(kdeconnectcore EXPORT_FILE_NAME kdeconnectcore_export.h BASE_NAME KDEConnectCore)
 
 install(TARGETS kdeconnectcore EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

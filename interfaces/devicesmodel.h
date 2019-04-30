@@ -25,7 +25,7 @@
 #include <QPixmap>
 #include <QList>
 
-#include "interfaces/kdeconnectinterfaces_export.h"
+#include "kdeconnectinterfaces_export.h"
 
 class QDBusPendingCallWatcher;
 class DaemonDbusInterface;

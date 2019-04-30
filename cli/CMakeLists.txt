@@ -3,6 +3,8 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-cli\")
 add_executable(kdeconnect-cli kdeconnect-cli.cpp)
 ecm_mark_nongui_executable(kdeconnect-cli)
 
+target_include_directories(kdeconnect-cli PUBLIC ${CMAKE_BINARY_DIR})
+
 target_link_libraries(kdeconnect-cli
     kdeconnectinterfaces
     KF5::CoreAddons

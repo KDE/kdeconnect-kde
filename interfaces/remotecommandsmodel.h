@@ -23,7 +23,7 @@
 
 #include <QAbstractListModel>
 
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces.h"
 
 struct Command {
     QString key;

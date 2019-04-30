@@ -57,8 +57,6 @@ set_package_properties(KF5Kirigami2 PROPERTIES
   TYPE RUNTIME
 )
 
-include_directories(${CMAKE_SOURCE_DIR})
-
 configure_file(kdeconnect-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h)
 
 include(KDEInstallDirs)
@@ -72,7 +70,6 @@ include(FeatureSummary)
 include(KDEConnectMacros.cmake)
 
 include(GenerateExportHeader)
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(core)
 if(NOT SAILFISHOS)
