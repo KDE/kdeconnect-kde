@@ -7,6 +7,7 @@ add_subdirectory(battery)
 add_subdirectory(sendnotifications)
 add_subdirectory(mpriscontrol)
 add_subdirectory(photo)
+add_subdirectory(systemvolume)
 
 if(NOT SAILFISHOS)
     add_subdirectory(clipboard)
@@ -22,6 +23,7 @@ if(NOT SAILFISHOS)
     if(NOT WIN32)
         add_subdirectory(screensaver-inhibit)
         add_subdirectory(sftp)
+        add_subdirectory(pausemusic)
     endif()
 
     if(Qt5Multimedia_FOUND)
@@ -36,15 +38,6 @@ if(SAILFISHOS OR EXPERIMENTALAPP_ENABLED)
     add_subdirectory(lockdevice)
     add_subdirectory(remotesystemvolume)
 endif()
-
-if(KF5PulseAudioQt_FOUND AND NOT WIN32)
-    add_subdirectory(pausemusic)
-endif()
-
-if(KF5PulseAudioQt_FOUND OR WIN32)
-    add_subdirectory(systemvolume)
-endif()
-
 
 #FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
 install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
