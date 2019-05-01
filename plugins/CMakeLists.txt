@@ -39,5 +39,6 @@ if(SAILFISHOS OR EXPERIMENTALAPP_ENABLED)
     add_subdirectory(remotesystemvolume)
 endif()
 
-#FIXME: If we split notifications in several files, they won't appear in the same group in the Notifications KCM
+# If we split notifications per plugin, in several notifyrc files, they won't 
+# appear in the same group in the Notifications KCM
 install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
