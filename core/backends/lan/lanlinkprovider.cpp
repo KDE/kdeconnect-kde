@@ -45,11 +45,12 @@
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
 
 LanLinkProvider::LanLinkProvider(bool testMode)
-    : m_udpSocket(this)
+    : m_server(new Server(this))
+    , m_udpSocket(this)
+    , m_tcpPort(0)
     , m_testMode(testMode)
     , m_combineBroadcastsTimer(this)
 {
-    m_tcpPort = 0;
 
     m_combineBroadcastsTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineBroadcastsTimer.setSingleShot(true);
@@ -57,7 +58,6 @@ LanLinkProvider::LanLinkProvider(bool testMode)
 
     connect(&m_udpSocket, &QIODevice::readyRead, this, &LanLinkProvider::newUdpConnection);
 
-    m_server = new Server(this);
     m_server->setProxy(QNetworkProxy::NoProxy);
     connect(m_server,&QTcpServer::newConnection,this, &LanLinkProvider::newConnection);
 
