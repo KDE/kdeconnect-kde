@@ -114,7 +114,7 @@ private /*methods*/:
     QString newId(); //Generates successive identifitiers to use as public ids
 
 private /*attributes*/:
-    const Device* m_device;
+    const QString m_device;
     KdeConnectPlugin* m_plugin;
 
     /**
