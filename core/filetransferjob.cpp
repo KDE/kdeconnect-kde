@@ -130,13 +130,18 @@ void FileTransferJob::transferFinished()
     } else {
         qCDebug(KDECONNECT_CORE) << "Received incomplete file ("<< m_written << "/" << m_size << "bytes ), deleting";
         
-        if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
-            QFile::remove(m_destination.toLocalFile());
-        }
-        
+        deleteDestinationFile();
+
         setError(3);
         setErrorText(i18n("Received incomplete file from: %1", m_from));
         emitResult();
+    }
+}
+
+void FileTransferJob::deleteDestinationFile()
+{
+    if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
+        QFile::remove(m_destination.toLocalFile());
     }
 }
 
@@ -148,5 +153,8 @@ bool FileTransferJob::doKill()
     if (m_origin) {
         m_origin->close();
     }
+
+    deleteDestinationFile();
+
     return true;
 }

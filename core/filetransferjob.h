@@ -64,6 +64,7 @@ private:
     void startTransfer();
     void transferFailed(QNetworkReply::NetworkError error);
     void transferFinished();
+    void deleteDestinationFile();
 
     QSharedPointer<QIODevice> m_origin;
     QNetworkReply* m_reply;
