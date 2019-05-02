@@ -214,8 +214,6 @@ void LanLinkProvider::connectError()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
-    disconnect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::connected);
-    disconnect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
 
     qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)" << socket->errorString();
     NetworkPacket np(QLatin1String(""));
@@ -235,9 +233,8 @@ void LanLinkProvider::connected()
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
 
     if (!socket) return;
-    disconnect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::connected);
+    // TODO Delete me?
     disconnect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
-
 
     configureSocket(socket);
 
@@ -297,7 +294,7 @@ void LanLinkProvider::encrypted()
 
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
-    disconnect(socket, &QSslSocket::encrypted, this, &LanLinkProvider::encrypted);
+    // TODO delete me?
     disconnect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
 
     Q_ASSERT(socket->mode() != QSslSocket::UnencryptedMode);
@@ -316,9 +313,6 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
-
-    disconnect(socket, &QSslSocket::encrypted, this, &LanLinkProvider::encrypted);
-    disconnect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
 
     qCDebug(KDECONNECT_CORE) << "Failing due to " << errors;
     Device* device = Daemon::instance()->getDevice(socket->peerVerifyName());
