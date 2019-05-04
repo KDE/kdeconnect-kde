@@ -183,7 +183,14 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
 
         //qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
-        if (!success || receivedPacket->type() != PACKET_TYPE_IDENTITY) {
+        if (!success) {
+            qCDebug(KDECONNECT_CORE) << "Could not unserialize UDP packet";
+            delete receivedPacket;
+            continue;
+        }
+
+        if (receivedPacket->type() != PACKET_TYPE_IDENTITY) {
+            qCDebug(KDECONNECT_CORE) << "Received a UDP packet of wrong type" << receivedPacket->type();
             delete receivedPacket;
             continue;
         }
