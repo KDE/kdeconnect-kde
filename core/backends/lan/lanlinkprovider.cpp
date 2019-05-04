@@ -59,7 +59,7 @@ LanLinkProvider::LanLinkProvider(bool testMode)
     connect(&m_udpSocket, &QIODevice::readyRead, this, &LanLinkProvider::udpBroadcastReceived);
 
     m_server->setProxy(QNetworkProxy::NoProxy);
-    connect(m_server,&QTcpServer::newConnection,this, &LanLinkProvider::newConnection);
+    connect(m_server, &QTcpServer::newConnection, this, &LanLinkProvider::newConnection);
 
     m_udpSocket.setProxy(QNetworkProxy::NoProxy);
 
