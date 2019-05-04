@@ -61,12 +61,12 @@ public Q_SLOTS:
     void onNetworkChange() override;
     void onStart() override;
     void onStop() override;
-    void connected();
+    void tcpSocketConnected();
     void encrypted();
     void connectError();
 
 private Q_SLOTS:
-    void newUdpConnection();
+    void udpBroadcastReceived();
     void newConnection();
     void dataReceived();
     void deviceLinkDestroyed(QObject* destroyedDeviceLink);

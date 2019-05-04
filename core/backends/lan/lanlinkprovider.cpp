@@ -56,7 +56,7 @@ LanLinkProvider::LanLinkProvider(bool testMode)
     m_combineBroadcastsTimer.setSingleShot(true);
     connect(&m_combineBroadcastsTimer, &QTimer::timeout, this, &LanLinkProvider::broadcastToNetwork);
 
-    connect(&m_udpSocket, &QIODevice::readyRead, this, &LanLinkProvider::newUdpConnection);
+    connect(&m_udpSocket, &QIODevice::readyRead, this, &LanLinkProvider::udpBroadcastReceived);
 
     m_server->setProxy(QNetworkProxy::NoProxy);
     connect(m_server,&QTcpServer::newConnection,this, &LanLinkProvider::newConnection);
@@ -164,8 +164,8 @@ void LanLinkProvider::broadcastToNetwork()
 }
 
 //I'm the existing device, a new device is kindly introducing itself.
-//I will create a TcpSocket and try to connect. This can result in either connected() or connectError().
-void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
+//I will create a TcpSocket and try to connect. This can result in either tcpSocketConnected() or connectError().
+void LanLinkProvider::udpBroadcastReceived()
 {
     while (m_udpSocket.hasPendingDatagrams()) {
 
@@ -204,7 +204,7 @@ void LanLinkProvider::newUdpConnection() //udpBroadcastReceived
         socket->setProxy(QNetworkProxy::NoProxy);
         m_receivedIdentityPackets[socket].np = receivedPacket;
         m_receivedIdentityPackets[socket].sender = sender;
-        connect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::connected);
+        connect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::tcpSocketConnected);
         connect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
         socket->connectToHost(sender, tcpPort);
     }
@@ -228,7 +228,7 @@ void LanLinkProvider::connectError()
 }
 
 //We received a UDP packet and answered by connecting to them by TCP. This gets called on a successful connection.
-void LanLinkProvider::connected()
+void LanLinkProvider::tcpSocketConnected()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
 
@@ -243,7 +243,7 @@ void LanLinkProvider::connected()
 
     NetworkPacket* receivedPacket = m_receivedIdentityPackets[socket].np;
     const QString& deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
-    //qCDebug(KDECONNECT_CORE) << "Connected" << socket->isWritable();
+    //qCDebug(KDECONNECT_CORE) << "tcpSocketConnected" << socket->isWritable();
 
     // If network is on ssl, do not believe when they are connected, believe when handshake is completed
     NetworkPacket np2(QLatin1String(""));
@@ -305,7 +305,7 @@ void LanLinkProvider::encrypted()
 
     addLink(deviceId, socket, receivedPacket, connectionOrigin);
 
-    // Copied from connected slot, now delete received packet
+    // Copied from tcpSocketConnected slot, now delete received packet
     delete m_receivedIdentityPackets.take(socket).np;
 }
 
@@ -369,7 +369,7 @@ void LanLinkProvider::dataReceived()
         return;
     }
 
-    // Needed in "encrypted" if ssl is used, similar to "connected"
+    // Needed in "encrypted" if ssl is used, similar to "tcpSocketConnected"
     m_receivedIdentityPackets[socket].np = np;
 
     const QString& deviceId = np->get<QString>(QStringLiteral("deviceId"));
