@@ -90,11 +90,11 @@ class Q_DECL_EXPORT ContactsPlugin : public KdeConnectPlugin {
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.contacts")
 
 public:
-    explicit ContactsPlugin (QObject *parent, const QVariantList &args);
+    explicit ContactsPlugin(QObject* parent, const QVariantList& args);
     ~ContactsPlugin () override;
 
-    bool receivePacket (const NetworkPacket& np) override;
-    void connected () override {
+    bool receivePacket(const NetworkPacket& np) override;
+    void connected() override {
     }
 
     QString dbusPath () const override;
@@ -113,8 +113,7 @@ public Q_SLOTS:
      *      Update any contacts which are known locally but have an older timestamp
      *      Add any contacts which are not known locally but are reported by the remote
      */
-    Q_SCRIPTABLE
-    void synchronizeRemoteWithLocal ();
+    Q_SCRIPTABLE void synchronizeRemoteWithLocal();
 
 public:
 Q_SIGNALS:
@@ -123,8 +122,7 @@ Q_SIGNALS:
      *
      * @param newContacts The list of just-synchronized contacts
      */
-    Q_SCRIPTABLE
-    void localCacheSynchronized (const uIDList_t& newContacts);
+    Q_SCRIPTABLE void localCacheSynchronized(const uIDList_t& newContacts);
 
 protected:
 
@@ -136,19 +134,19 @@ protected:
      *      Compare the modified timestamp for each in the reply and update any which should have changed
      *      Request the details any IDs which were not locally cached
      */
-    bool handleResponseUIDsTimestamps (const NetworkPacket&);
+    bool handleResponseUIDsTimestamps(const NetworkPacket&);
 
     /**
      *  Handle a packet of type PACKET_TYPE_CONTACTS_RESPONSE_VCARDS
      */
-    bool handleResponseVCards (const NetworkPacket&);
+    bool handleResponseVCards(const NetworkPacket&);
 
     /**
      * Send a request-type packet which contains no body
      *
      * @return True if the send was successful, false otherwise
      */
-    bool sendRequest (const QString& packetType);
+    bool sendRequest(const QString& packetType);
 
     /**
      * Send a request-type packet which has a body with the key 'uids' and the value the list of
@@ -158,7 +156,7 @@ protected:
      * @param uIDs List of uIDs to request
      * @return True if the send was successful, false otherwise
      */
-    bool sendRequestWithIDs (const QString& packetType, const uIDList_t& uIDs);
+    bool sendRequestWithIDs(const QString& packetType, const uIDList_t& uIDs);
 };
 
 #endif // CONTACTSPLUGIN_H

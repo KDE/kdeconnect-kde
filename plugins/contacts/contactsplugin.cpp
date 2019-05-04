@@ -36,7 +36,7 @@ K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_contacts.json",
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CONTACTS, "kdeconnect.plugin.contacts")
 
-ContactsPlugin::ContactsPlugin (QObject* parent, const QVariantList& args) :
+ContactsPlugin::ContactsPlugin(QObject* parent, const QVariantList& args) :
         KdeConnectPlugin(parent, args)
 {
     vcardsPath = QString(*vcardsLocation).append("/kdeconnect-").append(device()->id());
@@ -53,24 +53,24 @@ ContactsPlugin::ContactsPlugin (QObject* parent, const QVariantList& args) :
         qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Unable to create VCard directory";
     }
 
-    this->synchronizeRemoteWithLocal();
+    synchronizeRemoteWithLocal();
 
     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Contacts constructor for device " << device()->name();
 }
 
-ContactsPlugin::~ContactsPlugin () {
+ContactsPlugin::~ContactsPlugin() {
     QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
 //     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Contacts plugin destructor for device" << device()->name();
 }
 
-bool ContactsPlugin::receivePacket (const NetworkPacket& np) {
+bool ContactsPlugin::receivePacket(const NetworkPacket& np) {
     //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
     //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
 
     if (np.type() == PACKAGE_TYPE_CONTACTS_RESPONSE_UIDS_TIMESTAMPS) {
-        return this->handleResponseUIDsTimestamps(np);
+        return handleResponseUIDsTimestamps(np);
     } else if (np.type() == PACKET_TYPE_CONTACTS_RESPONSE_VCARDS) {
-        return this->handleResponseVCards(np);
+        return handleResponseVCards(np);
     } else {
         // Is this check necessary?
         qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown package type received from device: "
@@ -79,11 +79,11 @@ bool ContactsPlugin::receivePacket (const NetworkPacket& np) {
     }
 }
 
-void ContactsPlugin::synchronizeRemoteWithLocal () {
-    this->sendRequest(PACKET_TYPE_CONTACTS_REQUEST_ALL_UIDS_TIMESTAMP);
+void ContactsPlugin::synchronizeRemoteWithLocal() {
+    sendRequest(PACKET_TYPE_CONTACTS_REQUEST_ALL_UIDS_TIMESTAMP);
 }
 
-bool ContactsPlugin::handleResponseUIDsTimestamps (const NetworkPacket& np) {
+bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np) {
     if (!np.has("uids")) {
         qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:"
                 << "Malformed packet does not have uids key";
@@ -150,12 +150,12 @@ bool ContactsPlugin::handleResponseUIDsTimestamps (const NetworkPacket& np) {
         toDelete.remove();
     }
 
-    this->sendRequestWithIDs(PACKET_TYPE_CONTACTS_REQUEST_VCARDS_BY_UIDS, uIDsToUpdate);
+    sendRequestWithIDs(PACKET_TYPE_CONTACTS_REQUEST_VCARDS_BY_UIDS, uIDsToUpdate);
 
     return true;
 }
 
-bool ContactsPlugin::handleResponseVCards (const NetworkPacket& np) {
+bool ContactsPlugin::handleResponseVCards(const NetworkPacket& np) {
     if (!np.has("uids")) {
         qCDebug(KDECONNECT_PLUGIN_CONTACTS)
         << "handleResponseVCards:" << "Malformed packet does not have uids key";
@@ -185,7 +185,7 @@ bool ContactsPlugin::handleResponseVCards (const NetworkPacket& np) {
     return true;
 }
 
-bool ContactsPlugin::sendRequest (const QString& packetType) {
+bool ContactsPlugin::sendRequest(const QString& packetType) {
     NetworkPacket np(packetType);
     bool success = sendPacket(np);
     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "sendRequest: Sending " << packetType << success;
@@ -193,7 +193,7 @@ bool ContactsPlugin::sendRequest (const QString& packetType) {
     return success;
 }
 
-bool ContactsPlugin::sendRequestWithIDs (const QString& packetType, const uIDList_t& uIDs) {
+bool ContactsPlugin::sendRequestWithIDs(const QString& packetType, const uIDList_t& uIDs) {
     NetworkPacket np(packetType);
 
     np.set<uIDList_t>("uids", uIDs);
@@ -201,7 +201,7 @@ bool ContactsPlugin::sendRequestWithIDs (const QString& packetType, const uIDLis
     return success;
 }
 
-QString ContactsPlugin::dbusPath () const {
+QString ContactsPlugin::dbusPath() const {
     return "/modules/kdeconnect/devices/" + device()->id() + "/contacts";
 }
 
