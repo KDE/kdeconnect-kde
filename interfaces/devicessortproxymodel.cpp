@@ -27,20 +27,7 @@ DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel* devicesModel)
     : QSortFilterProxyModel(devicesModel)
 {
     setSourceModel(devicesModel);
-}
-
-void DevicesSortProxyModel::setSourceModel(QAbstractItemModel* devicesModel)
-{
-    QSortFilterProxyModel::setSourceModel(devicesModel);
-    if (devicesModel) {
-        setSortRole(DevicesModel::StatusModelRole);
-        connect(devicesModel, &QAbstractItemModel::dataChanged, this, &DevicesSortProxyModel::sourceDataChanged);
-    }
-    sort(0);
-}
-
-void DevicesSortProxyModel::sourceDataChanged()
-{
+    setSortRole(DevicesModel::StatusModelRole);
     sort(0);
 }
 
