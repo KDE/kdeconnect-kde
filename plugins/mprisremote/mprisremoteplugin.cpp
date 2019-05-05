@@ -67,7 +67,7 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
         if (m_players.empty()) {
             m_currentPlayer = QString();
         } else if (!m_players.contains(m_currentPlayer)) {
-            m_currentPlayer = m_players.keys().first();
+            m_currentPlayer = m_players.firstKey();
         }
 
     }
