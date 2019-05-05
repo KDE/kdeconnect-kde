@@ -91,7 +91,6 @@ class Q_DECL_EXPORT ContactsPlugin : public KdeConnectPlugin {
 
 public:
     explicit ContactsPlugin(QObject* parent, const QVariantList& args);
-    ~ContactsPlugin () override;
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override {

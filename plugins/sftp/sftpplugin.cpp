@@ -60,7 +60,6 @@ SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
 
 SftpPlugin::~SftpPlugin()
 {
-    QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
     removeFromDolphin();    
     unmount();
 }

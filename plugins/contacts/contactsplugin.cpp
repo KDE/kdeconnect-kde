@@ -58,11 +58,6 @@ ContactsPlugin::ContactsPlugin(QObject* parent, const QVariantList& args) :
     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Contacts constructor for device " << device()->name();
 }
 
-ContactsPlugin::~ContactsPlugin() {
-    QDBusConnection::sessionBus().unregisterObject(dbusPath(), QDBusConnection::UnregisterTree);
-//     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Contacts plugin destructor for device" << device()->name();
-}
-
 bool ContactsPlugin::receivePacket(const NetworkPacket& np) {
     //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
     //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
