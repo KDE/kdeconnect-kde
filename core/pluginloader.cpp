@@ -57,7 +57,7 @@ KPluginMetaData PluginLoader::getPluginInfo(const QString& name) const
 
 KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& pluginName, Device* device) const
 {
-    KdeConnectPlugin* ret = Q_NULLPTR;
+    KdeConnectPlugin* ret = nullptr;
 
     KPluginMetaData service = plugins.value(pluginName);
     if (!service.isValid()) {

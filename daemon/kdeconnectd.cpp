@@ -38,9 +38,9 @@ class DesktopDaemon : public Daemon
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
 public:
-    DesktopDaemon(QObject* parent = Q_NULLPTR)
+    DesktopDaemon(QObject* parent = nullptr)
         : Daemon(parent)
-        , m_nam(Q_NULLPTR)
+        , m_nam(nullptr)
     {}
 
     void askPairingConfirmation(Device* device) override

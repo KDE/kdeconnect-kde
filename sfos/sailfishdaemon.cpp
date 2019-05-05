@@ -39,7 +39,7 @@ class SailfishDaemon : public Daemon
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
 public:
-    SailfishDaemon(QObject* parent = Q_NULLPTR)
+    SailfishDaemon(QObject* parent = nullptr)
         : Daemon(parent)
         , m_background(new BackgroundActivity())
     {

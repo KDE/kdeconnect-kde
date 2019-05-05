@@ -164,7 +164,7 @@ Device*Daemon::getDevice(const QString& deviceId)
             return device;
         }
     }
-    return Q_NULLPTR;
+    return nullptr;
 }
 
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const

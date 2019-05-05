@@ -32,7 +32,7 @@
 FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
     : KJob()
     , m_origin(origin)
-    , m_reply(Q_NULLPTR)
+    , m_reply(nullptr)
     , m_from(QStringLiteral("KDE Connect"))
     , m_destination(destination)
     , m_speedBytes(0)

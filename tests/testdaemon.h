@@ -27,9 +27,9 @@
 class TestDaemon : public Daemon
 {
 public:
-    TestDaemon(QObject* parent = Q_NULLPTR)
+    TestDaemon(QObject* parent = nullptr)
         : Daemon(parent, true)
-        , m_nam(Q_NULLPTR)
+        , m_nam(nullptr)
     {
     }
 
