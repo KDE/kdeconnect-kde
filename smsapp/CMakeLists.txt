@@ -5,7 +5,8 @@ find_package(KF5People)
 add_executable(kdeconnect-sms
     main.cpp
     conversationmodel.cpp
-    conversationlistmodel.cpp)
+    conversationlistmodel.cpp
+    ${KCSMS_SRCS})
 
 target_include_directories(kdeconnect-sms PUBLIC ${CMAKE_BINARY_DIR})
 
