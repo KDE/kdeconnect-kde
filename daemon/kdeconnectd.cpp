@@ -99,8 +99,7 @@ int main(int argc, char* argv[])
 
     KDBusService dbusService(KDBusService::Unique);
 
-    Daemon* daemon = new DesktopDaemon;
-    QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
+    DesktopDaemon daemon;
 
     return app.exec();
 }
