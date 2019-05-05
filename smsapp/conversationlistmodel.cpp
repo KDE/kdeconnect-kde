@@ -70,15 +70,15 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
         m_conversationsInterface = nullptr;
     }
 
-    m_deviceId = deviceId;
-    Q_EMIT deviceIdChanged();
-
     // This method still gets called *with a valid deviceID* when the device is not connected while the component is setting up
     // Detect that case and don't do anything.
     DeviceDbusInterface device(deviceId);
     if (!(device.isValid() && device.isReachable())) {
         return;
     }
+
+    m_deviceId = deviceId;
+    Q_EMIT deviceIdChanged();
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QVariantMap)), this, SLOT(handleCreatedConversation(QVariantMap)));
