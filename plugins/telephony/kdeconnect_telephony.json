@@ -64,6 +64,7 @@
         "Description[sv]": "Visa underrättelser om samtal och SMS",
         "Description[uk]": "Показ сповіщень щодо дзвінків і SMS",
         "Description[x-test]": "xxShow notifications for calls and SMSxx",
+        "Description[zh_CN]": "显示来电和短信通知",
         "Description[zh_TW]": "顯示來電與簡訊通知",
         "EnabledByDefault": true,
         "Icon": "call-start",
