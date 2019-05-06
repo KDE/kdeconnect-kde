@@ -93,8 +93,7 @@ public:
     explicit ContactsPlugin(QObject* parent, const QVariantList& args);
 
     bool receivePacket(const NetworkPacket& np) override;
-    void connected() override {
-    }
+    void connected() override;
 
     QString dbusPath () const override;
 
