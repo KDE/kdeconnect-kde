@@ -57,6 +57,7 @@
         "Description[sv]": "Visa underrättelser om inkommande samtal",
         "Description[uk]": "Показ сповіщень щодо вхідних дзвінків",
         "Description[x-test]": "xxShow notifications for incoming callsxx",
+        "Description[zh_CN]": "显示来电通知",
         "Description[zh_TW]": "顯示來電通知",
         "EnabledByDefault": true,
         "Icon": "call-start",
