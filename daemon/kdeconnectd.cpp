@@ -62,7 +62,7 @@ public:
 
     void reportError(const QString & title, const QString & description) override
     {
-        QCWarning(KDECONNECT_DAEMON) << title << ":" << description;
+        qCWarning(KDECONNECT_DAEMON) << title << ":" << description;
         KNotification::event(KNotification::Error, title, description);
     }
 
