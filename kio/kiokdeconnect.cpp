@@ -107,6 +107,7 @@ void KioKdeconnect::listAllDevices()
         const QString icon = QStringLiteral("kdeconnect");
 
         KIO::UDSEntry entry;
+        entry.reserve(6);
         entry.insert(KIO::UDSEntry::UDS_NAME, name);
         entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -118,6 +119,7 @@ void KioKdeconnect::listAllDevices()
 
     // We also need a non-null and writable UDSentry for "."
     KIO::UDSEntry entry;
+    entry.reserve(4);
     entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
@@ -192,6 +194,7 @@ void KioKdeconnect::listDevice(const QString& device)
         const QString icon = QStringLiteral("folder");
 
         KIO::UDSEntry entry;
+        entry.reserve(6);
         entry.insert(KIO::UDSEntry::UDS_NAME, name);
         entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
@@ -203,6 +206,7 @@ void KioKdeconnect::listDevice(const QString& device)
 
     // We also need a non-null and writable UDSentry for "."
     KIO::UDSEntry entry;
+    entry.reserve(4);
     entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
