@@ -43,11 +43,11 @@ public:
     BluetoothPairingHandler(DeviceLink* deviceLink);
     virtual ~BluetoothPairingHandler() { }
 
-    virtual void packetReceived(const NetworkPacket& np) Q_DECL_OVERRIDE;
-    virtual bool requestPairing() Q_DECL_OVERRIDE;
-    virtual bool acceptPairing() Q_DECL_OVERRIDE;
-    virtual void rejectPairing() Q_DECL_OVERRIDE;
-    virtual void unpair() Q_DECL_OVERRIDE;
+    void packetReceived(const NetworkPacket& np) override;
+    bool requestPairing() override;
+    bool acceptPairing() override;
+    void rejectPairing() override;
+    void unpair() override;
 
     bool isPairRequested() const { return m_status == Requested; }
     bool isPaired() const { return m_status == Paired; }
