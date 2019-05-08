@@ -211,10 +211,11 @@ void KdeConnectConfig::loadPrivateKey()
     QFile privKey(keyPath);
 
     bool needsToGenerateKey = false;
-    if (privKey.exists() && privKey.open(QIODevice::ReadOnly) && privKey.size() > 0) {
+    if (privKey.exists() && privKey.open(QIODevice::ReadOnly)) {
         QCA::ConvertResult result;
         d->m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll(), QCA::SecureArray(), &result);
         if (result != QCA::ConvertResult::ConvertGood) {
+            qCWarning(KDECONNECT_CORE) << "Private key from" << keyPath << "is not valid";
             needsToGenerateKey = true;
         }
     } else {
@@ -231,8 +232,38 @@ void KdeConnectConfig::loadPrivateKey()
     }
 }
 
+void KdeConnectConfig::loadCertificate()
+{
+    QString certPath = certificatePath();
+    QFile cert(certPath);
+
+    bool needsToGenerateCert = false;
+    if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
+        auto loadedCerts = QSslCertificate::fromPath(certPath);
+        if (loadedCerts.empty()) {
+            qCWarning(KDECONNECT_CORE) << "Certificate from" << certPath << "is not valid";
+            needsToGenerateCert = true;
+        } else {
+            d->m_certificate = loadedCerts.at(0);
+        }
+    } else {
+        needsToGenerateCert = true;
+    }
+
+    if (needsToGenerateCert) {
+        generateCertificate(certPath);
+    }
+
+    //Extra security check
+    if (QFile::permissions(certPath) != strictPermissions) {
+        qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect certificate file has too open permissions " << certPath;
+    }
+}
+
 void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
 {
+    qCDebug(KDECONNECT_CORE) << "Generating private key";
+
     bool error = false;
 
     d->m_privateKey = QCA::KeyGenerator().createRSA(2048);
@@ -255,35 +286,10 @@ void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
 
 }
 
-void KdeConnectConfig::loadCertificate()
-{
-    QString certPath = certificatePath();
-    QFile cert(certPath);
-
-    bool needsToGenerateCert = false;
-    if (cert.exists() && cert.open(QIODevice::ReadOnly) && cert.size() > 0) {
-        auto loadedCerts = QSslCertificate::fromPath(certPath);
-        if (loadedCerts.empty()) {
-            needsToGenerateCert = true;
-        } else {
-            d->m_certificate = loadedCerts.at(0);
-        }
-    } else {
-        needsToGenerateCert = true;
-    }
-
-    if (needsToGenerateCert) {
-        generateCertificate(certPath);
-    }
-
-    //Extra security check
-    if (QFile::permissions(certPath) != strictPermissions) {
-        qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect certificate file has too open permissions " << certPath;
-    }
-}
-
 void KdeConnectConfig::generateCertificate(const QString& certPath)
 {
+    qCDebug(KDECONNECT_CORE) << "Generating certificate";
+
     bool error = false;
 
     QString uuid = QUuid::createUuid().toString();
