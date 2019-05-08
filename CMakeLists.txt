@@ -31,7 +31,7 @@ else()
     endif()
     set(QCA_MIN_VERSION "2.1.0")
     find_package(Qca-qt5 ${QCA_MIN_VERSION} REQUIRED)
-    find_package(KF5PulseAudioQt)
+    find_package(KF5PulseAudioQt REQUIRED)
     add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS)
 endif()
 
