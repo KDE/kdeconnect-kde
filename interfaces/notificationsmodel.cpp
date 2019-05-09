@@ -195,7 +195,7 @@ QVariant NotificationsModel::data(const QModelIndex& index, int role) const
         case AppNameModelRole:
             return notification->appName();
         case DbusInterfaceRole:
-            return qVariantFromValue<QObject*>(notification);
+            return QVariant::fromValue<QObject*>(notification);
         case DismissableModelRole:
             return notification->dismissable();
         case RepliableModelRole:
