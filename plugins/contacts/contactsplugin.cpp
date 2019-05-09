@@ -50,17 +50,19 @@ ContactsPlugin::ContactsPlugin(QObject* parent, const QVariantList& args) :
 
     // Create the storage directory if it doesn't exist
     if (!QDir().mkpath(vcardsPath)) {
-        qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Unable to create VCard directory";
+        qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "Unable to create VCard directory";
     }
 
     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Contacts constructor for device " << device()->name();
 }
 
-void ContactsPlugin::connected() {
+void ContactsPlugin::connected()
+{
     synchronizeRemoteWithLocal();
 }
 
-bool ContactsPlugin::receivePacket(const NetworkPacket& np) {
+bool ContactsPlugin::receivePacket(const NetworkPacket& np)
+{
     //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
     //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
 
@@ -70,17 +72,19 @@ bool ContactsPlugin::receivePacket(const NetworkPacket& np) {
         return handleResponseVCards(np);
     } else {
         // Is this check necessary?
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown package type received from device: "
+        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown packet type received from device: "
                 << device()->name() << ". Maybe you need to upgrade KDE Connect?";
         return false;
     }
 }
 
-void ContactsPlugin::synchronizeRemoteWithLocal() {
+void ContactsPlugin::synchronizeRemoteWithLocal()
+{
     sendRequest(PACKET_TYPE_CONTACTS_REQUEST_ALL_UIDS_TIMESTAMP);
 }
 
-bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np) {
+bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
+{
     if (!np.has("uids")) {
         qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:"
                 << "Malformed packet does not have uids key";
@@ -152,7 +156,8 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np) {
     return true;
 }
 
-bool ContactsPlugin::handleResponseVCards(const NetworkPacket& np) {
+bool ContactsPlugin::handleResponseVCards(const NetworkPacket& np)
+{
     if (!np.has("uids")) {
         qCDebug(KDECONNECT_PLUGIN_CONTACTS)
         << "handleResponseVCards:" << "Malformed packet does not have uids key";
@@ -182,7 +187,8 @@ bool ContactsPlugin::handleResponseVCards(const NetworkPacket& np) {
     return true;
 }
 
-bool ContactsPlugin::sendRequest(const QString& packetType) {
+bool ContactsPlugin::sendRequest(const QString& packetType)
+{
     NetworkPacket np(packetType);
     bool success = sendPacket(np);
     qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "sendRequest: Sending " << packetType << success;
@@ -190,7 +196,8 @@ bool ContactsPlugin::sendRequest(const QString& packetType) {
     return success;
 }
 
-bool ContactsPlugin::sendRequestWithIDs(const QString& packetType, const uIDList_t& uIDs) {
+bool ContactsPlugin::sendRequestWithIDs(const QString& packetType, const uIDList_t& uIDs)
+{
     NetworkPacket np(packetType);
 
     np.set<uIDList_t>("uids", uIDs);
@@ -198,7 +205,8 @@ bool ContactsPlugin::sendRequestWithIDs(const QString& packetType, const uIDList
     return success;
 }
 
-QString ContactsPlugin::dbusPath() const {
+QString ContactsPlugin::dbusPath() const
+{
     return "/modules/kdeconnect/devices/" + device()->id() + "/contacts";
 }
 

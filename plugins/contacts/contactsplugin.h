@@ -85,7 +85,9 @@ Q_DECLARE_METATYPE(uID)
 typedef QStringList uIDList_t;
 Q_DECLARE_METATYPE(uIDList_t)
 
-class Q_DECL_EXPORT ContactsPlugin : public KdeConnectPlugin {
+class Q_DECL_EXPORT ContactsPlugin
+    : public KdeConnectPlugin
+{
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.contacts")
 
