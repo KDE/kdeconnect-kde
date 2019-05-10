@@ -8,7 +8,7 @@ target_link_libraries(kdeconnectd kdeconnectcore KF5::KIOWidgets KF5::DBusAddons
 
 ecm_mark_nongui_executable(kdeconnectd)
 
-configure_file(kdeconnectd.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectd.desktop)
+configure_file(org.kde.kdeconnect.daemon.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop)
 configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${AUTOSTART_INSTALL_DIR})
