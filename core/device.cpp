@@ -67,6 +67,7 @@ public:
 
     QMultiMap<QString, KdeConnectPlugin *> m_pluginsByIncomingCapability;
     QSet<QString> m_supportedPlugins;
+    QSet<QString> m_allPlugins;
     QSet<PairingHandler *> m_pairRequests;
 };
 
@@ -89,7 +90,8 @@ Device::Device(QObject* parent, const QString& id)
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     //Assume every plugin is supported until addLink is called and we can get the actual list
-    d->m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet();
+    d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
+    d->m_supportedPlugins = d->m_allPlugins;
 
     connect(this, &Device::pairingError, this, &warn);
 }
@@ -99,6 +101,8 @@ Device::Device(QObject* parent, const NetworkPacket& identityPacket, DeviceLink*
     , d(new Device::DevicePrivate(identityPacket.get<QString>(QStringLiteral("deviceId"))))
 {
     d->m_deviceName = identityPacket.get<QString>(QStringLiteral("deviceName"));
+    d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
+
     addLink(identityPacket, dl);
 
     //Register in bus
@@ -509,6 +513,10 @@ KdeConnectPlugin* Device::plugin(const QString& pluginName) const
 
 void Device::setPluginEnabled(const QString& pluginName, bool enabled)
 {
+    if (!d->m_allPlugins.contains(pluginName)) {
+        return;
+    }
+
     KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
 
     const QString enabledKey = pluginName + QStringLiteral("Enabled");
