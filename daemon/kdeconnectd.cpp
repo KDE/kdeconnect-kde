@@ -104,6 +104,7 @@ int main(int argc, char* argv[])
     );
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
+    app.setDesktopFileName(QStringLiteral("org.kde.kdeconnect.daemon"));
 
     KDBusService dbusService(KDBusService::Unique);
 

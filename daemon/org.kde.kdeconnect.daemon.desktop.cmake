@@ -6,8 +6,9 @@ X-KDE-autostart-phase=1
 X-GNOME-Autostart-enabled=true
 OnlyShowIn=KDE;GNOME;Unity;XFCE;
 NoDisplay=true
+Icon=kdeconnect
 
-Name=KDEConnect daemon
+Name=KDE Connect
 Name[ar]=عفريت KDEConnect
 Name[bg]=Услуга KDE Connect
 Name[ca]=Dimoni del KDEConnect
