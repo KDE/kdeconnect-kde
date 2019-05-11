@@ -28,6 +28,7 @@
 #include <QDBusConnection>
 #include <QDebug>
 #include <QTemporaryFile>
+#include <QDateTime>
 
 #include <KLocalizedString>
 #include <KJobTrackerInterface>
@@ -81,6 +82,19 @@ static QString cleanFilename(const QString &filename)
     return idx>=0 ? filename.mid(idx + 1) : filename;
 }
 
+void SharePlugin::setDateModified(const QUrl& destination, const qint64 timestamp)
+{
+    QFile receivedFile(destination.toLocalFile());
+    if (!receivedFile.exists()) {
+        if (!receivedFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            QString error_msg = receivedFile.errorString();
+            return;
+        }
+    }
+    receivedFile.open(QIODevice::ReadWrite | QIODevice::Text);
+    receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileModificationTime));
+}
+
 bool SharePlugin::receivePacket(const NetworkPacket& np)
 {
 /*
@@ -108,11 +122,12 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 //         qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file" << filename << "in" << dir << "into" << destination;
         const QString filename = cleanFilename(np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch())));
         QUrl destination = getFileDestination(filename);
-        
+
         if (np.hasPayload()) {
+            qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
             FileTransferJob* job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + ": " + filename);
-            connect(job, &KJob::result, this, &SharePlugin::finished);
+            connect(job, &KJob::result, this, [this, dateModified] (KJob* job) -> void { finished(job, dateModified); });
             KIO::getJobTracker()->registerJob(job);
             job->start();
         } else {
@@ -155,11 +170,12 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SharePlugin::finished(KJob* job)
+void SharePlugin::finished(KJob* job, const qint64 dateModified)
 {
     FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
     if (ftjob && !job->error()) {
         Q_EMIT shareReceived(ftjob->destination().toString());
+        setDateModified(ftjob->destination(), dateModified);
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished." << ftjob->destination();
     } else {
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer failed." << (ftjob ? ftjob->destination() : QUrl());

@@ -48,16 +48,17 @@ public:
     QString dbusPath() const override;
 
 private Q_SLOTS:
-    void finished(KJob*);
     void openDestinationFolder();
 
 Q_SIGNALS:
     Q_SCRIPTABLE void shareReceived(const QString& url);
 
 private:
+    void finished(KJob* job, const qint64 dateModified);
     void shareUrl(const QUrl& url);
     void openFile(const QUrl& url);
     QUrl destinationDir() const;
     QUrl getFileDestination(const QString filename) const;
+    void setDateModified(const QUrl& destination, const qint64 timestamp);
 };
 #endif
