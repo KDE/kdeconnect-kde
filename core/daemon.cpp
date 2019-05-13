@@ -54,6 +54,7 @@ struct DaemonPrivate
     QMap<QString, Device*> m_devices;
 
     QSet<QString> m_discoveryModeAcquisitions;
+    bool m_testMode;
 };
 
 Daemon* Daemon::instance()
@@ -68,10 +69,18 @@ Daemon::Daemon(QObject* parent, bool testMode)
 {
     Q_ASSERT(!s_instance);
     s_instance = this;
+    d->m_testMode = testMode;
+
+    // HACK init may call pure virtual functions from this class so it can't be called directly from the ctor
+    QTimer::singleShot(0, this, &Daemon::init);
+}
+
+void Daemon::init()
+{
     qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
 
     //Load backends
-    if (testMode)
+    if (d->m_testMode)
         d->m_linkProviders.insert(new LoopbackLinkProvider());
     else {
         d->m_linkProviders.insert(new LanLinkProvider());

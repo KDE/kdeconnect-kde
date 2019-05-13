@@ -71,7 +71,6 @@ KdeConnectConfig::KdeConnectConfig()
                              i18n("Could not find support for RSA in your QCA installation. If your "
                                   "distribution provides separate packets for QCA-ossl and QCA-gnupg, "
                                   "make sure you have them installed and try again."));
-        Daemon::instance()->quit();
     }
 
     //Make sure base directory exists
@@ -281,7 +280,6 @@ void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
 
     if (error) {
         Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store private key file: %1", keyPath));
-        Daemon::instance()->quit();
     }
 
 }
@@ -327,6 +325,5 @@ void KdeConnectConfig::generateCertificate(const QString& certPath)
 
     if (error) {
         Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store certificate file: %1", certPath));
-        Daemon::instance()->quit();
     }
 }
