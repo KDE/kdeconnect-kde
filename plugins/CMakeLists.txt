@@ -26,7 +26,7 @@ if(NOT SAILFISHOS)
         add_subdirectory(pausemusic)
     endif()
 
-    if(Qt5Multimedia_FOUND)
+    if(Qt5Multimedia_FOUND AND KF5PulseAudioQt_FOUND)
         add_subdirectory(findthisdevice)
     endif()
 endif()

@@ -11,6 +11,7 @@ target_link_libraries(kdeconnect_findthisdevice
     Qt5::Core
     Qt5::Multimedia
     Qt5::DBus
+    KF5::PulseAudioQt
 )
 
 
