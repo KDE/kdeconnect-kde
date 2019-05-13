@@ -82,6 +82,7 @@ void FileTransferJob::startTransfer()
         return;
 
     setProcessedAmount(Bytes, 0);
+    setTotalAmount(Files, 1);
     Q_EMIT description(this, i18n("Receiving file over KDE Connect"),
                         { i18nc("File transfer origin", "From"), m_from },
                         { i18nc("File transfer destination", "To"), m_destination.toLocalFile() });
@@ -125,7 +126,7 @@ void FileTransferJob::transferFinished()
     //TODO: MD5-check the file
     if (m_size == m_written) {
         qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
-
+        setProcessedAmount(Files, 1);
         emitResult();
     } else {
         qCDebug(KDECONNECT_CORE) << "Received incomplete file ("<< m_written << "/" << m_size << "bytes ), deleting";
