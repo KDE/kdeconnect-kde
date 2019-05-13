@@ -20,11 +20,9 @@
 
 #include "screensaverinhibitplugin.h"
 
-#include <QDebug>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QLoggingCategory>
-#include <core/device.h>
 #include <QDBusConnection>
 #include <QDBusInterface>
 
@@ -44,7 +42,7 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVaria
 {
     QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
 
-    QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, "kdeconnect", "Phone is connected");
+    QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, QStringLiteral("org.kde.kdeconnect.daemon"), i18n("Phone is connected"));
 
     if (reply.errorMessage() != nullptr) {
         qCDebug(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT) << "Unable to inhibit the screensaver: " << reply.errorMessage();
@@ -73,7 +71,6 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
 
 void ScreensaverInhibitPlugin::connected()
 {
-
 }
 
 bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket& np)
@@ -81,6 +78,5 @@ bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket& np)
     Q_UNUSED(np);
     return false;
 }
-
 
 #include "screensaverinhibitplugin.moc"
