@@ -22,8 +22,11 @@
 
 // KF
 #include <KPluginFactory>
+
+#ifndef Q_OS_WIN
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
+#endif
 // Qt
 #include <QDBusConnection>
 #include <QStandardPaths>
@@ -94,6 +97,7 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
     player->setVolume(100);
     player->play();
 
+#ifndef Q_OS_WIN
     const auto sinks = PulseAudioQt::Context::instance()->sinks();
     QVector<PulseAudioQt::Sink*> mutedSinks;
 
@@ -110,6 +114,7 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
             sink->setMuted(true);
         }
     });
+#endif
 
     // TODO: ensure to use built-in loudspeakers
 

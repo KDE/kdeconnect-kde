@@ -11,9 +11,13 @@ target_link_libraries(kdeconnect_findthisdevice
     Qt5::Core
     Qt5::Multimedia
     Qt5::DBus
-    KF5::PulseAudioQt
 )
 
+if (NOT WIN32)
+    target_link_libraries(kdeconnect_findthisdevice
+        KF5::PulseAudioQt
+    )
+endif()
 
 set(kdeconnect_findthisdevice_config_SRCS findthisdevice_config.cpp)
 ki18n_wrap_ui(kdeconnect_findthisdevice_config_SRCS findthisdevice_config.ui)
