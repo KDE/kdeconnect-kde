@@ -216,7 +216,14 @@ void KioKdeconnect::stat(const QUrl& url)
     QString currentDevice = url.host();
     if (!currentDevice.isEmpty()) {
         SftpDbusInterface interface(currentDevice);
-        entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, interface.mountPoint());
+
+        if (interface.isValid()) {
+            entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, interface.mountPoint());
+
+            if (!interface.isMounted()) {
+                interface.mount();
+            }
+        }
     }
 
     statEntry(entry);
