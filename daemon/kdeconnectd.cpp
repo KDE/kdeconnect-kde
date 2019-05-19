@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
     KAboutData aboutData(
-        QStringLiteral("kdeconnectd"),
+        QStringLiteral("org.kde.kdeconnect.daemon"),
         i18n("KDE Connect Daemon"),
         QStringLiteral(KDECONNECT_VERSION_STRING),
         i18n("KDE Connect Daemon"),
@@ -108,7 +108,6 @@ int main(int argc, char* argv[])
     );
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
-    app.setDesktopFileName(QStringLiteral("org.kde.kdeconnect.daemon"));
 
     QCommandLineParser parser;
     QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
