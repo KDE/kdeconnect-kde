@@ -79,7 +79,7 @@ int main(int argc, char** argv)
             return 1;
         }
 
-        urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst());
+        urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst(), QDir::currentPath());
         open = parser.isSet(QStringLiteral("open"));
     }
 
