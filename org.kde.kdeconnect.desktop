@@ -4,4 +4,4 @@ Icon=kdeconnect
 Terminal=false
 Name=KDE Connect
 GenericName=Connect and sync your devices
-Categories=Qt;KDE;Settings;HardwareSettings;
+Categories=Qt;KDE;System;
