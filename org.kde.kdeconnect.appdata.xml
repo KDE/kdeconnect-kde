@@ -7,10 +7,11 @@
   <summary>Seamless connection of your devices</summary>
   <description>
     <p>KDE Connect provides several features to integrate your phone and your computer:
-
-        
-
-        Please note you will need to install KDE Connect on your computer for this app to work, and keep the desktop version up-to-date with the Android version for the latest features to work.
+    </p>
+    <p>Please note you will need to install KDE Connect on your
+    computer for this app to work, and keep the desktop version
+    up-to-date with the Android version for the latest features to
+    work.
     </p>
   </description>
   <url type="homepage">https://community.kde.org/KDEConnect</url>
@@ -18,9 +19,9 @@
   <url type="help">https://docs.kde.org/index.php?application=kdeconnect-kde&amp;language=en</url>
   <screenshots>
     <screenshot type="default">
+      <image default="true">https://cdn.kde.org/screenshots/kdeconnect/plasmoid.png</image>
       <image>https://cdn.kde.org/screenshots/kdeconnect/kcm.png</image>
       <image>https://cdn.kde.org/screenshots/kdeconnect/gnome3.png</image>
-      <image>https://cdn.kde.org/screenshots/kdeconnect/plasmoid.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
