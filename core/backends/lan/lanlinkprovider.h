@@ -64,7 +64,7 @@ public Q_SLOTS:
     void onStop() override;
     void connected();
     void encrypted();
-    void connectError();
+    void connectError(QAbstractSocket::SocketError socketError);
 
 private Q_SLOTS:
     void newUdpConnection();
