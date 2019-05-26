@@ -217,11 +217,12 @@ void LanLinkProvider::udpBroadcastReceived()
     }
 }
 
-void LanLinkProvider::connectError()
+void LanLinkProvider::connectError(QAbstractSocket::SocketError socketError)
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
 
+    qCDebug(KDECONNECT_CORE) << "Socket error" << socketError;
     qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)" << socket->errorString();
     NetworkPacket np(QLatin1String(""));
     NetworkPacket::createIdentityPacket(&np);
