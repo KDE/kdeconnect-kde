@@ -160,7 +160,7 @@ void Daemon::cleanDevices()
 
 void Daemon::forceOnNetworkChange()
 {
-    qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to " << d->m_linkProviders.size() << " LinkProviders";
+    qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to" << d->m_linkProviders.size() << "LinkProviders";
     for (LinkProvider* a : qAsConst(d->m_linkProviders)) {
         a->onNetworkChange();
     }
