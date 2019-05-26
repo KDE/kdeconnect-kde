@@ -77,7 +77,7 @@ Daemon::Daemon(QObject* parent, bool testMode)
 
 void Daemon::init()
 {
-    qCDebug(KDECONNECT_CORE) << "KdeConnect daemon starting";
+    qCDebug(KDECONNECT_CORE) << "Daemon starting";
 
     //Load backends
     if (d->m_testMode)
@@ -110,7 +110,7 @@ void Daemon::init()
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 
-    qCDebug(KDECONNECT_CORE) << "KdeConnect daemon started";
+    qCDebug(KDECONNECT_CORE) << "Daemon started";
 }
 
 void Daemon::acquireDiscoveryMode(const QString& key)

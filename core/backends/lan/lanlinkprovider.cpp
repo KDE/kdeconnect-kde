@@ -88,7 +88,6 @@ void LanLinkProvider::onStart()
     bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
     Q_ASSERT(success);
 
-    qCDebug(KDECONNECT_CORE) << "onStart";
 
     m_tcpPort = MIN_TCP_PORT;
     while (!m_server->listen(bindAddress, m_tcpPort)) {
@@ -101,13 +100,14 @@ void LanLinkProvider::onStart()
     }
 
     onNetworkChange();
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider started";
 }
 
 void LanLinkProvider::onStop()
 {
-    qCDebug(KDECONNECT_CORE) << "onStop";
     m_udpSocket.close();
     m_server->close();
+    qCDebug(KDECONNECT_CORE) << "LanLinkProvider stopped";
 }
 
 void LanLinkProvider::onNetworkChange()
