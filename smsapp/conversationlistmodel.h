@@ -31,10 +31,12 @@
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 
+#include "kdeconnectsms_export.h"
+
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL)
 
 
-class OurSortFilterProxyModel : public QSortFilterProxyModel, public QQmlParserStatus
+class KDECONNECTSMSAPPLIB_EXPORT OurSortFilterProxyModel : public QSortFilterProxyModel, public QQmlParserStatus
 {
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)
@@ -54,6 +56,9 @@ public:
         sortNow();
     }
 
+    OurSortFilterProxyModel();
+    ~OurSortFilterProxyModel();
+
 private:
     void sortNow() {
         if (m_completed && dynamicSortFilter())
@@ -64,7 +69,7 @@ private:
     Qt::SortOrder m_sortOrder = Qt::AscendingOrder;
 };
 
-class ConversationListModel
+class KDECONNECTSMSAPPLIB_EXPORT ConversationListModel
     : public QStandardItemModel
 {
     Q_OBJECT
@@ -83,8 +88,41 @@ public:
     };
     Q_ENUM(Roles)
 
+    enum CountryCode {
+        Australia,
+        CzechRepublic,
+        Other, // I only care about a few country codes
+    };
+
     QString deviceId() const { return m_deviceId; }
     void setDeviceId(const QString &/*deviceId*/);
+
+    /**
+     * Return true to indicate the two phone numbers should be considered the same, false otherwise
+     */
+    static bool isPhoneNumberMatch(const QString& phone1, const QString& phone2);
+
+    /**
+     * Return true to indicate the two phone numbers should be considered the same, false otherwise
+     * Requires canonicalized phone numbers as inputs
+     */
+    static bool isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, const QString& canonicalPhone2);
+
+    /**
+     * See inline comments for how short codes are determined
+     * All information from https://en.wikipedia.org/wiki/Short_code
+     */
+    static bool isShortCode(const QString& canonicalNumber, const CountryCode& country);
+
+    /**
+     * Try to guess the country code from the passed number
+     */
+    static CountryCode determineCountryCode(const QString& canonicalNumber);
+
+    /**
+     * Simplify a phone number to a known form
+     */
+    static QString canonicalizePhoneNumber(const QString& phoneNumber);
 
 public Q_SLOTS:
     void handleCreatedConversation(const QVariantMap& msg);
@@ -105,11 +143,6 @@ private:
      * Get the data for a particular person given their contact address
      */
     KPeople::PersonData* lookupPersonByAddress(const QString& address);
-
-    /**
-     * Simplify a phone number to a known form
-     */
-    QString canonicalizePhoneNumber(const QString& phoneNumber);
 
     QStandardItem* conversationForThreadId(qint32 threadId);
 

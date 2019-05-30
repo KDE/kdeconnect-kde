@@ -28,11 +28,13 @@
 
 #include "interfaces/dbusinterfaces.h"
 
+#include "kdeconnectsms_export.h"
+
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL)
 
 #define INVALID_THREAD_ID -1
 
-class ConversationModel
+class KDECONNECTSMSAPPLIB_EXPORT ConversationModel
     : public QStandardItemModel
 {
     Q_OBJECT

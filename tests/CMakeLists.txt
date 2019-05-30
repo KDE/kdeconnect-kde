@@ -5,6 +5,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}
     ${CMAKE_BINARY_DIR}
     ${CMAKE_BINARY_DIR}/plugins/sendnotifications/
+    ${CMAKE_BINARY_DIR}/smsapp/
 )
 
 set(kdeconnect_libraries
@@ -15,6 +16,14 @@ set(kdeconnect_libraries
     Qt5::Network
     Qt5::Test
     qca-qt5
+)
+
+set(kdeconnect_sms_libraries
+    ${kdeconnect_libraries}
+    kdeconnectinterfaces
+    kdeconnectsms
+    Qt5::Quick
+    KF5::People
 )
 
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
@@ -31,3 +40,4 @@ ecm_add_test(testnotificationlistener.cpp
              ../plugins/sendnotifications/notifyingapplication.cpp
              TEST_NAME testnotificationlistener
              LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications KF5::IconThemes)
+ ecm_add_test(testconversationlistmodel.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
