@@ -285,5 +285,10 @@ QString ConversationListModel::canonicalizePhoneNumber(const QString& phoneNumbe
     toReturn = toReturn.remove(')');
     toReturn = toReturn.remove('+');
     toReturn = toReturn.remove(QRegularExpression("^0*")); // Strip leading zeroes
+
+    if (toReturn.length() == 0) {
+        // If we have stripped away everything, assume this is a special number (and already canonicalized)
+        return phoneNumber;
+    }
     return toReturn;
 }

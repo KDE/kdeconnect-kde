@@ -47,6 +47,7 @@ private Q_SLOTS:
     void testCzechRepublicShortCodeNonMatch();
     void testDifferentPhoneNumbers1();
     void testDifferentPhoneNumbers2();
+    void testAllZeros();
 };
 
 /**
@@ -240,6 +241,17 @@ void ConversationListModelTest::testDifferentPhoneNumbers2()
 
     QVERIFY2(!ConversationListModel::isPhoneNumberMatch(phone1, phone2),
              "Incorrectly *prefix* matched two phone numbers");
+}
+
+/**
+ * Some places allow a message with all zeros to be a short code. We should allow that too.
+ */
+void ConversationListModelTest::testAllZeros()
+{
+    const QString& zeros = QLatin1String("00000");
+    const QString& canonicalized = ConversationListModel::canonicalizePhoneNumber(zeros);
+
+    QCOMPARE(canonicalized.length(), zeros.length());
 }
 
 QTEST_MAIN(ConversationListModelTest);
