@@ -40,4 +40,6 @@ ecm_add_test(testnotificationlistener.cpp
              ../plugins/sendnotifications/notifyingapplication.cpp
              TEST_NAME testnotificationlistener
              LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications KF5::IconThemes)
- ecm_add_test(testconversationlistmodel.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
+if(SMSAPP_ENABLED)
+    ecm_add_test(testconversationlistmodel.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
+endif()
