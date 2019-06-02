@@ -29,15 +29,17 @@
 #include <QPixmap>
 #include <KLocalizedString>
 #include <QFile>
-
+#include <knotifications_version.h>
 #include <QJsonArray>
 
 #include <core/filetransferjob.h>
+#include <core/notificationserverinfo.h>
 
 QMap<QString, FileTransferJob*> Notification::s_downloadsInProgress;
 
-Notification::Notification(const NetworkPacket& np, QObject* parent)
+Notification::Notification(const NetworkPacket& np, const Device* device, QObject* parent)
     : QObject(parent)
+    , m_device(device)
 {
     //Make a own directory for each user so noone can see each others icons
     QString username;
@@ -102,19 +104,32 @@ void Notification::createKNotification(const NetworkPacket& np)
     QString escapedText = m_text.toHtmlEscaped();
     QString escapedTicker = m_ticker.toHtmlEscaped();
 
-    m_notification->setTitle(m_appName.toHtmlEscaped());
-
-    if (m_title.isEmpty() && m_text.isEmpty()) {
-       m_notification->setText(escapedTicker);
-    } else if (m_appName == m_title) {
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 57, 0)
+    if (NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::X_KDE_DISPLAY_APPNAME)) {
+        m_notification->setTitle(escapedTitle);
         m_notification->setText(escapedText);
-    } else if (m_title.isEmpty()) {
-         m_notification->setText(escapedText);
-    } else if (m_text.isEmpty()) {
-         m_notification->setText(escapedTitle);
+        m_notification->setHint(QStringLiteral("x-kde-display-appname"), m_appName.toHtmlEscaped());
     } else {
-        m_notification->setText(escapedTitle + ": " + escapedText);
+#endif
+        m_notification->setTitle(m_appName.toHtmlEscaped());
+
+        if (m_title.isEmpty() && m_text.isEmpty()) {
+            m_notification->setText(escapedTicker);
+        } else if (m_appName == m_title) {
+            m_notification->setText(escapedText);
+        } else if (m_title.isEmpty()) {
+            m_notification->setText(escapedText);
+        } else if (m_text.isEmpty()) {
+            m_notification->setText(escapedTitle);
+        } else {
+            m_notification->setText(escapedTitle + ": " + escapedText);
+        }
+
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 57, 0)
     }
+
+    m_notification->setHint(QStringLiteral("x-kde-origin-name"), m_device->name());
+#endif
 
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 

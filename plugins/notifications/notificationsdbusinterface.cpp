@@ -82,7 +82,7 @@ void NotificationsDbusInterface::processPacket(const NetworkPacket& np)
     Notification* noti = nullptr;
 
     if (!m_internalIdToPublicId.contains(id)) {
-        noti = new Notification(np, this);
+        noti = new Notification(np, m_plugin->device(), this);
 
         if (noti->isReady()) {
             addNotification(noti);

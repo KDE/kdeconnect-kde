@@ -28,6 +28,7 @@
 #include <QPointer>
 
 #include <core/networkpacket.h>
+#include <core/device.h>
 
 class Notification
     : public QObject
@@ -46,7 +47,7 @@ class Notification
     Q_PROPERTY(QString replyId READ replyId NOTIFY ready)
 
 public:
-    Notification(const NetworkPacket& np, QObject* parent);
+    Notification(const NetworkPacket& np, const Device* device, QObject* parent);
     ~Notification() override;
 
     QString internalId() const { return m_internalId; }
@@ -90,6 +91,7 @@ private:
     QString m_payloadHash;
     bool m_ready;
     QStringList m_actions;
+    const Device* m_device;
 
     void parseNetworkPacket(const NetworkPacket& np);
     void loadIcon(const NetworkPacket& np);

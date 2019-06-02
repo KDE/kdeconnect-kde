@@ -37,6 +37,7 @@ set(kdeconnectcore_SRCS
     daemon.cpp
     device.cpp
     core_debug.cpp
+    notificationserverinfo.cpp
 )
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})
