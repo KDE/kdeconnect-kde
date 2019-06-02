@@ -26,7 +26,6 @@
 #include <QDir>
 #include <QDesktopServices>
 #include <QDBusConnection>
-#include <QDebug>
 #include <QTemporaryFile>
 #include <QDateTime>
 
@@ -44,6 +43,7 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share")
 
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
+    , m_compositeJob()
 {
 }
 
@@ -121,11 +121,20 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 
         if (np.hasPayload()) {
             qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
+
+            if (!m_compositeJob) {
+                m_compositeJob = new CompositeFileTransferJob(device()->id());
+                KIO::getJobTracker()->registerJob(m_compositeJob);
+            }
+
             FileTransferJob* job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + ": " + filename);
             connect(job, &KJob::result, this, [this, dateModified] (KJob* job) -> void { finished(job, dateModified); });
-            KIO::getJobTracker()->registerJob(job);
-            job->start();
+            m_compositeJob->addSubjob(job);
+
+            if (!m_compositeJob->isRunning()) {
+                m_compositeJob->start();
+            }
         } else {
             QFile file(destination.toLocalFile());
             file.open(QIODevice::WriteOnly);

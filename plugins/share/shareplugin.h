@@ -21,9 +21,12 @@
 #ifndef SHAREPLUGIN_H
 #define SHAREPLUGIN_H
 
+#include <QPointer>
+
 #include <KIO/Job>
 
 #include <core/kdeconnectplugin.h>
+#include <core/compositefiletransferjob.h>
 
 #define PACKET_TYPE_SHARE_REQUEST QStringLiteral("kdeconnect.share.request")
 #define PACKET_TYPE_SHARE_REQUEST_UPDATE QStringLiteral("kdeconnect.share.request.update")
@@ -60,5 +63,7 @@ private:
     QUrl destinationDir() const;
     QUrl getFileDestination(const QString filename) const;
     void setDateModified(const QUrl& destination, const qint64 timestamp);
+
+    QPointer<CompositeFileTransferJob> m_compositeJob;
 };
 #endif

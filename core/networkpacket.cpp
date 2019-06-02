@@ -176,6 +176,6 @@ bool NetworkPacket::unserialize(const QByteArray& a, NetworkPacket* np)
 
 FileTransferJob* NetworkPacket::createPayloadTransferJob(const QUrl& destination) const
 {
-    return new FileTransferJob(payload(), payloadSize(), destination);
+    return new FileTransferJob(this, destination);
 }
 

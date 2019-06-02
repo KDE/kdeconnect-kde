@@ -29,15 +29,16 @@
 
 #include <KLocalizedString>
 
-FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination)
+FileTransferJob::FileTransferJob(const NetworkPacket* np, const QUrl& destination)
     : KJob()
-    , m_origin(origin)
+    , m_origin(np->payload())
     , m_reply(nullptr)
     , m_from(QStringLiteral("KDE Connect"))
     , m_destination(destination)
     , m_speedBytes(0)
     , m_written(0)
-    , m_size(size)
+    , m_size(np->payloadSize())
+    , m_np(np)
 {
     Q_ASSERT(m_origin);
     //Disabled this assert: QBluetoothSocket doesn't report "->isReadable() == true" until it's connected
@@ -48,7 +49,7 @@ FileTransferJob::FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64
     }
 
     setCapabilities(Killable);
-    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination << "size:" << size;
+    qCDebug(KDECONNECT_CORE) << "FileTransferJob Downloading payload to" << destination << "size:" << m_size;
 }
 
 void FileTransferJob::start()
@@ -59,10 +60,6 @@ void FileTransferJob::start()
 
 void FileTransferJob::doStart()
 {
-    Q_EMIT description(this, i18n("Receiving file over KDE Connect"),
-        { i18nc("File transfer origin", "From"), m_from }
-    );
-
     if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
         setError(2);
         setErrorText(i18n("Filename already present"));
@@ -82,10 +79,6 @@ void FileTransferJob::startTransfer()
         return;
 
     setProcessedAmount(Bytes, 0);
-    setTotalAmount(Files, 1);
-    Q_EMIT description(this, i18n("Receiving file over KDE Connect"),
-                        { i18nc("File transfer origin", "From"), m_from },
-                        { i18nc("File transfer destination", "To"), m_destination.toLocalFile() });
 
     QNetworkRequest req(m_destination);
     if (m_size >= 0) {
@@ -126,7 +119,6 @@ void FileTransferJob::transferFinished()
     //TODO: MD5-check the file
     if (m_size == m_written) {
         qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
-        setProcessedAmount(Files, 1);
         emitResult();
     } else {
         qCDebug(KDECONNECT_CORE) << "Received incomplete file ("<< m_written << "/" << m_size << "bytes ), deleting";

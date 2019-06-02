@@ -33,6 +33,7 @@ set(kdeconnectcore_SRCS
     dbushelper.cpp
     networkpacket.cpp
     filetransferjob.cpp
+    compositefiletransferjob.cpp
     daemon.cpp
     device.cpp
     core_debug.cpp

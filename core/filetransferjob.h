@@ -32,6 +32,7 @@
 
 #include "kdeconnectcore_export.h"
 
+class NetworkPacket;
 /**
  * @short It will stream a device into a url destination
  *
@@ -49,10 +50,11 @@ public:
      * @p size specifies the expected size of the stream we're reading.
      * @p destination specifies where these contents should be stored
      */
-    FileTransferJob(const QSharedPointer<QIODevice>& origin, qint64 size, const QUrl& destination);
+    FileTransferJob(const NetworkPacket* np, const QUrl& destination);
     void start() override;
     QUrl destination() const { return m_destination; }
     void setOriginName(const QString& from) { m_from = from; }
+    const NetworkPacket* networkPacket() { return m_np;}
 
 private Q_SLOTS:
     void doStart();
@@ -74,6 +76,7 @@ private:
     qulonglong m_speedBytes;
     qint64 m_written;
     qint64 m_size;
+    const NetworkPacket* m_np;
 };
 
 #endif
