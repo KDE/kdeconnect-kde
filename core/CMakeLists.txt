@@ -2,10 +2,6 @@ project(KDEConnectCore)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
-include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR}
-)
-
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
