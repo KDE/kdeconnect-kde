@@ -56,8 +56,8 @@ public:
         sortNow();
     }
 
-    OurSortFilterProxyModel();
-    ~OurSortFilterProxyModel();
+    OurSortFilterProxyModel() override;
+    ~OurSortFilterProxyModel() override;
 
 private:
     void sortNow() {
@@ -76,8 +76,8 @@ class KDECONNECTSMSAPPLIB_EXPORT ConversationListModel
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    ConversationListModel(QObject* parent = nullptr);
-    ~ConversationListModel();
+    ConversationListModel(QObject* parent = nullptr) override;
+    ~ConversationListModel() override;
 
     enum Roles {
         FromMeRole = Qt::UserRole,
@@ -89,13 +89,13 @@ public:
     Q_ENUM(Roles)
 
     QString deviceId() const { return m_deviceId; }
-    void setDeviceId(const QString &/*deviceId*/);
+    void setDeviceId(const QString &/*deviceId*/) override;
 
 public Q_SLOTS:
-    void handleCreatedConversation(const QVariantMap& msg);
-    void handleConversationUpdated(const QVariantMap& msg);
-    void createRowFromMessage(const QVariantMap& message);
-    void printDBusError(const QDBusError& error);
+    void handleCreatedConversation(const QVariantMap& msg) override;
+    void handleConversationUpdated(const QVariantMap& msg) override;
+    void createRowFromMessage(const QVariantMap& message) override;
+    void printDBusError(const QDBusError& error) override;
 
 Q_SIGNALS:
     void deviceIdChanged();
@@ -104,14 +104,14 @@ private:
     /**
      * Get all conversations currently known by the conversationsInterface, if any
      */
-    void prepareConversationsList();
+    void prepareConversationsList() override;
 
     /**
      * Get the data for a particular person given their contact address
      */
-    KPeople::PersonData* lookupPersonByAddress(const QString& address);
+    KPeople::PersonData* lookupPersonByAddress(const QString& address) override;
 
-    QStandardItem* conversationForThreadId(qint32 threadId);
+    QStandardItem* conversationForThreadId(qint32 threadId) override;
 
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;

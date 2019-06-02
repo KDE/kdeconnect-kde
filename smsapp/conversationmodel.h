@@ -42,8 +42,8 @@ class KDECONNECTSMSAPPLIB_EXPORT ConversationModel
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId)
 
 public:
-    ConversationModel(QObject* parent = nullptr);
-    ~ConversationModel();
+    ConversationModel(QObject* parent = nullptr) override;
+    ~ConversationModel() override;
 
     enum Roles {
         FromMeRole = Qt::UserRole,
@@ -52,18 +52,18 @@ public:
 
     Q_ENUM(Roles)
 
-    qint64 threadId() const;
-    void setThreadId(const qint64& threadId);
+    qint64 threadId() const  override;
+    void setThreadId(const qint64& threadId)  override;
 
     QString deviceId() const { return m_deviceId; }
-    void setDeviceId(const QString &/*deviceId*/);
+    void setDeviceId(const QString &/*deviceId*/)  override;
 
-    Q_INVOKABLE void sendReplyToConversation(const QString& message);
-    Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
+    Q_INVOKABLE void sendReplyToConversation(const QString& message) override;
+    Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10) override;
 
 private Q_SLOTS:
-    void createRowFromMessage(const QVariantMap &msg, int pos);
-    void handleConversationUpdate(const QVariantMap &msg);
+    void createRowFromMessage(const QVariantMap &msg, int pos) override;
+    void handleConversationUpdate(const QVariantMap &msg) override;
 
 private:
     DeviceConversationsDbusInterface* m_conversationsInterface;
