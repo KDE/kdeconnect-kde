@@ -56,6 +56,8 @@ public:
 
     Device* getDevice(const QString& deviceId);
 
+    const QSet<LinkProvider*>& getLinkProviders() const;
+
     QStringList pairingRequests() const;
 
     Q_SCRIPTABLE QString selfId() const;

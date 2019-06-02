@@ -31,6 +31,9 @@ public:
         : Daemon(parent, true)
         , m_nam(nullptr)
     {
+        // Necessary to force the event loop to run because the test harness seems to behave differently
+        // and we need the QTimer::SingleShot in Daemon's constructor to fire
+        QCoreApplication::processEvents();
     }
 
     void addDevice(Device* device) {

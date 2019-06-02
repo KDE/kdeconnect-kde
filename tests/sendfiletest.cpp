@@ -51,6 +51,10 @@ class TestSendFile : public QObject
 
     private Q_SLOTS:
         void testSend() {
+            if (!(m_daemon->getLinkProviders().size() > 0)) {
+                QFAIL("No links available, but loopback should have been provided by the test");
+            }
+
             m_daemon->acquireDiscoveryMode(QStringLiteral("test"));
             Device* d = nullptr;
             const QList<Device*> devicesList = m_daemon->devicesList();
@@ -61,8 +65,10 @@ class TestSendFile : public QObject
                     d = id;
                 }
             }
+            if (d == nullptr) {
+                QFAIL("Unable to determine device");
+            }
             m_daemon->releaseDiscoveryMode(QStringLiteral("test"));
-            QVERIFY(d);
             QCOMPARE(d->isReachable(), true);
             QCOMPARE(d->isTrusted(), true);
 

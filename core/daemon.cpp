@@ -179,6 +179,11 @@ Device*Daemon::getDevice(const QString& deviceId)
     return nullptr;
 }
 
+const QSet<LinkProvider*>& Daemon::getLinkProviders() const
+{
+    return d->m_linkProviders;
+}
+
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;

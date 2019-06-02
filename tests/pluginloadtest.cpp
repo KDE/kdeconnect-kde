@@ -46,6 +46,10 @@ class PluginLoadTest : public QObject
 
     private Q_SLOTS:
         void testPlugins() {
+            if (!(m_daemon->getLinkProviders().size() > 0)) {
+                QFAIL("No links available, but loopback should have been provided by the test");
+            }
+
             Device* d = nullptr;
             m_daemon->acquireDiscoveryMode(QStringLiteral("plugintest"));
             const QList<Device*> devicesList = m_daemon->devicesList();
@@ -56,6 +60,9 @@ class PluginLoadTest : public QObject
                     d = id;
                     break;
                 }
+            }
+            if (d == nullptr) {
+                QFAIL("Unable to determine device");
             }
             m_daemon->releaseDiscoveryMode(QStringLiteral("plugintest"));
 
