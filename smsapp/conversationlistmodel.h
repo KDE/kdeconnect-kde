@@ -31,12 +31,10 @@
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 
-#include "kdeconnectsms_export.h"
-
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL)
 
 
-class KDECONNECTSMSAPPLIB_EXPORT OurSortFilterProxyModel : public QSortFilterProxyModel, public QQmlParserStatus
+class OurSortFilterProxyModel : public QSortFilterProxyModel, public QQmlParserStatus
 {
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)
@@ -69,7 +67,7 @@ private:
     Qt::SortOrder m_sortOrder = Qt::AscendingOrder;
 };
 
-class KDECONNECTSMSAPPLIB_EXPORT ConversationListModel
+class ConversationListModel
     : public QStandardItemModel
 {
     Q_OBJECT
