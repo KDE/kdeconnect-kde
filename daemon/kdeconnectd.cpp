@@ -26,6 +26,7 @@
 #include <QCommandLineParser>
 #include <QDBusMessage>
 #include <QDBusConnection>
+#include <QSessionManager>
 
 #include <KDBusService>
 #include <KNotification>
@@ -115,6 +116,13 @@ int main(int argc, char* argv[])
 
     Daemon* daemon = new DesktopDaemon;
     QObject::connect(daemon, SIGNAL(destroyed(QObject*)), &app, SLOT(quit()));
+
+    // kdeconnectd is autostarted, so disable session management to speed up startup
+    auto disableSessionManagement = [](QSessionManager &sm) {
+        sm.setRestartHint(QSessionManager::RestartNever);
+    };
+    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
+    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     return app.exec();
 }
