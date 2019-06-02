@@ -88,41 +88,8 @@ public:
     };
     Q_ENUM(Roles)
 
-    enum CountryCode {
-        Australia,
-        CzechRepublic,
-        Other, // I only care about a few country codes
-    };
-
     QString deviceId() const { return m_deviceId; }
     void setDeviceId(const QString &/*deviceId*/);
-
-    /**
-     * Return true to indicate the two phone numbers should be considered the same, false otherwise
-     */
-    static bool isPhoneNumberMatch(const QString& phone1, const QString& phone2);
-
-    /**
-     * Return true to indicate the two phone numbers should be considered the same, false otherwise
-     * Requires canonicalized phone numbers as inputs
-     */
-    static bool isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, const QString& canonicalPhone2);
-
-    /**
-     * See inline comments for how short codes are determined
-     * All information from https://en.wikipedia.org/wiki/Short_code
-     */
-    static bool isShortCode(const QString& canonicalNumber, const CountryCode& country);
-
-    /**
-     * Try to guess the country code from the passed number
-     */
-    static CountryCode determineCountryCode(const QString& canonicalNumber);
-
-    /**
-     * Simplify a phone number to a known form
-     */
-    static QString canonicalizePhoneNumber(const QString& phoneNumber);
 
 public Q_SLOTS:
     void handleCreatedConversation(const QVariantMap& msg);

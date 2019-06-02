@@ -19,11 +19,8 @@ set(kdeconnect_libraries
 )
 
 set(kdeconnect_sms_libraries
-    ${kdeconnect_libraries}
-    kdeconnectinterfaces
-    kdeconnectsms
-    Qt5::Quick
-    KF5::People
+    kdeconnectsmshelper
+    Qt5::Test
 )
 
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
@@ -41,5 +38,5 @@ ecm_add_test(testnotificationlistener.cpp
              TEST_NAME testnotificationlistener
              LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications KF5::IconThemes)
 if(SMSAPP_ENABLED)
-    ecm_add_test(testconversationlistmodel.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
+    ecm_add_test(testsmshelper.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
 endif()
