@@ -88,11 +88,14 @@ void LanLinkProvider::onStart()
 
     bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
     if (!success) {
-        QAbstractSocket::SocketError sockErr = m_udpSocket->error();
+        QAbstractSocket::SocketError sockErr = m_udpSocket.error();
         // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
-        QString errorMessage = QLatin1String("Failed to bind UDP socket with error ");
-        errorMessage = errorMessage + QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr);
-        qCritical(errorMessage.toLocal8Bit().data());
+        QString errorMessage = QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr);
+        qCritical(KDECONNECT_CORE)
+            << QLatin1String("Failed to bind UDP socket on port")
+            << UDP_PORT
+            << QLatin1String("with error")
+            << errorMessage;
     }
     Q_ASSERT(success);
 
