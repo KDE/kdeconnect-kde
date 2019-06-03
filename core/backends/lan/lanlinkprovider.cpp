@@ -30,6 +30,7 @@
 
 #include <QHostInfo>
 #include <QTcpServer>
+#include <QMetaEnum>
 #include <QNetworkProxy>
 #include <QUdpSocket>
 #include <QNetworkSession>
@@ -86,8 +87,14 @@ void LanLinkProvider::onStart()
     const QHostAddress bindAddress = m_testMode? QHostAddress::LocalHost : QHostAddress::Any;
 
     bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
+    if (!success) {
+        QAbstractSocket::SocketError sockErr = m_udpSocket->error();
+        // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
+        QString errorMessage = QLatin1String("Failed to bind UDP socket with error ");
+        errorMessage = errorMessage + QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr);
+        qCritical(errorMessage.toLocal8Bit().data());
+    }
     Q_ASSERT(success);
-
 
     m_tcpPort = MIN_TCP_PORT;
     while (!m_server->listen(bindAddress, m_tcpPort)) {
