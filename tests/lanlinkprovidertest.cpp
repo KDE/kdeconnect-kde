@@ -32,6 +32,7 @@
 #include <QSslKey>
 #include <QUdpSocket>
 #include <QtCrypto>
+#include <QMetaEnum>
 
 /*
  * This class tests the working of LanLinkProvider under different conditions that when identity packet is received over TCP, over UDP and same when the device is paired.
@@ -42,14 +43,28 @@ class LanLinkProviderTest : public QObject
     Q_OBJECT
 public:
     explicit LanLinkProviderTest()
-    : m_lanLinkProvider(true) {
+    : m_lanLinkProvider(true)
+    , m_server(nullptr)
+    , m_reader(nullptr)
+    , m_udpSocket(nullptr)
+    {
         QStandardPaths::setTestModeEnabled(true);
     }
 
 public Q_SLOTS:
     void initTestCase();
+    void init();
+    void cleanup();
 
 private Q_SLOTS:
+    /**
+     * Test that the LanLinkProvider will send an identity packet to a non-default port
+     */
+    void testChangedUDPBroadcastPort();
+    /**
+     * Test that the LanLinkProvider will receive an identity packet on a non-default port
+     */
+    void testChangedUDPListenPort();
 
     void pairedDeviceTcpPacketReceived();
     void pairedDeviceUdpPacketReceived();
@@ -78,7 +93,7 @@ private:
     void removeTrustedDevice();
     void setSocketAttributes(QSslSocket* socket);
     void testIdentityPacket(QByteArray& identityPacket);
-
+    void socketBindErrorFail(const QUdpSocket& socket);
 };
 
 void LanLinkProviderTest::initTestCase()
@@ -90,22 +105,90 @@ void LanLinkProviderTest::initTestCase()
     m_privateKey = QCA::KeyGenerator().createRSA(2048);
     m_certificate = generateCertificate(m_deviceId, m_privateKey);
 
-    m_lanLinkProvider.onStart();
-
     m_identityPacket = QStringLiteral("{\"id\":1439365924847,\"type\":\"kdeconnect.identity\",\"body\":{\"deviceId\":\"testdevice\",\"deviceName\":\"Test Device\",\"protocolVersion\":6,\"deviceType\":\"phone\",\"tcpPort\":") + QString::number(TEST_PORT) + QStringLiteral("}}");
+}
+
+void LanLinkProviderTest::init()
+{
+    m_lanLinkProvider.onStart();
+}
+
+void LanLinkProviderTest::cleanup()
+{
+    m_lanLinkProvider.onStop();
+}
+
+void LanLinkProviderTest::testChangedUDPBroadcastPort()
+{
+    quint16 udpListenPort = LanLinkProvider::UDP_PORT;
+    quint16 udpBroadcastPort = LanLinkProvider::UDP_PORT + 1;
+
+    m_lanLinkProvider.onStop();
+    LanLinkProvider testlanLinkProvider(true, udpBroadcastPort, udpListenPort);
+    testlanLinkProvider.onStart();
+
+    QUdpSocket mUdpServer;
+    bool bindSuccessful = mUdpServer.bind(QHostAddress::LocalHost, udpBroadcastPort, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
+    if (!bindSuccessful) {
+        socketBindErrorFail(mUdpServer);
+    }
+
+    QSignalSpy spy(&mUdpServer, SIGNAL(readyRead()));
+    testlanLinkProvider.onNetworkChange();
+    QVERIFY2(!spy.isEmpty() || spy.wait(), "Did not receive UDP packet");
+}
+
+void LanLinkProviderTest::testChangedUDPListenPort()
+{
+    quint16 udpListenPort = LanLinkProvider::UDP_PORT + 1;
+    quint16 udpBroadcastPort = LanLinkProvider::UDP_PORT;
+
+    m_lanLinkProvider.onStop();
+    LanLinkProvider testlanLinkProvider(true, udpBroadcastPort, udpListenPort);
+    testlanLinkProvider.onStart();
+
+    m_server = new Server(this);
+    QUdpSocket testUdpSocket;
+
+    m_server->listen(QHostAddress::LocalHost, TEST_PORT);
+
+    QSignalSpy spy(m_server, SIGNAL(newConnection()));
+
+    // Write an identity packet to udp socket here. We do not broadcast it here.
+    qint64 bytesWritten = testUdpSocket.writeDatagram(m_identityPacket.toLatin1(), QHostAddress::LocalHost, udpListenPort);
+    QCOMPARE(bytesWritten, m_identityPacket.size());
+
+    // In response to receiving an identity packet, the LanLinkProvider should try to open a TCP connection to us
+    QVERIFY(!spy.isEmpty() || spy.wait());
+
+    QSslSocket* serverSocket = m_server->nextPendingConnection();
+
+    QVERIFY2(serverSocket != 0, "Server socket is null");
+    QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
+
+    delete m_server;
 }
 
 void LanLinkProviderTest::pairedDeviceTcpPacketReceived()
 {
+    quint16 udpListenPort = LanLinkProvider::UDP_PORT;
+    quint16 udpBroadcastPort = LanLinkProvider::UDP_PORT + 1;
+
+    m_lanLinkProvider.onStop();
+    LanLinkProvider testlanLinkProvider(true, udpBroadcastPort, udpListenPort);
+    testlanLinkProvider.onStart();
+
     KdeConnectConfig* kcc = KdeConnectConfig::instance();
     addTrustedDevice();
 
     QUdpSocket* mUdpServer = new QUdpSocket;
-    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::UDP_PORT, QUdpSocket::ShareAddress);
-    QVERIFY(b);
+    bool bindSuccessful = mUdpServer->bind(QHostAddress::LocalHost, udpBroadcastPort, QUdpSocket::ShareAddress);
+    if (!bindSuccessful) {
+        socketBindErrorFail(*mUdpServer);
+    }
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
-    m_lanLinkProvider.onNetworkChange();
+    testlanLinkProvider.onNetworkChange();
     QVERIFY(!spy.isEmpty() || spy.wait());
 
     QByteArray datagram;
@@ -208,12 +291,21 @@ void LanLinkProviderTest::pairedDeviceUdpPacketReceived()
 
 void LanLinkProviderTest::unpairedDeviceTcpPacketReceived()
 {
+    quint16 udpListenPort = LanLinkProvider::UDP_PORT;
+    quint16 udpBroadcastPort = LanLinkProvider::UDP_PORT + 1;
+
+    m_lanLinkProvider.onStop();
+    LanLinkProvider testlanLinkProvider(true, udpBroadcastPort, udpListenPort);
+    testlanLinkProvider.onStart();
+
     QUdpSocket* mUdpServer = new QUdpSocket;
-    bool b = mUdpServer->bind(QHostAddress::LocalHost, LanLinkProvider::UDP_PORT, QUdpSocket::ShareAddress);
-    QVERIFY(b);
+    bool bindSuccessful = mUdpServer->bind(QHostAddress::LocalHost, udpBroadcastPort, QUdpSocket::ShareAddress);
+    if (!bindSuccessful) {
+        socketBindErrorFail(*mUdpServer);
+    }
 
     QSignalSpy spy(mUdpServer, SIGNAL(readyRead()));
-    m_lanLinkProvider.onNetworkChange();
+    testlanLinkProvider.onNetworkChange();
     QVERIFY(!spy.isEmpty() || spy.wait());
 
     QByteArray datagram;
@@ -349,6 +441,15 @@ void LanLinkProviderTest::removeTrustedDevice()
 {
     KdeConnectConfig* kcc = KdeConnectConfig::instance();
     kcc->removeTrustedDevice(m_deviceId);
+}
+
+void LanLinkProviderTest::socketBindErrorFail(const QUdpSocket& socket)
+{
+    QAbstractSocket::SocketError sockErr = socket.error();
+    // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
+    QString errorMessage = QLatin1String("Failed to bind UDP socket with error ");
+    errorMessage = errorMessage + QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr);
+    QFAIL(errorMessage.toLocal8Bit().data());
 }
 
 

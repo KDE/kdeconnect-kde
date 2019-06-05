@@ -40,7 +40,16 @@ class KDECONNECTCORE_EXPORT LanLinkProvider
     Q_OBJECT
 
 public:
-    LanLinkProvider(bool testMode = false);
+    /**
+     * @param testMode Some special overrides needed while testing
+     * @param udpBroadcastPort Port which should be used for *sending* identity packets
+     * @param udpListenPort Port which should be used for *receiving* identity packets
+     */
+    LanLinkProvider(
+            bool testMode = false,
+            quint16 udpBroadcastPort = UDP_PORT,
+            quint16 udpListenPort = UDP_PORT
+            );
     ~LanLinkProvider() override;
 
     QString name() override { return QStringLiteral("LanLinkProvider"); }
@@ -53,6 +62,9 @@ public:
     static void configureSslSocket(QSslSocket* socket, const QString& deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket* socket);
 
+    /**
+     * This is the default UDP port both for broadcasting and receiving identity packets
+     */
     const static quint16 UDP_PORT = 1716;
     const static quint16 MIN_TCP_PORT = 1716;
     const static quint16 MAX_TCP_PORT = 1764;
@@ -82,6 +94,9 @@ private:
     Server* m_server;
     QUdpSocket m_udpSocket;
     quint16 m_tcpPort;
+
+    quint16 m_udpBroadcastPort;
+    quint16 m_udpListenPort;
 
     QMap<QString, LanDeviceLink*> m_links;
     QMap<QString, LanPairingHandler*> m_pairingHandlers;
