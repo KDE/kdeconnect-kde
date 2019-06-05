@@ -32,6 +32,7 @@ ecm_add_test(kdeconnectconfigtest.cpp TEST_NAME kdeconnectconfigtest LINK_LIBRAR
 ecm_add_test(lanlinkprovidertest.cpp TEST_NAME lanlinkprovidertest LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(devicetest.cpp TEST_NAME devicetest LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(testnotificationlistener.cpp
+             testdevice.cpp
              ../plugins/sendnotifications/sendnotificationsplugin.cpp
              ../plugins/sendnotifications/notificationslistener.cpp
              ../plugins/sendnotifications/notifyingapplication.cpp

@@ -31,6 +31,7 @@
 
 #include "core/daemon.h"
 #include "core/device.h"
+#include "testdevice.h"
 #include "core/kdeconnectplugin.h"
 #include "kdeconnect-version.h"
 #include "plugins/sendnotifications/sendnotificationsplugin.h"
@@ -60,58 +61,6 @@ public:
         notificationsListener = value;
     }
 
-};
-
-// Tweaked Device for testing:
-class TestDevice: public Device
-{
-    Q_OBJECT
-private:
-    int sentPackets;
-    NetworkPacket* lastPacket;
-
-public:
-    explicit TestDevice(QObject* parent, const QString& id)
-        : Device (parent, id)
-        , sentPackets(0)
-        , lastPacket(nullptr)
-    {}
-
-    ~TestDevice() override
-    {
-        delete lastPacket;
-    }
-
-    int getSentPackets() const
-    {
-        return sentPackets;
-    }
-
-    NetworkPacket* getLastPacket()
-    {
-        return lastPacket;
-    }
-
-    void deleteLastPacket()
-    {
-        delete lastPacket;
-        lastPacket = nullptr;
-    }
-
-public Q_SLOTS:
-    bool sendPacket(NetworkPacket& np) override
-    {
-        ++sentPackets;
-        // copy packet manually to allow for inspection (can't use copy-constructor)
-        deleteLastPacket();
-        lastPacket = new NetworkPacket(np.type());
-        Q_ASSERT(lastPacket);
-        for (QVariantMap::ConstIterator iter = np.body().constBegin();
-             iter != np.body().constEnd(); iter++)
-            lastPacket->set(iter.key(), iter.value());
-        lastPacket->setPayload(np.payload(), np.payloadSize());
-        return true;
-    }
 };
 
 // Tweaked NotificationsListener for testing:

@@ -87,7 +87,7 @@ public:
     Q_SCRIPTABLE bool isTrusted() const;
 
     Q_SCRIPTABLE QStringList availableLinks() const;
-    bool isReachable() const;
+    virtual bool isReachable() const;
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
     Q_SCRIPTABLE bool hasPlugin(const QString& name) const;
