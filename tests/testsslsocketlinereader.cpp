@@ -35,6 +35,7 @@ class TestSslSocketLineReader : public QObject
     Q_OBJECT
 public Q_SLOTS:
     void newPacket();
+    void testTimeout();
 
 private Q_SLOTS:
 
@@ -50,6 +51,7 @@ private Q_SLOTS:
 
 private:
     const int PORT = 7894;
+    const int TIMEOUT = 4 * 1000;
     QTimer m_timer;
     QCA::Initializer m_qcaInitializer;
     QEventLoop m_loop;
@@ -68,20 +70,20 @@ void TestSslSocketLineReader::initTestCase()
 
     QVERIFY2(m_server->listen(QHostAddress::LocalHost, PORT), "Failed to create local tcp server");
 
-    m_timer.setInterval(10 * 1000);//Ten second is more enough for this test, just used this so that to break mLoop if stuck
     m_timer.setSingleShot(true);
-    connect(&m_timer, &QTimer::timeout, &m_loop, &QEventLoop::quit);
-
-    m_timer.start();
+    connect(&m_timer, &QTimer::timeout, this, &TestSslSocketLineReader::testTimeout);
 }
 
 void TestSslSocketLineReader::init()
 {
+    m_timer.setInterval(TIMEOUT);
+    m_timer.start();
+
     m_clientSocket = new QSslSocket(this);
     m_clientSocket->connectToHost(QHostAddress::LocalHost, PORT);
     connect(m_clientSocket, &QAbstractSocket::connected, &m_loop, &QEventLoop::quit);
 
-    m_loop.exec();
+    m_loop.processEvents(QEventLoop::AllEvents, TIMEOUT);
 
     QVERIFY2(m_clientSocket->isOpen(), "Could not connect to local tcp server");
 }
@@ -89,6 +91,7 @@ void TestSslSocketLineReader::init()
 void TestSslSocketLineReader::cleanup()
 {
     m_clientSocket->disconnectFromHost();
+    m_timer.stop();
     delete m_clientSocket;
 }
 
@@ -296,6 +299,12 @@ void TestSslSocketLineReader::newPacket()
             m_loop.exit();
         }
     }
+}
+
+void TestSslSocketLineReader::testTimeout()
+{
+    m_loop.exit(-1);
+    QFAIL("Test Timed Out");
 }
 
 void TestSslSocketLineReader::setSocketAttributes(QSslSocket* socket, QString deviceName) {
