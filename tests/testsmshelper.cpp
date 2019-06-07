@@ -48,6 +48,7 @@ private Q_SLOTS:
     void testDifferentPhoneNumbers1();
     void testDifferentPhoneNumbers2();
     void testAllZeros();
+    void testEmptyInput();
 };
 
 /**
@@ -252,6 +253,19 @@ void SmsHelperTest::testAllZeros()
     const QString& canonicalized = SmsHelper::canonicalizePhoneNumber(zeros);
 
     QCOMPARE(canonicalized.length(), zeros.length());
+}
+
+/**
+ * An empty string is not a valid phone number and should not match anything
+ */
+void SmsHelperTest::testEmptyInput()
+{
+    const QString& empty = QLatin1String("");
+    const QString& shortCode = QLatin1String("44455");
+    const QString& realNumber = QLatin1String("12223334444");
+
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(empty, shortCode), "The empty string matched a shortcode phone number");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(empty, realNumber), "The empty string matched a real phone number");
 }
 
 QTEST_MAIN(SmsHelperTest);

@@ -28,6 +28,11 @@ Q_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER, "kdeconnect.sms.smshelper")
 
 bool SmsHelper::isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, const QString& canonicalPhone2)
 {
+    if (canonicalPhone1.isEmpty() || canonicalPhone2.isEmpty()) {
+        // The empty string is not a valid phone number so does not match anything
+        return false;
+    }
+
     // To decide if a phone number matches:
     // 1. Are they similar lengths? If two numbers are very different, probably one is junk data and should be ignored
     // 2. Is one a superset of the other? Phone number digits get more specific the further towards the end of the string,
