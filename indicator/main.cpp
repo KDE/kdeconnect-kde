@@ -94,7 +94,7 @@ int main(int argc, char** argv)
 
 #ifdef QSYSTRAY
     QSystemTrayIcon systray;
-    systray.setIcon(QIcon::fromTheme("kdeconnect"));
+    systray.setIcon(QIcon::fromTheme("kdeconnectindicatordark"));
     systray.setVisible(true);
     systray.setToolTip("KDE Connect");
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
     systray.setContextMenu(menu);
 #else
     KStatusNotifierItem systray;
-    systray.setIconByName(QStringLiteral("kdeconnect"));
+    systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
     systray.setToolTip(QStringLiteral("kdeconnect"), "KDE Connect", "KDE Connect");
     systray.setCategory(KStatusNotifierItem::Communications);
     systray.setStatus(KStatusNotifierItem::Passive);
