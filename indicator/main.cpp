@@ -37,6 +37,10 @@
 #include "kdeconnect-version.h"
 #include "deviceindicator.h"
 
+#ifdef Q_OS_MAC
+#include <CoreFoundation/CFBundle.h>
+#endif
+
 #include <dbushelper.h>
 
 int main(int argc, char** argv)
@@ -52,6 +56,15 @@ int main(int argc, char** argv)
 
 #ifdef Q_OS_WIN
     QProcess::startDetached("kdeconnectd.exe");
+#endif
+
+#ifdef Q_OS_MAC
+    // Get bundle path
+    CFURLRef url = (CFURLRef)CFAutorelease((CFURLRef)CFBundleCopyBundleURL(CFBundleGetMainBundle()));
+    QString basePath = QUrl::fromCFURL(url).path();
+    
+    QProcess kdeconnectdProcess;
+    kdeconnectdProcess.start(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));    // Start kdeconnectd
 #endif
 
 #ifndef Q_OS_MAC
@@ -90,6 +103,13 @@ int main(int argc, char** argv)
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::rejectPairing);
             }
         }
+
+#ifdef Q_OS_MAC
+        // Add quit menu
+        menu->addAction(i18n("Quit"), [](){
+            QCoreApplication::quit();   // Close this application
+        });
+#endif
     };
 
     QObject::connect(&iface, &DaemonDbusInterface::pairingRequestsChangedProxy, &model, refreshMenu);
