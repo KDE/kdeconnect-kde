@@ -2,6 +2,10 @@ project(KDEConnectCore)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
+set(KDECONNECT_PRIVATE_DBUS_ADDR unix:path=/tmp/kdeconnect-dbus)
+set(KDECONNECT_PRIVATE_DBUS_NAME DBusKDEConnectOnly)
+configure_file(dbushelper.h.in ${CMAKE_CURRENT_BINARY_DIR}/dbushelper.h)
+
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 

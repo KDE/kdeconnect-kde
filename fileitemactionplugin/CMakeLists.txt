@@ -6,6 +6,7 @@ target_link_libraries(kdeconnectfileitemaction
     KF5::KIOWidgets
     KF5::I18n
     kdeconnectinterfaces
+    kdeconnectcore
 )
 install(TARGETS kdeconnectfileitemaction DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES kdeconnectsendfile.desktop DESTINATION ${SERVICES_INSTALL_DIR})

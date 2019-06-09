@@ -37,6 +37,8 @@
 #include "kdeconnect-version.h"
 #include "deviceindicator.h"
 
+#include <dbushelper.h>
+
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
@@ -52,7 +54,9 @@ int main(int argc, char** argv)
     QProcess::startDetached("kdeconnectd.exe");
 #endif
 
+#ifndef Q_OS_MAC
     KDBusService dbusService(KDBusService::Unique);
+#endif
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);

@@ -24,6 +24,8 @@
 
 #include "interfaces/dbusinterfaces.h"
 
+#include <dbushelper.h>
+
 class BatteryAction : public QAction
 {
 Q_OBJECT
@@ -105,7 +107,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device->id()+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
-        QDBusConnection::sessionBus().call(msg);
+        DbusHelper::sessionBus().call(msg);
     });
     setWhenAvailable(device->hasPlugin("kdeconnect_share"), [sendFile](bool available) { sendFile->setVisible(available); }, this);
 }

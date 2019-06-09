@@ -24,6 +24,8 @@
 #include <QDebug>
 #include <QDBusInterface>
 
+#include <dbushelper.h>
+
 RemoteCommandsModel::RemoteCommandsModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(nullptr)
@@ -35,7 +37,7 @@ RemoteCommandsModel::RemoteCommandsModel(QObject* parent)
             this, &RemoteCommandsModel::rowsChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &RemoteCommandsModel::refreshCommandList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &RemoteCommandsModel::clearCommands);
 }

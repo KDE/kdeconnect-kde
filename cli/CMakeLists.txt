@@ -7,6 +7,7 @@ target_include_directories(kdeconnect-cli PUBLIC ${CMAKE_BINARY_DIR})
 
 target_link_libraries(kdeconnect-cli
     kdeconnectinterfaces
+    kdeconnectcore
     KF5::CoreAddons
     KF5::I18n
 )

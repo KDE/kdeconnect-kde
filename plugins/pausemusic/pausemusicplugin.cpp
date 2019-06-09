@@ -20,7 +20,6 @@
 
 #include "pausemusicplugin.h"
 
-#include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
@@ -29,6 +28,8 @@
 #include <KPluginFactory>
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
+
+#include <dbushelper.h>
 
 //In older Qt released, qAsConst isnt available
 #include "qtcompat_p.h"
@@ -76,7 +77,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (pause) {
             //Search for interfaces currently playing
-            const QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
+            const QStringList interfaces = DbusHelper::sessionBus().interface()->registeredServiceNames().value();
             for (const QString& iface : interfaces) {
                 if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
                     QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));

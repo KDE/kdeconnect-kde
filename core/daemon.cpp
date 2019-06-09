@@ -20,7 +20,6 @@
 
 #include "daemon.h"
 
-#include <QDBusConnection>
 #include <QDBusMetaType>
 #include <QNetworkAccessManager>
 #include <QDebug>
@@ -29,6 +28,7 @@
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
 #include "networkpacket.h"
+#include "dbushelper.h"
 #include "notificationserverinfo.h"
 
 #ifdef KDECONNECT_BLUETOOTH
@@ -108,8 +108,8 @@ void Daemon::init()
 
     //Register on DBus
     qDBusRegisterMetaType< QMap<QString,QString> >();
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
+    DbusHelper::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
+    DbusHelper::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 
     NotificationServerInfo::instance().init();
 

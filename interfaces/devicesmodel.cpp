@@ -30,6 +30,7 @@
 #include <QDBusServiceWatcher>
 
 #include "dbusinterfaces.h"
+#include <dbushelper.h>
 // #include "modeltest.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_INTERFACES, "kdeconnect.interfaces");
@@ -59,7 +60,7 @@ DevicesModel::DevicesModel(QObject* parent)
             this, &DevicesModel::deviceRemoved);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &DevicesModel::refreshDeviceList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &DevicesModel::clearDevices);
 

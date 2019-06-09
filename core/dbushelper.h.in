@@ -21,11 +21,17 @@
 #ifndef KDECONNECT_DBUSHELPER_H
 #define KDECONNECT_DBUSHELPER_H
 #include <QString>
+#include <QDBusConnection>
 
 #include "kdeconnectcore_export.h"
 
+#define KDECONNECT_PRIVATE_DBUS_ADDR "${KDECONNECT_PRIVATE_DBUS_ADDR}"
+#define KDECONNECT_PRIVATE_DBUS_NAME "${KDECONNECT_PRIVATE_DBUS_NAME}"
+
 namespace DbusHelper {
     void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString& s);
+
+    QDBusConnection KDECONNECTCORE_EXPORT sessionBus();
 }
 
 #endif

@@ -35,6 +35,8 @@
 #include <interfaces/devicesmodel.h>
 #include <interfaces/dbusinterfaces.h>
 
+#include <dbushelper.h>
+
 K_PLUGIN_FACTORY(SendFileItemActionFactory, registerPlugin<SendFileItemAction>();)
 
 Q_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION, "kdeconnect.fileitemaction")
@@ -92,7 +94,7 @@ void SendFileItemAction::sendFile()
     for (const QUrl& url : urls) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+id+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
-        QDBusConnection::sessionBus().call(msg);
+        DbusHelper::sessionBus().call(msg);
     }
 }
 

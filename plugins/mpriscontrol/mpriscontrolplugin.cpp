@@ -21,7 +21,6 @@
 #include "mpriscontrolplugin.h"
 
 #include <QDBusArgument>
-#include <QDBusConnection>
 #include <QDBusInterface>
 #include <qdbusconnectioninterface.h>
 #include <QDBusReply>
@@ -31,6 +30,7 @@
 #include <KPluginFactory>
 
 #include <core/device.h>
+#include <dbushelper.h>
 #include "mprisdbusinterface.h"
 #include "propertiesdbusinterface.h"
 
@@ -52,13 +52,13 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
     : KdeConnectPlugin(parent, args)
     , prevVolume(-1)
 {
-    m_watcher = new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    m_watcher = new QDBusServiceWatcher(QString(), DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
     // TODO: QDBusConnectionInterface::serviceOwnerChanged is deprecated, maybe query org.freedesktop.DBus directly?
-    connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
+    connect(DbusHelper::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
 
     //Add existing interfaces
-    const QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
+    const QStringList services = DbusHelper::sessionBus().interface()->registeredServiceNames().value();
     for (const QString& service : services) {
         // The string doesn't matter, it just needs to be empty/non-empty
         serviceOwnerChanged(service, QLatin1String(""), QStringLiteral("1"));
@@ -100,7 +100,7 @@ void MprisControlPlugin::addPlayer(const QString& service)
         uniqueName = identity + QLatin1String(" [") + QString::number(i) + QLatin1Char(']');
     }
 
-    MprisPlayer player(service, mediaPlayerObjectPath, QDBusConnection::sessionBus());
+    MprisPlayer player(service, mediaPlayerObjectPath, DbusHelper::sessionBus());
 
     playerList.insert(uniqueName, player);
 

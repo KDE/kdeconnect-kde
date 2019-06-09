@@ -23,9 +23,9 @@
 #include <QDir>
 #include <QSettings>
 #include <QDBusMessage>
-#include <QDBusConnection>
 
 #include "kdeconnectconfig.h"
+#include "dbushelper.h"
 
 struct KdeConnectPluginConfigPrivate
 {
@@ -43,7 +43,7 @@ KdeConnectPluginConfig::KdeConnectPluginConfig(const QString& deviceId, const QS
     d->m_config = new QSettings(d->m_configDir.absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
 
     d->m_signal = QDBusMessage::createSignal("/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"));
-    QDBusConnection::sessionBus().connect(QLatin1String(""), "/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"), this, SLOT(slotConfigChanged()));
+    DbusHelper::sessionBus().connect(QLatin1String(""), "/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"), this, SLOT(slotConfigChanged()));
 }
 
 KdeConnectPluginConfig::~KdeConnectPluginConfig()
@@ -79,7 +79,7 @@ void KdeConnectPluginConfig::set(const QString& key, const QVariant& value)
 {
     d->m_config->setValue(key, value);
     d->m_config->sync();
-    QDBusConnection::sessionBus().send(d->m_signal);
+    DbusHelper::sessionBus().send(d->m_signal);
 }
 
 void KdeConnectPluginConfig::setList(const QString& key, const QVariantList& list)
@@ -91,7 +91,7 @@ void KdeConnectPluginConfig::setList(const QString& key, const QVariantList& lis
     }
     d->m_config->endArray();
     d->m_config->sync();
-    QDBusConnection::sessionBus().send(d->m_signal);
+    DbusHelper::sessionBus().send(d->m_signal);
 }
 
 void KdeConnectPluginConfig::slotConfigChanged()

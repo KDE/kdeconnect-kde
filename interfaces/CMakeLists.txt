@@ -64,7 +64,7 @@ set_target_properties(kdeconnectinterfaces PROPERTIES
 
 generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
 
-target_include_directories(kdeconnectinterfaces PUBLIC ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(kdeconnectinterfaces PUBLIC ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_BINARY_DIR})
 
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
@@ -73,6 +73,7 @@ LINK_PUBLIC
 LINK_PRIVATE
     KF5::ConfigCore
     KF5::I18n
+    kdeconnectcore
 )
 
 configure_file(KDEConnectConfig.cmake.in ${CMAKE_BINARY_DIR}/interfaces/KDEConnectConfig.cmake @ONLY)

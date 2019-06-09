@@ -24,6 +24,8 @@
 #include <QDebug>
 #include <QDBusInterface>
 
+#include <dbushelper.h>
+
 RemoteSinksModel::RemoteSinksModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(nullptr)
@@ -35,7 +37,7 @@ RemoteSinksModel::RemoteSinksModel(QObject* parent)
             this, &RemoteSinksModel::rowsChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &RemoteSinksModel::refreshSinkList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &RemoteSinksModel::refreshSinkList);
 }

@@ -33,7 +33,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <core/dbushelper.h>
+#include <dbushelper.h>
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 

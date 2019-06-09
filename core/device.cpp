@@ -20,7 +20,6 @@
 
 #include "device.h"
 
-#include <QDBusConnection>
 #include <QVector>
 #include <QSet>
 #include <QSslCertificate>
@@ -38,6 +37,7 @@
 #include "networkpacket.h"
 #include "kdeconnectconfig.h"
 #include "daemon.h"
+#include "dbushelper.h"
 
 //In older Qt released, qAsConst isnt available
 #include "qtcompat_p.h"
@@ -87,7 +87,7 @@ Device::Device(QObject* parent, const QString& id)
     d->m_deviceType = str2type(info.deviceType);
 
     //Register in bus
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    DbusHelper::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     //Assume every plugin is supported until addLink is called and we can get the actual list
     d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
@@ -106,7 +106,7 @@ Device::Device(QObject* parent, const NetworkPacket& identityPacket, DeviceLink*
     addLink(identityPacket, dl);
 
     //Register in bus
-    QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
+    DbusHelper::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     connect(this, &Device::pairingError, this, &warn);
 }
@@ -196,7 +196,7 @@ void Device::reloadPlugins()
     d->m_plugins = newPluginMap;
     d->m_pluginsByIncomingCapability = newPluginsByIncomingCapability;
 
-    QDBusConnection bus = QDBusConnection::sessionBus();
+    QDBusConnection bus = DbusHelper::sessionBus();
     for (KdeConnectPlugin* plugin : qAsConst(d->m_plugins)) {
         //TODO: see how it works in Android (only done once, when created)
         plugin->connected();

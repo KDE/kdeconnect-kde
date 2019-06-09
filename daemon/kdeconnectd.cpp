@@ -25,7 +25,6 @@
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDBusMessage>
-#include <QDBusConnection>
 #include <QSessionManager>
 
 #include <KAboutData>
@@ -33,6 +32,8 @@
 #include <KNotification>
 #include <KLocalizedString>
 #include <KIO/AccessManager>
+
+#include <dbushelper.h>
 
 #include "core/daemon.h"
 #include "core/device.h"
@@ -122,10 +123,12 @@ int main(int argc, char* argv[])
                                                     QStringLiteral("/MainApplication"),
                                                     QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                     QStringLiteral("quit"));
-        QDBusConnection::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
+        DbusHelper::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
     }
 
+#ifndef Q_OS_MAC
     KDBusService dbusService(KDBusService::Unique);
+#endif
 
     DesktopDaemon daemon;
 

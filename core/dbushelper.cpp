@@ -20,14 +20,21 @@
 
 #include "dbushelper.h"
 
-#include <QRegExp>
-
 namespace DbusHelper {
 
 void filterNonExportableCharacters(QString& s)
 {
     static QRegExp regexp("[^A-Za-z0-9_]", Qt::CaseSensitive, QRegExp::Wildcard);
     s.replace(regexp,QLatin1String("_"));
+}
+
+QDBusConnection sessionBus()
+{
+#ifdef Q_OS_MAC
+    return QDBusConnection::connectToBus(QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR), QStringLiteral(KDECONNECT_PRIVATE_DBUS_NAME)); 
+#else
+    return QDBusConnection::sessionBus();
+#endif
 }
 
 }

@@ -22,10 +22,9 @@
 #include "notification_debug.h"
 #include "notification.h"
 
-#include <QDBusConnection>
-
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
+#include <dbushelper.h>
 
 #include "notificationsplugin.h"
 #include "sendreplydialog.h"
@@ -119,7 +118,7 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     m_notifications[publicId] = noti;
     m_internalIdToPublicId[internalId] = publicId;
 
-    QDBusConnection::sessionBus().registerObject(m_device->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
+    DbusHelper::sessionBus().registerObject(m_device->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 }
 
@@ -141,7 +140,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
     }
 
     //Deleting the notification will unregister it automatically
-    //QDBusConnection::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
+    //DbusHelper::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
     noti->deleteLater();
 
     Q_EMIT notificationRemoved(publicId);

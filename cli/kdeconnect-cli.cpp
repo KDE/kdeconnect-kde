@@ -21,7 +21,6 @@
 #include <QCryptographicHash>
 #include <QIODevice>
 #include <QDBusMessage>
-#include <QDBusConnection>
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QFile>
@@ -33,6 +32,8 @@
 #include "interfaces/dbusinterfaces.h"
 #include "interfaces/dbushelpers.h"
 #include "kdeconnect-version.h"
+
+#include <dbushelper.h>
 
 int main(int argc, char** argv)
 {
@@ -166,7 +167,7 @@ int main(int argc, char** argv)
         }
     } else if(parser.isSet(QStringLiteral("refresh"))) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect"), QStringLiteral("org.kde.kdeconnect.daemon"), QStringLiteral("forceOnNetworkChange"));
-        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+        blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
     } else {
 
         QString device = parser.value(QStringLiteral("device"));
@@ -199,7 +200,7 @@ int main(int argc, char** argv)
                                                               QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrls"));
             
             msg.setArguments(QVariantList() << QVariant(urls));
-            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
         
             for (const QString& url : qAsConst(urls)) {
                 QTextStream(stdout) << i18n("Shared %1", url) << endl;
@@ -207,7 +208,7 @@ int main(int argc, char** argv)
         } else if (parser.isSet(QStringLiteral("share-text"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareText"));
             msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
-            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
             QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << endl;
         } else if(parser.isSet(QStringLiteral("pair"))) {
             DeviceDbusInterface dev(device);
@@ -250,22 +251,22 @@ int main(int argc, char** argv)
                 QString message = parser.value(QStringLiteral("ping-msg"));
                 msg.setArguments(QVariantList() << message);
             }
-            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("send-sms"))) {
             if (parser.isSet(QStringLiteral("destination"))) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/sms", QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
                 msg.setArguments({ parser.value("destination"), parser.value("send-sms") });
-                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+                blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
                 return 1;
             }
         } else if(parser.isSet(QStringLiteral("ring"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/findmyphone", QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
-            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("photo"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/photo", QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
-            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet("send-keys")) {
             QString seq = parser.value("send-keys");
             QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/remotekeyboard", "org.kde.kdeconnect.device.remotekeyboard", "sendKeyPress");
@@ -276,13 +277,13 @@ int main(int argc, char** argv)
                     while (!in.atEnd()) {
                         QByteArray line = in.readLine();  // sanitize to ASCII-codes > 31?
                         msg.setArguments({QString(line), -1, false, false, false});
-                        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+                        blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
                     }
                     in.close();
                 }
             } else {
                 msg.setArguments({seq, -1, false, false, false});
-                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+                blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
             }
         } else if(parser.isSet(QStringLiteral("list-notifications"))) {
             NotificationsModel notifications;

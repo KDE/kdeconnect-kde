@@ -26,6 +26,8 @@
 
 #include <QIcon>
 
+#include <dbushelper.h>
+
 //#include "modeltest.h"
 
 //In older Qt released, qAsConst isnt available
@@ -49,7 +51,7 @@ NotificationsModel::NotificationsModel(QObject* parent)
             this, &NotificationsModel::anyDismissableChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &NotificationsModel::refreshNotificationList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &NotificationsModel::clearNotifications);
 }

@@ -24,11 +24,11 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QDBusConnection>
 #include <QLoggingCategory>
 #include "screensaverdbusinterface.h"
 
 #include <core/device.h>
+#include <dbushelper.h>
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectLockPluginFactory, "kdeconnect_lockdevice.json", registerPlugin<LockDevicePlugin>(); )
 
@@ -82,7 +82,7 @@ bool LockDevicePlugin::receivePacket(const NetworkPacket & np)
 OrgFreedesktopScreenSaverInterface* LockDevicePlugin::iface()
 {
     if (!m_iface) {
-        m_iface = new OrgFreedesktopScreenSaverInterface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/org/freedesktop/ScreenSaver"), QDBusConnection::sessionBus());
+        m_iface = new OrgFreedesktopScreenSaverInterface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/org/freedesktop/ScreenSaver"), DbusHelper::sessionBus());
         if(!m_iface->isValid())
             qCWarning(KDECONNECT_PLUGIN_LOCKREMOTE) << "Couldn't connect to the ScreenSaver interface";
     }

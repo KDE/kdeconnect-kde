@@ -25,10 +25,11 @@
 #include <QTextStream>
 #include <QUrl>
 #include <QDBusMessage>
-#include <QDBusConnection>
 
 #include <KAboutData>
 #include <KLocalizedString>
+
+#include <dbushelper.h>
 
 #include <interfaces/devicesmodel.h>
 #include <interfaces/devicessortproxymodel.h>
@@ -118,7 +119,7 @@ int main(int argc, char** argv)
 
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), action);
             msg.setArguments({ url.toString() });
-            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
+            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
             return 0;
         } else {
             QTextStream(stderr) << (i18n("Couldn't share %1", url.toString())) << endl;
