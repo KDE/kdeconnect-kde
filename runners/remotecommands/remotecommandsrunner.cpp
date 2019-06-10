@@ -51,7 +51,7 @@ void RemoteCommandsRunner::match(Plasma::RunnerContext &context)
 
             DeviceDbusInterface deviceInterface(deviceId, this);
 
-            if(!deviceInterface.hasPlugin("kdeconnect_remotecommands")) {
+            if(!deviceInterface.hasPlugin(QStringLiteral("kdeconnect_remotecommands"))) {
                 continue;
             }
 
@@ -71,9 +71,9 @@ void RemoteCommandsRunner::match(Plasma::RunnerContext &context)
                     match.setType(Plasma::QueryMatch::PossibleMatch);
                     match.setId(it.key());
                     match.setIconName(QStringLiteral("kdeconnect"));
-                    match.setText(deviceName + ": " + commandName);
+                    match.setText(deviceName + QStringLiteral(": ") + commandName);
                     match.setSubtext(cont.value(QStringLiteral("command")).toString());
-                    match.setData(deviceId + "$" + it.key());
+                    match.setData(deviceId + QStringLiteral("$") + it.key());
                     context.addMatch(match);
                 }
             }
@@ -83,9 +83,9 @@ void RemoteCommandsRunner::match(Plasma::RunnerContext &context)
 
 void RemoteCommandsRunner::run(const Plasma::RunnerContext &/*context*/, const Plasma::QueryMatch &match)
 {
-    RemoteCommandsDbusInterface remoteCommandsInterface(match.data().toString().split("$")[0], this);
+    RemoteCommandsDbusInterface remoteCommandsInterface(match.data().toString().split(QStringLiteral("$"))[0], this);
 
-    remoteCommandsInterface.triggerCommand(match.data().toString().split("$")[1]);
+    remoteCommandsInterface.triggerCommand(match.data().toString().split(QStringLiteral("$"))[1]);
 }
 
 #include "remotecommandsrunner.moc"

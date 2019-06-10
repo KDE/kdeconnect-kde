@@ -78,8 +78,8 @@ int main(int argc, char** argv)
     //Hidden because it's an implementation detail
     QCommandLineOption deviceAutocomplete(QStringLiteral("shell-device-autocompletion"));
     deviceAutocomplete.setHidden(true);
-    deviceAutocomplete.setDescription("Outputs all available devices id's with their name and paired status"); //Not visible, so no translation needed
-    deviceAutocomplete.setValueName("shell");
+    deviceAutocomplete.setDescription(QStringLiteral("Outputs all available devices id's with their name and paired status")); //Not visible, so no translation needed
+    deviceAutocomplete.setValueName(QStringLiteral("shell"));
     parser.addOption(deviceAutocomplete);
     about.setupCommandLine(&parser);
 
@@ -87,7 +87,7 @@ int main(int argc, char** argv)
     parser.process(app);
     about.processCommandLine(&parser);
 
-    const QString id = "kdeconnect-cli-"+QString::number(QCoreApplication::applicationPid());
+    const QString id = QStringLiteral("kdeconnect-cli-") + QString::number(QCoreApplication::applicationPid());
     DaemonDbusInterface iface;
 
     if (parser.isSet(QStringLiteral("my-id"))) {
@@ -152,15 +152,15 @@ int main(int argc, char** argv)
             }
 
             //Description: "device name (paired/unpaired)"
-            QString description = deviceIface.name() + " " + statusInfo;
+            QString description = deviceIface.name() + QLatin1Char(' ') + statusInfo;
             //Replace characters
-            description.replace(QChar('\\'), QStringLiteral("\\\\"));
-            description.replace(QChar('['),  QStringLiteral("\\["));
-            description.replace(QChar(']'),  QStringLiteral("\\]"));
-            description.replace(QChar('\''), QStringLiteral("\\'"));
-            description.replace(QChar('\"'), QStringLiteral("\\\""));
-            description.replace(QChar('\n'), QChar(' '));
-            description.remove(QChar('\0'));
+            description.replace(QLatin1Char('\\'), QStringLiteral("\\\\"));
+            description.replace(QLatin1Char('['),  QStringLiteral("\\["));
+            description.replace(QLatin1Char(']'),  QStringLiteral("\\]"));
+            description.replace(QLatin1Char('\''), QStringLiteral("\\'"));
+            description.replace(QLatin1Char('\"'), QStringLiteral("\\\""));
+            description.replace(QLatin1Char('\n'), QLatin1Char(' '));
+            description.remove(QLatin1Char('\0'));
 
             //Output id and description
             QTextStream(stdout) << id << '[' << description << ']' << endl;
@@ -196,7 +196,7 @@ int main(int argc, char** argv)
                 urls.append(url.toString());
             }
 
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", 
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
                                                               QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrls"));
             
             msg.setArguments(QVariantList() << QVariant(urls));
@@ -206,7 +206,7 @@ int main(int argc, char** argv)
                 QTextStream(stdout) << i18n("Shared %1", url) << endl;
             }
         } else if (parser.isSet(QStringLiteral("share-text"))) {
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareText"));
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareText"));
             msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
             blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
             QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << endl;
@@ -246,7 +246,7 @@ int main(int argc, char** argv)
                 blockOnReply(dev.unpair());
             }
         } else if(parser.isSet(QStringLiteral("ping")) || parser.isSet(QStringLiteral("ping-msg"))) {
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/ping", QStringLiteral("org.kde.kdeconnect.device.ping"), QStringLiteral("sendPing"));
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/ping"), QStringLiteral("org.kde.kdeconnect.device.ping"), QStringLiteral("sendPing"));
             if (parser.isSet(QStringLiteral("ping-msg"))) {
                 QString message = parser.value(QStringLiteral("ping-msg"));
                 msg.setArguments(QVariantList() << message);
@@ -254,29 +254,29 @@ int main(int argc, char** argv)
             blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("send-sms"))) {
             if (parser.isSet(QStringLiteral("destination"))) {
-                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/sms", QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
-                msg.setArguments({ parser.value("destination"), parser.value("send-sms") });
+                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/sms"), QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
+                msg.setArguments({ parser.value(QStringLiteral("destination")), parser.value(QStringLiteral("send-sms"))});
                 blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
                 return 1;
             }
         } else if(parser.isSet(QStringLiteral("ring"))) {
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/findmyphone", QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/findmyphone"), QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
             blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("photo"))) {
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device+"/photo", QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
             blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
-        } else if(parser.isSet("send-keys")) {
-            QString seq = parser.value("send-keys");
-            QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kdeconnect", "/modules/kdeconnect/devices/"+device+"/remotekeyboard", "org.kde.kdeconnect.device.remotekeyboard", "sendKeyPress");
+        } else if(parser.isSet(QStringLiteral("send-keys"))) {
+            QString seq = parser.value(QStringLiteral("send-keys"));
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/remotekeyboard"), QStringLiteral("org.kde.kdeconnect.device.remotekeyboard"), QStringLiteral("sendKeyPress"));
             if (seq.trimmed() == QLatin1String("-")) {
                 // from stdin
                 QFile in;
                 if(in.open(stdin,QIODevice::ReadOnly | QIODevice::Unbuffered)) {
                     while (!in.atEnd()) {
                         QByteArray line = in.readLine();  // sanitize to ASCII-codes > 31?
-                        msg.setArguments({QString(line), -1, false, false, false});
+                        msg.setArguments({QString::fromLatin1(line), -1, false, false, false});
                         blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
                     }
                     in.close();

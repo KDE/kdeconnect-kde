@@ -37,7 +37,7 @@ ClipboardPlugin::ClipboardPlugin(QObject* parent, const QVariantList& args)
 
 void ClipboardPlugin::propagateClipboard(const QString& content)
 {
-    NetworkPacket np(PACKET_TYPE_CLIPBOARD, {{"content", content}});
+    NetworkPacket np(PACKET_TYPE_CLIPBOARD, {{QStringLiteral("content"), content}});
     sendPacket(np);
 }
 

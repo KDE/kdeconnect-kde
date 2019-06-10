@@ -65,7 +65,7 @@ void PhotoPlugin::requestPhoto(const QString& fileName)
 
 QString PhotoPlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/photo";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/photo");
 }
 
 #include "photoplugin.moc"

@@ -35,7 +35,7 @@ SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& 
     , m_ui(new Ui::SendReplyDialog)
 {
     m_ui->setupUi(this);
-    m_ui->textView->setText(topicName + ": \n" + originalMessage);
+    m_ui->textView->setText(topicName + QStringLiteral(": \n") + originalMessage);
 
     auto button = m_ui->buttonBox->button(QDialogButtonBox::Ok);
     button->setText(i18n("Send"));

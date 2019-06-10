@@ -65,7 +65,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
     QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
                          QStringLiteral("org.freedesktop.DBus"));
     iface.call(QStringLiteral("AddMatch"),
-               "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
+               QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
 
     setTranslatedAppName();
     loadApplications();
@@ -79,7 +79,7 @@ NotificationsListener::~NotificationsListener()
     QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
                          QStringLiteral("org.freedesktop.DBus"));
     QDBusMessage res = iface.call(QStringLiteral("RemoveMatch"),
-                                  "interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'");
+                                  QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
     DbusHelper::sessionBus().unregisterObject(QStringLiteral("/org/freedesktop/Notifications"));
 }
 
@@ -172,7 +172,7 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString& 
             // try falling back to hicolor theme:
             KIconTheme hicolor(QStringLiteral("hicolor"));
             if (hicolor.isValid()) {
-                iconPath = hicolor.iconPath(iconName + ".png", size, KIconLoader::MatchBest);
+                iconPath = hicolor.iconPath(iconName + QStringLiteral(".png"), size, KIconLoader::MatchBest);
                 //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
             }
         }
@@ -242,10 +242,10 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
 
     //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
     NetworkPacket np(PACKET_TYPE_NOTIFICATION, {
-        {"id", QString::number(replacesId > 0 ? replacesId : ++id)},
-        {"appName", appName},
-        {"ticker", ticker},
-        {"isClearable", timeout == 0}
+        {QStringLiteral("id"), QString::number(replacesId > 0 ? replacesId : ++id)},
+        {QStringLiteral("appName"), appName},
+        {QStringLiteral("ticker"), ticker},
+        {QStringLiteral("isClearable"), timeout == 0}
     });                                   // KNotifications are persistent if
                                           // timeout == 0, for other notifications
                                           // clearability is pointless

@@ -68,14 +68,14 @@ void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
     
-    QUrl kioUrl("kdeconnect://"+deviceId+"/");
+    QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
     d->m_placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
-    QUrl kioUrl("kdeconnect://"+deviceId+"/");
+    QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
     QModelIndex index = d->m_placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
         d->m_placesModel.removePlace(index);
@@ -129,14 +129,14 @@ bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
         //return new KRun(QUrl::fromLocalFile(mountPoint()), 0);
-        return new KRun(QUrl("kdeconnect://"+deviceId), nullptr);
+        return new KRun(QUrl(QStringLiteral("kdeconnect://") + deviceId), nullptr);
     }
     return false;
 }
 
 bool SftpPlugin::receivePacket(const NetworkPacket& np)
 {
-    if (!(fields_c - np.body().keys().toSet()).isEmpty() && !np.has("errorMessage")) {
+    if (!(fields_c - np.body().keys().toSet()).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
         // packet is invalid
         return false;
     }
@@ -153,7 +153,7 @@ bool SftpPlugin::receivePacket(const NetworkPacket& np)
         }
     } else {
         remoteDirectories.insert(mountPoint(), i18n("All files"));
-        remoteDirectories.insert(mountPoint() + "/DCIM/Camera", i18n("Camera pictures"));
+        remoteDirectories.insert(mountPoint() + QStringLiteral("/DCIM/Camera"), i18n("Camera pictures"));
     }
     return true;
 }

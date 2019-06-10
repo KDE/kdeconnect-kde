@@ -35,10 +35,10 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    KAboutData aboutData("org.kde.kdeconnect.sms", i18n("SMS Instant Messaging"), QStringLiteral(KDECONNECT_VERSION_STRING), i18n("KDE Connect SMS"), KAboutLicense::GPL, i18n("(c) 2018, Aleix Pol Gonzalez"));
-    aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, "aleixpol@kde.org");
-    aboutData.addAuthor(i18n("Nicolas Fella"), {}, "nicolas.fella@gmx.de");
-    aboutData.addAuthor(i18n("Simon Redman"), {}, "simon@ergotech.com");
+    KAboutData aboutData(QStringLiteral("org.kde.kdeconnect.sms"), i18n("SMS Instant Messaging"), QStringLiteral(KDECONNECT_VERSION_STRING), i18n("KDE Connect SMS"), KAboutLicense::GPL, i18n("(c) 2018, Aleix Pol Gonzalez"));
+    aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
+    aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
+    aboutData.addAuthor(i18n("Simon Redman"), {}, QStringLiteral("simon@ergotech.com"));
     KAboutData::setApplicationData(aboutData);
 
     QString initialMessage;
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.rootContext()->setContextProperty(QStringLiteral("_initialMessage"), QVariant(initialMessage));
-    engine.load(QUrl("qrc:/qml/main.qml"));
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();
 }

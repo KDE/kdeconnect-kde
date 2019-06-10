@@ -84,30 +84,30 @@ long MprisRemotePlugin::position() const
 
 QString MprisRemotePlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/mprisremote";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/mprisremote");
 }
 
 void MprisRemotePlugin::requestPlayerStatus(const QString& player)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", player},
-        {"requestNowPlaying", true},
-        {"requestVolume", true}}
+        {QStringLiteral("player"), player},
+        {QStringLiteral("requestNowPlaying"), true},
+        {QStringLiteral("requestVolume"), true}}
     );
     sendPacket(np);
 }
 
 void MprisRemotePlugin::requestPlayerList()
 {
-    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{"requestPlayerList", true}});
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("requestPlayerList"), true}});
     sendPacket(np);
 }
 
 void MprisRemotePlugin::sendAction(const QString& action)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_currentPlayer},
-        {"action", action}
+        {QStringLiteral("player"), m_currentPlayer},
+        {QStringLiteral("action"), action}
     });
     sendPacket(np);
 }
@@ -115,16 +115,16 @@ void MprisRemotePlugin::sendAction(const QString& action)
 void MprisRemotePlugin::seek(int offset) const
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_currentPlayer},
-        {"Seek", offset}});
+        {QStringLiteral("player"), m_currentPlayer},
+        {QStringLiteral("Seek"), offset}});
     sendPacket(np);
 }
 
 void MprisRemotePlugin::setVolume(int volume)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_currentPlayer},
-        {"setVolume",volume}
+        {QStringLiteral("player"), m_currentPlayer},
+        {QStringLiteral("setVolume"), volume}
     });
     sendPacket(np);
 }
@@ -132,8 +132,8 @@ void MprisRemotePlugin::setVolume(int volume)
 void MprisRemotePlugin::setPosition(int position)
 {
     NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {"player", m_currentPlayer},
-        {"SetPosition", position}
+        {QStringLiteral("player"), m_currentPlayer},
+        {QStringLiteral("SetPosition"), position}
     });
     sendPacket(np);
 

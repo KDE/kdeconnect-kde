@@ -88,11 +88,11 @@ QString KdeConnectConfig::name()
 {
     QString username;
     #ifdef Q_OS_WIN
-        username = qgetenv("USERNAME");
+        username = QString::fromLatin1(qgetenv("USERNAME"));
     #else
-        username = qgetenv("USER");
+        username = QString::fromLatin1(qgetenv("USER"));
     #endif
-    QString defaultName = username + '@' + QHostInfo::localHostName();
+    QString defaultName = username + QStringLiteral("@") + QHostInfo::localHostName();
     QString name = d->m_config->value(QStringLiteral("name"), defaultName).toString();
     return name;
 }
@@ -212,7 +212,7 @@ void KdeConnectConfig::loadPrivateKey()
     bool needsToGenerateKey = false;
     if (privKey.exists() && privKey.open(QIODevice::ReadOnly)) {
         QCA::ConvertResult result;
-        d->m_privateKey = QCA::PrivateKey::fromPEM(privKey.readAll(), QCA::SecureArray(), &result);
+        d->m_privateKey = QCA::PrivateKey::fromPEM(QString::fromLatin1(privKey.readAll()), QCA::SecureArray(), &result);
         if (result != QCA::ConvertResult::ConvertGood) {
             qCWarning(KDECONNECT_CORE) << "Private key from" << keyPath << "is not valid";
             needsToGenerateKey = true;

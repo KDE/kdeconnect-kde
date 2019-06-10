@@ -70,7 +70,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     , m_device(device)
 {
 #ifdef Q_OS_WIN
-    setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, "icons/hicolor/scalable/status/"+device->iconName()+".svg")));
+    setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons/hicolor/scalable/status/") + device->iconName() + QStringLiteral(".svg"))));
 #else
     setIcon(QIcon::fromTheme(device->iconName()));
 #endif
@@ -79,7 +79,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     auto battery = new BatteryAction(device);
     addAction(battery);
-    setWhenAvailable(device->hasPlugin("kdeconnect_battery"),
+    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_battery")),
                      [battery](bool available) { battery->setVisible(available);  }
                      , this);
 
@@ -89,7 +89,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         sftpIface->startBrowsing();
         sftpIface->deleteLater();
     });
-    setWhenAvailable(device->hasPlugin("kdeconnect_sftp"), [browse](bool available) { browse->setVisible(available); }, this);
+    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_sftp")), [browse](bool available) { browse->setVisible(available); }, this);
 
     auto findDevice = addAction(QIcon::fromTheme(QStringLiteral("irc-voice")), i18n("Ring device"));
     connect(findDevice, &QAction::triggered, device, [device](){
@@ -97,7 +97,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         iface->ring();
         iface->deleteLater();
     });
-    setWhenAvailable(device->hasPlugin("kdeconnect_findmyphone"), [findDevice](bool available) { findDevice->setVisible(available); }, this);
+    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_findmyphone")), [findDevice](bool available) { findDevice->setVisible(available); }, this);
 
     auto sendFile = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send file"));
     connect(sendFile, &QAction::triggered, device, [device, this](){
@@ -105,11 +105,11 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         if (url.isEmpty())
             return;
 
-        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), "/modules/kdeconnect/devices/"+device->id()+"/share", QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
         DbusHelper::sessionBus().call(msg);
     });
-    setWhenAvailable(device->hasPlugin("kdeconnect_share"), [sendFile](bool available) { sendFile->setVisible(available); }, this);
+    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);
 }
 
 #include "deviceindicator.moc"

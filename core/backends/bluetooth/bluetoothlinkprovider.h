@@ -45,7 +45,7 @@ public:
     BluetoothLinkProvider();
     virtual ~BluetoothLinkProvider();
 
-    QString name() override { return "BluetoothLinkProvider"; }
+    QString name() override { return QStringLiteral("BluetoothLinkProvider"); }
     int priority() override { return PRIORITY_MEDIUM; }
 
 public Q_SLOTS:

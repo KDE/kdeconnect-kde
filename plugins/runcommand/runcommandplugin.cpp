@@ -79,7 +79,7 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
         qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
         QProcess::startDetached(QStringLiteral(COMMAND), QStringList()<< QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
         return true;
-    } else if (np.has("setup")) {
+    } else if (np.has(QStringLiteral("setup"))) {
         QProcess::startDetached(QStringLiteral("kcmshell5"), {QStringLiteral("kdeconnect"), QStringLiteral("--args"), QString(device()->id() + QStringLiteral(":kdeconnect_runcommand")) });
     }
 
@@ -95,7 +95,7 @@ void RunCommandPlugin::connected()
 void RunCommandPlugin::sendConfig()
 {
     QString commands = config()->get<QString>(QStringLiteral("commands"),QStringLiteral("{}"));
-    NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{"commandList", commands}});
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{QStringLiteral("commandList"), commands}});
 
     #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
         np.set<bool>(QStringLiteral("canAddCommand"), true);

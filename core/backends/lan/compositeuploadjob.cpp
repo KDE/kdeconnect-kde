@@ -111,7 +111,7 @@ void CompositeUploadJob::startNextSubJob()
     //TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
     NetworkPacket np = m_currentJob->getNetworkPacket();
     np.setPayload(nullptr, np.payloadSize());
-    np.setPayloadTransferInfo({{"port", m_port}});
+    np.setPayloadTransferInfo({{QStringLiteral("port"), m_port}});
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
     
@@ -272,7 +272,7 @@ void CompositeUploadJob::slotResult(KJob *job) {
         startNextSubJob();
     } else {
         QPair<QString, QString> field2;
-        field2.first = QString("Files");
+        field2.first = QStringLiteral("Files");
         field2.second = i18np("Sent 1 file", "Sent %1 files", m_totalJobs);
         Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()),
                            { QString(), QString() }, field2

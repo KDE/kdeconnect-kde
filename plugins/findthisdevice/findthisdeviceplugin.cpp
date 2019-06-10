@@ -123,7 +123,7 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
 
 QString FindThisDevicePlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/findthisdevice";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/findthisdevice");
 }
 
 #include "findthisdeviceplugin.moc"

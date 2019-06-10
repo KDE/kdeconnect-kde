@@ -61,9 +61,9 @@ bool SmsPlugin::receivePacket(const NetworkPacket& np)
 void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST, {
-        {"sendSms", true},
-        {"phoneNumber", phoneNumber},
-        {"messageBody", messageBody}
+        {QStringLiteral("sendSms"), true},
+        {QStringLiteral("phoneNumber"), phoneNumber},
+        {QStringLiteral("messageBody"), messageBody}
     });
     qCDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
     sendPacket(np);
@@ -79,7 +79,7 @@ void SmsPlugin::requestAllConversations()
 void SmsPlugin::requestConversation (const qint64& conversationID) const
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATION);
-    np.set("threadID", conversationID);
+    np.set(QStringLiteral("threadID"), conversationID);
 
     sendPacket(np);
 }
@@ -99,7 +99,7 @@ void SmsPlugin::forwardToTelepathy(const ConversationMessage& message)
 
 bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
 {
-    const auto messages = np.get<QVariantList>("messages");
+    const auto messages = np.get<QVariantList>(QStringLiteral("messages"));
     QList<ConversationMessage> messagesList;
     messagesList.reserve(messages.count());
 
@@ -119,7 +119,7 @@ bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
 
 QString SmsPlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/sms";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/sms");
 }
 
 #include "smsplugin.moc"

@@ -34,7 +34,7 @@ else()
     if(NOT WIN32 AND NOT APPLE)
         find_package(KF5PulseAudioQt REQUIRED)
     endif()
-    add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS)
+    add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 endif()
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)

@@ -270,8 +270,8 @@ bool SystemvolumePlugin::sendSinkList()
 #endif
 
         QJsonObject sinkObject;
-        sinkObject.insert("name", name);
-        sinkObject.insert("description", desc);
+        sinkObject.insert(QStringLiteral("name"), name);
+        sinkObject.insert(QStringLiteral("description"), desc);
 
         hr = device->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_ALL, NULL, (void **)&endpoint);
         if (hr != S_OK)
@@ -285,9 +285,9 @@ bool SystemvolumePlugin::sendSinkList()
         endpoint->GetMasterVolumeLevelScalar(&volume);
         endpoint->GetMute(&muted);
 
-        sinkObject.insert("muted", (bool)muted);
-        sinkObject.insert("volume", (qint64)(volume * 100));
-        sinkObject.insert("maxVolume", (qint64)100);
+        sinkObject.insert(QStringLiteral("muted"), (bool)muted);
+        sinkObject.insert(QStringLiteral("volume"), (qint64)(volume * 100));
+        sinkObject.insert(QStringLiteral("maxVolume"), (qint64)100);
 
         // Register Callback
         callback = new CAudioEndpointVolumeCallback(*this, name);

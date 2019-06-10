@@ -24,6 +24,6 @@ class MprisControlPlugin
     void connected() override {}
 
   private:
-    const QString playername = "Media Player";
+    const QString playername = PLAYERNAME;
 };
 #endif //MPRISCONTROLPLUGINWIN_H

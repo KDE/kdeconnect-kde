@@ -24,14 +24,14 @@
 
 
 ConversationMessage::ConversationMessage(const QVariantMap& args)
-    : m_eventField(args["event"].toInt()),
-      m_body(args["body"].toString()),
-      m_address(args["address"].toString()),
-      m_date(args["date"].toLongLong()),
-      m_type(args["type"].toInt()),
-      m_read(args["read"].toInt()),
-      m_threadID(args["thread_id"].toLongLong()),
-      m_uID(args["_id"].toInt())
+    : m_eventField(args[QStringLiteral("event")].toInt()),
+      m_body(args[QStringLiteral("body")].toString()),
+      m_address(args[QStringLiteral("address")].toString()),
+      m_date(args[QStringLiteral("date")].toLongLong()),
+      m_type(args[QStringLiteral("type")].toInt()),
+      m_read(args[QStringLiteral("read")].toInt()),
+      m_threadID(args[QStringLiteral("thread_id")].toLongLong()),
+      m_uID(args[QStringLiteral("_id")].toInt())
 {
 }
 
@@ -81,14 +81,14 @@ ConversationMessage& ConversationMessage::operator=(const ConversationMessage& o
 QVariantMap ConversationMessage::toVariant() const
 {
     return {
-        {"event", m_eventField},
-        {"body", m_body},
-        {"address", m_address},
-        {"date", m_date},
-        {"type", m_type},
-        {"read", m_read},
-        {"thread_id", m_threadID},
-        {"_id", m_uID},
+        {QStringLiteral("event"), m_eventField},
+        {QStringLiteral("body"), m_body},
+        {QStringLiteral("address"), m_address},
+        {QStringLiteral("date"), m_date},
+        {QStringLiteral("type"), m_type},
+        {QStringLiteral("read"), m_read},
+        {QStringLiteral("thread_id"), m_threadID},
+        {QStringLiteral("_id"), m_uID},
     };
 }
 

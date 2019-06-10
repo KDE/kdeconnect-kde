@@ -46,7 +46,7 @@ QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
         if (call->isError())
         {
             qWarning() << "error:" << call->error();
-            return QVariant("error");
+            return QVariant(QStringLiteral("error"));
         }
 
         QDBusMessage reply = call->reply();

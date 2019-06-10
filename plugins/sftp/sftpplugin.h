@@ -38,7 +38,7 @@ public:
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
-    QString dbusPath() const override { return "/modules/kdeconnect/devices/" + deviceId + "/sftp"; }
+    QString dbusPath() const override { return QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/sftp"); }
 
 Q_SIGNALS:
     void packetReceived(const NetworkPacket& np);

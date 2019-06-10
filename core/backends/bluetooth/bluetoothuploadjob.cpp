@@ -38,14 +38,14 @@ BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice>& data, co
 QVariantMap BluetoothUploadJob::transferInfo() const
 {
     QVariantMap ret;
-    ret["uuid"] = mTransferUuid.toString().mid(1, 36);
+    ret[QStringLiteral("uuid")] = mTransferUuid.toString().mid(1, 36);
     return ret;
 }
 
 void BluetoothUploadJob::start()
 {
     connect(mServer, &QBluetoothServer::newConnection, this, &BluetoothUploadJob::newConnection);
-    mServiceInfo = mServer->listen(mTransferUuid, "KDE Connect Transfer Job");
+    mServiceInfo = mServer->listen(mTransferUuid, QStringLiteral("KDE Connect Transfer Job"));
     Q_ASSERT(mServiceInfo.isValid());
 }
 

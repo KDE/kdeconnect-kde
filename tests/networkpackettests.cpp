@@ -35,16 +35,16 @@ void NetworkPacketTests::networkPacketTest()
 {
     NetworkPacket np(QStringLiteral("com.test"));
 
-    np.set(QStringLiteral("hello"),"hola");
-    QCOMPARE( (np.get<QString>("hello","bye")) , QString("hola") );
+    np.set(QStringLiteral("hello"), QStringLiteral("hola"));
+    QCOMPARE( (np.get<QString>(QStringLiteral("hello"), QStringLiteral("bye"))) , QStringLiteral("hola") );
 
-    np.set(QStringLiteral("hello"),"");
-    QCOMPARE( (np.get<QString>("hello","bye")) , QString("") );
+    np.set(QStringLiteral("hello"), QString());
+    QCOMPARE((np.get<QString>(QStringLiteral("hello"), QStringLiteral("bye"))) , QString());
 
     np.body().remove(QStringLiteral("hello"));
-    QCOMPARE( (np.get<QString>("hello","bye")) , QString("bye") );
+    QCOMPARE((np.get<QString>(QStringLiteral("hello"), QStringLiteral("bye"))) , QStringLiteral("bye"));
 
-    np.set(QStringLiteral("foo"), "bar");
+    np.set(QStringLiteral("foo"), QStringLiteral("bar"));
     QByteArray ba = np.serialize();
     //qDebug() << "Serialized packet:" << ba;
     NetworkPacket np2(QLatin1String(""));
@@ -57,10 +57,10 @@ void NetworkPacketTests::networkPacketTest()
     QByteArray json("{\"id\":\"123\",\"type\":\"test\",\"body\":{\"testing\":true}}");
     //qDebug() << json;
     NetworkPacket::unserialize(json,&np2);
-    QCOMPARE( np2.id(), QString("123") );
-    QCOMPARE( (np2.get<bool>("testing")), true );
-    QCOMPARE( (np2.get<bool>("not_testing")), false );
-    QCOMPARE( (np2.get<bool>("not_testing",true)), true );
+    QCOMPARE( np2.id(), QStringLiteral("123") );
+    QCOMPARE( (np2.get<bool>(QStringLiteral("testing"))), true );
+    QCOMPARE( (np2.get<bool>(QStringLiteral("not_testing"))), false );
+    QCOMPARE( (np2.get<bool>(QStringLiteral("not_testing"),true)), true );
 
     //NetworkPacket::unserialize("this is not json",&np2);
     //QtTest::ignoreMessage(QtSystemMsg, "json_parser - syntax error found,  forcing abort, Line 1 Column 0");
@@ -73,7 +73,7 @@ void NetworkPacketTests::networkPacketIdentityTest()
     NetworkPacket np(QLatin1String(""));
     NetworkPacket::createIdentityPacket(&np);
 
-    QCOMPARE( np.get<int>("protocolVersion", -1) , NetworkPacket::s_protocolVersion );
+    QCOMPARE( np.get<int>(QStringLiteral("protocolVersion"), -1) , NetworkPacket::s_protocolVersion );
     QCOMPARE( np.type() , PACKET_TYPE_IDENTITY );
 
 }

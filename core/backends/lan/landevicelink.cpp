@@ -179,7 +179,7 @@ void LanDeviceLink::setPairStatus(PairStatus status)
     if (status == Paired) {
         Q_ASSERT(KdeConnectConfig::instance()->trustedDevices().contains(deviceId()));
         Q_ASSERT(!m_socketLineReader->peerCertificate().isNull());
-        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), QStringLiteral("certificate"), m_socketLineReader->peerCertificate().toPem());
+        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), QStringLiteral("certificate"), QString::fromLatin1(m_socketLineReader->peerCertificate().toPem().data()));
     }
 }
 

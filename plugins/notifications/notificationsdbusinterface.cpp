@@ -118,7 +118,7 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     m_notifications[publicId] = noti;
     m_internalIdToPublicId[internalId] = publicId;
 
-    DbusHelper::sessionBus().registerObject(m_device->dbusPath()+"/notifications/"+publicId, noti, QDBusConnection::ExportScriptableContents);
+    DbusHelper::sessionBus().registerObject(m_device->dbusPath() + QStringLiteral("/notifications/") + publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 }
 
@@ -181,8 +181,8 @@ void NotificationsDbusInterface::sendReply(const QString& replyId, const QString
 void NotificationsDbusInterface::sendAction(const QString& key, const QString& action)
 {
     NetworkPacket np(PACKET_TYPE_NOTIFICATION_ACTION);
-    np.set<QString>("key", key);
-    np.set<QString>("action", action);
+    np.set<QString>(QStringLiteral("key"), key);
+    np.set<QString>(QStringLiteral("action"), action);
     m_plugin->sendPacket(np);
 }
 

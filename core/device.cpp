@@ -540,7 +540,7 @@ QString Device::encryptionInfo() const
 
     QString localSha1 = QString::fromLatin1(KdeConnectConfig::instance()->certificate().digest(digestAlgorithm).toHex());
     for (int i = 2; i<localSha1.size(); i += 3) {
-        localSha1.insert(i, ':'); // Improve readability
+        localSha1.insert(i, QStringLiteral(":")); // Improve readability
     }
     result += i18n("SHA1 fingerprint of your device certificate is: %1\n", localSha1);
 
@@ -548,7 +548,7 @@ QString Device::encryptionInfo() const
     QSslCertificate remoteCertificate = QSslCertificate(QByteArray(remotePem.c_str(), (int)remotePem.size()));
     QString remoteSha1 = QString::fromLatin1(remoteCertificate.digest(digestAlgorithm).toHex());
     for (int i = 2; i < remoteSha1.size(); i += 3) {
-        remoteSha1.insert(i, ':'); // Improve readability
+        remoteSha1.insert(i, QStringLiteral(":")); // Improve readability
     }
     result += i18n("SHA1 fingerprint of remote device certificate is: %1\n", remoteSha1);
 

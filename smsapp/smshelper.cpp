@@ -69,7 +69,7 @@ bool SmsHelper::isShortCode(const QString& phoneNumber, const SmsHelper::Country
     if (phoneNumber.length() <= 6) {
         return true;
     }
-    if (country == CountryCode::Australia && phoneNumber.length() == 8 && phoneNumber.startsWith("19")) {
+    if (country == CountryCode::Australia && phoneNumber.length() == 8 && phoneNumber.startsWith(QStringLiteral("19"))) {
         return true;
     }
     if (country == CountryCode::CzechRepublic && phoneNumber.length() <= 9) {
@@ -86,10 +86,10 @@ SmsHelper::CountryCode SmsHelper::determineCountryCode(const QString& canonicalN
     // This is going to fall apart if someone has not entered a country code into their contact book
     // or if Android decides it can't be bothered to report the country code, but probably we will
     // be fine anyway
-    if (canonicalNumber.startsWith("41")) {
+    if (canonicalNumber.startsWith(QStringLiteral("41"))) {
         return CountryCode::Australia;
     }
-    if (canonicalNumber.startsWith("420")) {
+    if (canonicalNumber.startsWith(QStringLiteral("420"))) {
         return CountryCode::CzechRepublic;
     }
 
@@ -101,12 +101,12 @@ SmsHelper::CountryCode SmsHelper::determineCountryCode(const QString& canonicalN
 QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
 {
     QString toReturn(phoneNumber);
-    toReturn = toReturn.remove(' ');
-    toReturn = toReturn.remove('-');
-    toReturn = toReturn.remove('(');
-    toReturn = toReturn.remove(')');
-    toReturn = toReturn.remove('+');
-    toReturn = toReturn.remove(QRegularExpression("^0*")); // Strip leading zeroes
+    toReturn = toReturn.remove(QStringLiteral(" "));
+    toReturn = toReturn.remove(QStringLiteral("-"));
+    toReturn = toReturn.remove(QStringLiteral("("));
+    toReturn = toReturn.remove(QStringLiteral(")"));
+    toReturn = toReturn.remove(QStringLiteral("+"));
+    toReturn = toReturn.remove(QRegularExpression(QStringLiteral("^0*"))); // Strip leading zeroes
 
     if (toReturn.length() == 0) {
         // If we have stripped away everything, assume this is a special number (and already canonicalized)

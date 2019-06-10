@@ -398,11 +398,11 @@ void LanLinkProviderTest::testIdentityPacket(QByteArray& identityPacket)
     QJsonObject jsonObject = jsonDocument.object();
     QJsonObject body = jsonObject.value(QStringLiteral("body")).toObject();
 
-    QCOMPARE(jsonObject.value("type").toString(), QString("kdeconnect.identity"));
-    QVERIFY2(body.contains("deviceName"), "Device name not found in identity packet");
-    QVERIFY2(body.contains("deviceId"), "Device id not found in identity packet");
-    QVERIFY2(body.contains("protocolVersion"), "Protocol version not found in identity packet");
-    QVERIFY2(body.contains("deviceType"), "Device type not found in identity packet");
+    QCOMPARE(jsonObject.value(QStringLiteral("type")).toString(), QStringLiteral("kdeconnect.identity"));
+    QVERIFY2(body.contains(QStringLiteral("deviceName")), "Device name not found in identity packet");
+    QVERIFY2(body.contains(QStringLiteral("deviceId")), "Device id not found in identity packet");
+    QVERIFY2(body.contains(QStringLiteral("protocolVersion")), "Protocol version not found in identity packet");
+    QVERIFY2(body.contains(QStringLiteral("deviceType")), "Device type not found in identity packet");
 }
 
 QSslCertificate LanLinkProviderTest::generateCertificate(QString& commonName, QCA::PrivateKey& privateKey)
@@ -448,7 +448,7 @@ void LanLinkProviderTest::socketBindErrorFail(const QUdpSocket& socket)
     QAbstractSocket::SocketError sockErr = socket.error();
     // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
     QString errorMessage = QLatin1String("Failed to bind UDP socket with error ");
-    errorMessage = errorMessage + QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr);
+    errorMessage = errorMessage + QString::fromLatin1(QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr));
     QFAIL(errorMessage.toLocal8Bit().data());
 }
 

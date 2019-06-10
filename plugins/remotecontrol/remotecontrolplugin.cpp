@@ -45,8 +45,8 @@ RemoteControlPlugin::~RemoteControlPlugin()
 void RemoteControlPlugin::moveCursor(const QPoint &p)
 {
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, {
-        {"dx", p.x()},
-        {"dy", p.y()}
+        {QStringLiteral("dx"), p.x()},
+        {QStringLiteral("dy"), p.y()}
     });
     sendPacket(np);
 }
@@ -59,7 +59,7 @@ void RemoteControlPlugin::sendCommand(const QString &name, bool val)
 
 QString RemoteControlPlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/remotecontrol";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotecontrol");
 }
 
 #include "remotecontrolplugin.moc"

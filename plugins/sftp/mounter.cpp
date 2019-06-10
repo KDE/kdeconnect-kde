@@ -83,8 +83,8 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         return;
     }
     
-    if (np.has("errorMessage")) {
-        Q_EMIT failed(np.get<QString>("errorMessage", ""));
+    if (np.has(QStringLiteral("errorMessage"))) {
+        Q_EMIT failed(np.get<QString>(QStringLiteral("errorMessage")));
         return;
     }
 
@@ -116,7 +116,7 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
     const QString program = QStringLiteral("sshfs");
 
     QString path;
-    if (np.has(QStringLiteral("multiPaths"))) path = '/';
+    if (np.has(QStringLiteral("multiPaths"))) path = QStringLiteral("/");
     else path = np.get<QString>(QStringLiteral("path"));
 
     QHostAddress addr = m_sftp->device()->getLocalIpAddress();
@@ -136,7 +136,7 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         << QStringLiteral("-s") // This fixes a bug where file chunks are sent out of order and get corrupted on reception
         << QStringLiteral("-f")
         << QStringLiteral("-F") << QStringLiteral("/dev/null") //Do not use ~/.ssh/config
-        << QStringLiteral("-o") << "IdentityFile=" + KdeConnectConfig::instance()->privateKeyPath()
+        << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance()->privateKeyPath()
         << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") //Do not ask for confirmation because it is not a known host
         << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
         << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725
@@ -218,7 +218,7 @@ void Mounter::onMountTimeout()
 
 void Mounter::start()
 {
-    NetworkPacket np(PACKET_TYPE_SFTP_REQUEST, {{"startBrowsing", true}});
+    NetworkPacket np(PACKET_TYPE_SFTP_REQUEST, {{QStringLiteral("startBrowsing"), true}});
     m_sftp->sendPacket(np);
 
     m_connectTimer.start();

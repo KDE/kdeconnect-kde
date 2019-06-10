@@ -55,13 +55,13 @@ bool RemoteCommandsPlugin::receivePacket(const NetworkPacket& np)
 
 void RemoteCommandsPlugin::connected()
 {
-    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{"requestCommandList", true}});
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("requestCommandList"), true}});
     sendPacket(np);
 }
 
 QString RemoteCommandsPlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/remotecommands";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotecommands");
 }
 
 void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
@@ -74,13 +74,13 @@ void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
 
 void RemoteCommandsPlugin::triggerCommand(const QString& key)
 {
-    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{ "key", key }});
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("key"), key }});
     sendPacket(np);
 }
 
 void RemoteCommandsPlugin::editCommands()
 {
-    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{ "setup", true }});
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("setup"), true }});
     sendPacket(np);
 }
 

@@ -98,7 +98,7 @@ class TestSendFile : public QObject
         void testSslJobs()
         {
             const QString aFile = QFINDTESTDATA("sendfiletest.cpp");
-            const QString destFile = QDir::tempPath() + "/kdeconnect-test-sentfile";
+            const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-sentfile");
             QFile(destFile).remove();
 
             const QString deviceId = KdeConnectConfig::instance()->deviceId()

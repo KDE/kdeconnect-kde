@@ -74,7 +74,7 @@ class QObject;
  */
 Q_GLOBAL_STATIC_WITH_ARGS(
         QString, vcardsLocation,
-        (QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + ("/kpeoplevcard")))
+        (QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/kpeoplevcard")))
 
 #define VCARD_EXTENSION QStringLiteral(".vcf")
 #define METADATA_EXTENSION QStringLiteral(".meta")

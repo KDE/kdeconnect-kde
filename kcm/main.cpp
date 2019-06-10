@@ -28,7 +28,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    KAboutData about("kdeconnect-settings",
+    KAboutData about(QStringLiteral("kdeconnect-settings"),
                      i18n("KDE Connect Settings"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
                      i18n("KDE Connect Settings"),
@@ -37,7 +37,7 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
     KCMultiDialog* dialog = new KCMultiDialog;
-    dialog->addModule("kcm_kdeconnect");
+    dialog->addModule(QStringLiteral("kcm_kdeconnect"));
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
 

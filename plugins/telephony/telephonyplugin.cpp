@@ -122,13 +122,13 @@ bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
 
 void TelephonyPlugin::sendMutePacket()
 {
-    NetworkPacket packet(PACKET_TYPE_TELEPHONY_REQUEST_MUTE, {{"action", "mute"}});
+    NetworkPacket packet(PACKET_TYPE_TELEPHONY_REQUEST_MUTE, {{QStringLiteral("action"), QStringLiteral("mute")}});
     sendPacket(packet);
 }
 
 QString TelephonyPlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/telephony";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/telephony");
 }
 
 #include "telephonyplugin.moc"

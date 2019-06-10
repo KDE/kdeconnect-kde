@@ -52,8 +52,8 @@ void KdeConnectConfigTest::addTrustedDevice()
 {
     kcc->addTrustedDevice(QStringLiteral("testdevice"), QStringLiteral("Test Device"), QStringLiteral("phone"));
     KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice(QStringLiteral("testdevice"));
-    QCOMPARE(devInfo.deviceName, QString("Test Device"));
-    QCOMPARE(devInfo.deviceType, QString("phone"));
+    QCOMPARE(devInfo.deviceName, QStringLiteral("Test Device"));
+    QCOMPARE(devInfo.deviceType, QStringLiteral("phone"));
 }
 
 /*
@@ -85,8 +85,8 @@ void KdeConnectConfigTest::removeTrustedDevice()
 {
     kcc->removeTrustedDevice(QStringLiteral("testdevice"));
     KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice(QStringLiteral("testdevice"));
-    QCOMPARE(devInfo.deviceName, QString("unnamed"));
-    QCOMPARE(devInfo.deviceType, QString("unknown"));
+    QCOMPARE(devInfo.deviceName, QStringLiteral("unnamed"));
+    QCOMPARE(devInfo.deviceType, QStringLiteral("unknown"));
 }
 
 QTEST_GUILESS_MAIN(KdeConnectConfigTest)

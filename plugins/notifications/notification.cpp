@@ -44,9 +44,9 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
     //Make a own directory for each user so noone can see each others icons
     QString username;
     #ifdef Q_OS_WIN
-        username = qgetenv("USERNAME");
+        username = QString::fromLatin1(qgetenv("USERNAME"));
     #else
-        username = qgetenv("USER");
+        username = QString::fromLatin1(qgetenv("USER"));
     #endif
 
     m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username);
@@ -122,7 +122,7 @@ void Notification::createKNotification(const NetworkPacket& np)
         } else if (m_text.isEmpty()) {
             m_notification->setText(escapedTitle);
         } else {
-            m_notification->setText(escapedTitle + ": " + escapedText);
+            m_notification->setText(escapedTitle + QStringLiteral(": ") + escapedText);
         }
 
 #if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 57, 0)

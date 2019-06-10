@@ -128,8 +128,8 @@ void MprisControlPlugin::seeked(qlonglong position){
     const QString& playerName = it.key();
 
     NetworkPacket np(PACKET_TYPE_MPRIS, {
-        {"pos", position/1000}, //Send milis instead of nanos
-        {"player", playerName}
+        {QStringLiteral("pos"), position/1000}, //Send milis instead of nanos
+        {QStringLiteral("player"), playerName}
     });
     sendPacket(np);
 }
@@ -246,7 +246,7 @@ bool MprisControlPlugin::sendAlbumArt(const NetworkPacket& np)
     }
 
     //Only support sending local files
-    if (playerAlbumArtUrl.scheme() != "file") {
+    if (playerAlbumArtUrl.scheme() != QStringLiteral("file")) {
         return false;
     }
 
@@ -363,7 +363,7 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket& np, c
     QString albumArtUrl = nowPlayingMap[QStringLiteral("mpris:artUrl")].toString();
     QString nowPlaying = title;
     if (!artist.isEmpty()) {
-        nowPlaying = artist + " - " + title;
+        nowPlaying = artist + QStringLiteral(" - ") + title;
     }
     np.set(QStringLiteral("title"), title);
     np.set(QStringLiteral("artist"), artist);

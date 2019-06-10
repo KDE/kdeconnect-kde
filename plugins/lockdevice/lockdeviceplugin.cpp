@@ -52,7 +52,7 @@ bool LockDevicePlugin::isLocked() const
 }
 void LockDevicePlugin::setLocked(bool locked)
 {
-    NetworkPacket np(PACKET_TYPE_LOCK_REQUEST, {{"setLocked", locked}});
+    NetworkPacket np(PACKET_TYPE_LOCK_REQUEST, {{QStringLiteral("setLocked"), locked}});
     sendPacket(np);
 }
 
@@ -72,7 +72,7 @@ bool LockDevicePlugin::receivePacket(const NetworkPacket & np)
         sendState = true;
     }
     if (sendState) {
-        NetworkPacket np(PACKET_TYPE_LOCK, QVariantMap {{"isLocked", QVariant::fromValue<bool>(iface()->GetActive())}});
+        NetworkPacket np(PACKET_TYPE_LOCK, QVariantMap {{QStringLiteral("isLocked"), QVariant::fromValue<bool>(iface()->GetActive())}});
         sendPacket(np);
     }
 
@@ -91,13 +91,13 @@ OrgFreedesktopScreenSaverInterface* LockDevicePlugin::iface()
 
 void LockDevicePlugin::connected()
 {
-    NetworkPacket np(PACKET_TYPE_LOCK_REQUEST, {{"requestLocked", QVariant()}});
+    NetworkPacket np(PACKET_TYPE_LOCK_REQUEST, {{QStringLiteral("requestLocked"), QVariant()}});
     sendPacket(np);
 }
 
 QString LockDevicePlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/lockdevice";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/lockdevice");
 }
 
 #include "lockdeviceplugin.moc"

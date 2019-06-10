@@ -42,8 +42,8 @@ KdeConnectPluginConfig::KdeConnectPluginConfig(const QString& deviceId, const QS
 
     d->m_config = new QSettings(d->m_configDir.absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
 
-    d->m_signal = QDBusMessage::createSignal("/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"));
-    DbusHelper::sessionBus().connect(QLatin1String(""), "/kdeconnect/"+deviceId+"/"+pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"), this, SLOT(slotConfigChanged()));
+    d->m_signal = QDBusMessage::createSignal(QStringLiteral("/kdeconnect/") + deviceId + QStringLiteral("/") + pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"));
+    DbusHelper::sessionBus().connect(QLatin1String(""), QStringLiteral("/kdeconnect/") + deviceId + QStringLiteral("/") + pluginName, QStringLiteral("org.kde.kdeconnect.config"), QStringLiteral("configChanged"), this, SLOT(slotConfigChanged()));
 }
 
 KdeConnectPluginConfig::~KdeConnectPluginConfig()

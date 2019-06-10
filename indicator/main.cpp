@@ -46,7 +46,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    KAboutData about("kdeconnect-indicator",
+    KAboutData about(QStringLiteral("kdeconnect-indicator"),
                      i18n("KDE Connect Indicator"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
                      i18n("KDE Connect Indicator tool"),
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
 #ifdef Q_OS_WIN
-    QProcess::startDetached("kdeconnectd.exe");
+    QProcess::startDetached(QStringLiteral("kdeconnectd.exe"));
 #endif
 
 #ifdef Q_OS_MAC
@@ -81,7 +81,7 @@ int main(int argc, char** argv)
         auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
             KCMultiDialog* dialog = new KCMultiDialog;
-            dialog->addModule("kcm_kdeconnect");
+            dialog->addModule(QStringLiteral("kcm_kdeconnect"));
             dialog->setAttribute(Qt::WA_DeleteOnClose);
             dialog->show();
         });
@@ -129,7 +129,7 @@ int main(int argc, char** argv)
 #else
     KStatusNotifierItem systray;
     systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
-    systray.setToolTip(QStringLiteral("kdeconnect"), "KDE Connect", "KDE Connect");
+    systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), QStringLiteral("KDE Connect"));
     systray.setCategory(KStatusNotifierItem::Communications);
     systray.setStatus(KStatusNotifierItem::Passive);
     systray.setStandardActionsEnabled(false);

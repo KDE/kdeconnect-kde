@@ -69,9 +69,9 @@ QUrl SharePlugin::getFileDestination(const QString filename) const
 {
     const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
     QUrl destination(dir);
-    destination.setPath(dir.path() + '/' + filename, QUrl::DecodedMode);
+    destination.setPath(dir.path() + QStringLiteral("/") + filename, QUrl::DecodedMode);
     if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
-        destination.setPath(dir.path() + '/' + KIO::suggestName(dir, filename), QUrl::DecodedMode);
+        destination.setPath(dir.path() + QStringLiteral("/") + KIO::suggestName(dir, filename), QUrl::DecodedMode);
     }
     return destination;
 }
@@ -128,7 +128,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
             }
 
             FileTransferJob* job = np.createPayloadTransferJob(destination);
-            job->setOriginName(device()->name() + ": " + filename);
+            job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
             connect(job, &KJob::result, this, [this, dateModified] (KJob* job) -> void { finished(job, dateModified); });
             m_compositeJob->addSubjob(job);
 
@@ -149,7 +149,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
         if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
             QProcess* proc = new QProcess();
             connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
-            proc->start(defaultApp.section('.', 2,2), QStringList(QStringLiteral("--stdin")));
+            proc->start(defaultApp.section(QStringLiteral("."), 2,2), QStringList(QStringLiteral("--stdin")));
             proc->write(text.toUtf8());
             proc->closeWriteChannel();
         } else {
@@ -232,7 +232,7 @@ void SharePlugin::openFile(const QUrl& url)
 
 QString SharePlugin::dbusPath() const
 {
-    return "/modules/kdeconnect/devices/" + device()->id() + "/share";
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/share");
 }
 
 #include "shareplugin.moc"

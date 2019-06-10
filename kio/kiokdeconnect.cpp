@@ -102,7 +102,7 @@ void KioKdeconnect::listAllDevices()
 
         if (!interface.hasPlugin(QStringLiteral("kdeconnect_sftp"))) continue;
 
-        const QString path = QStringLiteral("kdeconnect://").append(deviceId).append("/");
+        const QString path = QStringLiteral("kdeconnect://").append(deviceId).append(QStringLiteral("/"));
         const QString name = interface.name();
         const QString icon = QStringLiteral("kdeconnect");
 

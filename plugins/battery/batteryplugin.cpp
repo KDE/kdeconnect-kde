@@ -43,7 +43,7 @@ BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
 
 void BatteryPlugin::connected()
 {
-    NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{"request",true}});
+    NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{QStringLiteral("request"),true}});
     sendPacket(np);
 }
 

@@ -74,7 +74,7 @@ public:
 
     QString id() const;
     QString name() const;
-    QString dbusPath() const { return "/modules/kdeconnect/devices/"+id(); }
+    QString dbusPath() const { return QStringLiteral("/modules/kdeconnect/devices/") + id(); }
     QString type() const;
     QString iconName() const;
     QString statusIconName() const;
