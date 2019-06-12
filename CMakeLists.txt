@@ -2,11 +2,24 @@ cmake_minimum_required(VERSION 3.0)
 
 project(kdeconnect)
 
-set(KDECONNECT_VERSION_MAJOR 1)
-set(KDECONNECT_VERSION_MINOR 3)
-set(KDECONNECT_VERSION_PATCH 3)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
-set(KDECONNECT_VERSION "${KDECONNECT_VERSION_MAJOR}.${KDECONNECT_VERSION_MINOR}.${KDECONNECT_VERSION_PATCH}")
+include(KDEInstallDirs)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDECMakeSettings)
+include(ECMAddTests)
+include(ECMSetupVersion)
+include(ECMInstallIcons)
+include(FeatureSummary)
+include(GenerateExportHeader)
+
+include(KDEConnectMacros.cmake)
+
+ecm_setup_version(1.3.3
+    VARIABLE_PREFIX KDECONNECT
+    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
+)
 
 if (SAILFISHOS)
     find_package(PkgConfig)
@@ -36,9 +49,6 @@ else()
     add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 endif()
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_SOURCE_DIR}/cmake)
-
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 if (KF5_OPTIONAL_COMPONENTS)
@@ -57,20 +67,6 @@ set_package_properties(KF5Kirigami2 PROPERTIES
   URL "https://www.kde.org/products/kirigami/"
   TYPE RUNTIME
 )
-
-configure_file(kdeconnect-version.h.in ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h)
-
-include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
-include(ECMAddTests)
-include(ECMSetupVersion)
-include(ECMInstallIcons)
-include(FeatureSummary)
-
-include(KDEConnectMacros.cmake)
-
-include(GenerateExportHeader)
 
 add_subdirectory(core)
 if(NOT SAILFISHOS)
