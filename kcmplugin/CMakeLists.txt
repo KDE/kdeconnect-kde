@@ -1,5 +1,3 @@
-project(kdeconnectpluginkcm)
-
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
 add_library(kdeconnectpluginkcm kdeconnectpluginkcm.cpp)

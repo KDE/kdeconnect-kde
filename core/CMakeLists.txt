@@ -1,5 +1,3 @@
-project(KDEConnectCore)
-
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
 set(KDECONNECT_PRIVATE_DBUS_ADDR unix:path=/tmp/kdeconnect-dbus)

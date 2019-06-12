@@ -1,5 +1,3 @@
-project(KDEConnectInterfaces)
-
 function(geninterface source_h output_h)
     set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.xml)
     qt5_generate_dbus_interface( ${source_h} ${xml_file})

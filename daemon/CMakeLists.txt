@@ -1,5 +1,3 @@
-project(kdeconnectd)
-
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
 add_executable(kdeconnectd kdeconnectd.cpp)
