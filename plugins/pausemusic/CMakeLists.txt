@@ -1,5 +1,3 @@
-find_program(PACTL pactl)
-
 kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES pausemusicplugin.cpp)
 
 target_link_libraries(kdeconnect_pausemusic
