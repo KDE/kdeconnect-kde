@@ -2,12 +2,10 @@ function(geninterface source_h output_h)
     set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.xml)
     qt5_generate_dbus_interface( ${source_h} ${xml_file})
 
-    list(APPEND libkdeconnect_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/${output_h})
     set_source_files_properties(${xml_file} PROPERTIES NO_NAMESPACE true)
 
     qt5_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${output_h})
     set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
-    set(libkdeconnect_HEADERS ${libkdeconnect_HEADERS} PARENT_SCOPE)
 endfunction()
 
 set(libkdeconnect_SRC
@@ -19,15 +17,6 @@ set(libkdeconnect_SRC
     remotecommandsmodel.cpp
     remotesinksmodel.cpp
 #    modeltest.cpp
-)
-
-set(libkdeconnect_HEADERS
-    devicesmodel.h
-    notificationsmodel.h
-    conversationmessage.h
-    dbusinterfaces.h
-    remotecommandsmodel.h
-    ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h
 )
 
 geninterface(${CMAKE_SOURCE_DIR}/core/daemon.h daemoninterface)
