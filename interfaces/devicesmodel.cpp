@@ -33,8 +33,6 @@
 #include <dbushelper.h>
 // #include "modeltest.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_INTERFACES, "kdeconnect.interfaces");
-
 static QString createId() { return QCoreApplication::instance()->applicationName()+QString::number(QCoreApplication::applicationPid()); }
 
 Q_GLOBAL_STATIC_WITH_ARGS(QString, s_keyId, (createId()));

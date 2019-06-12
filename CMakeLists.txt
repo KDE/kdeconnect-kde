@@ -12,6 +12,7 @@ include(ECMAddTests)
 include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(FeatureSummary)
+include(ECMQtDeclareLoggingCategory)
 include(GenerateExportHeader)
 
 include(KDEConnectMacros.cmake)

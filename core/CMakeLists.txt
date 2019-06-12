@@ -34,8 +34,14 @@ set(kdeconnectcore_SRCS
     compositefiletransferjob.cpp
     daemon.cpp
     device.cpp
-    core_debug.cpp
     notificationserverinfo.cpp
+)
+
+ecm_qt_declare_logging_category(
+    kdeconnectcore_SRCS
+    HEADER core_debug.h
+    IDENTIFIER KDECONNECT_CORE
+    CATEGORY_NAME kdeconnect.core
 )
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})
