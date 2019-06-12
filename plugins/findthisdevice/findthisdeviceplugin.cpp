@@ -34,8 +34,7 @@
 #include <QUrl>
 #include <QMediaPlayer>
 
-K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_findthisdevice.json",
-                           registerPlugin<FindThisDevicePlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_FINDTHISDEVICE, "kdeconnect.plugin.findthisdevice")
 

@@ -37,7 +37,7 @@
 
 #include "core/filetransferjob.h"
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_share.json", registerPlugin< SharePlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(SharePlugin, "kdeconnect_share.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share")
 

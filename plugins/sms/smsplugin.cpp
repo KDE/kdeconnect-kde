@@ -33,7 +33,7 @@
 
 #include "sendreplydialog.h"
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_sms.json", registerPlugin< SmsPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(SmsPlugin, "kdeconnect_sms.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS, "kdeconnect.plugin.sms")
 

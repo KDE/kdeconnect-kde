@@ -27,7 +27,7 @@
 
 #include <core/filetransferjob.h>
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_photo.json", registerPlugin< PhotoPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(PhotoPlugin, "kdeconnect_photo.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PHOTO, "kdeconnect.plugin.photo")
 

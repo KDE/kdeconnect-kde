@@ -30,7 +30,7 @@
 
 #include <core/device.h>
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_remotecontrol.json", registerPlugin< RemoteControlPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(RemoteControlPlugin, "kdeconnect_remotecontrol.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTECONTROL, "kdeconnect.plugin.remotecontrol")
 

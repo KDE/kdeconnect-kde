@@ -31,8 +31,7 @@
 
 #include <core/device.h>
 
-K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_contacts.json",
-                           registerPlugin<ContactsPlugin>(); )
+K_PLUGIN_CLASS_WITH_JSON(ContactsPlugin, "kdeconnect_contacts.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CONTACTS, "kdeconnect.plugin.contacts")
 

@@ -24,7 +24,7 @@
 #include <QString>
 #include <QVariantMap>
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_remotekeyboard.json", registerPlugin< RemoteKeyboardPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(RemoteKeyboardPlugin, "kdeconnect_remotekeyboard.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTEKEYBOARD, "kdeconnect.plugin.remotekeyboard");
 

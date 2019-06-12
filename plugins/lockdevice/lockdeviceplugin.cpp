@@ -30,7 +30,7 @@
 #include <core/device.h>
 #include <dbushelper.h>
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectLockPluginFactory, "kdeconnect_lockdevice.json", registerPlugin<LockDevicePlugin>(); )
+K_PLUGIN_CLASS_WITH_JSON(LockDevicePlugin, "kdeconnect_lockdevice.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_LOCKREMOTE, "kdeconnect.plugin.lock")
 

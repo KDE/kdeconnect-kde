@@ -34,7 +34,7 @@
 #include "mounter.h"
 #include "sftp_debug.h"
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_sftp.json", registerPlugin< SftpPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SFTP, "kdeconnect.plugin.sftp")
 

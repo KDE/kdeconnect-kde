@@ -37,7 +37,7 @@
 #endif
 
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_mousepad.json", registerPlugin< MousepadPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(MousepadPlugin, "kdeconnect_mousepad.json")
 
 MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

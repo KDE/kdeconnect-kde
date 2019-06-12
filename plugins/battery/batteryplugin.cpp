@@ -27,7 +27,7 @@
 
 #include "batterydbusinterface.h"
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_battery.json", registerPlugin< BatteryPlugin >(); )
+K_PLUGIN_CLASS_WITH_JSON(BatteryPlugin, "kdeconnect_battery.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BATTERY, "kdeconnect.plugin.battery")
 
