@@ -63,7 +63,7 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
         soundURL = QUrl::fromUserInput(soundFilename,
                                        winDirPath,
                                        QUrl::AssumeLocalFile);
-    } 
+    }
     else {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sounds, system doesn't know WINDIR : " << soundFilename;
     }

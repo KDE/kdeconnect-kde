@@ -65,14 +65,14 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
                 ::SendInput(1,&input,sizeof(INPUT));
             }
         }
-        
+
     }
 
     NetworkPacket answer(PACKET_TYPE_MPRIS);
     bool somethingToSend = false;
     if (np.get<bool>(QStringLiteral("requestNowPlaying"))) {
         answer.set(QStringLiteral("pos"), 0);
-        
+
         answer.set(QStringLiteral("isPlaying"), false);
 
         answer.set(QStringLiteral("canPause"), false);

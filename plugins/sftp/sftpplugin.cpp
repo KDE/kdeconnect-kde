@@ -43,7 +43,7 @@ static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("ip") <<
 struct SftpPlugin::Pimpl
 {
     Pimpl() : m_mounter(nullptr) {}
-  
+
     //Add KIO entry to Dolphin's Places
     KFilePlacesModel  m_placesModel;
     Mounter* m_mounter;
@@ -52,7 +52,7 @@ struct SftpPlugin::Pimpl
 SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
     , d(new Pimpl())
-{ 
+{
     deviceId = device()->id();
     addToDolphin();
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created device:" << device()->name();
@@ -60,14 +60,14 @@ SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
 
 SftpPlugin::~SftpPlugin()
 {
-    removeFromDolphin();    
+    removeFromDolphin();
     unmount();
 }
 
 void SftpPlugin::addToDolphin()
 {
     removeFromDolphin();
-    
+
     QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
     d->m_placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "add to dolphin";
@@ -117,7 +117,7 @@ bool SftpPlugin::isMounted() const
 }
 
 QString SftpPlugin::getMountError()
-{    
+{
     if (!mountError.isEmpty()) {
         return mountError;
     }
@@ -140,7 +140,7 @@ bool SftpPlugin::receivePacket(const NetworkPacket& np)
         // packet is invalid
         return false;
     }
-    
+
     Q_EMIT packetReceived(np);
 
     remoteDirectories.clear();
@@ -179,7 +179,7 @@ void SftpPlugin::onUnmounted()
     qCDebug(KDECONNECT_PLUGIN_SFTP) << device()->name() << "Remote filesystem unmounted";
 
     unmount();
-    
+
     Q_EMIT unmounted();
 }
 
