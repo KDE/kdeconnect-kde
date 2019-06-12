@@ -21,11 +21,6 @@ set(libkdeconnect_SRC
 #    modeltest.cpp
 )
 
-set(libkdeconnect_public_HEADERS
-    KDEConnect/DevicesModel
-    KDEConnect/NotificationsModel
-)
-
 set(libkdeconnect_HEADERS
     devicesmodel.h
     notificationsmodel.h
