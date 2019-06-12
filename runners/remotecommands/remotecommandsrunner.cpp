@@ -22,8 +22,6 @@
 
 #include <QDebug>
 
-#include "interfaces/dbusinterfaces.h"
-
 K_EXPORT_PLASMA_RUNNER(installer, RemoteCommandsRunner)
 
 RemoteCommandsRunner::RemoteCommandsRunner(QObject *parent, const QVariantList &args)

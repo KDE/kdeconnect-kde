@@ -55,8 +55,6 @@ set_target_properties(kdeconnectinterfaces PROPERTIES
 
 generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
 
-target_include_directories(kdeconnectinterfaces PUBLIC ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_BINARY_DIR})
-
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
     Qt5::Gui

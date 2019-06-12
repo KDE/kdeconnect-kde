@@ -23,7 +23,7 @@
 
 #include <KRunner/AbstractRunner>
 
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces.h"
 
 class RemoteCommandsRunner : public Plasma::AbstractRunner
 {

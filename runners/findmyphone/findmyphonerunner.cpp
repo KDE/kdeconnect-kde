@@ -23,8 +23,6 @@
 #include <QDebug>
 #include <KLocalizedString>
 
-#include "interfaces/dbusinterfaces.h"
-
 K_EXPORT_PLASMA_RUNNER(installer, FindMyPhoneRunner)
 
 FindMyPhoneRunner::FindMyPhoneRunner(QObject *parent, const QVariantList &args)
