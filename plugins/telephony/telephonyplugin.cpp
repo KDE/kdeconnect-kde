@@ -37,10 +37,6 @@ TelephonyPlugin::TelephonyPlugin(QObject* parent, const QVariantList& args)
 {
 }
 
-TelephonyPlugin::~TelephonyPlugin()
-{
-}
-
 KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
 {
     const QString event = np.get<QString>(QStringLiteral("event"));
