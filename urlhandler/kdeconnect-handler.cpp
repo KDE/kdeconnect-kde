@@ -60,7 +60,7 @@ int main(int argc, char** argv)
                      description,
                      QStringLiteral(KDECONNECT_VERSION_STRING),
                      description,
-                     KAboutLicense::GPL, 
+                     KAboutLicense::GPL,
                      i18n("(C) 2017 Aleix Pol Gonzalez"));
     about.addAuthor( QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org") );
     KAboutData::setApplicationData(about);
