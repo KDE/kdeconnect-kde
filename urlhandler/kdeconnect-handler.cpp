@@ -102,10 +102,10 @@ int main(int argc, char** argv)
         uidialog.label->setText(i18n("Device to call %1 with:", displayUrl));
     } else if (urlToShare.isLocalFile() && open) {
         displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-        uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
+        uidialog.label->setText(i18n("Device to open %1 on:", displayUrl));
     } else {
         displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-        uidialog.label->setText(i18n("Device to open %1 on:", displayUrl));
+        uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
     }
 
     dialog.setWindowTitle(displayUrl);
