@@ -97,6 +97,7 @@ PlasmaComponents.ListItem
                     id: fileDialog
                     title: i18n("Please choose a file")
                     folder: shortcuts.home
+                    selectMultiple: true
                 }
 
                 id: shareFile
@@ -105,7 +106,9 @@ PlasmaComponents.ListItem
                 tooltip: i18n("Share file")
                 onClicked: {
                     fileDialog.open()
-                    share.plugin.shareUrl(fileDialog.fileUrl)
+                    fileDialog.fileUrls.forEach(function (url) {
+                        share.plugin.shareUrl(url)
+                    })
                 }
             }
 
