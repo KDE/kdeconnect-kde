@@ -280,7 +280,7 @@ PlasmaComponents.ListItem
             id: share
             device: root.device
         }
-	
+
         PlasmaComponents.Label {
             text: i18n("Share text")
         }
