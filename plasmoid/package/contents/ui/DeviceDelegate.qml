@@ -95,7 +95,7 @@ PlasmaComponents.ListItem
             {
                 FileDialog {
                     id: fileDialog
-                    title: "Please choose a file"
+                    title: i18n("Please choose a file")
                     folder: shortcuts.home
                 }
 
