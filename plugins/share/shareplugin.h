@@ -41,10 +41,10 @@ public:
     explicit SharePlugin(QObject* parent, const QVariantList& args);
 
     ///Helper method, QDBus won't recognize QUrl
-    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url)); }
+    Q_SCRIPTABLE void shareUrl(const QString& url) { shareUrl(QUrl(url), false); }
     Q_SCRIPTABLE void shareUrls(const QStringList& urls);
     Q_SCRIPTABLE void shareText(const QString& text);
-    Q_SCRIPTABLE void openFile(const QString& file) { openFile(QUrl(file)); }
+    Q_SCRIPTABLE void openFile(const QString& file) { shareUrl(QUrl(file), true); }
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
@@ -58,8 +58,7 @@ Q_SIGNALS:
 
 private:
     void finished(KJob* job, const qint64 dateModified);
-    void shareUrl(const QUrl& url);
-    void openFile(const QUrl& url);
+    void shareUrl(const QUrl& url, bool open);
     QUrl destinationDir() const;
     QUrl getFileDestination(const QString filename) const;
     void setDateModified(const QUrl& destination, const qint64 timestamp);

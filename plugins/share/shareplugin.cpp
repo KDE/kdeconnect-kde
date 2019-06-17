@@ -192,13 +192,14 @@ void SharePlugin::openDestinationFolder()
     QDesktopServices::openUrl(destinationDir());
 }
 
-void SharePlugin::shareUrl(const QUrl& url)
+void SharePlugin::shareUrl(const QUrl& url, bool open)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
-    if(url.isLocalFile()) {
+    if (url.isLocalFile()) {
         QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
         packet.setPayload(ioFile, ioFile->size());
         packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
+        packet.set<bool>(QStringLiteral("open"), open);
     } else {
         packet.set<QString>(QStringLiteral("url"), url.toString());
     }
@@ -207,7 +208,7 @@ void SharePlugin::shareUrl(const QUrl& url)
 
 void SharePlugin::shareUrls(const QStringList& urls) {
     for(const QString& url : urls) {
-        shareUrl(QUrl(url));
+        shareUrl(QUrl(url), false);
     }
 }
 
@@ -215,18 +216,6 @@ void SharePlugin::shareText(const QString& text)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     packet.set<QString>(QStringLiteral("text"), text);
-    sendPacket(packet);
-}
-
-void SharePlugin::openFile(const QUrl& url)
-{
-    NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
-    if(url.isLocalFile()) {
-        QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
-        packet.setPayload(ioFile, ioFile->size());
-        packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
-        packet.set<bool>(QStringLiteral("open"), true);
-    }
     sendPacket(packet);
 }
 
