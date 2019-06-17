@@ -91,8 +91,8 @@ void NotificationsDbusInterface::processPacket(const NetworkPacket& np)
     } else {
         QString pubId = m_internalIdToPublicId.value(id);
         noti = m_notifications.value(pubId);
+        noti->update(np);
     }
-    noti->update(np);
 }
 
 void NotificationsDbusInterface::addNotification(Notification* noti)
