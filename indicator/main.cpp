@@ -20,6 +20,7 @@
 
 #include <QApplication>
 #include <QProcess>
+#include <QThread>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -65,6 +66,7 @@ int main(int argc, char** argv)
     
     QProcess kdeconnectdProcess;
     kdeconnectdProcess.start(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));    // Start kdeconnectd
+    QThread::sleep(5);      // Wait for kdeconnectd and its dbus-daemon
 #endif
 
 #ifndef USE_PRIVATE_DBUS
@@ -116,11 +118,17 @@ int main(int argc, char** argv)
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
+#ifdef Q_OS_MAC
+    QStringList themeSearchPaths = QIcon::themeSearchPaths();
+    themeSearchPaths << basePath + QStringLiteral("Contents/Resources/icons/");
+    QIcon::setThemeSearchPaths(themeSearchPaths);
+#endif
+
 #ifdef QSYSTRAY
     QSystemTrayIcon systray;
-    systray.setIcon(QIcon::fromTheme("kdeconnectindicatordark"));
+    systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnectindicatordark")));
     systray.setVisible(true);
-    systray.setToolTip("KDE Connect");
+    systray.setToolTip(QStringLiteral("KDE Connect"));
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
         systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
     });
