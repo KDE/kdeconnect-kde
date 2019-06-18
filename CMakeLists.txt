@@ -69,6 +69,10 @@ set_package_properties(KF5Kirigami2 PROPERTIES
   TYPE RUNTIME
 )
 
+option(PRIVATE_DBUS_ENABLED "Use private dbus session for kdeconnect" OFF)
+if(PRIVATE_DBUS_ENABLED OR APPLE)
+    add_compile_definitions(USE_PRIVATE_DBUS)
+endif()
 add_subdirectory(core)
 if(NOT SAILFISHOS)
     add_subdirectory(kcm)

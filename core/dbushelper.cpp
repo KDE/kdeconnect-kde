@@ -19,8 +19,38 @@
  */
 
 #include "dbushelper.h"
+#include "core_debug.h"
+
+#include <QRegExp>
+#include <QProcess>
+#include <QDebug>
+#include <QUrl>
+#include <QFile>
+#include <QCoreApplication>
+
+#include "kdeconnectconfig.h"
+
+#ifdef Q_OS_MAC
+#include <CoreFoundation/CFBundle.h>
+#endif
 
 namespace DbusHelper {
+
+#ifdef USE_PRIVATE_DBUS
+class DBusInstancePrivate
+{
+public:
+    DBusInstancePrivate();
+    ~DBusInstancePrivate();
+
+    void launchDBusDaemon();
+    void closeDBusDaemon();
+private:
+    QProcess *m_dbusProcess;
+};
+
+static DBusInstancePrivate dbusInstance;
+#endif
 
 void filterNonExportableCharacters(QString& s)
 {
@@ -30,11 +60,88 @@ void filterNonExportableCharacters(QString& s)
 
 QDBusConnection sessionBus()
 {
-#ifdef Q_OS_MAC
-    return QDBusConnection::connectToBus(QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR), QStringLiteral(KDECONNECT_PRIVATE_DBUS_NAME)); 
+#ifdef USE_PRIVATE_DBUS
+    return QDBusConnection::connectToBus(KdeConnectConfig::instance()->privateDBusAddress(),
+        QStringLiteral(KDECONNECT_PRIVATE_DBUS_NAME));
 #else
     return QDBusConnection::sessionBus();
 #endif
 }
+
+#ifdef USE_PRIVATE_DBUS
+void launchDBusDaemon()
+{
+    dbusInstance.launchDBusDaemon();
+}
+
+void closeDBusDaemon()
+{
+    dbusInstance.closeDBusDaemon();
+}
+
+void DBusInstancePrivate::launchDBusDaemon()
+{
+    // Kill old dbus daemon
+    if (m_dbusProcess != nullptr) closeDBusDaemon();
+
+    // Start dbus daemon
+    m_dbusProcess = new QProcess();
+    #ifdef Q_OS_MAC
+        // On macOS, assuming the executable is in Contents/MacOS
+        CFURLRef url = (CFURLRef)CFAutorelease((CFURLRef)CFBundleCopyBundleURL(CFBundleGetMainBundle()));
+        QString basePath = QUrl::fromCFURL(url).path();
+        QString kdeconnectDBusExecutable = basePath + QStringLiteral("Contents/MacOS/dbus-daemon"),
+                kdeconnectDBusConfiguration = basePath + QStringLiteral("Contents/Resources/dbus-1/session.conf");
+        qCDebug(KDECONNECT_CORE) << "App package path: " << basePath;
+
+        m_dbusProcess->setProgram(kdeconnectDBusExecutable);
+        m_dbusProcess->setArguments({QStringLiteral("--print-address"),
+            QStringLiteral("--nofork"),
+            QStringLiteral("--config-file=") + kdeconnectDBusConfiguration,
+            QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)});
+        m_dbusProcess->setWorkingDirectory(basePath);
+    #elif defined(Q_OS_WIN)
+        // On Windows
+        m_dbusProcess->setProgram(QStringLiteral("dbus-daemon.exe"));
+        m_dbusProcess->setArguments({QStringLiteral("--session"),
+            QStringLiteral("--print-address"),
+            QStringLiteral("--nofork"),
+            QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)});
+    #else
+        // On Linux or other unix-like system
+        m_dbusProcess->setProgram(QStringLiteral("dbus-daemon"));
+        m_dbusProcess->setArguments({QStringLiteral("--session"),
+            QStringLiteral("--print-address"),
+            QStringLiteral("--nofork"),
+            QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)});
+    #endif
+    m_dbusProcess->setStandardOutputFile(KdeConnectConfig::instance()->privateDBusAddressPath());
+    m_dbusProcess->setStandardErrorFile(QProcess::nullDevice());
+    m_dbusProcess->start();
+}
+
+void DBusInstancePrivate::closeDBusDaemon()
+{
+    if (m_dbusProcess != nullptr)
+    {
+        m_dbusProcess->terminate();
+        m_dbusProcess->waitForFinished();
+        delete m_dbusProcess;
+        m_dbusProcess = nullptr;
+
+        QFile privateDBusAddressFile(KdeConnectConfig::instance()->privateDBusAddressPath());
+
+        if (privateDBusAddressFile.exists()) privateDBusAddressFile.resize(0);
+    }
+}
+
+DBusInstancePrivate::DBusInstancePrivate()
+    :m_dbusProcess(nullptr){}
+
+DBusInstancePrivate::~DBusInstancePrivate()
+{
+    closeDBusDaemon();
+}
+#endif
 
 }

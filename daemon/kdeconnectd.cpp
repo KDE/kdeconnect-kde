@@ -111,6 +111,10 @@ int main(int argc, char* argv[])
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
 
+#ifdef USE_PRIVATE_DBUS
+    DbusHelper::launchDBusDaemon();
+#endif
+
     QCommandLineParser parser;
     QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
     parser.addOption(replaceOption);
@@ -126,7 +130,7 @@ int main(int argc, char* argv[])
         DbusHelper::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
     }
 
-#ifndef Q_OS_MAC
+#ifndef USE_PRIVATE_DBUS
     KDBusService dbusService(KDBusService::Unique);
 #endif
 

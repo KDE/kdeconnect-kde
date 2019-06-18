@@ -41,3 +41,6 @@ ecm_add_test(testnotificationlistener.cpp
 if(SMSAPP_ENABLED)
     ecm_add_test(testsmshelper.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
 endif()
+if(PRIVATE_DBUS_ENABLED)
+    ecm_add_test(testprivatedbus.cpp LINK_LIBRARIES ${kdeconnect_libraries})
+endif()

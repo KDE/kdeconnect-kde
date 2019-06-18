@@ -31,6 +31,10 @@
 namespace DbusHelper {
     void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString& s);
 
+#ifdef USE_PRIVATE_DBUS
+    void KDECONNECTCORE_EXPORT launchDBusDaemon();
+    void KDECONNECTCORE_EXPORT closeDBusDaemon();
+#endif
     QDBusConnection KDECONNECTCORE_EXPORT sessionBus();
 }
 

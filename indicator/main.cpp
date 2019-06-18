@@ -67,7 +67,7 @@ int main(int argc, char** argv)
     kdeconnectdProcess.start(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));    // Start kdeconnectd
 #endif
 
-#ifndef Q_OS_MAC
+#ifndef USE_PRIVATE_DBUS
     KDBusService dbusService(KDBusService::Unique);
 #endif
 
