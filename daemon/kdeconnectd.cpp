@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
     KAboutData aboutData(
-        QStringLiteral("org.kde.kdeconnect.daemon"),
+        QStringLiteral("kdeconnect.daemon"),
         i18n("KDE Connect Daemon"),
         QStringLiteral(KDECONNECT_VERSION_STRING),
         i18n("KDE Connect Daemon"),
