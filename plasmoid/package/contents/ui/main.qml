@@ -32,13 +32,17 @@ Item
     DevicesModel {
         id: connectDeviceModel
         displayFilter: DevicesModel.Paired | DevicesModel.Reachable
+    }
 
+    DevicesModel {
+        id: pairedDeviceModel
+        displayFilter: DevicesModel.Paired
     }
 
     Binding {
         target: plasmoid
         property: "status"
-        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.HiddenStatus
+        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : ((pairedDeviceModel.count > 0) ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.PassiveStatus)
     }
 
     Plasmoid.fullRepresentation: FullRepresentation {

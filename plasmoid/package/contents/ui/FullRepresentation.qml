@@ -23,17 +23,59 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kdeconnect 1.0 as KdeConnect
+import QtQuick.Layouts 1.9
 
 Item {
     id: kdeconnect
     property alias devicesModel: devicesView.model
 
-    PlasmaExtras.Heading {
+    ColumnLayout {
+        spacing: 5
+        visible: devicesView.count == 0
         width: parent.width
-        level: 3
-        opacity: 0.6
-        text: i18n("No paired devices available")
-        visible: devicesView.count==0
+        height: parent.height
+
+        PlasmaExtras.Heading {
+            id: heading
+            Layout.fillWidth: true
+            level: 3
+            opacity: 0.6
+            text: i18n("No paired devices available")
+        }
+
+        Item {
+            Layout.fillHeight: true
+        }
+
+        PlasmaComponents.Label {
+            Layout.fillWidth: true
+
+            text: i18n("Install KDE Connect on your Android device to integrate it with Plasma!")
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+        }
+
+        PlasmaComponents.Button {
+            Layout.alignment: Qt.AlignHCenter
+
+            text: i18n("Install from Google Play")
+            onClicked: Qt.openUrlExternally("https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp")
+        }
+
+        PlasmaComponents.Button {
+            Layout.alignment: Qt.AlignHCenter
+
+            text: i18n("Install from F-Droid")
+            onClicked: Qt.openUrlExternally("https://f-droid.org/en/packages/org.kde.kdeconnect_tp/")
+        }
+
+        Item {
+            Layout.fillHeight: true
+        }
+
+        Item {
+            height: heading.height
+        }
     }
 
     /*
@@ -48,6 +90,7 @@ Item {
     PlasmaExtras.ScrollArea {
         id: dialogItem
         anchors.fill: parent
+        visible: devicesView.count > 0
 
         ListView {
             id: devicesView
