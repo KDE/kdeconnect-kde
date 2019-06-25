@@ -72,18 +72,12 @@ PlasmaComponents.ListItem
 
         RowLayout
         {
-            Item {
-                //spacer to make the label centre aligned in a row yet still elide and everything
-                implicitWidth: (ring.visible? ring.width : 0) + (browse.visible? browse.width : 0) + (shareFile.visible? shareFile.width : 0) + parent.spacing
-            }
-
             Battery {
                 id: battery
                 device: root.device
             }
 
             PlasmaComponents.Label {
-                horizontalAlignment: Text.AlignHCenter
                 elide: Text.ElideRight
                 text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", display, battery.displayString) : display
                 Layout.fillWidth: true
