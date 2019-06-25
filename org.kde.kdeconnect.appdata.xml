@@ -6,6 +6,7 @@
   <name>KDE Connect</name>
   <name xml:lang="ca">KDE Connect</name>
   <name xml:lang="ca-valencia">KDE Connect</name>
+  <name xml:lang="de">KDE-Connect</name>
   <name xml:lang="en-GB">KDE Connect</name>
   <name xml:lang="es">KDE Connect</name>
   <name xml:lang="id">KDE Connect</name>
@@ -22,6 +23,7 @@
   <summary>Seamless connection of your devices</summary>
   <summary xml:lang="ca">Connexió transparent amb els vostres dispositius</summary>
   <summary xml:lang="ca-valencia">Connexió transparent amb els vostres dispositius</summary>
+  <summary xml:lang="de">Nahtlose Verbindung zu Ihren Geräten</summary>
   <summary xml:lang="en-GB">Seamless connection of your devices</summary>
   <summary xml:lang="es">Conexión sin interrupciones de sus dispositivos</summary>
   <summary xml:lang="fr">Connecter vos périphériques avec facilité</summary>
@@ -41,6 +43,7 @@
     </p>
     <p xml:lang="ca">El KDE Connect proporciona diverses característiques per integrar el telèfon i l'ordinador:</p>
     <p xml:lang="ca-valencia">El KDE Connect proporciona diverses característiques per integrar el telèfon i l'ordinador:</p>
+    <p xml:lang="de">KDE-Connect bietet mehrere Funktionen zur Integration Ihres Telefons und Ihres Rechners:</p>
     <p xml:lang="en-GB">KDE Connect provides several features to integrate your phone and your computer:</p>
     <p xml:lang="es">KDE Connect proporciona varias funcionalidades para integrar su teléfono y su equipo:</p>
     <p xml:lang="id">KDE Connect menyediakan fitur-fitur untuk mengintegrasikan ponselmu dan komputermu:</p>
@@ -61,6 +64,7 @@
     </p>
     <p xml:lang="ca">Recordeu que cal instal·lar el KDE Connect a l'ordinador perquè aquesta aplicació funcioni, i mantenir actualitzada la versió de l'escriptori amb la versió d'Android perquè funcionin les últimes característiques.</p>
     <p xml:lang="ca-valencia">Recordeu que cal instal·lar el KDE Connect a l'ordinador perquè aquesta aplicació funcione, i mantindre actualitzada la versió de l'escriptori amb la versió d'Android perquè funcionen les últimes característiques.</p>
+    <p xml:lang="de">Bitte beachten Sie, dass Sie KDE-Connect auf Ihrem Rechner installieren müssen, damit diese App funktioniert. Halten Sie die Arbeitsflächen-Version und Android-Version auf dem neusten Stand, damit Sie die neuesten Funktionen nutzen können</p>
     <p xml:lang="en-GB">Please note you will need to install KDE Connect on your computer for this app to work, and keep the desktop version up-to-date with the Android version for the latest features to work.</p>
     <p xml:lang="es">Tenga en cuenta que tendrá que instalar KDE Connect en su equipo para que esta aplicación funcione, y tendrá que mantener la versión de escritorio actualizada con la versión de Android para que las últimas funcionalidades estén disponibles.</p>
     <p xml:lang="id">Mohon diingat bahwa kamu perlu menginstal KDE Connect pada komputermu agar aplikasi ini bekerja, dan jaga versi desktop terupdate dengan versi Android supaya setidaknya fitur-fiturnya bekerja.</p>
