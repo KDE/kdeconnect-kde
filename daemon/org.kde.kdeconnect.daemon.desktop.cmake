@@ -30,6 +30,7 @@ Name[hu]=KDE csatlakozás
 Name[id]=KDE Connect
 Name[it]=KDE Connect
 Name[ko]=KDE Connect
+Name[lt]=KDE Connect
 Name[nl]=KDE Connect
 Name[nn]=KDE Connect
 Name[pl]=KDE Connect
