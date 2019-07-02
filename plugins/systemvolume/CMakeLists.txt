@@ -2,6 +2,10 @@ if(WIN32)
     set(kdeconnect_systemvolume_SRCS
         systemvolumeplugin-win.cpp
     )
+elseif(APPLE)
+    set(kdeconnect_systemvolume_SRCS
+        systemvolumeplugin-macos.cpp
+    )
 else()
     set(kdeconnect_systemvolume_SRCS
         systemvolumeplugin-pulse.cpp
@@ -15,6 +19,12 @@ if(WIN32)
         kdeconnectcore
         Qt5::Core
         ole32
+    )
+elseif(APPLE)
+    target_link_libraries(kdeconnect_systemvolume
+        kdeconnectcore
+        Qt5::Core
+        "-framework CoreAudio"
     )
 else()
     target_link_libraries(kdeconnect_systemvolume
