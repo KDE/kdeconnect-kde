@@ -103,8 +103,9 @@ void NotificationsListener::loadApplications()
     const QVariantList list = m_plugin->config()->getList(QStringLiteral("applications"));
     for (const auto& a : list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
-        if (!m_applications.contains(app.name))
+        if (!m_applications.contains(app.name)) {
             m_applications.insert(app.name, app);
+        }
     }
     //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
 }
@@ -212,8 +213,9 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
             list << QVariant::fromValue<NotifyingApplication>(a);
         m_plugin->config()->setList(QStringLiteral("applications"), list);
         //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
-    } else
+    } else {
         app = m_applications.value(appName);
+    }
 
     if (!app.active)
         return 0;

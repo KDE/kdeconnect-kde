@@ -275,8 +275,9 @@ void Device::addLink(const NetworkPacket& identityPacket, DeviceLink* link)
     setName(identityPacket.get<QString>(QStringLiteral("deviceName")));
     d->m_deviceType = str2type(identityPacket.get<QString>(QStringLiteral("deviceType")));
 
-    if (d->m_deviceLinks.contains(link))
+    if (d->m_deviceLinks.contains(link)) {
         return;
+    }
 
     d->m_protocolVersion = identityPacket.get<int>(QStringLiteral("protocolVersion"), -1);
     if (d->m_protocolVersion != NetworkPacket::s_protocolVersion) {
