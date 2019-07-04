@@ -34,7 +34,6 @@
  * KdeConnectPlugin at the same time (both are QObject)
  */
 class NotificationsDbusInterface;
-class NotificationsListener;
 
 class NotificationsPlugin
     : public KdeConnectPlugin
@@ -50,8 +49,6 @@ public:
 
 protected:
     NotificationsDbusInterface* notificationsDbusInterface;
-    NotificationsListener* notificationsListener;
-
 };
 
 #endif
