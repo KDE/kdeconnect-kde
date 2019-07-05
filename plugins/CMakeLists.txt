@@ -41,6 +41,11 @@ if(SAILFISHOS OR EXPERIMENTALAPP_ENABLED)
     add_subdirectory(remotesystemvolume)
 endif()
 
-# If we split notifications per plugin, in several notifyrc files, they won't 
+option(EXPERIMENTAL_PRESENTER "Enables building the experimental on-screen pointer for presentations" OFF)
+if(EXPERIMENTAL_PRESENTER)
+    add_subdirectory(presenter)
+endif()
+
+# If we split notifications per plugin, in several notifyrc files, they won't
 # appear in the same group in the Notifications KCM
 install(FILES kdeconnect.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})

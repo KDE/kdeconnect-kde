@@ -1,0 +1,21 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org",
+                "Name": "Aleix Pol"
+            }
+        ],
+        "Description": "",
+        "EnabledByDefault": true,
+        "Icon": "view-presentation",
+        "Id": "kdeconnect_presenter",
+        "License": "GPL",
+        "Name": "Presenter",
+        "ServiceTypes": [ "KdeConnect/Plugin" ]
+    },
+    "X-KdeConnect-OutgoingPacketType": [],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.presenter"
+    ]
+}
