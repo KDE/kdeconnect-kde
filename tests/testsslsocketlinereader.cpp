@@ -25,6 +25,7 @@
 #include <QtCrypto>
 #include <QTest>
 #include <QTimer>
+#include <QSignalSpy>
 
 /*
  * This class tests the behaviour of socket line reader when the connection if over ssl. Since SSL takes part below application layer,
@@ -112,6 +113,8 @@ void TestSslSocketLineReader::testTrustedDevice()
 
     QSslSocket* serverSocket = m_server->nextPendingConnection();
 
+    QSignalSpy serverEncryptedSpy(serverSocket, SIGNAL(encrypted()));
+
     QVERIFY2(serverSocket != 0, "Null socket returned by server");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
@@ -135,9 +138,19 @@ void TestSslSocketLineReader::testTrustedDevice()
     };
     connect(serverSocket, &QSslSocket::encrypted, connected_lambda);
     connect(m_clientSocket, &QSslSocket::encrypted, connected_lambda);
+
     serverSocket->startServerEncryption();
     m_clientSocket->startClientEncryption();
     m_loop.exec(); //Block until QEventLoop::quit gets called by the lambda
+
+    if (serverEncryptedSpy.count() < 1) {
+        for(int x = 0;x < 50; ++x) {
+            QVERIFY(serverEncryptedSpy.wait(100));
+            if (serverEncryptedSpy.count() > 0) {
+                break;
+            }
+        }
+    }
 
     // Both client and server socket should be encrypted here and should have remote certificate because VerifyPeer is used
     QVERIFY2(m_clientSocket->isOpen(), "Client socket already closed");
@@ -182,6 +195,8 @@ void TestSslSocketLineReader::testUntrustedDevice()
 
     QSslSocket* serverSocket = m_server->nextPendingConnection();
 
+    QSignalSpy serverEncryptedSpy(serverSocket, SIGNAL(encrypted()));
+
     QVERIFY2(serverSocket != 0, "Null socket returned by server");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
 
@@ -206,6 +221,15 @@ void TestSslSocketLineReader::testUntrustedDevice()
     serverSocket->startServerEncryption();
     m_clientSocket->startClientEncryption();
     m_loop.exec(); //Block until QEventLoop::quit gets called by the lambda
+
+    if (serverEncryptedSpy.count() < 1) {
+        for(int x = 0;x < 50; ++x) {
+            QVERIFY(serverEncryptedSpy.wait(100));
+            if (serverEncryptedSpy.count() > 0) {
+                break;
+            }
+        }
+    }
 
     QVERIFY2(m_clientSocket->isOpen(), "Client socket already closed");
     QVERIFY2(serverSocket->isOpen(), "Server socket already closed");
