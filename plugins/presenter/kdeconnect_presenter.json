@@ -47,6 +47,11 @@
         "Id": "kdeconnect_presenter",
         "License": "GPL",
         "Name": "Presenter",
+        "Name[ca]": "Presentador",
+        "Name[nl]": "Presentator",
+        "Name[pt]": "Apresentação",
+        "Name[uk]": "Презентатор",
+        "Name[x-test]": "xxPresenterxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ]
