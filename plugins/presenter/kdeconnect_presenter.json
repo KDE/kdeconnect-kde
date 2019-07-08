@@ -48,8 +48,12 @@
         "License": "GPL",
         "Name": "Presenter",
         "Name[ca]": "Presentador",
+        "Name[it]": "Presentatore",
         "Name[nl]": "Presentator",
+        "Name[pl]": "Przedstawiający",
         "Name[pt]": "Apresentação",
+        "Name[pt_BR]": "Apresentação",
+        "Name[sv]": "Presentatör",
         "Name[uk]": "Презентатор",
         "Name[x-test]": "xxPresenterxx",
         "ServiceTypes": [
