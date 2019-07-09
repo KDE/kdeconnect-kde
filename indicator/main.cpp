@@ -56,7 +56,8 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
 #ifdef Q_OS_WIN
-    QProcess::startDetached(QStringLiteral("kdeconnectd.exe"));
+    QProcess kdeconnectd;
+    kdeconnectd.start(QStringLiteral("kdeconnectd.exe"));
 #endif
 
 #ifdef Q_OS_MAC
@@ -106,7 +107,7 @@ int main(int argc, char** argv)
             }
         }
 
-#ifdef Q_OS_MAC
+#if (defined Q_OS_MAC || defined Q_OS_WIN)
         // Add quit menu
         menu->addAction(i18n("Quit"), [](){
             QCoreApplication::quit();   // Close this application
