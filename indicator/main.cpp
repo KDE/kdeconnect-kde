@@ -21,6 +21,7 @@
 #include <QApplication>
 #include <QProcess>
 #include <QThread>
+#include <QMessageBox>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -61,13 +62,49 @@ int main(int argc, char** argv)
 #endif
 
 #ifdef Q_OS_MAC
+    // Unset launchctl env, avoid block
+    DbusHelper::macosUnsetLaunchctlEnv();
+
     // Get bundle path
     CFURLRef url = (CFURLRef)CFAutorelease((CFURLRef)CFBundleCopyBundleURL(CFBundleGetMainBundle()));
     QString basePath = QUrl::fromCFURL(url).path();
     
+    // Start kdeconnectd
     QProcess kdeconnectdProcess;
-    kdeconnectdProcess.start(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));    // Start kdeconnectd
-    QThread::sleep(5);      // Wait for kdeconnectd and its dbus-daemon
+    kdeconnectdProcess.start(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));
+
+    // Wait for dbus daemon env
+    QProcess getLaunchdDBusEnv;
+    int retry = 0;
+    do {
+        getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
+        getLaunchdDBusEnv.setArguments({
+            QStringLiteral("getenv"),
+            QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV)
+        });
+        getLaunchdDBusEnv.start();
+        getLaunchdDBusEnv.waitForFinished();
+
+        QString launchdDBusEnv = QString::fromLocal8Bit(getLaunchdDBusEnv.readAllStandardOutput());
+
+        if (launchdDBusEnv.length() > 0) {
+            break;
+        } else if (retry >= 10) {
+            // Show a warning and exit
+            qCritical() << "Fail to get launchctl" << KDECONNECT_SESSION_DBUS_LAUNCHD_ENV << "env";
+
+            QMessageBox::critical(nullptr, i18n("KDE Connect"),
+                                  i18n("Cannot connect to DBus\n"
+                                  "KDE Connect will quit"),
+                                  QMessageBox::Abort,
+                                  QMessageBox::Abort);
+
+            return -1;
+        } else {
+            QThread::sleep(1);  // Retry after 1s
+            retry++;
+        }
+    } while(true);
 #endif
 
 #ifndef USE_PRIVATE_DBUS

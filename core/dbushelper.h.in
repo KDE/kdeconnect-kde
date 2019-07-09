@@ -28,6 +28,8 @@
 #define KDECONNECT_PRIVATE_DBUS_ADDR "${KDECONNECT_PRIVATE_DBUS_ADDR}"
 #define KDECONNECT_PRIVATE_DBUS_NAME "${KDECONNECT_PRIVATE_DBUS_NAME}"
 
+#define KDECONNECT_SESSION_DBUS_LAUNCHD_ENV "DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+
 namespace DbusHelper {
     void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString& s);
 
@@ -36,6 +38,9 @@ namespace DbusHelper {
     void KDECONNECTCORE_EXPORT closeDBusDaemon();
 #endif
     QDBusConnection KDECONNECTCORE_EXPORT sessionBus();
+#ifdef Q_OS_MAC
+    void KDECONNECTCORE_EXPORT macosUnsetLaunchctlEnv();
+#endif
 }
 
 #endif

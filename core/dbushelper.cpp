@@ -32,6 +32,8 @@
 
 #ifdef Q_OS_MAC
 #include <CoreFoundation/CFBundle.h>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 #endif
 
 namespace DbusHelper {
@@ -72,12 +74,28 @@ QDBusConnection sessionBus()
 void launchDBusDaemon()
 {
     dbusInstance.launchDBusDaemon();
+    qAddPostRoutine(closeDBusDaemon);
 }
 
 void closeDBusDaemon()
 {
     dbusInstance.closeDBusDaemon();
 }
+
+#ifdef Q_OS_MAC
+void macosUnsetLaunchctlEnv()
+{
+    // Unset Launchd env
+    QProcess unsetLaunchdDBusEnv;
+    unsetLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
+    unsetLaunchdDBusEnv.setArguments({
+        QStringLiteral("unsetenv"),
+        QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV)
+    });
+    unsetLaunchdDBusEnv.start();
+    unsetLaunchdDBusEnv.waitForFinished();
+}
+#endif
 
 void DBusInstancePrivate::launchDBusDaemon()
 {
@@ -118,6 +136,28 @@ void DBusInstancePrivate::launchDBusDaemon()
     m_dbusProcess->setStandardOutputFile(KdeConnectConfig::instance()->privateDBusAddressPath());
     m_dbusProcess->setStandardErrorFile(QProcess::nullDevice());
     m_dbusProcess->start();
+
+#ifdef Q_OS_MAC
+    // Set launchctl env
+    QString privateDBusAddress = KdeConnectConfig::instance()->privateDBusAddress();
+    QRegularExpressionMatch path;
+    if (privateDBusAddress.contains(QRegularExpression(
+            QStringLiteral("path=(?<path>/tmp/dbus-[A-Za-z0-9]+)")
+        ), &path)) {
+        qCDebug(KDECONNECT_CORE) << "DBus address: " << path.captured(QStringLiteral("path"));
+        QProcess setLaunchdDBusEnv;
+        setLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
+        setLaunchdDBusEnv.setArguments({
+            QStringLiteral("setenv"),
+            QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV),
+            path.captured(QStringLiteral("path"))
+        });
+        setLaunchdDBusEnv.start();
+        setLaunchdDBusEnv.waitForFinished();
+    } else {
+        qCDebug(KDECONNECT_CORE) << "Cannot get dbus address";
+    }
+#endif
 }
 
 void DBusInstancePrivate::closeDBusDaemon()
@@ -132,6 +172,10 @@ void DBusInstancePrivate::closeDBusDaemon()
         QFile privateDBusAddressFile(KdeConnectConfig::instance()->privateDBusAddressPath());
 
         if (privateDBusAddressFile.exists()) privateDBusAddressFile.resize(0);
+
+#ifdef Q_OS_MAC
+        macosUnsetLaunchctlEnv();
+#endif
     }
 }
 
