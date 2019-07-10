@@ -117,7 +117,7 @@
         "Name[uk]": "Луна-імпульс",
         "Name[x-test]": "xxPingxx",
         "Name[zh_CN]": "Ping",
-        "Name[zh_TW]": "Ping回應封包",
+        "Name[zh_TW]": "Ping 回應封包",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
