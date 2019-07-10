@@ -121,7 +121,7 @@
         "Name[uk]": "Буфер обміну",
         "Name[x-test]": "xxClipboardxx",
         "Name[zh_CN]": "剪切板",
-        "Name[zh_TW]": "剪貼板",
+        "Name[zh_TW]": "剪貼簿",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],

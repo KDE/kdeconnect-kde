@@ -105,7 +105,7 @@
         "Name[uk]": "Інтеграція з системою телефонії",
         "Name[x-test]": "xxTelephony integrationxx",
         "Name[zh_CN]": "Telephony 集成",
-        "Name[zh_TW]": "集成電話",
+        "Name[zh_TW]": "電話整合",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],

@@ -119,7 +119,7 @@
         "Name[uk]": "Оприлюднення і отримання",
         "Name[x-test]": "xxShare and receivexx",
         "Name[zh_CN]": "分享和接收",
-        "Name[zh_TW]": "共享與接收",
+        "Name[zh_TW]": "分享及接收",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
