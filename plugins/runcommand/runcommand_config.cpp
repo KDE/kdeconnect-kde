@@ -84,7 +84,7 @@ void RunCommandConfig::addSuggestedCommand(QMenu* menu, const QString &name, con
 void RunCommandConfig::defaults()
 {
     KCModule::defaults();
-    m_entriesModel->clear();
+    m_entriesModel->removeRows(0,m_entriesModel->rowCount());
 
     Q_EMIT changed(true);
 }
