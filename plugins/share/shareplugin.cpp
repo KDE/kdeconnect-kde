@@ -36,6 +36,7 @@
 #include <KMimeTypeTrader>
 
 #include "core/filetransferjob.h"
+#include "core/daemon.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SharePlugin, "kdeconnect_share.json")
 
@@ -196,10 +197,16 @@ void SharePlugin::shareUrl(const QUrl& url, bool open)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     if (url.isLocalFile()) {
-        QSharedPointer<QIODevice> ioFile(new QFile(url.toLocalFile()));
-        packet.setPayload(ioFile, ioFile->size());
-        packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
-        packet.set<bool>(QStringLiteral("open"), open);
+        QSharedPointer<QFile> ioFile(new QFile(url.toLocalFile()));
+
+        if (!ioFile->exists()) {
+            Daemon::instance()->reportError(i18n("Could not share file"), i18n("%1 does not exist", url.toLocalFile()));
+            return;
+        } else {
+            packet.setPayload(ioFile, ioFile->size());
+            packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
+            packet.set<bool>(QStringLiteral("open"), open);
+        }
     } else {
         packet.set<QString>(QStringLiteral("url"), url.toString());
     }
