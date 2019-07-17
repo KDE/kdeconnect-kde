@@ -41,7 +41,7 @@ extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
 {
     QCoreApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("kio_kdeconnect"));
-    
+
     if (argc != 4) {
         fprintf(stderr, "Usage: kio_kdeconnect protocol pool app\n");
         exit(-1);
@@ -55,15 +55,15 @@ extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
 //Some useful error mapping
 KIO::Error toKioError(const QDBusError::ErrorType type)
 {
-    switch (type) 
+    switch (type)
     {
         case QDBusError::NoError:
             return KIO::Error(KJob::NoError);
         case QDBusError::NoMemory:
             return KIO::ERR_OUT_OF_MEMORY;
-        case QDBusError::Timeout:          
+        case QDBusError::Timeout:
             return KIO::ERR_SERVER_TIMEOUT;
-        case QDBusError::TimedOut:          
+        case QDBusError::TimedOut:
             return KIO::ERR_SERVER_TIMEOUT;
         default:
             return KIO::ERR_SLAVE_DEFINED;
@@ -108,22 +108,22 @@ void KioKdeconnect::listAllDevices()
 
         KIO::UDSEntry entry;
         entry.reserve(6);
-        entry.insert(KIO::UDSEntry::UDS_NAME, name);
-        entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
-        entry.insert(KIO::UDSEntry::UDS_URL, path);
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
+        entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
+        entry.fastInsert(KIO::UDSEntry::UDS_URL, path);
         listEntry(entry);
     }
 
     // We also need a non-null and writable UDSentry for "."
     KIO::UDSEntry entry;
     entry.reserve(4);
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
     listEntry(entry);
 
     infoMessage(QLatin1String(""));
@@ -195,22 +195,22 @@ void KioKdeconnect::listDevice(const QString& device)
 
         KIO::UDSEntry entry;
         entry.reserve(6);
-        entry.insert(KIO::UDSEntry::UDS_NAME, name);
-        entry.insert(KIO::UDSEntry::UDS_ICON_NAME, icon);
-        entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        entry.insert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
-        entry.insert(KIO::UDSEntry::UDS_URL, QUrl::fromLocalFile(path).toString());
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
+        entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
+        entry.fastInsert(KIO::UDSEntry::UDS_URL, QUrl::fromLocalFile(path).toString());
         listEntry(entry);
     }
 
     // We also need a non-null and writable UDSentry for "."
     KIO::UDSEntry entry;
     entry.reserve(4);
-    entry.insert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.insert(KIO::UDSEntry::UDS_SIZE, 0);
-    entry.insert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
 
     listEntry(entry);
 
@@ -245,14 +245,14 @@ void KioKdeconnect::stat(const QUrl& url)
     qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
     KIO::UDSEntry entry;
-    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
 
     QString currentDevice = url.host();
     if (!currentDevice.isEmpty()) {
         SftpDbusInterface interface(currentDevice);
 
         if (interface.isValid()) {
-            entry.insert(KIO::UDSEntry::UDS_LOCAL_PATH, interface.mountPoint());
+            entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, interface.mountPoint());
 
             if (!interface.isMounted()) {
                 interface.mount();
