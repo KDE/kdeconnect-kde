@@ -39,6 +39,7 @@ public:
     QString title() const;
     QString artist() const;
     QString album() const;
+    bool canSeek() const;
 
 private:
 
@@ -52,4 +53,5 @@ private:
     QString m_title;
     QString m_artist;
     QString m_album;
+    bool m_canSeek;
 };

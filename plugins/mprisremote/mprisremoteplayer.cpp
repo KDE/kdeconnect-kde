@@ -34,6 +34,7 @@ MprisRemotePlayer::MprisRemotePlayer() :
     , m_title()
     , m_artist()
     , m_album()
+    , m_canSeek(false)
 {
 }
 
@@ -54,6 +55,8 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket& np)
         m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
     }
     m_playing = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
+    m_canSeek = np.get<bool>(QStringLiteral("canSeek"), m_canSeek);
+
 }
 
 long MprisRemotePlayer::position() const
@@ -104,4 +107,9 @@ QString MprisRemotePlayer::artist() const
 QString MprisRemotePlayer::album() const
 {
     return m_album;
+}
+
+bool MprisRemotePlayer::canSeek() const
+{
+    return m_canSeek;
 }

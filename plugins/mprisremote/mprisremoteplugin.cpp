@@ -203,4 +203,10 @@ QString MprisRemotePlugin::artist() const
     return player ? player->artist() : QString();
 }
 
+bool MprisRemotePlugin::canSeek() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->canSeek() : false;
+}
+
 #include "mprisremoteplugin.moc"

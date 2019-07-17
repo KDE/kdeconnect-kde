@@ -10,5 +10,6 @@
     <file>qml/FindDevicesPage.qml</file>
     <file>qml/runcommand.qml</file>
     <file>qml/volume.qml</file>
+    <file>qml/MprisSlider.qml</file>
  </qresource>
 </RCC>

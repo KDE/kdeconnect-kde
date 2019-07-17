@@ -28,16 +28,9 @@ Kirigami.Page
     id: root
     property QtObject pluginInterface
     property bool muted: false
-    property bool updatePositionSlider: true
     property int volumeUnmuted
     property var volume: pluginInterface.volume
-    property var lastPosition: pluginInterface.position
-    property date lastPositionTime: new Date()
     title: i18n("Multimedia Controls")
-
-    onLastPositionChanged: {
-        lastPositionTime = new Date();
-    }
 
     onVolumeChanged: {
         if (muted && volume != 0) {
@@ -76,11 +69,6 @@ Kirigami.Page
         } else {
             return currentTime.toLocaleTimeString(Qt.locale(),"mm:ss")
         }
-    }
-
-    Connections {
-        target: root.pluginInterface
-        onNowPlayingChanged: positionSlider.value = lastPosition
     }
 
     Label {
@@ -158,29 +146,15 @@ Kirigami.Page
         RowLayout {
             Layout.fillWidth: true
             Label {
-                text: msToTime(new Date(positionSlider.value), new Date(root.pluginInterface.length))
+                text: msToTime(new Date(positionIndicator.item.value), new Date(root.pluginInterface.length))
             }
-            Slider {
-                id: positionSlider
-                to: root.pluginInterface.length
-                Layout.fillWidth: true
-                Timer {
-                    id: positionUpdateTimer
-                    interval: 1000
-                    repeat: true
-                    running: updatePositionSlider && root.pluginInterface.isPlaying
 
-                    onTriggered: positionSlider.value = lastPosition + (new Date().getTime() - lastPositionTime.getTime())
-                }
-                onPressedChanged: {
-                    if (pressed) {
-                        updatePositionSlider = false
-                    } else {
-                        updatePositionSlider = true
-                        root.pluginInterface.position = value
-                    }
-                }
+            MprisSlider {
+                id: positionIndicator
+                plugin: root.pluginInterface
+                Layout.fillWidth: true
             }
+
             Label {
                 text: msToTime(new Date(root.pluginInterface.length), new Date(root.pluginInterface.length))
             }

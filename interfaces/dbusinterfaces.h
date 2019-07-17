@@ -152,6 +152,7 @@ class KDECONNECTINTERFACES_EXPORT MprisDbusInterface
     Q_PROPERTY(QStringList playerList READ playerList NOTIFY propertiesChangedProxy)
     Q_PROPERTY(int volume READ volume WRITE setVolume NOTIFY propertiesChangedProxy)
     Q_PROPERTY(int position READ position WRITE setPosition NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(bool canSeek READ canSeek NOTIFY propertiesChangedProxy)
 public:
     explicit MprisDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~MprisDbusInterface() override;
