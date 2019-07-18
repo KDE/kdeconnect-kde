@@ -21,6 +21,7 @@
 #ifndef CLIPBOARDLISTENER_H
 #define CLIPBOARDLISTENER_H
 
+#include <QTimer>
 #include <QObject>
 #include <QClipboard>
 #include <QGuiApplication>
@@ -36,6 +37,9 @@ private:
     ClipboardListener();
     QString currentContent;
     QClipboard* clipboard;
+#ifdef Q_OS_MAC
+    QTimer m_clipboardMonitorTimer;
+#endif
 
 public:
 

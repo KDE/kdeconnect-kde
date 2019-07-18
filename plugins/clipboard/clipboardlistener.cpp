@@ -23,6 +23,10 @@
 ClipboardListener::ClipboardListener() 
     : clipboard(QGuiApplication::clipboard())
 {
+#ifdef Q_OS_MAC
+    connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this](){ updateClipboard(QClipboard::Clipboard); });
+    m_clipboardMonitorTimer.start(1000);    // Refresh 1s
+#endif
     connect(clipboard, &QClipboard::changed, this, &ClipboardListener::updateClipboard);
 }
 
@@ -47,5 +51,3 @@ void ClipboardListener::setText(const QString& content)
     currentContent = content;
     clipboard->setText(content);
 }
-
-
