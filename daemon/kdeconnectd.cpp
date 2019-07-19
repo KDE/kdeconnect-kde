@@ -90,8 +90,35 @@ private:
     QNetworkAccessManager* m_nam;
 };
 
+// Copied from plasma-workspace/libkworkspace/kworkspace.cpp
+static void detectPlatform(int argc, char **argv)
+{
+    if (qEnvironmentVariableIsSet("QT_QPA_PLATFORM")) {
+        return;
+    }
+    for (int i = 0; i < argc; i++) {
+        if (qstrcmp(argv[i], "-platform") == 0 ||
+                qstrcmp(argv[i], "--platform") == 0 ||
+                QByteArray(argv[i]).startsWith("-platform=") ||
+                QByteArray(argv[i]).startsWith("--platform=")) {
+            return;
+        }
+    }
+    const QByteArray sessionType = qgetenv("XDG_SESSION_TYPE");
+    if (sessionType.isEmpty()) {
+        return;
+    }
+    if (qstrcmp(sessionType, "wayland") == 0) {
+        qputenv("QT_QPA_PLATFORM", "wayland");
+    } else if (qstrcmp(sessionType, "x11") == 0) {
+        qputenv("QT_QPA_PLATFORM", "xcb");
+    }
+}
+
 int main(int argc, char* argv[])
 {
+   detectPlatform(argc, argv);
+
     QApplication app(argc, argv);
     KAboutData aboutData(
         QStringLiteral("org.kde.kdeconnect.daemon"),
