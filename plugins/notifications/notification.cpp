@@ -39,6 +39,7 @@ QMap<QString, FileTransferJob*> Notification::s_downloadsInProgress;
 
 Notification::Notification(const NetworkPacket& np, const Device* device, QObject* parent)
     : QObject(parent)
+    , m_imagesDir()
     , m_device(device)
 {
     //Make a own directory for each user so noone can see each others icons
@@ -49,7 +50,7 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
         username = QString::fromLatin1(qgetenv("USER"));
     #endif
 
-    m_imagesDir = QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username);
+    m_imagesDir.setPath(QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username));
     m_imagesDir.mkpath(m_imagesDir.absolutePath());
     QFile(m_imagesDir.absolutePath()).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
     m_ready = false;
