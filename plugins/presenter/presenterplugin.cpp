@@ -61,7 +61,7 @@ PresenterPlugin::PresenterPlugin(QObject* parent, const QVariantList& args)
     , m_view(nullptr)
     , m_timer(new QTimer(this))
 {
-    m_timer->setInterval(2000);
+    m_timer->setInterval(500);
     m_timer->setSingleShot(true);
 }
 
