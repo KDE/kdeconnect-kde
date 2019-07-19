@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QLoggingCategory>
+#include <QPainter>
 
 #include <KLocalizedString>
 
@@ -42,11 +43,11 @@ ConversationListModel::ConversationListModel(QObject* parent)
     //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
     auto roles = roleNames();
     roles.insert(FromMeRole, "fromMe");
-    roles.insert(AddressRole, "address");
-    roles.insert(PersonUriRole, "personUri");
+    roles.insert(SenderRole, "sender");
+    roles.insert(DateRole, "date");
+    roles.insert(AddressesRole, "addresses");
     roles.insert(ConversationIdRole, "conversationId");
     roles.insert(MultitargetRole, "isMultitarget");
-    roles.insert(DateRole, "date");
     setItemRoleNames(roles);
 
     ConversationMessage::registerDbusType();
@@ -69,8 +70,8 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
     qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "setDeviceId" << deviceId << "of" << this;
 
     if (m_conversationsInterface) {
-        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QVariantMap)), this, SLOT(handleCreatedConversation(QVariantMap)));
-        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdated(QVariantMap)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleCreatedConversation(QDBusVariant)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdated(QDBusVariant)));
         delete m_conversationsInterface;
         m_conversationsInterface = nullptr;
     }
@@ -86,8 +87,8 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
     Q_EMIT deviceIdChanged();
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationCreated(QVariantMap)), this, SLOT(handleCreatedConversation(QVariantMap)));
-    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdated(QVariantMap)));
+    connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleCreatedConversation(QDBusVariant)));
+    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdated(QDBusVariant)));
     prepareConversationsList();
 
     m_conversationsInterface->requestAllConversationThreads();
@@ -105,21 +106,23 @@ void ConversationListModel::prepareConversationsList()
         clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
         for (const QVariant& headMessage : convs) {
             QDBusArgument data = headMessage.value<QDBusArgument>();
-            QVariantMap message;
+            ConversationMessage message;
             data >> message;
-            handleCreatedConversation(message);
+            createRowFromMessage(message);
         }
     }, this);
 }
 
-void ConversationListModel::handleCreatedConversation(const QVariantMap& msg)
+void ConversationListModel::handleCreatedConversation(const QDBusVariant& msg)
 {
-    createRowFromMessage(msg);
+    ConversationMessage message = ConversationMessage::fromDBus(msg);
+    createRowFromMessage(message);
 }
 
-void ConversationListModel::handleConversationUpdated(const QVariantMap& msg)
+void ConversationListModel::handleConversationUpdated(const QDBusVariant& msg)
 {
-    createRowFromMessage(msg);
+    ConversationMessage message = ConversationMessage::fromDBus(msg);
+    createRowFromMessage(message);
 }
 
 void ConversationListModel::printDBusError(const QDBusError& error)
@@ -137,9 +140,8 @@ QStandardItem * ConversationListModel::conversationForThreadId(qint32 threadId)
     return nullptr;
 }
 
-void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
+void ConversationListModel::createRowFromMessage(const ConversationMessage& message)
 {
-    const ConversationMessage message(msg);
     if (message.type() == -1) {
         // The Android side currently hacks in -1 if something weird comes up
         // TODO: Remove this hack when MMS support is implemented
@@ -151,26 +153,34 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
     if (!item) {
         toadd = true;
         item = new QStandardItem();
-        QScopedPointer<KPeople::PersonData> personData(lookupPersonByAddress(message.address()));
-        if (personData) {
-            item->setText(personData->name());
-            item->setIcon(QIcon(personData->photo()));
-            item->setData(personData->personUri(), PersonUriRole);
-        } else {
-            item->setData(QString(), PersonUriRole);
-            item->setText(message.address());
-        }
+
+        /** The address of everyone involved in this conversation, which we should not display (check if they are known contacts first) */
+        QList<ConversationAddress> rawAddresses = message.addresses();
+
+        QString displayNames = SmsHelper::getTitleForAddresses(rawAddresses);
+        QIcon displayIcon = SmsHelper::getIconForAddresses(rawAddresses);
+
+        item->setText(displayNames);
+        item->setIcon(displayIcon);
         item->setData(message.threadID(), ConversationIdRole);
+        item->setData(rawAddresses[0].address(), SenderRole);
     }
 
     // TODO: Upgrade to support other kinds of media
     // Get the body that we should display
     QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
 
-    // TODO: Upgrade with multitarget support
-    if (message.isMultitarget()) {
-        item->setText(i18n("(Multitarget Message)"));
+    // Prepend the sender's name
+    if (message.isOutgoing()) {
+        displayBody = i18n("You: %1", displayBody);
+    } else {
+        // If the message is incoming, the sender is the first Address
+        QString senderAddress = item->data(SenderRole).toString();
+        QScopedPointer<KPeople::PersonData> sender(SmsHelper::lookupPersonByAddress(senderAddress));
+        QString senderName = sender == nullptr? senderAddress : SmsHelper::lookupPersonByAddress(senderAddress)->name();
+        displayBody = i18n("%1: %2", senderName, displayBody);
     }
+
     // Update the message if the data is newer
     // This will be true if a conversation receives a new message, but false when the user
     // does something to trigger past conversation history loading
@@ -178,8 +188,8 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
     qint64 oldDate = item->data(DateRole).toLongLong(&oldDateExists);
     if (!oldDateExists || message.date() >= oldDate) {
         // If there was no old data or incoming data is newer, update the record
-        item->setData(message.address(), AddressRole);
-        item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
+        item->setData(QVariant::fromValue(message.addresses()), AddressesRole);
+        item->setData(message.isOutgoing(), FromMeRole);
         item->setData(displayBody, Qt::ToolTipRole);
         item->setData(message.date(), DateRole);
         item->setData(message.isMultitarget(), MultitargetRole);
@@ -187,38 +197,4 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
 
     if (toadd)
         appendRow(item);
-}
-
-KPeople::PersonData* ConversationListModel::lookupPersonByAddress(const QString& address)
-{
-    const QString& canonicalAddress = SmsHelper::canonicalizePhoneNumber(address);
-    int rowIndex = 0;
-    for (rowIndex = 0; rowIndex < m_people.rowCount(); rowIndex++) {
-        const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
-        KPeople::PersonData* person = new KPeople::PersonData(uri);
-
-        const QStringList& allEmails = person->allEmails();
-        for (const QString& email : allEmails) {
-            // Although we are nominally an SMS messaging app, it is possible to send messages to phone numbers using email -> sms bridges
-            if (address == email) {
-                return person;
-            }
-        }
-
-        // TODO: Either upgrade KPeople with an allPhoneNumbers method
-        const QVariantList allPhoneNumbers = person->contactCustomProperty(QStringLiteral("all-phoneNumber")).toList();
-        for (const QVariant& rawPhoneNumber : allPhoneNumbers) {
-            const QString& phoneNumber = SmsHelper::canonicalizePhoneNumber(rawPhoneNumber.toString());
-            bool matchingPhoneNumber = SmsHelper::isPhoneNumberMatchCanonicalized(canonicalAddress, phoneNumber);
-
-            if (matchingPhoneNumber) {
-                //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
-                return person;
-            }
-        }
-
-        delete person;
-    }
-
-    return nullptr;
 }

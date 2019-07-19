@@ -31,10 +31,6 @@ import QtGraphicalEffects 1.0
 Kirigami.ScrollablePage
 {
     id: page
-    property alias personUri: person.personUri
-    readonly property QtObject person: PersonData {
-        id: person
-    }
 
     property bool deviceConnected
     property string deviceId
@@ -43,8 +39,13 @@ Kirigami.ScrollablePage
     property bool isMultitarget
     property string initialMessage
 
-    property string phoneNumber
-    title: person.person && person.person.name ? person.person.name : phoneNumber
+    property var conversationModel: ConversationModel {
+        deviceId: page.deviceId
+        threadId: page.conversationId
+    }
+
+    property var addresses
+    title: conversationModel.getTitleForAddresses(addresses)
 
     Component.onCompleted: {
         if (initialMessage.length > 0) {
@@ -60,6 +61,7 @@ Kirigami.ScrollablePage
      */
     ChatMessage {
         id: genericMessage
+        senderName: "Generic Sender"
         messageBody: "Generic Message Body"
         dateTime: new Date('2000-0-0')
         visible: false
@@ -72,15 +74,13 @@ Kirigami.ScrollablePage
             id: model
             sortOrder: Qt.AscendingOrder
             sortRole: ConversationModel.DateRole
-            sourceModel: ConversationModel {
-                deviceId: page.deviceId
-                threadId: page.conversationId
-            }
+            sourceModel: conversationModel
         }
 
         spacing: Kirigami.Units.largeSpacing
 
         delegate: ChatMessage {
+            senderName: model.sender
             messageBody: model.display
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
@@ -121,7 +121,7 @@ Kirigami.ScrollablePage
                 highlightMoveDuration = 1 // This is not ideal: I would like to disable the highlight animation altogether
 
                 // Get more messages
-                model.sourceModel.requestMoreMessages()
+                conversationModel.requestMoreMessages()
             }
         }
     }
@@ -192,7 +192,7 @@ Kirigami.ScrollablePage
                     sendButton.enabled = false
 
                     // send the message
-                    model.sourceModel.sendReplyToConversation(messageField.text)
+                    conversationModel.sendReplyToConversation(messageField.text)
                     messageField.text = ""
 
                     // re-enable the button

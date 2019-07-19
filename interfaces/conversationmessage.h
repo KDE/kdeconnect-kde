@@ -22,8 +22,13 @@
 #define PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_
 
 #include <QDBusMetaType>
+#include <QLoggingCategory>
 
 #include "kdeconnectinterfaces_export.h"
+
+Q_DECLARE_LOGGING_CATEGORY(CONVERSATION_MESSAGE_LOGGING_CATEGORY)
+
+class ConversationAddress;
 
 class KDECONNECTINTERFACES_EXPORT ConversationMessage
 {
@@ -57,18 +62,19 @@ public:
      */
     ConversationMessage(const QVariantMap& args = QVariantMap());
 
-    ConversationMessage(const qint32& eventField, const QString& body, const QString& address,
+    ConversationMessage(const qint32& eventField, const QString& body, const QList<ConversationAddress>& addresses,
                         const qint64& date, const qint32& type, const qint32& read,
                         const qint64& threadID, const qint32& uID);
 
     ConversationMessage(const ConversationMessage& other);
     ~ConversationMessage();
     ConversationMessage& operator=(const ConversationMessage& other);
+    static ConversationMessage fromDBus(const QDBusVariant&);
     static void registerDbusType();
 
     qint32 eventField() const { return m_eventField; }
     QString body() const { return m_body; }
-    QString address() const { return m_address; }
+    QList<ConversationAddress> addresses() const { return m_addresses; }
     qint64 date() const { return m_date; }
     qint32 type() const { return m_type; }
     qint32 read() const { return m_read; }
@@ -79,6 +85,15 @@ public:
 
     bool containsTextBody() const { return (eventField() & ConversationMessage::EventTextMessage); }
     bool isMultitarget() const { return (eventField() & ConversationMessage::EventMultiTarget); }
+
+    bool isIncoming() const { return type() == MessageTypeInbox; }
+    bool isOutgoing() const { return type() == MessageTypeSent; }
+
+    /**
+     * Return the address of the other party of a single-target conversation
+     * Calling this method with a multi-target conversation is ill-defined
+     */
+    QString getOtherPartyAddress() const;
 
 protected:
     /**
@@ -93,9 +108,10 @@ protected:
     QString m_body;
 
     /**
-     * Remote-side address of the message. Most likely a phone number, but may be an email address
+     * List of all addresses involved in this conversation
+     * An address is most likely a phone number, but may be something else like an email address
      */
-    QString m_address;
+    QList<ConversationAddress> m_addresses;
 
     /**
      * Date stamp (Unix epoch millis) associated with the message
@@ -123,6 +139,85 @@ protected:
     qint32 m_uID;
 };
 
+class KDECONNECTINTERFACES_EXPORT ConversationAddress
+{
+public:
+    ConversationAddress(QString address = QStringLiteral());
+    ConversationAddress(const ConversationAddress& other);
+    ~ConversationAddress();
+    ConversationAddress& operator=(const ConversationAddress& other);
+
+    QString address() const { return m_address; }
+
+    QVariantMap toVariant() const;
+private:
+    QString m_address;
+};
+
+inline QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMessage &message)
+{
+    argument.beginStructure();
+    argument << message.eventField()
+             << message.body()
+             << message.addresses()
+             << message.date()
+             << message.type()
+             << message.read()
+             << message.threadID()
+             << message.uID();
+    argument.endStructure();
+    return argument;
+}
+
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationMessage &message)
+{
+    qint32 event;
+    QString body;
+    QList<ConversationAddress> addresses;
+    qint64 date;
+    qint32 type;
+    qint32 read;
+    qint64 threadID;
+    qint32 uID;
+
+    argument.beginStructure();
+    argument >> event;
+    argument >> body;
+    argument >> addresses;
+    argument >> date;
+    argument >> type;
+    argument >> read;
+    argument >> threadID;
+    argument >> uID;
+    argument.endStructure();
+
+    message = ConversationMessage(event, body, addresses, date, type, read, threadID, uID);
+
+    return argument;
+}
+
+inline QDBusArgument& operator<<(QDBusArgument& argument, const ConversationAddress& address)
+{
+    argument.beginStructure();
+    argument << address.address();
+    argument.endStructure();
+    return argument;
+}
+
+inline const QDBusArgument& operator>>(const QDBusArgument& argument, ConversationAddress& address)
+{
+    QString addressField;
+
+    argument.beginStructure();
+    argument >> addressField;
+    argument.endStructure();
+
+    address = ConversationAddress(addressField);
+
+    return argument;
+}
+
 Q_DECLARE_METATYPE(ConversationMessage);
+Q_DECLARE_METATYPE(ConversationAddress);
 
 #endif /* PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_ */

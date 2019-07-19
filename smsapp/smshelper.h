@@ -21,7 +21,12 @@
 #ifndef SMSHELPER_H
 #define SMSHELPER_H
 
+#include <QIcon>
 #include <QLoggingCategory>
+
+#include <KPeople/KPeople/PersonData>
+
+#include "interfaces/conversationmessage.h"
 
 #include "kdeconnectsms_export.h"
 
@@ -62,6 +67,37 @@ public:
      * Simplify a phone number to a known form
      */
     static QString canonicalizePhoneNumber(const QString& phoneNumber);
+
+    /**
+     * Get the data for a particular person given their contact address
+     */
+    static KPeople::PersonData* lookupPersonByAddress(const QString& address);
+
+    /**
+     * Make an icon which combines the many icons
+     *
+     * This mimics what Android does:
+     * If there is only one icon, use that one
+     * If there are two icons, put one in the top-left corner and one in the bottom right
+     * If there are three, put one in the middle of the top and the remaining two in the bottom
+     * If there are four or more, put one in each corner (If more than four, some will be left out)
+     */
+    static QIcon combineIcons(const QList<QPixmap>& icons);
+
+    /**
+     * Get a combination of all the addresses as a comma-separated list of:
+     *  - The KPeople contact's name (if known)
+     *  - The address (if the contact is not known)
+     */
+    static QString getTitleForAddresses(const QList<ConversationAddress>& addresses);
+
+    /**
+     * Get a combined icon for all contacts by finding:
+     *  - The KPeople contact's icon (if known)
+     *  - A generic icon
+     * and then using SmsHelper::combineIcons
+     */
+    static QIcon getIconForAddresses(const QList<ConversationAddress>& addresses);
 
 private:
     SmsHelper(){};

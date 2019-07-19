@@ -146,8 +146,7 @@ Kirigami.ScrollablePage
             icon: decoration
             function startChat() {
                 applicationWindow().pageStack.push(chatView, {
-                                                       personUri: model.personUri,
-                                                       phoneNumber: address,
+                                                       addresses: addresses,
                                                        conversationId: model.conversationId,
                                                        isMultitarget: isMultitarget,
                                                        initialMessage: page.initialMessage,

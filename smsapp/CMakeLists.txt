@@ -15,8 +15,11 @@ generate_export_header(kdeconnectsmshelper EXPORT_FILE_NAME ${CMAKE_CURRENT_BINA
 target_include_directories(kdeconnectsmshelper PUBLIC ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(kdeconnectsmshelper
-LINK_PUBLIC
+PUBLIC
     Qt5::Core
+    Qt5::DBus
+    KF5::People
+    kdeconnectinterfaces
 )
 
 # If ever this library is actually used by someone else, we should export these headers

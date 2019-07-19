@@ -25,8 +25,6 @@
 #include <QStandardItemModel>
 #include <QLoggingCategory>
 #include <QQmlParserStatus>
-#include <KPeople/kpeople/personsmodel.h>
-#include <KPeople/kpeople/persondata.h>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
@@ -78,12 +76,14 @@ public:
     ~ConversationListModel();
 
     enum Roles {
+        /* Roles which apply while working as a single message */
         FromMeRole = Qt::UserRole,
-        PersonUriRole,
-        AddressRole,
-        ConversationIdRole,
-        DateRole,
-        MultitargetRole, // Indicate that this conversation is multitarget
+        SenderRole,      // The sender of the message. Undefined if this is an outgoing message
+        DateRole,        // The date of this message
+        /* Roles which apply while working as the head of a conversation */
+        AddressesRole,      // The Addresses involved in the conversation
+        ConversationIdRole, // The ThreadID of the conversation
+        MultitargetRole,    // Indicate that this conversation is multitarget
     };
     Q_ENUM(Roles)
 
@@ -91,9 +91,9 @@ public:
     void setDeviceId(const QString &/*deviceId*/);
 
 public Q_SLOTS:
-    void handleCreatedConversation(const QVariantMap& msg);
-    void handleConversationUpdated(const QVariantMap& msg);
-    void createRowFromMessage(const QVariantMap& message);
+    void handleCreatedConversation(const QDBusVariant& msg);
+    void handleConversationUpdated(const QDBusVariant& msg);
+    void createRowFromMessage(const ConversationMessage& message);
     void printDBusError(const QDBusError& error);
 
 Q_SIGNALS:
@@ -105,16 +105,10 @@ private:
      */
     void prepareConversationsList();
 
-    /**
-     * Get the data for a particular person given their contact address
-     */
-    KPeople::PersonData* lookupPersonByAddress(const QString& address);
-
     QStandardItem* conversationForThreadId(qint32 threadId);
 
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;
-    KPeople::PersonsModel m_people;
 };
 
 #endif // CONVERSATIONLISTMODEL_H

@@ -20,9 +20,16 @@
 
 #include "smshelper.h"
 
-#include <QString>
+#include <QIcon>
+#include <QPainter>
 #include <QRegularExpression>
+#include <QString>
 #include <QLoggingCategory>
+
+#include <KPeople/KPeople/PersonData>
+#include <KPeople/KPeople/PersonsModel>
+
+#include "interfaces/conversationmessage.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER, "kdeconnect.sms.smshelper")
 
@@ -113,4 +120,118 @@ QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
         return phoneNumber;
     }
     return toReturn;
+}
+
+KPeople::PersonData* SmsHelper::lookupPersonByAddress(const QString& address)
+{
+    KPeople::PersonsModel m_people;
+
+    const QString& canonicalAddress = SmsHelper::canonicalizePhoneNumber(address);
+    int rowIndex = 0;
+    for (rowIndex = 0; rowIndex < m_people.rowCount(); rowIndex++) {
+        const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
+        KPeople::PersonData* person = new KPeople::PersonData(uri);
+
+        const QStringList& allEmails = person->allEmails();
+        for (const QString& email : allEmails) {
+            // Although we are nominally an SMS messaging app, it is possible to send messages to phone numbers using email -> sms bridges
+            if (address == email) {
+                return person;
+            }
+        }
+
+        // TODO: Either upgrade KPeople with an allPhoneNumbers method
+        const QVariantList allPhoneNumbers = person->contactCustomProperty(QStringLiteral("all-phoneNumber")).toList();
+        for (const QVariant& rawPhoneNumber : allPhoneNumbers) {
+            const QString& phoneNumber = SmsHelper::canonicalizePhoneNumber(rawPhoneNumber.toString());
+            bool matchingPhoneNumber = SmsHelper::isPhoneNumberMatchCanonicalized(canonicalAddress, phoneNumber);
+
+            if (matchingPhoneNumber) {
+                //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
+                return person;
+            }
+        }
+
+        delete person;
+    }
+
+    return nullptr;
+}
+
+QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons) {
+    QIcon icon;
+    if (icons.size() == 0) {
+        // We have no icon :(
+        // Once we are using the generic icon from KPeople for unknown contacts, this should never happen
+    } else if (icons.size() == 1) {
+        icon = icons.first();
+    } else {
+        // Cook an icon by combining the available icons
+        // Barring better information, use the size of the first icon as the size for the final icon
+        QSize size = icons.first().size();
+        QPixmap canvas(size);
+        canvas.fill(Qt::transparent);
+        QPainter painter(&canvas);
+
+        QSize halfSize = size / 2;
+
+        QRect topLeftQuadrant(QPoint(0, 0), halfSize);
+        QRect topRightQuadrant(topLeftQuadrant.topRight(), halfSize);
+        QRect bottomLeftQuadrant(topLeftQuadrant.bottomLeft(), halfSize);
+        QRect bottomRightQuadrant(topLeftQuadrant.bottomRight(), halfSize);
+
+        if (icons.size() == 2) {
+            painter.drawPixmap(topLeftQuadrant, icons[0]);
+            painter.drawPixmap(bottomRightQuadrant, icons[1]);
+        } else if (icons.size() == 3) {
+            QRect topMiddle(QPoint(halfSize.width() / 2, 0), halfSize);
+            painter.drawPixmap(topMiddle, icons[0]);
+            painter.drawPixmap(bottomLeftQuadrant, icons[1]);
+            painter.drawPixmap(bottomRightQuadrant, icons[2]);
+        } else {
+            // Four or more
+            painter.drawPixmap(topLeftQuadrant, icons[0]);
+            painter.drawPixmap(topRightQuadrant, icons[1]);
+            painter.drawPixmap(bottomLeftQuadrant, icons[2]);
+            painter.drawPixmap(bottomRightQuadrant, icons[3]);
+        }
+
+        icon = canvas;
+    }
+    return icon;
+}
+
+QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addresses) {
+    QStringList titleParts;
+    for (const ConversationAddress& address : addresses) {
+        QScopedPointer<KPeople::PersonData> personData(SmsHelper::lookupPersonByAddress(address.address()));
+
+        if (personData) {
+            titleParts.append(personData->name());
+        } else {
+            titleParts.append(address.address());
+        }
+    }
+
+    // It might be nice to alphabetize before combining so that the names don't move around randomly
+    // (based on how the data came to us from Android)
+    return titleParts.join(QLatin1String(", "));
+}
+
+QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses) {
+    QList<QPixmap> icons;
+    for (const ConversationAddress& address : addresses) {
+        QScopedPointer<KPeople::PersonData> personData(SmsHelper::lookupPersonByAddress(address.address()));
+
+        if (personData) {
+            icons.append(personData->photo());
+        } else {
+            // The contact is not known to KPeople
+            // TODO: Use generic icon from KPeople
+        }
+    }
+
+    // It might be nice to alphabetize by contact before combining so that the pictures don't move
+    // around randomly (based on how the data came to us from Android)
+    return combineIcons(icons);
 }

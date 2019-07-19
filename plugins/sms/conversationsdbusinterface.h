@@ -97,7 +97,7 @@ Q_SIGNALS:
      * Emitted whenever a conversation with no cached messages is added, either because the cache
      * is being populated or because a new conversation has been created
      */
-    Q_SCRIPTABLE void conversationCreated(const QVariantMap& msg);
+    Q_SCRIPTABLE void conversationCreated(const QDBusVariant& msg);
 
     /**
      * Emitted whenever a conversation is being deleted
@@ -108,7 +108,7 @@ Q_SIGNALS:
      * Emitted whenever a message is added to a conversation and it is the newest message in the
      * conversation
      */
-    Q_SCRIPTABLE void conversationUpdated(const QVariantMap& msg);
+    Q_SCRIPTABLE void conversationUpdated(const QDBusVariant& msg);
 
 private /*methods*/:
     QString newId(); //Generates successive identifitiers to use as public ids

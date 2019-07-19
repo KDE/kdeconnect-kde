@@ -42,6 +42,7 @@ RowLayout {
     property date dateTime
     property bool isRead: false
     property string recipientAvatarUrl
+    property string senderName
 
     // own messages are on the right, others on the left
     layoutDirection: sentByMe ? Qt.RightToLeft : Qt.LeftToRight
@@ -84,6 +85,13 @@ RowLayout {
             id: content
             spacing: 0
             anchors.centerIn: box
+
+            Controls.Label {
+                id: senderNameLabel
+                visible: !sentByMe && senderName != ""
+                text: senderName
+                color: Kirigami.Theme.disabledTextColor
+            }
 
             Controls.Label {
                 text: messageBody

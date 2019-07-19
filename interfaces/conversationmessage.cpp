@@ -20,29 +20,36 @@
 
 #include "conversationmessage.h"
 
+#include <QLoggingCategory>
 #include <QVariantMap>
 
+Q_LOGGING_CATEGORY(CONVERSATION_MESSAGE_LOGGING_CATEGORY, "kdeconnect.interfaces.conversationmessage")
 
 ConversationMessage::ConversationMessage(const QVariantMap& args)
     : m_eventField(args[QStringLiteral("event")].toInt()),
       m_body(args[QStringLiteral("body")].toString()),
-      m_address(args[QStringLiteral("address")].toString()),
       m_date(args[QStringLiteral("date")].toLongLong()),
       m_type(args[QStringLiteral("type")].toInt()),
       m_read(args[QStringLiteral("read")].toInt()),
       m_threadID(args[QStringLiteral("thread_id")].toLongLong()),
       m_uID(args[QStringLiteral("_id")].toInt())
 {
+    QString test = QLatin1String(args[QStringLiteral("addresses")].typeName());
+    QVariantList jsonAddresses = args[QStringLiteral("addresses")].toList();
+    for (const QVariant& addressField : jsonAddresses) {
+        const auto& rawAddress = addressField.toMap();
+        m_addresses.append(ConversationAddress(rawAddress[QStringLiteral("address")].value<QString>()));
+    }
 }
 
 ConversationMessage::ConversationMessage (const qint32& eventField, const QString& body,
-                                          const QString& address, const qint64& date,
+                                          const QList<ConversationAddress>& addresses, const qint64& date,
                                           const qint32& type, const qint32& read,
                                           const qint64& threadID,
                                           const qint32& uID)
     : m_eventField(eventField)
     , m_body(body)
-    , m_address(address)
+    , m_addresses(addresses)
     , m_date(date)
     , m_type(type)
     , m_read(read)
@@ -54,7 +61,7 @@ ConversationMessage::ConversationMessage (const qint32& eventField, const QStrin
 ConversationMessage::ConversationMessage(const ConversationMessage& other)
     : m_eventField(other.m_eventField)
     , m_body(other.m_body)
-    , m_address(other.m_address)
+    , m_addresses(other.m_addresses)
     , m_date(other.m_date)
     , m_type(other.m_type)
     , m_read(other.m_read)
@@ -69,7 +76,7 @@ ConversationMessage& ConversationMessage::operator=(const ConversationMessage& o
 {
     this->m_eventField = other.m_eventField;
     this->m_body = other.m_body;
-    this->m_address = other.m_address;
+    this->m_addresses = other.m_addresses;
     this->m_date = other.m_date;
     this->m_type = other.m_type;
     this->m_read = other.m_read;
@@ -78,12 +85,25 @@ ConversationMessage& ConversationMessage::operator=(const ConversationMessage& o
     return *this;
 }
 
+ConversationMessage ConversationMessage::fromDBus(const QDBusVariant& var)
+{
+    QDBusArgument data = var.variant().value<QDBusArgument>();
+    ConversationMessage message;
+    data >> message;
+    return message;
+}
+
 QVariantMap ConversationMessage::toVariant() const
 {
+    QVariantList addresses;
+    for (const ConversationAddress& address : m_addresses) {
+        addresses.push_back(address.toVariant());
+    }
+
     return {
         {QStringLiteral("event"), m_eventField},
         {QStringLiteral("body"), m_body},
-        {QStringLiteral("address"), m_address},
+        {QStringLiteral("addresses"), addresses},
         {QStringLiteral("date"), m_date},
         {QStringLiteral("type"), m_type},
         {QStringLiteral("read"), m_read},
@@ -92,50 +112,34 @@ QVariantMap ConversationMessage::toVariant() const
     };
 }
 
-QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMessage &message)
+ConversationAddress::ConversationAddress(QString address)
+    : m_address(address)
+{}
+
+ConversationAddress::ConversationAddress(const ConversationAddress& other)
+    : m_address(other.address())
+{}
+
+ConversationAddress::~ConversationAddress()
+{}
+
+ConversationAddress& ConversationAddress::operator=(const ConversationAddress& other)
 {
-    argument.beginStructure();
-    argument << message.eventField()
-             << message.body()
-             << message.address()
-             << message.date()
-             << message.type()
-             << message.read()
-             << message.threadID()
-             << message.uID();
-    argument.endStructure();
-    return argument;
+    this->m_address = other.m_address;
+    return *this;
 }
 
-const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationMessage &message)
+QVariantMap ConversationAddress::toVariant() const
 {
-    qint32 event;
-    QString body;
-    QString address;
-    qint64 date;
-    qint32 type;
-    qint32 read;
-    qint64 threadID;
-    qint32 uID;
-
-    argument.beginStructure();
-    argument >> event;
-    argument >> body;
-    argument >> address;
-    argument >> date;
-    argument >> type;
-    argument >> read;
-    argument >> threadID;
-    argument >> uID;
-    argument.endStructure();
-
-    message = ConversationMessage(event, body, address, date, type, read, threadID, uID);
-
-    return argument;
+    return {
+        {QStringLiteral("address"), address()},
+    };
 }
 
 void ConversationMessage::registerDbusType()
 {
     qDBusRegisterMetaType<ConversationMessage>();
     qRegisterMetaType<ConversationMessage>();
+    qDBusRegisterMetaType<ConversationAddress>();
+    qRegisterMetaType<ConversationAddress>();
 }

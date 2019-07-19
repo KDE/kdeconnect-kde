@@ -93,7 +93,7 @@ void SmsPlugin::forwardToTelepathy(const ConversationMessage& message)
     connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)), Qt::UniqueConnection);
     const QString messageBody = message.body();
     const QString contactName; // TODO: When telepathy support is improved, look up the contact with KPeople
-    const QString phoneNumber = message.address();
+    const QString phoneNumber = message.addresses()[0].address();
     m_telepathyInterface.call(QDBus::NoBlock, QStringLiteral("sendMessage"), phoneNumber, contactName, messageBody);
 }
 

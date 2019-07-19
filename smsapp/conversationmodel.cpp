@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 
 #include "interfaces/conversationmessage.h"
+#include "smshelper.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL, "kdeconnect.sms.conversation")
 
@@ -35,6 +36,8 @@ ConversationModel::ConversationModel(QObject* parent)
     auto roles = roleNames();
     roles.insert(FromMeRole, "fromMe");
     roles.insert(DateRole, "date");
+    roles.insert(SenderRole, "sender");
+    roles.insert(AvatarRole, "avatar");
     setItemRoleNames(roles);
 }
 
@@ -67,14 +70,14 @@ void ConversationModel::setDeviceId(const QString& deviceId)
 
     qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
     if (m_conversationsInterface) {
-        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
         delete m_conversationsInterface;
     }
 
     m_deviceId = deviceId;
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QVariantMap)), this, SLOT(handleConversationUpdate(QVariantMap)));
+    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
 }
 
 void ConversationModel::sendReplyToConversation(const QString& message)
@@ -92,10 +95,12 @@ void ConversationModel::requestMoreMessages(const quint32& howMany)
     m_conversationsInterface->requestConversation(m_threadId, numMessages, numMessages + howMany);
 }
 
-void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
-{
-    const ConversationMessage message(msg);
+QString ConversationModel::getTitleForAddresses(const QList<ConversationAddress>& addresses) {
+    return SmsHelper::getTitleForAddresses(addresses);
+}
 
+void ConversationModel::createRowFromMessage(const ConversationMessage& message, int pos)
+{
     if (message.threadID() != m_threadId) {
         // Because of the asynchronous nature of the current implementation of this model, if the
         // user clicks quickly between threads or for some other reason a message comes when we're
@@ -117,17 +122,21 @@ void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
     // Get the body that we should display
     QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
 
+    ConversationAddress sender = message.addresses().first();
+    QString senderName = message.isMultitarget() ? SmsHelper::getTitleForAddresses({sender}) : QString();
+
     auto item = new QStandardItem;
     item->setText(displayBody);
     item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
     item->setData(message.date(), DateRole);
+    item->setData(senderName, SenderRole);
     insertRow(pos, item);
     knownMessageIDs.insert(message.uID());
 }
 
-void ConversationModel::handleConversationUpdate(const QVariantMap& msg)
+void ConversationModel::handleConversationUpdate(const QDBusVariant& msg)
 {
-    const ConversationMessage message(msg);
+    ConversationMessage message = ConversationMessage::fromDBus(msg);
 
     if (message.threadID() != m_threadId) {
         // If a conversation which we are not currently viewing was updated, discard the information
@@ -137,5 +146,5 @@ void ConversationModel::handleConversationUpdate(const QVariantMap& msg)
         return;
     }
 
-    createRowFromMessage(msg, 0);
+    createRowFromMessage(message, 0);
 }

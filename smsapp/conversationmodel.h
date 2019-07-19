@@ -26,6 +26,7 @@
 #include <QLoggingCategory>
 #include <QSet>
 
+#include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL)
@@ -45,7 +46,9 @@ public:
 
     enum Roles {
         FromMeRole = Qt::UserRole,
+        SenderRole,     // The sender of the message. Undefined if this is an outgoing message
         DateRole,
+        AvatarRole,     // URI to the avatar of the sender of the message. Undefined if outgoing.
     };
 
     Q_ENUM(Roles)
@@ -58,12 +61,14 @@ public:
 
     Q_INVOKABLE void sendReplyToConversation(const QString& message);
     Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
+    Q_INVOKABLE QString getTitleForAddresses(const QList<ConversationAddress>& addresses);
 
 private Q_SLOTS:
-    void createRowFromMessage(const QVariantMap &msg, int pos);
-    void handleConversationUpdate(const QVariantMap &msg);
+    void handleConversationUpdate(const QDBusVariant &message);
 
 private:
+    void createRowFromMessage(const ConversationMessage &message, int pos);
+
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;
     qint64 m_threadId = INVALID_THREAD_ID;

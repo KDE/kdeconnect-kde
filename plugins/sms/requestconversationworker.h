@@ -52,7 +52,7 @@ public Q_SLOTS:
     void work();
 
 Q_SIGNALS:
-    void conversationMessageRead(const QVariantMap& msg);
+    void conversationMessageRead(const QDBusVariant& msg);
     void finished();
 
 private:

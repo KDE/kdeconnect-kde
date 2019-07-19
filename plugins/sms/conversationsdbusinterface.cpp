@@ -82,7 +82,7 @@ QVariantList ConversationsDbusInterface::activeConversations()
                     << "Conversation with ID" << it.key() << "is unexpectedly empty";
             break;
         }
-        const QVariantMap& message = (*conversation.crbegin()).toVariant();
+        const QVariant& message = QVariant::fromValue<ConversationMessage>(*conversation.crbegin());
         toReturn.append(message);
     }
 
@@ -137,9 +137,9 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
 
         // Tell the world about what just happened
         if (newConversation) {
-            Q_EMIT conversationCreated(message.toVariant());
+            Q_EMIT conversationCreated(QDBusVariant(QVariant::fromValue(message)));
         } else if (latestMessage) {
-            Q_EMIT conversationUpdated(message.toVariant());
+            Q_EMIT conversationUpdated(QDBusVariant(QVariant::fromValue(message)));
         }
     }
 
@@ -187,12 +187,19 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!";
         return;
     }
-    // Caution:
-    // This method assumes that the address of any message (in this case, whichever one pops out
-    // with .first()) will be the same. This works fine for single-target SMS but might break down
-    // for group MMS, etc.
-    const QString& address = messagesList.first().address();
-    m_smsInterface.sendSms(address, message);
+
+    if (messagesList.first().isMultitarget()) {
+        qWarning(KDECONNECT_CONVERSATIONS) << "Tried to reply to a group MMS which is not supported in this version of KDE Connect";
+        return;
+    }
+
+    const QList<ConversationAddress>& addresses = messagesList.first().addresses();
+    if (addresses.size() > 1) {
+        // TODO: Upgrade for multitarget replies
+        qCWarning(KDECONNECT_CONVERSATIONS) << "Sending replies to multiple recipients is not supported";
+        return;
+    }
+    m_smsInterface.sendSms(addresses[0].address(), message);
 }
 
 void ConversationsDbusInterface::requestAllConversationThreads()
