@@ -41,10 +41,19 @@ public:
     QString album() const;
     bool canSeek() const;
 
+    bool canPlay() const;
+    bool canPause() const;
+    bool canGoPrevious() const;
+    bool canGoNext() const;
+
 private:
 
     QString id;
     bool m_playing;
+    bool m_canPlay;
+    bool m_canPause;
+    bool m_canGoPrevious;
+    bool m_canGoNext;
     QString m_nowPlaying;
     int m_volume;
     long m_length;

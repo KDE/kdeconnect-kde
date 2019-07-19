@@ -26,6 +26,10 @@
 
 MprisRemotePlayer::MprisRemotePlayer() :
     m_playing(false)
+    , m_canPlay(true)
+    , m_canPause(true)
+    , m_canGoPrevious(true)
+    , m_canGoNext(true)
     , m_nowPlaying()
     , m_volume(50)
     , m_length(0)
@@ -50,13 +54,16 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket& np)
     m_album = np.get<QString>(QStringLiteral("album"), m_album);
     m_volume = np.get<int>(QStringLiteral("volume"), m_volume);
     m_length = np.get<int>(QStringLiteral("length"), m_length);
-    if(np.has(QStringLiteral("pos"))){
+    if (np.has(QStringLiteral("pos"))) {
         m_lastPosition = np.get<int>(QStringLiteral("pos"), m_lastPosition);
         m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
     }
     m_playing = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
     m_canSeek = np.get<bool>(QStringLiteral("canSeek"), m_canSeek);
-
+    m_canPlay = np.get<bool>(QStringLiteral("canPlay"), m_canPlay);
+    m_canPause = np.get<bool>(QStringLiteral("canPause"), m_canPause);
+    m_canGoPrevious = np.get<bool>(QStringLiteral("canGoPrevious"), m_canGoPrevious);
+    m_canGoNext = np.get<bool>(QStringLiteral("canGoNext"), m_canGoNext);
 }
 
 long MprisRemotePlayer::position() const
@@ -112,4 +119,20 @@ QString MprisRemotePlayer::album() const
 bool MprisRemotePlayer::canSeek() const
 {
     return m_canSeek;
+}
+
+bool MprisRemotePlayer::canPlay() const {
+    return m_canPlay;
+}
+
+bool MprisRemotePlayer::canPause() const {
+    return m_canPause;
+}
+
+bool MprisRemotePlayer::canGoPrevious() const {
+    return m_canGoPrevious;
+}
+
+bool MprisRemotePlayer::canGoNext() const {
+    return m_canGoNext;
 }
