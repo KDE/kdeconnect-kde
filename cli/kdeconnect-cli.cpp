@@ -77,7 +77,7 @@ int main(int argc, char** argv)
 
     //Hidden because it's an implementation detail
     QCommandLineOption deviceAutocomplete(QStringLiteral("shell-device-autocompletion"));
-    deviceAutocomplete.setHidden(true);
+    deviceAutocomplete.setFlags(QCommandLineOption::HiddenFromHelp);
     deviceAutocomplete.setDescription(QStringLiteral("Outputs all available devices id's with their name and paired status")); //Not visible, so no translation needed
     deviceAutocomplete.setValueName(QStringLiteral("shell"));
     parser.addOption(deviceAutocomplete);
