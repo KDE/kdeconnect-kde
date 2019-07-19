@@ -47,6 +47,7 @@ public:
      */
     enum Events {
         EventTextMessage = 0x1, // This message has a body field which contains pure, human-readable text
+        EventMultiTarget = 0x2, // This is a multitarget (group) message which has an "addresses" field which is a list of participants in the group
     };
 
     /**
@@ -77,6 +78,7 @@ public:
     QVariantMap toVariant() const;
 
     bool containsTextBody() const { return (eventField() & ConversationMessage::EventTextMessage); }
+    bool isMultitarget() const { return (eventField() & ConversationMessage::EventMultiTarget); }
 
 protected:
     /**

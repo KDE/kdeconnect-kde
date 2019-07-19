@@ -23,6 +23,9 @@
 
 #include <QString>
 #include <QLoggingCategory>
+
+#include <KLocalizedString>
+
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 #include "smshelper.h"
@@ -42,6 +45,7 @@ ConversationListModel::ConversationListModel(QObject* parent)
     roles.insert(AddressRole, "address");
     roles.insert(PersonUriRole, "personUri");
     roles.insert(ConversationIdRole, "conversationId");
+    roles.insert(MultitargetRole, "isMultitarget");
     roles.insert(DateRole, "date");
     setItemRoleNames(roles);
 
@@ -159,6 +163,14 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
         item->setData(message.threadID(), ConversationIdRole);
     }
 
+    // TODO: Upgrade to support other kinds of media
+    // Get the body that we should display
+    QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
+
+    // TODO: Upgrade with multitarget support
+    if (message.isMultitarget()) {
+        item->setText(i18n("(Multitarget Message)"));
+    }
     // Update the message if the data is newer
     // This will be true if a conversation receives a new message, but false when the user
     // does something to trigger past conversation history loading
@@ -168,8 +180,9 @@ void ConversationListModel::createRowFromMessage(const QVariantMap& msg)
         // If there was no old data or incoming data is newer, update the record
         item->setData(message.address(), AddressRole);
         item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
-        item->setData(message.body(), Qt::ToolTipRole);
+        item->setData(displayBody, Qt::ToolTipRole);
         item->setData(message.date(), DateRole);
+        item->setData(message.isMultitarget(), MultitargetRole);
     }
 
     if (toadd)

@@ -149,6 +149,7 @@ Kirigami.ScrollablePage
                                                        personUri: model.personUri,
                                                        phoneNumber: address,
                                                        conversationId: model.conversationId,
+                                                       isMultitarget: isMultitarget,
                                                        initialMessage: page.initialMessage,
                                                        device: device})
                 initialMessage = ""

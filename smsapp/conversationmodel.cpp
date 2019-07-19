@@ -21,6 +21,9 @@
 
 #include "conversationmodel.h"
 #include <QLoggingCategory>
+
+#include <KLocalizedString>
+
 #include "interfaces/conversationmessage.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL, "kdeconnect.sms.conversation")
@@ -110,8 +113,12 @@ void ConversationModel::createRowFromMessage(const QVariantMap& msg, int pos)
         return;
     }
 
+    // TODO: Upgrade to support other kinds of media
+    // Get the body that we should display
+    QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
+
     auto item = new QStandardItem;
-    item->setText(message.body());
+    item->setText(displayBody);
     item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
     item->setData(message.date(), DateRole);
     insertRow(pos, item);

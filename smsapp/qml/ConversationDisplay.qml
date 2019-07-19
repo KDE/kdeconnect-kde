@@ -40,6 +40,7 @@ Kirigami.ScrollablePage
     property string deviceId
 //     property QtObject device
     property string conversationId
+    property bool isMultitarget
     property string initialMessage
 
     property string phoneNumber
@@ -127,7 +128,7 @@ Kirigami.ScrollablePage
 
     footer: Pane {
         id: sendingArea
-        enabled: page.deviceConnected
+        enabled: page.deviceConnected && !page.isMultitarget
         layer.enabled: sendingArea.enabled
         layer.effect: DropShadow {
             verticalOffset: 1
@@ -148,7 +149,7 @@ Kirigami.ScrollablePage
             TextArea {
                 id: messageField
                 Layout.fillWidth: true
-                placeholderText: i18n("Compose message")
+                placeholderText: page.isMultitarget ? i18n("Replying to multitarget messages is not supported") : i18n("Compose message")
                 wrapMode: TextArea.Wrap
                 topPadding: Kirigami.Units.gridUnit * 0.5
                 bottomPadding: topPadding

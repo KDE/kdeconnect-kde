@@ -107,8 +107,8 @@ bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
         ConversationMessage message(body.toMap());
         if (message.containsTextBody()) {
             forwardToTelepathy(message);
-        messagesList.append(message);
         }
+        messagesList.append(message);
     }
 
     m_conversationInterface->addMessages(messagesList);

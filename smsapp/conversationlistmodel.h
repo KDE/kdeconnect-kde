@@ -83,6 +83,7 @@ public:
         AddressRole,
         ConversationIdRole,
         DateRole,
+        MultitargetRole, // Indicate that this conversation is multitarget
     };
     Q_ENUM(Roles)
 
