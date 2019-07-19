@@ -20,8 +20,8 @@
 
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0 as KdeConnect
 
 Item {
@@ -38,14 +38,14 @@ Item {
 
     /*
     //Startup arguments
-    PlasmaComponents.Label {
+    Text {
         visible: (startupArguments.length > 0)
         text: (""+startupArguments)
         anchors.fill: parent
     }
     */
 
-    PlasmaExtras.ScrollArea {
+    PlasmaComponents.ScrollView {
         id: dialogItem
         anchors.fill: parent
 

@@ -20,13 +20,12 @@
 
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0
 
 QtObject {
-  
+
     id: root
-    
+
     property alias device: checker.device
     readonly property alias available: checker.available
 
@@ -45,17 +44,17 @@ QtObject {
         autoDelete: false
         onSuccess: root.charging = result
     }
-    
+
     property variant nested2: DBusAsyncResponse {
         id: startupCheck2
         autoDelete: false
         onSuccess: root.charge = result
     }
-    
+
     onAvailableChanged: {
         if (available) {
             battery = DeviceBatteryDbusInterfaceFactory.create(device.id())
-            
+
             battery.stateChanged.connect(function(c) {charging = c})
             battery.chargeChanged.connect(function(c) {charge = c})
 

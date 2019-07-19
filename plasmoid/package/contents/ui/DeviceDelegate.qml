@@ -21,13 +21,12 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kdeconnect 1.0
 import QtQuick.Dialogs 1.0
 import QtQuick.Controls 2.4
 
-PlasmaComponents.ListItem
+PlasmaComponents.ItemDelegate
 {
     id: root
     readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
@@ -95,9 +94,9 @@ PlasmaComponents.ListItem
                 }
 
                 id: shareFile
-                iconSource: "document-share"
+                icon.name: "document-share"
                 visible: share.available
-                tooltip: i18n("Share file")
+                ToolTip.text: i18n("Share file")
                 onClicked: {
                     fileDialog.open()
                     fileDialog.fileUrls.forEach(function (url) {
@@ -115,9 +114,9 @@ PlasmaComponents.ListItem
                 }
 
                 id: ring
-                iconSource: "irc-voice"
+                icon.name: "irc-voice"
                 visible: findmyphone.available
-                tooltip: i18n("Ring my phone")
+                ToolTip.text: i18n("Ring my phone")
 
                 onClicked: {
                     findmyphone.ring()
@@ -133,9 +132,9 @@ PlasmaComponents.ListItem
                 }
 
                 id: browse
-                iconSource: "document-open-folder"
+                icon.name: "document-open-folder"
                 visible: sftp.available
-                tooltip: i18n("Browse this device")
+                ToolTip.text: i18n("Browse this device")
 
                 onClicked: {
                     sftp.browse()
@@ -147,7 +146,7 @@ PlasmaComponents.ListItem
         }
 
         //RemoteKeyboard
-        PlasmaComponents.ListItem {
+        PlasmaComponents.ItemDelegate {
             visible: remoteKeyboard.remoteState
             width: parent.width
 
@@ -169,7 +168,7 @@ PlasmaComponents.ListItem
         }
 
         //Notifications
-        PlasmaComponents.ListItem {
+        PlasmaComponents.ItemDelegate {
             visible: notificationsModel.count>0
             enabled: true
             PlasmaComponents.Label {
@@ -179,8 +178,8 @@ PlasmaComponents.ListItem
                 enabled: true
                 visible: notificationsModel.isAnyDimissable;
                 anchors.right: parent.right
-                iconSource: "edit-clear-history"
-                tooltip: i18n("Dismiss all notifications")
+                icon.name: "edit-clear-history"
+                ToolTip.text: i18n("Dismiss all notifications")
                 onClicked: notificationsModel.dismissAll();
             }
         }
@@ -190,7 +189,7 @@ PlasmaComponents.ListItem
                 id: notificationsModel
                 deviceId: root.device.id()
             }
-            delegate: PlasmaComponents.ListItem {
+            delegate: PlasmaComponents.ItemDelegate {
                 id: listitem
                 enabled: true
                 onClicked: checked = !checked
@@ -215,8 +214,8 @@ PlasmaComponents.ListItem
                     visible: repliable
                     enabled: repliable
                     anchors.right: dismissButton.left
-                    iconSource: "mail-reply-sender"
-                    tooltip: i18n("Reply")
+                    icon.name: "mail-reply-sender"
+                    ToolTip.text: i18n("Reply")
                     onClicked: dbusInterface.reply();
                 }
                 PlasmaComponents.ToolButton {
@@ -224,8 +223,8 @@ PlasmaComponents.ListItem
                     visible: notificationsModel.isAnyDimissable;
                     enabled: dismissable
                     anchors.right: parent.right
-                    iconSource: "window-close"
-                    tooltip: i18n("Dismiss")
+                    icon.name: "window-close"
+                    ToolTip.text: i18n("Dismiss")
                     onClicked: dbusInterface.dismiss();
                 }
             }
@@ -249,8 +248,8 @@ PlasmaComponents.ListItem
             PlasmaComponents.Button
             {
                 id: addCommandButton
-                iconSource: "list-add"
-                tooltip: i18n("Add command")
+                icon.name: "list-add"
+                ToolTip.text: i18n("Add command")
                 onClicked: rc.plugin.editCommands()
                 visible: rc.plugin && rc.plugin.canAddCommand
             }
@@ -262,7 +261,7 @@ PlasmaComponents.ListItem
                 id: commandsModel
                 deviceId: rc.device.id()
             }
-            delegate: PlasmaComponents.ListItem {
+            delegate: PlasmaComponents.ItemDelegate {
                 enabled: true
                 onClicked: rc.plugin.triggerCommand(key)
 
@@ -281,7 +280,7 @@ PlasmaComponents.ListItem
         PlasmaComponents.Label {
             text: i18n("Share text")
         }
-        PlasmaComponents3.TextArea {
+        PlasmaComponents.TextArea {
             id: shareText
             width: parent.width
         }
@@ -289,7 +288,7 @@ PlasmaComponents.ListItem
         {
             id: submitTextButton
             anchors.right: shareText.right
-            iconSource: "document-send"
+            icon.name: "document-send"
             onClicked: {
                 share.plugin.shareText(shareText.getText(0, shareText.length))
                 shareText.clear()
