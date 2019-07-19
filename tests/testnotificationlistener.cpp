@@ -401,7 +401,7 @@ void TestNotificationListener::testNotify()
     // image-data is attached as png data
     QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
     // image-data has priority over image-path:
-    QCOMPARE(image.byteCount(), rowStride*height);
+    QCOMPARE(image.sizeInBytes(), rowStride*height);
     // rgba -> argb conversion was done correctly:
     COMPARE_PIXEL(0,0);
     COMPARE_PIXEL(1,0);
@@ -422,7 +422,7 @@ void TestNotificationListener::testNotify()
     // image-data is attached as png data
     QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
     // image_data has priority over image_path/image-path:
-    QCOMPARE(image.byteCount(), rowStride*height);
+    QCOMPARE(image.sizeInBytes(), rowStride*height);
     // rgba -> argb conversion was done correctly:
     COMPARE_PIXEL(0,0);
     COMPARE_PIXEL(1,0);
@@ -440,7 +440,7 @@ void TestNotificationListener::testNotify()
     buffer = dynamic_cast<QBuffer*>(d->getLastPacket()->payload().data());
     // image-data is attached as png data
     QVERIFY(image.loadFromData(reinterpret_cast<const uchar*>(buffer->data().constData()), buffer->size(), "PNG"));
-    QCOMPARE(image.byteCount(), rowStride*height);
+    QCOMPARE(image.sizeInBytes(), rowStride*height);
     // rgba -> argb conversion was done correctly:
     COMPARE_PIXEL(0,0);
     COMPARE_PIXEL(1,0);
