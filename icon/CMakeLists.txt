@@ -1,6 +1,5 @@
 
-ecm_install_icons(
-ICONS
+set(APP_ICONS
     256-apps-kdeconnect.png
     128-apps-kdeconnect.png
     32-apps-kdeconnect.png
@@ -10,7 +9,17 @@ ICONS
     16-apps-kdeconnect.png
     sc-apps-kdeconnect.svgz
     sc-apps-kdeconnectindicator.svg
-    sc-apps-kdeconnectindicatordark.svg
+)
+
+if(WIN32)
+    list(APPEND APP_ICONS sc-apps-kdeconnectindicatorwin.svg)
+else()
+    list(APPEND APP_ICONS sc-apps-kdeconnectindicatordark.svg)
+endif()
+
+ecm_install_icons(
+ICONS
+    ${APP_ICONS}
 DESTINATION
     ${ICON_INSTALL_DIR}
 )

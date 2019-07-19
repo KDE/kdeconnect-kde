@@ -164,7 +164,11 @@ int main(int argc, char** argv)
 
 #ifdef QSYSTRAY
     QSystemTrayIcon systray;
+#ifdef Q_OS_WIN
+    systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicatorwin.svg"))));
+#else
     systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnectindicatordark")));
+#endif
     systray.setVisible(true);
     systray.setToolTip(QStringLiteral("KDE Connect"));
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {

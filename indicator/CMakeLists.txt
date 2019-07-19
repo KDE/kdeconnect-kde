@@ -20,6 +20,8 @@ target_link_libraries(kdeconnect-indicator Qt5::Widgets KF5::CoreAddons KF5::I18
 if (APPLE)
     target_link_libraries(kdeconnect-indicator "-framework CoreFoundation")
 endif()
-
+if (WIN32)
+    add_compile_definitions(QSYSTRAY)
+endif()
 install(TARGETS kdeconnect-indicator ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kdeconnect.nonplasma.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
