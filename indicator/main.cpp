@@ -71,7 +71,7 @@ int main(int argc, char** argv)
     
     // Start kdeconnectd
     QProcess kdeconnectdProcess;
-    kdeconnectdProcess.start(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));
+    kdeconnectdProcess.startDetached(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));
 
     // Wait for dbus daemon env
     QProcess getLaunchdDBusEnv;
@@ -107,9 +107,7 @@ int main(int argc, char** argv)
     } while(true);
 #endif
 
-#ifndef USE_PRIVATE_DBUS
     KDBusService dbusService(KDBusService::Unique);
-#endif
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
@@ -147,6 +145,11 @@ int main(int argc, char** argv)
 #if (defined Q_OS_MAC || defined Q_OS_WIN)
         // Add quit menu
         menu->addAction(i18n("Quit"), [](){
+            auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
+                                                        QStringLiteral("/MainApplication"),
+                                                        QStringLiteral("org.qtproject.Qt.QCoreApplication"),
+                                                        QStringLiteral("quit"));
+            DbusHelper::sessionBus().call(message);
             QCoreApplication::quit();   // Close this application
         });
 #endif

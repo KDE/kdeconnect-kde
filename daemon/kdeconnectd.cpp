@@ -130,9 +130,7 @@ int main(int argc, char* argv[])
         DbusHelper::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
     }
 
-#ifndef USE_PRIVATE_DBUS
     KDBusService dbusService(KDBusService::Unique);
-#endif
 
     DesktopDaemon daemon;
 
