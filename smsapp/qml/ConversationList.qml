@@ -142,7 +142,7 @@ Kirigami.ScrollablePage
         {
             hoverEnabled: true
 
-            label: i18n("<b>%1</b> <br> %2", display, toolTip)
+            label: i18n("<b>%1</b> <br> %2", display, toolTip) //TODO: Change to two text fields and elipsize them
             icon: decoration
             function startChat() {
                 applicationWindow().pageStack.push(chatView, {
