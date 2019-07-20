@@ -13,7 +13,6 @@ add_subdirectory(mprisremote)
 add_subdirectory(remotecontrol)
 add_subdirectory(lockdevice)
 add_subdirectory(remotesystemvolume)
-
 if(NOT SAILFISHOS)
     add_subdirectory(clipboard)
     add_subdirectory(contacts)
@@ -25,6 +24,8 @@ if(NOT SAILFISHOS)
     add_subdirectory(mousepad)
     add_subdirectory(sms)
     add_subdirectory(runcommand)
+    add_subdirectory(presenter)
+
     if(NOT WIN32)
         add_subdirectory(screensaver-inhibit)
     endif()
@@ -38,10 +39,6 @@ if(NOT SAILFISHOS)
     endif()
 endif()
 
-option(EXPERIMENTAL_PRESENTER "Enables building the experimental on-screen pointer for presentations" OFF)
-if(EXPERIMENTAL_PRESENTER)
-    add_subdirectory(presenter)
-endif()
 
 # If we split notifications per plugin, in several notifyrc files, they won't
 # appear in the same group in the Notifications KCM
