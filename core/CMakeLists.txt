@@ -61,6 +61,7 @@ PRIVATE
     Qt5::DBus
     KF5::I18n
     KF5::ConfigCore
+    KF5::DNSSD
 )
 
 if (BLUETOOTH_ENABLED)

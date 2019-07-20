@@ -4,6 +4,7 @@ set(backends_kdeconnect_SRCS
 
     backends/lan/server.cpp
     backends/lan/lanlinkprovider.cpp
+    backends/lan/mdnslinkprovider.cpp
     backends/lan/landevicelink.cpp
     backends/lan/lanpairinghandler.cpp
     backends/lan/compositeuploadjob.cpp

@@ -88,7 +88,7 @@ private:
     QString m_id;
     QString m_type;
     QVariantMap m_body;
-	
+
     QSharedPointer<QIODevice> m_payload;
     qint64 m_payloadSize;
     QVariantMap m_payloadTransferInfo;

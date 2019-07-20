@@ -36,6 +36,7 @@
 #endif
 
 #include "backends/lan/lanlinkprovider.h"
+#include "backends/lan/mdnslinkprovider.h"
 #include "backends/loopback/loopbacklinkprovider.h"
 #include "device.h"
 #include "backends/devicelink.h"
@@ -84,7 +85,8 @@ void Daemon::init()
     if (d->m_testMode)
         d->m_linkProviders.insert(new LoopbackLinkProvider());
     else {
-        d->m_linkProviders.insert(new LanLinkProvider());
+        //d->m_linkProviders.insert(new LanLinkProvider());
+        d->m_linkProviders.insert(new MDNSLinkProvider());
         #ifdef KDECONNECT_BLUETOOTH
             d->m_linkProviders.insert(new BluetoothLinkProvider());
         #endif
