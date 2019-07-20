@@ -71,7 +71,7 @@ public:
 
     Q_SCRIPTABLE DeviceDbusInterface* getDevice(int row) const;
     QHash<int, QByteArray> roleNames() const override;
-    int rowForDevice(const QString& id) const;
+    Q_SCRIPTABLE int rowForDevice(const QString& id) const;
 
 private Q_SLOTS:
     void deviceAdded(const QString& id);

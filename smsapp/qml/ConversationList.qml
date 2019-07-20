@@ -73,6 +73,7 @@ Kirigami.ScrollablePage
     }
 
     property string initialMessage
+    property string initialDevice
 
     header: Kirigami.InlineMessage {
         Layout.fillWidth: true
@@ -97,7 +98,10 @@ Kirigami.ScrollablePage
             //TODO: make it possible to filter if they can do sms
             sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
             onRowsInserted: if (devicesCombo.currentIndex < 0) {
-                devicesCombo.currentIndex = 0
+                if (page.initialDevice)
+                    devicesCombo.currentIndex = devicesModel.rowForDevice(page.initialDevice);
+                else
+                    devicesCombo.currentIndex = 0
             }
         }
         textRole: "display"

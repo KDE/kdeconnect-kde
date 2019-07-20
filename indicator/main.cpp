@@ -68,7 +68,7 @@ int main(int argc, char** argv)
     // Get bundle path
     CFURLRef url = (CFURLRef)CFAutorelease((CFURLRef)CFBundleCopyBundleURL(CFBundleGetMainBundle()));
     QString basePath = QUrl::fromCFURL(url).path();
-    
+
     // Start kdeconnectd
     QProcess kdeconnectdProcess;
     kdeconnectdProcess.startDetached(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));

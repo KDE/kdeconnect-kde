@@ -113,10 +113,18 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);
 
+
+    if (!QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms")).isEmpty()) {
+        auto smsapp = addAction(QIcon::fromTheme(QStringLiteral("message-new")), i18n("SMS Messages..."));
+        QObject::connect(smsapp, &QAction::triggered, device, [device] () {
+            QProcess::startDetached(QLatin1String("kdeconnect-sms"), { QStringLiteral("--device"), device->id() });
+        });
+        setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_sms")), [smsapp](bool available) { smsapp->setVisible(available); }, this);
+    }
+
     QMenu* remoteCommandsMenu = new QMenu(i18n("Run command"), this);
     QAction* menuAction = remoteCommandsMenu->menuAction();
     QAction* addCommandAction = remoteCommandsMenu->addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add commands"));
-
     connect(addCommandAction, &QAction::triggered, m_remoteCommandsInterface, &RemoteCommandsDbusInterface::editCommands);
 
     addAction(menuAction);

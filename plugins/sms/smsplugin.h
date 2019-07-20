@@ -140,6 +140,8 @@ public Q_SLOTS:
      */
     Q_SCRIPTABLE void requestConversation(const qint64& conversationID) const;
 
+    Q_SCRIPTABLE void launchApp();
+
 private:
 
     /**

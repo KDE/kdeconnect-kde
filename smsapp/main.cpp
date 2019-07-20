@@ -41,20 +41,20 @@ int main(int argc, char *argv[])
     aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
     KAboutData::setApplicationData(aboutData);
 
-    QString initialMessage;
+    QString initialMessage, deviceid;
 
     {
         QCommandLineParser parser;
         aboutData.setupCommandLine(&parser);
         parser.addVersionOption();
         parser.addHelpOption();
+        parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
         parser.addOption(QCommandLineOption(QStringLiteral("message"), i18n("Send a message"), i18n("message")));
         parser.process(app);
         aboutData.processCommandLine(&parser);
 
-        if (parser.isSet(QStringLiteral("message"))) {
-            initialMessage = parser.value(QStringLiteral("message"));
-        }
+        initialMessage = parser.value(QStringLiteral("message"));
+        deviceid = parser.value(QStringLiteral("device"));
     }
 
     KDBusService service(KDBusService::Unique);
@@ -66,8 +66,11 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.rootContext()->setContextProperty(QStringLiteral("_initialMessage"), QVariant(initialMessage));
-    engine.rootContext()->setContextProperty(QStringLiteral("aboutData"), QVariant::fromValue(KAboutData::applicationData()));
+    engine.rootContext()->setContextProperties({
+        { QStringLiteral("initialMessage"), initialMessage },
+        { QStringLiteral("initialDevice"), deviceid },
+        { QStringLiteral("aboutData"), QVariant::fromValue(KAboutData::applicationData()) }
+    });
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();
