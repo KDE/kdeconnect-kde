@@ -68,6 +68,7 @@ private:
 DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     : QMenu(device->name(), nullptr)
     , m_device(device)
+    , m_remoteCommandsInterface(new RemoteCommandsDbusInterface(m_device->id()))
 {
 #ifdef Q_OS_WIN
     setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons/hicolor/scalable/status/") + device->iconName() + QStringLiteral(".svg"))));
@@ -109,7 +110,33 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         msg.setArguments(QVariantList() << url.toString());
         DbusHelper::sessionBus().call(msg);
     });
+
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);
+
+    QMenu* remoteCommandsMenu = new QMenu(i18n("Run command"), this);
+    QAction* menuAction = remoteCommandsMenu->menuAction();
+    QAction* addCommandAction = remoteCommandsMenu->addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add commands"));
+
+    connect(addCommandAction, &QAction::triggered, m_remoteCommandsInterface, &RemoteCommandsDbusInterface::editCommands);
+
+    addAction(menuAction);
+    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_remotecommands")), [this, remoteCommandsMenu, menuAction](bool available) {
+        menuAction->setVisible(available);
+
+        if (!available)
+            return;
+
+        const auto cmds = QJsonDocument::fromJson(m_remoteCommandsInterface->commands()).object();
+
+        for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it!=itEnd; ++it) {
+            const QJsonObject cont = it->toObject();
+            QString key = it.key();
+            QAction* action = remoteCommandsMenu->addAction(cont.value(QStringLiteral("name")).toString());
+            connect(action, &QAction::triggered, [this, key] {
+                m_remoteCommandsInterface->triggerCommand(key);
+            });
+        }
+    }, this);
 }
 
 #include "deviceindicator.moc"

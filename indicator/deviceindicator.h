@@ -24,6 +24,7 @@
 #include <QMenu>
 
 class DeviceDbusInterface;
+class RemoteCommandsDbusInterface;
 
 class DeviceIndicator : public QMenu
 {
@@ -36,6 +37,7 @@ class DeviceIndicator : public QMenu
 
     private:
         DeviceDbusInterface* m_device;
+        RemoteCommandsDbusInterface* m_remoteCommandsInterface;
 };
 
 #endif // DEVICEINDICATOR_H
