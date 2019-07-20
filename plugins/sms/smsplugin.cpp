@@ -27,6 +27,7 @@
 #include <QDebug>
 #include <QDBusConnection>
 #include <QLoggingCategory>
+#include <QProcess>
 
 #include <core/device.h>
 #include <core/daemon.h>
@@ -116,10 +117,14 @@ bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
     return true;
 }
 
-
 QString SmsPlugin::dbusPath() const
 {
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/sms");
+}
+
+void SmsPlugin::launchApp()
+{
+    QProcess::startDetached(QLatin1String("kdeconnect-sms"), { QStringLiteral("--device"), device()->id() });
 }
 
 #include "smsplugin.moc"

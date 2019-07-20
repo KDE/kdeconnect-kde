@@ -142,6 +142,23 @@ PlasmaComponents.ListItem
                 }
             }
 
+            //SMS
+            PlasmaComponents.Button
+            {
+                SMS {
+                    id: sms
+                    device: root.device
+                }
+
+                iconSource: "message-new'"
+                visible: sms.available
+                tooltip: i18n("SMS Messages")
+
+                onClicked: {
+                    sms.plugin.launchApp()
+                }
+            }
+
             height: browse.height
             width: parent.width
         }
