@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
     if (parser.isSet(replaceOption)) {
-        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnectd"),
+        auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
                                                     QStringLiteral("/MainApplication"),
                                                     QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                     QStringLiteral("quit"));
