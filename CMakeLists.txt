@@ -106,19 +106,16 @@ else()
     add_subdirectory(sfos)
 endif()
 
-option(SMSAPP_ENABLED ON)
-if(SMSAPP_ENABLED)
-    find_package(KF5Kirigami2)
-    find_package(KF5People REQUIRED)
-    find_package(KF5PeopleVCard)
-    set_package_properties(KF5PeopleVCard PROPERTIES
-        PURPOSE "Read vcards from the file system"
-        URL "https://phabricator.kde.org/source/kpeoplevcard/"
-        TYPE RUNTIME
-    )
+find_package(KF5Kirigami2)
+find_package(KF5People REQUIRED)
+find_package(KF5PeopleVCard)
+set_package_properties(KF5PeopleVCard PROPERTIES
+    PURPOSE "Read vcards from the file system"
+    URL "https://phabricator.kde.org/source/kpeoplevcard/"
+    TYPE RUNTIME
+)
 
-    add_subdirectory(smsapp)
-endif()
+add_subdirectory(smsapp)
 
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
