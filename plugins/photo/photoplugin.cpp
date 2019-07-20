@@ -43,6 +43,10 @@ PhotoPlugin::~PhotoPlugin()
 bool PhotoPlugin::receivePacket(const NetworkPacket& np)
 {
 
+    if (np.get<bool>(QStringLiteral("cancel"))) {
+        requestedFiles.takeFirst();
+    }
+
     if (requestedFiles.isEmpty() || !np.hasPayload()) {
         return true;
     }
