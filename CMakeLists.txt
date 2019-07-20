@@ -106,7 +106,7 @@ else()
     add_subdirectory(sfos)
 endif()
 
-option(SMSAPP_ENABLED OFF)
+option(SMSAPP_ENABLED ON)
 if(SMSAPP_ENABLED)
     find_package(KF5Kirigami2)
     find_package(KF5People REQUIRED)
