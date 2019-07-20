@@ -38,7 +38,14 @@ Item {
         y: root.height * root.yPos - height/2
 
         ImageParticle {
-            groups: ["center", "edge"]
+            groups: ["center"]
+            anchors.fill: parent
+            source: "qrc:///particleresources/glowdot.png"
+            colorVariation: 0.1
+            color: "#FF9999FF"
+        }
+        ImageParticle {
+            groups: ["edge"]
             anchors.fill: parent
             source: "qrc:///particleresources/glowdot.png"
             colorVariation: 0.1
@@ -48,9 +55,9 @@ Item {
         Emitter {
             anchors.fill: parent
             group: "center"
-            emitRate: 400
+            emitRate: 900
             lifeSpan: 200
-            size: 20
+            size: 20 * Window.screen.devicePixelRatio
             sizeVariation: 2
             endSize: 0
             //! [0]
@@ -68,11 +75,11 @@ Item {
             anchors.fill: parent
             group: "edge"
             startTime: 200
-            emitRate: 200
+            emitRate: 2000
             lifeSpan: 20
-            size: 28
-            sizeVariation: 2
-            endSize: 16
+            size: 28 * Window.screen.devicePixelRatio
+            sizeVariation: 2 * Window.screen.devicePixelRatio
+            endSize: 16 * Window.screen.devicePixelRatio
             shape: EllipseShape {fill: false}
             velocity: TargetDirection {
                 targetX: particles.width/2
@@ -82,8 +89,8 @@ Item {
                 magnitudeVariation: 0.1
             }
             acceleration: TargetDirection {
-                targetX: particles.width/2
-                targetY: particles.height/2
+                targetX: particles.width
+                targetY: particles.height
                 targetVariation: 200
                 proportionalMagnitude: true
                 magnitude: 0.1
