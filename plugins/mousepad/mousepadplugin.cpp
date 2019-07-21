@@ -27,6 +27,8 @@
 
 #if HAVE_WINDOWS
     #include "windowsremoteinput.h"
+#elif HAVE_MACOS
+    #include "macosremoteinput.h"
 #else
     #if HAVE_X11
         #include "x11remoteinput.h"
@@ -45,6 +47,8 @@ MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
 {
 #if HAVE_WINDOWS
     m_impl = new WindowsRemoteInput(this);
+#elif HAVE_MACOS
+    m_impl = new MacOSRemoteInput(this);
 #else
     #if HAVE_X11
     if (QGuiApplication::platformName() == QLatin1String("xcb")) {

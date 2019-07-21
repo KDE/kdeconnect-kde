@@ -1,4 +1,4 @@
-if(UNIX)
+if(UNIX AND NOT APPLE)
     find_package(KF5 ${KF5_MIN_VERSION} QUIET OPTIONAL_COMPONENTS Wayland)
 
     find_package(LibFakeKey QUIET)
@@ -18,6 +18,7 @@ endif()
 set(HAVE_WINDOWS ${WIN32})
 set(HAVE_X11 ${LibFakeKey_FOUND})
 set(HAVE_WAYLAND ${KF5Wayland_FOUND})
+set(HAVE_MACOS ${APPLE})
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h )
 
 kdeconnect_add_plugin(kdeconnect_mousepad JSON kdeconnect_mousepad.json SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
@@ -36,4 +37,9 @@ endif()
 if(HAVE_X11)
     target_sources(kdeconnect_mousepad PUBLIC x11remoteinput.cpp)
     target_link_libraries(kdeconnect_mousepad Qt5::X11Extras ${X11_LIBRARIES} ${XTEST_LIBRARIES} ${LibFakeKey_LIBRARIES})
+endif()
+
+if (HAVE_MACOS)
+    target_sources(kdeconnect_mousepad PUBLIC macosremoteinput.mm)
+    target_link_libraries(kdeconnect_mousepad "-framework CoreGraphics" "-framework ApplicationServices" "-framework Cocoa")
 endif()
