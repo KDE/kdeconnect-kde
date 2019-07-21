@@ -53,6 +53,6 @@ install(PROGRAMS org.kde.kdeconnect.sms.desktop DESTINATION ${KDE_INSTALL_APPDIR
 
 if(APPLE)
     kirigami_package_breeze_icons(ICONS
-        view-refresh help-about
+        view-refresh help-about dialog-cancel
     )
 endif()

@@ -2,7 +2,8 @@ if(APPLE)
     kirigami_package_breeze_icons(ICONS
         network-connect dialog-ok dialog-cancel dialog-ok-apply entry-edit input-mouse-click-left input-mouse-click-middle input-mouse-click-right
         media-skip-backward media-playback-pause media-playback-start media-skip-forward view-fullscreen
-        document-edit player-volume-muted player-volume view-refresh help-about
+        document-edit player-volume-muted player-volume view-refresh help-about hands-free
+        audio-volume-muted network-disconnect list-add audio-volume-low audio-volume-medium audio-volume-high
     )
 endif()
 
