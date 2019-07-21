@@ -182,12 +182,14 @@ Kirigami.ScrollablePage
                         text: display
                         maximumLineCount: 1
                         elide: Text.ElideRight
+                        textFormat: Text.PlainText
                     }
                     Label {
                         Layout.fillWidth: true
                         text: toolTip
                         maximumLineCount: 1
                         elide: Text.ElideRight
+                        textFormat: Text.PlainText
                     }
                 }
             }
