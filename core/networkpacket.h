@@ -48,7 +48,8 @@ public:
     const static int s_protocolVersion;
 
     explicit NetworkPacket(const QString& type = QStringLiteral("empty"), const QVariantMap& body = {});
-    NetworkPacket(const NetworkPacket& other); // Copy constructor, required for QMetaType and queued signals
+    NetworkPacket(const NetworkPacket& other) = default; // Copy constructor, required for QMetaType and queued signals
+    NetworkPacket &operator=(const NetworkPacket& other) = default;
 
     static void createIdentityPacket(NetworkPacket*);
 
@@ -88,7 +89,7 @@ private:
     QString m_id;
     QString m_type;
     QVariantMap m_body;
-	
+
     QSharedPointer<QIODevice> m_payload;
     qint64 m_payloadSize;
     QVariantMap m_payloadTransferInfo;

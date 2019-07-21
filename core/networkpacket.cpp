@@ -55,15 +55,6 @@ NetworkPacket::NetworkPacket(const QString& type, const QVariantMap& body)
 {
 }
 
-NetworkPacket::NetworkPacket(const NetworkPacket& other)
-    : m_id(other.m_id)
-    , m_type(other.m_type)
-    , m_body(QVariantMap(other.m_body))
-    , m_payload(other.m_payload)
-    , m_payloadSize(other.m_payloadSize)
-{
-}
-
 void NetworkPacket::createIdentityPacket(NetworkPacket* np)
 {
     KdeConnectConfig* config = KdeConnectConfig::instance();
