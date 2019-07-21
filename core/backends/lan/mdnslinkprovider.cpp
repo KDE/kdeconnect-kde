@@ -87,7 +87,7 @@ void MDNSLinkProvider::initializeMDNS()
     delete m_serviceBrowser;
     m_serviceBrowser = new KDNSSD::ServiceBrowser(QStringLiteral("_kdeconnect._tcp"), true); //TODO: Check if autoresolve can be false to save bandwidth
     connect(m_serviceBrowser, &KDNSSD::ServiceBrowser::serviceAdded, [this](KDNSSD::RemoteService::Ptr service) {
-        std::cout << service->hostName().toStdString() << service->serviceName().toStdString() << std::endl;
+        std::cout << "Discovered" << service->hostName().toStdString() << service->serviceName().toStdString() << service->port() << std::endl;
         QSslSocket* socket = new QSslSocket(this);
         connect(socket, &QAbstractSocket::connected, this, &MDNSLinkProvider::tcpSocketConnected);
         connect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &MDNSLinkProvider::connectError);
