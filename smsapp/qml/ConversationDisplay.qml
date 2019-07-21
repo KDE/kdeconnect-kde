@@ -82,6 +82,33 @@ Kirigami.ScrollablePage
         spacing: Kirigami.Units.largeSpacing
         highlightMoveDuration: 0
 
+        BusyIndicator {
+            running: !isInitalized
+        }
+
+        onContentHeightChanged: {
+            if (viewport.contentHeight <= 0) {
+                return
+            }
+
+            if (!isInitalized) {
+                // If we aren't initalized, we need to request enough messages to fill the view
+                // In order to do that, request one more message until we have enough
+                if (viewport.contentHeight < viewport.height) {
+                    console.debug("Requesting another message to fill the screen")
+                    conversationModel.requestMoreMessages(1)
+                } else {
+                    // Finish intializing: Scroll to the bottom of the view
+
+                    // View the most-recent message
+                    viewport.forceLayout()
+                    Qt.callLater(viewport.positionViewAtEnd)
+                    isInitalized = true
+                }
+                return
+            }
+        }
+
         delegate: ChatMessage {
             senderName: model.sender
             messageBody: model.display
@@ -90,22 +117,10 @@ Kirigami.ScrollablePage
 
             ListView.onAdd: {
                 if (!isInitalized) {
-                    // If we aren't initalized, we need to request enough messages to fill the view
-                    // In order to do that, request one more message until we have enough
-                    viewport.forceLayout()
-
-                    if (viewport.contentHeight < viewport.height) {
-                        console.debug("Requesting another message to fill the screen")
-                        conversationModel.requestMoreMessages(1)
-                    } else {
-                        // Finish intializing: Scroll to the bottom of the view
-                        viewport.currentIndex = 0
-                        isInitalized = true
-                    }
                     return
                 }
 
-                if (index == viewport.count - 1)
+                if (index == viewport.count - 1) {
                     // This message is being inserted at the newest position
                     // We want to scroll to show it if the user is "almost" looking at it
 
@@ -122,6 +137,7 @@ Kirigami.ScrollablePage
                         viewport.highlightMoveDuration = -1
                         viewport.currentIndex = index
                     }
+                }
             }
         }
 
@@ -131,7 +147,6 @@ Kirigami.ScrollablePage
             }
             // Unset the highlightRangeMode if it was set previously
             highlightRangeMode = ListView.ApplyRange
-            highlightMoveDuration: -1 // "Re-enable" the highlight animation
 
             // If we have scrolled to the last message currently in the view, request some more
             if (atYBeginning) {
@@ -142,7 +157,7 @@ Kirigami.ScrollablePage
                 preferredHighlightEnd = preferredHighlightBegin + currentItem.height
                 highlightRangeMode = ListView.StrictlyEnforceRange
 
-                highlightMoveDuration = 1 // This is not ideal: I would like to disable the highlight animation altogether
+                highlightMoveDuration = 0
 
                 // Get more messages
                 conversationModel.requestMoreMessages()
