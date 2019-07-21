@@ -35,7 +35,12 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    KAboutData aboutData(QStringLiteral("kdeconnect.sms"), i18n("SMS Instant Messaging"), QStringLiteral(KDECONNECT_VERSION_STRING), i18n("KDE Connect SMS"), KAboutLicense::GPL, i18n("(c) 2018, Aleix Pol Gonzalez"));
+    KAboutData aboutData(QStringLiteral("kdeconnect.sms"),
+                         i18n("SMS Instant Messaging"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("KDE Connect SMS"),
+                         KAboutLicense::GPL,
+                         i18n("(C) 2018-2019, KDE Connect Team"));
     aboutData.addAuthor(i18n("Simon Redman"), {}, QStringLiteral("simon@ergotech.com"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
