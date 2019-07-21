@@ -1,7 +1,16 @@
 [Desktop Entry]
 GenericName=Open on connected device via KDE Connect
+GenericName[ca]=Obre al dispositiu connectat a través del KDE Connect
+GenericName[uk]=Відкрити на з'єднаному пристрої за допомогою KDE Connect
+GenericName[x-test]=xxOpen on connected device via KDE Connectxx
 Name=Open on connected device via KDE Connect
+Name[ca]=Obre al dispositiu connectat a través del KDE Connect
+Name[uk]=Відкрити на з'єднаному пристрої за допомогою KDE Connect
+Name[x-test]=xxOpen on connected device via KDE Connectxx
 Comment=Open on a connected device using KDE Connect
+Comment[ca]=Obre a un dispositiu connectat usant el KDE Connect
+Comment[uk]=Відкрити на з'єднаному пристрої за допомогою KDE Connect
+Comment[x-test]=xxOpen on a connected device using KDE Connectxx
 MimeType=*/*;
 Exec=kdeconnect-handler --open %U
 Icon=kdeconnect
