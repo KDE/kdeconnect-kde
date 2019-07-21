@@ -138,12 +138,37 @@ Kirigami.ScrollablePage
 
         Keys.forwardTo: [headerItem]
 
-        delegate: Kirigami.BasicListItem
+        delegate: Kirigami.AbstractListItem
         {
-            hoverEnabled: true
+            id: listItem
+            contentItem: RowLayout {
+                Kirigami.Icon {
+                    id: iconItem
+                    source: decoration
+                    readonly property int size: Kirigami.Units.iconSizes.smallMedium
+                    Layout.minimumHeight: size
+                    Layout.maximumHeight: size
+                    Layout.minimumWidth: size
+                    selected: listItem.highlighted || listItem.checked || (listItem.pressed && listItem.supportsMouseEvents)
+                }
 
-            label: i18n("<b>%1</b> <br> %2", display, toolTip) //TODO: Change to two text fields and elipsize them
-            icon: decoration
+                ColumnLayout {
+                    Label {
+                        Layout.fillWidth: true
+                        font.weight: Font.Bold
+                        text: display
+                        maximumLineCount: 1
+                        elide: Text.ElideRight
+                    }
+                    Label {
+                        Layout.fillWidth: true
+                        text: toolTip
+                        maximumLineCount: 1
+                        elide: Text.ElideRight
+                    }
+                }
+            }
+
             function startChat() {
                 applicationWindow().pageStack.push(chatView, {
                                                        addresses: addresses,
