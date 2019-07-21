@@ -97,7 +97,7 @@ RowLayout {
                 text: messageBody
                 textFormat: Text.PlainText
                 wrapMode: Text.Wrap
-                color: sentByMe ? Kirigami.Theme.buttonTextColor : Kirigami.Theme.complementaryTextColor
+                color: sentByMe ? Kirigami.Theme.viewTextColor : Kirigami.Theme.complementaryTextColor
                 Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
             }
 
