@@ -89,8 +89,18 @@ void ConversationListModel::setDeviceId(const QString& deviceId)
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleCreatedConversation(QDBusVariant)));
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdated(QDBusVariant)));
-    prepareConversationsList();
 
+    refresh();
+}
+
+void ConversationListModel::refresh()
+{
+    if (m_deviceId.isEmpty()) {
+        qWarning() << "refreshing null device";
+        return;
+    }
+
+    prepareConversationsList();
     m_conversationsInterface->requestAllConversationThreads();
 }
 

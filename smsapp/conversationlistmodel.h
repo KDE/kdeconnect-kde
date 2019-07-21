@@ -90,6 +90,8 @@ public:
     QString deviceId() const { return m_deviceId; }
     void setDeviceId(const QString &/*deviceId*/);
 
+    Q_SCRIPTABLE void refresh();
+
 public Q_SLOTS:
     void handleCreatedConversation(const QDBusVariant& msg);
     void handleConversationUpdated(const QDBusVariant& msg);

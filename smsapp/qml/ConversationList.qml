@@ -24,7 +24,7 @@ import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.kdeconnect 1.0
 import org.kde.kdeconnect.sms 1.0
 
@@ -47,6 +47,29 @@ Kirigami.ScrollablePage
             // TODO: Wrap text if line is too long for the screen
             ToolTip.text: i18n("No new messages can be sent or received, but you can browse cached content")
         }
+    }
+
+    contextualActions: [
+        Kirigami.Action {
+            text: i18n("Refresh")
+            icon.name: "view-refresh"
+            enabled: devicesCombo.count > 0
+            onTriggered: {
+                conversationListModel.refresh()
+            }
+        },
+        Kirigami.Action {
+            text: i18n("About...")
+            icon.name: "help-about"
+            onTriggered: {
+                applicationWindow().pageStack.push(aboutPageComponent, { aboutData: aboutData });
+            }
+        }
+    ]
+
+    Component {
+        id: aboutPageComponent
+        Kirigami.AboutPage {}
     }
 
     property string initialMessage
