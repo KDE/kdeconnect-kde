@@ -47,6 +47,7 @@ public:
 private:
     QPointer<PresenterView> m_view;
     QTimer* m_timer;
+    float m_xPos, m_yPos;
 };
 
 #endif

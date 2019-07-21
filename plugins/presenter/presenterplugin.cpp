@@ -29,6 +29,7 @@
 #include <QQuickView>
 #include <QQmlError>
 #include <QQuickItem>
+#include <QtGlobal>
 
 #include <core/device.h>
 #include <core/daemon.h>
@@ -79,19 +80,26 @@ bool PresenterPlugin::receivePacket(const NetworkPacket& np)
 
     if (!m_view) {
         m_view = new PresenterView;
+        m_xPos = 0.5f;
+        m_yPos = 0.5f;
         m_view->showFullScreen();
         connect(this, &QObject::destroyed, m_view, &QObject::deleteLater);
         connect(m_timer, &QTimer::timeout, m_view, &QObject::deleteLater);
     }
 
-    auto screenSize = m_view->screen()->size();
-    auto ratio = screenSize.width()/screenSize.height();
+    QSize screenSize = m_view->screen()->size();
+    float ratio = float(screenSize.width())/screenSize.height();
+
+    m_xPos += np.get<float>(QStringLiteral("dx"));
+    m_yPos += np.get<float>(QStringLiteral("dy")) * ratio;
+    m_xPos = qBound(0.f, m_xPos, 1.f);
+    m_yPos = qBound(0.f, m_yPos, 1.f);
 
     m_timer->start();
 
-    auto object = m_view->rootObject();
-    object->setProperty("xPos", np.get<qreal>(QStringLiteral("px"))/2 + 0.5);
-    object->setProperty("yPos", np.get<qreal>(QStringLiteral("py"))/2 + 0.5);
+    QQuickItem* object = m_view->rootObject();
+    object->setProperty("xPos", m_xPos);
+    object->setProperty("yPos", m_yPos);
     return true;
 }
 
