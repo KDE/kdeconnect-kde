@@ -71,6 +71,12 @@ PresenterPlugin::~PresenterPlugin()
 
 bool PresenterPlugin::receivePacket(const NetworkPacket& np)
 {
+    if (np.get<bool>(QStringLiteral("stop"), false)) {
+        delete m_view;
+        m_view = nullptr;
+        return true;
+    }
+
     if (!m_view) {
         m_view = new PresenterView;
         m_view->showFullScreen();
