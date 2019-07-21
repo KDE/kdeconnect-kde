@@ -39,6 +39,8 @@
 #include "lanpairinghandler.h"
 #include "kdeconnectconfig.h"
 
+#include <iostream>
+
 MDNSLinkProvider::MDNSLinkProvider()
     : m_server(new Server(this))
     , m_tcpPort(0)
@@ -55,7 +57,46 @@ MDNSLinkProvider::MDNSLinkProvider()
 
 }
 
-#include <iostream>
+MDNSLinkProvider::~MDNSLinkProvider()
+{
+    delete m_publisher;
+    delete m_serviceBrowser;
+}
+
+void MDNSLinkProvider::onStart()
+{
+    m_tcpPort = MIN_TCP_PORT;
+    while (!m_server->listen(QHostAddress::Any, m_tcpPort)) {
+        m_tcpPort++;
+        if (m_tcpPort > MAX_TCP_PORT) { //No ports available?
+            qCritical(KDECONNECT_CORE) << "Error opening a port in range" << MIN_TCP_PORT << "-" << MAX_TCP_PORT;
+            m_tcpPort = 0;
+            return;
+        }
+    }
+
+    onNetworkChange();
+    qCDebug(KDECONNECT_CORE) << "MDNSLinkProvider started";
+}
+
+void MDNSLinkProvider::onStop()
+{
+    m_server->close();
+    qCDebug(KDECONNECT_CORE) << "MDNSLinkProvider stopped";
+}
+
+void MDNSLinkProvider::onNetworkChange()
+{
+    initializeMDNS();
+}
+
+void MDNSLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration& config)
+{
+    if (m_lastConfig != config && config.state() == QNetworkConfiguration::Active) {
+        m_lastConfig = config;
+        onNetworkChange();
+    }
+}
 
 void MDNSLinkProvider::initializeMDNS()
 {
@@ -100,46 +141,6 @@ void MDNSLinkProvider::initializeMDNS()
     m_serviceBrowser->startBrowse();
 
     //Discovery
-}
-
-
-void MDNSLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration& config)
-{
-    if (m_lastConfig != config && config.state() == QNetworkConfiguration::Active) {
-        m_lastConfig = config;
-        onNetworkChange();
-    }
-}
-
-MDNSLinkProvider::~MDNSLinkProvider()
-{
-}
-
-void MDNSLinkProvider::onStart()
-{
-    m_tcpPort = MIN_TCP_PORT;
-    while (!m_server->listen(QHostAddress::Any, m_tcpPort)) {
-        m_tcpPort++;
-        if (m_tcpPort > MAX_TCP_PORT) { //No ports available?
-            qCritical(KDECONNECT_CORE) << "Error opening a port in range" << MIN_TCP_PORT << "-" << MAX_TCP_PORT;
-            m_tcpPort = 0;
-            return;
-        }
-    }
-
-    onNetworkChange();
-    qCDebug(KDECONNECT_CORE) << "MDNSLinkProvider started";
-}
-
-void MDNSLinkProvider::onStop()
-{
-    m_server->close();
-    qCDebug(KDECONNECT_CORE) << "MDNSLinkProvider stopped";
-}
-
-void MDNSLinkProvider::onNetworkChange()
-{
-    initializeMDNS();
 }
 
 void MDNSLinkProvider::connectError(QAbstractSocket::SocketError socketError)
