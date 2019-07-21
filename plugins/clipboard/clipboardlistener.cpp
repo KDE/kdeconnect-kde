@@ -19,35 +19,27 @@
  */
 
 #include "clipboardlistener.h"
-
-ClipboardListener::ClipboardListener() 
-    : clipboard(QGuiApplication::clipboard())
-{
-#ifdef Q_OS_MAC
-    connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this](){ updateClipboard(QClipboard::Clipboard); });
-    m_clipboardMonitorTimer.start(1000);    // Refresh 1s
+#include "clipboardlistenerqt.h"
+#ifdef WITH_KWAYLAND
+#include "clipboardlistenerwayland.h"
 #endif
-    connect(clipboard, &QClipboard::changed, this, &ClipboardListener::updateClipboard);
-}
 
-void ClipboardListener::updateClipboard(QClipboard::Mode mode) 
+ClipboardListener::ClipboardListener()
+{}
+
+ClipboardListener* ClipboardListener::instance()
 {
-    if (mode != QClipboard::Clipboard) {
-        return;
+    static ClipboardListener* me = nullptr;
+    if (!me) {
+#ifdef WITH_KWAYLAND
+        if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
+            me = new ClipboardListenerWayland();
+        }
+        else
+#endif
+        {
+            me = new ClipboardListenerQt();
+        }
     }
-
-    QString content = clipboard->text();
-
-    if (content == currentContent) {
-        return;
-    }
-    currentContent = content;
-
-    Q_EMIT clipboardChanged(content);
-}
-
-void ClipboardListener::setText(const QString& content)
-{
-    currentContent = content;
-    clipboard->setText(content);
+    return me;
 }

@@ -18,29 +18,37 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef CLIPBOARDLISTENER_H
-#define CLIPBOARDLISTENER_H
+#include "clipboardlistenerqt.h"
 
-#include <QObject>
-#include <QClipboard>
-#include <QGuiApplication>
-
-/**
- * Wrapper around QClipboard, which emits clipboardChanged only when it really changed
- */
-class ClipboardListener : public QObject
+ClipboardListenerQt::ClipboardListenerQt()
+    : ClipboardListener()
+    , m_clipboard(QGuiApplication::clipboard())
 {
-    Q_OBJECT
-
-public:
-    ClipboardListener();
-
-    static ClipboardListener* instance();
-
-    virtual void setText(const QString& content) = 0;
-
-Q_SIGNALS:
-    void clipboardChanged(const QString& content);
-};
-
+#ifdef Q_OS_MAC
+    connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this](){ updateClipboard(QClipboard::Clipboard); });
+    m_clipboardMonitorTimer.start(1000);    // Refresh 1s
 #endif
+    connect(m_clipboard, &QClipboard::changed, this, &ClipboardListenerQt::updateClipboard);
+}
+
+void ClipboardListenerQt::setText(const QString& content)
+{
+    m_currentContent = content;
+    m_clipboard->setText(content);
+}
+
+void ClipboardListenerQt::updateClipboard(QClipboard::Mode mode)
+{
+    if (mode != QClipboard::Clipboard) {
+        return;
+    }
+
+    QString content = m_clipboard->text();
+
+    if (content == m_currentContent) {
+        return;
+    }
+    m_currentContent = content;
+
+    Q_EMIT clipboardChanged(content);
+}

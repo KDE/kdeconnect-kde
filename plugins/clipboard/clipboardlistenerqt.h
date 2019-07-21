@@ -18,29 +18,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef CLIPBOARDLISTENER_H
-#define CLIPBOARDLISTENER_H
+#ifndef CLIPBOARDLISTENERQT_H
+#define CLIPBOARDLISTENERQT_H
 
-#include <QObject>
-#include <QClipboard>
-#include <QGuiApplication>
+#include "clipboardlistener.h"
+#include <QTimer>
 
-/**
- * Wrapper around QClipboard, which emits clipboardChanged only when it really changed
- */
-class ClipboardListener : public QObject
+class ClipboardListenerQt : public ClipboardListener
 {
     Q_OBJECT
-
 public:
-    ClipboardListener();
+    ClipboardListenerQt();
 
-    static ClipboardListener* instance();
+    void setText(const QString & content) override;
 
-    virtual void setText(const QString& content) = 0;
+private:
+    void updateClipboard(QClipboard::Mode mode);
 
-Q_SIGNALS:
-    void clipboardChanged(const QString& content);
+    QString m_currentContent;
+    QClipboard* m_clipboard;
+#ifdef Q_OS_MAC
+    QTimer m_clipboardMonitorTimer;
+#endif
+
 };
 
 #endif
