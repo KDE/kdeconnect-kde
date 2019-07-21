@@ -166,6 +166,10 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
 
         /** The address of everyone involved in this conversation, which we should not display (check if they are known contacts first) */
         QList<ConversationAddress> rawAddresses = message.addresses();
+        if (rawAddresses.isEmpty()) {
+            qWarning() << "no addresses!" << message.body();
+            return;
+        }
 
         QString displayNames = SmsHelper::getTitleForAddresses(rawAddresses);
         QIcon displayIcon = SmsHelper::getIconForAddresses(rawAddresses);
@@ -186,7 +190,7 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
     } else {
         // If the message is incoming, the sender is the first Address
         QString senderAddress = item->data(SenderRole).toString();
-        QScopedPointer<KPeople::PersonData> sender(SmsHelper::lookupPersonByAddress(senderAddress));
+        const auto sender = SmsHelper::lookupPersonByAddress(senderAddress);
         QString senderName = sender == nullptr? senderAddress : SmsHelper::lookupPersonByAddress(senderAddress)->name();
         displayBody = i18n("%1: %2", senderName, displayBody);
     }

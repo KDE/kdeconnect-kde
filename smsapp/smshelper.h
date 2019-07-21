@@ -25,6 +25,7 @@
 #include <QLoggingCategory>
 
 #include <KPeople/KPeople/PersonData>
+#include <QSharedPointer>
 
 #include "interfaces/conversationmessage.h"
 
@@ -71,7 +72,7 @@ public:
     /**
      * Get the data for a particular person given their contact address
      */
-    static KPeople::PersonData* lookupPersonByAddress(const QString& address);
+    static QSharedPointer<KPeople::PersonData> lookupPersonByAddress(const QString& address);
 
     /**
      * Make an icon which combines the many icons

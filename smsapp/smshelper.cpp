@@ -25,6 +25,7 @@
 #include <QRegularExpression>
 #include <QString>
 #include <QLoggingCategory>
+#include <QHash>
 
 #include <KPeople/KPeople/PersonData>
 #include <KPeople/KPeople/PersonsModel>
@@ -122,15 +123,44 @@ QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
     return toReturn;
 }
 
-KPeople::PersonData* SmsHelper::lookupPersonByAddress(const QString& address)
-{
+class PersonsCache : public QObject {
+public:
+    PersonsCache() {
+        connect(&m_people, &QAbstractItemModel::rowsRemoved, this, [this] (const QModelIndex &parent, int first, int last) {
+            if (parent.isValid())
+                return;
+            for (int i=first; i<=last; ++i) {
+                const QString& uri = m_people.get(i, KPeople::PersonsModel::PersonUriRole).toString();
+                m_personDataCache.remove(uri);
+            }
+        });
+    }
+
+    QSharedPointer<KPeople::PersonData> personAt(int rowIndex) {
+        const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
+        auto& person = m_personDataCache[uri];
+        if (!person)
+            person.reset(new KPeople::PersonData(uri));
+        return person;
+    }
+
+    int count() const {
+        return m_people.rowCount();
+    }
+
+private:
     KPeople::PersonsModel m_people;
+    QHash<QString, QSharedPointer<KPeople::PersonData>> m_personDataCache;
+};
+
+QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QString& address)
+{
+    static PersonsCache s_cache;
 
     const QString& canonicalAddress = SmsHelper::canonicalizePhoneNumber(address);
     int rowIndex = 0;
-    for (rowIndex = 0; rowIndex < m_people.rowCount(); rowIndex++) {
-        const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
-        KPeople::PersonData* person = new KPeople::PersonData(uri);
+    for (rowIndex = 0; rowIndex < s_cache.count(); rowIndex++) {
+        const auto person = s_cache.personAt(rowIndex);
 
         const QStringList& allEmails = person->allEmails();
         for (const QString& email : allEmails) {
@@ -151,8 +181,6 @@ KPeople::PersonData* SmsHelper::lookupPersonByAddress(const QString& address)
                 return person;
             }
         }
-
-        delete person;
     }
 
     return nullptr;
@@ -204,7 +232,7 @@ QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons) {
 QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addresses) {
     QStringList titleParts;
     for (const ConversationAddress& address : addresses) {
-        QScopedPointer<KPeople::PersonData> personData(SmsHelper::lookupPersonByAddress(address.address()));
+        const auto personData = SmsHelper::lookupPersonByAddress(address.address());
 
         if (personData) {
             titleParts.append(personData->name());
@@ -221,7 +249,7 @@ QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addres
 QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses) {
     QList<QPixmap> icons;
     for (const ConversationAddress& address : addresses) {
-        QScopedPointer<KPeople::PersonData> personData(SmsHelper::lookupPersonByAddress(address.address()));
+        const auto personData = SmsHelper::lookupPersonByAddress(address.address());
 
         if (personData) {
             icons.append(personData->photo());
