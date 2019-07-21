@@ -55,16 +55,13 @@ Kirigami.ApplicationWindow
 
     globalDrawer: Kirigami.GlobalDrawer {
         id: drawer
-        title: i18n("KDE Connect")
-        titleIcon: "kdeconnect"
-//         bannerImageSource: "/home/apol/devel/kde5/share/wallpapers/Next/contents/images/1024x768.png"
 
         modal: !root.wideScreen
         handleVisible: !root.wideScreen
 
-        topContent: [
+        topContent: Kirigami.AbstractApplicationHeader {
             RowLayout {
-
+                width: parent.width
                 DBusProperty {
                     id: announcedNameProperty
                     object: DaemonDbusInterface
@@ -100,7 +97,7 @@ Kirigami.ApplicationWindow
                     }
                 }
             }
-        ]
+        }
         property var objects: [findDevicesAction]
         Instantiator {
             model: DevicesSortProxyModel {
