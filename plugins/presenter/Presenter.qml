@@ -29,6 +29,8 @@ Item {
     property real xPos: 0.5
     property real yPos: 0.5
 
+    property real devicePixelRatio: Window.window != null && Window.window.screen != null ? Window.window.screen.devicePixelRatio : 1.0
+
     ParticleSystem {
         id: particles
         width: parent.width/20
@@ -57,7 +59,7 @@ Item {
             group: "center"
             emitRate: 900
             lifeSpan: 200
-            size: 20 * Window.screen.devicePixelRatio
+            size: 20 * devicePixelRatio
             sizeVariation: 2
             endSize: 0
             //! [0]
@@ -77,9 +79,9 @@ Item {
             startTime: 200
             emitRate: 2000
             lifeSpan: 20
-            size: 28 * Window.screen.devicePixelRatio
-            sizeVariation: 2 * Window.screen.devicePixelRatio
-            endSize: 16 * Window.screen.devicePixelRatio
+            size: 28 * devicePixelRatio
+            sizeVariation: 2 * devicePixelRatio
+            endSize: 16 * devicePixelRatio
             shape: EllipseShape {fill: false}
             velocity: TargetDirection {
                 targetX: particles.width/2
