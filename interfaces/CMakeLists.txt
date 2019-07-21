@@ -16,6 +16,7 @@ set(libkdeconnect_SRC
     conversationmessage.cpp
     remotecommandsmodel.cpp
     remotesinksmodel.cpp
+    devicespluginfilterproxymodel.cpp
 #    modeltest.cpp
 )
 

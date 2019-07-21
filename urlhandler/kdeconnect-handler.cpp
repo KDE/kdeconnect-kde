@@ -32,7 +32,7 @@
 #include <dbushelper.h>
 
 #include <interfaces/devicesmodel.h>
-#include <interfaces/devicessortproxymodel.h>
+#include <interfaces/devicespluginfilterproxymodel.h>
 #include <interfaces/dbusinterfaces.h>
 #include <interfaces/dbushelpers.h>
 #include "kdeconnect-version.h"
@@ -41,16 +41,6 @@
 /**
  * Show only devices that can be shared to
  */
-class ShareDevicesProxyModel : public DevicesSortProxyModel
-{
-    Q_OBJECT
-public:
-    bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override {
-        const QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
-        auto device = qobject_cast<DeviceDbusInterface*>(idx.data(DevicesModel::DeviceRole).value<QObject*>());
-        return device->supportedPlugins().contains(QStringLiteral("kdeconnect_share"));
-    }
-};
 
 int main(int argc, char** argv)
 {
@@ -86,7 +76,8 @@ int main(int argc, char** argv)
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Paired | DevicesModel::Reachable);
-    ShareDevicesProxyModel proxyModel;
+    DevicesPluginFilterProxyModel proxyModel;
+    proxyModel.setPluginFilter(QStringLiteral("kdeconnect_share"));
     proxyModel.setSourceModel(&model);
 
     QDialog dialog;
@@ -129,5 +120,3 @@ int main(int argc, char** argv)
         return 1;
     }
 }
-
-#include "kdeconnect-handler.moc"
