@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=KDE Connect Application
+Name=KDE Connect
 Name[ar]=تطبيق كدي المتّصل
 Name[ca]=Aplicació KDE Connect
 Name[ca@valencia]=Aplicació KDE Connect
@@ -113,7 +113,7 @@ Comment[uk]=Поєднайте усі ваші пристрої
 Comment[x-test]=xxMake all your devices onexx
 Comment[zh_CN]=连接您所有设备
 Comment[zh_TW]=讓您的設備內容全面同步
-Exec=kcapp
+Exec=kdeconnect
 Icon=kdeconnect
 Type=Application
 Terminal=false
