@@ -39,6 +39,8 @@ Kirigami.ScrollablePage
     property bool isMultitarget
     property string initialMessage
 
+    property bool isInitalized: false
+
     property var conversationModel: ConversationModel {
         deviceId: page.deviceId
         threadId: page.conversationId
@@ -78,6 +80,7 @@ Kirigami.ScrollablePage
         }
 
         spacing: Kirigami.Units.largeSpacing
+        highlightMoveDuration: 0
 
         delegate: ChatMessage {
             senderName: model.sender
@@ -86,6 +89,22 @@ Kirigami.ScrollablePage
             dateTime: new Date(model.date)
 
             ListView.onAdd: {
+                if (!isInitalized) {
+                    // If we aren't initalized, we need to request enough messages to fill the view
+                    // In order to do that, request one more message until we have enough
+                    viewport.forceLayout()
+
+                    if (viewport.contentHeight < viewport.height) {
+                        console.debug("Requesting another message to fill the screen")
+                        conversationModel.requestMoreMessages(1)
+                    } else {
+                        // Finish intializing: Scroll to the bottom of the view
+                        viewport.currentIndex = 0
+                        isInitalized = true
+                    }
+                    return
+                }
+
                 if (index == viewport.count - 1)
                     // This message is being inserted at the newest position
                     // We want to scroll to show it if the user is "almost" looking at it
@@ -100,16 +119,21 @@ Kirigami.ScrollablePage
                     var viewportYBottom = viewport.contentY + viewport.height
 
                     if (y < viewportYBottom + genericMessage.height) {
+                        viewport.highlightMoveDuration = -1
                         viewport.currentIndex = index
                     }
             }
         }
 
         onMovementEnded: {
+            if (!isInitalized) {
+                return
+            }
             // Unset the highlightRangeMode if it was set previously
             highlightRangeMode = ListView.ApplyRange
             highlightMoveDuration: -1 // "Re-enable" the highlight animation
 
+            // If we have scrolled to the last message currently in the view, request some more
             if (atYBeginning) {
                 // "Lock" the view to the message currently at the beginning of the view
                 // This prevents the view from snapping to the top of the messages we are about to request
