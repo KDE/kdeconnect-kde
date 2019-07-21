@@ -109,6 +109,9 @@ Device::Device(QObject* parent, const NetworkPacket& identityPacket, DeviceLink*
     DbusHelper::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
     connect(this, &Device::pairingError, this, &warn);
+
+    connect(this, &Device::reachableChanged, this, &Device::statusIconNameChanged);
+    connect(this, &Device::trustedChanged, this, &Device::statusIconNameChanged);
 }
 
 Device::~Device()
