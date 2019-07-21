@@ -25,6 +25,7 @@
 #include <QRegularExpression>
 #include <QString>
 #include <QLoggingCategory>
+#include <QStandardPaths>
 #include <QHash>
 
 #include <KPeople/KPeople/PersonData>
@@ -254,8 +255,8 @@ QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses
         if (personData) {
             icons.append(personData->photo());
         } else {
-            // The contact is not known to KPeople
-            // TODO: Use generic icon from KPeople
+            static QString dummyAvatar = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kf5/kpeople/dummy_avatar.png"));
+            icons.append(QPixmap(dummyAvatar));
         }
     }
 
