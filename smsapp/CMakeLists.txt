@@ -50,3 +50,9 @@ target_link_libraries(kdeconnect-sms
 install(TARGETS kdeconnect-sms ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(TARGETS kdeconnectsmshelper ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 install(PROGRAMS org.kde.kdeconnect.sms.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+
+if(APPLE)
+    kirigami_package_breeze_icons(ICONS
+        view-refresh help-about
+    )
+endif()

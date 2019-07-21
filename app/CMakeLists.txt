@@ -1,3 +1,11 @@
+if(APPLE)
+    kirigami_package_breeze_icons(ICONS
+        network-connect dialog-ok dialog-cancel dialog-ok-apply entry-edit input-mouse-click-left input-mouse-click-middle input-mouse-click-right
+        media-skip-backward media-playback-pause media-playback-start media-skip-forward view-fullscreen
+        document-edit player-volume-muted player-volume view-refresh help-about
+    )
+endif()
+
 qt5_add_resources(kdeconnect_SRCS resources.qrc)
 
 add_executable(kdeconnect main.cpp ${kdeconnect_SRCS})
