@@ -9,11 +9,7 @@ set(kdeconnectdeclarativeplugin_SRC
     objectfactory.cpp
 )
 
-set(qml_SRC
-    qml/RemoteKeyboard.qml
-    qml/PluginChecker.qml
-    qml/DBusProperty.qml
-)
+qt5_add_resources(kdeconnectdeclarativeplugin_SRC resources.qrc)
 
 add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
 target_link_libraries(kdeconnectdeclarativeplugin
@@ -21,4 +17,4 @@ target_link_libraries(kdeconnectdeclarativeplugin
     kdeconnectinterfaces
 )
 install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
-install(FILES qmldir ${qml_SRC} DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
+install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)

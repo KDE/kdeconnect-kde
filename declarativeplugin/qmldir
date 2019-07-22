@@ -1,6 +1,2 @@
 module org.kde.kdeconnect
 plugin kdeconnectdeclarativeplugin
-
-PluginChecker 1.0 PluginChecker.qml
-DBusProperty 1.0 DBusProperty.qml
-RemoteKeyboard 1.0 RemoteKeyboard.qml
