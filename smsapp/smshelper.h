@@ -24,7 +24,7 @@
 #include <QIcon>
 #include <QLoggingCategory>
 
-#include <KPeople/KPeople/PersonData>
+#include <KPeople/PersonData>
 #include <QSharedPointer>
 
 #include "interfaces/conversationmessage.h"

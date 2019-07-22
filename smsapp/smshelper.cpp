@@ -28,8 +28,8 @@
 #include <QStandardPaths>
 #include <QHash>
 
-#include <KPeople/KPeople/PersonData>
-#include <KPeople/KPeople/PersonsModel>
+#include <KPeople/PersonData>
+#include <KPeople/PersonsModel>
 
 #include "interfaces/conversationmessage.h"
 
