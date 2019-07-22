@@ -6,6 +6,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}
 set(kdeconnectdeclarativeplugin_SRC
     kdeconnectdeclarativeplugin.cpp
     responsewaiter.cpp
+    objectfactory.cpp
 )
 
 set(qml_SRC
@@ -13,12 +14,6 @@ set(qml_SRC
     qml/PluginChecker.qml
     qml/DBusProperty.qml
 )
-
-set(kdeconnectdeclarativeplugin_MOC
-  objectfactory.h
-)
-
-qt5_wrap_cpp(kdeconnectdeclarativeplugin_SRC ${kdeconnectdeclarativeplugin_MOC})
 
 add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC})
 target_link_libraries(kdeconnectdeclarativeplugin
