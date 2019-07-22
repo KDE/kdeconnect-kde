@@ -20,13 +20,6 @@ set(libkdeconnect_SRC
 #    modeltest.cpp
 )
 
-ecm_qt_declare_logging_category(
-    libkdeconnect_SRC
-    HEADER interfaces_debug.h
-    IDENTIFIER KDECONNECT_INTERFACES
-    CATEGORY_NAME kdeconnect.interfaces
-)
-
 geninterface(${CMAKE_SOURCE_DIR}/core/daemon.h daemoninterface)
 geninterface(${CMAKE_SOURCE_DIR}/core/device.h deviceinterface)
 geninterface(${CMAKE_SOURCE_DIR}/plugins/battery/batterydbusinterface.h devicebatteryinterface)
