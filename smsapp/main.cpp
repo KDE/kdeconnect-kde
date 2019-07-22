@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
                          i18n("SMS Instant Messaging"),
                          QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect SMS"),
-                         KAboutLicense::GPL,
+                         KAboutLicense::GPL_V3,
                          i18n("(C) 2018-2019, KDE Connect Team"));
     aboutData.addAuthor(i18n("Simon Redman"), {}, QStringLiteral("simon@ergotech.com"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
