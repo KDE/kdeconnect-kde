@@ -21,6 +21,7 @@
 #ifndef CLIPBOARDLISTENER_H
 #define CLIPBOARDLISTENER_H
 
+#include <QDateTime>
 #include <QTimer>
 #include <QObject>
 #include <QClipboard>
@@ -29,13 +30,14 @@
 /**
  * Wrapper around QClipboard, which emits clipboardChanged only when it really changed
  */
-class ClipboardListener : public QObject 
+class ClipboardListener : public QObject
 {
     Q_OBJECT
 
 private:
     ClipboardListener();
-    QString currentContent;
+    QString m_currentContent;
+    qint64 m_updateTimestamp = 0;
     QClipboard* clipboard;
 #ifdef Q_OS_MAC
     QTimer m_clipboardMonitorTimer;
@@ -43,7 +45,7 @@ private:
 
 public:
 
-    static ClipboardListener* instance() 
+    static ClipboardListener* instance()
     {
         static ClipboardListener* me = nullptr;
         if (!me) {
@@ -55,6 +57,9 @@ public:
     void updateClipboard(QClipboard::Mode mode);
 
     void setText(const QString& content);
+
+    QString currentContent();
+    qint64 updateTimestamp();
 
 Q_SIGNALS:
     void clipboardChanged(const QString& content);

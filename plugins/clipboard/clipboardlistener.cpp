@@ -20,7 +20,7 @@
 
 #include "clipboardlistener.h"
 
-ClipboardListener::ClipboardListener() 
+ClipboardListener::ClipboardListener()
     : clipboard(QGuiApplication::clipboard())
 {
 #ifdef Q_OS_MAC
@@ -30,7 +30,7 @@ ClipboardListener::ClipboardListener()
     connect(clipboard, &QClipboard::changed, this, &ClipboardListener::updateClipboard);
 }
 
-void ClipboardListener::updateClipboard(QClipboard::Mode mode) 
+void ClipboardListener::updateClipboard(QClipboard::Mode mode)
 {
     if (mode != QClipboard::Clipboard) {
         return;
@@ -38,16 +38,28 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
 
     QString content = clipboard->text();
 
-    if (content == currentContent) {
+    if (content == m_currentContent) {
         return;
     }
-    currentContent = content;
+    m_updateTimestamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    m_currentContent = content;
 
     Q_EMIT clipboardChanged(content);
 }
 
+QString ClipboardListener::currentContent()
+{
+    return m_currentContent;
+}
+
+qint64 ClipboardListener::updateTimestamp(){
+
+    return m_updateTimestamp;
+}
+
 void ClipboardListener::setText(const QString& content)
 {
-    currentContent = content;
+    m_updateTimestamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    m_currentContent = content;
     clipboard->setText(content);
 }

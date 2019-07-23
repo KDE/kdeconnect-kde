@@ -27,7 +27,31 @@
 #include <core/kdeconnectplugin.h>
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD)
+
+/**
+ * Packet containing just clipboard contents, sent when a device updates its clipboard.
+ * <p>
+ * The body should look like so:
+ * {
+ * "content": "password"
+ * }
+ */
 #define PACKET_TYPE_CLIPBOARD QStringLiteral("kdeconnect.clipboard")
+
+/**
+ * Packet containing clipboard contents and a timestamp that the contents were last updated, sent
+ * on first connection
+ * <p>
+ * The timestamp is milliseconds since epoch. It can be 0, which indicates that the clipboard
+ * update time is currently unknown.
+ * <p>
+ * The body should look like so:
+ * {
+ * "timestamp": 542904563213,
+ * "content": "password"
+ * }
+ */
+#define PACKET_TYPE_CLIPBOARD_CONNECT QStringLiteral("kdeconnect.clipboard.connect")
 
 class ClipboardPlugin
     : public KdeConnectPlugin
@@ -38,10 +62,10 @@ public:
     explicit ClipboardPlugin(QObject* parent, const QVariantList& args);
 
     bool receivePacket(const NetworkPacket& np) override;
-    void connected() override { }
-
+    void connected() override;
 private Q_SLOTS:
     void propagateClipboard(const QString& content);
+    void sendConnectPacket();
 
 };
 
