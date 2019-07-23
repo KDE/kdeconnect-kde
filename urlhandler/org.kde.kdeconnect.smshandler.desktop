@@ -2,6 +2,7 @@
 Name=KDE Connect SMS URL Handler
 Name[ca]=Gestor d'URL de SMS del KDE Connect
 Name[ca@valencia]=Gestor d'URL de SMS del KDE Connect
+Name[cs]=Nástroj pro práci s URL v SMS pro KDE Connect
 Name[en_GB]=KDE Connect SMS URL Handler
 Name[es]=Controlador de URL de SMS de KDE Connect
 Name[gl]=Xestor de URL de SMS de KDE Connect
@@ -13,6 +14,7 @@ Name[nn]=SMS-URL-handsamar for KDE Connect
 Name[pl]=KDE Connect - obsługa URL SMSów
 Name[pt]=Tratamento de URL's de SMS do KDE Connect
 Name[pt_BR]=Tratamento de URLs de SMS do KDE Connect
+Name[ru]=Обработчик ссылок из SMS KDE Connect
 Name[sk]=Spracovateľ KDE Connect SMS URL
 Name[sv]=KDE-anslut hanterare av SMS-webbadress
 Name[uk]=Обробник адрес у SMS KDE Connect
