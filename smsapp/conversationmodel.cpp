@@ -123,7 +123,7 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
     QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
 
     ConversationAddress sender = message.addresses().first();
-    QString senderName = message.isMultitarget() ? SmsHelper::getTitleForAddresses({sender}) : QString();
+    QString senderName = message.isIncoming() ? SmsHelper::getTitleForAddresses({sender}) : QString();
 
     auto item = new QStandardItem;
     item->setText(displayBody);
