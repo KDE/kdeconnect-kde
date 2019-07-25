@@ -50,18 +50,30 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
     if (np.has(QStringLiteral("player"))) {
         const QString player = np.get<QString>(QStringLiteral("player"));
         if(!m_players.contains(player)) {
-             m_players[player] = new MprisRemotePlayer();
+             m_players[player] = new MprisRemotePlayer(player, this);
         }
         m_players[player]->parseNetworkPacket(np);
     }
 
     if (np.has(QStringLiteral("playerList"))) {
         QStringList players = np.get<QStringList>(QStringLiteral("playerList"));
-        qDeleteAll(m_players);
-        m_players.clear();
+
+        //Remove players not available any more
+        for (auto iter = m_players.begin(); iter != m_players.end();) {
+            if (!players.contains(iter.key())) {
+                iter.value()->deleteLater();
+                iter = m_players.erase(iter);
+            } else {
+                ++iter;
+            }
+        }
+
+        //Add new players
         for (const QString& player : players) {
-            m_players[player] = new MprisRemotePlayer();
-            requestPlayerStatus(player);
+            if (!m_players.contains(player)) {
+                m_players[player] = new MprisRemotePlayer(player, this);
+                requestPlayerStatus(player);
+            }
         }
 
         if (m_players.empty()) {
