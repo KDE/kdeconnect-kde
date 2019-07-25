@@ -19,13 +19,19 @@
  */
 
 #include "mprisremoteplayer.h"
+#include "mprisremoteplugin.h"
+#include "mprisremoteplayermediaplayer2.h"
+#include "mprisremoteplayermediaplayer2player.h"
 
 #include <QDateTime>
 
 #include <networkpacket.h>
+#include <QUuid>
 
-MprisRemotePlayer::MprisRemotePlayer() :
-    m_playing(false)
+MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin) :
+    QObject(plugin)
+    , id(id)
+    , m_playing(false)
     , m_canPlay(true)
     , m_canPause(true)
     , m_canGoPrevious(true)
@@ -39,31 +45,91 @@ MprisRemotePlayer::MprisRemotePlayer() :
     , m_artist()
     , m_album()
     , m_canSeek(false)
+    , m_dbusConnectionName(QStringLiteral("mpris_") + QUuid::createUuid().toString(QUuid::Id128))
+    , m_dbusConnection(QDBusConnection::connectToBus(QDBusConnection::SessionBus, m_dbusConnectionName))
 {
+    //Expose this player on the newly created connection. This allows multiple mpris services in the same Qt process
+    new MprisRemotePlayerMediaPlayer2(this, plugin);
+    new MprisRemotePlayerMediaPlayer2Player(this, plugin);
+
+    m_dbusConnection.registerObject(QStringLiteral("/org/mpris/MediaPlayer2"), this);
+    //Make sure our service name is unique. Reuse the connection name for this.
+    m_dbusConnection.registerService(QStringLiteral("org.mpris.MediaPlayer2.kdeconnect.") + m_dbusConnectionName);
 }
 
 MprisRemotePlayer::~MprisRemotePlayer()
 {
+    //Drop the DBus connection (it was only used for this class)
+    QDBusConnection::disconnectFromBus(m_dbusConnectionName);
 }
 
 void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket& np)
 {
-    m_nowPlaying = np.get<QString>(QStringLiteral("nowPlaying"), m_nowPlaying);
-    m_title = np.get<QString>(QStringLiteral("title"), m_title);
-    m_artist = np.get<QString>(QStringLiteral("artist"), m_artist);
-    m_album = np.get<QString>(QStringLiteral("album"), m_album);
-    m_volume = np.get<int>(QStringLiteral("volume"), m_volume);
-    m_length = np.get<int>(QStringLiteral("length"), m_length);
-    if (np.has(QStringLiteral("pos"))) {
-        m_lastPosition = np.get<int>(QStringLiteral("pos"), m_lastPosition);
-        m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
+    bool trackInfoHasChanged = false;
+
+    //Track properties
+    QString newNowPlaying = np.get<QString>(QStringLiteral("nowPlaying"), m_nowPlaying);
+    QString newTitle = np.get<QString>(QStringLiteral("title"), m_title);
+    QString newArtist = np.get<QString>(QStringLiteral("artist"), m_artist);
+    QString newAlbum = np.get<QString>(QStringLiteral("album"), m_album);
+    int newLength = np.get<int>(QStringLiteral("length"), m_length);
+
+    //Check if they changed
+    if (newNowPlaying != m_nowPlaying || newTitle != m_title || newArtist != m_artist || newAlbum != m_album || newLength != m_length) {
+        trackInfoHasChanged = true;
+        Q_EMIT trackInfoChanged();
     }
-    m_playing = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
-    m_canSeek = np.get<bool>(QStringLiteral("canSeek"), m_canSeek);
-    m_canPlay = np.get<bool>(QStringLiteral("canPlay"), m_canPlay);
-    m_canPause = np.get<bool>(QStringLiteral("canPause"), m_canPause);
-    m_canGoPrevious = np.get<bool>(QStringLiteral("canGoPrevious"), m_canGoPrevious);
-    m_canGoNext = np.get<bool>(QStringLiteral("canGoNext"), m_canGoNext);
+    //Set the new values
+    m_nowPlaying = newNowPlaying;
+    m_title = newTitle;
+    m_artist = newArtist;
+    m_album = newAlbum;
+    m_length = newLength;
+
+    //Check volume changes
+    int newVolume = np.get<int>(QStringLiteral("volume"), m_volume);
+    if (newVolume != m_volume) {
+        Q_EMIT volumeChanged();
+    }
+    m_volume = newVolume;
+
+    if (np.has(QStringLiteral("pos"))) {
+        //Check position
+        int newLastPosition = np.get<int>(QStringLiteral("pos"), m_lastPosition);
+        int positionDiff = qAbs(position() - newLastPosition);
+        m_lastPosition = newLastPosition;
+        m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
+
+        //Only consider it seeking if the position changed more than 1 second, and the track has not changed
+        if (qAbs(positionDiff) >= 1000 && !trackInfoHasChanged) {
+            Q_EMIT positionChanged();
+        }
+    }
+
+    //Check if we started/stopped playing
+    bool newPlaying = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
+    if (newPlaying != m_playing) {
+        Q_EMIT playingChanged();
+    }
+    m_playing = newPlaying;
+
+    //Control properties
+    bool newCanSeek = np.get<bool>(QStringLiteral("canSeek"), m_canSeek);
+    bool newCanPlay = np.get<bool>(QStringLiteral("canPlay"), m_canPlay);
+    bool newCanPause = np.get<bool>(QStringLiteral("canPause"), m_canPause);
+    bool newCanGoPrevious = np.get<bool>(QStringLiteral("canGoPrevious"), m_canGoPrevious);
+    bool newCanGoNext = np.get<bool>(QStringLiteral("canGoNext"), m_canGoNext);
+
+    //Check if they changed
+    if (newCanSeek != m_canSeek || newCanPlay != m_canPlay || newCanPause != m_canPause || newCanGoPrevious != m_canGoPrevious || newCanGoNext != m_canGoNext) {
+        Q_EMIT controlsChanged();
+    }
+    //Set the new values
+    m_canSeek = newCanSeek;
+    m_canPlay = newCanPlay;
+    m_canPause = newCanPause;
+    m_canGoPrevious = newCanGoPrevious;
+    m_canGoNext = newCanGoNext;
 }
 
 long MprisRemotePlayer::position() const
@@ -121,6 +187,10 @@ bool MprisRemotePlayer::canSeek() const
     return m_canSeek;
 }
 
+QString MprisRemotePlayer::identity() const {
+    return id;
+}
+
 bool MprisRemotePlayer::canPlay() const {
     return m_canPlay;
 }
@@ -135,4 +205,8 @@ bool MprisRemotePlayer::canGoPrevious() const {
 
 bool MprisRemotePlayer::canGoNext() const {
     return m_canGoNext;
+}
+
+QDBusConnection & MprisRemotePlayer::dbus() {
+    return m_dbusConnection;
 }

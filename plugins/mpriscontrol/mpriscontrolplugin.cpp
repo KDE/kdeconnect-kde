@@ -69,8 +69,8 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
 // Copied from the mpris2 dataengine in the plasma-workspace repository
 void MprisControlPlugin::serviceOwnerChanged(const QString& serviceName, const QString& oldOwner, const QString& newOwner)
 {
-    if (!serviceName.startsWith(QLatin1String("org.mpris.MediaPlayer2.")))
-        return;
+    if (!serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2."))) return;
+    if (serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2.kdeconnect."))) return;
 
     if (!oldOwner.isEmpty()) {
         qCDebug(KDECONNECT_PLUGIN_MPRIS) << "MPRIS service" << serviceName << "just went offline";
