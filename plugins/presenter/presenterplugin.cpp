@@ -43,7 +43,7 @@ class PresenterView : public QQuickView
 {
 public:
     PresenterView() {
-        setFlags(flags() | Qt::WindowFlags(Qt::WA_TranslucentBackground));
+        setFlags(Qt::WindowFlags(Qt::WA_TranslucentBackground) | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowDoesNotAcceptFocus | Qt::WindowFlags(Qt::WindowFullScreen) | Qt::Tool);
         setClearBeforeRendering(true);
         setColor(QColor(Qt::transparent));
 
