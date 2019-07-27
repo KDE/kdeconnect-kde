@@ -28,25 +28,31 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.6
-import QtGraphicalEffects 1.0
 
-Image {
-	id: img
-	property bool isRound: true
+import QtQuick 2.0
+import QtQuick.Layouts 1.3
+import org.kde.kirigami 2.2 as Kirigami
 
-	layer.enabled: isRound
-	layer.effect: OpacityMask {
-		maskSource: Item {
-			width: img.paintedWidth
-			height: img.paintedHeight
+Item {
+    id: avatar
+    property string avatarUrl
+    property string name
 
-			Rectangle {
-				anchors.centerIn: parent
-				width: Math.min(img.width, img.height)
-				height: width
-				radius: Math.min(width, height)
-			}
-		}
-	}
+    RoundImage {
+        id: imageAvatar
+        visible: avatarUrl
+        source: avatarUrl
+        fillMode: Image.PreserveAspectFit
+        mipmap: true
+        height: width
+        anchors.fill: parent
+        isRound: true
+    }
+
+    TextAvatar {
+        id: textAvatar
+        visible: !avatarUrl
+        name: avatar.name
+        anchors.fill: parent
+    }
 }

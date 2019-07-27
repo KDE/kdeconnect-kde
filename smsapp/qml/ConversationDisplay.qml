@@ -63,7 +63,7 @@ Kirigami.ScrollablePage
      */
     ChatMessage {
         id: genericMessage
-        senderName: "Generic Sender"
+        name: "Generic Sender"
         messageBody: "Generic Message Body"
         dateTime: new Date('2000-0-0')
         visible: false
@@ -110,7 +110,7 @@ Kirigami.ScrollablePage
         }
 
         delegate: ChatMessage {
-            senderName: model.sender
+            name: model.sender
             messageBody: model.display
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
@@ -138,6 +138,10 @@ Kirigami.ScrollablePage
                         viewport.currentIndex = index
                     }
                 }
+            }
+
+            onMessageCopyRequested: {
+                conversationModel.copyToClipboard(message)
             }
         }
 

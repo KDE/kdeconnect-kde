@@ -62,6 +62,7 @@ public:
     Q_INVOKABLE void sendReplyToConversation(const QString& message);
     Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
     Q_INVOKABLE QString getTitleForAddresses(const QList<ConversationAddress>& addresses);
+    Q_INVOKABLE void copyToClipboard(const QString& message) const;
 
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);
