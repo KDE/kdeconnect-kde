@@ -110,6 +110,12 @@ Q_SIGNALS:
      */
     Q_SCRIPTABLE void conversationUpdated(const QDBusVariant& msg);
 
+    /**
+     * Emitted whenever we have handled a response from the phone indicating the total number of
+     * (locally-known) messages in the given conversation
+     */
+    Q_SCRIPTABLE void conversationLoaded(qint64 conversationID, quint64 messageCount);
+
 private /*methods*/:
     QString newId(); //Generates successive identifitiers to use as public ids
 

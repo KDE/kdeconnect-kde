@@ -143,6 +143,13 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
         }
     }
 
+    // It feels bad to go through the set of updated conversations again,
+    // but also there are not many times that updatedConversationIDs will be more than one
+    for (qint64 conversationID : updatedConversationIDs) {
+        quint64 numMessages = m_known_messages[conversationID].size();
+        Q_EMIT conversationLoaded(conversationID, numMessages);
+    }
+
     waitingForMessagesLock.lock();
     // Remove the waiting flag for all conversations which we just processed
     conversationsWaitingForMessages.subtract(updatedConversationIDs);

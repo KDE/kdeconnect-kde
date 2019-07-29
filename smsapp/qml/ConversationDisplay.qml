@@ -44,6 +44,10 @@ Kirigami.ScrollablePage
     property var conversationModel: ConversationModel {
         deviceId: page.deviceId
         threadId: page.conversationId
+
+        onLoadingFinished: {
+            page.isInitalized = true
+        }
     }
 
     property var addresses

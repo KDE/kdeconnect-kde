@@ -74,6 +74,7 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
     if (m_conversationsInterface) {
         disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
         delete m_conversationsInterface;
     }
 
@@ -81,6 +82,7 @@ void ConversationModel::setDeviceId(const QString& deviceId)
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
+    connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
 }
 
 void ConversationModel::sendReplyToConversation(const QString& message)
@@ -157,4 +159,14 @@ void ConversationModel::handleConversationUpdate(const QDBusVariant& msg)
     }
 
     createRowFromMessage(message, 0);
+}
+
+void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMessages)
+{
+    if (threadID != m_threadId) {
+        return;
+    }
+    // If we get this flag, it means that the phone will not be responding with any more messages
+    // so we should not be showing a loading indicator
+    Q_EMIT loadingFinished();
 }

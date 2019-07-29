@@ -74,8 +74,12 @@ public:
      */
     Q_INVOKABLE void copyToClipboard(const QString& message) const;
 
+Q_SIGNALS:
+    void loadingFinished();
+
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);
+    void handleConversationLoaded(qint64 threadID, quint64 numMessages);
 
 private:
     void createRowFromMessage(const ConversationMessage &message, int pos);
