@@ -46,7 +46,7 @@ public:
     void updateDeviceVolume(AudioDeviceID deviceId);
     void updateDeviceMuted(AudioDeviceID deviceId);
 private:
-    QMap<QString, MacOSCoreAudioDevice*> sinksMap;
+    QMap<QString, MacOSCoreAudioDevice*> m_sinksMap;
 };
 
 #endif // SYSTEMVOLUMEPLUGINMACOS_H

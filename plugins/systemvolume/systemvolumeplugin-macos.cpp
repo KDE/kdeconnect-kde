@@ -35,9 +35,9 @@ Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SYSTEMVOLUME, "kdeconnect.plugin.systemvolu
 class MacOSCoreAudioDevice
 {
 private:
-    AudioDeviceID deviceId;
-    QString description;
-    bool isStereo;
+    AudioDeviceID m_deviceId;
+    QString m_description;
+    bool m_isStereo;
 
     friend class SystemvolumePlugin;
 public:
@@ -55,54 +55,73 @@ public:
 static const AudioObjectPropertyAddress kAudioHardwarePropertyAddress = {
     kAudioHardwarePropertyDevices,
     kAudioObjectPropertyScopeGlobal,
-    kAudioObjectPropertyElementMaster};
+    kAudioObjectPropertyElementMaster
+};
 
 static const AudioObjectPropertyAddress kAudioStreamPropertyAddress = {
     kAudioDevicePropertyStreams,
     kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster};
+    kAudioObjectPropertyElementMaster
+};
 
 static const AudioObjectPropertyAddress kAudioMasterVolumePropertyAddress = {
     kAudioDevicePropertyVolumeScalar,
     kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster};
+    kAudioObjectPropertyElementMaster
+};
 
 static const AudioObjectPropertyAddress kAudioLeftVolumePropertyAddress = {
     kAudioDevicePropertyVolumeScalar,
     kAudioDevicePropertyScopeOutput,
-    1};
+    1
+};
 
 static const AudioObjectPropertyAddress kAudioRightVolumePropertyAddress = {
     kAudioDevicePropertyVolumeScalar,
     kAudioDevicePropertyScopeOutput,
-    2};
+    2
+};
 
 static const AudioObjectPropertyAddress kAudioMasterMutedPropertyAddress = {
     kAudioDevicePropertyMute,
     kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster};
+    kAudioObjectPropertyElementMaster
+};
 
 static const AudioObjectPropertyAddress kAudioMasterDataSourcePropertyAddress = {
-        kAudioDevicePropertyDataSource,
-        kAudioDevicePropertyScopeOutput,
-        kAudioObjectPropertyElementMaster};
+    kAudioDevicePropertyDataSource,
+    kAudioDevicePropertyScopeOutput,
+    kAudioObjectPropertyElementMaster
+};
 
-OSStatus onVolumeChanged(AudioObjectID object, UInt32 num_addresses, const AudioObjectPropertyAddress addresses[], void *context)
+OSStatus onVolumeChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
+    Q_UNUSED(object);
+    Q_UNUSED(addresses);
+    Q_UNUSED(numAddresses);
+
     SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
     plugin->updateDeviceVolume(object);
     return noErr;
 }
 
-OSStatus onMutedChanged(AudioObjectID object, UInt32 num_addresses, const AudioObjectPropertyAddress addresses[], void *context)
+OSStatus onMutedChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
+    Q_UNUSED(object);
+    Q_UNUSED(addresses);
+    Q_UNUSED(numAddresses);
+
     SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
     plugin->updateDeviceMuted(object);
     return noErr;
 }
 
-OSStatus onOutputSourceChanged(AudioObjectID object, UInt32 num_addresses, const AudioObjectPropertyAddress addresses[], void *context)
+OSStatus onOutputSourceChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
+    Q_UNUSED(object);
+    Q_UNUSED(addresses);
+    Q_UNUSED(numAddresses);
+
     SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
     plugin->sendSinkList();
     return noErr;
@@ -169,8 +188,8 @@ std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs() {
     if (size == 0)
         return {};
 
-    size_t device_count = size / sizeof(AudioObjectID);
-    std::vector<AudioObjectID> deviceIds(device_count);
+    size_t deviceCount = size / sizeof(AudioObjectID);
+    std::vector<AudioObjectID> deviceIds(deviceCount);
     result = AudioObjectGetPropertyData(kAudioObjectSystemObject, &kAudioHardwarePropertyAddress, 0, NULL, &size, deviceIds.data());
     if (result != noErr) {
         qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME)
@@ -195,8 +214,7 @@ std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs() {
 }
 
 SystemvolumePlugin::SystemvolumePlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args)
-    , sinksMap()
+    : KdeConnectPlugin(parent, args), m_sinksMap()
 {}
 
 bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
@@ -206,12 +224,12 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
     } else {
         QString name = np.get<QString>(QStringLiteral("name"));
 
-        if (sinksMap.contains(name)) {
+        if (m_sinksMap.contains(name)) {
             if (np.has(QStringLiteral("volume"))) {
-                sinksMap[name]->setVolume(np.get<int>(QStringLiteral("volume")) / 100.0);
+                m_sinksMap[name]->setVolume(np.get<int>(QStringLiteral("volume")) / 100.0);
             }
             if (np.has(QStringLiteral("muted"))) {
-                sinksMap[name]->setMuted(np.get<bool>(QStringLiteral("muted")));
+                m_sinksMap[name]->setMuted(np.get<bool>(QStringLiteral("muted")));
             }
         }
     }
@@ -224,11 +242,11 @@ void SystemvolumePlugin::sendSinkList()
     QJsonDocument document;
     QJsonArray array;
 
-    if (!sinksMap.empty()) {
-        for (MacOSCoreAudioDevice *sink : sinksMap) {
+    if (!m_sinksMap.empty()) {
+        for (MacOSCoreAudioDevice *sink : m_sinksMap) {
             delete sink;
         }
-        sinksMap.clear();
+        m_sinksMap.clear();
     }
 
     std::vector<AudioObjectID> deviceIds = GetAllOutputAudioDeviceIDs();
@@ -236,9 +254,9 @@ void SystemvolumePlugin::sendSinkList()
     for (AudioDeviceID deviceId : deviceIds) {
         MacOSCoreAudioDevice *audioDevice = new MacOSCoreAudioDevice(deviceId);
 
-        audioDevice->description = translateDeviceSource(deviceId);
+        audioDevice->m_description = translateDeviceSource(deviceId);
 
-        sinksMap.insert(QStringLiteral("default-") + QString::number(deviceId), audioDevice);
+        m_sinksMap.insert(QStringLiteral("default-") + QString::number(deviceId), audioDevice);
 
         // Add volume change listener
         AudioObjectAddPropertyListener(deviceId, &kAudioMasterVolumePropertyAddress, &onVolumeChanged, (void *)this);
@@ -255,7 +273,7 @@ void SystemvolumePlugin::sendSinkList()
         QJsonObject sinkObject {
             {QStringLiteral("name"), QStringLiteral("default-") + QString::number(deviceId)},
             {QStringLiteral("muted"), audioDevice->isMuted()},
-            {QStringLiteral("description"), audioDevice->description},
+            {QStringLiteral("description"), audioDevice->m_description},
             {QStringLiteral("volume"), audioDevice->volume() * 100},
             {QStringLiteral("maxVolume"), 100}
         };
@@ -277,8 +295,8 @@ void SystemvolumePlugin::connected()
 
 void SystemvolumePlugin::updateDeviceMuted(AudioDeviceID deviceId)
 {
-    for (MacOSCoreAudioDevice *sink : sinksMap) {
-        if (sink->deviceId == deviceId) {
+    for (MacOSCoreAudioDevice *sink : m_sinksMap) {
+        if (sink->m_deviceId == deviceId) {
             NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME);
             np.set<bool>(QStringLiteral("muted"), (bool)(sink->isMuted()));
             np.set<int>(QStringLiteral("volume"), (int)(sink->volume() * 100));
@@ -292,8 +310,8 @@ void SystemvolumePlugin::updateDeviceMuted(AudioDeviceID deviceId)
 
 void SystemvolumePlugin::updateDeviceVolume(AudioDeviceID deviceId)
 {
-    for (MacOSCoreAudioDevice *sink : sinksMap) {
-        if (sink->deviceId == deviceId) {
+    for (MacOSCoreAudioDevice *sink : m_sinksMap) {
+        if (sink->m_deviceId == deviceId) {
             NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME);
             np.set<int>(QStringLiteral("volume"), (int)(sink->volume() * 100));
             np.set<QString>(QStringLiteral("name"), QStringLiteral("default-") + QString::number(deviceId));
@@ -304,8 +322,8 @@ void SystemvolumePlugin::updateDeviceVolume(AudioDeviceID deviceId)
     qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Device" << deviceId << "not found while update volume";
 }
 
-MacOSCoreAudioDevice::MacOSCoreAudioDevice(AudioDeviceID _deviceId)
-    : deviceId(_deviceId)
+MacOSCoreAudioDevice::MacOSCoreAudioDevice(AudioDeviceID deviceId)
+    : m_deviceId(deviceId)
 {
     updateType();
 }
@@ -313,19 +331,19 @@ MacOSCoreAudioDevice::MacOSCoreAudioDevice(AudioDeviceID _deviceId)
 MacOSCoreAudioDevice::~MacOSCoreAudioDevice()
 {
     // Volume listener
-    AudioObjectRemovePropertyListener(deviceId, &kAudioMasterVolumePropertyAddress,
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterVolumePropertyAddress,
         &onVolumeChanged, (void *)this);
-    AudioObjectRemovePropertyListener(deviceId, &kAudioLeftVolumePropertyAddress,
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioLeftVolumePropertyAddress,
         &onVolumeChanged, (void *)this);
-    AudioObjectRemovePropertyListener(deviceId, &kAudioRightVolumePropertyAddress,
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioRightVolumePropertyAddress,
         &onVolumeChanged, (void *)this);
 
     // Muted listener
-    AudioObjectRemovePropertyListener(deviceId, &kAudioMasterMutedPropertyAddress,
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterMutedPropertyAddress,
         &onMutedChanged, (void *)this);
 
     // Data source listener
-    AudioObjectRemovePropertyListener(deviceId, &kAudioMasterDataSourcePropertyAddress,
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterDataSourcePropertyAddress,
         &onOutputSourceChanged, (void *)this);
 }
 
@@ -333,36 +351,36 @@ void MacOSCoreAudioDevice::setVolume(float volume)
 {
     OSStatus result;
 
-    if (deviceId == kAudioObjectUnknown) {
+    if (m_deviceId == kAudioObjectUnknown) {
         qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set volume of Unknown Device";
         return;
     }
 
-    if (isStereo) {
-        result = AudioObjectSetPropertyData(deviceId, &kAudioLeftVolumePropertyAddress, 0, NULL, sizeof(volume), &volume);
-        result = AudioObjectSetPropertyData(deviceId, &kAudioRightVolumePropertyAddress, 0, NULL, sizeof(volume), &volume);
+    if (m_isStereo) {
+        result = AudioObjectSetPropertyData(m_deviceId, &kAudioLeftVolumePropertyAddress, 0, NULL, sizeof(volume), &volume);
+        result = AudioObjectSetPropertyData(m_deviceId, &kAudioRightVolumePropertyAddress, 0, NULL, sizeof(volume), &volume);
     } else {
-        result = AudioObjectSetPropertyData(deviceId, &kAudioMasterVolumePropertyAddress, 0, NULL, sizeof(volume), &volume);
+        result = AudioObjectSetPropertyData(m_deviceId, &kAudioMasterVolumePropertyAddress, 0, NULL, sizeof(volume), &volume);
     }
 
     if (result != noErr) {
-        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set volume of Device" << deviceId << "to" << volume;
+        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set volume of Device" << m_deviceId << "to" << volume;
     }
 }
 
 void MacOSCoreAudioDevice::setMuted(bool muted)
 {
-    if (deviceId == kAudioObjectUnknown) {
+    if (m_deviceId == kAudioObjectUnknown) {
         qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to mute an Unknown Device";
         return;
     }
 
     UInt32 mutedValue = muted ? 1 : 0;
 
-    OSStatus result = AudioObjectSetPropertyData(deviceId, &kAudioMasterMutedPropertyAddress, 0, NULL, sizeof(mutedValue), &mutedValue);
+    OSStatus result = AudioObjectSetPropertyData(m_deviceId, &kAudioMasterMutedPropertyAddress, 0, NULL, sizeof(mutedValue), &mutedValue);
 
     if (result != noErr) {
-        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set muted state of Device" << deviceId << "to" << muted;
+        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set muted state of Device" << m_deviceId << "to" << muted;
     }
 }
 
@@ -370,7 +388,7 @@ float MacOSCoreAudioDevice::volume()
 {
     OSStatus result;
 
-    if (deviceId == kAudioObjectUnknown) {
+    if (m_deviceId == kAudioObjectUnknown) {
         qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to get volume of Unknown Device";
         return 0.0;
     }
@@ -378,16 +396,16 @@ float MacOSCoreAudioDevice::volume()
     float volume = 0.0;
     UInt32 volumeDataSize = sizeof(volume);
 
-    if (isStereo) {
+    if (m_isStereo) {
         // Try to get steoreo device volume
-        result = AudioObjectGetPropertyData(deviceId, &kAudioLeftVolumePropertyAddress, 0, NULL, &volumeDataSize, &volume);
+        result = AudioObjectGetPropertyData(m_deviceId, &kAudioLeftVolumePropertyAddress, 0, NULL, &volumeDataSize, &volume);
     } else {
         // Try to get master volume
-        result = AudioObjectGetPropertyData(deviceId, &kAudioMasterVolumePropertyAddress, 0, NULL, &volumeDataSize, &volume);
+        result = AudioObjectGetPropertyData(m_deviceId, &kAudioMasterVolumePropertyAddress, 0, NULL, &volumeDataSize, &volume);
     }
 
     if (result != noErr) {
-        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to get volume of Device" << deviceId;
+        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to get volume of Device" << m_deviceId;
         return 0.0;
     }
 
@@ -396,7 +414,7 @@ float MacOSCoreAudioDevice::volume()
 
 bool MacOSCoreAudioDevice::isMuted()
 {
-    if (deviceId == kAudioObjectUnknown) {
+    if (m_deviceId == kAudioObjectUnknown) {
         qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to get muted state of an Unknown Device";
         return false;
     }
@@ -404,7 +422,7 @@ bool MacOSCoreAudioDevice::isMuted()
     UInt32 muted = 0;
     UInt32 muteddataSize = sizeof(muted);
 
-    AudioObjectGetPropertyData(deviceId, &kAudioMasterMutedPropertyAddress, 0, NULL, &muteddataSize, &muted);
+    AudioObjectGetPropertyData(m_deviceId, &kAudioMasterMutedPropertyAddress, 0, NULL, &muteddataSize, &muted);
 
     return muted == 1;
 }
@@ -414,11 +432,11 @@ void MacOSCoreAudioDevice::updateType()
     // Try to get volume from left channel to check if it's a stereo device
     float volume = 0.0;
     UInt32 volumeDataSize = sizeof(volume);
-    OSStatus result = AudioObjectGetPropertyData(deviceId, &kAudioLeftVolumePropertyAddress, 0, NULL, &volumeDataSize, &volume);
+    OSStatus result = AudioObjectGetPropertyData(m_deviceId, &kAudioLeftVolumePropertyAddress, 0, NULL, &volumeDataSize, &volume);
     if (result == noErr) {
-        isStereo = true;
+        m_isStereo = true;
     } else {
-        isStereo = false;
+        m_isStereo = false;
     }
 }
 
