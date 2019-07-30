@@ -39,10 +39,6 @@
 #include "kdeconnect-version.h"
 #include "deviceindicator.h"
 
-#ifdef Q_OS_MAC
-#include <CoreFoundation/CFBundle.h>
-#endif
-
 #include <dbushelper.h>
 
 int main(int argc, char** argv)
@@ -64,14 +60,20 @@ int main(int argc, char** argv)
 #ifdef Q_OS_MAC
     // Unset launchctl env, avoid block
     DbusHelper::macosUnsetLaunchctlEnv();
-
-    // Get bundle path
-    CFURLRef url = (CFURLRef)CFAutorelease((CFURLRef)CFBundleCopyBundleURL(CFBundleGetMainBundle()));
-    QString basePath = QUrl::fromCFURL(url).path();
-
+    
     // Start kdeconnectd
     QProcess kdeconnectdProcess;
-    kdeconnectdProcess.startDetached(basePath + QStringLiteral("Contents/MacOS/kdeconnectd"));
+    if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
+        kdeconnectdProcess.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
+    } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
+        kdeconnectdProcess.startDetached(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"));
+    } else {
+        QMessageBox::critical(nullptr, i18n("KDE Connect"),
+                              i18n("Cannot find kdeconnectd"),
+                              QMessageBox::Abort,
+                              QMessageBox::Abort);
+        return -1;
+    }
 
     // Wait for dbus daemon env
     QProcess getLaunchdDBusEnv;
@@ -160,9 +162,12 @@ int main(int argc, char** argv)
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
 #ifdef Q_OS_MAC
-    QStringList themeSearchPaths = QIcon::themeSearchPaths();
-    themeSearchPaths << basePath + QStringLiteral("Contents/Resources/icons/");
-    QIcon::setThemeSearchPaths(themeSearchPaths);
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons"), QStandardPaths::LocateDirectory);
+    if (!iconPath.isNull()) {
+        QStringList themeSearchPaths = QIcon::themeSearchPaths();
+        themeSearchPaths << iconPath;
+        QIcon::setThemeSearchPaths(themeSearchPaths);
+    }
 #endif
 
 #ifdef QSYSTRAY
@@ -181,7 +186,16 @@ int main(int argc, char** argv)
     systray.setContextMenu(menu);
 #else
     KStatusNotifierItem systray;
+#ifdef Q_OS_MAC
+    if (!iconPath.isNull()) {
+        systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
+    } else {
+        // We are in macOS dev env, just continue
+        qWarning() << "Fail to find indicator icon, continue anyway";
+    }
+#else
     systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
+#endif
     systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), QStringLiteral("KDE Connect"));
     systray.setCategory(KStatusNotifierItem::Communications);
     systray.setStatus(KStatusNotifierItem::Passive);

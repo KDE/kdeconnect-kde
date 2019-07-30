@@ -27,11 +27,11 @@
 #include <QUrl>
 #include <QFile>
 #include <QCoreApplication>
+#include <QStandardPaths>
 
 #include "kdeconnectconfig.h"
 
 #ifdef Q_OS_MAC
-#include <CoreFoundation/CFBundle.h>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #endif
@@ -104,35 +104,23 @@ void DBusInstancePrivate::launchDBusDaemon()
 
     // Start dbus daemon
     m_dbusProcess = new QProcess();
-    #ifdef Q_OS_MAC
-        // On macOS, assuming the executable is in Contents/MacOS
-        CFURLRef url = (CFURLRef)CFAutorelease((CFURLRef)CFBundleCopyBundleURL(CFBundleGetMainBundle()));
-        QString basePath = QUrl::fromCFURL(url).path();
-        QString kdeconnectDBusExecutable = basePath + QStringLiteral("Contents/MacOS/dbus-daemon"),
-                kdeconnectDBusConfiguration = basePath + QStringLiteral("Contents/Resources/dbus-1/session.conf");
-        qCDebug(KDECONNECT_CORE) << "App package path: " << basePath;
 
-        m_dbusProcess->setProgram(kdeconnectDBusExecutable);
-        m_dbusProcess->setArguments({QStringLiteral("--print-address"),
-            QStringLiteral("--nofork"),
-            QStringLiteral("--config-file=") + kdeconnectDBusConfiguration,
-            QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)});
-        m_dbusProcess->setWorkingDirectory(basePath);
-    #elif defined(Q_OS_WIN)
-        // On Windows
-        m_dbusProcess->setProgram(QStringLiteral("dbus-daemon.exe"));
-        m_dbusProcess->setArguments({QStringLiteral("--session"),
-            QStringLiteral("--print-address"),
-            QStringLiteral("--nofork"),
-            QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)});
-    #else
-        // On Linux or other unix-like system
-        m_dbusProcess->setProgram(QStringLiteral("dbus-daemon"));
-        m_dbusProcess->setArguments({QStringLiteral("--session"),
-            QStringLiteral("--print-address"),
-            QStringLiteral("--nofork"),
-            QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)});
-    #endif
+    QString kdeconnectDBusConfiguration;
+    QString dbusDaemonExecutable = QStandardPaths::findExecutable(QStringLiteral("dbus-daemon"), { QCoreApplication::applicationDirPath() });
+    if (!dbusDaemonExecutable.isNull()) {
+        kdeconnectDBusConfiguration = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("dbus-1/session.conf"));
+    } else {
+        // macOS Debug env
+        dbusDaemonExecutable = QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../bin/dbus-daemon");
+        kdeconnectDBusConfiguration = QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../share/dbus-1/session.conf");
+    }
+    m_dbusProcess->setProgram(dbusDaemonExecutable);
+    m_dbusProcess->setArguments({QStringLiteral("--print-address"),
+        QStringLiteral("--nofork"),
+        QStringLiteral("--config-file=") + kdeconnectDBusConfiguration,
+        QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)
+    });
+    m_dbusProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
     m_dbusProcess->setStandardOutputFile(KdeConnectConfig::instance()->privateDBusAddressPath());
     m_dbusProcess->setStandardErrorFile(QProcess::nullDevice());
     m_dbusProcess->start();
