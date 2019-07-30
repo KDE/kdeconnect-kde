@@ -41,7 +41,7 @@
                 "Name[zh_TW]": "Aleix Pol"
             }
         ],
-        "Description": "",
+        "Description": "Use your mobile device to point to things on the screen",
         "EnabledByDefault": true,
         "Icon": "view-presentation",
         "Id": "kdeconnect_presenter",
