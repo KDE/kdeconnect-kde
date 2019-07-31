@@ -163,6 +163,7 @@ void ConversationModel::handleConversationUpdate(const QDBusVariant& msg)
 
 void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMessages)
 {
+    Q_UNUSED(numMessages)
     if (threadID != m_threadId) {
         return;
     }
