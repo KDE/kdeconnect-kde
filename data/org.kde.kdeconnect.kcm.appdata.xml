@@ -80,7 +80,7 @@
   <description>
     <p>KDE Connect provides several features to integrate your phone and your computer:
 
-        
+
 
         Please note you will need to install KDE Connect on your computer for this app to work, and keep the desktop version up-to-date with the Android version for the latest features to work.
     </p>
@@ -133,4 +133,8 @@
     <binary>kdeconnectd</binary>
     <binary>kdeconnect-cli</binary>
   </provides>
+  <categories>
+    <category>Network</category>
+  </categories>
+  <icon type="stock">kdeconnect</icon>
 </component>
