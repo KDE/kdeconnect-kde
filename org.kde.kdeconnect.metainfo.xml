@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component type="desktop-application">
+<component type="addon">
   <id>org.kde.kdeconnect</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
+  <extends>org.kde.plasmashell</extends>
   <name>KDE Connect</name>
   <name xml:lang="ca">KDE Connect</name>
   <name xml:lang="ca-valencia">KDE Connect</name>
@@ -119,4 +120,8 @@
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
+  <categories>
+    <category>System</category>
+  </categories>
+  <icon type="stock">kdeconnect</icon>
 </component>
