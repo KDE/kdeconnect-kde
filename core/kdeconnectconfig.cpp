@@ -134,7 +134,7 @@ QSslCertificate KdeConnectConfig::certificate()
 
 QDir KdeConnectConfig::baseConfigDir()
 {
-    QString configPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+    QString configPath = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
     QString kdeconnectConfigPath = QDir(configPath).absoluteFilePath(QStringLiteral("kdeconnect"));
     return QDir(kdeconnectConfigPath);
 }
