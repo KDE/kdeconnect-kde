@@ -40,6 +40,6 @@ Name[tr]=Bildirim eşitleme eklentisi ayarları
 Name[uk]=Параметри додатка синхронізації сповіщень
 Name[x-test]=xxNotification synchronization plugin settingsxx
 Name[zh_CN]=通知同步插件设置
-Name[zh_TW]=同步通知擴展插件設定
+Name[zh_TW]=同步通知外掛程式設定
 
 Categories=Qt;KDE;X-KDE-settings-kdeconnect;

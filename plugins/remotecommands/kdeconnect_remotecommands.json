@@ -74,7 +74,7 @@
         "Description[uk]": "Запуск команд, попередньо визначених на віддаленому пристрої",
         "Description[x-test]": "xxTrigger commands predefined on the remote devicexx",
         "Description[zh_CN]": "出发远程设备的预设命令",
-        "Description[zh_TW]": "預先設定在遠端設備上的執行命令",
+        "Description[zh_TW]": "預先設定在遠端裝置上的執行命令",
         "EnabledByDefault": true,
         "Icon": "system-run",
         "Id": "kdeconnect_remotecommands",

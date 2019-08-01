@@ -76,7 +76,7 @@
         "Description[uk]": "Надсилання і отримання сигналів підтримання зв’язку",
         "Description[x-test]": "xxSend and receive pingsxx",
         "Description[zh_CN]": "发送和接受ping",
-        "Description[zh_TW]": "傳送與接收Ping回應封包",
+        "Description[zh_TW]": "傳送與接收 Ping 回應封包",
         "EnabledByDefault": true,
         "Icon": "dialog-ok",
         "Id": "kdeconnect_ping",

@@ -77,7 +77,7 @@ Comment[tr]=KDE Connect kullanılarak cihazınızdan bildirimleri görüntüleyi
 Comment[uk]=Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»
 Comment[x-test]=xxShow notifications from your devices using KDE Connectxx
 Comment[zh_CN]=通过 KDE Connect 显示来自您的设备的通知
-Comment[zh_TW]=使用KDE 連線來顯示您的裝置通知
+Comment[zh_TW]=使用 KDE 連線來顯示您的裝置通知
 
 Icon=kdeconnect
 Type=Service
