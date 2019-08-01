@@ -268,5 +268,5 @@ void SmsHelperTest::testEmptyInput()
     QVERIFY2(!SmsHelper::isPhoneNumberMatch(empty, realNumber), "The empty string matched a real phone number");
 }
 
-QTEST_MAIN(SmsHelperTest);
+QTEST_GUILESS_MAIN(SmsHelperTest);
 #include "testsmshelper.moc"
