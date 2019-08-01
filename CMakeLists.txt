@@ -128,9 +128,4 @@ if(BUILD_TESTING AND NOT SAILFISHOS)
     add_subdirectory(tests)
 endif()
 
-install(
-    FILES org.kde.kdeconnect.metainfo.xml
-    DESTINATION ${KDE_INSTALL_METAINFODIR}
-)
-
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
