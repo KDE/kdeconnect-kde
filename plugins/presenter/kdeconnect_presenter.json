@@ -42,6 +42,13 @@
             }
         ],
         "Description": "Use your mobile device to point to things on the screen",
+        "Description[ca]": "Usa el dispositiu mòbil per assenyalar coses a la pantalla",
+        "Description[cs]": "Použijte mobilní zařízení k ukázání na položky na obrazovce",
+        "Description[nl]": "Uw mobiele apparaat gebruiken om naar dingen op het scherm te wijzen",
+        "Description[nn]": "Bruk mobiltelefonen til å peika på ting på skjermen",
+        "Description[sv]": "Använd mobilen för att peka på saker på skärmen",
+        "Description[uk]": "Використання мобільного пристрою для керування об'єктами на екрані",
+        "Description[x-test]": "xxUse your mobile device to point to things on the screenxx",
         "EnabledByDefault": true,
         "Icon": "view-presentation",
         "Id": "kdeconnect_presenter",

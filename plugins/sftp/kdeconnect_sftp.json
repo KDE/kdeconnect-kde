@@ -78,7 +78,7 @@
         "Description[uk]": "Перегляд файлових систем на сторонніх пристроях за допомогою SFTP",
         "Description[x-test]": "xxBrowse the remote device filesystem using SFTPxx",
         "Description[zh_CN]": "通过 SFTP 浏览远程设备文件系统",
-        "Description[zh_TW]": "使用SFTP來瀏覽遠端的檔案系統",
+        "Description[zh_TW]": "使用 SFTP 來瀏覽遠端的檔案系統",
         "EnabledByDefault": true,
         "Icon": "folder-documents",
         "Id": "kdeconnect_sftp",

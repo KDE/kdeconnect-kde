@@ -45,4 +45,4 @@ Name[tr]=KDEConnect süreci
 Name[uk]=Фонова служба KDEConnect
 Name[x-test]=xxKDEConnect daemonxx
 Name[zh_CN]=KDEConnect 守护进程
-Name[zh_TW]=KDE連線作業
+Name[zh_TW]=KDE 連線守護程式

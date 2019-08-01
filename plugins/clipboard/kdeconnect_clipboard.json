@@ -78,7 +78,7 @@
         "Description[uk]": "Спільне використання буфера обміну даними на пристроях",
         "Description[x-test]": "xxShare the clipboard between devicesxx",
         "Description[zh_CN]": "在设备间共享剪贴板",
-        "Description[zh_TW]": "在設備之間共享剪貼板",
+        "Description[zh_TW]": "在裝置之間共享剪貼簿",
         "EnabledByDefault": true,
         "Icon": "klipper",
         "Id": "kdeconnect_clipboard",

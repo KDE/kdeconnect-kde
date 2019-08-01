@@ -535,7 +535,7 @@ Name[tr]=Ping Alındı
 Name[uk]=Отримано сигнал підтримки зв’язку
 Name[x-test]=xxPing Receivedxx
 Name[zh_CN]=收到 Ping
-Name[zh_TW]=收到Ping回應
+Name[zh_TW]=收到 Ping 回應
 Comment=Ping received
 Comment[ar]=استُلمت وكزة
 Comment[bg]=Пингът е приет
@@ -576,7 +576,7 @@ Comment[tr]=Ping alındı
 Comment[uk]=Отримано сигнал підтримки зв’язку
 Comment[x-test]=xxPing receivedxx
 Comment[zh_CN]=收到 ping
-Comment[zh_TW]=接收到遠端的Ping回應封包
+Comment[zh_TW]=接收到遠端 Ping 回應封包
 Action=Popup
 
 [Event/notification]

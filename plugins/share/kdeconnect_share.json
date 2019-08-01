@@ -78,7 +78,7 @@
         "Description[uk]": "Спрощене отримання і надсилання файлів, адрес або текстових фрагментів",
         "Description[x-test]": "xxReceive and send files, URLs or plain text easilyxx",
         "Description[zh_CN]": "简单地接收和发送文件，URL 或者文本",
-        "Description[zh_TW]": "接收與傳送檔案，URL網址或純文字檔",
+        "Description[zh_TW]": "簡單地接收與傳送檔案、URL 網址或純文字檔",
         "EnabledByDefault": true,
         "Icon": "folder-network",
         "Id": "kdeconnect_share",
