@@ -5,6 +5,7 @@
             {
                 "Email": "simon@ergotech.com",
                 "Name": "Simon Redman",
+                "Name[ast]": "Simon Redman",
                 "Name[ca@valencia]": "Simon Redman",
                 "Name[ca]": "Simon Redman",
                 "Name[cs]": "Simon Redman",
@@ -63,6 +64,7 @@
         "Id": "kdeconnect_contacts",
         "License": "GPL",
         "Name": "Contacts",
+        "Name[ast]": "Contautos",
         "Name[ca@valencia]": "Contactes",
         "Name[ca]": "Contactes",
         "Name[cs]": "Kontakty",

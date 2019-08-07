@@ -5,6 +5,7 @@
                 "Email": "holger.k@elberer.de",
                 "Name": "Holger Kaelberer",
                 "Name[ar]": "Holger Kaelberer",
+                "Name[ast]": "Holger Kaelberer",
                 "Name[ca@valencia]": "Holger Kaelberer",
                 "Name[ca]": "Holger Kaelberer",
                 "Name[cs]": "Holger Kaelberer",
@@ -42,6 +43,7 @@
             }
         ],
         "Description": "Use your keyboard to send key-events to your paired device",
+        "Description[ast]": "Usa'l tecláu pa unviar eventos de tecles al preséu empareyáu",
         "Description[ca@valencia]": "Empreu el vostre teclat per enviar esdeveniments de tecla al dispositiu aparellat",
         "Description[ca]": "Empreu el vostre teclat per enviar esdeveniments de tecla al dispositiu aparellat",
         "Description[cs]": "Používejte svoji klávesnici pro odesílání událostí kláves na spárované zařízení",

@@ -4,6 +4,7 @@
             {
                 "Email": "nicolas.fella@gmx.de",
                 "Name": "Nicolas Fella",
+                "Name[ast]": "Nicolas Fella",
                 "Name[ca@valencia]": "Nicolas Fella",
                 "Name[ca]": "Nicolas Fella",
                 "Name[cs]": "Nicolas Fella",
@@ -31,6 +32,7 @@
             }
         ],
         "Description": "Control the volume of the connected device",
+        "Description[ast]": "Controla'l volume del preséu coneutáu",
         "Description[ca@valencia]": "Controla el volum del dispositiu connectat",
         "Description[ca]": "Controla el volum del dispositiu connectat",
         "Description[cs]": "Ovládejte hlasitost připojeného zařízení",
