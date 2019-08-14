@@ -62,7 +62,9 @@ int main(int argc, char** argv)
     QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
     QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
     QSplashScreen splash(splashPixmap);
+    splash.showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     splash.show();
+
     // Unset launchctl env, avoid block
     DBusHelper::macosUnsetLaunchctlEnv();
 
