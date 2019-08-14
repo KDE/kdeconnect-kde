@@ -25,7 +25,7 @@ QString DaemonDbusInterface::activatedService() {
     static const QString service = QStringLiteral("org.kde.kdeconnect");
     auto reply = DbusHelper::sessionBus().interface()->startService(service);
     if (!reply.isValid()) {
-        qWarning() << "error activating kdeconnectd:" << DbusHelper::sessionBus().interface()->lastError();
+        qWarning() << "error activating kdeconnectd:" << reply.error();
     }
     return service;
 }
