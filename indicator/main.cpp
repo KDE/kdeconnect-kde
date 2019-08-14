@@ -22,6 +22,7 @@
 #include <QProcess>
 #include <QThread>
 #include <QMessageBox>
+#include <QSplashScreen>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -58,10 +59,15 @@ int main(int argc, char** argv)
 #endif
 
 #ifdef Q_OS_MAC
+    QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
+    QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
+    QSplashScreen splash(splashPixmap);
+    splash.show();
     // Unset launchctl env, avoid block
     DBusHelper::macosUnsetLaunchctlEnv();
 
     // Start kdeconnectd
+    splash.showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     QProcess kdeconnectdProcess;
     if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
         kdeconnectdProcess.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
@@ -77,6 +83,7 @@ int main(int argc, char** argv)
 
     // Wait for dbus daemon env
     QProcess getLaunchdDBusEnv;
+    splash.showMessage(i18n("Waiting DBus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     int retry = 0;
     do {
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
@@ -103,10 +110,12 @@ int main(int argc, char** argv)
 
             return -1;
         } else {
-            QThread::sleep(1);  // Retry after 1s
+            QThread::sleep(3);  // Retry after 3s
             retry++;
         }
     } while(true);
+
+    splash.showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
 #endif
 
     KDBusService dbusService(KDBusService::Unique);
@@ -216,6 +225,10 @@ int main(int argc, char** argv)
     refreshMenu();
 
     app.setQuitOnLastWindowClosed(false);
+
+#ifdef Q_OS_MAC
+    splash.finish(nullptr);
+#endif
 
     return app.exec();
 }
