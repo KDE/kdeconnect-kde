@@ -59,7 +59,7 @@ int main(int argc, char** argv)
 
 #ifdef Q_OS_MAC
     // Unset launchctl env, avoid block
-    DbusHelper::macosUnsetLaunchctlEnv();
+    DBusHelper::macosUnsetLaunchctlEnv();
     
     // Start kdeconnectd
     QProcess kdeconnectdProcess;
@@ -151,7 +151,7 @@ int main(int argc, char** argv)
                                                         QStringLiteral("/MainApplication"),
                                                         QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                         QStringLiteral("quit"));
-            DbusHelper::sessionBus().call(message);
+            DBusHelper::sessionBus().call(message);
             QCoreApplication::quit();   // Close this application
         });
 #endif

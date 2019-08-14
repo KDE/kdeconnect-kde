@@ -108,7 +108,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
-        DbusHelper::sessionBus().call(msg);
+        DBusHelper::sessionBus().call(msg);
     });
 
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);

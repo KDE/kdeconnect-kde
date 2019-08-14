@@ -77,7 +77,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (pause) {
             //Search for interfaces currently playing
-            const QStringList interfaces = DbusHelper::sessionBus().interface()->registeredServiceNames().value();
+            const QStringList interfaces = DBusHelper::sessionBus().interface()->registeredServiceNames().value();
             for (const QString& iface : interfaces) {
                 if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
                     QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));

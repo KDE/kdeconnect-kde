@@ -110,7 +110,7 @@ int main(int argc, char** argv)
 
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), action);
             msg.setArguments({ url.toString() });
-            blockOnReply(DbusHelper::sessionBus().asyncCall(msg));
+            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
             return 0;
         } else {
             QTextStream(stderr) << (i18n("Couldn't share %1", url.toString())) << endl;

@@ -48,7 +48,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
 {
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
-    bool ret = DbusHelper::sessionBus()
+    bool ret = DBusHelper::sessionBus()
                 .registerObject(QStringLiteral("/org/freedesktop/Notifications"),
                                 this,
                                 QDBusConnection::ExportScriptableContents);
@@ -56,7 +56,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
         qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION)
                 << "Error registering notifications listener for device"
                 << m_plugin->device()->name() << ":"
-                << DbusHelper::sessionBus().lastError();
+                << DBusHelper::sessionBus().lastError();
     else
         qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION)
                 << "Registered notifications listener for device"
@@ -80,7 +80,7 @@ NotificationsListener::~NotificationsListener()
                          QStringLiteral("org.freedesktop.DBus"));
     QDBusMessage res = iface.call(QStringLiteral("RemoveMatch"),
                                   QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
-    DbusHelper::sessionBus().unregisterObject(QStringLiteral("/org/freedesktop/Notifications"));
+    DBusHelper::sessionBus().unregisterObject(QStringLiteral("/org/freedesktop/Notifications"));
 }
 
 void NotificationsListener::setTranslatedAppName()

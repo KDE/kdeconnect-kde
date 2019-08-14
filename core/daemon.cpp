@@ -108,8 +108,8 @@ void Daemon::init()
 
     //Register on DBus
     qDBusRegisterMetaType< QMap<QString,QString> >();
-    DbusHelper::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
-    DbusHelper::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
+    DBusHelper::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
+    DBusHelper::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 
     NotificationServerInfo::instance().init();
 

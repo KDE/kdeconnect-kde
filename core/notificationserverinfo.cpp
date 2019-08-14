@@ -38,7 +38,7 @@ void NotificationServerInfo::init()
 {
     QDBusMessage query = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.Notifications"), QStringLiteral("/org/freedesktop/Notifications"), QStringLiteral("org.freedesktop.Notifications"), QStringLiteral("GetCapabilities"));
 
-    QDBusPendingReply<QStringList> reply = DbusHelper::sessionBus().asyncCall(query);
+    QDBusPendingReply<QStringList> reply = DBusHelper::sessionBus().asyncCall(query);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, reply, watcher] {
         watcher->deleteLater();

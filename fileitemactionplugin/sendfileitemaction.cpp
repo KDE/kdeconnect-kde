@@ -94,7 +94,7 @@ void SendFileItemAction::sendFile()
     for (const QUrl& url : urls) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
-        DbusHelper::sessionBus().call(msg);
+        DBusHelper::sessionBus().call(msg);
     }
 }
 

@@ -295,7 +295,7 @@ void KdeConnectConfig::generateCertificate(const QString& certPath)
     bool error = false;
 
     QString uuid = QUuid::createUuid().toString();
-    DbusHelper::filterNonExportableCharacters(uuid);
+    DBusHelper::filterNonExportableCharacters(uuid);
     qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
 
     // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.

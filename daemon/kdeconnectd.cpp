@@ -139,7 +139,7 @@ int main(int argc, char* argv[])
     app.setQuitOnLastWindowClosed(false);
 
 #ifdef USE_PRIVATE_DBUS
-    DbusHelper::launchDBusDaemon();
+    DBusHelper::launchDBusDaemon();
 #endif
 
     QCommandLineParser parser;
@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
                                                     QStringLiteral("/MainApplication"),
                                                     QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                     QStringLiteral("quit"));
-        DbusHelper::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
+        DBusHelper::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
     }
 
     KDBusService dbusService(KDBusService::Unique);

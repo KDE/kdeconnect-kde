@@ -118,7 +118,7 @@ void NotificationsDbusInterface::addNotification(Notification* noti)
     m_notifications[publicId] = noti;
     m_internalIdToPublicId[internalId] = publicId;
 
-    DbusHelper::sessionBus().registerObject(m_device->dbusPath() + QStringLiteral("/notifications/") + publicId, noti, QDBusConnection::ExportScriptableContents);
+    DBusHelper::sessionBus().registerObject(m_device->dbusPath() + QStringLiteral("/notifications/") + publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 }
 
@@ -140,7 +140,7 @@ void NotificationsDbusInterface::removeNotification(const QString& internalId)
     }
 
     //Deleting the notification will unregister it automatically
-    //DbusHelper::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
+    //DBusHelper::sessionBus().unregisterObject(mDevice->dbusPath()+"/notifications/"+publicId);
     noti->deleteLater();
 
     Q_EMIT notificationRemoved(publicId);

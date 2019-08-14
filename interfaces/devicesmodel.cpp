@@ -60,7 +60,7 @@ DevicesModel::DevicesModel(QObject* parent)
             this, &DevicesModel::deviceRemoved);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           DBusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &DevicesModel::refreshDeviceList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &DevicesModel::clearDevices);
 

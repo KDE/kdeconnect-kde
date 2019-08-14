@@ -82,7 +82,7 @@ bool LockDevicePlugin::receivePacket(const NetworkPacket & np)
 OrgFreedesktopScreenSaverInterface* LockDevicePlugin::iface()
 {
     if (!m_iface) {
-        m_iface = new OrgFreedesktopScreenSaverInterface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/org/freedesktop/ScreenSaver"), DbusHelper::sessionBus());
+        m_iface = new OrgFreedesktopScreenSaverInterface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/org/freedesktop/ScreenSaver"), DBusHelper::sessionBus());
         if(!m_iface->isValid())
             qCWarning(KDECONNECT_PLUGIN_LOCKREMOTE) << "Couldn't connect to the ScreenSaver interface";
     }

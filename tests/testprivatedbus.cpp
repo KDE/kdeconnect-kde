@@ -34,12 +34,12 @@ class PrivateDBusTest : public QObject
 public:
     PrivateDBusTest()
     {
-        DbusHelper::launchDBusDaemon();
+        DBusHelper::launchDBusDaemon();
     }
 
     ~PrivateDBusTest()
     {
-        DbusHelper::closeDBusDaemon();
+        DBusHelper::closeDBusDaemon();
     }
 
 private Q_SLOTS:
@@ -53,7 +53,7 @@ private Q_SLOTS:
  */
 void PrivateDBusTest::testConnectionWithPrivateDBus()
 {
-    QDBusConnection conn = DbusHelper::sessionBus();
+    QDBusConnection conn = DBusHelper::sessionBus();
 
     QVERIFY2(conn.isConnected(), "Connection not established");
     QVERIFY2(conn.name() == QStringLiteral(KDECONNECT_PRIVATE_DBUS_NAME), 
@@ -65,7 +65,7 @@ void PrivateDBusTest::testConnectionWithPrivateDBus()
  */
 void PrivateDBusTest::testServiceRegistrationWithPrivateDBus()
 {
-    QDBusConnection conn = DbusHelper::sessionBus();
+    QDBusConnection conn = DBusHelper::sessionBus();
     QVERIFY2(conn.isConnected(), "DBus not connected");
 
     QDBusConnectionInterface *bus = conn.interface();
@@ -82,7 +82,7 @@ void PrivateDBusTest::testServiceRegistrationWithPrivateDBus()
  */
 void PrivateDBusTest::testMethodCallWithPrivateDBus()
 {
-    QDBusConnection conn = DbusHelper::sessionBus();
+    QDBusConnection conn = DBusHelper::sessionBus();
     QVERIFY2(conn.isConnected(), "DBus not connected");
 
     /*

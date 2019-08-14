@@ -30,7 +30,7 @@
 
 #define KDECONNECT_SESSION_DBUS_LAUNCHD_ENV "DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
-namespace DbusHelper {
+namespace DBusHelper {
     void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString& s);
 
 #ifdef USE_PRIVATE_DBUS

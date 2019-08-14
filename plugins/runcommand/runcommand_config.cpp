@@ -132,7 +132,7 @@ void RunCommandConfig::save()
 
         if (key.isEmpty()) {
             key = QUuid::createUuid().toString();
-            DbusHelper::filterNonExportableCharacters(key);
+            DBusHelper::filterNonExportableCharacters(key);
         }
         QJsonObject entry;
         entry[QStringLiteral("name")] = name;

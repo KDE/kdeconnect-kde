@@ -37,7 +37,7 @@ RemoteCommandsModel::RemoteCommandsModel(QObject* parent)
             this, &RemoteCommandsModel::rowsChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           DbusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           DBusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &RemoteCommandsModel::refreshCommandList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &RemoteCommandsModel::clearCommands);
 }

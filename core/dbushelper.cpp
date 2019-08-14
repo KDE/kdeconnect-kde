@@ -36,7 +36,7 @@
 #include <QRegularExpressionMatch>
 #endif
 
-namespace DbusHelper {
+namespace DBusHelper {
 
 #ifdef USE_PRIVATE_DBUS
 class DBusInstancePrivate
