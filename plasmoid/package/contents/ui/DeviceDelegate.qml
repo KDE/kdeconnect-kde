@@ -150,7 +150,7 @@ PlasmaComponents.ListItem
                     device: root.device
                 }
 
-                iconSource: "message-new'"
+                iconSource: "message-new"
                 visible: sms.available
                 tooltip: i18n("SMS Messages")
 
