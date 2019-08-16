@@ -18,6 +18,9 @@
        <property name="text">
         <string>Device to open the url with:</string>
        </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
