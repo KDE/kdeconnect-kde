@@ -110,8 +110,10 @@ void KioKdeconnect::listAllDevices()
         entry.reserve(6);
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
         entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
-        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::ExeOwner
+                                                | QFileDevice::ReadGroup | QFileDevice::ExeGroup
+                                                | QFileDevice::ReadOther | QFileDevice::ExeOther);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
         entry.fastInsert(KIO::UDSEntry::UDS_URL, path);
         listEntry(entry);
@@ -121,9 +123,11 @@ void KioKdeconnect::listAllDevices()
     KIO::UDSEntry entry;
     entry.reserve(4);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::WriteOwner
+                    | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup
+                    | QFileDevice::ExeGroup | QFileDevice::ReadOther | QFileDevice::ExeOther);
     listEntry(entry);
 
     infoMessage(QLatin1String(""));
@@ -197,8 +201,10 @@ void KioKdeconnect::listDevice(const QString& device)
         entry.reserve(6);
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
         entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
-        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::ExeOwner
+                                                | QFileDevice::ReadGroup | QFileDevice::ExeGroup
+                                                | QFileDevice::ReadOther | QFileDevice::ExeOther);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
         entry.fastInsert(KIO::UDSEntry::UDS_URL, QUrl::fromLocalFile(path).toString());
         listEntry(entry);
@@ -208,9 +214,11 @@ void KioKdeconnect::listDevice(const QString& device)
     KIO::UDSEntry entry;
     entry.reserve(4);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::WriteOwner
+                    | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup
+                    | QFileDevice::ExeGroup | QFileDevice::ReadOther | QFileDevice::ExeOther);
 
     listEntry(entry);
 
@@ -245,7 +253,7 @@ void KioKdeconnect::stat(const QUrl& url)
     qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
     KIO::UDSEntry entry;
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
 
     QString currentDevice = url.host();
     if (!currentDevice.isEmpty()) {
