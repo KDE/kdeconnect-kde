@@ -82,6 +82,7 @@
         "Name[sv]": "Presentatör",
         "Name[uk]": "Презентатор",
         "Name[x-test]": "xxPresenterxx",
+        "Name[zh_CN]": "演讲者",
         "Name[zh_TW]": "提供者",
         "ServiceTypes": [
             "KdeConnect/Plugin"
