@@ -43,7 +43,13 @@ class PresenterView : public QQuickView
 {
 public:
     PresenterView() {
-        setFlags(Qt::WindowFlags(Qt::WA_TranslucentBackground) | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::WindowDoesNotAcceptFocus | Qt::WindowFlags(Qt::WindowFullScreen) | Qt::Tool);
+        Qt::WindowFlags windowFlags = Qt::WindowFlags(Qt::WA_TranslucentBackground | Qt::WindowDoesNotAcceptFocus
+                                    | Qt::WindowFullScreen | Qt::WindowStaysOnTopHint
+                                    | Qt::FramelessWindowHint | Qt::Tool);
+#ifdef Q_OS_WIN
+        windowFlags |= Qt::WindowTransparentForInput;
+#endif
+        setFlags(windowFlags);
         setClearBeforeRendering(true);
         setColor(QColor(Qt::transparent));
 
