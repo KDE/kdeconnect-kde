@@ -125,7 +125,7 @@ static void detectPlatform(int argc, char **argv)
 
 int main(int argc, char* argv[])
 {
-   detectPlatform(argc, argv);
+    detectPlatform(argc, argv);
 
     QApplication app(argc, argv);
     KAboutData aboutData(
