@@ -254,3 +254,8 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
     }
     return true;
 }
+
+bool WindowsRemoteInput::hasKeyboardSupport()
+{
+    return true;
+}

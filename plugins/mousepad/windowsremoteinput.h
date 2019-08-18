@@ -32,6 +32,7 @@ public:
     explicit WindowsRemoteInput(QObject* parent);
 
     bool handlePacket(const NetworkPacket& np) override;
+    bool hasKeyboardSupport() override;
 };
 
 #endif
