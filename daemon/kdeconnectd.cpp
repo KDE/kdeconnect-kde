@@ -26,6 +26,8 @@
 #include <QCommandLineParser>
 #include <QDBusMessage>
 #include <QSessionManager>
+#include <QStandardPaths>
+#include <QIcon>
 
 #include <KAboutData>
 #include <KDBusService>
@@ -51,7 +53,9 @@ public:
     DesktopDaemon(QObject* parent = nullptr)
         : Daemon(parent)
         , m_nam(nullptr)
-    {}
+    {
+        qApp->setWindowIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svgz"))));
+    }
 
     void askPairingConfirmation(Device* device) override
     {
