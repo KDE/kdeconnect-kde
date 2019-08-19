@@ -113,11 +113,12 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);
 
-
-    if (!QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms")).isEmpty()) {
+    // Search current application path
+    const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), { QCoreApplication::applicationDirPath() });
+    if (!kdeconnectsmsExecutable.isEmpty()) {
         auto smsapp = addAction(QIcon::fromTheme(QStringLiteral("message-new")), i18n("SMS Messages..."));
-        QObject::connect(smsapp, &QAction::triggered, device, [device] () {
-            QProcess::startDetached(QLatin1String("kdeconnect-sms"), { QStringLiteral("--device"), device->id() });
+        QObject::connect(smsapp, &QAction::triggered, device, [device, kdeconnectsmsExecutable] () {
+            QProcess::startDetached(kdeconnectsmsExecutable, { QStringLiteral("--device"), device->id() });
         });
         setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_sms")), [smsapp](bool available) { smsapp->setVisible(available); }, this);
     }
