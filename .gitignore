@@ -22,3 +22,4 @@ KDEConnect.includes
 .project
 .settings/*
 
+CMakeLists.txt.user
