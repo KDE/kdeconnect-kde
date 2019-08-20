@@ -51,6 +51,7 @@ else()
         find_package(KF5PulseAudioQt)
     endif()
     add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
+    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 endif()
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network)
