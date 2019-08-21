@@ -32,7 +32,7 @@ if(NOT SAILFISHOS)
         add_subdirectory(sftp)
     endif()
 
-    if(KF5PulseAudioQt_FOUND)
+    if(KF5PulseAudioQt_FOUND OR WIN32)
         add_subdirectory(pausemusic)
     endif()
 

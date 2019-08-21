@@ -1,11 +1,25 @@
-kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES pausemusicplugin.cpp)
+if(WIN32)
+    set(kdeconnect_pausemusic_SRCS
+        pausemusicplugin-win.cpp 
+    )
+else()
+    set(kdeconnect_pausemusic_SRCS
+        pausemusicplugin.cpp
+    )
+endif()
+
+kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES ${kdeconnect_pausemusic_SRCS})
 
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
     Qt5::Core
     Qt5::DBus
-    KF5::PulseAudioQt
 )
+if (NOT WIN32)
+    target_link_libraries(kdeconnect_pausemusic
+        KF5::PulseAudioQt
+    )
+endif()
 
 #######################################
 # Config
