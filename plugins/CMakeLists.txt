@@ -28,7 +28,7 @@ if(NOT SAILFISHOS)
     if(NOT WIN32)
         add_subdirectory(screensaver-inhibit)
     endif()
-    if(NOT WIN32 AND NOT APPLE)
+    if(NOT APPLE)
         add_subdirectory(sftp)
     endif()
 
