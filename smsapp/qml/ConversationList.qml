@@ -33,7 +33,7 @@ Kirigami.ScrollablePage
     id: page
     ToolTip {
         id: noDevicesWarning
-        visible: !devicesCombo.enabled
+        visible: !page.deviceConnected
         timeout: -1
         text: "⚠️ " + i18n("No devices available") + " ⚠️"
 
@@ -70,6 +70,17 @@ Kirigami.ScrollablePage
     Component {
         id: aboutPageComponent
         Kirigami.AboutPage {}
+    }
+
+    ColumnLayout {
+        id: loadingMessage
+        visible: deviceConnected && view.count == 0
+        anchors.centerIn: parent
+
+        BusyIndicator {
+            running: loadingMessage.visible
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        }
     }
 
     property string initialMessage
