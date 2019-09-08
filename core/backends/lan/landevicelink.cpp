@@ -56,7 +56,7 @@ void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource
 
     m_connectionSource = connectionSource;
 
-    QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId(), QStringLiteral("certificate"));
+    QString certString = KdeConnectConfig::instance().getDeviceProperty(deviceId(), QStringLiteral("certificate"));
     DeviceLink::setPairStatus(certString.isEmpty()? PairStatus::NotPaired : PairStatus::Paired);
 }
 
@@ -89,9 +89,9 @@ bool LanDeviceLink::sendPacket(NetworkPacket& np)
             if (!m_compositeUploadJob || !m_compositeUploadJob->isRunning()) {
                 m_compositeUploadJob = new CompositeUploadJob(deviceId(), true);
             }
-        
+
             m_compositeUploadJob->addSubjob(new UploadJob(np));
-    
+
             if (!m_compositeUploadJob->isRunning()) {
                 m_compositeUploadJob->start();
             }
@@ -100,7 +100,7 @@ bool LanDeviceLink::sendPacket(NetworkPacket& np)
             fireAndForgetJob->addSubjob(new UploadJob(np));
             fireAndForgetJob->start();
         }
-        
+
         return true;
     } else {
         int written = m_socketLineReader->write(np.serialize());
@@ -177,9 +177,9 @@ void LanDeviceLink::setPairStatus(PairStatus status)
 
     DeviceLink::setPairStatus(status);
     if (status == Paired) {
-        Q_ASSERT(KdeConnectConfig::instance()->trustedDevices().contains(deviceId()));
+        Q_ASSERT(KdeConnectConfig::instance().trustedDevices().contains(deviceId()));
         Q_ASSERT(!m_socketLineReader->peerCertificate().isNull());
-        KdeConnectConfig::instance()->setDeviceProperty(deviceId(), QStringLiteral("certificate"), QString::fromLatin1(m_socketLineReader->peerCertificate().toPem().data()));
+        KdeConnectConfig::instance().setDeviceProperty(deviceId(), QStringLiteral("certificate"), QString::fromLatin1(m_socketLineReader->peerCertificate().toPem().data()));
     }
 }
 

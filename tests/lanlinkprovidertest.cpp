@@ -178,7 +178,6 @@ void LanLinkProviderTest::pairedDeviceTcpPacketReceived()
     LanLinkProvider testlanLinkProvider(true, udpBroadcastPort, udpListenPort);
     testlanLinkProvider.onStart();
 
-    KdeConnectConfig* kcc = KdeConnectConfig::instance();
     addTrustedDevice();
 
     QUdpSocket* mUdpServer = new QUdpSocket;
@@ -217,9 +216,9 @@ void LanLinkProviderTest::pairedDeviceTcpPacketReceived()
     QSignalSpy spy3(&socket, SIGNAL(encrypted()));
 
     setSocketAttributes(&socket);
-    socket.addCaCertificate(kcc->certificate());
+    socket.addCaCertificate(KdeConnectConfig::instance().certificate());
     socket.setPeerVerifyMode(QSslSocket::VerifyPeer);
-    socket.setPeerVerifyName(kcc->name());
+    socket.setPeerVerifyName(KdeConnectConfig::instance().name());
 
     socket.startServerEncryption();
     QVERIFY(spy3.wait());
@@ -235,7 +234,6 @@ void LanLinkProviderTest::pairedDeviceTcpPacketReceived()
 
 void LanLinkProviderTest::pairedDeviceUdpPacketReceived()
 {
-    KdeConnectConfig* kcc = KdeConnectConfig::instance();
     addTrustedDevice();
 
     m_server = new Server(this);
@@ -269,9 +267,9 @@ void LanLinkProviderTest::pairedDeviceUdpPacketReceived()
             this, [](QAbstractSocket::SocketError error){ qDebug() << "error:" << error; }));
 
     setSocketAttributes(serverSocket);
-    serverSocket->addCaCertificate(kcc->certificate());
+    serverSocket->addCaCertificate(KdeConnectConfig::instance().certificate());
     serverSocket->setPeerVerifyMode(QSslSocket::VerifyPeer);
-    serverSocket->setPeerVerifyName(kcc->deviceId());
+    serverSocket->setPeerVerifyName(KdeConnectConfig::instance().deviceId());
 
     serverSocket->startClientEncryption(); // Its TCP server. but SSL client
     QVERIFY(!serverSocket->isEncrypted());
@@ -432,15 +430,13 @@ void LanLinkProviderTest::setSocketAttributes(QSslSocket* socket)
 
 void LanLinkProviderTest::addTrustedDevice()
 {
-    KdeConnectConfig* kcc = KdeConnectConfig::instance();
-    kcc->addTrustedDevice(m_deviceId, m_name, QStringLiteral("phone"));
-    kcc->setDeviceProperty(m_deviceId, QStringLiteral("certificate"), QString::fromLatin1(m_certificate.toPem()));
+    KdeConnectConfig::instance().addTrustedDevice(m_deviceId, m_name, QStringLiteral("phone"));
+    KdeConnectConfig::instance().setDeviceProperty(m_deviceId, QStringLiteral("certificate"), QString::fromLatin1(m_certificate.toPem()));
 }
 
 void LanLinkProviderTest::removeTrustedDevice()
 {
-    KdeConnectConfig* kcc = KdeConnectConfig::instance();
-    kcc->removeTrustedDevice(m_deviceId);
+    KdeConnectConfig::instance().removeTrustedDevice(m_deviceId);
 }
 
 void LanLinkProviderTest::socketBindErrorFail(const QUdpSocket& socket)

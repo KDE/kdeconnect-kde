@@ -37,7 +37,7 @@ struct KdeConnectPluginConfigPrivate
 KdeConnectPluginConfig::KdeConnectPluginConfig(const QString& deviceId, const QString& pluginName)
     : d(new KdeConnectPluginConfigPrivate())
 {
-    d->m_configDir = KdeConnectConfig::instance()->pluginConfigDir(deviceId, pluginName);
+    d->m_configDir = KdeConnectConfig::instance().pluginConfigDir(deviceId, pluginName);
     QDir().mkpath(d->m_configDir.path());
 
     d->m_config = new QSettings(d->m_configDir.absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);

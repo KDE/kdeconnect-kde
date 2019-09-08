@@ -94,7 +94,7 @@ void Daemon::init()
     }
 
     //Read remembered paired devices
-    const QStringList& list = KdeConnectConfig::instance()->trustedDevices();
+    const QStringList& list = KdeConnectConfig::instance().trustedDevices();
     for (const QString& id : list) {
         addDevice(new Device(this, id));
     }
@@ -253,14 +253,14 @@ void Daemon::onDeviceStatusChanged()
 void Daemon::setAnnouncedName(const QString& name)
 {
     qCDebug(KDECONNECT_CORE()) << "Announcing name";
-    KdeConnectConfig::instance()->setName(name);
+    KdeConnectConfig::instance().setName(name);
     forceOnNetworkChange();
     Q_EMIT announcedNameChanged(name);
 }
 
 QString Daemon::announcedName()
 {
-    return KdeConnectConfig::instance()->name();
+    return KdeConnectConfig::instance().name();
 }
 
 QNetworkAccessManager* Daemon::networkAccessManager()
@@ -324,5 +324,5 @@ Daemon::~Daemon()
 
 QString Daemon::selfId() const
 {
-    return KdeConnectConfig::instance()->deviceId();
+    return KdeConnectConfig::instance().deviceId();
 }

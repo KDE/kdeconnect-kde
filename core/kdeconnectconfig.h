@@ -35,7 +35,7 @@ public:
         QString deviceType;
     };
 
-    static KdeConnectConfig* instance();
+    static KdeConnectConfig& instance();
 
     /*
      * Our own info

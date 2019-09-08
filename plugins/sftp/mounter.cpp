@@ -82,7 +82,7 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         unmount(false);
         return;
     }
-    
+
     if (np.has(QStringLiteral("errorMessage"))) {
         Q_EMIT failed(np.get<QString>(QStringLiteral("errorMessage")));
         return;
@@ -136,7 +136,7 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         << QStringLiteral("-s") // This fixes a bug where file chunks are sent out of order and get corrupted on reception
         << QStringLiteral("-f")
         << QStringLiteral("-F") << QStringLiteral("/dev/null") //Do not use ~/.ssh/config
-        << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance()->privateKeyPath()
+        << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance().privateKeyPath()
         << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") //Do not ask for confirmation because it is not a known host
         << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
         << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss") //https://bugs.kde.org/show_bug.cgi?id=351725

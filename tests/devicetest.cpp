@@ -58,9 +58,8 @@ void DeviceTest::initTestCase()
 
 void DeviceTest::testPairedDevice()
 {
-    KdeConnectConfig* kcc = KdeConnectConfig::instance();
-    kcc->addTrustedDevice(deviceId, deviceName, deviceType);
-    kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating one
+    KdeConnectConfig::instance().addTrustedDevice(deviceId, deviceName, deviceType);
+    KdeConnectConfig::instance().setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(KdeConnectConfig::instance().certificate().toPem())); // Using same certificate from kcc, instead of generating one
 
     Device device(this, deviceId);
 
@@ -94,8 +93,7 @@ void DeviceTest::testPairedDevice()
 
 void DeviceTest::testUnpairedDevice()
 {
-    KdeConnectConfig* kcc = KdeConnectConfig::instance();
-    kcc->removeTrustedDevice(deviceId);
+    KdeConnectConfig::instance().removeTrustedDevice(deviceId);
 
     LanLinkProvider linkProvider;
     QSslSocket socket;

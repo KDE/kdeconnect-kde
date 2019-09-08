@@ -101,13 +101,12 @@ class TestSendFile : public QObject
             const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-sentfile");
             QFile(destFile).remove();
 
-            const QString deviceId = KdeConnectConfig::instance()->deviceId()
+            const QString deviceId = KdeConnectConfig::instance().deviceId()
                         , deviceName = QStringLiteral("testdevice")
-                        , deviceType = KdeConnectConfig::instance()->deviceType();
+                        , deviceType = KdeConnectConfig::instance().deviceType();
 
-            KdeConnectConfig* kcc = KdeConnectConfig::instance();
-            kcc->addTrustedDevice(deviceId, deviceName, deviceType);
-            kcc->setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(kcc->certificate().toPem())); // Using same certificate from kcc, instead of generating
+            KdeConnectConfig::instance().addTrustedDevice(deviceId, deviceName, deviceType);
+            KdeConnectConfig::instance().setDeviceProperty(deviceId, QStringLiteral("certificate"), QString::fromLatin1(KdeConnectConfig::instance().certificate().toPem())); // Using same certificate from kcc, instead of generating
 
             //We need the device to be loaded on the daemon, otherwise CompositeUploadJob will get a null device
             Device* device = new Device(this, deviceId);
@@ -120,7 +119,7 @@ class TestSendFile : public QObject
             CompositeUploadJob* job = new CompositeUploadJob(deviceId, false);
             UploadJob* uj = new UploadJob(np);
             job->addSubjob(uj);
-            
+
             QSignalSpy spyUpload(job, &KJob::result);
             job->start();
 

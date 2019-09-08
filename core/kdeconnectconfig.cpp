@@ -58,9 +58,9 @@ struct KdeConnectConfigPrivate {
 #endif
 };
 
-KdeConnectConfig* KdeConnectConfig::instance()
+KdeConnectConfig& KdeConnectConfig::instance()
 {
-    static KdeConnectConfig* kcc = new KdeConnectConfig();
+    static KdeConnectConfig kcc;
     return kcc;
 }
 
@@ -369,7 +369,7 @@ QString KdeConnectConfig::privateDBusAddress()
     }
 
     qCDebug(KDECONNECT_CORE) << "Private dbus address: " << addr;
-    
+
     d->m_privateDBusAddress = addr;
 
     return addr;

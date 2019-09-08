@@ -212,7 +212,7 @@ void LanLinkProvider::udpBroadcastReceived()
             continue;
         }
 
-        if (receivedPacket->get<QString>(QStringLiteral("deviceId")) == KdeConnectConfig::instance()->deviceId()) {
+        if (receivedPacket->get<QString>(QStringLiteral("deviceId")) == KdeConnectConfig::instance().deviceId()) {
             //qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
             delete receivedPacket;
             continue;
@@ -281,7 +281,7 @@ void LanLinkProvider::tcpSocketConnected()
         // if ssl supported
         if (receivedPacket->get<int>(QStringLiteral("protocolVersion")) >= MIN_VERSION_WITH_SSL_SUPPORT) {
 
-            bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
+            bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
             configureSslSocket(socket, deviceId, isDeviceTrusted);
 
             qCDebug(KDECONNECT_CORE) << "Starting server ssl (I'm the client TCP socket)";
@@ -403,7 +403,7 @@ void LanLinkProvider::dataReceived()
 
     if (np->get<int>(QStringLiteral("protocolVersion")) >= MIN_VERSION_WITH_SSL_SUPPORT) {
 
-        bool isDeviceTrusted = KdeConnectConfig::instance()->trustedDevices().contains(deviceId);
+        bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
         configureSslSocket(socket, deviceId, isDeviceTrusted);
 
         qCDebug(KDECONNECT_CORE) << "Starting client ssl (but I'm the server TCP socket)";
@@ -453,12 +453,12 @@ void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& devi
     sslConfig.setCiphers(socketCiphers);
 
     socket->setSslConfiguration(sslConfig);
-    socket->setLocalCertificate(KdeConnectConfig::instance()->certificate());
-    socket->setPrivateKey(KdeConnectConfig::instance()->privateKeyPath());
+    socket->setLocalCertificate(KdeConnectConfig::instance().certificate());
+    socket->setPrivateKey(KdeConnectConfig::instance().privateKeyPath());
     socket->setPeerVerifyName(deviceId);
 
     if (isDeviceTrusted) {
-        QString certString = KdeConnectConfig::instance()->getDeviceProperty(deviceId, QStringLiteral("certificate"), QString());
+        QString certString = KdeConnectConfig::instance().getDeviceProperty(deviceId, QStringLiteral("certificate"), QString());
         socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
         socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
     } else {

@@ -32,26 +32,17 @@ class KdeConnectConfigTest : public QObject
 Q_OBJECT
 
 private Q_SLOTS:
-    void initTestCase();
     void addTrustedDevice();
 /*
     void remoteCertificateTest();
 */
     void removeTrustedDevice();
-
-private:
-    KdeConnectConfig* kcc;
 };
-
-void KdeConnectConfigTest::initTestCase()
-{
-    kcc = KdeConnectConfig::instance();
-}
 
 void KdeConnectConfigTest::addTrustedDevice()
 {
-    kcc->addTrustedDevice(QStringLiteral("testdevice"), QStringLiteral("Test Device"), QStringLiteral("phone"));
-    KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice(QStringLiteral("testdevice"));
+    KdeConnectConfig::instance().addTrustedDevice(QStringLiteral("testdevice"), QStringLiteral("Test Device"), QStringLiteral("phone"));
+    KdeConnectConfig::DeviceInfo devInfo = KdeConnectConfig::instance().getTrustedDevice(QStringLiteral("testdevice"));
     QCOMPARE(devInfo.deviceName, QStringLiteral("Test Device"));
     QCOMPARE(devInfo.deviceType, QStringLiteral("phone"));
 }
@@ -83,8 +74,8 @@ void KdeConnectConfigTest::remoteCertificateTest()
 
 void KdeConnectConfigTest::removeTrustedDevice()
 {
-    kcc->removeTrustedDevice(QStringLiteral("testdevice"));
-    KdeConnectConfig::DeviceInfo devInfo = kcc->getTrustedDevice(QStringLiteral("testdevice"));
+    KdeConnectConfig::instance().removeTrustedDevice(QStringLiteral("testdevice"));
+    KdeConnectConfig::DeviceInfo devInfo = KdeConnectConfig::instance().getTrustedDevice(QStringLiteral("testdevice"));
     QCOMPARE(devInfo.deviceName, QStringLiteral("unnamed"));
     QCOMPARE(devInfo.deviceType, QStringLiteral("unknown"));
 }

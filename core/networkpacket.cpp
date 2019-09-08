@@ -57,14 +57,13 @@ NetworkPacket::NetworkPacket(const QString& type, const QVariantMap& body)
 
 void NetworkPacket::createIdentityPacket(NetworkPacket* np)
 {
-    KdeConnectConfig* config = KdeConnectConfig::instance();
     np->m_id = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->m_type = PACKET_TYPE_IDENTITY;
     np->m_payload = QSharedPointer<QIODevice>();
     np->m_payloadSize = 0;
-    np->set(QStringLiteral("deviceId"), config->deviceId());
-    np->set(QStringLiteral("deviceName"), config->name());
-    np->set(QStringLiteral("deviceType"), config->deviceType());
+    np->set(QStringLiteral("deviceId"), KdeConnectConfig::instance().deviceId());
+    np->set(QStringLiteral("deviceName"), KdeConnectConfig::instance().name());
+    np->set(QStringLiteral("deviceType"), KdeConnectConfig::instance().deviceType());
     np->set(QStringLiteral("protocolVersion"),  NetworkPacket::s_protocolVersion);
     np->set(QStringLiteral("incomingCapabilities"), PluginLoader::instance()->incomingCapabilities());
     np->set(QStringLiteral("outgoingCapabilities"), PluginLoader::instance()->outgoingCapabilities());
