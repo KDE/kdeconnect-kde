@@ -185,7 +185,7 @@ int main(int argc, char** argv)
 
         if (parser.isSet(QStringLiteral("share"))) {
             QStringList urls;
-            
+
             QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")), QDir::currentPath());
             urls.append(url.toString());
 
@@ -198,10 +198,10 @@ int main(int argc, char** argv)
 
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
                                                               QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrls"));
-            
+
             msg.setArguments(QVariantList() << QVariant(urls));
             blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
-        
+
             for (const QString& url : qAsConst(urls)) {
                 QTextStream(stdout) << i18n("Shared %1", url) << endl;
             }
@@ -265,8 +265,14 @@ int main(int argc, char** argv)
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/findmyphone"), QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
             blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("photo"))) {
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
-            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            if (parser.positionalArguments().size() == 1) {
+                const QString fileName = parser.positionalArguments()[0];
+                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
+                msg.setArguments({fileName});
+                blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            } else {
+                QTextStream(stderr) << i18n("Please give exactly 1 file name") << endl;
+            }
         } else if(parser.isSet(QStringLiteral("send-keys"))) {
             QString seq = parser.value(QStringLiteral("send-keys"));
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/remotekeyboard"), QStringLiteral("org.kde.kdeconnect.device.remotekeyboard"), QStringLiteral("sendKeyPress"));
