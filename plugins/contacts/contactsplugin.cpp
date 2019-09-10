@@ -114,8 +114,7 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
 
         // Remove this file from the list of known files
         QFileInfo fileInfo(vcardFile);
-        bool success = localVCards.removeOne(fileInfo);
-        Q_ASSERT(success); // We should have always been able to remove the existing file from our listing
+        localVCards.removeOne(fileInfo);
 
         // Check if the vcard needs to be updated
         if (!vcardFile.open(QIODevice::ReadOnly)) {
