@@ -85,7 +85,7 @@ int main(int argc, char** argv)
 
     // Wait for dbus daemon env
     QProcess getLaunchdDBusEnv;
-    splash.showMessage(i18n("Waiting DBus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    splash.showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     int retry = 0;
     do {
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
