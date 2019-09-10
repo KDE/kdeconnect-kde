@@ -183,6 +183,11 @@ int main(int argc, char** argv)
             parser.showHelp(1);
         }
 
+        if (!blockOnReply<QStringList>(iface.devices(false, false)).contains(device)) {
+            QTextStream(stderr) << "Couldn't find device with id \"" << device << "\". To specify a device by name use -n <devicename>" << endl;
+            return 1;
+        }
+
         if (parser.isSet(QStringLiteral("share"))) {
             QStringList urls;
 
