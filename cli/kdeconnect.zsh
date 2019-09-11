@@ -1,7 +1,13 @@
 #compdef kdeconnect-cli
 
 _kdeconnect_device-ids() {
-  _values "KDE Connect device id" "${(f)$(kdeconnect-cli --shell-device-autocompletion=zsh 2>/dev/null)}"
+  local devices=''
+  devices="$(kdeconnect-cli --shell-device-autocompletion=zsh 2>/dev/null)"
+  if [[ $? -eq 0 ]]; then
+    _values "KDE Connect device id" "${(f)devices}"
+  else
+    _message -r "No KDE Connect devices reachable."
+  fi
 }
 
 #See http://zsh.sourceforge.net/Doc/Release/Completion-System.html#index-_005farguments for autocomplete documentation
