@@ -60,7 +60,7 @@ int main(int argc, char** argv)
 #ifdef Q_OS_MAC
     // Unset launchctl env, avoid block
     DBusHelper::macosUnsetLaunchctlEnv();
-    
+
     // Start kdeconnectd
     QProcess kdeconnectdProcess;
     if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
@@ -151,8 +151,12 @@ int main(int argc, char** argv)
                                                         QStringLiteral("/MainApplication"),
                                                         QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                         QStringLiteral("quit"));
-            DBusHelper::sessionBus().call(message);
-            QCoreApplication::quit();   // Close this application
+            DBusHelper::sessionBus().call(message, QDBus::NoBlock); // Close our daemon
+            message = QDBusMessage::createMethodCall(qApp->applicationName(),
+                                                        QStringLiteral("/MainApplication"),
+                                                        QStringLiteral("org.qtproject.Qt.QCoreApplication"),
+                                                        QStringLiteral("quit"));
+            DBusHelper::sessionBus().call(message, QDBus::NoBlock); // Close our indicator
         });
 #endif
     };
