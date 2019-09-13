@@ -26,7 +26,7 @@ _arguments \
   '--execute-command[execute a remote command]:command id' \
   '(-k --send-keys)'{-k,--send-keys}'[send keys to the specified device]' \
   "--my-id[display this device's id]" \
-  "--photo[open the connected device's camera and transfer the photo]" \
+  "--photo[open the connected device's camera and transfer the photo]:file:_files" \
   '(-)'{-h,--help}'[display usage information]' \
   '(-)'{-v,--version}'[display version information]' \
   '(-)--author[show author information and exit]' \

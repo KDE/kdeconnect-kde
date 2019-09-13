@@ -73,7 +73,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Executes a remote command by id"), QStringLiteral("id")));
     parser.addOption(QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device"), QStringLiteral("key")));
     parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
-    parser.addOption(QCommandLineOption(QStringLiteral("photo"), i18n("Open the connected device's camera and transfer the photo")));
+    parser.addOption(QCommandLineOption(QStringLiteral("photo"), i18n("Open the connected device's camera and transfer the photo"), QStringLiteral("path")));
 
     //Hidden because it's an implementation detail
     QCommandLineOption deviceAutocomplete(QStringLiteral("shell-device-autocompletion"));
@@ -270,13 +270,13 @@ int main(int argc, char** argv)
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/findmyphone"), QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
             blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("photo"))) {
-            if (parser.positionalArguments().size() == 1) {
-                const QString fileName = parser.positionalArguments()[0];
+            const QString fileName = parser.value(QStringLiteral("photo"));
+            if (!fileName.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
                 msg.setArguments({fileName});
                 blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
             } else {
-                QTextStream(stderr) << i18n("Please give exactly 1 file name") << endl;
+                QTextStream(stderr) << i18n("Please specify a filename for the photo") << endl;
             }
         } else if(parser.isSet(QStringLiteral("send-keys"))) {
             QString seq = parser.value(QStringLiteral("send-keys"));
