@@ -63,7 +63,7 @@ void filterNonExportableCharacters(QString& s)
 QDBusConnection sessionBus()
 {
 #ifdef USE_PRIVATE_DBUS
-    return QDBusConnection::connectToBus(KdeConnectConfig::instance()->privateDBusAddress(),
+    return QDBusConnection::connectToBus(KdeConnectConfig::instance().privateDBusAddress(),
         QStringLiteral(KDECONNECT_PRIVATE_DBUS_NAME));
 #else
     return QDBusConnection::sessionBus();
@@ -121,13 +121,13 @@ void DBusInstancePrivate::launchDBusDaemon()
         QStringLiteral("--address=") + QStringLiteral(KDECONNECT_PRIVATE_DBUS_ADDR)
     });
     m_dbusProcess->setWorkingDirectory(QCoreApplication::applicationDirPath());
-    m_dbusProcess->setStandardOutputFile(KdeConnectConfig::instance()->privateDBusAddressPath());
+    m_dbusProcess->setStandardOutputFile(KdeConnectConfig::instance().privateDBusAddressPath());
     m_dbusProcess->setStandardErrorFile(QProcess::nullDevice());
     m_dbusProcess->start();
 
 #ifdef Q_OS_MAC
     // Set launchctl env
-    QString privateDBusAddress = KdeConnectConfig::instance()->privateDBusAddress();
+    QString privateDBusAddress = KdeConnectConfig::instance().privateDBusAddress();
     QRegularExpressionMatch path;
     if (privateDBusAddress.contains(QRegularExpression(
             QStringLiteral("path=(?<path>/tmp/dbus-[A-Za-z0-9]+)")
@@ -157,7 +157,7 @@ void DBusInstancePrivate::closeDBusDaemon()
         delete m_dbusProcess;
         m_dbusProcess = nullptr;
 
-        QFile privateDBusAddressFile(KdeConnectConfig::instance()->privateDBusAddressPath());
+        QFile privateDBusAddressFile(KdeConnectConfig::instance().privateDBusAddressPath());
 
         if (privateDBusAddressFile.exists()) privateDBusAddressFile.resize(0);
 
