@@ -30,6 +30,10 @@ Item {
     id: kdeconnect
     property alias devicesModel: devicesView.model
 
+    KdeConnect.DevicesModel {
+        id: allDevicesModel
+    }
+
     ColumnLayout {
         spacing: 5
         visible: devicesView.count == 0
@@ -51,6 +55,8 @@ Item {
             Layout.fillWidth: true
             Layout.bottomMargin: units.largeSpacing
 
+            visible: allDevicesModel.count == 0
+
             text: i18n("Install KDE Connect on your Android device to integrate it with Plasma!")
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -61,6 +67,7 @@ Item {
             Layout.rightMargin: units.largeSpacing
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
+            visible: allDevicesModel.count == 0
             text: i18n("Install from Google Play")
             onClicked: Qt.openUrlExternally("https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp")
         }
@@ -70,6 +77,7 @@ Item {
             Layout.rightMargin: units.largeSpacing
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
+            visible: allDevicesModel.count == 0
             text: i18n("Install from F-Droid")
             onClicked: Qt.openUrlExternally("https://f-droid.org/en/packages/org.kde.kdeconnect_tp/")
         }
