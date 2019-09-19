@@ -1,5 +1,6 @@
 /**
  * Copyright 2018 Friedrich W. H. Kossebau <kossebau@kde.org>
+ * Copyright 2019 Piyush Aggarwal <piyushaggarwal002@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -27,16 +28,12 @@
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
 #endif
+
 // Qt
 #include <QDBusConnection>
-#include <QStandardPaths>
-#include <QFile>
-#include <QUrl>
 #include <QMediaPlayer>
 
 K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_FINDTHISDEVICE, "kdeconnect.plugin.findthisdevice")
 
 FindThisDevicePlugin::FindThisDevicePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
@@ -45,48 +42,14 @@ FindThisDevicePlugin::FindThisDevicePlugin(QObject* parent, const QVariantList& 
 
 FindThisDevicePlugin::~FindThisDevicePlugin() = default;
 
-void FindThisDevicePlugin::connected()
-{
-}
 
 bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
 {
     Q_UNUSED(np);
-
-    const QString soundFilename = config()->get<QString>(QStringLiteral("ringtone"), defaultSound());
-
-    QUrl soundURL;
-    #ifdef Q_OS_WIN
-    QString winDirPath = qEnvironmentVariable("WINDIR") + QStringLiteral("/media");
-
-    if (!winDirPath.isEmpty()) {
-        soundURL = QUrl::fromUserInput(soundFilename,
-                                       winDirPath,
-                                       QUrl::AssumeLocalFile);
-    }
-    else {
-        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sounds, system doesn't know WINDIR : " << soundFilename;
-    }
-    #else
-    const auto dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-    for (const QString &dataLocation : dataLocations) {
-        soundURL = QUrl::fromUserInput(soundFilename,
-                                       dataLocation + QStringLiteral("/sounds"),
-                                       QUrl::AssumeLocalFile);
-        if (soundURL.isLocalFile()) {
-            if (QFile::exists(soundURL.toLocalFile())) {
-                break;
-            }
-        } else {
-            if (soundURL.isValid()) {
-                break;
-            }
-        }
-        soundURL.clear();
-    }
-    #endif
+    const QString soundFile = config()->get<QString>(QStringLiteral("ringtone"), defaultSound());
+    const QUrl soundURL = QUrl(soundFile);
     if (soundURL.isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sounds, could not find ring tone" << soundFilename;
+        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
         return true;
     }
 
@@ -94,27 +57,25 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
     player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
     player->setMedia(soundURL);
     player->setVolume(100);
-    player->play();
 
 #ifndef Q_OS_WIN
     const auto sinks = PulseAudioQt::Context::instance()->sinks();
     QVector<PulseAudioQt::Sink*> mutedSinks;
-
     for (auto sink : sinks) {
         if (sink->isMuted()) {
             sink->setMuted(false);
             mutedSinks.append(sink);
         }
     }
-
     connect(player, &QMediaPlayer::stateChanged, this, [player, mutedSinks]{
-        player->deleteLater();
         for (auto sink : qAsConst(mutedSinks)) {
             sink->setMuted(true);
         }
     });
 #endif
 
+    player->play();
+    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
     // TODO: ensure to use built-in loudspeakers
 
     return true;

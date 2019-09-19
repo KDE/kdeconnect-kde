@@ -88,25 +88,9 @@ void FindThisDeviceConfig::save()
 
 void FindThisDeviceConfig::playSound()
 {
-    const QString soundFilename = m_ui->soundFileRequester->text();
+    const QString soundFile = m_ui->soundFileRequester->text();
 
-    QUrl soundURL;
-    const auto dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
-    for (const QString &dataLocation : dataLocations) {
-        soundURL = QUrl::fromUserInput(soundFilename,
-                                       dataLocation + QStringLiteral("/sounds"),
-                                       QUrl::AssumeLocalFile);
-        if (soundURL.isLocalFile()) {
-            if (QFile::exists(soundURL.toLocalFile())) {
-                break;
-            }
-        } else {
-            if (soundURL.isValid()) {
-                break;
-            }
-        }
-        soundURL.clear();
-    }
+    QUrl soundURL = QUrl(soundFile);
     QMediaPlayer* player = new QMediaPlayer;
     player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
     player->setMedia(soundURL);

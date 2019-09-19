@@ -1,5 +1,6 @@
 /**
  * Copyright 2018 Friedrich W. H. Kossebau <kossebau@kde.org>
+ * Copyright 2019 Piyush Aggarwal <piyushaggarwal002@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -22,20 +23,25 @@
 #define FINDTHISDEVICEPLUGIN_H
 
 #include <core/kdeconnectplugin.h>
+
+#ifdef Q_OS_WIN
+#include <Windows.h>
+#define INFO_BUFFER_SIZE 32767
+#else
+#include <QStandardPaths>
+#include <QFile>
+#include <QUrl>
+#endif
 // Qt
 #include <QLoggingCategory>
 
 #define PACKET_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
 
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_FINDTHISDEVICE)
-
-inline QString defaultSound(){
-            #ifdef Q_OS_WIN
-            return QStringLiteral("Ring01.wav");
-            #else
-            return QStringLiteral("Oxygen-Im-Phone-Ring.ogg");
-            #endif
-        }
+static const QLoggingCategory &KDECONNECT_PLUGIN_FINDTHISDEVICE()
+{
+    static const QLoggingCategory category("kdeconnect.plugin.findthisdevice");
+    return category;
+}
 
 class FindThisDevicePlugin
     : public KdeConnectPlugin
@@ -47,9 +53,43 @@ public:
     explicit FindThisDevicePlugin(QObject* parent, const QVariantList& args);
     ~FindThisDevicePlugin() override;
 
+    void connected() override {};
     QString dbusPath() const override;
-    void connected() override;
     bool receivePacket(const NetworkPacket& np) override;
 };
 
+inline QString defaultSound()
+{
+    QString dirPath;
+    QUrl soundURL;
+#ifdef Q_OS_WIN
+    wchar_t infoBuf[INFO_BUFFER_SIZE];
+    if(!GetWindowsDirectory(infoBuf, INFO_BUFFER_SIZE)) {
+        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Error with getting the Windows Directory.";
+    } else {
+        dirPath = QString::fromStdWString(infoBuf) + QStringLiteral("/media");
+        if (!dirPath.isEmpty()) {
+            soundURL = QUrl::fromUserInput(QStringLiteral("Ring01.wav"),
+                                            dirPath,
+                                            QUrl::AssumeLocalFile);
+        }
+    }
+#else
+    const QStringList dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+    for (const QString &dataLocation : dataLocations) {
+        dirPath = dataLocation + QStringLiteral("/sounds");
+        soundURL = QUrl::fromUserInput(QStringLiteral("Oxygen-Im-Phone-Ring.ogg"),
+                                        dirPath,
+                                        QUrl::AssumeLocalFile);
+        if ((soundURL.isLocalFile() && QFile::exists(soundURL.toLocalFile())) || soundURL.isValid()) {
+            break;
+        }
+    }
 #endif
+    if (soundURL.isEmpty()) {
+        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Could not find default ring tone.";
+    }
+    return soundURL.toString();
+}
+
+#endif //FINDTHISDEVICEPLUGIN_H
