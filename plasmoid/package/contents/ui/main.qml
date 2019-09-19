@@ -42,7 +42,7 @@ Item
     Binding {
         target: plasmoid
         property: "status"
-        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : ((pairedDeviceModel.count > 0) ? PlasmaCore.Types.HiddenStatus : PlasmaCore.Types.PassiveStatus)
+        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     }
 
     Plasmoid.fullRepresentation: FullRepresentation {

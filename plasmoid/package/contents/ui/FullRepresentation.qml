@@ -32,8 +32,7 @@ Item {
     ColumnLayout {
         spacing: 5
         visible: devicesView.count == 0
-        width: parent.width
-        height: parent.height
+        anchors.fill: parent
 
         PlasmaExtras.Heading {
             id: heading
@@ -49,6 +48,7 @@ Item {
 
         PlasmaComponents.Label {
             Layout.fillWidth: true
+            Layout.bottomMargin: units.largeSpacing
 
             text: i18n("Install KDE Connect on your Android device to integrate it with Plasma!")
             horizontalAlignment: Text.AlignHCenter
@@ -56,15 +56,19 @@ Item {
         }
 
         PlasmaComponents.Button {
+            Layout.leftMargin: units.largeSpacing
+            Layout.rightMargin: units.largeSpacing
             Layout.alignment: Qt.AlignHCenter
-
+            Layout.fillWidth: true
             text: i18n("Install from Google Play")
             onClicked: Qt.openUrlExternally("https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp")
         }
 
         PlasmaComponents.Button {
+            Layout.leftMargin: units.largeSpacing
+            Layout.rightMargin: units.largeSpacing
             Layout.alignment: Qt.AlignHCenter
-
+            Layout.fillWidth: true
             text: i18n("Install from F-Droid")
             onClicked: Qt.openUrlExternally("https://f-droid.org/en/packages/org.kde.kdeconnect_tp/")
         }
