@@ -24,6 +24,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kdeconnect 1.0 as KdeConnect
 import QtQuick.Layouts 1.9
+import org.kde.kquickcontrolsaddons 2.0
 
 Item {
     id: kdeconnect
@@ -72,6 +73,18 @@ Item {
             text: i18n("Install from F-Droid")
             onClicked: Qt.openUrlExternally("https://f-droid.org/en/packages/org.kde.kdeconnect_tp/")
         }
+
+        PlasmaComponents.Button {
+            Layout.leftMargin: units.largeSpacing
+            Layout.rightMargin: units.largeSpacing
+            Layout.topMargin: units.largeSpacing
+            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
+            text: i18n("KDE Connect Settings...")
+            onClicked: KCMShell.open("kcm_kdeconnect")
+            visible: KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
+        }
+
 
         Item {
             Layout.fillHeight: true
