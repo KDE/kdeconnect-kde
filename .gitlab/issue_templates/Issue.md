@@ -1,0 +1,1 @@
+Please report any issues to https://bugs.kde.org/enter_bug.cgi?product=kdeconnect
