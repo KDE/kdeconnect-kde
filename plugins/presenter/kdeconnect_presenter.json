@@ -62,6 +62,7 @@
         "Description[sv]": "Använd mobilen för att peka på saker på skärmen",
         "Description[uk]": "Використання мобільного пристрою для керування об'єктами на екрані",
         "Description[x-test]": "xxUse your mobile device to point to things on the screenxx",
+        "Description[zh_CN]": "使用您的移动设备在屏幕上指点",
         "EnabledByDefault": true,
         "Icon": "view-presentation",
         "Id": "kdeconnect_presenter",
