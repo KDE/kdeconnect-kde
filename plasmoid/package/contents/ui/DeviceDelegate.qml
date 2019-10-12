@@ -294,24 +294,5 @@ PlasmaComponents.ListItem
             id: share
             device: root.device
         }
-
-        PlasmaComponents.Label {
-            text: i18n("Share text")
-        }
-        PlasmaComponents3.TextArea {
-            id: shareText
-            width: parent.width
-        }
-        PlasmaComponents.Button
-        {
-            id: submitTextButton
-            anchors.right: shareText.right
-            iconSource: "document-send"
-            onClicked: {
-                share.plugin.shareText(shareText.getText(0, shareText.length))
-                shareText.clear()
-            }
-        }
-        //NOTE: More information could be displayed here
     }
 }
