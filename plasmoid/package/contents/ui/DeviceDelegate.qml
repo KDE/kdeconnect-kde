@@ -72,95 +72,108 @@ PlasmaComponents.ListItem
 
         RowLayout
         {
+            width: parent.width
             Battery {
                 id: battery
                 device: root.device
             }
 
             PlasmaComponents.Label {
+                id: deviceName
                 elide: Text.ElideRight
                 text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", display, battery.displayString) : display
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
             }
 
-            //Share
-            PlasmaComponents.Button
-            {
-                FileDialog {
-                    id: fileDialog
-                    title: i18n("Please choose a file")
-                    folder: shortcuts.home
-                    selectMultiple: true
+            PlasmaComponents3.ToolButton {
+                id: overflowMenu
+                Layout.alignment: Qt.AlignRight
+                icon.name: "overflow-menu"
+                Layout.maximumHeight: deviceName.height * 2
+                onClicked: {
+                    menu.popup(overflowMenu, 0, overflowMenu.height)
                 }
 
-                id: shareFile
-                iconSource: "document-share"
-                visible: share.available
-                tooltip: i18n("Share file")
-                onClicked: {
-                    fileDialog.open()
-                    fileDialog.fileUrls.forEach(function (url) {
-                        share.plugin.shareUrl(url)
-                    })
+                Menu {
+                    id: menu
+
+                    //Share
+                    MenuItem
+                    {
+                        FileDialog {
+                            id: fileDialog
+                            title: i18n("Please choose a file")
+                            folder: shortcuts.home
+                            selectMultiple: true
+                        }
+
+                        id: shareFile
+                        icon.name: "document-share"
+                        visible: share.available
+                        text: i18n("Share file")
+                        onClicked: {
+                            fileDialog.open()
+                            fileDialog.fileUrls.forEach(function (url) {
+                                share.plugin.shareUrl(url)
+                            })
+                        }
+                    }
+
+                    //Find my phone
+                    MenuItem
+                    {
+                        FindMyPhone {
+                            id: findmyphone
+                            device: root.device
+                        }
+
+                        id: ring
+                        icon.name: "irc-voice"
+                        visible: findmyphone.available
+                        text: i18n("Ring my phone")
+
+                        onClicked: {
+                            findmyphone.ring()
+                        }
+                    }
+
+                    //SFTP
+                    MenuItem
+                    {
+                        Sftp {
+                            id: sftp
+                            device: root.device
+                        }
+
+                        id: browse
+                        icon.name: "document-open-folder"
+                        visible: sftp.available
+                        text: i18n("Browse this device")
+
+                        onClicked: {
+                            sftp.browse()
+                        }
+                    }
+
+                    //SMS
+                    MenuItem
+                    {
+                        SMS {
+                            id: sms
+                            device: root.device
+                        }
+
+                        icon.name: "message-new"
+                        visible: sms.available
+                        text: i18n("SMS Messages")
+
+                        onClicked: {
+                            sms.plugin.launchApp()
+                        }
+                    }
                 }
             }
-
-            //Find my phone
-            PlasmaComponents.Button
-            {
-                FindMyPhone {
-                    id: findmyphone
-                    device: root.device
-                }
-
-                id: ring
-                iconSource: "irc-voice"
-                visible: findmyphone.available
-                tooltip: i18n("Ring my phone")
-
-                onClicked: {
-                    findmyphone.ring()
-                }
-            }
-
-            //SFTP
-            PlasmaComponents.Button
-            {
-                Sftp {
-                    id: sftp
-                    device: root.device
-                }
-
-                id: browse
-                iconSource: "document-open-folder"
-                visible: sftp.available
-                tooltip: i18n("Browse this device")
-
-                onClicked: {
-                    sftp.browse()
-                }
-            }
-
-            //SMS
-            PlasmaComponents.Button
-            {
-                SMS {
-                    id: sms
-                    device: root.device
-                }
-
-                iconSource: "message-new"
-                visible: sms.available
-                tooltip: i18n("SMS Messages")
-
-                onClicked: {
-                    sms.plugin.launchApp()
-                }
-            }
-
-            height: browse.height
-            width: parent.width
         }
 
         //RemoteKeyboard
