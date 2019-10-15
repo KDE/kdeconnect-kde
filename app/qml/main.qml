@@ -49,45 +49,44 @@ Kirigami.ApplicationWindow
         modal: !root.wideScreen
         handleVisible: !root.wideScreen
 
-        topContent: Kirigami.AbstractApplicationHeader {
-            RowLayout {
-                width: parent.width
-                DBusProperty {
-                    id: announcedNameProperty
-                    object: DaemonDbusInterface
-                    read: "announcedName"
-                    defaultValue: ""
-                }
+        topContent: RowLayout {
+            width: parent.width
+            DBusProperty {
+                id: announcedNameProperty
+                object: DaemonDbusInterface
+                read: "announcedName"
+                defaultValue: ""
+            }
 
-                TextField {
-                    id: nameField
-                    visible: false
-                    Layout.fillWidth: true
-                    Layout.leftMargin: Kirigami.Units.smallSpacing
-                    text: announcedNameProperty.value
-                    onAccepted: {
-                        DaemonDbusInterface.setAnnouncedName(text)
-                        text = Qt.binding(function() {return announcedNameProperty.value})
-                    }
+            TextField {
+                id: nameField
+                visible: false
+                Layout.fillWidth: true
+                Layout.leftMargin: Kirigami.Units.smallSpacing
+                text: announcedNameProperty.value
+                onAccepted: {
+                    DaemonDbusInterface.setAnnouncedName(text)
+                    text = Qt.binding(function() {return announcedNameProperty.value})
                 }
+            }
 
-                Label {
-                    text: announcedNameProperty.value
-                    visible: !nameField.visible
-                    Layout.fillWidth: true
-                    font.pointSize: 18
-                    Layout.leftMargin: Kirigami.Units.smallSpacing
-                }
+            Label {
+                text: announcedNameProperty.value
+                visible: !nameField.visible
+                Layout.fillWidth: true
+                font.pointSize: 18
+                Layout.leftMargin: Kirigami.Units.smallSpacing
+            }
 
-                Button {
-                    icon.name: nameField.visible ? "dialog-ok-apply" : "entry-edit"
-                    onClicked: {
-                        nameField.visible = !nameField.visible
-                        nameField.accepted()
-                    }
+            Button {
+                icon.name: nameField.visible ? "dialog-ok-apply" : "entry-edit"
+                onClicked: {
+                    nameField.visible = !nameField.visible
+                    nameField.accepted()
                 }
             }
         }
+
         property var objects: [findDevicesAction]
         Instantiator {
             model: DevicesSortProxyModel {
