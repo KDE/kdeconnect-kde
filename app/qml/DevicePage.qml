@@ -82,6 +82,7 @@ Kirigami.Page
                 delegate: Kirigami.BasicListItem {
                     label: name
                     icon: iconName
+                    highlighted: false
                     iconColor: "transparent"
                     visible: loaded
                     onClicked: onClick()
@@ -173,7 +174,7 @@ Kirigami.Page
 
                     Button {
                         text: i18n("Reject")
-                        icon.name:"dialog-cancel"                        
+                        icon.name:"dialog-cancel"
                         onClicked: deviceView.currentDevice.rejectPairing()
                     }
                 }

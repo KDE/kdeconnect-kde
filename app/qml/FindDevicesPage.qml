@@ -68,6 +68,7 @@ Kirigami.ScrollablePage
             icon: iconName
             iconColor: "transparent"
             label: display + "\n" + toolTip
+            highlighted: false
             onClicked: {
                 pageStack.push(
                     deviceComp,
