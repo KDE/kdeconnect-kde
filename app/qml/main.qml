@@ -31,16 +31,6 @@ Kirigami.ApplicationWindow
     width: 900
     height: 500
 
-    Component {
-        id: findDevicesComp
-        FindDevicesPage {}
-    }
-
-    Component {
-        id: deviceComp
-        DevicePage {}
-    }
-
     Kirigami.Action {
         id: findDevicesAction
         text: i18n ("Find devices...")
@@ -49,7 +39,7 @@ Kirigami.ApplicationWindow
 
         onTriggered: {
             root.pageStack.clear()
-            root.pageStack.push(findDevicesComp);
+            root.pageStack.push(Qt.resolvedUrl("FindDevicesPage.qml"));
         }
     }
 
@@ -112,7 +102,7 @@ Kirigami.ApplicationWindow
                 onTriggered: {
                     root.pageStack.clear()
                     root.pageStack.push(
-                        deviceComp,
+                        Qt.resolvedUrl("DevicePage.qml"),
                         {currentDevice: device}
                     );
                 }
@@ -137,5 +127,5 @@ Kirigami.ApplicationWindow
         id: contextDrawer
     }
 
-    pageStack.initialPage: findDevicesComp
+    pageStack.initialPage: Qt.resolvedUrl("FindDevicesPage.qml")
 }
