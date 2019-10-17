@@ -138,6 +138,10 @@
   <provides>
     <binary>kdeconnectd</binary>
     <binary>kdeconnect-cli</binary>
+    <binary>kdeconnect-app</binary>
+    <binary>kdeconnect-indicator</binary>
+    <binary>kdeconnect-settings</binary>
+    <binary>kdeconnect-sms</binary>
   </provides>
   <categories>
     <category>Network</category>
