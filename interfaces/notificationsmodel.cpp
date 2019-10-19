@@ -60,9 +60,9 @@ QHash<int, QByteArray> NotificationsModel::roleNames() const
 {
     //Role names for QML
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
-    names.insert(DbusInterfaceRole,    "dbusInterface");
-    names.insert(AppNameModelRole,     "appName");
-    names.insert(IdModelRole,          "notificationId");
+    names.insert(DbusInterfaceRole, "dbusInterface");
+    names.insert(AppNameModelRole, "appName");
+    names.insert(IdModelRole, "notificationId");
     names.insert(DismissableModelRole, "dismissable");
     names.insert(RepliableModelRole, "repliable");
     names.insert(IconPathModelRole, "appIcon");
