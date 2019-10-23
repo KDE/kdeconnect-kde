@@ -134,8 +134,8 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
             QStringList parts = line.split(QLatin1Char(':'));
             QString timestamp = parts[1];
 
-            qint32 remoteTimestamp = np.get<qint32>(ID);
-            qint32 localTimestamp = timestamp.toInt();
+            qint64 remoteTimestamp = np.get<qint64>(ID);
+            qint64 localTimestamp = timestamp.toLongLong();
 
             if (!(localTimestamp == remoteTimestamp)) {
                 uIDsToUpdate.push_back(ID);
