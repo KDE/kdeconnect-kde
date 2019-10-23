@@ -94,7 +94,7 @@ Kirigami.ScrollablePage
         actions: [
           Kirigami.Action {
               iconName: "dialog-cancel"
-              text: "Cancel"
+              text: i18n("Cancel")
               onTriggered: initialMessage = ""
             }
         ]
