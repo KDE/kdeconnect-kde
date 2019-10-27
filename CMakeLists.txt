@@ -45,10 +45,10 @@ else()
     set(KF5_OPTIONAL_COMPONENTS DocTools)
 
     set_package_properties(KF5Kirigami2 PROPERTIES
-    DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
-    PURPOSE "Required for KDE Connect's QML-based GUI applications"
-    URL "https://www.kde.org/products/kirigami/"
-    TYPE RUNTIME
+        DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
+        PURPOSE "Required for KDE Connect's QML-based GUI applications"
+        URL "https://www.kde.org/products/kirigami/"
+        TYPE RUNTIME
     )
 
     if(UNIX AND NOT APPLE)
