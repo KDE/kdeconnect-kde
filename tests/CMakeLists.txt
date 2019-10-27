@@ -11,12 +11,15 @@ include_directories(
 set(kdeconnect_libraries
 	kdeconnectcore
     KF5::I18n
-    KF5::KIOWidgets
     Qt5::DBus
     Qt5::Network
     Qt5::Test
     qca-qt5
 )
+
+if(${KF5KIO_FOUND})
+    list(APPEND kdeconnect_libraries KF5::KIOWidgets)
+endif()
 
 set(kdeconnect_sms_libraries
     kdeconnectsmshelper

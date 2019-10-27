@@ -21,13 +21,16 @@
 #include "compositeuploadjob.h"
 #include <core_debug.h>
 #include <KLocalizedString>
-#include <kio/global.h>
 #include <KJobTrackerInterface>
 #include "lanlinkprovider.h"
 #include <daemon.h>
 #include "plugins/share/shareplugin.h"
 
-CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNotification) 
+#ifdef HAVE_KIO
+#include <kio/global.h>
+#endif
+
+CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNotification)
     : KCompositeJob()
     , m_server(new Server(this))
     , m_socket(nullptr)
@@ -44,9 +47,9 @@ CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNoti
     , m_updatePacketPending(false)
 {
     setCapabilities(Killable);
-    
+
     if (displayNotification) {
-        KIO::getJobTracker()->registerJob(this);
+        Daemon::instance()->jobTracker()->registerJob(this);
     }
 }
 
@@ -283,13 +286,13 @@ void CompositeUploadJob::slotResult(KJob *job) {
 
 void CompositeUploadJob::emitDescription(const QString& currentFileName) {
     QPair<QString, QString> field2;
-    
+
     if (m_totalJobs > 1) {
         field2.first = i18n("Progress");
         field2.second = i18n("Sending file %1 of %2", m_currentJobNum, m_totalJobs);
     }
-    
-    Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()), 
+
+    Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()),
                        { i18n("File"), currentFileName }, field2
     );
 }

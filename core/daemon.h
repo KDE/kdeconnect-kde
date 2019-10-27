@@ -32,6 +32,7 @@ class NetworkPacket;
 class DeviceLink;
 class Device;
 class QNetworkAccessManager;
+class KJobTrackerInterface;
 
 class KDECONNECTCORE_EXPORT Daemon
     : public QObject
@@ -53,6 +54,7 @@ public:
     virtual void reportError(const QString& title, const QString& description) = 0;
     virtual void quit() = 0;
     virtual QNetworkAccessManager* networkAccessManager();
+    virtual KJobTrackerInterface* jobTracker() = 0;
 
     Device* getDevice(const QString& deviceId);
 

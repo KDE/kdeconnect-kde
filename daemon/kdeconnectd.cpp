@@ -85,6 +85,11 @@ public:
         return m_nam;
     }
 
+    KJobTrackerInterface* jobTracker() override
+    {
+        return KIO::getJobTracker();
+    }
+
     Q_SCRIPTABLE void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override
     {
         KNotification* notification = new KNotification(eventId); //KNotification::Persistent

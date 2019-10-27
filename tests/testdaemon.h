@@ -24,12 +24,22 @@
 #include <core/daemon.h>
 #include <core/backends/pairinghandler.h>
 
+#include <QCoreApplication>
+#include <KJobTrackerInterface>
+
+#ifdef HAVE_KIO
+#include <KIO/AccessManager>
+#else
+#include <QNetworkAccessManager>
+#endif
+
 class TestDaemon : public Daemon
 {
 public:
     TestDaemon(QObject* parent = nullptr)
         : Daemon(parent, true)
         , m_nam(nullptr)
+        , m_jobTrackerInterface(nullptr)
     {
         // Necessary to force the event loop to run because the test harness seems to behave differently
         // and we need the QTimer::SingleShot in Daemon's constructor to fire
@@ -52,7 +62,11 @@ public:
     QNetworkAccessManager* networkAccessManager() override
     {
         if (!m_nam) {
+#ifdef HAVE_KIO
             m_nam = new KIO::AccessManager(this);
+#else
+            m_nam = new QNetworkAccessManager(this);
+#endif
         }
         return m_nam;
     }
@@ -66,8 +80,17 @@ public:
         qDebug() << "quit was called";
     }
 
+    KJobTrackerInterface* jobTracker() override
+    {
+        if (!m_jobTrackerInterface) {
+            m_jobTrackerInterface = new KJobTrackerInterface();
+        }
+        return m_jobTrackerInterface;
+    }
+
 private:
     QNetworkAccessManager* m_nam;
+     KJobTrackerInterface* m_jobTrackerInterface;
 };
 
 #endif

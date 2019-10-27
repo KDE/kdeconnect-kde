@@ -66,7 +66,7 @@ else()
     if(NOT WIN32 AND NOT APPLE)
         find_package(KF5PulseAudioQt)
     endif()
-    add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
+    add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII -DHAVE_KIO)
 endif()
 
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network)

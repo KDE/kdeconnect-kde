@@ -21,7 +21,6 @@
 #include "compositefiletransferjob.h"
 #include <core_debug.h>
 #include <KLocalizedString>
-#include <kio/global.h>
 #include <KJobTrackerInterface>
 #include <daemon.h>
 #include "filetransferjob.h"

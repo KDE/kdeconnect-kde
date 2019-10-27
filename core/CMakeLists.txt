@@ -49,13 +49,16 @@ target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network
     KF5::CoreAddons
-    KF5::KIOCore
     qca-qt5
 PRIVATE
     Qt5::DBus
     KF5::I18n
     KF5::ConfigCore
 )
+
+if(${KF5KIO_FOUND})
+    target_link_libraries(kdeconnectcore PUBLIC KF5::KIOCore)
+endif()
 
 if (BLUETOOTH_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_BLUETOOTH)
