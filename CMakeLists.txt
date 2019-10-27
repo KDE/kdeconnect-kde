@@ -53,6 +53,7 @@ else()
 
     if(UNIX AND NOT APPLE)
         set(KF5_OPTIONAL_COMPONENTS ${KF5_OPTIONAL_COMPONENTS} Runner)
+        find_package(KF5PulseAudioQt)
     endif()
     find_package(Qca-qt5 ${QCA_MIN_VERSION} REQUIRED)
 
@@ -63,9 +64,6 @@ else()
         TYPE RUNTIME
     )
 
-    if(NOT WIN32 AND NOT APPLE)
-        find_package(KF5PulseAudioQt)
-    endif()
     add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII -DHAVE_KIO)
 endif()
 
