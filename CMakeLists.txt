@@ -69,7 +69,7 @@ else()
     add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII -DHAVE_KIO)
 endif()
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network Multimedia)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 if (KF5_OPTIONAL_COMPONENTS)
 find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
@@ -78,8 +78,6 @@ endif()
 if (NOT ZSH_AUTOCOMPLETE_DIR)
 set(ZSH_AUTOCOMPLETE_DIR "${CMAKE_INSTALL_PREFIX}/share/zsh/site-functions")
 endif()
-
-find_package(Qt5Multimedia)
 
 option(PRIVATE_DBUS_ENABLED "Use private dbus session for kdeconnect" OFF)
 if(PRIVATE_DBUS_ENABLED OR APPLE)
