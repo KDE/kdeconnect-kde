@@ -105,6 +105,7 @@ if (NOT SAILFISHOS)
     add_subdirectory(urlhandler)
     add_subdirectory(nautilus-extension)
     add_subdirectory(fileitemactionplugin)
+    add_subdirectory(smsapp)
 else()
     add_subdirectory(sfos)
 endif()
@@ -117,8 +118,6 @@ set_package_properties(KF5PeopleVCard PROPERTIES
     URL "https://phabricator.kde.org/source/kpeoplevcard/"
     TYPE RUNTIME
 )
-
-add_subdirectory(smsapp)
 
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
