@@ -45,7 +45,7 @@ void ShareConfig::load()
     KCModule::load();
 
     const auto standardPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
-    m_ui->kurlrequester->setText(config()->get<QString>(QStringLiteral("incoming_path"), standardPath));
+    m_ui->kurlrequester->setText(config()->getString(QStringLiteral("incoming_path"), standardPath));
 
     Q_EMIT changed(false);
 }

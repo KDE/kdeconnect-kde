@@ -19,6 +19,9 @@
 #include "interfaces/notificationsmodel.h"
 #include <remotecommandsmodel.h>
 #include <remotesinksmodel.h>
+#include <pluginmodel.h>
+#include "core/kdeconnectpluginconfig.h"
+#include "interfaces/commandsmodel.h"
 
 QObject* createDBusResponse()
 {
@@ -43,6 +46,9 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
     qmlRegisterType<RemoteSinksModel>(uri, 1, 0, "RemoteSinksModel");
+    qmlRegisterType<PluginModel>(uri, 1, 0, "PluginModel");
+    qmlRegisterType<KdeConnectPluginConfig>(uri, 1, 0, "KdeConnectPluginConfig");
+    qmlRegisterType<CommandsModel>(uri, 1, 0, "CommandsModel");
     qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));

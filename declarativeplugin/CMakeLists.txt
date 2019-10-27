@@ -15,6 +15,7 @@ add_library(kdeconnectdeclarativeplugin SHARED ${kdeconnectdeclarativeplugin_SRC
 target_link_libraries(kdeconnectdeclarativeplugin
     Qt5::Qml
     kdeconnectinterfaces
+    kdeconnectcore
 )
 
 install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)

@@ -11,5 +11,7 @@
     <file>qml/runcommand.qml</file>
     <file>qml/volume.qml</file>
     <file>qml/MprisSlider.qml</file>
+    <file>qml/PluginSettings.qml</file>
+    <file>qml/PluginInfoPage.qml</file>
  </qresource>
 </RCC>

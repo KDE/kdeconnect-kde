@@ -58,7 +58,7 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
     }
 
     if (np.has(QStringLiteral("key"))) {
-        QJsonDocument commandsDocument = QJsonDocument::fromJson(config()->get<QByteArray>(QStringLiteral("commands"), "{}"));
+        QJsonDocument commandsDocument = QJsonDocument::fromJson(config()->getByteArray(QStringLiteral("commands"), "{}"));
         QJsonObject commands = commandsDocument.object();
         QString key = np.get<QString>(QStringLiteral("key"));
         QJsonValue value = commands[key];
@@ -84,7 +84,7 @@ void RunCommandPlugin::connected()
 
 void RunCommandPlugin::sendConfig()
 {
-    QString commands = config()->get<QString>(QStringLiteral("commands"),QStringLiteral("{}"));
+    QString commands = config()->getString(QStringLiteral("commands"),QStringLiteral("{}"));
     NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{QStringLiteral("commandList"), commands}});
 
     #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)

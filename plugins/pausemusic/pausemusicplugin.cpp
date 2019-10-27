@@ -26,7 +26,7 @@ PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
 
 bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 {
-    bool pauseOnlyWhenTalking = config()->get(QStringLiteral("conditionTalking"), false);
+    bool pauseOnlyWhenTalking = config()->getBool(QStringLiteral("conditionTalking"), false);
 
     if (pauseOnlyWhenTalking) {
         if (np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
@@ -40,10 +40,10 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
     bool pauseConditionFulfilled = !np.get<bool>(QStringLiteral("isCancel"));
 
-    bool pause = config()->get(QStringLiteral("actionPause"), true);
-    bool mute = config()->get(QStringLiteral("actionMute"), false);
+    bool pause = config()->getBool(QStringLiteral("actionPause"), true);
+    bool mute = config()->getBool(QStringLiteral("actionMute"), false);
 
-    const bool autoResume = config()->get(QStringLiteral("actionResume"), true);
+    const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
 
     if (pauseConditionFulfilled) {
 

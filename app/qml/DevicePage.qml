@@ -31,6 +31,17 @@ Kirigami.ScrollablePage
             onTriggered: {
                 root.currentDevice.pluginCall("ping", "sendPing");
             }
+        },
+        Kirigami.Action {
+            iconName: "settings-configure"
+            text: i18n("Plugin Settings")
+            visible: root.currentDevice.isTrusted && root.currentDevice.isReachable
+            onTriggered: {
+                pageStack.push(
+                    Qt.resolvedUrl("PluginSettings.qml"),
+                    {device: currentDevice.id()}
+                );
+            }
         }
     ]
 
@@ -119,7 +130,6 @@ Kirigami.ScrollablePage
         Column {
             visible: root.currentDevice.hasPairingRequests
             anchors.centerIn: parent
-
             spacing: Kirigami.Units.largeSpacing
 
             Kirigami.PlaceholderMessage {

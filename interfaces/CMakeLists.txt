@@ -32,6 +32,8 @@ set(libkdeconnect_SRC
     remotecommandsmodel.cpp
     remotesinksmodel.cpp
     devicespluginfilterproxymodel.cpp
+    pluginmodel.cpp
+    commandsmodel.cpp
 #    modeltest.cpp
     ${debug_files_SRCS}
 )
@@ -67,9 +69,11 @@ LINK_PUBLIC
     Qt5::Gui
     Qt5::DBus
 LINK_PRIVATE
+    kdeconnectcore
     KF5::ConfigCore
     KF5::I18n
     kdeconnectcore
+    KF5::CoreAddons
 )
 
 install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

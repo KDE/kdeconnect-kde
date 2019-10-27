@@ -33,8 +33,10 @@ FindThisDevicePlugin::~FindThisDevicePlugin() = default;
 bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
 {
     Q_UNUSED(np);
-    const QString soundFile = config()->get<QString>(QStringLiteral("ringtone"), defaultSound());
+
+    const QString soundFile = config()->getString(QStringLiteral("ringtone"), defaultSound());
     const QUrl soundURL = QUrl::fromLocalFile(soundFile);
+
     if (soundURL.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
         return true;
