@@ -106,6 +106,10 @@ if (NOT SAILFISHOS)
     add_subdirectory(nautilus-extension)
     add_subdirectory(fileitemactionplugin)
     add_subdirectory(smsapp)
+
+    if(BUILD_TESTING)
+        add_subdirectory(tests)
+    endif()
 else()
     add_subdirectory(sfos)
 endif()
@@ -121,10 +125,6 @@ set_package_properties(KF5PeopleVCard PROPERTIES
 
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
-endif()
-
-if(BUILD_TESTING AND NOT SAILFISHOS)
-    add_subdirectory(tests)
 endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
