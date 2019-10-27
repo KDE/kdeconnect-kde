@@ -41,12 +41,28 @@ if (SAILFISHOS)
     include_directories(${QCA2_INCLUDEDIR})
     add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 else()
-    set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Kirigami2)
+    set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Kirigami2 People)
     set(KF5_OPTIONAL_COMPONENTS DocTools)
+
+    set_package_properties(KF5Kirigami2 PROPERTIES
+    DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
+    PURPOSE "Required for KDE Connect's QML-based GUI applications"
+    URL "https://www.kde.org/products/kirigami/"
+    TYPE RUNTIME
+    )
+
     if(UNIX AND NOT APPLE)
         set(KF5_OPTIONAL_COMPONENTS ${KF5_OPTIONAL_COMPONENTS} Runner)
     endif()
     find_package(Qca-qt5 ${QCA_MIN_VERSION} REQUIRED)
+
+    find_package(KF5PeopleVCard)
+    set_package_properties(KF5PeopleVCard PROPERTIES
+        PURPOSE "Read vcards from the file system"
+        URL "https://phabricator.kde.org/source/kpeoplevcard/"
+        TYPE RUNTIME
+    )
+
     if(NOT WIN32 AND NOT APPLE)
         find_package(KF5PulseAudioQt)
     endif()
@@ -65,13 +81,6 @@ endif()
 
 find_package(Qt5Multimedia)
 
-set_package_properties(KF5Kirigami2 PROPERTIES
-  DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
-  PURPOSE "Required for KDE Connect's QML-based GUI applications"
-  URL "https://www.kde.org/products/kirigami/"
-  TYPE RUNTIME
-)
-
 option(PRIVATE_DBUS_ENABLED "Use private dbus session for kdeconnect" OFF)
 if(PRIVATE_DBUS_ENABLED OR APPLE)
     add_compile_definitions(USE_PRIVATE_DBUS)
@@ -86,7 +95,6 @@ if(NOT SAILFISHOS)
         add_subdirectory(plasmoid)
     endif()
 endif()
-
 
 add_subdirectory(icon)
 add_subdirectory(interfaces)
@@ -113,15 +121,6 @@ if (NOT SAILFISHOS)
 else()
     add_subdirectory(sfos)
 endif()
-
-find_package(KF5Kirigami2)
-find_package(KF5People REQUIRED)
-find_package(KF5PeopleVCard)
-set_package_properties(KF5PeopleVCard PROPERTIES
-    PURPOSE "Read vcards from the file system"
-    URL "https://phabricator.kde.org/source/kpeoplevcard/"
-    TYPE RUNTIME
-)
 
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
