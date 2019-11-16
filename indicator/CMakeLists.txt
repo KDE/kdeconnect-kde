@@ -1,6 +1,7 @@
 set(indicator_SRCS
     main.cpp
     deviceindicator.cpp
+    indicatorhelper.cpp
 )
 
 include(ECMAddAppIcon)

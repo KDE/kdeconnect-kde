@@ -19,10 +19,8 @@
  */
 
 #include <QApplication>
-#include <QProcess>
 #include <QThread>
 #include <QMessageBox>
-#include <QSplashScreen>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -42,6 +40,8 @@
 
 #include <dbushelper.h>
 
+#include "indicatorhelper.h"
+
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
@@ -53,72 +53,19 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
+    IndicatorHelper *helper;
 #ifdef Q_OS_WIN
-    QProcess kdeconnectd;
-    kdeconnectd.start(QStringLiteral("kdeconnectd.exe"));
+
+#elif (defined Q_OS_MAC)
+
+#else
+    helper = new IndicatorHelper();
 #endif
 
-#ifdef Q_OS_MAC
-    QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
-    QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
-    QSplashScreen splash(splashPixmap);
-    splash.showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    splash.show();
+    helper->preInit();
 
-    // Unset launchctl env, avoid block
-    DBusHelper::macosUnsetLaunchctlEnv();
-
-    // Start kdeconnectd
-    splash.showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    QProcess kdeconnectdProcess;
-    if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
-        kdeconnectdProcess.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
-    } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
-        kdeconnectdProcess.startDetached(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"));
-    } else {
-        QMessageBox::critical(nullptr, i18n("KDE Connect"),
-                              i18n("Cannot find kdeconnectd"),
-                              QMessageBox::Abort,
-                              QMessageBox::Abort);
-        return -1;
-    }
-
-    // Wait for dbus daemon env
-    QProcess getLaunchdDBusEnv;
-    splash.showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    int retry = 0;
-    do {
-        getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
-        getLaunchdDBusEnv.setArguments({
-            QStringLiteral("getenv"),
-            QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV)
-        });
-        getLaunchdDBusEnv.start();
-        getLaunchdDBusEnv.waitForFinished();
-
-        QString launchdDBusEnv = QString::fromLocal8Bit(getLaunchdDBusEnv.readAllStandardOutput());
-
-        if (launchdDBusEnv.length() > 0) {
-            break;
-        } else if (retry >= 10) {
-            // Show a warning and exit
-            qCritical() << "Fail to get launchctl" << KDECONNECT_SESSION_DBUS_LAUNCHD_ENV << "env";
-
-            QMessageBox::critical(nullptr, i18n("KDE Connect"),
-                                  i18n("Cannot connect to DBus\n"
-                                  "KDE Connect will quit"),
-                                  QMessageBox::Abort,
-                                  QMessageBox::Abort);
-
-            return -1;
-        } else {
-            QThread::sleep(3);  // Retry after 3s
-            retry++;
-        }
-    } while(true);
-
-    splash.showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-#endif
+    // Run D-Bus initilization step
+    helper->dbusHook();
 
     KDBusService dbusService(KDBusService::Unique);
 
@@ -176,22 +123,12 @@ int main(int argc, char** argv)
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
-#ifdef Q_OS_MAC
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons"), QStandardPaths::LocateDirectory);
-    if (!iconPath.isNull()) {
-        QStringList themeSearchPaths = QIcon::themeSearchPaths();
-        themeSearchPaths << iconPath;
-        QIcon::setThemeSearchPaths(themeSearchPaths);
-    }
-#endif
+    // Run icon to add icon path (if necessary)
+    helper->iconPathHook();
 
 #ifdef QSYSTRAY
     QSystemTrayIcon systray;
-#ifdef Q_OS_WIN
-    systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicatorwin.svg"))));
-#else
-    systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnectindicatordark")));
-#endif
+    helper->qSystemTrayIconHook(systray);
     systray.setVisible(true);
     systray.setToolTip(QStringLiteral("KDE Connect"));
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
@@ -201,16 +138,7 @@ int main(int argc, char** argv)
     systray.setContextMenu(menu);
 #else
     KStatusNotifierItem systray;
-#ifdef Q_OS_MAC
-    if (!iconPath.isNull()) {
-        systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
-    } else {
-        // We are in macOS dev env, just continue
-        qWarning() << "Fail to find indicator icon, continue anyway";
-    }
-#else
-    systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
-#endif
+    helper->kStatusNotifierItemHook(systray);
     systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), QStringLiteral("KDE Connect"));
     systray.setCategory(KStatusNotifierItem::Communications);
     systray.setStatus(KStatusNotifierItem::Passive);
@@ -228,9 +156,9 @@ int main(int argc, char** argv)
 
     app.setQuitOnLastWindowClosed(false);
 
-#ifdef Q_OS_MAC
-    splash.finish(nullptr);
-#endif
+    // Finish init
+    helper->postInit();
+    delete helper;
 
     return app.exec();
 }
