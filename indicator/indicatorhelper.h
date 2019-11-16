@@ -38,7 +38,7 @@ public:
 
     virtual void iconPathHook();
 
-    virtual void dbusHook();
+    virtual void daemonHook(QProcess &kdeconnectd);
 
     virtual void qSystemTrayIconHook(QSystemTrayIcon &systray);
     virtual void kStatusNotifierItemHook(KStatusNotifierItem &systray);

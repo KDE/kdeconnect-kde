@@ -68,7 +68,7 @@ void MacOSIndicatorHelper::iconPathHook()
     }
 }
 
-void MacOSIndicatorHelper::dbusHook()
+void MacOSIndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
 
     // Unset launchctl env, avoid block
@@ -76,11 +76,11 @@ void MacOSIndicatorHelper::dbusHook()
 
     // Start kdeconnectd
     m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    QProcess kdeconnectdProcess;
+    QProcess kdeconnectd;
     if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
-        kdeconnectdProcess.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
+        kdeconnectd.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
     } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
-        kdeconnectdProcess.startDetached(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"));
+        kdeconnectd.startDetached(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"));
     } else {
         QMessageBox::critical(nullptr, i18n("KDE Connect"),
                               i18n("Cannot find kdeconnectd"),
@@ -139,9 +139,8 @@ void MacOSIndicatorHelper::kStatusNotifierItemHook(KStatusNotifierItem &systray)
 WindowsIndicatorHelper::WindowsIndicatorHelper() {}
 WindowsIndicatorHelper::~WindowsIndicatorHelper() {}
 
-void WindowsIndicatorHelper::dbusHook()
+void WindowsIndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
-    QProcess kdeconnectd;
     kdeconnectd.start(QStringLiteral("kdeconnectd.exe"));
 }
 

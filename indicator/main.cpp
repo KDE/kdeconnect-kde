@@ -19,6 +19,7 @@
  */
 
 #include <QApplication>
+#include <QProcess>
 #include <QThread>
 #include <QMessageBox>
 
@@ -64,8 +65,9 @@ int main(int argc, char** argv)
 
     helper->preInit();
 
-    // Run D-Bus initilization step
-    helper->dbusHook();
+    // Run Daemon initilization step
+    QProcess kdeconnectd;
+    helper->daemonHook(kdeconnectd);
 
     KDBusService dbusService(KDBusService::Unique);
 
