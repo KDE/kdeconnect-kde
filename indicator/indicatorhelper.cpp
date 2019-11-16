@@ -60,6 +60,7 @@ void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 }
 #endif
 
+#ifdef Q_OS_MAC
 MacOSIndicatorHelper::MacOSIndicatorHelper()
 {
     QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
@@ -169,7 +170,9 @@ void MacOSIndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
     }
 }
 #endif
+#endif
 
+#ifdef Q_OS_WIN
 WindowsIndicatorHelper::WindowsIndicatorHelper() {}
 WindowsIndicatorHelper::~WindowsIndicatorHelper() {}
 
@@ -189,4 +192,5 @@ void WindowsIndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
     Q_UNUSED(systray);
 }
+#endif
 #endif

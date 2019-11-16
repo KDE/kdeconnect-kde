@@ -48,6 +48,7 @@ public:
 };
 
 
+#ifdef Q_OS_MAC
 class MacOSIndicatorHelper : public IndicatorHelper
 {
 public:
@@ -68,8 +69,9 @@ public:
 private:
     QSplashScreen *m_splashScreen;
 };
+#endif
 
-
+#ifdef Q_OS_WIN
 class WindowsIndicatorHelper : public IndicatorHelper
 {
 public:
@@ -84,3 +86,4 @@ public:
     void systrayIconHook(KStatusNotifierItem &systray);
 #endif
 };
+#endif
