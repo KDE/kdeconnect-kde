@@ -66,7 +66,10 @@ int main(int argc, char** argv)
 
     // Run Daemon initilization step
     QProcess kdeconnectd;
-    helper->daemonHook(kdeconnectd);
+    if (helper->daemonHook(kdeconnectd)) {
+        delete helper;
+        return -1;
+    }
 
     KDBusService dbusService(KDBusService::Unique);
 

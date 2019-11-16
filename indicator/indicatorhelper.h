@@ -38,7 +38,7 @@ public:
 
     virtual void iconPathHook();
 
-    virtual void daemonHook(QProcess &kdeconnectd);
+    virtual int daemonHook(QProcess &kdeconnectd);
 
 #ifdef QSYSTRAY
     virtual void systrayIconHook(QSystemTrayIcon &systray);
@@ -56,7 +56,7 @@ public:
 
     void iconPathHook();
 
-    void daemonHook(QProcess &kdeconnectd);
+    int daemonHook(QProcess &kdeconnectd);
 
 #ifdef QSYSTRAY
     void systrayIconHook(QSystemTrayIcon &systray);
@@ -74,7 +74,7 @@ public:
     WindowsIndicatorHelper();
     ~WindowsIndicatorHelper();
 
-    void daemonHook(QProcess &kdeconnectd);
+    int daemonHook(QProcess &kdeconnectd);
 
 #ifdef QSYSTRAY
     void systrayIconHook(QSystemTrayIcon &systray);

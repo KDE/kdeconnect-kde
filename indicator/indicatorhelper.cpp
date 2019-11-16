@@ -41,9 +41,11 @@ void IndicatorHelper::postInit() {}
 
 void IndicatorHelper::iconPathHook() {}
 
-void IndicatorHelper::daemonHook(QProcess &kdeconnectd)
+int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
     Q_UNUSED(kdeconnectd);
+
+    return 0;
 }
 
 #ifdef QSYSTRAY
@@ -80,7 +82,7 @@ void MacOSIndicatorHelper::iconPathHook()
     }
 }
 
-void MacOSIndicatorHelper::daemonHook(QProcess &kdeconnectd)
+int MacOSIndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
 
     // Unset launchctl env, avoid block
@@ -97,6 +99,7 @@ void MacOSIndicatorHelper::daemonHook(QProcess &kdeconnectd)
                               i18n("Cannot find kdeconnectd"),
                               QMessageBox::Abort,
                               QMessageBox::Abort);
+        return -1;
     }
 
     // Wait for dbus daemon env
@@ -125,6 +128,7 @@ void MacOSIndicatorHelper::daemonHook(QProcess &kdeconnectd)
                                   "KDE Connect will quit"),
                                   QMessageBox::Abort,
                                   QMessageBox::Abort);
+            return -2;
         } else {
             QThread::sleep(3);  // Retry after 3s
             retry++;
@@ -132,6 +136,8 @@ void MacOSIndicatorHelper::daemonHook(QProcess &kdeconnectd)
     } while(true);
 
     m_splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+
+    return 0;
 }
 
 #ifdef QSYSTRAY
@@ -155,9 +161,10 @@ void MacOSIndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 WindowsIndicatorHelper::WindowsIndicatorHelper() {}
 WindowsIndicatorHelper::~WindowsIndicatorHelper() {}
 
-void WindowsIndicatorHelper::daemonHook(QProcess &kdeconnectd)
+int WindowsIndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
     kdeconnectd.start(QStringLiteral("kdeconnectd.exe"));
+    return 0;
 }
 
 #ifdef QSYSTRAY
