@@ -70,7 +70,19 @@ MacOSIndicatorHelper::MacOSIndicatorHelper()
     m_splashScreen->show();
 }
 
-MacOSIndicatorHelper::~MacOSIndicatorHelper() {}
+MacOSIndicatorHelper::~MacOSIndicatorHelper()
+{
+    if (m_splashScreen) {
+        delete m_splashScreen;
+    }
+}
+
+void MacOSIndicatorHelper::postInit()
+{
+    if (m_splashScreen) {
+        m_splashScreen->finish(nullptr);
+    }
+}
 
 void MacOSIndicatorHelper::iconPathHook()
 {

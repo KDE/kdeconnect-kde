@@ -54,6 +54,8 @@ public:
     MacOSIndicatorHelper();
     ~MacOSIndicatorHelper();
 
+    void postInit();
+
     void iconPathHook();
 
     int daemonHook(QProcess &kdeconnectd);
