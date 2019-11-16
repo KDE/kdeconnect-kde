@@ -21,7 +21,6 @@
 #include <QApplication>
 #include <QProcess>
 #include <QThread>
-#include <QMessageBox>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -56,9 +55,9 @@ int main(int argc, char** argv)
 
     IndicatorHelper *helper;
 #ifdef Q_OS_WIN
-
-#elif (defined Q_OS_MAC)
-
+    helper = new WindowsIndicatorHelper();
+#elif defined Q_OS_MAC
+    helper = new MacOSIndicatorHelper();
 #else
     helper = new IndicatorHelper();
 #endif
@@ -130,7 +129,7 @@ int main(int argc, char** argv)
 
 #ifdef QSYSTRAY
     QSystemTrayIcon systray;
-    helper->qSystemTrayIconHook(systray);
+    helper->systrayIconHook(systray);
     systray.setVisible(true);
     systray.setToolTip(QStringLiteral("KDE Connect"));
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
@@ -140,7 +139,7 @@ int main(int argc, char** argv)
     systray.setContextMenu(menu);
 #else
     KStatusNotifierItem systray;
-    helper->kStatusNotifierItemHook(systray);
+    helper->systrayIconHook(systray);
     systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), QStringLiteral("KDE Connect"));
     systray.setCategory(KStatusNotifierItem::Communications);
     systray.setStatus(KStatusNotifierItem::Passive);

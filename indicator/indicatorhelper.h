@@ -40,8 +40,11 @@ public:
 
     virtual void daemonHook(QProcess &kdeconnectd);
 
-    virtual void qSystemTrayIconHook(QSystemTrayIcon &systray);
-    virtual void kStatusNotifierItemHook(KStatusNotifierItem &systray);
+#ifdef QSYSTRAY
+    virtual void systrayIconHook(QSystemTrayIcon &systray);
+#else
+    virtual void systrayIconHook(KStatusNotifierItem &systray);
+#endif
 };
 
 
@@ -50,6 +53,16 @@ class MacOSIndicatorHelper : public IndicatorHelper
 public:
     MacOSIndicatorHelper();
     ~MacOSIndicatorHelper();
+
+    void iconPathHook();
+
+    void daemonHook(QProcess &kdeconnectd);
+
+#ifdef QSYSTRAY
+    void systrayIconHook(QSystemTrayIcon &systray);
+#else
+    void systrayIconHook(KStatusNotifierItem &systray);
+#endif
 private:
     QSplashScreen *m_splashScreen;
 };
@@ -60,4 +73,12 @@ class WindowsIndicatorHelper : public IndicatorHelper
 public:
     WindowsIndicatorHelper();
     ~WindowsIndicatorHelper();
+
+    void daemonHook(QProcess &kdeconnectd);
+
+#ifdef QSYSTRAY
+    void systrayIconHook(QSystemTrayIcon &systray);
+#else
+    void systrayIconHook(KStatusNotifierItem &systray);
+#endif
 };
