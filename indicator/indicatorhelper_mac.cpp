@@ -33,20 +33,26 @@
 
 #include "indicatorhelper.h"
 
+static QSplashScreen *splashScreen = nullptr;
+
 IndicatorHelper::IndicatorHelper()
 {
     QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
     QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
-    m_splashScreen = new QSplashScreen(splashPixmap);
 
-    m_splashScreen->showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    m_splashScreen->show();
+    if (::splashScreen == nullptr) {
+        ::splashScreen = new QSplashScreen(splashPixmap);
+    }
+
+    ::splashScreen->showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    ::splashScreen->show();
 }
 
 IndicatorHelper::~IndicatorHelper()
 {
-    if (m_splashScreen) {
-        delete m_splashScreen;
+    if (::splashScreen) {
+        delete ::splashScreen;
+        ::splashScreen = nullptr;
     }
 }
 
@@ -54,8 +60,8 @@ void IndicatorHelper::preInit() {}
 
 void IndicatorHelper::postInit()
 {
-    if (m_splashScreen) {
-        m_splashScreen->finish(nullptr);
+    if (::splashScreen) {
+        ::splashScreen->finish(nullptr);
     }
 }
 
@@ -75,7 +81,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     DBusHelper::macosUnsetLaunchctlEnv();
 
     // Start kdeconnectd
-    m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    ::splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
         kdeconnectd.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
     } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
@@ -90,7 +96,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 
     // Wait for dbus daemon env
     QProcess getLaunchdDBusEnv;
-    m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    ::splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     int retry = 0;
     do {
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
@@ -121,7 +127,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
         }
     } while(true);
 
-    m_splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    ::splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
 
     return 0;
 }
