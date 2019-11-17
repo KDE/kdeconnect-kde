@@ -29,12 +29,12 @@ Platforms other than Linux are not officially supported, as there has yet to be 
 It should work, but no promises :)
 
 ## How does it work?
-KDE Connect consists of an UI-agnostic "core" library which exposes a series of DBus interfaces, and several UI components that consume these DBus interfaces. This way, new UI components can be added to integrate better with specific platforms or desktops, without having to reimplement the protocol or any of the internals. The core KDE Connect library is also divided in 4 big blocks:
+KDE Connect consists of a UI-agnostic "core" library that exposes a series of DBus interfaces, and several UI components that consume these DBus interfaces. This way, new UI components can be added to integrate better with specific platforms or desktops, without having to reimplement the protocol or any of the internals. The core KDE Connect library is also divided into 4 big blocks:
 
 - **LinkProviders**: Are in charge of discovering other KDE Connect-enabled devices in the network and establishing a Link to them.
 - **Devices**: Represent a remote device, abstracting the specific Link that is being used to reach it.
 - **NetworkPackets**: JSON-serializable and self-contained pieces of information to be sent by the plugins between devices.
-- **Plugins**: Independent pieces of code which implement a specific feature. Plugins will use NetworkPackets to exchange information through the network with other Plugins on a remote Device.
+- **Plugins**: Independent pieces of code that implement a specific feature. Plugins will use NetworkPackets to exchange information through the network with other Plugins on a remote Device.
 
 The basic structure of a NetworkPacket is the following:
 
@@ -56,7 +56,7 @@ NetworkPackets can also have binary data attached that can't be serialized to JS
 
 ## Contributing
 
-To contribute patches, use [KDE Connect's GitLab](https://invent.kde.org/kde/kdeconnect-kde). There you can also find a task list with stuff to do, and links to other relevant resources. It is a good idea to also subscribe to the [KDE Connect mailing list](https://mail.kde.org/mailman/listinfo/kdeconnect). We can also be reached on IRC at #kdeconnect on freenode or on [telegram](https://t.me/joinchat/AOS6gA37orb2dZCLhqbZjg), contributions and feedback are warmly welcomed.
+To contribute patches, use [KDE Connect's GitLab](https://invent.kde.org/kde/kdeconnect-kde). There you can also find a task list with stuff to do and links to other relevant resources. It is a good idea to also subscribe to the [KDE Connect mailing list](https://mail.kde.org/mailman/listinfo/kdeconnect). We can also be reached on IRC at #kdeconnect on freenode or on [telegram](https://t.me/joinchat/AOS6gA37orb2dZCLhqbZjg), contributions and feedback are warmly welcomed.
 
 ## License
 [GNU GPL v2](https://www.gnu.org/licenses/gpl-2.0.html) and [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
