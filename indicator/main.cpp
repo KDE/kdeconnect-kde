@@ -53,21 +53,13 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
-    IndicatorHelper *helper;
-#ifdef Q_OS_WIN
-    helper = new WindowsIndicatorHelper();
-#elif defined Q_OS_MAC
-    helper = new MacOSIndicatorHelper();
-#else
-    helper = new IndicatorHelper();
-#endif
+    IndicatorHelper helper;
 
-    helper->preInit();
+    helper.preInit();
 
     // Run Daemon initilization step
     QProcess kdeconnectd;
-    if (helper->daemonHook(kdeconnectd)) {
-        delete helper;
+    if (helper.daemonHook(kdeconnectd)) {
         return -1;
     }
 
@@ -128,11 +120,11 @@ int main(int argc, char** argv)
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 
     // Run icon to add icon path (if necessary)
-    helper->iconPathHook();
+    helper.iconPathHook();
 
 #ifdef QSYSTRAY
     QSystemTrayIcon systray;
-    helper->systrayIconHook(systray);
+    helper.systrayIconHook(systray);
     systray.setVisible(true);
     systray.setToolTip(QStringLiteral("KDE Connect"));
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
@@ -142,7 +134,7 @@ int main(int argc, char** argv)
     systray.setContextMenu(menu);
 #else
     KStatusNotifierItem systray;
-    helper->systrayIconHook(systray);
+    helper.systrayIconHook(systray);
     systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), QStringLiteral("KDE Connect"));
     systray.setCategory(KStatusNotifierItem::Communications);
     systray.setStatus(KStatusNotifierItem::Passive);
@@ -161,8 +153,7 @@ int main(int argc, char** argv)
     app.setQuitOnLastWindowClosed(false);
 
     // Finish init
-    helper->postInit();
-    delete helper;
+    helper.postInit();
 
     return app.exec();
 }

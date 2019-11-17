@@ -1,7 +1,6 @@
 set(indicator_SRCS
     main.cpp
     deviceindicator.cpp
-    indicatorhelper.cpp
 )
 
 include(ECMAddAppIcon)
@@ -14,6 +13,14 @@ ecm_add_app_icon(indicator_SRCS ICONS
     ../icon/128-apps-kdeconnect.png
     ../icon/256-apps-kdeconnect.png
 )
+
+if (WIN32)
+    list(APPEND indicator_SRCS indicatorhelper_win.cpp)
+elseif (APPLE)
+    list(APPEND indicator_SRCS indicatorhelper_mac.cpp)
+else ()
+    list(APPEND indicator_SRCS indicatorhelper.cpp)
+endif()
 
 add_executable(kdeconnect-indicator ${indicator_SRCS})
 target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_BINARY_DIR})
