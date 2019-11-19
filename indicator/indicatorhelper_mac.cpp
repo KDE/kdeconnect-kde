@@ -23,7 +23,6 @@
 #include <QIcon>
 #include <QMessageBox>
 #include <QStandardPaths>
-#include <QSplashScreen>
 #include <QThread>
 #include <QDebug>
 
@@ -33,26 +32,23 @@
 
 #include "indicatorhelper.h"
 
-static QSplashScreen *splashScreen = nullptr;
 
 IndicatorHelper::IndicatorHelper()
 {
     QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
     QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
 
-    if (::splashScreen == nullptr) {
-        ::splashScreen = new QSplashScreen(splashPixmap);
-    }
+    m_splashScreen = new QSplashScreen(splashPixmap);
 
-    ::splashScreen->showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    ::splashScreen->show();
+    m_splashScreen->showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    m_splashScreen->show();
 }
 
 IndicatorHelper::~IndicatorHelper()
 {
-    if (::splashScreen) {
-        delete ::splashScreen;
-        ::splashScreen = nullptr;
+    if (m_splashScreen != nullptr) {
+        delete m_splashScreen;
+        m_splashScreen = nullptr;
     }
 }
 
@@ -60,9 +56,7 @@ void IndicatorHelper::preInit() {}
 
 void IndicatorHelper::postInit()
 {
-    if (::splashScreen) {
-        ::splashScreen->finish(nullptr);
-    }
+    m_splashScreen->finish(nullptr);
 }
 
 void IndicatorHelper::iconPathHook()
@@ -81,7 +75,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     DBusHelper::macosUnsetLaunchctlEnv();
 
     // Start kdeconnectd
-    ::splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
         kdeconnectd.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
     } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
@@ -96,7 +90,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 
     // Wait for dbus daemon env
     QProcess getLaunchdDBusEnv;
-    ::splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     int retry = 0;
     do {
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
@@ -127,7 +121,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
         }
     } while(true);
 
-    ::splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    m_splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
 
     return 0;
 }

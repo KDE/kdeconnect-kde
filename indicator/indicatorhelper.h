@@ -19,6 +19,7 @@
  */
 
 #include <QProcess>
+#include <QSplashScreen>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -43,5 +44,10 @@ public:
     void systrayIconHook(QSystemTrayIcon &systray);
 #else
     void systrayIconHook(KStatusNotifierItem &systray);
+#endif
+
+private:
+#ifdef Q_OS_MAC
+    QSplashScreen *m_splashScreen;
 #endif
 };
