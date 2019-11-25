@@ -1,0 +1,15 @@
+{
+    "KPlugin": {
+        "Category": "Utilities",
+        "Description": "Send file to other device using KDE Connect",
+        "Icon": "kdeconnect",
+        "License": "GPL",
+        "MimeTypes": [
+            "application/octet-stream"
+        ],
+        "Name": "Send file via KDE Connect",
+        "ServiceTypes": [
+            "KFileItemAction/Plugin"
+        ]
+    }
+}
