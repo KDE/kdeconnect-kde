@@ -2,12 +2,28 @@
     "KPlugin": {
         "Category": "Utilities",
         "Description": "Send file to other device using KDE Connect",
+        "Description[ca]": "Envia fitxers a un altre dispositiu mitjançant el KDE Connect",
+        "Description[gl]": "Enviar o ficheiro a outro dispositivo usando KDE Connect",
+        "Description[nl]": "Bestand naar ander apparaat versturen met KDE Connect",
+        "Description[pt]": "Envia o ficheiro para outro dispositivo através do KDE Connect",
+        "Description[pt_BR]": "Envia o arquivo para outro dispositivo usando o KDE Connect",
+        "Description[uk]": "Надіслати файл на інший пристрій за допомогою KDE Connect",
+        "Description[x-test]": "xxSend file to other device using KDE Connectxx",
+        "Description[zh_TW]": "使用 KDE 連線傳送檔案至其他裝置",
         "Icon": "kdeconnect",
         "License": "GPL",
         "MimeTypes": [
             "application/octet-stream"
         ],
         "Name": "Send file via KDE Connect",
+        "Name[ca]": "Envia el fitxer a través del KDE Connect",
+        "Name[gl]": "Enviar o ficheiro por KDE Connect",
+        "Name[nl]": "Bestand via KDE Connect versturen",
+        "Name[pt]": "Enviar o ficheiro pelo KDE Connect",
+        "Name[pt_BR]": "Enviar arquivo via KDE Connect",
+        "Name[uk]": "Надіслати файл за допомогою KDE Connect",
+        "Name[x-test]": "xxSend file via KDE Connectxx",
+        "Name[zh_TW]": "使用 KDE 連線傳送檔案",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
         ]
