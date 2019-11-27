@@ -59,13 +59,12 @@ public:
 
     void askPairingConfirmation(Device* device) override
     {
-        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"));
+        KNotification* notification = new KNotification(QStringLiteral("pairingRequest"), KNotification::NotificationFlag::Persistent);
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(QStringLiteral("KDE Connect"));
         notification->setText(i18n("Pairing request from %1", device->name().toHtmlEscaped()));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
-//         notification->setTimeout(PairingHandler::pairingTimeoutMsec());
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
         connect(notification, &KNotification::action2Activated, device, &Device::rejectPairing);
         notification->sendEvent();
