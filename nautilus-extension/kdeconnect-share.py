@@ -29,12 +29,17 @@ __app_disp_name__ = "Share files to your phone via KDE Connect"
 __website__ = "https://community.kde.org/KDEConnect"
 
 import gettext
-import locale
 from functools import partial
 
 from gi.repository import Nautilus, Gio, GLib, GObject
 
-_ = gettext.gettext
+try:
+    i18n = gettext.translation('kdeconnect-nautilus-extension')
+    _ = i18n.gettext
+except (IOError, OSError) as e:
+    print('kdeconnect-nautilus: {0}'.format(e.strerr))
+    i18n = gettext.translation('kdeconnect-nautilus-extension', fallback=True)
+    _ = i18n.gettext
 
 class KdeConnectShareExtension(GObject.GObject, Nautilus.MenuProvider):
     """A context menu for sending files via KDE Connect."""
@@ -54,12 +59,6 @@ class KdeConnectShareExtension(GObject.GObject, Nautilus.MenuProvider):
         GObject.GObject.__init__(self)
 
         self.devices = {}
-
-        try:
-            locale.setlocale(locale.LC_ALL, '')
-            gettext.bindtextdomain('kdeconnect-nautilus-extension')
-        except Exception as e:
-            print(e)
 
         self.dbus = Gio.DBusProxy.new_for_bus_sync(
             Gio.BusType.SESSION,
