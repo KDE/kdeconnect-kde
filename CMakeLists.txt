@@ -52,7 +52,6 @@ else()
     )
 
     if(UNIX AND NOT APPLE)
-        set(KF5_OPTIONAL_COMPONENTS ${KF5_OPTIONAL_COMPONENTS} Runner)
         find_package(KF5PulseAudioQt)
     endif()
     find_package(Qca-qt5 ${QCA_MIN_VERSION} REQUIRED)
@@ -108,10 +107,6 @@ if(NOT SAILFISHOS)
     if(NOT WIN32)
         add_subdirectory(kio)
         add_subdirectory(plasmoid)
-    endif()
-
-    if(KF5Runner_FOUND)
-        add_subdirectory(runners)
     endif()
 
     if(KF5DocTools_FOUND)
