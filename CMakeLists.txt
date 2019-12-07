@@ -26,7 +26,7 @@ include(GenerateExportHeader)
 
 include(KDEConnectMacros.cmake)
 
-ecm_setup_version(1.3.3
+ecm_setup_version(1.4.0
     VARIABLE_PREFIX KDECONNECT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
