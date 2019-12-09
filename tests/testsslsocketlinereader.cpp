@@ -20,6 +20,7 @@
 
 #include "../core/backends/lan/server.h"
 #include "../core/backends/lan/socketlinereader.h"
+#include "../core/qtcompat_p.h"
 
 #include <QSslKey>
 #include <QtCrypto>

@@ -23,8 +23,6 @@
 
 #include <QPointer>
 
-#include <KIO/Job>
-
 #include <core/kdeconnectplugin.h>
 #include <core/compositefiletransferjob.h>
 
