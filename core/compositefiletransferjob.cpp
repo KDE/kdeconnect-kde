@@ -57,7 +57,11 @@ void CompositeFileTransferJob::startNextSubJob()
     m_currentJobSendPayloadSize = 0;
     emitDescription(m_currentJob->destination().toString());
     m_currentJob->start();
+#ifdef SAILFISHOS
+    connect(m_currentJob, SIGNAL(processedAmount(KJob*,KJob::Unit,qulonglong)), this, SLOT(slotProcessedAmount(KJob*,KJob::Unit,qulonglong)));
+#else
     connect(m_currentJob, QOverload<KJob*,KJob::Unit,qulonglong>::of(&FileTransferJob::processedAmount), this, &CompositeFileTransferJob::slotProcessedAmount);
+#endif
 }
 
 bool CompositeFileTransferJob::addSubjob(KJob* job)

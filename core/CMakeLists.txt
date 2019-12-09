@@ -43,13 +43,13 @@ set(kdeconnectcore_SRCS
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})
 
-target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR})
+target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ${PROJECT_SOURCE_DIR})
 
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt5::Network
     KF5::CoreAddons
-    qca-qt5
+    ${Qca_LIBRARY}
 PRIVATE
     Qt5::DBus
     KF5::I18n

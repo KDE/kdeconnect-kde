@@ -18,6 +18,7 @@
 
 #include "../core/backends/lan/socketlinereader.h"
 #include "../core/backends/lan/server.h"
+#include "../core/qtcompat_p.h"
 
 #include <QTest>
 #include <QSslSocket>
