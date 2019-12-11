@@ -19,12 +19,14 @@
  */
 
 #include <QSocketNotifier>
-#include <QCoreApplication>
+#include <QApplication>
 #include <QNetworkAccessManager>
 #include <QTest>
 #include <QTemporaryFile>
 #include <QSignalSpy>
 #include <QStandardPaths>
+
+#include <KIO/AccessManager>
 
 #include "core/daemon.h"
 #include "core/device.h"

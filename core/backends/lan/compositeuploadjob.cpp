@@ -25,7 +25,6 @@
 #include "lanlinkprovider.h"
 #include <daemon.h>
 #include "plugins/share/shareplugin.h"
-#include "qtcompat_p.h"
 
 #ifdef HAVE_KIO
 #include <kio/global.h>
@@ -108,21 +107,13 @@ void CompositeUploadJob::startNextSubJob()
     m_currentJobSendPayloadSize = 0;
     emitDescription(m_currentJob->getNetworkPacket().get<QString>(QStringLiteral("filename")));
 
-#ifdef SAILFISHOS
-    connect(m_currentJob, SIGNAL(processedAmount(KJob*,KJob::Unit,qulonglong)), this, SLOT(slotProcessedAmount(KJob*,KJob::Unit,qulonglong)));
-#else
     connect(m_currentJob, QOverload<KJob*,KJob::Unit,qulonglong>::of(&UploadJob::processedAmount), this, &CompositeUploadJob::slotProcessedAmount);
-#endif
     //Already done by KCompositeJob
     //connect(m_currentJob, &KJob::result, this, &CompositeUploadJob::slotResult);
     
     //TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
     NetworkPacket np = m_currentJob->getNetworkPacket();
-#if QT_VERSION < QT_VERSION_CHECK(5,8,0)
-    np.setPayload({}, np.payloadSize());
-#else
     np.setPayload(nullptr, np.payloadSize());
-#endif
     np.setPayloadTransferInfo({{QStringLiteral("port"), m_port}});
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);

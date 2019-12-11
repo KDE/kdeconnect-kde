@@ -42,7 +42,6 @@
 #include "landevicelink.h"
 #include "lanpairinghandler.h"
 #include "kdeconnectconfig.h"
-#include "qtcompat_p.h"
 
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
 
@@ -371,12 +370,7 @@ void LanLinkProvider::newConnection()
 void LanLinkProvider::dataReceived()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
-#if QT_VERSION < QT_VERSION_CHECK(5,7,0)
-    if (!socket->canReadLine())
-        return;
-#else
     socket->startTransaction();
-#endif
 
     const QByteArray data = socket->readLine();
 
@@ -385,19 +379,12 @@ void LanLinkProvider::dataReceived()
     NetworkPacket* np = new NetworkPacket(QLatin1String(""));
     bool success = NetworkPacket::unserialize(data, np);
 
-#if QT_VERSION < QT_VERSION_CHECK(5,7,0)
-    if (!success) {
-        delete np;
-        return;
-    }
-#else
     if (!success) {
         delete np;
         socket->rollbackTransaction();
         return;
     }
     socket->commitTransaction();
-#endif
 
     if (np->type() != PACKET_TYPE_IDENTITY) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Expected identity, received " << np->type();

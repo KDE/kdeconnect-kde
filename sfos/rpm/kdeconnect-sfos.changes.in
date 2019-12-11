@@ -1,0 +1,18 @@
+# Rename this file as kdeconnect-sfos.changes to include changelog
+# entries in your RPM file.
+#
+# Add new changelog entries following the format below.
+# Add newest entries to the top of the list.
+# Separate entries from eachother with a blank line.
+#
+# Alternatively, if your changelog is automatically generated (e.g. with
+# the git-change-log command provided with Sailfish OS SDK), create a
+# kdeconnect-sfos.changes.run script to let mb2 run the required commands for you.
+
+# * date Author's Name <author's email> version-release
+# - Summary of changes
+
+* Sun Apr 13 2014 Jack Tar <jack.tar@example.com> 0.0.1-1
+- Scrubbed the deck
+- Hoisted the sails
+

@@ -40,42 +40,6 @@ template <typename T>
 void qAsConst(const T &&) Q_DECL_EQ_DELETE;
 #endif
 
-
-#if QT_VERSION < QT_VERSION_CHECK(5,7,0)
-template<typename...Args>
-struct QNonConstOverload
-{
-    template<typename R, typename T>
-    static constexpr auto of(R (T::*func)(Args...)) noexcept -> decltype(func)
-    {
-        return func;
-    }
-};
-
-template<typename...Args>
-struct QConstOverload
-{
-    template<typename R, typename T>
-    static constexpr auto of(R (T::*func)(Args...) const) noexcept -> decltype(func)
-    {
-        return func;
-    }
-};
-
-template<typename...Args>
-struct QOverload : QConstOverload<Args...>, QNonConstOverload<Args...>
-{
-    using QConstOverload<Args...>::of;
-    using QNonConstOverload<Args...>::of;
-
-    template<typename R>
-    static constexpr auto of(R (*func)(Args...)) noexcept -> decltype(func)
-    {
-        return func;
-    }
-};
-#endif
-
 // compat for Q_FALLTHROUGH
 #if QT_VERSION < QT_VERSION_CHECK(5,8,0)
 

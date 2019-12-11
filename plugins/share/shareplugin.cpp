@@ -32,7 +32,6 @@
 #include <KLocalizedString>
 #include <KJobTrackerInterface>
 #include <KPluginFactory>
-#include <KIO/Job>
 #include <KIO/MkpathJob>
 #include <KMimeTypeTrader>
 

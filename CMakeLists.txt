@@ -3,13 +3,14 @@ cmake_minimum_required(VERSION 3.0)
 project(kdeconnect)
 
 if (SAILFISHOS)
-    set(KF5_MIN_VERSION "5.36.0")
+    set(KF5_MIN_VERSION "5.31.0")
     set(QT_MIN_VERSION "5.6.0")
+    set(QCA_MIN_VERSION "2.0.0")
 else()
     set(KF5_MIN_VERSION "5.64.0")
     set(QT_MIN_VERSION "5.10.0")
+    set(QCA_MIN_VERSION "2.1.0")
 endif()
-set(QCA_MIN_VERSION "2.1.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -31,16 +32,15 @@ ecm_setup_version(1.4.0
 )
 
 if (SAILFISHOS)
-    set(KF5_REQUIRED_COMPONENTS I18n CoreAddons Config)
+    find_package(PkgConfig)
+    set(KF5_REQUIRED_COMPONENTS I18n DBusAddons CoreAddons IconThemes Config)
     set(KF5_OPTIONAL_COMPONENTS)
-    
-    set(Qca_LIBRARY CONAN_PKG::Qca-qt5)
-
+    pkg_search_module(SFOS REQUIRED sailfishapp)
+    pkg_check_modules(QCA2 qca2-qt5>=${QCA_MIN_VERSION} REQUIRED)
     add_definitions(-DSAILFISHOS)
+    include_directories(${QCA2_INCLUDEDIR})
+    add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 else()
-    find_package(Qca-qt5 ${QCA_MIN_VERSION} REQUIRED)
-    set(Qca_LIBRARY qca-qt5)
-
     set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Kirigami2 People)
     set(KF5_OPTIONAL_COMPONENTS DocTools)
 
@@ -54,6 +54,7 @@ else()
     if(UNIX AND NOT APPLE)
         find_package(KF5PulseAudioQt)
     endif()
+    find_package(Qca-qt5 ${QCA_MIN_VERSION} REQUIRED)
 
     find_package(KF5PeopleVCard)
     set_package_properties(KF5PeopleVCard PROPERTIES
@@ -62,15 +63,13 @@ else()
         TYPE RUNTIME
     )
 
-    add_definitions(-DHAVE_KIO)
+    add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII -DHAVE_KIO)
 endif()
 
-add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
-
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick Network Multimedia)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Quick Network Multimedia)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 if (KF5_OPTIONAL_COMPONENTS)
-    find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
+find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
 endif()
 
 if (NOT ZSH_AUTOCOMPLETE_DIR)
@@ -83,15 +82,14 @@ if(PRIVATE_DBUS_ENABLED OR APPLE)
 endif()
 
 add_subdirectory(core)
+add_subdirectory(icon)
+add_subdirectory(interfaces)
+add_subdirectory(data)
+add_subdirectory(plugins)
+add_subdirectory(cli)
+add_subdirectory(declarativeplugin)
 
-if (NOT SAILFISHOS)
-    add_subdirectory(icon)
-    add_subdirectory(interfaces)
-    add_subdirectory(data)
-    add_subdirectory(plugins)
-    add_subdirectory(cli)
-    add_subdirectory(declarativeplugin)
-
+if(NOT SAILFISHOS)
     add_subdirectory(kcm)
     add_subdirectory(kcmplugin)
     add_subdirectory(daemon)
@@ -101,19 +99,21 @@ if (NOT SAILFISHOS)
     add_subdirectory(nautilus-extension)
     add_subdirectory(fileitemactionplugin)
     add_subdirectory(smsapp)
-    
+
+    if(BUILD_TESTING)
+        add_subdirectory(tests)
+    endif()
+
     if(NOT WIN32)
         add_subdirectory(kio)
         add_subdirectory(plasmoid)
     endif()
-endif()
-    
-if(KF5DocTools_FOUND)
-    add_subdirectory(doc)
-endif()
 
-if(BUILD_TESTING)
-    add_subdirectory(tests)
+    if(KF5DocTools_FOUND)
+        add_subdirectory(doc)
+    endif()
+else()
+    add_subdirectory(sfos)
 endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
