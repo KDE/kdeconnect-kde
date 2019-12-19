@@ -57,20 +57,8 @@ Kirigami.ScrollablePage
             onTriggered: {
                 conversationListModel.refresh()
             }
-        },
-        Kirigami.Action {
-            text: i18n("About...")
-            icon.name: "help-about"
-            onTriggered: {
-                applicationWindow().pageStack.push(aboutPageComponent, { aboutData: aboutData });
-            }
         }
     ]
-
-    Component {
-        id: aboutPageComponent
-        Kirigami.AboutPage {}
-    }
 
     ColumnLayout {
         id: loadingMessage

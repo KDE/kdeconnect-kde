@@ -21,7 +21,7 @@
  */
 
 import QtQuick 2.1
-import org.kde.kirigami 2.2 as Kirigami
+import org.kde.kirigami 2.6 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.ApplicationWindow
@@ -35,4 +35,25 @@ Kirigami.ApplicationWindow
         title: i18n("KDE Connect SMS")
         initialMessage: _initialMessage
     }
+
+    Component {
+        id: aboutPageComponent
+        Kirigami.AboutPage {}
+    }
+
+    globalDrawer: Kirigami.GlobalDrawer {
+
+        isMenu: true
+
+        actions: [
+            Kirigami.Action {
+                text: i18n("About...")
+                icon.name: "help-about"
+                onTriggered: {
+                    applicationWindow().pageStack.push(aboutPageComponent, { aboutData: aboutData });
+                }
+            }
+        ]
+    }
+
 }
