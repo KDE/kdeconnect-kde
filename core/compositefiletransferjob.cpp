@@ -77,6 +77,7 @@ bool CompositeFileTransferJob::addSubjob(KJob* job)
 
         if (np->has(QStringLiteral("numberOfFiles"))) {
             m_totalJobs = np->get<int>(QStringLiteral("numberOfFiles"));
+            setTotalAmount(Files, m_totalJobs);
         }
 
         QString filename = np->get<QString>(QStringLiteral("filename"));
