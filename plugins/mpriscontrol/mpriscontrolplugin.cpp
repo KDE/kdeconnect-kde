@@ -361,10 +361,23 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket& np, c
     QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toString();
     QString album = nowPlayingMap[QStringLiteral("xesam:album")].toString();
     QString albumArtUrl = nowPlayingMap[QStringLiteral("mpris:artUrl")].toString();
+    QUrl fileUrl = nowPlayingMap[QStringLiteral("xesam:url")].toUrl();
+
+    if (title.isEmpty() && artist.isEmpty() && fileUrl.isLocalFile()) {
+        title = fileUrl.fileName();
+
+        QStringList splitUrl = fileUrl.path().split(QDir::separator());
+        if (album.isEmpty() && splitUrl.size() > 1) {
+            album = splitUrl.at(splitUrl.size() - 2);
+        }
+    }
+
     QString nowPlaying = title;
+
     if (!artist.isEmpty()) {
         nowPlaying = artist + QStringLiteral(" - ") + title;
     }
+
     np.set(QStringLiteral("title"), title);
     np.set(QStringLiteral("artist"), artist);
     np.set(QStringLiteral("album"), album);
