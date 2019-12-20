@@ -35,6 +35,7 @@
 #include <KIO/Job>
 #include <KIO/MkpathJob>
 #include <KMimeTypeTrader>
+#include <KFileUtils>
 
 #include "core/filetransferjob.h"
 #include "core/daemon.h"
@@ -73,7 +74,7 @@ QUrl SharePlugin::getFileDestination(const QString filename) const
     QUrl destination(dir);
     destination.setPath(dir.path() + QStringLiteral("/") + filename, QUrl::DecodedMode);
     if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
-        destination.setPath(dir.path() + QStringLiteral("/") + KIO::suggestName(dir, filename), QUrl::DecodedMode);
+        destination.setPath(dir.path() + QStringLiteral("/") + KFileUtils::suggestName(dir, filename), QUrl::DecodedMode);
     }
     return destination;
 }

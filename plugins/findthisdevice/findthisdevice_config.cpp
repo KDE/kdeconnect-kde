@@ -49,7 +49,7 @@ FindThisDeviceConfig::FindThisDeviceConfig(QWidget* parent, const QVariantList& 
     connect(m_ui->playSoundButton, &QToolButton::clicked,
             this, &FindThisDeviceConfig::playSound);
     connect(m_ui->soundFileRequester, &KUrlRequester::textChanged,
-            this, QOverload<>::of(&FindThisDeviceConfig::changed));
+            this, &FindThisDeviceConfig::markAsChanged);
 }
 
 FindThisDeviceConfig::~FindThisDeviceConfig()
