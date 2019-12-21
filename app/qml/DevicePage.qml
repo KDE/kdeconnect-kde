@@ -64,11 +64,11 @@ Kirigami.Page
                     Kirigami.Action {
                         iconName:"network-disconnect"
                         onTriggered: deviceView.currentDevice.unpair()
-                        text: i18n("Unpair")
+                        text: i18nd("kdeconnect-app", "Unpair")
                     },
                     Kirigami.Action {
                         iconName:"hands-free"
-                        text: i18n("Send Ping")
+                        text: i18nd("kdeconnect-app", "Send Ping")
                         onTriggered: {
                             deviceView.currentDevice.pluginCall("ping", "sendPing");
                         }
@@ -91,19 +91,19 @@ Kirigami.Page
                 property list<QtObject> plugins : [
 
                     PluginItem {
-                        name: i18n("Multimedia control")
+                        name: i18nd("kdeconnect-app", "Multimedia control")
                         interfaceFactory: MprisDbusInterfaceFactory
                         component: "qrc:/qml/mpris.qml"
                         pluginName: "mprisremote"
                     },
                     PluginItem {
-                        name: i18n("Remote input")
+                        name: i18nd("kdeconnect-app", "Remote input")
                         interfaceFactory: RemoteControlDbusInterfaceFactory
                         component: "qrc:/qml/mousepad.qml"
                         pluginName: "remotecontrol"
                     },
                     PluginItem {
-                        name: i18n("Presentation Remote")
+                        name: i18nd("kdeconnect-app", "Presentation Remote")
                         interfaceFactory: RemoteKeyboardDbusInterfaceFactory
                         component: "qrc:/qml/presentationRemote.qml"
                         pluginName: "remotecontrol"
@@ -111,7 +111,7 @@ Kirigami.Page
                     PluginItem {
                         readonly property var lockIface: LockDeviceDbusInterfaceFactory.create(deviceView.currentDevice.id())
                         pluginName: "lockdevice"
-                        name: lockIface.isLocked ? i18n("Unlock") : i18n("Lock")
+                        name: lockIface.isLocked ? i18nd("kdeconnect-app", "Unlock") : i18nd("kdeconnect-app", "Lock")
                         onClick: function() {
                             lockIface.isLocked = !lockIface.isLocked;
                         }
@@ -119,13 +119,13 @@ Kirigami.Page
                     PluginItem {
                         readonly property var findmyphoneIface: FindMyPhoneDbusInterfaceFactory.create(deviceView.currentDevice.id())
                         pluginName: "findmyphone"
-                        name: i18n("Find Device")
+                        name: i18nd("kdeconnect-app", "Find Device")
                         onClick: function() {
                             findmyphoneIface.ring()
                         }
                     },
                     PluginItem {
-                        name: i18n("Run command")
+                        name: i18nd("kdeconnect-app", "Run command")
                         interfaceFactory: RemoteCommandsDbusInterfaceFactory
                         component: "qrc:/qml/runcommand.qml"
                         pluginName: "remotecommands"
@@ -133,14 +133,14 @@ Kirigami.Page
                     PluginItem {
                         readonly property var shareIface: ShareDbusInterfaceFactory.create(deviceView.currentDevice.id())
                         pluginName: "share"
-                        name: i18n("Share File")
+                        name: i18nd("kdeconnect-app", "Share File")
                         onClick: function() {
                             fileDialog.open()
                             shareIface.shareUrl(fileDialog.fileUrl)
                         }
                     },
                     PluginItem {
-                        name: i18n("Volume control")
+                        name: i18nd("kdeconnect-app", "Volume control")
                         interfaceFactory: RemoteSystemVolumeDbusInterfaceFactory
                         component: "qrc:/qml/volume.qml"
                         pluginName: "remotesystemvolume"
@@ -154,7 +154,7 @@ Kirigami.Page
                 readonly property var actions: []
                 Button {
                     anchors.centerIn: parent
-                    text: i18n("Pair")
+                    text: i18nd("kdeconnect-app", "Pair")
                     icon.name:"network-connect"
                     onClicked: deviceView.currentDevice.requestPair()
                 }
@@ -167,13 +167,13 @@ Kirigami.Page
                 RowLayout {
                         anchors.centerIn: parent
                     Button {
-                        text: i18n("Accept")
+                        text: i18nd("kdeconnect-app", "Accept")
                         icon.name:"dialog-ok"
                         onClicked: deviceView.currentDevice.acceptPairing()
                     }
 
                     Button {
-                        text: i18n("Reject")
+                        text: i18nd("kdeconnect-app", "Reject")
                         icon.name:"dialog-cancel"
                         onClicked: deviceView.currentDevice.rejectPairing()
                     }
@@ -188,7 +188,7 @@ Kirigami.Page
 
                 Label {
                     anchors.centerIn: parent
-                    text: i18n("This device is not reachable")
+                    text: i18nd("kdeconnect-app", "This device is not reachable")
                 }
             }
         }
@@ -196,7 +196,7 @@ Kirigami.Page
 
     FileDialog {
         id: fileDialog
-        title: i18n("Please choose a file")
+        title: i18nd("kdeconnect-app", "Please choose a file")
         folder: shortcuts.home
     }
 }

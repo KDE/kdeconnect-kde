@@ -119,7 +119,7 @@ RowLayout {
 			Controls.Menu {
 				id: contextMenu
 				Controls.MenuItem {
-					text: i18n("Copy Message")
+					text: i18nd("kdeconnect-sms", "Copy Message")
 					enabled: bodyLabel.visible
 					onTriggered: {
 					        root.messageCopyRequested(messageBody)
@@ -147,7 +147,7 @@ RowLayout {
 				}
 				Controls.Label {
 					id: dateLabeltest
-					text: spoilerHint == "" ? qsTr("Spoiler") : spoilerHint
+					text: spoilerHint == "" ? i18nd("kdeconnect-sms", "Spoiler") : spoilerHint
 					color: sentByMe ? Kirigami.Theme.textColor
 								: Kirigami.Theme.complementaryTextColor
 					font.pixelSize: Kirigami.Units.gridUnit * 0.8
@@ -187,7 +187,7 @@ RowLayout {
 //								mediaLocation === "" &&
 //								mediaGetUrl !== ""
 					}
-					text: qsTr("Download")
+					text: i18nd("kdeconnect-sms", "Download")
 					onClicked: {
 						print("Downloading " + mediaGetUrl + "...")
 						kaidan.downloadMedia(msgId, mediaGetUrl)

@@ -27,15 +27,15 @@ import org.kde.kdeconnect 1.0
 Kirigami.Page
 {
     id: root
-    title: i18n("Run command")
+    title: i18nd("kdeconnect-app", "Run command")
     property QtObject pluginInterface
 
     actions.main: Kirigami.Action {
         icon.name: "document-edit"
-        text: i18n("Edit commands")
+        text: i18nd("kdeconnect-app", "Edit commands")
         onTriggered: {
             pluginInterface.editCommands();
-            showPassiveNotification(i18n("You can edit commands on the connected device"));
+            showPassiveNotification(i18nd("kdeconnect-app", "You can edit commands on the connected device"));
         }
     }
 
@@ -55,7 +55,7 @@ Kirigami.Page
 
     Label {
         visible: commandsList.count === 0
-        text: i18n("No commands defined")
+        text: i18nd("kdeconnect-app", "No commands defined")
         anchors.centerIn: parent
     }
 

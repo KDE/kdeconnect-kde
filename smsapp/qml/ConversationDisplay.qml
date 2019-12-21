@@ -196,7 +196,7 @@ Kirigami.ScrollablePage
             TextArea {
                 id: messageField
                 Layout.fillWidth: true
-                placeholderText: page.isMultitarget ? i18n("Replying to multitarget messages is not supported") : i18n("Compose message")
+                placeholderText: page.isMultitarget ? i18nd("kdeconnect-sms", "Replying to multitarget messages is not supported") : i18nd("kdeconnect-sms", "Compose message")
                 wrapMode: TextArea.Wrap
                 topPadding: Kirigami.Units.gridUnit * 0.5
                 bottomPadding: topPadding

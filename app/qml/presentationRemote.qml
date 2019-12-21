@@ -26,12 +26,12 @@ import org.kde.kirigami 2.0 as Kirigami
 Kirigami.Page
 {
     id: mousepad
-    title: i18n("Presentation Remote")
+    title: i18nd("kdeconnect-app", "Presentation Remote")
     property QtObject pluginInterface
 
     actions.main: Kirigami.Action {
         icon.name: "view-fullscreen"
-        text: i18n("Enable Full-Screen")
+        text: i18nd("kdeconnect-app", "Enable Full-Screen")
         onTriggered: {
             mousepad.pluginInterface.sendKeyPress("", 25 /*XK_F5*/);
         }

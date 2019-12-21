@@ -27,7 +27,7 @@ import org.kde.kdeconnect 1.0
 Kirigami.Page
 {
     id: root
-    title: i18n("Volume control")
+    title: i18nd("kdeconnect-app", "Volume control")
     property QtObject pluginInterface
 
     ListView {

@@ -35,7 +35,7 @@ Kirigami.ScrollablePage
         id: noDevicesWarning
         visible: !page.deviceConnected
         timeout: -1
-        text: "⚠️ " + i18n("No devices available") + " ⚠️"
+        text: "⚠️ " + i18nd("kdeconnect-sms", "No devices available") + " ⚠️"
 
         MouseArea {
             // Detect mouseover and show another tooltip with more information
@@ -45,13 +45,13 @@ Kirigami.ScrollablePage
             ToolTip.visible: containsMouse
             ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
             // TODO: Wrap text if line is too long for the screen
-            ToolTip.text: i18n("No new messages can be sent or received, but you can browse cached content")
+            ToolTip.text: i18nd("kdeconnect-sms", "No new messages can be sent or received, but you can browse cached content")
         }
     }
 
     contextualActions: [
         Kirigami.Action {
-            text: i18n("Refresh")
+            text: i18nd("kdeconnect-sms", "Refresh")
             icon.name: "view-refresh"
             enabled: devicesCombo.count > 0
             onTriggered: {
@@ -77,12 +77,12 @@ Kirigami.ScrollablePage
     header: Kirigami.InlineMessage {
         Layout.fillWidth: true
         visible: page.initialMessage.length > 0
-        text: i18n("Choose recipient")
+        text: i18nd("kdeconnect-sms", "Choose recipient")
 
         actions: [
           Kirigami.Action {
               iconName: "dialog-cancel"
-              text: i18n("Cancel")
+              text: i18nd("kdeconnect-sms", "Cancel")
               onTriggered: initialMessage = ""
             }
         ]
@@ -91,7 +91,7 @@ Kirigami.ScrollablePage
     footer: ComboBox {
         id: devicesCombo
         enabled: count > 0
-        displayText: !enabled ? i18n("No devices available") : undefined
+        displayText: !enabled ? i18nd("kdeconnect-sms", "No devices available") : undefined
         model: DevicesSortProxyModel {
             id: devicesModel
             //TODO: make it possible to filter if they can do sms
@@ -137,7 +137,7 @@ Kirigami.ScrollablePage
              * Used as the filter of the list of messages
              */
             id: filter
-            placeholderText: i18n("Filter...")
+            placeholderText: i18nd("kdeconnect-sms", "Filter...")
             width: parent.width
             z: 10
             onTextChanged: {

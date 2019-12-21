@@ -33,7 +33,7 @@ Kirigami.ApplicationWindow
 
     Kirigami.Action {
         id: findDevicesAction
-        text: i18n("Find devices...")
+        text: i18nd("kdeconnect-app", "Find devices...")
         iconName: "list-add"
         checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
 

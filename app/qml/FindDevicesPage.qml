@@ -32,10 +32,10 @@ Kirigami.ScrollablePage
     }
 
     objectName: "FindDevices"
-    title: i18n("Pair")
+    title: i18nd("kdeconnect-app", "Pair")
 
     Label {
-        text: i18n("No devices found")
+        text: i18nd("kdeconnect-app", "No devices found")
         anchors.centerIn: parent
         visible: devices.count === 0
     }
@@ -50,11 +50,11 @@ Kirigami.ScrollablePage
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:
-                        return i18n("Remembered")
+                        return i18nd("kdeconnect-app", "Remembered")
                     case DevicesModel.Reachable:
-                        return i18n("Available")
+                        return i18nd("kdeconnect-app", "Available")
                     case (DevicesModel.Reachable | DevicesModel.Paired):
-                        return i18n("Connected")
+                        return i18nd("kdeconnect-app", "Connected")
                 }
 
             }

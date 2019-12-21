@@ -32,7 +32,7 @@ Kirigami.ApplicationWindow
     height: 600
 
     pageStack.initialPage: ConversationList {
-        title: i18n("KDE Connect SMS")
+        title: i18nd("kdeconnect-sms", "KDE Connect SMS")
         initialMessage: _initialMessage
     }
 
@@ -47,7 +47,7 @@ Kirigami.ApplicationWindow
 
         actions: [
             Kirigami.Action {
-                text: i18n("About...")
+                text: i18nd("kdeconnect-sms", "About...")
                 icon.name: "help-about"
                 onTriggered: {
                     applicationWindow().pageStack.push(aboutPageComponent, { aboutData: aboutData });

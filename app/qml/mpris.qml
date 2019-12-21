@@ -30,7 +30,7 @@ Kirigami.Page
     property bool muted: false
     property int volumeUnmuted
     property var volume: pluginInterface.volume
-    title: i18n("Multimedia Controls")
+    title: i18nd("kdeconnect-app", "Multimedia Controls")
 
     onVolumeChanged: {
         if (muted && volume != 0) {
@@ -73,7 +73,7 @@ Kirigami.Page
 
     Label {
         id: noPlayersText
-        text: i18n("No players available")
+        text: i18nd("kdeconnect-app", "No players available")
         anchors.centerIn: parent
         visible: pluginInterface.playerList.length == 0
     }
@@ -121,7 +121,7 @@ Kirigami.Page
         Label {
             id: artistAlbum
             Layout.fillWidth: true
-            text: i18n("%1 - %2", root.pluginInterface.artist, root.pluginInterface.album)
+            text: i18nd("kdeconnect-app", "%1 - %2", root.pluginInterface.artist, root.pluginInterface.album)
             visible: !nowPlaying.visible && root.pluginInterface.album.length > 0 && root.pluginInterface.artist.length > 0
             wrapMode: Text.Wrap
         }

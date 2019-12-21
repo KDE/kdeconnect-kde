@@ -27,7 +27,7 @@ import org.kde.kdeconnect 1.0
 Kirigami.Page
 {
     id: mousepad
-    title: i18n("Remote Control")
+    title: i18nd("kdeconnect-app", "Remote Control")
     property QtObject pluginInterface
     property QtObject device
 
