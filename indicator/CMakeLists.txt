@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-indicator\")
+
 set(indicator_SRCS
     main.cpp
     deviceindicator.cpp
