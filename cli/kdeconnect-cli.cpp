@@ -182,8 +182,8 @@ int main(int argc, char** argv)
             }
         }
         if(device.isEmpty()) {
-            QTextStream(stderr) << i18n("No device specified") << endl;
-            parser.showHelp(1);
+            QTextStream(stderr) << i18n("No device specified: Use -d <Device ID> or -n <Device Name> to specify a device. \nDevice ID's and names may be found using \"kdeconnect-cli -l\" \nView complete help with --help option") << endl;
+            return 1;
         }
 
         if (!blockOnReply<QStringList>(iface.devices(false, false)).contains(device)) {
