@@ -57,7 +57,7 @@ int main(int argc, char** argv)
 
     helper.preInit();
 
-    // Run Daemon initilization step
+    // Run Daemon initialization step
     QProcess kdeconnectd;
     if (helper.daemonHook(kdeconnectd)) {
         return -1;

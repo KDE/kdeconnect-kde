@@ -18,8 +18,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef NOTIFICATIONLISTENER_H
-#define NOTIFICATIONLISTENER_H
+#ifndef NOTIFICATIONSLISTENER_H
+#define NOTIFICATIONSLISTENER_H
 
 #include <QDBusAbstractAdaptor>
 #include <QDBusArgument>
@@ -66,4 +66,4 @@ private:
     QString m_translatedAppName;
 };
 
-#endif // NOTIFICATIONLISTENER_H
+#endif // NOTIFICATIONSLISTENER_H

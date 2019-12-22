@@ -96,13 +96,13 @@ Kirigami.ScrollablePage
             }
 
             if (!isInitalized) {
-                // If we aren't initalized, we need to request enough messages to fill the view
+                // If we aren't initialized, we need to request enough messages to fill the view
                 // In order to do that, request one more message until we have enough
                 if (viewport.contentHeight < viewport.height) {
                     console.debug("Requesting another message to fill the screen")
                     conversationModel.requestMoreMessages(1)
                 } else {
-                    // Finish intializing: Scroll to the bottom of the view
+                    // Finish initializing: Scroll to the bottom of the view
 
                     // View the most-recent message
                     viewport.forceLayout()

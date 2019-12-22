@@ -19,6 +19,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifndef TESTDEVICE_H
+#define TESTDEVICE_H
+
 #include <QtCore>
 #include "core/device.h"
 
@@ -58,3 +61,5 @@ public Q_SLOTS:
     bool sendPacket(NetworkPacket& np) override;
 
 };
+
+#endif

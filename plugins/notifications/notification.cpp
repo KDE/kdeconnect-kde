@@ -42,7 +42,7 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
     , m_imagesDir()
     , m_device(device)
 {
-    //Make a own directory for each user so noone can see each others icons
+    //Make a own directory for each user so no one can see each others icons
     QString username;
     #ifdef Q_OS_WIN
         username = QString::fromLatin1(qgetenv("USERNAME"));
@@ -63,7 +63,7 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
         if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
             return;
         }
-        // Notification action idices start at 1
+        // Notification action indices start at 1
         Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
     });
 }

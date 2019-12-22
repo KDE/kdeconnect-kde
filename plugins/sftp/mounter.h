@@ -18,8 +18,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef SFTPPLUGIN_MOUNTJOB_H
-#define SFTPPLUGIN_MOUNTJOB_H
+#ifndef SFTPPLUGIN_MOUNTER_H
+#define SFTPPLUGIN_MOUNTER_H
 
 #include <KJob>
 #include <KProcess>

@@ -18,11 +18,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef KDECONNECT_INTERFACE_DEBUG_H
-#define KDECONNECT_INTERFACE_DEBUG_H
+#ifndef KDECONNECT_INTERFACES_DEBUG_H
+#define KDECONNECT_INTERFACES_DEBUG_H
 
 #include <QLoggingCategory>
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_INTERFACES)
 
-#endif //KDECONNECT_INTERFACE_DEBUG_H
+#endif //KDECONNECT_INTERFACES_DEBUG_H

@@ -18,6 +18,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifndef INDICATORHELPER_H
+#define INDICATORHELPER_H
+
 #include <QProcess>
 #include <QSplashScreen>
 
@@ -51,3 +54,5 @@ private:
     QSplashScreen *m_splashScreen;
 #endif
 };
+
+#endif

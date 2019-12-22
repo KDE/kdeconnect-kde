@@ -18,10 +18,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "indicatorhelper.h"
+
 #include <QApplication>
 #include <QIcon>
-
-#include "indicatorhelper.h"
 
 IndicatorHelper::IndicatorHelper() {}
 IndicatorHelper::~IndicatorHelper() {}

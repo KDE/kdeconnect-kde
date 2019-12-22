@@ -117,7 +117,7 @@ private:
     /**
      * Tries to parse a single connection message.
      *
-     * @return True if a message was parsed succesfully.
+     * @return True if a message was parsed successfully.
      */
     bool tryParseMessage();
     /**
