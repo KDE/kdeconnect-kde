@@ -117,7 +117,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void conversationLoaded(qint64 conversationID, quint64 messageCount);
 
 private /*methods*/:
-    QString newId(); //Generates successive identifitiers to use as public ids
+    QString newId(); //Generates successive identifiers to use as public ids
 
 private /*attributes*/:
     const QString m_device;

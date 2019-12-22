@@ -48,7 +48,7 @@
  *     "body"      : "Hello",         // Text message body
  *     "addresses": <List<Address>>   // List of Address objects, one for each participant of the conversation
  *                                    // The user's Address is excluded so:
- *                                    // If this is a single-target messsage, there will only be one
+ *                                    // If this is a single-target message, there will only be one
  *                                    // Address (the other party)
  *                                    // If this is an incoming multi-target message, the first Address is the
  *                                    // sender and all other addresses are other parties to the conversation

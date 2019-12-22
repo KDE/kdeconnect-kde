@@ -89,7 +89,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
             //For drag'n drop
             m_waylandInput->requestPointerButtonPress(Qt::LeftButton);
         } else if (isSingleRelease){
-            //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofnes.
+            //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
             m_waylandInput->requestPointerButtonRelease(Qt::LeftButton);
         } else if (isScroll) {
             m_waylandInput->requestPointerAxis(Qt::Vertical, dy);

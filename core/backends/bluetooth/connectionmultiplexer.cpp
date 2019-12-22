@@ -29,7 +29,7 @@
 #include "multiplexchannelstate.h"
 
 /**
- * The default channel uuid. This channel is opened implicitely (without communication).
+ * The default channel uuid. This channel is opened implicitly (without communication).
  */
 #define DEFAULT_CHANNEL_UUID "a0d0aaf4-1072-4d81-aa35-902a954b1266"
 

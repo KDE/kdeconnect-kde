@@ -17,7 +17,7 @@ All this is done completely wirelessly, utilising TLS encryption.
 - Android, by installing the KDE Connect app from the [Play Store](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) or [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp).
 
 ## How to install
-These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Andriod device and pair them together in the app before using this application. The Android app repository can be found [here](https://cgit.kde.org/kdeconnect-android.git/)
+These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Android device and pair them together in the app before using this application. The Android app repository can be found [here](https://cgit.kde.org/kdeconnect-android.git/)
 
 ### On Linux
 Look in your distribution repo for a package called `kdeconnect-kde`, `kdeconnect-plasma`, or just `kdeconnect`. If it's not there and you know how to build software from sources, you just found the repo :), instructions are [here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
@@ -47,11 +47,11 @@ The basic structure of a NetworkPacket is the following:
 }
 ```
 
-The content of the `"body"` section is defined by each Plugin. Hence, only the emisor and receiver plugins of a given packet type need agree on the contents of the body.
+The content of the `"body"` section is defined by each Plugin. Hence, only the emitter and receiver plugins of a given packet type need agree on the contents of the body.
 
 NetworkPackets can also have binary data attached that can't be serialized to JSON. In this case, two new fields will be added:
 
-`"payloadSize"`: The size of the file, or -1 if it is a stream without known size.  
+`"payloadSize"`: The size of the file, or -1 if it is a stream without known size.
 `"payloadTransferInfo"`: Another JSON object where the specific Link can add information so the Link in the remote end can establish a connection and receive the payload (eg: IP and port in a local network). It's up to the Link implementation to decide how to use this field.
 
 ## Contributing
