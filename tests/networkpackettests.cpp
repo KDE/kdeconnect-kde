@@ -23,6 +23,7 @@
 #include "core/networkpacket.h"
 
 #include <QtTest>
+#include <QBuffer>
 
 QTEST_GUILESS_MAIN(NetworkPacketTests);
 
@@ -76,6 +77,40 @@ void NetworkPacketTests::networkPacketIdentityTest()
     QCOMPARE( np.get<int>(QStringLiteral("protocolVersion"), -1) , NetworkPacket::s_protocolVersion );
     QCOMPARE( np.type() , PACKET_TYPE_IDENTITY );
 
+}
+
+void NetworkPacketTests::networkPacketPayloadTest()
+{
+    QByteArray json;
+
+    // empty package
+    NetworkPacket np(QStringLiteral("com.test"));
+    json = np.serialize();
+    qDebug() << json;
+    QVERIFY(!json.contains("\"payloadSize\""));
+    QVERIFY(!json.contains("\"payloadTransferInfo\""));
+
+    // package with payload
+    QByteArray buffer("test data");
+    auto payload = QSharedPointer<QIODevice>(new QBuffer(&buffer, this));
+    NetworkPacket payloadNp(QStringLiteral("com.test"));
+    payloadNp.setPayload(payload, buffer.size());
+
+    json = payloadNp.serialize();
+    qDebug() << json;
+    QVERIFY(json.contains("\"payloadSize\":9"));
+    QVERIFY(json.contains("\"payloadTransferInfo\""));
+
+    // package with empty payload
+    QByteArray emptyBuffer("test data");
+    auto emptyPayload = QSharedPointer<QIODevice>(new QBuffer(&emptyBuffer, this));
+    NetworkPacket emptyPayloadNp(QStringLiteral("com.test"));
+    emptyPayloadNp.setPayload(emptyPayload, 0);
+
+    json = emptyPayloadNp.serialize();
+    qDebug() << json;
+    QVERIFY(!json.contains("\"payloadSize\""));
+    QVERIFY(!json.contains("\"payloadTransferInfo\""));
 }
 
 void NetworkPacketTests::cleanupTestCase()
