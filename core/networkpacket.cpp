@@ -87,16 +87,11 @@ QVariantMap qobject2qvariant(const T* object)
 QByteArray NetworkPacket::serialize() const
 {
     //Object -> QVariant
-    //QVariantMap variant;
-    //variant["id"] = mId;
-    //variant["type"] = mType;
-    //variant["body"] = mBody;
     QVariantMap variant = qobject2qvariant(this);
 
-    if (hasPayload()) {
-        //qCDebug(KDECONNECT_CORE) << "Serializing payloadTransferInfo";
-        variant[QStringLiteral("payloadSize")] = payloadSize();
-        variant[QStringLiteral("payloadTransferInfo")] = m_payloadTransferInfo;
+    if (!hasPayload()) {
+        variant.remove(QStringLiteral("payloadSize"));
+        variant.remove(QStringLiteral("payloadTransferInfo"));
     }
 
     //QVariant -> json
