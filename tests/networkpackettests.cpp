@@ -82,9 +82,10 @@ void NetworkPacketTests::networkPacketIdentityTest()
 void NetworkPacketTests::networkPacketPayloadTest()
 {
     QByteArray json;
+    NetworkPacket np;
 
     // empty package
-    NetworkPacket np(QStringLiteral("com.test"));
+    np = NetworkPacket(QStringLiteral("com.test"));
     json = np.serialize();
     qDebug() << json;
     QVERIFY(!json.contains("\"payloadSize\""));
@@ -93,10 +94,10 @@ void NetworkPacketTests::networkPacketPayloadTest()
     // package with payload
     QByteArray buffer("test data");
     auto payload = QSharedPointer<QIODevice>(new QBuffer(&buffer, this));
-    NetworkPacket payloadNp(QStringLiteral("com.test"));
-    payloadNp.setPayload(payload, buffer.size());
+    np = NetworkPacket(QStringLiteral("com.test"));
+    np.setPayload(payload, buffer.size());
 
-    json = payloadNp.serialize();
+    json = np.serialize();
     qDebug() << json;
     QVERIFY(json.contains("\"payloadSize\":9"));
     QVERIFY(json.contains("\"payloadTransferInfo\""));
@@ -104,13 +105,25 @@ void NetworkPacketTests::networkPacketPayloadTest()
     // package with empty payload
     QByteArray emptyBuffer("test data");
     auto emptyPayload = QSharedPointer<QIODevice>(new QBuffer(&emptyBuffer, this));
-    NetworkPacket emptyPayloadNp(QStringLiteral("com.test"));
-    emptyPayloadNp.setPayload(emptyPayload, 0);
+    np = NetworkPacket(QStringLiteral("com.test"));
+    np.setPayload(emptyPayload, 0);
 
-    json = emptyPayloadNp.serialize();
+    json = np.serialize();
     qDebug() << json;
     QVERIFY(!json.contains("\"payloadSize\""));
     QVERIFY(!json.contains("\"payloadTransferInfo\""));
+
+    // incoming package without payload
+    np = NetworkPacket();
+    QVERIFY(NetworkPacket::unserialize(
+        "{\"body\":{},\"id\":\"1578136807254\",\"type\":\"com.test\"}\n", &np));
+    QVERIFY(!np.hasPayload());
+
+    // incoming package without payload (but with payload keys)
+    np = NetworkPacket();
+    QVERIFY(NetworkPacket::unserialize(
+        "{\"body\":{},\"id\":\"1578136807254\",\"payloadSize\":0,\"payloadTransferInfo\":{},\"type\":\"com.test\"}\n", &np));
+    QVERIFY(!np.hasPayload());
 }
 
 void NetworkPacketTests::cleanupTestCase()
