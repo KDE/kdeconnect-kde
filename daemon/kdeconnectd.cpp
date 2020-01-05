@@ -60,6 +60,7 @@ public:
     void askPairingConfirmation(Device* device) override
     {
         KNotification* notification = new KNotification(QStringLiteral("pairingRequest"), KNotification::NotificationFlag::Persistent);
+        QTimer::singleShot(PairingHandler::pairingTimeoutMsec(), notification, &KNotification::close);
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(QStringLiteral("KDE Connect"));
