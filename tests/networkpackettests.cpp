@@ -23,6 +23,7 @@
 #include "core/networkpacket.h"
 
 #include <QtTest>
+#include <QBuffer>
 
 QTEST_GUILESS_MAIN(NetworkPacketTests);
 
@@ -76,6 +77,53 @@ void NetworkPacketTests::networkPacketIdentityTest()
     QCOMPARE( np.get<int>(QStringLiteral("protocolVersion"), -1) , NetworkPacket::s_protocolVersion );
     QCOMPARE( np.type() , PACKET_TYPE_IDENTITY );
 
+}
+
+void NetworkPacketTests::networkPacketPayloadTest()
+{
+    QByteArray json;
+    NetworkPacket np;
+
+    // empty package
+    np = NetworkPacket(QStringLiteral("com.test"));
+    json = np.serialize();
+    qDebug() << json;
+    QVERIFY(!json.contains("\"payloadSize\""));
+    QVERIFY(!json.contains("\"payloadTransferInfo\""));
+
+    // package with payload
+    QByteArray buffer("test data");
+    auto payload = QSharedPointer<QIODevice>(new QBuffer(&buffer, this));
+    np = NetworkPacket(QStringLiteral("com.test"));
+    np.setPayload(payload, buffer.size());
+
+    json = np.serialize();
+    qDebug() << json;
+    QVERIFY(json.contains("\"payloadSize\":9"));
+    QVERIFY(json.contains("\"payloadTransferInfo\""));
+
+    // package with empty payload
+    QByteArray emptyBuffer("test data");
+    auto emptyPayload = QSharedPointer<QIODevice>(new QBuffer(&emptyBuffer, this));
+    np = NetworkPacket(QStringLiteral("com.test"));
+    np.setPayload(emptyPayload, 0);
+
+    json = np.serialize();
+    qDebug() << json;
+    QVERIFY(!json.contains("\"payloadSize\""));
+    QVERIFY(!json.contains("\"payloadTransferInfo\""));
+
+    // incoming package without payload
+    np = NetworkPacket();
+    QVERIFY(NetworkPacket::unserialize(
+        "{\"body\":{},\"id\":\"1578136807254\",\"type\":\"com.test\"}\n", &np));
+    QVERIFY(!np.hasPayload());
+
+    // incoming package without payload (but with payload keys)
+    np = NetworkPacket();
+    QVERIFY(NetworkPacket::unserialize(
+        "{\"body\":{},\"id\":\"1578136807254\",\"payloadSize\":0,\"payloadTransferInfo\":{},\"type\":\"com.test\"}\n", &np));
+    QVERIFY(!np.hasPayload());
 }
 
 void NetworkPacketTests::cleanupTestCase()
