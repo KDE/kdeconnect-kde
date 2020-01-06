@@ -83,12 +83,12 @@ if(PRIVATE_DBUS_ENABLED OR APPLE)
 endif()
 
 add_subdirectory(core)
+add_subdirectory(plugins)
+add_subdirectory(interfaces)
 
 if (NOT SAILFISHOS)
     add_subdirectory(icon)
-    add_subdirectory(interfaces)
     add_subdirectory(data)
-    add_subdirectory(plugins)
     add_subdirectory(cli)
     add_subdirectory(declarativeplugin)
 

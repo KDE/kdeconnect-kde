@@ -25,6 +25,7 @@
 #include <QDBusInterface>
 
 #include <dbushelper.h>
+#include <core/qtcompat_p.h>
 
 RemoteSinksModel::RemoteSinksModel(QObject* parent)
     : QAbstractListModel(parent)
