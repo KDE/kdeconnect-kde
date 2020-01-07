@@ -83,7 +83,6 @@ int main(int argc, char** argv)
     parser.addOption(deviceAutocomplete);
     about.setupCommandLine(&parser);
 
-    parser.addHelpOption();
     parser.process(app);
     about.processCommandLine(&parser);
 
@@ -167,7 +166,7 @@ int main(int argc, char** argv)
         }
 
         //Exit with 1 if we didn't find a device
-        return int(!devices.isEmpty());
+        return int(devices.isEmpty());
     } else if(parser.isSet(QStringLiteral("refresh"))) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect"), QStringLiteral("org.kde.kdeconnect.daemon"), QStringLiteral("forceOnNetworkChange"));
         blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
