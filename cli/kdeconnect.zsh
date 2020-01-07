@@ -17,6 +17,7 @@ _kdeconnect_device-ids() {
 local blockoperations="(operation sms)"
 _arguments -s \
   '(-)'{-h,--help}'[display usage information]' \
+  '(-)--help-all[display usage information, including Qt specific options]' \
   + '(global)' \
   $blockoperations{-l,--list-devices}'[list all devices]' \
   $blockoperations{-a,--list-available}'[list available (paired and reachable) devices]' \
