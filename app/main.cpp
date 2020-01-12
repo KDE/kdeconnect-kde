@@ -37,8 +37,6 @@ int main(int argc, char* argv[])
     {
         QCommandLineParser parser;
         aboutData.setupCommandLine(&parser);
-        parser.addVersionOption();
-        parser.addHelpOption();
         parser.process(app);
         aboutData.processCommandLine(&parser);
     }

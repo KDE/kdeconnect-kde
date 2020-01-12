@@ -51,8 +51,6 @@ int main(int argc, char *argv[])
     {
         QCommandLineParser parser;
         aboutData.setupCommandLine(&parser);
-        parser.addVersionOption();
-        parser.addHelpOption();
         parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
         parser.addOption(QCommandLineOption(QStringLiteral("message"), i18n("Send a message"), i18n("message")));
         parser.process(app);

@@ -61,7 +61,6 @@ int main(int argc, char** argv)
         QCommandLineParser parser;
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
         parser.addOption(QCommandLineOption(QStringLiteral("open"), QStringLiteral("Open the file on the remote device")));
-        parser.addHelpOption();
         about.setupCommandLine(&parser);
         parser.process(app);
         about.processCommandLine(&parser);
