@@ -22,6 +22,7 @@ include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(FeatureSummary)
 include(GenerateExportHeader)
+include(ECMQMLModules)
 
 include(KDEConnectMacros.cmake)
 
@@ -63,6 +64,9 @@ else()
     )
 
     add_definitions(-DHAVE_KIO)
+
+    ecm_find_qmlmodule(org.kde.people 1.0)
+
 endif()
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
