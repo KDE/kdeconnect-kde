@@ -34,7 +34,7 @@ ecm_setup_version(1.4.0
 if (SAILFISHOS)
     set(KF5_REQUIRED_COMPONENTS I18n CoreAddons Config)
     set(KF5_OPTIONAL_COMPONENTS)
-    
+
     set(Qca_LIBRARY CONAN_PKG::Qca-qt5)
 
     add_definitions(-DSAILFISHOS)
@@ -105,13 +105,14 @@ if (NOT SAILFISHOS)
     add_subdirectory(nautilus-extension)
     add_subdirectory(fileitemactionplugin)
     add_subdirectory(smsapp)
-    
+    add_subdirectory(settings)
+
     if(NOT WIN32)
         add_subdirectory(kio)
         add_subdirectory(plasmoid)
     endif()
 endif()
-    
+
 if(KF5DocTools_FOUND)
     add_subdirectory(doc)
 endif()

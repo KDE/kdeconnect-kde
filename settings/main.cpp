@@ -23,6 +23,7 @@
 #include <KCMultiDialog>
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KDBusService>
 #include "kdeconnect-version.h"
 
 int main(int argc, char** argv)
@@ -33,8 +34,10 @@ int main(int argc, char** argv)
                      QStringLiteral(KDECONNECT_VERSION_STRING),
                      i18n("KDE Connect Settings"),
                      KAboutLicense::GPL,
-                     i18n("(C) 2018 Nicolas Fella"));
+                     i18n("(C) 2018-2020 Nicolas Fella"));
     KAboutData::setApplicationData(about);
+
+    KDBusService dbusService(KDBusService::Unique);
 
     KCMultiDialog* dialog = new KCMultiDialog;
     dialog->addModule(QStringLiteral("kcm_kdeconnect"));
