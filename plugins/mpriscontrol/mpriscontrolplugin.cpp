@@ -390,6 +390,7 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket& np, c
         length = -1;
     }
     np.set(QStringLiteral("length"), length);
+    np.set(QStringLiteral("url"), nowPlayingMap[QStringLiteral("xesam:url")].toString());
 }
 
 #include "mpriscontrolplugin.moc"
