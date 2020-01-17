@@ -28,6 +28,7 @@
 #include <QSessionManager>
 #include <QStandardPaths>
 #include <QIcon>
+#include <QProcess>
 
 #include <KAboutData>
 #include <KDBusService>
@@ -65,9 +66,13 @@ public:
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(QStringLiteral("KDE Connect"));
         notification->setText(i18n("Pairing request from %1", device->name().toHtmlEscaped()));
+        notification->setDefaultAction(i18n("Open"));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
         connect(notification, &KNotification::action2Activated, device, &Device::rejectPairing);
+        connect(notification, QOverload<>::of(&KNotification::activated), this, []{
+            QProcess::startDetached(QStringLiteral("kdeconnect-settings"));
+        });
         notification->sendEvent();
     }
 
