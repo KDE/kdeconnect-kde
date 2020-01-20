@@ -21,7 +21,6 @@
 #include "mpriscontrolplugin.h"
 
 #include <QDBusArgument>
-#include <QDBusInterface>
 #include <qdbusconnectioninterface.h>
 #include <QDBusReply>
 #include <QDBusMessage>
@@ -31,8 +30,10 @@
 
 #include <core/device.h>
 #include <dbushelper.h>
-#include "mprisdbusinterface.h"
-#include "propertiesdbusinterface.h"
+
+#include "dbusproperties.h"
+#include "mprisplayer.h"
+#include "mprisroot.h"
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
 
@@ -87,10 +88,9 @@ void MprisControlPlugin::addPlayer(const QString& service)
 {
     const QString mediaPlayerObjectPath = QStringLiteral("/org/mpris/MediaPlayer2");
 
-    // estimate identifier string
-    QDBusInterface mprisInterface(service, mediaPlayerObjectPath, QStringLiteral("org.mpris.MediaPlayer2"));
-    //FIXME: This call hangs and returns an empty string if KDED is still starting!
-    QString identity = mprisInterface.property("Identity").toString();
+    OrgMprisMediaPlayer2Interface iface(service, mediaPlayerObjectPath, DBusHelper::sessionBus());
+    QString identity = iface.identity();
+
     if (identity.isEmpty()) {
         identity = service.mid(sizeof("org.mpris.MediaPlayer2"));
     }

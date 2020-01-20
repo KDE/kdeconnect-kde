@@ -1,6 +1,4 @@
-<?xml version="1.0"?>
-<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
-"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<?xml version="1.0" ?>
 <node>
   <interface name="org.freedesktop.DBus.Properties">
     <method name="Get">
@@ -19,12 +17,11 @@
       <arg type="v" name="value" direction="in"/>
     </method>
     <signal name="PropertiesChanged">
-      <arg type="s" name="interface_name" direction="out"/>
-      <arg type="a{sv}" name="changed_properties" direction="out"/>
-      <arg type="as" name="invalidated_properties" direction="out"/>
+      <arg type="s" name="interface_name"/>
+      <arg type="a{sv}" name="changed_properties"/>
+      <arg type="as" name="invalidated_properties"/>
       <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
-      <!-- Aparently some old version of Qt/Dbus thinks interfaces have "input" parameters --> 
-      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
     </signal>
   </interface>
 </node>
+<!-- vim:set sw=2 sts=2 et ft=xml: -->

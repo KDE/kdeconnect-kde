@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<node xmlns:tp="http://telepathy.freedesktop.org/wiki/DbusSpec#extensions-v0">
+  <interface name="org.mpris.MediaPlayer2">
+    <annotation name="org.freedesktop.DBus.Property.EmitsChangedSignal" value="true"/>
+
+    <method name="Raise" tp:name-for-bindings="Raise">
+    </method>
+
+    <method name="Quit" tp:name-for-bindings="Quit">
+    </method>
+
+    <property name="CanQuit" type="b" tp:name-for-bindings="Can_Quit" access="read">
+    </property>
+
+    <property name="Fullscreen" type="b" tp:name-for-bindings="Fullscreen" access="readwrite">
+    </property>
+
+    <property name="CanSetFullscreen" type="b" tp:name-for-bindings="Can_Set_Fullscreen" access="read">
+    </property>
+
+    <property name="CanRaise" type="b" tp:name-for-bindings="Can_Raise" access="read">
+    </property>
+
+    <property name="HasTrackList" type="b" tp:name-for-bindings="Has_TrackList" access="read">
+    </property>
+
+    <property name="Identity" type="s" tp:name-for-bindings="Identity" access="read">
+    </property>
+
+    <property name="DesktopEntry" type="s" tp:name-for-bindings="Desktop_Entry" access="read">
+    </property>
+
+    <property name="SupportedUriSchemes" type="as" tp:name-for-bindings="Supported_Uri_Schemes" access="read">
+    </property>
+
+    <property name="SupportedMimeTypes" type="as" tp:name-for-bindings="Supported_Mime_Types" access="read">
+    </property>
+
+  </interface>
+</node>
+<!-- vim:set sw=2 sts=2 et ft=xml: -->
