@@ -22,17 +22,9 @@
 #include "core_debug.h"
 #include "connectionmultiplexer.h"
 #include "multiplexchannel.h"
-
-#include <KSharedConfig>
-#include <KConfigGroup>
-
-#include <QDBusArgument>
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusReply>
-#include <QBluetoothServiceInfo>
-
 #include "bluetoothdevicelink.h"
+
+#include <QBluetoothServiceInfo>
 
 BluetoothLinkProvider::BluetoothLinkProvider()
 {

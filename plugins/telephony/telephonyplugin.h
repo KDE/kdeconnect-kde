@@ -23,7 +23,6 @@
 #define TELEPHONYPLUGIN_H
 
 #include <QLoggingCategory>
-#include <QDBusInterface>
 
 #include <KNotification>
 
