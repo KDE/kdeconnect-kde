@@ -24,7 +24,6 @@
 #include <KLocalizedString>
 
 #include <QString>
-#include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QIcon>
 #include <QDBusServiceWatcher>

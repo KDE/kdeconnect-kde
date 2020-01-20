@@ -22,7 +22,6 @@
 #include "interfaces_debug.h"
 
 #include <QDebug>
-#include <QDBusInterface>
 
 #include <dbushelper.h>
 #include <core/qtcompat_p.h>

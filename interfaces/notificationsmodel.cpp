@@ -22,8 +22,6 @@
 #include "interfaces_debug.h"
 
 #include <QDebug>
-#include <QDBusInterface>
-
 #include <QIcon>
 
 #include <dbushelper.h>
