@@ -34,72 +34,20 @@
 #include <remotecommandsmodel.h>
 #include <remotesinksmodel.h>
 
-QObject* createDeviceDbusInterface(const QVariant& deviceId)
-{
-    return new DeviceDbusInterface(deviceId.toString());
-}
-
-QObject* createDeviceBatteryDbusInterface(const QVariant& deviceId)
-{
-    return new DeviceBatteryDbusInterface(deviceId.toString());
-}
-
-QObject* createFindMyPhoneInterface(const QVariant& deviceId)
-{
-    return new FindMyPhoneDeviceDbusInterface(deviceId.toString());
-}
-
-QObject* createRemoteKeyboardInterface(const QVariant& deviceId)
-{
-    return new RemoteKeyboardDbusInterface(deviceId.toString());
-}
-
-QObject* createSftpInterface(const QVariant& deviceId)
-{
-    return new SftpDbusInterface(deviceId.toString());
-}
-
-QObject* createRemoteControlInterface(const QVariant& deviceId)
-{
-    return new RemoteControlDbusInterface(deviceId.toString());
-}
-
-QObject* createMprisInterface(const QVariant& deviceId)
-{
-    return new MprisDbusInterface(deviceId.toString());
-}
-
-QObject* createDeviceLockInterface(const QVariant& deviceId)
-{
-    Q_ASSERT(!deviceId.toString().isEmpty());
-    return new LockDeviceDbusInterface(deviceId.toString());
-}
-
-QObject* createSmsInterface(const QVariant& deviceId)
-{
-    return new SmsDbusInterface(deviceId.toString());
-}
-
 QObject* createDBusResponse()
 {
     return new DBusAsyncResponse();
 }
 
-QObject* createRemoteCommandsInterface(const QVariant& deviceId)
-{
-    return new RemoteCommandsDbusInterface(deviceId.toString());
+template<typename T> void registerFactory(const char* uri, const char *name) {
+    qmlRegisterSingletonType<ObjectFactory>(uri, 1, 0, name,
+        [](QQmlEngine* engine, QJSEngine*) -> QObject* {
+            return new ObjectFactory(engine, [](const QVariant& deviceId) -> QObject * {
+                return new T(deviceId.toString());
+            });
+        }
+    );
 }
-
-QObject* createShareInterface(const QVariant& deviceId)
-{
-    return new ShareDbusInterface(deviceId.toString());
-}
-
-QObject* createRemoteSystemVolumeInterface(const QVariant& deviceId)
-{
-    return new RemoteSystemVolumeDbusInterface(deviceId.toString());
-}
-
 
 void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 {
@@ -129,52 +77,27 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<QAbstractItemModel>();
 #endif
 
+    registerFactory<DeviceDbusInterface>(uri, "DeviceDbusInterfaceFactory");
+    registerFactory<DeviceBatteryDbusInterface>(uri, "DeviceBatteryDbusInterfaceFactory");
+    registerFactory<FindMyPhoneDeviceDbusInterface>(uri, "FindMyPhoneDbusInterfaceFactory");
+    registerFactory<SftpDbusInterface>(uri, "SftpDbusInterfaceFactory");
+    registerFactory<RemoteKeyboardDbusInterface>(uri, "RemoteKeyboardDbusInterfaceFactory");
+    registerFactory<MprisDbusInterface>(uri, "MprisDbusInterfaceFactory");
+    registerFactory<RemoteControlDbusInterface>(uri, "RemoteControlDbusInterfaceFactory");
+    registerFactory<LockDeviceDbusInterface>(uri, "LockDeviceDbusInterfaceFactory");
+    registerFactory<SmsDbusInterface>(uri, "SmsDbusInterfaceFactory");
+    registerFactory<RemoteCommandsDbusInterface>(uri, "RemoteCommandsDbusInterfaceFactory");
+    registerFactory<ShareDbusInterface>(uri, "ShareDbusInterfaceFactory");
+    registerFactory<RemoteSystemVolumeDbusInterface>(uri, "RemoteSystemVolumeDbusInterfaceFactory");
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
 {
     QQmlExtensionPlugin::initializeEngine(engine, uri);
 
-    engine->rootContext()->setContextProperty(QStringLiteral("DeviceDbusInterfaceFactory")
-      , new ObjectFactory(engine, createDeviceDbusInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("DeviceBatteryDbusInterfaceFactory")
-      , new ObjectFactory(engine, createDeviceBatteryDbusInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("FindMyPhoneDbusInterfaceFactory")
-      , new ObjectFactory(engine, createFindMyPhoneInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("SftpDbusInterfaceFactory")
-      , new ObjectFactory(engine, createSftpInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("RemoteKeyboardDbusInterfaceFactory")
-      , new ObjectFactory(engine, createRemoteKeyboardInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("MprisDbusInterfaceFactory")
-      , new ObjectFactory(engine, createMprisInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("RemoteControlDbusInterfaceFactory")
-      , new ObjectFactory(engine, createRemoteControlInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("LockDeviceDbusInterfaceFactory")
-      , new ObjectFactory(engine, createDeviceLockInterface));
-
-     engine->rootContext()->setContextProperty(QStringLiteral("SmsDbusInterfaceFactory")
-       , new ObjectFactory(engine, createSmsInterface));
-
     engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseFactory")
       , new ObjectFactory(engine, createDBusResponse));
 
     engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseWaiter")
       , DBusResponseWaiter::instance());
-
-    engine->rootContext()->setContextProperty(QStringLiteral("RemoteCommandsDbusInterfaceFactory")
-      , new ObjectFactory(engine, createRemoteCommandsInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("ShareDbusInterfaceFactory")
-      , new ObjectFactory(engine, createShareInterface));
-
-    engine->rootContext()->setContextProperty(QStringLiteral("RemoteSystemVolumeDbusInterfaceFactory")
-      , new ObjectFactory(engine, createRemoteSystemVolumeInterface));
-
 }
