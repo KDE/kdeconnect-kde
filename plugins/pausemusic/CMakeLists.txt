@@ -1,12 +1,14 @@
 if(WIN32)
     set(kdeconnect_pausemusic_SRCS
-        pausemusicplugin-win.cpp 
+        pausemusicplugin-win.cpp
     )
 else()
     set(kdeconnect_pausemusic_SRCS
         pausemusicplugin.cpp
     )
 endif()
+
+qt5_add_dbus_interface(kdeconnect_pausemusic_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
 
 kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES ${kdeconnect_pausemusic_SRCS})
 

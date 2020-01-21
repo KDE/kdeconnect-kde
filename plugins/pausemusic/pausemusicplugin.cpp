@@ -20,16 +20,12 @@
 
 #include "pausemusicplugin.h"
 
-#include <QDBusInterface>
-#include <QDBusConnectionInterface>
-#include <QDBusMessage>
-#include <QDBusReply>
-
 #include <KPluginFactory>
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
 
 #include <dbushelper.h>
+#include "mprisplayer.h"
 
 //In older Qt released, qAsConst isnt available
 #include "qtcompat_p.h"
@@ -80,15 +76,15 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
             const QStringList interfaces = DBusHelper::sessionBus().interface()->registeredServiceNames().value();
             for (const QString& iface : interfaces) {
                 if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
-                    QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));
-                    QString status = mprisInterface.property("PlaybackStatus").toString();
+                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), DBusHelper::sessionBus());
+                    QString status = mprisInterface.playbackStatus();
                     if (status == QLatin1String("Playing")) {
                         if (!pausedSources.contains(iface)) {
                             pausedSources.insert(iface);
-                            if (mprisInterface.property("CanPause").toBool()) {
-                                mprisInterface.asyncCall(QStringLiteral("Pause"));
+                            if (mprisInterface.canPause()) {
+                                mprisInterface.Pause();
                             } else {
-                                mprisInterface.asyncCall(QStringLiteral("Stop"));
+                                mprisInterface.Stop();
                             }
                         }
                     }
@@ -113,8 +109,8 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (pause && !pausedSources.empty()) {
             for (const QString& iface : qAsConst(pausedSources)) {
-                QDBusInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QStringLiteral("org.mpris.MediaPlayer2.Player"));
-                mprisInterface.asyncCall(QStringLiteral("Play"));
+                OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), DBusHelper::sessionBus());
+                mprisInterface.Play();
             }
             pausedSources.clear();
         }
