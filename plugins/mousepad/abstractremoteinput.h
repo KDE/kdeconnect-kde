@@ -7,9 +7,12 @@
 #ifndef ABSTRACTREMOTEINPUT_H
 #define ABSTRACTREMOTEINPUT_H
 
+#include <QLoggingCategory>
 #include <QObject>
 
 #include <core/networkpacket.h>
+
+Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MOUSEPAD)
 
 class AbstractRemoteInput : public QObject
 {
