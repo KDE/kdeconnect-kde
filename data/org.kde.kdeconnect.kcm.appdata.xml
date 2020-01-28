@@ -148,4 +148,7 @@
     <category>Network</category>
   </categories>
   <icon type="stock">kdeconnect</icon>
+  <custom>
+    <value key="KDE::f_droid">https://f-droid.org/en/packages/org.kde.kdeconnect_tp/</value>
+  </custom>
 </component>
