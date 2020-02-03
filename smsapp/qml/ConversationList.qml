@@ -69,6 +69,22 @@ Kirigami.ScrollablePage
             running: loadingMessage.visible
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         }
+
+        Label {
+            text: "Loading conversations from device. If this takes a long time, please wake up your device and then click refresh."
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.preferredWidth: page.width / 2
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+        }
+
+        Label {
+            text: "Tip: If you plug in your device, it should not go into doze mode and should load quickly."
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.preferredWidth: page.width / 2
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+        }
     }
 
     property string initialMessage
