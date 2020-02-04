@@ -2,6 +2,7 @@
     "KPlugin": {
         "Category": "Utilities",
         "Description": "Send file to other device using KDE Connect",
+        "Description[ca@valencia]": "Envia fitxers a un altre dispositiu mitjançant el KDE Connect",
         "Description[ca]": "Envia fitxers a un altre dispositiu mitjançant el KDE Connect",
         "Description[cs]": "Poslat soubor na jiné zařízení přes KDE Connect",
         "Description[en_GB]": "Send file to other device using KDE Connect",
@@ -29,6 +30,7 @@
             "application/octet-stream"
         ],
         "Name": "Send file via KDE Connect",
+        "Name[ca@valencia]": "Envia el fitxer a través del KDE Connect",
         "Name[ca]": "Envia el fitxer a través del KDE Connect",
         "Name[cs]": "Poslat soubor přes KDE Connect",
         "Name[en_GB]": "Send file via KDE Connect",

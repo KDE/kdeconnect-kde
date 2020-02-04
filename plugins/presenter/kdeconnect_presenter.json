@@ -43,6 +43,7 @@
             }
         ],
         "Description": "Use your mobile device to point to things on the screen",
+        "Description[ca@valencia]": "Usa el dispositiu mòbil per assenyalar coses a la pantalla",
         "Description[ca]": "Usa el dispositiu mòbil per assenyalar coses a la pantalla",
         "Description[cs]": "Použijte mobilní zařízení k ukázání na položky na obrazovce",
         "Description[de]": "Anzeige von Objekten auf dem Bildschirm mit Ihrem mobilen Gerät",
@@ -72,6 +73,7 @@
         "Id": "kdeconnect_presenter",
         "License": "GPL",
         "Name": "Presenter",
+        "Name[ca@valencia]": "Presentador",
         "Name[ca]": "Presentador",
         "Name[cs]": "Promítání",
         "Name[de]": "Präsentation",
