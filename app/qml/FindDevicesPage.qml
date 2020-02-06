@@ -21,7 +21,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.7 as Kirigami
+import org.kde.kirigami 2.10 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.ScrollablePage
@@ -44,9 +44,7 @@ Kirigami.ScrollablePage
         id: devices
         section {
             property: "status"
-            delegate: Kirigami.Heading {
-                level: 4
-                leftPadding: Kirigami.Units.smallSpacing
+            delegate: Kirigami.ListSectionHeader {
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:
@@ -56,7 +54,6 @@ Kirigami.ScrollablePage
                     case (DevicesModel.Reachable | DevicesModel.Paired):
                         return i18nd("kdeconnect-app", "Connected")
                 }
-
             }
         }
 
