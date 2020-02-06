@@ -23,6 +23,7 @@
   <name xml:lang="it">KDE Connect</name>
   <name xml:lang="ko">KDE Connect</name>
   <name xml:lang="lt">KDE Connect</name>
+  <name xml:lang="ml">കെ.ഡി.ഇ കണക്ട്</name>
   <name xml:lang="nl">KDE Connect</name>
   <name xml:lang="nn">KDE Connect</name>
   <name xml:lang="pl">KDE Connect</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="ko">장치와 항상 연결하기</summary>
   <summary xml:lang="lt">Vientisas jūsų įrenginių sujungimas</summary>
+  <summary xml:lang="ml">നിങ്ങളുടെ ഉപകരണങ്ങളുമായി എളുപ്പം കണക്ഷൻ</summary>
   <summary xml:lang="nl">Naadloze verbinding met uw apparaten</summary>
   <summary xml:lang="nn">Saumlaus integrering med andre einingar</summary>
   <summary xml:lang="pl">Zintegrowane połączenia do twoich urządzeń</summary>
