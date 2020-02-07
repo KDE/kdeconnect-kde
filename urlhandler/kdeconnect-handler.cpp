@@ -93,6 +93,9 @@ int main(int argc, char** argv)
     } else if (urlToShare.isLocalFile() && open) {
         displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
         uidialog.label->setText(i18n("Device to open %1 on:", displayUrl));
+    } else if (urlToShare.scheme() == QLatin1String("sms")) {
+        displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
+        uidialog.label->setText(i18n("Device to send a SMS with:"));
     } else {
         displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
         uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
