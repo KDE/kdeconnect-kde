@@ -88,18 +88,17 @@ PlasmaComponents.ListItem
 
             PlasmaComponents3.ToolButton {
                 id: overflowMenu
-                Layout.alignment: Qt.AlignRight
-                icon.name: "overflow-menu"
-                Layout.maximumHeight: deviceName.height * 2
+                icon.name: "application-menu"
+
                 onClicked: {
-                    menu.popup(overflowMenu, 0, overflowMenu.height)
+                    menu.open(overflowMenu, overflowMenu.height)
                 }
 
-                Menu {
+                PlasmaComponents.ContextMenu {
                     id: menu
 
                     //Share
-                    MenuItem
+                    PlasmaComponents.MenuItem
                     {
                         FileDialog {
                             id: fileDialog
@@ -109,7 +108,7 @@ PlasmaComponents.ListItem
                         }
 
                         id: shareFile
-                        icon.name: "document-share"
+                        icon: "document-share"
                         visible: share.available
                         text: i18n("Share file")
                         onClicked: {
@@ -121,7 +120,7 @@ PlasmaComponents.ListItem
                     }
 
                     //Find my phone
-                    MenuItem
+                    PlasmaComponents.MenuItem
                     {
                         FindMyPhone {
                             id: findmyphone
@@ -129,7 +128,7 @@ PlasmaComponents.ListItem
                         }
 
                         id: ring
-                        icon.name: "irc-voice"
+                        icon: "irc-voice"
                         visible: findmyphone.available
                         text: i18n("Ring my phone")
 
@@ -139,7 +138,7 @@ PlasmaComponents.ListItem
                     }
 
                     //SFTP
-                    MenuItem
+                    PlasmaComponents.MenuItem
                     {
                         Sftp {
                             id: sftp
@@ -147,7 +146,7 @@ PlasmaComponents.ListItem
                         }
 
                         id: browse
-                        icon.name: "document-open-folder"
+                        icon: "document-open-folder"
                         visible: sftp.available
                         text: i18n("Browse this device")
 
@@ -157,14 +156,14 @@ PlasmaComponents.ListItem
                     }
 
                     //SMS
-                    MenuItem
+                    PlasmaComponents.MenuItem
                     {
                         SMS {
                             id: sms
                             device: root.device
                         }
 
-                        icon.name: "message-new"
+                        icon: "message-new"
                         visible: sms.available
                         text: i18n("SMS Messages")
 
