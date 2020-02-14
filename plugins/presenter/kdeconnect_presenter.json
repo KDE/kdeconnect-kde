@@ -68,6 +68,7 @@
         "Description[uk]": "Використання мобільного пристрою для керування об'єктами на екрані",
         "Description[x-test]": "xxUse your mobile device to point to things on the screenxx",
         "Description[zh_CN]": "使用您的移动设备在屏幕上指点",
+        "Description[zh_TW]": "將您的行動裝置當作螢幕指標使用",
         "EnabledByDefault": true,
         "Icon": "view-presentation",
         "Id": "kdeconnect_presenter",
