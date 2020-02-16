@@ -55,7 +55,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void shareReceived(const QString& url);
 
 private:
-    void finished(KJob* job, const qint64 dateModified);
+    void finished(KJob* job, const qint64 dateModified, const bool open);
     void shareUrl(const QUrl& url, bool open);
     QUrl destinationDir() const;
     QUrl getFileDestination(const QString filename) const;

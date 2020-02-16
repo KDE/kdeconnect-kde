@@ -124,7 +124,8 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 
         if (np.hasPayload()) {
             qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
-
+            const bool open = np.get<bool>(QStringLiteral("open"), false);
+            
             if (!m_compositeJob) {
                 m_compositeJob = new CompositeFileTransferJob(device()->id());
                 KIO::getJobTracker()->registerJob(m_compositeJob);
@@ -132,7 +133,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 
             FileTransferJob* job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
-            connect(job, &KJob::result, this, [this, dateModified] (KJob* job) -> void { finished(job, dateModified); });
+            connect(job, &KJob::result, this, [this, dateModified, open] (KJob* job) -> void { finished(job, dateModified, open); });
             m_compositeJob->addSubjob(job);
 
             if (!m_compositeJob->isRunning()) {
@@ -178,13 +179,16 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SharePlugin::finished(KJob* job, const qint64 dateModified)
+void SharePlugin::finished(KJob* job, const qint64 dateModified, const bool open)
 {
     FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
     if (ftjob && !job->error()) {
         Q_EMIT shareReceived(ftjob->destination().toString());
         setDateModified(ftjob->destination(), dateModified);
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished." << ftjob->destination();
+        if (open) {
+            QDesktopServices::openUrl(ftjob->destination());
+        }
     } else {
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer failed." << (ftjob ? ftjob->destination() : QUrl());
     }
