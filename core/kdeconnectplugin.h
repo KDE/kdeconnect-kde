@@ -29,6 +29,10 @@
 #include "networkpacket.h"
 #include "device.h"
 
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5,44,0)
+#define K_PLUGIN_CLASS_WITH_JSON(classname,jsonFile) K_PLUGIN_FACTORY_WITH_JSON(classname ## Factory, jsonFile, registerPlugin<classname >();)
+#endif
+
 struct KdeConnectPluginPrivate;
 
 class KDECONNECTCORE_EXPORT KdeConnectPlugin

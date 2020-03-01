@@ -27,10 +27,13 @@
 
 #include <KPluginMetaData>
 
+#include "kdeconnectcore_export.h"
+
 class Device;
 class KdeConnectPlugin;
+class KPluginFactory;
 
-class PluginLoader
+class KDECONNECTCORE_EXPORT PluginLoader
 {
 
 public:
@@ -46,9 +49,11 @@ public:
 
 private:
     PluginLoader();
+
     QHash<QString, KPluginMetaData> plugins;
-
-
+#ifdef SAILFISHOS
+    QHash<QString, KPluginFactory*> pluginsFactories;
+#endif
 };
 
 #endif

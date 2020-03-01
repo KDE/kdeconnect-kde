@@ -34,7 +34,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteSystemVolumePlugin, "kdeconnect_remotesystemvolume.json")
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PING, "kdeconnect.plugin.remotesystemvolume")
+Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTESYSTEMVOLUME, "kdeconnect.plugin.remotesystemvolume")
 
 RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

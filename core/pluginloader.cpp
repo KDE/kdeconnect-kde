@@ -20,9 +20,12 @@
 
 #include "pluginloader.h"
 
+#include <QVector>
+#include <QPluginLoader>
 #include <KPluginMetaData>
 #include <KPluginLoader>
 #include <KPluginFactory>
+#include <QStaticPlugin>
 
 #include "core_debug.h"
 #include "device.h"
@@ -39,10 +42,24 @@ PluginLoader* PluginLoader::instance()
 
 PluginLoader::PluginLoader()
 {
+#ifdef SAILFISHOS
+    const QVector<QStaticPlugin> staticPlugins = QPluginLoader::staticPlugins();
+    for (auto& staticPlugin : staticPlugins) {
+        QJsonObject jsonMetadata = staticPlugin.metaData().value(QStringLiteral("MetaData")).toObject();
+        KPluginMetaData metadata(jsonMetadata, QString());
+        if (metadata.serviceTypes().contains(QStringLiteral("KdeConnect/Plugin"))) {
+            plugins.insert(metadata.pluginId(), metadata);
+            pluginsFactories.insert(
+                metadata.pluginId(),
+                qobject_cast<KPluginFactory*>(staticPlugin.instance()));
+        }
+    }
+#else
     const QVector<KPluginMetaData> data = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
     for (const KPluginMetaData& metadata : data) {
         plugins[metadata.pluginId()] = metadata;
     }
+#endif
 }
 
 QStringList PluginLoader::getPluginList() const
@@ -65,12 +82,16 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
         return ret;
     }
 
+#ifdef SAILFISHOS
+    KPluginFactory* factory = pluginsFactories.value(pluginName);
+#else
     KPluginLoader loader(service.fileName());
     KPluginFactory* factory = loader.factory();
     if (!factory) {
         qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service.pluginId() << loader.errorString();
         return ret;
     }
+#endif
 
     const QStringList outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPacketType"));
 

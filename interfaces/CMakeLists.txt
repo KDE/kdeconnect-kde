@@ -39,7 +39,7 @@ geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h conv
 geninterface(${PROJECT_SOURCE_DIR}/plugins/share/shareplugin.h shareinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolumeplugin.h remotesystemvolumeinterface)
 
-add_library(kdeconnectinterfaces SHARED ${libkdeconnect_SRC})
+add_library(kdeconnectinterfaces ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES
     VERSION ${KDECONNECT_VERSION}
     SOVERSION ${KDECONNECT_VERSION_MAJOR}

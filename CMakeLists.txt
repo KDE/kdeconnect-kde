@@ -22,7 +22,9 @@ include(ECMSetupVersion)
 include(ECMInstallIcons)
 include(FeatureSummary)
 include(GenerateExportHeader)
-include(ECMQMLModules)
+if (NOT SAILFISHOS)
+    include(ECMQMLModules)
+endif()
 
 include(KDEConnectMacros.cmake)
 

@@ -28,8 +28,13 @@
 #include <QLoggingCategory>
 #include <QSettings>
 #include <QJsonDocument>
+
+#ifdef SAILFISHOS
+#define KCMUTILS_VERSION 0
+#else
 #include <KShell>
 #include <kcmutils_version.h>
+#endif
 
 #include <core/networkpacket.h>
 #include <core/device.h>

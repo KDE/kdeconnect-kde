@@ -10,18 +10,19 @@ target_link_libraries(kdeconnect_runcommand
     KF5::I18n)
 
 #----------------------
+if(NOT SAILFISHOS)
+    set( kdeconnect_runcommand_config_SRCS runcommand_config.cpp )
 
-set( kdeconnect_runcommand_config_SRCS runcommand_config.cpp )
+    add_library(kdeconnect_runcommand_config MODULE ${kdeconnect_runcommand_config_SRCS} )
+    target_link_libraries( kdeconnect_runcommand_config
+        kdeconnectcore
+        kdeconnectpluginkcm
+        KF5::I18n
+        KF5::CoreAddons
+        KF5::ConfigWidgets
 
-add_library(kdeconnect_runcommand_config MODULE ${kdeconnect_runcommand_config_SRCS} )
-target_link_libraries( kdeconnect_runcommand_config
-    kdeconnectcore
-    kdeconnectpluginkcm
-    KF5::I18n
-    KF5::CoreAddons
-    KF5::ConfigWidgets
+    )
 
-)
-
-install(TARGETS kdeconnect_runcommand_config DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_runcommand_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+    install(TARGETS kdeconnect_runcommand_config DESTINATION ${PLUGIN_INSTALL_DIR} )
+    install(FILES kdeconnect_runcommand_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
+endif()
