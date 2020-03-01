@@ -29,6 +29,7 @@
 #include <QStandardPaths>
 #include <QIcon>
 #include <QProcess>
+#include <QHostInfo>
 
 #include <KAboutData>
 #include <KDBusService>
@@ -93,6 +94,20 @@ public:
     KJobTrackerInterface* jobTracker() override
     {
         return KIO::getJobTracker();
+    }
+
+    QString defaultName() const override {
+        QString username;
+#ifdef Q_OS_WIN
+        username = QString::fromLatin1(qgetenv("USERNAME"));
+#else
+        username = QString::fromLatin1(qgetenv("USER"));
+#endif
+        return username + QLatin1Char('@') + QHostInfo::localHostName();
+    }
+
+    QString deviceType() const override {
+        return QStringLiteral("desktop");
     }
 
     Q_SCRIPTABLE void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override

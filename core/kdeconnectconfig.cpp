@@ -29,7 +29,6 @@
 #include <QDir>
 #include <QStandardPaths>
 #include <QCoreApplication>
-#include <QHostInfo>
 #include <QSettings>
 #include <QSslCertificate>
 #include <QtCrypto>
@@ -52,6 +51,9 @@ struct KdeConnectConfigPrivate {
 
     QSettings* m_config;
     QSettings* m_trustedDevices;
+
+    QString m_defaultName;
+    QString m_deviceType;
 
 #ifdef USE_PRIVATE_DBUS
     QString m_privateDBusAddress;  // Private DBus Address cache
@@ -84,21 +86,16 @@ KdeConnectConfig::KdeConnectConfig()
     d->m_config = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("config")), QSettings::IniFormat);
     d->m_trustedDevices = new QSettings(baseConfigDir().absoluteFilePath(QStringLiteral("trusted_devices")), QSettings::IniFormat);
 
+    d->m_defaultName = Daemon::instance()->defaultName();
+    d->m_deviceType = Daemon::instance()->deviceType();
+
     loadPrivateKey();
     loadCertificate();
 }
 
 QString KdeConnectConfig::name()
 {
-    QString username;
-    #ifdef Q_OS_WIN
-        username = QString::fromLatin1(qgetenv("USERNAME"));
-    #else
-        username = QString::fromLatin1(qgetenv("USER"));
-    #endif
-    QString defaultName = username + QStringLiteral("@") + QHostInfo::localHostName();
-    QString name = d->m_config->value(QStringLiteral("name"), defaultName).toString();
-    return name;
+    return d->m_config->value(QStringLiteral("name"), d->m_defaultName).toString();
 }
 
 void KdeConnectConfig::setName(const QString& name)
@@ -109,7 +106,7 @@ void KdeConnectConfig::setName(const QString& name)
 
 QString KdeConnectConfig::deviceType()
 {
-    return QStringLiteral("desktop"); // TODO
+    return d->m_deviceType;
 }
 
 QString KdeConnectConfig::deviceId()
