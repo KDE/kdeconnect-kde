@@ -33,30 +33,35 @@ Item {
     KdeConnect.DevicesModel {
         id: allDevicesModel
     }
+    KdeConnect.DevicesModel {
+        id: pairedDevicesModel
+        displayFilter: KdeConnect.DevicesModel.Paired
+    }
 
     ColumnLayout {
-        spacing: 5
+        spacing: units.smallSpacing
         visible: devicesView.count == 0
         anchors.fill: parent
-
-        PlasmaExtras.Heading {
-            id: heading
-            Layout.fillWidth: true
-            level: 3
-            opacity: 0.6
-            text: i18n("No paired devices available")
-        }
 
         Item {
             Layout.fillHeight: true
         }
 
-        PlasmaComponents.Label {
+        PlasmaExtras.Heading {
+            id: heading
             Layout.fillWidth: true
-            Layout.bottomMargin: units.largeSpacing
+            visible: pairedDevicesModel.count >= 0
+            level: 3
+            enabled: false
+            text: pairedDevicesModel.count == 0 ? i18n("No paired devices") : i18np("Paired device is unavailable", "All paired devices are unavailable", pairedDevicesModel.count)
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
+        }
 
+        PlasmaExtras.Heading {
+            Layout.fillWidth: true
             visible: allDevicesModel.count == 0
-
+            level: 3
             text: i18n("Install KDE Connect on your Android device to integrate it with Plasma!")
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.WordWrap
@@ -83,12 +88,9 @@ Item {
         }
 
         PlasmaComponents.Button {
-            Layout.leftMargin: units.largeSpacing
-            Layout.rightMargin: units.largeSpacing
-            Layout.topMargin: units.largeSpacing
             Layout.alignment: Qt.AlignHCenter
-            Layout.fillWidth: true
-            text: i18n("KDE Connect Settings...")
+            text: pairedDevicesModel.count == 0 ? i18n("Pair a Device...") : i18n("Configure...")
+            iconName: pairedDevicesModel.count == 0 ? "list-add" : "configure"
             onClicked: KCMShell.open("kcm_kdeconnect")
             visible: KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
         }
@@ -96,10 +98,6 @@ Item {
 
         Item {
             Layout.fillHeight: true
-        }
-
-        Item {
-            height: heading.height
         }
     }
 
