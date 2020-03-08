@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QVariantList>
+#include <kcoreaddons_version.h>
 
 #include "kdeconnectcore_export.h"
 #include "kdeconnectpluginconfig.h"
