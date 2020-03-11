@@ -45,7 +45,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
     const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>(QStringLiteral("phoneThumbnail"), ""));
 
     QString content, type, icon;
-    KNotification::NotificationFlags flags = KNotification::CloseOnTimeout;
+    KNotification::NotificationFlags flags = KNotification::Persistent;
 
     const QString title = device()->name();
 
@@ -57,7 +57,6 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
         type = QStringLiteral("missedCall");
         icon = QStringLiteral("call-start");
         content = i18n("Missed call from %1", contactName);
-        flags |= KNotification::Persistent; //Note that in Unity this generates a message box!
     } else if (event == QLatin1String("talking")) {
         return nullptr;
     } else {
@@ -67,6 +66,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
         type = QStringLiteral("callReceived");
         icon = QStringLiteral("phone");
         content = i18n("Unknown telephony event: %1", event);
+        flags = KNotification::CloseOnTimeout;
 #endif
     }
 
@@ -89,6 +89,7 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
     if (event == QLatin1String("ringing")) {
         notification->setActions( QStringList(i18n("Mute Call")) );
         connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
+        m_currentCallNotification = notification;
     }
     return notification;
 }
@@ -96,8 +97,9 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
 bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.get<bool>(QStringLiteral("isCancel"))) {
-
-        //TODO: Clear the old notification
+        if (m_currentCallNotification) {
+            m_currentCallNotification->close();
+        }
         return true;
     }
 

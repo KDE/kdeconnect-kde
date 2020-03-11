@@ -23,6 +23,7 @@
 #define TELEPHONYPLUGIN_H
 
 #include <QLoggingCategory>
+#include <QPointer>
 
 #include <KNotification>
 
@@ -74,6 +75,8 @@ private:
      *  - Missed call
      */
     KNotification* createNotification(const NetworkPacket& np);
+
+    QPointer<KNotification> m_currentCallNotification;
 };
 
 #endif
