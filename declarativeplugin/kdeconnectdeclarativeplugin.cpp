@@ -122,6 +122,13 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
             return new DaemonDbusInterface;
         }
     );
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
+    qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
+#else
+    qmlRegisterType<QAbstractItemModel>();
+#endif
+
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
