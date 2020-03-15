@@ -44,7 +44,8 @@ Kirigami.Page
 
             Label {
                 text: description
-                width: parent.width
+                elide: Text.ElideRight
+                Layout.fillWidth: true
             }
 
             RowLayout {
