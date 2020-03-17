@@ -132,7 +132,7 @@ bool NetworkPacket::unserialize(const QByteArray& a, NetworkPacket* np)
     qvariant2qobject(variant, np);
 
     if (np->m_payloadSize == -1) {
-        np->m_payloadSize = np->get<int>(QStringLiteral("size"), -1);
+        np->m_payloadSize = np->get<qint64>(QStringLiteral("size"), -1);
     }
     np->m_payloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); //Will return an empty qvariantmap if was not present, which is ok
 
