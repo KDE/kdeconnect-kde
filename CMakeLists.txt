@@ -68,6 +68,7 @@ else()
     add_definitions(-DHAVE_KIO)
 
     ecm_find_qmlmodule(org.kde.people 1.0)
+    ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
 endif()
 
