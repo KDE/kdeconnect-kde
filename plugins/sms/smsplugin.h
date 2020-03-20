@@ -87,7 +87,8 @@
  * The body should look like so:
  * { "sendSms": true,
  *   "phoneNumber": "542904563213",
- *   "messageBody": "Hi mom!"
+ *   "messageBody": "Hi mom!",
+ *   "sub_id": "3859358340534"
  * }
  */
 #define PACKET_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
@@ -126,7 +127,7 @@ public:
     QString dbusPath() const override;
 
 public Q_SLOTS:
-    Q_SCRIPTABLE void sendSms(const QString& phoneNumber, const QString& messageBody);
+    Q_SCRIPTABLE void sendSms(const QString& phoneNumber, const QString& messageBody, const qint64 subID = -1);
 
     /**
      * Send a request to the remote for all of its conversations

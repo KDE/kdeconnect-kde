@@ -64,7 +64,7 @@ public:
 
     ConversationMessage(const qint32& eventField, const QString& body, const QList<ConversationAddress>& addresses,
                         const qint64& date, const qint32& type, const qint32& read,
-                        const qint64& threadID, const qint32& uID);
+                        const qint64& threadID, const qint32& uID, const qint64& subID);
 
     ConversationMessage(const ConversationMessage& other);
     ~ConversationMessage();
@@ -80,6 +80,7 @@ public:
     qint32 read() const { return m_read; }
     qint64 threadID() const { return m_threadID; }
     qint32 uID() const { return m_uID; }
+    qint64 subID() const { return m_subID; }
 
     QVariantMap toVariant() const;
 
@@ -137,6 +138,11 @@ protected:
      * Value which uniquely identifies a message
      */
     qint32 m_uID;
+
+    /**
+     * Value which determines SIM id (optional)
+     */
+    qint64 m_subID;
 };
 
 class KDECONNECTINTERFACES_EXPORT ConversationAddress
@@ -164,7 +170,8 @@ inline QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMess
              << message.type()
              << message.read()
              << message.threadID()
-             << message.uID();
+             << message.uID()
+             << message.subID();
     argument.endStructure();
     return argument;
 }
@@ -179,6 +186,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, Conversati
     qint32 read;
     qint64 threadID;
     qint32 uID;
+    qint64 m_subID;
 
     argument.beginStructure();
     argument >> event;
@@ -189,9 +197,10 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, Conversati
     argument >> read;
     argument >> threadID;
     argument >> uID;
+    argument >> m_subID;
     argument.endStructure();
 
-    message = ConversationMessage(event, body, addresses, date, type, read, threadID, uID);
+    message = ConversationMessage(event, body, addresses, date, type, read, threadID, uID, m_subID);
 
     return argument;
 }

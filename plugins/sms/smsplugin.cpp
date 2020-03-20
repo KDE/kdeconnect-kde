@@ -59,13 +59,17 @@ bool SmsPlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody)
+void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody, const qint64 subID)
 {
-    NetworkPacket np(PACKET_TYPE_SMS_REQUEST, {
+    QVariantMap packetMap({
         {QStringLiteral("sendSms"), true},
         {QStringLiteral("phoneNumber"), phoneNumber},
         {QStringLiteral("messageBody"), messageBody}
     });
+    if (subID != -1) {
+        packetMap[QStringLiteral("subID")] = subID;
+    }
+    NetworkPacket np(PACKET_TYPE_SMS_REQUEST, packetMap);
     qCDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
     sendPacket(np);
 }

@@ -205,7 +205,7 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
         qCWarning(KDECONNECT_CONVERSATIONS) << "Sending replies to multiple recipients is not supported";
         return;
     }
-    m_smsInterface.sendSms(addresses[0].address(), message);
+    m_smsInterface.sendSms(addresses[0].address(), message, messagesList.first().subID());
 }
 
 void ConversationsDbusInterface::sendWithoutConversation(const QString& address, const QString& message) {

@@ -40,13 +40,16 @@ ConversationMessage::ConversationMessage(const QVariantMap& args)
         const auto& rawAddress = addressField.toMap();
         m_addresses.append(ConversationAddress(rawAddress[QStringLiteral("address")].value<QString>()));
     }
+    QVariantMap::const_iterator subID_it = args.find(QStringLiteral("sub_id"));
+    m_subID = subID_it == args.end() ? -1 : subID_it->toLongLong();
 }
 
 ConversationMessage::ConversationMessage (const qint32& eventField, const QString& body,
                                           const QList<ConversationAddress>& addresses, const qint64& date,
                                           const qint32& type, const qint32& read,
                                           const qint64& threadID,
-                                          const qint32& uID)
+                                          const qint32& uID,
+                                          const qint64& subID)
     : m_eventField(eventField)
     , m_body(body)
     , m_addresses(addresses)
@@ -55,6 +58,7 @@ ConversationMessage::ConversationMessage (const qint32& eventField, const QStrin
     , m_read(read)
     , m_threadID(threadID)
     , m_uID(uID)
+    , m_subID(subID)
 {
 }
 
@@ -67,6 +71,7 @@ ConversationMessage::ConversationMessage(const ConversationMessage& other)
     , m_read(other.m_read)
     , m_threadID(other.m_threadID)
     , m_uID(other.m_uID)
+    , m_subID(other.m_subID)
 {
 }
 
@@ -82,6 +87,7 @@ ConversationMessage& ConversationMessage::operator=(const ConversationMessage& o
     this->m_read = other.m_read;
     this->m_threadID = other.m_threadID;
     this->m_uID = other.m_uID;
+    this->m_subID = other.m_subID;
     return *this;
 }
 
@@ -109,6 +115,7 @@ QVariantMap ConversationMessage::toVariant() const
         {QStringLiteral("read"), m_read},
         {QStringLiteral("thread_id"), m_threadID},
         {QStringLiteral("_id"), m_uID},
+        {QStringLiteral("sub_id"), m_subID}
     };
 }
 
