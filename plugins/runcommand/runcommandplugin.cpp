@@ -85,7 +85,7 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
         QProcess::startDetached(QStringLiteral(COMMAND), QStringList()<< QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
         return true;
     } else if (np.has(QStringLiteral("setup"))) {
-        QProcess::startDetached(QStringLiteral("kcmshell5"), {QStringLiteral("kdeconnect"), QStringLiteral("--args"), QString(device()->id() + QStringLiteral(":kdeconnect_runcommand")) });
+        QProcess::startDetached(QStringLiteral("kdeconnect-settings"), { QStringLiteral("--args"), QString(device()->id() + QStringLiteral(":kdeconnect_runcommand")) });
     }
 
     return false;
