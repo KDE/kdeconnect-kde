@@ -19,6 +19,7 @@
  */
 
 #include <QApplication>
+#include <QCommandLineParser>
 
 #include <KCMultiDialog>
 #include <KAboutData>
@@ -37,10 +38,17 @@ int main(int argc, char** argv)
                      i18n("(C) 2018-2020 Nicolas Fella"));
     KAboutData::setApplicationData(about);
 
+    QCommandLineParser parser;
+    parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the config module"), QStringLiteral("args")));
+
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
+
     KDBusService dbusService(KDBusService::Unique);
 
     KCMultiDialog* dialog = new KCMultiDialog;
-    dialog->addModule(QStringLiteral("kcm_kdeconnect"));
+    dialog->addModule(QStringLiteral("kcm_kdeconnect"), {parser.value(QStringLiteral("args"))});
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
 
