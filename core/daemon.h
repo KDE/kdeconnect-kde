@@ -55,8 +55,6 @@ public:
     virtual void quit() = 0;
     virtual QNetworkAccessManager* networkAccessManager();
     virtual KJobTrackerInterface* jobTracker() = 0;
-    virtual QString defaultName() const = 0;
-    virtual QString deviceType() const = 0;
 
     Device* getDevice(const QString& deviceId);
 
