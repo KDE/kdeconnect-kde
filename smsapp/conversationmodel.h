@@ -39,6 +39,7 @@ class ConversationModel
     Q_OBJECT
     Q_PROPERTY(qint64 threadId READ threadId WRITE setThreadId)
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId)
+    Q_PROPERTY(QString otherParty READ otherPartyAddress WRITE setOtherPartyAddress)
 
 public:
     ConversationModel(QObject* parent = nullptr);
@@ -59,7 +60,11 @@ public:
     QString deviceId() const { return m_deviceId; }
     void setDeviceId(const QString &/*deviceId*/);
 
+    QString otherPartyAddress() const { return m_otherPartyAddress; }
+    void setOtherPartyAddress(const QString& address);
+
     Q_INVOKABLE void sendReplyToConversation(const QString& message);
+    Q_INVOKABLE void sendMessageWithoutConversation(const QString& message, const QString& address);
     Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
     /**
      * Convert a list of names into a single string suitable for display
@@ -80,6 +85,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);
     void handleConversationLoaded(qint64 threadID, quint64 numMessages);
+    void handleConversationCreated(const QDBusVariant &message);
 
 private:
     void createRowFromMessage(const ConversationMessage &message, int pos);
@@ -87,6 +93,7 @@ private:
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;
     qint64 m_threadId = INVALID_THREAD_ID;
+    QString m_otherPartyAddress;
     QSet<qint32> knownMessageIDs; // Set of known Message uIDs
 };
 

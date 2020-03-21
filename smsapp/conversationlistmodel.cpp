@@ -33,8 +33,43 @@
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL, "kdeconnect.sms.conversations_list")
 
-OurSortFilterProxyModel::OurSortFilterProxyModel(){}
+#define INVALID_THREAD_ID -1
+#define INVALID_DATE -1
+
+OurSortFilterProxyModel::OurSortFilterProxyModel()
+{
+    setFilterRole(ConversationListModel::DateRole);
+}
+
 OurSortFilterProxyModel::~OurSortFilterProxyModel(){}
+
+void OurSortFilterProxyModel::setOurFilterRole(int role)
+{
+    setFilterRole(role);
+}
+
+bool OurSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
+{
+    QVariant leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole);
+    QVariant rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole);
+
+    if (leftDataTimeStamp == rightDataTimeStamp) {
+        QVariant leftDataName = sourceModel()->data(leftIndex, Qt::DisplayRole);
+        QVariant rightDataName = sourceModel()->data(rightIndex, Qt::DisplayRole);
+        return leftDataName.toString().toLower() > rightDataName.toString().toLower();
+    }
+    return leftDataTimeStamp < rightDataTimeStamp;
+}
+
+bool OurSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+{
+    QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
+
+    if (filterRole() == Qt::DisplayRole) {
+       return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
+    }
+    return sourceModel()->data(index, ConversationListModel::DateRole) != INVALID_THREAD_ID;
+}
 
 ConversationListModel::ConversationListModel(QObject* parent)
     : QStandardItemModel(parent)
@@ -120,6 +155,7 @@ void ConversationListModel::prepareConversationsList()
             data >> message;
             createRowFromMessage(message);
         }
+        displayContacts();
     }, this);
 }
 
@@ -150,6 +186,18 @@ QStandardItem * ConversationListModel::conversationForThreadId(qint32 threadId)
     return nullptr;
 }
 
+QStandardItem * ConversationListModel::getConversationForAddress(const QString& address) {
+    for(int i = 0; i < rowCount(); ++i) {
+        const auto& it = item(i, 0);
+        if (!it->data(MultitargetRole).toBool()) {
+            if (SmsHelper::isPhoneNumberMatch(it->data(SenderRole).toString(), address)) {
+                return it;
+            }
+        }
+    }
+    return nullptr;
+}
+
 void ConversationListModel::createRowFromMessage(const ConversationMessage& message)
 {
     if (message.type() == -1) {
@@ -158,18 +206,27 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         return;
     }
 
+    /** The address of everyone involved in this conversation, which we should not display (check if they are known contacts first) */
+    QList<ConversationAddress> rawAddresses = message.addresses();
+    if (rawAddresses.isEmpty()) {
+        qWarning() << "no addresses!" << message.body();
+        return;
+    }
+
     bool toadd = false;
     QStandardItem* item = conversationForThreadId(message.threadID());
+    //Check if we have a contact with which to associate this message, needed if there is no conversation with the contact and we received a message from them
+    if (!item && !message.isMultitarget()) {
+
+            item = getConversationForAddress(rawAddresses[0].address());
+            if (item) {
+                item->setData(message.threadID(), ConversationIdRole);
+            }
+        }
+
     if (!item) {
         toadd = true;
         item = new QStandardItem();
-
-        /** The address of everyone involved in this conversation, which we should not display (check if they are known contacts first) */
-        QList<ConversationAddress> rawAddresses = message.addresses();
-        if (rawAddresses.isEmpty()) {
-            qWarning() << "no addresses!" << message.body();
-            return;
-        }
 
         QString displayNames = SmsHelper::getTitleForAddresses(rawAddresses);
         QIcon displayIcon = SmsHelper::getIconForAddresses(rawAddresses);
@@ -211,4 +268,33 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
 
     if (toadd)
         appendRow(item);
+}
+
+void ConversationListModel::displayContacts() {
+    const QList<QSharedPointer<KPeople::PersonData>> personDataList = SmsHelper::getAllPersons();
+
+    for(const auto& person : personDataList) {
+        const QVariantList allPhoneNumbers = person->contactCustomProperty(QStringLiteral("all-phoneNumber")).toList();
+
+        for (const QVariant& rawPhoneNumber : allPhoneNumbers) {
+            //check for any duplicate phoneNumber and eliminate it
+            if (!getConversationForAddress(rawPhoneNumber.toString())) {
+                QStandardItem* item = new QStandardItem();
+                item->setText(person->name());
+                item->setIcon(person->photo());
+
+                QList<ConversationAddress> addresses;
+                addresses.append(ConversationAddress(rawPhoneNumber.toString()));
+                item->setData(QVariant::fromValue(addresses), AddressesRole);
+
+                QString displayBody = i18n("%1", rawPhoneNumber.toString());
+                item->setData(displayBody, Qt::ToolTipRole);
+                item->setData(false, MultitargetRole);
+                item->setData(qint64(INVALID_THREAD_ID), ConversationIdRole);
+                item->setData(qint64(INVALID_DATE), DateRole);
+                item->setData(rawPhoneNumber.toString(), SenderRole);
+                appendRow(item);
+            }
+        }
+    }
 }

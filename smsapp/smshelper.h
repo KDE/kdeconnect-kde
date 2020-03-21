@@ -33,6 +33,8 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER)
 
+class PersonsCache;
+
 class KDECONNECTSMSAPPLIB_EXPORT SmsHelper
 {
 public:
@@ -99,6 +101,11 @@ public:
      * and then using SmsHelper::combineIcons
      */
     static QIcon getIconForAddresses(const QList<ConversationAddress>& addresses);
+
+    /**
+     * Get the data for all persons currently stored on device
+     */
+    static QList<QSharedPointer<KPeople::PersonData>> getAllPersons();
 
 private:
     SmsHelper(){};

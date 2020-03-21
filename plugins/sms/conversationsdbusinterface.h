@@ -88,6 +88,11 @@ public Q_SLOTS:
     void replyToConversation(const qint64& conversationID, const QString& message);
 
     /**
+     * Send a new message to the contact having no previous coversation with
+     */
+    void sendWithoutConversation(const QString& address, const QString& message);
+
+    /**
      * Send the request to the Telephony plugin to update the list of conversation threads
      */
     void requestAllConversationThreads();

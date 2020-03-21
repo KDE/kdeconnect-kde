@@ -154,16 +154,26 @@ private:
     QHash<QString, QSharedPointer<KPeople::PersonData>> m_personDataCache;
 };
 
+QList<QSharedPointer<KPeople::PersonData>> SmsHelper::getAllPersons() {
+
+    static PersonsCache s_cache;
+    QList<QSharedPointer<KPeople::PersonData>> personDataList;
+
+    for(int rowIndex = 0; rowIndex < s_cache.count(); rowIndex++) {
+        const auto person = s_cache.personAt(rowIndex);
+        personDataList.append(person);
+    }
+    return personDataList;
+}
+
 QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QString& address)
 {
-    static PersonsCache s_cache;
-
     const QString& canonicalAddress = SmsHelper::canonicalizePhoneNumber(address);
-    int rowIndex = 0;
-    for (rowIndex = 0; rowIndex < s_cache.count(); rowIndex++) {
-        const auto person = s_cache.personAt(rowIndex);
+    QList<QSharedPointer<KPeople::PersonData>> personDataList = getAllPersons();
 
+    for (const auto& person : personDataList) {
         const QStringList& allEmails = person->allEmails();
+
         for (const QString& email : allEmails) {
             // Although we are nominally an SMS messaging app, it is possible to send messages to phone numbers using email -> sms bridges
             if (address == email) {

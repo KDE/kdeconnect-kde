@@ -38,12 +38,15 @@ Kirigami.ScrollablePage
     property string conversationId
     property bool isMultitarget
     property string initialMessage
+    property string otherParty
+    property string invalidId: "-1"
 
     property bool isInitalized: false
 
     property var conversationModel: ConversationModel {
         deviceId: page.deviceId
         threadId: page.conversationId
+        otherParty: page.otherParty
 
         onLoadingFinished: {
             page.isInitalized = true
@@ -57,6 +60,9 @@ Kirigami.ScrollablePage
         if (initialMessage.length > 0) {
             messageField.text = initialMessage;
             initialMessage = ""
+        }
+        if (conversationId == invalidId) {
+            isInitalized = true
         }
     }
 
@@ -239,7 +245,11 @@ Kirigami.ScrollablePage
                     sendButton.enabled = false
 
                     // send the message
-                    conversationModel.sendReplyToConversation(messageField.text)
+                    if (page.conversationId == page.invalidId) {
+                        conversationModel.sendMessageWithoutConversation(messageField.text, page.otherParty)
+                    } else {
+                        conversationModel.sendReplyToConversation(messageField.text)
+                    }
                     messageField.text = ""
 
                     // re-enable the button

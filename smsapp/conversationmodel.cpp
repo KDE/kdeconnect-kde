@@ -75,6 +75,7 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     if (m_conversationsInterface) {
         disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
         disconnect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
         delete m_conversationsInterface;
     }
 
@@ -83,12 +84,23 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
     connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
+    connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
+}
+
+void ConversationModel::setOtherPartyAddress(const QString& address) {
+    m_otherPartyAddress = address;
 }
 
 void ConversationModel::sendReplyToConversation(const QString& message)
 {
     //qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to conversation with ID" << m_threadId;
     m_conversationsInterface->replyToConversation(m_threadId, message);
+}
+
+void ConversationModel::sendMessageWithoutConversation(const QString& message, const QString& address)
+{
+    //qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to contact address with no previous Conversation" << "and receiver's address" << address;
+    m_conversationsInterface->sendWithoutConversation(address, message);
 }
 
 void ConversationModel::requestMoreMessages(const quint32& howMany)
@@ -157,8 +169,17 @@ void ConversationModel::handleConversationUpdate(const QDBusVariant& msg)
                 << "but we are currently viewing" << m_threadId;
         return;
     }
-
     createRowFromMessage(message, 0);
+}
+
+void ConversationModel::handleConversationCreated(const QDBusVariant& msg)
+{
+    ConversationMessage message = ConversationMessage::fromDBus(msg);
+
+    if (m_threadId == INVALID_THREAD_ID && SmsHelper::isPhoneNumberMatch(m_otherPartyAddress, message.addresses().first().address()) && !message.isMultitarget()) {
+        m_threadId = message.threadID();
+        createRowFromMessage(message, 0);
+    }
 }
 
 void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMessages)

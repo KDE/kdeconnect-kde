@@ -190,7 +190,6 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
 {
     const auto messagesList = m_conversations[conversationID];
     if (messagesList.isEmpty()) {
-        // Since there are no messages in the conversation, we can't do anything sensible
         qCWarning(KDECONNECT_CONVERSATIONS) << "Got a conversationID for a conversation with no messages!";
         return;
     }
@@ -207,6 +206,10 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
         return;
     }
     m_smsInterface.sendSms(addresses[0].address(), message);
+}
+
+void ConversationsDbusInterface::sendWithoutConversation(const QString& address, const QString& message) {
+    m_smsInterface.sendSms(address, message);
 }
 
 void ConversationsDbusInterface::requestAllConversationThreads()

@@ -140,7 +140,6 @@ Kirigami.ScrollablePage
 
         model: QSortFilterProxyModel {
             sortOrder: Qt.DescendingOrder
-            sortRole: ConversationListModel.DateRole
             filterCaseSensitivity: Qt.CaseInsensitive
             sourceModel: ConversationListModel {
                 id: conversationListModel
@@ -157,7 +156,13 @@ Kirigami.ScrollablePage
             width: parent.width
             z: 10
             onTextChanged: {
-                view.model.setFilterFixedString(filter.text);
+                if (filter.text != "") {
+                    view.model.setOurFilterRole(Qt.DisplayRole)
+                } else {
+                    view.model.setOurFilterRole(ConversationListModel.ConversationIdRole)
+                }
+                view.model.setFilterFixedString(filter.text)
+
                 view.currentIndex = 0
             }
             onAccepted: {
@@ -219,9 +224,11 @@ Kirigami.ScrollablePage
                                                        conversationId: model.conversationId,
                                                        isMultitarget: isMultitarget,
                                                        initialMessage: page.initialMessage,
-                                                       device: device})
+                                                       device: device,
+                                                       otherParty: sender})
                 initialMessage = ""
             }
+
             onClicked: {
                 startChat();
                 view.currentIndex = index

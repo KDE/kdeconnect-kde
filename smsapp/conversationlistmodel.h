@@ -52,8 +52,14 @@ public:
         sortNow();
     }
 
+    Q_INVOKABLE void setOurFilterRole(int role);
+
     OurSortFilterProxyModel();
     ~OurSortFilterProxyModel();
+
+protected:
+    bool lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const override;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     void sortNow() {
@@ -97,6 +103,7 @@ public Q_SLOTS:
     void handleConversationUpdated(const QDBusVariant& msg);
     void createRowFromMessage(const ConversationMessage& message);
     void printDBusError(const QDBusError& error);
+    void displayContacts();
 
 Q_SIGNALS:
     void deviceIdChanged();
@@ -108,6 +115,7 @@ private:
     void prepareConversationsList();
 
     QStandardItem* conversationForThreadId(qint32 threadId);
+    QStandardItem* getConversationForAddress(const QString& address);
 
     DeviceConversationsDbusInterface* m_conversationsInterface;
     QString m_deviceId;
