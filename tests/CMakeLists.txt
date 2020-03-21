@@ -28,18 +28,8 @@ set(kdeconnect_sms_libraries
 
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
-ecm_add_test(testsocketlinereader.cpp TEST_NAME testsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})\
+ecm_add_test(testsocketlinereader.cpp TEST_NAME testsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})
 
-if (NOT SAILFISHOS)
-    ecm_add_test(testnotificationlistener.cpp
-                testdevice.cpp
-                ../plugins/sendnotifications/sendnotificationsplugin.cpp
-                ../plugins/sendnotifications/notificationslistener.cpp
-                ../plugins/sendnotifications/notifyingapplication.cpp
-                TEST_NAME testnotificationlistener
-                LINK_LIBRARIES ${kdeconnect_libraries} Qt5::DBus KF5::Notifications KF5::IconThemes)
-    ecm_add_test(testsmshelper.cpp LINK_LIBRARIES ${kdeconnect_sms_libraries})
-endif()
 if(PRIVATE_DBUS_ENABLED)
     ecm_add_test(testprivatedbus.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 endif()
