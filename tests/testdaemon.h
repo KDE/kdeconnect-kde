@@ -80,14 +80,6 @@ public:
         qDebug() << "quit was called";
     }
 
-    QString defaultName() const override {
-        return QStringLiteral("test@localhost");
-    }
-
-    QString deviceType() const override {
-        return QStringLiteral("desktop");
-    }
-
     KJobTrackerInterface* jobTracker() override
     {
         if (!m_jobTrackerInterface) {
