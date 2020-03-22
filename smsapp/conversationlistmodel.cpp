@@ -263,3 +263,32 @@ void ConversationListModel::displayContacts() {
         }
     }
 }
+
+bool ConversationListModel::isPhoneNumberValid(const QString& number) {
+    return SmsHelper::isPhoneNumberValid(number);
+}
+
+QString ConversationListModel::getDisplayNameForAddress(const QString &address) {
+    const auto item = getConversationForAddress(address);
+    if (!item) {
+        return QString();
+    }
+    return item->data(Qt::DisplayRole).toString();
+}
+
+void ConversationListModel::createConversationForAddress(const QString& address) {
+    QStandardItem* item = new QStandardItem();
+    item->setText(address);
+
+    QList<ConversationAddress> addresses;
+    addresses.append(ConversationAddress(address));
+    item->setData(QVariant::fromValue(addresses), AddressesRole);
+
+    QString displayBody = i18n("%1", address);
+    item->setData(displayBody, Qt::ToolTipRole);
+    item->setData(false, MultitargetRole);
+    item->setData(qint64(INVALID_THREAD_ID), ConversationIdRole);
+    item->setData(qint64(INVALID_DATE), DateRole);
+    item->setData(address, SenderRole);
+    appendRow(item);
+}

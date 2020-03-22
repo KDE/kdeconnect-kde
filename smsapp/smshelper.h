@@ -117,7 +117,12 @@ public:
     
     static bool isInGsmAlphabet(const QChar& ch);
     static bool isInGsmAlphabetExtension(const QChar& ch);
-    
+
+    /**
+     * Used to validate arbitrary phone number entered by the user
+     */
+    static bool isPhoneNumberValid(const QString& phoneNumber);
+
 private:
     SmsHelper(){};
     ~SmsHelper(){};

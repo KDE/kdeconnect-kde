@@ -125,6 +125,7 @@ Kirigami.ScrollablePage
     readonly property bool deviceConnected: devicesCombo.enabled
     readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
     readonly property alias lastDeviceId: conversationListModel.deviceId
+    property string displayName
 
     Component {
         id: chatView
@@ -147,6 +148,7 @@ Kirigami.ScrollablePage
             }
         }
 
+
         header: TextField {
             /**
              * Used as the filter of the list of messages
@@ -154,6 +156,7 @@ Kirigami.ScrollablePage
             id: filter
             placeholderText: i18nd("kdeconnect-sms", "Filter...")
             width: parent.width
+            height: addButton.height
             z: 10
             onTextChanged: {
                 if (filter.text != "") {
@@ -164,6 +167,15 @@ Kirigami.ScrollablePage
                 view.model.setFilterFixedString(filter.text)
 
                 view.currentIndex = 0
+
+                if (conversationListModel.isPhoneNumberValid(filter.text)) {
+                    addButton.visible = true
+                    addButton.focus = true
+                } else {
+                    addButton.visible = false
+                    addButton.focus = false
+                    filter.width = view.width
+                }
             }
             onAccepted: {
                 view.currentItem.startChat()
@@ -181,9 +193,38 @@ Kirigami.ScrollablePage
                 onActivated: filter.forceActiveFocus()
             }
         }
+
         headerPositioning: ListView.OverlayHeader
 
         Keys.forwardTo: [headerItem]
+
+        Button {
+            id: addButton
+            text: i18nd("kdeconnect-sms", "Add")
+            anchors.right: parent.right
+            height: view.headerItem.height
+            visible: false
+
+            onClicked: {
+                // We have to disable the filter temporarily in order to avoid getting key inputs accidently while processing the request
+                view.headerItem.enabled = false
+                // If the address entered by the user already exists, fetch the name of the contact otherwise it will return empty string
+                displayName = conversationListModel.getDisplayNameForAddress(view.headerItem.text)
+                if (displayName != "") {
+                    view.headerItem.text = displayName
+                } else {
+                    conversationListModel.createConversationForAddress(view.headerItem.text)
+                }
+
+                view.headerItem.enabled = true
+                addButton.visible = false
+                view.headerItem.width = view.width
+            }
+            Keys.onReturnPressed: {
+                event.clicked = true
+                addButton.onClicked()
+            }
+        }
 
         delegate: Kirigami.AbstractListItem
         {
