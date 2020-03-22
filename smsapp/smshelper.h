@@ -30,6 +30,7 @@
 #include "interfaces/conversationmessage.h"
 
 #include "kdeconnectsms_export.h"
+#include "smsapp/smscharcount.h"
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER)
 
@@ -106,7 +107,17 @@ public:
      * Get the data for all persons currently stored on device
      */
     static QList<QSharedPointer<KPeople::PersonData>> getAllPersons();
-
+    
+    /**
+     * Get SMS character count status of SMS. It contains number of remaining characters
+     * in current SMS (automatically selects 7-bit, 8-bit or 16-bit mode), octet count and
+     * number of messages in concatenated SMS.
+     */
+    static SmsCharCount getCharCount(const QString& message);
+    
+    static bool isInGsmAlphabet(const QChar& ch);
+    static bool isInGsmAlphabetExtension(const QChar& ch);
+    
 private:
     SmsHelper(){};
     ~SmsHelper(){};

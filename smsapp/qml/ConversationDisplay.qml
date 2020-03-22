@@ -219,41 +219,50 @@ Kirigami.ScrollablePage
                     }
                 }
             }
+            
+            ColumnLayout {
+                ToolButton {
+                    id: sendButton
+                    Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                    Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                    padding: 0
+                    Kirigami.Icon {
+                        source: "document-send"
+                        enabled: sendButton.enabled
+                        isMask: true
+                        smooth: true
+                        anchors.centerIn: parent
+                        width: Kirigami.Units.gridUnit * 1.5
+                        height: width
+                    }
+                    onClicked: {
+                        // don't send empty messages
+                        if (!messageField.text.length) {
+                            return
+                        }
 
-            ToolButton {
-                id: sendButton
-                Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                padding: 0
-                Kirigami.Icon {
-                    source: "document-send"
-                    enabled: sendButton.enabled
-                    isMask: true
-                    smooth: true
-                    anchors.centerIn: parent
-                    width: Kirigami.Units.gridUnit * 1.5
-                    height: width
+                        // disable the button to prevent sending
+                        // the same message several times
+                        sendButton.enabled = false
+
+                        // send the message
+                        if (page.conversationId == page.invalidId) {
+                            conversationModel.sendMessageWithoutConversation(messageField.text, page.otherParty)
+                        } else {
+                            conversationModel.sendReplyToConversation(messageField.text)
+                        }
+                        messageField.text = ""
+
+                        // re-enable the button
+                        sendButton.enabled = true
+                    }
                 }
-                onClicked: {
-                    // don't send empty messages
-                    if (!messageField.text.length) {
-                        return
-                    }
-
-                    // disable the button to prevent sending
-                    // the same message several times
-                    sendButton.enabled = false
-
-                    // send the message
-                    if (page.conversationId == page.invalidId) {
-                        conversationModel.sendMessageWithoutConversation(messageField.text, page.otherParty)
-                    } else {
-                        conversationModel.sendReplyToConversation(messageField.text)
-                    }
-                    messageField.text = ""
-
-                    // re-enable the button
-                    sendButton.enabled = true
+                
+                
+                Label {
+                    id: "charCount"
+                    text: conversationModel.getCharCountInfo(messageField.text)
+                    visible: text.length > 0
                 }
             }
         }

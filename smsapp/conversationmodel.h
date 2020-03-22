@@ -78,6 +78,8 @@ public:
      * TODO: Move to smshelper (or maybe make part of kirigami-addons chat library?)
      */
     Q_INVOKABLE void copyToClipboard(const QString& message) const;
+    
+    Q_INVOKABLE QString getCharCountInfo(const QString& message) const;
 
 Q_SIGNALS:
     void loadingFinished();

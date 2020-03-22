@@ -32,6 +32,7 @@
 #include <KPeople/PersonsModel>
 
 #include "interfaces/conversationmessage.h"
+#include "smsapp/gsmasciimap.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER, "kdeconnect.sms.smshelper")
 
@@ -273,4 +274,140 @@ QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses
     // It might be nice to alphabetize by contact before combining so that the pictures don't move
     // around randomly (based on how the data came to us from Android)
     return combineIcons(icons);
+}
+
+SmsCharCount SmsHelper::getCharCount(const QString& message)
+{
+    const int remainingWhenEmpty = 160;
+    const int septetsInSingleSms = 160;
+    const int septetsInSingleConcatSms = 153;
+    const int charsInSingleUcs2Sms = 70;
+    const int charsInSingleConcatUcs2Sms = 67;
+
+    SmsCharCount count;
+    bool enc7bit = true; // 7-bit is used when true, UCS-2 if false
+    quint32 septets = 0; // GSM encoding character count (characters in extension are counted as 2 chars)
+    int length = message.length();
+    
+    // Count characters and detect encoding
+    for (int i = 0; i < length; i++) {
+        QChar ch = message[i];
+        
+        if (isInGsmAlphabet(ch)) {
+            septets++;
+        }
+        else if (isInGsmAlphabetExtension(ch)) {
+            septets += 2;
+        }
+        else {
+            enc7bit = false;
+            break;
+        }
+    }
+    
+    if (length == 0) {
+        count.bitsPerChar = 7;
+        count.octets = 0;
+        count.remaining = remainingWhenEmpty;
+        count.messages = 1;
+    }
+    else if (enc7bit) {
+        count.bitsPerChar = 7;
+        count.octets = (septets * 7 + 6) / 8;
+        if (septets > septetsInSingleSms) {
+            count.messages = (septetsInSingleConcatSms - 1 + septets) / septetsInSingleConcatSms;
+            count.remaining = (septetsInSingleConcatSms * count.messages - septets) % septetsInSingleConcatSms;
+        }
+        else {
+            count.messages = 1;
+            count.remaining = (septetsInSingleSms - septets) % septetsInSingleSms;
+        }
+    }
+    else {
+        count.bitsPerChar = 16;
+        count.octets = length * 2; // QString should be in UTF-16
+        if (length > charsInSingleUcs2Sms) {
+            count.messages = (charsInSingleConcatUcs2Sms - 1 + length) / charsInSingleConcatUcs2Sms;
+            count.remaining = (charsInSingleConcatUcs2Sms * count.messages - length) % charsInSingleConcatUcs2Sms;
+        }
+        else {
+            count.messages = 1;
+            count.remaining = (charsInSingleUcs2Sms - length) % charsInSingleUcs2Sms;
+        }
+    }
+    
+    return count;
+}
+
+bool SmsHelper::isInGsmAlphabet(const QChar& ch)
+{
+    wchar_t unicode = ch.unicode();
+    
+    if ((unicode & ~0x7f) == 0) { // If the character is ASCII
+        // use map
+        return gsm_ascii_map[unicode];
+    }
+    else {
+        switch (unicode) {
+            case 0xa1: // “¡”
+            case 0xa7: // “§”
+            case 0xbf: // “¿”
+            case 0xa4: // “¤”
+            case 0xa3: // “£”
+            case 0xa5: // “¥”
+            case 0xe0: // “à”
+            case 0xe5: // “å”
+            case 0xc5: // “Å”
+            case 0xe4: // “ä”
+            case 0xc4: // “Ä”
+            case 0xe6: // “æ”
+            case 0xc6: // “Æ”
+            case 0xc7: // “Ç”
+            case 0xe9: // “é”
+            case 0xc9: // “É”
+            case 0xe8: // “è”
+            case 0xec: // “ì”
+            case 0xf1: // “ñ”
+            case 0xd1: // “Ñ”
+            case 0xf2: // “ò”
+            case 0xf5: // “ö”
+            case 0xd6: // “Ö”
+            case 0xf8: // “ø”
+            case 0xd8: // “Ø”
+            case 0xdf: // “ß”
+            case 0xf9: // “ù”
+            case 0xfc: // “ü”
+            case 0xdc: // “Ü”
+            case 0x393: // “Γ”
+            case 0x394: // “Δ”
+            case 0x398: // “Θ”
+            case 0x39b: // “Λ”
+            case 0x39e: // “Ξ”
+            case 0x3a0: // “Π”
+            case 0x3a3: // “Σ”
+            case 0x3a6: // “Φ”
+            case 0x3a8: // “Ψ”
+            case 0x3a9: // “Ω”
+                return true;
+        }
+    }
+    return false;
+}
+
+bool SmsHelper::isInGsmAlphabetExtension(const QChar& ch)
+{
+    wchar_t unicode = ch.unicode();
+    switch (unicode) {
+        case '{':
+        case '}':
+        case '|':
+        case '\\':
+        case '^':
+        case '[':
+        case ']':
+        case '~':
+        case 0x20ac: // Euro sign
+            return true;
+    }
+    return false;
 }

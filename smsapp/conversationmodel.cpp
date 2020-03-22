@@ -192,3 +192,21 @@ void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMes
     // so we should not be showing a loading indicator
     Q_EMIT loadingFinished();
 }
+
+QString ConversationModel::getCharCountInfo(const QString& message) const
+{
+    SmsCharCount count = SmsHelper::getCharCount(message);
+    
+    if (count.messages > 1) {
+        // Show remaining char count and message count
+        return QString::number(count.remaining) + QLatin1Char('/') + QString::number(count.messages);
+    }
+    if (count.messages == 1 && count.remaining < 10) {
+        // Show only remaining char count
+        return QString::number(count.remaining);
+    }
+    else {
+        // Do not show anything
+        return QString();
+    }
+}

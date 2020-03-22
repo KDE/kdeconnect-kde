@@ -4,6 +4,7 @@ find_package(KF5People)
 
 add_library(kdeconnectsmshelper
 	smshelper.cpp
+	gsmasciimap.cpp
 )
 
 set_target_properties(kdeconnectsmshelper PROPERTIES
