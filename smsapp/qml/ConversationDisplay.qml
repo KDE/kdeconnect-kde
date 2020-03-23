@@ -263,6 +263,7 @@ Kirigami.ScrollablePage
                     id: "charCount"
                     text: conversationModel.getCharCountInfo(messageField.text)
                     visible: text.length > 0
+                    Layout.minimumWidth: Math.max(Layout.minimumWidth, width) // Make this label only grow, never shrink
                 }
             }
         }
