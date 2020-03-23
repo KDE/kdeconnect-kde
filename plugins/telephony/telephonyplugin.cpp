@@ -37,7 +37,7 @@ TelephonyPlugin::TelephonyPlugin(QObject* parent, const QVariantList& args)
 {
 }
 
-KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
+void TelephonyPlugin::createNotification(const NetworkPacket& np)
 {
     const QString event = np.get<QString>(QStringLiteral("event"));
     const QString phoneNumber = np.get<QString>(QStringLiteral("phoneNumber"), i18n("unknown number"));
@@ -45,9 +45,6 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
     const QByteArray phoneThumbnail = QByteArray::fromBase64(np.get<QByteArray>(QStringLiteral("phoneThumbnail"), ""));
 
     QString content, type, icon;
-    KNotification::NotificationFlags flags = KNotification::Persistent;
-
-    const QString title = device()->name();
 
     if (event == QLatin1String("ringing")) {
         type = QStringLiteral("callReceived");
@@ -58,40 +55,35 @@ KNotification* TelephonyPlugin::createNotification(const NetworkPacket& np)
         icon = QStringLiteral("call-start");
         content = i18n("Missed call from %1", contactName);
     } else if (event == QLatin1String("talking")) {
-        return nullptr;
-    } else {
-#ifndef NDEBUG
-        return nullptr;
-#else
-        type = QStringLiteral("callReceived");
-        icon = QStringLiteral("phone");
-        content = i18n("Unknown telephony event: %1", event);
-        flags = KNotification::CloseOnTimeout;
-#endif
+        m_currentCallNotification->close();
+        return;
     }
 
     Q_EMIT callReceived(type, phoneNumber, contactName);
 
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
-    KNotification* notification = new KNotification(type, flags, this);
+    if (!m_currentCallNotification) {
+        m_currentCallNotification = new KNotification(type, KNotification::Persistent, this);
+    }
+
     if (!phoneThumbnail.isEmpty()) {
         QPixmap photo;
         photo.loadFromData(phoneThumbnail, "JPEG");
-        notification->setPixmap(photo);
+        m_currentCallNotification->setPixmap(photo);
     } else {
-        notification->setIconName(icon);
+        m_currentCallNotification->setIconName(icon);
     }
-    notification->setComponentName(QStringLiteral("kdeconnect"));
-    notification->setTitle(title);
-    notification->setText(content);
+    m_currentCallNotification->setComponentName(QStringLiteral("kdeconnect"));
+    m_currentCallNotification->setTitle(device()->name());
+    m_currentCallNotification->setText(content);
 
     if (event == QLatin1String("ringing")) {
-        notification->setActions( QStringList(i18n("Mute Call")) );
-        connect(notification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
-        m_currentCallNotification = notification;
+        m_currentCallNotification->setActions( QStringList(i18n("Mute Call")) );
+        connect(m_currentCallNotification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
     }
-    return notification;
+
+    m_currentCallNotification->sendEvent();
 }
 
 bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
@@ -103,17 +95,12 @@ bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
         return true;
     }
 
-    const QString& event = np.get<QString>(QStringLiteral("event"), QStringLiteral("unknown"));
-
-    // Handle old-style packets
-    if (np.type() == PACKET_TYPE_TELEPHONY) {
-        if (event == QLatin1String("sms")) {
-            return false;
-        }
-        KNotification* n = createNotification(np);
-        if (n != nullptr) n->sendEvent();
-        return true;
+    // ignore old style sms packet
+    if (np.get<QString>(QStringLiteral("event")) == QLatin1String("sms")) {
+        return false;
     }
+
+    createNotification(np);
 
     return true;
 }

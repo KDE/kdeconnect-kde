@@ -74,7 +74,7 @@ private:
      *  - Incoming call (with the option to mute the ringing)
      *  - Missed call
      */
-    KNotification* createNotification(const NetworkPacket& np);
+    void createNotification(const NetworkPacket& np);
 
     QPointer<KNotification> m_currentCallNotification;
 };
