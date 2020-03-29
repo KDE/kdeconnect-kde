@@ -36,41 +36,6 @@ Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL, "kdeconnect.sms.conv
 #define INVALID_THREAD_ID -1
 #define INVALID_DATE -1
 
-OurSortFilterProxyModel::OurSortFilterProxyModel()
-{
-    setFilterRole(ConversationListModel::DateRole);
-}
-
-OurSortFilterProxyModel::~OurSortFilterProxyModel(){}
-
-void OurSortFilterProxyModel::setOurFilterRole(int role)
-{
-    setFilterRole(role);
-}
-
-bool OurSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
-{
-    QVariant leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole);
-    QVariant rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole);
-
-    if (leftDataTimeStamp == rightDataTimeStamp) {
-        QVariant leftDataName = sourceModel()->data(leftIndex, Qt::DisplayRole);
-        QVariant rightDataName = sourceModel()->data(rightIndex, Qt::DisplayRole);
-        return leftDataName.toString().toLower() > rightDataName.toString().toLower();
-    }
-    return leftDataTimeStamp < rightDataTimeStamp;
-}
-
-bool OurSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
-{
-    QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
-
-    if (filterRole() == Qt::DisplayRole) {
-       return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
-    }
-    return sourceModel()->data(index, ConversationListModel::DateRole) != INVALID_THREAD_ID;
-}
-
 ConversationListModel::ConversationListModel(QObject* parent)
     : QStandardItemModel(parent)
     , m_conversationsInterface(nullptr)

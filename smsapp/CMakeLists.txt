@@ -33,6 +33,7 @@ add_executable(kdeconnect-sms
     main.cpp
     conversationlistmodel.cpp
     conversationmodel.cpp
+    conversationssortfilterproxymodel.cpp
     ${KCSMS_SRCS})
 
 target_include_directories(kdeconnect-sms PUBLIC ${CMAKE_BINARY_DIR})

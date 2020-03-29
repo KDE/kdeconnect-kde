@@ -21,6 +21,7 @@
 
 #include "conversationmodel.h"
 #include "conversationlistmodel.h"
+#include "conversationssortfilterproxymodel.h"
 #include "kdeconnect-version.h"
 
 #include <QApplication>
@@ -62,7 +63,7 @@ int main(int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique);
 
-    qmlRegisterType<OurSortFilterProxyModel>("org.kde.kdeconnect.sms", 1, 0, "QSortFilterProxyModel");
+    qmlRegisterType<ConversationsSortFilterProxyModel>("org.kde.kdeconnect.sms", 1, 0, "QSortFilterProxyModel");
     qmlRegisterType<ConversationModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationModel");
     qmlRegisterType<ConversationListModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationListModel");
 
