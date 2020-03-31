@@ -55,7 +55,9 @@ void TelephonyPlugin::createNotification(const NetworkPacket& np)
         icon = QStringLiteral("call-start");
         content = i18n("Missed call from %1", contactName);
     } else if (event == QLatin1String("talking")) {
-        m_currentCallNotification->close();
+        if (m_currentCallNotification) {
+            m_currentCallNotification->close();
+        }
         return;
     }
 
