@@ -37,7 +37,7 @@ try:
     i18n = gettext.translation('kdeconnect-nautilus-extension')
     _ = i18n.gettext
 except (IOError, OSError) as e:
-    print('kdeconnect-nautilus: {0}'.format(e.strerr))
+    print('kdeconnect-nautilus: {0}'.format(e))
     i18n = gettext.translation('kdeconnect-nautilus-extension', fallback=True)
     _ = i18n.gettext
 
