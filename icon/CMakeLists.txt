@@ -43,6 +43,18 @@ ICONS
     22-status-tvconnected.svg
     22-status-tvdisconnected.svg
     22-status-tvtrusted.svg
+    32-status-laptopconnected.svg
+    32-status-laptopdisconnected.svg
+    32-status-laptoptrusted.svg
+    32-status-smartphoneconnected.svg
+    32-status-smartphonedisconnected.svg
+    32-status-smartphonetrusted.svg
+    32-status-tabletconnected.svg
+    32-status-tabletdisconnected.svg
+    32-status-tablettrusted.svg
+    32-status-tvconnected.svg
+    32-status-tvdisconnected.svg
+    32-status-tvtrusted.svg
 DESTINATION
     ${ICON_INSTALL_DIR}
 )
