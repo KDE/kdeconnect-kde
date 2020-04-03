@@ -1,0 +1,14 @@
+<svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css" id="current-color-scheme">
+        .ColorScheme-PositiveText {
+            color:#27ae60;
+        }
+        .ColorScheme-Text {
+            color:#232629;
+        }
+    </style>
+    <g class="ColorScheme-Text" fill="currentColor">
+        <path d="m2 0c-1.108 0-2 .892-2 2v18c0 1.108.892 2 2 2h18c1.108 0 2-.892 2-2v-18c0-1.108-.892-2-2-2zm0 1h18c.554 0 1 .446 1 1v18c0 .554-.446 1-1 1h-18c-.554 0-1-.446-1-1v-18c0-.554.446-1 1-1z"/>
+        <path d="m3 4v12h-1v1c0 .554.446 1 1 1h16c.554 0 1-.446 1-1v-1h-1v-12h-1-14zm1 1h14v10h-14z"/>
+    </g>
+</svg>
