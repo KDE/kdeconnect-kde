@@ -1,13 +1,13 @@
 
 set(APP_ICONS
     sc-apps-kdeconnect.svg
-    22-apps-kdeconnectindicator.svg
+    sc-apps-kdeconnectindicator.svg
 )
 
 if(WIN32)
-    list(APPEND APP_ICONS 22-apps-kdeconnectindicatorwin.svg)
+    list(APPEND APP_ICONS sc-apps-kdeconnectindicatorwin.svg)
 else()
-    list(APPEND APP_ICONS 22-apps-kdeconnectindicatordark.svg)
+    list(APPEND APP_ICONS sc-apps-kdeconnectindicatordark.svg)
 endif()
 
 ecm_install_icons(
