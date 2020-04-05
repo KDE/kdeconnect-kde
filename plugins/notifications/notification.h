@@ -96,7 +96,6 @@ private:
     void parseNetworkPacket(const NetworkPacket& np);
     void loadIcon(const NetworkPacket& np);
     void applyIcon();
-    void applyNoIcon();
 
     static QMap<QString, FileTransferJob*> s_downloadsInProgress;
 };

@@ -135,7 +135,6 @@ void Notification::createKNotification(const NetworkPacket& np)
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 
     if (!m_hasIcon) {
-        applyNoIcon();
         show();
     } else {
         m_iconPath = m_imagesDir.absoluteFilePath(m_payloadHash);
@@ -169,7 +168,6 @@ void Notification::loadIcon(const NetworkPacket& np)
             s_downloadsInProgress.remove(m_iconPath);
             if (fileTransferJob->error()) {
                 qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << fileTransferJob->errorString();
-                applyNoIcon();
             } else {
                 applyIcon();
             }
@@ -182,12 +180,6 @@ void Notification::applyIcon()
 {
     QPixmap icon(m_iconPath, "PNG");
     m_notification->setPixmap(icon);
-}
-
-void Notification::applyNoIcon()
-{
-    //HACK The only way to display no icon at all is trying to load a non-existent icon
-    m_notification->setIconName(QStringLiteral("not_a_real_icon"));
 }
 
 void Notification::reply()
