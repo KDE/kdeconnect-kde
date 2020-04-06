@@ -36,6 +36,7 @@ Server::Server(QObject * parent)
 void Server::incomingConnection(qintptr socketDescriptor) {
     QSslSocket* serverSocket = new QSslSocket(parent());
     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
+        QObject::connect(this, &Server::closed, serverSocket, &QSslSocket::abort);
         addPendingConnection(serverSocket);
     } else {
         qWarning() << "setSocketDescriptor failed" << serverSocket->errorString();
@@ -50,4 +51,10 @@ QSslSocket* Server::nextPendingConnection() {
 void Server::errorFound(QAbstractSocket::SocketError socketError)
 {
     qDebug() << "error:" << socketError;
+}
+
+void Server::close()
+{
+    QTcpServer::close();
+    Q_EMIT closed();
 }

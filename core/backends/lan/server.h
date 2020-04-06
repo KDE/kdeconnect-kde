@@ -37,6 +37,10 @@ public:
     ~Server() override = default;
 
     QSslSocket* nextPendingConnection() override;
+    void close();
+
+Q_SIGNALS:
+    void closed();
 
 protected:
     void incomingConnection(qintptr socketDescriptor) override;
