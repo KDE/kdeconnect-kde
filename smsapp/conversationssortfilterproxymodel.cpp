@@ -35,12 +35,12 @@ ConversationsSortFilterProxyModel::ConversationsSortFilterProxyModel()
     setFilterRole(ConversationListModel::ConversationIdRole);
 }
 
+ConversationsSortFilterProxyModel::~ConversationsSortFilterProxyModel() {}
+
 void ConversationsSortFilterProxyModel::setConversationsFilterRole(int role)
 {
     setFilterRole(role);
 }
-
-ConversationsSortFilterProxyModel::~ConversationsSortFilterProxyModel() {}
 
 bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
 {
