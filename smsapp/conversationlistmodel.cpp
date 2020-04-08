@@ -110,12 +110,12 @@ void ConversationListModel::prepareConversationsList()
         qCWarning(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Tried to prepareConversationsList with an invalid interface!";
         return;
     }
-    QDBusPendingReply<QVariantList> validThreadIDsReply = m_conversationsInterface->activeConversations();
+    const QDBusPendingReply<QVariantList> validThreadIDsReply = m_conversationsInterface->activeConversations();
 
     setWhenAvailable(validThreadIDsReply, [this](const QVariantList& convs) {
         clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
         for (const QVariant& headMessage : convs) {
-            QDBusArgument data = headMessage.value<QDBusArgument>();
+            const QDBusArgument data = headMessage.value<QDBusArgument>();
             ConversationMessage message;
             data >> message;
             createRowFromMessage(message);
@@ -126,13 +126,13 @@ void ConversationListModel::prepareConversationsList()
 
 void ConversationListModel::handleCreatedConversation(const QDBusVariant& msg)
 {
-    ConversationMessage message = ConversationMessage::fromDBus(msg);
+    const ConversationMessage message = ConversationMessage::fromDBus(msg);
     createRowFromMessage(message);
 }
 
 void ConversationListModel::handleConversationUpdated(const QDBusVariant& msg)
 {
-    ConversationMessage message = ConversationMessage::fromDBus(msg);
+    const ConversationMessage message = ConversationMessage::fromDBus(msg);
     createRowFromMessage(message);
 }
 
@@ -172,7 +172,7 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
     }
 
     /** The address of everyone involved in this conversation, which we should not display (check if they are known contacts first) */
-    QList<ConversationAddress> rawAddresses = message.addresses();
+    const QList<ConversationAddress> rawAddresses = message.addresses();
     if (rawAddresses.isEmpty()) {
         qWarning() << "no addresses!" << message.body();
         return;
@@ -193,8 +193,8 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         toadd = true;
         item = new QStandardItem();
 
-        QString displayNames = SmsHelper::getTitleForAddresses(rawAddresses);
-        QIcon displayIcon = SmsHelper::getIconForAddresses(rawAddresses);
+        const QString displayNames = SmsHelper::getTitleForAddresses(rawAddresses);
+        const QIcon displayIcon = SmsHelper::getIconForAddresses(rawAddresses);
 
         item->setText(displayNames);
         item->setIcon(displayIcon);
@@ -211,9 +211,9 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         displayBody = i18n("You: %1", displayBody);
     } else {
         // If the message is incoming, the sender is the first Address
-        QString senderAddress = item->data(SenderRole).toString();
+        const QString senderAddress = item->data(SenderRole).toString();
         const auto sender = SmsHelper::lookupPersonByAddress(senderAddress);
-        QString senderName = sender == nullptr? senderAddress : SmsHelper::lookupPersonByAddress(senderAddress)->name();
+        const QString senderName = sender == nullptr? senderAddress : SmsHelper::lookupPersonByAddress(senderAddress)->name();
         displayBody = i18n("%1: %2", senderName, displayBody);
     }
 
@@ -221,7 +221,7 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
     // This will be true if a conversation receives a new message, but false when the user
     // does something to trigger past conversation history loading
     bool oldDateExists;
-    qint64 oldDate = item->data(DateRole).toLongLong(&oldDateExists);
+    const qint64 oldDate = item->data(DateRole).toLongLong(&oldDateExists);
     if (!oldDateExists || message.date() >= oldDate) {
         // If there was no old data or incoming data is newer, update the record
         item->setData(QVariant::fromValue(message.addresses()), AddressesRole);
@@ -252,7 +252,7 @@ void ConversationListModel::displayContacts() {
                 addresses.append(ConversationAddress(rawPhoneNumber.toString()));
                 item->setData(QVariant::fromValue(addresses), AddressesRole);
 
-                QString displayBody = i18n("%1", rawPhoneNumber.toString());
+                const QString displayBody = i18n("%1", rawPhoneNumber.toString());
                 item->setData(displayBody, Qt::ToolTipRole);
                 item->setData(false, MultitargetRole);
                 item->setData(qint64(INVALID_THREAD_ID), ConversationIdRole);
