@@ -110,13 +110,15 @@ SmsHelper::CountryCode SmsHelper::determineCountryCode(const QString& canonicalN
 
 QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
 {
+    static const QRegularExpression leadingZeroes(QStringLiteral("^0*"));
+
     QString toReturn(phoneNumber);
     toReturn = toReturn.remove(QStringLiteral(" "));
     toReturn = toReturn.remove(QStringLiteral("-"));
     toReturn = toReturn.remove(QStringLiteral("("));
     toReturn = toReturn.remove(QStringLiteral(")"));
     toReturn = toReturn.remove(QStringLiteral("+"));
-    toReturn = toReturn.remove(QRegularExpression(QStringLiteral("^0*"))); // Strip leading zeroes
+    toReturn = toReturn.remove(leadingZeroes);
 
     if (toReturn.length() == 0) {
         // If we have stripped away everything, assume this is a special number (and already canonicalized)
