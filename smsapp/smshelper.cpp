@@ -129,11 +129,11 @@ QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
 
 bool SmsHelper::isPhoneNumberValid(const QString& phoneNumber)
 {
-    QString canonicalizedPhoneNumber(phoneNumber);
+    QString canonicalizedNumber = canonicalizePhoneNumber(phoneNumber);
 
     // This regular expression matches a wide range of international Phone numbers, minimum of 3 digits and maximum upto 15 digits
     QRegularExpression validNumberPattern(QStringLiteral("^(\\d{3,15})$"));
-    return validNumberPattern.match(canonicalizedPhoneNumber).hasMatch();
+    return validNumberPattern.match(canonicalizedNumber).hasMatch();
 }
 
 class PersonsCache : public QObject {

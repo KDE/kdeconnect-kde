@@ -153,22 +153,17 @@ Kirigami.ScrollablePage
              */
             id: filter
             placeholderText: i18nd("kdeconnect-sms", "Filter...")
-            width: parent.width
-            height: addButton.height
+            width: parent.width - newButton.width
             z: 10
             onTextChanged: {
                 if (filter.text != "") {
                     if (conversationListModel.isPhoneNumberValid(filter.text)) {
-                        addButton.visible = true
                         view.model.setConversationsFilterRole(ConversationListModel.SenderRole)
                     } else {
-                        addButton.visible = false
-                        filter.width = view.width
                         view.model.setConversationsFilterRole(Qt.DisplayRole)
                     }
                 } else {
                     view.model.setConversationsFilterRole(ConversationListModel.ConversationIdRole)
-                    filter.width = view.width
                 }
                 view.model.setFilterFixedString(filter.text)
 
@@ -196,32 +191,30 @@ Kirigami.ScrollablePage
         Keys.forwardTo: [headerItem]
 
         Button {
-            id: addButton
-            text: i18nd("kdeconnect-sms", "Add")
+            id: newButton
+            text: i18nd("kdeconnect-sms", "New")
             anchors.right: parent.right
             height: view.headerItem.height
-            visible: false
+            visible: true
 
             onClicked: {
                 // We have to disable the filter temporarily in order to avoid getting key inputs accidently while processing the request
                 view.headerItem.enabled = false
 
                 // If the address entered by the user already exists then ignore adding new contact
-                if (!view.model.isPhoneNumberExists(view.headerItem.text)) {
+                if (!view.model.isPhoneNumberExists(view.headerItem.text) && conversationListModel.isPhoneNumberValid(view.headerItem.text)) {
                     conversationListModel.createConversationForAddress(view.headerItem.text)
                 }
 
                 view.headerItem.enabled = true
-                addButton.visible = false
-                view.headerItem.width = view.width
             }
             Keys.onReturnPressed: {
                 event.clicked = true
-                addButton.onClicked()
+                newButton.onClicked()
             }
             Shortcut {
-                sequence: "Ctrl+A"
-                onActivated: addButton.forceActiveFocus()
+                sequence: "Ctrl+N"
+                onActivated: newButton.forceActiveFocus()
             }
         }
 
