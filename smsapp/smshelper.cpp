@@ -120,7 +120,7 @@ QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
     toReturn = toReturn.remove(QStringLiteral("+"));
     toReturn = toReturn.remove(leadingZeroes);
 
-    if (toReturn.length() == 0) {
+    if (toReturn.isEmpty()) {
         // If we have stripped away everything, assume this is a special number (and already canonicalized)
         return phoneNumber;
     }
