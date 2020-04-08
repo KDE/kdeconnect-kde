@@ -290,11 +290,11 @@ SmsCharCount SmsHelper::getCharCount(const QString& message)
     bool enc7bit = true; // 7-bit is used when true, UCS-2 if false
     quint32 septets = 0; // GSM encoding character count (characters in extension are counted as 2 chars)
     int length = message.length();
-    
+
     // Count characters and detect encoding
     for (int i = 0; i < length; i++) {
         QChar ch = message[i];
-        
+
         if (isInGsmAlphabet(ch)) {
             septets++;
         }
@@ -306,7 +306,7 @@ SmsCharCount SmsHelper::getCharCount(const QString& message)
             break;
         }
     }
-    
+
     if (length == 0) {
         count.bitsPerChar = 7;
         count.octets = 0;
@@ -337,14 +337,14 @@ SmsCharCount SmsHelper::getCharCount(const QString& message)
             count.remaining = (charsInSingleUcs2Sms - length) % charsInSingleUcs2Sms;
         }
     }
-    
+
     return count;
 }
 
 bool SmsHelper::isInGsmAlphabet(const QChar& ch)
 {
     wchar_t unicode = ch.unicode();
-    
+
     if ((unicode & ~0x7f) == 0) { // If the character is ASCII
         // use map
         return gsm_ascii_map[unicode];
