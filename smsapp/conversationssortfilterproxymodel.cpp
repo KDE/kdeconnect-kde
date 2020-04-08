@@ -21,6 +21,7 @@
 
 #include "conversationssortfilterproxymodel.h"
 #include "conversationlistmodel.h"
+#include "smshelper.h"
 
 #include <QString>
 #include <QLoggingCategory>
@@ -31,15 +32,15 @@ Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_SORT_FILTER_PROXY_MODEL, "kdecon
 
 ConversationsSortFilterProxyModel::ConversationsSortFilterProxyModel()
 {
-    setFilterRole(ConversationListModel::DateRole);
+    setFilterRole(ConversationListModel::ConversationIdRole);
 }
 
-ConversationsSortFilterProxyModel::~ConversationsSortFilterProxyModel(){}
-
-void ConversationsSortFilterProxyModel::setOurFilterRole(int role)
+void ConversationsSortFilterProxyModel::setConversationsFilterRole(int role)
 {
     setFilterRole(role);
 }
+
+ConversationsSortFilterProxyModel::~ConversationsSortFilterProxyModel() {}
 
 bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
 {
@@ -61,5 +62,22 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
     if (filterRole() == Qt::DisplayRole) {
        return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
     }
-    return sourceModel()->data(index, ConversationListModel::DateRole) != INVALID_THREAD_ID;
+
+    if (filterRole() == ConversationListModel::SenderRole && !sourceModel()->data(index, ConversationListModel::MultitargetRole).toBool()) {
+        return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
+    }
+    return sourceModel()->data(index, ConversationListModel::ConversationIdRole) != INVALID_THREAD_ID;
+}
+
+bool ConversationsSortFilterProxyModel::isPhoneNumberExists(const QString &address)
+{
+    for(int i = 0; i < rowCount(); ++i) {
+        if (!data(index(i, 0), ConversationListModel::MultitargetRole).toBool()) {
+            QVariant senderAddress = data(index(i, 0), ConversationListModel::SenderRole);
+            if (SmsHelper::isPhoneNumberMatch(senderAddress.toString(), address)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }

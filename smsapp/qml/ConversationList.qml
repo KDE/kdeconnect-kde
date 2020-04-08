@@ -125,7 +125,6 @@ Kirigami.ScrollablePage
     readonly property bool deviceConnected: devicesCombo.enabled
     readonly property QtObject device: devicesCombo.currentIndex >= 0 ? devicesModel.data(devicesModel.index(devicesCombo.currentIndex, 0), DevicesModel.DeviceRole) : null
     readonly property alias lastDeviceId: conversationListModel.deviceId
-    property string displayName
 
     Component {
         id: chatView
@@ -148,7 +147,6 @@ Kirigami.ScrollablePage
             }
         }
 
-
         header: TextField {
             /**
              * Used as the filter of the list of messages
@@ -160,22 +158,21 @@ Kirigami.ScrollablePage
             z: 10
             onTextChanged: {
                 if (filter.text != "") {
-                    view.model.setOurFilterRole(Qt.DisplayRole)
+                    if (conversationListModel.isPhoneNumberValid(filter.text)) {
+                        addButton.visible = true
+                        view.model.setConversationsFilterRole(ConversationListModel.SenderRole)
+                    } else {
+                        addButton.visible = false
+                        filter.width = view.width
+                        view.model.setConversationsFilterRole(Qt.DisplayRole)
+                    }
                 } else {
-                    view.model.setOurFilterRole(ConversationListModel.ConversationIdRole)
+                    view.model.setConversationsFilterRole(ConversationListModel.ConversationIdRole)
+                    filter.width = view.width
                 }
                 view.model.setFilterFixedString(filter.text)
 
                 view.currentIndex = 0
-
-                if (conversationListModel.isPhoneNumberValid(filter.text)) {
-                    addButton.visible = true
-                    addButton.focus = true
-                } else {
-                    addButton.visible = false
-                    addButton.focus = false
-                    filter.width = view.width
-                }
             }
             onAccepted: {
                 view.currentItem.startChat()
@@ -208,11 +205,9 @@ Kirigami.ScrollablePage
             onClicked: {
                 // We have to disable the filter temporarily in order to avoid getting key inputs accidently while processing the request
                 view.headerItem.enabled = false
-                // If the address entered by the user already exists, fetch the name of the contact otherwise it will return empty string
-                displayName = conversationListModel.getDisplayNameForAddress(view.headerItem.text)
-                if (displayName != "") {
-                    view.headerItem.text = displayName
-                } else {
+
+                // If the address entered by the user already exists then ignore adding new contact
+                if (!view.model.isPhoneNumberExists(view.headerItem.text)) {
                     conversationListModel.createConversationForAddress(view.headerItem.text)
                 }
 
@@ -223,6 +218,10 @@ Kirigami.ScrollablePage
             Keys.onReturnPressed: {
                 event.clicked = true
                 addButton.onClicked()
+            }
+            Shortcut {
+                sequence: "Ctrl+A"
+                onActivated: addButton.forceActiveFocus()
             }
         }
 

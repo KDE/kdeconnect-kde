@@ -151,7 +151,8 @@ QStandardItem * ConversationListModel::conversationForThreadId(qint32 threadId)
     return nullptr;
 }
 
-QStandardItem * ConversationListModel::getConversationForAddress(const QString& address) {
+QStandardItem * ConversationListModel::getConversationForAddress(const QString& address)
+{
     for(int i = 0; i < rowCount(); ++i) {
         const auto& it = item(i, 0);
         if (!it->data(MultitargetRole).toBool()) {
@@ -235,7 +236,8 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         appendRow(item);
 }
 
-void ConversationListModel::displayContacts() {
+void ConversationListModel::displayContacts()
+{
     const QList<QSharedPointer<KPeople::PersonData>> personDataList = SmsHelper::getAllPersons();
 
     for(const auto& person : personDataList) {
@@ -264,31 +266,26 @@ void ConversationListModel::displayContacts() {
     }
 }
 
-bool ConversationListModel::isPhoneNumberValid(const QString& number) {
-    return SmsHelper::isPhoneNumberValid(number);
-}
-
-QString ConversationListModel::getDisplayNameForAddress(const QString &address) {
-    const auto item = getConversationForAddress(address);
-    if (!item) {
-        return QString();
-    }
-    return item->data(Qt::DisplayRole).toString();
-}
-
-void ConversationListModel::createConversationForAddress(const QString& address) {
+void ConversationListModel::createConversationForAddress(const QString& address)
+{
     QStandardItem* item = new QStandardItem();
-    item->setText(address);
+    const QString canonicalizedAddress = SmsHelper::canonicalizePhoneNumber(address);
+    item->setText(canonicalizedAddress);
 
     QList<ConversationAddress> addresses;
-    addresses.append(ConversationAddress(address));
+    addresses.append(ConversationAddress(canonicalizedAddress));
     item->setData(QVariant::fromValue(addresses), AddressesRole);
 
-    QString displayBody = i18n("%1", address);
+    QString displayBody = i18n("%1", canonicalizedAddress);
     item->setData(displayBody, Qt::ToolTipRole);
     item->setData(false, MultitargetRole);
     item->setData(qint64(INVALID_THREAD_ID), ConversationIdRole);
     item->setData(qint64(INVALID_DATE), DateRole);
     item->setData(address, SenderRole);
     appendRow(item);
+}
+
+bool ConversationListModel::isPhoneNumberValid(const QString& number)
+{
+    return SmsHelper::isPhoneNumberValid(number);
 }

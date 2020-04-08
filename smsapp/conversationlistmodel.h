@@ -58,20 +58,16 @@ public:
     Q_SCRIPTABLE void refresh();
 
     /**
-     * This method gets name of conversations or contact if it find any matching address
-     * Needed for checking if the converstion already or contact already exist or no before adding an arbbitrary contact
-     */
-    Q_INVOKABLE QString getDisplayNameForAddress(const QString& address);
-
-    /* This method creates conversation with an arbitrary address */
-    Q_INVOKABLE void createConversationForAddress(const QString& address);
-
-    /**
      * This method ensurse whether the phone number format is valid or not
      * TODO: This is here because I don't know how to make the QML call the smshelper directly
      * but that is what should be happening!
      */
     Q_INVOKABLE bool isPhoneNumberValid(const QString& number);
+
+    /**
+     * This method creates conversation with an arbitrary address
+     */
+    Q_INVOKABLE void createConversationForAddress(const QString& address);
 
 public Q_SLOTS:
     void handleCreatedConversation(const QDBusVariant& msg);

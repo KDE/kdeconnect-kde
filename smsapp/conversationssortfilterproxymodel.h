@@ -48,7 +48,13 @@ public:
         sortNow();
     }
 
-    Q_INVOKABLE void setOurFilterRole(int role);
+    Q_INVOKABLE void setConversationsFilterRole(int role);
+
+    /**
+     * This method gets name of conversations or contact if it find any matching address
+     * Needed for checking if the converstion already or contact already exist or no before adding an arbbitrary contact
+     */
+    Q_INVOKABLE bool isPhoneNumberExists(const QString& address);
 
     ConversationsSortFilterProxyModel();
     ~ConversationsSortFilterProxyModel();
