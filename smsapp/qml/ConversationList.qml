@@ -62,7 +62,7 @@ Kirigami.ScrollablePage
 
     ColumnLayout {
         id: loadingMessage
-        visible: deviceConnected && view.count == 0
+        visible: deviceConnected && view.count == 0 && view.headerItem.filter.text.length == 0
         anchors.centerIn: parent
 
         BusyIndicator {
@@ -158,6 +158,7 @@ Kirigami.ScrollablePage
                 id: filter
                 placeholderText: i18nd("kdeconnect-sms", "Filter...")
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 onTextChanged: {
                     if (filter.text != "") {
                         if (conversationListModel.isPhoneNumberValid(filter.text)) {
