@@ -141,7 +141,7 @@ void ConversationListModel::printDBusError(const QDBusError& error)
     qCWarning(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << error;
 }
 
-QStandardItem * ConversationListModel::conversationForThreadId(qint32 threadId)
+QStandardItem* ConversationListModel::conversationForThreadId(qint32 threadId)
 {
     for(int i=0, c=rowCount(); i<c; ++i) {
         auto it = item(i, 0);
@@ -151,7 +151,7 @@ QStandardItem * ConversationListModel::conversationForThreadId(qint32 threadId)
     return nullptr;
 }
 
-QStandardItem * ConversationListModel::getConversationForAddress(const QString& address)
+QStandardItem* ConversationListModel::getConversationForAddress(const QString& address)
 {
     for(int i = 0; i < rowCount(); ++i) {
         const auto& it = item(i, 0);

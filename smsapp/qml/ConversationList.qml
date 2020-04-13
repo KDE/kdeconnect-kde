@@ -147,76 +147,82 @@ Kirigami.ScrollablePage
             }
         }
 
-        header: TextField {
-            /**
-             * Used as the filter of the list of messages
-             */
-            id: filter
-            placeholderText: i18nd("kdeconnect-sms", "Filter...")
-            width: parent.width - newButton.width
+        header: RowLayout {
+            width: parent.width
             z: 10
-            onTextChanged: {
-                if (filter.text != "") {
-                    if (conversationListModel.isPhoneNumberValid(filter.text)) {
-                        view.model.setConversationsFilterRole(ConversationListModel.SenderRole)
+            Keys.forwardTo: [filter]
+            TextField {
+                /**
+                 * Used as the filter of the list of messages
+                 */
+                id: filter
+                placeholderText: i18nd("kdeconnect-sms", "Filter...")
+                Layout.fillWidth: true
+                onTextChanged: {
+                    if (filter.text != "") {
+                        if (conversationListModel.isPhoneNumberValid(filter.text)) {
+                            view.model.setConversationsFilterRole(ConversationListModel.SenderRole)
+                            newButton.enabled = true
+                        } else {
+                            view.model.setConversationsFilterRole(Qt.DisplayRole)
+                            newButton.enabled = false
+                        }
                     } else {
-                        view.model.setConversationsFilterRole(Qt.DisplayRole)
+                        view.model.setConversationsFilterRole(ConversationListModel.ConversationIdRole)
                     }
-                } else {
-                    view.model.setConversationsFilterRole(ConversationListModel.ConversationIdRole)
-                }
-                view.model.setFilterFixedString(filter.text)
+                    view.model.setFilterFixedString(filter.text)
 
-                view.currentIndex = 0
+                    view.currentIndex = 0
+                }
+                onAccepted: {
+                    view.currentItem.startChat()
+                }
+                Keys.onReturnPressed: {
+                    event.accepted = true
+                    filter.onAccepted()
+                }
+                Keys.onEscapePressed: {
+                    event.accepted = filter.text != ""
+                    filter.text = ""
+                }
+                Shortcut {
+                    sequence: "Ctrl+F"
+                    onActivated: filter.forceActiveFocus()
+                }
             }
-            onAccepted: {
-                view.currentItem.startChat()
-            }
-            Keys.onReturnPressed: {
-                event.accepted = true
-                filter.onAccepted()
-            }
-            Keys.onEscapePressed: {
-                event.accepted = filter.text != ""
-                filter.text = ""
-            }
-            Shortcut {
-                sequence: "Ctrl+F"
-                onActivated: filter.forceActiveFocus()
+
+            Button {
+                id: newButton
+                text: i18nd("kdeconnect-sms", "New")
+                visible: true
+                enabled: false
+                ToolTip.visible: hovered
+                ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
+                ToolTip.text: i18nd("kdeconnect-sms", "Start new conversation")
+
+                onClicked: {
+                    // We have to disable the filter temporarily in order to avoid getting key inputs accidently while processing the request
+                    filter.enabled = false
+
+                    // If the address entered by the user already exists then ignore adding new contact
+                    if (!view.model.doesPhoneNumberExists(filter.text) && conversationListModel.isPhoneNumberValid(filter.text)) {
+                        conversationListModel.createConversationForAddress(filter.text)
+                        view.currentIndex = 0
+                    }
+
+                    filter.enabled = true
+                }
+
+                Shortcut {
+                    sequence: "Ctrl+N"
+                    onActivated: newButton.onClicked()
+                }
             }
         }
 
         headerPositioning: ListView.OverlayHeader
 
         Keys.forwardTo: [headerItem]
-
-        Button {
-            id: newButton
-            text: i18nd("kdeconnect-sms", "New")
-            anchors.right: parent.right
-            height: view.headerItem.height
-            visible: true
-
-            onClicked: {
-                // We have to disable the filter temporarily in order to avoid getting key inputs accidently while processing the request
-                view.headerItem.enabled = false
-
-                // If the address entered by the user already exists then ignore adding new contact
-                if (!view.model.isPhoneNumberExists(view.headerItem.text) && conversationListModel.isPhoneNumberValid(view.headerItem.text)) {
-                    conversationListModel.createConversationForAddress(view.headerItem.text)
-                }
-
-                view.headerItem.enabled = true
-            }
-            Keys.onReturnPressed: {
-                event.clicked = true
-                newButton.onClicked()
-            }
-            Shortcut {
-                sequence: "Ctrl+N"
-                onActivated: newButton.forceActiveFocus()
-            }
-        }
 
         delegate: Kirigami.AbstractListItem
         {

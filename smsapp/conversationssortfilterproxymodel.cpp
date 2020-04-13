@@ -44,6 +44,19 @@ void ConversationsSortFilterProxyModel::setConversationsFilterRole(int role)
 
 bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
 {
+    // This if block checks for multitarget conversations and sorts it at bottom of the list when the filtring is done on the basis of SenderRole
+    // This keeps the individual contacts with matching address at the top of the list
+    if (filterRole() == ConversationListModel::SenderRole) {
+        const bool isLeftMultitarget = sourceModel()->data(leftIndex, ConversationListModel::MultitargetRole).toBool();
+        const bool isRightMultitarget = sourceModel()->data(leftIndex, ConversationListModel::MultitargetRole).toBool();
+        if (isLeftMultitarget && !isRightMultitarget) {
+            return false;
+        }
+        if (!isLeftMultitarget && isRightMultitarget) {
+            return true;
+        }
+    }
+
     QVariant leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole);
     QVariant rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole);
 
@@ -63,13 +76,24 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
        return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
     }
 
-    if (filterRole() == ConversationListModel::SenderRole && !sourceModel()->data(index, ConversationListModel::MultitargetRole).toBool()) {
-        return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
+    if (filterRole() == ConversationListModel::SenderRole) {
+        if (!sourceModel()->data(index, ConversationListModel::MultitargetRole).toBool()) {
+            return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
+        } else {
+            // This block of code compares each address in the multi target conversation to find a match
+            QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
+            for (const ConversationAddress address : addressList) {
+                if (address.address().contains(filterRegExp())) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
     return sourceModel()->data(index, ConversationListModel::ConversationIdRole) != INVALID_THREAD_ID;
 }
 
-bool ConversationsSortFilterProxyModel::isPhoneNumberExists(const QString &address)
+bool ConversationsSortFilterProxyModel::doesPhoneNumberExists(const QString &address)
 {
     for(int i = 0; i < rowCount(); ++i) {
         if (!data(index(i, 0), ConversationListModel::MultitargetRole).toBool()) {
