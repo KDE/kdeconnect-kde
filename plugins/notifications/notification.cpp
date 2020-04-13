@@ -132,6 +132,13 @@ void Notification::createKNotification(const NetworkPacket& np)
     m_notification->setHint(QStringLiteral("x-kde-origin-name"), m_device->name());
 #endif
 
+    if (!m_requestReplyId.isEmpty()) {
+        m_actions.prepend(i18n("Reply"));
+        connect(m_notification, &KNotification::action1Activated, this, &Notification::reply, Qt::UniqueConnection);
+    }
+
+    m_notification->setActions(m_actions);
+
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 
     if (!m_hasIcon) {
@@ -140,13 +147,6 @@ void Notification::createKNotification(const NetworkPacket& np)
         m_iconPath = m_imagesDir.absoluteFilePath(m_payloadHash);
         loadIcon(np);
     }
-
-    if (!m_requestReplyId.isEmpty()) {
-        m_actions.prepend(i18n("Reply"));
-        connect(m_notification, &KNotification::action1Activated, this, &Notification::reply, Qt::UniqueConnection);
-    }
-
-    m_notification->setActions(m_actions);
 }
 
 void Notification::loadIcon(const NetworkPacket& np)
