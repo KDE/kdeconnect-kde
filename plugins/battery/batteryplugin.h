@@ -24,6 +24,7 @@
 #include <QLoggingCategory>
 #include <core/kdeconnectplugin.h>
 
+#define PACKET_TYPE_BATTERY QStringLiteral("kdeconnect.battery")
 #define PACKET_TYPE_BATTERY_REQUEST QStringLiteral("kdeconnect.battery.request")
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BATTERY)
@@ -40,6 +41,11 @@ public:
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override;
+
+    // NB: This may be connected to zero or two signals in Solid::Battery -
+    // chargePercentageChanged and chargeStatusChanged.
+    // See inline comments for further details
+    void chargeChanged();
 
 private:
     // Keep these values in sync with THRESHOLD* constants in

@@ -8,5 +8,6 @@ kdeconnect_add_plugin(kdeconnect_battery JSON kdeconnect_battery.json SOURCES ${
 target_link_libraries(kdeconnect_battery
     kdeconnectcore
     Qt5::DBus
+    KF5::Solid
     KF5::I18n
 )

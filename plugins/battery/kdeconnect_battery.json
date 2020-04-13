@@ -131,9 +131,11 @@
         "Website": "https://albertvaka.wordpress.com"
     },
     "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.battery",
         "kdeconnect.battery.request"
     ],
     "X-KdeConnect-SupportedPacketType": [
-        "kdeconnect.battery"
+        "kdeconnect.battery",
+        "kdeconnect.battery.request"
     ]
 }

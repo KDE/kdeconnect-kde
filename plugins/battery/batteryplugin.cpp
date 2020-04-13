@@ -23,6 +23,10 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include <Solid/Device>
+#include <Solid/Battery>
+#include <Solid/Predicate>
+
 #include <core/daemon.h>
 
 #include "batterydbusinterface.h"
@@ -36,8 +40,8 @@ BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
     , batteryDbusInterface(new BatteryDbusInterface(device()))
 {
 
-    //TODO: Add battery reporting, could be based on:
-    // https://www.linux-apps.com/content/show.php/battery+plasmoid+with+remaining+time?content=120309
+    //TODO: Our protocol should support a dynamic number of batteries.
+    //Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
 
 }
 
@@ -45,6 +49,76 @@ void BatteryPlugin::connected()
 {
     NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{QStringLiteral("request"),true}});
     sendPacket(np);
+
+    const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
+    const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
+
+    QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
+
+    if (batteries.isEmpty()) {
+        qCWarning(KDECONNECT_PLUGIN_BATTERY) << "No Primary Battery detected on this system. This may be a bug.";
+        QList<Solid::Device> allBatteries = Solid::Device::listFromType(batteryDevice);
+        qCWarning(KDECONNECT_PLUGIN_BATTERY) << "Total quantity of batteries found: " << allBatteries.size();
+        return;
+    }
+
+    const Solid::Battery* chosen = batteries.first().as<Solid::Battery>();
+
+    connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::chargeChanged);
+    connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::chargeChanged);
+
+    // Explicitly send the current charge
+    chargeChanged();
+}
+
+void BatteryPlugin::chargeChanged()
+{
+
+    bool isAnyBatteryCharging = false;
+    int batteryQuantity = 0;
+    int cumulativeCharge = 0;
+
+    const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
+    const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
+
+    QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
+
+    for (auto device : batteries) {
+        const Solid::Battery* battery = device.as<Solid::Battery>();
+
+        // Don't look at batteries that have been detached
+        if (battery->isPresent()) {
+            batteryQuantity++;
+            cumulativeCharge += battery->chargePercent();
+            if (battery->chargeState() == Solid::Battery::ChargeState::Charging) {
+                isAnyBatteryCharging = true;
+            }
+        }
+    }
+
+    if (batteryQuantity == 0) {
+        qCWarning(KDECONNECT_PLUGIN_BATTERY) << "Primary Battery seems to have been removed. Suspending packets until it is reconnected.";
+        return;
+    }
+
+    // Load a new Battery object to represent the first device in the list
+    Solid::Battery* chosen = batteries.first().as<Solid::Battery>();
+
+    // Prepare an outgoing network packet
+    NetworkPacket status(PACKET_TYPE_BATTERY, {{}});
+    status.set(QStringLiteral("isCharging"), isAnyBatteryCharging);
+    status.set(QStringLiteral("currentCharge"), cumulativeCharge / batteryQuantity);
+    // FIXME: In future, we should consider sending an array of battery objects
+    status.set(QStringLiteral("batteryQuantity"), batteryQuantity);
+    // We consider primary battery to be low if it will only last for 5 minutes or
+    // less. This doesn't necessarily work if (for example) Solid finds multiple
+    // batteries.
+    if (chosen->remainingTime() < 600 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
+        status.set(QStringLiteral("thresholdEvent"), (int)ThresholdBatteryLow);
+    } else {
+        status.set(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
+    }
+    sendPacket(status);
 }
 
 BatteryPlugin::~BatteryPlugin()

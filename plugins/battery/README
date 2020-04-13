@@ -11,9 +11,11 @@ thresholdEvent (int) [optional when = 0, see below]:
     This is an int so in the future we'll be able to subscribe to more events.
     (see BatteryPlugin.ThresholdBatteryEvent)
 
-<TODO>
 Symmetrically, it sends its own battery information in packages with the same
-format.
+format. We only look for the 'primary' battery of the system, if one is present.
+
+<TODO>
+Support for devices with multiple batteries isn't there yet.
 </TODO>
 
 It also sends packages with type kdeconnect.battery and a field "request": true,
