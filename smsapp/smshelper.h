@@ -121,7 +121,7 @@ public:
     /**
      * Used to validate arbitrary phone number entered by the user
      */
-    static bool isPhoneNumberValid(const QString& phoneNumber);
+    static bool isAddressValid(const QString& address);
 
 private:
     SmsHelper(){};

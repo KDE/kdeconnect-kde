@@ -127,13 +127,21 @@ QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
     return toReturn;
 }
 
-bool SmsHelper::isPhoneNumberValid(const QString& phoneNumber)
+bool SmsHelper::isAddressValid(const QString& address)
 {
-    QString canonicalizedNumber = canonicalizePhoneNumber(phoneNumber);
+    QString canonicalizedNumber = canonicalizePhoneNumber(address);
 
     // This regular expression matches a wide range of international Phone numbers, minimum of 3 digits and maximum upto 15 digits
-    QRegularExpression validNumberPattern(QStringLiteral("^(\\d{3,15})$"));
-    return validNumberPattern.match(canonicalizedNumber).hasMatch();
+    static const QRegularExpression validNumberPattern(QStringLiteral("^(\\d{3,15})$"));
+    if (validNumberPattern.match(canonicalizedNumber).hasMatch()) {
+        return true;
+    } else {
+        static const QRegularExpression emailPattern(QStringLiteral("^[\\w\\.]*@[\\w\\.]*$"));
+        if (emailPattern.match(address).hasMatch()) {
+            return true;
+        }
+    }
+    return false;
 }
 
 class PersonsCache : public QObject {

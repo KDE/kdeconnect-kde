@@ -285,7 +285,7 @@ void ConversationListModel::createConversationForAddress(const QString& address)
     appendRow(item);
 }
 
-bool ConversationListModel::isPhoneNumberValid(const QString& number)
+bool ConversationListModel::isAddressValid(const QString& address)
 {
-    return SmsHelper::isPhoneNumberValid(number);
+    return SmsHelper::isAddressValid(address);
 }

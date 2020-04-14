@@ -170,11 +170,10 @@ Kirigami.ScrollablePage
                 Layout.fillHeight: true
                 onTextChanged: {
                     if (filter.text != "") {
-                        if (conversationListModel.isPhoneNumberValid(filter.text)) {
-                            view.model.setConversationsFilterRole(ConversationListModel.SenderRole)
+                        view.model.setConversationsFilterRole(ConversationListModel.AddressesRole)
+                        if (conversationListModel.isAddressValid(filter.text)) {
                             newButton.enabled = true
                         } else {
-                            view.model.setConversationsFilterRole(Qt.DisplayRole)
                             newButton.enabled = false
                         }
                     } else {
@@ -215,7 +214,7 @@ Kirigami.ScrollablePage
                     filter.enabled = false
 
                     // If the address entered by the user already exists then ignore adding new contact
-                    if (!view.model.doesPhoneNumberExists(filter.text) && conversationListModel.isPhoneNumberValid(filter.text)) {
+                    if (!view.model.doesAddressExists(filter.text) && conversationListModel.isAddressValid(filter.text)) {
                         conversationListModel.createConversationForAddress(filter.text)
                         view.currentIndex = 0
                     }

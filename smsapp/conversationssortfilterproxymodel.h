@@ -54,7 +54,7 @@ public:
      * This method gets name of conversations or contact if it find any matching address
      * Needed to check if the conversation or contact already exist or no before adding an arbitrary contact
      */
-    Q_INVOKABLE bool doesPhoneNumberExists(const QString& address);
+    Q_INVOKABLE bool doesAddressExists(const QString& address);
 
     ConversationsSortFilterProxyModel();
     ~ConversationsSortFilterProxyModel();

@@ -62,7 +62,7 @@ public:
      * TODO: This is here because I don't know how to make the QML call the smshelper directly
      * but that is what should be happening!
      */
-    Q_INVOKABLE bool isPhoneNumberValid(const QString& number);
+    Q_INVOKABLE bool isAddressValid(const QString& address);
 
     /**
      * This method creates conversation with an arbitrary address
