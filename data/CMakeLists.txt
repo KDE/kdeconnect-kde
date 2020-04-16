@@ -1,5 +1,5 @@
-install (FILES "kdeconnect.contract" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/contractor/)
-install (FILES "kdeconnect-thunar.desktop" DESTINATION ${CMAKE_INSTALL_PREFIX}/share/Thunar/sendto/)
+install (FILES "kdeconnect.contract" DESTINATION ${KDE_INSTALL_DATADIR}/share/contractor/)
+install (FILES "kdeconnect-thunar.desktop" DESTINATION ${KDE_INSTALL_DATADIR}/share/Thunar/sendto/)
 install(PROGRAMS org.kde.kdeconnect_open.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 if(NOT SAILFISHOS)
