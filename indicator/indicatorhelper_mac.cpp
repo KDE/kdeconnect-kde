@@ -61,7 +61,7 @@ void IndicatorHelper::postInit()
 
 void IndicatorHelper::iconPathHook()
 {
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons"), QStandardPaths::LocateDirectory);
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory);
     if (!iconPath.isNull()) {
         QStringList themeSearchPaths = QIcon::themeSearchPaths();
         themeSearchPaths << iconPath;
@@ -134,7 +134,7 @@ void IndicatorHelper::systrayIconHook(QSystemTrayIcon &systray)
 #else
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons"), QStandardPaths::LocateDirectory);
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory);
     if (!iconPath.isNull()) {
         systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
     } else {
