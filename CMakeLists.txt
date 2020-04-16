@@ -81,7 +81,7 @@ if (KF5_OPTIONAL_COMPONENTS)
 endif()
 
 if (NOT ZSH_AUTOCOMPLETE_DIR)
-set(ZSH_AUTOCOMPLETE_DIR "${CMAKE_INSTALL_PREFIX}/share/zsh/site-functions")
+set(ZSH_AUTOCOMPLETE_DIR "${KDE_INSTALL_DATADIR}/share/zsh/site-functions")
 endif()
 
 option(PRIVATE_DBUS_ENABLED "Use private dbus session for kdeconnect" OFF)
