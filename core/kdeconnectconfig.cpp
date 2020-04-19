@@ -109,7 +109,23 @@ void KdeConnectConfig::setName(const QString& name)
 
 QString KdeConnectConfig::deviceType()
 {
-    return QStringLiteral("desktop"); // TODO
+#ifdef SAILFISHOS
+    return QStringLiteral("phone");
+#else
+    const QByteArrayList platforms = qgetenv("PLASMA_PLATFORM").split(':');
+
+    if (platforms.contains("phone")) {
+        return QStringLiteral("phone");
+    } else if (platforms.contains("tablet")) {
+        return QStringLiteral("tablet");
+    } else if(platforms.contains("mediacenter")) {
+        return QStringLiteral("tv");
+    }
+
+    // TODO non-Plasma mobile platforms
+
+    return QStringLiteral("desktop");
+#endif
 }
 
 QString KdeConnectConfig::deviceId()
