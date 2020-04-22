@@ -26,9 +26,6 @@ import org.kde.kdeconnect 1.0
 
 Item
 {
-    width: units.gridUnit * 20
-    height: units.gridUnit * 32
-
     DevicesModel {
         id: connectDeviceModel
         displayFilter: DevicesModel.Paired | DevicesModel.Reachable
