@@ -204,7 +204,7 @@ Kirigami.ScrollablePage
                 id: newButton
                 text: i18nd("kdeconnect-sms", "New")
                 visible: true
-                enabled: false
+                enabled: conversationListModel.isAddressValid(filter.text) && deviceConnected
                 ToolTip.visible: hovered
                 ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
                 ToolTip.text: i18nd("kdeconnect-sms", "Start new conversation")
