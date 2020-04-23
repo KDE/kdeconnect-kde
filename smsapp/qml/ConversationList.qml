@@ -171,11 +171,6 @@ Kirigami.ScrollablePage
                 onTextChanged: {
                     if (filter.text != "") {
                         view.model.setConversationsFilterRole(ConversationListModel.AddressesRole)
-                        if (conversationListModel.isAddressValid(filter.text)) {
-                            newButton.enabled = true
-                        } else {
-                            newButton.enabled = false
-                        }
                     } else {
                         view.model.setConversationsFilterRole(ConversationListModel.ConversationIdRole)
                     }
@@ -218,8 +213,6 @@ Kirigami.ScrollablePage
                         conversationListModel.createConversationForAddress(filter.text)
                         view.currentIndex = 0
                     }
-
-                    filter.enabled = true
                 }
 
                 Shortcut {
