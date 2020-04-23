@@ -50,7 +50,7 @@ bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, c
         const bool isLeftMultitarget = sourceModel()->data(leftIndex, ConversationListModel::MultitargetRole).toBool();
         const bool isRightMultitarget = sourceModel()->data(rightIndex, ConversationListModel::MultitargetRole).toBool();
         if (isLeftMultitarget && !isRightMultitarget) {
-            return false;
+            return true;
         }
         if (!isLeftMultitarget && isRightMultitarget) {
             return true;
