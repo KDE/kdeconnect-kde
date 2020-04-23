@@ -53,7 +53,7 @@ bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, c
             return true;
         }
         if (!isLeftMultitarget && isRightMultitarget) {
-            return true;
+            return false;
         }
     }
 
