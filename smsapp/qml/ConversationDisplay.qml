@@ -199,28 +199,38 @@ Kirigami.ScrollablePage
         RowLayout {
             anchors.fill: parent
 
-            TextArea {
-                id: messageField
+            ScrollView {
                 Layout.fillWidth: true
-                placeholderText: page.isMultitarget ? i18nd("kdeconnect-sms", "Replying to multitarget messages is not supported") : i18nd("kdeconnect-sms", "Compose message")
-                wrapMode: TextArea.Wrap
-                topPadding: Kirigami.Units.gridUnit * 0.5
-                bottomPadding: topPadding
-                selectByMouse: true
-                background: Item {}
-                Keys.onReturnPressed: {
-                    if (event.key === Qt.Key_Return) {
-                        if (event.modifiers & Qt.ShiftModifier) {
-                            messageField.append("")
-                        } else {
-                            sendButton.onClicked()
-                            event.accepted = true
+                Layout.maximumHeight: page.height > 300 ? page.height / 3 : 2 * page.height / 3
+                contentWidth: page.width - sendButtonArea.width
+                clip: true
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+
+                TextArea {
+                    anchors.fill: parent
+                    id: messageField
+                    placeholderText: page.isMultitarget ? i18nd("kdeconnect-sms", "Replying to multitarget messages is not supported") : i18nd("kdeconnect-sms", "Compose message")
+                    wrapMode: TextArea.Wrap
+                    topPadding: Kirigami.Units.gridUnit * 0.5
+                    bottomPadding: topPadding
+                    selectByMouse: true
+                    topInset: height * 2 // This removes background (frame) of the TextArea. Setting `background: Item {}` would cause segfault.
+                    Keys.onReturnPressed: {
+                        if (event.key === Qt.Key_Return) {
+                            if (event.modifiers & Qt.ShiftModifier) {
+                                messageField.append("")
+                            } else {
+                                sendButton.onClicked()
+                                event.accepted = true
+                            }
                         }
                     }
                 }
             }
             
             ColumnLayout {
+                id: sendButtonArea
+
                 ToolButton {
                     id: sendButton
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
