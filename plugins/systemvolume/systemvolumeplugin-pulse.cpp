@@ -55,12 +55,15 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
 
         QString name = np.get<QString>(QStringLiteral("name"));
 
-        if (sinksMap.contains(name)) {
+        PulseAudioQt::Sink *sink = sinksMap.value(name);
+        if (sink) {
             if (np.has(QStringLiteral("volume"))) {
-                sinksMap[name]->setVolume(np.get<int>(QStringLiteral("volume")));
+                int volume = np.get<int>(QStringLiteral("volume"));
+                sink->setVolume(volume);
+                sink->setMuted(false);
             }
             if (np.has(QStringLiteral("muted"))) {
-                sinksMap[name]->setMuted(np.get<bool>(QStringLiteral("muted")));
+                sink->setMuted(np.get<bool>(QStringLiteral("muted")));
             }
         }
     }
