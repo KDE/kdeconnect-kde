@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=KDE Connect Phone URL Handler
+Name=KDE Connect URL Handler
 Name[ca]=Gestor d'URL de telèfons del KDE Connect
 Name[ca@valencia]=Gestor d'URL de telèfons del KDE Connect
 Name[cs]=Nástroj pro práci s URL telefonu v KDE Connect
@@ -39,4 +39,4 @@ Icon=kdeconnect
 Type=Application
 NoDisplay=true
 
-MimeType=x-scheme-handler/tel
+MimeType=x-scheme-handler/tel;x-scheme-handler/sms
