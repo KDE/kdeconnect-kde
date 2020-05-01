@@ -21,7 +21,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.10 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.ScrollablePage
@@ -34,7 +34,7 @@ Kirigami.ScrollablePage
     objectName: "FindDevices"
     title: i18nd("kdeconnect-app", "Pair")
 
-    Label {
+    Kirigami.PlaceholderMessage {
         text: i18nd("kdeconnect-app", "No devices found")
         anchors.centerIn: parent
         visible: devices.count === 0

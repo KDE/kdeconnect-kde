@@ -21,7 +21,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.0 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.Page
@@ -53,7 +53,7 @@ Kirigami.Page
         }
     }
 
-    Label {
+    Kirigami.PlaceholderMessage {
         visible: commandsList.count === 0
         text: i18nd("kdeconnect-app", "No commands defined")
         anchors.centerIn: parent

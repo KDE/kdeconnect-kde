@@ -22,7 +22,7 @@ import QtQuick 2.2
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.0
-import org.kde.kirigami 2.7 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kdeconnect 1.0
 
 Kirigami.Page
@@ -183,13 +183,9 @@ Kirigami.Page
 
         Component {
             id: notReachableDevice
-            Item {
-                property var actions: []
-
-                Label {
-                    anchors.centerIn: parent
-                    text: i18nd("kdeconnect-app", "This device is not reachable")
-                }
+            Kirigami.PlaceholderMessage {
+                text: i18nd("kdeconnect-app", "This device is not reachable")
+                anchors.centerIn: parent
             }
         }
     }
