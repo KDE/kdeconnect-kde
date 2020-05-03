@@ -105,13 +105,11 @@ void Notification::createKNotification(const NetworkPacket& np)
     QString escapedText = m_text.toHtmlEscaped();
     QString escapedTicker = m_ticker.toHtmlEscaped();
 
-#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 57, 0)
     if (NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::X_KDE_DISPLAY_APPNAME)) {
         m_notification->setTitle(escapedTitle);
         m_notification->setText(escapedText);
         m_notification->setHint(QStringLiteral("x-kde-display-appname"), m_appName.toHtmlEscaped());
     } else {
-#endif
         m_notification->setTitle(m_appName.toHtmlEscaped());
 
         if (m_title.isEmpty() && m_text.isEmpty()) {
@@ -125,12 +123,9 @@ void Notification::createKNotification(const NetworkPacket& np)
         } else {
             m_notification->setText(escapedTitle + QStringLiteral(": ") + escapedText);
         }
-
-#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 57, 0)
     }
 
     m_notification->setHint(QStringLiteral("x-kde-origin-name"), m_device->name());
-#endif
 
     if (!m_requestReplyId.isEmpty()) {
         m_actions.prepend(i18n("Reply"));
