@@ -38,6 +38,7 @@ geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/smsplugin.h smsinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h conversationsinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/share/shareplugin.h shareinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolumeplugin.h remotesystemvolumeinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/bigscreen/bigscreenplugin.h bigscreeninterface)
 
 add_library(kdeconnectinterfaces ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES

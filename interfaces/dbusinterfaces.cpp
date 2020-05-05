@@ -199,3 +199,12 @@ RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString& 
     OrgKdeKdeconnectDeviceRemotesystemvolumeInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/")  + deviceId + QStringLiteral("/remotesystemvolume"), DBusHelper::sessionBus(), parent)
 {
 }
+
+BigscreenDbusInterface::BigscreenDbusInterface(const QString& deviceId, QObject* parent):
+    OrgKdeKdeconnectDeviceBigscreenInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/")  + deviceId + QStringLiteral("/bigscreen"), DBusHelper::sessionBus(), parent)
+{
+}
+
+BigscreenDbusInterface::~BigscreenDbusInterface()
+{
+}

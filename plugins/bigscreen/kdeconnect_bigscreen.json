@@ -1,0 +1,28 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aix.m@outlook.com",
+                "Name": "Aditya Mehra"
+            }
+        ],
+        "Description": "Bigscreen Plugin",
+        "EnabledByDefault": true,
+        "Icon": "dialog-ok",
+        "Id": "kdeconnect_bigscreen",
+        "License": "GPL",
+        "Name": "Bigscreen",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "https://aiix.tk"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.mousepad.request",
+        "kdeconnect.bigscreen.stt"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.bigscreen.stt"
+    ]
+}

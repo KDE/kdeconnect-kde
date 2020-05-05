@@ -39,6 +39,7 @@
 #include "conversationsinterface.h"
 #include "shareinterface.h"
 #include "remotesystemvolumeinterface.h"
+#include "bigscreeninterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -238,6 +239,15 @@ class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface
 public:
     explicit RemoteSystemVolumeDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~RemoteSystemVolumeDbusInterface() = default;
+};
+
+class KDECONNECTINTERFACES_EXPORT BigscreenDbusInterface
+    : public OrgKdeKdeconnectDeviceBigscreenInterface
+{
+    Q_OBJECT
+public:
+    explicit BigscreenDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~BigscreenDbusInterface() override;
 };
 
 template <typename T, typename W>
