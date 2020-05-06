@@ -24,7 +24,7 @@ import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
-import org.kde.kirigami 2.6 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kdeconnect 1.0
 import org.kde.kdeconnect.sms 1.0
 
@@ -227,38 +227,14 @@ Kirigami.ScrollablePage
 
         Keys.forwardTo: [headerItem]
 
-        delegate: Kirigami.AbstractListItem
+        delegate: Kirigami.BasicListItem
         {
             id: listItem
-            contentItem: RowLayout {
-                Kirigami.Icon {
-                    id: iconItem
-                    source: decoration
-                    readonly property int size: Kirigami.Units.iconSizes.smallMedium
-                    Layout.minimumHeight: size
-                    Layout.maximumHeight: size
-                    Layout.minimumWidth: size
-                    selected: listItem.highlighted || listItem.checked || (listItem.pressed && listItem.supportsMouseEvents)
-                }
+            icon: decoration
+            reserveSpaceForIcon: true
+            label: display
+            subtitle: toolTip
 
-                ColumnLayout {
-                    Label {
-                        Layout.fillWidth: true
-                        font.weight: Font.Bold
-                        text: display
-                        maximumLineCount: 1
-                        elide: Text.ElideRight
-                        textFormat: Text.PlainText
-                    }
-                    Label {
-                        Layout.fillWidth: true
-                        text: toolTip
-                        maximumLineCount: 1
-                        elide: Text.ElideRight
-                        textFormat: Text.PlainText
-                    }
-                }
-            }
 
             function startChat() {
                 applicationWindow().pageStack.push(chatView, {
@@ -275,7 +251,7 @@ Kirigami.ScrollablePage
                 view.currentIndex = index
             }
             // Keep the currently-open chat highlighted even if this element is not focused
-            highlighted: chatView.conversationId == model.conversationId
+            highlighted: view.currentIndex == index
         }
 
         Component.onCompleted: {
