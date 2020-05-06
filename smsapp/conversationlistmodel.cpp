@@ -205,6 +205,9 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
     // Get the body that we should display
     QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
 
+    // For displaying single line subtitle out of the multiline messages to keep the ListItems consistent
+    displayBody = displayBody.mid(0, displayBody.indexOf(QStringLiteral("\n")));
+
     // Prepend the sender's name
     if (message.isOutgoing()) {
         displayBody = i18n("You: %1", displayBody);
