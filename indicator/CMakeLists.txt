@@ -7,13 +7,7 @@ set(indicator_SRCS
 
 include(ECMAddAppIcon)
 ecm_add_app_icon(indicator_SRCS ICONS
-    ../icon/16-apps-kdeconnect.png
-    ../icon/22-apps-kdeconnect.png
-    ../icon/32-apps-kdeconnect.png
-    ../icon/48-apps-kdeconnect.png
-    ../icon/64-apps-kdeconnect.png
-    ../icon/128-apps-kdeconnect.png
-    ../icon/256-apps-kdeconnect.png
+    ../icon/sc-apps-kdeconnect.svg
 )
 
 if (WIN32)
