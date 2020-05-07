@@ -44,19 +44,6 @@ void ConversationsSortFilterProxyModel::setConversationsFilterRole(int role)
 
 bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
 {
-    // This if block checks for multitarget conversations and sorts it at bottom of the list when the filtring is done on the basis of SenderRole
-    // This keeps the individual contacts with matching address at the top of the list
-    if (filterRole() == ConversationListModel::AddressesRole) {
-        const bool isLeftMultitarget = sourceModel()->data(leftIndex, ConversationListModel::MultitargetRole).toBool();
-        const bool isRightMultitarget = sourceModel()->data(rightIndex, ConversationListModel::MultitargetRole).toBool();
-        if (isLeftMultitarget && !isRightMultitarget) {
-            return true;
-        }
-        if (!isLeftMultitarget && isRightMultitarget) {
-            return false;
-        }
-    }
-
     QVariant leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole);
     QVariant rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole);
 
@@ -82,7 +69,8 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
         // This block of code compares each address in the multi target conversation to find a match
         QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
         for (const ConversationAddress address : addressList) {
-            if (address.address().contains(filterRegExp())) {
+            QString canonicalAddress = SmsHelper::canonicalizePhoneNumber(address.address());
+            if (canonicalAddress.contains(filterRegExp())) {
                 return true;
             }
         }

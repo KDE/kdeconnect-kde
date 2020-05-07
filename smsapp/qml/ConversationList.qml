@@ -213,6 +213,7 @@ Kirigami.ScrollablePage
                         conversationListModel.createConversationForAddress(filter.text)
                         view.currentIndex = 0
                     }
+                    filter.enabled = true
                 }
 
                 Shortcut {
