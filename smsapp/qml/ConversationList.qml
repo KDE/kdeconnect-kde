@@ -174,7 +174,7 @@ Kirigami.ScrollablePage
                     } else {
                         view.model.setConversationsFilterRole(ConversationListModel.ConversationIdRole)
                     }
-                    view.model.setFilterFixedString(filter.text)
+                    view.model.setFilterFixedString(SmsHelper.canonicalizePhoneNumber(filter.text))
 
                     view.currentIndex = 0
                 }
@@ -199,7 +199,7 @@ Kirigami.ScrollablePage
                 id: newButton
                 text: i18nd("kdeconnect-sms", "New")
                 visible: true
-                enabled: conversationListModel.isAddressValid(filter.text) && deviceConnected
+                enabled: SmsHelper.isAddressValid(filter.text) && deviceConnected
                 ToolTip.visible: hovered
                 ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
                 ToolTip.text: i18nd("kdeconnect-sms", "Start new conversation")
@@ -209,7 +209,7 @@ Kirigami.ScrollablePage
                     filter.enabled = false
 
                     // If the address entered by the user already exists then ignore adding new contact
-                    if (!view.model.doesAddressExists(filter.text) && conversationListModel.isAddressValid(filter.text)) {
+                    if (!view.model.doesAddressExists(filter.text) && smsHelper.isAddressValid(filter.text)) {
                         conversationListModel.createConversationForAddress(filter.text)
                         view.currentIndex = 0
                     }

@@ -21,7 +21,7 @@
  */
 
 import QtQuick 2.1
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as Controls
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
 import org.kde.kirigami 2.4 as Kirigami
@@ -54,7 +54,7 @@ Kirigami.ScrollablePage
     }
 
     property var addresses
-    title: conversationModel.getTitleForAddresses(addresses)
+    title: SmsHelper.getTitleForAddresses(addresses)
 
     Component.onCompleted: {
         if (initialMessage.length > 0) {
@@ -92,7 +92,7 @@ Kirigami.ScrollablePage
         spacing: Kirigami.Units.largeSpacing
         highlightMoveDuration: 0
 
-        BusyIndicator {
+        Controls.BusyIndicator {
             running: !isInitalized
         }
 
@@ -151,7 +151,7 @@ Kirigami.ScrollablePage
             }
 
             onMessageCopyRequested: {
-                conversationModel.copyToClipboard(message)
+                SmsHelper.copyToClipboard(message)
             }
         }
 
@@ -179,7 +179,7 @@ Kirigami.ScrollablePage
         }
     }
 
-    footer: Pane {
+    footer: Controls.Pane {
         id: sendingArea
         enabled: page.deviceConnected && !page.isMultitarget
         layer.enabled: sendingArea.enabled
@@ -199,14 +199,14 @@ Kirigami.ScrollablePage
         RowLayout {
             anchors.fill: parent
 
-            ScrollView {
+            Controls.ScrollView {
                 Layout.fillWidth: true
                 Layout.maximumHeight: page.height > 300 ? page.height / 3 : 2 * page.height / 3
                 contentWidth: page.width - sendButtonArea.width
                 clip: true
-                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
 
-                TextArea {
+                Controls.TextArea {
                     anchors.fill: parent
                     id: messageField
                     placeholderText: page.isMultitarget ? i18nd("kdeconnect-sms", "Replying to multitarget messages is not supported") : i18nd("kdeconnect-sms", "Compose message")
@@ -227,11 +227,11 @@ Kirigami.ScrollablePage
                     }
                 }
             }
-            
+
             ColumnLayout {
                 id: sendButtonArea
 
-                ToolButton {
+                Controls.ToolButton {
                     id: sendButton
                     Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                     Layout.preferredHeight: Kirigami.Units.gridUnit * 2
@@ -267,9 +267,8 @@ Kirigami.ScrollablePage
                         sendButton.enabled = true
                     }
                 }
-                
-                
-                Label {
+
+                Controls.Label {
                     id: "charCount"
                     text: conversationModel.getCharCountInfo(messageField.text)
                     visible: text.length > 0

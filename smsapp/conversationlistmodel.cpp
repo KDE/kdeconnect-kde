@@ -284,8 +284,3 @@ void ConversationListModel::createConversationForAddress(const QString& address)
     item->setData(address, SenderRole);
     appendRow(item);
 }
-
-bool ConversationListModel::isAddressValid(const QString& address)
-{
-    return SmsHelper::isAddressValid(address);
-}

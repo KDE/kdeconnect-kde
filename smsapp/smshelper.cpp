@@ -20,6 +20,8 @@
 
 #include "smshelper.h"
 
+#include <QClipboard>
+#include <QGuiApplication>
 #include <QIcon>
 #include <QPainter>
 #include <QRegularExpression>
@@ -35,6 +37,14 @@
 #include "smsapp/gsmasciimap.h"
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER, "kdeconnect.sms.smshelper")
+
+QObject* SmsHelper::singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+{
+    Q_UNUSED(engine);
+    Q_UNUSED(scriptEngine);
+
+    return new SmsHelper();
+}
 
 bool SmsHelper::isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, const QString& canonicalPhone2)
 {
@@ -217,7 +227,8 @@ QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QStri
     return nullptr;
 }
 
-QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons) {
+QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons)
+{
     QIcon icon;
     if (icons.size() == 0) {
         // We have no icon :(
@@ -260,7 +271,8 @@ QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons) {
     return icon;
 }
 
-QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addresses) {
+QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addresses)
+{
     QStringList titleParts;
     for (const ConversationAddress& address : addresses) {
         const auto personData = SmsHelper::lookupPersonByAddress(address.address());
@@ -277,7 +289,8 @@ QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addres
     return titleParts.join(QLatin1String(", "));
 }
 
-QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses) {
+QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses)
+{
     QList<QPixmap> icons;
     for (const ConversationAddress& address : addresses) {
         const auto personData = SmsHelper::lookupPersonByAddress(address.address());
@@ -293,6 +306,11 @@ QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses
     // It might be nice to alphabetize by contact before combining so that the pictures don't move
     // around randomly (based on how the data came to us from Android)
     return combineIcons(icons);
+}
+
+void SmsHelper::copyToClipboard(const QString& text)
+{
+    QGuiApplication::clipboard()->setText(text);
 }
 
 SmsCharCount SmsHelper::getCharCount(const QString& message)

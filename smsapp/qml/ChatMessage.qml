@@ -60,7 +60,7 @@ RowLayout {
   property bool isSpoiler
   property string spoilerHint
   property bool isShowingSpoiler: false
-  property string avatarUrl: null//kaidan.avatarStorage.getAvatarUrl(sender)
+  property string avatarUrl: ""
 
   signal messageCopyRequested(string message)
 

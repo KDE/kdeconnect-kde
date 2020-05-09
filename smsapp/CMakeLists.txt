@@ -20,6 +20,7 @@ PUBLIC
     Qt5::Core
     Qt5::DBus
     KF5::People
+    Qt5::Qml
     kdeconnectinterfaces
 )
 

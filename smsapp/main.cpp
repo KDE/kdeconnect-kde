@@ -33,6 +33,8 @@
 #include <KLocalizedContext>
 #include <KDBusService>
 
+#include "smshelper.h"
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -66,6 +68,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<ConversationsSortFilterProxyModel>("org.kde.kdeconnect.sms", 1, 0, "QSortFilterProxyModel");
     qmlRegisterType<ConversationModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationModel");
     qmlRegisterType<ConversationListModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationListModel");
+
+    qmlRegisterSingletonType<SmsHelper>("org.kde.kdeconnect.sms", 1, 0, "SmsHelper", SmsHelper::singletonProvider);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));

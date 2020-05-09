@@ -66,19 +66,7 @@ public:
     Q_INVOKABLE void sendReplyToConversation(const QString& message);
     Q_INVOKABLE void sendMessageWithoutConversation(const QString& message, const QString& address);
     Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
-    /**
-     * Convert a list of names into a single string suitable for display
-     * TODO: This is here because I don't know how to make the QML call the smshelper directly
-     * but that is what should be happening!
-     */
-    Q_INVOKABLE QString getTitleForAddresses(const QList<ConversationAddress>& addresses);
-    /**
-     * This is the action invoked by the right-click menu to copy to the clipboard
-     * QML can't do this directly but this should be part of smshelper
-     * TODO: Move to smshelper (or maybe make part of kirigami-addons chat library?)
-     */
-    Q_INVOKABLE void copyToClipboard(const QString& message) const;
-    
+
     Q_INVOKABLE QString getCharCountInfo(const QString& message) const;
 
 Q_SIGNALS:

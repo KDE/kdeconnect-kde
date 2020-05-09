@@ -21,8 +21,6 @@
 
 #include "conversationmodel.h"
 
-#include <QClipboard>
-#include <QGuiApplication>
 #include <QLoggingCategory>
 
 #include <KLocalizedString>
@@ -110,17 +108,6 @@ void ConversationModel::requestMoreMessages(const quint32& howMany)
     }
     const auto& numMessages = rowCount();
     m_conversationsInterface->requestConversation(m_threadId, numMessages, numMessages + howMany);
-}
-
-QString ConversationModel::getTitleForAddresses(const QList<ConversationAddress>& addresses)
-{
-    return SmsHelper::getTitleForAddresses(addresses);
-}
-
-void ConversationModel::copyToClipboard(const QString& message) const
-{
-    // TODO: Remove this method as part of abstracting GUI elements to library
-    QGuiApplication::clipboard()->setText(message);
 }
 
 void ConversationModel::createRowFromMessage(const ConversationMessage& message, int pos)
