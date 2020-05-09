@@ -8,8 +8,11 @@ add_subdirectory(remotecommands)
 add_subdirectory(remotecontrol)
 add_subdirectory(remotesystemvolume)
 add_subdirectory(clipboard)
-add_subdirectory(presenter)
 add_subdirectory(runcommand)
+
+if(NOT APPLE)
+add_subdirectory(presenter)
+endif()
 
 if(NOT SAILFISHOS)
     add_subdirectory(sendnotifications)
