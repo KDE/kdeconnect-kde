@@ -151,7 +151,11 @@ void CompositeUploadJob::newConnection()
     m_currentJob->setSocket(m_socket);
 
     connect(m_socket, &QSslSocket::disconnected, this, &CompositeUploadJob::socketDisconnected);
+#if QT_VERSION < QT_VERSION_CHECK(5,15,0)
     connect(m_socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &CompositeUploadJob::socketError);
+#else
+    connect(m_socket, &QAbstractSocket::errorOccurred, this, &CompositeUploadJob::socketError);
+#endif
     connect(m_socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &CompositeUploadJob::sslError);
     connect(m_socket, &QSslSocket::encrypted, this, &CompositeUploadJob::encrypted);
 

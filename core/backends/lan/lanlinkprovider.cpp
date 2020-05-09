@@ -228,7 +228,11 @@ void LanLinkProvider::udpBroadcastReceived()
         m_receivedIdentityPackets[socket].np = receivedPacket;
         m_receivedIdentityPackets[socket].sender = sender;
         connect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::tcpSocketConnected);
+#if QT_VERSION < QT_VERSION_CHECK(5,15,0)
         connect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
+#else
+        connect(socket, &QAbstractSocket::errorOccurred, this, &LanLinkProvider::connectError);
+#endif
         socket->connectToHost(sender, tcpPort);
     }
 }
@@ -258,7 +262,11 @@ void LanLinkProvider::tcpSocketConnected()
 
     if (!socket) return;
     // TODO Delete me?
+#if QT_VERSION < QT_VERSION_CHECK(5,15,0)
     disconnect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
+#else
+    disconnect(socket, &QAbstractSocket::errorOccurred, this, &LanLinkProvider::connectError);
+#endif
 
     configureSocket(socket);
 

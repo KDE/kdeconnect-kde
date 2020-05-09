@@ -99,8 +99,12 @@ void FileTransferJob::startTransfer()
 
         m_written = bytesSent;
     });
+#if QT_VERSION < QT_VERSION_CHECK(5,15,0)
     connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
             this, &FileTransferJob::transferFailed);
+#else
+    connect(m_reply, &QNetworkReply::errorOccurred, this, &FileTransferJob::transferFailed);
+#endif
     connect(m_reply, &QNetworkReply::finished, this, &FileTransferJob::transferFinished);
 }
 
