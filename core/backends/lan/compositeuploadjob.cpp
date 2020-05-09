@@ -64,21 +64,21 @@ void CompositeUploadJob::start() {
         qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::start() - already running";
         return;
     }
-    
+
     if (!hasSubjobs()) {
         qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::start() - there are no subjobs to start";
         emitResult();
         return;
     }
-    
+
     if (!startListening()) {
         return;
     }
-    
+
     connect(m_server, &QTcpServer::newConnection, this, &CompositeUploadJob::newConnection);
-    
+
     m_running = true;
- 
+
     //Give SharePlugin some time to add subjobs
     QMetaObject::invokeMethod(this, "startNextSubJob", Qt::QueuedConnection);
 }
@@ -97,7 +97,7 @@ bool CompositeUploadJob::startListening()
             return false;
         }
     }
-    
+
     qCDebug(KDECONNECT_CORE) << "CompositeUploadJob::startListening() - listening on port: " << m_port;
     return true;
 }
@@ -115,7 +115,7 @@ void CompositeUploadJob::startNextSubJob()
 #endif
     //Already done by KCompositeJob
     //connect(m_currentJob, &KJob::result, this, &CompositeUploadJob::slotResult);
-    
+
     //TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
     NetworkPacket np = m_currentJob->getNetworkPacket();
 #if QT_VERSION < QT_VERSION_CHECK(5,8,0)
@@ -126,7 +126,7 @@ void CompositeUploadJob::startNextSubJob()
     np.setPayloadTransferInfo({{QStringLiteral("port"), m_port}});
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
-    
+
     if (Daemon::instance()->getDevice(m_deviceId)->sendPacket(np)) {
         m_server->resumeAccepting();
     } else {
@@ -140,21 +140,21 @@ void CompositeUploadJob::startNextSubJob()
 void CompositeUploadJob::newConnection()
 {
     m_server->pauseAccepting();
-    
+
     m_socket = m_server->nextPendingConnection();
-    
+
     if (!m_socket) {
         qCDebug(KDECONNECT_CORE) << "CompositeUploadJob::newConnection() - m_server->nextPendingConnection() returned a nullptr";
         return;
     }
-    
+
     m_currentJob->setSocket(m_socket);
-    
+
     connect(m_socket, &QSslSocket::disconnected, this, &CompositeUploadJob::socketDisconnected);
     connect(m_socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &CompositeUploadJob::socketError);
     connect(m_socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &CompositeUploadJob::sslError);
     connect(m_socket, &QSslSocket::encrypted, this, &CompositeUploadJob::encrypted);
-    
+
     LanLinkProvider::configureSslSocket(m_socket, m_deviceId, true);
 
     m_socket->startServerEncryption();
@@ -168,7 +168,7 @@ void CompositeUploadJob::socketDisconnected()
 void CompositeUploadJob::socketError(QAbstractSocket::SocketError error)
 {
     Q_UNUSED(error);
-    
+
     //Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a segv
     setError(SocketError);
     emitResult();
@@ -179,7 +179,7 @@ void CompositeUploadJob::socketError(QAbstractSocket::SocketError error)
 void CompositeUploadJob::sslError(const QList<QSslError>& errors)
 {
     Q_UNUSED(errors);
-    
+
     m_socket->close();
     setError(SslError);
     emitResult();
@@ -192,7 +192,7 @@ void CompositeUploadJob::encrypted()
     if (!m_timer.isValid()) {
         m_timer.start();
     }
-    
+
     m_currentJob->start();
 }
 
@@ -200,30 +200,30 @@ bool CompositeUploadJob::addSubjob(KJob* job)
 {
     if (UploadJob *uploadJob = qobject_cast<UploadJob*>(job)) {
         NetworkPacket np = uploadJob->getNetworkPacket();
-        
+
         m_totalJobs++;
-        
+
         if (np.payloadSize() >= 0 ) {
             m_totalPayloadSize += np.payloadSize();
             setTotalAmount(Bytes, m_totalPayloadSize);
         }
-        
+
         QString filename;
         QString filenameArg = QStringLiteral("filename");
-        
+
         if (m_currentJob) {
             filename = m_currentJob->getNetworkPacket().get<QString>(filenameArg);
         } else {
             filename = np.get<QString>(filenameArg);
         }
-        
+
         emitDescription(filename);
 
         if (m_running && m_currentJob && !m_updatePacketPending) {
             m_updatePacketPending = true;
             QMetaObject::invokeMethod(this, "sendUpdatePacket", Qt::QueuedConnection);
         }
-        
+
         return KCompositeJob::addSubjob(job);
     } else {
         qCDebug(KDECONNECT_CORE) << "CompositeUploadJob::addSubjob() - you can only add UploadJob's, ignoring";
@@ -235,9 +235,9 @@ void CompositeUploadJob::sendUpdatePacket() {
     NetworkPacket np(PACKET_TYPE_SHARE_REQUEST_UPDATE);
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
-    
+
     Daemon::instance()->getDevice(m_deviceId)->sendPacket(np);
-    
+
     m_updatePacketPending = false;
 }
 
@@ -245,23 +245,23 @@ bool CompositeUploadJob::doKill()
 {
     if (m_running) {
         m_running = false;
-        
+
         return m_currentJob->stop();
     }
-    
+
     return true;
 }
 
 void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount) {
     Q_UNUSED(job);
-    
+
     m_currentJobSendPayloadSize = amount;
     quint64 uploaded = m_totalSendPayloadSize + m_currentJobSendPayloadSize;
-    
+
     if (uploaded == m_totalPayloadSize || m_prevElapsedTime == 0 || m_timer.elapsed() - m_prevElapsedTime >= 100) {
         m_prevElapsedTime = m_timer.elapsed();
         setProcessedAmount(unit, uploaded);
-    
+
         const auto elapsed = m_timer.elapsed();
         if (elapsed > 0) {
             emitSpeed((1000 * uploaded) / elapsed);
@@ -272,13 +272,13 @@ void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulongl
 void CompositeUploadJob::slotResult(KJob *job) {
     //Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
     KCompositeJob::slotResult(job);
-        
+
     if (error() || !m_running) {
         return;
     }
-    
+
     m_totalSendPayloadSize += m_currentJobSendPayloadSize;
-    
+
     if (hasSubjobs()) {
         m_currentJobNum++;
         startNextSubJob();

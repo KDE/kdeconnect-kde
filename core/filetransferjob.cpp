@@ -96,7 +96,7 @@ void FileTransferJob::startTransfer()
         if (elapsed > 0) {
             emitSpeed((1000 * bytesSent) / elapsed);
         }
-        
+
         m_written = bytesSent;
     });
     connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
@@ -122,7 +122,7 @@ void FileTransferJob::transferFinished()
         emitResult();
     } else {
         qCDebug(KDECONNECT_CORE) << "Received incomplete file ("<< m_written << "/" << m_size << "bytes ), deleting";
-        
+
         deleteDestinationFile();
 
         setError(3);
