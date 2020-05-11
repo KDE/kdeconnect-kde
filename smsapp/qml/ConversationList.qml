@@ -209,7 +209,7 @@ Kirigami.ScrollablePage
                     filter.enabled = false
 
                     // If the address entered by the user already exists then ignore adding new contact
-                    if (!view.model.doesAddressExists(filter.text) && smsHelper.isAddressValid(filter.text)) {
+                    if (!view.model.doesAddressExists(filter.text) && SmsHelper.isAddressValid(filter.text)) {
                         conversationListModel.createConversationForAddress(filter.text)
                         view.currentIndex = 0
                     }
