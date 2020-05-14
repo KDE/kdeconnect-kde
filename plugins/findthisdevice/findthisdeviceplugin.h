@@ -81,7 +81,7 @@ inline QString defaultSound()
         soundURL = QUrl::fromUserInput(QStringLiteral("Oxygen-Im-Phone-Ring.ogg"),
                                         dirPath,
                                         QUrl::AssumeLocalFile);
-        if ((soundURL.isLocalFile() && QFile::exists(soundURL.toLocalFile())) || soundURL.isValid()) {
+        if ((soundURL.isLocalFile() && soundURL.isValid() && QFile::exists(soundURL.toLocalFile()))) {
             break;
         }
     }
@@ -89,7 +89,7 @@ inline QString defaultSound()
     if (soundURL.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Could not find default ring tone.";
     }
-    return soundURL.toString();
+    return soundURL.toLocalFile();
 }
 
 #endif //FINDTHISDEVICEPLUGIN_H
