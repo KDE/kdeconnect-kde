@@ -8,7 +8,7 @@
         ],
         "Description": "Bigscreen Plugin",
         "EnabledByDefault": true,
-        "Icon": "dialog-ok",
+        "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen",
