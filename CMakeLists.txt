@@ -61,7 +61,7 @@ else()
     find_package(KF5PeopleVCard)
     set_package_properties(KF5PeopleVCard PROPERTIES
         PURPOSE "Read vcards from the file system"
-        URL "https://phabricator.kde.org/source/kpeoplevcard/"
+        URL "https://invent.kde.org/pim/kpeoplevcard"
         TYPE RUNTIME
     )
 
