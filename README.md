@@ -17,7 +17,7 @@ All this is done completely wirelessly, utilising TLS encryption.
 - Android, by installing the KDE Connect app from the [Play Store](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) or [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp).
 
 ## How to install
-These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Android device and pair them together in the app before using this application. The Android app repository can be found [here](https://cgit.kde.org/kdeconnect-android.git/)
+These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Android device and pair them together in the app before using this application. The Android app repository can be found [here](https://invent.kde.org/network/kdeconnect-android)
 
 ### On Linux
 Look in your distribution repo for a package called `kdeconnect-kde`, `kdeconnect-plasma`, or just `kdeconnect`. If it's not there and you know how to build software from sources, you just found the repo :), instructions are [here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
@@ -63,4 +63,4 @@ Please know that all translations for all KDE apps are handled by the [localizat
 ## License
 [GNU GPL v2](https://www.gnu.org/licenses/gpl-2.0.html) and [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html)
 
-If you are reading this from Github, you should know that this is just a mirror of the [KDE Project repo](https://cgit.kde.org/kdeconnect-kde.git).
+If you are reading this from Github, you should know that this is just a mirror of the [KDE Project repo](https://invent.kde.org/network/kdeconnect-kde).
