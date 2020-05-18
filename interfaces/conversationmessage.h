@@ -152,6 +152,7 @@ public:
     ConversationAddress(const ConversationAddress& other);
     ~ConversationAddress();
     ConversationAddress& operator=(const ConversationAddress& other);
+    static QList<ConversationAddress> listfromDBus(const QDBusVariant&);
 
     QString address() const { return m_address; }
 
@@ -226,7 +227,7 @@ inline const QDBusArgument& operator>>(const QDBusArgument& argument, Conversati
     return argument;
 }
 
-Q_DECLARE_METATYPE(ConversationMessage);
-Q_DECLARE_METATYPE(ConversationAddress);
+Q_DECLARE_METATYPE(ConversationMessage)
+Q_DECLARE_METATYPE(ConversationAddress)
 
 #endif /* PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_ */

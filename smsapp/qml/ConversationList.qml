@@ -265,8 +265,7 @@ Kirigami.ScrollablePage
                                                        conversationId: model.conversationId,
                                                        isMultitarget: isMultitarget,
                                                        initialMessage: page.initialMessage,
-                                                       device: device,
-                                                       otherParty: sender})
+                                                       device: device})
                 initialMessage = ""
             }
 

@@ -208,8 +208,9 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
     m_smsInterface.sendSms(addresses[0].address(), message, messagesList.first().subID());
 }
 
-void ConversationsDbusInterface::sendWithoutConversation(const QString& address, const QString& message) {
-    m_smsInterface.sendSms(address, message);
+void ConversationsDbusInterface::sendWithoutConversation(const QDBusVariant& addressList, const QString& message) {
+    QList<ConversationAddress> addresses = ConversationAddress::listfromDBus(addressList);
+    m_smsInterface.sendSms(addresses[0].address(), message);
 }
 
 void ConversationsDbusInterface::requestAllConversationThreads()

@@ -90,7 +90,7 @@ public Q_SLOTS:
     /**
      * Send a new message to the contact having no previous coversation with
      */
-    void sendWithoutConversation(const QString& address, const QString& message);
+    void sendWithoutConversation(const QDBusVariant& addressList, const QString& message);
 
     /**
      * Send the request to the Telephony plugin to update the list of conversation threads

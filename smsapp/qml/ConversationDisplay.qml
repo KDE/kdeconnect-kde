@@ -38,7 +38,6 @@ Kirigami.ScrollablePage
     property string conversationId
     property bool isMultitarget
     property string initialMessage
-    property string otherParty
     property string invalidId: "-1"
 
     property bool isInitalized: false
@@ -46,7 +45,7 @@ Kirigami.ScrollablePage
     property var conversationModel: ConversationModel {
         deviceId: page.deviceId
         threadId: page.conversationId
-        otherParty: page.otherParty
+        addressList: page.addresses
 
         onLoadingFinished: {
             page.isInitalized = true
@@ -257,7 +256,7 @@ Kirigami.ScrollablePage
 
                         // send the message
                         if (page.conversationId == page.invalidId) {
-                            conversationModel.sendMessageWithoutConversation(messageField.text, page.otherParty)
+                            conversationModel.startNewConversation(messageField.text, addresses)
                         } else {
                             conversationModel.sendReplyToConversation(messageField.text)
                         }

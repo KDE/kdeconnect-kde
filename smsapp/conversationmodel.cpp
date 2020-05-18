@@ -83,10 +83,12 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
     connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
+
+    connect(this, SIGNAL(sendMessageWithoutConversation(QDBusVariant, QString)), m_conversationsInterface, SLOT(sendWithoutConversation(QDBusVariant, QString)));
 }
 
-void ConversationModel::setOtherPartyAddress(const QString& address) {
-    m_otherPartyAddress = address;
+void ConversationModel::setAddressList(const QList<ConversationAddress>& addressList) {
+    m_addressList = addressList;
 }
 
 void ConversationModel::sendReplyToConversation(const QString& message)
@@ -95,10 +97,11 @@ void ConversationModel::sendReplyToConversation(const QString& message)
     m_conversationsInterface->replyToConversation(m_threadId, message);
 }
 
-void ConversationModel::sendMessageWithoutConversation(const QString& message, const QString& address)
+void ConversationModel::startNewConversation(const QString& message, const QList<ConversationAddress>& addressList)
 {
-    //qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to contact address with no previous Conversation" << "and receiver's address" << address;
-    m_conversationsInterface->sendWithoutConversation(address, message);
+    QVariant addresses;
+    addresses.setValue(addressList);
+    Q_EMIT sendMessageWithoutConversation(QDBusVariant(addresses), message);
 }
 
 void ConversationModel::requestMoreMessages(const quint32& howMany)
@@ -163,7 +166,7 @@ void ConversationModel::handleConversationCreated(const QDBusVariant& msg)
 {
     ConversationMessage message = ConversationMessage::fromDBus(msg);
 
-    if (m_threadId == INVALID_THREAD_ID && SmsHelper::isPhoneNumberMatch(m_otherPartyAddress, message.addresses().first().address()) && !message.isMultitarget()) {
+    if (m_threadId == INVALID_THREAD_ID && SmsHelper::isPhoneNumberMatch(m_addressList[0].address(), message.addresses().first().address()) && !message.isMultitarget()) {
         m_threadId = message.threadID();
         createRowFromMessage(message, 0);
     }
@@ -183,7 +186,7 @@ void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMes
 QString ConversationModel::getCharCountInfo(const QString& message) const
 {
     SmsCharCount count = SmsHelper::getCharCount(message);
-    
+
     if (count.messages > 1) {
         // Show remaining char count and message count
         return QString::number(count.remaining) + QLatin1Char('/') + QString::number(count.messages);
