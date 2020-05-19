@@ -32,9 +32,12 @@
 
 #include "indicatorhelper.h"
 
+#include "serviceregister_mac.h"
 
 IndicatorHelper::IndicatorHelper()
 {
+    registerServices();
+
     QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
     QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
 

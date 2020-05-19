@@ -13,7 +13,7 @@ ecm_add_app_icon(indicator_SRCS ICONS
 if (WIN32)
     list(APPEND indicator_SRCS indicatorhelper_win.cpp)
 elseif (APPLE)
-    list(APPEND indicator_SRCS indicatorhelper_mac.cpp)
+    list(APPEND indicator_SRCS indicatorhelper_mac.cpp serviceregister_mac.mm)
 else ()
     list(APPEND indicator_SRCS indicatorhelper.cpp)
 endif()
@@ -26,6 +26,8 @@ if (WIN32)
 endif()
 
 if (APPLE)
+# Apple frameworks
+target_link_libraries(kdeconnect-indicator "-framework AppKit")
 # Apple app package
 set_target_properties(kdeconnect-indicator PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist)
 set_target_properties(kdeconnect-indicator PROPERTIES
