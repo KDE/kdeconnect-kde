@@ -74,6 +74,8 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
     bool pause = config()->get(QStringLiteral("actionPause"), false);
     bool mute = config()->get(QStringLiteral("actionMute"), true);
 
+    const bool autoResume = config()->get(QStringLiteral("actionResume"), true);
+
     if (pauseConditionFulfilled) {
 
         if (mute) {
@@ -89,7 +91,9 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
-            endpointVolume->SetMute(FALSE, &g_guidMyContext);
+            if (autoResume) {
+                endpointVolume->SetMute(FALSE, &g_guidMyContext);
+            }
         }
         if (pause) {
             // TODO UNPAUSING

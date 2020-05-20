@@ -75,6 +75,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QCheckBox" name="check_resume">
+        <property name="text">
+         <string>Automatically resume media when call has finished</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

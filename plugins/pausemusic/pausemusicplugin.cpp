@@ -58,6 +58,8 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
     bool pause = config()->get(QStringLiteral("actionPause"), true);
     bool mute = config()->get(QStringLiteral("actionMute"), false);
 
+    const bool autoResume = config()->get(QStringLiteral("actionResume"), true);
+
     if (pauseConditionFulfilled) {
 
         if (mute) {
@@ -98,19 +100,23 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
 
-            const auto sinks = PulseAudioQt::Context::instance()->sinks();
-            for (const auto sink : sinks) {
-                if (mutedSinks.contains(sink->name())) {
-                    sink->setMuted(false);
+            if (autoResume) {
+                const auto sinks = PulseAudioQt::Context::instance()->sinks();
+                for (const auto sink : sinks) {
+                    if (mutedSinks.contains(sink->name())) {
+                        sink->setMuted(false);
+                    }
                 }
             }
             mutedSinks.clear();
         }
 
         if (pause && !pausedSources.empty()) {
-            for (const QString& iface : qAsConst(pausedSources)) {
-                OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), DBusHelper::sessionBus());
-                mprisInterface.Play();
+            if (autoResume) {
+                for (const QString& iface : qAsConst(pausedSources)) {
+                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), DBusHelper::sessionBus());
+                    mprisInterface.Play();
+                }
             }
             pausedSources.clear();
         }

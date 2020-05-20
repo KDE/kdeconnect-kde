@@ -35,6 +35,7 @@ PauseMusicConfig::PauseMusicConfig(QWidget* parent, const QVariantList& args)
     connect(m_ui->rad_talking, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->check_pause, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->check_mute, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->check_resume, SIGNAL(toggled(bool)), this, SLOT(changed()));
 }
 
 PauseMusicConfig::~PauseMusicConfig()
@@ -49,6 +50,7 @@ void PauseMusicConfig::defaults()
     m_ui->rad_ringing->setChecked(true);
     m_ui->check_pause->setChecked(true);
     m_ui->check_mute->setChecked(false);
+    m_ui->check_resume->setChecked(true);
     Q_EMIT changed(true);
 }
 
@@ -64,6 +66,9 @@ void PauseMusicConfig::load()
     m_ui->check_pause->setChecked(pause);
     m_ui->check_mute->setChecked(mute);
 
+    const bool autoResume = config()->get(QStringLiteral("actionResume"), true);
+    m_ui->check_resume->setChecked(autoResume);
+
     Q_EMIT changed(false);
 }
 
@@ -72,6 +77,7 @@ void PauseMusicConfig::save()
     config()->set(QStringLiteral("conditionTalking"), m_ui->rad_talking->isChecked());
     config()->set(QStringLiteral("actionPause"), m_ui->check_pause->isChecked());
     config()->set(QStringLiteral("actionMute"), m_ui->check_mute->isChecked());
+    config()->set(QStringLiteral("actionResume"), m_ui->check_resume->isChecked());
     KCModule::save();
     Q_EMIT changed(false);
 }
