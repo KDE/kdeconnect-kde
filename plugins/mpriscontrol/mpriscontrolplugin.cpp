@@ -71,6 +71,8 @@ void MprisControlPlugin::serviceOwnerChanged(const QString& serviceName, const Q
 {
     if (!serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2."))) return;
     if (serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2.kdeconnect."))) return;
+    // playerctld is a only a proxy to other media players, and can thus safely be ignored
+    if (serviceName == QStringLiteral("org.mpris.MediaPlayer2.playerctld")) return;
 
     if (!oldOwner.isEmpty()) {
         qCDebug(KDECONNECT_PLUGIN_MPRIS) << "MPRIS service" << serviceName << "just went offline";
