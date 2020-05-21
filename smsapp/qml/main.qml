@@ -33,7 +33,7 @@ Kirigami.ApplicationWindow
 
     pageStack.initialPage: ConversationList {
         title: i18nd("kdeconnect-sms", "KDE Connect SMS")
-        initialMessage: _initialMessage
+        initialMessage: initialMessage
     }
 
     Component {
