@@ -34,11 +34,9 @@
 #include "dbusproperties.h"
 #include "mprisplayer.h"
 #include "mprisroot.h"
+#include "plugin_mpris_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS, "kdeconnect.plugin.mpris")
-
 
 MprisPlayer::MprisPlayer(const QString& serviceName, const QString& dbusObjectPath, const QDBusConnection& busConnection)
     : m_serviceName(serviceName)

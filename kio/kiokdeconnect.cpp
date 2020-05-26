@@ -29,7 +29,7 @@
 #include <QDebug>
 #include <QtPlugin>
 
-Q_LOGGING_CATEGORY(KDECONNECT_KIO, "kdeconnect.kio")
+#include "kdeconnectkio_debug.h"
 
 class KIOPluginForMetaData : public QObject
 {

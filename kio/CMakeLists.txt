@@ -1,8 +1,16 @@
 include_directories(${CMAKE_SOURCE_DIR})
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kio")
 
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER kdeconnectkio_debug.h
+    IDENTIFIER KDECONNECT_KIO CATEGORY_NAME kdeconnect.kio
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (kio)")
+
 set(kio_kdeconnect_PART_SRCS
    kiokdeconnect.cpp
+   ${debug_file_SRCS}
 )
 
 add_library(kio_kdeconnect MODULE ${kio_kdeconnect_PART_SRCS})

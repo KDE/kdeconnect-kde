@@ -23,13 +23,13 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QLoggingCategory>
 
 #include <core/device.h>
 
+#include "plugin_mprisremote_debug.h"
+
 K_PLUGIN_CLASS_WITH_JSON(MprisRemotePlugin, "kdeconnect_mprisremote.json")
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRISREMOTE, "kdeconnect.plugin.mprisremote")
 
 MprisRemotePlugin::MprisRemotePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

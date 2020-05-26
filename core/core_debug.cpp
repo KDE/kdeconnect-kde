@@ -20,8 +20,6 @@
 
 #include "core_debug.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_CORE, "kdeconnect.core")
-
 #if defined(__GNU_LIBRARY__)
 #include <execinfo.h>
 #include <stdlib.h>

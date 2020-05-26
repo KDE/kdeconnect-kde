@@ -21,13 +21,11 @@
 #ifndef BATTERYPLUGIN_H
 #define BATTERYPLUGIN_H
 
-#include <QLoggingCategory>
 #include <core/kdeconnectplugin.h>
 
 #define PACKET_TYPE_BATTERY QStringLiteral("kdeconnect.battery")
 #define PACKET_TYPE_BATTERY_REQUEST QStringLiteral("kdeconnect.battery.request")
 
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BATTERY)
 class BatteryDbusInterface;
 
 class BatteryPlugin

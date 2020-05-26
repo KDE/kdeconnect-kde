@@ -23,14 +23,13 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QLoggingCategory>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include "plugin_systemvolume_debug.h"
 
 K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_systemvolume.json", registerPlugin< SystemvolumePlugin >(); )
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SYSTEMVOLUME, "kdeconnect.plugin.systemvolume")
 
 class MacOSCoreAudioDevice
 {

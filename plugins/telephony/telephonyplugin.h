@@ -22,7 +22,6 @@
 #ifndef TELEPHONYPLUGIN_H
 #define TELEPHONYPLUGIN_H
 
-#include <QLoggingCategory>
 #include <QPointer>
 
 #include <KNotification>
@@ -44,8 +43,6 @@
 #define PACKET_TYPE_TELEPHONY QStringLiteral("kdeconnect.telephony")
 
 #define PACKET_TYPE_TELEPHONY_REQUEST_MUTE QStringLiteral("kdeconnect.telephony.request_mute")
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY)
 
 class TelephonyPlugin
     : public KdeConnectPlugin

@@ -22,13 +22,11 @@
 
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <QLoggingCategory>
 #include <QDBusConnection>
 #include <QDBusInterface>
+#include "kdeconnect_screensaverinhibit_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(ScreensaverInhibitPlugin, "kdeconnect_screensaver_inhibit.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT, "kdeconnect.plugin.screensaverinhibit")
 
 #define INHIBIT_SERVICE QStringLiteral("org.freedesktop.ScreenSaver")
 #define INHIBIT_INTERFACE INHIBIT_SERVICE

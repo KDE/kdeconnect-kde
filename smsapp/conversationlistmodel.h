@@ -23,12 +23,9 @@
 #define CONVERSATIONLISTMODEL_H
 
 #include <QStandardItemModel>
-#include <QLoggingCategory>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL)
 
 class ConversationListModel
     : public QStandardItemModel

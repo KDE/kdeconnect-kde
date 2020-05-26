@@ -6,11 +6,19 @@ endif()
 
 configure_file(kdeconnect_sendnotifications.json.in kdeconnect_sendnotifications.json)
 
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_sendnotification_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_SENDNOTIFICATION CATEGORY_NAME kdeconnect.plugin.sendnotification
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin sendnotification)")
+
 set(kdeconnect_sendnotifications_SRCS
     sendnotificationsplugin.cpp
     notificationslistener.cpp
     notifyingapplication.cpp
     kdeconnect_sendnotifications.json
+    ${debug_file_SRCS}
 )
 
 kdeconnect_add_plugin(kdeconnect_sendnotifications JSON "${CMAKE_CURRENT_BINARY_DIR}/kdeconnect_sendnotifications.json" SOURCES ${kdeconnect_sendnotifications_SRCS})

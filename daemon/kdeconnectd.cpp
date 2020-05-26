@@ -21,7 +21,6 @@
 #include <QApplication>
 #include <QNetworkAccessManager>
 #include <QTimer>
-#include <QLoggingCategory>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDBusMessage>
@@ -42,9 +41,7 @@
 #include "core/device.h"
 #include "core/backends/pairinghandler.h"
 #include "kdeconnect-version.h"
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_DAEMON)
-Q_LOGGING_CATEGORY(KDECONNECT_DAEMON, "kdeconnect.daemon")
+#include "kdeconnectd_debug.h"
 
 class DesktopDaemon : public Daemon
 {

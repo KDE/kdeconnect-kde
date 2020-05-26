@@ -33,15 +33,9 @@
 #include <QUrl>
 #endif
 // Qt
-#include <QLoggingCategory>
+#include "plugin_findthisdevice_debug.h"
 
 #define PACKET_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
-
-static const QLoggingCategory &KDECONNECT_PLUGIN_FINDTHISDEVICE()
-{
-    static const QLoggingCategory category("kdeconnect.plugin.findthisdevice");
-    return category;
-}
 
 class FindThisDevicePlugin
     : public KdeConnectPlugin

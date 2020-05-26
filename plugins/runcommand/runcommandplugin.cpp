@@ -25,7 +25,6 @@
 #include <QDBusConnection>
 #include <QProcess>
 #include <QDir>
-#include <QLoggingCategory>
 #include <QSettings>
 #include <QJsonDocument>
 
@@ -38,6 +37,8 @@
 
 #include <core/networkpacket.h>
 #include <core/device.h>
+
+#include "plugin_runcommand_debug.h"
 
 #define PACKET_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
 
@@ -52,8 +53,6 @@
 #endif
 
 K_PLUGIN_CLASS_WITH_JSON(RunCommandPlugin, "kdeconnect_runcommand.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_RUNCOMMAND, "kdeconnect.plugin.runcommand")
 
 RunCommandPlugin::RunCommandPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

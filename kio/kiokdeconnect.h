@@ -22,13 +22,10 @@
 #define KIOKDECONNECT_H
 
 #include <QObject>
-#include <QLoggingCategory>
 
 #include <kio/slavebase.h>
 
 #include "interfaces/dbusinterfaces.h"
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_KIO)
 
 class KioKdeconnect : public QObject, public KIO::SlaveBase
 {

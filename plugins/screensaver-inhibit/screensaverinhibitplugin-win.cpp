@@ -21,12 +21,10 @@
 #include "screensaverinhibitplugin-win.h"
 
 #include <KPluginFactory>
-#include <QLoggingCategory>
 #include <Windows.h>
+#include "kdeconnect_screensaverinhibit_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(ScreensaverInhibitPlugin, "kdeconnect_screensaver_inhibit.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT, "kdeconnect.plugin.screensaverinhibit")
 
 ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

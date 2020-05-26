@@ -1,5 +1,13 @@
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_runcommand_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_RUNCOMMAND CATEGORY_NAME kdeconnect.plugin.runcommand
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin runcommand)")
+
 set(kdeconnect_runcommand_SRCS
     runcommandplugin.cpp
+    ${debug_file_SRCS}
 )
 
 kdeconnect_add_plugin(kdeconnect_runcommand JSON kdeconnect_runcommand.json SOURCES ${kdeconnect_runcommand_SRCS})

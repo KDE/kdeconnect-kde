@@ -23,7 +23,6 @@
 
 #include <QIcon>
 #include <QJSEngine>
-#include <QLoggingCategory>
 #include <QQmlEngine>
 #include <QSharedPointer>
 
@@ -33,8 +32,6 @@
 
 #include "kdeconnectsms_export.h"
 #include "smsapp/smscharcount.h"
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER)
 
 class PersonsCache;
 

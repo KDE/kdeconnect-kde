@@ -20,7 +20,14 @@ qt5_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.mpris.MediaPlayer2.xml m
 
 endif()
 
-kdeconnect_add_plugin(kdeconnect_mpriscontrol JSON kdeconnect_mpriscontrol.json SOURCES  ${kdeconnect_mpriscontrol_SRCS})
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_mpris_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_MPRIS CATEGORY_NAME kdeconnect.plugin.mpris
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin mpris)")
+
+kdeconnect_add_plugin(kdeconnect_mpriscontrol JSON kdeconnect_mpriscontrol.json SOURCES  ${kdeconnect_mpriscontrol_SRCS} ${debug_file_SRCS})
 
 if(WIN32)
    target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore)

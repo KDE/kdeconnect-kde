@@ -1,5 +1,13 @@
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_share_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_SHARE CATEGORY_NAME kdeconnect.plugin.share
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin share)")
+
 set(kdeconnect_share_SRCS
     shareplugin.cpp
+    ${debug_file_SRCS}
 )
 
 kdeconnect_add_plugin(kdeconnect_share JSON kdeconnect_share.json SOURCES ${kdeconnect_share_SRCS})

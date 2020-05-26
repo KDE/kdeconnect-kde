@@ -19,7 +19,6 @@
  */
 
 #include "shareplugin.h"
-#include "share_debug.h"
 
 #include <QStandardPaths>
 #include <QProcess>
@@ -39,10 +38,9 @@
 
 #include "core/filetransferjob.h"
 #include "core/daemon.h"
+#include "plugin_share_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SharePlugin, "kdeconnect_share.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SHARE, "kdeconnect.plugin.share")
 
 SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

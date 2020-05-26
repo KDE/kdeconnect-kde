@@ -23,12 +23,9 @@
 
 #include <core/kdeconnectplugin.h>
 #include <QDBusInterface>
-#include <QLoggingCategory>
 #include <QVariantMap>
 
 struct FakeKey;
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTEKEYBOARD);
 
 #define PACKET_TYPE_MOUSEPAD_REQUEST QLatin1String("kdeconnect.mousepad.request")
 #define PACKET_TYPE_MOUSEPAD_ECHO QLatin1String("kdeconnect.mousepad.echo")

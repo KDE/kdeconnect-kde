@@ -19,7 +19,7 @@
  */
 
 #include "notificationsdbusinterface.h"
-#include "notification_debug.h"
+#include "plugin_notification_debug.h"
 #include "notification.h"
 
 #include <core/device.h>

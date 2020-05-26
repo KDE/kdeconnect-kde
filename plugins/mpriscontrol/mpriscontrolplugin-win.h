@@ -24,13 +24,10 @@
 #include <core/kdeconnectplugin.h>
 
 #include <QString>
-#include <QLoggingCategory>
 
 #define PLAYERNAME QStringLiteral("Media Player")
 
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS)
 
 class MprisControlPlugin
     : public KdeConnectPlugin

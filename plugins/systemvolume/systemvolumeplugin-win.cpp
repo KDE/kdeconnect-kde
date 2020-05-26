@@ -21,7 +21,6 @@
 #include "systemvolumeplugin-win.h"
 
 #include <QDebug>
-#include <QLoggingCategory>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -32,9 +31,9 @@
 
 #include <core/device.h>
 
-K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
+#include "plugin_systemvolume_debug.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SYSTEMVOLUME, "kdeconnect.plugin.systemvolume")
+K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
 // Private classes of SystemvolumePlugin
 

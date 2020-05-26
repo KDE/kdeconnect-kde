@@ -26,17 +26,15 @@
 
 #include <QDebug>
 #include <QDBusConnection>
-#include <QLoggingCategory>
 #include <QProcess>
 
 #include <core/device.h>
 #include <core/daemon.h>
 
 #include "sendreplydialog.h"
+#include "plugin_sms_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SmsPlugin, "kdeconnect_sms.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS, "kdeconnect.plugin.sms")
 
 SmsPlugin::SmsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

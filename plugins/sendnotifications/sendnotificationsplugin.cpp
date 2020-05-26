@@ -21,13 +21,11 @@
 #include "sendnotificationsplugin.h"
 
 #include "notificationslistener.h"
-#include "sendnotification_debug.h"
+#include "plugin_sendnotification_debug.h"
 
 #include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(SendNotificationsPlugin, "kdeconnect_sendnotifications.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SENDNOTIFICATION, "kdeconnect.plugin.sendnotification")
 
 SendNotificationsPlugin::SendNotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

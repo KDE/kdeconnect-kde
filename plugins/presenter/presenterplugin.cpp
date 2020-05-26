@@ -25,7 +25,6 @@
 
 #include <QDebug>
 #include <QDBusConnection>
-#include <QLoggingCategory>
 #include <QQuickView>
 #include <QQmlError>
 #include <QQuickItem>
@@ -34,10 +33,9 @@
 #include <core/device.h>
 #include <core/daemon.h>
 #include <QScreen>
+#include "plugin_presenter_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(PresenterPlugin, "kdeconnect_presenter.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PRESENT, "kdeconnect.plugin.presenter")
 
 class PresenterView : public QQuickView
 {

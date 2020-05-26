@@ -27,10 +27,9 @@
 
 #include <KPluginFactory>
 #include <KNotification>
+#include "plugin_telephony_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(TelephonyPlugin, "kdeconnect_telephony.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_TELEPHONY, "kdeconnect.plugin.telephony")
 
 TelephonyPlugin::TelephonyPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

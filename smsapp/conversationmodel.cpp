@@ -21,14 +21,12 @@
 
 #include "conversationmodel.h"
 
-#include <QLoggingCategory>
-
 #include <KLocalizedString>
 
 #include "interfaces/conversationmessage.h"
 #include "smshelper.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL, "kdeconnect.sms.conversation")
+#include "sms_conversation_debug.h"
 
 ConversationModel::ConversationModel(QObject* parent)
     : QStandardItemModel(parent)

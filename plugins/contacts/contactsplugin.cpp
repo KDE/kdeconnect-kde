@@ -24,16 +24,15 @@
 
 #include <QDBusConnection>
 #include <QDBusMetaType>
-#include <QLoggingCategory>
 #include <QFile>
 #include <QDir>
 #include <QIODevice>
 
 #include <core/device.h>
 
-K_PLUGIN_CLASS_WITH_JSON(ContactsPlugin, "kdeconnect_contacts.json")
+#include "plugin_contacts_debug.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CONTACTS, "kdeconnect.plugin.contacts")
+K_PLUGIN_CLASS_WITH_JSON(ContactsPlugin, "kdeconnect_contacts.json")
 
 ContactsPlugin::ContactsPlugin(QObject* parent, const QVariantList& args) :
         KdeConnectPlugin(parent, args)

@@ -19,7 +19,6 @@
  */
 
 #include "notificationsmodel.h"
-#include "interfaces_debug.h"
 
 #include <QDebug>
 #include <QIcon>
@@ -30,6 +29,7 @@
 
 //In older Qt released, qAsConst isnt available
 #include "core/qtcompat_p.h"
+#include "interfaces_debug.h"
 
 NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)

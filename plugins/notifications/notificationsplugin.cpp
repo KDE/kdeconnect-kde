@@ -21,13 +21,11 @@
 #include "notificationsplugin.h"
 
 #include "notificationsdbusinterface.h"
-#include "notification_debug.h"
+#include "plugin_notification_debug.h"
 
 #include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(NotificationsPlugin, "kdeconnect_notifications.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_NOTIFICATION, "kdeconnect.plugin.notification")
 
 NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

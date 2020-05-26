@@ -1,6 +1,13 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
-add_executable(kdeconnectd kdeconnectd.cpp)
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER kdeconnectd_debug.h
+    IDENTIFIER KDECONNECT_DAEMON CATEGORY_NAME kdeconnect.daemon
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
+
+add_executable(kdeconnectd kdeconnectd.cpp ${debug_file_SRCS})
 target_include_directories(kdeconnectd PUBLIC ${CMAKE_BINARY_DIR})
 target_link_libraries(kdeconnectd kdeconnectcore KF5::KIOWidgets KF5::DBusAddons KF5::Notifications KF5::I18n Qt5::Widgets)
 

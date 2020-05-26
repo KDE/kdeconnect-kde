@@ -27,10 +27,6 @@
 
 #include <core/kdeconnectplugin.h>
 
-#include <QLoggingCategory>
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PAUSEMUSIC)
-
 class PauseMusicPlugin
     : public KdeConnectPlugin
 {

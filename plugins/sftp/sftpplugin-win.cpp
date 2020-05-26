@@ -29,11 +29,9 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include "sftp_debug.h"
+#include "plugin_sftp_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SFTP, "kdeconnect.plugin.sftp")
 
 SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

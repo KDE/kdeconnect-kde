@@ -1,4 +1,11 @@
-kdeconnect_add_plugin(kdeconnect_remotecontrol JSON kdeconnect_remotecontrol.json SOURCES remotecontrolplugin.cpp)
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_remotecontrol_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_REMOTECONTROL CATEGORY_NAME kdeconnect.plugin.remotecontrol
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin remotecontrol)")
+
+kdeconnect_add_plugin(kdeconnect_remotecontrol JSON kdeconnect_remotecontrol.json SOURCES remotecontrolplugin.cpp ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_remotecontrol
     kdeconnectcore

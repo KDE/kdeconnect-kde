@@ -1,5 +1,13 @@
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_findthisdevice_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_FINDTHISDEVICE CATEGORY_NAME kdeconnect.plugin.findthisdevice
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin findthisdevice)")
+
 set(kdeconnect_findthisdevice_SRCS
     findthisdeviceplugin.cpp
+    ${debug_file_SRCS}
 )
 
 kdeconnect_add_plugin(kdeconnect_findthisdevice
@@ -22,7 +30,7 @@ endif()
 set(kdeconnect_findthisdevice_config_SRCS findthisdevice_config.cpp)
 ki18n_wrap_ui(kdeconnect_findthisdevice_config_SRCS findthisdevice_config.ui)
 
-add_library(kdeconnect_findthisdevice_config MODULE ${kdeconnect_findthisdevice_config_SRCS})
+add_library(kdeconnect_findthisdevice_config MODULE ${kdeconnect_findthisdevice_config_SRCS} ${debug_file_SRCS})
 target_link_libraries(kdeconnect_findthisdevice_config
     kdeconnectpluginkcm
     Qt5::Multimedia

@@ -1,5 +1,13 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-core\")
 
+set(debug_file_SRCS)
+
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER kdeconnect_debug.h
+    IDENTIFIER KDECONNECT_CORE CATEGORY_NAME kdeconnect.core
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (core)")
+
 set(KDECONNECT_PRIVATE_DBUS_ADDR unix:tmpdir=/tmp)
 if(WIN32)
     set(KDECONNECT_PRIVATE_DBUS_ADDR tcp:host=localhost,port=0)
@@ -39,6 +47,7 @@ set(kdeconnectcore_SRCS
     device.cpp
     core_debug.cpp
     notificationserverinfo.cpp
+    ${debug_file_SRCS}
 )
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})

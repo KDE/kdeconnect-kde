@@ -29,7 +29,7 @@
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
 
-Q_LOGGING_CATEGORY(KDECONNECT_CONVERSATIONS, "kdeconnect.conversations")
+#include "kdeconnect_conversations_debug.h"
 
 QMap<QString, ConversationsDbusInterface*> ConversationsDbusInterface::liveConversationInterfaces;
 

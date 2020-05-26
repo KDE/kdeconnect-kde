@@ -23,10 +23,9 @@
 #include <QDebug>
 #include <QString>
 #include <QVariantMap>
+#include "plugin_remotekeyboard_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteKeyboardPlugin, "kdeconnect_remotekeyboard.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTEKEYBOARD, "kdeconnect.plugin.remotekeyboard");
 
 // Mapping of Qt::Key to internal codes, corresponds to the mapping in mousepadplugin
 QMap<int, int> specialKeysMap = {

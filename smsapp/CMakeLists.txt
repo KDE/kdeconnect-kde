@@ -2,9 +2,30 @@ qt5_add_resources(KCSMS_SRCS resources.qrc)
 
 find_package(KF5People)
 
+set(smshelper_debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    smshelper_debug_file_SRCS HEADER smshelper_debug.h
+    IDENTIFIER KDECONNECT_SMS_SMSHELPER CATEGORY_NAME kdeconnect.sms.smshelper
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (smshelper)")
+
+set(sms_debug_files_SRCS)
+ecm_qt_declare_logging_category(
+    sms_debug_files_SRCS HEADER sms_conversation_debug.h
+    IDENTIFIER KDECONNECT_SMS_CONVERSATION_MODEL CATEGORY_NAME kdeconnect.sms.conversation
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (sms conversation model)")
+
+ecm_qt_declare_logging_category(
+    sms_debug_files_SRCS HEADER sms_conversations_list_debug.h
+    IDENTIFIER KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL CATEGORY_NAME kdeconnect.sms.conversations_list
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (sms conversations list)")
+
 add_library(kdeconnectsmshelper
 	smshelper.cpp
 	gsmasciimap.cpp
+        ${smshelper_debug_file_SRCS}
 )
 
 set_target_properties(kdeconnectsmshelper PROPERTIES
@@ -35,7 +56,8 @@ add_executable(kdeconnect-sms
     conversationlistmodel.cpp
     conversationmodel.cpp
     conversationssortfilterproxymodel.cpp
-    ${KCSMS_SRCS})
+    ${KCSMS_SRCS}
+    ${sms_debug_files_SRCS})
 
 target_include_directories(kdeconnect-sms PUBLIC ${CMAKE_BINARY_DIR})
 

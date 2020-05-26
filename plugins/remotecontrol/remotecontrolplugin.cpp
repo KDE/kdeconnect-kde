@@ -26,13 +26,11 @@
 #include <QDebug>
 #include <QDBusConnection>
 #include <QPoint>
-#include <QLoggingCategory>
 
 #include <core/device.h>
+#include "plugin_remotecontrol_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteControlPlugin, "kdeconnect_remotecontrol.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTECONTROL, "kdeconnect.plugin.remotecontrol")
 
 RemoteControlPlugin::RemoteControlPlugin(QObject* parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)

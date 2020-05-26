@@ -14,7 +14,14 @@ else()
     )
 endif()
 
-kdeconnect_add_plugin(kdeconnect_sftp JSON kdeconnect_sftp.json SOURCES ${kdeconnect_sftp_SRCS})
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_sftp_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_SFTP CATEGORY_NAME kdeconnect.plugin.sftp
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin sftp)")
+
+kdeconnect_add_plugin(kdeconnect_sftp JSON kdeconnect_sftp.json SOURCES ${kdeconnect_sftp_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_sftp
     kdeconnectcore

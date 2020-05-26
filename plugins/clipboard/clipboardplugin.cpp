@@ -21,12 +21,11 @@
 #include "clipboardplugin.h"
 
 #include "clipboardlistener.h"
+#include "plugin_clipboard_debug.h"
 
 #include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(ClipboardPlugin, "kdeconnect_clipboard.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD, "kdeconnect.plugin.clipboard")
 
 ClipboardPlugin::ClipboardPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

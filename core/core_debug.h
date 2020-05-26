@@ -21,11 +21,8 @@
 #ifndef CORE_DEBUG_H
 #define CORE_DEBUG_H
 
-#include <QLoggingCategory>
-
 #include "kdeconnectcore_export.h"
-
-KDECONNECTCORE_EXPORT Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CORE)
+#include "kdeconnect_debug.h"
 
 void logBacktrace();
 

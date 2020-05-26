@@ -23,6 +23,7 @@
 
 #include <QDebug>
 #include <core/device.h>
+#include "plugin_battery_debug.h"
 
 QMap<QString, BatteryDbusInterface *> BatteryDbusInterface::s_dbusInterfaces;
 

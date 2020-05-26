@@ -32,6 +32,7 @@
 // Qt
 #include <QDBusConnection>
 #include <QMediaPlayer>
+#include "plugin_findthisdevice_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 

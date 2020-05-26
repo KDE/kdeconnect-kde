@@ -23,10 +23,7 @@
 
 #include <QObject>
 #include <QClipboard>
-#include <QLoggingCategory>
 #include <core/kdeconnectplugin.h>
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_CLIPBOARD)
 
 /**
  * Packet containing just clipboard contents, sent when a device updates its clipboard.

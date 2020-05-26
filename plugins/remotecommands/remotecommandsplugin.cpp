@@ -22,16 +22,14 @@
 
 #include <KPluginFactory>
 
-#include <QLoggingCategory>
-
 #include <core/networkpacket.h>
 #include <core/device.h>
+
+#include "plugin_remotecommands_debug.h"
 
 #define PACKET_TYPE_RUNCOMMAND_REQUEST QLatin1String("kdeconnect.runcommand.request")
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteCommandsPlugin, "kdeconnect_remotecommands.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTECOMMANDS, "kdeconnect.plugin.remotecommands")
 
 RemoteCommandsPlugin::RemoteCommandsPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

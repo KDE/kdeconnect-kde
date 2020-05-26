@@ -23,13 +23,11 @@
 
 #include <KFileItemListProperties>
 #include <KAbstractFileItemActionPlugin>
-#include <QLoggingCategory>
 
 class QAction;
 class KFileItemListProperties;
 class QWidget;
 
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION)
 class SendFileItemAction : public KAbstractFileItemActionPlugin
 {
 Q_OBJECT

@@ -22,7 +22,6 @@
 #include <QDBusInterface>
 #include <QDBusArgument>
 #include <QtDebug>
-#include <QLoggingCategory>
 #include <QStandardPaths>
 #include <QImage>
 #include <KConfig>
@@ -36,7 +35,7 @@
 #include <dbushelper.h>
 
 #include "sendnotificationsplugin.h"
-#include "sendnotification_debug.h"
+#include "plugin_sendnotification_debug.h"
 #include "notifyingapplication.h"
 
 //In older Qt released, qAsConst isnt available

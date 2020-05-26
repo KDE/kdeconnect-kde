@@ -10,6 +10,19 @@ function(geninterface source_h output_h)
     set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
 endfunction()
 
+set(debug_files_SRCS)
+ecm_qt_declare_logging_category(
+    debug_files_SRCS HEADER interfaces_conversation_message_debug.h
+    IDENTIFIER CONVERSATION_MESSAGE_LOGGING_CATEGORY CATEGORY_NAME kdeconnect.interfaces.conversationmessage
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (conversation message)")
+
+ecm_qt_declare_logging_category(
+    debug_files_SRCS HEADER interfaces_debug.h
+    IDENTIFIER KDECONNECT_INTERFACES CATEGORY_NAME kdeconnect.interfaces
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (interfaces)")
+
 set(libkdeconnect_SRC
     dbusinterfaces.cpp
     devicesmodel.cpp
@@ -20,6 +33,7 @@ set(libkdeconnect_SRC
     remotesinksmodel.cpp
     devicespluginfilterproxymodel.cpp
 #    modeltest.cpp
+    ${debug_files_SRCS}
 )
 
 geninterface(${PROJECT_SOURCE_DIR}/core/daemon.h daemoninterface)

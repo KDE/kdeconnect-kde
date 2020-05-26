@@ -22,7 +22,6 @@
 #include "conversationlistmodel.h"
 
 #include <QString>
-#include <QLoggingCategory>
 #include <QPainter>
 
 #include <KLocalizedString>
@@ -30,8 +29,7 @@
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 #include "smshelper.h"
-
-Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL, "kdeconnect.sms.conversations_list")
+#include "sms_conversations_list_debug.h"
 
 #define INVALID_THREAD_ID -1
 #define INVALID_DATE -1

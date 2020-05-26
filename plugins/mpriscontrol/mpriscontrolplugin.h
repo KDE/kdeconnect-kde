@@ -23,12 +23,10 @@
 
 #include <QString>
 #include <QHash>
-#include <QLoggingCategory>
 #include <QDBusServiceWatcher>
 #include <QSharedPointer>
 
 #include <core/kdeconnectplugin.h>
-
 
 class OrgFreedesktopDBusPropertiesInterface;
 class OrgMprisMediaPlayer2PlayerInterface;
@@ -52,8 +50,6 @@ private:
 
 
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS)
 
 class MprisControlPlugin
     : public KdeConnectPlugin

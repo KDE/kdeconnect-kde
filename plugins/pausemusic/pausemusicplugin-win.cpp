@@ -22,10 +22,9 @@
 #include "pausemusicplugin-win.h"
 
 #include <KPluginFactory>
+#include "plugin_pausemusic_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PAUSEMUSIC, "kdeconnect.plugin.pausemusic")
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

@@ -1,5 +1,13 @@
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER plugin_telephony_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_TELEPHONY CATEGORY_NAME kdeconnect.plugin.telephony
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin telephony)")
+
 set(kdeconnect_telephony_SRCS
     telephonyplugin.cpp
+    ${debug_file_SRCS}
 )
 
 include_directories(${CMAKE_BINARY_DIR})

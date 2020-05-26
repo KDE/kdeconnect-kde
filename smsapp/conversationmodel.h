@@ -23,13 +23,10 @@
 #define CONVERSATIONMODEL_H
 
 #include <QStandardItemModel>
-#include <QLoggingCategory>
 #include <QSet>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
-
-Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATION_MODEL)
 
 #define INVALID_THREAD_ID -1
 

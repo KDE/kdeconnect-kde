@@ -22,11 +22,8 @@
 #define PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_
 
 #include <QDBusMetaType>
-#include <QLoggingCategory>
 
 #include "kdeconnectinterfaces_export.h"
-
-Q_DECLARE_LOGGING_CATEGORY(CONVERSATION_MESSAGE_LOGGING_CATEGORY)
 
 class ConversationAddress;
 

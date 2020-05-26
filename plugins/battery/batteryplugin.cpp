@@ -30,10 +30,9 @@
 #include <core/daemon.h>
 
 #include "batterydbusinterface.h"
+#include "plugin_battery_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(BatteryPlugin, "kdeconnect_battery.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BATTERY, "kdeconnect.plugin.battery")
 
 BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

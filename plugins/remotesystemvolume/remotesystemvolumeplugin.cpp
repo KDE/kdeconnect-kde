@@ -25,16 +25,15 @@
 
 #include <QDebug>
 #include <QDBusConnection>
-#include <QLoggingCategory>
 #include <QJsonArray>
 #include <QJsonDocument>
 
 #include <core/device.h>
 #include <core/daemon.h>
 
-K_PLUGIN_CLASS_WITH_JSON(RemoteSystemVolumePlugin, "kdeconnect_remotesystemvolume.json")
+#include "plugin_remotesystemvolume_debug.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_REMOTESYSTEMVOLUME, "kdeconnect.plugin.remotesystemvolume")
+K_PLUGIN_CLASS_WITH_JSON(RemoteSystemVolumePlugin, "kdeconnect_remotesystemvolume.json")
 
 RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

@@ -23,13 +23,11 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QLoggingCategory>
 
 #include <core/filetransferjob.h>
+#include "plugin_photo_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(PhotoPlugin, "kdeconnect_photo.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_PHOTO, "kdeconnect.plugin.photo")
 
 PhotoPlugin::PhotoPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

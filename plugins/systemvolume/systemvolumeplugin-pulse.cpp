@@ -23,7 +23,6 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QLoggingCategory>
 #include <QProcess>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -33,10 +32,10 @@
 
 #include <PulseAudioQt/Sink>
 #include <PulseAudioQt/Context>
+#include "plugin_systemvolume_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SYSTEMVOLUME, "kdeconnect.plugin.systemvolume")
 
 SystemvolumePlugin::SystemvolumePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

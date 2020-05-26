@@ -19,7 +19,7 @@
  */
 
 #include "notification.h"
-#include "notification_debug.h"
+#include "plugin_notification_debug.h"
 
 #include <KNotification>
 #include <QtGlobal>

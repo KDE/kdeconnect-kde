@@ -37,9 +37,9 @@
 
 #include <dbushelper.h>
 
-K_PLUGIN_CLASS_WITH_JSON(SendFileItemAction, "kdeconnectsendfile.json")
+#include "kdeconnect_fileitemaction_debug.h"
 
-Q_LOGGING_CATEGORY(KDECONNECT_FILEITEMACTION, "kdeconnect.fileitemaction")
+K_PLUGIN_CLASS_WITH_JSON(SendFileItemAction, "kdeconnectsendfile.json")
 
 SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KAbstractFileItemActionPlugin(parent)
 {

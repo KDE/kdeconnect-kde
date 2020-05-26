@@ -26,7 +26,6 @@
 #include <QPainter>
 #include <QRegularExpression>
 #include <QString>
-#include <QLoggingCategory>
 #include <QStandardPaths>
 #include <QHash>
 
@@ -35,8 +34,7 @@
 
 #include "interfaces/conversationmessage.h"
 #include "smsapp/gsmasciimap.h"
-
-Q_LOGGING_CATEGORY(KDECONNECT_SMS_SMSHELPER, "kdeconnect.sms.smshelper")
+#include "smshelper_debug.h"
 
 QObject* SmsHelper::singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {

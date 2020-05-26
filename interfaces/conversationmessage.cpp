@@ -20,10 +20,9 @@
 
 #include "conversationmessage.h"
 
-#include <QLoggingCategory>
 #include <QVariantMap>
 
-Q_LOGGING_CATEGORY(CONVERSATION_MESSAGE_LOGGING_CATEGORY, "kdeconnect.interfaces.conversationmessage")
+#include "interfaces_conversation_message_debug.h"
 
 ConversationMessage::ConversationMessage(const QVariantMap& args)
     : m_eventField(args[QStringLiteral("event")].toInt()),

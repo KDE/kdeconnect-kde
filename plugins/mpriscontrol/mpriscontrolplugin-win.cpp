@@ -20,14 +20,13 @@
 
 #include "mpriscontrolplugin-win.h"
 #include <core/device.h>
+#include "plugin_mpris_debug.h"
 
 #include <KPluginFactory>
 
 #include <Windows.h>
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_MPRIS, "kdeconnect.plugin.mpris")
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args) : KdeConnectPlugin(parent, args) {  }
 

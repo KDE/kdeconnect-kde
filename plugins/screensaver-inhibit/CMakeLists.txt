@@ -12,7 +12,14 @@ else()
     )
 endif()
 
-kdeconnect_add_plugin(kdeconnect_screensaver_inhibit JSON kdeconnect_screensaver_inhibit.json SOURCES ${kdeconnect_screensaver_inhibit_SRCS})
+set(debug_file_SRCS)
+ecm_qt_declare_logging_category(
+    debug_file_SRCS HEADER kdeconnect_screensaverinhibit_debug.h
+    IDENTIFIER KDECONNECT_PLUGIN_SCREENSAVERINHIBIT CATEGORY_NAME kdeconnect.plugin.screensaverinhibit
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin screensaverinhibit)")
+
+kdeconnect_add_plugin(kdeconnect_screensaver_inhibit JSON kdeconnect_screensaver_inhibit.json SOURCES ${kdeconnect_screensaver_inhibit_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore)
 if(NOT APPLE AND NOT WIN32)

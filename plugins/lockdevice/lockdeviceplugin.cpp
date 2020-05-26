@@ -24,15 +24,13 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QLoggingCategory>
 #include "screensaverdbusinterface.h"
+#include "plugin_lock_debug.h"
 
 #include <core/device.h>
 #include <dbushelper.h>
 
 K_PLUGIN_CLASS_WITH_JSON(LockDevicePlugin, "kdeconnect_lockdevice.json")
-
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_LOCKREMOTE, "kdeconnect.plugin.lock")
 
 LockDevicePlugin::LockDevicePlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)

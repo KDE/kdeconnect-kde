@@ -28,7 +28,7 @@
 
 #include "mountloop.h"
 #include "config-sftp.h"
-#include "sftp_debug.h"
+#include "plugin_sftp_debug.h"
 #include "kdeconnectconfig.h"
 
 Mounter::Mounter(SftpPlugin* sftp)
