@@ -30,7 +30,8 @@ ecm_qt_declare_logging_category(
 kdeconnect_add_plugin(kdeconnect_mpriscontrol JSON kdeconnect_mpriscontrol.json SOURCES  ${kdeconnect_mpriscontrol_SRCS} ${debug_file_SRCS})
 
 if(WIN32)
-   target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore)
+   target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore windowsapp)
+   target_compile_features(kdeconnect_mpriscontrol PUBLIC cxx_std_17)
 else()
    target_link_libraries(kdeconnect_mpriscontrol Qt5::DBus kdeconnectcore)
 endif()
