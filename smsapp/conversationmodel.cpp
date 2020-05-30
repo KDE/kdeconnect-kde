@@ -139,7 +139,7 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
 
     auto item = new QStandardItem;
     item->setText(displayBody);
-    item->setData(message.type() == ConversationMessage::MessageTypeSent, FromMeRole);
+    item->setData(message.isOutgoing(), FromMeRole);
     item->setData(message.date(), DateRole);
     item->setData(senderName, SenderRole);
     insertRow(pos, item);
