@@ -3,15 +3,18 @@
         "Authors": [
             {
                 "Email": "aix.m@outlook.com",
-                "Name": "Aditya Mehra"
+                "Name": "Aditya Mehra",
+                "Name[x-test]": "xxAditya Mehraxx"
             }
         ],
         "Description": "Bigscreen Plugin",
+        "Description[x-test]": "xxBigscreen Pluginxx",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen",
+        "Name[x-test]": "xxBigscreenxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
