@@ -4,16 +4,29 @@
             {
                 "Email": "aix.m@outlook.com",
                 "Name": "Aditya Mehra",
+                "Name[cs]": "Aditya Mehra",
+                "Name[lt]": "Aditya Mehra",
+                "Name[nl]": "Aditya Mehra",
+                "Name[pt_BR]": "Aditya Mehra",
+                "Name[uk]": "Aditya Mehra",
                 "Name[x-test]": "xxAditya Mehraxx"
             }
         ],
         "Description": "Bigscreen Plugin",
+        "Description[cs]": "Modul pro velkou obrazovku",
+        "Description[lt]": "Bigscreen papildinys",
+        "Description[nl]": "Bigscreen plug-in",
+        "Description[uk]": "Додаток для великих екранів",
         "Description[x-test]": "xxBigscreen Pluginxx",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen",
+        "Name[cs]": "Velká obrazovka",
+        "Name[lt]": "Bigscreen",
+        "Name[nl]": "Bigscreen",
+        "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
