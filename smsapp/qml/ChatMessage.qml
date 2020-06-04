@@ -199,7 +199,7 @@ RowLayout {
           id: bodyLabel
           visible: messageBody !== "" && messageBody !== mediaGetUrl
           text: messageBody//kaidan.utils.formatMessage(messageBody)
-          textFormat: Text.StyledText
+          textFormat: Text.PlainText
           wrapMode: Text.Wrap
           color: sentByMe ? Kirigami.Theme.textColor
                           : Kirigami.Theme.complementaryTextColor
