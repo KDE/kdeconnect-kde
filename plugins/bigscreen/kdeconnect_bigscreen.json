@@ -11,8 +11,10 @@
                 "Name[it]": "Aditya Mehra",
                 "Name[lt]": "Aditya Mehra",
                 "Name[nl]": "Aditya Mehra",
+                "Name[nn]": "Aditya Mehra",
                 "Name[pt]": "Aditya Mehra",
                 "Name[pt_BR]": "Aditya Mehra",
+                "Name[sk]": "Aditya Mehra",
                 "Name[uk]": "Aditya Mehra",
                 "Name[x-test]": "xxAditya Mehraxx"
             }
@@ -25,7 +27,9 @@
         "Description[it]": "Estensione Bigscreen",
         "Description[lt]": "Bigscreen papildinys",
         "Description[nl]": "Bigscreen plug-in",
+        "Description[nn]": "Bigscreen-tillegg",
         "Description[pt]": "'Plugin' de Ecrã Grande",
+        "Description[sk]": "Doplnok veľkej obrazovky",
         "Description[uk]": "Додаток для великих екранів",
         "Description[x-test]": "xxBigscreen Pluginxx",
         "EnabledByDefault": true,
@@ -40,7 +44,9 @@
         "Name[it]": "Bigscreen",
         "Name[lt]": "Bigscreen",
         "Name[nl]": "Bigscreen",
+        "Name[nn]": "Bigscreen",
         "Name[pt]": "Ecrã grande",
+        "Name[sk]": "Veľká obrazovka",
         "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
         "ServiceTypes": [
