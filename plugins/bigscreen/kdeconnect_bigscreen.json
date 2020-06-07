@@ -6,6 +6,7 @@
                 "Name": "Aditya Mehra",
                 "Name[ca]": "Aditya Mehra",
                 "Name[cs]": "Aditya Mehra",
+                "Name[en_GB]": "Aditya Mehra",
                 "Name[et]": "Aditya Mehra",
                 "Name[fr]": "Aditya Mehra",
                 "Name[it]": "Aditya Mehra",
@@ -15,6 +16,7 @@
                 "Name[pt]": "Aditya Mehra",
                 "Name[pt_BR]": "Aditya Mehra",
                 "Name[sk]": "Aditya Mehra",
+                "Name[sv]": "Aditya Mehra",
                 "Name[uk]": "Aditya Mehra",
                 "Name[x-test]": "xxAditya Mehraxx"
             }
@@ -22,6 +24,7 @@
         "Description": "Bigscreen Plugin",
         "Description[ca]": "Connector de la Bigscreen",
         "Description[cs]": "Modul pro velkou obrazovku",
+        "Description[en_GB]": "Bigscreen Plugin",
         "Description[et]": "Suurekraani plugin",
         "Description[fr]": "Module externe « Bigscreen »",
         "Description[it]": "Estensione Bigscreen",
@@ -31,6 +34,7 @@
         "Description[pt]": "'Plugin' de Ecrã Grande",
         "Description[pt_BR]": "Plugin de tela grande",
         "Description[sk]": "Doplnok veľkej obrazovky",
+        "Description[sv]": "Insticksprogram för storskärm",
         "Description[uk]": "Додаток для великих екранів",
         "Description[x-test]": "xxBigscreen Pluginxx",
         "EnabledByDefault": true,
@@ -40,6 +44,7 @@
         "Name": "Bigscreen",
         "Name[ca]": "Bigscreen",
         "Name[cs]": "Velká obrazovka",
+        "Name[en_GB]": "Bigscreen",
         "Name[et]": "Suurekraan",
         "Name[fr]": "Bigscreen",
         "Name[it]": "Bigscreen",
@@ -49,6 +54,7 @@
         "Name[pt]": "Ecrã grande",
         "Name[pt_BR]": "Tela grande",
         "Name[sk]": "Veľká obrazovka",
+        "Name[sv]": "Storskärm",
         "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
         "ServiceTypes": [
