@@ -37,7 +37,6 @@
                 "Name[sv]": "Albert Vaca",
                 "Name[tr]": "Albert Vaca",
                 "Name[uk]": "Albert Vaca",
-                "Name[x-test]": "xxAlbert Vacaxx",
                 "Name[zh_CN]": "Albert Vaca",
                 "Name[zh_TW]": "Albert Vaca"
             }
@@ -78,7 +77,6 @@
         "Description[sv]": "Visa telefonens batteri intill datorbatteriet",
         "Description[tr]": "Bilgisayar pilinizin yanında telefon pil durumunu göster",
         "Description[uk]": "Показ даних щодо рівня заряду акумулятора на телефоні поряд з даними щодо рівня заряду акумулятора комп’ютера",
-        "Description[x-test]": "xxShow your phone battery next to your computer batteryxx",
         "Description[zh_CN]": "在计算机电池旁显示手机电池",
         "Description[zh_TW]": "在您的電腦電池電量旁邊顯示手機電池電量",
         "EnabledByDefault": true,
@@ -121,7 +119,6 @@
         "Name[sv]": "Batteriövervakare",
         "Name[tr]": "Pil izleyici",
         "Name[uk]": "Монітор акумулятора",
-        "Name[x-test]": "xxBattery monitorxx",
         "Name[zh_CN]": "电池监视器",
         "Name[zh_TW]": "電池監視器",
         "ServiceTypes": [

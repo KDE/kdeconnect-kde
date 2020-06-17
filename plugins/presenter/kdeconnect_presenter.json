@@ -37,7 +37,6 @@
                 "Name[sv]": "Aleix Pol",
                 "Name[tr]": "Aleix Pol",
                 "Name[uk]": "Aleix Pol",
-                "Name[x-test]": "xxAleix Polxx",
                 "Name[zh_CN]": "Aleix Pol",
                 "Name[zh_TW]": "Aleix Pol"
             }
@@ -67,7 +66,6 @@
         "Description[sk]": "Použitie vášho mobilného zariadenia ako ukazovateľa na objekty na obrazovke",
         "Description[sv]": "Använd mobilen för att peka på saker på skärmen",
         "Description[uk]": "Використання мобільного пристрою для керування об'єктами на екрані",
-        "Description[x-test]": "xxUse your mobile device to point to things on the screenxx",
         "Description[zh_CN]": "使用您的移动设备在屏幕上指点",
         "Description[zh_TW]": "將您的行動裝置當作螢幕指標使用",
         "EnabledByDefault": true,
@@ -99,7 +97,6 @@
         "Name[sk]": "Nástroj prezentácie",
         "Name[sv]": "Presentatör",
         "Name[uk]": "Презентатор",
-        "Name[x-test]": "xxPresenterxx",
         "Name[zh_CN]": "演讲者",
         "Name[zh_TW]": "提供者",
         "ServiceTypes": [
