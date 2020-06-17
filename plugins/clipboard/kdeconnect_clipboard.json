@@ -37,7 +37,6 @@
                 "Name[sv]": "Albert Vaca",
                 "Name[tr]": "Albert Vaca",
                 "Name[uk]": "Albert Vaca",
-                "Name[x-test]": "xxAlbert Vacaxx",
                 "Name[zh_CN]": "Albert Vaca",
                 "Name[zh_TW]": "Albert Vaca"
             }
@@ -78,7 +77,6 @@
         "Description[sv]": "Dela klippbordet mellan apparater",
         "Description[tr]": "Aygıtlar arasında panoyu paylaştır",
         "Description[uk]": "Спільне використання буфера обміну даними на пристроях",
-        "Description[x-test]": "xxShare the clipboard between devicesxx",
         "Description[zh_CN]": "在设备间共享剪贴板",
         "Description[zh_TW]": "在裝置之間共享剪貼簿",
         "EnabledByDefault": true,
@@ -122,7 +120,6 @@
         "Name[sv]": "Klippbord",
         "Name[tr]": "Geçici taşıma panosu",
         "Name[uk]": "Буфер обміну",
-        "Name[x-test]": "xxClipboardxx",
         "Name[zh_CN]": "剪切板",
         "Name[zh_TW]": "剪貼簿",
         "ServiceTypes": [

@@ -40,7 +40,6 @@ Name[sr@latin]=KDE‑konekcija
 Name[sv]=KDE-anslut
 Name[tr]=KDE Connect
 Name[uk]=З’єднання KDE
-Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
 Name[zh_TW]=KDE 連線
 Comment=Show notifications from your devices using KDE Connect
@@ -82,7 +81,6 @@ Comment[sr@latin]=Prikazuje obaveštenja sa vašeg uređaja pomoću KDE‑konekc
 Comment[sv]=Visa underrättelser från apparater med KDE anslut
 Comment[tr]=KDE Connect kullanılarak cihazınızdan bildirimleri görüntüleyin
 Comment[uk]=Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»
-Comment[x-test]=xxShow notifications from your devices using KDE Connectxx
 Comment[zh_CN]=通过 KDE Connect 显示来自您的设备的通知
 Comment[zh_TW]=使用 KDE 連線來顯示您的裝置通知
 

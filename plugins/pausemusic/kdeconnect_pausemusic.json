@@ -37,7 +37,6 @@
                 "Name[sv]": "Albert Vaca",
                 "Name[tr]": "Albert Vaca",
                 "Name[uk]": "Albert Vaca",
-                "Name[x-test]": "xxAlbert Vacaxx",
                 "Name[zh_CN]": "Albert Vaca",
                 "Name[zh_TW]": "Albert Vaca"
             }
@@ -77,7 +76,6 @@
         "Description[sv]": "Pausa musik eller videor under ett telefonsamtal",
         "Description[tr]": "Bir telefon çağrısı sırasında müzik/videoları duraklat",
         "Description[uk]": "Призупинка відтворення музики і відео на час телефонних дзвінків",
-        "Description[x-test]": "xxPause music/videos during a phone callxx",
         "Description[zh_CN]": "手机来电时暂停音乐/视频",
         "Description[zh_TW]": "在通話過程中暫停音樂與影片",
         "EnabledByDefault": true,
@@ -120,7 +118,6 @@
         "Name[sv]": "Pausa media under samtal",
         "Name[tr]": "Çağrılar sırasında ortamı duraklat",
         "Name[uk]": "Призупинка відтворення під час дзвінків",
-        "Name[x-test]": "xxPause media during callsxx",
         "Name[zh_CN]": "来电时暂停媒体",
         "Name[zh_TW]": "在通話過程中暫停媒體",
         "ServiceTypes": [
