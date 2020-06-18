@@ -37,6 +37,7 @@
                 "Name[sv]": "Albert Vaca",
                 "Name[tr]": "Albert Vaca",
                 "Name[uk]": "Albert Vaca",
+                "Name[x-test]": "xxAlbert Vacaxx",
                 "Name[zh_CN]": "Albert Vaca",
                 "Name[zh_TW]": "Albert Vaca"
             },
@@ -77,6 +78,7 @@
                 "Name[sv]": "David Edmundson",
                 "Name[tr]": "David Edmundson",
                 "Name[uk]": "David Edmundson",
+                "Name[x-test]": "xxDavid Edmundsonxx",
                 "Name[zh_CN]": "David Edmundson",
                 "Name[zh_TW]": "David Edmundson"
             }
@@ -116,6 +118,7 @@
         "Description[sv]": "Kör terminalkommandon på distans",
         "Description[tr]": "Konsol komutlarını uzaktan çalıştır",
         "Description[uk]": "Віддалене виконання консольних команд",
+        "Description[x-test]": "xxExecute console commands remotelyxx",
         "Description[zh_CN]": "远程执行控制台命令",
         "Description[zh_TW]": "遠程執行控制台命令",
         "EnabledByDefault": true,
@@ -159,6 +162,7 @@
         "Name[tg]": "Иҷро кардани фармонҳо",
         "Name[tr]": "Komut çalıştır",
         "Name[uk]": "Виконання команд",
+        "Name[x-test]": "xxRun commandsxx",
         "Name[zh_CN]": "执行命令",
         "Name[zh_TW]": "執行命令",
         "ServiceTypes": [

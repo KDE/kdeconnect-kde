@@ -25,6 +25,7 @@ Name[ru]=Обработчик ссылок из SMS KDE Connect
 Name[sk]=Obslužný program URL KDE Connect SMS
 Name[sv]=KDE-anslut hanterare av SMS-webbadress
 Name[uk]=Обробник адрес у SMS KDE Connect
+Name[x-test]=xxKDE Connect SMS URL Handlerxx
 Name[zh_CN]=KDE Connect 短信 URL 处理程序
 Name[zh_TW]=KDE 連線簡訊網址處理器
 Exec=kdeconnect-handler %U

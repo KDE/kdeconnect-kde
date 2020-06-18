@@ -51,6 +51,7 @@ Name[sr@latin]=KDE‑konekcija
 Name[sv]=KDE-anslut
 Name[tr]=KDE Connect
 Name[uk]=З’єднання KDE
+Name[x-test]=xxKDE Connectxx
 Name[zh_CN]=KDE Connect
 Name[zh_TW]=KDE 連線
 
@@ -90,6 +91,7 @@ Comment[sr@latin]=Povežite i sinhronizujte svoje uređaje
 Comment[sv]=Anslut och synkronisera dina apparater
 Comment[tr]=Aygıtlarınıza bağlanın ve eşitleyin
 Comment[uk]=З’єднання і синхронізація ваших пристроїв
+Comment[x-test]=xxConnect and sync your devicesxx
 Comment[zh_CN]=连接并同步您的设备
 Comment[zh_TW]=連線並且同步您的裝置
 
@@ -131,6 +133,7 @@ X-KDE-Keywords[sr@latin]=Network,Android,Devices,mreža,Android,uređaji
 X-KDE-Keywords[sv]=Nätverk, Android, apparater
 X-KDE-Keywords[tr]=Ağ,Android,Cihazlar,Aygıtlar
 X-KDE-Keywords[uk]=Network,Android,Devices,мережа,андроїд,пристрої
+X-KDE-Keywords[x-test]=xxNetworkxx,xxAndroidxx,xxDevicesxx
 X-KDE-Keywords[zh_CN]=Network,Android,Devices,网络,安卓,设备
 X-KDE-Keywords[zh_TW]=網路,Android,裝置,設備,網絡
 

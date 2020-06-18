@@ -29,6 +29,7 @@
                 "Name[sk]": "Nicolas Fella",
                 "Name[sv]": "Nicolas Fella",
                 "Name[uk]": "Nicolas Fella",
+                "Name[x-test]": "xxNicolas Fellaxx",
                 "Name[zh_CN]": "Nicolas Fella",
                 "Name[zh_TW]": "Nicolas Fella"
             }
@@ -59,6 +60,7 @@
         "Description[sk]": "Použitie pripojeného zariadenia na zachytenie fotografie",
         "Description[sv]": "Använd en ansluten apparat för att ta ett foto",
         "Description[uk]": "Скористатися з'єднаним пристроєм для фотографування",
+        "Description[x-test]": "xxUse a connected device to take a photoxx",
         "Description[zh_CN]": "使用连接的设备拍照",
         "Description[zh_TW]": "使用連結裝置拍照",
         "EnabledByDefault": true,
@@ -92,6 +94,7 @@
         "Name[sv]": "Foto",
         "Name[tg]": "Сурат",
         "Name[uk]": "Фото",
+        "Name[x-test]": "xxPhotoxx",
         "Name[zh_CN]": "照片",
         "Name[zh_TW]": "相片",
         "ServiceTypes": [
