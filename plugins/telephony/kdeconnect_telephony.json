@@ -37,6 +37,7 @@
                 "Name[sv]": "Albert Vaca",
                 "Name[tr]": "Albert Vaca",
                 "Name[uk]": "Albert Vaca",
+                "Name[x-test]": "xxAlbert Vacaxx",
                 "Name[zh_CN]": "Albert Vaca",
                 "Name[zh_TW]": "Albert Vaca"
             }
@@ -67,6 +68,7 @@
         "Description[sk]": "Zobrazenie upozornení prichádzajúcich hovorov",
         "Description[sv]": "Visa underrättelser om inkommande samtal",
         "Description[uk]": "Показ сповіщень щодо вхідних дзвінків",
+        "Description[x-test]": "xxShow notifications for incoming callsxx",
         "Description[zh_CN]": "显示来电通知",
         "Description[zh_TW]": "顯示來電通知",
         "EnabledByDefault": true,
@@ -108,6 +110,7 @@
         "Name[sv]": "Integrering av telefoni",
         "Name[tr]": "Telefon tümleştirmesi",
         "Name[uk]": "Інтеграція з системою телефонії",
+        "Name[x-test]": "xxTelephony integrationxx",
         "Name[zh_CN]": "Telephony 集成",
         "Name[zh_TW]": "電話整合",
         "ServiceTypes": [

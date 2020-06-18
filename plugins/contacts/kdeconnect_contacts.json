@@ -31,6 +31,7 @@
                 "Name[sk]": "Simon Redman",
                 "Name[sv]": "Simon Redman",
                 "Name[uk]": "Simon Redman",
+                "Name[x-test]": "xxSimon Redmanxx",
                 "Name[zh_CN]": "Simon Redman",
                 "Name[zh_TW]": "Simon Redman"
             }
@@ -61,6 +62,7 @@
         "Description[sk]": "Synchronizácia kontaktov medzi počítačom a pripojeným zariadením",
         "Description[sv]": "Synkronisera kontakter mellan skrivbordet och ansluten enhet",
         "Description[uk]": "Синхронізація контактів між комп'ютером і з'єднаним пристроєм",
+        "Description[x-test]": "xxSynchronize Contacts Between the Desktop and the Connected Devicexx",
         "Description[zh_CN]": "同步电脑和已连接设备的通讯录",
         "Description[zh_TW]": "在電腦與連線裝置之間同步聯絡人",
         "EnabledByDefault": true,
@@ -94,6 +96,7 @@
         "Name[sk]": "Kontakty",
         "Name[sv]": "Kontakter",
         "Name[uk]": "Контакти",
+        "Name[x-test]": "xxContactsxx",
         "Name[zh_CN]": "联系人",
         "Name[zh_TW]": "聯絡人",
         "ServiceTypes": [

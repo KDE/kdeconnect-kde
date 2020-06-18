@@ -37,6 +37,7 @@
                 "Name[sv]": "Albert Vaca",
                 "Name[tr]": "Albert Vaca",
                 "Name[uk]": "Albert Vaca",
+                "Name[x-test]": "xxAlbert Vacaxx",
                 "Name[zh_CN]": "Albert Vaca",
                 "Name[zh_TW]": "Albert Vaca"
             }
@@ -77,6 +78,7 @@
         "Description[sv]": "Fjärrstyr musik och videor",
         "Description[tr]": "Müzik ve videonuzu uzaktan kontrol edin",
         "Description[uk]": "Віддалене керування відтворенням музики та відео",
+        "Description[x-test]": "xxRemote control your music and videosxx",
         "Description[zh_CN]": "远程控制您的音乐和视频",
         "Description[zh_TW]": "遠端控制您的音樂與影片",
         "EnabledByDefault": true,
@@ -117,6 +119,7 @@
         "Name[sv]": "Mottagare av multimediastyrning",
         "Name[tr]": "Çokluortam kontrol alıcısı",
         "Name[uk]": "Отримувач команд щодо керування мультимедійними функціями",
+        "Name[x-test]": "xxMultimedia control receiverxx",
         "Name[zh_CN]": "多媒体控制接收器",
         "Name[zh_TW]": "多媒體控制接收器",
         "ServiceTypes": [

@@ -19,7 +19,8 @@
                 "Name[pt_BR]": "Aditya Mehra",
                 "Name[sk]": "Aditya Mehra",
                 "Name[sv]": "Aditya Mehra",
-                "Name[uk]": "Aditya Mehra"
+                "Name[uk]": "Aditya Mehra",
+                "Name[x-test]": "xxAditya Mehraxx"
             }
         ],
         "Description": "Bigscreen Plugin",
@@ -39,6 +40,7 @@
         "Description[sk]": "Doplnok veľkej obrazovky",
         "Description[sv]": "Insticksprogram för storskärm",
         "Description[uk]": "Додаток для великих екранів",
+        "Description[x-test]": "xxBigscreen Pluginxx",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
@@ -60,6 +62,7 @@
         "Name[sk]": "Veľká obrazovka",
         "Name[sv]": "Storskärm",
         "Name[uk]": "Великий екран",
+        "Name[x-test]": "xxBigscreenxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
