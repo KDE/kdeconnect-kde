@@ -42,6 +42,7 @@ Name[pt_BR]=KDE Connect
 Name[ro]=KDE Connect
 Name[ru]=KDE Connect
 Name[sk]=KDE Connect
+Name[sl]=KDE Connect
 Name[sr]=КДЕ‑конекција
 Name[sr@ijekavian]=КДЕ‑конекција
 Name[sr@ijekavianlatin]=KDE‑konekcija
