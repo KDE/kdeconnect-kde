@@ -74,6 +74,7 @@ Kirigami.ApplicationWindow
                 text: announcedNameProperty.value
                 visible: !nameField.visible
                 Layout.fillWidth: true
+                elide: Qt.ElideRight
                 font.pointSize: 18
                 Layout.leftMargin: Kirigami.Units.smallSpacing
             }
