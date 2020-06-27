@@ -34,14 +34,15 @@ Item {
     property string selectedText
     property date dateTime
     property string name
+    property bool multiTarget
 
     signal messageCopyRequested(string message)
 
     Kirigami.Avatar {
         id: avatar
-        width: Kirigami.Units.gridUnit * 2
+        width: visible ? Kirigami.Units.gridUnit * 2 : 0
         height: width
-        visible: !root.sentByMe
+        visible: !root.sentByMe && multiTarget
         name: root.name
 
         anchors.left: parent.left
@@ -103,6 +104,16 @@ Item {
                 height: childrenRect.height
 
                 property int contentWidth: Math.max(messageLabel.implicitWidth, dateLabel.implicitWidth)
+                Label {
+                    id: authorLabel
+                    width: parent.width
+                    text: root.name
+                    leftPadding: Kirigami.Units.largeSpacing
+                    topPadding: Kirigami.Units.smallSpacing
+                    visible: multiTarget
+                    color: Kirigami.Theme.disabledTextColor
+                    horizontalAlignment: messageLabel.horizontalAlignment
+                }
 
                 TextEdit {
                     id: messageLabel
@@ -110,7 +121,7 @@ Item {
                     readOnly: true
                     leftPadding: Kirigami.Units.largeSpacing
                     rightPadding: Kirigami.Units.largeSpacing
-                    topPadding: Kirigami.Units.largeSpacing
+                    topPadding: authorLabel.visible ? 0 : Kirigami.Units.largeSpacing
                     width: parent.width
                     horizontalAlignment: root.sentByMe ? Text.AlignRight : Text.AlignLeft
                     wrapMode: Text.Wrap

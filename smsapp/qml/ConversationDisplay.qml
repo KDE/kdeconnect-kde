@@ -123,6 +123,7 @@ Kirigami.ScrollablePage
             messageBody: model.display
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
+            multiTarget: isMultitarget
 
             width: viewport.width
 

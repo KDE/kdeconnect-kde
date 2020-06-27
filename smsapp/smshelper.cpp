@@ -28,6 +28,7 @@
 #include <QString>
 #include <QStandardPaths>
 #include <QHash>
+#include <QtDebug>
 
 #include <KPeople/PersonData>
 #include <KPeople/PersonsModel>
@@ -292,12 +293,21 @@ QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses
     QList<QPixmap> icons;
     for (const ConversationAddress& address : addresses) {
         const auto personData = SmsHelper::lookupPersonByAddress(address.address());
-
+        static const QIcon defaultIcon = QIcon::fromTheme(QStringLiteral("im-user"));
+        static const QPixmap defaultAvatar = defaultIcon.pixmap(defaultIcon.actualSize(QSize(32, 32)));
+        QPixmap avatar;
         if (personData) {
-            icons.append(personData->photo());
+            const QVariant pic = personData->contactCustomProperty(QStringLiteral("picture"));
+            if (pic.canConvert<QImage>()) {
+                avatar = QPixmap::fromImage(pic.value<QImage>());
+            }
+            if (avatar.isNull()) {
+                icons.append(defaultAvatar);
+            } else {
+                icons.append(avatar);
+            }
         } else {
-            static QString dummyAvatar = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kf5/kpeople/dummy_avatar.png"));
-            icons.append(QPixmap(dummyAvatar));
+            icons.append(defaultAvatar);
         }
     }
 
