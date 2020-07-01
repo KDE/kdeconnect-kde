@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("kdeconnect.sms"),
-                         i18n("SMS Instant Messaging"),
-                         QStringLiteral(KDECONNECT_VERSION_STRING),
                          i18n("KDE Connect SMS"),
+                         QStringLiteral(KDECONNECT_VERSION_STRING),
+                         i18n("SMS Instant Messaging"),
                          KAboutLicense::GPL_V3,
                          i18n("(C) 2018-2019, KDE Connect Team"));
     aboutData.addAuthor(i18n("Simon Redman"), {}, QStringLiteral("simon@ergotech.com"));
