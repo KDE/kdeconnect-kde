@@ -124,6 +124,8 @@ Kirigami.ScrollablePage
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
 
+            width: viewport.width
+
             ListView.onAdd: {
                 if (!isInitalized) {
                     return

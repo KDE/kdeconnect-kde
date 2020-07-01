@@ -4,8 +4,5 @@
     <file>qml/ConversationList.qml</file>
     <file>qml/ConversationDisplay.qml</file>
     <file>qml/ChatMessage.qml</file>
-    <file>qml/RoundImage.qml</file>
-    <file>qml/Avatar.qml</file>
-    <file>qml/TextAvatar.qml</file>
  </qresource>
 </RCC>
