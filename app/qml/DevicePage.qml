@@ -152,11 +152,15 @@ Kirigami.Page
             id: untrustedDevice
             Item {
                 readonly property var actions: []
-                Button {
+
+                Kirigami.PlaceholderMessage {
+                    text: i18nd("kdeconnect-app", "This device is not paired")
                     anchors.centerIn: parent
-                    text: i18nd("kdeconnect-app", "Pair")
-                    icon.name:"network-connect"
-                    onClicked: deviceView.currentDevice.requestPair()
+                    helpfulAction: Kirigami.Action {
+                        text: i18nd("kdeconnect-app", "Pair")
+                        icon.name:"network-connect"
+                        onTriggered: deviceView.currentDevice.requestPair()
+                    }
                 }
             }
         }
