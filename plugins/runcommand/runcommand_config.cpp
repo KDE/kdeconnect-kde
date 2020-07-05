@@ -29,6 +29,7 @@
 #include <QDebug>
 #include <QUuid>
 #include <QJsonDocument>
+#include <QStandardPaths>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -41,13 +42,18 @@ K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand_config"))
 {
+    QString qdbusExe = QStringLiteral("qdbus-qt5");
+    if (QStandardPaths::findExecutable(qdbusExe).isEmpty()) {
+        qdbusExe = QStringLiteral("qdbus");
+    }
+
     QMenu* defaultMenu = new QMenu(this);
     addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("systemctl suspend"));
-    addSuggestedCommand(defaultMenu, i18n("Maximum Brightness"), QStringLiteral("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`"));
+    addSuggestedCommand(defaultMenu, i18n("Maximum Brightness"), QStringLiteral("%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`").arg(qdbusExe));
     addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("loginctl lock-session"));
     addSuggestedCommand(defaultMenu, i18n("Unlock Screen"), QStringLiteral("loginctl unlock-session"));
-    addSuggestedCommand(defaultMenu, i18n("Close All Vaults"), QStringLiteral("qdbus org.kde.kded5 /modules/plasmavault closeAllVaults"));
-    addSuggestedCommand(defaultMenu, i18n("Forcefully Close All Vaults"), QStringLiteral("qdbus org.kde.kded5 /modules/plasmavault forceCloseAllVaults"));
+    addSuggestedCommand(defaultMenu, i18n("Close All Vaults"), QStringLiteral("%0 org.kde.kded5 /modules/plasmavault closeAllVaults").arg(qdbusExe));
+    addSuggestedCommand(defaultMenu, i18n("Forcefully Close All Vaults"), QStringLiteral("%0 org.kde.kded5 /modules/plasmavault forceCloseAllVaults").arg(qdbusExe));
 
     QTableView* table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
