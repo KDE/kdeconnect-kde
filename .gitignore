@@ -16,6 +16,7 @@ KDEConnect.includes
 *.qmlc
 *.rej
 .vscode
+.github/workflows/*
 
 # Eclipse settings
 .cproject

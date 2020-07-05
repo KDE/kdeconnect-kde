@@ -31,6 +31,7 @@ Item {
 
     property string messageBody
     property bool sentByMe
+    property string selectedText
     property date dateTime
     property string name
 
@@ -71,6 +72,31 @@ Item {
             }
             radius: 6
 
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.LeftButton | Qt.RightButton
+                onClicked: mouse => {
+                    if (mouse.button === Qt.RightButton) {
+                        var selectStart = messageLabel.selectionStart;
+                        var selectEnd = messageLabel.selectionEnd;
+                        selectedText = messageLabel.selectedText;
+                        contextMenu.x = mouse.x;
+                        contextMenu.y = mouse.y;
+                        messageLabel.persistentSelection = true;
+                        contextMenu.open();
+                    }
+                }
+                onPressAndHold: {
+                    var selectStart = messageLabel.selectionStart;
+                    var selectEnd = messageLabel.selectionEnd;
+                    selectedText = messageLabel.selectedText;
+                    contextMenu.x = mouse.x;
+                    contextMenu.y = mouse.y;
+                    messageLabel.persistentSelection = true;
+                    contextMenu.open();
+                }
+            }
+
             Column {
                 id: messageColumn
                 width: parent.width
@@ -78,14 +104,17 @@ Item {
 
                 property int contentWidth: Math.max(messageLabel.implicitWidth, dateLabel.implicitWidth)
 
-                Label {
+                TextEdit {
                     id: messageLabel
+                    selectByMouse: true
+                    readOnly: true
                     leftPadding: Kirigami.Units.largeSpacing
                     rightPadding: Kirigami.Units.largeSpacing
                     topPadding: Kirigami.Units.largeSpacing
                     width: parent.width
                     horizontalAlignment: root.sentByMe ? Text.AlignRight : Text.AlignLeft
                     wrapMode: Text.Wrap
+                    color: Kirigami.Theme.textColor
                     text: root.messageBody
                 }
 
@@ -101,25 +130,24 @@ Item {
                 }
             }
 
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.LeftButton | Qt.RightButton
-                onClicked: mouse => {
-                    if (mouse.button === Qt.RightButton) {
-                        contextMenu.popup()
-                    }
-                }
-                onPressAndHold: contextMenu.popup()
-            }
+
 
             Menu {
                 id: contextMenu
-
+                exit: Transition {PropertyAction { target: messageLabel; property: "persistentSelection"; value: false }}
                 MenuItem {
                     text: i18nd("kdeconnect-sms", "Copy Message")
                     enabled: messageLabel.visible
                     onTriggered: root.messageCopyRequested(root.messageBody)
                 }
+                MenuItem {
+                    text: i18nd("kdeconnect-sms", "Copy Selection")
+                    visible: selectedText != ""
+                    onTriggered: {
+                            root.messageCopyRequested(selectedText)
+                    }
+                }
+
             }
         }
     }
