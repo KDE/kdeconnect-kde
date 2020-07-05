@@ -29,15 +29,15 @@ QtObject
     property alias pluginName: checker.pluginName
     property alias iconName: checker.iconName
     property alias loaded: checker.available
+    property alias device: checker.device
     property var interfaceFactory
     property var component
     property var name
 
     readonly property var checker: PluginChecker {
         id: checker
-        device: deviceView.currentDevice
     }
-    property var onClick: function() {
+    property var onClick: () => {
         if (component === "" || !interfaceFactory)
             return;
 
