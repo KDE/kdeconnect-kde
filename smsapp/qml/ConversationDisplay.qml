@@ -183,7 +183,7 @@ Kirigami.ScrollablePage
 
     footer: Controls.Pane {
         id: sendingArea
-        enabled: page.deviceConnected && !page.isMultitarget
+        enabled: page.deviceConnected
         layer.enabled: sendingArea.enabled
         layer.effect: DropShadow {
             verticalOffset: 1
@@ -211,7 +211,7 @@ Kirigami.ScrollablePage
                 Controls.TextArea {
                     anchors.fill: parent
                     id: messageField
-                    placeholderText: page.isMultitarget ? i18nd("kdeconnect-sms", "Replying to multitarget messages is not supported") : i18nd("kdeconnect-sms", "Compose message")
+                    placeholderText: i18nd("kdeconnect-sms", "Compose message")
                     wrapMode: TextEdit.Wrap
                     topPadding: Kirigami.Units.gridUnit * 0.5
                     bottomPadding: topPadding

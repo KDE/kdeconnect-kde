@@ -194,23 +194,15 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
         return;
     }
 
-    if (messagesList.first().isMultitarget()) {
-        qWarning(KDECONNECT_CONVERSATIONS) << "Tried to reply to a group MMS which is not supported in this version of KDE Connect";
-        return;
-    }
+    const QList<ConversationAddress>& addressList = messagesList.first().addresses();
+    QVariant addresses;
+    addresses.setValue(addressList);
 
-    const QList<ConversationAddress>& addresses = messagesList.first().addresses();
-    if (addresses.size() > 1) {
-        // TODO: Upgrade for multitarget replies
-        qCWarning(KDECONNECT_CONVERSATIONS) << "Sending replies to multiple recipients is not supported";
-        return;
-    }
-    m_smsInterface.sendSms(addresses[0].address(), message, messagesList.first().subID());
+    m_smsInterface.sendSms(QDBusVariant(addresses), message, messagesList.first().subID());
 }
 
-void ConversationsDbusInterface::sendWithoutConversation(const QDBusVariant& addressList, const QString& message) {
-    QList<ConversationAddress> addresses = ConversationAddress::listfromDBus(addressList);
-    m_smsInterface.sendSms(addresses[0].address(), message);
+void ConversationsDbusInterface::sendWithoutConversation(const QDBusVariant& addresses, const QString& message) {
+    m_smsInterface.sendSms(addresses, message);
 }
 
 void ConversationsDbusInterface::requestAllConversationThreads()

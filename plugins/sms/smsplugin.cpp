@@ -57,11 +57,20 @@ bool SmsPlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SmsPlugin::sendSms(const QString& phoneNumber, const QString& messageBody, const qint64 subID)
+void SmsPlugin::sendSms(const QDBusVariant& addresses, const QString& messageBody, const qint64 subID)
 {
+    QList<ConversationAddress> addressList = ConversationAddress::listfromDBus(addresses);
+
+    QVariantList addressMapList;
+    for (const ConversationAddress address : addressList) {
+        QVariantMap addressMap({{QStringLiteral("address"), address.address()}});
+        addressMapList.append(addressMap);
+        qDebug() <<address.address();
+    }
+
     QVariantMap packetMap({
         {QStringLiteral("sendSms"), true},
-        {QStringLiteral("phoneNumber"), phoneNumber},
+        {QStringLiteral("addresses"), addressMapList},
         {QStringLiteral("messageBody"), messageBody}
     });
     if (subID != -1) {

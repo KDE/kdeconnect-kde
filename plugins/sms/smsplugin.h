@@ -86,7 +86,7 @@
  *
  * The body should look like so:
  * { "sendSms": true,
- *   "phoneNumber": "542904563213",
+ *   "addresses": <List of Addresses>
  *   "messageBody": "Hi mom!",
  *   "sub_id": "3859358340534"
  * }
@@ -127,7 +127,7 @@ public:
     QString dbusPath() const override;
 
 public Q_SLOTS:
-    Q_SCRIPTABLE void sendSms(const QString& phoneNumber, const QString& messageBody, const qint64 subID = -1);
+    Q_SCRIPTABLE void sendSms(const QDBusVariant& addresses, const QString& messageBody, const qint64 subID = -1);
 
     /**
      * Send a request to the remote for all of its conversations
