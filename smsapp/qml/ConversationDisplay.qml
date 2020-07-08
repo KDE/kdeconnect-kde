@@ -212,7 +212,7 @@ Kirigami.ScrollablePage
                     anchors.fill: parent
                     id: messageField
                     placeholderText: page.isMultitarget ? i18nd("kdeconnect-sms", "Replying to multitarget messages is not supported") : i18nd("kdeconnect-sms", "Compose message")
-                    wrapMode: TextArea.Wrap
+                    wrapMode: TextEdit.Wrap
                     topPadding: Kirigami.Units.gridUnit * 0.5
                     bottomPadding: topPadding
                     selectByMouse: true
