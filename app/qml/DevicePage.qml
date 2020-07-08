@@ -105,13 +105,9 @@ Kirigami.ScrollablePage
                 device: root.currentDevice
             },
             PluginItem {
-                readonly property var shareIface: ShareDbusInterfaceFactory.create(root.currentDevice.id())
                 pluginName: "share"
                 name: i18nd("kdeconnect-app", "Share File")
-                onClick: () => {
-                    fileDialog.open()
-                    shareIface.shareUrl(fileDialog.fileUrl)
-                }
+                onClick: () => fileDialog.open()
                 device: root.currentDevice
             },
             PluginItem {
@@ -169,7 +165,9 @@ Kirigami.ScrollablePage
 
     FileDialog {
         id: fileDialog
+        readonly property var shareIface: ShareDbusInterfaceFactory.create(root.currentDevice.id())
         title: i18nd("kdeconnect-app", "Please choose a file")
         folder: shortcuts.home
+        onAccepted: shareIface.shareUrl(fileDialog.fileUrl)
     }
 }
