@@ -105,18 +105,14 @@ PlasmaComponents.ListItem
                             title: i18n("Please choose a file")
                             folder: shortcuts.home
                             selectMultiple: true
+                            onAccepted: fileDialog.fileUrls.forEach(url => share.plugin.shareUrl(url))
                         }
 
                         id: shareFile
                         icon: "document-share"
                         visible: share.available
                         text: i18n("Share file")
-                        onClicked: {
-                            fileDialog.open()
-                            fileDialog.fileUrls.forEach(function (url) {
-                                share.plugin.shareUrl(url)
-                            })
-                        }
+                        onClicked: fileDialog.open()
                     }
 
                     //Find my phone
