@@ -24,7 +24,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kdeconnect 1.0
 
-Kirigami.Page
+Kirigami.ScrollablePage
 {
     id: root
     title: i18nd("kdeconnect-app", "Run command")
@@ -41,23 +41,22 @@ Kirigami.Page
 
     ListView {
         id: commandsList
-        anchors.fill: parent
         model: RemoteCommandsModel {
             deviceId: pluginInterface.deviceId
         }
         delegate: Kirigami.BasicListItem {
             width: ListView.view.width
-            label: name + "\n" + command
+            label: name
+            subtitle: command
             onClicked: pluginInterface.triggerCommand(key)
             reserveSpaceForIcon: false
         }
-    }
 
-    Kirigami.PlaceholderMessage {
-        visible: commandsList.count === 0
-        text: i18nd("kdeconnect-app", "No commands defined")
-        anchors.centerIn: parent
+        Kirigami.PlaceholderMessage {
+            visible: commandsList.count === 0
+            text: i18nd("kdeconnect-app", "No commands defined")
+            anchors.centerIn: parent
+        }
     }
-
 }
 
