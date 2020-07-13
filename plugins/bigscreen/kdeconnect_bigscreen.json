@@ -4,6 +4,7 @@
             {
                 "Email": "aix.m@outlook.com",
                 "Name": "Aditya Mehra",
+                "Name[ca@valencia]": "Aditya Mehra",
                 "Name[ca]": "Aditya Mehra",
                 "Name[cs]": "Aditya Mehra",
                 "Name[en_GB]": "Aditya Mehra",
@@ -27,6 +28,7 @@
             }
         ],
         "Description": "Bigscreen Plugin",
+        "Description[ca@valencia]": "Connector de la Bigscreen",
         "Description[ca]": "Connector de la Bigscreen",
         "Description[cs]": "Modul pro velkou obrazovku",
         "Description[en_GB]": "Bigscreen Plugin",
@@ -52,6 +54,7 @@
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen",
+        "Name[ca@valencia]": "Bigscreen",
         "Name[ca]": "Bigscreen",
         "Name[cs]": "Velká obrazovka",
         "Name[en_GB]": "Bigscreen",
