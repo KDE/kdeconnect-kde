@@ -1,9 +1,12 @@
 [Desktop Entry]
 Name=KDE Connect URL Handler
 Name[ca]=Gestor d'URL del KDE Connect
+Name[ca@valencia]=Gestor d'URL del KDE Connect
 Name[fr]=Gestionnaire d'URL de KDE Connect
 Name[nl]=URL behandelaar van KDE-Connect
 Name[nn]=KDE Connect adressehandsamar
+Name[pt]=Tratamento de URL's do KDE Connect
+Name[pt_BR]=Tratamento de URLs do KDE Connect
 Name[uk]=Обробник адрес KDE Connect
 Name[x-test]=xxKDE Connect URL Handlerxx
 Exec=kdeconnect-handler %U
