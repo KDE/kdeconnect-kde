@@ -56,7 +56,6 @@ Kirigami.Page
     {
         muted = !muted
         root.pluginInterface.volume = muted ? 0 : volumeUnmuted
-        muteButton.icon.name = muted ? "audio-volume-muted" : soundState(root.pluginInterface.volume)
     }
 
     function msToTime(currentTime, totalTime)
@@ -163,7 +162,7 @@ Kirigami.Page
             Layout.fillWidth: true
             Button {
                 id: muteButton
-                icon.name: soundState(root.pluginInterface.volume)
+                icon.name: muted ? "audio-volume-muted" : soundState(root.pluginInterface.volume)
                 onClicked: toggleMute()
             }
             Slider {
@@ -175,7 +174,6 @@ Kirigami.Page
                 onValueChanged: {
                     volumeUnmuted = value
                     root.pluginInterface.volume = value
-                    muteButton.icon.name = soundState(root.pluginInterface.volume)
                 }
             }
         }
