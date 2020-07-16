@@ -134,19 +134,29 @@ Kirigami.ScrollablePage
             }
         }
 
-        RowLayout {
+        Column {
             visible: root.currentDevice.hasPairingRequests
             anchors.centerIn: parent
-            Button {
-                text: i18nd("kdeconnect-app", "Accept")
-                icon.name:"dialog-ok"
-                onClicked: root.currentDevice.acceptPairing()
+
+            spacing: Kirigami.Units.largeSpacing
+
+            Kirigami.PlaceholderMessage {
+                text: i18n("Pair requested")
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            Button {
-                text: i18nd("kdeconnect-app", "Reject")
-                icon.name:"dialog-cancel"
-                onClicked: root.currentDevice.rejectPairing()
+            RowLayout {
+                Button {
+                    text: i18nd("kdeconnect-app", "Accept")
+                    icon.name:"dialog-ok"
+                    onClicked: root.currentDevice.acceptPairing()
+                }
+
+                Button {
+                    text: i18nd("kdeconnect-app", "Reject")
+                    icon.name:"dialog-cancel"
+                    onClicked: root.currentDevice.rejectPairing()
+                }
             }
         }
 
