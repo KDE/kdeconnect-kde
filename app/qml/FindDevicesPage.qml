@@ -61,10 +61,10 @@ Kirigami.ScrollablePage
             sourceModel: DevicesModel {}
         }
         delegate: Kirigami.BasicListItem {
-            width: ListView.view.width
             icon: iconName
             iconColor: "transparent"
-            label: display + "\n" + toolTip
+            label: display
+            subtitle: toolTip
             highlighted: false
             onClicked: {
                 pageStack.push(
