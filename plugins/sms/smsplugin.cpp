@@ -62,7 +62,7 @@ void SmsPlugin::sendSms(const QDBusVariant& addresses, const QString& messageBod
     QList<ConversationAddress> addressList = ConversationAddress::listfromDBus(addresses);
 
     QVariantList addressMapList;
-    for (const ConversationAddress address : addressList) {
+    for (const ConversationAddress& address : addressList) {
         QVariantMap addressMap({{QStringLiteral("address"), address.address()}});
         addressMapList.append(addressMap);
         qDebug() <<address.address();

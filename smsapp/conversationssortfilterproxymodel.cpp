@@ -67,8 +67,8 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
         }
 
         // This block of code compares each address in the multi target conversation to find a match
-        QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
-        for (const ConversationAddress address : addressList) {
+        const QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
+        for (const ConversationAddress& address : addressList) {
             QString canonicalAddress = SmsHelper::canonicalizePhoneNumber(address.address());
             if (canonicalAddress.contains(filterRegExp())) {
                 return true;
