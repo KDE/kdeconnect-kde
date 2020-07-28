@@ -198,7 +198,7 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
     QVariantList addresses;
 
     for (const auto& address : addressList) {
-        addresses << QVariant::fromValue(addresse);
+        addresses << QVariant::fromValue(address);
     }
 
     m_smsInterface.sendSms(addresses, message, messagesList.first().subID());

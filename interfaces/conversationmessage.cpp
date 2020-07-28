@@ -61,35 +61,6 @@ ConversationMessage::ConversationMessage (const qint32& eventField, const QStrin
 {
 }
 
-ConversationMessage::ConversationMessage(const ConversationMessage& other)
-    : m_eventField(other.m_eventField)
-    , m_body(other.m_body)
-    , m_addresses(other.m_addresses)
-    , m_date(other.m_date)
-    , m_type(other.m_type)
-    , m_read(other.m_read)
-    , m_threadID(other.m_threadID)
-    , m_uID(other.m_uID)
-    , m_subID(other.m_subID)
-{
-}
-
-ConversationMessage::~ConversationMessage() { }
-
-ConversationMessage& ConversationMessage::operator=(const ConversationMessage& other)
-{
-    this->m_eventField = other.m_eventField;
-    this->m_body = other.m_body;
-    this->m_addresses = other.m_addresses;
-    this->m_date = other.m_date;
-    this->m_type = other.m_type;
-    this->m_read = other.m_read;
-    this->m_threadID = other.m_threadID;
-    this->m_uID = other.m_uID;
-    this->m_subID = other.m_subID;
-    return *this;
-}
-
 ConversationMessage ConversationMessage::fromDBus(const QDBusVariant& var)
 {
     QDBusArgument data = var.variant().value<QDBusArgument>();
@@ -121,19 +92,6 @@ QVariantMap ConversationMessage::toVariant() const
 ConversationAddress::ConversationAddress(QString address)
     : m_address(address)
 {}
-
-ConversationAddress::ConversationAddress(const ConversationAddress& other)
-    : m_address(other.address())
-{}
-
-ConversationAddress::~ConversationAddress()
-{}
-
-ConversationAddress& ConversationAddress::operator=(const ConversationAddress& other)
-{
-    this->m_address = other.m_address;
-    return *this;
-}
 
 QVariantMap ConversationAddress::toVariant() const
 {

@@ -63,9 +63,6 @@ public:
                         const qint64& date, const qint32& type, const qint32& read,
                         const qint64& threadID, const qint32& uID, const qint64& subID);
 
-    ConversationMessage(const ConversationMessage& other);
-    ~ConversationMessage();
-    ConversationMessage& operator=(const ConversationMessage& other);
     static ConversationMessage fromDBus(const QDBusVariant&);
     static void registerDbusType();
 
@@ -146,9 +143,6 @@ class KDECONNECTINTERFACES_EXPORT ConversationAddress
 {
 public:
     ConversationAddress(QString address = QStringLiteral());
-    ConversationAddress(const ConversationAddress& other);
-    ~ConversationAddress();
-    ConversationAddress& operator=(const ConversationAddress& other);
 
     QString address() const { return m_address; }
 
