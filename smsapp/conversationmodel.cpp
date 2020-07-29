@@ -81,8 +81,6 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
     connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
-
-    connect(this, SIGNAL(sendMessageWithoutConversation(QDBusVariant, QString)), m_conversationsInterface, SLOT(sendWithoutConversation(QDBusVariant, QString)));
 }
 
 void ConversationModel::setAddressList(const QList<ConversationAddress>& addressList) {
@@ -97,9 +95,13 @@ void ConversationModel::sendReplyToConversation(const QString& message)
 
 void ConversationModel::startNewConversation(const QString& message, const QList<ConversationAddress>& addressList)
 {
-    QVariant addresses;
-    addresses.setValue(addressList);
-    Q_EMIT sendMessageWithoutConversation(QDBusVariant(addresses), message);
+    QVariantList addresses;
+
+    for (const auto& address : addressList) {
+        addresses << QVariant::fromValue(address);
+    }
+
+    m_conversationsInterface->sendWithoutConversation(addresses, message);
 }
 
 void ConversationModel::requestMoreMessages(const quint32& howMany)

@@ -135,14 +135,6 @@ ConversationAddress& ConversationAddress::operator=(const ConversationAddress& o
     return *this;
 }
 
-QList<ConversationAddress> ConversationAddress::listfromDBus(const QDBusVariant& var)
-{
-    QDBusArgument data = var.variant().value<QDBusArgument>();
-    QList<ConversationAddress> addresses;
-    data >> addresses;
-    return addresses;
-}
-
 QVariantMap ConversationAddress::toVariant() const
 {
     return {

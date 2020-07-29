@@ -127,7 +127,7 @@ public:
     QString dbusPath() const override;
 
 public Q_SLOTS:
-    Q_SCRIPTABLE void sendSms(const QDBusVariant& addresses, const QString& messageBody, const qint64 subID = -1);
+    Q_SCRIPTABLE void sendSms(const QVariantList& addresses, const QString& messageBody, const qint64 subID = -1);
 
     /**
      * Send a request to the remote for all of its conversations

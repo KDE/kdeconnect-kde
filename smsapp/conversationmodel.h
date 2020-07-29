@@ -68,7 +68,6 @@ public:
 
 Q_SIGNALS:
     void loadingFinished();
-    void sendMessageWithoutConversation(const QDBusVariant& addressList, const QString& message);
 
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);

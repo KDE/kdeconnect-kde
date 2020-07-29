@@ -149,7 +149,6 @@ public:
     ConversationAddress(const ConversationAddress& other);
     ~ConversationAddress();
     ConversationAddress& operator=(const ConversationAddress& other);
-    static QList<ConversationAddress> listfromDBus(const QDBusVariant&);
 
     QString address() const { return m_address; }
 

@@ -195,13 +195,16 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
     }
 
     const QList<ConversationAddress>& addressList = messagesList.first().addresses();
-    QVariant addresses;
-    addresses.setValue(addressList);
+    QVariantList addresses;
 
-    m_smsInterface.sendSms(QDBusVariant(addresses), message, messagesList.first().subID());
+    for (const auto& address : addressList) {
+        addresses << QVariant::fromValue(addresse);
+    }
+
+    m_smsInterface.sendSms(addresses, message, messagesList.first().subID());
 }
 
-void ConversationsDbusInterface::sendWithoutConversation(const QDBusVariant& addresses, const QString& message) {
+void ConversationsDbusInterface::sendWithoutConversation(const QVariantList& addresses, const QString& message) {
     m_smsInterface.sendSms(addresses, message);
 }
 
