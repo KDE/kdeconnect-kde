@@ -29,8 +29,6 @@
 #include "conversationsdbusinterface.h"
 #include "interfaces/conversationmessage.h"
 
-#include "sendreplydialog.h"
-
 /**
  * Packet used to indicate a batch of messages has been pushed from the remote device
  *
