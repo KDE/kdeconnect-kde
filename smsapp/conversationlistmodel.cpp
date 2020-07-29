@@ -113,10 +113,7 @@ void ConversationListModel::prepareConversationsList()
     setWhenAvailable(validThreadIDsReply, [this](const QVariantList& convs) {
         clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
         for (const QVariant& headMessage : convs) {
-            const QDBusArgument data = headMessage.value<QDBusArgument>();
-            ConversationMessage message;
-            data >> message;
-            createRowFromMessage(message);
+            createRowFromMessage(qdbus_cast<ConversationMessage>(headMessage));
         }
         displayContacts();
     }, this);
