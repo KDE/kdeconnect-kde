@@ -9,40 +9,28 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QDBusConnection>
-#include <QDBusInterface>
+#include "screensaverinterface.h"
 #include "kdeconnect_screensaverinhibit_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(ScreensaverInhibitPlugin, "kdeconnect_screensaver_inhibit.json")
 
 #define INHIBIT_SERVICE QStringLiteral("org.freedesktop.ScreenSaver")
-#define INHIBIT_INTERFACE INHIBIT_SERVICE
 #define INHIBIT_PATH QStringLiteral("/ScreenSaver")
-#define INHIBIT_METHOD QStringLiteral("Inhibit")
-#define UNINHIBIT_METHOD QStringLiteral("UnInhibit")
-#define SIMULATE_ACTIVITY_METHOD QStringLiteral("SimulateUserActivity")
 
 ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
+    OrgFreedesktopScreenSaverInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, QDBusConnection::sessionBus(), this);
 
-    QDBusMessage reply = inhibitInterface.call(INHIBIT_METHOD, QStringLiteral("org.kde.kdeconnect.daemon"), i18n("Phone is connected"));
-
-    if (!reply.errorMessage().isEmpty()) {
-        qCDebug(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT) << "Unable to inhibit the screensaver: " << reply.errorMessage();
-        inhibitCookie = 0;
-    } else {
-        // Store the cookie we receive, this will be sent back when sending the uninhibit call.
-        inhibitCookie = reply.arguments().at(0).toUInt();
-    }
+    inhibitCookie = inhibitInterface.Inhibit(QStringLiteral("org.kde.kdeconnect.daemon"), i18n("Phone is connected"));
 }
 
 ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
 {
     if (inhibitCookie == 0) return;
 
-    QDBusInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, INHIBIT_INTERFACE);
-    inhibitInterface.call(UNINHIBIT_METHOD, this->inhibitCookie);
+    OrgFreedesktopScreenSaverInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, QDBusConnection::sessionBus(), this);
+    inhibitInterface.UnInhibit(inhibitCookie);
 
     /*
      * Simulate user activity because what ever manages the screensaver does not seem to start the timer
@@ -50,7 +38,7 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
      * unlocked desktop which would be dangerous. Ideally we should not be doing this and the screen should
      * be locked anyway.
      */
-    inhibitInterface.call(SIMULATE_ACTIVITY_METHOD);
+    inhibitInterface.SimulateUserActivity();
 }
 
 void ScreensaverInhibitPlugin::connected()

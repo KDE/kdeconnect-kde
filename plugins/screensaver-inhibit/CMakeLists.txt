@@ -10,6 +10,7 @@ else()
     set(kdeconnect_screensaver_inhibit_SRCS
         screensaverinhibitplugin.cpp
     )
+    qt5_add_dbus_interface(kdeconnect_screensaver_inhibit_SRCS org.freedesktop.ScreenSaver.xml screensaverinterface)
 endif()
 
 set(debug_file_SRCS)
