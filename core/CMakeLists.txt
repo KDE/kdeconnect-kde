@@ -52,7 +52,7 @@ set(kdeconnectcore_SRCS
 
 add_library(kdeconnectcore ${kdeconnectcore_SRCS})
 
-target_include_directories(kdeconnectcore PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ${PROJECT_SOURCE_DIR})
+target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 
 target_link_libraries(kdeconnectcore
 PUBLIC

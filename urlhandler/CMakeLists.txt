@@ -2,11 +2,10 @@ ki18n_wrap_ui(telhandler_SRCS dialog.ui)
 
 add_executable(kdeconnect-handler kdeconnect-handler.cpp ${telhandler_SRCS})
 
-target_include_directories(kdeconnect-handler PUBLIC ${CMAKE_BINARY_DIR})
-
 target_link_libraries(kdeconnect-handler
     kdeconnectinterfaces
     kdeconnectcore
+    kdeconnectversion
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n

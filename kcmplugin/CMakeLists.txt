@@ -17,7 +17,6 @@ set_target_properties(kdeconnectpluginkcm PROPERTIES
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
 
-target_include_directories(kdeconnectpluginkcm PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 generate_export_header(kdeconnectpluginkcm EXPORT_FILE_NAME kdeconnectpluginkcm_export.h BASE_NAME kdeconnectpluginkcm)
 
 # Remove NAMELINK_SKIP if/when headers are being installed and the library becomes public.

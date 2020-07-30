@@ -24,7 +24,7 @@ add_library(kdeconnectsmshelper STATIC
     ${smshelper_debug_file_SRCS}
 )
 
-target_include_directories(kdeconnectsmshelper PUBLIC ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(kdeconnectsmshelper PUBLIC ${CMAKE_SOURCE_DIR})
 
 target_link_libraries(kdeconnectsmshelper
     PUBLIC
@@ -43,11 +43,10 @@ add_executable(kdeconnect-sms
     resources.qrc
     ${sms_debug_files_SRCS})
 
-target_include_directories(kdeconnect-sms PUBLIC ${CMAKE_BINARY_DIR})
-
 target_link_libraries(kdeconnect-sms
     kdeconnectsmshelper
     kdeconnectinterfaces
+    kdeconnectversion
     Qt5::Quick
     Qt5::Widgets
     KF5::CoreAddons

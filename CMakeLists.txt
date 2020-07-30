@@ -34,6 +34,10 @@ ecm_setup_version(1.4.0
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
 
+# Make the version header available by linking against kdeconnectversion
+add_library(kdeconnectversion INTERFACE)
+target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
+
 if (SAILFISHOS)
     set(KF5_REQUIRED_COMPONENTS I18n CoreAddons Config)
     set(KF5_OPTIONAL_COMPONENTS)
