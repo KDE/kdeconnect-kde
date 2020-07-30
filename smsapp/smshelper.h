@@ -30,12 +30,11 @@
 
 #include "interfaces/conversationmessage.h"
 
-#include "kdeconnectsms_export.h"
 #include "smsapp/smscharcount.h"
 
 class PersonsCache;
 
-class KDECONNECTSMSAPPLIB_EXPORT SmsHelper : public QObject
+class SmsHelper : public QObject
 {
     Q_OBJECT
 public:
