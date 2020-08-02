@@ -195,6 +195,10 @@ void KdeConnectConfig::removeTrustedDevice(const QString& deviceId)
 // Utility functions to set and get a value
 void KdeConnectConfig::setDeviceProperty(const QString& deviceId, const QString& key, const QString& value)
 {
+    // do not store values for untrusted devices (it would make them trusted)
+    if (!trustedDevices().contains(deviceId))
+        return;
+
     d->m_trustedDevices->beginGroup(deviceId);
     d->m_trustedDevices->setValue(key, value);
     d->m_trustedDevices->endGroup();

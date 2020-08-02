@@ -36,7 +36,7 @@ class KDECONNECTCORE_EXPORT Device
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
-    Q_PROPERTY(QString type READ type CONSTANT)
+    Q_PROPERTY(QString type READ type NOTIFY typeChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
@@ -134,6 +134,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void trustedChanged(bool trusted);
     Q_SCRIPTABLE void pairingError(const QString& error);
     Q_SCRIPTABLE void nameChanged(const QString& name);
+    Q_SCRIPTABLE void typeChanged(const QString& type);
     Q_SCRIPTABLE void statusIconNameChanged();
 
     Q_SCRIPTABLE void hasPairingRequestsChanged(bool hasPairingRequests);
@@ -143,6 +144,7 @@ private: //Methods
     static QString type2str(DeviceType deviceType);
 
     void setName(const QString& name);
+    void setType(const QString& strtype);
     QString iconForStatus(bool reachable, bool paired) const;
 
 private:

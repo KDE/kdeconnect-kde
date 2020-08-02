@@ -276,7 +276,7 @@ void Device::addLink(const NetworkPacket& identityPacket, DeviceLink* link)
     //qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
 
     setName(identityPacket.get<QString>(QStringLiteral("deviceName")));
-    d->m_deviceType = str2type(identityPacket.get<QString>(QStringLiteral("deviceType")));
+    setType(identityPacket.get<QString>(QStringLiteral("deviceType")));
 
     if (d->m_deviceLinks.contains(link)) {
         return;
@@ -506,7 +506,18 @@ void Device::setName(const QString& name)
 {
     if (d->m_deviceName != name) {
         d->m_deviceName = name;
+        KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("name"), name);
         Q_EMIT nameChanged(name);
+    }
+}
+
+void Device::setType(const QString& strtype)
+{
+    auto type = str2type(strtype);
+    if (d->m_deviceType != type) {
+        d->m_deviceType = type;
+        KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("type"), strtype);
+        Q_EMIT typeChanged(strtype);
     }
 }
 
