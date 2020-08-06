@@ -52,7 +52,7 @@ Kirigami.Page
 
                 Button {
                     icon.name: muted ? "player-volume-muted" : "player-volume"
-                    onClicked: pluginInterface.sendMuted(name, !muted)
+                    onClicked: muted = !muted
                 }
 
                 Slider {
@@ -60,7 +60,7 @@ Kirigami.Page
                     from: 0
                     value: volume
                     to: maxVolume
-                    onMoved: pluginInterface.sendVolume(name, value)
+                    onMoved: volume = value
                 }
             }
         }

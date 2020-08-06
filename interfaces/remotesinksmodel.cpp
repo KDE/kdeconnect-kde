@@ -164,7 +164,7 @@ QVariant RemoteSinksModel::data(const QModelIndex& index, int role) const
     }
 }
 
-bool RemoteSinksModel::setData(const QModelIndex &index, const QVariant &value, int role) 
+bool RemoteSinksModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (!index.isValid()
         || index.row() < 0
