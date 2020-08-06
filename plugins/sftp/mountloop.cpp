@@ -35,7 +35,7 @@ void MountLoop::failed()
     exit(1);
 }
 
-void MountLoop::successed()
+void MountLoop::succeeded()
 {
     Q_EMIT result(true);
     exit(0);

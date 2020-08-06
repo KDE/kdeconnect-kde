@@ -36,7 +36,7 @@ Q_SIGNALS:
     
 public Q_SLOTS:
     void failed();
-    void successed();
+    void succeeded();
     void exitWith(bool status);
 };
 

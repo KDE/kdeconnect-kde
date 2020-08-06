@@ -69,7 +69,7 @@ bool Mounter::wait()
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting loop to wait for mount";
 
     MountLoop loop;
-    connect(this, &Mounter::mounted, &loop, &MountLoop::successed);
+    connect(this, &Mounter::mounted, &loop, &MountLoop::succeeded);
     connect(this, &Mounter::failed, &loop, &MountLoop::failed);
     return loop.exec();
 }
