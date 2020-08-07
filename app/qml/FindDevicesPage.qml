@@ -26,6 +26,8 @@ import org.kde.kdeconnect 1.0
 
 Kirigami.ScrollablePage
 {
+    id: root
+
     Component {
         id: deviceComp
         DevicePage {}
@@ -33,6 +35,18 @@ Kirigami.ScrollablePage
 
     objectName: "FindDevices"
     title: i18nd("kdeconnect-app", "Pair")
+    supportsRefreshing: true
+
+    onRefreshingChanged: {
+        DaemonDbusInterface.forceOnNetworkChange()
+        refreshResetTimer.start()
+    }
+
+    Timer {
+        id: refreshResetTimer
+        interval: 1000
+        onTriggered: root.refreshing = false
+    }
 
     Kirigami.PlaceholderMessage {
         text: i18nd("kdeconnect-app", "No devices found")
