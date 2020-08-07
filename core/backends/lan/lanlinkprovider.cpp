@@ -37,6 +37,7 @@
 #include <QNetworkConfigurationManager>
 #include <QSslCipher>
 #include <QSslConfiguration>
+#include <QSslKey>
 
 #include "daemon.h"
 #include "landevicelink.h"
@@ -472,19 +473,26 @@ void LanLinkProvider::configureSslSocket(QSslSocket* socket, const QString& devi
     // Configure for ssl
     QSslConfiguration sslConfig;
     sslConfig.setCiphers(socketCiphers);
+    sslConfig.setLocalCertificate(KdeConnectConfig::instance().certificate());
 
-    socket->setSslConfiguration(sslConfig);
-    socket->setLocalCertificate(KdeConnectConfig::instance().certificate());
-    socket->setPrivateKey(KdeConnectConfig::instance().privateKeyPath());
-    socket->setPeerVerifyName(deviceId);
+    QFile privateKeyFile(KdeConnectConfig::instance().privateKeyPath());
+    QSslKey privateKey;
+    if (privateKeyFile.open(QIODevice::ReadOnly)) {
+        privateKey = QSslKey(privateKeyFile.readAll(), QSsl::Rsa);
+    }
+    privateKeyFile.close();
+    sslConfig.setPrivateKey(privateKey);
 
     if (isDeviceTrusted) {
         QString certString = KdeConnectConfig::instance().getDeviceProperty(deviceId, QStringLiteral("certificate"), QString());
-        socket->addCaCertificate(QSslCertificate(certString.toLatin1()));
-        socket->setPeerVerifyMode(QSslSocket::VerifyPeer);
+        sslConfig.setCaCertificates({QSslCertificate(certString.toLatin1())});
+        sslConfig.setPeerVerifyMode(QSslSocket::VerifyPeer);
     } else {
-        socket->setPeerVerifyMode(QSslSocket::QueryPeer);
+        sslConfig.setPeerVerifyMode(QSslSocket::QueryPeer);
     }
+    socket->setSslConfiguration(sslConfig);
+    socket->setPeerVerifyName(deviceId);
+
 
     //Usually SSL errors are only bad for trusted devices. Uncomment this section to log errors in any case, for debugging.
     //QObject::connect(socket, static_cast<void (QSslSocket::*)(const QList<QSslError>&)>(&QSslSocket::sslErrors), [](const QList<QSslError>& errors)
