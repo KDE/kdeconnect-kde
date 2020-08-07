@@ -51,7 +51,7 @@ LanLinkProvider::LanLinkProvider(
         bool testMode,
         quint16 udpBroadcastPort,
         quint16 udpListenPort
-    )
+        )
     : m_server(new Server(this))
     , m_udpSocket(this)
     , m_tcpPort(0)
@@ -100,10 +100,10 @@ void LanLinkProvider::onStart()
         // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
         QString errorMessage = QString::fromLatin1(QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr));
         qCritical(KDECONNECT_CORE)
-            << QLatin1String("Failed to bind UDP socket on port")
-            << m_udpListenPort
-            << QLatin1String("with error")
-            << errorMessage;
+                << QLatin1String("Failed to bind UDP socket on port")
+                << m_udpListenPort
+                << QLatin1String("with error")
+                << errorMessage;
     }
     Q_ASSERT(success);
 
@@ -162,8 +162,8 @@ void LanLinkProvider::broadcastToNetwork()
     sendSocket.setProxy(QNetworkProxy::NoProxy);
     for (const QNetworkInterface& iface : QNetworkInterface::allInterfaces()) {
         if ( (iface.flags() & QNetworkInterface::IsUp)
-          && (iface.flags() & QNetworkInterface::IsRunning)
-          && (iface.flags() & QNetworkInterface::CanBroadcast)) {
+             && (iface.flags() & QNetworkInterface::IsRunning)
+             && (iface.flags() & QNetworkInterface::CanBroadcast)) {
             for (const QNetworkAddressEntry& ifaceAddress : iface.addressEntries()) {
                 QHostAddress sourceAddress = ifaceAddress.ip();
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
@@ -509,23 +509,23 @@ void LanLinkProvider::configureSocket(QSslSocket* socket) {
 
     socket->setSocketOption(QAbstractSocket::KeepAliveOption, QVariant(1));
 
-    #ifdef TCP_KEEPIDLE
-        // time to start sending keepalive packets (seconds)
-        int maxIdle = 10;
-        setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
-    #endif
+#ifdef TCP_KEEPIDLE
+    // time to start sending keepalive packets (seconds)
+    int maxIdle = 10;
+    setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPIDLE, &maxIdle, sizeof(maxIdle));
+#endif
 
-    #ifdef TCP_KEEPINTVL
-        // interval between keepalive packets after the initial period (seconds)
-        int interval = 5;
-        setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
-    #endif
+#ifdef TCP_KEEPINTVL
+    // interval between keepalive packets after the initial period (seconds)
+    int interval = 5;
+    setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPINTVL, &interval, sizeof(interval));
+#endif
 
-    #ifdef TCP_KEEPCNT
-        // number of missed keepalive packets before disconnecting
-        int count = 3;
-        setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
-    #endif
+#ifdef TCP_KEEPCNT
+    // number of missed keepalive packets before disconnecting
+    int count = 3;
+    setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
+#endif
 
 }
 
