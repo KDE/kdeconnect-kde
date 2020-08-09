@@ -124,6 +124,7 @@ Kirigami.ScrollablePage
             sentByMe: model.fromMe
             dateTime: new Date(model.date)
             multiTarget: isMultitarget
+            attachmentList: model.attachments
 
             width: viewport.width
 

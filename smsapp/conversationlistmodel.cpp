@@ -200,7 +200,14 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
 
     // TODO: Upgrade to support other kinds of media
     // Get the body that we should display
-    QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
+    QString displayBody;
+    if (message.containsTextBody()) {
+        displayBody = message.body();
+    } else if (message.containsAttachment()) {
+        const QString mimeType = message.attachments().last().mimeType();
+        const QString type = QStringLiteral("\"") + mimeType.left(mimeType.indexOf(QStringLiteral("/"))) + QStringLiteral(" file\"");
+        displayBody = type;
+    }
 
     // For displaying single line subtitle out of the multiline messages to keep the ListItems consistent
     displayBody = displayBody.mid(0, displayBody.indexOf(QStringLiteral("\n")));

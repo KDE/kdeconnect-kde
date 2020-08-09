@@ -27,6 +27,7 @@
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
+#include "thumbnailsprovider.h"
 
 #define INVALID_THREAD_ID -1
 
@@ -47,6 +48,7 @@ public:
         SenderRole,     // The sender of the message. Undefined if this is an outgoing message
         DateRole,
         AvatarRole,     // URI to the avatar of the sender of the message. Undefined if outgoing.
+        AttachmentsRole, // The list of attachments. Undefined if there is no attachment in a message
     };
 
     Q_ENUM(Roles)
@@ -78,6 +80,7 @@ private:
     void createRowFromMessage(const ConversationMessage &message, int pos);
 
     DeviceConversationsDbusInterface* m_conversationsInterface;
+    ThumbnailsProvider* m_thumbnailsProvider;
     QString m_deviceId;
     qint64 m_threadId = INVALID_THREAD_ID;
     QList<ConversationAddress> m_addressList;

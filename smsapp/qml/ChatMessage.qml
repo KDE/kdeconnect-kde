@@ -35,6 +35,7 @@ Item {
     property date dateTime
     property string name
     property bool multiTarget
+    property var attachmentList
 
     signal messageCopyRequested(string message)
 
@@ -60,6 +61,7 @@ Item {
         height: messageColumn.height
 
         Rectangle {
+            id: messageBox
             Layout.maximumWidth: applicationWindow().wideScreen ? Math.min(messageColumn.contentWidth, root.width * 0.6) : messageColumn.contentWidth
             Layout.fillWidth: true
             Layout.alignment: root.sentByMe ? Qt.AlignRight : Qt.AlignLeft
@@ -103,7 +105,7 @@ Item {
                 width: parent.width
                 height: childrenRect.height
 
-                property int contentWidth: Math.max(messageLabel.implicitWidth, dateLabel.implicitWidth)
+                property int contentWidth: Math.max(Math.max(messageLabel.implicitWidth, attachmentGrid.implicitWidth), dateLabel.implicitWidth)
                 Label {
                     id: authorLabel
                     width: parent.width
@@ -115,8 +117,26 @@ Item {
                     horizontalAlignment: messageLabel.horizontalAlignment
                 }
 
+                Grid {
+                    id: attachmentGrid
+                    columns: 2
+                    padding: attachmentList.length > 0 ? Kirigami.Units.largeSpacing : 0
+                    layoutDirection: root.sentByMe ? Qt.RightToLeft : Qt.LeftToRight
+
+                    Repeater {
+                        model: attachmentList
+
+                        delegate: MessageAttachments {
+                            mimeType: modelData.mimeType
+                            partID: modelData.partID
+                            uniqueIdentifier: modelData.uniqueIdentifier
+                        }
+                    }
+                }
+
                 TextEdit {
                     id: messageLabel
+                    visible: messageBody != ""
                     selectByMouse: true
                     readOnly: true
                     leftPadding: Kirigami.Units.largeSpacing
@@ -140,8 +160,6 @@ Item {
                     horizontalAlignment: messageLabel.horizontalAlignment
                 }
             }
-
-
 
             Menu {
                 id: contextMenu

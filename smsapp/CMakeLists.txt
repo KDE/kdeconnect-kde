@@ -41,6 +41,8 @@ add_executable(kdeconnect-sms
     conversationmodel.cpp
     conversationssortfilterproxymodel.cpp
     resources.qrc
+    thumbnailsprovider.cpp
+    attachmentinfo.cpp
     ${sms_debug_files_SRCS})
 
 target_link_libraries(kdeconnect-sms

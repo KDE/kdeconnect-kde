@@ -69,6 +69,16 @@
  *                 // If this value is not defined or if it does not match a valid subscriber_id known by
  *                 // Android, we will use whatever subscriber ID Android gives us as the default
  *
+ * "attachments": <List<Attachment>>    // List of Attachment objects, one for each attached file in the message.
+ *
+ * An Attachment object looks like:
+ * {
+ *     "part_id": <long>                // part_id of the attachment used to read the file from MMS database
+ *     "mime_type": <int>               // contains the mime type of the file (image, video, audio, etc.)
+ *     "encoded_thumbnail": <String>    // Optional base64-encoded thumbnail preview of the content for types which support it
+ *     "unique_identifier": <String>    // Unique name of te file
+ * }
+ *
  * An Address object looks like:
  * {
  *     "address": <String> // Address (phone number, email address, etc.) of this object

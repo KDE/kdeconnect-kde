@@ -22,6 +22,7 @@
 #include "conversationmodel.h"
 #include "conversationlistmodel.h"
 #include "conversationssortfilterproxymodel.h"
+#include "thumbnailsprovider.h"
 #include "kdeconnect-version.h"
 
 #include <QApplication>
@@ -74,6 +75,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+    engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
     engine.rootContext()->setContextProperties({
         { QStringLiteral("initialMessage"), initialMessage },
         { QStringLiteral("initialDevice"), deviceid },

@@ -26,6 +26,7 @@
 #include "kdeconnectinterfaces_export.h"
 
 class ConversationAddress;
+class Attachment;
 
 class KDECONNECTINTERFACES_EXPORT ConversationMessage
 {
@@ -61,7 +62,8 @@ public:
 
     ConversationMessage(const qint32& eventField, const QString& body, const QList<ConversationAddress>& addresses,
                         const qint64& date, const qint32& type, const qint32& read,
-                        const qint64& threadID, const qint32& uID, const qint64& subID);
+                        const qint64& threadID, const qint32& uID, const qint64& subID,
+                        const QList<Attachment>& attachments);
 
     static ConversationMessage fromDBus(const QDBusVariant&);
     static void registerDbusType();
@@ -75,12 +77,14 @@ public:
     qint64 threadID() const { return m_threadID; }
     qint32 uID() const { return m_uID; }
     qint64 subID() const { return m_subID; }
+    QList<Attachment> attachments() const { return m_attachments; }
 
     bool containsTextBody() const { return (eventField() & ConversationMessage::EventTextMessage); }
     bool isMultitarget() const { return (eventField() & ConversationMessage::EventMultiTarget); }
 
     bool isIncoming() const { return type() == MessageTypeInbox; }
     bool isOutgoing() const { return type() == MessageTypeSent; }
+    bool containsAttachment() const { return !attachments().isEmpty(); }
 
     /**
      * Return the address of the other party of a single-target conversation
@@ -135,6 +139,11 @@ protected:
      * Value which determines SIM id (optional)
      */
     qint64 m_subID;
+
+    /**
+     * Contains attachment related info of a MMS message (optional)
+     */
+    QList<Attachment> m_attachments;
 };
 
 class KDECONNECTINTERFACES_EXPORT ConversationAddress
@@ -148,6 +157,24 @@ private:
     QString m_address;
 };
 
+class KDECONNECTINTERFACES_EXPORT Attachment
+{
+public:
+    Attachment() {}
+    Attachment(qint64 prtID, QString mimeType, QString base64EncodedFile, QString uniqueIdentifier);
+
+    qint64 partID() const { return m_partID; }
+    QString mimeType() const { return m_mimeType; }
+    QString base64EncodedFile() const { return m_base64EncodedFile; }
+    QString uniqueIdentifier() const { return m_uniqueIdentifier; }
+
+private:
+    qint64 m_partID;                  // Part ID of the attachment of the message
+    QString m_mimeType;               // Type of attachment (image, video, audio etc.)
+    QString m_base64EncodedFile;      // Base64 encoded string of a file
+    QString m_uniqueIdentifier;       // unique name of the attachment
+};
+
 inline QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMessage &message)
 {
     argument.beginStructure();
@@ -159,7 +186,8 @@ inline QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMess
              << message.read()
              << message.threadID()
              << message.uID()
-             << message.subID();
+             << message.subID()
+             << message.attachments();
     argument.endStructure();
     return argument;
 }
@@ -175,6 +203,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, Conversati
     qint64 threadID;
     qint32 uID;
     qint64 m_subID;
+    QList<Attachment> attachments;
 
     argument.beginStructure();
     argument >> event;
@@ -186,9 +215,10 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, Conversati
     argument >> threadID;
     argument >> uID;
     argument >> m_subID;
+    argument >> attachments;
     argument.endStructure();
 
-    message = ConversationMessage(event, body, addresses, date, type, read, threadID, uID, m_subID);
+    message = ConversationMessage(event, body, addresses, date, type, read, threadID, uID, m_subID, attachments);
 
     return argument;
 }
@@ -214,7 +244,38 @@ inline const QDBusArgument& operator>>(const QDBusArgument& argument, Conversati
     return argument;
 }
 
+inline QDBusArgument& operator<<(QDBusArgument& argument, const Attachment& attachment)
+{
+    argument.beginStructure();
+    argument << attachment.partID()
+             << attachment.mimeType()
+             << attachment.base64EncodedFile()
+             << attachment.uniqueIdentifier();
+    argument.endStructure();
+    return argument;
+}
+
+inline const QDBusArgument& operator>>(const QDBusArgument& argument, Attachment& attachment)
+{
+    qint64 partID;
+    QString mimeType;
+    QString encodedFile;
+    QString uniqueIdentifier;
+
+    argument.beginStructure();
+    argument >> partID;
+    argument >> mimeType;
+    argument >> encodedFile;
+    argument >> uniqueIdentifier;
+    argument.endStructure();
+
+    attachment = Attachment(partID, mimeType, encodedFile, uniqueIdentifier);
+
+    return argument;
+}
+
 Q_DECLARE_METATYPE(ConversationMessage)
 Q_DECLARE_METATYPE(ConversationAddress)
+Q_DECLARE_METATYPE(Attachment)
 
 #endif /* PLUGINS_TELEPHONY_CONVERSATIONMESSAGE_H_ */

@@ -22,9 +22,12 @@
 #include "conversationmodel.h"
 
 #include <KLocalizedString>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include "interfaces/conversationmessage.h"
 #include "smshelper.h"
+#include "attachmentinfo.h"
 
 #include "sms_conversation_debug.h"
 
@@ -37,6 +40,7 @@ ConversationModel::ConversationModel(QObject* parent)
     roles.insert(DateRole, "date");
     roles.insert(SenderRole, "sender");
     roles.insert(AvatarRole, "avatar");
+    roles.insert(AttachmentsRole, "attachments");
     setItemRoleNames(roles);
 }
 
@@ -59,6 +63,7 @@ void ConversationModel::setThreadId(const qint64& threadId)
     knownMessageIDs.clear();
     if (m_threadId != INVALID_THREAD_ID && !m_deviceId.isEmpty()) {
         requestMoreMessages();
+        m_thumbnailsProvider->clear();
     }
 }
 
@@ -81,6 +86,12 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
     connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
+
+    QQmlApplicationEngine* engine = qobject_cast<QQmlApplicationEngine*>(QQmlEngine::contextForObject(this)->engine());
+    m_thumbnailsProvider = dynamic_cast<ThumbnailsProvider*>(engine->imageProvider(QStringLiteral("thumbnailsProvider")));
+
+    // Clear any previous data on device change
+    m_thumbnailsProvider->clear();
 }
 
 void ConversationModel::setAddressList(const QList<ConversationAddress>& addressList) {
@@ -109,7 +120,7 @@ void ConversationModel::requestMoreMessages(const quint32& howMany)
     if (m_threadId == INVALID_THREAD_ID) {
         return;
     }
-    const auto& numMessages = rowCount();
+    const auto& numMessages = knownMessageIDs.size();
     m_conversationsInterface->requestConversation(m_threadId, numMessages, numMessages + howMany);
 }
 
@@ -132,18 +143,35 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
         return;
     }
 
-    // TODO: Upgrade to support other kinds of media
-    // Get the body that we should display
-    QString displayBody = message.containsTextBody() ? message.body() : i18n("(Unsupported Message Type)");
-
     ConversationAddress sender = message.addresses().first();
     QString senderName = message.isIncoming() ? SmsHelper::getTitleForAddresses({sender}) : QString();
+    QString displayBody = message.body();
 
     auto item = new QStandardItem;
     item->setText(displayBody);
     item->setData(message.isOutgoing(), FromMeRole);
     item->setData(message.date(), DateRole);
     item->setData(senderName, SenderRole);
+
+    QList<QVariant> attachmentInfoList;
+    const QList<Attachment> attachmentList = message.attachments();
+
+    for (const Attachment& attachment : attachmentList) {
+        AttachmentInfo attachmentInfo(attachment);
+        attachmentInfoList.append(QVariant::fromValue(attachmentInfo));
+
+        if (attachment.mimeType().startsWith(QLatin1String("image")) || attachment.mimeType().startsWith(QLatin1String("video"))) {
+            // The message contains thumbnail as Base64 String, convert it back into image thumbnail
+            const QByteArray byteArray = attachment.base64EncodedFile().toUtf8();
+            QPixmap thumbnail;
+            thumbnail.loadFromData(QByteArray::fromBase64(byteArray));
+
+            m_thumbnailsProvider->addImage(attachment.uniqueIdentifier(), thumbnail.toImage());
+        }
+    }
+
+    item->setData(attachmentInfoList, AttachmentsRole);
+
     insertRow(pos, item);
     knownMessageIDs.insert(message.uID());
 }
