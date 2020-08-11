@@ -33,7 +33,7 @@
 #include <KPluginFactory>
 #include <KIO/Job>
 #include <KIO/MkpathJob>
-#include <KMimeTypeTrader>
+#include <KApplicationTrader>
 #include <KFileUtils>
 
 #include "core/filetransferjob.h"
@@ -123,7 +123,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
         if (np.hasPayload()) {
             qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
             const bool open = np.get<bool>(QStringLiteral("open"), false);
-            
+
             if (!m_compositeJob) {
                 m_compositeJob = new CompositeFileTransferJob(device()->id());
                 KIO::getJobTracker()->registerJob(m_compositeJob);
@@ -145,7 +145,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
     } else if (np.has(QStringLiteral("text"))) {
         QString text = np.get<QString>(QStringLiteral("text"));
 
-        KService::Ptr service = KMimeTypeTrader::self()->preferredService(QStringLiteral("text/plain"));
+        KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
         const QString defaultApp = service ? service->desktopEntryName() : QString();
 
         if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
