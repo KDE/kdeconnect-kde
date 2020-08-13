@@ -16,13 +16,23 @@ Item {
     property int partID
     property string mimeType
     property string uniqueIdentifier
-    property string sourcePath
+    property string sourcePath: ""
 
     readonly property int elementWidth: 100
     readonly property int elementHeight: 100
 
     width: thumbnailElement.visible ? thumbnailElement.width : elementWidth
     height: thumbnailElement.visible ? thumbnailElement.height : elementHeight
+
+    Component {
+        id: attachmentViewer
+
+        AttachmentViewer {
+            filePath: root.sourcePath
+            mimeType: root.mimeType
+            title: uniqueIdentifier
+        }
+    }
 
     Image {
         id: thumbnailElement
@@ -48,11 +58,29 @@ Item {
             }
         }
 
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                if (root.sourcePath == "") {
+                    conversationModel.requestAttachmentPath(root.partID, root.uniqueIdentifier)
+                } else {
+                    openMedia();
+                }
+            }
+        }
+
         Button {
             icon.name: "media-playback-start"
             visible: root.mimeType.match("video")
             anchors.horizontalCenter: thumbnailElement.horizontalCenter
             anchors.verticalCenter: thumbnailElement.verticalCenter
+            onClicked: {
+                if (root.sourcePath == "") {
+                    conversationModel.requestAttachmentPath(root.partID, root.uniqueIdentifier)
+                } else {
+                    openMedia();
+                }
+            }
         }
     }
 
@@ -63,6 +91,19 @@ Item {
         radius: messageBox.radius
         color: "lightgrey"
 
+        Audio {
+            id: audioPlayer
+            source: root.sourcePath
+
+            onStopped: {
+                audioPlayButton.icon.name = "media-playback-start"
+            }
+
+            onPlaying: {
+                audioPlayButton.icon.name = "media-playback-stop"
+            }
+        }
+
         ColumnLayout {
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
@@ -72,11 +113,43 @@ Item {
                 id : audioPlayButton
                 icon.name: "media-playback-start"
                 Layout.alignment: Qt.AlignCenter
+
+                onClicked: {
+                    if (root.sourcePath != "") {
+                        if (icon.name == "media-playback-start") {
+                            audioPlayer.play()
+                        } else {
+                            audioPlayer.stop()
+                        }
+                    } else {
+                        conversationModel.requestAttachmentPath(root.partID, root.uniqueIdentifier)
+                    }
+                }
             }
 
             Label {
                 text: i18nd("kdeconnect-sms", "Audio clip")
             }
         }
+    }
+
+    Connections {
+        target: conversationModel
+        onFilePathReceived: {
+            if (root.uniqueIdentifier == fileName && root.sourcePath == "") {
+                root.sourcePath = "file:" + filePath
+
+                if (root.mimeType.match("audio")) {
+                    audioPlayer.source = root.sourcePath
+                    audioPlayer.play()
+                } else if (root.mimeType.match("image") || root.mimeType.match("video")) {
+                    openMedia();
+                }
+            }
+        }
+    }
+
+    function openMedia() {
+        applicationWindow().pageStack.layers.push(attachmentViewer)
     }
 }

@@ -103,6 +103,24 @@
  */
 #define PACKET_TYPE_SMS_REQUEST_CONVERSATION QStringLiteral("kdeconnect.sms.request_conversation")
 
+/**
+ * Packet sent to request an attachment file in a particular message of a conversation
+ *
+ * The body should look like so:
+ * "part_id": <long>                 // Part id of the attachment
+ * "unique_identifier": <String>     // It can be any hash code or unique name of the file
+ */
+#define PACKET_TYPE_SMS_REQUEST_ATTACHMENT QStringLiteral("kdeconnect.sms.request_attachment")
+
+/**
+ * Packet used to send original attachment file from mms database to desktop
+ * <p>
+ * The following fields are available:
+ * "thread_id": <long>      // Thread to which the attachment belongs
+ * "filename": <String>     // Name of the attachment file in the database
+ */
+#define PACKET_TYPE_SMS_ATTACHMENT_FILE QStringLiteral("kdeconnect.sms.attachment_file")
+
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS)
 
 class Q_DECL_EXPORT SmsPlugin
@@ -137,6 +155,17 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE void launchApp();
 
+    /**
+     * Send a request to the remote device for a particulr attachment file
+     */
+    Q_SCRIPTABLE void requestAttachment(const qint64& partID, const QString& uniqueIdentifier);
+
+    /**
+     * Searches the requested file in the application's cache directory,
+     * if not found then sends the request to remote device
+     */
+    Q_SCRIPTABLE void getAttachment(const qint64& partID, const QString& uniqueIdentifier);
+
 private:
 
     /**
@@ -148,6 +177,11 @@ private:
      * Handle a packet which contains many messages, such as PACKET_TYPE_TELEPHONY_MESSAGE
      */
     bool handleBatchMessages(const NetworkPacket& np);
+
+    /**
+     * Handle a packet of type PACKET_TYPE_SMS_ATTACHMENT_FILE which contains an attachment file
+     */
+    bool handleSmsAttachmentFile(const NetworkPacket& np);
 
     QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface* m_conversationInterface;

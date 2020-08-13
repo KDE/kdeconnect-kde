@@ -113,9 +113,11 @@
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.sms.request",
         "kdeconnect.sms.request_conversations",
-        "kdeconnect.sms.request_conversation"
+        "kdeconnect.sms.request_conversation",
+        "kdeconnect.sms.request_attachment"
     ],
     "X-KdeConnect-SupportedPacketType": [
-        "kdeconnect.sms.messages"
+        "kdeconnect.sms.messages",
+        "kdeconnect.sms.attachment_file"
     ]
 }

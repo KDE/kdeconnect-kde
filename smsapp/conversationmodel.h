@@ -54,8 +54,11 @@ public:
 
     Q_INVOKABLE QString getCharCountInfo(const QString& message) const;
 
+    Q_INVOKABLE void requestAttachmentPath(const qint64& partID, const QString& UniqueIdentifier);
+
 Q_SIGNALS:
     void loadingFinished();
+    void filePathReceived(QString filePath, QString fileName);
 
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);

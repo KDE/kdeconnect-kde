@@ -94,6 +94,11 @@ void ConversationsDbusInterface::requestConversation(const qint64& conversationI
     worker->work();
 }
 
+void ConversationsDbusInterface::requestAttachmentFile(const qint64& partID, const QString& uniqueIdentifier)
+{
+    m_smsInterface.getAttachment(partID, uniqueIdentifier);
+}
+
 void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &messages)
 {
     QSet<qint64> updatedConversationIDs;
@@ -203,4 +208,8 @@ void ConversationsDbusInterface::requestAllConversationThreads()
 QString ConversationsDbusInterface::newId()
 {
     return QString::number(++m_lastId);
+}
+
+void ConversationsDbusInterface::attachmentDownloaded(const QString& filePath, const QString& fileName) {
+    Q_EMIT attachmentReceived(filePath, fileName);
 }

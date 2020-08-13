@@ -73,6 +73,8 @@ void ConversationModel::setDeviceId(const QString& deviceId)
     connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
 
+    connect(m_conversationsInterface, SIGNAL(attachmentReceived(QString, QString)), this, SIGNAL(filePathReceived(QString, QString)));
+
     QQmlApplicationEngine* engine = qobject_cast<QQmlApplicationEngine*>(QQmlEngine::contextForObject(this)->engine());
     m_thumbnailsProvider = dynamic_cast<ThumbnailsProvider*>(engine->imageProvider(QStringLiteral("thumbnailsProvider")));
 
@@ -213,4 +215,9 @@ QString ConversationModel::getCharCountInfo(const QString& message) const
         // Do not show anything
         return QString();
     }
+}
+
+void ConversationModel::requestAttachmentPath(const qint64& partID, const QString& uniqueIdentifier)
+{
+    m_conversationsInterface->requestAttachmentFile(partID, uniqueIdentifier);
 }

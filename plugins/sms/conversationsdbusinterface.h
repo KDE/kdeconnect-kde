@@ -49,6 +49,12 @@ public:
      */
     void updateConversation(const qint64& conversationID);
 
+    /**
+     * Gets the path of the succesfully downloaded attachment file and send
+     * update to the conversationModel
+     */
+    void attachmentDownloaded(const QString &filePath, const QString &fileName);
+
 public Q_SLOTS:
     /**
      * Return a list of the first message in every conversation
@@ -83,6 +89,11 @@ public Q_SLOTS:
      */
     void requestAllConversationThreads();
 
+    /**
+     * Send the request to SMS plugin to fetch original attachment file path
+     */
+    void requestAttachmentFile(const qint64& partID, const QString& uniqueIdentifier);
+
 Q_SIGNALS:
     /**
      * Emitted whenever a conversation with no cached messages is added, either because the cache
@@ -106,6 +117,11 @@ Q_SIGNALS:
      * (locally-known) messages in the given conversation
      */
     Q_SCRIPTABLE void conversationLoaded(qint64 conversationID, quint64 messageCount);
+
+    /**
+     * Emitted whenever we have succesfully download a requested attachment file from the phone
+     */
+    Q_SCRIPTABLE void attachmentReceived(QString filePath, QString fileName);
 
 private /*methods*/:
     QString newId(); //Generates successive identifiers to use as public ids
