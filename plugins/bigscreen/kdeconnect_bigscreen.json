@@ -51,6 +51,7 @@
         "Description[sv]": "Insticksprogram för storskärm",
         "Description[uk]": "Додаток для великих екранів",
         "Description[x-test]": "xxBigscreen Pluginxx",
+        "Description[zh_CN]": "大屏幕插件",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
@@ -78,6 +79,7 @@
         "Name[sv]": "Storskärm",
         "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
+        "Name[zh_CN]": "大屏幕",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
