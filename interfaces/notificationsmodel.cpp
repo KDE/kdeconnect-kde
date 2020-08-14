@@ -25,8 +25,6 @@
 
 #include <dbushelper.h>
 
-//#include "modeltest.h"
-
 //In older Qt released, qAsConst isnt available
 #include "core/qtcompat_p.h"
 #include "interfaces_debug.h"
@@ -35,8 +33,6 @@ NotificationsModel::NotificationsModel(QObject* parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(nullptr)
 {
-
-    //new ModelTest(this, this);
 
     connect(this, &QAbstractItemModel::rowsInserted,
             this, &NotificationsModel::rowsChanged);

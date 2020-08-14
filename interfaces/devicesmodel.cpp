@@ -30,7 +30,6 @@
 
 #include "dbusinterfaces.h"
 #include <dbushelper.h>
-// #include "modeltest.h"
 
 #include "interfaces_debug.h"
 
@@ -43,8 +42,6 @@ DevicesModel::DevicesModel(QObject* parent)
     , m_dbusInterface(new DaemonDbusInterface(this))
     , m_displayFilter(StatusFilterFlag::NoFilter)
 {
-
-    //new ModelTest(this, this);
 
     connect(this, &QAbstractItemModel::rowsRemoved,
             this, &DevicesModel::rowsChanged);
