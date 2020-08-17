@@ -6,6 +6,7 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
+#include <QStyle>
 
 #include <KCMultiDialog>
 #include <KAboutData>
@@ -35,6 +36,13 @@ int main(int argc, char** argv)
 
     KCMultiDialog* dialog = new KCMultiDialog;
     dialog->addModule(QStringLiteral("kcm_kdeconnect"), {parser.value(QStringLiteral("args"))});
+
+    auto style = dialog->style();
+    dialog->setContentsMargins(style->pixelMetric(QStyle::PM_LayoutLeftMargin),
+                               style->pixelMetric(QStyle::PM_LayoutTopMargin),
+                               style->pixelMetric(QStyle::PM_LayoutRightMargin),
+                               style->pixelMetric(QStyle::PM_LayoutBottomMargin));
+
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
 
