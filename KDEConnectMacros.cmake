@@ -1,4 +1,4 @@
-# Copyright 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
+# SPDX-FileCopyrightText: 2015 Aleix Pol Gonzalez <aleixpol@kde.org>
 # Redistribution and use is allowed according to the terms of the BSD license.
 
 
