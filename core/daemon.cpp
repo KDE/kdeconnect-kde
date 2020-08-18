@@ -238,10 +238,29 @@ void Daemon::onDeviceStatusChanged()
 
 void Daemon::setAnnouncedName(const QString& name)
 {
-    qCDebug(KDECONNECT_CORE()) << "Announcing name";
+    qCDebug(KDECONNECT_CORE) << "Announcing name";
     KdeConnectConfig::instance().setName(name);
     forceOnNetworkChange();
     Q_EMIT announcedNameChanged(name);
+}
+
+void Daemon::setCustomDevices(const QStringList& addresses)
+{
+    auto& config = KdeConnectConfig::instance();
+
+    auto customDevices = config.customDevices();
+    if (customDevices != addresses) {
+        qCDebug(KDECONNECT_CORE) << "Changed list of custom device addresses:" << addresses;
+        config.setCustomDevices(addresses);
+        Q_EMIT customDevicesChanged(addresses);
+
+        forceOnNetworkChange();
+    }
+}
+
+QStringList Daemon::customDevices() const
+{
+    return KdeConnectConfig::instance().customDevices();
 }
 
 QString Daemon::announcedName()

@@ -24,6 +24,7 @@ DaemonDbusInterface::DaemonDbusInterface(QObject* parent)
     : OrgKdeKdeconnectDaemonInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect"), DBusHelper::sessionBus(), parent)
 {
     connect(this, &OrgKdeKdeconnectDaemonInterface::pairingRequestsChanged, this, &DaemonDbusInterface::pairingRequestsChangedProxy);
+    connect(this, &OrgKdeKdeconnectDaemonInterface::customDevicesChanged, this, &DaemonDbusInterface::customDevicesChangedProxy);
 }
 
 DaemonDbusInterface::~DaemonDbusInterface()

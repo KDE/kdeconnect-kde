@@ -76,6 +76,8 @@ private:
 
     void onNetworkConfigurationChanged(const QNetworkConfiguration& config);
     void addLink(const QString& deviceId, QSslSocket* socket, NetworkPacket* receivedPacket, LanDeviceLink::ConnectionStarted connectionOrigin);
+    QList<QHostAddress> getBroadcastAddresses();
+    void sendBroadcasts(QUdpSocket& socket, const NetworkPacket &np, const QList<QHostAddress>& addresses);
 
     Server* m_server;
     QUdpSocket m_udpSocket;

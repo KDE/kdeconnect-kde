@@ -49,6 +49,10 @@ public:
     void setDeviceProperty(const QString& deviceId, const QString& name, const QString& value);
     QString getDeviceProperty(const QString& deviceId, const QString& name, const QString& defaultValue = QString());
 
+    // Custom devices
+    void setCustomDevices(const QStringList& addresses);
+    QStringList customDevices() const;
+
     /*
      * Paths for config files, there is no guarantee the directories already exist
      */

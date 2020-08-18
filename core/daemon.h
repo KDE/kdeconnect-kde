@@ -27,6 +27,8 @@ class KDECONNECTCORE_EXPORT Daemon
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
     Q_PROPERTY(bool isDiscoveringDevices READ isDiscoveringDevices)
     Q_PROPERTY(QStringList pairingRequests READ pairingRequests NOTIFY pairingRequestsChanged)
+   Q_PROPERTY(QStringList customDevices
+              READ customDevices WRITE setCustomDevices NOTIFY customDevicesChanged)
 
 public:
     explicit Daemon(QObject* parent, bool testMode = false);
@@ -47,6 +49,10 @@ public:
     const QSet<LinkProvider*>& getLinkProviders() const;
 
     QStringList pairingRequests() const;
+
+    // Custom devices
+    QStringList customDevices() const;
+    void setCustomDevices(const QStringList& addresses);
 
     Q_SCRIPTABLE QString selfId() const;
 public Q_SLOTS:
@@ -75,6 +81,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void deviceListChanged(); //Emitted when any of deviceAdded, deviceRemoved or deviceVisibilityChanged is emitted
     Q_SCRIPTABLE void announcedNameChanged(const QString& announcedName);
     Q_SCRIPTABLE void pairingRequestsChanged();
+    Q_SCRIPTABLE void customDevicesChanged(const QStringList& customDevices);
 
 private Q_SLOTS:
     void onNewDeviceLink(const NetworkPacket& identityPacket, DeviceLink* dl);

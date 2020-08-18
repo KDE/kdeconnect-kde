@@ -219,6 +219,16 @@ QString KdeConnectConfig::getDeviceProperty(const QString& deviceId, const QStri
     return value;
 }
 
+void KdeConnectConfig::setCustomDevices(const QStringList& addresses)
+{
+    d->m_config->setValue(QStringLiteral("customDevices"), addresses);
+    d->m_config->sync();
+}
+
+QStringList KdeConnectConfig::customDevices() const
+{
+    return d->m_config->value(QStringLiteral("customDevices")).toStringList();
+}
 
 QDir KdeConnectConfig::deviceConfigDir(const QString& deviceId)
 {

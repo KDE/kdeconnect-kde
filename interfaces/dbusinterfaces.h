@@ -35,6 +35,8 @@ class KDECONNECTINTERFACES_EXPORT DaemonDbusInterface
     : public OrgKdeKdeconnectDaemonInterface
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList customDevices
+               READ customDevices WRITE setCustomDevices NOTIFY customDevicesChangedProxy)
 public:
     explicit DaemonDbusInterface(QObject* parent = nullptr);
     ~DaemonDbusInterface() override;
@@ -44,6 +46,7 @@ public:
 Q_SIGNALS:
     void deviceAdded(const QString& id);
     void pairingRequestsChangedProxy();
+    void customDevicesChangedProxy();
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface

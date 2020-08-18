@@ -117,7 +117,7 @@ void LanLinkProvider::onStop()
 void LanLinkProvider::onNetworkChange()
 {
     if (m_combineBroadcastsTimer.isActive()) {
-        qCDebug(KDECONNECT_CORE()) << "Preventing duplicate broadcasts";
+        qCDebug(KDECONNECT_CORE) << "Preventing duplicate broadcasts";
         return;
     }
     m_combineBroadcastsTimer.start();
@@ -126,7 +126,6 @@ void LanLinkProvider::onNetworkChange()
 //I'm in a new network, let's be polite and introduce myself
 void LanLinkProvider::broadcastToNetwork()
 {
-
     if (!m_server->isListening()) {
         //Not started
         return;
@@ -136,9 +135,9 @@ void LanLinkProvider::broadcastToNetwork()
 
     qCDebug(KDECONNECT_CORE()) << "Broadcasting identity packet";
 
-    QHostAddress destAddress = m_testMode? QHostAddress::LocalHost : QHostAddress(QStringLiteral("255.255.255.255"));
+    QList<QHostAddress> destinations = getBroadcastAddresses();
 
-    NetworkPacket np(QLatin1String(""));
+    NetworkPacket np;
     NetworkPacket::createIdentityPacket(&np);
     np.set(QStringLiteral("tcpPort"), m_tcpPort);
 
@@ -154,16 +153,48 @@ void LanLinkProvider::broadcastToNetwork()
                 QHostAddress sourceAddress = ifaceAddress.ip();
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                     qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
-                    sendSocket.writeDatagram(np.serialize(), destAddress, m_udpBroadcastPort);
+                    sendBroadcasts(sendSocket, np, destinations);
                     sendSocket.close();
                 }
             }
         }
     }
 #else
-    m_udpSocket.writeDatagram(np.serialize(), destAddress, m_udpBroadcastPort);
+    sendBroadcasts(m_udpSocket, np, destinations);
 #endif
+}
 
+QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
+{
+    const QStringList customDevices = KdeConnectConfig::instance().customDevices();
+
+    QList<QHostAddress> destinations;
+    destinations.reserve(customDevices.length() + 1);
+
+    // Default broadcast address
+    destinations.append(m_testMode ? QHostAddress::LocalHost : QHostAddress::Broadcast);
+
+    // Custom device addresses
+    for (auto& customDevice : customDevices) {
+        QHostAddress address(customDevice);
+        if (address.isNull()) {
+            qCWarning(KDECONNECT_CORE) << "Invalid custom device address" << customDevice;
+        } else {
+            destinations.append(address);
+        }
+    }
+
+    return destinations;
+}
+
+void LanLinkProvider::sendBroadcasts(
+        QUdpSocket& socket, const NetworkPacket& np, const QList<QHostAddress>& addresses)
+{
+    const QByteArray payload = np.serialize();
+
+    for (auto& address : addresses) {
+        socket.writeDatagram(payload, address, m_udpBroadcastPort);
+    }
 }
 
 //I'm the existing device, a new device is kindly introducing itself.
