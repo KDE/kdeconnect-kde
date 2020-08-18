@@ -16,6 +16,7 @@
 
 #include <winrt/Windows.Media.Control.h>
 #include <winrt/Windows.Storage.Streams.h>
+#include <winrt/Windows.Foundation.Collections.h>
 
 using namespace winrt;
 using namespace Windows::Media::Control;
@@ -37,7 +38,7 @@ class Q_DECL_EXPORT MprisControlPlugin
   private:
     std::optional<GlobalSystemMediaTransportControlsSessionManager> sessionManager;
     QHash<QString, GlobalSystemMediaTransportControlsSession> playerList;
-    
+
     std::vector<GlobalSystemMediaTransportControlsSession::PlaybackInfoChanged_revoker> playbackInfoChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::MediaPropertiesChanged_revoker> mediaPropertiesChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::TimelinePropertiesChanged_revoker> timelinePropertiesChangedHandlers;
