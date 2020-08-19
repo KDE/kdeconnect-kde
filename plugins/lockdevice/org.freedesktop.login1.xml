@@ -1,0 +1,15 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+ <interface name="org.freedesktop.login1.Session">
+  <property name="LockedHint" type="b" access="read">
+    <annotation name="org.freedesktop.systemd1.Privileged" value="true"/>
+  </property>
+  <property name="Name" type="s" access="read">
+   <annotation name="org.freedesktop.DBus.Property.EmitsChangedSignal" value="const"/>
+  </property>
+  <method name="Lock"/>
+  <method name="Unlock"/>
+ </interface>
+</node>
+

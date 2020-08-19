@@ -11,7 +11,8 @@
 
 #include <core/kdeconnectplugin.h>
 
-class OrgFreedesktopScreenSaverInterface;
+#include "login1dbusinterface.h"
+#include "propertiesdbusinterface.h"
 
 #define PACKET_TYPE_LOCK QStringLiteral("kdeconnect.lock")
 #define PACKET_TYPE_LOCK_REQUEST QStringLiteral("kdeconnect.lock.request")
@@ -35,14 +36,17 @@ public:
     bool receivePacket(const NetworkPacket & np) override;
 
 Q_SIGNALS:
-    void lockedChanged(bool locked);
+    Q_SCRIPTABLE void lockedChanged(bool locked);
 
 private:
+
+    void sendState();
+
     bool m_remoteLocked;
+    bool m_localLocked = false;
 
-    OrgFreedesktopScreenSaverInterface* iface();
-
-    OrgFreedesktopScreenSaverInterface* m_iface;
+    OrgFreedesktopLogin1SessionInterface m_login1Interface;
+    OrgFreedesktopDBusPropertiesInterface m_propertiesInterface;
 };
 
 #endif
