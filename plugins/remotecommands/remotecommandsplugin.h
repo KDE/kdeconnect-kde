@@ -37,7 +37,7 @@ public:
     QString dbusPath() const override;
 
 Q_SIGNALS:
-    void commandsChanged(const QByteArray& commands);
+    Q_SCRIPTABLE void commandsChanged(const QByteArray& commands);
 
 private:
     void setCommands(const QByteArray& commands);
