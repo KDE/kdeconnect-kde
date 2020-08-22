@@ -18,13 +18,15 @@ Q_OBJECT
 public:
     BatteryAction(DeviceDbusInterface* device)
         : QAction(nullptr)
-        , m_batteryIface(new DeviceBatteryDbusInterface(device->id(), this))
+        , m_batteryIface(device->id())
     {
-        setWhenAvailable(m_batteryIface->charge(), [this](int charge) { setCharge(charge); }, this);
-        setWhenAvailable(m_batteryIface->isCharging(), [this](bool charging) { setCharging(charging); }, this);
+        setCharge(m_batteryIface.charge());
+        setCharging(m_batteryIface.isCharging());
 
-        connect(m_batteryIface, SIGNAL(chargeChanged(int)), this, SLOT(setCharge(int)));
-        connect(m_batteryIface, SIGNAL(stateChanged(bool)), this, SLOT(setCharging(bool)));
+        connect(&m_batteryIface, &BatteryDbusInterface::refreshedProxy, this, [this]{
+            setCharge(m_batteryIface.charge());
+            setCharging(m_batteryIface.isCharging());
+        });
 
         setIcon(QIcon::fromTheme(QStringLiteral("battery")));
 
@@ -45,7 +47,7 @@ private Q_SLOTS:
     void setCharging(bool charging) { m_charging = charging; update(); }
 
 private:
-    DeviceBatteryDbusInterface* m_batteryIface;
+    BatteryDbusInterface m_batteryIface;
     int m_charge = -1;
     bool m_charging = false;
 };

@@ -11,7 +11,7 @@
 
 #include "daemoninterface.h"
 #include "deviceinterface.h"
-#include "devicebatteryinterface.h"
+#include "batteryinterface.h"
 #include "devicesftpinterface.h"
 #include "devicefindmyphoneinterface.h"
 #include "devicenotificationsinterface.h"
@@ -77,13 +77,18 @@ private:
     const QString m_id;
 };
 
-class KDECONNECTINTERFACES_EXPORT DeviceBatteryDbusInterface
+class KDECONNECTINTERFACES_EXPORT BatteryDbusInterface
     : public OrgKdeKdeconnectDeviceBatteryInterface
 {
     Q_OBJECT
+    Q_PROPERTY(int charge READ charge NOTIFY refreshedProxy)
+    Q_PROPERTY(bool isCharging READ isCharging NOTIFY refreshedProxy)
 public:
-    explicit DeviceBatteryDbusInterface(const QString& deviceId, QObject* parent = nullptr);
-    ~DeviceBatteryDbusInterface() override;
+    explicit BatteryDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~BatteryDbusInterface() override;
+
+Q_SIGNALS:
+    void refreshedProxy();
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceNotificationsDbusInterface

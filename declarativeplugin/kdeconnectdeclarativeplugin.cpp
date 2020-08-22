@@ -65,7 +65,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
 #endif
 
     registerFactory<DeviceDbusInterface>(uri, "DeviceDbusInterfaceFactory");
-    registerFactory<DeviceBatteryDbusInterface>(uri, "DeviceBatteryDbusInterfaceFactory");
+    registerFactory<BatteryDbusInterface>(uri, "DeviceBatteryDbusInterfaceFactory");
     registerFactory<FindMyPhoneDeviceDbusInterface>(uri, "FindMyPhoneDbusInterfaceFactory");
     registerFactory<SftpDbusInterface>(uri, "SftpDbusInterfaceFactory");
     registerFactory<RemoteKeyboardDbusInterface>(uri, "RemoteKeyboardDbusInterfaceFactory");

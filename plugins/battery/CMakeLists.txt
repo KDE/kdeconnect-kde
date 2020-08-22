@@ -7,7 +7,6 @@ ecm_qt_declare_logging_category(
 
 set(kdeconnect_battery_SRCS
     batteryplugin.cpp
-    batterydbusinterface.cpp
     ${debug_file_SRCS}
 )
 

@@ -58,16 +58,13 @@ void DeviceDbusInterface::pluginCall(const QString& plugin, const QString& metho
     DBusHelper::sessionBus().asyncCall(msg);
 }
 
-DeviceBatteryDbusInterface::DeviceBatteryDbusInterface(const QString& id, QObject* parent)
-    : OrgKdeKdeconnectDeviceBatteryInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/") +id, DBusHelper::sessionBus(), parent)
+BatteryDbusInterface::BatteryDbusInterface(const QString& id, QObject* parent)
+    : OrgKdeKdeconnectDeviceBatteryInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/battery"), DBusHelper::sessionBus(), parent)
 {
-
+    connect(this, &OrgKdeKdeconnectDeviceBatteryInterface::refreshed, this, &BatteryDbusInterface::refreshedProxy);
 }
 
-DeviceBatteryDbusInterface::~DeviceBatteryDbusInterface()
-{
-
-}
+BatteryDbusInterface::~BatteryDbusInterface() = default;
 
 DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString& id, QObject* parent)
     : OrgKdeKdeconnectDeviceNotificationsInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/") +id, DBusHelper::sessionBus(), parent)

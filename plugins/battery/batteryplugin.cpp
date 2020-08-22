@@ -15,16 +15,23 @@
 
 #include <core/daemon.h>
 
-#include "batterydbusinterface.h"
 #include "plugin_battery_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(BatteryPlugin, "kdeconnect_battery.json")
 
 BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
-    , batteryDbusInterface(new BatteryDbusInterface(device()))
 {
+}
 
+int BatteryPlugin::charge() const
+{
+    return m_charge;
+}
+
+bool BatteryPlugin::isCharging() const
+{
+    return m_isCharging;
 }
 
 void BatteryPlugin::connected()
@@ -50,16 +57,15 @@ void BatteryPlugin::connected()
     // and desktops, this is a safe assumption).
     const Solid::Battery* chosen = batteries.first().as<Solid::Battery>();
 
-    connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::chargeChanged);
-    connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::chargeChanged);
+    connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::slotChargeChanged);
+    connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::slotChargeChanged);
 
     // Explicitly send the current charge
-    chargeChanged();
+    slotChargeChanged();
 }
 
-void BatteryPlugin::chargeChanged()
+void BatteryPlugin::slotChargeChanged()
 {
-
     // Note: the NetworkPacket sent at the end of this method can reflect MULTIPLE batteries.
     // We average the total charge against the total number of batteries, which in practice
     // seems to work out ok.
@@ -111,35 +117,24 @@ void BatteryPlugin::chargeChanged()
     sendPacket(status);
 }
 
-BatteryPlugin::~BatteryPlugin()
-{
-    //FIXME: Qt dbus does not allow to remove an adaptor! (it causes a crash in
-    // the next dbus access to its parent). The implication of not deleting this
-    // is that disabling the plugin does not remove the interface (that will
-    // return outdated values) and that enabling it again instantiates a second
-    // adaptor. This is also a memory leak until the entire device is destroyed.
-
-    //batteryDbusInterface->deleteLater();
-}
-
 bool BatteryPlugin::receivePacket(const NetworkPacket& np)
 {
-    bool isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
-    int currentCharge = np.get<int>(QStringLiteral("currentCharge"), -1);
-    int thresholdEvent = np.get<int>(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
+    m_isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
+    m_charge = np.get<int>(QStringLiteral("currentCharge"), -1);
+    const int thresholdEvent = np.get<int>(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
 
-    if (batteryDbusInterface->charge() != currentCharge
-        || batteryDbusInterface->isCharging() != isCharging
-    ) {
-        batteryDbusInterface->updateValues(isCharging, currentCharge);
-    }
+    Q_EMIT refreshed();
 
-    if ( thresholdEvent == ThresholdBatteryLow && !isCharging ) {
-        Daemon::instance()->sendSimpleNotification(QStringLiteral("batteryLow"), i18nc("device name: low battery", "%1: Low Battery", device()->name()), i18n("Battery at %1%", currentCharge), QStringLiteral("battery-040"));
+    if (thresholdEvent == ThresholdBatteryLow && !m_isCharging) {
+        Daemon::instance()->sendSimpleNotification(QStringLiteral("batteryLow"), i18nc("device name: low battery", "%1: Low Battery", device()->name()), i18n("Battery at %1%", m_charge), QStringLiteral("battery-040"));
     }
 
     return true;
+}
 
+QString BatteryPlugin::dbusPath() const
+{
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/battery");
 }
 
 #include "batteryplugin.moc"
