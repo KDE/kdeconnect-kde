@@ -10,6 +10,7 @@
 #include <QNetworkAccessManager>
 #include <QDebug>
 #include <QPointer>
+#include <QProcess>
 
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
@@ -330,4 +331,24 @@ Daemon::~Daemon()
 QString Daemon::selfId() const
 {
     return KdeConnectConfig::instance().deviceId();
+}
+
+void Daemon::openConfiguration(const QString &deviceId, const QString &pluginId)
+{
+    QStringList args;
+
+    QString argument;
+
+    if (!deviceId.isEmpty()) {
+        args << QStringLiteral("--args");
+        argument = deviceId;
+
+        if (!pluginId.isEmpty()) {
+            argument += QLatin1Char(':') + pluginId;
+        }
+
+        args << argument;
+    }
+
+    QProcess::startDetached(QStringLiteral("kdeconnect-settings"), args);
 }

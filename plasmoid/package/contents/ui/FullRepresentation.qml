@@ -12,7 +12,6 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kdeconnect 1.0 as KdeConnect
 import QtQuick.Layouts 1.9
 import org.kde.kquickcontrolsaddons 2.0
-
 import org.kde.kirigami 2.12 as Kirigami
 
 Item {
@@ -65,7 +64,7 @@ Item {
                 helpfulAction: Action {
                     text: pairedDevicesModel.count == 0 ? i18n("Pair a Device...") : i18n("Configure...")
                     icon.name: pairedDevicesModel.count == 0 ? "list-add" : "configure"
-                    onTriggered: KCMShell.open("kcm_kdeconnect")
+                    onTriggered: KdeConnect.DaemonDbusInterface.openConfiguration()
                     enabled: KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
                 }
 

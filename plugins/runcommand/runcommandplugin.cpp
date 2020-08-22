@@ -23,6 +23,7 @@
 
 #include <core/networkpacket.h>
 #include <core/device.h>
+#include <core/daemon.h>
 
 #include "plugin_runcommand_debug.h"
 
@@ -70,7 +71,7 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
         QProcess::startDetached(QStringLiteral(COMMAND), QStringList()<< QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
         return true;
     } else if (np.has(QStringLiteral("setup"))) {
-        QProcess::startDetached(QStringLiteral("kdeconnect-settings"), { QStringLiteral("--args"), QString(device()->id() + QStringLiteral(":kdeconnect_runcommand")) });
+        Daemon::instance()->openConfiguration(device()->id(), QStringLiteral("kdeconnect_runcommand"));
     }
 
     return false;

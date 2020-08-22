@@ -74,6 +74,8 @@ public Q_SLOTS:
 
     Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) = 0;
 
+    Q_SCRIPTABLE void openConfiguration(const QString &deviceId = QString(), const QString &pluginId = QString());
+
 Q_SIGNALS:
     Q_SCRIPTABLE void deviceAdded(const QString& id);
     Q_SCRIPTABLE void deviceRemoved(const QString& id); //Note that paired devices will never be removed

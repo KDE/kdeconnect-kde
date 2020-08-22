@@ -53,8 +53,8 @@ public:
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
         connect(notification, &KNotification::action2Activated, device, &Device::rejectPairing);
-        connect(notification, QOverload<>::of(&KNotification::activated), this, []{
-            QProcess::startDetached(QStringLiteral("kdeconnect-settings"), {});
+        connect(notification, QOverload<>::of(&KNotification::activated), this, [this, device] {
+            openConfiguration(device->id());
         });
         notification->sendEvent();
     }
