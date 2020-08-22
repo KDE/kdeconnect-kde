@@ -25,16 +25,15 @@ BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
     , batteryDbusInterface(new BatteryDbusInterface(device()))
 {
 
-    //TODO: Our protocol should support a dynamic number of batteries.
-    //Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
-
 }
 
 void BatteryPlugin::connected()
 {
+    // We've just connected. Request battery information from the remote device...
     NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{QStringLiteral("request"),true}});
     sendPacket(np);
 
+    // ...and then figure out whether we have any batteries
     const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
     const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
 
@@ -47,6 +46,8 @@ void BatteryPlugin::connected()
         return;
     }
 
+    // Ok, there's at least one. Let's assume it will remain attached (for most laptops
+    // and desktops, this is a safe assumption).
     const Solid::Battery* chosen = batteries.first().as<Solid::Battery>();
 
     connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::chargeChanged);
@@ -59,6 +60,9 @@ void BatteryPlugin::connected()
 void BatteryPlugin::chargeChanged()
 {
 
+    // Note: the NetworkPacket sent at the end of this method can reflect MULTIPLE batteries.
+    // We average the total charge against the total number of batteries, which in practice
+    // seems to work out ok.
     bool isAnyBatteryCharging = false;
     int batteryQuantity = 0;
     int cumulativeCharge = 0;
@@ -71,8 +75,8 @@ void BatteryPlugin::chargeChanged()
     for (auto device : batteries) {
         const Solid::Battery* battery = device.as<Solid::Battery>();
 
-        // Don't look at batteries that have been detached
-        if (battery->isPresent()) {
+        // Don't look at batteries that can be easily detached
+        if (battery->isPowerSupply()) {
             batteryQuantity++;
             cumulativeCharge += battery->chargePercent();
             if (battery->chargeState() == Solid::Battery::ChargeState::Charging) {
@@ -95,10 +99,11 @@ void BatteryPlugin::chargeChanged()
     status.set(QStringLiteral("currentCharge"), cumulativeCharge / batteryQuantity);
     // FIXME: In future, we should consider sending an array of battery objects
     status.set(QStringLiteral("batteryQuantity"), batteryQuantity);
-    // We consider primary battery to be low if it will only last for 5 minutes or
-    // less. This doesn't necessarily work if (for example) Solid finds multiple
-    // batteries.
-    if (chosen->remainingTime() < 600 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
+    // We consider the primary battery to be low if it won't last another 10 minutes.
+    // This doesn't necessarily work if (for example) Solid finds multiple batteries.
+    // FIXME: In future, we should check system settings instead of hardcoding an
+    // amount of time.
+    if (chosen->timeToEmpty() < 600 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
         status.set(QStringLiteral("thresholdEvent"), (int)ThresholdBatteryLow);
     } else {
         status.set(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
