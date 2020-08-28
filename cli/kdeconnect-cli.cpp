@@ -31,6 +31,7 @@
 #include "interfaces/notificationsmodel.h"
 #include "interfaces/dbusinterfaces.h"
 #include "interfaces/dbushelpers.h"
+#include "interfaces/conversationmessage.h"
 #include "kdeconnect-version.h"
 
 #include <dbushelper.h>
@@ -261,8 +262,19 @@ int main(int argc, char** argv)
             blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("send-sms"))) {
             if (parser.isSet(QStringLiteral("destination"))) {
+                qDBusRegisterMetaType<ConversationAddress>();
+                QVariantList addresses;
+
+                const QStringList addressList = parser.value(QStringLiteral("destination")).split(QRegularExpression(QStringLiteral("\\s+")));
+
+                for (const QString& input : addressList) {
+                    ConversationAddress address(input);
+                    addresses << QVariant::fromValue(address);
+                }
+
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/sms"), QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
-                msg.setArguments({ parser.value(QStringLiteral("destination")), parser.value(QStringLiteral("send-sms"))});
+                const QString text = parser.value(QStringLiteral("send-sms"));
+                msg.setArguments(QVariantList() << QVariant::fromValue(QDBusVariant(addresses)) << text);
                 blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
