@@ -86,13 +86,18 @@ void ConversationModel::setAddressList(const QList<ConversationAddress>& address
     m_addressList = addressList;
 }
 
-void ConversationModel::sendReplyToConversation(const QString& message)
+bool ConversationModel::sendReplyToConversation(const QString& textMessage, QList<QUrl> attachmentUrls)
 {
-    //qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Trying to send" << message << "to conversation with ID" << m_threadId;
-    m_conversationsInterface->replyToConversation(m_threadId, message);
+    QVariantList fileUrls;
+    for (const auto& url : attachmentUrls) {
+        fileUrls << QVariant::fromValue(url.toLocalFile());
+    }
+
+    m_conversationsInterface->replyToConversation(m_threadId, textMessage, fileUrls);
+    return true;
 }
 
-void ConversationModel::startNewConversation(const QString& message, const QList<ConversationAddress>& addressList)
+bool ConversationModel::startNewConversation(const QString& textMessage, const QList<ConversationAddress>& addressList, QList<QUrl> attachmentUrls)
 {
     QVariantList addresses;
 
@@ -100,7 +105,13 @@ void ConversationModel::startNewConversation(const QString& message, const QList
         addresses << QVariant::fromValue(address);
     }
 
-    m_conversationsInterface->sendWithoutConversation(addresses, message);
+    QVariantList fileUrls;
+    for (const auto& url : attachmentUrls) {
+        fileUrls << QVariant::fromValue(url.toLocalFile());
+    }
+
+    m_conversationsInterface->sendWithoutConversation(addresses, textMessage, fileUrls);
+    return true;
 }
 
 void ConversationModel::requestMoreMessages(const quint32& howMany)

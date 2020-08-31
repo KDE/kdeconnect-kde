@@ -77,12 +77,12 @@ public Q_SLOTS:
     /**
      * Send a new message to this conversation
      */
-    void replyToConversation(const qint64& conversationID, const QString& message);
+    void replyToConversation(const qint64& conversationID, const QString& message, const QVariantList& attachmentUrls);
 
     /**
      * Send a new message to the contact having no previous coversation with
      */
-    void sendWithoutConversation(const QVariantList& addressList, const QString& message);
+    void sendWithoutConversation(const QVariantList& addressList, const QString& message, const QVariantList& attachmentUrls);
 
     /**
      * Send the request to the Telephony plugin to update the list of conversation threads

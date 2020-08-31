@@ -13,6 +13,10 @@
 #include <QDebug>
 #include <QDBusConnection>
 #include <QProcess>
+#include <QFile>
+#include <QFileInfo>
+#include <QMimeDatabase>
+#include <QTextCodec>
 
 #include <core/device.h>
 #include <core/daemon.h>
@@ -27,6 +31,7 @@ SmsPlugin::SmsPlugin(QObject* parent, const QVariantList& args)
     , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
     , m_conversationInterface(new ConversationsDbusInterface(this))
 {
+    m_codec = QTextCodec::codecForName(CODEC_NAME);
 }
 
 SmsPlugin::~SmsPlugin()
@@ -47,7 +52,7 @@ bool SmsPlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SmsPlugin::sendSms(const QVariantList& addresses, const QString& messageBody, const qint64 subID)
+void SmsPlugin::sendSms(const QVariantList& addresses, const QString& textMessage, const QVariantList& attachmentUrls, const qint64 subID)
 {
     QVariantList addressMapList;
     for (const QVariant& address : addresses) {
@@ -56,13 +61,35 @@ void SmsPlugin::sendSms(const QVariantList& addresses, const QString& messageBod
     }
 
     QVariantMap packetMap({
-        {QStringLiteral("sendSms"), true},
-        {QStringLiteral("addresses"), addressMapList},
-        {QStringLiteral("messageBody"), messageBody}
+        {QStringLiteral("version"), 2},
+        {QStringLiteral("addresses"), addressMapList}
     });
+
+    // If there is any text message add it to the network packet
+    if (textMessage != QStringLiteral("")) {
+        packetMap[QStringLiteral("textMessage")] = textMessage;
+    }
+
     if (subID != -1) {
         packetMap[QStringLiteral("subID")] = subID;
     }
+
+    QVariantList attachmentMapList;
+    for (const QVariant& attachmentUrl : attachmentUrls) {
+        const Attachment attachment = createAttachmentFromUrl(attachmentUrl.toString());
+        QVariantMap attachmentMap({
+            {QStringLiteral("fileName"), attachment.uniqueIdentifier()},
+            {QStringLiteral("base64EncodedFile"), attachment.base64EncodedFile()},
+            {QStringLiteral("mimeType"), attachment.mimeType()}
+        });
+        attachmentMapList.append(attachmentMap);
+    }
+
+    // If there is any attachment add it to the network packet
+    if (!attachmentMapList.isEmpty()) {
+        packetMap[QStringLiteral("attachments")] = attachmentMapList;
+    }
+
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST, packetMap);
     qCDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
     sendPacket(np);
@@ -183,6 +210,30 @@ void SmsPlugin::getAttachment(const qint64& partID, const QString& uniqueIdentif
         const QString fileDestination = fileDirectory.absoluteFilePath(uniqueIdentifier);
         m_conversationInterface->attachmentDownloaded(fileDestination, uniqueIdentifier);
     }
+}
+
+Attachment SmsPlugin::createAttachmentFromUrl(const QString& url)
+{
+    QFile file(url);
+    file.open(QIODevice::ReadOnly);
+
+    if (!file.exists()) {
+        return Attachment();
+    }
+
+    QFileInfo fileInfo(file);
+    QString fileName(fileInfo.fileName());
+
+    QByteArray byteArray = file.readAll().toBase64();
+    file.close();
+
+    QString base64EncodedFile = m_codec->toUnicode(byteArray);
+
+    QMimeDatabase mimeDatabase;
+    QString mimeType = mimeDatabase.mimeTypeForFile(url).name();
+
+    Attachment attachment(-1, mimeType, base64EncodedFile, fileName);
+    return attachment;
 }
 
 

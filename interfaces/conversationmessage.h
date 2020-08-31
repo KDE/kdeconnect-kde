@@ -69,7 +69,7 @@ public:
     bool isMultitarget() const { return (eventField() & ConversationMessage::EventMultiTarget); }
 
     bool isIncoming() const { return type() == MessageTypeInbox; }
-    bool isOutgoing() const { return type() == MessageTypeSent; }
+    bool isOutgoing() const;
     bool containsAttachment() const { return !attachments().isEmpty(); }
 
     /**

@@ -115,6 +115,11 @@ public:
      */
     Q_INVOKABLE static bool isAddressValid(const QString& address);
 
+    /**
+     * Return the total size of the message
+     */
+    Q_INVOKABLE static quint64 totalMessageSize(const QList<QUrl>& urls, const QString& text);
+
 private:
     static bool isInGsmAlphabet(const QChar& ch);
     static bool isInGsmAlphabetExtension(const QChar& ch);

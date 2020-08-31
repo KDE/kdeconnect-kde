@@ -177,7 +177,7 @@ void ConversationsDbusInterface::updateConversation(const qint64& conversationID
     waitingForMessagesLock.unlock();
 }
 
-void ConversationsDbusInterface::replyToConversation(const qint64& conversationID, const QString& message)
+void ConversationsDbusInterface::replyToConversation(const qint64& conversationID, const QString& message, const QVariantList& attachmentUrls)
 {
     const auto messagesList = m_conversations[conversationID];
     if (messagesList.isEmpty()) {
@@ -192,11 +192,11 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
         addresses << QVariant::fromValue(address);
     }
 
-    m_smsInterface.sendSms(addresses, message, messagesList.first().subID());
+    m_smsInterface.sendSms(addresses, message, attachmentUrls, messagesList.first().subID());
 }
 
-void ConversationsDbusInterface::sendWithoutConversation(const QVariantList& addresses, const QString& message) {
-    m_smsInterface.sendSms(addresses, message);
+void ConversationsDbusInterface::sendWithoutConversation(const QVariantList& addresses, const QString& message, const QVariantList& attachmentUrls) {
+    m_smsInterface.sendSms(addresses, message, attachmentUrls);
 }
 
 void ConversationsDbusInterface::requestAllConversationThreads()

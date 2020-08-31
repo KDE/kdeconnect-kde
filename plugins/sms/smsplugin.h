@@ -75,15 +75,21 @@
 /**
  * Packet sent to request a message be sent
  *
- * This will almost certainly need to be replaced or augmented to support MMS,
- * but be sure the Android side remains compatible with old desktop apps!
- *
  * The body should look like so:
- * { "sendSms": true,
+ * { "version": 2,
  *   "addresses": <List of Addresses>
- *   "messageBody": "Hi mom!",
+ *   "textMessage": "Hi mom!",
+ *   "attachments": <List of Attached files>
  *   "sub_id": "3859358340534"
  * }
+ *
+ * An AttachmentContainer object looks like:
+ * {
+ *   "fileName": <String>             // Name of the file
+ *   "base64EncodedFile": <String>    // Base64 encoded file
+ *   "mimeType": <String>             // File type (eg: image/jpg, video/mp4 etc.)
+ * }
+ *
  */
 #define PACKET_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
 
@@ -123,6 +129,10 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS)
 
+#define CODEC_NAME "CP1251"
+
+class QTextCodec;
+
 class Q_DECL_EXPORT SmsPlugin
     : public KdeConnectPlugin
 {
@@ -139,7 +149,7 @@ public:
     QString dbusPath() const override;
 
 public Q_SLOTS:
-    Q_SCRIPTABLE void sendSms(const QVariantList& addresses, const QString& messageBody, const qint64 subID = -1);
+    Q_SCRIPTABLE void sendSms(const QVariantList& addresses, const QString& textMessage, const QVariantList& attachmentUrls, const qint64 subID = -1);
 
     /**
      * Send a request to the remote for all of its conversations
@@ -183,8 +193,14 @@ private:
      */
     bool handleSmsAttachmentFile(const NetworkPacket& np);
 
+    /**
+     * Encode a local file so it can be sent to the remote device as part of an MMS message.
+     */
+    Attachment createAttachmentFromUrl(const QString& url);
+
     QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface* m_conversationInterface;
+    QTextCodec *m_codec;
 };
 
 #endif

@@ -6,5 +6,6 @@
         <file>qml/ChatMessage.qml</file>
         <file>qml/MessageAttachments.qml</file>
         <file>qml/AttachmentViewer.qml</file>
+        <file>qml/SendingArea.qml</file>
     </qresource>
 </RCC>

@@ -48,8 +48,8 @@ public:
     QList<ConversationAddress> addressList() const { return m_addressList; }
     void setAddressList(const QList<ConversationAddress>& addressList);
 
-    Q_INVOKABLE void sendReplyToConversation(const QString& message);
-    Q_INVOKABLE void startNewConversation(const QString& message, const QList<ConversationAddress>& addressList);
+    Q_INVOKABLE bool sendReplyToConversation(const QString& textMessage, QList<QUrl> attachmentUrls);
+    Q_INVOKABLE bool startNewConversation(const QString& textMessage, const QList<ConversationAddress>& addressList, QList<QUrl> attachmentUrls);
     Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
 
     Q_INVOKABLE QString getCharCountInfo(const QString& message) const;

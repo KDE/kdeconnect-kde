@@ -15,6 +15,7 @@
 #include <QStandardPaths>
 #include <QHash>
 #include <QtDebug>
+#include <QFileInfo>
 
 #include <KPeople/PersonData>
 #include <KPeople/PersonsModel>
@@ -441,4 +442,14 @@ bool SmsHelper::isInGsmAlphabetExtension(const QChar& ch)
             return true;
     }
     return false;
+}
+
+quint64 SmsHelper::totalMessageSize(const QList<QUrl>& urls, const QString& text) {
+    quint64 totalSize = text.size();
+    for (QUrl url : urls) {
+        QFileInfo fileInfo(url.toLocalFile());
+        totalSize += fileInfo.size();
+    }
+
+    return totalSize;
 }

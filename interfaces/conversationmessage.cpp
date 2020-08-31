@@ -72,6 +72,15 @@ ConversationAddress::ConversationAddress(QString address)
     : m_address(address)
 {}
 
+bool ConversationMessage::isOutgoing() const
+{
+    return type() == MessageTypeSent
+               || type() == MessageTypeOutbox
+               || type() == MessageTypeDraft
+               || type() == MessageTypeFailed
+               || type() == MessageTypeQueued;
+}
+
 Attachment::Attachment(qint64 partID, QString mimeType, QString base64EncodedFile, QString uniqueIdentifier)
     : m_partID(partID)
     , m_mimeType(mimeType)
