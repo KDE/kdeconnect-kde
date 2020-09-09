@@ -41,25 +41,25 @@ PauseMusicPlugin::~PauseMusicPlugin()
 bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 {
 
-    bool pauseOnlyWhenTalking = config()->get(QStringLiteral("conditionTalking"), false);
+    bool pauseOnlyWhenTalking = config()->getBool(QStringLiteral("conditionTalking"), false);
 
     if (pauseOnlyWhenTalking) {
-        if (np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
+        if (np.getString(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
     } else {
-        if (np.get<QString>(QStringLiteral("event")) != QLatin1String("ringing")
-            && np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
+        if (np.getString(QStringLiteral("event")) != QLatin1String("ringing")
+            && np.getString(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
     }
 
-    bool pauseConditionFulfilled = !np.get<bool>(QStringLiteral("isCancel"));
+    bool pauseConditionFulfilled = !np.getBool(QStringLiteral("isCancel"));
 
-    bool pause = config()->get(QStringLiteral("actionPause"), false);
-    bool mute = config()->get(QStringLiteral("actionMute"), true);
+    bool pause = config()->getBool(QStringLiteral("actionPause"), false);
+    bool mute = config()->getBool(QStringLiteral("actionMute"), true);
 
-    const bool autoResume = config()->get(QStringLiteral("actionResume"), true);
+    const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
 
     if (pauseConditionFulfilled) {
 
