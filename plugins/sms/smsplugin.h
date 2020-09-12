@@ -76,11 +76,12 @@
  * Packet sent to request a message be sent
  *
  * The body should look like so:
- * { "version": 2,
- *   "addresses": <List of Addresses>
- *   "textMessage": "Hi mom!",
- *   "attachments": <List of Attached files>
- *   "sub_id": "3859358340534"
+ * {
+ *   "version": 2,                     // The version of the packet being sent. Compare to SMS_REQUEST_PACKET_VERSION before attempting to handle.
+ *   "addresses": <List<Addresses>>,   // The one or many targets of this message
+ *   "messageBody": "Hi mom!",         // Plain-text string to be sent as the body of the message
+ *   "attachments": <List<Attachment>>,// Send one or more attachments with this message. See AttachmentContainer documentation for formatting. (Optional)
+ *   "sub_id": 3859358340534           // Some magic number which tells Android which SIM card to use (Optional, if omitted, sends with the default SIM card)
  * }
  *
  * An AttachmentContainer object looks like:
@@ -92,6 +93,7 @@
  *
  */
 #define PACKET_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
+
 
 /**
  * Packet sent to request the most-recent message in each conversations on the device
