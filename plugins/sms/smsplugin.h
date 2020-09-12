@@ -93,7 +93,7 @@
  *
  */
 #define PACKET_TYPE_SMS_REQUEST QStringLiteral("kdeconnect.sms.request")
-
+#define SMS_REQUEST_PACKET_VERSION 2 // We *send* packets of this version
 
 /**
  * Packet sent to request the most-recent message in each conversations on the device

@@ -61,7 +61,7 @@ void SmsPlugin::sendSms(const QVariantList& addresses, const QString& textMessag
     }
 
     QVariantMap packetMap({
-        {QStringLiteral("version"), 2},
+        {QStringLiteral("version"), SMS_REQUEST_PACKET_VERSION},
         {QStringLiteral("addresses"), addressMapList}
     });
 
