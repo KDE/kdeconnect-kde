@@ -24,6 +24,7 @@
 #include <QSslCipher>
 #include <QSslConfiguration>
 #include <QSslKey>
+#include <QStringList>
 
 #include "daemon.h"
 #include "landevicelink.h"
@@ -143,6 +144,11 @@ void LanLinkProvider::broadcastToNetwork()
     NetworkPacket np;
     NetworkPacket::createIdentityPacket(&np);
     np.set(QStringLiteral("tcpPort"), m_tcpPort);
+#ifdef Q_OS_MAC
+    //On macOS, remove capacitilities to avoid incomplete transmission of too large UDP packet
+    np.set(QStringLiteral("incomingCapabilities"), QStringList());
+    np.set(QStringLiteral("outgoingCapabilities"), QStringList());
+#endif
 
 #ifdef Q_OS_WIN
     //On Windows we need to broadcast from every local IP address to reach all networks
