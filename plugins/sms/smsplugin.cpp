@@ -67,7 +67,7 @@ void SmsPlugin::sendSms(const QVariantList& addresses, const QString& textMessag
 
     // If there is any text message add it to the network packet
     if (textMessage != QStringLiteral("")) {
-        packetMap[QStringLiteral("textMessage")] = textMessage;
+        packetMap[QStringLiteral("messageBody")] = textMessage;
     }
 
     if (subID != -1) {
