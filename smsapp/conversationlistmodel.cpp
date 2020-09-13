@@ -184,14 +184,24 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         item->setData(rawAddresses[0].address(), SenderRole);
     }
 
-    // TODO: Upgrade to support other kinds of media
     // Get the body that we should display
     QString displayBody;
     if (message.containsTextBody()) {
         displayBody = message.body();
     } else if (message.containsAttachment()) {
         const QString mimeType = message.attachments().last().mimeType();
-        const QString type = QStringLiteral("\"") + mimeType.left(mimeType.indexOf(QStringLiteral("/"))) + QStringLiteral(" file\"");
+        QString type;
+        if (mimeType.startsWith(QStringLiteral("image"))) {
+            type = i18nc("Used as a text placeholder when the most-recent message is an image", "Picture");
+        }
+        else if (mimeType.startsWith(QStringLiteral("video"))) {
+            type = i18nc("Used as a text placeholder when the most-recent message is a video", "Video");
+        } else {
+            // Craft a somewhat-descriptive string, like "pdf file"
+            type = i18nc("Used as a text placeholder when the most-recent message is an arbitrary attachment, resulting in something like \"pdf file\"",
+                         "% file",
+                         mimeType.right(mimeType.indexOf(QStringLiteral("/"))));
+        }
         displayBody = type;
     }
 
