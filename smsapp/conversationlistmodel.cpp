@@ -199,7 +199,7 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         } else {
             // Craft a somewhat-descriptive string, like "pdf file"
             type = i18nc("Used as a text placeholder when the most-recent message is an arbitrary attachment, resulting in something like \"pdf file\"",
-                         "% file",
+                         "%1 file",
                          mimeType.right(mimeType.indexOf(QStringLiteral("/"))));
         }
         displayBody = type;
