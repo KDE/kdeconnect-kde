@@ -381,6 +381,14 @@ void LanLinkProvider::newConnection()
 void LanLinkProvider::dataReceived()
 {
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
+    //the size here is arbitrary and is now at 8192 bytes. It needs to be considerably long as it includes the capabilities but there needs to be a limit
+    //Tested between my systems and I get around 2000 per identity package.
+    if (socket->bytesAvailable() > 8192) {
+        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Suspiciously long identity package received. Closing connection." << socket->peerAddress() << socket->bytesAvailable();
+        socket->disconnectFromHost();
+        return;
+    }
+
 #if QT_VERSION < QT_VERSION_CHECK(5,7,0)
     if (!socket->canReadLine())
         return;
