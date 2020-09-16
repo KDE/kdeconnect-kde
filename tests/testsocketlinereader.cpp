@@ -87,12 +87,8 @@ void TestSocketLineReader::socketLineReader()
 
 void TestSocketLineReader::newPacket()
 {
-    if (!m_reader->bytesAvailable()) {
-        return;
-    }
-
     int maxLoops = 5;
-    while(m_reader->bytesAvailable() > 0 && maxLoops > 0) {
+    while(m_reader->hasPacketsAvailable() && maxLoops > 0) {
         --maxLoops;
         const QByteArray packet = m_reader->readLine();
         if (!packet.isEmpty()) {

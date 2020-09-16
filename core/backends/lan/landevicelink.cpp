@@ -100,7 +100,7 @@ bool LanDeviceLink::sendPacket(NetworkPacket& np)
 
 void LanDeviceLink::dataReceived()
 {
-    if (m_socketLineReader->bytesAvailable() == 0) return;
+    if (!m_socketLineReader->hasPacketsAvailable()) return;
 
     const QByteArray serializedPacket = m_socketLineReader->readLine();
     NetworkPacket packet((QString()));
@@ -134,7 +134,7 @@ void LanDeviceLink::dataReceived()
 
     Q_EMIT receivedPacket(packet);
 
-    if (m_socketLineReader->bytesAvailable() > 0) {
+    if (m_socketLineReader->hasPacketsAvailable()) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
 

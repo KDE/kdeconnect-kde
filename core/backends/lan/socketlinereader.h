@@ -26,14 +26,14 @@ class KDECONNECTCORE_EXPORT SocketLineReader
 public:
     explicit SocketLineReader(QSslSocket* socket, QObject* parent = nullptr);
 
+    bool hasPacketsAvailable() const { return !m_packets.isEmpty(); }
     QByteArray readLine() { return m_packets.dequeue(); }
     qint64 write(const QByteArray& data) { return m_socket->write(data); }
     QHostAddress peerAddress() const { return m_socket->peerAddress(); }
     QSslCertificate peerCertificate() const { return m_socket->peerCertificate(); }
-    qint64 bytesAvailable() const { return m_packets.size(); }
 
     QSslSocket* m_socket;
-    
+
 Q_SIGNALS:
     void readyRead();
 
