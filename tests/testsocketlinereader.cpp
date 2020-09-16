@@ -25,16 +25,19 @@
 #include <QProcess>
 #include <QEventLoop>
 #include <QTimer>
+#include <QSignalSpy>
 
 class TestSocketLineReader : public QObject
 {
     Q_OBJECT
 public Q_SLOTS:
-    void initTestCase();
+    void init();
+    void cleanup() { delete m_server; }
     void newPacket();
 
 private Q_SLOTS:
     void socketLineReader();
+    void badData();
 
 private:
     QTimer m_timer;
@@ -45,8 +48,9 @@ private:
     SocketLineReader* m_reader;
 };
 
-void TestSocketLineReader::initTestCase()
+void TestSocketLineReader::init()
 {
+    m_packets.clear();
     m_server = new Server(this);
 
     QVERIFY2(m_server->listen(QHostAddress::LocalHost, 8694), "Failed to create local tcp server");
@@ -95,6 +99,29 @@ void TestSocketLineReader::socketLineReader()
     for(int x = 0;x < 5; ++x) {
         QCOMPARE(m_packets[x], dataToSend[x]);
     }
+}
+
+void TestSocketLineReader::badData()
+{
+    const QList<QByteArray> dataToSend = { "data1\n", "data" }; //does not end in a \n
+    for (const QByteArray& line : qAsConst(dataToSend)) {
+        m_conn->write(line);
+    }
+    m_conn->flush();
+
+    QSignalSpy spy(m_server, &QTcpServer::newConnection);
+    QVERIFY(m_server->hasPendingConnections() || spy.wait(1000));
+    QSslSocket* sock = m_server->nextPendingConnection();
+
+    QVERIFY2(sock != nullptr, "Could not open a connection to the client");
+
+    m_reader = new SocketLineReader(sock, this);
+    connect(m_reader, &SocketLineReader::readyRead, this, &TestSocketLineReader::newPacket);
+    m_timer.start();
+    m_loop.exec();
+
+    QCOMPARE(m_packets.count(), 1);
+    QCOMPARE(m_packets[0], dataToSend[0]);
 }
 
 void TestSocketLineReader::newPacket()

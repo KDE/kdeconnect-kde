@@ -38,14 +38,6 @@ void SocketLineReader::dataReceived()
         }
     }
 
-    //If we still have things to read from the socket, call dataReceived again
-    //We do this manually because we do not trust readyRead to be emitted again
-    //So we call this method again just in case.
-    if (m_socket->bytesAvailable() > 0) {
-        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
-        return;
-    }
-
     //If we have any packets, tell it to the world.
     if (!m_packets.isEmpty()) {
         Q_EMIT readyRead();
