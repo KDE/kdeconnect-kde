@@ -5,6 +5,7 @@
                 "Email": "kossebau@kde.org",
                 "Name": "Friedrich W. H. Kossebau",
                 "Name[ast]": "Friedrich W. H. Kossebau",
+                "Name[az]": "Friedrich W. H. Kossebau",
                 "Name[ca@valencia]": "Friedrich W. H. Kossebau",
                 "Name[ca]": "Friedrich W. H. Kossebau",
                 "Name[cs]": "Friedrich W. H. Kossebau",
@@ -37,6 +38,7 @@
             }
         ],
         "Description": "Find this device by making it play an alarm sound",
+        "Description[az]": "Bu cihazı, ona səs siqnalı göndərməklə tapın",
         "Description[ca@valencia]": "Troba aquest dispositiu fent que reproduïsca un so d'alarma",
         "Description[ca]": "Troba aquest dispositiu fent que reprodueixi un so d'alarma",
         "Description[cs]": "Najděte toto zařízení tím, že jej necháte přehrát zvuk upomínky",
@@ -72,6 +74,7 @@
         "Id": "kdeconnect_findthisdevice",
         "License": "GPL",
         "Name": "Find this device",
+        "Name[az]": "Bu cihazı tapmaq",
         "Name[ca@valencia]": "Troba aquest dispositiu",
         "Name[ca]": "Troba aquest dispositiu",
         "Name[cs]": "Najít toto zařízení",

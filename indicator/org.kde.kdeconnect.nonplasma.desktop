@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDE Connect Indicator
 Name[ast]=Indicador de KDE Connnect
+Name[az]=KDE Connect göstəricisi
 Name[ca]=Indicador del KDE Connect
 Name[ca@valencia]=Indicador del KDE Connect
 Name[cs]=Ukazatel KDE Connect
@@ -38,6 +39,7 @@ Name[zh_CN]=KDE Connect 指示器
 Name[zh_TW]=KDE 連線指示符號
 Comment=Display information about your devices
 Comment[ar]=اعرض معلومات عن أجهزتك
+Comment[az]=Cihazınız haqqında məlumatı gösətrmək
 Comment[ca]=Mostra la informació dels vostres dispositius
 Comment[ca@valencia]=Mostra la informació dels vostres dispositius
 Comment[cs]=Zobrazit informace o vašich zařízeních

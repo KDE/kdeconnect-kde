@@ -6,6 +6,7 @@ X-KDE-Library=kdeconnect_findthisdevice_config
 X-KDE-ParentComponents=kdeconnect_findthisdevice
 
 Name=Find This Device plugin settings
+Name[az]=Bu cihaz qoşması ayarlarını tapmaq
 Name[ca]=Cerca els ajustaments d'aquest connector de dispositiu
 Name[ca@valencia]=Cerca els ajustaments d'aquest connector de dispositiu
 Name[cs]=Nastavení modulu Najít toto zařízení

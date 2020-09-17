@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=KDE Connect SMS
 Name[ast]=SMS de KDE Connect
+Name[az]=KDE Connect SMS
 Name[ca]=SMS del KDE Connect
 Name[ca@valencia]=SMS del KDE Connect
 Name[cs]=KDE Connect SMS
@@ -33,6 +34,7 @@ Name[zh_CN]=KDE Connect 短信
 Name[zh_TW]=KDE 連線簡訊
 GenericName=SMS
 GenericName[ast]=SMS
+GenericName[az]=SMS
 GenericName[ca]=SMS
 GenericName[ca@valencia]=SMS
 GenericName[cs]=SMS
@@ -65,6 +67,7 @@ GenericName[zh_CN]=SMS
 GenericName[zh_TW]=簡訊
 Comment=Text Messaging
 Comment[ast]=Mensaxería de testu
+Comment[az]=Yazışma
 Comment[ca]=Missatgeria de text
 Comment[ca@valencia]=Missatgeria de text
 Comment[cs]=Zprávy

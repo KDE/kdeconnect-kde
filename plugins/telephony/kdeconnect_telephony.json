@@ -6,6 +6,7 @@
                 "Name": "Albert Vaca",
                 "Name[ar]": "Albert Vaca",
                 "Name[ast]": "Albert Vaca",
+                "Name[az]": "Albert Vaca",
                 "Name[ca@valencia]": "Albert Vaca",
                 "Name[ca]": "Albert Vaca",
                 "Name[cs]": "Albert Vaca",
@@ -44,6 +45,7 @@
             }
         ],
         "Description": "Show notifications for incoming calls",
+        "Description[az]": "Daxil olan zəng bildirişlərini göstərmək",
         "Description[ca@valencia]": "Mostra les notificacions de les trucades entrants",
         "Description[ca]": "Mostra les notificacions de les trucades entrants",
         "Description[cs]": "Zobrazit upozornění pro příchozí telefonáty",
@@ -79,6 +81,7 @@
         "License": "GPL",
         "Name": "Telephony integration",
         "Name[ar]": "تكامل الهاتف",
+        "Name[az]": "Telefonun inteqrasiyası",
         "Name[ca@valencia]": "Integració amb la telefonia",
         "Name[ca]": "Integració amb la telefonia",
         "Name[cs]": "Integrace telefonu",

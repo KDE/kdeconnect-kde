@@ -2,6 +2,7 @@
 Name=KDE Connect
 Name[ar]=كدي المتّصل
 Name[ast]=KDE Connect
+Name[az]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
 Name[ca]=KDE Connect
@@ -46,6 +47,7 @@ Name[zh_TW]=KDE 連線
 Comment=Show notifications from your devices using KDE Connect
 Comment[ar]=أظهر الإخطارات من أجهزتك باستخدام «كدي المتّصل»
 Comment[ast]=Amuesa los avisos de preseos que tean usando KDE Connect
+Comment[az]=KDE Connect istifadə edərək cihazlarınızdan bildirişləri göstərmək
 Comment[bg]=Показване на уведомления от вашите устройства чрез KDE Connect
 Comment[bs]=Prikaži obavlještenja sa uređaja koji koriste KDE konekciju
 Comment[ca]=Mostra les notificacions dels vostres dispositius emprant el KDE Connect

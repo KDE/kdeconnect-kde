@@ -6,6 +6,7 @@
                 "Email": "simon@ergotech.com",
                 "Name": "Simon Redman",
                 "Name[ast]": "Simon Redman",
+                "Name[az]": "Simon Redman",
                 "Name[ca@valencia]": "Simon Redman",
                 "Name[ca]": "Simon Redman",
                 "Name[cs]": "Simon Redman",
@@ -38,6 +39,7 @@
             }
         ],
         "Description": "Synchronize Contacts Between the Desktop and the Connected Device",
+        "Description[az]": "Kontakları Qoşulmuş Cihaz və İş Masası arasında eyniləşdirmək",
         "Description[ca@valencia]": "Sincronitza els contactes entre l'escriptori i el dispositiu connectat",
         "Description[ca]": "Sincronitza els contactes entre l'escriptori i el dispositiu connectat",
         "Description[cs]": "Synchronizovat kontakty mezi pracovní plochou a připojeným zařízením",
@@ -73,6 +75,7 @@
         "License": "GPL",
         "Name": "Contacts",
         "Name[ast]": "Contautos",
+        "Name[az]": "Kontaktlar",
         "Name[ca@valencia]": "Contactes",
         "Name[ca]": "Contactes",
         "Name[cs]": "Kontakty",
