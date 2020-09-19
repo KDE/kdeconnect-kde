@@ -36,7 +36,7 @@ Kirigami.ApplicationWindow
         handleVisible: !root.wideScreen
 
         header: Kirigami.AbstractApplicationHeader {
-            topPadding: Kirigami.Units.smallSpacing / 2 // HACK: not dividing by two makes the header to big and not adding the spacing make it to small
+            topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
             leftPadding: Kirigami.Units.smallSpacing
             rightPadding: Kirigami.Units.smallSpacing
@@ -63,12 +63,11 @@ Kirigami.ApplicationWindow
                 }
 
                 Kirigami.Heading {
-                    level: 2
+                    level: 1
                     text: announcedNameProperty.value
                     Layout.fillWidth: true
                     visible: !nameField.visible
                     elide: Qt.ElideRight
-                    font.pointSize: 18
                 }
 
                 Button {
