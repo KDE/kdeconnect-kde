@@ -35,41 +35,48 @@ Kirigami.ApplicationWindow
         modal: !root.wideScreen
         handleVisible: !root.wideScreen
 
-        topContent: RowLayout {
-            width: parent.width
-            DBusProperty {
-                id: announcedNameProperty
-                object: DaemonDbusInterface
-                read: "announcedName"
-                defaultValue: ""
-            }
+        header: Kirigami.AbstractApplicationHeader {
+            topPadding: Kirigami.Units.smallSpacing / 2 // HACK: not dividing by two makes the header to big and not adding the spacing make it to small
+            bottomPadding: Kirigami.Units.smallSpacing
+            leftPadding: Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.smallSpacing
+            contentItem: RowLayout {
+                anchors.fill: parent
+                spacing: Kirigami.Units.smallSpacing
 
-            TextField {
-                id: nameField
-                visible: false
-                Layout.fillWidth: true
-                Layout.leftMargin: Kirigami.Units.smallSpacing
-                text: announcedNameProperty.value
-                onAccepted: {
-                    DaemonDbusInterface.setAnnouncedName(text)
-                    text = Qt.binding(function() {return announcedNameProperty.value})
+                DBusProperty {
+                    id: announcedNameProperty
+                    object: DaemonDbusInterface
+                    read: "announcedName"
+                    defaultValue: ""
                 }
-            }
 
-            Label {
-                text: announcedNameProperty.value
-                visible: !nameField.visible
-                Layout.fillWidth: true
-                elide: Qt.ElideRight
-                font.pointSize: 18
-                Layout.leftMargin: Kirigami.Units.smallSpacing
-            }
+                TextField {
+                    id: nameField
+                    visible: false
+                    Layout.fillWidth: true
+                    text: announcedNameProperty.value
+                    onAccepted: {
+                        DaemonDbusInterface.setAnnouncedName(text)
+                        text = Qt.binding(function() {return announcedNameProperty.value})
+                    }
+                }
 
-            Button {
-                icon.name: nameField.visible ? "dialog-ok-apply" : "entry-edit"
-                onClicked: {
-                    nameField.visible = !nameField.visible
-                    nameField.accepted()
+                Kirigami.Heading {
+                    level: 2
+                    text: announcedNameProperty.value
+                    Layout.fillWidth: true
+                    visible: !nameField.visible
+                    elide: Qt.ElideRight
+                    font.pointSize: 18
+                }
+
+                Button {
+                    icon.name: nameField.visible ? "dialog-ok-apply" : "entry-edit"
+                    onClicked: {
+                        nameField.visible = !nameField.visible
+                        nameField.accepted()
+                    }
                 }
             }
         }
