@@ -6,6 +6,7 @@
                 "Name": "Aleix Pol",
                 "Name[ar]": "Aleix Pol",
                 "Name[ast]": "Aleix Pol",
+                "Name[az]": "Aleix Pol",
                 "Name[ca@valencia]": "Aleix Pol",
                 "Name[ca]": "Aleix Pol",
                 "Name[cs]": "Aleix Pol",
@@ -45,6 +46,7 @@
             }
         ],
         "Description": "Use your mobile device to point to things on the screen",
+        "Description[az]": "Ekrandakıları göstərmək üçün mobil cihazınızdan kursor kimi istifadə edin",
         "Description[ca@valencia]": "Usa el dispositiu mòbil per a assenyalar coses a la pantalla",
         "Description[ca]": "Usa el dispositiu mòbil per a assenyalar coses a la pantalla",
         "Description[cs]": "Použijte mobilní zařízení k ukázání na položky na obrazovce",
@@ -79,6 +81,7 @@
         "Id": "kdeconnect_presenter",
         "License": "GPL",
         "Name": "Presenter",
+        "Name[az]": "Təqdimatçı",
         "Name[ca@valencia]": "Presentador",
         "Name[ca]": "Presentador",
         "Name[cs]": "Promítání",
