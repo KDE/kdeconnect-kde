@@ -34,6 +34,7 @@
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
 
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
+static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
 
 LanLinkProvider::LanLinkProvider(
         bool testMode,
@@ -243,6 +244,12 @@ void LanLinkProvider::udpBroadcastReceived()
 
         //qCDebug(KDECONNECT_CORE) << "Received Udp identity packet from" << sender << " asking for a tcp connection on port " << tcpPort;
 
+        if (m_receivedIdentityPackets.size() > MAX_REMEMBERED_IDENTITY_PACKETS) {
+            qCWarning(KDECONNECT_CORE) << "Too many remembered identities, ignoring" << receivedPacket->get<QString>(QStringLiteral("deviceId")) << "received via UDP";
+            delete receivedPacket;
+            continue;
+        }
+
         QSslSocket* socket = new QSslSocket(this);
         socket->setProxy(QNetworkProxy::NoProxy);
         m_receivedIdentityPackets[socket].np = receivedPacket;
@@ -449,6 +456,12 @@ void LanLinkProvider::dataReceived()
 
     if (np->type() != PACKET_TYPE_IDENTITY) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Expected identity, received " << np->type();
+        delete np;
+        return;
+    }
+
+    if (m_receivedIdentityPackets.size() > MAX_REMEMBERED_IDENTITY_PACKETS) {
+        qCWarning(KDECONNECT_CORE) << "Too many remembered identities, ignoring" << np->get<QString>(QStringLiteral("deviceId")) << "received via TCP";
         delete np;
         return;
     }
