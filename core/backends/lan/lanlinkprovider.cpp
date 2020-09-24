@@ -241,6 +241,11 @@ void LanLinkProvider::udpBroadcastReceived()
         }
 
         int tcpPort = receivedPacket->get<int>(QStringLiteral("tcpPort"));
+        if (tcpPort < MIN_TCP_PORT || tcpPort > MAX_TCP_PORT) {
+            qCDebug(KDECONNECT_CORE) << "TCP port outside of kdeconnect's range";
+            delete receivedPacket;
+            continue;
+        }
 
         //qCDebug(KDECONNECT_CORE) << "Received Udp identity packet from" << sender << " asking for a tcp connection on port " << tcpPort;
 
