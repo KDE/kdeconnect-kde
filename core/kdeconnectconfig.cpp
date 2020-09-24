@@ -58,12 +58,7 @@ static QString getDefaultDeviceName() {
     }
 #endif
 
-#ifdef Q_OS_WIN
-    QString username = QString::fromLatin1(qgetenv("USERNAME"));
-#else
-    QString username = QString::fromLatin1(qgetenv("USER"));
-#endif
-    return username + QStringLiteral("@") + QHostInfo::localHostName();
+    return QHostInfo::localHostName();
 }
 
 
