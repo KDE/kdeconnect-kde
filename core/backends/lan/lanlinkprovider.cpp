@@ -315,9 +315,7 @@ void LanLinkProvider::tcpSocketConnected()
 
             connect(socket, &QSslSocket::encrypted, this, &LanLinkProvider::encrypted);
 
-            if (isDeviceTrusted) {
-                connect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
-            }
+            connect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
 
             socket->startServerEncryption();
 
@@ -344,8 +342,6 @@ void LanLinkProvider::encrypted()
 
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
-    // TODO delete me?
-    disconnect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
 
     Q_ASSERT(socket->mode() != QSslSocket::UnencryptedMode);
     LanDeviceLink::ConnectionStarted connectionOrigin = (socket->mode() == QSslSocket::SslClientMode)? LanDeviceLink::Locally : LanDeviceLink::Remotely;
@@ -364,14 +360,20 @@ void LanLinkProvider::sslErrors(const QList<QSslError>& errors)
     QSslSocket* socket = qobject_cast<QSslSocket*>(sender());
     if (!socket) return;
 
-    qCDebug(KDECONNECT_CORE) << "Failing due to " << errors;
-    Device* device = Daemon::instance()->getDevice(socket->peerVerifyName());
-    if (device) {
-        device->unpair();
+    bool fatal = false;
+    for (const QSslError& error : errors) {
+        if (error.error() != QSslError::SelfSignedCertificate) {
+            qCCritical(KDECONNECT_CORE) << "Disconnecting due to fatal SSL Error: " << error;
+            fatal = true;
+        } else {
+            qCDebug(KDECONNECT_CORE) << "Ignoring self-signed cert error";
+        }
     }
 
-    delete m_receivedIdentityPackets.take(socket).np;
-    // Socket disconnects itself on ssl error and will be deleted by deleteLater slot, no need to delete manually
+    if (fatal) {
+        socket->disconnectFromHost();
+        delete m_receivedIdentityPackets.take(socket).np;
+    }
 }
 
 //I'm the new device and this is the answer to my UDP identity packet (no data received yet). They are connecting to us through TCP, and they should send an identity.
