@@ -79,6 +79,11 @@ void Daemon::init()
         #endif
     }
 
+    //Register on DBus
+    qDBusRegisterMetaType< QMap<QString,QString> >();
+    DBusHelper::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
+    DBusHelper::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
+
     //Read remembered paired devices
     const QStringList& list = KdeConnectConfig::instance().trustedDevices();
     for (const QString& id : list) {
@@ -91,11 +96,6 @@ void Daemon::init()
                 this, &Daemon::onNewDeviceLink);
         a->onStart();
     }
-
-    //Register on DBus
-    qDBusRegisterMetaType< QMap<QString,QString> >();
-    DBusHelper::sessionBus().registerService(QStringLiteral("org.kde.kdeconnect"));
-    DBusHelper::sessionBus().registerObject(QStringLiteral("/modules/kdeconnect"), this, QDBusConnection::ExportScriptableContents);
 
     NotificationServerInfo::instance().init();
 
