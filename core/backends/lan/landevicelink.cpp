@@ -178,3 +178,8 @@ bool LanDeviceLink::linkShouldBeKeptAlive() {
     //return (mConnectionSource == ConnectionStarted::Remotely || pairStatus() == Paired);
 
 }
+
+QSslCertificate LanDeviceLink::certificate() const
+{
+    return m_socketLineReader->peerCertificate();
+}

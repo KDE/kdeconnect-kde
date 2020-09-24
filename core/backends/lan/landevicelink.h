@@ -42,6 +42,7 @@ public:
     bool linkShouldBeKeptAlive() override;
 
     QHostAddress hostAddress() const;
+    QSslCertificate certificate() const;
 
 private Q_SLOTS:
     void dataReceived();
