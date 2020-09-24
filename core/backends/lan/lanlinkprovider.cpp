@@ -252,7 +252,7 @@ void LanLinkProvider::connectError(QAbstractSocket::SocketError socketError)
     //The socket we created didn't work, and we didn't manage
     //to create a LanDeviceLink from it, deleting everything.
     delete m_receivedIdentityPackets.take(socket).np;
-    delete socket;
+    socket->deleteLater();
 }
 
 //We received a UDP packet and answered by connecting to them by TCP. This gets called on a successful connection.
