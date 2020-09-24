@@ -345,6 +345,12 @@ void LanLinkProvider::encrypted()
     NetworkPacket* receivedPacket = m_receivedIdentityPackets[socket].np;
     const QString& deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
 
+    if (m_links.contains(deviceId) && m_links[deviceId]->certificate() != socket->peerCertificate()) {
+        socket->disconnectFromHost();
+        qCWarning(KDECONNECT_CORE) << "Got connection for the same deviceId but certificates don't match. Ignoring " << deviceId;
+        return;
+    }
+
     addLink(deviceId, socket, receivedPacket, connectionOrigin);
 
     // Copied from tcpSocketConnected slot, now delete received packet
