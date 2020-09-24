@@ -49,7 +49,6 @@ private Q_SLOTS:
 private:
     SocketLineReader* m_socketLineReader;
     ConnectionStarted m_connectionSource;
-    QHostAddress m_hostAddress;
     QPointer<CompositeUploadJob> m_compositeUploadJob;
 };
 
