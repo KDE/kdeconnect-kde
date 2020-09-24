@@ -33,6 +33,8 @@
 
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
 
+static const int MAX_UNPAIRED_CONNECTIONS = 42;
+
 LanLinkProvider::LanLinkProvider(
         bool testMode,
         quint16 udpBroadcastPort,
@@ -580,6 +582,15 @@ void LanLinkProvider::addLink(const QString& deviceId, QSslSocket* socket, Netwo
         deviceLink->reset(socket, connectionOrigin);
     } else {
         deviceLink = new LanDeviceLink(deviceId, this, socket, connectionOrigin);
+        // Socket disconnection will now be handled by LanDeviceLink
+        disconnect(socket, &QAbstractSocket::disconnected, socket, &QObject::deleteLater);
+        bool isDeviceTrusted = KdeConnectConfig::instance().trustedDevices().contains(deviceId);
+        if (!isDeviceTrusted && m_links.size() > MAX_UNPAIRED_CONNECTIONS) {
+            qCWarning(KDECONNECT_CORE) << "Too many unpaired devices to remember them all. Ignoring " << deviceId;
+            socket->disconnectFromHost();
+            socket->deleteLater();
+            return;
+        }
         connect(deviceLink, &QObject::destroyed, this, &LanLinkProvider::deviceLinkDestroyed);
         m_links[deviceId] = deviceLink;
         if (m_pairingHandlers.contains(deviceId)) {
