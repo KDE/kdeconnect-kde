@@ -17,6 +17,12 @@ Kirigami.ApplicationWindow
     width: 900
     height: 500
 
+    onWideScreenChanged: {
+        if (wideScreen) {
+            drawer.open()
+        }
+    }
+
     Kirigami.Action {
         id: findDevicesAction
         text: i18nd("kdeconnect-app", "Find devices...")
