@@ -9,6 +9,8 @@
 #include <QClipboard>
 #include <QGuiApplication>
 #include <QIcon>
+#include <QMimeDatabase>
+#include <QMimeType>
 #include <QPainter>
 #include <QRegularExpression>
 #include <QString>
@@ -452,4 +454,26 @@ quint64 SmsHelper::totalMessageSize(const QList<QUrl>& urls, const QString& text
     }
 
     return totalSize;
+}
+
+QIcon SmsHelper::getThumbnailForAttachment(const Attachment& attachment) {
+    static const QMimeDatabase mimeDatabase;
+    const QByteArray rawData = QByteArray::fromBase64(attachment.base64EncodedFile().toUtf8());
+
+    if (attachment.mimeType().startsWith(QStringLiteral("image"))
+     || attachment.mimeType().startsWith(QStringLiteral("video"))) {
+        QPixmap preview;
+        preview.loadFromData(rawData);
+        return QIcon(preview);
+    } else {
+        const QMimeType mimeType = mimeDatabase.mimeTypeForData(rawData);
+        const QIcon mimeIcon = QIcon::fromTheme(mimeType.iconName());
+        if (mimeIcon.isNull()) {
+            // I am not sure if QIcon::isNull will actually tell us what we care about but I don't
+            // know how to trigger the case where we need to use genericIconName instead of iconName
+            return QIcon::fromTheme(mimeType.genericIconName());
+        } else {
+            return mimeIcon;
+        }
+    }
 }

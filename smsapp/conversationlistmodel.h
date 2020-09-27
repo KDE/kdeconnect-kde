@@ -32,6 +32,7 @@ public:
         AddressesRole,      // The Addresses involved in the conversation
         ConversationIdRole, // The ThreadID of the conversation
         MultitargetRole,    // Indicate that this conversation is multitarget
+        AttachmentPreview,  // A thumbnail of the attachment of the message, if any
     };
     Q_ENUM(Roles)
 

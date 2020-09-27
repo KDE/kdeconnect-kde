@@ -221,6 +221,7 @@ Kirigami.ScrollablePage
             label: display
             subtitle: toolTip
 
+            property var thumbnail: attachmentPreview
 
             function startChat() {
                 applicationWindow().pageStack.push(chatView, {
@@ -236,6 +237,30 @@ Kirigami.ScrollablePage
                 startChat();
                 view.currentIndex = index
             }
+
+            Kirigami.Icon {
+                id: thumbnailItem
+                source: {
+                    if (!listItem.thumbnail) {
+                        return undefined
+                    }
+                    if (listItem.thumbnail.hasOwnProperty) {
+                        if (listItem.thumbnail.hasOwnProperty("name") && listItem.thumbnail.name !== "")
+                            return listItem.thumbnail.name;
+                        if (listItem.thumbnail.hasOwnProperty("source"))
+                            return listItem.thumbnail.source;
+                    }
+                    return listItem.thumbnail;
+                }
+                property int size: Kirigami.Units.iconSizes.huge
+                Layout.minimumHeight: size
+                Layout.maximumHeight: size
+                Layout.minimumWidth: size
+                selected: (listItem.highlighted || listItem.checked || (listItem.pressed && listItem.supportsMouseEvents))
+                opacity: 1
+                visible: source != undefined
+            }
+
             // Keep the currently-open chat highlighted even if this element is not focused
             highlighted: view.currentIndex == index
         }

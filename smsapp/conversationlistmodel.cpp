@@ -32,6 +32,7 @@ ConversationListModel::ConversationListModel(QObject* parent)
     roles.insert(AddressesRole, "addresses");
     roles.insert(ConversationIdRole, "conversationId");
     roles.insert(MultitargetRole, "isMultitarget");
+    roles.insert(AttachmentPreview, "attachmentPreview");
     setItemRoleNames(roles);
 
     ConversationMessage::registerDbusType();
@@ -190,19 +191,23 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         displayBody = message.body();
     } else if (message.containsAttachment()) {
         const QString mimeType = message.attachments().last().mimeType();
-        QString type;
         if (mimeType.startsWith(QStringLiteral("image"))) {
-            type = i18nc("Used as a text placeholder when the most-recent message is an image", "Picture");
+            displayBody = i18nc("Used as a text placeholder when the most-recent message is an image", "Picture");
         }
         else if (mimeType.startsWith(QStringLiteral("video"))) {
-            type = i18nc("Used as a text placeholder when the most-recent message is a video", "Video");
+            displayBody = i18nc("Used as a text placeholder when the most-recent message is a video", "Video");
         } else {
             // Craft a somewhat-descriptive string, like "pdf file"
-            type = i18nc("Used as a text placeholder when the most-recent message is an arbitrary attachment, resulting in something like \"pdf file\"",
+            displayBody = i18nc("Used as a text placeholder when the most-recent message is an arbitrary attachment, resulting in something like \"pdf file\"",
                          "%1 file",
                          mimeType.right(mimeType.indexOf(QStringLiteral("/"))));
         }
-        displayBody = type;
+    }
+
+    // Get the preview from the attachment, if it exists
+    QIcon attachmentPreview;
+    if (message.containsAttachment()) {
+        attachmentPreview = SmsHelper::getThumbnailForAttachment(message.attachments().last());
     }
 
     // For displaying single line subtitle out of the multiline messages to keep the ListItems consistent
@@ -231,6 +236,9 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         item->setData(displayBody, Qt::ToolTipRole);
         item->setData(message.date(), DateRole);
         item->setData(message.isMultitarget(), MultitargetRole);
+        if (!attachmentPreview.isNull()) {
+            item->setData(attachmentPreview, AttachmentPreview);
+        }
     }
 
     if (toadd)

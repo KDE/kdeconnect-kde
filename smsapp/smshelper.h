@@ -120,6 +120,11 @@ public:
      */
     Q_INVOKABLE static quint64 totalMessageSize(const QList<QUrl>& urls, const QString& text);
 
+    /**
+     * Gets a thumbnail for the given attachment
+     */
+    Q_INVOKABLE static QIcon getThumbnailForAttachment(const Attachment& attachment);
+
 private:
     static bool isInGsmAlphabet(const QChar& ch);
     static bool isInGsmAlphabetExtension(const QChar& ch);
