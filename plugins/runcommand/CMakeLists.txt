@@ -15,6 +15,7 @@ kdeconnect_add_plugin(kdeconnect_runcommand JSON kdeconnect_runcommand.json SOUR
 target_link_libraries(kdeconnect_runcommand
     kdeconnectcore
     Qt5::DBus
+    KF5::KCMUtils
     KF5::I18n)
 
 #----------------------
