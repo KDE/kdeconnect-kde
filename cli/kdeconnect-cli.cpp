@@ -259,12 +259,20 @@ int main(int argc, char** argv)
                     addresses << QVariant::fromValue(address);
                 }
 
-                const QStringList urlList = parser.value(QStringLiteral("attachment")).split(QRegularExpression(QStringLiteral("\\s+")));
+                const QString message = parser.value(QStringLiteral("send-sms"));
 
-                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/sms"), QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
-                const QString text = parser.value(QStringLiteral("send-sms"));
-                msg.setArguments(QVariantList() << QVariant::fromValue(addresses) << text << QVariant(urlList));
-                blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+                const QStringList rawAttachmentUrlsList = parser.value(QStringLiteral("attachment")).split(QRegularExpression(QStringLiteral("\\s+")));
+
+                QVariantList attachments;
+                for (const QString& attachmentUrl : rawAttachmentUrlsList) {
+                    // TODO: Construct attachment objects from the list of Urls
+                    Q_UNUSED(attachmentUrl);
+                }
+
+                DeviceConversationsDbusInterface conversationDbusInterface(device);
+                auto reply = conversationDbusInterface.sendWithoutConversation(addresses, message, attachments);
+
+                reply.waitForFinished();
             } else {
                 QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
                 return 1;
