@@ -11,9 +11,10 @@
 #include <QDebug>
 #include <QStandardPaths>
 
+#include <KIO/OpenUrlJob>
+#include <KNotificationJobUiDelegate>
 #include <KLocalizedString>
 #include <KNotification>
-#include <KRun>
 #include <KFilePlacesModel>
 #include <KPluginFactory>
 
@@ -112,8 +113,10 @@ QString SftpPlugin::getMountError()
 bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
-        //return new KRun(QUrl::fromLocalFile(mountPoint()), 0);
-        return new KRun(QUrl(QStringLiteral("kdeconnect://") + deviceId), nullptr);
+        auto *job = new KIO::OpenUrlJob(QUrl(QStringLiteral("kdeconnect://") + deviceId));
+        job->setUiDelegate(new KNotificationJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled));
+        job->start();
+        return true;
     }
     return false;
 }
