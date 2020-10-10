@@ -81,6 +81,19 @@ void SmsPlugin::sendSms(const QDBusVariant& addresses, const QString& messageBod
     sendPacket(np);
 }
 
+void SmsPlugin::sendSms(const QString& address, const QString& messageBody)
+{
+    QVariantMap packetMap({
+        {QStringLiteral("sendSms"), true},
+        {QStringLiteral("phoneNumber"), address},
+        {QStringLiteral("messageBody"), messageBody}
+    });
+
+    NetworkPacket np(PACKET_TYPE_SMS_REQUEST, packetMap);
+    qCDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
+    sendPacket(np);
+}
+
 void SmsPlugin::requestAllConversations()
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATIONS);

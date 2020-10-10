@@ -265,16 +265,11 @@ int main(int argc, char** argv)
                 qDBusRegisterMetaType<ConversationAddress>();
                 QVariantList addresses;
 
-                const QStringList addressList = parser.value(QStringLiteral("destination")).split(QRegularExpression(QStringLiteral("\\s+")));
-
-                for (const QString& input : addressList) {
-                    ConversationAddress address(input);
-                    addresses << QVariant::fromValue(address);
-                }
+                const QString address = parser.value(QStringLiteral("destination"));
 
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/sms"), QStringLiteral("org.kde.kdeconnect.device.sms"), QStringLiteral("sendSms"));
                 const QString text = parser.value(QStringLiteral("send-sms"));
-                msg.setArguments(QVariantList() << QVariant::fromValue(QDBusVariant(addresses)) << text);
+                msg.setArguments(QVariantList() << address << text);
                 blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
