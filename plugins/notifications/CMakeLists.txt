@@ -8,7 +8,6 @@ ecm_qt_declare_logging_category(
 set(kdeconnect_notifications_SRCS
     notification.cpp
     notificationsplugin.cpp
-    notificationsdbusinterface.cpp
     sendreplydialog.cpp
     ${debug_file_SRCS}
 )
