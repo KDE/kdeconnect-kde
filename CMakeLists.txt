@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(kdeconnect)
+# KDE Release Service Version, managed by release script
+set (RELEASE_SERVICE_VERSION_MAJOR "20")
+set (RELEASE_SERVICE_VERSION_MINOR "11")
+set (RELEASE_SERVICE_VERSION_MICRO "70")
+set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}.${RELEASE_SERVICE_VERSION_MICRO}")
+
+project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
 if (SAILFISHOS)
     set(KF5_MIN_VERSION "5.36.0")
@@ -29,7 +35,7 @@ endif()
 
 include(KDEConnectMacros.cmake)
 
-ecm_setup_version(1.4.0
+ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VARIABLE_PREFIX KDECONNECT
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
