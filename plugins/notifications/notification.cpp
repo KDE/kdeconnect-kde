@@ -49,6 +49,13 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
         if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
             return;
         }
+
+        // index 0 is the default action. Some notification servers send this even though they shouldn't.
+        // https://bugs.kde.org/show_bug.cgi?id=427717
+        if (actionIndex == 0) {
+            return;
+        }
+
         // Notification action indices start at 1
         Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
     });
