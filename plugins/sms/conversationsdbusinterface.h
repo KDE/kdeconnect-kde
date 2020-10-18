@@ -128,7 +128,6 @@ private /*methods*/:
 
 private /*attributes*/:
     const QString m_device;
-    KdeConnectPlugin* m_plugin;
 
     /**
      * Mapping of threadID to the messages which make up that thread

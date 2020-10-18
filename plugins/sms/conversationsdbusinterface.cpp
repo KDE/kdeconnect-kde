@@ -22,7 +22,6 @@ QMap<QString, ConversationsDbusInterface*> ConversationsDbusInterface::liveConve
 ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin* plugin)
     : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
     , m_device(plugin->device()->id())
-    , m_plugin(plugin)
     , m_lastId(0)
     , m_smsInterface(m_device)
 {
