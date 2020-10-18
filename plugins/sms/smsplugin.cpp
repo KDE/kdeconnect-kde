@@ -59,26 +59,15 @@ bool SmsPlugin::receivePacket(const NetworkPacket& np)
 
 void SmsPlugin::sendSms(const QDBusVariant& addresses, const QString& messageBody, const qint64 subID)
 {
-    QList<ConversationAddress> addressList = ConversationAddress::listfromDBus(addresses);
+    Q_UNUSED(subID)
+    const QList<ConversationAddress> addressList = ConversationAddress::listfromDBus(addresses);
 
-    QVariantList addressMapList;
-    for (const ConversationAddress address : addressList) {
-        QVariantMap addressMap({{QStringLiteral("address"), address.address()}});
-        addressMapList.append(addressMap);
-        qDebug() <<address.address();
+    if (addressList.isEmpty()) {
+        qCDebug(KDECONNECT_PLUGIN_SMS) << "Empty address list";
+        return;
     }
 
-    QVariantMap packetMap({
-        {QStringLiteral("sendSms"), true},
-        {QStringLiteral("addresses"), addressMapList},
-        {QStringLiteral("messageBody"), messageBody}
-    });
-    if (subID != -1) {
-        packetMap[QStringLiteral("subID")] = subID;
-    }
-    NetworkPacket np(PACKET_TYPE_SMS_REQUEST, packetMap);
-    qCDebug(KDECONNECT_PLUGIN_SMS) << "Dispatching SMS send request to remote";
-    sendPacket(np);
+    sendSms(addressList.first().address(), messageBody);
 }
 
 void SmsPlugin::sendSms(const QString& address, const QString& messageBody)
