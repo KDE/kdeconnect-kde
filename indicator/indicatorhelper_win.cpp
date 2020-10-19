@@ -28,7 +28,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 #ifdef QSYSTRAY
 void IndicatorHelper::systrayIconHook(QSystemTrayIcon &systray)
 {
-    systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicatorwin.svg"))));
+    systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnect-tray")));
 }
 #else
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
