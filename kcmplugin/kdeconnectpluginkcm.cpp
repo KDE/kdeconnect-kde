@@ -17,7 +17,7 @@ struct KdeConnectPluginKcmPrivate
 };
 
 KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget* parent, const QVariantList& args, const QString& componentName)
-    : KCModule(KAboutData::pluginData(componentName), parent, args)
+    : KCModule(parent, args)
     , d(new KdeConnectPluginKcmPrivate())
 {
 

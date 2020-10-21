@@ -23,7 +23,7 @@ K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
 static QString createId() { return QStringLiteral("kcm")+QString::number(QCoreApplication::applicationPid()); }
 
 KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
-    : KCModule(KAboutData::pluginData(QStringLiteral("kdeconnect-kcm")), parent)
+    : KCModule(parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
