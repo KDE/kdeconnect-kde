@@ -16,6 +16,14 @@
 #include <KStatusNotifierItem>
 #endif
 
+#ifdef Q_OS_WIN
+#include <QUrl>
+    namespace processes {
+            const QString dbus_daemon = QStringLiteral("dbus-daemon.exe");
+            const QString kdeconnect_daemon = QStringLiteral("kdeconnectd.exe");
+    };
+#endif
+
 class IndicatorHelper
 {
 public:
@@ -33,6 +41,16 @@ public:
     void systrayIconHook(QSystemTrayIcon &systray);
 #else
     void systrayIconHook(KStatusNotifierItem &systray);
+#endif
+
+#ifdef Q_OS_WIN
+    /**
+     * Terminate processes of KDE Connect like kdeconnectd.exe and dbus-daemon.exe
+     *
+     * @return True if termination was successful, false otherwise
+     */
+
+    bool terminateProcess(const QString &processName, const QUrl &indicatorUrl) const;
 #endif
 
 private:

@@ -56,7 +56,7 @@ int main(int argc, char** argv)
     QMenu* menu = new QMenu;
 
     DaemonDbusInterface iface;
-    auto refreshMenu = [&iface, &model, &menu]() {
+    auto refreshMenu = [&iface, &model, &menu, &helper]() {
         menu->clear();
         auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [](){
@@ -83,9 +83,9 @@ int main(int argc, char** argv)
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::rejectPairing);
             }
         }
-
-#if (defined Q_OS_MAC || defined Q_OS_WIN)
         // Add quit menu
+#if defined Q_OS_MAC
+
         menu->addAction(i18n("Quit"), [](){
             auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
                                                         QStringLiteral("/MainApplication"),
@@ -97,6 +97,14 @@ int main(int argc, char** argv)
                                                         QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                         QStringLiteral("quit"));
             DBusHelper::sessionBus().call(message, QDBus::NoBlock); // Close our indicator
+        });
+#elif defined Q_OS_WIN
+
+        menu->addAction(i18n("Quit"), [&helper](){
+            const QUrl indicatorUrl = QUrl::fromLocalFile(qApp->applicationDirPath());
+            helper.terminateProcess(processes::dbus_daemon, indicatorUrl);
+            helper.terminateProcess(processes::kdeconnect_daemon, indicatorUrl);
+            qApp->quit();
         });
 #endif
     };
