@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=kcmshell5 kcm_kdeconnect
+Exec=systemsettings5 kcm_kdeconnect
 Icon=preferences-kde-connect
 Type=Service
 
