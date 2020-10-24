@@ -8,7 +8,13 @@ ecm_qt_declare_logging_category(
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
 
 add_executable(kdeconnectd kdeconnectd.cpp ${debug_file_SRCS})
-target_link_libraries(kdeconnectd kdeconnectcore kdeconnectversion KF5::KIOWidgets KF5::DBusAddons KF5::Notifications KF5::I18n Qt5::Widgets)
+target_link_libraries(kdeconnectd
+    kdeconnectcore kdeconnectversion
+    KF5::KIOWidgets
+    KF5::DBusAddons
+    KF5::Notifications
+    KF5::I18n
+    Qt5::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)
 
