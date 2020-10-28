@@ -4,11 +4,7 @@ set(APP_ICONS
     sc-apps-kdeconnectindicator.svg
 )
 
-if(WIN32)
-    list(APPEND APP_ICONS sc-apps-kdeconnectindicatorwin.svg)
-else()
-    list(APPEND APP_ICONS sc-apps-kdeconnectindicatordark.svg)
-endif()
+list(APPEND APP_ICONS sc-apps-kdeconnectindicatordark.svg)
 
 if(APPLE)
     # Craft adds share/icons into blacklist, which will not be copied into the bundle
