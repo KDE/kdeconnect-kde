@@ -105,7 +105,7 @@ add_subdirectory(plugins)
 add_subdirectory(interfaces)
 
 if (NOT SAILFISHOS)
-    add_subdirectory(icon)
+    add_subdirectory(icons)
     add_subdirectory(data)
     add_subdirectory(cli)
     add_subdirectory(declarativeplugin)
