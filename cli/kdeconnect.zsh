@@ -44,4 +44,5 @@ _arguments -s \
   $blockoperations"--photo=[open the connected device's camera and transfer the photo]:file:_files" \
   + 'sms' \
   '(operation)--send-sms=[send an SMS]:message:' \
-  '(operation)--destination=[specify phone number to send the SMS to]:phone number:'
+  '(operation)--destination=[specify phone number to send the SMS to]:phone number:' \
+  '(operation)*--attachment=[attachment to send with the message]:file:_files'

@@ -53,7 +53,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("lock"), i18n("Lock the specified device")));
     parser.addOption(QCommandLineOption(QStringLiteral("send-sms"), i18n("Sends an SMS. Requires destination"), i18n("message")));
     parser.addOption(QCommandLineOption(QStringLiteral("destination"), i18n("Phone number to send the message"), i18n("phone number")));
-    parser.addOption(QCommandLineOption(QStringLiteral("attachment"), i18n("File urls to send attachments with the message"), i18n("file urls")));
+    parser.addOption(QCommandLineOption(QStringLiteral("attachment"), i18n("File urls to send attachments with the message (can be passed multiple times)"), i18n("file urls")));
     parser.addOption(QCommandLineOption(QStringList(QStringLiteral("device")) << QStringLiteral("d"), i18n("Device ID"), QStringLiteral("dev")));
     parser.addOption(QCommandLineOption(QStringList(QStringLiteral("name")) << QStringLiteral("n"), i18n("Device Name"), QStringLiteral("name")));
     parser.addOption(QCommandLineOption(QStringLiteral("encryption-info"), i18n("Get encryption info about said device")));
@@ -261,7 +261,7 @@ int main(int argc, char** argv)
 
                 const QString message = parser.value(QStringLiteral("send-sms"));
 
-                const QStringList rawAttachmentUrlsList = parser.value(QStringLiteral("attachment")).split(QRegularExpression(QStringLiteral("\\s+")));
+                const QStringList rawAttachmentUrlsList = parser.values(QStringLiteral("attachment"));
 
                 QVariantList attachments;
                 for (const QString& attachmentUrl : rawAttachmentUrlsList) {
