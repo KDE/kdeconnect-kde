@@ -44,8 +44,8 @@ private:
         ThresholdBatteryLow = 1
     };
 
-    int m_charge;
-    bool m_isCharging;
+    int m_charge = -1;
+    bool m_isCharging = false;
 };
 
 #endif
