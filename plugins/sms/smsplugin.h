@@ -105,9 +105,12 @@
 /**
  * Packet sent to request all the messages in a particular conversation
  *
- * The body should contain the key "threadID" mapping to the threadID being requested
- * For example:
- * { "threadID": 203 }
+ * The following fields are available:
+ * "threadID": <long>            // (Required) ThreadID to request
+ * "rangeStartTimestamp": <long> // (Optional) Millisecond epoch timestamp indicating the start of the range from which to return messages
+ * "numberToRequest": <long>     // (Optional) Number of messages to return, starting from rangeStartTimestamp.
+ *                               // May return fewer than expected if there are not enough or more than expected if many
+ *                               // messages have the same timestamp.
  */
 #define PACKET_TYPE_SMS_REQUEST_CONVERSATION QStringLiteral("kdeconnect.sms.request_conversation")
 
@@ -161,9 +164,11 @@ public Q_SLOTS:
     /**
      * Send a request to the remote for a particular conversation
      *
-     * TODO: Make interface capable of requesting limited window of messages
+     * @param conversationID The conversation to query
+     * @param rangeStartTimestamp Return messages with timestamp >= this value. Value <= 0 indicates no limit.
+     * @param numberToRequest Request this many messages. May return more, may return less. Value <= 0 indicates no limit.
      */
-    Q_SCRIPTABLE void requestConversation(const qint64& conversationID) const;
+    Q_SCRIPTABLE void requestConversation(const qint64 conversationID, const qint64 rangeStartTimestamp = -1, const qint64 numberToRequest = -1) const;
 
     Q_SCRIPTABLE void launchApp();
 

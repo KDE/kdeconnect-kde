@@ -102,10 +102,12 @@ void SmsPlugin::requestAllConversations()
     sendPacket(np);
 }
 
-void SmsPlugin::requestConversation (const qint64& conversationID) const
+void SmsPlugin::requestConversation (const qint64 conversationID, const qint64 rangeStartTimestamp, const qint64 numberToRequest) const
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATION);
     np.set(QStringLiteral("threadID"), conversationID);
+    np.set(QStringLiteral("rangeStartTimestamp"), rangeStartTimestamp);
+    np.set(QStringLiteral("numberToRequest"), numberToRequest);
 
     sendPacket(np);
 }

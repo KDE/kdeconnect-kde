@@ -25,6 +25,11 @@ class Device;
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CONVERSATIONS)
 
+// There is some amount of overhead and delay to making a request, so make sure to request at least a few
+#define MIN_NUMBER_TO_REQUEST 25
+// Some low-water mark after which we want to fill the cache
+#define CACHE_LOW_WATER_MARK_PERCENT 10
+
 class ConversationsDbusInterface
     : public QDBusAbstractAdaptor
 {
@@ -44,8 +49,8 @@ public:
     QList<ConversationMessage> getConversation(const qint64& conversationID) const;
 
     /**
-     * Get all of the messages in the requested conversation from the remote device
-     * TODO: Make interface capable of requesting smaller window of messages
+     * Get some new messages for the requested conversation from the remote device
+     * Requests a quantity of new messages equal to the current number of messages in the conversation
      */
     void updateConversation(const qint64& conversationID);
 

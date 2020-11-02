@@ -44,13 +44,24 @@ void RequestConversationWorker::handleRequestConversation()
     size_t numHandled = replyForConversation(messagesList, start, howMany);
 
     if (numHandled < howMany) {
+        // In this case, the cache wasn't able to satisfy the request fully. Get more.
+
         size_t numRemaining = howMany - numHandled;
-        // If we don't have enough messages in cache, go get some more
-        // TODO: Make Android interface capable of requesting small window of messages
         parent->updateConversation(conversationID);
         messagesList = parent->getConversation(conversationID);
-        //ConversationsDbusInterface::getConversation blocks until it sees new messages in the requested conversation
+        //ConversationsDbusInterface::updateConversation blocks until it sees new messages in the requested conversation
         replyForConversation(messagesList, start + numHandled, numRemaining);
+    } else {
+        // The cache was able to fully satisfy the request but we need to check that it isn't running dry
+
+        size_t numCachedMessages = messagesList.count();
+        size_t requestEnd = start + numHandled;
+        size_t numRemainingMessages = numCachedMessages - requestEnd;
+        double percentRemaining = ((double) numRemainingMessages / numCachedMessages) * 100;
+
+        if (percentRemaining < CACHE_LOW_WATER_MARK_PERCENT || numRemainingMessages < MIN_NUMBER_TO_REQUEST) {
+            parent->updateConversation(conversationID);
+        }
     }
 
     Q_EMIT finished();

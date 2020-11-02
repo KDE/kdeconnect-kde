@@ -169,7 +169,20 @@ void ConversationsDbusInterface::updateConversation(const qint64& conversationID
     }
     qCDebug(KDECONNECT_CONVERSATIONS) << "Requesting conversation with ID" << conversationID << "from remote";
     conversationsWaitingForMessages.insert(conversationID);
-    m_smsInterface.requestConversation(conversationID);
+
+    // Request a window of messages
+    qint64 rangeStartTimestamp;
+    qint64 numberToRequest;
+    if (m_conversations.contains(conversationID) && m_conversations[conversationID].count() > 0) {
+        rangeStartTimestamp = m_conversations[conversationID].first().date(); // Request starting from the oldest-available message
+        numberToRequest = m_conversations[conversationID].count(); // Request an increasing number of messages by requesting more equal to the amount we have
+    } else {
+        rangeStartTimestamp = -1; // Value < 0 indicates to return the newest messages
+        numberToRequest = MIN_NUMBER_TO_REQUEST; // Start off with a small batch
+    }
+    if (numberToRequest < MIN_NUMBER_TO_REQUEST) { numberToRequest = MIN_NUMBER_TO_REQUEST; }
+    m_smsInterface.requestConversation(conversationID, rangeStartTimestamp, numberToRequest);
+
     while (conversationsWaitingForMessages.contains(conversationID)) {
         waitingForMessages.wait(&waitingForMessagesLock);
     }
