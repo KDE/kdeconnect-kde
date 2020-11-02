@@ -51,7 +51,7 @@ void TelephonyPlugin::createNotification(const NetworkPacket& np)
     qCDebug(KDECONNECT_PLUGIN_TELEPHONY) << "Creating notification with type:" << type;
 
     if (!m_currentCallNotification) {
-        m_currentCallNotification = new KNotification(type, KNotification::Persistent, this);
+        m_currentCallNotification = new KNotification(type, KNotification::Persistent);
     }
 
     if (!phoneThumbnail.isEmpty()) {
