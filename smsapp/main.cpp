@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 {
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
+        QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
     KAboutData aboutData(QStringLiteral("kdeconnect.sms"),
                          i18n("KDE Connect SMS"),
                          QStringLiteral(KDECONNECT_VERSION_STRING),

@@ -38,7 +38,8 @@ public:
         : Daemon(parent)
         , m_nam(nullptr)
     {
-        qApp->setWindowIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg"))));
+        qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
+            QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
     }
 
     void askPairingConfirmation(Device* device) override

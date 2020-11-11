@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QStyle>
+#include <QStandardPaths>
 
 #include <KCMultiDialog>
 #include <KAboutData>
@@ -17,7 +18,8 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
+        QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
     KAboutData about(QStringLiteral("kdeconnect-settings"),
                      i18n("KDE Connect Settings"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),

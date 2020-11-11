@@ -10,6 +10,7 @@
 #include <QTextEdit>
 #include <QLineEdit>
 #include <QBoxLayout>
+#include <QStandardPaths>
 
 #include <KLocalizedString>
 
@@ -28,7 +29,8 @@ SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& 
 
     connect(this, &QDialog::accepted, this, &SendReplyDialog::sendButtonClicked);
     setWindowTitle(topicName);
-    setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+    setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
+        QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
     setAttribute(Qt::WA_DeleteOnClose);
 }
 
