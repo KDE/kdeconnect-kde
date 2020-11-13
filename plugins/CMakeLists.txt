@@ -9,7 +9,10 @@ add_subdirectory(remotecontrol)
 add_subdirectory(remotesystemvolume)
 add_subdirectory(clipboard)
 add_subdirectory(runcommand)
-add_subdirectory(bigscreen)
+
+if(NOT WIN32 AND NOT APPLE)
+    add_subdirectory(bigscreen)
+endif()
 
 if(NOT APPLE)
 add_subdirectory(presenter)
