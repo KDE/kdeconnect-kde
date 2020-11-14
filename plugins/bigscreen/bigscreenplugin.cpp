@@ -30,6 +30,9 @@ BigscreenPlugin::~BigscreenPlugin() = default;
 bool BigscreenPlugin::receivePacket(const NetworkPacket& np)
 {
     QString message = np.get<QString>(QStringLiteral("content"));
+    /* Emit a signal that will be consumed by Plasma BigScreen:
+     * https://invent.kde.org/plasma/plasma-bigscreen/-/blob/master/containments/homescreen/package/contents/ui/indicators/KdeConnect.qml
+     */
     Q_EMIT messageReceived(message);
     return true;
 }
