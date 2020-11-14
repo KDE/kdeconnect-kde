@@ -51,6 +51,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("share-text"), i18n("Share text to a said device"), QStringLiteral("text")));
     parser.addOption(QCommandLineOption(QStringLiteral("list-notifications"), i18n("Display the notifications on a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("lock"), i18n("Lock the specified device")));
+    parser.addOption(QCommandLineOption(QStringLiteral("unlock"), i18n("Unlock the specified device")));
     parser.addOption(QCommandLineOption(QStringLiteral("send-sms"), i18n("Sends an SMS. Requires destination"), i18n("message")));
     parser.addOption(QCommandLineOption(QStringLiteral("destination"), i18n("Phone number to send the message"), i18n("phone number")));
     parser.addOption(QCommandLineOption(QStringLiteral("attachment"), i18n("File urls to send attachments with the message (can be passed multiple times)"), i18n("file urls")));
@@ -205,6 +206,16 @@ int main(int argc, char** argv)
             msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
             blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
             QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << endl;
+        } else if (parser.isSet(QStringLiteral("lock")) || parser.isSet(QStringLiteral("unlock"))) {
+            LockDeviceDbusInterface iface(device);
+            iface.setLocked(parser.isSet(QStringLiteral("lock")));
+
+            DeviceDbusInterface deviceIface(device);
+            if (parser.isSet(QStringLiteral("lock"))) {
+                QTextStream(stdout) << i18nc("device has requested to lock peer device", "Requested to lock %1.", deviceIface.name()) << endl;
+            } else {
+                QTextStream(stdout) << i18nc("device has requested to unlock peer device", "Requested to unlock %1.", deviceIface.name()) << endl;
+            }
         } else if(parser.isSet(QStringLiteral("pair"))) {
             DeviceDbusInterface dev(device);
             if (!dev.isReachable()) {

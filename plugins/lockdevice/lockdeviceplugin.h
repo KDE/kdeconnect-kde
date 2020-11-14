@@ -29,7 +29,7 @@ public:
     ~LockDevicePlugin() override;
 
     bool isLocked() const;
-    void setLocked(bool b);
+    Q_SCRIPTABLE void setLocked(bool);
 
     QString dbusPath() const override;
     void connected() override;
