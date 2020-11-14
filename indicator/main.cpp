@@ -7,6 +7,7 @@
 #include <QApplication>
 #include <QProcess>
 #include <QThread>
+#include <QPointer>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -56,15 +57,22 @@ int main(int argc, char** argv)
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
     QMenu* menu = new QMenu;
 
+    QPointer<KCMultiDialog> dialog;
+
     DaemonDbusInterface iface;
-    auto refreshMenu = [&iface, &model, &menu, &helper]() {
+
+    auto refreshMenu = [&iface, &model, &menu, &helper, &dialog]() {
         menu->clear();
         auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
-        QObject::connect(configure, &QAction::triggered, configure, [](){
-            KCMultiDialog* dialog = new KCMultiDialog;
-            dialog->addModule(QStringLiteral("kcm_kdeconnect"));
-            dialog->setAttribute(Qt::WA_DeleteOnClose);
-            dialog->show();
+        QObject::connect(configure, &QAction::triggered, configure, [&dialog]() {
+            if (dialog == nullptr) {
+                dialog = new KCMultiDialog;
+                dialog->addModule(QStringLiteral("kcm_kdeconnect"));
+                dialog->setAttribute(Qt::WA_DeleteOnClose);
+                dialog->show();
+            } else {
+                dialog->activateWindow();
+            }
         });
         for (int i=0, count = model.rowCount(); i<count; ++i) {
             DeviceDbusInterface* device = model.getDevice(i);
@@ -124,6 +132,11 @@ int main(int argc, char** argv)
     systray.setToolTip(QStringLiteral("KDE Connect"));
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
         systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
+    });
+    QObject::connect(&systray, &QSystemTrayIcon::activated, [&iface](QSystemTrayIcon::ActivationReason reason) {
+        if (reason == QSystemTrayIcon::DoubleClick) {
+            iface.openConfiguration();
+        }
     });
 
     systray.setContextMenu(menu);
