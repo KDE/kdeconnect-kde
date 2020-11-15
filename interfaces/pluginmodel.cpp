@@ -51,7 +51,7 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::CheckStateRole:
     {
-        QString def = pluginEntry.isEnabledByDefault() ? QStringLiteral("true") : QStringLiteral("false");
+        const QString def = pluginEntry.isEnabledByDefault() ? QStringLiteral("true") : QStringLiteral("false");
         return m_config->group("Plugins").readEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), def) == QStringLiteral("true");
     }
     case Qt::DisplayRole:

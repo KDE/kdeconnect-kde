@@ -17,8 +17,6 @@ Kirigami.ScrollablePage
     property string device
 
     ListView {
-        id: sinkList
-
         anchors.fill: parent
 
         model: PluginModel {
@@ -26,9 +24,6 @@ Kirigami.ScrollablePage
         }
 
         delegate: Kirigami.SwipeListItem {
-            width: parent.width
-            enabled: true
-            supportsMouseEvents: false
 
             CheckBox {
                 checked: isChecked
@@ -58,7 +53,4 @@ Kirigami.ScrollablePage
             ]
         }
     }
-
 }
-
-
