@@ -1,5 +1,4 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-plugins\")
-install(FILES kdeconnect_plugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
 
 add_subdirectory(ping)
 add_subdirectory(battery)
