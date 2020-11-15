@@ -9,10 +9,10 @@
 
 #include <QAbstractListModel>
 
-#include <KPluginInfo>
+#include <KPluginMetaData>
+#include <KSharedConfig>
 
 #include "interfaces/dbusinterfaces.h"
-#include <KSharedConfig>
 
 class KDECONNECTINTERFACES_EXPORT PluginModel
     : public QAbstractListModel
@@ -46,7 +46,7 @@ Q_SIGNALS:
 
 
 private:
-    QList<KPluginInfo> m_plugins;
+    QVector<KPluginMetaData> m_plugins;
     QString m_deviceId;
     KSharedConfigPtr m_config;
 

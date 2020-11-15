@@ -7,7 +7,9 @@
 #include "pluginmodel.h"
 
 #include <QDebug>
-#include <KPluginMetaData>
+
+#include <KConfigGroup>
+#include <KPluginLoader>
 
 PluginModel::PluginModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -20,7 +22,7 @@ PluginModel::PluginModel(QObject *parent)
 
 
     beginResetModel();
-    m_plugins = KPluginInfo::fromMetaData(KPluginLoader::findPlugins(QStringLiteral("kdeconnect/")));
+    m_plugins = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
     endResetModel();
 }
 
@@ -44,23 +46,23 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    const KPluginInfo &pluginEntry = m_plugins[index.row()];
+    const KPluginMetaData &pluginEntry = m_plugins[index.row()];
 
     switch (role) {
     case Qt::CheckStateRole:
     {
-        QString def = pluginEntry.isPluginEnabledByDefault() ? QStringLiteral("true") : QStringLiteral("false");
-        return m_config->group("Plugins").readEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginName()), def) == QStringLiteral("true");
+        QString def = pluginEntry.isEnabledByDefault() ? QStringLiteral("true") : QStringLiteral("false");
+        return m_config->group("Plugins").readEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), def) == QStringLiteral("true");
     }
     case Qt::DisplayRole:
         return pluginEntry.name();
     case IconRole:
-        return pluginEntry.icon();
+        return pluginEntry.iconName();
     case IdRole:
-        return pluginEntry.pluginName();
+        return pluginEntry.pluginId();
     case ConfigSourceRole:
     {
-        const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kdeconnect/%1_config.qml").arg(pluginEntry.pluginName()));
+        const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kdeconnect/%1_config.qml").arg(pluginEntry.pluginId()));
         if (configFile.isEmpty())
             return QUrl();
 
@@ -93,8 +95,8 @@ bool PluginModel::setData(const QModelIndex &index, const QVariant &value, int r
     bool ret = false;
 
     if (role == Qt::CheckStateRole) {
-        const KPluginInfo &pluginEntry = m_plugins[index.row()];
-        m_config->group("Plugins").writeEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginName()), value);
+        const KPluginMetaData &pluginEntry = m_plugins[index.row()];
+        m_config->group("Plugins").writeEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), value);
         ret = true;
     }
 
