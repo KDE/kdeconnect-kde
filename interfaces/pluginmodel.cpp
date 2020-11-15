@@ -68,6 +68,8 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
 
         return QUrl::fromLocalFile(configFile);
     }
+    case DescriptionRole:
+        return pluginEntry.description();
     default:
         return QVariant();
     }
@@ -82,6 +84,7 @@ QHash<int, QByteArray> PluginModel::roleNames() const
     roles[IconRole] = "iconName";
     roles[IdRole] = "pluginId";
     roles[ConfigSourceRole] = "configSource";
+    roles[DescriptionRole] = "description";
     return roles;
 }
 

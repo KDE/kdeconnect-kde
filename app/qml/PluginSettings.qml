@@ -25,11 +25,34 @@ Kirigami.ScrollablePage
 
         delegate: Kirigami.SwipeListItem {
 
-            CheckBox {
-                checked: isChecked
-                text: name
-                onClicked: {
-                    isChecked = checked
+            RowLayout {
+                CheckBox {
+                    id: serviceCheck
+                    Layout.alignment: Qt.AlignVCenter
+                    checked: model.isChecked
+                    onToggled: model.isChecked = checked
+                }
+
+                ColumnLayout {
+                    spacing: 0
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+
+                    Label {
+                        Layout.fillWidth: true
+                        text: model.name
+                        color: listItem.pressed ? listItem.activeTextColor : listItem.textColor
+                        elide: Text.ElideRight
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+                        text: model.description
+                        color: listItem.pressed ? listItem.activeTextColor : listItem.textColor
+                        elide: Text.ElideRight
+                        font: Kirigami.Theme.smallFont
+                        opacity: 0.7
+                    }
                 }
             }
 

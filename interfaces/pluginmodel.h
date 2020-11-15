@@ -25,7 +25,8 @@ public:
     enum ExtraRoles {
         IconRole = Qt::UserRole + 1,
         IdRole,
-        ConfigSourceRole
+        ConfigSourceRole,
+        DescriptionRole,
     };
 
     Q_ENUM(ExtraRoles)
