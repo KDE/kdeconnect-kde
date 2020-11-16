@@ -13,8 +13,8 @@
 #include <kcmutils_version.h>
 
 #include "ui_kcm.h"
-#include "interfaces/dbusinterfaces.h"
-#include "interfaces/devicesmodel.h"
+#include "dbusinterfaces.h"
+#include "devicesmodel.h"
 #include "devicessortproxymodel.h"
 #include "kdeconnect-version.h"
 

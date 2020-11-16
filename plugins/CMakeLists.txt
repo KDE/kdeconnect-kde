@@ -1,4 +1,3 @@
-include_directories(${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/core)
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-plugins\")
 install(FILES kdeconnect_plugin.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
 

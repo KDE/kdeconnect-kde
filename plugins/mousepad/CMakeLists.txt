@@ -1,3 +1,5 @@
+kdeconnect_add_plugin(kdeconnect_mousepad JSON kdeconnect_mousepad.json SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
+
 if(UNIX AND NOT APPLE)
     find_package(KF5 ${KF5_MIN_VERSION} QUIET OPTIONAL_COMPONENTS Wayland)
 
@@ -11,7 +13,7 @@ if(UNIX AND NOT APPLE)
         find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
         find_package(XTest REQUIRED)
         find_package(X11 REQUIRED)
-        include_directories(${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
+        target_include_directories(kdeconnect_mousepad ${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
     endif()
 endif()
 
@@ -21,9 +23,7 @@ set(HAVE_WAYLAND ${KF5Wayland_FOUND})
 set(HAVE_MACOS ${APPLE})
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h )
 
-kdeconnect_add_plugin(kdeconnect_mousepad JSON kdeconnect_mousepad.json SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
 target_link_libraries(kdeconnect_mousepad kdeconnectcore Qt5::Gui KF5::I18n)
-
 
 if (HAVE_WINDOWS)
     target_sources(kdeconnect_mousepad PUBLIC windowsremoteinput.cpp)

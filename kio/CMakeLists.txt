@@ -1,4 +1,3 @@
-include_directories(${CMAKE_SOURCE_DIR})
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kio")
 
 set(debug_file_SRCS)

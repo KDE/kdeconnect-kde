@@ -1,10 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kcm")
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR}
-                    ${CMAKE_CURRENT_SOURCE_DIR}
-                    ${CMAKE_SOURCE_DIR}
-                    ${CMAKE_BINARY_DIR})
-
 set(kcm_SRCS
     kcm.cpp
 )
@@ -19,6 +14,7 @@ target_link_libraries(kcm_kdeconnect
     KF5::I18n
     KF5::KCMUtils
     kdeconnectinterfaces
+    kdeconnectversion
 )
 
 install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})

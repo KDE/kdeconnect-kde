@@ -11,7 +11,7 @@
 
 #include <kio/slavebase.h>
 
-#include "interfaces/dbusinterfaces.h"
+#include "dbusinterfaces.h"
 
 class KioKdeconnect : public QObject, public KIO::SlaveBase
 {
