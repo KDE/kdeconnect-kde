@@ -13,7 +13,7 @@ if(UNIX AND NOT APPLE)
         find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
         find_package(XTest REQUIRED)
         find_package(X11 REQUIRED)
-        target_include_directories(kdeconnect_mousepad ${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
+        target_include_directories(kdeconnect_mousepad PRIVATE ${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
     endif()
 endif()
 
