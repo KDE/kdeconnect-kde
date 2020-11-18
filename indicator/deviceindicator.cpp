@@ -62,12 +62,14 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
 
+    // Battery status
     auto battery = new BatteryAction(device);
     addAction(battery);
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_battery")),
                      [battery](bool available) { battery->setVisible(available);  }
                      , this);
 
+    // Browse device filesystem
     auto browse = addAction(QIcon::fromTheme(QStringLiteral("document-open-folder")), i18n("Browse device"));
     connect(browse, &QAction::triggered, device, [device](){
         SftpDbusInterface* sftpIface = new SftpDbusInterface(device->id(), device);
@@ -76,6 +78,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     });
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_sftp")), [browse](bool available) { browse->setVisible(available); }, this);
 
+    // Find device
     auto findDevice = addAction(QIcon::fromTheme(QStringLiteral("irc-voice")), i18n("Ring device"));
     connect(findDevice, &QAction::triggered, device, [device](){
         FindMyPhoneDeviceDbusInterface* iface = new FindMyPhoneDeviceDbusInterface(device->id(), device);
@@ -84,6 +87,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     });
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_findmyphone")), [findDevice](bool available) { findDevice->setVisible(available); }, this);
 
+    // Send file
     auto sendFile = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send file"));
     connect(sendFile, &QAction::triggered, device, [device, this](){
         const QUrl url = QFileDialog::getOpenFileUrl(parentWidget(), i18n("Select file to send to '%1'", device->name()), QUrl::fromLocalFile(QDir::homePath()));
@@ -97,7 +101,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
 
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);
 
-    // Search current application path
+    // SMS Messages
     const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), { QCoreApplication::applicationDirPath() });
     if (!kdeconnectsmsExecutable.isEmpty()) {
         auto smsapp = addAction(QIcon::fromTheme(QStringLiteral("message-new")), i18n("SMS Messages..."));
@@ -107,6 +111,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_sms")), [smsapp](bool available) { smsapp->setVisible(available); }, this);
     }
 
+    // Run command
     QMenu* remoteCommandsMenu = new QMenu(i18n("Run command"), this);
     QAction* menuAction = remoteCommandsMenu->menuAction();
     QAction* addCommandAction = remoteCommandsMenu->addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add commands"));
