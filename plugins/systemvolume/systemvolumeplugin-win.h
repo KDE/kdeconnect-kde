@@ -41,6 +41,7 @@ class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
     IMMDeviceEnumerator* deviceEnumerator;
     CMMNotificationClient* deviceCallback;
     QMap<QString, QPair<IAudioEndpointVolume *, CAudioEndpointVolumeCallback *>> sinkList;
+    QMap<QString, QString> idToNameMap;
 
     bool sendSinkList();
 };
