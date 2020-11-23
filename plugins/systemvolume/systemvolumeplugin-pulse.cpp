@@ -80,12 +80,20 @@ void SystemvolumePlugin::sendSinkList() {
             sendPacket(np);
         });
 
+        connect(sink, &PulseAudioQt::Sink::defaultChanged, this, [this, sink] {
+            NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME);
+            np.set<bool>(QStringLiteral("enabled"), sink->isDefault());
+            np.set<QString>(QStringLiteral("name"), sink->name());
+            sendPacket(np);
+        });
+
         QJsonObject sinkObject {
             {QStringLiteral("name"), sink->name()},
             {QStringLiteral("muted"), sink->isMuted()},
             {QStringLiteral("description"), sink->description()},
             {QStringLiteral("volume"), sink->volume()},
-            {QStringLiteral("maxVolume"), PulseAudioQt::normalVolume()}
+            {QStringLiteral("maxVolume"), PulseAudioQt::normalVolume()},
+            {QStringLiteral("enabled"), sink->isDefault()}
         };
 
         array.append(sinkObject);
