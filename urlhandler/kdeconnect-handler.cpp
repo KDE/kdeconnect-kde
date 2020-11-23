@@ -11,9 +11,13 @@
 #include <QTextStream>
 #include <QUrl>
 #include <QDBusMessage>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QAbstractButton>
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KUrlRequester>
 
 #include <dbushelper.h>
 
@@ -51,12 +55,9 @@ int main(int argc, char** argv)
         about.setupCommandLine(&parser);
         parser.process(app);
         about.processCommandLine(&parser);
-        if (parser.positionalArguments().count() != 1) {
-            parser.showHelp(1);
-            return 1;
+        if (parser.positionalArguments().count() == 1) {
+            urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst(), QDir::currentPath(), QUrl::AssumeLocalFile);
         }
-
-        urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst(), QDir::currentPath(), QUrl::AssumeLocalFile);
         open = parser.isSet(QStringLiteral("open"));
     }
 
@@ -71,27 +72,63 @@ int main(int argc, char** argv)
     Ui::Dialog uidialog;
     uidialog.setupUi(&dialog);
     uidialog.devicePicker->setModel(&proxyModel);
+    uidialog.openOnPeerCheckBox->setChecked(open);
 
-    QString displayUrl;
+    KUrlRequester* urlRequester = new KUrlRequester(&dialog);
+    urlRequester->setStartDir(QUrl::fromLocalFile(QDir::homePath()));
+    uidialog.urlHorizontalLayout->addWidget(urlRequester);
 
-    if (urlToShare.scheme() == QLatin1String("tel")) {
-        displayUrl = urlToShare.toDisplayString(QUrl::RemoveScheme);
-        uidialog.label->setText(i18n("Device to call %1 with:", displayUrl));
-    } else if (urlToShare.isLocalFile() && open) {
-        displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-        uidialog.label->setText(i18n("Device to open %1 on:", displayUrl));
-    } else if (urlToShare.scheme() == QLatin1String("sms")) {
-        displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-        uidialog.label->setText(i18n("Device to send a SMS with:"));
-    } else {
-        displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
-        uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
+    QObject::connect(uidialog.sendUrlRadioButton, &QRadioButton::toggled, [&uidialog, urlRequester](const bool checked) {
+        if (checked) {
+            urlRequester->setPlaceholderText(i18n("Enter URL here"));
+            urlRequester->button()->setVisible(false);
+            uidialog.openOnPeerCheckBox->setVisible(false);
+        }
+    });
+
+    QObject::connect(uidialog.sendFileRadioButton, &QAbstractButton::toggled, [&uidialog, urlRequester](const bool checked) {
+        if (checked) {
+            urlRequester->setPlaceholderText(i18n("Enter file location here"));
+            urlRequester->button()->setVisible(true);
+            uidialog.openOnPeerCheckBox->setVisible(true);
+        }
+    });
+
+    if (!urlToShare.isEmpty()) {
+        uidialog.sendUrlRadioButton->setVisible(false);
+        uidialog.sendFileRadioButton->setVisible(false);
+        urlRequester->setVisible(false);
+
+        QString displayUrl;
+        if (urlToShare.scheme() == QLatin1String("tel")) {
+            displayUrl = urlToShare.toDisplayString(QUrl::RemoveScheme);
+            uidialog.label->setText(i18n("Device to call %1 with:", displayUrl));
+        } else if (urlToShare.isLocalFile() && open) {
+            displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
+            uidialog.label->setText(i18n("Device to open %1 on:", displayUrl));
+        } else if (urlToShare.scheme() == QLatin1String("sms")) {
+            displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
+            uidialog.label->setText(i18n("Device to send a SMS with:"));
+        } else {
+            displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
+            uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
+        }
+
     }
 
-    dialog.setWindowTitle(displayUrl);
+    if (open || urlToShare.isLocalFile()) {
+        uidialog.sendFileRadioButton->setChecked(true);
+        urlRequester->setUrl(QUrl(urlToShare.toLocalFile()));
+
+    } else {
+        uidialog.sendUrlRadioButton->setChecked(true);
+        urlRequester->setUrl(urlToShare);
+    }
+
 
     if (dialog.exec() == QDialog::Accepted) {
-        QUrl url = urlToShare;
+        const QUrl url = urlRequester->url();
+        open = uidialog.openOnPeerCheckBox->isChecked();
         const int currentDeviceIndex = uidialog.devicePicker->currentIndex();
         if(!url.isEmpty() && currentDeviceIndex >= 0) {
             const QString device = proxyModel.index(currentDeviceIndex, 0).data(DevicesModel::IdModelRole).toString();
@@ -102,7 +139,9 @@ int main(int argc, char** argv)
             blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
             return 0;
         } else {
-            QTextStream(stderr) << (i18n("Couldn't share %1", url.toString())) << endl;
+            QMessageBox::critical(nullptr, description,
+                                i18n("Couldn't share %1", url.toString())
+                                );
             return 1;
         }
     } else {

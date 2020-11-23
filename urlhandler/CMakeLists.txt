@@ -9,6 +9,7 @@ target_link_libraries(kdeconnect-handler
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n
+    KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM
 )
 
 install(TARGETS kdeconnect-handler ${INSTALL_TARGETS_DEFAULT_ARGS})
