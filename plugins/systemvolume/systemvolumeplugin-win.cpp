@@ -260,6 +260,13 @@ bool SystemvolumePlugin::sendSinkList()
     }
     unsigned int deviceCount;
     devices->GetCount(&deviceCount);
+
+    IMMDevice *defaultDevice = nullptr;
+    deviceEnumerator->GetDefaultAudioEndpoint(eRender, eMultimedia, &defaultDevice);
+
+    LPWSTR defaultId = NULL;
+    defaultDevice->GetId(&defaultId);
+
     for (unsigned int i = 0; i < deviceCount; i++)
     {
         IMMDevice *device = nullptr;
@@ -310,6 +317,7 @@ bool SystemvolumePlugin::sendSinkList()
         sinkObject.insert(QStringLiteral("muted"), (bool)muted);
         sinkObject.insert(QStringLiteral("volume"), (qint64)(volume * 100));
         sinkObject.insert(QStringLiteral("maxVolume"), (qint64)100);
+        sinkObject.insert(QStringLiteral("enabled"), lstrcmpW(deviceId, defaultId) == 0);
 
         // Register Callback
         if (!sinkList.contains(name)) {
@@ -325,6 +333,7 @@ bool SystemvolumePlugin::sendSinkList()
         array.append(sinkObject);
     }
     devices->Release();
+    defaultDevice->Release();
 
     document.setArray(array);
 
