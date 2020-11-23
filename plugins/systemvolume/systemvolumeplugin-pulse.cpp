@@ -50,6 +50,9 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
             if (np.has(QStringLiteral("muted"))) {
                 sink->setMuted(np.get<bool>(QStringLiteral("muted")));
             }
+            if (np.has(QStringLiteral("enabled"))) {
+                sink->setDefault(np.get<bool>(QStringLiteral("enabled")));
+            }
         }
     }
     return true;
