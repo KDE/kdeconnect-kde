@@ -312,13 +312,13 @@ bool SystemvolumePlugin::sendSinkList()
         sinkObject.insert(QStringLiteral("maxVolume"), (qint64)100);
 
         // Register Callback
-        QString qDeviceId = QString::fromWCharArray(deviceId);
-        if (!sinkList.contains(qDeviceId)) {
+        if (!sinkList.contains(name)) {
             callback = new CAudioEndpointVolumeCallback(*this, name);
             endpoint->RegisterControlChangeNotify(callback);
             sinkList[name] = qMakePair(endpoint, callback);
         }
 
+        QString qDeviceId = QString::fromWCharArray(deviceId);
         idToNameMap[qDeviceId] = name;
 
         device->Release();
