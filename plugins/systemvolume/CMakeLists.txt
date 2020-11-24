@@ -26,6 +26,9 @@ if(WIN32)
         Qt5::Core
         ole32
     )
+    target_sources(kdeconnect_systemvolume
+            PRIVATE
+            PolicyConfig.h)
 elseif(APPLE)
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore

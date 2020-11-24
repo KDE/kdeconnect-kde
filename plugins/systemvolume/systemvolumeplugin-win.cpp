@@ -18,6 +18,7 @@
 #include <core/device.h>
 
 #include "plugin_systemvolume_debug.h"
+#include "PolicyConfig.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
@@ -353,6 +354,50 @@ void SystemvolumePlugin::connected()
     sendSinkList();
 }
 
+static HRESULT setDefaultAudioPlaybackDevice(PCWSTR deviceId) {
+    if (deviceId == nullptr) return ERROR_BAD_UNIT;
+
+    IPolicyConfigVista *pPolicyConfig;
+    HRESULT hr = CoCreateInstance(
+            __uuidof(CPolicyConfigVistaClient),
+            NULL,
+            CLSCTX_ALL,
+            __uuidof(IPolicyConfigVista),
+            (LPVOID *)&pPolicyConfig
+    );
+
+    if (SUCCEEDED(hr))
+    {
+        hr = pPolicyConfig->SetDefaultEndpoint(deviceId, eMultimedia);
+        pPolicyConfig->Release();
+    }
+
+    return hr;
+}
+
+HRESULT SystemvolumePlugin::setDefaultAudioPlaybackDevice(QString& name, bool enabled)
+{
+    if (!enabled) return S_OK;
+
+    PWSTR deviceId = nullptr;
+    for (auto& entry : idToNameMap.toStdMap()) {
+        if (entry.second == name) {
+
+            deviceId = new WCHAR[entry.first.length()];
+            wcscpy(deviceId, entry.first.toStdWString().data());
+            break;
+        }
+    }
+
+    if (deviceId == nullptr) return ERROR_BAD_UNIT;
+
+    HRESULT hr = ::setDefaultAudioPlaybackDevice(deviceId);
+
+    delete[] deviceId;
+
+    return hr;
+}
+
 bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (!valid)
@@ -375,6 +420,10 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
             if (np.has(QStringLiteral("muted")))
             {
                 sinkList[name].first->SetMute(np.get<bool>(QStringLiteral("muted")), NULL);
+            }
+            if (np.has(QStringLiteral("enabled")))
+            {
+                setDefaultAudioPlaybackDevice(name, np.get<bool>(QStringLiteral("enabled")));
             }
         }
     }

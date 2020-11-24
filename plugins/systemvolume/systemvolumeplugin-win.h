@@ -44,6 +44,7 @@ class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
     QMap<QString, QString> idToNameMap;
 
     bool sendSinkList();
+    HRESULT setDefaultAudioPlaybackDevice(QString& name, bool enabled);
 };
 
 #endif // SYSTEMVOLUMEPLUGINWIN_H
