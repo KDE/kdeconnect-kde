@@ -8,6 +8,7 @@
 #define LOOPBACKDEVICELINK_H
 
 #include "../devicelink.h"
+#include <QSslCertificate>
 
 class LoopbackLinkProvider;
 
@@ -23,6 +24,8 @@ public:
 
     void userRequestsPair() override { setPairStatus(Paired); }
     void userRequestsUnpair() override { setPairStatus(NotPaired); }
+
+    QSslCertificate certificate() const override { return QSslCertificate(); }
 };
 
 #endif

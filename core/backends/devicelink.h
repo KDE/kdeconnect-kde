@@ -15,6 +15,7 @@ class PairingHandler;
 class NetworkPacket;
 class LinkProvider;
 class Device;
+class QSslCertificate;
 
 class DeviceLink
     : public QObject
@@ -43,6 +44,8 @@ public:
 
     //The daemon will periodically destroy unpaired links if this returns false
     virtual bool linkShouldBeKeptAlive() { return false; }
+
+    virtual QSslCertificate certificate() const = 0;
 
 Q_SIGNALS:
     void pairingRequest(PairingHandler* handler);
