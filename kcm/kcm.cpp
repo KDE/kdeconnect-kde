@@ -221,6 +221,7 @@ void KdeConnectKcm::resetDeviceView()
     delete kcmUi->pluginSelector;
     kcmUi->pluginSelector = new KPluginSelector(this);
     kcmUi->deviceInfo_layout->addWidget(kcmUi->pluginSelector);
+    kcmUi->verificationKey->setText(i18n("Key: %1", QString::fromUtf8(currentDevice->verificationKey())));
 
     kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 

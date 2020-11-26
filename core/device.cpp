@@ -9,6 +9,7 @@
 #include <QVector>
 #include <QSet>
 #include <QSslCertificate>
+#include <QSslKey>
 
 #include <KSharedConfig>
 #include <KConfigGroup>
@@ -537,23 +538,45 @@ bool Device::isPluginEnabled(const QString& pluginName) const
 QString Device::encryptionInfo() const
 {
     QString result;
-    QCryptographicHash::Algorithm digestAlgorithm = QCryptographicHash::Algorithm::Sha1;
+    const QCryptographicHash::Algorithm digestAlgorithm = QCryptographicHash::Algorithm::Sha256;
 
-    QString localSha1 = QString::fromLatin1(KdeConnectConfig::instance().certificate().digest(digestAlgorithm).toHex());
-    for (int i = 2; i<localSha1.size(); i += 3) {
-        localSha1.insert(i, QStringLiteral(":")); // Improve readability
+    QString localChecksum = QString::fromLatin1(KdeConnectConfig::instance().certificate().digest(digestAlgorithm).toHex());
+    for (int i = 2; i<localChecksum.size(); i += 3) {
+        localChecksum.insert(i, QStringLiteral(":")); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of your device certificate is: %1\n", localSha1);
+    result += i18n("SHA256 fingerprint of your device certificate is: %1\n", localChecksum);
 
     std::string  remotePem = KdeConnectConfig::instance().getDeviceProperty(id(), QStringLiteral("certificate")).toStdString();
     QSslCertificate remoteCertificate = QSslCertificate(QByteArray(remotePem.c_str(), (int)remotePem.size()));
-    QString remoteSha1 = QString::fromLatin1(remoteCertificate.digest(digestAlgorithm).toHex());
-    for (int i = 2; i < remoteSha1.size(); i += 3) {
-        remoteSha1.insert(i, QStringLiteral(":")); // Improve readability
+    QString remoteChecksum = QString::fromLatin1(remoteCertificate.digest(digestAlgorithm).toHex());
+    for (int i = 2; i < remoteChecksum.size(); i += 3) {
+        remoteChecksum.insert(i, QStringLiteral(":")); // Improve readability
     }
-    result += i18n("SHA1 fingerprint of remote device certificate is: %1\n", remoteSha1);
+    result += i18n("SHA256 fingerprint of remote device certificate is: %1\n", remoteChecksum);
 
     return result;
+}
+
+QSslCertificate Device::certificate() const
+{
+    if (!d->m_deviceLinks.isEmpty()) {
+        return d->m_deviceLinks[0]->certificate();
+    }
+    return QSslCertificate();
+}
+
+QByteArray Device::verificationKey() const
+{
+    auto a = KdeConnectConfig::instance().certificate().publicKey().toDer();
+    auto b = certificate().publicKey().toDer();
+    if (a < b) {
+        std::swap(a, b);
+    }
+
+    QCryptographicHash hash(QCryptographicHash::Sha256);
+    hash.addData(a);
+    hash.addData(b);
+    return hash.result().toHex();
 }
 
 QString Device::pluginIconName(const QString& pluginName)

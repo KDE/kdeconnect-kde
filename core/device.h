@@ -64,6 +64,7 @@ public:
     QString type() const;
     QString iconName() const;
     QString statusIconName() const;
+    Q_SCRIPTABLE QByteArray verificationKey() const;
     Q_SCRIPTABLE QString encryptionInfo() const;
 
     //Add and remove links
@@ -132,6 +133,7 @@ private: //Methods
     void setName(const QString& name);
     void setType(const QString& strtype);
     QString iconForStatus(bool reachable, bool paired) const;
+    QSslCertificate certificate() const;
 
 private:
     class DevicePrivate;

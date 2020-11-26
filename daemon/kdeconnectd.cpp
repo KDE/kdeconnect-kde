@@ -49,14 +49,17 @@ public:
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(QStringLiteral("KDE Connect"));
-        notification->setText(i18n("Pairing request from %1", device->name().toHtmlEscaped()));
+        notification->setText(i18n("Pairing request from %1\n<br/>Key: %2...", device->name().toHtmlEscaped(), QString::fromUtf8(device->verificationKey().left(8))));
         notification->setDefaultAction(i18n("Open"));
-        notification->setActions(QStringList() << i18n("Accept") << i18n("Reject"));
+        notification->setActions(QStringList() << i18n("Accept") << i18n("Reject") << i18n("View key"));
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
         connect(notification, &KNotification::action2Activated, device, &Device::rejectPairing);
-        connect(notification, QOverload<>::of(&KNotification::activated), this, [this, device] {
-            openConfiguration(device->id());
-        });
+        QString deviceId = device->id();
+        auto openSettings = [this, deviceId] {
+            openConfiguration(deviceId);
+        };
+        connect(notification, &KNotification::action3Activated, openSettings);
+        connect(notification, QOverload<>::of(&KNotification::activated), openSettings);
         notification->sendEvent();
     }
 
