@@ -60,37 +60,31 @@ KPluginMetaData PluginLoader::getPluginInfo(const QString& name) const
 
 KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& pluginName, Device* device) const
 {
-    KdeConnectPlugin* ret = nullptr;
-
     KPluginMetaData service = plugins.value(pluginName);
-    if (!service.isValid()) {
-        qCDebug(KDECONNECT_CORE) << "Plugin unknown" << pluginName;
-        return ret;
-    }
+
+    const QStringList outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPacketType"));
+    const QVariantList args = {QVariant::fromValue(device), pluginName, outgoingInterfaces, service.iconName()};
 
 #ifdef SAILFISHOS
     KPluginFactory* factory = pluginsFactories.value(pluginName);
-#else
-    KPluginLoader loader(service.fileName());
-    KPluginFactory* factory = loader.factory();
-    if (!factory) {
-        qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service.pluginId() << loader.errorString();
-        return ret;
-    }
-#endif
 
-    const QStringList outgoingInterfaces = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPacketType"));
+    const auto ret = factory->create<KdeConnectPlugin>(device, args);
 
-    QVariant deviceVariant = QVariant::fromValue<Device*>(device);
-
-    ret = factory->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << pluginName << outgoingInterfaces << service.iconName());
     if (!ret) {
         qCDebug(KDECONNECT_CORE) << "Error loading plugin";
-        return ret;
+    }
+    return ret;
+
+#else
+    auto result = KPluginLoader::instantiatePlugin<KdeConnectPlugin>(service.fileName(), device, args);
+
+    if (result) {
+        return *result;
     }
 
-    //qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service.pluginId();
-    return ret;
+    qCDebug(KDECONNECT_CORE) << "Error loading plugin" << *result;
+    return nullptr;
+#endif
 }
 
 QStringList PluginLoader::incomingCapabilities() const
