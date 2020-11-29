@@ -82,7 +82,7 @@ KdeConnectPlugin* PluginLoader::instantiatePluginForDevice(const QString& plugin
         return *result;
     }
 
-    qCDebug(KDECONNECT_CORE) << "Error loading plugin" << *result;
+    qCDebug(KDECONNECT_CORE) << "Error loading plugin" << result.error();
     return nullptr;
 #endif
 }
