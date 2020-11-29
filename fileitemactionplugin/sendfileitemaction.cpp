@@ -16,7 +16,6 @@
 #include <QIcon>
 
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KLocalizedString>
 
 #include <interfaces/devicesmodel.h>
