@@ -10,6 +10,7 @@
 #include <QObject>
 #include <QString>
 #include <QBluetoothSocket>
+#include <QSslCertificate>
 
 #include "../devicelink.h"
 #include "../devicelinereader.h"
@@ -33,6 +34,7 @@ public:
     virtual void userRequestsUnpair() override;
 
     virtual bool linkShouldBeKeptAlive() override;
+    QSslCertificate certificate() const override;
 
 private Q_SLOTS:
     void dataReceived();
