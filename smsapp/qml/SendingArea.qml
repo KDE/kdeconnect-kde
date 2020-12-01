@@ -133,6 +133,7 @@ ColumnLayout {
 
                     Controls.ToolButton {
                         id: attachFilesButton
+                        visible: false // Disabling this element by hiding it until we have Android support
                         enabled: true
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 2
