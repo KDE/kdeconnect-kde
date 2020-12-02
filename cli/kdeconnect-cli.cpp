@@ -47,7 +47,7 @@ int main(int argc, char** argv)
     parser.addOption(QCommandLineOption(QStringLiteral("unpair"), i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ping"), i18n("Sends a ping to said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ping-msg"), i18n("Same as ping but you can set the message to display"), i18n("message")));
-    parser.addOption(QCommandLineOption(QStringLiteral("share"), i18n("Share a file to a said device"), QStringLiteral("path")));
+    parser.addOption(QCommandLineOption(QStringLiteral("share"), i18n("Share a file/URL to a said device"), QStringLiteral("path or URL")));
     parser.addOption(QCommandLineOption(QStringLiteral("share-text"), i18n("Share text to a said device"), QStringLiteral("text")));
     parser.addOption(QCommandLineOption(QStringLiteral("list-notifications"), i18n("Display the notifications on a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("lock"), i18n("Lock the specified device")));
