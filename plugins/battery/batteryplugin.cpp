@@ -102,14 +102,12 @@ void BatteryPlugin::slotChargeChanged()
     // Prepare an outgoing network packet
     NetworkPacket status(PACKET_TYPE_BATTERY, {{}});
     status.set(QStringLiteral("isCharging"), isAnyBatteryCharging);
-    status.set(QStringLiteral("currentCharge"), cumulativeCharge / batteryQuantity);
+    const int charge = cumulativeCharge / batteryQuantity;
+    status.set(QStringLiteral("currentCharge"), charge);
     // FIXME: In future, we should consider sending an array of battery objects
     status.set(QStringLiteral("batteryQuantity"), batteryQuantity);
-    // We consider the primary battery to be low if it won't last another 10 minutes.
-    // This doesn't necessarily work if (for example) Solid finds multiple batteries.
-    // FIXME: In future, we should check system settings instead of hardcoding an
-    // amount of time.
-    if (chosen->timeToEmpty() < 600 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
+    // We consider the primary battery to be low if it's below 15%
+    if (charge <= 15 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
         status.set(QStringLiteral("thresholdEvent"), (int)ThresholdBatteryLow);
     } else {
         status.set(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
