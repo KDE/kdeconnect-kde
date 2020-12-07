@@ -25,6 +25,8 @@ class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
 
 public:
     explicit SystemvolumePlugin(QObject *parent, const QVariantList &args);
+    ~SystemvolumePlugin();
+
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override;
     void sendSinkList();

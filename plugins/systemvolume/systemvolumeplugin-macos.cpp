@@ -33,6 +33,8 @@ public:
     float volume();
     void setMuted(bool muted);
     bool isMuted();
+    void setDefault(bool enabled);
+    bool isDefault();
 
     void updateType();
 };
@@ -79,6 +81,12 @@ static const AudioObjectPropertyAddress kAudioMasterDataSourcePropertyAddress = 
     kAudioObjectPropertyElementMaster
 };
 
+static const AudioObjectPropertyAddress kAudioDefaultOutputDevicePropertyAddress = {
+    kAudioHardwarePropertyDefaultOutputDevice,
+    kAudioObjectPropertyScopeGlobal,
+    kAudioObjectPropertyElementMaster
+};
+
 OSStatus onVolumeChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
     Q_UNUSED(object);
@@ -101,6 +109,17 @@ OSStatus onMutedChanged(AudioObjectID object, UInt32 numAddresses, const AudioOb
     return noErr;
 }
 
+OSStatus onDefaultChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
+{
+    Q_UNUSED(object);
+    Q_UNUSED(addresses);
+    Q_UNUSED(numAddresses);
+
+    SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
+    plugin->sendSinkList();
+    return noErr;
+}
+
 OSStatus onOutputSourceChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
     Q_UNUSED(object);
@@ -110,6 +129,16 @@ OSStatus onOutputSourceChanged(AudioObjectID object, UInt32 numAddresses, const 
     SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
     plugin->sendSinkList();
     return noErr;
+}
+
+AudioObjectID getDefaultOutputDeviceId() {
+    AudioObjectID dataSourceId;
+    UInt32 size = sizeof(dataSourceId);
+    OSStatus result = AudioObjectGetPropertyData(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, 0, NULL, &size, &dataSourceId);
+    if (result != noErr)
+        return kAudioDeviceUnknown;
+
+    return dataSourceId;
 }
 
 UInt32 getDeviceSourceId(AudioObjectID deviceId) {
@@ -202,6 +231,11 @@ SystemvolumePlugin::SystemvolumePlugin(QObject* parent, const QVariantList& args
     : KdeConnectPlugin(parent, args), m_sinksMap()
 {}
 
+SystemvolumePlugin::~SystemvolumePlugin()
+{
+    AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, &onDefaultChanged, (void *)this);
+}
+
 bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
 {
     if (np.has(QStringLiteral("requestSinks"))) {
@@ -260,7 +294,8 @@ void SystemvolumePlugin::sendSinkList()
             {QStringLiteral("muted"), audioDevice->isMuted()},
             {QStringLiteral("description"), audioDevice->m_description},
             {QStringLiteral("volume"), audioDevice->volume() * 100},
-            {QStringLiteral("maxVolume"), 100}
+            {QStringLiteral("maxVolume"), 100},
+            {QStringLiteral("enabled"), audioDevice->isDefault()}
         };
 
         array.append(sinkObject);
@@ -275,6 +310,7 @@ void SystemvolumePlugin::sendSinkList()
 
 void SystemvolumePlugin::connected()
 {
+    AudioObjectAddPropertyListener(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, &onDefaultChanged, (void *)this);
     sendSinkList();
 }
 
@@ -369,6 +405,22 @@ void MacOSCoreAudioDevice::setMuted(bool muted)
     }
 }
 
+void MacOSCoreAudioDevice::setDefault(bool enabled)
+{
+    if (!enabled) return;
+
+    if (m_deviceId == kAudioObjectUnknown) {
+        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set an Unknown Device as default output";
+        return;
+    }
+
+    OSStatus result = AudioObjectSetPropertyData(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, 0, NULL, sizeof(m_deviceId), &m_deviceId);
+
+    if (result != noErr) {
+        qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set default state of Device" << m_deviceId;
+    }
+}
+
 float MacOSCoreAudioDevice::volume()
 {
     OSStatus result;
@@ -410,6 +462,11 @@ bool MacOSCoreAudioDevice::isMuted()
     AudioObjectGetPropertyData(m_deviceId, &kAudioMasterMutedPropertyAddress, 0, NULL, &muteddataSize, &muted);
 
     return muted == 1;
+}
+
+bool MacOSCoreAudioDevice::isDefault() {
+    AudioObjectID defaultDeviceId = getDefaultOutputDeviceId();
+    return m_deviceId == defaultDeviceId;
 }
 
 void MacOSCoreAudioDevice::updateType()
