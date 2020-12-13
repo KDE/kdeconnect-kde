@@ -88,7 +88,7 @@ public:
     ~BatteryDbusInterface() override;
 
 Q_SIGNALS:
-    void refreshedProxy();
+    void refreshedProxy(bool isCharging, int charge);
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceNotificationsDbusInterface

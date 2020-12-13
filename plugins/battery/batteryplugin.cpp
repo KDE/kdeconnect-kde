@@ -123,7 +123,7 @@ bool BatteryPlugin::receivePacket(const NetworkPacket& np)
     m_charge = np.get<int>(QStringLiteral("currentCharge"), -1);
     const int thresholdEvent = np.get<int>(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
 
-    Q_EMIT refreshed();
+    Q_EMIT refreshed(m_isCharging, m_charge);
 
     if (thresholdEvent == ThresholdBatteryLow && !m_isCharging) {
         Daemon::instance()->sendSimpleNotification(QStringLiteral("batteryLow"), i18nc("device name: low battery", "%1: Low Battery", device()->name()), i18n("Battery at %1%", m_charge), QStringLiteral("battery-040"));

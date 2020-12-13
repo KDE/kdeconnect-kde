@@ -31,7 +31,7 @@ public:
     bool isCharging() const;
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void refreshed();
+    Q_SCRIPTABLE void refreshed(bool isCharging, int charge);
 
 private:
     void slotChargeChanged();
