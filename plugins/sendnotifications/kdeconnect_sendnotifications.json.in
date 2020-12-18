@@ -93,5 +93,6 @@
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.notification.request"
-    ]
+    ],
+    "X-KDE-ConfigModule": "kdeconnect_sendnotifications_config"
 }

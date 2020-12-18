@@ -127,5 +127,6 @@
     },
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.findmyphone.request"
-    ]
+    ],
+    "X-KDE-ConfigModule": "kdeconnect_findthisdevice_config"
 }

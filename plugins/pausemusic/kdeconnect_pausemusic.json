@@ -144,5 +144,6 @@
     },
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.telephony"
-    ]
+    ],
+    "X-KDE-ConfigModule": "kdeconnect_pausemusic_config"
 }

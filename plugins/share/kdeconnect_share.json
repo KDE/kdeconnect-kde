@@ -149,5 +149,6 @@
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.share.request"
-    ]
+    ],
+    "X-KDE-ConfigModule": "kdeconnect_share_config"
 }

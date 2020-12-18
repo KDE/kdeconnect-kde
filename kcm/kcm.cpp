@@ -175,9 +175,6 @@ void KdeConnectKcm::deviceSelected(const QModelIndex& current)
         disconnect(currentDevice, 0, this, 0);
     }
 
-    //Store previous device config
-    pluginsConfigChanged();
-
     if (!current.isValid()) {
         currentDevice = nullptr;
         kcmUi->deviceInfo->setVisible(false);
@@ -225,13 +222,8 @@ void KdeConnectKcm::resetCurrentDevice()
 
 void KdeConnectKcm::resetDeviceView()
 {
-    //KPluginSelector has no way to remove a list of plugins and load another, so we need to destroy and recreate it each time
-    delete kcmUi->pluginSelector;
-    kcmUi->pluginSelector = new KPluginSelector(this);
-    kcmUi->deviceInfo_layout->addWidget(kcmUi->pluginSelector);
     kcmUi->verificationKey->setText(i18n("Key: %1", QString::fromUtf8(currentDevice->verificationKey())));
 
-    kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
 
     kcmUi->name_label->setText(currentDevice->name());
     setWhenAvailable(currentDevice->isTrusted(), [this](bool trusted) {
@@ -243,20 +235,22 @@ void KdeConnectKcm::resetDeviceView()
             }, this);
     }, this);
 
-    const QList<KPluginInfo> pluginInfo = KPluginInfo::fromMetaData(KPluginLoader::findPlugins(QStringLiteral("kdeconnect/")));
-    QList<KPluginInfo> availablePluginInfo;
+    const QVector<KPluginMetaData> pluginInfo = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
+    QVector<KPluginMetaData> availablePluginInfo;
 
     m_oldSupportedPluginNames = currentDevice->supportedPlugins();
     for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
-        if (m_oldSupportedPluginNames.contains(it->pluginName())) {
+        if (m_oldSupportedPluginNames.contains(it->pluginId())) {
             availablePluginInfo.append(*it);
         }
     }
 
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
-    kcmUi->pluginSelector->addPlugins(availablePluginInfo, KPluginSelector::ReadConfigFile, i18n("Available plugins"), QString(), deviceConfig);
-    connect(kcmUi->pluginSelector, &KPluginSelector::changed, this, &KdeConnectKcm::pluginsConfigChanged);
-
+    kcmUi->pluginSelector->clear();
+    kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
+    kcmUi->pluginSelector->addPlugins(availablePluginInfo, i18n("Available plugins"));
+    kcmUi->pluginSelector->setConfig(deviceConfig->group("Plugins"));
+    connect(kcmUi->pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
 }
 
 void KdeConnectKcm::requestPair()
@@ -342,22 +336,17 @@ void KdeConnectKcm::setCurrentDeviceTrusted(KdeConnectKcm::TrustStatus trusted)
     }
 }
 
-void KdeConnectKcm::pluginsConfigChanged()
+void KdeConnectKcm::pluginsConfigChanged(const QString &id, bool enabled)
 {
     //Store previous selection
     if (!currentDevice) return;
 
-    DeviceDbusInterface* auxCurrentDevice = currentDevice;
-    currentDevice = nullptr; //HACK to avoid infinite recursion (for some reason calling save on pluginselector emits changed)
     kcmUi->pluginSelector->save();
-    currentDevice = auxCurrentDevice;
-
     currentDevice->reloadPlugins();
 }
 
 void KdeConnectKcm::save()
 {
-    pluginsConfigChanged();
     KCModule::save();
 }
 

@@ -36,7 +36,7 @@ private:
 private Q_SLOTS:
     void deviceSelected(const QModelIndex& current);
     void requestPair();
-    void pluginsConfigChanged();
+    void pluginsConfigChanged(const QString &id, bool enabled);
     void sendPing();
     void resetSelection();
     void trustedChanged(bool);
