@@ -52,5 +52,5 @@ Name[sv]=KDE-anslut
 Name[tr]=KDE Connect
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
-Name[zh_CN]=K 易连
+Name[zh_CN]=KDE Connect
 Name[zh_TW]=KDE 連線
