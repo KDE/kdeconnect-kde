@@ -53,7 +53,7 @@
         "Description[ca]": "Navega pel sistema de fitxers del dispositiu remot emprant SFTP",
         "Description[cs]": "Prohlížejte souborový systém zařízení pomocí SFTP",
         "Description[da]": "Gennemse den eksterne enheds filsystem med SFTP",
-        "Description[de]": "Browsen im Dateisystem des entfernten Geräts mit SFTP",
+        "Description[de]": "Das Dateisystem des entfernten Geräts über SFTP durchsuchen",
         "Description[el]": "Περιήγηση του απομακρυσμένου συστήματος αρχείων με χρήση SFTP",
         "Description[en_GB]": "Browse the remote device filesystem using SFTP",
         "Description[es]": "Navegar por el sistema de archivos del dispositivo remoto usando SFTP",
