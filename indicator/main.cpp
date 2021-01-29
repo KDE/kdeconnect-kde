@@ -31,6 +31,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     KAboutData about(QStringLiteral("kdeconnect-indicator"),
                      i18n("KDE Connect Indicator"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
