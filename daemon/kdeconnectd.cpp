@@ -130,6 +130,7 @@ int main(int argc, char* argv[])
     detectPlatform(argc, argv);
 
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     KAboutData aboutData(
         QStringLiteral("kdeconnect.daemon"),
         i18n("KDE Connect Daemon"),
