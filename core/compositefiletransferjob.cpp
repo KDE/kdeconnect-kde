@@ -17,11 +17,11 @@ CompositeFileTransferJob::CompositeFileTransferJob(const QString& deviceId)
     , m_running(false)
     , m_currentJobNum(1)
     , m_totalJobs(0)
-    , m_currentJobSendPayloadSize(0)
-    , m_totalSendPayloadSize(0)
+    , m_currentJobSentPayloadSize(0)
+    , m_totalSentPayloadSize(0)
+    , m_oldTotalSentPayloadSize(0)
     , m_totalPayloadSize(0)
     , m_currentJob(nullptr)
-    , m_prevElapsedTime(0)
 {
     setCapabilities(Killable);
 }
@@ -40,7 +40,7 @@ void CompositeFileTransferJob::start()
 void CompositeFileTransferJob::startNextSubJob()
 {
     m_currentJob = qobject_cast<FileTransferJob*>(subjobs().at(0));
-    m_currentJobSendPayloadSize = 0;
+    m_currentJobSentPayloadSize = 0;
 
     Q_EMIT description(this, i18ncp("@title job", "Receiving file", "Receiving files", m_totalJobs),
         {i18nc("The source of a file operation", "Source"), Daemon::instance()->getDevice(this->m_deviceId)->name()},
@@ -95,17 +95,25 @@ bool CompositeFileTransferJob::doKill()
 void CompositeFileTransferJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount)
 {
     Q_UNUSED(job);
-    m_currentJobSendPayloadSize = amount;
-    quint64 uploaded = m_totalSendPayloadSize + m_currentJobSendPayloadSize;
 
-    if (uploaded == m_totalPayloadSize || m_prevElapsedTime == 0 || m_timer.elapsed() - m_prevElapsedTime >= 100) {
-        m_prevElapsedTime = m_timer.elapsed();
-        setProcessedAmount(unit, uploaded);
+    m_currentJobSentPayloadSize = amount;
+    const auto totalSent = m_totalSentPayloadSize + m_currentJobSentPayloadSize;
 
-        const auto elapsed = m_timer.elapsed();
-        if (elapsed > 0) {
-            emitSpeed((1000 * uploaded) / elapsed);
-        }
+    if (!m_reportTimer.isValid()) {
+        m_reportTimer.start();
+    }
+    if (m_reportTimer.hasExpired(250)) {
+        setProcessedAmount(unit, totalSent);
+        m_reportTimer.restart();
+    }
+
+    if (!m_speedTimer.isValid()) {
+        m_speedTimer.start();
+    }
+    if (m_speedTimer.hasExpired(1000)) {
+        emitSpeed(1000 * (totalSent - m_oldTotalSentPayloadSize) / m_speedTimer.elapsed());
+        m_oldTotalSentPayloadSize = totalSent;
+        m_speedTimer.restart();
     }
 }
 
@@ -118,8 +126,9 @@ void CompositeFileTransferJob::slotResult(KJob *job)
         return;
     }
 
-    m_totalSendPayloadSize += m_currentJobSendPayloadSize;
+    m_totalSentPayloadSize += m_currentJobSentPayloadSize;
 
+    setProcessedAmount(Bytes, m_totalSentPayloadSize);
     setProcessedAmount(Files, m_currentJobNum);
 
     if (m_currentJobNum < m_totalJobs) {

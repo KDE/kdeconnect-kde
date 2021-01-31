@@ -38,12 +38,13 @@ private:
     bool m_running;
     int m_currentJobNum;
     int m_totalJobs;
-    quint64 m_currentJobSendPayloadSize;
-    quint64 m_totalSendPayloadSize;
+    quint64 m_currentJobSentPayloadSize;
+    quint64 m_totalSentPayloadSize;
+    quint64 m_oldTotalSentPayloadSize; // for speed calculation
     quint64 m_totalPayloadSize;
     FileTransferJob *m_currentJob;
-    QElapsedTimer m_timer;
-    quint64 m_prevElapsedTime;
+    QElapsedTimer m_reportTimer;
+    QElapsedTimer m_speedTimer;
 
 };
 
