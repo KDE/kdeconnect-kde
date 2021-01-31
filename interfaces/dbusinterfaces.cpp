@@ -67,7 +67,7 @@ BatteryDbusInterface::BatteryDbusInterface(const QString& id, QObject* parent)
 BatteryDbusInterface::~BatteryDbusInterface() = default;
 
 DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString& id, QObject* parent)
-    : OrgKdeKdeconnectDeviceNotificationsInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/") +id, DBusHelper::sessionBus(), parent)
+    : OrgKdeKdeconnectDeviceNotificationsInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/notifications"), DBusHelper::sessionBus(), parent)
 {
 
 }
