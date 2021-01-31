@@ -634,3 +634,4 @@ Comment[x-test]=xxNotification receivedxx
 Comment[zh_CN]=收到通知
 Comment[zh_TW]=收到通知
 Action=Popup
+ShowInHistory=false
