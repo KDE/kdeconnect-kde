@@ -34,8 +34,6 @@ private Q_SLOTS:
     void startNextSubJob();
 
 private:
-    void emitDescription(const QString& currentFileName);
-
     QString m_deviceId;
     bool m_running;
     int m_currentJobNum;

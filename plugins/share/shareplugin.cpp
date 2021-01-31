@@ -112,6 +112,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 
             if (!m_compositeJob) {
                 m_compositeJob = new CompositeFileTransferJob(device()->id());
+                m_compositeJob->setProperty("destUrl", destinationDir().toString());
                 KIO::getJobTracker()->registerJob(m_compositeJob);
             }
 

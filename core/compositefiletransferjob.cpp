@@ -41,7 +41,12 @@ void CompositeFileTransferJob::startNextSubJob()
 {
     m_currentJob = qobject_cast<FileTransferJob*>(subjobs().at(0));
     m_currentJobSendPayloadSize = 0;
-    emitDescription(m_currentJob->destination().toString());
+
+    Q_EMIT description(this, i18ncp("@title job", "Receiving file", "Receiving files", m_totalJobs),
+        {i18nc("The source of a file operation", "Source"), Daemon::instance()->getDevice(this->m_deviceId)->name()},
+        {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)}
+    );
+
     m_currentJob->start();
 #ifdef SAILFISHOS
     connect(m_currentJob, SIGNAL(processedAmount(KJob*,KJob::Unit,qulonglong)), this, SLOT(slotProcessedAmount(KJob*,KJob::Unit,qulonglong)));
@@ -65,9 +70,6 @@ bool CompositeFileTransferJob::addSubjob(KJob* job)
             m_totalJobs = np->get<int>(QStringLiteral("numberOfFiles"));
             setTotalAmount(Files, m_totalJobs);
         }
-
-        QString filename = np->get<QString>(QStringLiteral("filename"));
-        emitDescription(filename);
 
         if (!hasSubjobs()) {
             QMetaObject::invokeMethod(this, "startNextSubJob", Qt::QueuedConnection);
@@ -128,22 +130,5 @@ void CompositeFileTransferJob::slotResult(KJob *job)
     } else {
         emitResult();
     }
-}
-
-void CompositeFileTransferJob::emitDescription(const QString& currentFileName)
-{
-    QPair<QString, QString> field2;
-
-    const QUrl fileUrl(currentFileName);
-    const QString fileName = fileUrl.toDisplayString(QUrl::PreferLocalFile);
-
-    if (m_totalJobs > 1) {
-        field2.first = i18n("Progress");
-        field2.second = i18n("Receiving file %1 of %2", m_currentJobNum, m_totalJobs);
-    }
-
-    Q_EMIT description(this, i18np("Receiving file from %2", "Receiving %1 files from %2", m_totalJobs, Daemon::instance()->getDevice(this->m_deviceId)->name()),
-                       { i18n("File"), fileName }, field2
-    );
 }
 
