@@ -11,6 +11,11 @@
 #include <dbushelper.h>
 
 #include <KPluginFactory>
+#include <KStartupInfo>
+
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#include <QX11Info>
+#endif
 
 K_PLUGIN_CLASS_WITH_JSON(NotificationsPlugin, "kdeconnect_notifications.json")
 
@@ -149,6 +154,12 @@ void NotificationsPlugin::replyRequested(Notification* noti)
     SendReplyDialog* dialog = new SendReplyDialog(originalMessage, replyId, appName);
     connect(dialog, &SendReplyDialog::sendReply, this, &NotificationsPlugin::sendReply);
     dialog->show();
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+    auto window = qobject_cast<QWindow*>(dialog->windowHandle());
+    if (window && QX11Info::isPlatformX11()) {
+        KStartupInfo::setNewStartupId(window, QX11Info::nextStartupId());
+    }
+#endif
     dialog->raise();
 }
 
