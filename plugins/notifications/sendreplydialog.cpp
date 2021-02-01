@@ -32,6 +32,7 @@ SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& 
     setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
         QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
     setAttribute(Qt::WA_DeleteOnClose);
+    m_ui->replyEdit->setFocus();
 }
 
 SendReplyDialog::~SendReplyDialog() = default;

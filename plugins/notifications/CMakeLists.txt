@@ -21,4 +21,11 @@ target_link_libraries(kdeconnect_notifications
     Qt5::DBus
     KF5::Notifications
     KF5::I18n
+    KF5::WindowSystem
 )
+
+if (UNIX AND NOT APPLE)
+    target_link_libraries(kdeconnect_notifications
+        Qt::X11Extras
+    )
+endif()
