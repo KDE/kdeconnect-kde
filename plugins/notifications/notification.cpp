@@ -88,15 +88,16 @@ void Notification::createKNotification(const NetworkPacket& np)
     }
 
     QString escapedTitle = m_title.toHtmlEscaped();
+    // notification title text does not have markup, but in some cases below it is used in body text so we escape it
     QString escapedText = m_text.toHtmlEscaped();
     QString escapedTicker = m_ticker.toHtmlEscaped();
 
     if (NotificationServerInfo::instance().supportedHints().testFlag(NotificationServerInfo::X_KDE_DISPLAY_APPNAME)) {
-        m_notification->setTitle(escapedTitle);
+        m_notification->setTitle(m_title);
         m_notification->setText(escapedText);
         m_notification->setHint(QStringLiteral("x-kde-display-appname"), m_appName.toHtmlEscaped());
     } else {
-        m_notification->setTitle(m_appName.toHtmlEscaped());
+        m_notification->setTitle(m_appName);
 
         if (m_title.isEmpty() && m_text.isEmpty()) {
             m_notification->setText(escapedTicker);
