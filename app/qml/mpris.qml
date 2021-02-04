@@ -46,7 +46,7 @@ Kirigami.Page
 
     function msToTime(currentTime, totalTime)
     {
-        if (totalTime.getHours() == 2) {
+        if (totalTime.getHours() >= 2) {
             // Skip a day ahead as Date type's minimum is 1am on the 1st of January and can't go lower
             currentTime.setDate(2)
             currentTime.setHours(currentTime.getHours() - 1)
