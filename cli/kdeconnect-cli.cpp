@@ -285,7 +285,7 @@ int main(int argc, char** argv)
 
                 reply.waitForFinished();
             } else {
-                QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>");
+                QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>") << endl;
                 return 1;
             }
         } else if(parser.isSet(QStringLiteral("ring"))) {
