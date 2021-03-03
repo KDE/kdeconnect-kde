@@ -99,7 +99,7 @@ QStringList PluginLoader::incomingCapabilities() const
     for (const KPluginMetaData& service : qAsConst(plugins)) {
         ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPacketType")).toSet();
     }
-    return ret.toList();
+    return ret.values();
 }
 
 QStringList PluginLoader::outgoingCapabilities() const
@@ -108,7 +108,7 @@ QStringList PluginLoader::outgoingCapabilities() const
     for (const KPluginMetaData& service : qAsConst(plugins)) {
         ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPacketType")).toSet();
     }
-    return ret.toList();
+    return ret.values();
 }
 
 QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString>& incoming, const QSet<QString>& outgoing)
