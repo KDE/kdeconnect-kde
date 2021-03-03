@@ -16,39 +16,59 @@
 /**
  * Wrapper around QClipboard, which emits clipboardChanged only when it really changed
  */
+
 class ClipboardListener : public QObject
 {
     Q_OBJECT
 
-private:
+protected:
     ClipboardListener();
+    void refreshContent(const QString &content);
     QString m_currentContent;
+
+private:
     qint64 m_updateTimestamp = 0;
-    QClipboard* clipboard;
-#ifdef Q_OS_MAC
-    QTimer m_clipboardMonitorTimer;
-#endif
 
 public:
+    static ClipboardListener* instance();
 
-    static ClipboardListener* instance()
-    {
-        static ClipboardListener* me = nullptr;
-        if (!me) {
-            me = new ClipboardListener();
-        }
-        return me;
-    }
-
-    void updateClipboard(QClipboard::Mode mode);
-
-    void setText(const QString& content);
+    virtual void setText(const QString& content) = 0;
 
     QString currentContent();
     qint64 updateTimestamp();
 
 Q_SIGNALS:
     void clipboardChanged(const QString& content);
+};
+
+class QClipboardListener : public ClipboardListener
+{
+public:
+    QClipboardListener();
+
+    void setText(const QString & content) override;
+
+private:
+#ifdef Q_OS_MAC
+    QTimer m_clipboardMonitorTimer;
+#endif
+    void updateClipboard(QClipboard::Mode mode);
+    QClipboard* clipboard;
+};
+
+class DataControl;
+
+class WaylandClipboardListener : public ClipboardListener
+{
+public:
+    WaylandClipboardListener();
+
+    void setText(const QString & content) override;
+
+private:
+    void refresh(const QMimeData *mime);
+
+    DataControl *m_dataControl;
 };
 
 #endif
