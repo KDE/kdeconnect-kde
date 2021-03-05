@@ -1,6 +1,6 @@
 [Desktop Entry]
 GenericName=Open on connected device via KDE Connect
-GenericName[az]=Connectd cihazında KDE Connect ilə açmaq
+GenericName[az]=Connectd cihazında KDE Connect ilə açın
 GenericName[ca]=Obre al dispositiu connectat a través del KDE Connect
 GenericName[ca@valencia]=Obri al dispositiu connectat a través del KDE Connect
 GenericName[cs]=Otevřít na připojeném zařízení přes KDE Connect
@@ -35,7 +35,7 @@ GenericName[x-test]=xxOpen on connected device via KDE Connectxx
 GenericName[zh_CN]=通过 KDE Connect 在已连接的设备上打开
 GenericName[zh_TW]=使用 KDE 連線於連線裝置中開啟
 Name=Open on connected device via KDE Connect
-Name[az]=Connectd cihazında KDE Connect ilə açmaq
+Name[az]=Connectd cihazında KDE Connect ilə açın
 Name[ca]=Obre al dispositiu connectat a través del KDE Connect
 Name[ca@valencia]=Obri al dispositiu connectat a través del KDE Connect
 Name[cs]=Otevřít na připojeném zařízení přes KDE Connect
