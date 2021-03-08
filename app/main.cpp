@@ -9,6 +9,7 @@
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
 #include <QQmlContext>
+#include <QQuickStyle>
 #include <QStandardPaths>
 
 #include <KAboutData>
@@ -23,6 +24,11 @@ int main(int argc, char* argv[])
     KAboutData aboutData(QStringLiteral("kdeconnect.app"), i18n("KDE Connect"), QStringLiteral("1.0"), i18n("KDE Connect"), KAboutLicense::GPL, i18n("(c) 2015, Aleix Pol Gonzalez"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), i18n("Maintainer"), QStringLiteral("aleixpol@kde.org"));
     KAboutData::setApplicationData(aboutData);
+
+    // Default to org.kde.desktop style unless the user forces another style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
 
     {
         QCommandLineParser parser;

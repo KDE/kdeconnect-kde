@@ -85,7 +85,7 @@ endif()
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick Network Multimedia)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickControls2 Network Multimedia)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 if (KF5_OPTIONAL_COMPONENTS)
     find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
@@ -105,6 +105,7 @@ add_subdirectory(plugins)
 add_subdirectory(interfaces)
 
 if (NOT SAILFISHOS)
+
     add_subdirectory(icons)
     add_subdirectory(data)
     add_subdirectory(cli)
