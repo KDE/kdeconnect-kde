@@ -50,6 +50,7 @@ target_link_libraries(kdeconnect-sms
     kdeconnectinterfaces
     kdeconnectversion
     Qt5::Quick
+    Qt5::QuickControls2
     Qt5::Widgets
     KF5::CoreAddons
     KF5::DBusAddons

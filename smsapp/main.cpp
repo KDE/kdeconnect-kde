@@ -15,6 +15,7 @@
 #include <QQmlApplicationEngine>
 #include <QCommandLineParser>
 #include <QQmlContext>
+#include <QQuickStyle>
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KLocalizedContext>
@@ -38,6 +39,11 @@ int main(int argc, char *argv[])
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), {}, QStringLiteral("aleixpol@kde.org"));
     aboutData.addAuthor(i18n("Nicolas Fella"), {}, QStringLiteral("nicolas.fella@gmx.de"));
     KAboutData::setApplicationData(aboutData);
+
+    // Default to org.kde.desktop style unless the user forces another style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+        QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+    }
 
     QString initialMessage, deviceid;
 
