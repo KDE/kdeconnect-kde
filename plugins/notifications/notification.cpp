@@ -8,6 +8,10 @@
 #include "plugin_notification_debug.h"
 
 #include <KNotification>
+#include "knotifications_version.h"
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
+#include <KNotificationReplyAction>
+#endif
 #include <QtGlobal>
 #include <QIcon>
 #include <QString>
@@ -45,10 +49,13 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
     createKNotification(np);
 
     connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this] (unsigned int actionIndex) {
+// Since 5.81 we use KNotification's inline reply instead of our own action
+#if KNOTIFICATIONS_VERSION < QT_VERSION_CHECK(5, 81, 0)
         // Do nothing for our own reply action
         if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
             return;
         }
+#endif
         // Notification action indices start at 1
         Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
     });
@@ -115,8 +122,17 @@ void Notification::createKNotification(const NetworkPacket& np)
     m_notification->setHint(QStringLiteral("x-kde-origin-name"), m_device->name());
 
     if (!m_requestReplyId.isEmpty()) {
+#if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
+        auto replyAction = std::make_unique<KNotificationReplyAction>(i18nc("@action:button", "Reply"));
+        replyAction->setPlaceholderText(i18nc("@info:placeholder", "Reply to %1...", m_appName));
+        replyAction->setFallbackBehavior(KNotificationReplyAction::FallbackBehavior::UseRegularAction);
+        QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, &Notification::replied);
+        QObject::connect(replyAction.get(), &KNotificationReplyAction::activated, this, &Notification::reply);
+        m_notification->setReplyAction(std::move(replyAction));
+#else
         m_actions.prepend(i18n("Reply"));
         connect(m_notification, &KNotification::action1Activated, this, &Notification::reply, Qt::UniqueConnection);
+#endif
     }
 
     m_notification->setActions(m_actions);
