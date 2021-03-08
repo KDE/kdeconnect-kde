@@ -96,6 +96,9 @@ void NotificationsPlugin::addNotification(Notification* noti)
     });
 
     connect(noti, &Notification::actionTriggered, this, &NotificationsPlugin::sendAction);
+    connect(noti, &Notification::replied, this, [this, noti](const QString& message){
+        sendReply(noti->replyId(), message);
+    });
 
     const QString& publicId = newId();
     m_notifications[publicId] = noti;

@@ -60,6 +60,7 @@ Q_SIGNALS:
     void replyRequested();
     Q_SCRIPTABLE void ready();
     void actionTriggered(const QString& key, const QString& action);
+    void replied(const QString& message);
 
 private:
     QString m_internalId;
