@@ -12,7 +12,6 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kdeconnect 1.0 as KdeConnect
 import QtQuick.Layouts 1.9
 import org.kde.kquickcontrolsaddons 2.0
-import org.kde.kirigami 2.12 as Kirigami
 
 Item {
     id: kdeconnect
@@ -44,7 +43,7 @@ Item {
             anchors.fill: parent
             delegate: DeviceDelegate { }
 
-            Kirigami.PlaceholderMessage {
+            PlasmaExtras.PlaceholderMessage {
                 // For optimal label and button sizing
                 width: units.gridUnit * 20
                 anchors.centerIn: parent
