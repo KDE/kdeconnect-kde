@@ -1,0 +1,27 @@
+
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "david.shlemayev@gmail.com",
+                "Name": "David Shlemayev"
+            }
+        ],
+        "Description": "Show your phone's network signal strength",
+        "EnabledByDefault": true,
+        "Icon": "network-wireless",
+        "Id": "kdeconnect_connectivity_report",
+        "License": "GPL",
+        "Name": "Connectivity monitor",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "1.0"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.connectivity_report.request"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.connectivity_report"
+    ]
+}

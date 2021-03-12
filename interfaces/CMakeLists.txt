@@ -41,6 +41,7 @@ set(libkdeconnect_SRC
 geninterface(${PROJECT_SOURCE_DIR}/core/daemon.h daemoninterface)
 geninterface(${PROJECT_SOURCE_DIR}/core/device.h deviceinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/battery/batteryplugin.h batteryinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/connectivity-report/connectivity_reportplugin.h connectivityinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/sftp/sftpplugin.h devicesftpinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/notifications/notificationsplugin.h devicenotificationsinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/findmyphone/findmyphoneplugin.h devicefindmyphoneinterface)

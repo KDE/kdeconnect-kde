@@ -12,6 +12,7 @@
 #include "daemoninterface.h"
 #include "deviceinterface.h"
 #include "batteryinterface.h"
+#include "connectivityinterface.h"
 #include "devicesftpinterface.h"
 #include "devicefindmyphoneinterface.h"
 #include "devicenotificationsinterface.h"
@@ -89,6 +90,20 @@ public:
 
 Q_SIGNALS:
     void refreshedProxy(bool isCharging, int charge);
+};
+
+class KDECONNECTINTERFACES_EXPORT ConnectivityReportDbusInterface
+    : public OrgKdeKdeconnectDeviceConnectivity_reportInterface
+{
+    Q_OBJECT
+    Q_PROPERTY(QString cellularNetworkType READ cellularNetworkType NOTIFY refreshedProxy)
+    Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshedProxy)
+public:
+    explicit ConnectivityReportDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~ConnectivityReportDbusInterface() override;
+
+Q_SIGNALS:
+    void refreshedProxy(QString cellularNetworkType, int cellularNetworkStrength);
 };
 
 class KDECONNECTINTERFACES_EXPORT DeviceNotificationsDbusInterface

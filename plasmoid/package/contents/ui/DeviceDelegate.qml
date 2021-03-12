@@ -64,10 +64,31 @@ PlasmaComponents.ListItem
                 device: root.device
             }
 
+            Connectivity {
+                id: connectivity
+                device: root.device
+            }
+
             PlasmaComponents.Label {
                 id: deviceName
                 elide: Text.ElideRight
-                text: (battery.available && battery.charge > -1) ? i18n("%1 (%2)", display, battery.displayString) : display
+                text: {
+                    let statuses = [];
+
+                    if (connectivity.available) {
+                        statuses.push(connectivity.displayString);
+                    }
+
+                    if (battery.available && battery.charge > -1) {
+                        statuses.push(i18nc("Display the battery charge percentage with the label \"Battery:\" so the user knows what is being displayed", "Battery: %1", battery.displayString);
+                    }
+
+                    if (statuses.length > 0) {
+                        return i18n("%1 (%2)", display, statuses.join(", "));
+                    } else {
+                        return display;
+                    }
+                }
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
             }

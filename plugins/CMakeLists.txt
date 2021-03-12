@@ -2,6 +2,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-plugins\")
 
 add_subdirectory(ping)
 add_subdirectory(battery)
+add_subdirectory(connectivity-report)
 add_subdirectory(remotecommands)
 add_subdirectory(remotecontrol)
 add_subdirectory(remotesystemvolume)

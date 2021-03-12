@@ -1,0 +1,11 @@
+
+This plugins receives packages with type "kdeconnect.connectivity_report" and reads the
+following fields:
+
+signalStrengths (object<string, object>): Maps each SIM (subscription ID) to the following object:
+    networkType (string):
+        One of "5G", "LTE", "CDMA", "EDGE", "GPRS", "GSM", "HSPA", "UMTS", "CDMA2000", "iDEN", "Unknown"
+    signalStrength (int) [0..=4]: The signal strength
+
+It also sends empty packages with type kdeconnect.connectivity_report.request
+to ask the peer device to send a package like the mentioned above.
