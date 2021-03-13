@@ -80,7 +80,7 @@ PlasmaComponents.ListItem
                     }
 
                     if (battery.available && battery.charge > -1) {
-                        statuses.push(i18nc("Display the battery charge percentage with the label \"Battery:\" so the user knows what is being displayed", "Battery: %1", battery.displayString);
+                        statuses.push(i18nc("Display the battery charge percentage with the label \"Battery:\" so the user knows what is being displayed", "Battery: %1", battery.displayString));
                     }
 
                     if (statuses.length > 0) {
