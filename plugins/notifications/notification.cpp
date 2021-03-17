@@ -92,6 +92,7 @@ void Notification::createKNotification(const NetworkPacket& np)
     if (!m_notification) {
         m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
         m_notification->setComponentName(QStringLiteral("kdeconnect"));
+        m_notification->setHint(QStringLiteral("resident"), true); // This means the notification won't be deleted automatically, but only with KNotifications 5.81
     }
 
     QString escapedTitle = m_title.toHtmlEscaped();
