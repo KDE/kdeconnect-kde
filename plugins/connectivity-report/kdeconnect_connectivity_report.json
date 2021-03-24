@@ -18,6 +18,7 @@
                 "Name[sk]": "David Shlemayev",
                 "Name[sl]": "David Shlemayev",
                 "Name[sv]": "David Shlemayev",
+                "Name[tr]": "David Shlemayev",
                 "Name[uk]": "Давид Шлемаєв",
                 "Name[x-test]": "xxDavid Shlemayevxx"
             }
@@ -37,6 +38,7 @@
         "Description[sk]": "Zobraziť silu signálu vášho telefónu",
         "Description[sl]": "Pokaži moč omrežnega signala telefona",
         "Description[sv]": "Visa telefonens nätverkssignalstyrka",
+        "Description[tr]": "Telefonunuzun ağ sinyal gücünü gösterin",
         "Description[uk]": "Показ потужності сигналу мережі на вашому телефоні",
         "Description[x-test]": "xxShow your phone's network signal strengthxx",
         "EnabledByDefault": true,
@@ -59,6 +61,7 @@
         "Name[sk]": "Monitor pripojenia",
         "Name[sl]": "Nadzornik povezovanja",
         "Name[sv]": "Anslutningsövervakare",
+        "Name[tr]": "Bağlantı monitörü",
         "Name[uk]": "Монітор з'єднання",
         "Name[x-test]": "xxConnectivity monitorxx",
         "ServiceTypes": [

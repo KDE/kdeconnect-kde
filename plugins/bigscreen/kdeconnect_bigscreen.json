@@ -32,6 +32,7 @@
                 "Name[sk]": "Aditya Mehra",
                 "Name[sl]": "Aditya Mehra",
                 "Name[sv]": "Aditya Mehra",
+                "Name[tr]": "Aditya Mehra",
                 "Name[uk]": "Aditya Mehra",
                 "Name[x-test]": "xxAditya Mehraxx",
                 "Name[zh_CN]": "Aditya Mehra"
@@ -64,6 +65,7 @@
         "Description[sk]": "Doplnok veľkej obrazovky",
         "Description[sl]": "Vtičnik velikega zaslona",
         "Description[sv]": "Insticksprogram för storskärm",
+        "Description[tr]": "Bigscreen Eklentisi",
         "Description[uk]": "Додаток для великих екранів",
         "Description[x-test]": "xxBigscreen Pluginxx",
         "Description[zh_CN]": "大屏幕插件",
@@ -98,6 +100,7 @@
         "Name[sk]": "Veľká obrazovka",
         "Name[sl]": "Veliki zaslon",
         "Name[sv]": "Storskärm",
+        "Name[tr]": "Bigscreen",
         "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
         "Name[zh_CN]": "大屏幕",
