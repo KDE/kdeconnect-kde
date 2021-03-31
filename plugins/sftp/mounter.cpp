@@ -111,6 +111,10 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         return;
     }
     QString ip = addr.toString();
+    if (addr.protocol() == QAbstractSocket::IPv6Protocol) {
+        ip.prepend(QLatin1Char('['));
+        ip.append(QLatin1Char(']'));
+    }
 
     const QStringList arguments = QStringList()
         << QStringLiteral("%1@%2:%3").arg(
