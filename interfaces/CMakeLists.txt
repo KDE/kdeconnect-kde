@@ -69,9 +69,9 @@ target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
     Qt5::Gui
     Qt5::DBus
+    KF5::ConfigCore
 LINK_PRIVATE
     kdeconnectcore
-    KF5::ConfigCore
     KF5::I18n
     kdeconnectcore
     KF5::CoreAddons
