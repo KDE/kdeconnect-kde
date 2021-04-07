@@ -8,7 +8,9 @@
 #include <QDebug>
 #include <QMimeData>
 
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
 #include "datacontrol.h"
+#endif
 
 ClipboardListener::ClipboardListener()
 {}
@@ -27,11 +29,15 @@ ClipboardListener* ClipboardListener::instance()
 {
     static ClipboardListener* me = nullptr;
     if (!me) {
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
         if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
             me = new WaylandClipboardListener();
         } else {
+#endif
             me = new QClipboardListener();
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
         }
+#endif
     }
     return me;
 }
@@ -72,6 +78,7 @@ void QClipboardListener::setText(const QString& content)
     clipboard->setText(content);
 }
 
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
 WaylandClipboardListener::WaylandClipboardListener()
     : m_dataControl(new DataControl(this))
 {
@@ -105,3 +112,4 @@ void WaylandClipboardListener::refresh(const QMimeData *mime)
     refreshContent(content);
     Q_EMIT clipboardChanged(content);
 }
+#endif
