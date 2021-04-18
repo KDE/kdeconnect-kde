@@ -78,7 +78,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
             //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
             m_waylandInput->requestPointerButtonRelease(Qt::LeftButton);
         } else if (isScroll) {
-            m_waylandInput->requestPointerAxis(Qt::Vertical, dy);
+            m_waylandInput->requestPointerAxis(Qt::Vertical, -dy);
         } else if (!key.isEmpty() || specialKey) {
             // TODO: implement key support
         }
