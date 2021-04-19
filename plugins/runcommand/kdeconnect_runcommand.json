@@ -114,7 +114,7 @@
         "Description[lt]": "Vykdyti pulto komandas nuotoliniu būdu",
         "Description[nl]": "Commando's in de terminal op afstand laten uitvoeren",
         "Description[nn]": "Køyr konsollkommandoar på eininga",
-        "Description[pl]": "Wykonaj polecenie konsoli zdalnie",
+        "Description[pl]": "Wykonuje polecenie konsoli na tym urządzeniu z innego urządzenia",
         "Description[pt]": "Executar de forma remota comandos da consola",
         "Description[pt_BR]": "Executa comandos do console remotamente",
         "Description[ro]": "Execută comenzi de consolă la distanță",
