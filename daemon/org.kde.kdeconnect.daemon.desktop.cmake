@@ -49,6 +49,7 @@ Name[sr@ijekavian]=КДЕ‑конекција
 Name[sr@ijekavianlatin]=KDE‑konekcija
 Name[sr@latin]=KDE‑konekcija
 Name[sv]=KDE-anslut
+Name[ta]=கே.டீ.யீ. கனெக்ட்
 Name[tr]=KDE Connect
 Name[uk]=З’єднання KDE
 Name[x-test]=xxKDE Connectxx
