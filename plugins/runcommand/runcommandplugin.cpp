@@ -29,15 +29,8 @@
 
 #define PACKET_TYPE_RUNCOMMAND QStringLiteral("kdeconnect.runcommand")
 
-#ifdef Q_OS_WIN
-#define COMMAND "cmd"
-#define ARGS "/c"
-
-#else
 #define COMMAND "/bin/sh"
 #define ARGS "-c"
-
-#endif
 
 K_PLUGIN_CLASS_WITH_JSON(RunCommandPlugin, "kdeconnect_runcommand.json")
 
@@ -68,7 +61,11 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
         }
         const QJsonObject commandJson = value.toObject();
         qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
+#ifdef Q_OS_WIN
+        QProcess::startDetached(commandJson[QStringLiteral("command")].toString());
+#else
         QProcess::startDetached(QStringLiteral(COMMAND), QStringList()<< QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
+#endif
         return true;
     } else if (np.has(QStringLiteral("setup"))) {
         Daemon::instance()->openConfiguration(device()->id(), QStringLiteral("kdeconnect_runcommand"));
