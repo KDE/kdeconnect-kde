@@ -41,14 +41,12 @@ Kirigami.ScrollablePage
                     Label {
                         Layout.fillWidth: true
                         text: model.name
-                        color: listItem.pressed ? listItem.activeTextColor : listItem.textColor
                         elide: Text.ElideRight
                     }
 
                     Label {
                         Layout.fillWidth: true
                         text: model.description
-                        color: listItem.pressed ? listItem.activeTextColor : listItem.textColor
                         elide: Text.ElideRight
                         font: Kirigami.Theme.smallFont
                         opacity: 0.7
