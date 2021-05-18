@@ -19,8 +19,6 @@ BatteryAction::BatteryAction(DeviceDbusInterface* device)
         setCharging(m_batteryIface.isCharging());
     });
 
-    setIcon(QIcon::fromTheme(QStringLiteral("battery")));
-
     BatteryAction::update();
 }
 
@@ -32,6 +30,22 @@ void BatteryAction::update()
         setText(i18n("Battery: %1% (Charging)", m_charge));
     else
         setText(i18n("Battery: %1%", m_charge));
+
+    // set icon name
+    QString iconName = QStringLiteral("battery");
+    if (m_charge < 0) {
+    iconName += QStringLiteral("-missing");
+    } else {
+        int val = int(m_charge / 10) * 10;
+        QString numberPaddedString = QStringLiteral("%1").arg(val, 3, 10, QLatin1Char('0'));
+        iconName += QStringLiteral("-") + numberPaddedString;
+    }
+
+    if (m_charging) {
+        iconName += QStringLiteral("-charging");
+    }
+
+    setIcon(QIcon::fromTheme(iconName));
 }
 
 void BatteryAction::setCharge(int charge)
