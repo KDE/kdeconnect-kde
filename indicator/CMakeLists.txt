@@ -14,6 +14,7 @@ set(indicator_SRCS
     deviceindicator.cpp
     ${kdeconnect_custom_icons_SRCS}
     ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions/battery_action.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions/connectivity_action.cpp
 )
 
 include(ECMAddAppIcon)
