@@ -7,9 +7,12 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (indicator)")
 
+qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+
 set(indicator_SRCS
     main.cpp
     deviceindicator.cpp
+    ${kdeconnect_custom_icons_SRCS}
 )
 
 include(ECMAddAppIcon)

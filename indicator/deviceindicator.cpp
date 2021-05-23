@@ -58,11 +58,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     , m_device(device)
     , m_remoteCommandsInterface(new RemoteCommandsDbusInterface(m_device->id()))
 {
-#ifdef Q_OS_WIN
-    setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons/hicolor/scalable/status/") + device->iconName() + QStringLiteral(".svg"))));
-#else
     setIcon(QIcon::fromTheme(device->iconName()));
-#endif
 
     connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
 
