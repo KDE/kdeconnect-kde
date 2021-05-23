@@ -13,6 +13,7 @@ set(indicator_SRCS
     main.cpp
     deviceindicator.cpp
     ${kdeconnect_custom_icons_SRCS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions/battery_action.cpp
 )
 
 include(ECMAddAppIcon)
@@ -39,7 +40,10 @@ endif()
 
 add_executable(kdeconnect-indicator ${indicator_SRCS} ${debug_file_SRCS})
 
+target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions)
+
 target_link_libraries(kdeconnect-indicator Qt5::Widgets KF5::CoreAddons KF5::I18n KF5::Notifications KF5::DBusAddons KF5::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
+
 if (WIN32)
     add_compile_definitions(QSYSTRAY)
 endif()
