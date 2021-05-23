@@ -18,8 +18,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
-        QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData about(QStringLiteral("kdeconnect-settings"),
                      i18n("KDE Connect Settings"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),

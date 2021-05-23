@@ -31,8 +31,7 @@
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect"),
-        QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnect.svg")))));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     const QString description = i18n("KDE Connect URL handler");
     KAboutData about(QStringLiteral("kdeconnect-urlhandler"),
                      description,
