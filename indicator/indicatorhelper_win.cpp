@@ -67,7 +67,7 @@ bool IndicatorHelper::terminateProcess(const QString &processName, const QUrl &i
 
     do
     {
-        if (QString::fromWCharArray(pe32.szExeFile) == processName) {
+        if (QString::fromWCharArray((wchar_t *)pe32.szExeFile) == processName) {
             hProcess = OpenProcess( PROCESS_ALL_ACCESS, FALSE, pe32.th32ProcessID);
 
             if (hProcess == NULL) {
