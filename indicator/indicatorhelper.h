@@ -27,7 +27,11 @@
 class IndicatorHelper
 {
 public:
+#ifdef Q_OS_WIN
+    IndicatorHelper(const QUrl& indicatorUrl);
+#else
     IndicatorHelper();
+#endif
     ~IndicatorHelper();
 
     void preInit();
@@ -43,6 +47,11 @@ public:
     void systrayIconHook(KStatusNotifierItem &systray);
 #endif
 
+private:
+#ifdef Q_OS_MAC
+    QSplashScreen *m_splashScreen;
+#endif
+
 #ifdef Q_OS_WIN
     /**
      * Terminate processes of KDE Connect like kdeconnectd.exe and dbus-daemon.exe
@@ -51,12 +60,9 @@ public:
      */
 
     bool terminateProcess(const QString &processName, const QUrl &indicatorUrl) const;
+    QUrl m_indicatorUrl;
 #endif
 
-private:
-#ifdef Q_OS_MAC
-    QSplashScreen *m_splashScreen;
-#endif
 };
 
 #endif

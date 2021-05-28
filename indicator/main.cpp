@@ -41,7 +41,11 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
+#ifdef Q_OS_WIN
+    IndicatorHelper helper(QUrl::fromLocalFile(qApp->applicationDirPath()));
+#else
     IndicatorHelper helper;
+#endif
 
     helper.preInit();
 
@@ -109,12 +113,7 @@ int main(int argc, char** argv)
         });
 #elif defined Q_OS_WIN
 
-        menu->addAction(i18n("Quit"), [&helper](){
-            const QUrl indicatorUrl = QUrl::fromLocalFile(qApp->applicationDirPath());
-            helper.terminateProcess(processes::dbus_daemon, indicatorUrl);
-            helper.terminateProcess(processes::kdeconnect_daemon, indicatorUrl);
-            qApp->quit();
-        });
+        menu->addAction(i18n("Quit"), [](){qApp->quit();});
 #endif
     };
 

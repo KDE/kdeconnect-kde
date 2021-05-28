@@ -17,8 +17,13 @@
 #include "indicatorhelper.h"
 #include "indicator_debug.h"
 
-IndicatorHelper::IndicatorHelper() {}
-IndicatorHelper::~IndicatorHelper() {}
+IndicatorHelper::IndicatorHelper(const QUrl& indicatorUrl)
+    : m_indicatorUrl(indicatorUrl) {}
+
+IndicatorHelper::~IndicatorHelper() {
+    this->terminateProcess(processes::dbus_daemon, m_indicatorUrl);
+    this->terminateProcess(processes::kdeconnect_daemon, m_indicatorUrl);
+}
 
 void IndicatorHelper::preInit() {}
 
