@@ -8,7 +8,13 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin lockremote)")
 
-kdeconnect_add_plugin(kdeconnect_lockdevice JSON kdeconnect_lockdevice.json SOURCES lockdeviceplugin.cpp ${lockdevice_SRCS} ${debug_file_SRCS})
+if (WIN32)
+    list(APPEND lockdevice_SRCS lockdeviceplugin-win.cpp)
+else ()
+    list(APPEND lockdevice_SRCS lockdeviceplugin.cpp)
+endif()
+
+kdeconnect_add_plugin(kdeconnect_lockdevice JSON kdeconnect_lockdevice.json SOURCES ${lockdevice_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_lockdevice
     kdeconnectcore
