@@ -235,8 +235,12 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
         }
 
     } else { //Is a mouse move event
-        QPoint point = QCursor::pos();
-        QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
+        POINT point;
+        if (GetCursorPos(&point)) {
+            return SetCursorPos(point.x + (int)dx, point.y + (int)dy);
+        } else {
+            return false;
+        }
     }
     return true;
 }
