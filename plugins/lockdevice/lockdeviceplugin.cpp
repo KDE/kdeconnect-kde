@@ -12,6 +12,7 @@
 #include <QDebug>
 #include "plugin_lock_debug.h"
 
+#include <core/daemon.h>
 #include <core/device.h>
 #include <dbushelper.h>
 
@@ -82,12 +83,27 @@ bool LockDevicePlugin::receivePacket(const NetworkPacket & np)
         sendState();
     }
 
+    // Receiving result of setLocked
+    if (np.has(QStringLiteral("lockResult"))) {
+        bool lockSuccess = np.get<bool>(QStringLiteral("lockResult"));
+        if (lockSuccess) {
+            Daemon::instance()->sendSimpleNotification(QStringLiteral("remoteLockSuccess"), device()->name(), i18n("Remote lock successful"), QStringLiteral("lock"));
+        } else {
+            Daemon::instance()->sendSimpleNotification(QStringLiteral("remoteLockFailure"), device()->name(), i18n("Remote lock failed"), QStringLiteral("error"));
+            Daemon::instance()->reportError(device()->name(), i18n("Remote lock failed"));
+        }
+    }
+
     if (np.has(QStringLiteral("setLocked"))) {
         const bool lock = np.get<bool>(QStringLiteral("setLocked"));
-
+        bool success = false;
         if (lock) {
             m_login1Interface.Lock();
-        } else {
+            success = m_login1Interface.lockedHint();
+            NetworkPacket np(PACKET_TYPE_LOCK, {{QStringLiteral("lockResult"), success}});
+            sendPacket(np);
+        }
+        else {
             m_login1Interface.Unlock();
         }
 

@@ -648,3 +648,13 @@ Comment[zh_CN]=收到通知
 Comment[zh_TW]=收到通知
 Action=Popup
 ShowInHistory=false
+
+[Event/remoteLockSuccess]
+Name=Remote Lock Successful
+Comment=Remote lock successful
+Action=Popup
+
+[Event/remoteLockFailure]
+Name=Remote Lock Failure
+Comment=Remote lock failed
+Action=Popup
