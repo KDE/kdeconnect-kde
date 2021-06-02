@@ -41,6 +41,10 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
     about->addAuthor(i18n("Albert Vaca Cintora"));
     setAboutData(about);
 
+#ifdef Q_OS_WIN
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
     kcmUi->setupUi(this);
 
     sortProxyModel = new DevicesSortProxyModel(devicesModel);

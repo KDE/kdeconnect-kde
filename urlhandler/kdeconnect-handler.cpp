@@ -46,6 +46,10 @@ int main(int argc, char** argv)
     about.addAuthor( QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org") );
     KAboutData::setApplicationData(about);
 
+#ifdef Q_OS_WIN
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
     QUrl urlToShare;
     bool open;
     {

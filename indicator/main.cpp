@@ -42,6 +42,7 @@ int main(int argc, char** argv)
     KAboutData::setApplicationData(about);
 
 #ifdef Q_OS_WIN
+    QApplication::setStyle(QStringLiteral("breeze"));
     IndicatorHelper helper(QUrl::fromLocalFile(qApp->applicationDirPath()));
 #else
     IndicatorHelper helper;

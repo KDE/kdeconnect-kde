@@ -24,6 +24,10 @@ int main(int argc, char* argv[])
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), i18n("Maintainer"), QStringLiteral("aleixpol@kde.org"));
     KAboutData::setApplicationData(aboutData);
 
+#ifdef Q_OS_WIN
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
     // Default to org.kde.desktop style unless the user forces another style
     if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
