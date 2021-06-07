@@ -41,6 +41,9 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
+    // Trigger loading the KIconLoader plugin
+    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
+
 #ifdef Q_OS_WIN
     QApplication::setStyle(QStringLiteral("breeze"));
     IndicatorHelper helper(QUrl::fromLocalFile(qApp->applicationDirPath()));

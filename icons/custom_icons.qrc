@@ -43,4 +43,7 @@
     <file alias="tvdisconnected.svg">status/32-status-tvdisconnected.svg</file>
     <file alias="tvtrusted.svg">status/32-status-tvtrusted.svg</file>
 </qresource>
+<qresource prefix="/icons/kdeconnect/">
+    <file alias="kdeconnect.svg">app/sc-apps-kdeconnect.svg</file>
+</qresource>
 </RCC>
