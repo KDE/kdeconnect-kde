@@ -46,15 +46,6 @@ Kirigami.ScrollablePage
         }
     ]
 
-    Label {
-        id: searchResultIndiactor
-        visible: deviceConnected && view.count == 0 && view.headerItem.childAt(0, 0).text.length != 0
-        anchors.centerIn: parent
-        text: i18nd("kdeconnect-sms", "No matched results found : (")
-        horizontalAlignment: Text.AlignHCenter
-        wrapMode: Text.Wrap
-    }
-
     ColumnLayout {
         id: loadingMessage
         visible: deviceConnected && view.count == 0 && view.headerItem.childAt(0, 0).text.length == 0
@@ -268,6 +259,13 @@ Kirigami.ScrollablePage
         Component.onCompleted: {
             currentIndex = -1
             focus = true
+        }
+
+        Kirigami.PlaceholderMessage {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.largeSpacing * 4)
+            visible: deviceConnected && view.count == 0 && view.headerItem.childAt(0, 0).text.length != 0
+            text: i18ndc("kdeconnect-sms", "Placeholder message text when no messages are found", "No matches")
         }
     }
 }
