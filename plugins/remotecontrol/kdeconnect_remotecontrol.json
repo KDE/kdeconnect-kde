@@ -130,9 +130,6 @@
         "Name[x-test]": "xxRemoteControlxx",
         "Name[zh_CN]": "远程控制",
         "Name[zh_TW]": "遠端控制",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://kde.org"
     },

@@ -119,9 +119,6 @@
         "Name[x-test]": "xxSMSxx",
         "Name[zh_CN]": "短信",
         "Name[zh_TW]": "文字簡訊",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://nicolasfella.wordpress.com"
     },

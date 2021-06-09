@@ -82,9 +82,6 @@
         "Name[x-test]": "xxSend notificationsxx",
         "Name[zh_CN]": "发送通知",
         "Name[zh_TW]": "傳送通知",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

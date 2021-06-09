@@ -104,9 +104,6 @@
         "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
         "Name[zh_CN]": "大屏幕",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://aiix.tk"
     },

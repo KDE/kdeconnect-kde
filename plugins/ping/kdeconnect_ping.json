@@ -135,9 +135,6 @@
         "Name[x-test]": "xxPingxx",
         "Name[zh_CN]": "Ping",
         "Name[zh_TW]": "Ping 回應封包",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

@@ -128,9 +128,6 @@
         "Name[x-test]": "xxMprisRemotexx",
         "Name[zh_CN]": "远程 Mpris",
         "Name[zh_TW]": "MprisRemote",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://kde.org"
     },

@@ -128,9 +128,6 @@
         "Name[x-test]": "xxHost remote commandsxx",
         "Name[zh_CN]": "主机远程命令",
         "Name[zh_TW]": "主機與遠端指令",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1"
     },
     "X-KdeConnect-OutgoingPacketType": [

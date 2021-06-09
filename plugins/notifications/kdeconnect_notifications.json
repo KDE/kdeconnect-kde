@@ -131,9 +131,6 @@
         "Name[x-test]": "xxReceive notificationsxx",
         "Name[zh_CN]": "接收通知",
         "Name[zh_TW]": "收到通知",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

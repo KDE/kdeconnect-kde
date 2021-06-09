@@ -132,9 +132,6 @@
         "Name[x-test]": "xxInhibit screensaverxx",
         "Name[zh_CN]": "禁止屏保",
         "Name[zh_TW]": "停止螢幕保護",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     }

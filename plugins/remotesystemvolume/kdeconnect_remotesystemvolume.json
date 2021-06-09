@@ -115,9 +115,6 @@
         "Name[x-test]": "xxRemote system volumexx",
         "Name[zh_CN]": "远程系统音量",
         "Name[zh_TW]": "遠端系統音量",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://nicolasfella.wordpress.com"
     },

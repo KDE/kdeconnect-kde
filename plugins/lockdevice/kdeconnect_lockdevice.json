@@ -129,9 +129,6 @@
         "Name[x-test]": "xxLockDevicexx",
         "Name[zh_CN]": "锁定设备",
         "Name[zh_TW]": "鎖定裝置",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://kde.org"
     },

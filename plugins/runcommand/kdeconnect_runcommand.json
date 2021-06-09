@@ -178,9 +178,6 @@
         "Name[x-test]": "xxRun commandsxx",
         "Name[zh_CN]": "执行命令",
         "Name[zh_TW]": "執行命令",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

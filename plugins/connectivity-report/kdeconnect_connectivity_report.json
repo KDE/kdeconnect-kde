@@ -85,9 +85,6 @@
         "Name[uk]": "Монітор з'єднання",
         "Name[x-test]": "xxConnectivity monitorxx",
         "Name[zh_CN]": "信号监视器",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "1.0"
     },
     "X-KdeConnect-OutgoingPacketType": [

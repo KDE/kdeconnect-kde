@@ -116,9 +116,6 @@
         "Name[x-test]": "xxContactsxx",
         "Name[zh_CN]": "联系人",
         "Name[zh_TW]": "聯絡人",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

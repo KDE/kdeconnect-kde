@@ -133,9 +133,6 @@
         "Name[x-test]": "xxRemote filesystem browserxx",
         "Name[zh_CN]": "远程文件系统浏览器",
         "Name[zh_TW]": "遠端檔案瀏覽器",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },
