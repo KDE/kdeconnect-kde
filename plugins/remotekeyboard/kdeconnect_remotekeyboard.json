@@ -144,9 +144,6 @@
         "Name[x-test]": "xxRemote keyboard from the desktopxx",
         "Name[zh_CN]": "来自桌面的远程键盘",
         "Name[zh_TW]": "從桌面遠端控制鍵盤",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1"
     },
     "X-KdeConnect-OutgoingPacketType": [

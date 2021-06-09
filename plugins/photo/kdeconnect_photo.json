@@ -132,9 +132,6 @@
         "Name[x-test]": "xxPhotoxx",
         "Name[zh_CN]": "照片",
         "Name[zh_TW]": "相片",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://nicolasfella.wordpress.com"
     },

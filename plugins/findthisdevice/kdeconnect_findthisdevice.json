@@ -133,9 +133,6 @@
         "Name[x-test]": "xxFind this devicexx",
         "Name[zh_CN]": "查找此设备",
         "Name[zh_TW]": "尋找這個裝置",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://kde.org"
     },
