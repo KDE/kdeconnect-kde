@@ -33,12 +33,8 @@ PluginLoader::PluginLoader()
     for (auto& staticPlugin : staticPlugins) {
         QJsonObject jsonMetadata = staticPlugin.metaData().value(QStringLiteral("MetaData")).toObject();
         KPluginMetaData metadata(jsonMetadata, QString());
-        if (metadata.serviceTypes().contains(QStringLiteral("KdeConnect/Plugin"))) {
-            plugins.insert(metadata.pluginId(), metadata);
-            pluginsFactories.insert(
-                metadata.pluginId(),
-                qobject_cast<KPluginFactory*>(staticPlugin.instance()));
-        }
+        plugins.insert(metadata.pluginId(), metadata);
+        pluginsFactories.insert( metadata.pluginId(), qobject_cast<KPluginFactory*>(staticPlugin.instance()));
     }
 #else
     const QVector<KPluginMetaData> data = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
