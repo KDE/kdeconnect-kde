@@ -127,9 +127,6 @@
         "Name[x-test]": "xxBattery monitorxx",
         "Name[zh_CN]": "电池监视器",
         "Name[zh_TW]": "電池監視器",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

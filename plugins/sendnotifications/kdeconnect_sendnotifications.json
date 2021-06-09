@@ -108,9 +108,6 @@
         "Name[tr]": "Bildirim gönder",
         "Name[uk]": "Надіслати сповіщення",
         "Name[x-test]": "xxSend notificationsxx",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

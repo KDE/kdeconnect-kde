@@ -131,9 +131,6 @@
         "Name[x-test]": "xxSystem volumexx",
         "Name[zh_CN]": "系统音量",
         "Name[zh_TW]": "系統音量",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://nicolasfella.wordpress.com"
     },

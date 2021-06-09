@@ -118,9 +118,6 @@
         "Name[x-test]": "xxVirtual Monitorxx",
         "Name[zh_CN]": "虚拟显示器",
         "Name[zh_TW]": "虛擬螢幕",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://kde.org"
     },

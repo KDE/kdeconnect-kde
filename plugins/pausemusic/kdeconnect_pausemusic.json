@@ -125,9 +125,6 @@
         "Name[x-test]": "xxPause media during callsxx",
         "Name[zh_CN]": "来电时暂停媒体",
         "Name[zh_TW]": "在通話過程中暫停媒體",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

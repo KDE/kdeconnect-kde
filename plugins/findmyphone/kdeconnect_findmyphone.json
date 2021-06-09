@@ -193,9 +193,6 @@
         "Name[x-test]": "xxRing my phonexx",
         "Name[zh_CN]": "让我的手机响铃",
         "Name[zh_TW]": "撥打我的電話",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://kde.org"
     },

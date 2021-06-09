@@ -122,9 +122,6 @@
         "Name[x-test]": "xxTelephony integrationxx",
         "Name[zh_CN]": "Telephony 集成",
         "Name[zh_TW]": "電話整合",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },

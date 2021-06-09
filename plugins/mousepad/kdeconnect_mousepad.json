@@ -144,9 +144,6 @@
         "Name[x-test]": "xxVirtual inputxx",
         "Name[zh_CN]": "虚拟输入",
         "Name[zh_TW]": "虛擬輸入",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "0.1"
     },
     "X-KdeConnect-OutgoingPacketType": [

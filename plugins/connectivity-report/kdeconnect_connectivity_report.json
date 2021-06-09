@@ -124,9 +124,6 @@
         "Name[x-test]": "xxConnectivity monitorxx",
         "Name[zh_CN]": "信号监视器",
         "Name[zh_TW]": "連線監視器",
-        "ServiceTypes": [
-            "KdeConnect/Plugin"
-        ],
         "Version": "1.0"
     },
     "X-KdeConnect-OutgoingPacketType": [],
