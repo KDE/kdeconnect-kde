@@ -160,6 +160,14 @@ void MprisControlPlugin::propertiesChanged(const QString& propertyInterface, con
         np.set(QStringLiteral("isPlaying"), playing);
         somethingToSend = true;
     }
+    if (properties.contains(QStringLiteral("LoopStatus"))) {
+        np.set(QStringLiteral("loopStatus"), properties[QStringLiteral("LoopStatus")]);
+        somethingToSend = true;
+    }
+    if (properties.contains(QStringLiteral("Shuffle"))) {
+        np.set(QStringLiteral("shuffle"), properties[QStringLiteral("Shuffle")].toBool());
+        somethingToSend = true;
+    }
     if (properties.contains(QStringLiteral("CanPause"))) {
         np.set(QStringLiteral("canPause"), properties[QStringLiteral("CanPause")].toBool());
         somethingToSend = true;
@@ -281,6 +289,16 @@ bool MprisControlPlugin::receivePacket (const NetworkPacket& np)
         //TODO: Check for valid actions, currently we trust anything the other end sends us
         mprisInterface.call(action);
     }
+    if (np.has(QStringLiteral("setLoopStatus"))) {
+        const QString& loopStatus = np.get<QString>(QStringLiteral("setLoopStatus"));
+        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting loopStatus" << loopStatus << "to" << serviceName;
+        mprisInterface.setLoopStatus(loopStatus);
+    }
+    if (np.has(QStringLiteral("setShuffle"))) {
+        bool shuffle = np.get<bool>(QStringLiteral("setShuffle"));
+        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting shuffle" << shuffle << "to" << serviceName;
+        mprisInterface.setShuffle(shuffle);
+    }
     if (np.has(QStringLiteral("setVolume"))) {
         double volume = np.get<int>(QStringLiteral("setVolume"))/100.f;
         qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting volume" << volume << "to" << serviceName;
@@ -317,6 +335,18 @@ bool MprisControlPlugin::receivePacket (const NetworkPacket& np)
         answer.set(QStringLiteral("canGoNext"), mprisInterface.canGoNext());
         answer.set(QStringLiteral("canGoPrevious"), mprisInterface.canGoPrevious());
         answer.set(QStringLiteral("canSeek"), mprisInterface.canSeek());
+
+        // LoopStatus is an optional field
+        if (mprisInterface.property("LoopStatus").isValid()) {
+            const QString& loopStatus = mprisInterface.loopStatus();
+            answer.set(QStringLiteral("loopStatus"),loopStatus);
+        }
+
+        // Shuffle is an optional field
+        if (mprisInterface.property("Shuffle").isValid()) {
+            bool shuffle = mprisInterface.shuffle();
+            answer.set(QStringLiteral("shuffle"),shuffle);
+        }
 
         somethingToSend = true;
     }
