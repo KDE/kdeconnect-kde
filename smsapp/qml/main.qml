@@ -33,10 +33,12 @@ Kirigami.ApplicationWindow
 
         actions: [
             Kirigami.Action {
-                text: i18nd("kdeconnect-sms", "About...")
+                text: i18nd("kdeconnect-sms", "About")
                 icon.name: "help-about"
                 onTriggered: {
-                    applicationWindow().pageStack.push(aboutPageComponent, { aboutData: aboutData });
+                    if (applicationWindow().pageStack.layers.depth < 2) {
+                        applicationWindow().pageStack.layers.push(aboutPageComponent, { aboutData: aboutData })
+                    }
                 }
             }
         ]
