@@ -1,6 +1,9 @@
 ki18n_wrap_ui(telhandler_SRCS dialog.ui)
 
-add_executable(kdeconnect-handler kdeconnect-handler.cpp ${telhandler_SRCS})
+qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+
+add_executable(kdeconnect-handler kdeconnect-handler.cpp ${telhandler_SRCS} ${kdeconnect_custom_icons_SRCS})
+
 
 target_link_libraries(kdeconnect-handler
     kdeconnectinterfaces

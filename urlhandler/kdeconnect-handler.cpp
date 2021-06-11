@@ -45,6 +45,7 @@ int main(int argc, char** argv)
                      KAboutLicense::GPL,
                      i18n("(C) 2017 Aleix Pol Gonzalez"));
     about.addAuthor( QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org") );
+    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
     KAboutData::setApplicationData(about);
     KDBusService dbusService(KDBusService::Unique);
 
