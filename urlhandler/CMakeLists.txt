@@ -8,6 +8,7 @@ target_link_libraries(kdeconnect-handler
     kdeconnectversion
     Qt5::Widgets
     KF5::CoreAddons
+    KF5::DBusAddons
     KF5::I18n
     KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM
 )

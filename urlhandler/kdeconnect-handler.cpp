@@ -18,6 +18,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KUrlRequester>
+#include <KDBusService>
 
 #include <dbushelper.h>
 
@@ -45,6 +46,7 @@ int main(int argc, char** argv)
                      i18n("(C) 2017 Aleix Pol Gonzalez"));
     about.addAuthor( QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org") );
     KAboutData::setApplicationData(about);
+    KDBusService dbusService(KDBusService::Unique);
 
 #ifdef Q_OS_WIN
     QApplication::setStyle(QStringLiteral("breeze"));
