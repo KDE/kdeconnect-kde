@@ -39,6 +39,8 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
                                        QStringLiteral("https://community.kde.org/KDEConnect")
     );
     about->addAuthor(i18n("Albert Vaca Cintora"));
+    about->setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
+
     setAboutData(about);
 
 #ifdef Q_OS_WIN
