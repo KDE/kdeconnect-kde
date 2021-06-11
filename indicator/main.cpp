@@ -117,7 +117,7 @@ int main(int argc, char** argv)
         });
 #elif defined Q_OS_WIN
 
-        menu->addAction(i18n("Quit"), [](){qApp->quit();});
+        menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), [](){qApp->quit();});
 #endif
     };
 
