@@ -7,11 +7,14 @@
 
 #include "deviceindicator.h"
 #include <QFileDialog>
+#include <QStandardPaths>
+#include <QDateTime>
 #include <KLocalizedString>
 
 #include "interfaces/dbusinterfaces.h"
 
 #include <dbushelper.h>
+#include <dbushelpers.h>
 #include <systray_actions.h>
 
 DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
@@ -59,6 +62,15 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
         iface->deleteLater();
     });
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_findmyphone")), [findDevice](bool available) { findDevice->setVisible(available); }, this);
+
+    // Get a photo
+    auto getPhoto = addAction(QIcon::fromTheme(QStringLiteral("camera-photo")), i18n("Get a photo"));
+    connect(getPhoto, &QAction::triggered, this, [device](){
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
+        msg.setArguments({QStandardPaths::standardLocations(QStandardPaths::DownloadLocation).first() + QDateTime::currentDateTime().toString(QStringLiteral("/dd-MM-yy_hh-mm-ss.png"))});
+        blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+    });
+    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_photo")), [getPhoto](bool available) { getPhoto->setVisible(available); }, this);
 
     // Send file
     const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"));
