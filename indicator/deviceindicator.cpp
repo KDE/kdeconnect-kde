@@ -27,14 +27,18 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     auto battery = new BatteryAction(device);
     addAction(battery);
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_battery")),
-                     [battery](bool available) { battery->setVisible(available);  }
-                     , this);
+                    [battery](bool available) {
+                        battery->setVisible(available); 
+                        battery->setDisabled(available); 
+                    }, this);
 
     auto connectivity = new ConnectivityAction(device);
     addAction(connectivity);
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_connectivity_report")),
-                     [connectivity](bool available) { connectivity->setVisible(available);  }
-                     , this);
+                    [connectivity](bool available) {
+                        connectivity->setVisible(available); 
+                        connectivity->setDisabled(available); 
+                    }, this);
 
     // Browse device filesystem
     auto browse = addAction(QIcon::fromTheme(QStringLiteral("document-open-folder")), i18n("Browse device"));
