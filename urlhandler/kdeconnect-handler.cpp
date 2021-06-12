@@ -57,9 +57,11 @@ int main(int argc, char** argv)
 
     QUrl urlToShare;
     bool open;
+    QString deviceId;
     {
         QCommandLineParser parser;
         parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
+        parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
         parser.addOption(QCommandLineOption(QStringLiteral("open"), QStringLiteral("Open the file on the remote device")));
         about.setupCommandLine(&parser);
         parser.process(app);
@@ -68,6 +70,7 @@ int main(int argc, char** argv)
             urlToShare = QUrl::fromUserInput(parser.positionalArguments().constFirst(), QDir::currentPath(), QUrl::AssumeLocalFile);
         }
         open = parser.isSet(QStringLiteral("open"));
+        deviceId = parser.value(QStringLiteral("device"));
     }
 
     DevicesModel model;
@@ -81,6 +84,11 @@ int main(int argc, char** argv)
     Ui::Dialog uidialog;
     uidialog.setupUi(&dialog);
     uidialog.devicePicker->setModel(&proxyModel);
+
+    if (!deviceId.isEmpty()) {
+        uidialog.devicePicker->setCurrentIndex(model.rowForDevice(deviceId));
+    }
+
     uidialog.openOnPeerCheckBox->setChecked(open);
 
     KUrlRequester* urlRequester = new KUrlRequester(&dialog);
