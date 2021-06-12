@@ -18,7 +18,6 @@ add_subdirectory(presenter)
 endif()
 
 if(NOT SAILFISHOS)
-    add_subdirectory(sendnotifications)
     if((WIN32 AND MSVC AND (${CMAKE_SYSTEM_VERSION} VERSION_GREATER_EQUAL 10.0.17763.0)) OR NOT WIN32)
         add_subdirectory(mpriscontrol)
     endif()
@@ -35,6 +34,10 @@ if(NOT SAILFISHOS)
     add_subdirectory(sms)
     add_subdirectory(screensaver-inhibit)
 
+    if(NOT WIN32)
+        add_subdirectory(sendnotifications)
+    endif()
+    
     if(NOT APPLE)
         add_subdirectory(sftp)
     endif()
