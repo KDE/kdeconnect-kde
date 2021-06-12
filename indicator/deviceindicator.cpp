@@ -55,18 +55,14 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_findmyphone")), [findDevice](bool available) { findDevice->setVisible(available); }, this);
 
     // Send file
-    auto sendFile = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send file"));
-    connect(sendFile, &QAction::triggered, device, [device, this](){
-        const QUrl url = QFileDialog::getOpenFileUrl(parentWidget(), i18n("Select file to send to '%1'", device->name()), QUrl::fromLocalFile(QDir::homePath()));
-        if (url.isEmpty())
-            return;
-
-        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
-        msg.setArguments(QVariantList() << url.toString());
-        DBusHelper::sessionBus().call(msg);
-    });
-
-    setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_share")), [sendFile](bool available) { sendFile->setVisible(available); }, this);
+    const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"));
+    if (!kdeconnectHandlerExecutable.isEmpty()) {
+        auto handlerApp = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send a file/URL"));
+        QObject::connect(handlerApp, &QAction::triggered, device, [device, kdeconnectHandlerExecutable] () {
+            QProcess::startDetached(kdeconnectHandlerExecutable, { QStringLiteral("--device"), device->id() });
+        });
+        handlerApp->setVisible(true);
+    }
 
     // SMS Messages
     const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), { QCoreApplication::applicationDirPath() });
