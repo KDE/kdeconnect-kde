@@ -35,6 +35,16 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     }
 
     QMenu* defaultMenu = new QMenu(this);
+
+#ifdef Q_OS_WIN
+    addSuggestedCommand(defaultMenu, i18n("Shedule a shutdown"), QStringLiteral("shutdown /s /t 60"));
+    addSuggestedCommand(defaultMenu, i18n("Shutdown now"), QStringLiteral("shutdown /s /t 0"));
+    addSuggestedCommand(defaultMenu, i18n("Cancel last shutdown"), QStringLiteral("shutdown /a"));
+    addSuggestedCommand(defaultMenu, i18n("Schedule a reboot"), QStringLiteral("shutdown /r /t 60"));
+    addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("rundll32.exe powrprof.dll,SetSuspendState 0,1,0"));
+    addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("rundll32.exe user32.dll,LockWorkStation"));
+    addSuggestedCommand(defaultMenu, i18n("Say Hello"), QStringLiteral("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');\""));
+#else
     addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("systemctl poweroff"));
     addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("systemctl reboot"));
     addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("systemctl suspend"));
@@ -43,6 +53,7 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     addSuggestedCommand(defaultMenu, i18n("Unlock Screen"), QStringLiteral("loginctl unlock-session"));
     addSuggestedCommand(defaultMenu, i18n("Close All Vaults"), QStringLiteral("%0 org.kde.kded5 /modules/plasmavault closeAllVaults").arg(qdbusExe));
     addSuggestedCommand(defaultMenu, i18n("Forcefully Close All Vaults"), QStringLiteral("%0 org.kde.kded5 /modules/plasmavault forceCloseAllVaults").arg(qdbusExe));
+#endif
 
     QTableView* table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
