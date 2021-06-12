@@ -40,6 +40,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
                         connectivity->setDisabled(available); 
                     }, this);
 
+    this->addSeparator();
+
     // Browse device filesystem
     auto browse = addAction(QIcon::fromTheme(QStringLiteral("document-open-folder")), i18n("Browse device"));
     connect(browse, &QAction::triggered, device, [device](){
