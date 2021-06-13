@@ -31,6 +31,63 @@ void ConnectivityAction::update()
     } else {
         setText(i18nc("Display the cellular connection type and an approximate percentage of signal strength","%1  | ~%2%", m_cellularNetworkType, m_cellularNetworkStrength * 25));
     }
+
+    // set icon name
+
+    QString iconName = QStringLiteral("network-mobile");
+
+    if (m_cellularNetworkStrength < 0) {
+        iconName += QStringLiteral("-off");
+    } else {
+        int signalStrength;
+        switch (m_cellularNetworkStrength)
+        {
+            case 0 : signalStrength = 0; break;
+            case 1 : signalStrength = 20; break;
+            case 2 : signalStrength = 60; break;
+            case 3 : signalStrength = 80; break;
+            default : signalStrength = 100; break;
+        }
+        iconName += QStringLiteral("-") + QString::number(signalStrength);
+    }
+
+    if (m_cellularNetworkType == QStringLiteral("5G")) {
+        // No icon for this case!
+        iconName += QStringLiteral("-");
+    } else if (m_cellularNetworkType == QStringLiteral("LTE")) {
+        iconName += QStringLiteral("-lte");
+    } else if (m_cellularNetworkType == QStringLiteral("HSPA")) {
+        iconName += QStringLiteral("-hspa");
+    } else if (m_cellularNetworkType == QStringLiteral("UMTS")) {
+        iconName += QStringLiteral("-umts");
+    } else if (m_cellularNetworkType == QStringLiteral("CDMA2000")) {
+        // GSconnect just uses the 3g icon
+        // No icon for this case!
+        iconName += QStringLiteral("");
+    } else if (m_cellularNetworkType == QStringLiteral("EDGE")) {
+        iconName += QStringLiteral("-edge");
+    } else if (m_cellularNetworkType == QStringLiteral("GPRS")) {
+        iconName += QStringLiteral("-gprs");
+    } else if (m_cellularNetworkType == QStringLiteral("GSM")) {
+        // GSconnect just uses the 2g icon
+        // No icon for this case!
+        iconName += QStringLiteral("");
+    } else if (m_cellularNetworkType == QStringLiteral("CDMA")) {
+        // GSconnect just uses the 2g icon
+        // No icon for this case!
+        iconName += QStringLiteral("");
+    } else if (m_cellularNetworkType == QStringLiteral("iDEN")) {
+        // GSconnect just uses the 2g icon
+        // No icon for this case!
+        iconName += QStringLiteral("");
+    } else {
+        // We didn't recognize the network type. Don't append anything.
+        iconName += QStringLiteral("");
+    }
+    qDebug() << "iconName ="<< iconName;
+
+    setIcon(QIcon::fromTheme(iconName));
+
 }
 
 void ConnectivityAction::setCellularNetworkStrength(int cellularNetworkStrength)
