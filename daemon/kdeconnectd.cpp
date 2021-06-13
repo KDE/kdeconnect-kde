@@ -38,7 +38,7 @@ public:
         : Daemon(parent)
         , m_nam(nullptr)
     {
-        qApp->setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
+        qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
     }
 
     void askPairingConfirmation(Device* device) override
