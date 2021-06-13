@@ -58,9 +58,14 @@ class QObject;
  * Where the synchronizer will write vcards and other metadata
  * TODO: Per-device folders since each device *will* have different uIDs
  */
-Q_GLOBAL_STATIC_WITH_ARGS(
-        QString, vcardsLocation,
-        (QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/kpeoplevcard")))
+
+#ifdef Q_OS_WIN
+Q_GLOBAL_STATIC_WITH_ARGS(QString, vcardsLocation,
+            (QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QString::fromLatin1("/Contacts")))
+#else
+Q_GLOBAL_STATIC_WITH_ARGS(QString, vcardsLocation,
+            (QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/kpeoplevcard")))
+#endif
 
 #define VCARD_EXTENSION QStringLiteral(".vcf")
 #define METADATA_EXTENSION QStringLiteral(".meta")
