@@ -37,7 +37,7 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     QMenu* defaultMenu = new QMenu(this);
 
 #ifdef Q_OS_WIN
-    addSuggestedCommand(defaultMenu, i18n("Shedule a shutdown"), QStringLiteral("shutdown /s /t 60"));
+    addSuggestedCommand(defaultMenu, i18n("Schedule a shutdown"), QStringLiteral("shutdown /s /t 60"));
     addSuggestedCommand(defaultMenu, i18n("Shutdown now"), QStringLiteral("shutdown /s /t 0"));
     addSuggestedCommand(defaultMenu, i18n("Cancel last shutdown"), QStringLiteral("shutdown /a"));
     addSuggestedCommand(defaultMenu, i18n("Schedule a reboot"), QStringLiteral("shutdown /r /t 60"));
