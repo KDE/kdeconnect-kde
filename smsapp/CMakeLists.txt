@@ -59,6 +59,7 @@ target_link_libraries(kdeconnect-sms
     KF5::DBusAddons
     KF5::I18n
     KF5::People
+    KF5::KCMUtils
     )
 
 install(TARGETS kdeconnect-sms ${INSTALL_TARGETS_DEFAULT_ARGS})

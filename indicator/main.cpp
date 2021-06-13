@@ -19,6 +19,7 @@
 #include <KAboutData>
 #include <KCMultiDialog>
 #include <KLocalizedString>
+#include <KColorSchemeManager>
 
 #include "interfaces/devicesmodel.h"
 #include "interfaces/dbusinterfaces.h"
@@ -45,6 +46,7 @@ int main(int argc, char** argv)
     about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
 
 #ifdef Q_OS_WIN
+    KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
     IndicatorHelper helper(QUrl::fromLocalFile(qApp->applicationDirPath()));
 #else

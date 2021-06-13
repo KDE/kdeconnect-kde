@@ -20,6 +20,7 @@
 #include <KLocalizedString>
 #include <KLocalizedContext>
 #include <KDBusService>
+#include <KColorSchemeManager>
 
 #include "smshelper.h"
 
@@ -40,6 +41,7 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(aboutData);
 
 #ifdef Q_OS_WIN
+    KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 

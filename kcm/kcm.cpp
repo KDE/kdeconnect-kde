@@ -11,6 +11,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <kcmutils_version.h>
+#include <KColorSchemeManager>
 
 #include "ui_kcm.h"
 #include "dbusinterfaces.h"
@@ -44,6 +45,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
     setAboutData(about);
 
 #ifdef Q_OS_WIN
+    KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 

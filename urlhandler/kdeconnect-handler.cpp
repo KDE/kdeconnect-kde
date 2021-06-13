@@ -19,6 +19,7 @@
 #include <KLocalizedString>
 #include <KUrlRequester>
 #include <KDBusService>
+#include <KColorSchemeManager>
 
 #include <dbushelper.h>
 
@@ -50,6 +51,7 @@ int main(int argc, char** argv)
     KDBusService dbusService(KDBusService::Unique);
 
 #ifdef Q_OS_WIN
+    KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 

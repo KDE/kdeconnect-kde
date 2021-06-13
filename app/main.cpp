@@ -15,6 +15,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KLocalizedContext>
+#include <KColorSchemeManager>
 
 int main(int argc, char* argv[])
 {
@@ -25,6 +26,7 @@ int main(int argc, char* argv[])
     KAboutData::setApplicationData(aboutData);
 
 #ifdef Q_OS_WIN
+    KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 
