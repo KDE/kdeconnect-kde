@@ -3,6 +3,7 @@ qt5_add_resources(kdeconnect_SRCS resources.qrc)
 qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 if (WIN32)
+    include(ECMAddAppIcon)
     ecm_add_app_icon(kdeconnect_SRCS ICONS
         ${CMAKE_SOURCE_DIR}/icons/app/sc-apps-kdeconnect.svg
         ${CMAKE_SOURCE_DIR}/icons/app/16-apps-kdeconnect.png
