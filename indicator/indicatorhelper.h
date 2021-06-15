@@ -21,6 +21,10 @@
     namespace processes {
             const QString dbus_daemon = QStringLiteral("dbus-daemon.exe");
             const QString kdeconnect_daemon = QStringLiteral("kdeconnectd.exe");
+            const QString kdeconnect_app = QStringLiteral("kdeconnect-app.exe");
+            const QString kdeconnect_handler = QStringLiteral("kdeconnect-handler.exe");
+            const QString kdeconnect_settings = QStringLiteral("kdeconnect-settings.exe");
+            const QString kdeconnect_sms = QStringLiteral("kdeconnect-sms.exe");
     };
 #endif
 
