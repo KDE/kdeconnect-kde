@@ -17,10 +17,12 @@
 #include <winrt/Windows.Media.Control.h>
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.ApplicationModel.h>
 
 using namespace winrt;
 using namespace Windows::Media::Control;
 using namespace Windows::Storage::Streams;
+using namespace Windows::ApplicationModel;
 
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
