@@ -100,6 +100,11 @@ if (KF5_OPTIONAL_COMPONENTS)
     find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
 endif()
 
+if (WIN32)
+    string(REGEX MATCH "[0-9][0-9][0-9][0-9][0-9]" WIN_SDK_VERSION "${CMAKE_SYSTEM_VERSION}" )
+    add_compile_definitions(WIN_SDK_VERSION=${WIN_SDK_VERSION})
+endif()
+
 if (NOT ZSH_AUTOCOMPLETE_DIR)
 set(ZSH_AUTOCOMPLETE_DIR "${KDE_INSTALL_DATADIR}/zsh/site-functions")
 endif()

@@ -130,13 +130,14 @@ void MprisControlPlugin::updatePlayerList() {
         const auto player = sessions.GetAt(i);
         auto playerName = player.SourceAppUserModelId();
 
+#if WIN_SDK_VERSION >= 19041
         // try to resolve the AUMID to a user-friendly name
         try {
             playerName = AppInfo::GetFromAppUserModelId(playerName).DisplayInfo().DisplayName();
         } catch (winrt::hresult_error e) {
             qCDebug(KDECONNECT_PLUGIN_MPRIS) << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
         }
-
+#endif
         QString uniqueName = QString::fromWCharArray(playerName.c_str());
         for (int i = 2; playerList.contains(uniqueName); ++i) {
             uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
