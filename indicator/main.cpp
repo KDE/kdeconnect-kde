@@ -42,6 +42,8 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
+    KDBusService dbusService(KDBusService::Unique);
+
     // Trigger loading the KIconLoader plugin
     about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
 
@@ -60,8 +62,6 @@ int main(int argc, char** argv)
     if (helper.daemonHook(kdeconnectd)) {
         return -1;
     }
-
-    KDBusService dbusService(KDBusService::Unique);
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
