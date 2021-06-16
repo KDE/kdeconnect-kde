@@ -78,7 +78,7 @@ else()
 
     add_definitions(-DHAVE_KIO)
 
-    ecm_find_qmlmodule(org.kde.people 1.0)
+    #ecm_find_qmlmodule(org.kde.people 1.0) FIXME This results in KPeople code being called which triggers DBus calls which breaks the Windows CI
     ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
 endif()
