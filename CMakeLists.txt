@@ -101,7 +101,11 @@ if (KF5_OPTIONAL_COMPONENTS)
 endif()
 
 if (WIN32)
-    string(REGEX MATCH "[0-9][0-9][0-9][0-9][0-9]" WIN_SDK_VERSION "${CMAKE_SYSTEM_VERSION}" )
+    get_filename_component(WINDOWS_KITS_DIR
+        "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Kits\\Installed Roots;KitsRoot10]" ABSOLUTE)
+    file(READ "${WINDOWS_KITS_DIR}/SDKManifest.xml" SDK_MANIFEST)
+    string(REGEX MATCH "PlatformIdentity[^\n]*" PLATFORM_IDENTITY "${SDK_MANIFEST}" )
+    string(REGEX MATCH "[0-9][0-9][0-9][0-9][0-9]" WIN_SDK_VERSION "${PLATFORM_IDENTITY}" )
     add_compile_definitions(WIN_SDK_VERSION=${WIN_SDK_VERSION})
 endif()
 
