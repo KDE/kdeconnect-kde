@@ -1,0 +1,5 @@
+<RCC version="1.0">
+    <qresource prefix="/icons/kdeconnect/">
+        <file alias="kdeconnect.svg">app/sc-apps-kdeconnect.svg</file>
+    </qresource>
+</RCC>

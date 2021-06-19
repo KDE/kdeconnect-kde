@@ -7,6 +7,8 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (indicator)")
 
+    qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+
 set(indicator_SRCS
     main.cpp
     deviceindicator.cpp
@@ -34,7 +36,7 @@ else ()
     list(APPEND indicator_SRCS indicatorhelper.cpp)
 endif()
 
-add_executable(kdeconnect-indicator ${indicator_SRCS} ${debug_file_SRCS})
+add_executable(kdeconnect-indicator ${indicator_SRCS} ${kdeconnect_custom_icons_SRCS} ${debug_file_SRCS} )
 
 target_link_libraries(kdeconnect-indicator Qt5::Widgets KF5::CoreAddons KF5::I18n KF5::Notifications KF5::DBusAddons KF5::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
 if (WIN32)
