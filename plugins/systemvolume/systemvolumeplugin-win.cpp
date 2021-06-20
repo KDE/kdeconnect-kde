@@ -413,17 +413,54 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
 
         if (sinkList.contains(name))
         {
+            // unregister ControlChangeNotify before doing any changes to a sink
+            HRESULT unregisterSuccess = E_POINTER;
+            auto sinkListIterator = this->sinkList.find(name);
+            auto &sink = sinkListIterator.value();
+            if (!(sinkListIterator == this->sinkList.end())) {
+                unregisterSuccess = sink.first->UnregisterControlChangeNotify(sink.second);
+            }
+
             if (np.has(QStringLiteral("volume")))
             {
-                sinkList[name].first->SetMasterVolumeLevelScalar((float)np.get<int>(QStringLiteral("volume")) / 100, NULL);
+                float currentVolume;
+                sink.first->GetMasterVolumeLevelScalar(&currentVolume);
+                float requestedVolume = (float)np.get<int>(QStringLiteral("volume"), 100) / 100;
+                if (currentVolume != requestedVolume) {
+                    sinkList[name].first->SetMasterVolumeLevelScalar(requestedVolume, NULL);
+                }
             }
+
             if (np.has(QStringLiteral("muted")))
             {
-                sinkList[name].first->SetMute(np.get<bool>(QStringLiteral("muted")), NULL);
+                BOOL currentMuteStatus;
+                sink.first->GetMute(&currentMuteStatus);
+                BOOL requestedMuteStatus = np.get<bool>(QStringLiteral("muted"), false);
+                if(currentMuteStatus != requestedMuteStatus) {
+                    sinkList[name].first->SetMute(requestedMuteStatus, NULL);
+                }
             }
+
             if (np.has(QStringLiteral("enabled")))
             {
-                setDefaultAudioPlaybackDevice(name, np.get<bool>(QStringLiteral("enabled")));
+                // get the current default device ID
+                IMMDevice *defaultDevice = nullptr;
+                deviceEnumerator->GetDefaultAudioEndpoint(eRender, eMultimedia, &defaultDevice);
+                LPWSTR defaultId = NULL;
+                defaultDevice->GetId(&defaultId);
+                defaultDevice->Release();
+                // get current sink's device ID
+                QString qDefaultId = QString::fromWCharArray(defaultId);
+                QString currentDeviceId = idToNameMap.key(name);
+
+                if ((bool)qDefaultId.compare(currentDeviceId)) {
+                    setDefaultAudioPlaybackDevice(name, np.get<bool>(QStringLiteral("enabled")));
+                }
+            }
+
+            // re-register ControlChangeNotify in case we unregistered it
+            if (unregisterSuccess == S_OK) {
+                sink.first->RegisterControlChangeNotify(sink.second);
             }
         }
     }
