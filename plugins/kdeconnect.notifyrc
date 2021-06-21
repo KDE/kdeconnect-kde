@@ -651,7 +651,9 @@ ShowInHistory=false
 
 [Event/remoteLockSuccess]
 Name=Remote Lock Successful
+Name[az]=Uzaq kilidləmə uğurlu oldu
 Name[ca]=Bloqueig remot amb èxit
+Name[ca@valencia]=Bloqueig remot amb èxit
 Name[cs]=Vzdálené uzamčení bylo úspěšné
 Name[el]=Απομακρυσμένο κλείδωμα επιτυχές
 Name[nl]=Succes met vergrendeling op afstand
@@ -659,7 +661,9 @@ Name[pt]=Bloqueio Remoto com Sucesso
 Name[uk]=Успішне віддалене блокування
 Name[x-test]=xxRemote Lock Successfulxx
 Comment=Remote lock successful
+Comment[az]=Uzaq kilidləmə uğurlu oldu
 Comment[ca]=Bloqueig remot amb èxit
+Comment[ca@valencia]=Bloqueig remot amb èxit
 Comment[cs]=Vzdálené uzamčení bylo úspěšné
 Comment[el]=Απομακρυσμένο κλείδωμα επιτυχές
 Comment[nl]=Succes met vergrendeling op afstand
@@ -670,7 +674,9 @@ Action=Popup
 
 [Event/remoteLockFailure]
 Name=Remote Lock Failure
+Name[az]=Uzaq kilidləmə uğursuz
 Name[ca]=Ha fallat el bloqueig remot
+Name[ca@valencia]=Ha fallat el bloqueig remot
 Name[cs]=Vzdálené uzamčení bylo neúspěšné
 Name[el]=Απομακρυσμένο κλείδωμα αποτυχημένο
 Name[nl]=Mislukte vergrendeling op afstand
@@ -678,7 +684,9 @@ Name[pt]=Bloqueio Remoto sem Sucesso
 Name[uk]=Помилка під час віддаленого блокування
 Name[x-test]=xxRemote Lock Failurexx
 Comment=Remote lock failed
+Comment[az]=Uzaq kilidləmə uğursuz oldu
 Comment[ca]=Ha fallat el bloqueig remot
+Comment[ca@valencia]=Ha fallat el bloqueig remot
 Comment[cs]=Uzamčení na dálku selhalo
 Comment[el]=Αποτυχία απομακρυσμένου κλειδώματος
 Comment[nl]=Vergrendeling op afstand is mislukt
