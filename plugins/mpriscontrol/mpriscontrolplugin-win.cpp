@@ -301,7 +301,8 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
         somethingToSend = true;
     }
     if (np.get<bool>(QStringLiteral("requestVolume"))) {
-        answer.set(QStringLiteral("volume"), 100);
+        // we don't support setting per-app volume levels yet
+        answer.set(QStringLiteral("volume"), -1);
         somethingToSend = true;
     }
 
