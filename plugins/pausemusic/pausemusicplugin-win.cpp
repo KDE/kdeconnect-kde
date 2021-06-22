@@ -10,31 +10,102 @@
 #include <KPluginFactory>
 #include "plugin_pausemusic_debug.h"
 
+#include <Functiondiscoverykeys_devpkey.h>
+
 K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
 
 PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
     : KdeConnectPlugin(parent, args)
 {
-    CoInitialize(NULL);
-    deviceEnumerator = NULL;
-    CoCreateInstance(__uuidof(MMDeviceEnumerator), NULL, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceEnumerator);
-    defaultDevice = NULL;
-    g_guidMyContext = GUID_NULL;
+    CoInitialize(nullptr);
+    deviceEnumerator = nullptr;
+    HRESULT hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceEnumerator);
+    valid = (hr == S_OK);
+    if (!valid)
+    {
+        qWarning("Initialization failed: Failed to create MMDeviceEnumerator");
+        qWarning("Error Code: %lx", hr);
+    }
 
-    deviceEnumerator->GetDefaultAudioEndpoint(eRender, eConsole, &defaultDevice);
-    deviceEnumerator->Release();
-    deviceEnumerator = NULL;
+    sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
+}
 
-    endpointVolume = NULL;
-    defaultDevice->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_INPROC_SERVER, NULL, (LPVOID *)&endpointVolume);
-    defaultDevice->Release();
-    defaultDevice = NULL;
-    CoCreateGuid(&g_guidMyContext);
+bool PauseMusicPlugin::updateSinksList()
+{
+    sinksList.clear();
+    if (!valid)
+        return false;
+
+    IMMDeviceCollection *devices = nullptr;
+    HRESULT hr = deviceEnumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &devices);
+
+    if (hr != S_OK)
+    {
+        qWarning("Failed to Enumumerate AudioEndpoints");
+        qWarning("Error Code: %lx", hr);
+        return false;
+    }
+
+    unsigned int deviceCount;
+    devices->GetCount(&deviceCount);
+
+    for (unsigned int i = 0; i < deviceCount; i++)
+    {
+        IMMDevice *device = nullptr;
+
+        IPropertyStore *deviceProperties = nullptr;
+        PROPVARIANT deviceProperty;
+        QString name;
+
+        IAudioEndpointVolume *endpoint = nullptr;
+
+        // Get Properties
+        devices->Item(i, &device);
+        device->OpenPropertyStore(STGM_READ, &deviceProperties);
+
+        deviceProperties->GetValue(PKEY_Device_FriendlyName, &deviceProperty);
+        name = QString::fromWCharArray(deviceProperty.pwszVal);
+        //PropVariantClear(&deviceProperty);
+
+        hr = device->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_ALL, NULL, (void **)&endpoint);
+        if (hr != S_OK)
+        {
+            qWarning() << "Failed to create IAudioEndpointVolume for device:" << name;
+            qWarning("Error Code: %lx", hr);
+
+            device->Release();
+            continue;
+        }
+
+        // Register Callback
+        if (!sinksList.contains(name)) {
+            sinksList[name] = endpoint;
+        }
+        device->Release();
+    }
+    devices->Release();
+    return true;
+}
+
+
+
+void PauseMusicPlugin::updatePlayersList() {
+    playersList.clear();
+    auto sessions = sessionManager->GetSessions();
+    for(uint32_t i = 0; i < sessions.Size(); i++) {
+        const auto player = sessions.GetAt(i);
+        auto playerName = player.SourceAppUserModelId();
+
+        QString uniqueName = QString::fromWCharArray(playerName.c_str());
+        for (int i = 2; playersList.contains(uniqueName); ++i) {
+            uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
+        }
+    playersList.insert(uniqueName, player);
+    }
 }
 
 PauseMusicPlugin::~PauseMusicPlugin()
 {
-    endpointVolume->Release();
     CoUninitialize();
 }
 
@@ -56,32 +127,93 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
     bool pauseConditionFulfilled = !np.get<bool>(QStringLiteral("isCancel"));
 
-    bool pause = config()->getBool(QStringLiteral("actionPause"), false);
-    bool mute = config()->getBool(QStringLiteral("actionMute"), true);
+    bool pause = config()->getBool(QStringLiteral("actionPause"), true);
+    bool mute = config()->getBool(QStringLiteral("actionMute"), false);
 
     const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
 
     if (pauseConditionFulfilled) {
-
         if (mute) {
-            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting music";
-            endpointVolume->SetMute(TRUE, &g_guidMyContext);
-        }
-
-        if (pause) {
-            //  TODO PAUSING
-        }
-
-    } else {
-
-        if (mute) {
-            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
-            if (autoResume) {
-                endpointVolume->SetMute(FALSE, &g_guidMyContext);
+            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting all the unmuted sinks";
+            this->updateSinksList();
+            QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
+            while(sinksIterator.hasNext()) {
+                sinksIterator.next();
+                BOOL muted;
+                sinksIterator.value()->GetMute(&muted);
+                if (!((bool)muted)) {
+                    qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to mute " << sinksIterator.key();
+                    if(sinksIterator.value()->SetMute(true, NULL) == S_OK) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muted " << sinksIterator.key();
+                        mutedSinks.insert(sinksIterator.key());
+                    }
+                }
             }
         }
+
         if (pause) {
-            // TODO UNPAUSING
+            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Pausing all the playing media";
+            this->updatePlayersList();
+            QHashIterator<QString, GlobalSystemMediaTransportControlsSession> playersIterator(playersList);
+            while(playersIterator.hasNext()) {
+                playersIterator.next();
+                auto& player = playersIterator.value();
+                auto& playerName = playersIterator.key();
+
+                auto playbackInfo = player.GetPlaybackInfo();
+                auto playbackControls = playbackInfo.Controls();
+                if (playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing) {
+                    if (playbackControls.IsPauseEnabled()) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to pause " << playerName;
+                        if (player.TryPauseAsync().get()) {
+                            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Paused " << playerName;
+                            pausedSources.insert(playerName);
+                        }
+                    } else {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Pause not supported by the app! Trying to stop " << playerName;
+                        if (player.TryStopAsync().get()) {
+                            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Stopped " << playerName;
+                            pausedSources.insert(playerName);
+                        }
+                    }
+                }
+            }
+        }
+    } else if (autoResume) {
+        if (mute) {
+                qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting sinks";
+                QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
+                while(sinksIterator.hasNext()) {
+                    sinksIterator.next();
+                    if (mutedSinks.contains(sinksIterator.key())) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to unmute " << sinksIterator.key();
+                        if (sinksIterator.value()->SetMute(false, NULL) == S_OK) {
+                            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuted " << sinksIterator.key();
+                        }
+                        mutedSinks.remove(sinksIterator.key());
+                    }
+                }
+        }
+        if (pause) {
+            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unpausing media";
+            QHashIterator<QString, GlobalSystemMediaTransportControlsSession> playersIterator(playersList);
+            while(playersIterator.hasNext()) {
+                playersIterator.next();
+                auto& player = playersIterator.value();
+                auto& playerName = playersIterator.key();
+
+                auto playbackInfo = player.GetPlaybackInfo();
+                auto playbackControls = playbackInfo.Controls();
+                if (pausedSources.contains({playerName})) {
+                    if (playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Paused) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to resume " << playerName;
+                        if (player.TryPlayAsync().get()) {
+                            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Resumed " << playerName;
+                        }
+                    }
+                    pausedSources.remove(playerName);
+                }
+            }
         }
     }
 

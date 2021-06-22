@@ -28,6 +28,11 @@ if (NOT WIN32)
     target_link_libraries(kdeconnect_pausemusic
         KF5::PulseAudioQt
     )
+else()
+    target_link_libraries(kdeconnect_pausemusic
+        windowsapp
+    )
+    target_compile_features(kdeconnect_pausemusic PUBLIC cxx_std_17)
 endif()
 
 #######################################

@@ -11,11 +11,20 @@
 #include <QObject>
 #include <QSet>
 #include <QString>
+#include <QHash>
+
+#include <winrt/Windows.Media.Control.h>
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.ApplicationModel.h>
 
 #include <core/kdeconnectplugin.h>
 
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
+
+using namespace winrt;
+using namespace Windows::Media::Control;
+using namespace Windows::ApplicationModel;
 
 class PauseMusicPlugin
     : public KdeConnectPlugin
@@ -30,11 +39,18 @@ public:
     void connected() override { }
 
 private:
-    IMMDeviceEnumerator *deviceEnumerator;
-    IMMDevice *defaultDevice;
-    GUID g_guidMyContext;
-    IAudioEndpointVolume *endpointVolume;
+    void updatePlayersList();
+    bool updateSinksList();
 
+    bool valid;
+    IMMDeviceEnumerator *deviceEnumerator;
+    QHash<QString, IAudioEndpointVolume *> sinksList;
+
+    std::optional<GlobalSystemMediaTransportControlsSessionManager> sessionManager;
+    QHash<QString, GlobalSystemMediaTransportControlsSession> playersList;
+
+    QSet<QString> pausedSources;
+    QSet<QString> mutedSinks;
 };
 
 #endif // PAUSEMUSICPLUGINWIN_H
