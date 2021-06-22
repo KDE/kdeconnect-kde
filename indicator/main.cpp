@@ -42,11 +42,6 @@ int main(int argc, char** argv)
                      i18n("(C) 2016 Aleix Pol Gonzalez"));
     KAboutData::setApplicationData(about);
 
-    KDBusService dbusService(KDBusService::Unique);
-
-    // Trigger loading the KIconLoader plugin
-    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
-
 #ifdef Q_OS_WIN
     KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
@@ -58,10 +53,16 @@ int main(int argc, char** argv)
     helper.preInit();
 
     // Run Daemon initialization step
+    // When run from macOS app bundle, D-Bus call should be later than kdeconnectd and D-Bus daemon
     QProcess kdeconnectd;
     if (helper.daemonHook(kdeconnectd)) {
         return -1;
     }
+
+    KDBusService dbusService(KDBusService::Unique);
+
+    // Trigger loading the KIconLoader plugin
+    about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
