@@ -86,11 +86,30 @@ void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> c
     auto playbackInfo = player.GetPlaybackInfo();
     auto playbackControls = playbackInfo.Controls();
 
+    QString loopStatus;
+    switch(playbackInfo.AutoRepeatMode().Value()) {
+        case Windows::Media::MediaPlaybackAutoRepeatMode::List: {
+            loopStatus = QStringLiteral("Playlist");
+            break;
+            }
+        case Windows::Media::MediaPlaybackAutoRepeatMode::Track: {
+            loopStatus = QStringLiteral("Track");
+            break;
+            }
+        default: {
+            loopStatus = QStringLiteral("None");
+            break;
+            }
+    }
+
     np.set(QStringLiteral("isPlaying"), playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing);
     np.set(QStringLiteral("canPause"), playbackControls.IsPauseEnabled());
     np.set(QStringLiteral("canPlay"), playbackControls.IsPlayEnabled());
     np.set(QStringLiteral("canGoNext"), playbackControls.IsNextEnabled());
     np.set(QStringLiteral("canGoPrevious"), playbackControls.IsPreviousEnabled());
+    np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
+    np.set(QStringLiteral("shuffle"), playbackInfo.IsShuffleActive().Value());
+    np.set(QStringLiteral("loopStatus"), loopStatus);
 
     sendTimelineProperties(np, player);
 
@@ -106,7 +125,9 @@ void MprisControlPlugin::sendTimelineProperties(std::variant<NetworkPacket, QStr
     auto timelineProperties = player.GetTimelineProperties();
 
     if(!lengthOnly){
-        np.set(QStringLiteral("canSeek"), timelineProperties.MinSeekTime() != timelineProperties.MaxSeekTime());
+        const auto playbackInfo = player.GetPlaybackInfo();
+        const auto playbackControls = playbackInfo.Controls();
+        np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
         np.set(QStringLiteral("pos"), std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.Position() - timelineProperties.StartTime()).count());
     }
     np.set(QStringLiteral("length"), std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.EndTime() - timelineProperties.StartTime()).count());
@@ -290,6 +311,25 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
     if (np.has(QStringLiteral("SetPosition"))){
         TimeSpan position = std::chrono::milliseconds(np.get<qlonglong>(QStringLiteral("SetPosition"), 0));
         player.TryChangePlaybackPositionAsync((player.GetTimelineProperties().StartTime() + position).count()).get();
+    }
+
+    if (np.has(QStringLiteral("setShuffle")))
+    {
+        player.TryChangeShuffleActiveAsync(np.get<bool>(QStringLiteral("setShuffle")));
+    }
+
+    if (np.has(QStringLiteral("setLoopStatus")))
+    {
+        QString loopStatus = np.get<QString>(QStringLiteral("setLoopStatus"));
+        enum class winrt::Windows::Media::MediaPlaybackAutoRepeatMode loopStatusEnumVal;
+        if (loopStatus == QStringLiteral("Track")) {
+            loopStatusEnumVal = Windows::Media::MediaPlaybackAutoRepeatMode::Track;
+        } else if (loopStatus == QStringLiteral("Playlist")) {
+            loopStatusEnumVal = Windows::Media::MediaPlaybackAutoRepeatMode::List;
+        } else {
+            loopStatusEnumVal = Windows::Media::MediaPlaybackAutoRepeatMode::None;
+        }
+        player.TryChangeAutoRepeatModeAsync(loopStatusEnumVal);
     }
 
     //Send something read from the mpris interface
