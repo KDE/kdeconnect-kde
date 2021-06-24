@@ -86,30 +86,36 @@ void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> c
     auto playbackInfo = player.GetPlaybackInfo();
     auto playbackControls = playbackInfo.Controls();
 
-    QString loopStatus;
-    switch(playbackInfo.AutoRepeatMode().Value()) {
-        case Windows::Media::MediaPlaybackAutoRepeatMode::List: {
-            loopStatus = QStringLiteral("Playlist");
-            break;
-            }
-        case Windows::Media::MediaPlaybackAutoRepeatMode::Track: {
-            loopStatus = QStringLiteral("Track");
-            break;
-            }
-        default: {
-            loopStatus = QStringLiteral("None");
-            break;
-            }
-    }
-
     np.set(QStringLiteral("isPlaying"), playbackInfo.PlaybackStatus() == GlobalSystemMediaTransportControlsSessionPlaybackStatus::Playing);
     np.set(QStringLiteral("canPause"), playbackControls.IsPauseEnabled());
     np.set(QStringLiteral("canPlay"), playbackControls.IsPlayEnabled());
     np.set(QStringLiteral("canGoNext"), playbackControls.IsNextEnabled());
     np.set(QStringLiteral("canGoPrevious"), playbackControls.IsPreviousEnabled());
     np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
-    np.set(QStringLiteral("shuffle"), playbackInfo.IsShuffleActive().Value());
-    np.set(QStringLiteral("loopStatus"), loopStatus);
+
+    if (playbackInfo.IsShuffleActive()) {
+        const bool shuffleStatus = playbackInfo.IsShuffleActive().Value();
+        np.set(QStringLiteral("shuffle"), shuffleStatus);
+    }
+
+    if (playbackInfo.AutoRepeatMode()) {
+        QString loopStatus;
+        switch(playbackInfo.AutoRepeatMode().Value()) {
+            case Windows::Media::MediaPlaybackAutoRepeatMode::List: {
+                loopStatus = QStringLiteral("Playlist");
+                break;
+                }
+            case Windows::Media::MediaPlaybackAutoRepeatMode::Track: {
+                loopStatus = QStringLiteral("Track");
+                break;
+                }
+            default: {
+                loopStatus = QStringLiteral("None");
+                break;
+                }
+        }
+        np.set(QStringLiteral("loopStatus"), loopStatus);
+    }
 
     sendTimelineProperties(np, player);
 
