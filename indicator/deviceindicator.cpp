@@ -73,7 +73,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_photo")), [getPhoto](bool available) { getPhoto->setVisible(available); }, this);
 
     // Send file
-    const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"));
+    const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), { QCoreApplication::applicationDirPath() });
     if (!kdeconnectHandlerExecutable.isEmpty()) {
         auto handlerApp = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send a file/URL"));
         QObject::connect(handlerApp, &QAction::triggered, device, [device, kdeconnectHandlerExecutable] () {
