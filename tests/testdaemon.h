@@ -13,12 +13,6 @@
 #include <KJobTrackerInterface>
 #include <QCoreApplication>
 
-#ifdef HAVE_KIO
-#include <KIO/AccessManager>
-#else
-#include <QNetworkAccessManager>
-#endif
-
 class TestDaemon : public Daemon
 {
 public:
@@ -45,18 +39,6 @@ public:
     void askPairingConfirmation(Device *d) override
     {
         d->acceptPairing();
-    }
-
-    QNetworkAccessManager *networkAccessManager() override
-    {
-        if (!m_nam) {
-#ifdef HAVE_KIO
-            m_nam = new KIO::Integration::AccessManager(this);
-#else
-            m_nam = new QNetworkAccessManager(this);
-#endif
-        }
-        return m_nam;
     }
 
     Q_SCRIPTABLE virtual void sendSimpleNotification(const QString &eventId, const QString &title, const QString &text, const QString &iconName) override
