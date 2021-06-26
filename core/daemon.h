@@ -39,7 +39,7 @@ public:
     virtual void askPairingConfirmation(Device *device) = 0;
     virtual void reportError(const QString &title, const QString &description) = 0;
     virtual void quit() = 0;
-    virtual QNetworkAccessManager *networkAccessManager();
+    QNetworkAccessManager *networkAccessManager();
     virtual KJobTrackerInterface *jobTracker() = 0;
 
     Device *getDevice(const QString &deviceId);
