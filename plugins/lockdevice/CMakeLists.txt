@@ -14,7 +14,7 @@ else ()
     list(APPEND lockdevice_SRCS lockdeviceplugin.cpp)
 endif()
 
-kdeconnect_add_plugin(kdeconnect_lockdevice JSON kdeconnect_lockdevice.json SOURCES ${lockdevice_SRCS} ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_lockdevice SOURCES ${lockdevice_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_lockdevice
     kdeconnectcore

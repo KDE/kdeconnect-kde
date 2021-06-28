@@ -10,7 +10,7 @@ set(kdeconnect_share_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_share JSON kdeconnect_share.json SOURCES ${kdeconnect_share_SRCS})
+kdeconnect_add_plugin(kdeconnect_share SOURCES ${kdeconnect_share_SRCS})
 
 target_link_libraries(kdeconnect_share
     kdeconnectcore

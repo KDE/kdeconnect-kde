@@ -10,7 +10,7 @@ set(kdeconnect_contacts_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_contacts JSON kdeconnect_contacts.json SOURCES ${kdeconnect_contacts_SRCS})
+kdeconnect_add_plugin(kdeconnect_contacts SOURCES ${kdeconnect_contacts_SRCS})
 
 target_link_libraries(kdeconnect_contacts
     kdeconnectcore

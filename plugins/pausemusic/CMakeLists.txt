@@ -17,7 +17,7 @@ ecm_qt_declare_logging_category(
 
 qt5_add_dbus_interface(kdeconnect_pausemusic_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
 
-kdeconnect_add_plugin(kdeconnect_pausemusic JSON kdeconnect_pausemusic.json SOURCES ${kdeconnect_pausemusic_SRCS} ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_pausemusic SOURCES ${kdeconnect_pausemusic_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore

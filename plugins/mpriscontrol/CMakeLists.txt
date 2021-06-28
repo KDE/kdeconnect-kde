@@ -27,7 +27,7 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin mpris)")
 
-kdeconnect_add_plugin(kdeconnect_mpriscontrol JSON kdeconnect_mpriscontrol.json SOURCES  ${kdeconnect_mpriscontrol_SRCS} ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_mpriscontrol SOURCES  ${kdeconnect_mpriscontrol_SRCS} ${debug_file_SRCS})
 
 if(WIN32)
    target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore windowsapp)

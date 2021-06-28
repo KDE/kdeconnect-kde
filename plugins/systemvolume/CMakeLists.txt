@@ -18,7 +18,7 @@ ecm_qt_declare_logging_category(
     IDENTIFIER KDECONNECT_PLUGIN_SYSTEMVOLUME CATEGORY_NAME kdeconnect.plugin.systemvolume
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin systemvolume)")
-kdeconnect_add_plugin(kdeconnect_systemvolume JSON kdeconnect_systemvolume.json SOURCES ${kdeconnect_systemvolume_SRCS} ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_systemvolume SOURCES ${kdeconnect_systemvolume_SRCS} ${debug_file_SRCS})
 
 if(WIN32)
     target_link_libraries(kdeconnect_systemvolume

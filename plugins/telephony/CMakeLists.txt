@@ -10,7 +10,7 @@ set(kdeconnect_telephony_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_telephony JSON kdeconnect_telephony.json SOURCES ${kdeconnect_telephony_SRCS})
+kdeconnect_add_plugin(kdeconnect_telephony SOURCES ${kdeconnect_telephony_SRCS})
 
 target_link_libraries(kdeconnect_telephony
     kdeconnectcore

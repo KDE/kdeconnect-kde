@@ -10,7 +10,7 @@ set(kdeconnect_connectivity_report_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_connectivity_report JSON kdeconnect_connectivity_report.json SOURCES ${kdeconnect_connectivity_report_SRCS})
+kdeconnect_add_plugin(kdeconnect_connectivity_report SOURCES ${kdeconnect_connectivity_report_SRCS})
 
 target_link_libraries(kdeconnect_connectivity_report
     kdeconnectcore

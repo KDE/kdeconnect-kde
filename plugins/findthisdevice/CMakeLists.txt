@@ -11,7 +11,6 @@ set(kdeconnect_findthisdevice_SRCS
 )
 
 kdeconnect_add_plugin(kdeconnect_findthisdevice
-    JSON kdeconnect_findthisdevice.json
     SOURCES ${kdeconnect_findthisdevice_SRCS})
 
 target_link_libraries(kdeconnect_findthisdevice

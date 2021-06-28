@@ -10,7 +10,7 @@ set(kdeconnect_battery_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_battery JSON kdeconnect_battery.json SOURCES ${kdeconnect_battery_SRCS})
+kdeconnect_add_plugin(kdeconnect_battery SOURCES ${kdeconnect_battery_SRCS})
 
 target_link_libraries(kdeconnect_battery
     kdeconnectcore

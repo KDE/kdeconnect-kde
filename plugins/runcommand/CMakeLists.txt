@@ -10,7 +10,7 @@ set(kdeconnect_runcommand_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_runcommand JSON kdeconnect_runcommand.json SOURCES ${kdeconnect_runcommand_SRCS})
+kdeconnect_add_plugin(kdeconnect_runcommand SOURCES ${kdeconnect_runcommand_SRCS})
 
 target_link_libraries(kdeconnect_runcommand
     kdeconnectcore

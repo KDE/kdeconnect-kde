@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin presenter)")
 
-kdeconnect_add_plugin(kdeconnect_presenter JSON kdeconnect_presenter.json SOURCES presenterplugin.cpp ${presenter_SRCS} ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_presenter SOURCES presenterplugin.cpp ${presenter_SRCS} ${debug_file_SRCS})
 target_link_libraries(kdeconnect_presenter
     kdeconnectcore
     Qt5::DBus

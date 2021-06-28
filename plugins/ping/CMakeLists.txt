@@ -10,7 +10,7 @@ set(kdeconnect_ping_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_ping JSON kdeconnect_ping.json SOURCES ${kdeconnect_ping_SRCS})
+kdeconnect_add_plugin(kdeconnect_ping SOURCES ${kdeconnect_ping_SRCS})
 
 target_link_libraries(kdeconnect_ping
     kdeconnectcore

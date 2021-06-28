@@ -18,7 +18,7 @@ set(kdeconnect_sms_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_sms JSON kdeconnect_sms.json SOURCES ${kdeconnect_sms_SRCS})
+kdeconnect_add_plugin(kdeconnect_sms SOURCES ${kdeconnect_sms_SRCS})
 
 target_link_libraries(kdeconnect_sms
     kdeconnectcore

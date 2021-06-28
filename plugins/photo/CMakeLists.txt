@@ -10,7 +10,7 @@ set(kdeconnect_photo_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_photo JSON kdeconnect_photo.json SOURCES ${kdeconnect_photo_SRCS})
+kdeconnect_add_plugin(kdeconnect_photo SOURCES ${kdeconnect_photo_SRCS})
 
 target_link_libraries(kdeconnect_photo
     kdeconnectcore

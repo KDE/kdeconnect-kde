@@ -21,7 +21,7 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin sftp)")
 
-kdeconnect_add_plugin(kdeconnect_sftp JSON kdeconnect_sftp.json SOURCES ${kdeconnect_sftp_SRCS} ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_sftp SOURCES ${kdeconnect_sftp_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_sftp
     kdeconnectcore

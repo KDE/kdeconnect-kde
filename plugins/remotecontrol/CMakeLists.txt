@@ -5,7 +5,7 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin remotecontrol)")
 
-kdeconnect_add_plugin(kdeconnect_remotecontrol JSON kdeconnect_remotecontrol.json SOURCES remotecontrolplugin.cpp ${debug_file_SRCS})
+kdeconnect_add_plugin(kdeconnect_remotecontrol SOURCES remotecontrolplugin.cpp ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_remotecontrol
     kdeconnectcore

@@ -1,4 +1,4 @@
-kdeconnect_add_plugin(kdeconnect_mousepad JSON kdeconnect_mousepad.json SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
+kdeconnect_add_plugin(kdeconnect_mousepad SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
 
 if(UNIX AND NOT APPLE)
     find_package(KF5 ${KF5_MIN_VERSION} QUIET OPTIONAL_COMPONENTS Wayland)

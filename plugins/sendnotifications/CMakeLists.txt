@@ -21,7 +21,7 @@ set(kdeconnect_sendnotifications_SRCS
     ${debug_file_SRCS}
 )
 
-kdeconnect_add_plugin(kdeconnect_sendnotifications JSON "${CMAKE_CURRENT_BINARY_DIR}/kdeconnect_sendnotifications.json" SOURCES ${kdeconnect_sendnotifications_SRCS})
+kdeconnect_add_plugin(kdeconnect_sendnotifications SOURCES ${kdeconnect_sendnotifications_SRCS})
 
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
