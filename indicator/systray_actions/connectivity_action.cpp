@@ -84,7 +84,6 @@ void ConnectivityAction::update()
         // We didn't recognize the network type. Don't append anything.
         iconName += QStringLiteral("");
     }
-    qDebug() << "iconName ="<< iconName;
 
     setIcon(QIcon::fromTheme(iconName));
 
