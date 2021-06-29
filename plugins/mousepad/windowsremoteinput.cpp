@@ -75,7 +75,7 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
     QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
-    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || isSingleRelease || !key.isEmpty() || specialKey) {
 
 		INPUT input={0};
 		input.type = INPUT_MOUSE;
