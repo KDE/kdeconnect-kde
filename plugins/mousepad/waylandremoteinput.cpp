@@ -60,7 +60,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
     const QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     const int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
-    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
 
         if (isSingleClick) {
             m_waylandInput->requestPointerButtonClick(Qt::LeftButton);

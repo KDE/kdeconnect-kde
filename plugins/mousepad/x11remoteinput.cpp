@@ -107,7 +107,7 @@ bool X11RemoteInput::handlePacket(const NetworkPacket& np)
     QString key = np.get<QString>(QStringLiteral("key"), QLatin1String(""));
     int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
-    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isScroll || !key.isEmpty() || specialKey) {
+    if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
         Display* display = QX11Info::display();
         if(!display) {
             return false;
