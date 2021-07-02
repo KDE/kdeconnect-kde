@@ -111,6 +111,13 @@ int main(int argc, char** argv)
         }
     });
 
+    QObject::connect(urlRequester, &KUrlRequester::textChanged, [urlRequester, &uidialog](const QString& newUrl)
+    {
+            bool isLocalFileUrl = QFileInfo(newUrl).exists() && QFileInfo(newUrl).isFile();   // we don't support sending directories yet!
+            uidialog.sendFileRadioButton->setChecked(isLocalFileUrl);
+            uidialog.sendUrlRadioButton->setChecked(!isLocalFileUrl);
+    });
+
     if (!urlToShare.isEmpty()) {
         uidialog.sendUrlRadioButton->setVisible(false);
         uidialog.sendFileRadioButton->setVisible(false);
