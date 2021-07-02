@@ -24,6 +24,7 @@ Kirigami.FormLayout {
         talking.checked = config.get("conditionTalking", false)
         mute.checked = config.get("actionMute", false)
         pause.checked = config.get("actionPause", true)
+        resume.checked = config.get("actionResume", true)
     }
 
     RadioButton {
@@ -47,6 +48,12 @@ Kirigami.FormLayout {
         id: mute
         text: i18n("Mute system sound")
         onClicked: config.set("actionMute", checked)
+    }
+
+    CheckBox {
+        id: resume
+        text: i18n("Resume automatically when call ends")
+        onClicked: config.set("actionResume", checked)
     }
 
 }
