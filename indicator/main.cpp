@@ -139,11 +139,11 @@ int main(int argc, char** argv)
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
         systray.setToolTip(i18np("%1 device connected", "%1 devices connected", model.rowCount()));
     });
-    QObject::connect(&systray, &QSystemTrayIcon::activated, [&iface](QSystemTrayIcon::ActivationReason reason) {
+    QObject::connect(&systray, &QSystemTrayIcon::activated, [](QSystemTrayIcon::ActivationReason reason) {
         if (reason == QSystemTrayIcon::Trigger) {
             const QString kdeconnectAppExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-app"), { QCoreApplication::applicationDirPath() });
             if (!kdeconnectAppExecutable.isEmpty()) {
-                QProcess::startDetached(kdeconnectAppExecutable);
+                QProcess::startDetached(kdeconnectAppExecutable, {});
             }
         }
     });
