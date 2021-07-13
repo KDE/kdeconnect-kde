@@ -30,7 +30,7 @@ Kirigami.Page
             Layout.fillHeight: true
             property var lastPos: Qt.point(-1, -1)
 
-            onClicked: mousepad.pluginInterface.sendCommand("singleclick", true);
+            onClicked: mousepad.pluginInterface.sendCommand({"singleclick": true});
 
             onPositionChanged: {
                 if (lastPos.x > -1) {
@@ -58,17 +58,17 @@ Kirigami.Page
             Button {
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-left"
-                onClicked: mousepad.pluginInterface.sendCommand("singleclick", true);
+                onClicked: mousepad.pluginInterface.sendCommand({"singleclick": true});
             }
             Button {
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-middle"
-                onClicked: mousepad.pluginInterface.sendCommand("middleclick", true);
+                onClicked: mousepad.pluginInterface.sendCommand({"middleclick": true});
             }
             Button {
                 Layout.fillWidth: true
                 icon.name: "input-mouse-click-right"
-                onClicked: mousepad.pluginInterface.sendCommand("rightclick", true);
+                onClicked: mousepad.pluginInterface.sendCommand({"rightclick": true});
             }
         }
     }
