@@ -16,6 +16,16 @@
 
 #include <dbushelper.h>
 
+namespace connectivity_action {
+    const QStringList networkTypesWithIcons {   // contains the name of network types that have an associated icon in Breeze-icons
+        QStringLiteral("EDGE"),
+        QStringLiteral("GPRS"),
+        QStringLiteral("HSPA"),
+        QStringLiteral("LTE"),
+        QStringLiteral("UMTS"),
+        };
+}
+
 class ConnectivityAction : public QAction
 {
 Q_OBJECT
