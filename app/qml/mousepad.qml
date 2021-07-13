@@ -30,7 +30,31 @@ Kirigami.Page
             Layout.fillHeight: true
             property var lastPos: Qt.point(-1, -1)
 
-            onClicked: mousepad.pluginInterface.sendCommand({"singleclick": true});
+            acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+
+            onClicked: {
+                var clickType = "";
+                var packet = {};
+                switch (mouse.button) {
+                case Qt.LeftButton:
+                    clickType = "singleclick";
+                    break;
+                case Qt.RightButton:
+                    clickType = "rightclick";
+                    break;
+                case Qt.MiddleButton:
+                    clickType = "middleclick";
+                    break;
+                default:
+                    console.log("This click input is not handled yet!");
+                    break;
+                }
+
+                if (clickType) {
+                    packet[clickType] = true;
+                    mousepad.pluginInterface.sendCommand(packet);
+                }
+            }
 
             onPositionChanged: {
                 if (lastPos.x > -1) {
@@ -41,6 +65,15 @@ Kirigami.Page
                 }
                 lastPos = Qt.point(mouse.x, mouse.y);
             }
+
+            onWheel: {
+                var packet = {};
+                packet["scroll"] = true;
+                packet["dy"] = wheel.angleDelta.y;
+                packet["dx"] = wheel.angleDelta.x;
+                mousepad.pluginInterface.sendCommand(packet);
+            }
+
             onReleased: {
                 lastPos = Qt.point(-1, -1)
             }
