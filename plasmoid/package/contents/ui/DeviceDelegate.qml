@@ -72,25 +72,57 @@ PlasmaComponents.ListItem
             PlasmaComponents.Label {
                 id: deviceName
                 elide: Text.ElideRight
-                text: {
-                    let statuses = [];
-
-                    if (connectivity.available) {
-                        statuses.push(connectivity.displayString);
-                    }
-
-                    if (battery.available && battery.charge > -1) {
-                        statuses.push(i18nc("Display the battery charge percentage with the label \"Battery:\" so the user knows what is being displayed", "Battery: %1", battery.displayString));
-                    }
-
-                    if (statuses.length > 0) {
-                        return i18n("%1 (%2)", display, statuses.join(", "));
-                    } else {
-                        return display;
-                    }
-                }
+                text: display
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
+            }
+
+            RowLayout
+            {
+                id: connectionInformation
+                visible: connectivity.available
+
+                // TODO: In the future, when the Connectivity Report plugin supports more than one
+                // subscription, add more signal strength icons to represent all the available
+                // connections.
+
+                PlasmaCore.IconItem {
+                    id: celluarConnectionStrengthIcon
+                    source: connectivity.iconName
+                    Layout.preferredHeight: connectivityText.height
+                    Layout.preferredWidth: Layout.preferredHeight
+                    Layout.alignment: Qt.AlignCenter
+                    visible: valid
+                }
+
+                PlasmaComponents.Label {
+                    // Fallback plain-text label. Only show this if the icon doesn't work.
+                    id: connectivityText
+                    text: connectivity.displayString
+                    textFormat: Text.PlainText
+                    visible: !celluarConnectionStrengthIcon.visible
+                }
+            }
+
+            RowLayout
+            {
+                id: batteryInformation
+                visible: (battery.available && battery.charge > -1)
+
+                PlasmaCore.IconItem {
+                    id: batteryIcon
+                    source: battery.iconName
+                    // Make the icon the same size as the text so that it doesn't dominate
+                    Layout.preferredHeight: batteryPercent.height
+                    Layout.preferredWidth: Layout.preferredHeight
+                    Layout.alignment: Qt.AlignCenter
+                }
+
+                PlasmaComponents.Label {
+                    id: batteryPercent
+                    text: i18nc("Battery charge percentage", "%1%", battery.charge)
+                    textFormat: Text.PlainText
+                }
             }
 
             PlasmaComponents3.ToolButton {

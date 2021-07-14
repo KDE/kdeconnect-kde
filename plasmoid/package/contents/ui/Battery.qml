@@ -26,6 +26,33 @@ QtObject {
     property string displayString: (available && charge > -1) ? ((charging) ? (i18n("%1% charging", charge)) : (i18n("%1%", charge))) : i18n("No info")
     property variant battery: null
 
+    /**
+     * Suggests an icon name to use for the current battery level
+     */
+    readonly property string iconName: {
+        charge < 0 ?
+          "battery-missing-symbolic" :
+        charge < 10 ?
+          charging ?
+            "battery-empty-charging-symbolic" :
+            "battery-empty-symbolic" :
+        charge < 25 ?
+          charging ?
+            "battery-caution-charging-symbolic" :
+            "battery-caution-symbolic" :
+        charge < 50 ?
+            charging ?
+              "battery-low-charging-symbolic" :
+              "battery-low-symbolic" :
+        charge < 75 ?
+          charging ?
+            "battery-good-charging-symbolic" :
+            "battery-good-symbolic" :
+        charging ?
+          "battery-full-charging-symbolic":
+          "battery-full-symbolic"
+    }
+
     onAvailableChanged: {
         if (available) {
             battery = DeviceBatteryDbusInterfaceFactory.create(device.id())
