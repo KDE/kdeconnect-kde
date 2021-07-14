@@ -11,6 +11,7 @@
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QStandardPaths>
+#include <QProcess>
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -35,11 +36,21 @@ int main(int argc, char* argv[])
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 
+    QString urlToShare;
     {
         QCommandLineParser parser;
+        parser.addPositionalArgument(QStringLiteral("url"), i18n("URL to share"));
         aboutData.setupCommandLine(&parser);
         parser.process(app);
         aboutData.processCommandLine(&parser);
+        if (parser.positionalArguments().count() == 1) {
+            urlToShare = parser.positionalArguments().constFirst();
+            const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), { QCoreApplication::applicationDirPath() });
+            if (!kdeconnectHandlerExecutable.isEmpty()) {
+                QProcess::startDetached(kdeconnectHandlerExecutable, { urlToShare });
+                return 0; // exit the app once kdeconnect-handler is started
+            }
+        }
     }
 
     QQmlApplicationEngine engine;
