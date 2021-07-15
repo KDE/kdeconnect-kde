@@ -28,7 +28,7 @@ public:
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void moveCursor(const QPoint &p);
-    Q_SCRIPTABLE void sendCommand(const QJsonObject& body);
+    Q_SCRIPTABLE void sendCommand(const QVariantMap& body);
 };
 
 #endif
