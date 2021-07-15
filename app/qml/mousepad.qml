@@ -29,6 +29,8 @@ Kirigami.Page
             Layout.fillWidth: true
             Layout.fillHeight: true
             property var lastPos: Qt.point(-1, -1)
+            property var pressedPos: Qt.point(-1, -1)
+            property var releasedPos: Qt.point(-1, -1)
 
             acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
 
@@ -37,13 +39,35 @@ Kirigami.Page
                 var packet = {};
                 switch (mouse.button) {
                 case Qt.LeftButton:
-                    clickType = "singleclick";
+                    if (pressedPos == releasedPos) {
+                        clickType = "singleclick";
+                        pressedPos = Qt.point(-1, -1);
+                        releasedPos = Qt.point(-1, -1);
+                    }
                     break;
                 case Qt.RightButton:
                     clickType = "rightclick";
                     break;
                 case Qt.MiddleButton:
                     clickType = "middleclick";
+                    break;
+                default:
+                    console.log("This click input is not handled yet!");
+                    break;
+                }
+
+                if (clickType) {
+                    packet[clickType] = true;
+                    mousepad.pluginInterface.sendCommand(packet);
+                }
+            }
+
+            onDoubleClicked: {
+                var clickType = "";
+                var packet = {};
+                switch (mouse.button) {
+                case Qt.LeftButton:
+                    clickType = "singlehold";
                     break;
                 default:
                     console.log("This click input is not handled yet!");
@@ -66,6 +90,10 @@ Kirigami.Page
                 lastPos = Qt.point(mouse.x, mouse.y);
             }
 
+            onPressed: {
+                pressedPos = Qt.point(mouse.x, mouse.y);
+            }
+
             onWheel: {
                 var packet = {};
                 packet["scroll"] = true;
@@ -76,6 +104,8 @@ Kirigami.Page
 
             onReleased: {
                 lastPos = Qt.point(-1, -1)
+                releasedPos = Qt.point(mouse.x, mouse.y);
+                mousepad.pluginInterface.sendCommand({"singlerelease": true});
             }
         }
 
