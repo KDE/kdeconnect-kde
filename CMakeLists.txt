@@ -61,7 +61,7 @@ else()
     set(Qca_LIBRARY qca-qt5)
 
     set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem)
-    set(KF5_OPTIONAL_COMPONENTS DocTools)
+    set(KF5_OPTIONAL_COMPONENTS DocTools Wayland)
 
     set_package_properties(KF5Kirigami2 PROPERTIES
         DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"

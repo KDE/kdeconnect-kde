@@ -10,6 +10,7 @@
 #include <QQmlContext>
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
+#include <QGuiApplication>
 
 #include "objectfactory.h"
 #include "responsewaiter.h"
@@ -22,6 +23,10 @@
 #include <pluginmodel.h>
 #include "core/kdeconnectpluginconfig.h"
 #include "interfaces/commandsmodel.h"
+#include "pointerlocker.h"
+#if WITH_WAYLAND == 1
+#include "pointerlockerwayland.h"
+#endif
 
 QObject* createDBusResponse()
 {
@@ -63,6 +68,16 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
             return new DaemonDbusInterface;
         }
     );
+    qmlRegisterSingletonType<AbstractPointerLocker>("org.kde.kdeconnect", 1, 0, "PointerLocker", [] (QQmlEngine *, QJSEngine *) -> QObject * {
+        AbstractPointerLocker *ret;
+#if WITH_WAYLAND == 1
+        if (qGuiApp->platformName() == QLatin1String("wayland"))
+            ret = new PointerLockerWayland;
+        else
+#endif
+            ret = new PointerLockerQt;
+        return ret;
+    });
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);

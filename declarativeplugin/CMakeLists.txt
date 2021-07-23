@@ -2,6 +2,7 @@ add_library(kdeconnectdeclarativeplugin SHARED
     kdeconnectdeclarativeplugin.cpp
     responsewaiter.cpp
     objectfactory.cpp
+    pointerlocker.cpp
     resources.qrc
 )
 target_link_libraries(kdeconnectdeclarativeplugin
@@ -9,6 +10,14 @@ target_link_libraries(kdeconnectdeclarativeplugin
     kdeconnectinterfaces
     kdeconnectcore
 )
+
+if (TARGET KF5::WaylandClient)
+    target_sources(kdeconnectdeclarativeplugin PRIVATE pointerlockerwayland.cpp)
+    target_link_libraries(kdeconnectdeclarativeplugin KF5::WaylandClient)
+    target_compile_definitions(kdeconnectdeclarativeplugin PRIVATE -DWITH_WAYLAND=1)
+else()
+    target_compile_definitions(kdeconnectdeclarativeplugin PRIVATE -DWITH_WAYLAND=0)
+endif()
 
 install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
 install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)

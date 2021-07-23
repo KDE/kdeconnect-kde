@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.2
+import QtQuick 2.15
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.7 as Kirigami
@@ -20,6 +20,10 @@ Kirigami.Page
     // Otherwise swiping on the MouseArea might trigger changing the page
     Kirigami.ColumnView.preventStealing: true
 
+    Component.onCompleted: {
+        PointerLocker.window = applicationWindow()
+    }
+
     ColumnLayout
     {
         anchors.fill: parent
@@ -33,6 +37,37 @@ Kirigami.Page
             property var releasedPos: Qt.point(-1, -1)
 
             acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+
+            Button {
+                id: lockButton
+                anchors.centerIn: parent
+                text: i18n("Lock")
+                visible: !Kirigami.Settings.tabletMode && !PointerLocker.isLocked
+                onClicked: {
+                    PointerLocker.isLocked = true
+                    area.pressedPos = Qt.point(-1, -1);
+                }
+            }
+            Label {
+                anchors.centerIn: parent
+                visible: PointerLocker.isLocked
+                text: i18n("Press the right 'x' key or the left and right mouse buttons at the same time to unlock")
+            }
+
+            Connections {
+                target: PointerLocker
+                onPointerMoved: {
+                    if (!PointerLocker.isLocked)
+                        return;
+                    mousepad.pluginInterface.moveCursor(Qt.point(delta.x, delta.y));
+                }
+            }
+
+            // We don't want to see the lock button when using a touchscreen
+            TapHandler {
+                acceptedDevices: PointerDevice.TouchScreen
+                onTapped: lockButton.visible = false
+            }
 
             onClicked: {
                 var clickType = "";
@@ -90,8 +125,20 @@ Kirigami.Page
                 lastPos = Qt.point(mouse.x, mouse.y);
             }
 
+            Keys.onPressed: {
+                if (event.key == Qt.Key_X) {
+                    PointerLocker.isLocked = false
+                    event.accepted = true;
+                }
+            }
             onPressed: {
-                pressedPos = Qt.point(mouse.x, mouse.y);
+                if (PointerLocker.isLocked) {
+                    if (pressedButtons === (Qt.LeftButton | Qt.RightButton)) {
+                        PointerLocker.isLocked = false
+                    }
+                } else {
+                    pressedPos = Qt.point(mouse.x, mouse.y);
+                }
             }
 
             onWheel: {
