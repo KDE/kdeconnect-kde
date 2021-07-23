@@ -128,13 +128,14 @@ PlasmaComponents.ListItem
             PlasmaComponents3.ToolButton {
                 id: overflowMenu
                 icon.name: "application-menu"
+                checked: menu.status === PlasmaComponents.DialogStatus.Open
 
-                onClicked: {
-                    menu.open(overflowMenu, overflowMenu.height)
-                }
+                onPressed: menu.openRelative()
 
                 PlasmaComponents.ContextMenu {
                     id: menu
+                    visualParent: overflowMenu
+                    placement: PlasmaCore.Types.BottomPosedLeftAlignedPopup
 
                     //Share
                     PlasmaComponents.MenuItem
