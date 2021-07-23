@@ -5,6 +5,7 @@ Encoding=UTF-8
 Exec=kdeconnect-handler %F
 Icon=kdeconnect
 Name=Send via KDE Connect
+Name[ar]=أرسل عبر خدمة «كدي المتّصل»
 Name[az]=KDE Connect ilə göndərin
 Name[ca]=Envia a través del KDE Connect
 Name[ca@valencia]=Envia a través del KDE Connect
