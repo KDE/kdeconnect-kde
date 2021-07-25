@@ -113,8 +113,9 @@ if (NOT ZSH_AUTOCOMPLETE_DIR)
 set(ZSH_AUTOCOMPLETE_DIR "${KDE_INSTALL_DATADIR}/zsh/site-functions")
 endif()
 
+option(APPLE_IN_APP_BUNDLE "Compile KDE Connect to pack in App Bundle" OFF)
 option(PRIVATE_DBUS_ENABLED "Use private dbus session for kdeconnect" OFF)
-if(PRIVATE_DBUS_ENABLED OR APPLE)
+if(PRIVATE_DBUS_ENABLED OR APPLE_IN_APP_BUNDLE)
     add_compile_definitions(USE_PRIVATE_DBUS)
 endif()
 
