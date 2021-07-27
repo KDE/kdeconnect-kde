@@ -17,6 +17,8 @@
 
 int main(int argc, char** argv)
 {
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData about(QStringLiteral("kdeconnect-settings"),

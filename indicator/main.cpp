@@ -32,6 +32,8 @@
 
 int main(int argc, char** argv)
 {
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     KAboutData about(QStringLiteral("kdeconnect-indicator"),

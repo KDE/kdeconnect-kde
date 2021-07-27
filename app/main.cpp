@@ -19,6 +19,8 @@
 
 int main(int argc, char* argv[])
 {
+    QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData aboutData(QStringLiteral("kdeconnect.app"), i18n("KDE Connect"), QStringLiteral("1.0"), i18n("KDE Connect"), KAboutLicense::GPL, i18n("(c) 2015, Aleix Pol Gonzalez"));
