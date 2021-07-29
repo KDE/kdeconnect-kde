@@ -71,6 +71,7 @@ else()
     )
 
     if(UNIX AND NOT APPLE)
+        find_package(KF5Package REQUIRED)
         find_package(KF5PulseAudioQt)
     endif()
 

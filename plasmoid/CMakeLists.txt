@@ -1,5 +1,4 @@
-install(DIRECTORY package/
-        DESTINATION ${DATA_INSTALL_DIR}/plasma/plasmoids/org.kde.kdeconnect)
+kpackage_install_package(package org.kde.kdeconnect plasmoids plasma NO_DEPRECATED_WARNING)
 
 install(FILES package/metadata.desktop
         DESTINATION ${SERVICES_INSTALL_DIR}
