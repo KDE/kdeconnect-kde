@@ -13,9 +13,7 @@ if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(bigscreen)
 endif()
 
-if(NOT APPLE)
 add_subdirectory(presenter)
-endif()
 
 if(NOT SAILFISHOS)
     if((WIN32 AND MSVC AND (${CMAKE_SYSTEM_VERSION} VERSION_GREATER_EQUAL 10.0.17763.0)) OR NOT WIN32)
