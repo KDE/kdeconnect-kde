@@ -37,6 +37,7 @@ void RemoteControlPlugin::moveCursor(const QPoint &p)
 
 void RemoteControlPlugin::sendCommand(const QVariantMap& body)
 {
+    if (body.isEmpty()) return;
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, body);
     sendPacket(np);
 }

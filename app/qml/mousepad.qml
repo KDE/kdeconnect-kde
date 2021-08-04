@@ -51,7 +51,12 @@ Kirigami.Page
             Label {
                 anchors.centerIn: parent
                 visible: PointerLocker.isLocked
-                text: i18n("Press the right 'x' key or the left and right mouse buttons at the same time to unlock")
+                width: parent.width
+
+                wrapMode: Text.Wrap
+                horizontalAlignment: Text.AlignHCenter
+
+                text: i18n("Press the left and right mouse buttons at the same time to unlock")
             }
 
             Connections {
@@ -74,10 +79,10 @@ Kirigami.Page
                 var packet = {};
                 switch (mouse.button) {
                 case Qt.LeftButton:
+                    if (PointerLocker.isLocked) // we directly send singleclick and singlehold to emulate all mouse actions inc. drag and drop
+                        return;
                     if (pressedPos == releasedPos) {
                         clickType = "singleclick";
-                        pressedPos = Qt.point(-1, -1);
-                        releasedPos = Qt.point(-1, -1);
                     }
                     break;
                 case Qt.RightButton:
@@ -97,7 +102,9 @@ Kirigami.Page
                 }
             }
 
-            onDoubleClicked: {
+            onPressAndHold: {
+                if (PointerLocker.isLocked)
+                    return;                     // we send singlehold and singlerelease twice instead through onPressed and onReleased
                 var clickType = "";
                 var packet = {};
                 switch (mouse.button) {
@@ -136,6 +143,20 @@ Kirigami.Page
                     if (pressedButtons === (Qt.LeftButton | Qt.RightButton)) {
                         PointerLocker.isLocked = false
                     }
+                    var pressType = "";
+                    var packet = {};
+                    switch (mouse.buttons) {
+                    case Qt.LeftButton:
+                        pressType = "singlehold";
+                        break;
+                    default:
+                        console.log("This click input is not handled yet!");
+                        break;
+                    }
+                    if (pressType) {
+                        packet[pressType] = true;
+                        mousepad.pluginInterface.sendCommand(packet);
+                    }
                 } else {
                     pressedPos = Qt.point(mouse.x, mouse.y);
                 }
@@ -150,9 +171,11 @@ Kirigami.Page
             }
 
             onReleased: {
-                lastPos = Qt.point(-1, -1)
-                releasedPos = Qt.point(mouse.x, mouse.y);
-                mousepad.pluginInterface.sendCommand({"singlerelease": true});
+                if (!PointerLocker.isLocked) {
+                    lastPos = Qt.point(-1,-1);
+                    releasedPos = Qt.point(mouse.x, mouse.y);
+                }
+                mousepad.pluginInterface.sendCommand({"singlerelease" : true});
             }
         }
 
@@ -160,6 +183,7 @@ Kirigami.Page
             device: mousepad.device
             Layout.fillWidth: true
             visible: remoteState
+            focus: !lockButton.visible
         }
 
         RowLayout {
