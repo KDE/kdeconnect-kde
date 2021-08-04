@@ -57,7 +57,7 @@ private:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
     QPoint m_originalPosition;
-    bool m_moving = false;
+    bool m_isLocked = false;
 
 };
 

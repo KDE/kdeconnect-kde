@@ -33,9 +33,10 @@ PointerLockerQt::~PointerLockerQt() = default;
 
 void PointerLockerQt::setLocked(bool lock)
 {
-    if (isLocked() == lock) {
+    if (m_isLocked == lock) {
         return;
     }
+    m_isLocked = lock;
 
     if (lock) {
         /* Cursor needs to be hidden such that Xwayland emulates warps. */
@@ -54,7 +55,7 @@ void PointerLockerQt::setLocked(bool lock)
 
 bool PointerLockerQt::isLocked() const
 {
-    return !m_originalPosition.isNull();
+    return m_isLocked;
 }
 
 bool PointerLockerQt::eventFilter(QObject *watched, QEvent *event)
