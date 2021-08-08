@@ -8,8 +8,6 @@
 
 #include <QCursor>
 #include <QDebug>
-#include <chrono>
-#include <thread>
 
 #include <Windows.h>
 
@@ -239,9 +237,9 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
     } else { //Is a mouse move event
         POINT point;
         if (GetCursorPos(&point)) {
-            SetCursorPos(point.x + (int)dx, point.y + (int)dy);
-            // wait for a microsecond here to allow Windows to interpolate
-            std::this_thread::sleep_for(std::chrono::microseconds(1));
+            return SetCursorPos(point.x + (int)dx, point.y + (int)dy);
+        } else {
+            return false;
         }
     }
     return true;
