@@ -103,7 +103,7 @@ Comment[x-test]=xxConnect and sync your devicesxx
 Comment[zh_CN]=连接并同步您的设备
 Comment[zh_TW]=連線並且同步您的裝置
 
-X-KDE-Keywords=network,kde connect,connect,phone,sync,mobile,android,ios,send files,share files,transfer files,receive files,devices,device,synchronization,calls,telephone,smartphone,contacts,sms,phone notifications,control volume,system volume,ringtone,play sound,presentation,take picture,take photo,shared clipboard,conectivity monitor,remote input,remote mouse,remote keyboard,mpris,phone integration,commands,lock device,multimedia control,sftp,browse phone
+X-KDE-Keywords=network,kde connect,connect,phone,sync,mobile,android,ios,send files,share files,transfer files,receive files,devices,device,synchronization,calls,telephone,smartphone,contacts,sms,phone notifications,control volume,system volume,ringtone,play sound,presentation,take picture,take photo,shared clipboard,conectivity monitor,remote input,remote mouse,remote keyboard,mpris,phone integration,commands,lock device,multimedia control,sftp,browse phone,share
 X-KDE-Keywords[ar]=شبكة,أندرويد,اندرويد,جهاز,أجهزة
 X-KDE-Keywords[ast]=Rede,Android,Preseos
 X-KDE-Keywords[az]=Network,Android,Devices,Şəbəkə,Cihazlar
