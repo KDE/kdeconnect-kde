@@ -156,7 +156,6 @@
   <categories>
     <category>Network</category>
   </categories>
-  <icon type="stock">kdeconnect</icon>
   <custom>
     <value key="KDE::f_droid">https://f-droid.org/en/packages/org.kde.kdeconnect_tp/</value>
     <value key="KDE::google_play">https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp</value>
