@@ -144,7 +144,7 @@ if (NOT SAILFISHOS)
     add_subdirectory(smsapp)
     add_subdirectory(settings)
 
-    if(NOT WIN32)
+    if(NOT WIN32 AND NOT APPLE)
         add_subdirectory(kio)
         add_subdirectory(plasmoid)
     endif()
