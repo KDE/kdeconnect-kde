@@ -35,7 +35,8 @@
                 "Name[tr]": "Aditya Mehra",
                 "Name[uk]": "Aditya Mehra",
                 "Name[x-test]": "xxAditya Mehraxx",
-                "Name[zh_CN]": "Aditya Mehra"
+                "Name[zh_CN]": "Aditya Mehra",
+                "Name[zh_TW]": "Aditya Mehra"
             }
         ],
         "Description": "Bigscreen Plugin",
@@ -70,6 +71,7 @@
         "Description[uk]": "Додаток для великих екранів",
         "Description[x-test]": "xxBigscreen Pluginxx",
         "Description[zh_CN]": "大屏幕插件",
+        "Description[zh_TW]": "大螢幕附加元件",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
@@ -106,6 +108,7 @@
         "Name[uk]": "Великий екран",
         "Name[x-test]": "xxBigscreenxx",
         "Name[zh_CN]": "大屏幕",
+        "Name[zh_TW]": "大螢幕",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],

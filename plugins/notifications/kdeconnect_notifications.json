@@ -130,7 +130,7 @@
         "Name[uk]": "Отримати сповіщення",
         "Name[x-test]": "xxReceive notificationsxx",
         "Name[zh_CN]": "接收通知",
-        "Name[zh_TW]": "收到通知",
+        "Name[zh_TW]": "接收通知",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
