@@ -9,6 +9,7 @@
 
 #include <QDialog>
 #include <QSize>
+#include <QTextEdit>
 
 namespace Ui { class SendReplyDialog; }
 
@@ -31,6 +32,17 @@ Q_SIGNALS:
 private:
     const QString m_replyId;
     const QScopedPointer<Ui::SendReplyDialog> m_ui;
+};
+
+class SendReplyTextEdit : public QTextEdit
+{
+    Q_OBJECT
+public:
+    SendReplyTextEdit(QWidget* parent);
+
+    void keyPressEvent(QKeyEvent* event) override;
+
+    Q_SIGNAL void send();
 };
 
 #endif
