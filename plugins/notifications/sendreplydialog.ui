@@ -25,7 +25,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QTextEdit" name="replyEdit"/>
+    <widget class="SendReplyTextEdit" name="replyEdit"/>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -71,4 +71,11 @@
    </hints>
   </connection>
  </connections>
+  <customwidgets>
+  <customwidget>
+   <class>SendReplyTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>sendreplydialog.h</header>
+  </customwidget>
+ </customwidgets>
 </ui>

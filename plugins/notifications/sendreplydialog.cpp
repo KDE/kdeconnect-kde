@@ -11,6 +11,7 @@
 #include <QLineEdit>
 #include <QBoxLayout>
 #include <QStandardPaths>
+#include <QKeyEvent>
 
 #include <KLocalizedString>
 
@@ -26,6 +27,9 @@ SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& 
 
     auto button = m_ui->buttonBox->button(QDialogButtonBox::Ok);
     button->setText(i18n("Send"));
+
+    auto textEdit = m_ui->replyEdit;
+    connect(textEdit, &SendReplyTextEdit::send, this, &SendReplyDialog::sendButtonClicked);
 
     connect(this, &QDialog::accepted, this, &SendReplyDialog::sendButtonClicked);
     setWindowTitle(topicName);
@@ -45,4 +49,23 @@ void SendReplyDialog::sendButtonClicked()
 QSize SendReplyDialog::sizeHint() const
 {
     return QSize(512, 64);
+}
+
+SendReplyTextEdit::SendReplyTextEdit(QWidget *parent)
+    : QTextEdit(parent)
+{
+}
+
+void SendReplyTextEdit::keyPressEvent(QKeyEvent* event)
+{
+    // Send reply on enter, except when shift + enter is pressed, then insert newline
+    const int key = event->key();
+    if (key == Qt::Key_Return || key == Qt::Key_Enter) {
+        if ((key == Qt::Key_Enter && (event->modifiers() == Qt::KeypadModifier)) || !event->modifiers()) {
+            Q_EMIT send();
+            event->accept();
+            return;
+        }
+    }
+    QTextEdit::keyPressEvent(event);
 }
