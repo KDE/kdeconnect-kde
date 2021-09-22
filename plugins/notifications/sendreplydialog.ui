@@ -25,7 +25,11 @@
     </widget>
    </item>
    <item>
-    <widget class="SendReplyTextEdit" name="replyEdit"/>
+    <widget class="SendReplyTextEdit" name="replyEdit">
+     <property name="tabChangesFocus">
+      <set>true</set>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
