@@ -367,7 +367,7 @@ void LanLinkProvider::encrypted()
     LanDeviceLink::ConnectionStarted connectionOrigin = (socket->mode() == QSslSocket::SslClientMode)? LanDeviceLink::Locally : LanDeviceLink::Remotely;
 
     NetworkPacket* receivedPacket = m_receivedIdentityPackets[socket].np;
-    const QString& deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
+    const QString& deviceId = socket->peerCertificate().subjectDisplayName();
 
     if (m_links.contains(deviceId) && m_links[deviceId]->certificate() != socket->peerCertificate()) {
         socket->disconnectFromHost();
