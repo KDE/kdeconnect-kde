@@ -32,6 +32,7 @@ Name[hu]=KDE Connect
 Name[ia]=KDE Connect
 Name[id]=KDE Connect
 Name[it]=KDE Connect
+Name[ja]=KDE Connect
 Name[ko]=KDE Connect
 Name[lt]=KDE Connect
 Name[ml]=കെ.ഡി.ഇ കണക്റ്റ്
