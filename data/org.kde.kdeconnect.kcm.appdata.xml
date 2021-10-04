@@ -161,9 +161,9 @@
     <value key="KDE::google_play">https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp</value>
   </custom>
   <releases>
+    <release version="21.08.2" date="2021-10-07"/>
     <release version="21.08.1" date="2021-09-02"/>
     <release version="21.08.0" date="2021-08-12"/>
     <release version="21.04.3" date="2021-07-08"/>
-    <release version="21.04.2" date="2021-06-10"/>
   </releases>
 </component>
