@@ -82,13 +82,7 @@ void QClipboardListener::setText(const QString& content)
 WaylandClipboardListener::WaylandClipboardListener()
     : m_dataControl(new DataControl(this))
 {
-    connect(m_dataControl, &DataControl::receivedSelectionChanged, this, [this] {
-        refresh(m_dataControl->receivedSelection());
-    });
-    connect(m_dataControl, &DataControl::selectionChanged, this, [this] {
-        refresh(m_dataControl->selection());
-    });
-
+    connect(m_dataControl, &DataControl::changed, this, &WaylandClipboardListener::refresh);
 }
 
 void WaylandClipboardListener::setText(const QString& content)
@@ -96,11 +90,12 @@ void WaylandClipboardListener::setText(const QString& content)
     refreshContent(content);
     auto mime = new QMimeData;
     mime->setText(content);
-    m_dataControl->setSelection(mime, true);
+    m_dataControl->setMimeData(mime, QClipboard::Clipboard);
 }
 
-void WaylandClipboardListener::refresh(const QMimeData *mime)
+void WaylandClipboardListener::refresh()
 {
+    const QMimeData *mime = m_dataControl->mimeData(QClipboard::Clipboard);
     if (!mime || !mime->hasText()) {
         return;
     }

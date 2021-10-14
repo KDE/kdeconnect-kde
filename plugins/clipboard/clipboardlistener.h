@@ -66,7 +66,7 @@ public:
     void setText(const QString & content) override;
 
 private:
-    void refresh(const QMimeData *mime);
+    void refresh();
 
     DataControl *m_dataControl;
 };

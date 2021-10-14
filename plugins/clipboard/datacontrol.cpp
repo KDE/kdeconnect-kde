@@ -1,28 +1,40 @@
 /*
     SPDX-FileCopyrightText: 2020 David Edmundson <davidedmundson@kde.org>
 
-    SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "datacontrol.h"
-#include "qwayland-wlr-data-control-unstable-v1.h"
-#include <QtWaylandClient/QWaylandClientExtension>
+
+#include <QDebug>
 #include <QFile>
+#include <QFutureWatcher>
 #include <QGuiApplication>
+#include <QPointer>
 #include <QMimeData>
+
+#include <QtWaylandClient/QWaylandClientExtension>
+
 #include <qpa/qplatformnativeinterface.h>
-#include <QVariant>
+
+#include <errno.h>
+#include <poll.h>
+#include <string.h>
 #include <unistd.h>
 
-#include <plugin_clipboard_debug.h>
-#include <sys/select.h>
+#include "qwayland-wlr-data-control-unstable-v1.h"
+
+static QString utf8Text()
+{
+    return QStringLiteral("text/plain;charset=utf-8");
+}
 
 class DataControlDeviceManager : public QWaylandClientExtensionTemplate<DataControlDeviceManager>, public QtWayland::zwlr_data_control_manager_v1
 {
     Q_OBJECT
 public:
     DataControlDeviceManager()
-        : QWaylandClientExtensionTemplate<DataControlDeviceManager>(1)
+        : QWaylandClientExtensionTemplate<DataControlDeviceManager>(2)
     {
     }
 
@@ -51,9 +63,12 @@ public:
         return m_receivedFormats;
     }
 
-    bool hasFormat(const QString &format) const override
+    bool hasFormat(const QString &mimeType) const override
     {
-        return m_receivedFormats.contains(format);
+        if (mimeType == QStringLiteral("text/plain") && m_receivedFormats.contains(utf8Text())) {
+            return true;
+        }
+        return m_receivedFormats.contains(mimeType);
     }
 
 protected:
@@ -71,10 +86,16 @@ private:
 
 QVariant DataControlOffer::retrieveData(const QString &mimeType, QVariant::Type type) const
 {
-    if (!hasFormat(mimeType)) {
-        return QVariant();
-    }
     Q_UNUSED(type);
+
+    QString mime = mimeType;
+    if (!m_receivedFormats.contains(mimeType)) {
+        if (mimeType == QStringLiteral("text/plain") && m_receivedFormats.contains(utf8Text())) {
+            mime = utf8Text();
+        } else {
+            return QVariant();
+        }
+    }
 
     int pipeFds[2];
     if (pipe(pipeFds) != 0) {
@@ -82,7 +103,7 @@ QVariant DataControlOffer::retrieveData(const QString &mimeType, QVariant::Type 
     }
 
     auto t = const_cast<DataControlOffer *>(this);
-    t->receive(mimeType, pipeFds[1]);
+    t->receive(mime, pipeFds[1]);
 
     close(pipeFds[1]);
 
@@ -101,6 +122,7 @@ QVariant DataControlOffer::retrieveData(const QString &mimeType, QVariant::Type 
     if (readPipe.open(pipeFds[0], QIODevice::ReadOnly)) {
         QByteArray data;
         if (readData(pipeFds[0], data)) {
+            close(pipeFds[0]);
             return data;
         }
         close(pipeFds[0]);
@@ -112,27 +134,26 @@ QVariant DataControlOffer::retrieveData(const QString &mimeType, QVariant::Type 
 // true if data is read successfully
 bool DataControlOffer::readData(int fd, QByteArray &data)
 {
-    fd_set readset;
-    FD_ZERO(&readset);
-    FD_SET(fd, &readset);
-    struct timeval timeout;
-    timeout.tv_sec = 1;
-    timeout.tv_usec = 0;
+    pollfd pfds[1];
+    pfds[0].fd = fd;
+    pfds[0].events = POLLIN;
 
-    Q_FOREVER {
-        int ready = select(FD_SETSIZE, &readset, nullptr, nullptr, &timeout);
+    while (true) {
+        const int ready = poll(pfds, 1, 1000);
         if (ready < 0) {
-            qCWarning(KDECONNECT_PLUGIN_CLIPBOARD) << "DataControlOffer: select() failed";
-            return false;
+            if (errno != EINTR) {
+                qWarning("DataControlOffer: poll() failed: %s", strerror(errno));
+                return false;
+            }
         } else if (ready == 0) {
-            qCWarning(KDECONNECT_PLUGIN_CLIPBOARD) << "DataControlOffer: timeout reading from pipe";
+            qWarning("DataControlOffer: timeout reading from pipe");
             return false;
         } else {
             char buf[4096];
             int n = read(fd, buf, sizeof buf);
 
             if (n < 0) {
-                qWarning("DataControlOffer: read() failed");
+                qWarning("DataControlOffer: read() failed: %s", strerror(errno));
                 return false;
             } else if (n == 0) {
                 return true;
@@ -177,8 +198,7 @@ DataControlSource::DataControlSource(struct ::zwlr_data_control_source_v1 *id, Q
     for (const QString &format : mimeData->formats()) {
         offer(format);
     }
-    if(mimeData->hasText())
-    {
+    if (mimeData->hasText()) {
         // ensure GTK applications get this mimetype to avoid them discarding the offer
         offer(QStringLiteral("text/plain;charset=utf-8"));
     }
@@ -188,7 +208,7 @@ void DataControlSource::zwlr_data_control_source_v1_send(const QString &mime_typ
 {
     QFile c;
     QString send_mime_type = mime_type;
-    if(send_mime_type == QStringLiteral("text/plain;charset=utf-8")) {
+    if (send_mime_type == QStringLiteral("text/plain;charset=utf-8")) {
         // if we get a request on the fallback mime, send the data from the original mime type
         send_mime_type = QStringLiteral("text/plain");
     }
@@ -227,9 +247,22 @@ public:
         return m_selection ? m_selection->mimeData() : nullptr;
     }
 
+    void setPrimarySelection(std::unique_ptr<DataControlSource> selection);
+    QMimeData *receivedPrimarySelection()
+    {
+        return m_receivedPrimarySelection.get();
+    }
+    QMimeData *primarySelection()
+    {
+        return m_primarySelection ? m_primarySelection->mimeData() : nullptr;
+    }
+
 Q_SIGNALS:
     void receivedSelectionChanged();
     void selectionChanged();
+
+    void receivedPrimarySelectionChanged();
+    void primarySelectionChanged();
 
 protected:
     void zwlr_data_control_device_v1_data_offer(struct ::zwlr_data_control_offer_v1 *id) override
@@ -251,9 +284,24 @@ protected:
         Q_EMIT receivedSelectionChanged();
     }
 
+    void zwlr_data_control_device_v1_primary_selection(struct ::zwlr_data_control_offer_v1 *id) override
+    {
+        if (!id) {
+            m_receivedPrimarySelection.reset();
+        } else {
+            auto deriv = QtWayland::zwlr_data_control_offer_v1::fromObject(id);
+            auto offer = dynamic_cast<DataControlOffer *>(deriv); // dynamic because of the dual inheritance
+            m_receivedPrimarySelection.reset(offer);
+        }
+        Q_EMIT receivedPrimarySelectionChanged();
+    }
+
 private:
     std::unique_ptr<DataControlSource> m_selection; // selection set locally
     std::unique_ptr<DataControlOffer> m_receivedSelection; // latest selection set from externally to here
+
+    std::unique_ptr<DataControlSource> m_primarySelection; // selection set locally
+    std::unique_ptr<DataControlOffer> m_receivedPrimarySelection; // latest selection set from externally to here
 };
 
 void DataControlDevice::setSelection(std::unique_ptr<DataControlSource> selection)
@@ -267,25 +315,27 @@ void DataControlDevice::setSelection(std::unique_ptr<DataControlSource> selectio
     Q_EMIT selectionChanged();
 }
 
-class DataControlPrivate
+void DataControlDevice::setPrimarySelection(std::unique_ptr<DataControlSource> selection)
 {
-public:
-    DataControlPrivate()
-        : m_manager(new DataControlDeviceManager)
-    {}
+    m_primarySelection = std::move(selection);
+    connect(m_primarySelection.get(), &DataControlSource::cancelled, this, [this]() {
+        m_primarySelection.reset();
+        Q_EMIT primarySelectionChanged();
+    });
 
-    std::unique_ptr<DataControlDeviceManager> m_manager;
-    std::unique_ptr<DataControlDevice> m_device;
-};
-
+    if (zwlr_data_control_device_v1_get_version(object()) >= ZWLR_DATA_CONTROL_DEVICE_V1_SET_PRIMARY_SELECTION_SINCE_VERSION) {
+        set_primary_selection(m_primarySelection->object());
+        Q_EMIT primarySelectionChanged();
+    }
+}
 
 DataControl::DataControl(QObject *parent)
     : QObject(parent)
-    , d(new DataControlPrivate)
+    , m_manager(new DataControlDeviceManager)
 {
-    connect(d->m_manager.get(), &DataControlDeviceManager::activeChanged, this, [this]() {
-        if (d->m_manager->isActive()) {
-            QPlatformNativeInterface *native = qGuiApp->platformNativeInterface();
+    connect(m_manager.get(), &DataControlDeviceManager::activeChanged, this, [this]() {
+        if (m_manager->isActive()) {
+            QPlatformNativeInterface *native = qApp->platformNativeInterface();
             if (!native) {
                 return;
             }
@@ -294,58 +344,84 @@ DataControl::DataControl(QObject *parent)
                 return;
             }
 
-            d->m_device.reset(new DataControlDevice(d->m_manager->get_data_device(seat)));
+            m_device.reset(new DataControlDevice(m_manager->get_data_device(seat)));
 
-            connect(d->m_device.get(), &DataControlDevice::receivedSelectionChanged, this, &DataControl::receivedSelectionChanged);
-            connect(d->m_device.get(), &DataControlDevice::selectionChanged, this, &DataControl::selectionChanged);
+            connect(m_device.get(), &DataControlDevice::receivedSelectionChanged, this, [this]() {
+                Q_EMIT changed(QClipboard::Clipboard);
+            });
+            connect(m_device.get(), &DataControlDevice::selectionChanged, this, [this]() {
+                Q_EMIT changed(QClipboard::Clipboard);
+            });
+
+            connect(m_device.get(), &DataControlDevice::receivedPrimarySelectionChanged, this, [this]() {
+                Q_EMIT changed(QClipboard::Selection);
+            });
+            connect(m_device.get(), &DataControlDevice::primarySelectionChanged, this, [this]() {
+                Q_EMIT changed(QClipboard::Selection);
+            });
+
         } else {
-            d->m_device.reset();
+            m_device.reset();
         }
     });
 }
 
 DataControl::~DataControl() = default;
 
-QMimeData *DataControl::selection() const
+void DataControl::setMimeData(QMimeData *mime, QClipboard::Mode mode)
 {
-    return d->m_device ? d->m_device->selection() : nullptr;
-}
-
-QMimeData * DataControl::receivedSelection() const
-{
-    return d->m_device ? d->m_device->receivedSelection() : nullptr;
-}
-
-void DataControl::setSelection(QMimeData* mime, bool ownMime)
-{
-    if (!d->m_device) {
+    if (!m_device) {
         return;
     }
-
-    auto source = std::make_unique<DataControlSource>(d->m_manager->create_data_source(), mime);
-    if (ownMime) {
-        mime->setParent(source.get());
+    auto source = std::make_unique<DataControlSource>(m_manager->create_data_source(), mime);
+    if (mode == QClipboard::Clipboard) {
+        m_device->setSelection(std::move(source));
+    } else if (mode == QClipboard::Selection) {
+        m_device->setPrimarySelection(std::move(source));
     }
-    d->m_device->setSelection(std::move(source));
 }
 
-void DataControl::clearSelection()
+void DataControl::clear(QClipboard::Mode mode)
 {
-    if (!d->m_device) {
+    if (!m_device) {
         return;
     }
-    d->m_device->set_selection(nullptr);
+    if (mode == QClipboard::Clipboard) {
+        m_device->set_selection(nullptr);
+    } else if (mode == QClipboard::Selection) {
+        if (zwlr_data_control_device_v1_get_version(m_device->object()) >= ZWLR_DATA_CONTROL_DEVICE_V1_SET_PRIMARY_SELECTION_SINCE_VERSION) {
+            m_device->set_primary_selection(nullptr);
+        }
+    }
 }
 
-void DataControl::clearPrimarySelection()
+const QMimeData *DataControl::mimeData(QClipboard::Mode mode) const
 {
-    if (!d->m_device) {
-        return;
+    if (!m_device) {
+        return nullptr;
     }
 
-    if (zwlr_data_control_device_v1_get_version(d->m_device->object()) >= ZWLR_DATA_CONTROL_DEVICE_V1_SET_PRIMARY_SELECTION_SINCE_VERSION) {
-        d->m_device->set_primary_selection(nullptr);
+    // return our locally set selection if it's not cancelled to avoid copying data to ourselves
+    if (mode == QClipboard::Clipboard) {
+        if (m_device->selection()) {
+            return m_device->selection();
+        }
+        // This application owns the clipboard via the regular data_device, use it so we don't block ourselves
+        if (QGuiApplication::clipboard()->ownsClipboard()) {
+            return QGuiApplication::clipboard()->mimeData(mode);
+        }
+        return m_device->receivedSelection();
+    } else if (mode == QClipboard::Selection) {
+        if (m_device->primarySelection()) {
+            return m_device->primarySelection();
+        }
+        // This application owns the primary selection via the regular primary_selection_device, use it so we don't block ourselves
+        if (QGuiApplication::clipboard()->ownsSelection()) {
+            return QGuiApplication::clipboard()->mimeData(mode);
+        }
+        return m_device->receivedPrimarySelection();
     }
+    return nullptr;
 }
 
 #include "datacontrol.moc"
