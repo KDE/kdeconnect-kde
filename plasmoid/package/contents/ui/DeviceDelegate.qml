@@ -58,6 +58,7 @@ PlasmaComponents.ListItem
 
         RowLayout
         {
+
             width: parent.width
             Battery {
                 id: battery
@@ -77,6 +78,20 @@ PlasmaComponents.ListItem
                 textFormat: Text.PlainText
             }
 
+            PlasmaComponents3.ToolButton {
+                VirtualMonitor {
+                    id: vd
+                    device: root.device
+                }
+                icon.name: "video-monitor"
+                text: i18n("Virtual Display")
+                visible: vd.available
+                onClicked: {
+                    if (!vd.plugin.requestVirtualMonitor()) {
+                        console.warn("Failed to create the virtual monitor")
+                    }
+                }
+            }
             RowLayout
             {
                 id: connectionInformation

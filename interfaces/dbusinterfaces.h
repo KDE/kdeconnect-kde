@@ -27,6 +27,7 @@
 #include "shareinterface.h"
 #include "remotesystemvolumeinterface.h"
 #include "bigscreeninterface.h"
+#include "virtualmonitorinterface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -257,6 +258,15 @@ class KDECONNECTINTERFACES_EXPORT BigscreenDbusInterface
 public:
     explicit BigscreenDbusInterface(const QString& deviceId, QObject* parent = nullptr);
     ~BigscreenDbusInterface() override;
+};
+
+class KDECONNECTINTERFACES_EXPORT VirtualmonitorDbusInterface
+    : public OrgKdeKdeconnectDeviceVirtualmonitorInterface
+{
+    Q_OBJECT
+public:
+    explicit VirtualmonitorDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~VirtualmonitorDbusInterface() override;
 };
 
 template <typename T, typename W>

@@ -1,0 +1,29 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "aleixpol@kde.org",
+                "Name": "Aleix Pol i Gonzalez"
+            }
+        ],
+        "Name": "Virtual Monitor",
+        "Description": "Use your devices as virtual monitors",
+        "EnabledByDefault": true,
+        "Icon": "video-monitor",
+        "Id": "kdeconnect_virtualmonitor",
+        "License": "GPL",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "https://kde.org"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.virtualmonitor",
+        "kdeconnect.virtualmonitor.request"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.virtualmonitor",
+        "kdeconnect.virtualmonitor.request"
+    ]
+}

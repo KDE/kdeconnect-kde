@@ -1,0 +1,7 @@
+This plugin will allow users to use other kde connect devices as external displays.
+
+It will use krfb-virtualmonitor to create it and feed the information and also request an URL to be opened on the other device that should be rendering the contents.
+
+Upon connection, we'll be notifying under kdeconnect.virtualmonitor about our "resolutions, which include objects with a "resolution" and a "scale". These will provide the information necessary to issue a remote feed.
+
+When a virtual monitor is requested, kdeconnect.virtualmonitor.request will include a "url" field that contains all information necessary to connect to the created feed. The remote client needs to support this url type.

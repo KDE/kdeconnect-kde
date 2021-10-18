@@ -99,6 +99,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     registerFactory<ShareDbusInterface>(uri, "ShareDbusInterfaceFactory");
     registerFactory<RemoteSystemVolumeDbusInterface>(uri, "RemoteSystemVolumeDbusInterfaceFactory");
     registerFactory<BigscreenDbusInterface>(uri, "BigscreenDbusInterfaceFactory");
+    registerFactory<VirtualmonitorDbusInterface>(uri, "VirtualmonitorDbusInterfaceFactory");
 }
 
 void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
