@@ -60,8 +60,10 @@ void IndicatorHelper::iconPathHook()
 
 int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
+#ifdef USE_PRIVATE_DBUS
     // Unset launchctl env, avoid block
     DBusHelper::macosUnsetLaunchctlEnv();
+#endif
 
     // Start kdeconnectd
     m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
