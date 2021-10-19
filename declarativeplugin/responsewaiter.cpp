@@ -43,7 +43,7 @@ DBusResponseWaiter::DBusResponseWaiter()
     ;
 }
 
-QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
+QVariant DBusResponseWaiter::waitForReply(const QVariant &variant) const
 {
     if (QDBusPendingCall* call = extractPendingCall(variant))
     {
@@ -74,8 +74,7 @@ DBusAsyncResponse::DBusAsyncResponse(QObject* parent)
     connect(&m_timeout, &QTimer::timeout, this, &DBusAsyncResponse::onTimeout);
 }
 
-
-void DBusAsyncResponse::setPendingCall(QVariant variant)
+void DBusAsyncResponse::setPendingCall(const QVariant &variant)
 {
     if (QDBusPendingCall* call = DBusResponseWaiter::instance()->extractPendingCall(variant))
     {
@@ -124,7 +123,7 @@ void DBusAsyncResponse::onTimeout()
     Q_EMIT error(QStringLiteral("timeout when waiting dbus response!"));
 }
 
-QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const
+QDBusPendingCall* DBusResponseWaiter::extractPendingCall(const QVariant& variant) const
 {
     for (int type : qAsConst(m_registered))
     {
