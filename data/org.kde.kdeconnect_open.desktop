@@ -118,3 +118,4 @@ Icon=kdeconnect
 Type=Service
 Terminal=false
 Categories=Qt;KDE;Network;
+X-KDE-FormFactor=desktop;tablet;handset;
