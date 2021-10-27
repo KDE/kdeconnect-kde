@@ -247,7 +247,7 @@ class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface
     Q_OBJECT
 public:
     explicit RemoteSystemVolumeDbusInterface(const QString& deviceId, QObject* parent = nullptr);
-    ~RemoteSystemVolumeDbusInterface() = default;
+    ~RemoteSystemVolumeDbusInterface() override = default;
 };
 
 class KDECONNECTINTERFACES_EXPORT BigscreenDbusInterface

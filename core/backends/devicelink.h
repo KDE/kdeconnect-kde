@@ -26,7 +26,7 @@ public:
     enum PairStatus { NotPaired, Paired };
 
     DeviceLink(const QString& deviceId, LinkProvider* parent);
-    virtual ~DeviceLink() = default;
+    ~DeviceLink() override = default;
 
     virtual QString name() = 0;
 

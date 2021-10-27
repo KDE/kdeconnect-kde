@@ -16,7 +16,7 @@ class MprisRemotePlayer : public QObject {
 
 public:
     explicit MprisRemotePlayer(QString id, MprisRemotePlugin *plugin);
-    virtual ~MprisRemotePlayer();
+    ~MprisRemotePlayer() override;
 
     void parseNetworkPacket(const NetworkPacket& np);
     long position() const;

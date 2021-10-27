@@ -21,7 +21,7 @@ class ConversationListModel
 
 public:
     ConversationListModel(QObject* parent = nullptr);
-    ~ConversationListModel();
+    ~ConversationListModel() override;
 
     enum Roles {
         /* Roles which apply while working as a single message */

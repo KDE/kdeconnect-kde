@@ -43,7 +43,7 @@ public:
     Q_INVOKABLE bool doesAddressExists(const QString& address);
 
     ConversationsSortFilterProxyModel();
-    ~ConversationsSortFilterProxyModel();
+    ~ConversationsSortFilterProxyModel() override;
 
 protected:
     bool lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const override;

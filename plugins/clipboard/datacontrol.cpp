@@ -38,7 +38,7 @@ public:
     {
     }
 
-    ~DataControlDeviceManager()
+    ~DataControlDeviceManager() override
     {
         destroy();
     }
@@ -53,7 +53,7 @@ public:
     {
     }
 
-    ~DataControlOffer()
+    ~DataControlOffer() override
     {
         destroy();
     }
@@ -170,7 +170,7 @@ class DataControlSource : public QObject, public QtWayland::zwlr_data_control_so
 public:
     DataControlSource(struct ::zwlr_data_control_source_v1 *id, QMimeData *mimeData);
     DataControlSource();
-    ~DataControlSource()
+    ~DataControlSource() override
     {
         destroy();
     }
@@ -232,7 +232,7 @@ public:
     {
     }
 
-    ~DataControlDevice()
+    ~DataControlDevice() override
     {
         destroy();
     }

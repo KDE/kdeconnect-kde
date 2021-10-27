@@ -27,7 +27,7 @@ class ConversationModel
 
 public:
     ConversationModel(QObject* parent = nullptr);
-    ~ConversationModel();
+    ~ConversationModel() override;
 
     enum Roles {
         FromMeRole = Qt::UserRole,

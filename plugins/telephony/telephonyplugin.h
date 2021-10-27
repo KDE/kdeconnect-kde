@@ -38,7 +38,7 @@ class TelephonyPlugin
 
 public:
     explicit TelephonyPlugin(QObject* parent, const QVariantList& args);
-    ~TelephonyPlugin() = default;
+    ~TelephonyPlugin() override = default;
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
