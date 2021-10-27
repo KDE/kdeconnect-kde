@@ -45,7 +45,7 @@ DBusResponseWaiter::DBusResponseWaiter()
 
 QVariant DBusResponseWaiter::waitForReply(QVariant variant) const
 {
-    if (QDBusPendingCall* call = extractPendingCall(variant))
+    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(extractPendingCall(variant)))
     {
         call->waitForFinished();
 
@@ -77,7 +77,7 @@ DBusAsyncResponse::DBusAsyncResponse(QObject* parent)
 
 void DBusAsyncResponse::setPendingCall(QVariant variant)
 {
-    if (QDBusPendingCall* call = DBusResponseWaiter::instance()->extractPendingCall(variant))
+    if (QDBusPendingCall* call = const_cast<QDBusPendingCall*>(DBusResponseWaiter::instance()->extractPendingCall(variant)))
     {
         QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(*call);
         watcher->setProperty("pengingCallVariant", variant);
@@ -124,13 +124,13 @@ void DBusAsyncResponse::onTimeout()
     Q_EMIT error(QStringLiteral("timeout when waiting dbus response!"));
 }
 
-QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const
+const QDBusPendingCall* DBusResponseWaiter::extractPendingCall(QVariant& variant) const
 {
     for (int type : qAsConst(m_registered))
     {
         if (variant.canConvert(QVariant::Type(type)))
         {
-            return static_cast<QDBusPendingCall*>(variant.value<void *>());
+            return reinterpret_cast<const QDBusPendingCall*>(variant.constData());
         }
     }
 
