@@ -23,9 +23,9 @@ public:
     static DBusResponseWaiter* instance();
 
     ///extract QDbusPendingCall from \p variant and blocks until completed
-    Q_INVOKABLE QVariant waitForReply(const QVariant &variant) const;
+    Q_INVOKABLE QVariant waitForReply(QVariant variant) const;
 
-    QDBusPendingCall* extractPendingCall(const QVariant& variant) const;
+    QDBusPendingCall* extractPendingCall(QVariant& variant) const;
 
 private:
     DBusResponseWaiter();
@@ -44,7 +44,7 @@ public:
     explicit DBusAsyncResponse(QObject* parent = nullptr);
     ~DBusAsyncResponse() override = default;
 
-    Q_INVOKABLE void setPendingCall(const QVariant &e);
+    Q_INVOKABLE void setPendingCall(QVariant e);
 
     void setAutodelete(bool b) {m_autodelete = b;};
     bool autodelete() const {return m_autodelete;}
