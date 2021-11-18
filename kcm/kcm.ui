@@ -330,7 +330,7 @@
           <widget class="KMessageWidget" name="messages" native="true"/>
          </item>
          <item>
-          <widget class="KPluginSelector" name="pluginSelector" native="true">
+          <widget class="KPluginWidget" name="pluginSelector" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
              <horstretch>0</horstretch>
@@ -389,9 +389,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KPluginSelector</class>
+   <class>KPluginWidget</class>
    <extends>QWidget</extends>
-   <header>kpluginselector.h</header>
+   <header>kpluginwidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

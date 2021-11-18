@@ -38,16 +38,15 @@ endif()
 #######################################
 # Config
 
-set( kdeconnect_pausemusic_config_SRCS pausemusic_config.cpp )
-ki18n_wrap_ui( kdeconnect_pausemusic_config_SRCS pausemusic_config.ui )
+set( kdeconnect_pausemusic_config_SRCS  )
 
-add_library(kdeconnect_pausemusic_config MODULE ${kdeconnect_pausemusic_config_SRCS} )
+kcoreaddons_add_plugin(kdeconnect_pausemusic_config SOURCES pausemusic_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
+
+ki18n_wrap_ui(kdeconnect_pausemusic_config pausemusic_config.ui)
+
 target_link_libraries( kdeconnect_pausemusic_config
     kdeconnectcore
     kdeconnectpluginkcm
     KF5::I18n
     KF5::KCMUtils
 )
-
-install( TARGETS kdeconnect_pausemusic_config DESTINATION ${PLUGIN_INSTALL_DIR} )
-install( FILES kdeconnect_pausemusic_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )

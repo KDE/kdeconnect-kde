@@ -194,5 +194,6 @@
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.runcommand.request"
-    ]
+    ],
+    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_runcommand_config"
 }

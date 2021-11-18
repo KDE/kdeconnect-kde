@@ -20,9 +20,7 @@ target_link_libraries(kdeconnect_runcommand
 
 #----------------------
 if(NOT SAILFISHOS)
-    set( kdeconnect_runcommand_config_SRCS runcommand_config.cpp )
-
-    add_library(kdeconnect_runcommand_config MODULE ${kdeconnect_runcommand_config_SRCS} )
+    kcoreaddons_add_plugin(kdeconnect_runcommand_config SOURCES runcommand_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
     target_link_libraries( kdeconnect_runcommand_config
         kdeconnectcore
         kdeconnectpluginkcm
@@ -31,7 +29,4 @@ if(NOT SAILFISHOS)
         KF5::ConfigWidgets
 
     )
-
-    install(TARGETS kdeconnect_runcommand_config DESTINATION ${PLUGIN_INSTALL_DIR} )
-    install(FILES kdeconnect_runcommand_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 endif()

@@ -35,21 +35,20 @@ target_link_libraries(kdeconnect_sendnotifications
 #######################################
 # Config
 if (NOT SAILFISHOS)
-set( kdeconnect_sendnotifications_config_SRCS
+
+kcoreaddons_add_plugin(kdeconnect_sendnotifications_config INSTALL_NAMESPACE "kdeconnect/kcms")
+
+ki18n_wrap_ui(kdeconnect_sendnotifications_config sendnotifications_config.ui)
+target_sources(kdeconnect_sendnotifications_config PRIVATE
      sendnotifications_config.cpp
      notifyingapplication.cpp
      notifyingapplicationmodel.cpp
 )
-ki18n_wrap_ui( kdeconnect_sendnotifications_config_SRCS sendnotifications_config.ui )
 
-add_library(kdeconnect_sendnotifications_config MODULE ${kdeconnect_sendnotifications_config_SRCS} )
 target_link_libraries( kdeconnect_sendnotifications_config
     kdeconnectcore
     kdeconnectpluginkcm
     KF5::I18n
     KF5::KCMUtils
 )
-
-install( TARGETS kdeconnect_sendnotifications_config DESTINATION ${PLUGIN_INSTALL_DIR} )
-install( FILES kdeconnect_sendnotifications_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )
 endif()

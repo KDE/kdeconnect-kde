@@ -24,10 +24,9 @@ target_link_libraries(kdeconnect_share
 #######################################
 # Config
 
-set( kdeconnect_share_config_SRCS share_config.cpp )
-ki18n_wrap_ui( kdeconnect_share_config_SRCS share_config.ui )
+kcoreaddons_add_plugin(kdeconnect_share_config SOURCES share_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
 
-add_library(kdeconnect_share_config MODULE ${kdeconnect_share_config_SRCS} )
+ki18n_wrap_ui(kdeconnect_share_config share_config.ui)
 target_link_libraries( kdeconnect_share_config
     kdeconnectpluginkcm
     KF5::I18n
@@ -36,6 +35,3 @@ target_link_libraries( kdeconnect_share_config
     KF5::KIOWidgets
     KF5::Notifications
 )
-
-install(TARGETS kdeconnect_share_config DESTINATION ${PLUGIN_INSTALL_DIR} )
-install(FILES kdeconnect_share_config.desktop DESTINATION ${SERVICES_INSTALL_DIR} )

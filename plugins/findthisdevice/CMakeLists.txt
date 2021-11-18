@@ -26,10 +26,10 @@ if (NOT WIN32)
     )
 endif()
 
-set(kdeconnect_findthisdevice_config_SRCS findthisdevice_config.cpp)
-ki18n_wrap_ui(kdeconnect_findthisdevice_config_SRCS findthisdevice_config.ui)
+kcoreaddons_add_plugin(kdeconnect_findthisdevice_config INSTALL_NAMESPACE "kdeconnect/kcms")
 
-add_library(kdeconnect_findthisdevice_config MODULE ${kdeconnect_findthisdevice_config_SRCS} ${debug_file_SRCS})
+ki18n_wrap_ui(kdeconnect_findthisdevice_config findthisdevice_config.ui)
+target_sources(kdeconnect_findthisdevice_config PRIVATE findthisdevice_config.cpp ${debug_file_SRCS})
 target_link_libraries(kdeconnect_findthisdevice_config
     kdeconnectpluginkcm
     Qt5::Multimedia
@@ -38,6 +38,3 @@ target_link_libraries(kdeconnect_findthisdevice_config
     KF5::ConfigWidgets
     KF5::KIOWidgets     # KUrlRequester
 )
-
-install(TARGETS kdeconnect_findthisdevice_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
-install(FILES kdeconnect_findthisdevice_config.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
