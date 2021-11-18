@@ -1,12 +1,10 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kcm")
 
-set(kcm_SRCS
-    kcm.cpp
-)
 
-ki18n_wrap_ui(kcm_SRCS kcm.ui)
+add_library(kcm_kdeconnect MODULE kcm.cpp)
 
-add_library(kcm_kdeconnect MODULE ${kcm_SRCS})
+ki18n_wrap_ui(kcm_kdeconnect kcm.ui)
+kcoreaddons_desktop_to_json(kcm_kdeconnect "kcm_kdeconnect.desktop")
 
 target_link_libraries(kcm_kdeconnect
     Qt5::Core

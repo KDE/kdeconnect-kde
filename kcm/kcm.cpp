@@ -19,7 +19,7 @@
 #include "devicessortproxymodel.h"
 #include "kdeconnect-version.h"
 
-K_PLUGIN_FACTORY(KdeConnectKcmFactory, registerPlugin<KdeConnectKcm>();)
+K_PLUGIN_CLASS_WITH_JSON(KdeConnectKcm, "kcm_kdeconnect.json")
 
 static QString createId() { return QStringLiteral("kcm")+QString::number(QCoreApplication::applicationPid()); }
 

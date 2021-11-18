@@ -80,7 +80,7 @@ int main(int argc, char** argv)
         QObject::connect(configure, &QAction::triggered, configure, [&dialog]() {
             if (dialog == nullptr) {
                 dialog = new KCMultiDialog;
-                dialog->addModule(QStringLiteral("kcm_kdeconnect"));
+                dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")));
                 dialog->setAttribute(Qt::WA_DeleteOnClose);
                 dialog->show();
             } else {

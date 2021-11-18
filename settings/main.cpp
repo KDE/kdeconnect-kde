@@ -39,7 +39,7 @@ int main(int argc, char** argv)
     KDBusService dbusService(KDBusService::Unique);
 
     KCMultiDialog* dialog = new KCMultiDialog;
-    dialog->addModule(QStringLiteral("kcm_kdeconnect"), {parser.value(QStringLiteral("args"))});
+    dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
 
     auto style = dialog->style();
     dialog->setContentsMargins(style->pixelMetric(QStyle::PM_LayoutLeftMargin),
