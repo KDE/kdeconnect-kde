@@ -404,7 +404,7 @@ bool SmsHelper::isInGsmAlphabet(const QChar& ch)
             case 0xf1: // “ñ”
             case 0xd1: // “Ñ”
             case 0xf2: // “ò”
-            case 0xf5: // “ö”
+            case 0xf6: // “ö”
             case 0xd6: // “Ö”
             case 0xf8: // “ø”
             case 0xd8: // “Ø”
