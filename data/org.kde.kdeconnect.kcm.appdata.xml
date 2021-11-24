@@ -127,7 +127,7 @@
     <p xml:lang="tr">KDE Connect, telefonunuzu ve bilgisayarınızı entegre etmek için çeşitli özellikler sunar. Diğer cihaza dosya göndermenize, medya oynatımını kontrol etmenize, uzaktan giriş göndermenize, bildirimlerini görüntülemenize ve daha fazlasını yapmanıza olanak tanır. (Mobil) Linux, Android, FreeBSD, Windows ve macOS için mevcuttur.</p>
     <p xml:lang="uk">За допомогою KDE Connect ви зможете скористатися інтеграцією вашого телефону і комп'ютера. У цьому комплексі програм реалізовано можливості надсилання файлів на інший пристрій, керування відтворенням мультимедійних даних, введення даних, перегляд сповіщень та багато інших можливостей. Комплекс програм може працювати на (мобільних) платформах Linux, Android, FreeBSD, Windows та macOS.</p>
     <p xml:lang="x-test">xxKDE Connect provides various features to integrate your phone and your computer. It allows you to send files to the other device, control its media playback, send remote input, view its notifications and may things more. It is available for (mobile) Linux, Android, FreeBSD, Windows and macOS.xx</p>
-    <p xml:lang="zh-CN">KDE Connect提供了各种用于整合您手机和计算机的功能。它使您可以将文件发送到另一台设备，控制它的媒体播放，发送远程输入，查看它的通知，以及做许多其他事情。它在 (移动) Linux，Android，FreeBSD，Windows，和 macOS 上均可用。</p>
+    <p xml:lang="zh-CN">KDE Connect  提供了各种用于整合您手机和计算机的功能。它使您可以将文件发送到另一台设备，控制它的媒体播放，发送远程输入，查看它的通知，以及做许多其他事情。它在 (移动) Linux，Android，FreeBSD，Windows，和 macOS 上均可用。</p>
     <p xml:lang="zh-TW">KDE 連線提供各種整合手機及電腦的功能，能夠傳送檔案至其他裝置、控制媒體播放、傳送遠端輸入、檢視裝置通知還有更多功能。支援 (手機) Linux、Android、FreeBSD、Windows 和 macOS。</p>
   </description>
   <url type="homepage">https://kdeconnect.kde.org</url>
