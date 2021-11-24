@@ -90,7 +90,7 @@ void qvariant2qobject(const QVariantMap& variant, T* object)
 {
     for ( QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter )
     {
-        const int propertyIndex = T::staticMetaObject.indexOfProperty(iter.key().toLatin1());
+        const int propertyIndex = T::staticMetaObject.indexOfProperty(iter.key().toLatin1().data());
         if (propertyIndex < 0) {
             qCWarning(KDECONNECT_CORE) << "missing property" << object << iter.key();
             continue;
