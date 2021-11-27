@@ -21,7 +21,6 @@ Dependencies:
     'frameworks/kpeople': '@stable'
     'frameworks/kwindowsystem': '@stable'
     'frameworks/qqc2-desktop-style': '@stable'
-    'libraries/qca': '@stable'
 
 - 'on': ['Linux', 'FreeBSD']
   'require':
