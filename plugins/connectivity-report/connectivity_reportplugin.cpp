@@ -43,10 +43,16 @@ bool ConnectivityReportPlugin::receivePacket(const NetworkPacket& np)
         auto subscriptions = np.get<QVariantMap>(QStringLiteral("signalStrengths"), QVariantMap());
         auto networkInfo = subscriptions.first().toMap();
 
+        const auto oldCellularNetworkType = m_cellularNetworkType;
+        const auto oldNetworkStrength = m_cellularNetworkStrength;
+
         m_cellularNetworkType = networkInfo.value(QStringLiteral("networkType")).toString();
         m_cellularNetworkStrength = networkInfo.value(QStringLiteral("signalStrength")).toInt();
 
-        Q_EMIT refreshed(m_cellularNetworkType, m_cellularNetworkStrength);
+        if (oldCellularNetworkType != m_cellularNetworkType ||
+            oldNetworkStrength != m_cellularNetworkStrength) {
+          Q_EMIT refreshed(m_cellularNetworkType, m_cellularNetworkStrength);
+        }
     }
 
     return true;
