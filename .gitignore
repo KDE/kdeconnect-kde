@@ -1,4 +1,4 @@
-build
+/build*/
 clang
 *.kdev4
 Makefile
