@@ -20,7 +20,11 @@ All this is done completely wirelessly, utilising TLS encryption.
 These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Android device and pair them together in the app before using this application. The Android app repository can be found [here](https://invent.kde.org/network/kdeconnect-android)
 
 ### On Linux
-Look in your distribution repo for a package called `kdeconnect-kde`, `kdeconnect-plasma`, or just `kdeconnect`. If it's not there and you know how to build software from sources, you just found the repo :), instructions are [here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
+Look in your distribution repo for a package called `kdeconnect-kde`,
+`kdeconnect-plasma`, or just `kdeconnect`.
+If it's not there and you know how to build software from sources, you just
+found the repo :), instructions are
+[here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
 
 ### On Mac or Windows
 Platforms other than Linux are not officially supported, as there has yet to be an official release of KDE Connect for MacOS or Windows. However, most of the features have already been ported to windows so you can compile KDE Connect for Windows using [Craft](https://community.kde.org/Craft). It hasn't yet been completely tested on MacOS, contributions and feedback are welcome!
