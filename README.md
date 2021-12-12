@@ -21,7 +21,7 @@ These instructions explain how to install KDE Connect on your computer. You will
 
 ### On Linux
 Look in your distribution repo for a package called `kdeconnect-kde`,
-`kdeconnect-plasma`, or just `kdeconnect`.
+`kdeconnect-plasma`, just `kdeconnect` or `kde-connect`.
 If it's not there and you know how to build software from sources, you just
 found the repo :), instructions are
 [here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
