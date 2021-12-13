@@ -5,15 +5,11 @@
  */
 
 #include "clipboardlistener.h"
-#include <QDebug>
+
+#include <KSystemClipboard>
+
 #include <QMimeData>
-
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-#include "datacontrol.h"
-#endif
-
-ClipboardListener::ClipboardListener()
-{}
+#include <QDateTime>
 
 QString ClipboardListener::currentContent()
 {
@@ -27,17 +23,9 @@ qint64 ClipboardListener::updateTimestamp(){
 
 ClipboardListener* ClipboardListener::instance()
 {
-    static ClipboardListener* me = nullptr;
+    static ClipboardListener *me = nullptr;
     if (!me) {
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-        if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
-            me = new WaylandClipboardListener();
-        } else {
-#endif
-            me = new QClipboardListener();
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-        }
-#endif
+        me = new ClipboardListener();
     }
     return me;
 }
@@ -48,23 +36,23 @@ void ClipboardListener::refreshContent(const QString& content)
     m_currentContent = content;
 }
 
-QClipboardListener::QClipboardListener()
-    : clipboard(QGuiApplication::clipboard())
+ClipboardListener::ClipboardListener()
+    : clipboard(KSystemClipboard::instance())
 {
 #ifdef Q_OS_MAC
     connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this](){ updateClipboard(QClipboard::Clipboard); });
     m_clipboardMonitorTimer.start(1000);    // Refresh 1s
 #endif
-    connect(clipboard, &QClipboard::changed, this, &QClipboardListener::updateClipboard);
+    connect(clipboard, &KSystemClipboard::changed, this, &ClipboardListener::updateClipboard);
 }
 
-void QClipboardListener::updateClipboard(QClipboard::Mode mode)
+void ClipboardListener::updateClipboard(QClipboard::Mode mode)
 {
     if (mode != QClipboard::Clipboard) {
         return;
     }
 
-    const QString content = clipboard->text();
+    const QString content = clipboard->text(QClipboard::Clipboard);
     if (content == m_currentContent) {
         return;
     }
@@ -72,39 +60,10 @@ void QClipboardListener::updateClipboard(QClipboard::Mode mode)
     Q_EMIT clipboardChanged(content);
 }
 
-void QClipboardListener::setText(const QString& content)
-{
-    refreshContent(content);
-    clipboard->setText(content);
-}
-
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-WaylandClipboardListener::WaylandClipboardListener()
-    : m_dataControl(new DataControl(this))
-{
-    connect(m_dataControl, &DataControl::changed, this, &WaylandClipboardListener::refresh);
-}
-
-void WaylandClipboardListener::setText(const QString& content)
+void ClipboardListener::setText(const QString& content)
 {
     refreshContent(content);
     auto mime = new QMimeData;
     mime->setText(content);
-    m_dataControl->setMimeData(mime, QClipboard::Clipboard);
+    clipboard->setMimeData(mime, QClipboard::Clipboard);
 }
-
-void WaylandClipboardListener::refresh()
-{
-    const QMimeData *mime = m_dataControl->mimeData(QClipboard::Clipboard);
-    if (!mime || !mime->hasText()) {
-        return;
-    }
-
-    const QString content = mime->text();
-    if (content == m_currentContent) {
-        return;
-    }
-    refreshContent(content);
-    Q_EMIT clipboardChanged(content);
-}
-#endif

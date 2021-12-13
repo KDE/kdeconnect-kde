@@ -40,7 +40,6 @@ void ClipboardPlugin::sendConnectPacket()
     sendPacket(np);
 }
 
-
 bool ClipboardPlugin::receivePacket(const NetworkPacket& np)
 {
     QString content = np.get<QString>(QStringLiteral("content"));

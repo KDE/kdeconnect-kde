@@ -7,11 +7,14 @@
 #ifndef CLIPBOARDLISTENER_H
 #define CLIPBOARDLISTENER_H
 
-#include <QDateTime>
-#include <QTimer>
 #include <QObject>
 #include <QClipboard>
-#include <QGuiApplication>
+
+#ifdef Q_OS_MAC
+#include <QTimer>
+#endif
+
+class KSystemClipboard;
 
 /**
  * Wrapper around QClipboard, which emits clipboardChanged only when it really changed
@@ -32,43 +35,21 @@ private:
 public:
     static ClipboardListener* instance();
 
-    virtual void setText(const QString& content) = 0;
+    void setText(const QString& content);
 
     QString currentContent();
     qint64 updateTimestamp();
 
 Q_SIGNALS:
     void clipboardChanged(const QString& content);
-};
-
-class QClipboardListener : public ClipboardListener
-{
-public:
-    QClipboardListener();
-
-    void setText(const QString & content) override;
 
 private:
-#ifdef Q_OS_MAC
-    QTimer m_clipboardMonitorTimer;
-#endif
     void updateClipboard(QClipboard::Mode mode);
-    QClipboard* clipboard;
-};
 
-class DataControl;
-
-class WaylandClipboardListener : public ClipboardListener
-{
-public:
-    WaylandClipboardListener();
-
-    void setText(const QString & content) override;
-
-private:
-    void refresh();
-
-    DataControl *m_dataControl;
+#ifdef Q_OS_MAC
+    QTimer *m_clipboardMonitorTimer;
+#endif
+    KSystemClipboard *clipboard;
 };
 
 #endif
