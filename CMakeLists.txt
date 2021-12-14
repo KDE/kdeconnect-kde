@@ -14,6 +14,7 @@ if (SAILFISHOS)
 else()
     set(KF5_MIN_VERSION "5.89.0")
     set(QT_MIN_VERSION "5.10.0")
+    set(KDE_COMPILERSETTINGS_LEVEL "5.84.0")
 endif()
 set(QCA_MIN_VERSION "2.1.0")
 
