@@ -1,13 +1,18 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-plugins\")
 
 add_subdirectory(ping)
-add_subdirectory(battery)
 add_subdirectory(connectivity-report)
 add_subdirectory(remotecommands)
 add_subdirectory(remotecontrol)
 add_subdirectory(remotesystemvolume)
 add_subdirectory(clipboard)
 add_subdirectory(runcommand)
+
+
+if(NOT WIN32)
+    # https://bugs.kde.org/show_bug.cgi?id=444612
+    add_subdirectory(battery)
+endif()
 
 if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(bigscreen)
@@ -35,7 +40,7 @@ if(NOT SAILFISHOS)
     if(NOT WIN32)
         add_subdirectory(sendnotifications)
     endif()
-    
+
     if(NOT APPLE)
         add_subdirectory(sftp)
     endif()
