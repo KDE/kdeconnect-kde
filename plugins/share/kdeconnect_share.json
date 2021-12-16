@@ -143,12 +143,12 @@
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },
+    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_share_config",
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.share.request",
         "kdeconnect.share.request.update"
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.share.request"
-    ],
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_share_config"
+    ]
 }

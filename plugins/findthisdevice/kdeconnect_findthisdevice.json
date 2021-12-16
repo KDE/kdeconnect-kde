@@ -126,8 +126,8 @@
         "Version": "0.1",
         "Website": "https://kde.org"
     },
+    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_findthisdevice_config",
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.findmyphone.request"
-    ],
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_findthisdevice_config"
+    ]
 }

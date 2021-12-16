@@ -189,11 +189,11 @@
         "Version": "0.1",
         "Website": "https://albertvaka.wordpress.com"
     },
+    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_runcommand_config",
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand"
     ],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.runcommand.request"
-    ],
-    "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_runcommand_config"
+    ]
 }
