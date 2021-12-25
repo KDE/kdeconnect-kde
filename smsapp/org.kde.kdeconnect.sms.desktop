@@ -123,3 +123,4 @@ Categories=Qt;KDE;Network;InstantMessaging
 
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.kdeconnect.sms
+X-GNOME-SingleWindow=true
