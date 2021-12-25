@@ -94,3 +94,4 @@ GenericName[zh_CN]=连接并同步您的设备
 GenericName[zh_TW]=連線並且同步您的裝置
 Categories=Qt;KDE;Settings;HardwareSettings;
 NotShowIn=KDE;
+X-GNOME-SingleWindow=true
