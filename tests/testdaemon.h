@@ -49,7 +49,7 @@ public:
     {
         if (!m_nam) {
 #ifdef HAVE_KIO
-            m_nam = new KIO::AccessManager(this);
+            m_nam = new KIO::Integration::AccessManager(this);
 #else
             m_nam = new QNetworkAccessManager(this);
 #endif

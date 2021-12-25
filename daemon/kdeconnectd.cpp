@@ -71,7 +71,7 @@ public:
     QNetworkAccessManager* networkAccessManager() override
     {
         if (!m_nam) {
-            m_nam = new KIO::AccessManager(this);
+            m_nam = new KIO::Integration::AccessManager(this);
         }
         return m_nam;
     }
