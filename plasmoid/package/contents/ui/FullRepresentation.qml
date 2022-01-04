@@ -7,15 +7,16 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.4
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kdeconnect 1.0 as KdeConnect
 import QtQuick.Layouts 1.9
 import org.kde.kquickcontrolsaddons 2.0
 
-Item {
+PlasmaExtras.Representation {
     id: kdeconnect
     property alias devicesModel: devicesView.model
+    collapseMarginsHint: true
 
     KdeConnect.DevicesModel {
         id: allDevicesModel
@@ -25,33 +26,20 @@ Item {
         displayFilter: KdeConnect.DevicesModel.Paired
     }
 
-    /*
-    //Startup arguments
-    PlasmaComponents.Label {
-        visible: (startupArguments.length > 0)
-        text: (""+startupArguments)
-        anchors.fill: parent
-    }
-    */
-
-    PlasmaExtras.ScrollArea {
+    PlasmaComponents3.ScrollView {
         id: dialogItem
         anchors.fill: parent
 
-        ListView {
+        contentItem: ListView {
             id: devicesView
-            anchors.fill: parent
+            spacing: PlasmaCore.Units.smallSpacing
+
             delegate: DeviceDelegate { }
 
             PlasmaExtras.PlaceholderMessage {
-                // For optimal label and button sizing
-                width: units.gridUnit * 20
+                width: parent.width - PlasmaCore.Units.gridUnit * 2
                 anchors.centerIn: parent
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.margins: units.largeSpacing
-
-                visible: devicesView.count == 0
+                visible: devicesView.count === 0
 
                 text: {
                     if (pairedDevicesModel.count >= 0) {
@@ -67,7 +55,7 @@ Item {
                     enabled: KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
                 }
 
-                PlasmaComponents.Button {
+                PlasmaComponents3.Button {
                     Layout.leftMargin: units.largeSpacing * 3
                     Layout.rightMargin: units.largeSpacing * 3
                     Layout.alignment: Qt.AlignHCenter
@@ -77,7 +65,7 @@ Item {
                     onClicked: Qt.openUrlExternally("https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp")
                 }
 
-                PlasmaComponents.Button {
+                PlasmaComponents3.Button {
                     Layout.leftMargin: units.largeSpacing * 3
                     Layout.rightMargin: units.largeSpacing * 3
                     Layout.alignment: Qt.AlignHCenter
