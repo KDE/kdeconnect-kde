@@ -120,7 +120,7 @@ Icon=kdeconnect
 Type=Application
 Terminal=false
 Categories=Qt;KDE;Network;InstantMessaging
+SingleMainWindow=true
 
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.kdeconnect.sms
-X-GNOME-SingleWindow=true
