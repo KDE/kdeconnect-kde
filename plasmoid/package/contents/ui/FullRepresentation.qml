@@ -49,10 +49,10 @@ PlasmaExtras.Representation {
                     }
                 }
                 helpfulAction: Action {
-                    text: pairedDevicesModel.count == 0 ? i18n("Pair a Device...") : i18n("Configure...")
-                    icon.name: pairedDevicesModel.count == 0 ? "list-add" : "configure"
+                    text: i18n("Pair a Device...")
+                    icon.name: "list-add"
                     onTriggered: KdeConnect.DaemonDbusInterface.openConfiguration()
-                    enabled: KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
+                    enabled: pairedDevicesModel.count == 0 && KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
                 }
 
                 PlasmaComponents3.Button {
