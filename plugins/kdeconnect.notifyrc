@@ -188,6 +188,7 @@ Comment[uk]=Від пристрою отримано запит щодо пов�
 Comment[x-test]=xxPairing request received from a devicexx
 Comment[zh_CN]=收到来自一个设备的配对请求
 Comment[zh_TW]=從您的裝置當中收到配對請求
+ShowPopupsInDndMode=true
 Action=Popup
 
 [Event/callReceived]
