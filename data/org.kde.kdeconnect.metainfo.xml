@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>org.kde.kdeconnect.kcm.desktop</id>
+  <id>org.kde.kdeconnect</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KDE Connect</name>
@@ -147,7 +147,10 @@
       <image>https://cdn.kde.org/screenshots/kdeconnect/gnome3.png</image>
     </screenshot>
   </screenshots>
+  <content_rating type="oars-1.1"/>
   <project_group>KDE</project_group>
+  <launchable type="desktop-id">org.kde.kdeconnect.app.desktop</launchable>
+  <launchable type="desktop-id">org.kde.kdeconnect.settings.desktop</launchable>
   <provides>
     <binary>kdeconnectd</binary>
     <binary>kdeconnect-cli</binary>
@@ -156,6 +159,9 @@
     <binary>kdeconnect-settings</binary>
     <binary>kdeconnect-sms</binary>
     <binary>kdeconnect-handler</binary>
+    <binary>kdeconnect-handler</binary>
+    <id>org.kde.kdeconnect.kcm.desktop</id>
+    <dbus>org.kde.kdeconnect</dbus>
   </provides>
   <categories>
     <category>Network</category>

@@ -4,5 +4,5 @@ install(PROGRAMS org.kde.kdeconnect_open.desktop DESTINATION ${XDG_APPS_INSTALL_
 install (FILES "kdeconnect-dde.desktop" DESTINATION ${KDE_INSTALL_DATADIR}/deepin/dde-file-manager/oem-menuextensions/)
 
 if(NOT SAILFISHOS)
-    install(FILES org.kde.kdeconnect.kcm.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+    install(FILES org.kde.kdeconnect.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 endif()
