@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.1
+import QtQuick 2.15
 import QtQuick.Controls 2.2 as Controls
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
@@ -79,7 +79,13 @@ Kirigami.ScrollablePage
 
         Controls.BusyIndicator {
             running: !isInitalized
+            anchors.centerIn: parent
         }
+
+        header: Item {
+            height: Kirigami.Units.largeSpacing * 2
+        }
+        headerPositioning: ListView.InlineHeader
 
         onContentHeightChanged: {
             if (viewport.contentHeight <= 0) {

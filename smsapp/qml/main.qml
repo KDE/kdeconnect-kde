@@ -9,6 +9,7 @@
 import QtQuick 2.1
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.kdeconnect 1.0
+import org.kde.kdeconnect.sms 1.0
 
 Kirigami.ApplicationWindow
 {
@@ -17,9 +18,65 @@ Kirigami.ApplicationWindow
     width: 800
     height: 600
 
+    property int currentDeviceIndex
+    property int devicesCount
+    property string initialDevice
+    property QtObject device
+
+    Component {
+        id: deviceActionComponent
+        Kirigami.Action {
+            property int deviceIndex
+            onTriggered: {
+                root.currentDeviceIndex = deviceIndex
+            }
+            icon.name: root.currentDeviceIndex === deviceIndex ? "checkmark" : ""
+        }
+    }
+
+    DevicesSortProxyModel {
+        id: devicesModel
+        //TODO: make it possible to filter if they can do sms
+        sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
+        function populateDevicesMenu() {
+            root.globalDrawer.actions[0].children = [];
+            for (var i = 0; i < devicesModel.rowCount(); i++) {
+                var dev = devicesModel.data(devicesModel.index(i, 0), DevicesSortProxyModel.DisplayRole);
+                var obj = deviceActionComponent.createObject(root.globalDrawer.actions[0], {
+                    text: dev,
+                    deviceIndex: i
+                });
+                root.globalDrawer.actions[0].children.push(obj);
+            }
+        }
+        onRowsInserted: {
+            if (root.currentDeviceIndex < 0) {
+                if (root.initialDevice) {
+                    root.currentDeviceIndex = devicesModel.rowForDevice(root.initialDevice);
+                } else {
+                    root.currentDeviceIndex = 0;
+                }
+            }
+            root.device = root.currentDeviceIndex >= 0 ? devicesModel.data(devicesModel.index(root.currentDeviceIndex, 0), DevicesModel.DeviceRole) : null
+            root.devicesCount = devicesModel.rowCount();
+            populateDevicesMenu();
+        }
+        onRowsRemoved: {
+            root.devicesCount = devicesModel.rowCount();
+            populateDevicesMenu();
+        }
+    }
+    onCurrentDeviceIndexChanged: {
+        root.device = root.currentDeviceIndex >= 0 ? devicesModel.data(devicesModel.index(root.currentDeviceIndex, 0), DevicesModel.DeviceRole) : null
+    }
+
     pageStack.initialPage: ConversationList {
         title: i18nd("kdeconnect-sms", "KDE Connect SMS")
         initialMessage: initialMessage
+        device: root.device;
+        initialDevice: initialDevice
+        currentDeviceIndex: root.currentDeviceIndex;
+        devicesCount: root.devicesCount;
     }
 
     Component {
@@ -32,6 +89,19 @@ Kirigami.ApplicationWindow
         isMenu: true
 
         actions: [
+            Kirigami.Action {
+                text: i18nd("kdeconnect-sms", "Devices")
+                icon.name: "phone"
+                visible: devicesCount > 1
+            },
+            Kirigami.Action {
+                text: i18nd("kdeconnect-sms", "Refresh")
+                icon.name: "view-refresh"
+                enabled: devicesCount > 0
+                onTriggered: {
+                    pageStack.initialPage.conversationListModel.refresh();
+                }
+            },
             Kirigami.Action {
                 text: i18nd("kdeconnect-sms", "About")
                 icon.name: "help-about"
