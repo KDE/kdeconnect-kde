@@ -48,6 +48,7 @@
             }
         ],
         "Description": "Use your keyboard to send key-events to your paired device",
+        "Description[ar]": "استعمل لوحة مفاتيحك لإرسال أحداث مفاتيح إلى جهازك المقترن",
         "Description[ast]": "Usa'l tecláu pa unviar eventos de tecles al preséu empareyáu",
         "Description[az]": "Klaviaturadan istifadə edərək düymə-əməllərini qoşulmuş cihaza göndərmək",
         "Description[ca@valencia]": "Empreu el vostre teclat per a enviar esdeveniments de tecla al dispositiu aparellat",
@@ -94,6 +95,7 @@
         "Id": "kdeconnect_remotekeyboard",
         "License": "GPL",
         "Name": "Remote keyboard from the desktop",
+        "Name[ar]": "لوحة مفاتيح بعيده من سطح المكتب",
         "Name[az]": "İş Masasından uzaq klaviatura",
         "Name[ca@valencia]": "Teclat remot des de l'escriptori",
         "Name[ca]": "Teclat remot des de l'escriptori",

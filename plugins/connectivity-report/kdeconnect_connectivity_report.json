@@ -4,6 +4,7 @@
             {
                 "Email": "david.shlemayev@gmail.com",
                 "Name": "David Shlemayev",
+                "Name[ar]": "David Shlemayev",
                 "Name[az]": "David Shlemayev",
                 "Name[ca@valencia]": "David Shlemayev",
                 "Name[ca]": "David Shlemayev",
@@ -38,6 +39,7 @@
             }
         ],
         "Description": "Show your phone's network signal strength",
+        "Description[ar]": "أظهر قوة إشارة شبكة هاتفك",
         "Description[az]": "Telefonunuzun şəbəkə siqnalı gücü göstərilsin",
         "Description[ca@valencia]": "Mostra la intensitat del senyal de xarxa del vostre telèfon",
         "Description[ca]": "Mostra la intensitat del senyal de xarxa del vostre telèfon",
@@ -74,6 +76,7 @@
         "Id": "kdeconnect_connectivity_report",
         "License": "GPL",
         "Name": "Connectivity monitor",
+        "Name[ar]": "مراقب الاتصال",
         "Name[az]": "Bağlantı monitoru",
         "Name[ca@valencia]": "Monitor de la connectivitat",
         "Name[ca]": "Monitor de la connectivitat",

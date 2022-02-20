@@ -4,6 +4,7 @@
             {
                 "Email": "nicolas.fella@gmx.de",
                 "Name": "Nicolas Fella",
+                "Name[ar]": "Nicolas Fella",
                 "Name[ast]": "Nicolas Fella",
                 "Name[az]": "Nicolas Fella",
                 "Name[ca@valencia]": "Nicolas Fella",
@@ -43,6 +44,7 @@
             }
         ],
         "Description": "Control the volume of the connected device",
+        "Description[ar]": "تحكم بصوت الجهاز المتصل",
         "Description[ast]": "Controla'l volume del preséu conectáu",
         "Description[az]": "Qoşulmuş cihazın səs səviyyəsini idarə etmək",
         "Description[ca@valencia]": "Controla el volum del dispositiu connectat",
@@ -84,6 +86,7 @@
         "Id": "kdeconnect_remotesystemvolume",
         "License": "GPL",
         "Name": "Remote system volume",
+        "Name[ar]": "صوت النظام البعيد",
         "Name[az]": "Uzaq sistemin səs səviyyəsi",
         "Name[ca@valencia]": "Volum del sistema remot",
         "Name[ca]": "Volum del sistema remot",

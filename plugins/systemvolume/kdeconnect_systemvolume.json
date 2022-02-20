@@ -5,6 +5,7 @@
             {
                 "Email": "nicolas.fella@gmx.de",
                 "Name": "Nicolas Fella",
+                "Name[ar]": "Nicolas Fella",
                 "Name[ast]": "Nicolas Fella",
                 "Name[az]": "Nicolas Fella",
                 "Name[ca@valencia]": "Nicolas Fella",
@@ -44,6 +45,7 @@
             }
         ],
         "Description": "Control the system volume from your phone",
+        "Description[ar]": "تحكم بصوت النظام من هاتفك",
         "Description[ast]": "Controla'l volume del sistema dende'l teléfonu",
         "Description[az]": "Sistemin səs səviyyəsini telefonunuzdan idarə edin",
         "Description[ca@valencia]": "Controla el volum del sistema des del telèfon",
@@ -85,6 +87,7 @@
         "Id": "kdeconnect_systemvolume",
         "License": "GPL",
         "Name": "System volume",
+        "Name[ar]": "صوت النظام",
         "Name[ast]": "Volume del sistema",
         "Name[az]": "Sistemin səs səviyyəsi",
         "Name[ca@valencia]": "Volum del sistema",

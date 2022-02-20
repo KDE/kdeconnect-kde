@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name= Find my device
+Name[ar]= اعثر على جهازي
 Name[az]= Cihazımı tapmaq
 Name[ca]= Troba el meu dispositiu
 Name[ca@valencia]= Troba el meu dispositiu
@@ -38,6 +39,7 @@ Name[x-test]=xx Find my devicexx
 Name[zh_CN]= 查找我的设备
 Name[zh_TW]= 尋找我的裝置
 Comment=Ring connected devices
+Comment[ar]=رنّ على الأجهزة المتصلة
 Comment[az]=Qoşulmuş cihaza zəng
 Comment[ca]=Fa sonar als dispositius connectats
 Comment[ca@valencia]=Fa sonar als dispositius connectats

@@ -5,6 +5,7 @@
             {
                 "Email": "simon@ergotech.com",
                 "Name": "Simon Redman",
+                "Name[ar]": "Simon Redman",
                 "Name[ast]": "Simon Redman",
                 "Name[az]": "Simon Redman",
                 "Name[ca@valencia]": "Simon Redman",
@@ -44,6 +45,7 @@
             }
         ],
         "Description": "Synchronize Contacts Between the Desktop and the Connected Device",
+        "Description[ar]": "زامن المتراسلين بين سطح المكتب والجهاز المتصل",
         "Description[az]": "Kontakları Qoşulmuş Cihaz və İş Masası arasında eyniləşdirmək",
         "Description[ca@valencia]": "Sincronitza els contactes entre l'escriptori i el dispositiu connectat",
         "Description[ca]": "Sincronitza els contactes entre l'escriptori i el dispositiu connectat",
@@ -84,6 +86,7 @@
         "Id": "kdeconnect_contacts",
         "License": "GPL",
         "Name": "Contacts",
+        "Name[ar]": "المتراسلون",
         "Name[ast]": "Contautos",
         "Name[az]": "Kontaktlar",
         "Name[ca@valencia]": "Contactes",

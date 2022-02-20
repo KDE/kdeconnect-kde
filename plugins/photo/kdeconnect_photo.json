@@ -4,6 +4,7 @@
             {
                 "Email": "nicolas.fella@gmx.de",
                 "Name": "Nicolas Fella",
+                "Name[ar]": "Nicolas Fella",
                 "Name[ast]": "Nicolas Fella",
                 "Name[az]": "Nicolas Fella",
                 "Name[ca@valencia]": "Nicolas Fella",
@@ -43,6 +44,7 @@
             }
         ],
         "Description": "Use a connected device to take a photo",
+        "Description[ar]": "استعمل الجهاز المتصل لأخذ صورة",
         "Description[ast]": "Usa un preséu conectáu pa facer una semeya",
         "Description[az]": "Qoşulmuş cihazla şəkil çəkmək",
         "Description[ca@valencia]": "Usa un dispositiu connectat per a prendre una fotografia",
@@ -84,6 +86,7 @@
         "Id": "kdeconnect_photo",
         "License": "GPL",
         "Name": "Photo",
+        "Name[ar]": "صورة",
         "Name[ast]": "Semeya",
         "Name[az]": "Foto",
         "Name[ca@valencia]": "Fotografia",
