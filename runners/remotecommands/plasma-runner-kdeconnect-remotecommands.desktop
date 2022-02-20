@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Run command
+Name[ar]=نفّذ أمرًا
 Name[az]=Əmri başlatmaq
 Name[ca]=Executa una ordre
 Name[ca@valencia]=Executa una ordre
@@ -38,6 +39,7 @@ Name[x-test]=xxRun commandxx
 Name[zh_CN]=运行命令
 Name[zh_TW]=執行指令
 Comment=Run commands on connected devices
+Comment[ar]=نفذ الأوامر على الأجهزة المتصلة
 Comment[az]=Qoşulmuş cihazda əmrləri başlatmaq
 Comment[ca]=Executa les ordres als dispositius connectats
 Comment[ca@valencia]=Executa les ordres als dispositius connectats

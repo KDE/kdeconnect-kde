@@ -48,6 +48,7 @@
             }
         ],
         "Description": "Use your mobile device to point to things on the screen",
+        "Description[ar]": "استعمل جهازك الجوال لتؤشر على الأشياء في الشاشة",
         "Description[az]": "Ekrandakıları göstərmək üçün mobil cihazınızdan kursor kimi istifadə edin",
         "Description[ca@valencia]": "Usa el dispositiu mòbil per a assenyalar coses a la pantalla",
         "Description[ca]": "Usa el dispositiu mòbil per a assenyalar coses a la pantalla",
@@ -88,6 +89,7 @@
         "Id": "kdeconnect_presenter",
         "License": "GPL",
         "Name": "Presenter",
+        "Name[ar]": "المقدم",
         "Name[az]": "Təqdimatçı",
         "Name[ca@valencia]": "Presentador",
         "Name[ca]": "Presentador",

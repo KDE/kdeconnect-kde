@@ -4,6 +4,7 @@
             {
                 "Email": "simon@ergotech.com",
                 "Name": "Simon Redman",
+                "Name[ar]": "Simon Redman",
                 "Name[ast]": "Simon Redman",
                 "Name[az]": "Simon Redman",
                 "Name[ca@valencia]": "Simon Redman",
@@ -43,6 +44,7 @@
             }
         ],
         "Description": "Send and receive SMS",
+        "Description[ar]": "أرسل رسائل نصية واستقبلها",
         "Description[ast]": "Unvia y recibe SMS",
         "Description[az]": "SMS mübadiləsi",
         "Description[ca@valencia]": "Envia i rep SMS",
@@ -85,6 +87,7 @@
         "Id": "kdeconnect_sms",
         "License": "GPL",
         "Name": "SMS",
+        "Name[ar]": "اس ام اس",
         "Name[ast]": "SMS",
         "Name[az]": "SMS",
         "Name[ca@valencia]": "SMS",
