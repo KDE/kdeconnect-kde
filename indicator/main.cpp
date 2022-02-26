@@ -83,7 +83,9 @@ int main(int argc, char** argv)
                 dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")));
                 dialog->setAttribute(Qt::WA_DeleteOnClose);
                 dialog->show();
+                dialog->raise();
             } else {
+                dialog->raise();
                 dialog->activateWindow();
             }
         });
