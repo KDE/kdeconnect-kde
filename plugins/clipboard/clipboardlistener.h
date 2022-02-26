@@ -47,7 +47,7 @@ private:
     void updateClipboard(QClipboard::Mode mode);
 
 #ifdef Q_OS_MAC
-    QTimer *m_clipboardMonitorTimer;
+    QTimer m_clipboardMonitorTimer;
 #endif
     KSystemClipboard *clipboard;
 };
