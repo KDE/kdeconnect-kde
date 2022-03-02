@@ -162,7 +162,9 @@ int main(int argc, char** argv)
     systray.setStandardActionsEnabled(false);
     QObject::connect(&model, &DevicesModel::rowsChanged, &model, [&systray, &model]() {
         const auto count = model.rowCount();
+#ifndef Q_OS_MACOS // On MacOS, setting status to Active disables color theme syncing of the menu icon
         systray.setStatus(count == 0 ? KStatusNotifierItem::Passive : KStatusNotifierItem::Active);
+#endif
         systray.setToolTip(QStringLiteral("kdeconnect"), QStringLiteral("KDE Connect"), i18np("%1 device connected", "%1 devices connected", count));
     });
 
