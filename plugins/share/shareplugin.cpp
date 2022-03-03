@@ -78,6 +78,15 @@ void SharePlugin::setDateModified(const QUrl& destination, const qint64 timestam
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileModificationTime));
 }
 
+void SharePlugin::setDateCreated(const QUrl& destination, const qint64 timestamp)
+{
+    QFile receivedFile(destination.toLocalFile());
+    if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
+        return;
+    }
+    receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileBirthTime));
+}
+
 bool SharePlugin::receivePacket(const NetworkPacket& np)
 {
 /*
@@ -107,6 +116,7 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
         QUrl destination = getFileDestination(filename);
 
         if (np.hasPayload()) {
+            qint64 dateCreated = np.get<qint64>(QStringLiteral("creationTime"), QDateTime::currentMSecsSinceEpoch());
             qint64 dateModified = np.get<qint64>(QStringLiteral("lastModified"), QDateTime::currentMSecsSinceEpoch());
             const bool open = np.get<bool>(QStringLiteral("open"), false);
 
@@ -119,7 +129,9 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
 
             FileTransferJob* job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
-            connect(job, &KJob::result, this, [this, dateModified, open] (KJob* job) -> void { finished(job, dateModified, open); });
+            connect(job, &KJob::result, this, [this, dateCreated, dateModified, open] (KJob* job) -> void {
+                finished(job, dateCreated, dateModified, open);
+            });
             m_compositeJob->addSubjob(job);
 
             if (!m_compositeJob->isRunning()) {
@@ -165,11 +177,12 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SharePlugin::finished(KJob* job, const qint64 dateModified, const bool open)
+void SharePlugin::finished(KJob* job, const qint64 dateModified, const qint64 dateCreated, const bool open)
 {
     FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
     if (ftjob && !job->error()) {
         Q_EMIT shareReceived(ftjob->destination().toString());
+        setDateCreated(ftjob->destination(), dateCreated);
         setDateModified(ftjob->destination(), dateModified);
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer finished." << ftjob->destination();
         if (open) {
@@ -190,6 +203,7 @@ void SharePlugin::shareUrl(const QUrl& url, bool open)
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     if (url.isLocalFile()) {
         QSharedPointer<QFile> ioFile(new QFile(url.toLocalFile()));
+        QFileInfo info(*ioFile);
 
         if (!ioFile->exists()) {
             Daemon::instance()->reportError(i18n("Could not share file"), i18n("%1 does not exist", url.toLocalFile()));
@@ -197,6 +211,8 @@ void SharePlugin::shareUrl(const QUrl& url, bool open)
         } else {
             packet.setPayload(ioFile, ioFile->size());
             packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
+            packet.set<qint64>(QStringLiteral("creationTime"), info.birthTime().toMSecsSinceEpoch());
+            packet.set<qint64>(QStringLiteral("lastModified"), info.lastModified().toMSecsSinceEpoch());
             packet.set<bool>(QStringLiteral("open"), open);
         }
     } else {
