@@ -169,6 +169,7 @@
   <custom>
     <value key="KDE::f_droid">https://f-droid.org/en/packages/org.kde.kdeconnect_tp/</value>
     <value key="KDE::google_play">https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp</value>
+    <value key="KDE::windows_store">https://www.microsoft.com/store/apps/9n93mrmsxbf0</value>
   </custom>
   <releases>
     <release version="21.12.3" date="2022-03-03"/>
