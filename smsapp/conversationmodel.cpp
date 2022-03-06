@@ -141,8 +141,11 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
                 << "Ignoring duplicate message with ID" << message.uID();
         return;
     }
-
-    ConversationAddress sender = message.addresses().first();
+    
+    ConversationAddress sender;
+    if (!message.addresses().isEmpty()) {
+        sender = message.addresses().first();
+    }
     QString senderName = message.isIncoming() ? SmsHelper::getTitleForAddresses({sender}) : QString();
     QString displayBody = message.body();
 
