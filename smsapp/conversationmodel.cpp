@@ -142,7 +142,15 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
         return;
     }
 
-    ConversationAddress sender = message.addresses().first();
+    ConversationAddress sender;
+    if (!message.addresses().isEmpty()) {
+        sender = message.addresses().first();
+    }
+    else {
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
+            << "Conversation with ID " << message.threadID() << " did not have any addresses";
+    }
+
     QString senderName = message.isIncoming() ? SmsHelper::getTitleForAddresses({sender}) : QString();
     QString displayBody = message.body();
 
