@@ -203,12 +203,12 @@ void SharePlugin::shareUrl(const QUrl& url, bool open)
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     if (url.isLocalFile()) {
         QSharedPointer<QFile> ioFile(new QFile(url.toLocalFile()));
-        QFileInfo info(*ioFile);
 
         if (!ioFile->exists()) {
             Daemon::instance()->reportError(i18n("Could not share file"), i18n("%1 does not exist", url.toLocalFile()));
             return;
         } else {
+            QFileInfo info(*ioFile);
             packet.setPayload(ioFile, ioFile->size());
             packet.set<QString>(QStringLiteral("filename"), QUrl(url).fileName());
             packet.set<qint64>(QStringLiteral("creationTime"), info.birthTime().toMSecsSinceEpoch());
