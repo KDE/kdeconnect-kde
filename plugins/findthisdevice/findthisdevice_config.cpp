@@ -20,7 +20,7 @@ K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfi
 
 
 FindThisDeviceConfig::FindThisDeviceConfig(QWidget* parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_findthisdevice_config"))
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_findthisdevice"))
     , m_ui(new Ui::FindThisDeviceConfigUi())
 {
     m_ui->setupUi(this);

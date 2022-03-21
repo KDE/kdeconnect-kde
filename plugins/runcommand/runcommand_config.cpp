@@ -26,7 +26,7 @@ K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
 
 RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand_config"))
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand"))
 {
     // The qdbus executable name is different on some systems
     QString qdbusExe = QStringLiteral("qdbus-qt5");

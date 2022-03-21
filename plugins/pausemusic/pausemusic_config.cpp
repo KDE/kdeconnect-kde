@@ -12,7 +12,7 @@
 K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
 
 PauseMusicConfig::PauseMusicConfig(QWidget* parent, const QVariantList& args)
-    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_pausemusic_config"))
+    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_pausemusic"))
     , m_ui(new Ui::PauseMusicConfigUi())
 {
     m_ui->setupUi(this);
