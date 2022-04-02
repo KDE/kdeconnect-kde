@@ -28,7 +28,8 @@ int main(int argc, char *argv[])
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
 
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData aboutData(QStringLiteral("kdeconnect.sms"),
