@@ -33,9 +33,10 @@
 int main(int argc, char** argv)
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     KAboutData about(QStringLiteral("kdeconnect-indicator"),
                      i18n("KDE Connect Indicator"),
                      QStringLiteral(KDECONNECT_VERSION_STRING),
