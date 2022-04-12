@@ -10,40 +10,42 @@
 #include <QDebug>
 
 #include <KLocalizedString>
-#include <KWayland/Client/connection_thread.h>
-#include <KWayland/Client/fakeinput.h>
-#include <KWayland/Client/registry.h>
+
+#include <QtWaylandClient/qwaylandclientextension.h>
+#include "qwayland-fake-input.h"
+
+#include <linux/input.h>
+
+class FakeInput : public QWaylandClientExtensionTemplate<FakeInput>, public QtWayland::org_kde_kwin_fake_input
+{
+public:
+    FakeInput()
+        : QWaylandClientExtensionTemplate<FakeInput>(4)
+    {
+    }
+};
+
 
 WaylandRemoteInput::WaylandRemoteInput(QObject* parent)
     : AbstractRemoteInput(parent)
-    , m_waylandInput(nullptr)
     , m_waylandAuthenticationRequested(false)
 {
-    using namespace KWayland::Client;
-    ConnectionThread* connection = ConnectionThread::fromApplication(this);
-    if (!connection) {
-        qDebug() << "failed to get the Connection from Qt, Wayland remote input will not work";
-        return;
-    }
-    Registry* registry = new Registry(this);
-    registry->create(connection);
-    connect(registry, &Registry::fakeInputAnnounced, this,
-        [this, registry] (quint32 name, quint32 version) {
-            m_waylandInput = registry->createFakeInput(name, version, this);
-        }
-    );
-    connect(registry, &Registry::fakeInputRemoved, m_waylandInput, &QObject::deleteLater);
-    registry->setup();
+    m_fakeInput = new FakeInput;
+}
+
+WaylandRemoteInput::~WaylandRemoteInput()
+{
+    delete m_fakeInput;
 }
 
 bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
 {
-    if (!m_waylandInput) {
-        return false;
+    if (!m_fakeInput->isActive()) {
+        return true;
     }
 
     if (!m_waylandAuthenticationRequested) {
-        m_waylandInput->authenticate(i18n("KDE Connect"), i18n("Use your phone as a touchpad and keyboard"));
+        m_fakeInput->authenticate(i18n("KDE Connect"), i18n("Use your phone as a touchpad and keyboard"));
         m_waylandAuthenticationRequested = true;
     }
 
@@ -63,28 +65,36 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
 
         if (isSingleClick) {
-            m_waylandInput->requestPointerButtonClick(Qt::LeftButton);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
+
         } else if (isDoubleClick) {
-            m_waylandInput->requestPointerButtonClick(Qt::LeftButton);
-            m_waylandInput->requestPointerButtonClick(Qt::LeftButton);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
+
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
         } else if (isMiddleClick) {
-            m_waylandInput->requestPointerButtonClick(Qt::MiddleButton);
+            m_fakeInput->button(BTN_MIDDLE, WL_POINTER_BUTTON_STATE_PRESSED);
+            m_fakeInput->button(BTN_MIDDLE, WL_POINTER_BUTTON_STATE_RELEASED);
         } else if (isRightClick) {
-            m_waylandInput->requestPointerButtonClick(Qt::RightButton);
+            m_fakeInput->button(BTN_RIGHT, WL_POINTER_BUTTON_STATE_PRESSED);
+            m_fakeInput->button(BTN_RIGHT, WL_POINTER_BUTTON_STATE_RELEASED);
         } else if (isSingleHold){
             //For drag'n drop
-            m_waylandInput->requestPointerButtonPress(Qt::LeftButton);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
         } else if (isSingleRelease){
             //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
-            m_waylandInput->requestPointerButtonRelease(Qt::LeftButton);
+            m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
         } else if (isScroll) {
-            m_waylandInput->requestPointerAxis(Qt::Vertical, -dy);
+            m_fakeInput->axis(WL_POINTER_AXIS_VERTICAL_SCROLL, wl_fixed_from_double(-dy));
+
         } else if (!key.isEmpty() || specialKey) {
             // TODO: implement key support
         }
 
     } else { //Is a mouse move event
-        m_waylandInput->requestPointerMove(QSizeF(dx, dy));
+        m_fakeInput->pointer_motion(wl_fixed_from_double(dx), wl_fixed_from_double(dy));
     }
     return true;
 }

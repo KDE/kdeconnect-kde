@@ -7,16 +7,9 @@
 #ifndef WAYLANDREMOTEINPUT_H
 #define WAYLANDREMOTEINPUT_H
 
-#include <QPointer>
 #include "abstractremoteinput.h"
 
-namespace KWayland
-{
-    namespace Client
-    {
-        class FakeInput;
-    }
-}
+class FakeInput;
 
 class WaylandRemoteInput
     : public AbstractRemoteInput
@@ -25,13 +18,14 @@ class WaylandRemoteInput
 
 public:
     explicit WaylandRemoteInput(QObject* parent);
+    ~WaylandRemoteInput();
 
     bool handlePacket(const NetworkPacket& np) override;
 
 private:
     void setupWaylandIntegration();
 
-    QPointer<KWayland::Client::FakeInput> m_waylandInput;
+    FakeInput *m_fakeInput;
     bool m_waylandAuthenticationRequested;
 };
 

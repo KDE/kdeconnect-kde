@@ -27,3 +27,4 @@ Dependencies:
     'frameworks/kwayland': '@stable'
     'frameworks/kpackage': '@stable'
     'libraries/pulseaudio-qt/': '@stable'
+    'libraries/plasma-wayland-protocols': '@stable'

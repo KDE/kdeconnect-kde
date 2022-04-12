@@ -1,7 +1,6 @@
 kdeconnect_add_plugin(kdeconnect_mousepad SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
 
 if(UNIX AND NOT APPLE)
-    find_package(KF5 ${KF5_MIN_VERSION} QUIET OPTIONAL_COMPONENTS Wayland)
 
     find_package(LibFakeKey QUIET)
     set_package_properties(LibFakeKey PROPERTIES DESCRIPTION "fake key events"
@@ -9,6 +8,17 @@ if(UNIX AND NOT APPLE)
                         TYPE OPTIONAL
                         PURPOSE "Needed for the remote mousepad plugin"
                         )
+
+    ecm_add_qtwayland_client_protocol(wayland_SRCS
+        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
+        BASENAME fake-input
+    )
+
+    target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
+    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt5::WaylandClient)
+    target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp)
+    set(HAVE_WAYLAND TRUE)
+
     if (LibFakeKey_FOUND)
         find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
         find_package(XTest REQUIRED)
@@ -19,7 +29,6 @@ endif()
 
 set(HAVE_WINDOWS ${WIN32})
 set(HAVE_X11 ${LibFakeKey_FOUND})
-set(HAVE_WAYLAND ${KF5Wayland_FOUND})
 set(HAVE_MACOS ${APPLE})
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h )
 
@@ -27,11 +36,6 @@ target_link_libraries(kdeconnect_mousepad kdeconnectcore Qt5::Gui KF5::I18n)
 
 if (HAVE_WINDOWS)
     target_sources(kdeconnect_mousepad PUBLIC windowsremoteinput.cpp)
-endif()
-
-if(HAVE_WAYLAND)
-    target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp)
-    target_link_libraries(kdeconnect_mousepad KF5::WaylandClient)
 endif()
 
 if(HAVE_X11)
