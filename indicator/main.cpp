@@ -116,12 +116,8 @@ int main(int argc, char** argv)
                                                         QStringLiteral("/MainApplication"),
                                                         QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                         QStringLiteral("quit"));
-            DBusHelper::sessionBus().call(message, QDBus::NoBlock); // Close our daemon
-            message = QDBusMessage::createMethodCall(qApp->applicationName(),
-                                                        QStringLiteral("/MainApplication"),
-                                                        QStringLiteral("org.qtproject.Qt.QCoreApplication"),
-                                                        QStringLiteral("quit"));
-            DBusHelper::sessionBus().call(message, QDBus::NoBlock); // Close our indicator
+            QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
+            qApp->quit();
         });
 #elif defined Q_OS_WIN
 

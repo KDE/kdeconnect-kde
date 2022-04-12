@@ -141,23 +141,27 @@ int main(int argc, char* argv[])
     KAboutData::setApplicationData(aboutData);
     app.setQuitOnLastWindowClosed(false);
 
-#ifdef USE_PRIVATE_DBUS
-    DBusHelper::launchDBusDaemon();
-#endif
-
     QCommandLineParser parser;
     QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
     parser.addOption(replaceOption);
+    QCommandLineOption macosPrivateDBusOption({QStringLiteral("use-private-dbus")},
+        i18n("Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"));
+    parser.addOption(macosPrivateDBusOption);
     aboutData.setupCommandLine(&parser);
 
     parser.process(app);
+#ifdef Q_OS_MAC
+    if (parser.isSet(macosPrivateDBusOption)) {
+        DBusHelper::launchDBusDaemon();
+    }
+#endif
     aboutData.processCommandLine(&parser);
     if (parser.isSet(replaceOption)) {
         auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
                                                     QStringLiteral("/MainApplication"),
                                                     QStringLiteral("org.qtproject.Qt.QCoreApplication"),
                                                     QStringLiteral("quit"));
-        DBusHelper::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
+        QDBusConnection::sessionBus().call(message); //deliberately block until it's done, so we register the name after the app quits
     }
 
     KDBusService dbusService(KDBusService::Unique);

@@ -20,6 +20,8 @@
 
 #include "serviceregister_mac.h"
 
+#include <kdeconnectconfig.h>
+
 IndicatorHelper::IndicatorHelper()
 {
     registerServices();
@@ -60,30 +62,33 @@ void IndicatorHelper::iconPathHook()
 
 int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
-#ifdef USE_PRIVATE_DBUS
-    // Unset launchctl env, avoid block
-    DBusHelper::macosUnsetLaunchctlEnv();
-#endif
+    // This flag marks whether a session DBus daemon is installed and run
+    bool hasUsableSessionBus = true;
+    // Use another bus instance for detecting, avoid session bus cache in Qt
+    if (!QDBusConnection::connectToBus(QDBusConnection::SessionBus,
+        QStringLiteral("kdeconnect-test-client")).isConnected()) {
+        qDebug() << "Default session bus not detected, will use private D-Bus.";
 
-    // Start kdeconnectd
-    m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
-        kdeconnectd.startDetached(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
-    } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
-        kdeconnectd.startDetached(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"));
-    } else {
-        QMessageBox::critical(nullptr, i18n("KDE Connect"),
-                              i18n("Cannot find kdeconnectd"),
-                              QMessageBox::Abort,
-                              QMessageBox::Abort);
-        return -1;
+        // Unset launchctl env and private dbus addr file, avoid block
+        DBusHelper::macosUnsetLaunchctlEnv();
+        QFile privateDBusAddressFile(KdeConnectConfig::instance().privateDBusAddressPath());
+        if (privateDBusAddressFile.exists()) privateDBusAddressFile.resize(0);
+
+        // Update session bus usability state
+        hasUsableSessionBus = false;
     }
 
-    // Wait for dbus daemon env
-    QProcess getLaunchdDBusEnv;
-    m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    int retry = 0;
-    do {
+    // Start daemon
+    m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+
+    // Here we will try to bring our private session D-Bus
+    if (!hasUsableSessionBus) {
+        qDebug() << "Launching private session D-Bus.";
+        DBusHelper::launchDBusDaemon();
+        // Wait for dbus daemon env
+        QProcess getLaunchdDBusEnv;
+        m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+        int retry = 0;
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
         getLaunchdDBusEnv.setArguments({
             QStringLiteral("getenv"),
@@ -94,9 +99,10 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 
         QString launchdDBusEnv = QString::fromLocal8Bit(getLaunchdDBusEnv.readAllStandardOutput());
 
-        if (launchdDBusEnv.length() > 0) {
-            break;
-        } else if (retry >= 10) {
+        if (launchdDBusEnv.length() > 0 && QDBusConnection::sessionBus().isConnected()) {
+            qDebug() << "Private D-Bus daemon launched and connected.";
+            hasUsableSessionBus = true;
+        } else {
             // Show a warning and exit
             qCritical() << "Fail to get launchctl" << KDECONNECT_SESSION_DBUS_LAUNCHD_ENV << "env";
 
@@ -106,11 +112,22 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
                                   QMessageBox::Abort,
                                   QMessageBox::Abort);
             return -2;
-        } else {
-            QThread::sleep(3);  // Retry after 3s
-            retry++;
         }
-    } while(true);
+    }
+
+    // Start kdeconnectd, the daemon will not duplicate when there is already one
+    if (QFile::exists(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"))) {
+        kdeconnectd.setProgram(QCoreApplication::applicationDirPath() + QStringLiteral("/kdeconnectd"));
+    } else if (QFile::exists(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"))) {
+        kdeconnectd.setProgram(QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../lib/libexec/kdeconnectd"));
+    } else {
+        QMessageBox::critical(nullptr, i18n("KDE Connect"),
+                              i18n("Cannot find kdeconnectd"),
+                              QMessageBox::Abort,
+                              QMessageBox::Abort);
+        return -1;
+    }
+    kdeconnectd.startDetached();
 
     m_splashScreen->showMessage(i18n("Loading modules") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
 

@@ -109,7 +109,7 @@ void NotificationsPlugin::addNotification(Notification* noti)
     m_notifications[publicId] = noti;
     m_internalIdToPublicId[internalId] = publicId;
 
-    DBusHelper::sessionBus().registerObject(device()->dbusPath() + QStringLiteral("/notifications/") + publicId, noti, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject(device()->dbusPath() + QStringLiteral("/notifications/") + publicId, noti, QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 }
 

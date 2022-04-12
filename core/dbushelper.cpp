@@ -24,7 +24,7 @@
 
 namespace DBusHelper {
 
-#ifdef USE_PRIVATE_DBUS
+#ifdef Q_OS_MAC
 class DBusInstancePrivate
 {
 public:
@@ -46,17 +46,7 @@ void filterNonExportableCharacters(QString& s)
     s.replace(regexp,QLatin1String("_"));
 }
 
-QDBusConnection sessionBus()
-{
-#ifdef USE_PRIVATE_DBUS
-    return QDBusConnection::connectToBus(KdeConnectConfig::instance().privateDBusAddress(),
-        QStringLiteral(KDECONNECT_PRIVATE_DBUS_NAME));
-#else
-    return QDBusConnection::sessionBus();
-#endif
-}
-
-#ifdef USE_PRIVATE_DBUS
+#ifdef Q_OS_MAC
 void launchDBusDaemon()
 {
     dbusInstance.launchDBusDaemon();
@@ -68,7 +58,6 @@ void closeDBusDaemon()
     dbusInstance.closeDBusDaemon();
 }
 
-#ifdef Q_OS_MAC
 void macosUnsetLaunchctlEnv()
 {
     // Unset Launchd env
@@ -81,7 +70,6 @@ void macosUnsetLaunchctlEnv()
     unsetLaunchdDBusEnv.start();
     unsetLaunchdDBusEnv.waitForFinished();
 }
-#endif
 
 void DBusInstancePrivate::launchDBusDaemon()
 {
@@ -147,9 +135,7 @@ void DBusInstancePrivate::closeDBusDaemon()
 
         if (privateDBusAddressFile.exists()) privateDBusAddressFile.resize(0);
 
-#ifdef Q_OS_MAC
         macosUnsetLaunchctlEnv();
-#endif
     }
 }
 

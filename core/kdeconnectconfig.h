@@ -60,7 +60,7 @@ public:
     QDir deviceConfigDir(const QString& deviceId);
     QDir pluginConfigDir(const QString& deviceId, const QString& pluginName); //Used by KdeConnectPluginConfig
 
-#ifdef USE_PRIVATE_DBUS
+#ifdef Q_OS_MAC
     /*
      * Get private DBus Address when use private DBus
      */

@@ -68,7 +68,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface* device)
     connect(getPhoto, &QAction::triggered, this, [device](){
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
         msg.setArguments({QStandardPaths::standardLocations(QStandardPaths::DownloadLocation).first() + QDateTime::currentDateTime().toString(QStringLiteral("/dd-MM-yy_hh-mm-ss.png"))});
-        blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
     });
     setWhenAvailable(device->hasPlugin(QStringLiteral("kdeconnect_photo")), [getPhoto](bool available) { getPhoto->setVisible(available); }, this);
 

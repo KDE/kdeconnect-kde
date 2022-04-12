@@ -39,7 +39,7 @@ struct KdeConnectConfigPrivate {
     QSettings* m_config;
     QSettings* m_trustedDevices;
 
-#ifdef USE_PRIVATE_DBUS
+#ifdef Q_OS_MAC
     QString m_privateDBusAddress;  // Private DBus Address cache
 #endif
 };
@@ -362,7 +362,7 @@ void KdeConnectConfig::generateCertificate(const QString& certPath)
     }
 }
 
-#ifdef USE_PRIVATE_DBUS
+#ifdef Q_OS_MAC
 QString KdeConnectConfig::privateDBusAddressPath()
 {
     return baseConfigDir().absoluteFilePath(QStringLiteral("private_dbus_address"));

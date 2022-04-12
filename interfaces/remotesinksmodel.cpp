@@ -23,7 +23,7 @@ RemoteSinksModel::RemoteSinksModel(QObject* parent)
             this, &RemoteSinksModel::rowsChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           DBusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &RemoteSinksModel::refreshSinkList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &RemoteSinksModel::refreshSinkList);
 }

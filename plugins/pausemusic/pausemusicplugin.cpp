@@ -60,10 +60,10 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (pause) {
             //Search for interfaces currently playing
-            const QStringList interfaces = DBusHelper::sessionBus().interface()->registeredServiceNames().value();
+            const QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
             for (const QString& iface : interfaces) {
                 if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
-                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), DBusHelper::sessionBus());
+                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
                     QString status = mprisInterface.playbackStatus();
                     if (status == QLatin1String("Playing")) {
                         if (!pausedSources.contains(iface)) {
@@ -99,7 +99,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
         if (pause && !pausedSources.empty()) {
             if (autoResume) {
                 for (const QString& iface : qAsConst(pausedSources)) {
-                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), DBusHelper::sessionBus());
+                    OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
                     mprisInterface.Play();
                 }
             }

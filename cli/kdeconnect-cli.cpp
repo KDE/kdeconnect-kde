@@ -158,7 +158,7 @@ int main(int argc, char** argv)
         return int(devices.isEmpty());
     } else if(parser.isSet(QStringLiteral("refresh"))) {
         QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect"), QStringLiteral("org.kde.kdeconnect.daemon"), QStringLiteral("forceOnNetworkChange"));
-        blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
     } else {
 
         QString device = parser.value(QStringLiteral("device"));
@@ -196,7 +196,7 @@ int main(int argc, char** argv)
                                                               QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrls"));
 
             msg.setArguments(QVariantList() << QVariant(urls));
-            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
 
             for (const QString& url : qAsConst(urls)) {
                 QTextStream(stdout) << i18n("Shared %1", url) << endl;
@@ -204,7 +204,7 @@ int main(int argc, char** argv)
         } else if (parser.isSet(QStringLiteral("share-text"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareText"));
             msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
-            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << endl;
         } else if (parser.isSet(QStringLiteral("lock")) || parser.isSet(QStringLiteral("unlock"))) {
             LockDeviceDbusInterface iface(device);
@@ -257,7 +257,7 @@ int main(int argc, char** argv)
                 QString message = parser.value(QStringLiteral("ping-msg"));
                 msg.setArguments(QVariantList() << message);
             }
-            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("send-sms"))) {
             if (parser.isSet(QStringLiteral("destination"))) {
                 qDBusRegisterMetaType<ConversationAddress>();
@@ -290,13 +290,13 @@ int main(int argc, char** argv)
             }
         } else if(parser.isSet(QStringLiteral("ring"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/findmyphone"), QStringLiteral("org.kde.kdeconnect.device.findmyphone"), QStringLiteral("ring"));
-            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if(parser.isSet(QStringLiteral("photo"))) {
             const QString fileName = parser.value(QStringLiteral("photo"));
             if (!fileName.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
                 msg.setArguments({fileName});
-                blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("Please specify a filename for the photo") << endl;
             }
@@ -310,13 +310,13 @@ int main(int argc, char** argv)
                     while (!in.atEnd()) {
                         QByteArray line = in.readLine();  // sanitize to ASCII-codes > 31?
                         msg.setArguments({QString::fromLatin1(line), -1, false, false, false});
-                        blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+                        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
                     }
                     in.close();
                 }
             } else {
                 msg.setArguments({seq, -1, false, false, false});
-                blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             }
         } else if(parser.isSet(QStringLiteral("list-notifications"))) {
             NotificationsModel notifications;

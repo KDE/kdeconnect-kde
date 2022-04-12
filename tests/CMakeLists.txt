@@ -16,7 +16,3 @@ endif()
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(testsocketlinereader.cpp TEST_NAME testsocketlinereader LINK_LIBRARIES ${kdeconnect_libraries})
-
-if(PRIVATE_DBUS_ENABLED)
-    ecm_add_test(testprivatedbus.cpp LINK_LIBRARIES ${kdeconnect_libraries})
-endif()

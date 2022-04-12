@@ -37,13 +37,13 @@ MprisControlPlugin::MprisControlPlugin(QObject* parent, const QVariantList& args
     : KdeConnectPlugin(parent, args)
     , prevVolume(-1)
 {
-    m_watcher = new QDBusServiceWatcher(QString(), DBusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    m_watcher = new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
 
     // TODO: QDBusConnectionInterface::serviceOwnerChanged is deprecated, maybe query org.freedesktop.DBus directly?
-    connect(DBusHelper::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
+    connect(QDBusConnection::sessionBus().interface(), &QDBusConnectionInterface::serviceOwnerChanged, this, &MprisControlPlugin::serviceOwnerChanged);
 
     //Add existing interfaces
-    const QStringList services = DBusHelper::sessionBus().interface()->registeredServiceNames().value();
+    const QStringList services = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
     for (const QString& service : services) {
         // The string doesn't matter, it just needs to be empty/non-empty
         serviceOwnerChanged(service, QLatin1String(""), QStringLiteral("1"));
@@ -74,7 +74,7 @@ void MprisControlPlugin::addPlayer(const QString& service)
 {
     const QString mediaPlayerObjectPath = QStringLiteral("/org/mpris/MediaPlayer2");
 
-    OrgMprisMediaPlayer2Interface iface(service, mediaPlayerObjectPath, DBusHelper::sessionBus());
+    OrgMprisMediaPlayer2Interface iface(service, mediaPlayerObjectPath, QDBusConnection::sessionBus());
     QString identity = iface.identity();
 
     if (identity.isEmpty()) {
@@ -86,7 +86,7 @@ void MprisControlPlugin::addPlayer(const QString& service)
         uniqueName = identity + QLatin1String(" [") + QString::number(i) + QLatin1Char(']');
     }
 
-    MprisPlayer player(service, mediaPlayerObjectPath, DBusHelper::sessionBus());
+    MprisPlayer player(service, mediaPlayerObjectPath, QDBusConnection::sessionBus());
 
     playerList.insert(uniqueName, player);
 

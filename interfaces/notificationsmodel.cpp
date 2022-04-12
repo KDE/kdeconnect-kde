@@ -31,7 +31,7 @@ NotificationsModel::NotificationsModel(QObject* parent)
             this, &NotificationsModel::anyDismissableChanged);
 
     QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           DBusHelper::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &NotificationsModel::refreshNotificationList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &NotificationsModel::clearNotifications);
 }

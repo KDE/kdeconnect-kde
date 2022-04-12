@@ -162,7 +162,7 @@ int main(int argc, char** argv)
 
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), action);
             msg.setArguments({ url.toString() });
-            blockOnReply(DBusHelper::sessionBus().asyncCall(msg));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             return 0;
         } else {
             QMessageBox::critical(nullptr, description,

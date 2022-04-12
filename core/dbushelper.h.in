@@ -19,12 +19,9 @@
 namespace DBusHelper {
     void KDECONNECTCORE_EXPORT filterNonExportableCharacters(QString& s);
 
-#ifdef USE_PRIVATE_DBUS
+#ifdef Q_OS_MAC
     void KDECONNECTCORE_EXPORT launchDBusDaemon();
     void KDECONNECTCORE_EXPORT closeDBusDaemon();
-#endif
-    QDBusConnection KDECONNECTCORE_EXPORT sessionBus();
-#ifdef Q_OS_MAC
     void KDECONNECTCORE_EXPORT macosUnsetLaunchctlEnv();
 #endif
 }
