@@ -9,23 +9,23 @@
 
 #include <QObject>
 
-#include <kio/slavebase.h>
+#include <KIO/WorkerBase>
 
 #include "dbusinterfaces.h"
 
-class KioKdeconnect : public QObject, public KIO::SlaveBase
+class KioKdeconnect : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
 
 public:
     KioKdeconnect(const QByteArray& pool, const QByteArray& app);
 
-    void get(const QUrl& url) override;
-    void listDir(const QUrl& url) override;
-    void stat(const QUrl& url) override;
+    KIO::WorkerResult get(const QUrl& url) override;
+    KIO::WorkerResult listDir(const QUrl& url) override;
+    KIO::WorkerResult stat(const QUrl& url) override;
 
-    void listAllDevices(); //List all devices exported by m_dbusInterface
-    void listDevice(const QString& device); //List m_currentDevice
+    KIO::WorkerResult listAllDevices(); //List all devices exported by m_dbusInterface
+    KIO::WorkerResult listDevice(const QString& device); //List m_currentDevice
 
 
 private:

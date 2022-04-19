@@ -33,8 +33,8 @@ extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
         exit(-1);
     }
 
-    KioKdeconnect slave(argv[2], argv[3]);
-    slave.dispatchLoop();
+    KioKdeconnect worker(argv[2], argv[3]);
+    worker.dispatchLoop();
     return 0;
 }
 
@@ -57,25 +57,24 @@ KIO::Error toKioError(const QDBusError::ErrorType type)
 };
 
 template <typename T>
-bool handleDBusError(QDBusReply<T>& reply, KIO::SlaveBase* slave)
+KIO::WorkerResult handleDBusError(QDBusReply<T>& reply)
 {
     if (!reply.isValid())
     {
         qCDebug(KDECONNECT_KIO) << "Error in DBus request:" << reply.error();
-        slave->error(toKioError(reply.error().type()),reply.error().message());
-        return true;
+        return KIO::WorkerResult::fail(toKioError(reply.error().type()), reply.error().message());
     }
-    return false;
+    return KIO::WorkerResult::pass();
 }
 
 KioKdeconnect::KioKdeconnect(const QByteArray& pool, const QByteArray& app)
-    : SlaveBase("kdeconnect", pool, app),
+    : WorkerBase("kdeconnect", pool, app),
     m_dbusInterface(new DaemonDbusInterface(this))
 {
 
 }
 
-void KioKdeconnect::listAllDevices()
+KIO::WorkerResult KioKdeconnect::listAllDevices()
 {
     infoMessage(i18n("Listing devices..."));
 
@@ -117,10 +116,10 @@ void KioKdeconnect::listAllDevices()
     listEntry(entry);
 
     infoMessage(QLatin1String(""));
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void KioKdeconnect::listDevice(const QString& device)
+KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
 {
     infoMessage(i18n("Accessing device..."));
 
@@ -138,41 +137,36 @@ void KioKdeconnect::listDevice(const QString& device)
         devsRepl.waitForFinished();
 
         if (!devsRepl.value().contains(device)) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("No such device: %0").arg(device));
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("No such device: %0").arg(device));
         }
 
         DeviceDbusInterface dev(device);
 
         if (!dev.isTrusted()) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not paired").arg(dev.name()));
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not paired").arg(dev.name()));
         }
 
         if (!dev.isReachable()) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not connected").arg(dev.name()));
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not connected").arg(dev.name()));
         }
 
         if (!dev.hasPlugin(QStringLiteral("kdeconnect_sftp"))) {
-            error(KIO::ERR_SLAVE_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
-            return;
+            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
         }
     }
 
-    if (handleDBusError(mountreply, this)) {
-        return;
+    if (auto result = handleDBusError(mountreply); !result.success()) {
+        return result;
     }
 
     if (!mountreply.value()) {
-        error(KIO::ERR_SLAVE_DEFINED, interface.getMountError());
-        return;
+        return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, interface.getMountError());
     }
 
     QDBusReply< QVariantMap > urlreply = interface.getDirectories();
 
-    if (handleDBusError(urlreply, this)) {
-        return;
+    if (auto result = handleDBusError(urlreply); !result.success()) {
+        return result;
     }
 
     QVariantMap urls = urlreply.value();
@@ -209,32 +203,29 @@ void KioKdeconnect::listDevice(const QString& device)
     listEntry(entry);
 
     infoMessage(QLatin1String(""));
-    finished();
-
+    return KIO::WorkerResult::pass();
 }
 
 
 
-void KioKdeconnect::listDir(const QUrl& url)
+KIO::WorkerResult KioKdeconnect::listDir(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
     if (!m_dbusInterface->isValid()) {
-        infoMessage(i18n("Could not contact background service."));
-        finished();
-        return;
+        return KIO::WorkerResult::fail(KIO::Error::ERR_SLAVE_DEFINED, i18n("Could not contact background service."));
     }
 
     QString currentDevice = url.host();
 
     if (currentDevice.isEmpty()) {
-        listAllDevices();
+        return listAllDevices();
     } else {
-        listDevice(currentDevice);
+        return listDevice(currentDevice);
     }
 }
 
-void KioKdeconnect::stat(const QUrl& url)
+KIO::WorkerResult KioKdeconnect::stat(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
@@ -256,14 +247,14 @@ void KioKdeconnect::stat(const QUrl& url)
 
     statEntry(entry);
 
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
-void KioKdeconnect::get(const QUrl& url)
+KIO::WorkerResult KioKdeconnect::get(const QUrl& url)
 {
     qCDebug(KDECONNECT_KIO) << "Get: " << url;
     mimeType(QLatin1String(""));
-    finished();
+    return KIO::WorkerResult::pass();
 }
 
 //needed for JSON file embedding
