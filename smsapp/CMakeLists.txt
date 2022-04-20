@@ -62,5 +62,5 @@ target_link_libraries(kdeconnect-sms
     KF5::KCMUtils
     )
 
-install(TARGETS kdeconnect-sms ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kdeconnect-sms ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kdeconnect.sms.desktop DESTINATION ${KDE_INSTALL_APPDIR})

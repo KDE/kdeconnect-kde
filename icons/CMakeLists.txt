@@ -12,7 +12,7 @@ if(APPLE)
     set(ICON_INSTALL_DIR share/kdeconnect-icons)
 endif()
 
-ecm_install_icons(ICONS ${APP_ICONS} DESTINATION ${ICON_INSTALL_DIR})
+ecm_install_icons(ICONS ${APP_ICONS} DESTINATION ${KDE_INSTALL_ICONDIR})
 
 ecm_install_icons(ICONS
     ${CMAKE_CURRENT_SOURCE_DIR}/status/16-status-laptopconnected.svg
@@ -51,4 +51,4 @@ ecm_install_icons(ICONS
     ${CMAKE_CURRENT_SOURCE_DIR}/status/32-status-tvconnected.svg
     ${CMAKE_CURRENT_SOURCE_DIR}/status/32-status-tvdisconnected.svg
     ${CMAKE_CURRENT_SOURCE_DIR}/status/32-status-tvtrusted.svg
-    DESTINATION ${ICON_INSTALL_DIR})
+    DESTINATION ${KDE_INSTALL_ICONDIR})

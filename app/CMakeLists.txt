@@ -24,5 +24,5 @@ add_executable(kdeconnect-app
 )
 target_link_libraries(kdeconnect-app Qt5::Quick Qt5::QuickControls2 Qt5::Widgets KF5::CoreAddons KF5::I18n KF5::KCMUtils)
 
-install(TARGETS kdeconnect-app ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS org.kde.kdeconnect.app.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(TARGETS kdeconnect-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(PROGRAMS org.kde.kdeconnect.app.desktop DESTINATION ${KDE_INSTALL_APPDIR})

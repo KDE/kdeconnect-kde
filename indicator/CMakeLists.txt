@@ -61,5 +61,5 @@ set_target_properties(kdeconnect-indicator PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.kdeconnect")
 endif()
 
-install(TARGETS kdeconnect-indicator ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS org.kde.kdeconnect.nonplasma.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(TARGETS kdeconnect-indicator ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(PROGRAMS org.kde.kdeconnect.nonplasma.desktop DESTINATION ${KDE_INSTALL_APPDIR})

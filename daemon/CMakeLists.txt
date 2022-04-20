@@ -30,8 +30,8 @@ else()
 endif()
 configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${AUTOSTART_INSTALL_DIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
-install(TARGETS kdeconnectd DESTINATION ${LIBEXEC_INSTALL_DIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
+install(TARGETS kdeconnectd DESTINATION ${KDE_INSTALL_LIBEXECDIR})
 

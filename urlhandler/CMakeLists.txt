@@ -16,5 +16,5 @@ target_link_libraries(kdeconnect-handler
     KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM
 )
 
-install(TARGETS kdeconnect-handler ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(PROGRAMS org.kde.kdeconnect.handler.desktop DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install(TARGETS kdeconnect-handler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(PROGRAMS org.kde.kdeconnect.handler.desktop DESTINATION ${KDE_INSTALL_APPDIR} )

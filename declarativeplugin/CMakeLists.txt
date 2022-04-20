@@ -19,8 +19,8 @@ else()
     target_compile_definitions(kdeconnectdeclarativeplugin PRIVATE -DWITH_WAYLAND=0)
 endif()
 
-install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/kdeconnect)
+install(TARGETS kdeconnectdeclarativeplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kdeconnect)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kdeconnect)
 
 ecm_generate_qmltypes(org.kde.kdeconnect 1.0 DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/kdeconnect)
 

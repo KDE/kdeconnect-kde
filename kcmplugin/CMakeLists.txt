@@ -20,4 +20,4 @@ set_target_properties(kdeconnectpluginkcm PROPERTIES
 generate_export_header(kdeconnectpluginkcm EXPORT_FILE_NAME kdeconnectpluginkcm_export.h BASE_NAME kdeconnectpluginkcm)
 
 # Remove NAMELINK_SKIP if/when headers are being installed and the library becomes public.
-install(TARGETS kdeconnectpluginkcm EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kdeconnectpluginkcm EXPORT kdeconnectLibraryTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

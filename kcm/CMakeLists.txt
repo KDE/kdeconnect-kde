@@ -15,5 +15,5 @@ target_link_libraries(kcm_kdeconnect
     kdeconnectversion
 )
 
-install(TARGETS kcm_kdeconnect DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES kcm_kdeconnect.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(TARGETS kcm_kdeconnect DESTINATION ${KDE_INSTALL_PLUGINDIR})
+install(FILES kcm_kdeconnect.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

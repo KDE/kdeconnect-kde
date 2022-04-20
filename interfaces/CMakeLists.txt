@@ -77,4 +77,4 @@ LINK_PRIVATE
     KF5::CoreAddons
 )
 
-install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
