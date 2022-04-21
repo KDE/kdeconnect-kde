@@ -45,9 +45,9 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("rundll32.exe user32.dll,LockWorkStation"));
     addSuggestedCommand(defaultMenu, i18n("Say Hello"), QStringLiteral("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');\""));
 #else
-    addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("systemctl poweroff"));
-    addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("systemctl reboot"));
-    addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("systemctl suspend"));
+    addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("poweroff"));
+    addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("reboot"));
+    addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("suspend"));
     addSuggestedCommand(defaultMenu, i18n("Maximum Brightness"), QStringLiteral("%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`").arg(qdbusExe));
     addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("loginctl lock-session"));
     addSuggestedCommand(defaultMenu, i18n("Unlock Screen"), QStringLiteral("loginctl unlock-session"));
