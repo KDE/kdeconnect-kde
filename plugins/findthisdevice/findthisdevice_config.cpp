@@ -74,16 +74,18 @@ void FindThisDeviceConfig::save()
 
 void FindThisDeviceConfig::playSound()
 {
-    const QString soundFile = m_ui->soundFileRequester->text();
+    const QUrl soundURL = m_ui->soundFileRequester->url();
 
-    QUrl soundURL = QUrl(soundFile);
-    QMediaPlayer* player = new QMediaPlayer;
-    player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
-    player->setMedia(soundURL);
-    player->setVolume(100);
-    player->play();
-    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
-
+    if (soundURL.isEmpty()) {
+        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
+    } else {
+        QMediaPlayer* player = new QMediaPlayer;
+        player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
+        player->setMedia(soundURL);
+        player->setVolume(100);
+        player->play();
+        connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
+    }
 }
 
 
