@@ -159,7 +159,7 @@ bool WindowsRemoteInput::handlePacket(const NetworkPacket& np)
             } else {
 
                 for (int i=0;i<key.length();i++) {
-                    wchar_t inputChar = *QString(key.at(i)).utf16();
+                    wchar_t inputChar = (wchar_t)key.at(i).unicode();
                     short inputVk = VkKeyScanExW(inputChar, GetKeyboardLayout(0));
 
                     if(inputVk != -1) {

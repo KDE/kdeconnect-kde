@@ -178,16 +178,14 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
                 CFRelease(specialKeyDownEvent);
                 CFRelease(specialKeyUpEvent);
             } else {
-                for (int i=0;i<key.length();i++) {
-                    QByteArray utf8 = QString(key.at(i)).toUtf8();
-                    NSData *data = utf8.toNSData();     // Will be autoreleased
-                    const UniChar* const unicharData = (const UniChar*)data.bytes;
+                for (int i = 0; i < key.length(); i++) {
+                    const UniChar unicharData = (const UniChar)key.at(i).unicode();
 
                     CGEventRef event = CGEventCreateKeyboardEvent(NULL, 0, true);
 
-                    CGEventKeyboardSetUnicodeString(event, utf8.length(), unicharData);
+                    CGEventKeyboardSetUnicodeString(event, 1, &unicharData);
                     CGEventPost(kCGSessionEventTap, event);
-                    
+
                     CFRelease(event);
                 }
 
