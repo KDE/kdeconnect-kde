@@ -8,8 +8,8 @@ list(APPEND APP_ICONS
 
 if(APPLE)
     # Craft adds share/icons into blacklist, which will not be copied into the bundle
-    # As a workaround, on macOS, set ICON_INSTALL_DIR to another path
-    set(ICON_INSTALL_DIR share/kdeconnect-icons)
+    # As a workaround, on macOS, set KDE_INSTALL_ICONDIR to another path
+    set(KDE_INSTALL_ICONDIR share/kdeconnect-icons)
 endif()
 
 ecm_install_icons(ICONS ${APP_ICONS} DESTINATION ${KDE_INSTALL_ICONDIR})
