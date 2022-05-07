@@ -41,6 +41,13 @@ PlasmaExtras.Representation {
                 anchors.centerIn: parent
                 visible: devicesView.count === 0
 
+                iconName: {
+                    if (pairedDevicesModel.count >= 0) {
+                        return pairedDevicesModel.count === 0 ? "edit-none" : "network-disconnect";
+                    }
+                    return "kdeconnect";
+                }
+
                 text: {
                     if (pairedDevicesModel.count >= 0) {
                         return pairedDevicesModel.count == 0 ? i18n("No paired devices") : i18np("Paired device is unavailable", "All paired devices are unavailable", pairedDevicesModel.count)
