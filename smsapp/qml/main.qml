@@ -18,64 +18,68 @@ Kirigami.ApplicationWindow
     width: 800
     height: 600
 
-    property int currentDeviceIndex
-    property int devicesCount
-    property string initialDevice
+    property alias devicesCount : instantiator.count
     property QtObject device
+
+    property var deviceActions : []
 
     Component {
         id: deviceActionComponent
         Kirigami.Action {
-            property int deviceIndex
+            required property string deviceId
+            required property string name
+            required property var device
+
+            text: name
+
             onTriggered: {
-                root.currentDeviceIndex = deviceIndex
+                root.device = device
+                AppData.initialDevice = ""
             }
-            icon.name: root.currentDeviceIndex === deviceIndex ? "checkmark" : ""
+            icon.name: root.device === device ? "checkmark" : ""
         }
     }
 
-    DevicesSortProxyModel {
-        id: devicesModel
-        //TODO: make it possible to filter if they can do sms
-        sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
-        function populateDevicesMenu() {
-            root.globalDrawer.actions[0].children = [];
-            for (var i = 0; i < devicesModel.rowCount(); i++) {
-                var dev = devicesModel.data(devicesModel.index(i, 0), DevicesSortProxyModel.DisplayRole);
-                var obj = deviceActionComponent.createObject(root.globalDrawer.actions[0], {
-                    text: dev,
-                    deviceIndex: i
-                });
-                root.globalDrawer.actions[0].children.push(obj);
-            }
-        }
-        onRowsInserted: {
-            if (root.currentDeviceIndex < 0) {
-                if (root.initialDevice) {
-                    root.currentDeviceIndex = devicesModel.rowForDevice(root.initialDevice);
-                } else {
-                    root.currentDeviceIndex = 0;
+    Connections {
+        target: AppData
+        function onInitialDeviceChanged() {
+            for (var action of root.deviceActions) {
+                if (action.deviceId == AppData.initialDevice) {
+                    root.device = action.device
                 }
             }
-            root.device = root.currentDeviceIndex >= 0 ? devicesModel.data(devicesModel.index(root.currentDeviceIndex, 0), DevicesModel.DeviceRole) : null
-            root.devicesCount = devicesModel.rowCount();
-            populateDevicesMenu();
-        }
-        onRowsRemoved: {
-            root.devicesCount = devicesModel.rowCount();
-            populateDevicesMenu();
         }
     }
-    onCurrentDeviceIndexChanged: {
-        root.device = root.currentDeviceIndex >= 0 ? devicesModel.data(devicesModel.index(root.currentDeviceIndex, 0), DevicesModel.DeviceRole) : null
+
+    Instantiator {
+        id: instantiator
+
+        model: DevicesSortProxyModel {
+            id: devicesModel
+            //TODO: make it possible to filter if they can do sms
+            sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
+        }
+
+        onObjectAdded: (idx, obj) => {
+            root.deviceActions.push(obj)
+            root.globalDrawer.actions[0].children = root.deviceActions
+
+            if (!root.device && (AppData.initialDevice == "" || AppData.initialDevice === obj.deviceId)) {
+                root.device = obj.device
+            }
+        }
+
+        onObjectRemoved: (idx, obj) => {
+            root.deviceActions.splice(idx, 1)
+            root.globalDrawer.actions[0].children = root.deviceActions
+        }
+
+        delegate: deviceActionComponent
     }
 
     pageStack.initialPage: ConversationList {
         title: i18nd("kdeconnect-sms", "KDE Connect SMS")
-        initialMessage: initialMessage
         device: root.device;
-        initialDevice: initialDevice
-        currentDeviceIndex: root.currentDeviceIndex;
         devicesCount: root.devicesCount;
     }
 

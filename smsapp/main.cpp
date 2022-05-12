@@ -24,6 +24,20 @@
 
 #include "smshelper.h"
 
+class AppData : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QString initialMessage MEMBER m_initialMessage NOTIFY initialMessageChanged)
+    Q_PROPERTY(QString initialDevice MEMBER m_initialDevice NOTIFY initialDeviceChanged)
+
+public:
+    Q_SIGNAL void initialMessageChanged();
+    Q_SIGNAL void initialDeviceChanged();
+
+    QString m_initialMessage;
+    QString m_initialDevice;
+};
+
 int main(int argc, char *argv[])
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
@@ -53,21 +67,29 @@ int main(int argc, char *argv[])
         QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
     }
 
-    QString initialMessage, deviceid;
+    AppData data;
 
-    {
-        QCommandLineParser parser;
-        aboutData.setupCommandLine(&parser);
-        parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
-        parser.addOption(QCommandLineOption(QStringLiteral("message"), i18n("Send a message"), i18n("message")));
-        parser.process(app);
-        aboutData.processCommandLine(&parser);
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+    parser.addOption(QCommandLineOption(QStringLiteral("device"), i18n("Select a device"), i18n("id")));
+    parser.addOption(QCommandLineOption(QStringLiteral("message"), i18n("Send a message"), i18n("message")));
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
-        initialMessage = parser.value(QStringLiteral("message"));
-        deviceid = parser.value(QStringLiteral("device"));
-    }
+    data.m_initialMessage = parser.value(QStringLiteral("message"));
+    data.m_initialDevice = parser.value(QStringLiteral("device"));
 
     KDBusService service(KDBusService::Unique);
+
+    QObject::connect(&service, &KDBusService::activateRequested, &service, [&parser, &data](const QStringList &args, const QString &/*workDir*/) {
+        parser.parse(args);
+
+        data.m_initialMessage = parser.value(QStringLiteral("message"));
+        data.m_initialDevice = parser.value(QStringLiteral("device"));
+
+        Q_EMIT data.initialDeviceChanged();
+        Q_EMIT data.initialMessageChanged();
+    });
 
     qmlRegisterType<ConversationsSortFilterProxyModel>("org.kde.kdeconnect.sms", 1, 0, "QSortFilterProxyModel");
     qmlRegisterType<ConversationModel>("org.kde.kdeconnect.sms", 1, 0, "ConversationModel");
@@ -75,15 +97,17 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonType<SmsHelper>("org.kde.kdeconnect.sms", 1, 0, "SmsHelper", SmsHelper::singletonProvider);
 
+    qmlRegisterSingletonInstance<AppData>("org.kde.kdeconnect.sms", 1,0, "AppData", &data);
+
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
     engine.rootContext()->setContextProperties({
-        { QStringLiteral("initialMessage"), initialMessage },
-        { QStringLiteral("initialDevice"), deviceid },
         { QStringLiteral("aboutData"), QVariant::fromValue(KAboutData::applicationData()) }
     });
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();
 }
+
+#include "main.moc"

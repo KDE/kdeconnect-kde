@@ -17,6 +17,7 @@ ColumnLayout {
     property var addresses
     property var selectedFileUrls: []
     readonly property int maxMessageSize: 600000
+    property alias text: messageField.text
 
     MessageDialog {
         id: messageDialog

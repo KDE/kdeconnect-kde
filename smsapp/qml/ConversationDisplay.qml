@@ -43,7 +43,7 @@ Kirigami.ScrollablePage
 
     Component.onCompleted: {
         if (initialMessage.length > 0) {
-            messageField.text = initialMessage;
+            sendingArea.text = initialMessage;
             initialMessage = ""
         }
         if (conversationId == invalidId) {
@@ -175,6 +175,8 @@ Kirigami.ScrollablePage
     }
 
     footer: SendingArea {
+        id: sendingArea
+
         width: parent.width
         addresses: page.addresses
     }

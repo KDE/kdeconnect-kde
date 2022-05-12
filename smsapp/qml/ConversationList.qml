@@ -72,9 +72,7 @@ Kirigami.ScrollablePage
         }
     }
 
-    property string initialMessage
-    property string initialDevice
-    property int currentDeviceIndex: -1
+    property string initialMessage : AppData.initialMessage
 
     header: Kirigami.InlineMessage {
         Layout.fillWidth: true
