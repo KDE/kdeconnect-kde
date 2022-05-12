@@ -47,6 +47,7 @@ set(kdeconnectcore_SRCS
     device.cpp
     core_debug.cpp
     notificationserverinfo.cpp
+    openconfig.cpp
     ${debug_file_SRCS}
 )
 
@@ -66,7 +67,7 @@ PRIVATE
 )
 
 if(${KF5KIO_FOUND})
-    target_link_libraries(kdeconnectcore PUBLIC KF5::KIOCore)
+    target_link_libraries(kdeconnectcore PUBLIC KF5::KIOCore KF5::KIOGui)
 endif()
 
 if (BLUETOOTH_ENABLED)

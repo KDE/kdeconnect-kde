@@ -13,6 +13,7 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <KDBusService>
+#include <KWindowSystem>
 #include "kdeconnect-version.h"
 
 int main(int argc, char** argv)
@@ -47,6 +48,8 @@ int main(int argc, char** argv)
     dialog->show();
 
     QObject::connect(&dbusService, &KDBusService::activateRequested, dialog, [dialog](const QStringList &args, const QString &/*workingDir*/) {
+        KWindowSystem::updateStartupId(dialog->windowHandle());
+        KWindowSystem::activateWindow(dialog->windowHandle());
 
         QCommandLineParser parser;
         parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the config module"), QStringLiteral("args")));

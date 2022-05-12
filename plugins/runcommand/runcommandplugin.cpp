@@ -24,6 +24,7 @@
 #include <core/networkpacket.h>
 #include <core/device.h>
 #include <core/daemon.h>
+#include <core/openconfig.h>
 
 #include "plugin_runcommand_debug.h"
 
@@ -68,7 +69,8 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
 #endif
         return true;
     } else if (np.has(QStringLiteral("setup"))) {
-        Daemon::instance()->openConfiguration(device()->id(), QStringLiteral("kdeconnect_runcommand"));
+        OpenConfig oc;
+        oc.openConfiguration(device()->id(), QStringLiteral("kdeconnect_runcommand"));
     }
 
     return false;

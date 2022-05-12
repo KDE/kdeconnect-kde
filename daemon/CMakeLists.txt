@@ -16,6 +16,7 @@ target_link_libraries(kdeconnectd
     KF5::DBusAddons
     KF5::Notifications
     KF5::I18n
+    KF5::WindowSystem
     Qt5::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)

@@ -332,23 +332,3 @@ QString Daemon::selfId() const
 {
     return KdeConnectConfig::instance().deviceId();
 }
-
-void Daemon::openConfiguration(const QString &deviceId, const QString &pluginId)
-{
-    QStringList args;
-
-    QString argument;
-
-    if (!deviceId.isEmpty()) {
-        args << QStringLiteral("--args");
-        argument = deviceId;
-
-        if (!pluginId.isEmpty()) {
-            argument += QLatin1Char(':') + pluginId;
-        }
-
-        args << argument;
-    }
-
-    QProcess::startDetached(QStringLiteral("kdeconnect-settings"), args);
-}

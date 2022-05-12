@@ -22,6 +22,7 @@
 #include <remotesinksmodel.h>
 #include <pluginmodel.h>
 #include "core/kdeconnectpluginconfig.h"
+#include "openconfig.h"
 #include "interfaces/commandsmodel.h"
 #include "pointerlocker.h"
 #if WITH_WAYLAND == 1
@@ -78,6 +79,12 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
             ret = new PointerLockerQt;
         return ret;
     });
+
+    qmlRegisterSingletonType<OpenConfig>(uri, 1, 0, "OpenConfig",
+        [](QQmlEngine*, QJSEngine*) -> QObject* {
+            return new OpenConfig;
+        }
+    );
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);

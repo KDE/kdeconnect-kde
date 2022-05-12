@@ -20,11 +20,13 @@
 #include <KNotification>
 #include <KLocalizedString>
 #include <KIO/AccessManager>
+#include <KWindowSystem>
 
 #include <dbushelper.h>
 
 #include "core/daemon.h"
 #include "core/device.h"
+#include "core/openconfig.h"
 #include "core/backends/pairinghandler.h"
 #include "kdeconnect-version.h"
 #include "kdeconnectd_debug.h"
@@ -54,8 +56,11 @@ public:
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
         connect(notification, &KNotification::action2Activated, device, &Device::rejectPairing);
         QString deviceId = device->id();
-        auto openSettings = [this, deviceId] {
-            openConfiguration(deviceId);
+        auto openSettings = [deviceId, notification] {
+            OpenConfig oc;
+            oc.setXdgActivationToken(notification->xdgActivationToken());
+            oc.openConfiguration(deviceId);
+
         };
         connect(notification, &KNotification::action3Activated, openSettings);
         connect(notification, QOverload<>::of(&KNotification::activated), openSettings);

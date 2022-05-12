@@ -7,7 +7,7 @@ add_executable(kdeconnect-settings
     ${kdeconnect_custom_icons_SRCS}
 )
 
-target_link_libraries(kdeconnect-settings kdeconnectversion KF5::I18n KF5::KCMUtils KF5::DBusAddons)
+target_link_libraries(kdeconnect-settings kdeconnectversion KF5::I18n KF5::KCMUtils KF5::DBusAddons KF5::WindowSystem)
 
 install(TARGETS kdeconnect-settings ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES org.kde.kdeconnect-settings.desktop DESTINATION ${KDE_INSTALL_APPDIR})
