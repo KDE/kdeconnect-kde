@@ -46,6 +46,16 @@ int main(int argc, char** argv)
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
 
+    QObject::connect(&dbusService, &KDBusService::activateRequested, dialog, [dialog](const QStringList &args, const QString &/*workingDir*/) {
+
+        QCommandLineParser parser;
+        parser.addOption(QCommandLineOption(QStringLiteral("args"), i18n("Arguments for the config module"), QStringLiteral("args")));
+        parser.parse(args);
+
+        dialog->clear();
+        dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
+    });
+
     app.setQuitOnLastWindowClosed(true);
 
     return app.exec();
