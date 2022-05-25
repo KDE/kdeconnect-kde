@@ -6,12 +6,12 @@
                 "Name": "Aleix Pol i Gonzalez"
             }
         ],
-        "Name": "Virtual Monitor",
         "Description": "Use your devices as virtual monitors",
         "EnabledByDefault": true,
         "Icon": "video-monitor",
         "Id": "kdeconnect_virtualmonitor",
         "License": "GPL",
+        "Name": "Virtual Monitor",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
