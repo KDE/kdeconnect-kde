@@ -3,15 +3,30 @@
         "Authors": [
             {
                 "Email": "aleixpol@kde.org",
-                "Name": "Aleix Pol i Gonzalez"
+                "Name": "Aleix Pol i Gonzalez",
+                "Name[ca]": "Aleix Pol i Gonzalez",
+                "Name[nl]": "Aleix Pol i Gonzalez",
+                "Name[tr]": "Aleix Pol i Gonzalez",
+                "Name[uk]": "Aleix Pol i Gonzalez",
+                "Name[x-test]": "xxAleix Pol i Gonzalezxx"
             }
         ],
         "Description": "Use your devices as virtual monitors",
+        "Description[ca]": "Useu els vostres dispositius com a monitors virtuals",
+        "Description[nl]": "Uw apparaten als virtuele monitoren gebruiken",
+        "Description[tr]": "Aygıtlarınızı sanal ekranlar olarak kullanın",
+        "Description[uk]": "Використання ваших пристроїв як віртуальних моніторів",
+        "Description[x-test]": "xxUse your devices as virtual monitorsxx",
         "EnabledByDefault": true,
         "Icon": "video-monitor",
         "Id": "kdeconnect_virtualmonitor",
         "License": "GPL",
         "Name": "Virtual Monitor",
+        "Name[ca]": "Monitor virtual",
+        "Name[nl]": "Virtuele monitor",
+        "Name[tr]": "Sanal Ekran",
+        "Name[uk]": "Віртуальний монітор",
+        "Name[x-test]": "xxVirtual Monitorxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
