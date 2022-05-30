@@ -89,16 +89,13 @@ Kirigami.ScrollablePage
     }
 
     property int devicesCount
-    property QtObject device
 
     readonly property bool deviceConnected: devicesCount > 0
-    readonly property alias lastDeviceId: conversationListModel.deviceId
     property string currentSearchText
 
     Component {
         id: chatView
         ConversationDisplay {
-            deviceId: page.lastDeviceId
             deviceConnected: page.deviceConnected
         }
     }
@@ -181,7 +178,7 @@ Kirigami.ScrollablePage
             filterCaseSensitivity: Qt.CaseInsensitive
             sourceModel: ConversationListModel {
                 id: conversationListModel
-                deviceId: device ? device.id() : ""
+                deviceId: AppData.deviceId
             }
         }
 
@@ -203,8 +200,7 @@ Kirigami.ScrollablePage
                                                        addresses: addresses,
                                                        conversationId: model.conversationId,
                                                        isMultitarget: isMultitarget,
-                                                       initialMessage: page.initialMessage,
-                                                       device: device})
+                                                       initialMessage: page.initialMessage})
                 initialMessage = ""
             }
 

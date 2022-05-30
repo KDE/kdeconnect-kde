@@ -19,8 +19,6 @@ Kirigami.ScrollablePage
     id: page
 
     property bool deviceConnected
-    property string deviceId
-//     property QtObject device
     property string conversationId
     property bool isMultitarget
     property string initialMessage
@@ -29,7 +27,7 @@ Kirigami.ScrollablePage
     property bool isInitalized: false
 
     property var conversationModel: ConversationModel {
-        deviceId: page.deviceId
+        deviceId: AppData.deviceId
         threadId: page.conversationId
         addressList: page.addresses
 

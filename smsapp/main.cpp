@@ -28,14 +28,14 @@ class AppData : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString initialMessage MEMBER m_initialMessage NOTIFY initialMessageChanged)
-    Q_PROPERTY(QString initialDevice MEMBER m_initialDevice NOTIFY initialDeviceChanged)
+    Q_PROPERTY(QString deviceId MEMBER m_deviceId NOTIFY deviceIdChanged)
 
 public:
     Q_SIGNAL void initialMessageChanged();
-    Q_SIGNAL void initialDeviceChanged();
+    Q_SIGNAL void deviceIdChanged();
 
     QString m_initialMessage;
-    QString m_initialDevice;
+    QString m_deviceId;
 };
 
 int main(int argc, char *argv[])
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
     aboutData.processCommandLine(&parser);
 
     data.m_initialMessage = parser.value(QStringLiteral("message"));
-    data.m_initialDevice = parser.value(QStringLiteral("device"));
+    data.m_deviceId = parser.value(QStringLiteral("device"));
 
     KDBusService service(KDBusService::Unique);
 
@@ -85,9 +85,9 @@ int main(int argc, char *argv[])
         parser.parse(args);
 
         data.m_initialMessage = parser.value(QStringLiteral("message"));
-        data.m_initialDevice = parser.value(QStringLiteral("device"));
+        data.m_deviceId = parser.value(QStringLiteral("device"));
 
-        Q_EMIT data.initialDeviceChanged();
+        Q_EMIT data.deviceIdChanged();
         Q_EMIT data.initialMessageChanged();
     });
 

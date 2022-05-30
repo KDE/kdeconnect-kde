@@ -19,7 +19,6 @@ Kirigami.ApplicationWindow
     height: 600
 
     property alias devicesCount : instantiator.count
-    property QtObject device
 
     property var deviceActions : []
 
@@ -28,26 +27,13 @@ Kirigami.ApplicationWindow
         Kirigami.Action {
             required property string deviceId
             required property string name
-            required property var device
 
             text: name
 
             onTriggered: {
-                root.device = device
-                AppData.initialDevice = ""
+                AppData.deviceId = deviceId
             }
-            icon.name: root.device === device ? "checkmark" : ""
-        }
-    }
-
-    Connections {
-        target: AppData
-        function onInitialDeviceChanged() {
-            for (var action of root.deviceActions) {
-                if (action.deviceId == AppData.initialDevice) {
-                    root.device = action.device
-                }
-            }
+            icon.name: AppData.deviceId === deviceId ? "checkmark" : ""
         }
     }
 
@@ -64,8 +50,8 @@ Kirigami.ApplicationWindow
             root.deviceActions.push(obj)
             root.globalDrawer.actions[0].children = root.deviceActions
 
-            if (!root.device && (AppData.initialDevice == "" || AppData.initialDevice === obj.deviceId)) {
-                root.device = obj.device
+            if (!AppData.deviceId) {
+                AppData.deviceId = obj.deviceId
             }
         }
 
@@ -79,7 +65,6 @@ Kirigami.ApplicationWindow
 
     pageStack.initialPage: ConversationList {
         title: i18nd("kdeconnect-sms", "KDE Connect SMS")
-        device: root.device;
         devicesCount: root.devicesCount;
     }
 
