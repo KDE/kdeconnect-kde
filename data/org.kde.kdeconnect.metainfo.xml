@@ -185,7 +185,7 @@
     <release version="22.04.0" date="2022-04-21"/>
     <release version="21.12.3" date="2022-03-03">
       <artifacts>
-        <artifact type="binary" platform="win64">
+        <artifact type="binary" platform="x86_64-windows-msvc">
           <location>https://download.kde.org/stable/release-service/21.12.3/windows/kdeconnect-kde-21.12.3-903-windows-msvc2019_64-cl.exe</location>
           <checksum type="sha256">ec7a9f5b3788fef774c49bc619a062a87b364e54099946a14a954637a4682318</checksum>
           <size type="download">59447072</size>
