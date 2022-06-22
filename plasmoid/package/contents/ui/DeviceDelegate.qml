@@ -73,7 +73,7 @@ PlasmaComponents.ListItem
             PlasmaComponents.Label {
                 id: deviceName
                 elide: Text.ElideRight
-                text: display
+                text: model.name
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
             }
@@ -283,7 +283,7 @@ PlasmaComponents.ListItem
                     anchors.left: parent.left
                 }
                 PlasmaComponents.Label {
-                    text: appName + ": " + (title.length>0 ? (appName==title?notitext:title+": "+notitext) : display)
+                    text: appName + ": " + (title.length>0 ? (appName==title?notitext:title+": "+notitext) : model.name)
                     anchors.right: replyButton.left
                     anchors.left: notificationIcon.right
                     elide: listitem.checked ? Text.ElideNone : Text.ElideRight
