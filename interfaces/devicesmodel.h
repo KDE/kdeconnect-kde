@@ -33,7 +33,7 @@ public:
         IconNameRole,
         DeviceRole
     };
-    Q_ENUM(ModelRoles);
+    Q_ENUM(ModelRoles)
 
     // A device is always paired or reachable or both
     // You can combine the Paired and Reachable flags
