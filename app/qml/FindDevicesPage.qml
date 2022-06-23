@@ -63,7 +63,7 @@ Kirigami.ScrollablePage
         delegate: Kirigami.BasicListItem {
             icon: iconName
             iconColor: "transparent"
-            label: display
+            label: model.name
             subtitle: toolTip
             highlighted: false
             onClicked: {
