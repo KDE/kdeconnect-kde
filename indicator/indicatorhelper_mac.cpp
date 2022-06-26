@@ -84,6 +84,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     // Here we will try to bring our private session D-Bus
     if (!hasUsableSessionBus) {
         qDebug() << "Launching private session D-Bus.";
+        DBusHelper::macosUnsetLaunchctlEnv();
         DBusHelper::launchDBusDaemon();
         // Wait for dbus daemon env
         QProcess getLaunchdDBusEnv;
@@ -99,9 +100,19 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 
         QString launchdDBusEnv = QString::fromLocal8Bit(getLaunchdDBusEnv.readAllStandardOutput());
 
-        if (launchdDBusEnv.length() > 0 && QDBusConnection::sessionBus().isConnected()) {
+        if (!launchdDBusEnv.isEmpty() && QDBusConnection::sessionBus().isConnected()) {
             qDebug() << "Private D-Bus daemon launched and connected.";
             hasUsableSessionBus = true;
+        } else if (!launchdDBusEnv.isEmpty()) {
+            // Show a warning and exit
+            qCritical() << "Invalid " << KDECONNECT_SESSION_DBUS_LAUNCHD_ENV << "env: \""
+                        << launchdDBusEnv << "\"";
+
+            QMessageBox::critical(nullptr, i18n("KDE Connect"),
+                                  i18n("Cannot connect to DBus\n"
+                                  "KDE Connect will quit"),
+                                  QMessageBox::Abort,
+                                  QMessageBox::Abort);
         } else {
             // Show a warning and exit
             qCritical() << "Fail to get launchctl" << KDECONNECT_SESSION_DBUS_LAUNCHD_ENV << "env";
