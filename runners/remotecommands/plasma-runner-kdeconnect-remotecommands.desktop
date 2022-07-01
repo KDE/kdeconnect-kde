@@ -2,6 +2,7 @@
 Name=Run command
 Name[ar]=نفّذ أمرًا
 Name[az]=Əmri başlatmaq
+Name[bg]=Изпълняване на команда
 Name[ca]=Executa una ordre
 Name[ca@valencia]=Executa una ordre
 Name[cs]=Spustit příkaz
@@ -41,6 +42,7 @@ Name[zh_TW]=執行指令
 Comment=Run commands on connected devices
 Comment[ar]=نفذ الأوامر على الأجهزة المتصلة
 Comment[az]=Qoşulmuş cihazda əmrləri başlatmaq
+Comment[bg]=Изпълняване на команда на свързаните устройства
 Comment[ca]=Executa les ordres als dispositius connectats
 Comment[ca@valencia]=Executa les ordres als dispositius connectats
 Comment[cs]=Spustit příkazy na připojených zařízeních
