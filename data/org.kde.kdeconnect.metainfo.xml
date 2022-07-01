@@ -175,17 +175,9 @@
     <value key="KDE::windows_store">https://www.microsoft.com/store/apps/9n93mrmsxbf0</value>
   </custom>
   <releases>
+    <release version="22.04.3" date="2022-07-07"/>
     <release version="22.04.2" date="2022-06-09"/>
     <release version="22.04.1" date="2022-05-12"/>
     <release version="22.04.0" date="2022-04-21"/>
-    <release version="21.12.3" date="2022-03-03">
-      <artifacts>
-        <artifact type="binary" platform="win64">
-          <location>https://download.kde.org/stable/release-service/21.12.3/windows/kdeconnect-kde-21.12.3-903-windows-msvc2019_64-cl.exe</location>
-          <checksum type="sha256">ec7a9f5b3788fef774c49bc619a062a87b364e54099946a14a954637a4682318</checksum>
-          <size type="download">59447072</size>
-        </artifact>
-      </artifacts>
-    </release>
   </releases>
 </component>
