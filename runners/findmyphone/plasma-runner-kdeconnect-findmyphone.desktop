@@ -2,6 +2,7 @@
 Name= Find my device
 Name[ar]= اعثر على جهازي
 Name[az]= Cihazımı tapmaq
+Name[bg]= Открий моето устройство
 Name[ca]= Troba el meu dispositiu
 Name[ca@valencia]= Troba el meu dispositiu
 Name[cs]= Najít moje zařízení
@@ -41,6 +42,7 @@ Name[zh_TW]= 尋找我的裝置
 Comment=Ring connected devices
 Comment[ar]=رنّ على الأجهزة المتصلة
 Comment[az]=Qoşulmuş cihaza zəng
+Comment[bg]=Позвъняване на свързаните устройства
 Comment[ca]=Fa sonar als dispositius connectats
 Comment[ca@valencia]=Fa sonar als dispositius connectats
 Comment[cs]=Prozvonit připojená zařízení
