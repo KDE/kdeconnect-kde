@@ -14,8 +14,10 @@ if(UNIX AND NOT APPLE)
         BASENAME fake-input
     )
 
+    pkg_check_modules(XkbCommon IMPORTED_TARGET xkbcommon)
+
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
-    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt5::WaylandClient)
+    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt5::WaylandClient PkgConfig::XkbCommon)
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp)
     set(HAVE_WAYLAND TRUE)
 
