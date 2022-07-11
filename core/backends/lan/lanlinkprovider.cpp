@@ -144,10 +144,33 @@ void LanLinkProvider::broadcastToNetwork()
     NetworkPacket np;
     NetworkPacket::createIdentityPacket(&np);
     np.set(QStringLiteral("tcpPort"), m_tcpPort);
-#ifdef Q_OS_MAC
-    //On macOS, remove capacitilities to avoid incomplete transmission of too large UDP packet
-    np.set(QStringLiteral("incomingCapabilities"), QStringList());
-    np.set(QStringLiteral("outgoingCapabilities"), QStringList());
+#if defined(Q_OS_MAC) || defined(Q_OS_FREEBSD)
+    //On macOS and FreeBSD, the too large UDP packet (larger than MTU) causes
+    //incomplete transmission.
+    //We remove the capacitilities to reduce the discovery packet to the min
+    //MTU of the interfaces with broadcast feature.
+    int mtu = 1500;
+    for (const QNetworkInterface& iface : QNetworkInterface::allInterfaces()) {
+        if ((iface.flags() & QNetworkInterface::IsUp)
+             && (iface.flags() & QNetworkInterface::IsRunning)
+             && (iface.flags() & QNetworkInterface::CanBroadcast)) {
+            int ifaceMtu = iface.maximumTransmissionUnit();
+            if (ifaceMtu < mtu && ifaceMtu > 0) {
+                mtu = ifaceMtu;
+            }
+        }
+    }
+    QByteArray payload = np.serialize();
+    if (payload.length() > mtu) {
+        //First try to drop the less important outgoing capabilities
+        np.set(QStringLiteral("outgoingCapabilities"), QStringList());
+        payload = np.serialize();
+    }
+    if (payload.length() > mtu) {
+        //If still too large, drop the incoming capabilities
+        np.set(QStringLiteral("incomingCapabilities"), QStringList());
+        payload = np.serialize();
+    }
 #endif
 
 #ifdef Q_OS_WIN
