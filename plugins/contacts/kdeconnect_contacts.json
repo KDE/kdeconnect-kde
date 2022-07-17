@@ -45,7 +45,7 @@
                 "Name[zh_TW]": "Simon Redman"
             }
         ],
-        "Description": "Synchronize Contacts Between the Desktop and the Connected Device",
+        "Description": "Synchronize Contacts from the Connected Device to the Desktop",
         "Description[ar]": "زامن المتراسلين بين سطح المكتب والجهاز المتصل",
         "Description[az]": "Kontakları Qoşulmuş Cihaz və İş masası arasında eyniləşdirmək",
         "Description[bg]": "Синхронизиране на контакти между компютъра и свързаното устройство",
@@ -80,7 +80,7 @@
         "Description[sv]": "Synkronisera kontakter mellan skrivbordet och ansluten enhet",
         "Description[tr]": "Masaüstü ve bağlı aygıt arasında kişileri eşzamanla",
         "Description[uk]": "Синхронізація контактів між комп'ютером і з'єднаним пристроєм",
-        "Description[x-test]": "xxSynchronize Contacts Between the Desktop and the Connected Devicexx",
+        "Description[x-test]": "xxSynchronize Contacts from the Connected Device to the Desktopxx",
         "Description[zh_CN]": "同步电脑和已连接设备的通讯录",
         "Description[zh_TW]": "在電腦與連線裝置之間同步聯絡人",
         "EnabledByDefault": true,
