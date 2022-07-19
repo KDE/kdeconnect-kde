@@ -173,8 +173,8 @@ void LanLinkProvider::broadcastToNetwork()
     }
 #endif
 
-#ifdef Q_OS_WIN
-    //On Windows we need to broadcast from every local IP address to reach all networks
+#if defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
+    //On Windows and FreeBSD we need to broadcast from every local IP address to reach all networks
     QUdpSocket sendSocket;
     sendSocket.setProxy(QNetworkProxy::NoProxy);
     for (const QNetworkInterface& iface : QNetworkInterface::allInterfaces()) {
