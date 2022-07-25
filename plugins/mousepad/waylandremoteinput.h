@@ -10,6 +10,7 @@
 #include "abstractremoteinput.h"
 
 class FakeInput;
+class WlKeyboard;
 
 class WaylandRemoteInput
     : public AbstractRemoteInput
@@ -20,13 +21,20 @@ public:
     explicit WaylandRemoteInput(QObject* parent);
     ~WaylandRemoteInput();
 
+    void setKeymap(const QByteArray &keymap) {
+        m_keymapSent = false;
+        m_keymap = keymap;
+    }
     bool handlePacket(const NetworkPacket& np) override;
 
 private:
     void setupWaylandIntegration();
 
-    FakeInput *m_fakeInput;
+    QScopedPointer<FakeInput> m_fakeInput;
+    QScopedPointer<WlKeyboard> m_keyboard;
     bool m_waylandAuthenticationRequested;
+    bool m_keymapSent = false;
+    QByteArray m_keymap;
 };
 
 #endif

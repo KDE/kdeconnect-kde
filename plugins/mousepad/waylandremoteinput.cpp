@@ -6,16 +6,23 @@
 
 #include "waylandremoteinput.h"
 
-#include <QSizeF>
 #include <QDebug>
+#include <QGuiApplication>
+#include <QSizeF>
+#include <QTemporaryFile>
 
 #include <KLocalizedString>
 
+#include <qpa/qplatformnativeinterface.h>
 #include <QtWaylandClient/qwaylandclientextension.h>
 #include "qwayland-fake-input.h"
+#include "qwayland-wayland.h"
+#include "qwayland-wayland.h"
 
 #include <linux/input.h>
 #include <xkbcommon/xkbcommon.h>
+#include <unistd.h>
+#include <sys/mman.h>
 
 namespace
 {
@@ -66,17 +73,41 @@ public:
     }
 };
 
+class WlKeyboard : public QtWayland::wl_keyboard
+{
+public:
+    WlKeyboard(WaylandRemoteInput *input)
+        : m_input(input)
+    {}
+
+    void keyboard_keymap(uint32_t format, int32_t fd, uint32_t size) override {
+        if (format != WL_KEYBOARD_KEYMAP_FORMAT_XKB_V1) {
+            close(fd);
+            return;
+        }
+
+        char *map_str = static_cast<char *>(mmap(nullptr, size, PROT_READ, MAP_SHARED, fd, 0));
+        if (map_str == MAP_FAILED) {
+            close(fd);
+            return;
+        }
+
+        m_input->setKeymap(QByteArray(map_str, size));
+    }
+    WaylandRemoteInput *const m_input;
+};
 
 WaylandRemoteInput::WaylandRemoteInput(QObject* parent)
     : AbstractRemoteInput(parent)
+    , m_fakeInput(new FakeInput)
+    , m_keyboard(new WlKeyboard(this))
     , m_waylandAuthenticationRequested(false)
 {
-    m_fakeInput = new FakeInput;
+    m_keyboard->init(static_cast<wl_keyboard *>(QGuiApplication::platformNativeInterface()->nativeResourceForIntegration("wl_keyboard")));
 }
 
 WaylandRemoteInput::~WaylandRemoteInput()
 {
-    delete m_fakeInput;
 }
 
 bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
@@ -104,7 +135,6 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
     const int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
-
         if (isSingleClick) {
             m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
             m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
@@ -133,6 +163,32 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
             m_fakeInput->keyboard_key(SpecialKeysMap[specialKey], 1);
             m_fakeInput->keyboard_key(SpecialKeysMap[specialKey], 0);
         } else if (!key.isEmpty()) {
+            if (!m_keymapSent && !m_keymap.isEmpty()) {
+                m_keymapSent = true;
+                auto sendKeymap = [this] {
+                    QScopedPointer<QTemporaryFile> tmp(new QTemporaryFile());
+                    if (!tmp->open()) {
+                        return;
+                    }
+
+                    unlink(tmp->fileName().toUtf8().constData());
+                    if (!tmp->resize(m_keymap.size())) {
+                        return;
+                    }
+
+                    uchar *address = tmp->map(0, m_keymap.size());
+                    if (!address) {
+                        return;
+                    }
+
+                    qstrncpy(reinterpret_cast<char *>(address), m_keymap.constData(), m_keymap.size() + 1);
+                    tmp->unmap(address);
+
+                    m_fakeInput->keyboard_keymap(tmp->handle(), tmp->size());
+                };
+                sendKeymap();
+            }
+
             for (const QChar character : key) {
                 const auto keysym = xkb_utf32_to_keysym(character.unicode());
                 m_fakeInput->keyboard_keysym(keysym, 1);
