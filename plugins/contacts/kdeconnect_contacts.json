@@ -46,6 +46,12 @@
             }
         ],
         "Description": "Synchronize Contacts from the Connected Device to the Desktop",
+        "Description[ca]": "Sincronitza els contactes des del dispositiu connectat a l'escriptori",
+        "Description[nl]": "Contactpersonen synchroniseren uit het verbonden apparaat naar het bureaublad",
+        "Description[pt]": "Sincronizar os Contactos do Dispositivo Ligado para o Sistema",
+        "Description[tr]": "Bağlı Aygıttaki Kişileri Masaüstüne Eşzamanla",
+        "Description[uk]": "Синхронізація контактів зі з'єднаного пристрою на комп'ютер",
+        "Description[x-test]": "xxSynchronize Contacts from the Connected Device to the Desktopxx",
         "EnabledByDefault": true,
         "Icon": "tag-people",
         "Id": "kdeconnect_contacts",
