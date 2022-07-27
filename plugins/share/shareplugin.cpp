@@ -145,6 +145,17 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
     } else if (np.has(QStringLiteral("text"))) {
         QString text = np.get<QString>(QStringLiteral("text"));
 
+        /* Handle apps which share links as 'Title\nurl' */
+        QStringList lines = text.split(QStringLiteral("\n"), Qt::SkipEmptyParts);
+        if (lines.count() == 2) {
+            QUrl url (lines[1]);
+            if (url.isValid() && !url.scheme().isEmpty()) {
+                QDesktopServices::openUrl(url);
+                Q_EMIT shareReceived(url.toString());
+                return true;
+            }
+        }
+
         KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
         const QString defaultApp = service ? service->desktopEntryName() : QString();
 
