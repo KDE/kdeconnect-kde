@@ -47,6 +47,7 @@
         ],
         "Description": "Synchronize Contacts from the Connected Device to the Desktop",
         "Description[az]": "Əlaqələri qoşulmuş cihazdan iş masasına eyniləşdirin",
+        "Description[ca@valencia]": "Sincronitza els contactes des del dispositiu connectat a l'escriptori",
         "Description[ca]": "Sincronitza els contactes des del dispositiu connectat a l'escriptori",
         "Description[fr]": "Synchroniser les contacts du périphérique connecté avec ceux du bureau",
         "Description[nl]": "Contactpersonen synchroniseren uit het verbonden apparaat naar het bureaublad",
