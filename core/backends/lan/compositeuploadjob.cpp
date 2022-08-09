@@ -273,25 +273,15 @@ void CompositeUploadJob::slotResult(KJob *job) {
         m_currentJobNum++;
         startNextSubJob();
     } else {
-        QPair<QString, QString> field2;
-        field2.first = QStringLiteral("Files");
-        field2.second = i18np("Sent 1 file", "Sent %1 files", m_totalJobs);
-        Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()),
-                           { QString(), QString() }, field2
-        );
         emitResult();
     }
 }
 
 void CompositeUploadJob::emitDescription(const QString& currentFileName) {
-    QPair<QString, QString> field2;
-
-    if (m_totalJobs > 1) {
-        field2.first = i18n("Progress");
-        field2.second = i18n("Sending file %1 of %2", m_currentJobNum, m_totalJobs);
-    }
-
     Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()),
-                       { i18n("File"), currentFileName }, field2
+                       { i18n("File"), currentFileName }, {}
     );
+
+    setProcessedAmount(Files, m_currentJobNum);
+    setTotalAmount(Files, m_totalJobs);
 }
