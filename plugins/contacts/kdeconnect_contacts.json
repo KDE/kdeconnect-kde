@@ -46,6 +46,7 @@
             }
         ],
         "Description": "Synchronize Contacts from the Connected Device to the Desktop",
+        "Description[ar]": "زامن المتراسلين بين سطح المكتب والجهاز المتصل",
         "Description[az]": "Əlaqələri qoşulmuş cihazdan iş masasına eyniləşdirin",
         "Description[bg]": "Синхронизиране на контактите между свързаното устройство и компютъра",
         "Description[ca@valencia]": "Sincronitza els contactes des del dispositiu connectat a l'escriptori",
