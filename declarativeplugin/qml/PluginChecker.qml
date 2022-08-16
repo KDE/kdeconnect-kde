@@ -19,7 +19,9 @@ QtObject {
 
     readonly property Connections connection: Connections {
         id: conn
-        onPluginsChanged: pluginsChanged()
+        function onPluginsChanged() {
+            root.pluginsChanged();
+        }
     }
 
     Component.onCompleted: pluginsChanged()
