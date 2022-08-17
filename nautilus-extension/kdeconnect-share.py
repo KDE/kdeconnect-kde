@@ -84,7 +84,10 @@ class KdeConnectShareExtension(GObject.GObject, Nautilus.MenuProvider):
             variant = GLib.Variant('(s)', (file.get_uri(),))
             device_proxy.call_sync('shareUrl', variant, 0, -1, None)
 
-    def get_file_items(self, window, files):
+    def get_file_items(self, *args):
+        # `args` will be `[files: List[Nautilus.FileInfo]]` in Nautilus 4.0 API,
+        # and `[window: Gtk.Widget, files: List[Nautilus.FileInfo]]` in Nautilus 3.0 API.
+        files = args[-1]
 
         #We can only send regular files
         for uri in files:
