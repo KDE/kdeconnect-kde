@@ -24,7 +24,7 @@ public:
     explicit PhotoPlugin(QObject* parent, const QVariantList& args);
     ~PhotoPlugin() override;
 
-    Q_SCRIPTABLE void requestPhoto(const QString& fileName);
+    Q_SCRIPTABLE void requestPhoto(const QString& url);
 
     bool receivePacket(const NetworkPacket& np) override;
     void connected() override {}
@@ -32,7 +32,7 @@ public:
     QString dbusPath() const override;
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void photoReceived(const QString& fileName);
+    Q_SCRIPTABLE void photoReceived(const QString& url);
 
 private:
     QStringList requestedFiles;

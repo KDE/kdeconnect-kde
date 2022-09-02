@@ -35,18 +35,18 @@ bool PhotoPlugin::receivePacket(const NetworkPacket& np)
         return true;
     }
 
-    const QString& fileName = requestedFiles.takeFirst();
-    FileTransferJob* job = np.createPayloadTransferJob(QUrl::fromLocalFile(fileName));
-    connect(job, &FileTransferJob::result, this, [this, fileName] {
-        Q_EMIT photoReceived(fileName);
+    const QString url = requestedFiles.takeFirst();
+    FileTransferJob* job = np.createPayloadTransferJob(QUrl(url));
+    connect(job, &FileTransferJob::result, this, [this, url] {
+        Q_EMIT photoReceived(url);
     });
     job->start();
     return true;
 }
 
-void PhotoPlugin::requestPhoto(const QString& fileName)
+void PhotoPlugin::requestPhoto(const QString& url)
 {
-    requestedFiles.append(fileName);
+    requestedFiles.append(url);
     NetworkPacket np(PACKET_TYPE_PHOTO_REQUEST);
     sendPacket(np);
 }

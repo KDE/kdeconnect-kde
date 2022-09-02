@@ -295,7 +295,7 @@ int main(int argc, char** argv)
             const QString fileName = parser.value(QStringLiteral("photo"));
             if (!fileName.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"), QStringLiteral("org.kde.kdeconnect.device.photo"), QStringLiteral("requestPhoto"));
-                msg.setArguments({fileName});
+                msg.setArguments({QUrl::fromLocalFile(fileName).toString()});
                 blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             } else {
                 QTextStream(stderr) << i18n("Please specify a filename for the photo") << endl;
