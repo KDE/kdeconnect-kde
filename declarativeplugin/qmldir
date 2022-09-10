@@ -1,5 +1,0 @@
-module org.kde.kdeconnect
-DBusProperty 1.0 qrc:///kdeconnect/qml/DBusProperty.qml
-PluginChecker 1.0 qrc:///kdeconnect/qml/PluginChecker.qml
-RemoteKeyboard 1.0 qrc:///kdeconnect/qml/RemoteKeyboard.qml
-plugin kdeconnectdeclarativeplugin

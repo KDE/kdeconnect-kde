@@ -1,7 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
- <qresource prefix="/kdeconnect">
-    <file>qml/DBusProperty.qml</file>
-    <file>qml/PluginChecker.qml</file>
-    <file>qml/RemoteKeyboard.qml</file>
- </qresource>
-</RCC>
