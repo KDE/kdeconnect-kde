@@ -12,7 +12,8 @@
 class MprisRemotePlayer;
 class MprisRemotePlugin;
 
-class MprisRemotePlayerMediaPlayer2Player : public QDBusAbstractAdaptor {
+class MprisRemotePlayerMediaPlayer2Player : public QDBusAbstractAdaptor
+{
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.mpris.MediaPlayer2.Player")
 

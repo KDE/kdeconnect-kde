@@ -9,23 +9,22 @@
 
 #include <QObject>
 
-#include <core/kdeconnectplugin.h>
 #include <QFile>
 #include <QFileSystemWatcher>
 #include <QMap>
 #include <QPair>
 #include <QString>
+#include <core/kdeconnectplugin.h>
 
-class Q_DECL_EXPORT RunCommandPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT RunCommandPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit RunCommandPlugin(QObject* parent, const QVariantList& args);
+    explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
     ~RunCommandPlugin() override;
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private Q_SLOTS:
@@ -33,7 +32,6 @@ private Q_SLOTS:
 
 private:
     void sendConfig();
-
 };
 
 #endif

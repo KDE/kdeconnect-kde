@@ -6,45 +6,45 @@
 
 #include "kdeconnectdeclarativeplugin.h"
 
-#include <QQmlEngine>
-#include <QQmlContext>
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
 #include <QGuiApplication>
+#include <QQmlContext>
+#include <QQmlEngine>
 
 #include "objectfactory.h"
 #include "responsewaiter.h"
 
-#include "interfaces/devicessortproxymodel.h"
+#include "core/kdeconnectpluginconfig.h"
+#include "interfaces/commandsmodel.h"
 #include "interfaces/devicesmodel.h"
+#include "interfaces/devicessortproxymodel.h"
 #include "interfaces/notificationsmodel.h"
+#include "openconfig.h"
+#include "pointerlocker.h"
+#include <pluginmodel.h>
 #include <remotecommandsmodel.h>
 #include <remotesinksmodel.h>
-#include <pluginmodel.h>
-#include "core/kdeconnectpluginconfig.h"
-#include "openconfig.h"
-#include "interfaces/commandsmodel.h"
-#include "pointerlocker.h"
 #if WITH_WAYLAND == 1
 #include "pointerlockerwayland.h"
 #endif
 
-QObject* createDBusResponse()
+QObject *createDBusResponse()
 {
     return new DBusAsyncResponse();
 }
 
-template<typename T> void registerFactory(const char* uri, const char *name) {
-    qmlRegisterSingletonType<ObjectFactory>(uri, 1, 0, name,
-        [](QQmlEngine* engine, QJSEngine*) -> QObject* {
-            return new ObjectFactory(engine, [](const QVariant& deviceId) -> QObject * {
-                return new T(deviceId.toString());
-            });
-        }
-    );
+template<typename T>
+void registerFactory(const char *uri, const char *name)
+{
+    qmlRegisterSingletonType<ObjectFactory>(uri, 1, 0, name, [](QQmlEngine *engine, QJSEngine *) -> QObject * {
+        return new ObjectFactory(engine, [](const QVariant &deviceId) -> QObject * {
+            return new T(deviceId.toString());
+        });
+    });
 }
 
-void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
+void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
 {
     qmlRegisterType<DevicesModel>(uri, 1, 0, "DevicesModel");
     qmlRegisterType<NotificationsModel>(uri, 1, 0, "NotificationsModel");
@@ -57,19 +57,33 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     qmlRegisterType<CommandsModel>(uri, 1, 0, "CommandsModel");
     qmlRegisterUncreatableType<MprisDbusInterface>(uri, 1, 0, "MprisDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<LockDeviceDbusInterface>(uri, 1, 0, "LockDeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
-    qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri, 1, 0, "FindMyPhoneDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
-    qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri, 1, 0, "RemoteKeyboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<FindMyPhoneDeviceDbusInterface>(uri,
+                                                               1,
+                                                               0,
+                                                               "FindMyPhoneDbusInterface",
+                                                               QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri,
+                                                            1,
+                                                            0,
+                                                            "RemoteKeyboardDbusInterface",
+                                                            QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
-    qmlRegisterUncreatableType<RemoteCommandsDbusInterface>(uri, 1, 0, "RemoteCommandsDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
-    qmlRegisterUncreatableType<RemoteSystemVolumeDbusInterface>(uri, 1, 0, "RemoteSystemVolumeInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<RemoteCommandsDbusInterface>(uri,
+                                                            1,
+                                                            0,
+                                                            "RemoteCommandsDbusInterface",
+                                                            QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<RemoteSystemVolumeDbusInterface>(uri,
+                                                                1,
+                                                                0,
+                                                                "RemoteSystemVolumeInterface",
+                                                                QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<ShareDbusInterface>(uri, 1, 0, "ShareDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<BigscreenDbusInterface>(uri, 1, 0, "BigscreenDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
-    qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface",
-        [](QQmlEngine*, QJSEngine*) -> QObject* {
-            return new DaemonDbusInterface;
-        }
-    );
-    qmlRegisterSingletonType<AbstractPointerLocker>("org.kde.kdeconnect", 1, 0, "PointerLocker", [] (QQmlEngine *, QJSEngine *) -> QObject * {
+    qmlRegisterSingletonType<DaemonDbusInterface>(uri, 1, 0, "DaemonDbusInterface", [](QQmlEngine *, QJSEngine *) -> QObject * {
+        return new DaemonDbusInterface;
+    });
+    qmlRegisterSingletonType<AbstractPointerLocker>("org.kde.kdeconnect", 1, 0, "PointerLocker", [](QQmlEngine *, QJSEngine *) -> QObject * {
         AbstractPointerLocker *ret;
 #if WITH_WAYLAND == 1
         if (qGuiApp->platformName() == QLatin1String("wayland"))
@@ -80,11 +94,9 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
         return ret;
     });
 
-    qmlRegisterSingletonType<OpenConfig>(uri, 1, 0, "OpenConfig",
-        [](QQmlEngine*, QJSEngine*) -> QObject* {
-            return new OpenConfig;
-        }
-    );
+    qmlRegisterSingletonType<OpenConfig>(uri, 1, 0, "OpenConfig", [](QQmlEngine *, QJSEngine *) -> QObject * {
+        return new OpenConfig;
+    });
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
@@ -109,13 +121,11 @@ void KdeConnectDeclarativePlugin::registerTypes(const char* uri)
     registerFactory<VirtualmonitorDbusInterface>(uri, "VirtualmonitorDbusInterfaceFactory");
 }
 
-void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine* engine, const char* uri)
+void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine *engine, const char *uri)
 {
     QQmlExtensionPlugin::initializeEngine(engine, uri);
 
-    engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseFactory")
-      , new ObjectFactory(engine, createDBusResponse));
+    engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseFactory"), new ObjectFactory(engine, createDBusResponse));
 
-    engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseWaiter")
-      , DBusResponseWaiter::instance());
+    engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseWaiter"), DBusResponseWaiter::instance());
 }

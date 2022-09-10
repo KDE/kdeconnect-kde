@@ -17,8 +17,8 @@
 
 #include <core/device.h>
 
-#include "plugin_systemvolume_debug.h"
 #include "PolicyConfig.h"
+#include "plugin_systemvolume_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
@@ -29,7 +29,12 @@ class SystemvolumePlugin::CAudioEndpointVolumeCallback : public IAudioEndpointVo
     LONG _cRef;
 
 public:
-    CAudioEndpointVolumeCallback(SystemvolumePlugin &x, QString sinkName) : enclosing(x), name(std::move(sinkName)), _cRef(1) {}
+    CAudioEndpointVolumeCallback(SystemvolumePlugin &x, QString sinkName)
+        : enclosing(x)
+        , name(std::move(sinkName))
+        , _cRef(1)
+    {
+    }
     ~CAudioEndpointVolumeCallback(){};
 
     // IUnknown methods -- AddRef, Release, and QueryInterface
@@ -42,8 +47,7 @@ public:
     ULONG STDMETHODCALLTYPE Release() override
     {
         ULONG ulRef = InterlockedDecrement(&_cRef);
-        if (ulRef == 0)
-        {
+        if (ulRef == 0) {
             delete this;
         }
         return ulRef;
@@ -51,18 +55,13 @@ public:
 
     HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, VOID **ppvInterface) override
     {
-        if (IID_IUnknown == riid)
-        {
+        if (IID_IUnknown == riid) {
             AddRef();
             *ppvInterface = (IUnknown *)this;
-        }
-        else if (__uuidof(IMMNotificationClient) == riid)
-        {
+        } else if (__uuidof(IMMNotificationClient) == riid) {
             AddRef();
             *ppvInterface = (IMMNotificationClient *)this;
-        }
-        else
-        {
+        } else {
             *ppvInterface = NULL;
             return E_NOINTERFACE;
         }
@@ -89,9 +88,10 @@ private:
 
 class SystemvolumePlugin::CMMNotificationClient : public IMMNotificationClient
 {
-
 public:
-    CMMNotificationClient(SystemvolumePlugin &x) : enclosing(x), _cRef(1){};
+    CMMNotificationClient(SystemvolumePlugin &x)
+        : enclosing(x)
+        , _cRef(1){};
 
     ~CMMNotificationClient(){};
 
@@ -105,8 +105,7 @@ public:
     ULONG STDMETHODCALLTYPE Release() override
     {
         ULONG ulRef = InterlockedDecrement(&_cRef);
-        if (ulRef == 0)
-        {
+        if (ulRef == 0) {
             delete this;
         }
         return ulRef;
@@ -114,18 +113,13 @@ public:
 
     HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, VOID **ppvInterface) override
     {
-        if (IID_IUnknown == riid)
-        {
+        if (IID_IUnknown == riid) {
             AddRef();
             *ppvInterface = (IUnknown *)this;
-        }
-        else if (__uuidof(IMMNotificationClient) == riid)
-        {
+        } else if (__uuidof(IMMNotificationClient) == riid) {
             AddRef();
             *ppvInterface = (IMMNotificationClient *)this;
-        }
-        else
-        {
+        } else {
             *ppvInterface = NULL;
             return E_NOINTERFACE;
         }
@@ -136,8 +130,7 @@ public:
 
     HRESULT STDMETHODCALLTYPE OnDefaultDeviceChanged(EDataFlow flow, ERole role, LPCWSTR pwstrDeviceId) override
     {
-        if (flow == eRender)
-        {
+        if (flow == eRender) {
             enclosing.sendSinkList();
         }
         return S_OK;
@@ -150,27 +143,26 @@ public:
     }
 
     struct RemovedDeviceThreadData {
-
         QString qDeviceId;
-        SystemvolumePlugin* plugin;
-
+        SystemvolumePlugin *plugin;
     };
 
-    static DWORD WINAPI releaseRemovedDevice(_In_ LPVOID lpParameter) {
+    static DWORD WINAPI releaseRemovedDevice(_In_ LPVOID lpParameter)
+    {
+        auto *data = static_cast<RemovedDeviceThreadData *>(lpParameter);
 
-        auto* data = static_cast<RemovedDeviceThreadData*>(lpParameter);
-
-        if (!data->plugin->sinkList.empty())
-        {
+        if (!data->plugin->sinkList.empty()) {
             auto idToNameIterator = data->plugin->idToNameMap.find(data->qDeviceId);
-            if (idToNameIterator == data->plugin->idToNameMap.end()) return 0;
+            if (idToNameIterator == data->plugin->idToNameMap.end())
+                return 0;
 
-            QString& sinkName = idToNameIterator.value();
+            QString &sinkName = idToNameIterator.value();
 
             auto sinkListIterator = data->plugin->sinkList.find(sinkName);
-            if (sinkListIterator == data->plugin->sinkList.end()) return 0;
+            if (sinkListIterator == data->plugin->sinkList.end())
+                return 0;
 
-            auto& sink = sinkListIterator.value();
+            auto &sink = sinkListIterator.value();
 
             sink.first->UnregisterControlChangeNotify(sink.second);
             sink.first->Release();
@@ -187,7 +179,7 @@ public:
 
     HRESULT STDMETHODCALLTYPE OnDeviceRemoved(LPCWSTR pwstrDeviceId) override
     {
-        static RemovedDeviceThreadData data {};
+        static RemovedDeviceThreadData data{};
         data.qDeviceId = QString::fromWCharArray(pwstrDeviceId);
         data.plugin = &enclosing;
 
@@ -200,7 +192,8 @@ public:
 
     HRESULT STDMETHODCALLTYPE OnDeviceStateChanged(LPCWSTR pwstrDeviceId, DWORD dwNewState) override
     {
-        if (dwNewState == DEVICE_STATE_UNPLUGGED) return OnDeviceRemoved(pwstrDeviceId);
+        if (dwNewState == DEVICE_STATE_UNPLUGGED)
+            return OnDeviceRemoved(pwstrDeviceId);
 
         enclosing.sendSinkList();
         return S_OK;
@@ -218,15 +211,14 @@ private:
 };
 
 SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args),
-      sinkList()
+    : KdeConnectPlugin(parent, args)
+    , sinkList()
 {
     CoInitialize(nullptr);
     deviceEnumerator = nullptr;
     HRESULT hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&(deviceEnumerator));
     valid = (hr == S_OK);
-    if (!valid)
-    {
+    if (!valid) {
         qWarning("Initialization failed: Failed to create MMDeviceEnumerator");
         qWarning("Error Code: %lx", hr);
     }
@@ -234,8 +226,7 @@ SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args
 
 SystemvolumePlugin::~SystemvolumePlugin()
 {
-    if (valid)
-    {
+    if (valid) {
         deviceEnumerator->UnregisterEndpointNotificationCallback(deviceCallback);
         deviceEnumerator->Release();
         deviceEnumerator = nullptr;
@@ -253,8 +244,7 @@ bool SystemvolumePlugin::sendSinkList()
     IMMDeviceCollection *devices = nullptr;
     HRESULT hr = deviceEnumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &devices);
 
-    if (hr != S_OK)
-    {
+    if (hr != S_OK) {
         qWarning("Failed to Enumumerate AudioEndpoints");
         qWarning("Error Code: %lx", hr);
         return false;
@@ -268,8 +258,7 @@ bool SystemvolumePlugin::sendSinkList()
     LPWSTR defaultId = NULL;
     defaultDevice->GetId(&defaultId);
 
-    for (unsigned int i = 0; i < deviceCount; i++)
-    {
+    for (unsigned int i = 0; i < deviceCount; i++) {
         IMMDevice *device = nullptr;
 
         IPropertyStore *deviceProperties = nullptr;
@@ -289,12 +278,12 @@ bool SystemvolumePlugin::sendSinkList()
 
         deviceProperties->GetValue(PKEY_Device_FriendlyName, &deviceProperty);
         name = QString::fromWCharArray(deviceProperty.pwszVal);
-        //PropVariantClear(&deviceProperty);
+        // PropVariantClear(&deviceProperty);
 
 #ifndef __MINGW32__
         deviceProperties->GetValue(PKEY_Device_DeviceDesc, &deviceProperty);
         desc = QString::fromWCharArray(deviceProperty.pwszVal);
-        //PropVariantClear(&deviceProperty);
+        // PropVariantClear(&deviceProperty);
 #else
         desc = name;
 #endif
@@ -304,8 +293,7 @@ bool SystemvolumePlugin::sendSinkList()
         sinkObject.insert(QStringLiteral("description"), desc);
 
         hr = device->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_ALL, NULL, (void **)&endpoint);
-        if (hr != S_OK)
-        {
+        if (hr != S_OK) {
             qWarning() << "Failed to create IAudioEndpointVolume for device:" << name;
             qWarning("Error Code: %lx", hr);
 
@@ -356,20 +344,15 @@ void SystemvolumePlugin::connected()
     sendSinkList();
 }
 
-static HRESULT setDefaultAudioPlaybackDevice(PCWSTR deviceId) {
-    if (deviceId == nullptr) return ERROR_BAD_UNIT;
+static HRESULT setDefaultAudioPlaybackDevice(PCWSTR deviceId)
+{
+    if (deviceId == nullptr)
+        return ERROR_BAD_UNIT;
 
     IPolicyConfigVista *pPolicyConfig;
-    HRESULT hr = CoCreateInstance(
-            __uuidof(CPolicyConfigVistaClient),
-            NULL,
-            CLSCTX_ALL,
-            __uuidof(IPolicyConfigVista),
-            (LPVOID *)&pPolicyConfig
-    );
+    HRESULT hr = CoCreateInstance(__uuidof(CPolicyConfigVistaClient), NULL, CLSCTX_ALL, __uuidof(IPolicyConfigVista), (LPVOID *)&pPolicyConfig);
 
-    if (SUCCEEDED(hr))
-    {
+    if (SUCCEEDED(hr)) {
         hr = pPolicyConfig->SetDefaultEndpoint(deviceId, eMultimedia);
         pPolicyConfig->Release();
     }
@@ -377,21 +360,22 @@ static HRESULT setDefaultAudioPlaybackDevice(PCWSTR deviceId) {
     return hr;
 }
 
-HRESULT SystemvolumePlugin::setDefaultAudioPlaybackDevice(QString& name, bool enabled)
+HRESULT SystemvolumePlugin::setDefaultAudioPlaybackDevice(QString &name, bool enabled)
 {
-    if (!enabled) return S_OK;
+    if (!enabled)
+        return S_OK;
 
     PWSTR deviceId = nullptr;
-    for (auto& entry : idToNameMap.toStdMap()) {
+    for (auto &entry : idToNameMap.toStdMap()) {
         if (entry.second == name) {
-
             deviceId = new WCHAR[entry.first.length()];
             wcscpy(deviceId, entry.first.toStdWString().data());
             break;
         }
     }
 
-    if (deviceId == nullptr) return ERROR_BAD_UNIT;
+    if (deviceId == nullptr)
+        return ERROR_BAD_UNIT;
 
     HRESULT hr = ::setDefaultAudioPlaybackDevice(deviceId);
 
@@ -405,16 +389,12 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
     if (!valid)
         return false;
 
-    if (np.has(QStringLiteral("requestSinks")))
-    {
+    if (np.has(QStringLiteral("requestSinks"))) {
         return sendSinkList();
-    }
-    else
-    {
+    } else {
         QString name = np.get<QString>(QStringLiteral("name"));
 
-        if (sinkList.contains(name))
-        {
+        if (sinkList.contains(name)) {
             // unregister ControlChangeNotify before doing any changes to a sink
             HRESULT unregisterSuccess = E_POINTER;
             auto sinkListIterator = this->sinkList.find(name);
@@ -423,8 +403,7 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
                 unregisterSuccess = sink.first->UnregisterControlChangeNotify(sink.second);
             }
 
-            if (np.has(QStringLiteral("volume")))
-            {
+            if (np.has(QStringLiteral("volume"))) {
                 float currentVolume;
                 sink.first->GetMasterVolumeLevelScalar(&currentVolume);
                 float requestedVolume = (float)np.get<int>(QStringLiteral("volume"), 100) / 100;
@@ -433,18 +412,16 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
                 }
             }
 
-            if (np.has(QStringLiteral("muted")))
-            {
+            if (np.has(QStringLiteral("muted"))) {
                 BOOL currentMuteStatus;
                 sink.first->GetMute(&currentMuteStatus);
                 BOOL requestedMuteStatus = np.get<bool>(QStringLiteral("muted"), false);
-                if(currentMuteStatus != requestedMuteStatus) {
+                if (currentMuteStatus != requestedMuteStatus) {
                     sinkList[name].first->SetMute(requestedMuteStatus, NULL);
                 }
             }
 
-            if (np.has(QStringLiteral("enabled")))
-            {
+            if (np.has(QStringLiteral("enabled"))) {
                 // get the current default device ID
                 IMMDevice *defaultDevice = nullptr;
                 deviceEnumerator->GetDefaultAudioEndpoint(eRender, eMultimedia, &defaultDevice);

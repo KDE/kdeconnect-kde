@@ -9,21 +9,20 @@
 #include <KAboutData>
 #include <KService>
 
-struct KdeConnectPluginKcmPrivate
-{
+struct KdeConnectPluginKcmPrivate {
     QString m_deviceId;
     QString m_pluginName;
-    KdeConnectPluginConfig* m_config = nullptr;
+    KdeConnectPluginConfig *m_config = nullptr;
 };
 
-KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget* parent, const QVariantList& args, const QString& pluginName)
+KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget *parent, const QVariantList &args, const QString &pluginName)
     : KCModule(parent, args)
     , d(new KdeConnectPluginKcmPrivate())
 {
     d->m_deviceId = args.at(0).toString();
     d->m_pluginName = pluginName;
 
-    //The parent of the config should be the plugin itself
+    // The parent of the config should be the plugin itself
     d->m_config = new KdeConnectPluginConfig(d->m_deviceId, d->m_pluginName);
 }
 
@@ -32,7 +31,7 @@ KdeConnectPluginKcm::~KdeConnectPluginKcm()
     delete d->m_config;
 }
 
-KdeConnectPluginConfig* KdeConnectPluginKcm::config() const
+KdeConnectPluginConfig *KdeConnectPluginKcm::config() const
 {
     return d->m_config;
 }
@@ -41,5 +40,3 @@ QString KdeConnectPluginKcm::deviceId() const
 {
     return d->m_deviceId;
 }
-
-

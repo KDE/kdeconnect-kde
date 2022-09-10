@@ -16,7 +16,6 @@ class Attachment;
 
 class KDECONNECTINTERFACES_EXPORT ConversationMessage
 {
-
 public:
     // TYPE field values from Android
     enum Types {
@@ -44,33 +43,81 @@ public:
      *
      * @param args mapping of field names to values as might be contained in a network packet containing a message
      */
-    ConversationMessage(const QVariantMap& args = QVariantMap());
+    ConversationMessage(const QVariantMap &args = QVariantMap());
 
-    ConversationMessage(const qint32& eventField, const QString& body, const QList<ConversationAddress>& addresses,
-                        const qint64& date, const qint32& type, const qint32& read,
-                        const qint64& threadID, const qint32& uID, const qint64& subID,
-                        const QList<Attachment>& attachments);
+    ConversationMessage(const qint32 &eventField,
+                        const QString &body,
+                        const QList<ConversationAddress> &addresses,
+                        const qint64 &date,
+                        const qint32 &type,
+                        const qint32 &read,
+                        const qint64 &threadID,
+                        const qint32 &uID,
+                        const qint64 &subID,
+                        const QList<Attachment> &attachments);
 
-    static ConversationMessage fromDBus(const QDBusVariant&);
+    static ConversationMessage fromDBus(const QDBusVariant &);
     static void registerDbusType();
 
-    qint32 eventField() const { return m_eventField; }
-    QString body() const { return m_body; }
-    QList<ConversationAddress> addresses() const { return m_addresses; }
-    qint64 date() const { return m_date; }
-    qint32 type() const { return m_type; }
-    qint32 read() const { return m_read; }
-    qint64 threadID() const { return m_threadID; }
-    qint32 uID() const { return m_uID; }
-    qint64 subID() const { return m_subID; }
-    QList<Attachment> attachments() const { return m_attachments; }
+    qint32 eventField() const
+    {
+        return m_eventField;
+    }
+    QString body() const
+    {
+        return m_body;
+    }
+    QList<ConversationAddress> addresses() const
+    {
+        return m_addresses;
+    }
+    qint64 date() const
+    {
+        return m_date;
+    }
+    qint32 type() const
+    {
+        return m_type;
+    }
+    qint32 read() const
+    {
+        return m_read;
+    }
+    qint64 threadID() const
+    {
+        return m_threadID;
+    }
+    qint32 uID() const
+    {
+        return m_uID;
+    }
+    qint64 subID() const
+    {
+        return m_subID;
+    }
+    QList<Attachment> attachments() const
+    {
+        return m_attachments;
+    }
 
-    bool containsTextBody() const { return (eventField() & ConversationMessage::EventTextMessage); }
-    bool isMultitarget() const { return (eventField() & ConversationMessage::EventMultiTarget); }
+    bool containsTextBody() const
+    {
+        return (eventField() & ConversationMessage::EventTextMessage);
+    }
+    bool isMultitarget() const
+    {
+        return (eventField() & ConversationMessage::EventMultiTarget);
+    }
 
-    bool isIncoming() const { return type() == MessageTypeInbox; }
+    bool isIncoming() const
+    {
+        return type() == MessageTypeInbox;
+    }
     bool isOutgoing() const;
-    bool containsAttachment() const { return !attachments().isEmpty(); }
+    bool containsAttachment() const
+    {
+        return !attachments().isEmpty();
+    }
 
     /**
      * Return the address of the other party of a single-target conversation
@@ -137,7 +184,10 @@ class KDECONNECTINTERFACES_EXPORT ConversationAddress
 public:
     ConversationAddress(QString address = QStringLiteral());
 
-    QString address() const { return m_address; }
+    QString address() const
+    {
+        return m_address;
+    }
 
 private:
     QString m_address;
@@ -146,34 +196,40 @@ private:
 class KDECONNECTINTERFACES_EXPORT Attachment
 {
 public:
-    Attachment() {}
+    Attachment()
+    {
+    }
     Attachment(qint64 prtID, QString mimeType, QString base64EncodedFile, QString uniqueIdentifier);
 
-    qint64 partID() const { return m_partID; }
-    QString mimeType() const { return m_mimeType; }
-    QString base64EncodedFile() const { return m_base64EncodedFile; }
-    QString uniqueIdentifier() const { return m_uniqueIdentifier; }
+    qint64 partID() const
+    {
+        return m_partID;
+    }
+    QString mimeType() const
+    {
+        return m_mimeType;
+    }
+    QString base64EncodedFile() const
+    {
+        return m_base64EncodedFile;
+    }
+    QString uniqueIdentifier() const
+    {
+        return m_uniqueIdentifier;
+    }
 
 private:
-    qint64 m_partID;                  // Part ID of the attachment of the message
-    QString m_mimeType;               // Type of attachment (image, video, audio etc.)
-    QString m_base64EncodedFile;      // Base64 encoded string of a file
-    QString m_uniqueIdentifier;       // unique name of the attachment
+    qint64 m_partID; // Part ID of the attachment of the message
+    QString m_mimeType; // Type of attachment (image, video, audio etc.)
+    QString m_base64EncodedFile; // Base64 encoded string of a file
+    QString m_uniqueIdentifier; // unique name of the attachment
 };
 
 inline QDBusArgument &operator<<(QDBusArgument &argument, const ConversationMessage &message)
 {
     argument.beginStructure();
-    argument << message.eventField()
-             << message.body()
-             << message.addresses()
-             << message.date()
-             << message.type()
-             << message.read()
-             << message.threadID()
-             << message.uID()
-             << message.subID()
-             << message.attachments();
+    argument << message.eventField() << message.body() << message.addresses() << message.date() << message.type() << message.read() << message.threadID()
+             << message.uID() << message.subID() << message.attachments();
     argument.endStructure();
     return argument;
 }
@@ -209,7 +265,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, Conversati
     return argument;
 }
 
-inline QDBusArgument& operator<<(QDBusArgument& argument, const ConversationAddress& address)
+inline QDBusArgument &operator<<(QDBusArgument &argument, const ConversationAddress &address)
 {
     argument.beginStructure();
     argument << address.address();
@@ -217,7 +273,7 @@ inline QDBusArgument& operator<<(QDBusArgument& argument, const ConversationAddr
     return argument;
 }
 
-inline const QDBusArgument& operator>>(const QDBusArgument& argument, ConversationAddress& address)
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, ConversationAddress &address)
 {
     QString addressField;
 
@@ -230,18 +286,15 @@ inline const QDBusArgument& operator>>(const QDBusArgument& argument, Conversati
     return argument;
 }
 
-inline QDBusArgument& operator<<(QDBusArgument& argument, const Attachment& attachment)
+inline QDBusArgument &operator<<(QDBusArgument &argument, const Attachment &attachment)
 {
     argument.beginStructure();
-    argument << attachment.partID()
-             << attachment.mimeType()
-             << attachment.base64EncodedFile()
-             << attachment.uniqueIdentifier();
+    argument << attachment.partID() << attachment.mimeType() << attachment.base64EncodedFile() << attachment.uniqueIdentifier();
     argument.endStructure();
     return argument;
 }
 
-inline const QDBusArgument& operator>>(const QDBusArgument& argument, Attachment& attachment)
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, Attachment &attachment)
 {
     qint64 partID;
     QString mimeType;

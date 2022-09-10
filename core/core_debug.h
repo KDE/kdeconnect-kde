@@ -7,9 +7,9 @@
 #ifndef CORE_DEBUG_H
 #define CORE_DEBUG_H
 
-#include "kdeconnectcore_export.h"
 #include "kdeconnect_debug.h"
+#include "kdeconnectcore_export.h"
 
 void logBacktrace();
 
-#endif //CORE_DEBUG_H
+#endif // CORE_DEBUG_H

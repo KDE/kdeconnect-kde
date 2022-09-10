@@ -9,8 +9,8 @@
 #include "conversationlistmodel.h"
 #include "smshelper.h"
 
-#include <QString>
 #include <QLoggingCategory>
+#include <QString>
 
 Q_LOGGING_CATEGORY(KDECONNECT_SMS_CONVERSATIONS_SORT_FILTER_PROXY_MODEL, "kdeconnect.sms.conversations_sort_filter_proxy")
 
@@ -21,14 +21,16 @@ ConversationsSortFilterProxyModel::ConversationsSortFilterProxyModel()
     setFilterRole(ConversationListModel::ConversationIdRole);
 }
 
-ConversationsSortFilterProxyModel::~ConversationsSortFilterProxyModel() {}
+ConversationsSortFilterProxyModel::~ConversationsSortFilterProxyModel()
+{
+}
 
 void ConversationsSortFilterProxyModel::setConversationsFilterRole(int role)
 {
     setFilterRole(role);
 }
 
-bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex& leftIndex, const QModelIndex& rightIndex) const
+bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex &leftIndex, const QModelIndex &rightIndex) const
 {
     QVariant leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole);
     QVariant rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole);
@@ -49,12 +51,12 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
         return sourceModel()->data(index, ConversationListModel::ConversationIdRole) != INVALID_THREAD_ID;
     } else {
         if (sourceModel()->data(index, Qt::DisplayRole).toString().contains(filterRegExp())) {
-           return true;
+            return true;
         }
 
         // This block of code compares each address in the multi target conversation to find a match
         const QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
-        for (const ConversationAddress& address : addressList) {
+        for (const ConversationAddress &address : addressList) {
             QString canonicalAddress = SmsHelper::canonicalizePhoneNumber(address.address());
             if (canonicalAddress.contains(filterRegExp())) {
                 return true;
@@ -66,7 +68,7 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
 
 bool ConversationsSortFilterProxyModel::doesAddressExists(const QString &address)
 {
-    for(int i = 0; i < rowCount(); ++i) {
+    for (int i = 0; i < rowCount(); ++i) {
         if (!data(index(i, 0), ConversationListModel::MultitargetRole).toBool()) {
             QVariant senderAddress = data(index(i, 0), ConversationListModel::SenderRole);
             if (SmsHelper::isPhoneNumberMatch(senderAddress.toString(), address)) {

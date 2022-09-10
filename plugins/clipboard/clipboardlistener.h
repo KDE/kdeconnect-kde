@@ -7,8 +7,8 @@
 #ifndef CLIPBOARDLISTENER_H
 #define CLIPBOARDLISTENER_H
 
-#include <QObject>
 #include <QClipboard>
+#include <QObject>
 
 #ifdef Q_OS_MAC
 #include <QTimer>
@@ -33,15 +33,15 @@ private:
     qint64 m_updateTimestamp = 0;
 
 public:
-    static ClipboardListener* instance();
+    static ClipboardListener *instance();
 
-    void setText(const QString& content);
+    void setText(const QString &content);
 
     QString currentContent();
     qint64 updateTimestamp();
 
 Q_SIGNALS:
-    void clipboardChanged(const QString& content);
+    void clipboardChanged(const QString &content);
 
 private:
     void updateClipboard(QClipboard::Mode mode);

@@ -7,11 +7,11 @@
 #ifndef DBUSHELPERS_H
 #define DBUSHELPERS_H
 
+#include <KLocalizedString>
 #include <QDBusPendingReply>
 #include <QTextStream>
-#include <KLocalizedString>
 
-template <typename T>
+template<typename T>
 Q_REQUIRED_RESULT T blockOnReply(QDBusPendingReply<T> reply)
 {
     reply.waitForFinished();

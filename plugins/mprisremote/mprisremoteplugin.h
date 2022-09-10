@@ -16,8 +16,7 @@
 #define PACKET_TYPE_MPRIS_REQUEST QStringLiteral("kdeconnect.mpris.request")
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
-class Q_DECL_EXPORT MprisRemotePlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT MprisRemotePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.mprisremote")
@@ -34,7 +33,7 @@ class Q_DECL_EXPORT MprisRemotePlugin
     Q_PROPERTY(bool canSeek READ canSeek NOTIFY propertiesChanged)
 
 public:
-    explicit MprisRemotePlugin(QObject* parent, const QVariantList &args);
+    explicit MprisRemotePlugin(QObject *parent, const QVariantList &args);
     ~MprisRemotePlugin() override;
 
     long position() const;
@@ -51,24 +50,26 @@ public:
 
     void setVolume(int volume);
     void setPosition(int position);
-    void setPlayer(const QString& player);
+    void setPlayer(const QString &player);
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override {}
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void seek(int offset) const;
     Q_SCRIPTABLE void requestPlayerList();
-    Q_SCRIPTABLE void sendAction(const QString& action);
+    Q_SCRIPTABLE void sendAction(const QString &action);
 
 Q_SIGNALS:
     Q_SCRIPTABLE void propertiesChanged();
 
 private:
-    void requestPlayerStatus(const QString& player);
+    void requestPlayerStatus(const QString &player);
 
     QString m_currentPlayer;
-    QMap<QString, MprisRemotePlayer*> m_players;
+    QMap<QString, MprisRemotePlayer *> m_players;
 };
 
 #endif

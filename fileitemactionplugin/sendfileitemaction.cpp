@@ -7,19 +7,19 @@
 
 #include "sendfileitemaction.h"
 
+#include <QAction>
+#include <QIcon>
 #include <QList>
 #include <QMenu>
-#include <QAction>
-#include <QWidget>
-#include <QVariantList>
 #include <QUrl>
-#include <QIcon>
+#include <QVariantList>
+#include <QWidget>
 
-#include <KPluginFactory>
 #include <KLocalizedString>
+#include <KPluginFactory>
 
-#include <interfaces/devicesmodel.h>
 #include <interfaces/dbusinterfaces.h>
+#include <interfaces/devicesmodel.h>
 
 #include <dbushelper.h>
 
@@ -27,13 +27,14 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SendFileItemAction, "kdeconnectsendfile.json")
 
-SendFileItemAction::SendFileItemAction(QObject* parent, const QVariantList& ): KAbstractFileItemActionPlugin(parent)
+SendFileItemAction::SendFileItemAction(QObject *parent, const QVariantList &)
+    : KAbstractFileItemActionPlugin(parent)
 {
 }
 
-QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
+QList<QAction *> SendFileItemAction::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
 {
-    QList<QAction*> actions;
+    QList<QAction *> actions;
 
     DaemonDbusInterface iface;
     if (!iface.isValid()) {
@@ -43,7 +44,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
     QDBusPendingReply<QStringList> reply = iface.devices(true, true);
     reply.waitForFinished();
     const QStringList devices = reply.value();
-    for (const QString& id : devices) {
+    for (const QString &id : devices) {
         DeviceDbusInterface deviceIface(id);
         if (!deviceIface.isValid()) {
             continue;
@@ -51,7 +52,7 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
         if (!deviceIface.hasPlugin(QStringLiteral("kdeconnect_share"))) {
             continue;
         }
-        QAction* action = new QAction(QIcon::fromTheme(deviceIface.iconName()), deviceIface.name(), parentWidget);
+        QAction *action = new QAction(QIcon::fromTheme(deviceIface.iconName()), deviceIface.name(), parentWidget);
         action->setProperty("id", id);
         action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
         action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
@@ -60,13 +61,13 @@ QList<QAction*> SendFileItemAction::actions(const KFileItemListProperties& fileI
     }
 
     if (actions.count() > 1) {
-        QAction* menuAction = new QAction(QIcon::fromTheme(QStringLiteral("kdeconnect")), i18n("Send via KDE Connect"), parentWidget);
-        QMenu* menu = new QMenu(parentWidget);
+        QAction *menuAction = new QAction(QIcon::fromTheme(QStringLiteral("kdeconnect")), i18n("Send via KDE Connect"), parentWidget);
+        QMenu *menu = new QMenu(parentWidget);
         menu->addActions(actions);
         menuAction->setMenu(menu);
-        return QList<QAction*>() << menuAction;
+        return QList<QAction *>() << menuAction;
     } else {
-        if(actions.count() == 1) {
+        if (actions.count() == 1) {
             actions.first()->setText(i18n("Send to '%1' via KDE Connect", actions.first()->text()));
         }
         return actions;
@@ -77,8 +78,11 @@ void SendFileItemAction::sendFile()
 {
     const QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
     QString id = sender()->property("id").toString();
-    for (const QUrl& url : urls) {
-        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), QStringLiteral("shareUrl"));
+    for (const QUrl &url : urls) {
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                          QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"),
+                                                          QStringLiteral("org.kde.kdeconnect.device.share"),
+                                                          QStringLiteral("shareUrl"));
         msg.setArguments(QVariantList() << url.toString());
         QDBusConnection::sessionBus().asyncCall(msg);
     }

@@ -16,16 +16,16 @@ class DaemonDbusInterface;
 class DevicesModel;
 class DevicesSortProxyModel;
 
-namespace Ui {
-    class KdeConnectKcmUi;
+namespace Ui
+{
+class KdeConnectKcmUi;
 }
 
-class KdeConnectKcm
-    : public KCModule
+class KdeConnectKcm : public KCModule
 {
     Q_OBJECT
 public:
-    KdeConnectKcm(QWidget* parent, const QVariantList&);
+    KdeConnectKcm(QWidget *parent, const QVariantList &);
     ~KdeConnectKcm() override;
 
 private:
@@ -34,13 +34,13 @@ private:
     QSize minimumSizeHint() const override;
 
 private Q_SLOTS:
-    void deviceSelected(const QModelIndex& current);
+    void deviceSelected(const QModelIndex &current);
     void requestPair();
     void pluginsConfigChanged();
     void sendPing();
     void resetSelection();
     void trustedChanged(bool);
-    void pairingFailed(const QString& error);
+    void pairingFailed(const QString &error);
     void refresh();
     void renameShow();
     void renameDone();
@@ -55,11 +55,11 @@ private:
     void setCurrentDeviceTrusted(TrustStatus trusted);
     void resetDeviceView();
 
-    Ui::KdeConnectKcmUi* kcmUi;
-    DaemonDbusInterface* daemon;
-    DevicesModel* devicesModel;
-    DevicesSortProxyModel* sortProxyModel;
-    DeviceDbusInterface* currentDevice;
+    Ui::KdeConnectKcmUi *kcmUi;
+    DaemonDbusInterface *daemon;
+    DevicesModel *devicesModel;
+    DevicesSortProxyModel *sortProxyModel;
+    DeviceDbusInterface *currentDevice;
     QModelIndex currentIndex;
     QStringList m_oldSupportedPluginNames;
 

@@ -138,23 +138,24 @@ Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS)
 
 class QTextCodec;
 
-class Q_DECL_EXPORT SmsPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT SmsPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.sms")
 
 public:
-    explicit SmsPlugin(QObject* parent, const QVariantList& args);
+    explicit SmsPlugin(QObject *parent, const QVariantList &args);
     ~SmsPlugin() override;
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override {}
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
 
     QString dbusPath() const override;
 
 public Q_SLOTS:
-    Q_SCRIPTABLE void sendSms(const QVariantList& addresses, const QString& textMessage, const QVariantList& attachmentUrls, const qint64 subID = -1);
+    Q_SCRIPTABLE void sendSms(const QVariantList &addresses, const QString &textMessage, const QVariantList &attachmentUrls, const qint64 subID = -1);
 
     /**
      * Send a request to the remote for all of its conversations
@@ -175,38 +176,37 @@ public Q_SLOTS:
     /**
      * Send a request to the remote device for a particulr attachment file
      */
-    Q_SCRIPTABLE void requestAttachment(const qint64& partID, const QString& uniqueIdentifier);
+    Q_SCRIPTABLE void requestAttachment(const qint64 &partID, const QString &uniqueIdentifier);
 
     /**
      * Searches the requested file in the application's cache directory,
      * if not found then sends the request to remote device
      */
-    Q_SCRIPTABLE void getAttachment(const qint64& partID, const QString& uniqueIdentifier);
+    Q_SCRIPTABLE void getAttachment(const qint64 &partID, const QString &uniqueIdentifier);
 
 private:
-
     /**
      * Send to the telepathy plugin if it is available
      */
-    void forwardToTelepathy(const ConversationMessage& message);
+    void forwardToTelepathy(const ConversationMessage &message);
 
     /**
      * Handle a packet which contains many messages, such as PACKET_TYPE_TELEPHONY_MESSAGE
      */
-    bool handleBatchMessages(const NetworkPacket& np);
+    bool handleBatchMessages(const NetworkPacket &np);
 
     /**
      * Handle a packet of type PACKET_TYPE_SMS_ATTACHMENT_FILE which contains an attachment file
      */
-    bool handleSmsAttachmentFile(const NetworkPacket& np);
+    bool handleSmsAttachmentFile(const NetworkPacket &np);
 
     /**
      * Encode a local file so it can be sent to the remote device as part of an MMS message.
      */
-    Attachment createAttachmentFromUrl(const QString& url);
+    Attachment createAttachmentFromUrl(const QString &url);
 
     QDBusInterface m_telepathyInterface;
-    ConversationsDbusInterface* m_conversationInterface;
+    ConversationsDbusInterface *m_conversationInterface;
     QTextCodec *m_codec;
 };
 

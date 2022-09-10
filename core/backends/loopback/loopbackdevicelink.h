@@ -12,20 +12,28 @@
 
 class LoopbackLinkProvider;
 
-class LoopbackDeviceLink
-    : public DeviceLink
+class LoopbackDeviceLink : public DeviceLink
 {
     Q_OBJECT
 public:
-    LoopbackDeviceLink(const QString& d, LoopbackLinkProvider* a);
+    LoopbackDeviceLink(const QString &d, LoopbackLinkProvider *a);
 
     QString name() override;
-    bool sendPacket(NetworkPacket& np) override;
+    bool sendPacket(NetworkPacket &np) override;
 
-    void userRequestsPair() override { setPairStatus(Paired); }
-    void userRequestsUnpair() override { setPairStatus(NotPaired); }
+    void userRequestsPair() override
+    {
+        setPairStatus(Paired);
+    }
+    void userRequestsUnpair() override
+    {
+        setPairStatus(NotPaired);
+    }
 
-    QSslCertificate certificate() const override { return QSslCertificate(); }
+    QSslCertificate certificate() const override
+    {
+        return QSslCertificate();
+    }
 };
 
 #endif

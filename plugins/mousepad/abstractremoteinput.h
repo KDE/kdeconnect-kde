@@ -11,15 +11,17 @@
 
 #include <core/networkpacket.h>
 
-class AbstractRemoteInput
-    : public QObject
+class AbstractRemoteInput : public QObject
 {
     Q_OBJECT
 public:
-    explicit AbstractRemoteInput(QObject* parent = nullptr);
+    explicit AbstractRemoteInput(QObject *parent = nullptr);
 
-    virtual bool handlePacket(const NetworkPacket& np) = 0;
-    virtual bool hasKeyboardSupport() { return false; };
+    virtual bool handlePacket(const NetworkPacket &np) = 0;
+    virtual bool hasKeyboardSupport()
+    {
+        return false;
+    };
 };
 
 #endif

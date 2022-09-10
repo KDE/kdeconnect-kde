@@ -13,17 +13,16 @@
 
 class FileTransferJob;
 
-class KDECONNECTCORE_EXPORT CompositeFileTransferJob
-    : public KCompositeJob
+class KDECONNECTCORE_EXPORT CompositeFileTransferJob : public KCompositeJob
 {
     Q_OBJECT
 
 public:
-    explicit CompositeFileTransferJob(const QString& deviceId);
+    explicit CompositeFileTransferJob(const QString &deviceId);
 
     void start() override;
     bool isRunning() const;
-    bool addSubjob(KJob* job) override;
+    bool addSubjob(KJob *job) override;
 
 protected:
     bool doKill() override;
@@ -45,8 +44,6 @@ private:
     FileTransferJob *m_currentJob;
     QElapsedTimer m_reportTimer;
     QElapsedTimer m_speedTimer;
-
 };
 
-#endif //COMPOSITEFILETRANSFERJOB_H
-
+#endif // COMPOSITEFILETRANSFERJOB_H

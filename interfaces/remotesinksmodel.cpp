@@ -9,28 +9,25 @@
 
 #include <QDebug>
 
-#include <dbushelper.h>
 #include <core/qtcompat_p.h>
+#include <dbushelper.h>
 
-RemoteSinksModel::RemoteSinksModel(QObject* parent)
+RemoteSinksModel::RemoteSinksModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(nullptr)
 {
+    connect(this, &QAbstractItemModel::rowsInserted, this, &RemoteSinksModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsRemoved, this, &RemoteSinksModel::rowsChanged);
 
-    connect(this, &QAbstractItemModel::rowsInserted,
-            this, &RemoteSinksModel::rowsChanged);
-    connect(this, &QAbstractItemModel::rowsRemoved,
-            this, &RemoteSinksModel::rowsChanged);
-
-    QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    QDBusServiceWatcher *watcher =
+        new QDBusServiceWatcher(DaemonDbusInterface::activatedService(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &RemoteSinksModel::refreshSinkList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &RemoteSinksModel::refreshSinkList);
 }
 
 QHash<int, QByteArray> RemoteSinksModel::roleNames() const
 {
-    //Role names for QML
+    // Role names for QML
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names.insert(NameRole, "name");
     names.insert(DescriptionRole, "description");
@@ -50,7 +47,7 @@ QString RemoteSinksModel::deviceId() const
     return m_deviceId;
 }
 
-void RemoteSinksModel::setDeviceId(const QString& deviceId)
+void RemoteSinksModel::setDeviceId(const QString &deviceId)
 {
     m_deviceId = deviceId;
 
@@ -60,11 +57,10 @@ void RemoteSinksModel::setDeviceId(const QString& deviceId)
 
     m_dbusInterface = new RemoteSystemVolumeDbusInterface(deviceId, this);
 
-    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::sinksChanged,
-            this, &RemoteSinksModel::refreshSinkList);
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::sinksChanged, this, &RemoteSinksModel::refreshSinkList);
 
-    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::volumeChanged, this, [this](const QString& name, int volume) {
-        auto iter = std::find_if(m_sinkList.begin(), m_sinkList.end(), [&name](const Sink& s) {
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::volumeChanged, this, [this](const QString &name, int volume) {
+        auto iter = std::find_if(m_sinkList.begin(), m_sinkList.end(), [&name](const Sink &s) {
             return s.name == name;
         });
         if (iter != m_sinkList.end()) {
@@ -74,8 +70,8 @@ void RemoteSinksModel::setDeviceId(const QString& deviceId)
         }
     });
 
-    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::mutedChanged, this, [this](const QString& name, bool muted) {
-        auto iter = std::find_if(m_sinkList.begin(), m_sinkList.end(), [&name](const Sink& s) {
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotesystemvolumeInterface::mutedChanged, this, [this](const QString &name, bool muted) {
+        auto iter = std::find_if(m_sinkList.begin(), m_sinkList.end(), [&name](const Sink &s) {
             return s.name == name;
         });
         if (iter != m_sinkList.cend()) {
@@ -105,7 +101,7 @@ void RemoteSinksModel::refreshSinkList()
     m_sinkList.clear();
 
     const auto cmds = QJsonDocument::fromJson(m_dbusInterface->sinks()).array();
-    for (const QJsonValue& cmd : cmds) {
+    for (const QJsonValue &cmd : cmds) {
         const QJsonObject cont = cmd.toObject();
         Sink sink;
         sink.name = cont.value(QStringLiteral("name")).toString();
@@ -119,12 +115,9 @@ void RemoteSinksModel::refreshSinkList()
     endResetModel();
 }
 
-QVariant RemoteSinksModel::data(const QModelIndex& index, int role) const
+QVariant RemoteSinksModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()
-        || index.row() < 0
-        || index.row() >= m_sinkList.count())
-    {
+    if (!index.isValid() || index.row() < 0 || index.row() >= m_sinkList.count()) {
         return QVariant();
     }
 
@@ -132,30 +125,27 @@ QVariant RemoteSinksModel::data(const QModelIndex& index, int role) const
         return QVariant();
     }
 
-    const Sink& sink = m_sinkList[index.row()];
+    const Sink &sink = m_sinkList[index.row()];
 
     switch (role) {
-        case NameRole:
-            return sink.name;
-        case DescriptionRole:
-            return sink.description;
-        case MaxVolumeRole:
-            return sink.maxVolume;
-        case VolumeRole:
-            return sink.volume;
-        case MutedRole:
-            return sink.muted;
-        default:
-             return QVariant();
+    case NameRole:
+        return sink.name;
+    case DescriptionRole:
+        return sink.description;
+    case MaxVolumeRole:
+        return sink.maxVolume;
+    case VolumeRole:
+        return sink.volume;
+    case MutedRole:
+        return sink.muted;
+    default:
+        return QVariant();
     }
 }
 
 bool RemoteSinksModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (!index.isValid()
-        || index.row() < 0
-        || index.row() >= m_sinkList.count())
-    {
+    if (!index.isValid() || index.row() < 0 || index.row() >= m_sinkList.count()) {
         return false;
     }
 
@@ -165,21 +155,21 @@ bool RemoteSinksModel::setData(const QModelIndex &index, const QVariant &value, 
 
     const QString sinkName = m_sinkList[index.row()].name;
     switch (role) {
-        case VolumeRole:
-            m_dbusInterface->sendVolume(sinkName, value.toInt());
-            return true;
-        case MutedRole:
-            m_dbusInterface->sendMuted(sinkName, value.toBool());
-            return true;
-        default:
-            return false;
+    case VolumeRole:
+        m_dbusInterface->sendVolume(sinkName, value.toInt());
+        return true;
+    case MutedRole:
+        m_dbusInterface->sendMuted(sinkName, value.toBool());
+        return true;
+    default:
+        return false;
     }
 }
 
-int RemoteSinksModel::rowCount(const QModelIndex& parent) const
+int RemoteSinksModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
-        //Return size 0 if we are a child because this is not a tree
+        // Return size 0 if we are a child because this is not a tree
         return 0;
     }
 

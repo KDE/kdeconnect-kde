@@ -17,15 +17,14 @@
 #define PACKET_TYPE_LOCK QStringLiteral("kdeconnect.lock")
 #define PACKET_TYPE_LOCK_REQUEST QStringLiteral("kdeconnect.lock.request")
 
-class Q_DECL_EXPORT LockDevicePlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT LockDevicePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.lockdevice")
     Q_PROPERTY(bool isLocked READ isLocked WRITE setLocked NOTIFY lockedChanged)
 
 public:
-    explicit LockDevicePlugin(QObject* parent, const QVariantList &args);
+    explicit LockDevicePlugin(QObject *parent, const QVariantList &args);
     ~LockDevicePlugin() override;
 
     bool isLocked() const;
@@ -33,13 +32,12 @@ public:
 
     QString dbusPath() const override;
     void connected() override;
-    bool receivePacket(const NetworkPacket & np) override;
+    bool receivePacket(const NetworkPacket &np) override;
 
 Q_SIGNALS:
     Q_SCRIPTABLE void lockedChanged(bool locked);
 
 private:
-
     void sendState();
 
     bool m_remoteLocked;

@@ -5,20 +5,20 @@
  */
 
 #include "remotekeyboardplugin.h"
+#include "plugin_remotekeyboard_debug.h"
 #include <KPluginFactory>
 #include <QDebug>
 #include <QString>
 #include <QVariantMap>
-#include "plugin_remotekeyboard_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteKeyboardPlugin, "kdeconnect_remotekeyboard.json")
 
 // Mapping of Qt::Key to internal codes, corresponds to the mapping in mousepadplugin
 QMap<int, int> specialKeysMap = {
-    //0,              // Invalid
+    // 0,              // Invalid
     {Qt::Key_Backspace, 1},
     {Qt::Key_Tab, 2},
-    //XK_Linefeed,    // 3
+    // XK_Linefeed,    // 3
     {Qt::Key_Left, 4},
     {Qt::Key_Up, 5},
     {Qt::Key_Right, 6},
@@ -33,10 +33,10 @@ QMap<int, int> specialKeysMap = {
     {Qt::Key_Escape, 14},
     {Qt::Key_SysReq, 15},
     {Qt::Key_ScrollLock, 16},
-    //0,              // 17
-    //0,              // 18
-    //0,              // 19
-    //0,              // 20
+    // 0,              // 17
+    // 0,              // 18
+    // 0,              // 19
+    // 0,              // 20
     {Qt::Key_F1, 21},
     {Qt::Key_F2, 22},
     {Qt::Key_F3, 23},
@@ -51,7 +51,7 @@ QMap<int, int> specialKeysMap = {
     {Qt::Key_F12, 32},
 };
 
-RemoteKeyboardPlugin::RemoteKeyboardPlugin(QObject* parent, const QVariantList& args)
+RemoteKeyboardPlugin::RemoteKeyboardPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_remoteState(false)
 {
@@ -61,12 +61,11 @@ RemoteKeyboardPlugin::~RemoteKeyboardPlugin()
 {
 }
 
-bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket& np)
+bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_MOUSEPAD_ECHO) {
         if (!np.has(QStringLiteral("isAck")) || !np.has(QStringLiteral("key"))) {
-            qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Invalid packet of type"
-                                                        << PACKET_TYPE_MOUSEPAD_ECHO;
+            qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Invalid packet of type" << PACKET_TYPE_MOUSEPAD_ECHO;
             return false;
         }
         //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keypress" << np;
@@ -77,7 +76,7 @@ bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket& np)
                                 np.get<int>(QStringLiteral("alt"), 0));
         return true;
     } else if (np.type() == PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE) {
-//        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keyboardstate" << np;
+        //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keyboardstate" << np;
         if (m_remoteState != np.get<bool>(QStringLiteral("state"))) {
             m_remoteState = np.get<bool>(QStringLiteral("state"));
             Q_EMIT remoteStateChanged(m_remoteState);
@@ -87,28 +86,26 @@ bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket& np)
     return false;
 }
 
-void RemoteKeyboardPlugin::sendKeyPress(const QString& key, int specialKey,
-                                        bool shift, bool ctrl,
-                                        bool alt, bool sendAck) const
+void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool shift, bool ctrl, bool alt, bool sendAck) const
 {
-    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, {
-                          {QStringLiteral("key"), key},
-                          {QStringLiteral("specialKey"), specialKey},
-                          {QStringLiteral("shift"), shift},
-                          {QStringLiteral("ctrl"), ctrl},
-                          {QStringLiteral("alt"), alt},
-                          {QStringLiteral("sendAck"), sendAck}
-                      });
+    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST,
+                     {{QStringLiteral("key"), key},
+                      {QStringLiteral("specialKey"), specialKey},
+                      {QStringLiteral("shift"), shift},
+                      {QStringLiteral("ctrl"), ctrl},
+                      {QStringLiteral("alt"), alt},
+                      {QStringLiteral("sendAck"), sendAck}});
     sendPacket(np);
 }
 
-void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap& keyEvent, bool sendAck) const
+void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendAck) const
 {
     if (!keyEvent.contains(QStringLiteral("key")))
         return;
     int k = translateQtKey(keyEvent.value(QStringLiteral("key")).toInt());
     int modifiers = keyEvent.value(QStringLiteral("modifiers")).toInt();
-    sendKeyPress(keyEvent.value(QStringLiteral("text")).toString(), k,
+    sendKeyPress(keyEvent.value(QStringLiteral("text")).toString(),
+                 k,
                  modifiers & Qt::ShiftModifier,
                  modifiers & Qt::ControlModifier,
                  modifiers & Qt::AltModifier,
@@ -128,6 +125,5 @@ QString RemoteKeyboardPlugin::dbusPath() const
 {
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotekeyboard");
 }
-
 
 #include "remotekeyboardplugin.moc"

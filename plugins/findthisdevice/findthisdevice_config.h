@@ -9,16 +9,16 @@
 
 #include <kcmplugin/kdeconnectpluginkcm.h>
 
-namespace Ui {
+namespace Ui
+{
 class FindThisDeviceConfigUi;
 }
 
-class FindThisDeviceConfig
-    : public KdeConnectPluginKcm
+class FindThisDeviceConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    FindThisDeviceConfig(QWidget* parent, const QVariantList&);
+    FindThisDeviceConfig(QWidget *parent, const QVariantList &);
     ~FindThisDeviceConfig() override;
 
 public Q_SLOTS:
@@ -30,7 +30,7 @@ private Q_SLOTS:
     void playSound();
 
 private:
-    Ui::FindThisDeviceConfigUi* m_ui;
+    Ui::FindThisDeviceConfigUi *m_ui;
 };
 
 #endif

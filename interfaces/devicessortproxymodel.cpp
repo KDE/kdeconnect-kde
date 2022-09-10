@@ -9,7 +9,7 @@
 #include "dbusinterfaces.h"
 #include "devicesmodel.h"
 
-DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel* devicesModel)
+DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel *devicesModel)
     : QSortFilterProxyModel(devicesModel)
 {
     setSourceModel(devicesModel);
@@ -17,12 +17,12 @@ DevicesSortProxyModel::DevicesSortProxyModel(DevicesModel* devicesModel)
     sort(0);
 }
 
-bool DevicesSortProxyModel::lessThan(const QModelIndex& left, const QModelIndex& right) const
+bool DevicesSortProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-    QAbstractItemModel* model = sourceModel();
-    Q_ASSERT(qobject_cast<DevicesModel*>(model));
+    QAbstractItemModel *model = sourceModel();
+    Q_ASSERT(qobject_cast<DevicesModel *>(model));
 
-    //Show connected devices first
+    // Show connected devices first
     int statusLeft = model->data(left, DevicesModel::StatusModelRole).toInt();
     int statusRight = model->data(right, DevicesModel::StatusModelRole).toInt();
 
@@ -30,18 +30,17 @@ bool DevicesSortProxyModel::lessThan(const QModelIndex& left, const QModelIndex&
         return statusLeft > statusRight;
     }
 
-    //Fallback to alphabetical order
+    // Fallback to alphabetical order
     QString nameLeft = model->data(left, DevicesModel::NameModelRole).toString();
     QString nameRight = model->data(right, DevicesModel::NameModelRole).toString();
 
     return nameLeft > nameRight;
-
 }
 
-bool DevicesSortProxyModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
+bool DevicesSortProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     Q_UNUSED(source_row);
     Q_UNUSED(source_parent);
-    //Possible to-do: Implement filter
+    // Possible to-do: Implement filter
     return true;
 }

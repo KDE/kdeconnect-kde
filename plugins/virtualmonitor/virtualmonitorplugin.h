@@ -7,30 +7,29 @@
 #ifndef VIRTUALMONITORPLUGIN_H
 #define VIRTUALMONITORPLUGIN_H
 
-#include <core/kdeconnectplugin.h>
-#include <QJsonObject>
 #include "plugin_virtualmonitor_debug.h"
+#include <QJsonObject>
+#include <core/kdeconnectplugin.h>
 
 #define PACKET_TYPE_VIRTUALMONITOR QStringLiteral("kdeconnect.virtualmonitor")
 #define PACKET_TYPE_VIRTUALMONITOR_REQUEST QStringLiteral("kdeconnect.virtualmonitor.request")
 
 class QProcess;
 
-class VirtualMonitorPlugin
-    : public KdeConnectPlugin
+class VirtualMonitorPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.virtualmonitor")
 
 public:
-    explicit VirtualMonitorPlugin(QObject* parent, const QVariantList& args);
+    explicit VirtualMonitorPlugin(QObject *parent, const QVariantList &args);
     ~VirtualMonitorPlugin() override;
 
     Q_SCRIPTABLE bool requestVirtualMonitor();
 
     void connected() override;
     QString dbusPath() const override;
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
 
 private:
     void stop();

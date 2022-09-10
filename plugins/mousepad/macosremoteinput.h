@@ -9,15 +9,14 @@
 
 #include "abstractremoteinput.h"
 
-class MacOSRemoteInput
-    : public AbstractRemoteInput
+class MacOSRemoteInput : public AbstractRemoteInput
 {
     Q_OBJECT
 
 public:
-    explicit MacOSRemoteInput(QObject* parent);
+    explicit MacOSRemoteInput(QObject *parent);
 
-    bool handlePacket(const NetworkPacket& np) override;
+    bool handlePacket(const NetworkPacket &np) override;
     bool hasKeyboardSupport() override;
 };
 

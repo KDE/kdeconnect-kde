@@ -5,10 +5,10 @@
  */
 
 #include "bluetoothlinkprovider.h"
-#include "core_debug.h"
-#include "connectionmultiplexer.h"
-#include "multiplexchannel.h"
 #include "bluetoothdevicelink.h"
+#include "connectionmultiplexer.h"
+#include "core_debug.h"
+#include "multiplexchannel.h"
 
 #include <QBluetoothServiceInfo>
 
@@ -60,15 +60,16 @@ void BluetoothLinkProvider::onStop()
     mBluetoothServer->deleteLater();
 }
 
-//I'm in a new network, let's be polite and introduce myself
+// I'm in a new network, let's be polite and introduce myself
 void BluetoothLinkProvider::onNetworkChange()
 {
 }
 
 void BluetoothLinkProvider::connectError()
 {
-    QBluetoothSocket* socket = qobject_cast<QBluetoothSocket*>(sender());
-    if (!socket) return;
+    QBluetoothSocket *socket = qobject_cast<QBluetoothSocket *>(sender());
+    if (!socket)
+        return;
 
     qCWarning(KDECONNECT_CORE) << "Couldn't connect to socket:" << socket->errorString();
 
@@ -80,13 +81,12 @@ void BluetoothLinkProvider::connectError()
     socket->deleteLater();
 }
 
-void BluetoothLinkProvider::addLink(BluetoothDeviceLink* deviceLink, const QString& deviceId)
+void BluetoothLinkProvider::addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId)
 {
-    QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(deviceId);
+    QMap<QString, DeviceLink *>::iterator oldLinkIterator = mLinks.find(deviceId);
     if (oldLinkIterator != mLinks.end()) {
-        DeviceLink* oldLink = oldLinkIterator.value();
-        disconnect(oldLink, SIGNAL(destroyed(QObject*)),
-                    this, SLOT(deviceLinkDestroyed(QObject*)));
+        DeviceLink *oldLink = oldLinkIterator.value();
+        disconnect(oldLink, SIGNAL(destroyed(QObject *)), this, SLOT(deviceLinkDestroyed(QObject *)));
         oldLink->deleteLater();
         mLinks.erase(oldLinkIterator);
     }
@@ -94,19 +94,20 @@ void BluetoothLinkProvider::addLink(BluetoothDeviceLink* deviceLink, const QStri
     mLinks[deviceId] = deviceLink;
 }
 
-void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo& old_info) {
+void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_info)
+{
     auto info = old_info;
     info.setServiceUuid(mServiceUuid);
     if (mSockets.contains(info.device().address())) {
         return;
     }
 
-    QBluetoothSocket* socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
+    QBluetoothSocket *socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 
-    //Delay before sending data
+    // Delay before sending data
     QPointer<QBluetoothSocket> deleteableSocket = socket;
-    connect(socket, &QBluetoothSocket::connected, this, [this,deleteableSocket]() {
-        QTimer::singleShot(500, this, [this,deleteableSocket]() {
+    connect(socket, &QBluetoothSocket::connected, this, [this, deleteableSocket]() {
+        QTimer::singleShot(500, this, [this, deleteableSocket]() {
             clientConnected(deleteableSocket);
         });
     });
@@ -121,10 +122,11 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo& old_i
     }
 }
 
-//I'm the new device and I'm connected to the existing device. Time to get data.
+// I'm the new device and I'm connected to the existing device. Time to get data.
 void BluetoothLinkProvider::clientConnected(QPointer<QBluetoothSocket> socket)
 {
-    if (!socket) return;
+    if (!socket)
+        return;
 
     auto peer = socket->peerAddress();
 
@@ -143,14 +145,20 @@ void BluetoothLinkProvider::clientConnected(QPointer<QBluetoothSocket> socket)
     disconnect(socket, nullptr, this, nullptr);
 
     auto channel = QSharedPointer<MultiplexChannel>{multiplexer->getDefaultChannel().release()};
-    connect(channel.data(), &MultiplexChannel::readyRead, this, [this,peer,channel] () { clientIdentityReceived(peer, channel); });
-    connect(channel.data(), &MultiplexChannel::aboutToClose, this, [this,peer,channel] () { socketDisconnected(peer, channel.data()); });
+    connect(channel.data(), &MultiplexChannel::readyRead, this, [this, peer, channel]() {
+        clientIdentityReceived(peer, channel);
+    });
+    connect(channel.data(), &MultiplexChannel::aboutToClose, this, [this, peer, channel]() {
+        socketDisconnected(peer, channel.data());
+    });
 
-    if (channel->bytesAvailable()) clientIdentityReceived(peer, channel);
-    if (!channel->isOpen()) socketDisconnected(peer, channel.data());
+    if (channel->bytesAvailable())
+        clientIdentityReceived(peer, channel);
+    if (!channel->isOpen())
+        socketDisconnected(peer, channel.data());
 }
 
-//I'm the new device and the existing device sent me data.
+// I'm the new device and the existing device sent me data.
 void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer, QSharedPointer<MultiplexChannel> socket)
 {
     socket->startTransaction();
@@ -177,26 +185,24 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
 
     qCDebug(KDECONNECT_CORE()) << "Received identity packet from" << peer;
 
-    //TODO?
-    //disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
+    // TODO?
+    // disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
 
-    const QString& deviceId = receivedPacket.get<QString>(QStringLiteral("deviceId"));
-    BluetoothDeviceLink* deviceLink = new BluetoothDeviceLink(deviceId, this, mSockets[peer], socket);
+    const QString &deviceId = receivedPacket.get<QString>(QStringLiteral("deviceId"));
+    BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceId, this, mSockets[peer], socket);
 
     NetworkPacket np2;
     NetworkPacket::createIdentityPacket(&np2);
     success = deviceLink->sendPacket(np2);
 
     if (success) {
-
         qCDebug(KDECONNECT_CORE) << "Handshaking done (I'm the new device)";
 
-        connect(deviceLink, SIGNAL(destroyed(QObject*)),
-                this, SLOT(deviceLinkDestroyed(QObject*)));
+        connect(deviceLink, SIGNAL(destroyed(QObject *)), this, SLOT(deviceLinkDestroyed(QObject *)));
 
         Q_EMIT onConnectionReceived(receivedPacket, deviceLink);
 
-        //We kill any possible link from this same device
+        // We kill any possible link from this same device
         addLink(deviceLink, deviceId);
 
     } else {
@@ -204,13 +210,13 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
         delete deviceLink;
     }
 
-    //We don't delete the socket because now it's owned by the BluetoothDeviceLink
+    // We don't delete the socket because now it's owned by the BluetoothDeviceLink
 }
 
-//I'm the existing device, a new device is kindly introducing itself.
+// I'm the existing device, a new device is kindly introducing itself.
 void BluetoothLinkProvider::serverNewConnection()
 {
-    QBluetoothSocket* socket = mBluetoothServer->nextPendingConnection();
+    QBluetoothSocket *socket = mBluetoothServer->nextPendingConnection();
 
     qCDebug(KDECONNECT_CORE()) << "Received connection from" << socket->peerAddress();
 
@@ -229,8 +235,12 @@ void BluetoothLinkProvider::serverNewConnection()
     disconnect(socket, nullptr, this, nullptr);
 
     auto channel = QSharedPointer<MultiplexChannel>{multiplexer->getDefaultChannel().release()};
-    connect(channel.data(), &MultiplexChannel::readyRead, this, [this,peer,channel] () { serverDataReceived(peer, channel); });
-    connect(channel.data(), &MultiplexChannel::aboutToClose, this, [this,peer,channel] () { socketDisconnected(peer, channel.data()); });
+    connect(channel.data(), &MultiplexChannel::readyRead, this, [this, peer, channel]() {
+        serverDataReceived(peer, channel);
+    });
+    connect(channel.data(), &MultiplexChannel::aboutToClose, this, [this, peer, channel]() {
+        socketDisconnected(peer, channel.data());
+    });
 
     if (!channel->isOpen()) {
         socketDisconnected(peer, channel.data());
@@ -244,7 +254,7 @@ void BluetoothLinkProvider::serverNewConnection()
     qCDebug(KDECONNECT_CORE()) << "Sent identity packet to" << socket->peerAddress();
 }
 
-//I'm the existing device and this is the answer to my identity packet (data received)
+// I'm the existing device and this is the answer to my identity packet (data received)
 void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QSharedPointer<MultiplexChannel> socket)
 {
     QByteArray identityArray;
@@ -272,22 +282,21 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
 
     qCDebug(KDECONNECT_CORE()) << "Received identity packet from" << peer;
 
-    const QString& deviceId = receivedPacket.get<QString>(QStringLiteral("deviceId"));
-    BluetoothDeviceLink* deviceLink = new BluetoothDeviceLink(deviceId, this, mSockets[peer], socket);
+    const QString &deviceId = receivedPacket.get<QString>(QStringLiteral("deviceId"));
+    BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceId, this, mSockets[peer], socket);
 
-    connect(deviceLink, SIGNAL(destroyed(QObject*)),
-            this, SLOT(deviceLinkDestroyed(QObject*)));
+    connect(deviceLink, SIGNAL(destroyed(QObject *)), this, SLOT(deviceLinkDestroyed(QObject *)));
 
     Q_EMIT onConnectionReceived(receivedPacket, deviceLink);
 
     addLink(deviceLink, deviceId);
 }
 
-void BluetoothLinkProvider::deviceLinkDestroyed(QObject* destroyedDeviceLink)
+void BluetoothLinkProvider::deviceLinkDestroyed(QObject *destroyedDeviceLink)
 {
     const QString id = destroyedDeviceLink->property("deviceId").toString();
     qCDebug(KDECONNECT_CORE()) << "Device disconnected:" << id;
-    QMap< QString, DeviceLink* >::iterator oldLinkIterator = mLinks.find(id);
+    QMap<QString, DeviceLink *>::iterator oldLinkIterator = mLinks.find(id);
     if (oldLinkIterator != mLinks.end() && oldLinkIterator.value() == destroyedDeviceLink) {
         mLinks.erase(oldLinkIterator);
     }
@@ -303,5 +312,4 @@ void BluetoothLinkProvider::socketDisconnected(const QBluetoothAddress &peer, Mu
 
 BluetoothLinkProvider::~BluetoothLinkProvider()
 {
-
 }

@@ -7,28 +7,27 @@
 #ifndef BLUETOOTHDEVICELINK_H
 #define BLUETOOTHDEVICELINK_H
 
-#include <QObject>
-#include <QString>
 #include <QBluetoothSocket>
+#include <QObject>
 #include <QSslCertificate>
+#include <QString>
 
-#include "../devicelink.h"
 #include "../devicelinereader.h"
+#include "../devicelink.h"
 #include "bluetoothpairinghandler.h"
 
 class ConnectionMultiplexer;
 class MultiplexChannel;
 
-class KDECONNECTCORE_EXPORT BluetoothDeviceLink
-    : public DeviceLink
+class KDECONNECTCORE_EXPORT BluetoothDeviceLink : public DeviceLink
 {
     Q_OBJECT
 
 public:
-    BluetoothDeviceLink(const QString& deviceId, LinkProvider* parent, ConnectionMultiplexer* connection, QSharedPointer<MultiplexChannel> socket);
+    BluetoothDeviceLink(const QString &deviceId, LinkProvider *parent, ConnectionMultiplexer *connection, QSharedPointer<MultiplexChannel> socket);
 
     virtual QString name() override;
-    bool sendPacket(NetworkPacket& np) override;
+    bool sendPacket(NetworkPacket &np) override;
 
     virtual void userRequestsPair() override;
     virtual void userRequestsUnpair() override;
@@ -40,13 +39,12 @@ private Q_SLOTS:
     void dataReceived();
 
 private:
-    DeviceLineReader* mSocketReader;
-    ConnectionMultiplexer* mConnection;
+    DeviceLineReader *mSocketReader;
+    ConnectionMultiplexer *mConnection;
     QSharedPointer<MultiplexChannel> mChannel;
-    BluetoothPairingHandler* mPairingHandler;
+    BluetoothPairingHandler *mPairingHandler;
 
     void sendMessage(const QString mMessage);
-
 };
 
 #endif

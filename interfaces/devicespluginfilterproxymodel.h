@@ -7,16 +7,16 @@
 #ifndef DEVICESPLUGINFILTERPROXYMODEL_H
 #define DEVICESPLUGINFILTERPROXYMODEL_H
 
-#include "devicessortproxymodel.h"
 #include "dbusinterfaces.h"
 #include "devicesmodel.h"
+#include "devicessortproxymodel.h"
 
 class KDECONNECTINTERFACES_EXPORT DevicesPluginFilterProxyModel : public DevicesSortProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString pluginFilter READ pluginFilter WRITE setPluginFilter)
 public:
-    bool filterAcceptsRow(int source_row, const QModelIndex & source_parent) const override;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     void setPluginFilter(const QString plugin);
     QString pluginFilter() const;
 
@@ -25,4 +25,3 @@ private:
 };
 
 #endif
-

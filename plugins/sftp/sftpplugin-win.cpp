@@ -5,11 +5,11 @@
  */
 #include "sftpplugin-win.h"
 
-#include <QDir>
 #include <QDebug>
-#include <QProcess>
-#include <QMessageBox>
 #include <QDesktopServices>
+#include <QDir>
+#include <QMessageBox>
+#include <QProcess>
 #include <QRegularExpression>
 
 #include <KLocalizedString>
@@ -19,13 +19,15 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
-SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
+SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
     deviceId = device()->id();
 }
 
-SftpPlugin::~SftpPlugin(){}
+SftpPlugin::~SftpPlugin()
+{
+}
 
 bool SftpPlugin::startBrowsing()
 {
@@ -34,11 +36,11 @@ bool SftpPlugin::startBrowsing()
     return false;
 }
 
-bool SftpPlugin::receivePacket(const NetworkPacket& np)
+bool SftpPlugin::receivePacket(const NetworkPacket &np)
 {
     if (!(expectedFields - np.body().keys().toSet()).isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid packet received.";
-        for (QString missingField: (expectedFields - np.body().keys().toSet()).toList()) {
+        for (QString missingField : (expectedFields - np.body().keys().toSet()).toList()) {
             qCWarning(KDECONNECT_PLUGIN_SFTP) << "Field" << missingField << "missing from packet.";
         }
         return false;
@@ -55,22 +57,23 @@ bool SftpPlugin::receivePacket(const NetworkPacket& np)
         path = np.get<QString>(QStringLiteral("path"));
     }
 
-    QString url_string = QStringLiteral("sftp://%1:%2@%3:%4%5").arg(
-                            np.get<QString>(QStringLiteral("user")),
-                            np.get<QString>(QStringLiteral("password")),
-                            np.get<QString>(QStringLiteral("ip")),
-                            np.get<QString>(QStringLiteral("port")),
-                            path
-                         );
+    QString url_string = QStringLiteral("sftp://%1:%2@%3:%4%5")
+                             .arg(np.get<QString>(QStringLiteral("user")),
+                                  np.get<QString>(QStringLiteral("password")),
+                                  np.get<QString>(QStringLiteral("ip")),
+                                  np.get<QString>(QStringLiteral("port")),
+                                  path);
     static QRegularExpression uriRegex(QStringLiteral("^sftp://kdeconnect:\\w+@\\d+.\\d+.\\d+.\\d+:17[3-6][0-9]/$"));
     if (!uriRegex.match(url_string).hasMatch()) {
         qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid URL invoked. If the problem persists, contact the developers.";
     }
 
     if (!QDesktopServices::openUrl(QUrl(url_string))) {
-        QMessageBox::critical(nullptr, i18n("KDE Connect"), i18n("Cannot handle SFTP protocol. Apologies for the inconvenience"),
-        QMessageBox::Abort,
-        QMessageBox::Abort);
+        QMessageBox::critical(nullptr,
+                              i18n("KDE Connect"),
+                              i18n("Cannot handle SFTP protocol. Apologies for the inconvenience"),
+                              QMessageBox::Abort,
+                              QMessageBox::Abort);
     }
     return true;
 }

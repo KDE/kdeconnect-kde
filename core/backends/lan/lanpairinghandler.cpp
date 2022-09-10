@@ -14,7 +14,7 @@
 #include "landevicelink.h"
 #include "networkpackettypes.h"
 
-LanPairingHandler::LanPairingHandler(DeviceLink* deviceLink)
+LanPairingHandler::LanPairingHandler(DeviceLink *deviceLink)
     : PairingHandler(deviceLink)
     , m_status(NotPaired)
 {
@@ -23,21 +23,20 @@ LanPairingHandler::LanPairingHandler(DeviceLink* deviceLink)
     connect(&m_pairingTimeout, &QTimer::timeout, this, &LanPairingHandler::pairingTimeout);
 }
 
-void LanPairingHandler::packetReceived(const NetworkPacket& np)
+void LanPairingHandler::packetReceived(const NetworkPacket &np)
 {
     bool wantsPair = np.get<bool>(QStringLiteral("pair"));
 
     if (wantsPair) {
-
-        if (isPairRequested())  { //We started pairing
+        if (isPairRequested()) { // We started pairing
 
             qCDebug(KDECONNECT_CORE) << "Pair answer";
             setInternalPairStatus(Paired);
-            
+
         } else {
             qCDebug(KDECONNECT_CORE) << "Pair request";
 
-            if (isPaired()) { //I'm already paired, but they think I'm not
+            if (isPaired()) { // I'm already paired, but they think I'm not
                 acceptPairing();
                 return;
             }
@@ -45,11 +44,11 @@ void LanPairingHandler::packetReceived(const NetworkPacket& np)
             setInternalPairStatus(RequestedByPeer);
         }
 
-    } else { //wantsPair == false
+    } else { // wantsPair == false
 
         qCDebug(KDECONNECT_CORE) << "Unpair request";
 
-         if (isPairRequested()) {
+        if (isPairRequested()) {
             Q_EMIT pairingError(i18n("Canceled by other peer"));
         }
         setInternalPairStatus(NotPaired);
@@ -92,7 +91,8 @@ void LanPairingHandler::rejectPairing()
     setInternalPairStatus(NotPaired);
 }
 
-void LanPairingHandler::unpair() {
+void LanPairingHandler::unpair()
+{
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), false}});
     deviceLink()->sendPacket(np);
     setInternalPairStatus(NotPaired);
@@ -102,7 +102,7 @@ void LanPairingHandler::pairingTimeout()
 {
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), false}});
     deviceLink()->sendPacket(np);
-    setInternalPairStatus(NotPaired); //Will emit the change as well
+    setInternalPairStatus(NotPaired); // Will emit the change as well
     Q_EMIT pairingError(i18n("Timed out"));
 }
 

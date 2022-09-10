@@ -9,35 +9,34 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include <QDBusConnection>
+#include <QDebug>
 #include <QPoint>
 
-#include <core/device.h>
 #include "plugin_remotecontrol_debug.h"
+#include <core/device.h>
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteControlPlugin, "kdeconnect_remotecontrol.json")
 
-RemoteControlPlugin::RemoteControlPlugin(QObject* parent, const QVariantList &args)
+RemoteControlPlugin::RemoteControlPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
 
 RemoteControlPlugin::~RemoteControlPlugin()
-{}
+{
+}
 
 void RemoteControlPlugin::moveCursor(const QPoint &p)
 {
-    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, {
-        {QStringLiteral("dx"), p.x()},
-        {QStringLiteral("dy"), p.y()}
-    });
+    NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, {{QStringLiteral("dx"), p.x()}, {QStringLiteral("dy"), p.y()}});
     sendPacket(np);
 }
 
-void RemoteControlPlugin::sendCommand(const QVariantMap& body)
+void RemoteControlPlugin::sendCommand(const QVariantMap &body)
 {
-    if (body.isEmpty()) return;
+    if (body.isEmpty())
+        return;
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, body);
     sendPacket(np);
 }

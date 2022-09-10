@@ -5,13 +5,13 @@
  */
 #include "notificationslistener.h"
 
-#include <QDBusInterface>
-#include <QDBusArgument>
-#include <QtDebug>
-#include <QStandardPaths>
-#include <QImage>
 #include <KConfig>
 #include <KConfigGroup>
+#include <QDBusArgument>
+#include <QDBusInterface>
+#include <QImage>
+#include <QStandardPaths>
+#include <QtDebug>
 #include <kiconloader.h>
 #include <kicontheme.h>
 
@@ -20,37 +20,28 @@
 
 #include <dbushelper.h>
 
-#include "sendnotificationsplugin.h"
-#include "plugin_sendnotification_debug.h"
 #include "notifyingapplication.h"
+#include "plugin_sendnotification_debug.h"
+#include "sendnotificationsplugin.h"
 
-//In older Qt released, qAsConst isnt available
+// In older Qt released, qAsConst isnt available
 #include "qtcompat_p.h"
 
-NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
-    : QDBusAbstractAdaptor(aPlugin),
-      m_plugin(aPlugin)
+NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
+    : QDBusAbstractAdaptor(aPlugin)
+    , m_plugin(aPlugin)
 {
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
-    bool ret = QDBusConnection::sessionBus()
-                .registerObject(QStringLiteral("/org/freedesktop/Notifications"),
-                                this,
-                                QDBusConnection::ExportScriptableContents);
+    bool ret = QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/freedesktop/Notifications"), this, QDBusConnection::ExportScriptableContents);
     if (!ret)
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION)
-                << "Error registering notifications listener for device"
-                << m_plugin->device()->name() << ":"
-                << QDBusConnection::sessionBus().lastError();
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Error registering notifications listener for device" << m_plugin->device()->name() << ":"
+                                                      << QDBusConnection::sessionBus().lastError();
     else
-        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION)
-                << "Registered notifications listener for device"
-                << m_plugin->device()->name();
+        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Registered notifications listener for device" << m_plugin->device()->name();
 
-    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
-                         QStringLiteral("org.freedesktop.DBus"));
-    iface.call(QStringLiteral("AddMatch"),
-               QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
+    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"), QStringLiteral("org.freedesktop.DBus"));
+    iface.call(QStringLiteral("AddMatch"), QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
 
     setTranslatedAppName();
     loadApplications();
@@ -61,8 +52,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin* aPlugin)
 NotificationsListener::~NotificationsListener()
 {
     qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Destroying NotificationsListener";
-    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"),
-                         QStringLiteral("org.freedesktop.DBus"));
+    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"), QStringLiteral("org.freedesktop.DBus"));
     QDBusMessage res = iface.call(QStringLiteral("RemoveMatch"),
                                   QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
     QDBusConnection::sessionBus().unregisterObject(QStringLiteral("/org/freedesktop/Notifications"));
@@ -70,7 +60,8 @@ NotificationsListener::~NotificationsListener()
 
 void NotificationsListener::setTranslatedAppName()
 {
-    QString filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
+    QString filePath =
+        QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
     if (filePath.isEmpty()) {
         qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
         m_translatedAppName = QStringLiteral("KDE Connect");
@@ -86,60 +77,55 @@ void NotificationsListener::loadApplications()
 {
     m_applications.clear();
     const QVariantList list = m_plugin->config()->getList(QStringLiteral("applications"));
-    for (const auto& a : list) {
+    for (const auto &a : list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
         if (!m_applications.contains(app.name)) {
             m_applications.insert(app.name, app);
         }
     }
-    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
+    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
 }
 
-bool NotificationsListener::parseImageDataArgument(const QVariant& argument,
-                                                   int& width, int& height,
-                                                   int& rowStride, int& bitsPerSample,
-                                                   int& channels, bool& hasAlpha,
-                                                   QByteArray& imageData) const
+bool NotificationsListener::parseImageDataArgument(const QVariant &argument,
+                                                   int &width,
+                                                   int &height,
+                                                   int &rowStride,
+                                                   int &bitsPerSample,
+                                                   int &channels,
+                                                   bool &hasAlpha,
+                                                   QByteArray &imageData) const
 {
     if (!argument.canConvert<QDBusArgument>())
         return false;
     const QDBusArgument dbusArg = argument.value<QDBusArgument>();
     dbusArg.beginStructure();
-    dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample
-            >> channels  >> imageData;
+    dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample >> channels >> imageData;
     dbusArg.endStructure();
     return true;
 }
 
-QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant& argument) const
+QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant &argument) const
 {
     int width, height, rowStride, bitsPerSample, channels;
     bool hasAlpha;
     QByteArray imageData;
 
-    if (!parseImageDataArgument(argument, width, height, rowStride, bitsPerSample,
-                                channels, hasAlpha, imageData))
+    if (!parseImageDataArgument(argument, width, height, rowStride, bitsPerSample, channels, hasAlpha, imageData))
         return QSharedPointer<QIODevice>();
 
     if (bitsPerSample != 8) {
         qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Unsupported image format:"
-                                                      << "width=" << width
-                                                      << "height=" << height
-                                                      << "rowStride=" << rowStride
-                                                      << "bitsPerSample=" << bitsPerSample
-                                                      << "channels=" << channels
-                                                      << "hasAlpha=" << hasAlpha;
+                                                      << "width=" << width << "height=" << height << "rowStride=" << rowStride
+                                                      << "bitsPerSample=" << bitsPerSample << "channels=" << channels << "hasAlpha=" << hasAlpha;
         return QSharedPointer<QIODevice>();
     }
 
-    QImage image(reinterpret_cast<uchar*>(imageData.data()), width, height, rowStride,
-                 hasAlpha ? QImage::Format_ARGB32 : QImage::Format_RGB32);
+    QImage image(reinterpret_cast<uchar *>(imageData.data()), width, height, rowStride, hasAlpha ? QImage::Format_ARGB32 : QImage::Format_RGB32);
     if (hasAlpha)
-        image = image.rgbSwapped();  // RGBA --> ARGB
+        image = image.rgbSwapped(); // RGBA --> ARGB
 
     QSharedPointer<QBuffer> buffer = QSharedPointer<QBuffer>(new QBuffer);
-    if (!buffer || !buffer->open(QIODevice::WriteOnly) ||
-            !image.save(buffer.data(), "PNG")) {
+    if (!buffer || !buffer->open(QIODevice::WriteOnly) || !image.save(buffer.data(), "PNG")) {
         qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Could not initialize image buffer";
         return QSharedPointer<QIODevice>();
     }
@@ -147,19 +133,18 @@ QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant
     return buffer;
 }
 
-QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString& iconName) const
+QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &iconName) const
 {
-    int size = KIconLoader::SizeEnormous;  // use big size to allow for good
-                                           // quality on high-DPI mobile devices
+    int size = KIconLoader::SizeEnormous; // use big size to allow for good
+                                          // quality on high-DPI mobile devices
     QString iconPath = KIconLoader::global()->iconPath(iconName, -size, true);
     if (!iconPath.isEmpty()) {
-        if (!iconPath.endsWith(QLatin1String(".png")) &&
-                KIconLoader::global()->theme()->name() != QLatin1String("hicolor")) {
+        if (!iconPath.endsWith(QLatin1String(".png")) && KIconLoader::global()->theme()->name() != QLatin1String("hicolor")) {
             // try falling back to hicolor theme:
             KIconTheme hicolor(QStringLiteral("hicolor"));
             if (hicolor.isValid()) {
                 iconPath = hicolor.iconPath(iconName + QStringLiteral(".png"), size, KIconLoader::MatchBest);
-                //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
+                // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
             }
         }
     }
@@ -169,16 +154,20 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString& 
     return QSharedPointer<QIODevice>();
 }
 
-uint NotificationsListener::Notify(const QString& appName, uint replacesId,
-                                   const QString& appIcon,
-                                   const QString& summary, const QString& body,
-                                   const QStringList& actions,
-                                   const QVariantMap& hints, int timeout)
+uint NotificationsListener::Notify(const QString &appName,
+                                   uint replacesId,
+                                   const QString &appIcon,
+                                   const QString &summary,
+                                   const QString &body,
+                                   const QStringList &actions,
+                                   const QVariantMap &hints,
+                                   int timeout)
 {
     static int id = 0;
     Q_UNUSED(actions);
 
-    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
+    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon <<
+    // "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
 
     // skip our own notifications
     if (appName == m_translatedAppName)
@@ -194,10 +183,10 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
         m_applications.insert(app.name, app);
         // update config:
         QVariantList list;
-        for (const auto& a : qAsConst(m_applications))
+        for (const auto &a : qAsConst(m_applications))
             list << QVariant::fromValue<NotifyingApplication>(a);
         m_plugin->config()->setList(QStringLiteral("applications"), list);
-        //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
+        // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
     } else {
         app = m_applications.value(appName);
     }
@@ -222,20 +211,17 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
     if (!body.isEmpty() && m_plugin->config()->getBool(QStringLiteral("generalIncludeBody"), true))
         ticker += QStringLiteral(": ") + body;
 
-    if (app.blacklistExpression.isValid() &&
-            !app.blacklistExpression.pattern().isEmpty() &&
-            app.blacklistExpression.match(ticker).hasMatch())
+    if (app.blacklistExpression.isValid() && !app.blacklistExpression.pattern().isEmpty() && app.blacklistExpression.match(ticker).hasMatch())
         return 0;
 
-    //qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
-    NetworkPacket np(PACKET_TYPE_NOTIFICATION, {
-        {QStringLiteral("id"), QString::number(replacesId > 0 ? replacesId : ++id)},
-        {QStringLiteral("appName"), appName},
-        {QStringLiteral("ticker"), ticker},
-        {QStringLiteral("isClearable"), timeout == 0}
-    });                                   // KNotifications are persistent if
-                                          // timeout == 0, for other notifications
-                                          // clearability is pointless
+    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
+    NetworkPacket np(PACKET_TYPE_NOTIFICATION,
+                     {{QStringLiteral("id"), QString::number(replacesId > 0 ? replacesId : ++id)},
+                      {QStringLiteral("appName"), appName},
+                      {QStringLiteral("ticker"), ticker},
+                      {QStringLiteral("isClearable"), timeout == 0}}); // KNotifications are persistent if
+                                                                       // timeout == 0, for other notifications
+                                                                       // clearability is pointless
 
     // sync any icon data?
     if (m_plugin->config()->getBool(QStringLiteral("generalSynchronizeIcons"), true)) {
@@ -244,15 +230,15 @@ uint NotificationsListener::Notify(const QString& appName, uint replacesId,
         // spec version 1.2:
         if (hints.contains(QStringLiteral("image-data")))
             iconSource = iconForImageData(hints[QStringLiteral("image-data")]);
-        else if (hints.contains(QStringLiteral("image_data")))  // 1.1 backward compatibility
+        else if (hints.contains(QStringLiteral("image_data"))) // 1.1 backward compatibility
             iconSource = iconForImageData(hints[QStringLiteral("image_data")]);
         else if (hints.contains(QStringLiteral("image-path")))
             iconSource = iconForIconName(hints[QStringLiteral("image-path")].toString());
-        else if (hints.contains(QStringLiteral("image_path")))  // 1.1 backward compatibility
+        else if (hints.contains(QStringLiteral("image_path"))) // 1.1 backward compatibility
             iconSource = iconForIconName(hints[QStringLiteral("image_path")].toString());
         else if (!appIcon.isEmpty())
             iconSource = iconForIconName(appIcon);
-        else if (hints.contains(QStringLiteral("icon_data")))  // < 1.1 backward compatibility
+        else if (hints.contains(QStringLiteral("icon_data"))) // < 1.1 backward compatibility
             iconSource = iconForImageData(hints[QStringLiteral("icon_data")]);
 
         if (iconSource)

@@ -7,14 +7,14 @@
 
 #include "battery_action.h"
 
-BatteryAction::BatteryAction(DeviceDbusInterface* device)
+BatteryAction::BatteryAction(DeviceDbusInterface *device)
     : QAction(nullptr)
     , m_batteryIface(device->id())
 {
     setCharge(m_batteryIface.charge());
     setCharging(m_batteryIface.isCharging());
 
-    connect(&m_batteryIface, &BatteryDbusInterface::refreshedProxy, this, [this]{
+    connect(&m_batteryIface, &BatteryDbusInterface::refreshedProxy, this, [this] {
         setCharge(m_batteryIface.charge());
         setCharging(m_batteryIface.isCharging());
     });
@@ -34,7 +34,7 @@ void BatteryAction::update()
     // set icon name
     QString iconName = QStringLiteral("battery");
     if (m_charge < 0) {
-    iconName += QStringLiteral("-missing");
+        iconName += QStringLiteral("-missing");
     } else {
         int val = int(m_charge / 10) * 10;
         QString numberPaddedString = QStringLiteral("%1").arg(val, 3, 10, QLatin1Char('0'));

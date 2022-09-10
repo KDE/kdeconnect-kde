@@ -7,24 +7,24 @@
 
 #include "conversationlistmodel.h"
 
-#include <QString>
 #include <QPainter>
+#include <QString>
 
 #include <KLocalizedString>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
-#include "smshelper.h"
 #include "sms_conversations_list_debug.h"
+#include "smshelper.h"
 
 #define INVALID_THREAD_ID -1
 #define INVALID_DATE -1
 
-ConversationListModel::ConversationListModel(QObject* parent)
+ConversationListModel::ConversationListModel(QObject *parent)
     : QStandardItemModel(parent)
     , m_conversationsInterface(nullptr)
 {
-    //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
+    // qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
     auto roles = roleNames();
     roles.insert(FromMeRole, "fromMe");
     roles.insert(SenderRole, "sender");
@@ -42,7 +42,7 @@ ConversationListModel::~ConversationListModel()
 {
 }
 
-void ConversationListModel::setDeviceId(const QString& deviceId)
+void ConversationListModel::setDeviceId(const QString &deviceId)
 {
     if (deviceId == m_deviceId) {
         return;
@@ -97,35 +97,38 @@ void ConversationListModel::prepareConversationsList()
     }
     const QDBusPendingReply<QVariantList> validThreadIDsReply = m_conversationsInterface->activeConversations();
 
-    setWhenAvailable(validThreadIDsReply, [this](const QVariantList& convs) {
-        clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
-        for (const QVariant& headMessage : convs) {
-            createRowFromMessage(qdbus_cast<ConversationMessage>(headMessage));
-        }
-        displayContacts();
-    }, this);
+    setWhenAvailable(
+        validThreadIDsReply,
+        [this](const QVariantList &convs) {
+            clear(); // If we clear before we receive the reply, there might be a (several second) visual gap!
+            for (const QVariant &headMessage : convs) {
+                createRowFromMessage(qdbus_cast<ConversationMessage>(headMessage));
+            }
+            displayContacts();
+        },
+        this);
 }
 
-void ConversationListModel::handleCreatedConversation(const QDBusVariant& msg)
+void ConversationListModel::handleCreatedConversation(const QDBusVariant &msg)
 {
     const ConversationMessage message = ConversationMessage::fromDBus(msg);
     createRowFromMessage(message);
 }
 
-void ConversationListModel::handleConversationUpdated(const QDBusVariant& msg)
+void ConversationListModel::handleConversationUpdated(const QDBusVariant &msg)
 {
     const ConversationMessage message = ConversationMessage::fromDBus(msg);
     createRowFromMessage(message);
 }
 
-void ConversationListModel::printDBusError(const QDBusError& error)
+void ConversationListModel::printDBusError(const QDBusError &error)
 {
     qCWarning(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << error;
 }
 
-QStandardItem* ConversationListModel::conversationForThreadId(qint32 threadId)
+QStandardItem *ConversationListModel::conversationForThreadId(qint32 threadId)
 {
-    for(int i=0, c=rowCount(); i<c; ++i) {
+    for (int i = 0, c = rowCount(); i < c; ++i) {
         auto it = item(i, 0);
         if (it->data(ConversationIdRole) == threadId)
             return it;
@@ -133,10 +136,10 @@ QStandardItem* ConversationListModel::conversationForThreadId(qint32 threadId)
     return nullptr;
 }
 
-QStandardItem* ConversationListModel::getConversationForAddress(const QString& address)
+QStandardItem *ConversationListModel::getConversationForAddress(const QString &address)
 {
-    for(int i = 0; i < rowCount(); ++i) {
-        const auto& it = item(i, 0);
+    for (int i = 0; i < rowCount(); ++i) {
+        const auto &it = item(i, 0);
         if (!it->data(MultitargetRole).toBool()) {
             if (SmsHelper::isPhoneNumberMatch(it->data(SenderRole).toString(), address)) {
                 return it;
@@ -146,7 +149,7 @@ QStandardItem* ConversationListModel::getConversationForAddress(const QString& a
     return nullptr;
 }
 
-void ConversationListModel::createRowFromMessage(const ConversationMessage& message)
+void ConversationListModel::createRowFromMessage(const ConversationMessage &message)
 {
     if (message.type() == -1) {
         // The Android side currently hacks in -1 if something weird comes up
@@ -162,15 +165,14 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
     }
 
     bool toadd = false;
-    QStandardItem* item = conversationForThreadId(message.threadID());
-    //Check if we have a contact with which to associate this message, needed if there is no conversation with the contact and we received a message from them
+    QStandardItem *item = conversationForThreadId(message.threadID());
+    // Check if we have a contact with which to associate this message, needed if there is no conversation with the contact and we received a message from them
     if (!item && !message.isMultitarget()) {
-
-            item = getConversationForAddress(rawAddresses[0].address());
-            if (item) {
-                item->setData(message.threadID(), ConversationIdRole);
-            }
+        item = getConversationForAddress(rawAddresses[0].address());
+        if (item) {
+            item->setData(message.threadID(), ConversationIdRole);
         }
+    }
 
     if (!item) {
         toadd = true;
@@ -193,14 +195,13 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         const QString mimeType = message.attachments().last().mimeType();
         if (mimeType.startsWith(QStringLiteral("image"))) {
             displayBody = i18nc("Used as a text placeholder when the most-recent message is an image", "Picture");
-        }
-        else if (mimeType.startsWith(QStringLiteral("video"))) {
+        } else if (mimeType.startsWith(QStringLiteral("video"))) {
             displayBody = i18nc("Used as a text placeholder when the most-recent message is a video", "Video");
         } else {
             // Craft a somewhat-descriptive string, like "pdf file"
             displayBody = i18nc("Used as a text placeholder when the most-recent message is an arbitrary attachment, resulting in something like \"pdf file\"",
-                         "%1 file",
-                         mimeType.right(mimeType.indexOf(QStringLiteral("/"))));
+                                "%1 file",
+                                mimeType.right(mimeType.indexOf(QStringLiteral("/"))));
         }
     }
 
@@ -220,7 +221,7 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage& mess
         // If the message is incoming, the sender is the first Address
         const QString senderAddress = item->data(SenderRole).toString();
         const auto sender = SmsHelper::lookupPersonByAddress(senderAddress);
-        const QString senderName = sender == nullptr? senderAddress : SmsHelper::lookupPersonByAddress(senderAddress)->name();
+        const QString senderName = sender == nullptr ? senderAddress : SmsHelper::lookupPersonByAddress(senderAddress)->name();
         displayBody = i18n("%1: %2", senderName, displayBody);
     }
 
@@ -249,13 +250,13 @@ void ConversationListModel::displayContacts()
 {
     const QList<QSharedPointer<KPeople::PersonData>> personDataList = SmsHelper::getAllPersons();
 
-    for(const auto& person : personDataList) {
+    for (const auto &person : personDataList) {
         const QVariantList allPhoneNumbers = person->contactCustomProperty(QStringLiteral("all-phoneNumber")).toList();
 
-        for (const QVariant& rawPhoneNumber : allPhoneNumbers) {
-            //check for any duplicate phoneNumber and eliminate it
+        for (const QVariant &rawPhoneNumber : allPhoneNumbers) {
+            // check for any duplicate phoneNumber and eliminate it
             if (!getConversationForAddress(rawPhoneNumber.toString())) {
-                QStandardItem* item = new QStandardItem();
+                QStandardItem *item = new QStandardItem();
                 item->setText(person->name());
                 item->setIcon(person->photo());
 
@@ -275,9 +276,9 @@ void ConversationListModel::displayContacts()
     }
 }
 
-void ConversationListModel::createConversationForAddress(const QString& address)
+void ConversationListModel::createConversationForAddress(const QString &address)
 {
-    QStandardItem* item = new QStandardItem();
+    QStandardItem *item = new QStandardItem();
     const QString canonicalizedAddress = SmsHelper::canonicalizePhoneNumber(address);
     item->setText(canonicalizedAddress);
 

@@ -5,20 +5,20 @@
  */
 
 #include <QApplication>
-#include <QIcon>
-#include <QQmlApplicationEngine>
 #include <QCommandLineParser>
+#include <QIcon>
+#include <QProcess>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
 #include <QStandardPaths>
-#include <QProcess>
 
 #include <KAboutData>
-#include <KLocalizedString>
-#include <KLocalizedContext>
 #include <KColorSchemeManager>
+#include <KLocalizedContext>
+#include <KLocalizedString>
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -26,7 +26,12 @@ int main(int argc, char* argv[])
 
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
-    KAboutData aboutData(QStringLiteral("kdeconnect.app"), i18n("KDE Connect"), QStringLiteral("1.0"), i18n("KDE Connect"), KAboutLicense::GPL, i18n("(c) 2015, Aleix Pol Gonzalez"));
+    KAboutData aboutData(QStringLiteral("kdeconnect.app"),
+                         i18n("KDE Connect"),
+                         QStringLiteral("1.0"),
+                         i18n("KDE Connect"),
+                         KAboutLicense::GPL,
+                         i18n("(c) 2015, Aleix Pol Gonzalez"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), i18n("Maintainer"), QStringLiteral("aleixpol@kde.org"));
     KAboutData::setApplicationData(aboutData);
 
@@ -49,9 +54,10 @@ int main(int argc, char* argv[])
         aboutData.processCommandLine(&parser);
         if (parser.positionalArguments().count() == 1) {
             urlToShare = parser.positionalArguments().constFirst();
-            const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), { QCoreApplication::applicationDirPath() });
+            const QString kdeconnectHandlerExecutable =
+                QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), {QCoreApplication::applicationDirPath()});
             if (!kdeconnectHandlerExecutable.isEmpty()) {
-                QProcess::startDetached(kdeconnectHandlerExecutable, { urlToShare });
+                QProcess::startDetached(kdeconnectHandlerExecutable, {urlToShare});
                 return 0; // exit the app once kdeconnect-handler is started
             }
         }

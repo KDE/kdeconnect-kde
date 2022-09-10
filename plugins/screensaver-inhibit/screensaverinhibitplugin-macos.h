@@ -12,16 +12,15 @@
 
 #include <core/kdeconnectplugin.h>
 
-class Q_DECL_EXPORT ScreensaverInhibitPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT ScreensaverInhibitPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args);
+    explicit ScreensaverInhibitPlugin(QObject *parent, const QVariantList &args);
     ~ScreensaverInhibitPlugin() override;
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:

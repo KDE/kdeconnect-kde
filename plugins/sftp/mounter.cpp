@@ -6,25 +6,24 @@
 
 #include "mounter.h"
 
-#include <unistd.h>
-#include <QDir>
 #include <QDebug>
+#include <QDir>
+#include <unistd.h>
 
 #include <KLocalizedString>
 
-#include "mountloop.h"
 #include "config-sftp.h"
-#include "plugin_sftp_debug.h"
 #include "kdeconnectconfig.h"
+#include "mountloop.h"
+#include "plugin_sftp_debug.h"
 
-Mounter::Mounter(SftpPlugin* sftp)
+Mounter::Mounter(SftpPlugin *sftp)
     : QObject(sftp)
     , m_sftp(sftp)
     , m_proc(nullptr)
     , m_mountPoint(sftp->mountPoint())
     , m_started(false)
 {
-
     connect(m_sftp, &SftpPlugin::packetReceived, this, &Mounter::onPackageReceived);
 
     connect(&m_connectTimer, &QTimer::timeout, this, &Mounter::onMountTimeout);
@@ -47,8 +46,7 @@ Mounter::~Mounter()
 
 bool Mounter::wait()
 {
-    if (m_started)
-    {
+    if (m_started) {
         return true;
     }
 
@@ -60,10 +58,9 @@ bool Mounter::wait()
     return loop.exec();
 }
 
-void Mounter::onPackageReceived(const NetworkPacket& np)
+void Mounter::onPackageReceived(const NetworkPacket &np)
 {
-    if (np.get<bool>(QStringLiteral("stop"), false))
-    {
+    if (np.get<bool>(QStringLiteral("stop"), false)) {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "SFTP server stopped";
         unmount(false);
         return;
@@ -74,19 +71,19 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         return;
     }
 
-    //This is the previous code, to access sftp server using KIO. Now we are
-    //using the external binary sshfs, and accessing it as a local filesystem.
-  /*
-   *    QUrl url;
-   *    url.setScheme("sftp");
-   *    url.setHost(np.get<QString>("ip"));
-   *    url.setPort(np.get<QString>("port").toInt());
-   *    url.setUserName(np.get<QString>("user"));
-   *    url.setPassword(np.get<QString>("password"));
-   *    url.setPath(np.get<QString>("path"));
-   *    new KRun(url, 0);
-   *    Q_EMIT mounted();
-   */
+    // This is the previous code, to access sftp server using KIO. Now we are
+    // using the external binary sshfs, and accessing it as a local filesystem.
+    /*
+     *    QUrl url;
+     *    url.setScheme("sftp");
+     *    url.setHost(np.get<QString>("ip"));
+     *    url.setPort(np.get<QString>("port").toInt());
+     *    url.setUserName(np.get<QString>("user"));
+     *    url.setPassword(np.get<QString>("password"));
+     *    url.setPath(np.get<QString>("path"));
+     *    new KRun(url, 0);
+     *    Q_EMIT mounted();
+     */
 
     unmount(false);
 
@@ -102,8 +99,10 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
     const QString program = QStringLiteral("sshfs");
 
     QString path;
-    if (np.has(QStringLiteral("multiPaths"))) path = QStringLiteral("/");
-    else path = np.get<QString>(QStringLiteral("path"));
+    if (np.has(QStringLiteral("multiPaths")))
+        path = QStringLiteral("/");
+    else
+        path = np.get<QString>(QStringLiteral("path"));
 
     QHostAddress addr = m_sftp->device()->getLocalIpAddress();
     if (addr == QHostAddress::Null) {
@@ -116,36 +115,30 @@ void Mounter::onPackageReceived(const NetworkPacket& np)
         ip.append(QLatin1Char(']'));
     }
 
-    const QStringList arguments = QStringList()
-        << QStringLiteral("%1@%2:%3").arg(
-            np.get<QString>(QStringLiteral("user")),
-            ip,
-            path)
-        << m_mountPoint
-        << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))
-        << QStringLiteral("-s") // This fixes a bug where file chunks are sent out of order and get corrupted on reception
-        << QStringLiteral("-f")
-        << QStringLiteral("-F") << QStringLiteral("/dev/null") //Do not use ~/.ssh/config
-        << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance().privateKeyPath()
-        << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") //Do not ask for confirmation because it is not a known host
-        << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") //Prevent storing as a known host
-        << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss\\,ssh-rsa") //https://bugs.kde.org/show_bug.cgi?id=351725
-        << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid())
-        << QStringLiteral("-o") << QStringLiteral("gid=") + QString::number(getgid())
-        << QStringLiteral("-o") << QStringLiteral("reconnect")
-        << QStringLiteral("-o") << QStringLiteral("ServerAliveInterval=30")
-        << QStringLiteral("-o") << QStringLiteral("password_stdin")
-        ;
+    const QStringList arguments =
+        QStringList() << QStringLiteral("%1@%2:%3")
+                             .arg(np.get<QString>(QStringLiteral("user")),
+                                  ip,
+                                  path)
+                      << m_mountPoint << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))
+                      << QStringLiteral("-s") // This fixes a bug where file chunks are sent out of order and get corrupted on reception
+                      << QStringLiteral("-f") << QStringLiteral("-F") << QStringLiteral("/dev/null") // Do not use ~/.ssh/config
+                      << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance().privateKeyPath() << QStringLiteral("-o")
+                      << QStringLiteral("StrictHostKeyChecking=no") // Do not ask for confirmation because it is not a known host
+                      << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") // Prevent storing as a known host
+                      << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss\\,ssh-rsa") // https://bugs.kde.org/show_bug.cgi?id=351725
+                      << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid()) << QStringLiteral("-o")
+                      << QStringLiteral("gid=") + QString::number(getgid()) << QStringLiteral("-o") << QStringLiteral("reconnect") << QStringLiteral("-o")
+                      << QStringLiteral("ServerAliveInterval=30") << QStringLiteral("-o") << QStringLiteral("password_stdin");
 
     m_proc->setProgram(program, arguments);
 
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Starting process: " << m_proc->program().join(QStringLiteral(" "));
     m_proc->start();
 
-    //qCDebug(KDECONNECT_PLUGIN_SFTP) << "Passing password: " << np.get<QString>("password").toLatin1();
+    // qCDebug(KDECONNECT_PLUGIN_SFTP) << "Passing password: " << np.get<QString>("password").toLatin1();
     m_proc->write(np.get<QString>(QStringLiteral("password")).toLatin1());
     m_proc->write("\n");
-
 }
 
 void Mounter::onStarted()
@@ -154,8 +147,8 @@ void Mounter::onStarted()
     m_started = true;
     Q_EMIT mounted();
 
-    //m_proc->setStandardOutputFile("/tmp/kdeconnect-sftp.out");
-    //m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
+    // m_proc->setStandardOutputFile("/tmp/kdeconnect-sftp.out");
+    // m_proc->setStandardErrorFile("/tmp/kdeconnect-sftp.err");
 
     auto proc = m_proc;
     connect(m_proc, &KProcess::readyReadStandardError, this, [proc]() {
@@ -168,12 +161,11 @@ void Mounter::onStarted()
 
 void Mounter::onError(QProcess::ProcessError error)
 {
-    if (error == QProcess::FailedToStart)
-    {
+    if (error == QProcess::FailedToStart) {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "sshfs process failed to start";
         m_started = false;
         Q_EMIT failed(i18n("Failed to start sshfs"));
-    } else if(error == QProcess::ProcessError::Crashed) {
+    } else if (error == QProcess::ProcessError::Crashed) {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "sshfs process crashed";
         m_started = false;
         Q_EMIT failed(i18n("sshfs process crashed"));
@@ -186,13 +178,10 @@ void Mounter::onError(QProcess::ProcessError error)
 
 void Mounter::onFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
-    if (exitStatus == QProcess::NormalExit && exitCode == 0)
-    {
+    if (exitStatus == QProcess::NormalExit && exitCode == 0) {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process finished (exit code: " << exitCode << ")";
         Q_EMIT unmounted();
-    }
-    else
-    {
+    } else {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "Process failed (exit code:" << exitCode << ")";
         Q_EMIT failed(i18n("Error when accessing filesystem. sshfs finished with exit code %0").arg(exitCode));
     }
@@ -217,29 +206,25 @@ void Mounter::start()
 void Mounter::unmount(bool finished)
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Unmount" << m_proc;
-    if (m_proc)
-    {
-        if (!finished)
-        {
-            //Process is still running, we want to stop it
-            //But when the finished signal come, we might have already gone.
-            //Disconnect everything.
+    if (m_proc) {
+        if (!finished) {
+            // Process is still running, we want to stop it
+            // But when the finished signal come, we might have already gone.
+            // Disconnect everything.
             m_proc->disconnect();
             m_proc->kill();
 
             auto proc = m_proc;
             m_proc = nullptr;
-            connect(proc, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
-                [proc]() {
-                    qCDebug(KDECONNECT_PLUGIN_SFTP) << "Free" << proc;
-                    proc->deleteLater();
+            connect(proc, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [proc]() {
+                qCDebug(KDECONNECT_PLUGIN_SFTP) << "Free" << proc;
+                proc->deleteLater();
             });
             Q_EMIT unmounted();
-        }
-        else
+        } else
             m_proc->deleteLater();
 
-        //Free mount point (won't always succeed if the path is in use)
+            // Free mount point (won't always succeed if the path is in use)
 #if defined(HAVE_FUSERMOUNT)
         KProcess::execute(QStringList() << QStringLiteral("fusermount") << QStringLiteral("-u") << m_mountPoint, 10000);
 #else

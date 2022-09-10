@@ -7,38 +7,38 @@
 #include "notification.h"
 #include "plugin_notification_debug.h"
 
-#include <KNotification>
 #include "knotifications_version.h"
+#include <KNotification>
 #if KNOTIFICATIONS_VERSION >= QT_VERSION_CHECK(5, 81, 0)
 #include <KNotificationReplyAction>
 #endif
-#include <QtGlobal>
-#include <QIcon>
-#include <QString>
-#include <QUrl>
-#include <QPixmap>
 #include <KLocalizedString>
 #include <QFile>
-#include <knotifications_version.h>
+#include <QIcon>
 #include <QJsonArray>
+#include <QPixmap>
+#include <QString>
+#include <QUrl>
+#include <QtGlobal>
+#include <knotifications_version.h>
 
 #include <core/filetransferjob.h>
 #include <core/notificationserverinfo.h>
 
-QMap<QString, FileTransferJob*> Notification::s_downloadsInProgress;
+QMap<QString, FileTransferJob *> Notification::s_downloadsInProgress;
 
-Notification::Notification(const NetworkPacket& np, const Device* device, QObject* parent)
+Notification::Notification(const NetworkPacket &np, const Device *device, QObject *parent)
     : QObject(parent)
     , m_imagesDir()
     , m_device(device)
 {
-    //Make a own directory for each user so no one can see each others icons
+    // Make a own directory for each user so no one can see each others icons
     QString username;
-    #ifdef Q_OS_WIN
-        username = QString::fromLatin1(qgetenv("USERNAME"));
-    #else
-        username = QString::fromLatin1(qgetenv("USER"));
-    #endif
+#ifdef Q_OS_WIN
+    username = QString::fromLatin1(qgetenv("USERNAME"));
+#else
+    username = QString::fromLatin1(qgetenv("USER"));
+#endif
 
     m_imagesDir.setPath(QDir::temp().absoluteFilePath(QStringLiteral("kdeconnect_") + username));
     m_imagesDir.mkpath(m_imagesDir.absolutePath());
@@ -48,11 +48,11 @@ Notification::Notification(const NetworkPacket& np, const Device* device, QObjec
     parseNetworkPacket(np);
     createKNotification(np);
 
-    connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this] (unsigned int actionIndex) {
+    connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this](unsigned int actionIndex) {
 // Since 5.81 we use KNotification's inline reply instead of our own action
 #if KNOTIFICATIONS_VERSION < QT_VERSION_CHECK(5, 81, 0)
         // Do nothing for our own reply action
-        if(!m_requestReplyId.isEmpty() && actionIndex == 1) {
+        if (!m_requestReplyId.isEmpty() && actionIndex == 1) {
             return;
         }
 #endif
@@ -81,18 +81,19 @@ void Notification::show()
     }
 }
 
-void Notification::update(const NetworkPacket& np)
+void Notification::update(const NetworkPacket &np)
 {
     parseNetworkPacket(np);
     createKNotification(np);
 }
 
-void Notification::createKNotification(const NetworkPacket& np)
+void Notification::createKNotification(const NetworkPacket &np)
 {
     if (!m_notification) {
         m_notification = new KNotification(QStringLiteral("notification"), KNotification::CloseOnTimeout, this);
         m_notification->setComponentName(QStringLiteral("kdeconnect"));
-        m_notification->setHint(QStringLiteral("resident"), true); // This means the notification won't be deleted automatically, but only with KNotifications 5.81
+        m_notification->setHint(QStringLiteral("resident"),
+                                true); // This means the notification won't be deleted automatically, but only with KNotifications 5.81
     }
 
     QString escapedTitle = m_title.toHtmlEscaped();
@@ -148,7 +149,7 @@ void Notification::createKNotification(const NetworkPacket& np)
     }
 }
 
-void Notification::loadIcon(const NetworkPacket& np)
+void Notification::loadIcon(const NetworkPacket &np)
 {
     m_ready = false;
 
@@ -156,14 +157,14 @@ void Notification::loadIcon(const NetworkPacket& np)
         applyIcon();
         show();
     } else {
-        FileTransferJob* fileTransferJob = s_downloadsInProgress.value(m_iconPath);
+        FileTransferJob *fileTransferJob = s_downloadsInProgress.value(m_iconPath);
         if (!fileTransferJob) {
             fileTransferJob = np.createPayloadTransferJob(QUrl::fromLocalFile(m_iconPath));
             fileTransferJob->start();
             s_downloadsInProgress[m_iconPath] = fileTransferJob;
         }
 
-        connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob]{
+        connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob] {
             s_downloadsInProgress.remove(m_iconPath);
             if (fileTransferJob->error()) {
                 qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << fileTransferJob->errorString();
@@ -186,7 +187,7 @@ void Notification::reply()
     Q_EMIT replyRequested();
 }
 
-void Notification::parseNetworkPacket(const NetworkPacket& np)
+void Notification::parseNetworkPacket(const NetworkPacket &np)
 {
     m_internalId = np.get<QString>(QStringLiteral("id"));
     m_appName = np.get<QString>(QStringLiteral("appName"));
@@ -202,8 +203,7 @@ void Notification::parseNetworkPacket(const NetworkPacket& np)
     m_actions.clear();
 
     const auto actions = np.get<QJsonArray>(QStringLiteral("actions"));
-    for (const QJsonValue& value : actions) {
+    for (const QJsonValue &value : actions) {
         m_actions.append(value.toString());
     }
-
 }

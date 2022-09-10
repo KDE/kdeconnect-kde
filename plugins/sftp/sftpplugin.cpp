@@ -7,15 +7,15 @@
 #include "sftpplugin.h"
 
 #include <QDBusConnection>
-#include <QDir>
 #include <QDebug>
+#include <QDir>
 #include <QStandardPaths>
 
+#include <KFilePlacesModel>
 #include <KIO/OpenUrlJob>
-#include <KNotificationJobUiDelegate>
 #include <KLocalizedString>
 #include <KNotification>
-#include <KFilePlacesModel>
+#include <KNotificationJobUiDelegate>
 #include <KPluginFactory>
 
 #include "mounter.h"
@@ -23,18 +23,21 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
-static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("ip") << QStringLiteral("port") << QStringLiteral("user") << QStringLiteral("port") << QStringLiteral("path");
+static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("ip") << QStringLiteral("port") << QStringLiteral("user") << QStringLiteral("port")
+                                                      << QStringLiteral("path");
 
-struct SftpPlugin::Pimpl
-{
-    Pimpl() : m_mounter(nullptr) {}
+struct SftpPlugin::Pimpl {
+    Pimpl()
+        : m_mounter(nullptr)
+    {
+    }
 
-    //Add KIO entry to Dolphin's Places
-    KFilePlacesModel  m_placesModel;
-    Mounter* m_mounter;
+    // Add KIO entry to Dolphin's Places
+    KFilePlacesModel m_placesModel;
+    Mounter *m_mounter;
 };
 
-SftpPlugin::SftpPlugin(QObject* parent, const QVariantList& args)
+SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , d(new Pimpl())
 {
@@ -83,8 +86,7 @@ void SftpPlugin::mount()
 
 void SftpPlugin::unmount()
 {
-    if (d->m_mounter)
-    {
+    if (d->m_mounter) {
         d->m_mounter->deleteLater();
         d->m_mounter = nullptr;
     }
@@ -109,7 +111,6 @@ QString SftpPlugin::getMountError()
     return QString();
 }
 
-
 bool SftpPlugin::startBrowsing()
 {
     if (mountAndWait()) {
@@ -121,7 +122,7 @@ bool SftpPlugin::startBrowsing()
     return false;
 }
 
-bool SftpPlugin::receivePacket(const NetworkPacket& np)
+bool SftpPlugin::receivePacket(const NetworkPacket &np)
 {
     if (!(fields_c - np.body().keys().toSet()).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
         // packet is invalid
@@ -132,8 +133,8 @@ bool SftpPlugin::receivePacket(const NetworkPacket& np)
 
     remoteDirectories.clear();
     if (np.has(QStringLiteral("multiPaths"))) {
-        QStringList paths = np.get<QStringList>(QStringLiteral("multiPaths"),QStringList());
-        QStringList names = np.get<QStringList>(QStringLiteral("pathNames"),QStringList());
+        QStringList paths = np.get<QStringList>(QStringLiteral("multiPaths"), QStringList());
+        QStringList names = np.get<QStringList>(QStringLiteral("pathNames"), QStringList());
         int size = qMin<int>(names.size(), paths.size());
         for (int i = 0; i < size; i++) {
             remoteDirectories.insert(mountPoint() + paths.at(i), names.at(i));
@@ -170,7 +171,7 @@ void SftpPlugin::onUnmounted()
     Q_EMIT unmounted();
 }
 
-void SftpPlugin::onFailed(const QString& message)
+void SftpPlugin::onFailed(const QString &message)
 {
     mountError = message;
     KNotification::event(KNotification::Error, device()->name(), message);

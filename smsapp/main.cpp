@@ -5,22 +5,22 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "conversationmodel.h"
 #include "conversationlistmodel.h"
+#include "conversationmodel.h"
 #include "conversationssortfilterproxymodel.h"
-#include "thumbnailsprovider.h"
 #include "kdeconnect-version.h"
+#include "thumbnailsprovider.h"
 
+#include <KAboutData>
+#include <KColorSchemeManager>
+#include <KDBusService>
+#include <KLocalizedContext>
+#include <KLocalizedString>
 #include <QApplication>
-#include <QQmlApplicationEngine>
 #include <QCommandLineParser>
+#include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickStyle>
-#include <KAboutData>
-#include <KLocalizedString>
-#include <KLocalizedContext>
-#include <KDBusService>
-#include <KColorSchemeManager>
 
 #include "smshelper.h"
 
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique);
 
-    QObject::connect(&service, &KDBusService::activateRequested, &service, [&parser, &data](const QStringList &args, const QString &/*workDir*/) {
+    QObject::connect(&service, &KDBusService::activateRequested, &service, [&parser, &data](const QStringList &args, const QString & /*workDir*/) {
         parser.parse(args);
 
         data.m_initialMessage = parser.value(QStringLiteral("message"));
@@ -98,14 +98,12 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonType<SmsHelper>("org.kde.kdeconnect.sms", 1, 0, "SmsHelper", SmsHelper::singletonProvider);
 
-    qmlRegisterSingletonInstance<AppData>("org.kde.kdeconnect.sms", 1,0, "AppData", &data);
+    qmlRegisterSingletonInstance<AppData>("org.kde.kdeconnect.sms", 1, 0, "AppData", &data);
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
     engine.addImageProvider(QStringLiteral("thumbnailsProvider"), new ThumbnailsProvider);
-    engine.rootContext()->setContextProperties({
-        { QStringLiteral("aboutData"), QVariant::fromValue(KAboutData::applicationData()) }
-    });
+    engine.rootContext()->setContextProperties({{QStringLiteral("aboutData"), QVariant::fromValue(KAboutData::applicationData())}});
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     return app.exec();

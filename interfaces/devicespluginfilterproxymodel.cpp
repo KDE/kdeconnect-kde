@@ -6,9 +6,10 @@
 
 #include "devicespluginfilterproxymodel.h"
 
-bool DevicesPluginFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex & source_parent) const {
+bool DevicesPluginFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
     const QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
-    auto device = qobject_cast<DeviceDbusInterface*>(idx.data(DevicesModel::DeviceRole).value<QObject*>());
+    auto device = qobject_cast<DeviceDbusInterface *>(idx.data(DevicesModel::DeviceRole).value<QObject *>());
     return device->hasPlugin(m_pluginFilter);
 }
 

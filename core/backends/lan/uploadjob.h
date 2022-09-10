@@ -9,21 +9,20 @@
 
 #include <KJob>
 
-#include <QIODevice>
-#include <QVariantMap>
-#include <QSslSocket>
 #include "server.h"
 #include <QElapsedTimer>
+#include <QIODevice>
+#include <QSslSocket>
+#include <QVariantMap>
 #include <networkpacket.h>
 
-class KDECONNECTCORE_EXPORT UploadJob
-    : public KJob
+class KDECONNECTCORE_EXPORT UploadJob : public KJob
 {
     Q_OBJECT
 public:
-    explicit UploadJob(const NetworkPacket& networkPacket);
+    explicit UploadJob(const NetworkPacket &networkPacket);
 
-    void setSocket(QSslSocket* socket);
+    void setSocket(QSslSocket *socket);
     void start() override;
     bool stop();
     const NetworkPacket getNetworkPacket();
@@ -31,13 +30,13 @@ public:
 private:
     const NetworkPacket m_networkPacket;
     QSharedPointer<QIODevice> m_input;
-    QSslSocket* m_socket;
+    QSslSocket *m_socket;
     qint64 bytesUploading;
     qint64 bytesUploaded;
 
     const static quint16 MIN_PORT = 1739;
     const static quint16 MAX_PORT = 1764;
-    
+
 private Q_SLOTS:
     void uploadNextPacket();
     void encryptedBytesWritten(qint64 bytes);

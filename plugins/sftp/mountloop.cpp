@@ -8,7 +8,8 @@
 
 MountLoop::MountLoop()
     : QEventLoop()
-{}
+{
+}
 
 bool MountLoop::exec(QEventLoop::ProcessEventsFlags flags)
 {

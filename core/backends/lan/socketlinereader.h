@@ -7,10 +7,10 @@
 #ifndef SOCKETLINEREADER_H
 #define SOCKETLINEREADER_H
 
+#include <QHostAddress>
 #include <QObject>
 #include <QQueue>
 #include <QSslSocket>
-#include <QHostAddress>
 
 #include <kdeconnectcore_export.h>
 
@@ -18,21 +18,35 @@
  * Encapsulates a QTcpSocket and implements the same methods of its API that are
  * used by LanDeviceLink, but readyRead is emitted only when a newline is found.
  */
-class KDECONNECTCORE_EXPORT SocketLineReader
-    : public QObject
+class KDECONNECTCORE_EXPORT SocketLineReader : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit SocketLineReader(QSslSocket* socket, QObject* parent = nullptr);
+    explicit SocketLineReader(QSslSocket *socket, QObject *parent = nullptr);
 
-    bool hasPacketsAvailable() const { return !m_packets.isEmpty(); }
-    QByteArray readLine() { return m_packets.dequeue(); }
-    qint64 write(const QByteArray& data) { return m_socket->write(data); }
-    QHostAddress peerAddress() const { return m_socket->peerAddress(); }
-    QSslCertificate peerCertificate() const { return m_socket->peerCertificate(); }
+    bool hasPacketsAvailable() const
+    {
+        return !m_packets.isEmpty();
+    }
+    QByteArray readLine()
+    {
+        return m_packets.dequeue();
+    }
+    qint64 write(const QByteArray &data)
+    {
+        return m_socket->write(data);
+    }
+    QHostAddress peerAddress() const
+    {
+        return m_socket->peerAddress();
+    }
+    QSslCertificate peerCertificate() const
+    {
+        return m_socket->peerCertificate();
+    }
 
-    QSslSocket* m_socket;
+    QSslSocket *m_socket;
 
 Q_SIGNALS:
     void readyRead();
@@ -43,7 +57,6 @@ private Q_SLOTS:
 private:
     QByteArray m_lastChunk;
     QQueue<QByteArray> m_packets;
-
 };
 
 #endif

@@ -6,13 +6,13 @@
 
 #include "waylandremoteinput.h"
 
-#include <QSizeF>
 #include <QDebug>
+#include <QSizeF>
 
 #include <KLocalizedString>
 
-#include <QtWaylandClient/qwaylandclientextension.h>
 #include "qwayland-fake-input.h"
+#include <QtWaylandClient/qwaylandclientextension.h>
 
 #include <linux/input.h>
 
@@ -25,8 +25,7 @@ public:
     }
 };
 
-
-WaylandRemoteInput::WaylandRemoteInput(QObject* parent)
+WaylandRemoteInput::WaylandRemoteInput(QObject *parent)
     : AbstractRemoteInput(parent)
     , m_waylandAuthenticationRequested(false)
 {
@@ -38,7 +37,7 @@ WaylandRemoteInput::~WaylandRemoteInput()
     delete m_fakeInput;
 }
 
-bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
+bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
 {
     if (!m_fakeInput->isActive()) {
         return true;
@@ -63,7 +62,6 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
     const int specialKey = np.get<int>(QStringLiteral("specialKey"), 0);
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
-
         if (isSingleClick) {
             m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
             m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
@@ -80,11 +78,11 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
         } else if (isRightClick) {
             m_fakeInput->button(BTN_RIGHT, WL_POINTER_BUTTON_STATE_PRESSED);
             m_fakeInput->button(BTN_RIGHT, WL_POINTER_BUTTON_STATE_RELEASED);
-        } else if (isSingleHold){
-            //For drag'n drop
+        } else if (isSingleHold) {
+            // For drag'n drop
             m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_PRESSED);
-        } else if (isSingleRelease){
-            //For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
+        } else if (isSingleRelease) {
+            // For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
             m_fakeInput->button(BTN_LEFT, WL_POINTER_BUTTON_STATE_RELEASED);
         } else if (isScroll) {
             m_fakeInput->axis(WL_POINTER_AXIS_VERTICAL_SCROLL, wl_fixed_from_double(-dy));
@@ -93,7 +91,7 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket& np)
             // TODO: implement key support
         }
 
-    } else { //Is a mouse move event
+    } else { // Is a mouse move event
         m_fakeInput->pointer_motion(wl_fixed_from_double(dx), wl_fixed_from_double(dy));
     }
     return true;

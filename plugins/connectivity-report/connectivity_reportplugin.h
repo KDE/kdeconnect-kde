@@ -39,8 +39,7 @@
  */
 #define PACKET_TYPE_CONNECTIVITY_REPORT_REQUEST QStringLiteral("kdeconnect.connectivity_report.request")
 
-class ConnectivityReportPlugin
-    : public KdeConnectPlugin
+class ConnectivityReportPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.connectivity_report")
@@ -48,9 +47,9 @@ class ConnectivityReportPlugin
     Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshed)
 
 public:
-    explicit ConnectivityReportPlugin(QObject* parent, const QVariantList& args);
+    explicit ConnectivityReportPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
     QString dbusPath() const override;
 

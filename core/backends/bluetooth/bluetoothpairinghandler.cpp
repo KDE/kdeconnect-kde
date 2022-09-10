@@ -13,7 +13,7 @@
 #include "kdeconnectconfig.h"
 #include "networkpackettypes.h"
 
-BluetoothPairingHandler::BluetoothPairingHandler(DeviceLink* deviceLink)
+BluetoothPairingHandler::BluetoothPairingHandler(DeviceLink *deviceLink)
     : PairingHandler(deviceLink)
     , m_status(NotPaired)
 {
@@ -22,7 +22,7 @@ BluetoothPairingHandler::BluetoothPairingHandler(DeviceLink* deviceLink)
     connect(&m_pairingTimeout, &QTimer::timeout, this, &BluetoothPairingHandler::pairingTimeout);
 }
 
-void BluetoothPairingHandler::packetReceived(const NetworkPacket& np)
+void BluetoothPairingHandler::packetReceived(const NetworkPacket &np)
 {
     qCDebug(KDECONNECT_CORE) << "Pairing packet received!" << np.serialize();
 
@@ -31,16 +31,15 @@ void BluetoothPairingHandler::packetReceived(const NetworkPacket& np)
     bool wantsPair = np.get<bool>(QStringLiteral("pair"));
 
     if (wantsPair) {
-
-        if (isPairRequested())  { //We started pairing
+        if (isPairRequested()) { // We started pairing
 
             qCDebug(KDECONNECT_CORE) << "Pair answer";
             setInternalPairStatus(Paired);
-            
+
         } else {
             qCDebug(KDECONNECT_CORE) << "Pair request";
 
-            if (isPaired()) { //I'm already paired, but they think I'm not
+            if (isPaired()) { // I'm already paired, but they think I'm not
                 acceptPairing();
                 return;
             }
@@ -48,12 +47,12 @@ void BluetoothPairingHandler::packetReceived(const NetworkPacket& np)
             setInternalPairStatus(RequestedByPeer);
         }
 
-    } else { //wantsPair == false
+    } else { // wantsPair == false
 
         qCDebug(KDECONNECT_CORE) << "Unpair request";
 
         setInternalPairStatus(NotPaired);
-         if (isPairRequested()) {
+        if (isPairRequested()) {
             Q_EMIT pairingError(i18n("Canceled by other peer"));
         }
     }
@@ -62,18 +61,17 @@ void BluetoothPairingHandler::packetReceived(const NetworkPacket& np)
 bool BluetoothPairingHandler::requestPairing()
 {
     switch (m_status) {
-        case Paired:
-            Q_EMIT pairingError(i18n("%1: Already paired", deviceLink()->name()));
-            return false;
-        case Requested:
-            Q_EMIT pairingError(i18n("%1: Pairing already requested for this device", deviceLink()->name()));
-            return false;
-        case RequestedByPeer:
-            qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
-            acceptPairing();
-            return false;
-        case NotPaired:
-            ;
+    case Paired:
+        Q_EMIT pairingError(i18n("%1: Already paired", deviceLink()->name()));
+        return false;
+    case Requested:
+        Q_EMIT pairingError(i18n("%1: Pairing already requested for this device", deviceLink()->name()));
+        return false;
+    case RequestedByPeer:
+        qCDebug(KDECONNECT_CORE) << deviceLink()->name() << " : Pairing already started by the other end, accepting their request.";
+        acceptPairing();
+        return false;
+    case NotPaired:;
     }
 
     NetworkPacket np(PACKET_TYPE_PAIR);
@@ -109,7 +107,8 @@ void BluetoothPairingHandler::rejectPairing()
     setInternalPairStatus(NotPaired);
 }
 
-void BluetoothPairingHandler::unpair() {
+void BluetoothPairingHandler::unpair()
+{
     NetworkPacket np(PACKET_TYPE_PAIR);
     np.set(QStringLiteral("pair"), false);
     deviceLink()->sendPacket(np);
@@ -121,7 +120,7 @@ void BluetoothPairingHandler::pairingTimeout()
     NetworkPacket np(PACKET_TYPE_PAIR);
     np.set(QStringLiteral("pair"), false);
     deviceLink()->sendPacket(np);
-    setInternalPairStatus(NotPaired); //Will emit the change as well
+    setInternalPairStatus(NotPaired); // Will emit the change as well
     Q_EMIT pairingError(i18n("Timed out"));
 }
 
@@ -130,7 +129,7 @@ void BluetoothPairingHandler::setInternalPairStatus(BluetoothPairingHandler::Int
     m_status = status;
     if (status == Paired) {
         deviceLink()->setPairStatus(DeviceLink::Paired);
-    } else if (status == NotPaired){
+    } else if (status == NotPaired) {
         deviceLink()->setPairStatus(DeviceLink::NotPaired);
     } else if (status == RequestedByPeer) {
         Q_EMIT deviceLink()->pairingRequest(this);

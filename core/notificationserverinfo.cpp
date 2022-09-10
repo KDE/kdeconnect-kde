@@ -7,14 +7,14 @@
 #include "notificationserverinfo.h"
 
 #include <QDBusMessage>
-#include <QDBusPendingReply>
 #include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 
 #include "dbushelper.h"
 
 #include "core_debug.h"
 
-NotificationServerInfo& NotificationServerInfo::instance()
+NotificationServerInfo &NotificationServerInfo::instance()
 {
     static NotificationServerInfo instance;
     return instance;
@@ -22,7 +22,10 @@ NotificationServerInfo& NotificationServerInfo::instance()
 
 void NotificationServerInfo::init()
 {
-    QDBusMessage query = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.Notifications"), QStringLiteral("/org/freedesktop/Notifications"), QStringLiteral("org.freedesktop.Notifications"), QStringLiteral("GetCapabilities"));
+    QDBusMessage query = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.Notifications"),
+                                                        QStringLiteral("/org/freedesktop/Notifications"),
+                                                        QStringLiteral("org.freedesktop.Notifications"),
+                                                        QStringLiteral("GetCapabilities"));
 
     QDBusPendingReply<QStringList> reply = QDBusConnection::sessionBus().asyncCall(query);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
@@ -48,4 +51,3 @@ NotificationServerInfo::Hints NotificationServerInfo::supportedHints()
 {
     return m_supportedHints;
 }
-

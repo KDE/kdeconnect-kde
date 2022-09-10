@@ -9,19 +9,19 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include <QDBusConnection>
+#include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
 
-#include <core/device.h>
 #include <core/daemon.h>
+#include <core/device.h>
 
 #include "plugin_remotesystemvolume_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteSystemVolumePlugin, "kdeconnect_remotesystemvolume.json")
 
-RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject* parent, const QVariantList& args)
+RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
@@ -30,15 +30,13 @@ RemoteSystemVolumePlugin::~RemoteSystemVolumePlugin()
 {
 }
 
-bool RemoteSystemVolumePlugin::receivePacket(const NetworkPacket& np)
+bool RemoteSystemVolumePlugin::receivePacket(const NetworkPacket &np)
 {
-
     if (np.has(QStringLiteral("sinkList"))) {
         QJsonDocument document(np.get<QJsonArray>(QStringLiteral("sinkList")));
         m_sinks = document.toJson();
         Q_EMIT sinksChanged();
     } else {
-
         QString name = np.get<QString>(QStringLiteral("name"));
 
         if (np.has(QStringLiteral("volume"))) {
@@ -53,7 +51,7 @@ bool RemoteSystemVolumePlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void RemoteSystemVolumePlugin::sendVolume(const QString& name, int volume)
+void RemoteSystemVolumePlugin::sendVolume(const QString &name, int volume)
 {
     NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME_REQUEST);
     np.set<QString>(QStringLiteral("name"), name);
@@ -61,7 +59,7 @@ void RemoteSystemVolumePlugin::sendVolume(const QString& name, int volume)
     sendPacket(np);
 }
 
-void RemoteSystemVolumePlugin::sendMuted(const QString& name, bool muted)
+void RemoteSystemVolumePlugin::sendMuted(const QString &name, bool muted)
 {
     NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME_REQUEST);
     np.set<QString>(QStringLiteral("name"), name);
@@ -87,4 +85,3 @@ QString RemoteSystemVolumePlugin::dbusPath() const
 }
 
 #include "remotesystemvolumeplugin.moc"
-

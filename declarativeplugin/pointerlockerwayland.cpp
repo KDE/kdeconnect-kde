@@ -13,8 +13,8 @@
 #include <KWayland/Client/connection_thread.h>
 #include <KWayland/Client/pointer.h>
 #include <KWayland/Client/pointerconstraints.h>
-#include <KWayland/Client/registry.h>
 #include <KWayland/Client/region.h>
+#include <KWayland/Client/registry.h>
 #include <KWayland/Client/relativepointer.h>
 #include <KWayland/Client/seat.h>
 #include <KWayland/Client/surface.h>
@@ -32,54 +32,41 @@ void PointerLockerWayland::setupRegistry()
 {
     Registry *registry = new Registry(this);
 
-    connect(registry, &Registry::compositorAnnounced, this,
-        [this, registry](quint32 name, quint32 version) {
-            m_compositor = registry->createCompositor(name, version, this);
+    connect(registry, &Registry::compositorAnnounced, this, [this, registry](quint32 name, quint32 version) {
+        m_compositor = registry->createCompositor(name, version, this);
+    });
+    connect(registry, &Registry::relativePointerManagerUnstableV1Announced, this, [this, registry](quint32 name, quint32 version) {
+        Q_ASSERT(!m_relativePointerManager);
+        m_relativePointerManager = registry->createRelativePointerManager(name, version, this);
+    });
+    connect(registry, &Registry::seatAnnounced, this, [this, registry](quint32 name, quint32 version) {
+        m_seat = registry->createSeat(name, version, this);
+        if (m_seat->hasPointer()) {
+            m_pointer = m_seat->createPointer(this);
         }
-    );
-    connect(registry, &Registry::relativePointerManagerUnstableV1Announced, this,
-        [this, registry](quint32 name, quint32 version) {
-            Q_ASSERT(!m_relativePointerManager);
-            m_relativePointerManager = registry->createRelativePointerManager(name, version, this);
-        }
-    );
-    connect(registry, &Registry::seatAnnounced, this,
-        [this, registry](quint32 name, quint32 version) {
-            m_seat = registry->createSeat(name, version, this);
-            if (m_seat->hasPointer()) {
-                m_pointer = m_seat->createPointer(this);
-            }
-            connect(m_seat, &Seat::hasPointerChanged, this,
-                [this] (bool hasPointer) {
-                    delete m_pointer;
+        connect(m_seat, &Seat::hasPointerChanged, this, [this](bool hasPointer) {
+            delete m_pointer;
 
-                    if (!hasPointer)
-                        return;
+            if (!hasPointer)
+                return;
 
-                    m_pointer = m_seat->createPointer(this);
+            m_pointer = m_seat->createPointer(this);
 
-                    delete m_relativePointer;
-                    m_relativePointer = m_relativePointerManager->createRelativePointer(m_pointer, this);
-                    connect(m_relativePointer, &RelativePointer::relativeMotion,
-                            this, [this] (const QSizeF &delta) {
-                                Q_EMIT pointerMoved({delta.width(), delta.height()});
-                            });
-                }
-            );
-        }
-    );
-    connect(registry, &Registry::pointerConstraintsUnstableV1Announced, this,
-        [this, registry](quint32 name, quint32 version) {
-            m_pointerConstraints = registry->createPointerConstraints(name, version, this);
-        }
-    );
-    connect(registry, &Registry::interfacesAnnounced, this,
-        [this] {
-            Q_ASSERT(m_compositor);
-            Q_ASSERT(m_seat);
-            Q_ASSERT(m_pointerConstraints);
-        }
-    );
+            delete m_relativePointer;
+            m_relativePointer = m_relativePointerManager->createRelativePointer(m_pointer, this);
+            connect(m_relativePointer, &RelativePointer::relativeMotion, this, [this](const QSizeF &delta) {
+                Q_EMIT pointerMoved({delta.width(), delta.height()});
+            });
+        });
+    });
+    connect(registry, &Registry::pointerConstraintsUnstableV1Announced, this, [this, registry](quint32 name, quint32 version) {
+        m_pointerConstraints = registry->createPointerConstraints(name, version, this);
+    });
+    connect(registry, &Registry::interfacesAnnounced, this, [this] {
+        Q_ASSERT(m_compositor);
+        Q_ASSERT(m_seat);
+        Q_ASSERT(m_pointerConstraints);
+    });
     registry->create(m_connectionThreadObject);
     registry->setup();
 }
@@ -100,11 +87,7 @@ void PointerLockerWayland::enforceLock()
         qWarning() << "Locking a window that is not mapped";
         return;
     }
-    auto *lockedPointer = m_pointerConstraints->lockPointer(winSurface.data(),
-                                                            m_pointer,
-                                                            nullptr,
-                                                            PointerConstraints::LifeTime::Persistent,
-                                                            this);
+    auto *lockedPointer = m_pointerConstraints->lockPointer(winSurface.data(), m_pointer, nullptr, PointerConstraints::LifeTime::Persistent, this);
 
     if (!lockedPointer) {
         qDebug() << "ERROR when receiving locked pointer!";
@@ -151,7 +134,7 @@ void PointerLockerWayland::cleanupLock()
     Q_EMIT lockEffectiveChanged(false);
 }
 
-void PointerLockerWayland::setWindow(QWindow* window)
+void PointerLockerWayland::setWindow(QWindow *window)
 {
     if (m_window == window) {
         return;

@@ -19,21 +19,19 @@
 class NotificationsDbusInterface;
 class NotificationsListener;
 
-class SendNotificationsPlugin
-    : public KdeConnectPlugin
+class SendNotificationsPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit SendNotificationsPlugin(QObject* parent, const QVariantList& args);
+    explicit SendNotificationsPlugin(QObject *parent, const QVariantList &args);
     ~SendNotificationsPlugin() override;
-    
-    bool receivePacket(const NetworkPacket& np) override;
+
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 protected:
-    NotificationsListener* notificationsListener;
-
+    NotificationsListener *notificationsListener;
 };
 
 #endif

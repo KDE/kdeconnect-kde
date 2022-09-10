@@ -10,25 +10,21 @@
 
 #include <QObject>
 
-RequestConversationWorker::RequestConversationWorker(const qint64& conversationID, int start, int end, ConversationsDbusInterface* interface) :
-        //QObject(interface)
-        conversationID(conversationID)
-        , start(start)
-        , parent(interface)
-        , m_thread(new QThread)
+RequestConversationWorker::RequestConversationWorker(const qint64 &conversationID, int start, int end, ConversationsDbusInterface *interface)
+    : // QObject(interface)
+    conversationID(conversationID)
+    , start(start)
+    , parent(interface)
+    , m_thread(new QThread)
 {
     Q_ASSERT(end >= start && "Not allowed to have a negative-length range");
     howMany = end - start;
 
     this->moveToThread(m_thread);
-    connect(m_thread, &QThread::started,
-            this, &RequestConversationWorker::handleRequestConversation);
-    connect(m_thread, &QThread::finished,
-            m_thread, &QObject::deleteLater);
-    connect(this, &RequestConversationWorker::finished,
-            m_thread, &QThread::quit);
-    connect(this, &RequestConversationWorker::finished,
-            this, &QObject::deleteLater);
+    connect(m_thread, &QThread::started, this, &RequestConversationWorker::handleRequestConversation);
+    connect(m_thread, &QThread::finished, m_thread, &QObject::deleteLater);
+    connect(this, &RequestConversationWorker::finished, m_thread, &QThread::quit);
+    connect(this, &RequestConversationWorker::finished, this, &QObject::deleteLater);
 }
 
 void RequestConversationWorker::handleRequestConversation()
@@ -49,7 +45,7 @@ void RequestConversationWorker::handleRequestConversation()
         size_t numRemaining = howMany - numHandled;
         parent->updateConversation(conversationID);
         messagesList = parent->getConversation(conversationID);
-        //ConversationsDbusInterface::updateConversation blocks until it sees new messages in the requested conversation
+        // ConversationsDbusInterface::updateConversation blocks until it sees new messages in the requested conversation
         replyForConversation(messagesList, start + numHandled, numRemaining);
     } else {
         // The cache was able to fully satisfy the request but we need to check that it isn't running dry
@@ -57,7 +53,7 @@ void RequestConversationWorker::handleRequestConversation()
         size_t numCachedMessages = messagesList.count();
         size_t requestEnd = start + numHandled;
         size_t numRemainingMessages = numCachedMessages - requestEnd;
-        double percentRemaining = ((double) numRemainingMessages / numCachedMessages) * 100;
+        double percentRemaining = ((double)numRemainingMessages / numCachedMessages) * 100;
 
         if (percentRemaining < CACHE_LOW_WATER_MARK_PERCENT || numRemainingMessages < MIN_NUMBER_TO_REQUEST) {
             parent->updateConversation(conversationID);
@@ -67,13 +63,14 @@ void RequestConversationWorker::handleRequestConversation()
     Q_EMIT finished();
 }
 
-size_t RequestConversationWorker::replyForConversation(const QList<ConversationMessage>& conversation, int start, size_t howMany) {
+size_t RequestConversationWorker::replyForConversation(const QList<ConversationMessage> &conversation, int start, size_t howMany)
+{
     Q_ASSERT(start >= 0);
     // Messages are sorted in ascending order of keys, meaning the front of the list has the oldest
     // messages (smallest timestamp number)
     // Therefore, return the end of the list first (most recent messages)
     size_t i = 0;
-    for(auto it = conversation.crbegin() + start; it != conversation.crend(); ++it) {
+    for (auto it = conversation.crbegin() + start; it != conversation.crend(); ++it) {
         if (i >= howMany) {
             break;
         }

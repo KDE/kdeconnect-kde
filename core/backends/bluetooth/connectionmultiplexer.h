@@ -7,9 +7,9 @@
 #ifndef CONNECTIONMULTIPLEXER_H
 #define CONNECTIONMULTIPLEXER_H
 
-#include <QObject>
 #include <QByteArray>
 #include <QHash>
+#include <QObject>
 #include <QSharedPointer>
 #include <memory>
 
@@ -24,7 +24,8 @@ class QBluetoothSocket;
  *
  * Destroying/closing this object will automatically close all channels.
  */
-class ConnectionMultiplexer : public QObject {
+class ConnectionMultiplexer : public QObject
+{
     Q_OBJECT
 public:
     ConnectionMultiplexer(QBluetoothSocket *socket, QObject *parent = nullptr);
@@ -78,7 +79,7 @@ private:
     /**
      * The channels not requested by the user yet
      */
-    QHash<QBluetoothUuid, MultiplexChannel*> unrequested_channels;
+    QHash<QBluetoothUuid, MultiplexChannel *> unrequested_channels;
     /**
      * All channels currently open
      */

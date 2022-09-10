@@ -19,13 +19,12 @@ private Q_SLOTS:
     void networkPacketTest();
     void networkPacketIdentityTest();
     void networkPacketPayloadTest();
-    //void networkPacketEncryptionTest();
+    // void networkPacketEncryptionTest();
 
     void cleanupTestCase();
 
     void init();
     void cleanup();
-
 };
 
-#endif 
+#endif

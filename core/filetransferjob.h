@@ -12,9 +12,9 @@
 
 #include <QElapsedTimer>
 #include <QIODevice>
+#include <QNetworkReply>
 #include <QSharedPointer>
 #include <QUrl>
-#include <QNetworkReply>
 
 #include "kdeconnectcore_export.h"
 
@@ -25,8 +25,7 @@ class NetworkPacket;
  * Given a QIODevice, the file transfer job will use the system's QNetworkAccessManager
  * for putting the stream into the requested location.
  */
-class KDECONNECTCORE_EXPORT FileTransferJob
-    : public KJob
+class KDECONNECTCORE_EXPORT FileTransferJob : public KJob
 {
     Q_OBJECT
 
@@ -36,11 +35,20 @@ public:
      * @p size specifies the expected size of the stream we're reading.
      * @p destination specifies where these contents should be stored
      */
-    FileTransferJob(const NetworkPacket* np, const QUrl& destination);
+    FileTransferJob(const NetworkPacket *np, const QUrl &destination);
     void start() override;
-    QUrl destination() const { return m_destination; }
-    void setOriginName(const QString& from) { m_from = from; }
-    const NetworkPacket* networkPacket() { return m_np;}
+    QUrl destination() const
+    {
+        return m_destination;
+    }
+    void setOriginName(const QString &from)
+    {
+        m_from = from;
+    }
+    const NetworkPacket *networkPacket()
+    {
+        return m_np;
+    }
 
 private Q_SLOTS:
     void doStart();
@@ -55,14 +63,14 @@ private:
     void deleteDestinationFile();
 
     QSharedPointer<QIODevice> m_origin;
-    QNetworkReply* m_reply;
+    QNetworkReply *m_reply;
     QString m_from;
     QUrl m_destination;
     QElapsedTimer m_timer;
     qulonglong m_speedBytes;
     qint64 m_written;
     qint64 m_size;
-    const NetworkPacket* m_np;
+    const NetworkPacket *m_np;
 };
 
 #endif

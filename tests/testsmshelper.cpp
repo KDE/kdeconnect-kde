@@ -42,10 +42,9 @@ private Q_SLOTS:
  */
 void SmsHelperTest::testSimplePhoneMatch()
 {
-    const QString& phoneNumber = QLatin1String("+1 (222) 333-4444");
+    const QString &phoneNumber = QLatin1String("+1 (222) 333-4444");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(phoneNumber, phoneNumber),
-            "Failed to match a phone number with itself");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(phoneNumber, phoneNumber), "Failed to match a phone number with itself");
 }
 
 /**
@@ -53,11 +52,10 @@ void SmsHelperTest::testSimplePhoneMatch()
  */
 void SmsHelperTest::testMessyPhoneMatch()
 {
-    const QString& phoneNumber = QLatin1String("12223334444");
-    const QString& messyPhoneNumber = QLatin1String("+1 (222) 333-4444");
+    const QString &phoneNumber = QLatin1String("12223334444");
+    const QString &messyPhoneNumber = QLatin1String("+1 (222) 333-4444");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(phoneNumber, messyPhoneNumber),
-             "Failed to match same number with different formatting characters");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(phoneNumber, messyPhoneNumber), "Failed to match same number with different formatting characters");
 }
 
 /**
@@ -66,11 +64,10 @@ void SmsHelperTest::testMessyPhoneMatch()
  */
 void SmsHelperTest::testMissingCountryCode()
 {
-    const QString& shortForm = QLatin1String("(222) 333-4444");
-    const QString& longForm = QLatin1String("+1 (222) 333-4444");
+    const QString &shortForm = QLatin1String("(222) 333-4444");
+    const QString &longForm = QLatin1String("+1 (222) 333-4444");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortForm, longForm),
-             "Failed to match two same numbers with missing country code");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortForm, longForm), "Failed to match two same numbers with missing country code");
 }
 
 /**
@@ -79,11 +76,10 @@ void SmsHelperTest::testMissingCountryCode()
  */
 void SmsHelperTest::testLeadingZeros()
 {
-    const QString& shortForm = QLatin1String("+1 (222) 333-4444");
-    const QString& zeroForm = QLatin1String("001 (222) 333-4444");
+    const QString &shortForm = QLatin1String("+1 (222) 333-4444");
+    const QString &zeroForm = QLatin1String("001 (222) 333-4444");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortForm, zeroForm),
-             "Failed to match two same numbers with padded zeros");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortForm, zeroForm), "Failed to match two same numbers with padded zeros");
 }
 
 /**
@@ -93,11 +89,10 @@ void SmsHelperTest::testLeadingZeros()
  */
 void SmsHelperTest::testLongDistancePhoneNumber()
 {
-    const QString& shortForm = QLatin1String("333-4444");
-    const QString& longForm = QLatin1String("+1 (222) 333-4444");
+    const QString &shortForm = QLatin1String("333-4444");
+    const QString &longForm = QLatin1String("+1 (222) 333-4444");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortForm, longForm),
-             "Failed to suffix match two phone numbers");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortForm, longForm), "Failed to suffix match two phone numbers");
 }
 
 /**
@@ -106,11 +101,10 @@ void SmsHelperTest::testLongDistancePhoneNumber()
  */
 void SmsHelperTest::testShortCodePhoneNumberNonMatch()
 {
-    const QString& shortCode = QLatin1String("44455");
-    const QString& normalNumber = QLatin1String("222-334-4455");
+    const QString &shortCode = QLatin1String("44455");
+    const QString &normalNumber = QLatin1String("222-334-4455");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(shortCode, normalNumber),
-             "Short code matched with normal number");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(shortCode, normalNumber), "Short code matched with normal number");
 }
 
 /**
@@ -118,9 +112,8 @@ void SmsHelperTest::testShortCodePhoneNumberNonMatch()
  */
 void SmsHelperTest::testShortCodeMatch()
 {
-    const QString& shortCode = QLatin1String("44455");
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortCode, shortCode),
-             "Did not match two of the same short code");
+    const QString &shortCode = QLatin1String("44455");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(shortCode, shortCode), "Did not match two of the same short code");
 }
 
 /**
@@ -128,10 +121,9 @@ void SmsHelperTest::testShortCodeMatch()
  */
 void SmsHelperTest::testShortCodeNonMatch()
 {
-    const QString& shortCode1 = QLatin1String("44455");
-    const QString& shortCode2 = QLatin1String("66677");
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(shortCode1, shortCode2),
-             "Incorrectly matched two different short codes");
+    const QString &shortCode1 = QLatin1String("44455");
+    const QString &shortCode2 = QLatin1String("66677");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(shortCode1, shortCode2), "Incorrectly matched two different short codes");
 }
 
 /**
@@ -139,12 +131,11 @@ void SmsHelperTest::testShortCodeNonMatch()
  */
 void SmsHelperTest::testAustralianShortCodeNumberNonMatch()
 {
-    const QString& australianShortCode = QLatin1String("19333444");
+    const QString &australianShortCode = QLatin1String("19333444");
     // I'm not sure if this is even a valid Australian phone number, but whatever...
-    const QString& australianPhoneNumber = QLatin1String("+41 02 1233 3444");
+    const QString &australianPhoneNumber = QLatin1String("+41 02 1233 3444");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(australianShortCode, australianPhoneNumber),
-             "Matched Australian short code with regular phone number");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(australianShortCode, australianPhoneNumber), "Matched Australian short code with regular phone number");
 }
 
 /**
@@ -152,10 +143,9 @@ void SmsHelperTest::testAustralianShortCodeNumberNonMatch()
  */
 void SmsHelperTest::testAustralianShortCodeMatch()
 {
-    const QString& australianShortCode = QLatin1String("12333444");
+    const QString &australianShortCode = QLatin1String("12333444");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(australianShortCode, australianShortCode),
-             "Failed to match Australian short code number");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(australianShortCode, australianShortCode), "Failed to match Australian short code number");
 }
 
 /**
@@ -163,11 +153,10 @@ void SmsHelperTest::testAustralianShortCodeMatch()
  */
 void SmsHelperTest::testAustralianShortCodeNonMatch()
 {
-    const QString& australianShortCode1 = QLatin1String("12333444");
-    const QString& australianShortCode2 = QLatin1String("12555666");
+    const QString &australianShortCode1 = QLatin1String("12333444");
+    const QString &australianShortCode2 = QLatin1String("12555666");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(australianShortCode1, australianShortCode2),
-             "Matched two different Australian short code numbers");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(australianShortCode1, australianShortCode2), "Matched two different Australian short code numbers");
 }
 
 /**
@@ -175,12 +164,11 @@ void SmsHelperTest::testAustralianShortCodeNonMatch()
  */
 void SmsHelperTest::testCzechRepublicShortCodeNumberNonMatch()
 {
-    const QString& czechRepShortCode = QLatin1String("9090930");
+    const QString &czechRepShortCode = QLatin1String("9090930");
     // I'm not sure if this is even a valid Czech Republic phone number, but whatever...
-    const QString& czechRepPhoneNumber = QLatin1String("+420 809 090 930");
+    const QString &czechRepPhoneNumber = QLatin1String("+420 809 090 930");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(czechRepShortCode, czechRepPhoneNumber),
-             "Matched Czech Republic short code with regular phone number");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(czechRepShortCode, czechRepPhoneNumber), "Matched Czech Republic short code with regular phone number");
 }
 
 /**
@@ -188,10 +176,9 @@ void SmsHelperTest::testCzechRepublicShortCodeNumberNonMatch()
  */
 void SmsHelperTest::testCzechRepublicShortCodeMatch()
 {
-    const QString& czechRepShortCode = QLatin1String("9090930");
+    const QString &czechRepShortCode = QLatin1String("9090930");
 
-    QVERIFY2(SmsHelper::isPhoneNumberMatch(czechRepShortCode, czechRepShortCode),
-             "Failed to match Czech Republic short code number");
+    QVERIFY2(SmsHelper::isPhoneNumberMatch(czechRepShortCode, czechRepShortCode), "Failed to match Czech Republic short code number");
 }
 
 /**
@@ -199,11 +186,10 @@ void SmsHelperTest::testCzechRepublicShortCodeMatch()
  */
 void SmsHelperTest::testCzechRepublicShortCodeNonMatch()
 {
-    const QString& czechRepShortCode1 = QLatin1String("9090930");
-    const QString& czechRepShortCode2 = QLatin1String("9080990");
+    const QString &czechRepShortCode1 = QLatin1String("9090930");
+    const QString &czechRepShortCode2 = QLatin1String("9080990");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(czechRepShortCode1, czechRepShortCode2),
-             "Matched two different Czech Republic short code numbers");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(czechRepShortCode1, czechRepShortCode2), "Matched two different Czech Republic short code numbers");
 }
 
 /**
@@ -211,11 +197,10 @@ void SmsHelperTest::testCzechRepublicShortCodeNonMatch()
  */
 void SmsHelperTest::testDifferentPhoneNumbers1()
 {
-    const QString& phone1 = QLatin1String("+1 (222) 333-4444");
-    const QString& phone2 = QLatin1String("+1 (333) 222-4444");
+    const QString &phone1 = QLatin1String("+1 (222) 333-4444");
+    const QString &phone2 = QLatin1String("+1 (333) 222-4444");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(phone1, phone2),
-             "Incorrectly marked two different numbers as same");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(phone1, phone2), "Incorrectly marked two different numbers as same");
 }
 
 /**
@@ -223,11 +208,10 @@ void SmsHelperTest::testDifferentPhoneNumbers1()
  */
 void SmsHelperTest::testDifferentPhoneNumbers2()
 {
-    const QString& phone1 = QLatin1String("+1 (222) 333-4444");
-    const QString& phone2 = QLatin1String("122-2333");
+    const QString &phone1 = QLatin1String("+1 (222) 333-4444");
+    const QString &phone2 = QLatin1String("122-2333");
 
-    QVERIFY2(!SmsHelper::isPhoneNumberMatch(phone1, phone2),
-             "Incorrectly *prefix* matched two phone numbers");
+    QVERIFY2(!SmsHelper::isPhoneNumberMatch(phone1, phone2), "Incorrectly *prefix* matched two phone numbers");
 }
 
 /**
@@ -235,8 +219,8 @@ void SmsHelperTest::testDifferentPhoneNumbers2()
  */
 void SmsHelperTest::testAllZeros()
 {
-    const QString& zeros = QLatin1String("00000");
-    const QString& canonicalized = SmsHelper::canonicalizePhoneNumber(zeros);
+    const QString &zeros = QLatin1String("00000");
+    const QString &canonicalized = SmsHelper::canonicalizePhoneNumber(zeros);
 
     QCOMPARE(canonicalized.length(), zeros.length());
 }
@@ -246,9 +230,9 @@ void SmsHelperTest::testAllZeros()
  */
 void SmsHelperTest::testEmptyInput()
 {
-    const QString& empty = QLatin1String("");
-    const QString& shortCode = QLatin1String("44455");
-    const QString& realNumber = QLatin1String("12223334444");
+    const QString &empty = QLatin1String("");
+    const QString &shortCode = QLatin1String("44455");
+    const QString &realNumber = QLatin1String("12223334444");
 
     QVERIFY2(!SmsHelper::isPhoneNumberMatch(empty, shortCode), "The empty string matched a shortcode phone number");
     QVERIFY2(!SmsHelper::isPhoneNumberMatch(empty, realNumber), "The empty string matched a real phone number");

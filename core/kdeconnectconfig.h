@@ -21,7 +21,7 @@ public:
         QString deviceType;
     };
 
-    static KdeConnectConfig& instance();
+    static KdeConnectConfig &instance();
 
     /*
      * Our own info
@@ -35,30 +35,30 @@ public:
     QString certificatePath();
     QSslCertificate certificate();
 
-    void setName(const QString& name);
+    void setName(const QString &name);
 
     /*
      * Trusted devices
      */
 
-    QStringList trustedDevices(); //list of ids
-    void removeTrustedDevice(const QString& id);
-    void addTrustedDevice(const QString& id, const QString& name, const QString& type);
-    KdeConnectConfig::DeviceInfo getTrustedDevice(const QString& id);
+    QStringList trustedDevices(); // list of ids
+    void removeTrustedDevice(const QString &id);
+    void addTrustedDevice(const QString &id, const QString &name, const QString &type);
+    KdeConnectConfig::DeviceInfo getTrustedDevice(const QString &id);
 
-    void setDeviceProperty(const QString& deviceId, const QString& name, const QString& value);
-    QString getDeviceProperty(const QString& deviceId, const QString& name, const QString& defaultValue = QString());
+    void setDeviceProperty(const QString &deviceId, const QString &name, const QString &value);
+    QString getDeviceProperty(const QString &deviceId, const QString &name, const QString &defaultValue = QString());
 
     // Custom devices
-    void setCustomDevices(const QStringList& addresses);
+    void setCustomDevices(const QStringList &addresses);
     QStringList customDevices() const;
 
     /*
      * Paths for config files, there is no guarantee the directories already exist
      */
     QDir baseConfigDir();
-    QDir deviceConfigDir(const QString& deviceId);
-    QDir pluginConfigDir(const QString& deviceId, const QString& pluginName); //Used by KdeConnectPluginConfig
+    QDir deviceConfigDir(const QString &deviceId);
+    QDir pluginConfigDir(const QString &deviceId, const QString &pluginName); // Used by KdeConnectPluginConfig
 
 #ifdef Q_OS_MAC
     /*
@@ -71,11 +71,11 @@ private:
     KdeConnectConfig();
 
     void loadPrivateKey();
-    void generatePrivateKey(const QString&  path);
+    void generatePrivateKey(const QString &path);
     void loadCertificate();
-    void generateCertificate(const QString&  path);
+    void generateCertificate(const QString &path);
 
-    struct KdeConnectConfigPrivate* d;
+    struct KdeConnectConfigPrivate *d;
 };
 
 #endif

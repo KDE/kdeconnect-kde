@@ -9,35 +9,33 @@
 #include <KPluginFactory>
 
 #include <QDebug>
-#include <QProcess>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QProcess>
 
 #include <core/device.h>
 
-#include <PulseAudioQt/Sink>
-#include <PulseAudioQt/Context>
 #include "plugin_systemvolume_debug.h"
+#include <PulseAudioQt/Context>
+#include <PulseAudioQt/Sink>
 
 K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
-
-SystemvolumePlugin::SystemvolumePlugin(QObject* parent, const QVariantList& args)
+SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , sinksMap()
-{}
-
-bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
 {
+}
 
+bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
+{
     if (!PulseAudioQt::Context::instance()->isValid())
         return false;
 
     if (np.has(QStringLiteral("requestSinks"))) {
         sendSinkList();
     } else {
-
         QString name = np.get<QString>(QStringLiteral("name"));
 
         PulseAudioQt::Sink *sink = sinksMap.value(name);
@@ -58,15 +56,15 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SystemvolumePlugin::sendSinkList() {
-
+void SystemvolumePlugin::sendSinkList()
+{
     QJsonDocument document;
     QJsonArray array;
 
     sinksMap.clear();
 
     const auto sinks = PulseAudioQt::Context::instance()->sinks();
-    for (PulseAudioQt::Sink* sink : sinks) {
+    for (PulseAudioQt::Sink *sink : sinks) {
         sinksMap.insert(sink->name(), sink);
 
         connect(sink, &PulseAudioQt::Sink::volumeChanged, this, [this, sink] {
@@ -90,14 +88,12 @@ void SystemvolumePlugin::sendSinkList() {
             sendPacket(np);
         });
 
-        QJsonObject sinkObject {
-            {QStringLiteral("name"), sink->name()},
-            {QStringLiteral("muted"), sink->isMuted()},
-            {QStringLiteral("description"), sink->description()},
-            {QStringLiteral("volume"), sink->volume()},
-            {QStringLiteral("maxVolume"), PulseAudioQt::normalVolume()},
-            {QStringLiteral("enabled"), sink->isDefault()}
-        };
+        QJsonObject sinkObject{{QStringLiteral("name"), sink->name()},
+                               {QStringLiteral("muted"), sink->isMuted()},
+                               {QStringLiteral("description"), sink->description()},
+                               {QStringLiteral("volume"), sink->volume()},
+                               {QStringLiteral("maxVolume"), PulseAudioQt::normalVolume()},
+                               {QStringLiteral("enabled"), sink->isDefault()}};
 
         array.append(sinkObject);
     }
@@ -120,10 +116,9 @@ void SystemvolumePlugin::connected()
     });
 
     const auto sinks = PulseAudioQt::Context::instance()->sinks();
-    for (PulseAudioQt::Sink* sink : sinks) {
+    for (PulseAudioQt::Sink *sink : sinks) {
         sinksMap.insert(sink->name(), sink);
     }
 }
 
 #include "systemvolumeplugin-pulse.moc"
-

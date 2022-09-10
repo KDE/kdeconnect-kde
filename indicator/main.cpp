@@ -5,9 +5,9 @@
  */
 
 #include <QApplication>
+#include <QPointer>
 #include <QProcess>
 #include <QThread>
-#include <QPointer>
 
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
@@ -15,22 +15,22 @@
 #include <KStatusNotifierItem>
 #endif
 
-#include <KDBusService>
 #include <KAboutData>
 #include <KCMultiDialog>
-#include <KLocalizedString>
 #include <KColorSchemeManager>
+#include <KDBusService>
+#include <KLocalizedString>
 
-#include "interfaces/devicesmodel.h"
-#include "interfaces/dbusinterfaces.h"
-#include "kdeconnect-version.h"
 #include "deviceindicator.h"
+#include "interfaces/dbusinterfaces.h"
+#include "interfaces/devicesmodel.h"
+#include "kdeconnect-version.h"
 
 #include <dbushelper.h>
 
 #include "indicatorhelper.h"
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -69,7 +69,7 @@ int main(int argc, char** argv)
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
-    QMenu* menu = new QMenu;
+    QMenu *menu = new QMenu;
 
     QPointer<KCMultiDialog> dialog;
 
@@ -90,8 +90,8 @@ int main(int argc, char** argv)
                 dialog->activateWindow();
             }
         });
-        for (int i=0, count = model.rowCount(); i<count; ++i) {
-            DeviceDbusInterface* device = model.getDevice(i);
+        for (int i = 0, count = model.rowCount(); i < count; ++i) {
+            DeviceDbusInterface *device = model.getDevice(i);
             auto indicator = new DeviceIndicator(device);
             QObject::connect(device, &DeviceDbusInterface::destroyed, indicator, &QObject::deleteLater);
 
@@ -101,8 +101,8 @@ int main(int argc, char** argv)
         if (!requests.isEmpty()) {
             menu->addSection(i18n("Pairing requests"));
 
-            for(const auto& req: requests) {
-                DeviceDbusInterface* dev = new DeviceDbusInterface(req, menu);
+            for (const auto &req : requests) {
+                DeviceDbusInterface *dev = new DeviceDbusInterface(req, menu);
                 auto pairMenu = menu->addMenu(dev->name());
                 pairMenu->addAction(i18n("Pair"), dev, &DeviceDbusInterface::acceptPairing);
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::rejectPairing);
@@ -111,17 +111,19 @@ int main(int argc, char** argv)
         // Add quit menu
 #if defined Q_OS_MAC
 
-        menu->addAction(i18n("Quit"), [](){
+        menu->addAction(i18n("Quit"), []() {
             auto message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect.daemon"),
-                                                        QStringLiteral("/MainApplication"),
-                                                        QStringLiteral("org.qtproject.Qt.QCoreApplication"),
-                                                        QStringLiteral("quit"));
+                                                          QStringLiteral("/MainApplication"),
+                                                          QStringLiteral("org.qtproject.Qt.QCoreApplication"),
+                                                          QStringLiteral("quit"));
             QDBusConnection::sessionBus().call(message, QDBus::NoBlock);
             qApp->quit();
         });
 #elif defined Q_OS_WIN
 
-        menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), [](){qApp->quit();});
+        menu->addAction(QIcon::fromTheme(QStringLiteral("application-exit")), i18n("Quit"), []() {
+            qApp->quit();
+        });
 #endif
     };
 
@@ -142,7 +144,7 @@ int main(int argc, char** argv)
     });
     QObject::connect(&systray, &QSystemTrayIcon::activated, [](QSystemTrayIcon::ActivationReason reason) {
         if (reason == QSystemTrayIcon::Trigger) {
-            const QString kdeconnectAppExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-app"), { QCoreApplication::applicationDirPath() });
+            const QString kdeconnectAppExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-app"), {QCoreApplication::applicationDirPath()});
             if (!kdeconnectAppExecutable.isEmpty()) {
                 QProcess::startDetached(kdeconnectAppExecutable, {});
             }

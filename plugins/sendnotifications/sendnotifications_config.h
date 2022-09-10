@@ -9,18 +9,18 @@
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
-namespace Ui {
-    class SendNotificationsConfigUi;
+namespace Ui
+{
+class SendNotificationsConfigUi;
 }
 
 class NotifyingApplicationModel;
 
-class SendNotificationsConfig
-    : public KdeConnectPluginKcm
+class SendNotificationsConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    SendNotificationsConfig(QWidget* parent, const QVariantList&);
+    SendNotificationsConfig(QWidget *parent, const QVariantList &);
     ~SendNotificationsConfig() override;
 
 public Q_SLOTS:
@@ -32,9 +32,8 @@ private Q_SLOTS:
     void loadApplications();
 
 private:
-    Ui::SendNotificationsConfigUi* m_ui;
-    NotifyingApplicationModel* appModel;
-
+    Ui::SendNotificationsConfigUi *m_ui;
+    NotifyingApplicationModel *appModel;
 };
 
 #endif

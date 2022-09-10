@@ -19,30 +19,23 @@ struct Sink {
     bool muted;
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteSinksModel
-    : public QAbstractListModel
+class KDECONNECTINTERFACES_EXPORT RemoteSinksModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    enum ModelRoles {
-        NameRole,
-        DescriptionRole,
-        MaxVolumeRole,
-        VolumeRole,
-        MutedRole
-    };
+    enum ModelRoles { NameRole, DescriptionRole, MaxVolumeRole, VolumeRole, MutedRole };
 
-    explicit RemoteSinksModel(QObject* parent = nullptr);
+    explicit RemoteSinksModel(QObject *parent = nullptr);
     ~RemoteSinksModel() override;
 
     QString deviceId() const;
-    void setDeviceId(const QString& deviceId);
+    void setDeviceId(const QString &deviceId);
 
-    QVariant data(const QModelIndex& index, int role) const override;
-    bool setData(const QModelIndex& index, const QVariant& value, int role) override;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -50,11 +43,11 @@ private Q_SLOTS:
     void refreshSinkList();
 
 Q_SIGNALS:
-    void deviceIdChanged(const QString& value);
+    void deviceIdChanged(const QString &value);
     void rowsChanged();
 
 private:
-    RemoteSystemVolumeDbusInterface* m_dbusInterface;
+    RemoteSystemVolumeDbusInterface *m_dbusInterface;
     QVector<Sink> m_sinkList;
     QString m_deviceId;
 };

@@ -13,44 +13,46 @@
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
 
-class ConversationListModel
-    : public QStandardItemModel
+class ConversationListModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    ConversationListModel(QObject* parent = nullptr);
+    ConversationListModel(QObject *parent = nullptr);
     ~ConversationListModel() override;
 
     enum Roles {
         /* Roles which apply while working as a single message */
         FromMeRole = Qt::UserRole,
-        SenderRole,      // The sender of the message. Undefined if this is an outgoing message
-        DateRole,        // The date of this message
+        SenderRole, // The sender of the message. Undefined if this is an outgoing message
+        DateRole, // The date of this message
         /* Roles which apply while working as the head of a conversation */
-        AddressesRole,      // The Addresses involved in the conversation
+        AddressesRole, // The Addresses involved in the conversation
         ConversationIdRole, // The ThreadID of the conversation
-        MultitargetRole,    // Indicate that this conversation is multitarget
-        AttachmentPreview,  // A thumbnail of the attachment of the message, if any
+        MultitargetRole, // Indicate that this conversation is multitarget
+        AttachmentPreview, // A thumbnail of the attachment of the message, if any
     };
     Q_ENUM(Roles)
 
-    QString deviceId() const { return m_deviceId; }
-    void setDeviceId(const QString &/*deviceId*/);
+    QString deviceId() const
+    {
+        return m_deviceId;
+    }
+    void setDeviceId(const QString & /*deviceId*/);
 
     Q_SCRIPTABLE void refresh();
 
     /**
      * This method creates conversation with an arbitrary address
      */
-    Q_INVOKABLE void createConversationForAddress(const QString& address);
+    Q_INVOKABLE void createConversationForAddress(const QString &address);
 
 public Q_SLOTS:
-    void handleCreatedConversation(const QDBusVariant& msg);
-    void handleConversationUpdated(const QDBusVariant& msg);
-    void createRowFromMessage(const ConversationMessage& message);
-    void printDBusError(const QDBusError& error);
+    void handleCreatedConversation(const QDBusVariant &msg);
+    void handleConversationUpdated(const QDBusVariant &msg);
+    void createRowFromMessage(const ConversationMessage &message);
+    void printDBusError(const QDBusError &error);
     void displayContacts();
 
 Q_SIGNALS:
@@ -62,10 +64,10 @@ private:
      */
     void prepareConversationsList();
 
-    QStandardItem* conversationForThreadId(qint32 threadId);
-    QStandardItem* getConversationForAddress(const QString& address);
+    QStandardItem *conversationForThreadId(qint32 threadId);
+    QStandardItem *getConversationForAddress(const QString &address);
 
-    DeviceConversationsDbusInterface* m_conversationsInterface;
+    DeviceConversationsDbusInterface *m_conversationsInterface;
     QString m_deviceId;
 };
 

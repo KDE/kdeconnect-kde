@@ -12,12 +12,11 @@
 class QMenu;
 class QStandardItemModel;
 
-class RunCommandConfig
-    : public KdeConnectPluginKcm
+class RunCommandConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    RunCommandConfig(QWidget* parent, const QVariantList&);
+    RunCommandConfig(QWidget *parent, const QVariantList &);
     ~RunCommandConfig() override;
 
 public Q_SLOTS:
@@ -26,14 +25,14 @@ public Q_SLOTS:
     void defaults() override;
 
 private Q_SLOTS:
-    void onDataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight);
+    void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
+
 private:
-    void addSuggestedCommand(QMenu* menu, const QString &name, const QString &command);
+    void addSuggestedCommand(QMenu *menu, const QString &name, const QString &command);
     void insertRow(int i, const QString &name, const QString &command);
     void insertEmptyRow();
 
-    QStandardItemModel* m_entriesModel;
-
+    QStandardItemModel *m_entriesModel;
 };
 
 #endif // RUNCOMMAND_CONFIG_H

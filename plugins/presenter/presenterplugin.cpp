@@ -9,27 +9,27 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include <QDBusConnection>
-#include <QQuickView>
+#include <QDebug>
 #include <QQmlError>
 #include <QQuickItem>
+#include <QQuickView>
 #include <QtGlobal>
 
-#include <core/device.h>
-#include <core/daemon.h>
-#include <QScreen>
 #include "plugin_presenter_debug.h"
+#include <QScreen>
+#include <core/daemon.h>
+#include <core/device.h>
 
 K_PLUGIN_CLASS_WITH_JSON(PresenterPlugin, "kdeconnect_presenter.json")
 
 class PresenterView : public QQuickView
 {
 public:
-    PresenterView() {
-        Qt::WindowFlags windowFlags = Qt::WindowFlags(Qt::WA_TranslucentBackground | Qt::WindowDoesNotAcceptFocus
-                                    | Qt::WindowFullScreen | Qt::WindowStaysOnTopHint
-                                    | Qt::FramelessWindowHint | Qt::Tool);
+    PresenterView()
+    {
+        Qt::WindowFlags windowFlags = Qt::WindowFlags(Qt::WA_TranslucentBackground | Qt::WindowDoesNotAcceptFocus | Qt::WindowFullScreen
+                                                      | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint | Qt::Tool);
 #ifdef Q_OS_WIN
         windowFlags |= Qt::WindowTransparentForInput;
 #endif
@@ -47,7 +47,7 @@ public:
     }
 };
 
-PresenterPlugin::PresenterPlugin(QObject* parent, const QVariantList& args)
+PresenterPlugin::PresenterPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_view(nullptr)
     , m_timer(new QTimer(this))
@@ -60,7 +60,7 @@ PresenterPlugin::~PresenterPlugin()
 {
 }
 
-bool PresenterPlugin::receivePacket(const NetworkPacket& np)
+bool PresenterPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("stop"), false)) {
         delete m_view;
@@ -78,7 +78,7 @@ bool PresenterPlugin::receivePacket(const NetworkPacket& np)
     }
 
     QSize screenSize = m_view->screen()->size();
-    float ratio = float(screenSize.width())/screenSize.height();
+    float ratio = float(screenSize.width()) / screenSize.height();
 
     m_xPos += np.get<float>(QStringLiteral("dx"));
     m_yPos += np.get<float>(QStringLiteral("dy")) * ratio;
@@ -87,11 +87,10 @@ bool PresenterPlugin::receivePacket(const NetworkPacket& np)
 
     m_timer->start();
 
-    QQuickItem* object = m_view->rootObject();
+    QQuickItem *object = m_view->rootObject();
     object->setProperty("xPos", m_xPos);
     object->setProperty("yPos", m_yPos);
     return true;
 }
 
 #include "presenterplugin.moc"
-

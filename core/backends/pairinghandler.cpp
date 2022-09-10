@@ -6,21 +6,19 @@
 
 #include "pairinghandler.h"
 
-PairingHandler::PairingHandler(DeviceLink* parent)
+PairingHandler::PairingHandler(DeviceLink *parent)
     : QObject(parent)
     , m_deviceLink(parent)
 {
-
 }
 
-void PairingHandler::setDeviceLink(DeviceLink* dl)
+void PairingHandler::setDeviceLink(DeviceLink *dl)
 {
     setParent(dl);
-    m_deviceLink =  dl;
+    m_deviceLink = dl;
 }
 
-DeviceLink* PairingHandler::deviceLink() const
+DeviceLink *PairingHandler::deviceLink() const
 {
     return m_deviceLink;
 }
-

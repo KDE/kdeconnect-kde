@@ -7,15 +7,15 @@
 
 #include "pointerlocker.h"
 
+#include <QCursor>
 #include <QGuiApplication>
 #include <QQmlContext>
 #include <QQmlEngine>
-#include <QCursor>
 
 #include <QDebug>
 #include <QScopedPointer>
 
-void AbstractPointerLocker::setWindow(QWindow* window)
+void AbstractPointerLocker::setWindow(QWindow *window)
 {
     if (m_window == window) {
         return;
@@ -66,7 +66,7 @@ bool PointerLockerQt::eventFilter(QObject *watched, QEvent *event)
 
     const auto newPos = QCursor::pos();
     const QPointF dist = newPos - m_originalPosition;
-    Q_EMIT pointerMoved({ dist.x(), dist.y() });
+    Q_EMIT pointerMoved({dist.x(), dist.y()});
     QCursor::setPos(m_originalPosition);
 
     return true;

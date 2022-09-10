@@ -10,23 +10,23 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include <QDBusConnection>
-#include <QProcess>
+#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QMimeDatabase>
+#include <QProcess>
 #include <QTextCodec>
 
-#include <core/device.h>
 #include <core/daemon.h>
+#include <core/device.h>
 #include <core/filetransferjob.h>
 
 #include "plugin_sms_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SmsPlugin, "kdeconnect_sms.json")
 
-SmsPlugin::SmsPlugin(QObject* parent, const QVariantList& args)
+SmsPlugin::SmsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
     , m_conversationInterface(new ConversationsDbusInterface(this))
@@ -39,7 +39,7 @@ SmsPlugin::~SmsPlugin()
     // m_conversationInterface is self-deleting, see ~ConversationsDbusInterface for more information
 }
 
-bool SmsPlugin::receivePacket(const NetworkPacket& np)
+bool SmsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_SMS_MESSAGES) {
         return handleBatchMessages(np);
@@ -52,18 +52,15 @@ bool SmsPlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SmsPlugin::sendSms(const QVariantList& addresses, const QString& textMessage, const QVariantList& attachmentUrls, const qint64 subID)
+void SmsPlugin::sendSms(const QVariantList &addresses, const QString &textMessage, const QVariantList &attachmentUrls, const qint64 subID)
 {
     QVariantList addressMapList;
-    for (const QVariant& address : addresses) {
+    for (const QVariant &address : addresses) {
         QVariantMap addressMap({{QStringLiteral("address"), qdbus_cast<ConversationAddress>(address).address()}});
         addressMapList.append(addressMap);
     }
 
-    QVariantMap packetMap({
-        {QStringLiteral("version"), SMS_REQUEST_PACKET_VERSION},
-        {QStringLiteral("addresses"), addressMapList}
-    });
+    QVariantMap packetMap({{QStringLiteral("version"), SMS_REQUEST_PACKET_VERSION}, {QStringLiteral("addresses"), addressMapList}});
 
     // If there is any text message add it to the network packet
     if (textMessage != QStringLiteral("")) {
@@ -75,13 +72,11 @@ void SmsPlugin::sendSms(const QVariantList& addresses, const QString& textMessag
     }
 
     QVariantList attachmentMapList;
-    for (const QVariant& attachmentUrl : attachmentUrls) {
+    for (const QVariant &attachmentUrl : attachmentUrls) {
         const Attachment attachment = createAttachmentFromUrl(attachmentUrl.toString());
-        QVariantMap attachmentMap({
-            {QStringLiteral("fileName"), attachment.uniqueIdentifier()},
-            {QStringLiteral("base64EncodedFile"), attachment.base64EncodedFile()},
-            {QStringLiteral("mimeType"), attachment.mimeType()}
-        });
+        QVariantMap attachmentMap({{QStringLiteral("fileName"), attachment.uniqueIdentifier()},
+                                   {QStringLiteral("base64EncodedFile"), attachment.base64EncodedFile()},
+                                   {QStringLiteral("mimeType"), attachment.mimeType()}});
         attachmentMapList.append(attachmentMap);
     }
 
@@ -102,7 +97,7 @@ void SmsPlugin::requestAllConversations()
     sendPacket(np);
 }
 
-void SmsPlugin::requestConversation (const qint64 conversationID, const qint64 rangeStartTimestamp, const qint64 numberToRequest) const
+void SmsPlugin::requestConversation(const qint64 conversationID, const qint64 rangeStartTimestamp, const qint64 numberToRequest) const
 {
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_CONVERSATION);
     np.set(QStringLiteral("threadID"), conversationID);
@@ -112,38 +107,36 @@ void SmsPlugin::requestConversation (const qint64 conversationID, const qint64 r
     sendPacket(np);
 }
 
-void SmsPlugin::requestAttachment(const qint64& partID, const QString& uniqueIdentifier)
+void SmsPlugin::requestAttachment(const qint64 &partID, const QString &uniqueIdentifier)
 {
-    const QVariantMap packetMap({
-        {QStringLiteral("part_id"), partID},
-        {QStringLiteral("unique_identifier"), uniqueIdentifier}
-    });
+    const QVariantMap packetMap({{QStringLiteral("part_id"), partID}, {QStringLiteral("unique_identifier"), uniqueIdentifier}});
 
     NetworkPacket np(PACKET_TYPE_SMS_REQUEST_ATTACHMENT, packetMap);
 
     sendPacket(np);
 }
 
-void SmsPlugin::forwardToTelepathy(const ConversationMessage& message)
+void SmsPlugin::forwardToTelepathy(const ConversationMessage &message)
 {
     // If we don't have a valid Telepathy interface, bail out
-    if (!(m_telepathyInterface.isValid())) return;
+    if (!(m_telepathyInterface.isValid()))
+        return;
 
     qCDebug(KDECONNECT_PLUGIN_SMS) << "Passing a text message to the telepathy interface";
-    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString,QString)), SLOT(sendSms(QString,QString)), Qt::UniqueConnection);
+    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString, QString)), SLOT(sendSms(QString, QString)), Qt::UniqueConnection);
     const QString messageBody = message.body();
     const QString contactName; // TODO: When telepathy support is improved, look up the contact with KPeople
     const QString phoneNumber = message.addresses()[0].address();
     m_telepathyInterface.call(QDBus::NoBlock, QStringLiteral("sendMessage"), phoneNumber, contactName, messageBody);
 }
 
-bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
+bool SmsPlugin::handleBatchMessages(const NetworkPacket &np)
 {
     const auto messages = np.get<QVariantList>(QStringLiteral("messages"));
     QList<ConversationMessage> messagesList;
     messagesList.reserve(messages.count());
 
-    for (const QVariant& body : messages) {
+    for (const QVariant &body : messages) {
         ConversationMessage message(body.toMap());
         if (message.containsTextBody()) {
             forwardToTelepathy(message);
@@ -156,7 +149,8 @@ bool SmsPlugin::handleBatchMessages(const NetworkPacket& np)
     return true;
 }
 
-bool SmsPlugin::handleSmsAttachmentFile(const NetworkPacket& np) {
+bool SmsPlugin::handleSmsAttachmentFile(const NetworkPacket &np)
+{
     const QString fileName = np.get<QString>(QStringLiteral("filename"));
 
     QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
@@ -172,10 +166,9 @@ bool SmsPlugin::handleSmsAttachmentFile(const NetworkPacket& np) {
     fileUrl = fileUrl.adjusted(QUrl::StripTrailingSlash);
     fileUrl.setPath(fileUrl.path() + QStringLiteral("/") + fileName, QUrl::DecodedMode);
 
-
-    FileTransferJob* job = np.createPayloadTransferJob(fileUrl);
-    connect(job, &FileTransferJob::result, this, [this, fileName] (KJob* job) -> void {
-        FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
+    FileTransferJob *job = np.createPayloadTransferJob(fileUrl);
+    connect(job, &FileTransferJob::result, this, [this, fileName](KJob *job) -> void {
+        FileTransferJob *ftjob = qobject_cast<FileTransferJob *>(job);
         if (ftjob && !job->error()) {
             // Notify SMS app about the newly downloaded attachment
             m_conversationInterface->attachmentDownloaded(ftjob->destination().path(), fileName);
@@ -188,7 +181,7 @@ bool SmsPlugin::handleSmsAttachmentFile(const NetworkPacket& np) {
     return true;
 }
 
-void SmsPlugin::getAttachment(const qint64& partID, const QString& uniqueIdentifier)
+void SmsPlugin::getAttachment(const qint64 &partID, const QString &uniqueIdentifier)
 {
     QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
     cacheDir.append(QStringLiteral("/") + device()->name() + QStringLiteral("/"));
@@ -214,7 +207,7 @@ void SmsPlugin::getAttachment(const qint64& partID, const QString& uniqueIdentif
     }
 }
 
-Attachment SmsPlugin::createAttachmentFromUrl(const QString& url)
+Attachment SmsPlugin::createAttachmentFromUrl(const QString &url)
 {
     QFile file(url);
     file.open(QIODevice::ReadOnly);
@@ -238,7 +231,6 @@ Attachment SmsPlugin::createAttachmentFromUrl(const QString& url)
     return attachment;
 }
 
-
 QString SmsPlugin::dbusPath() const
 {
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/sms");
@@ -246,8 +238,7 @@ QString SmsPlugin::dbusPath() const
 
 void SmsPlugin::launchApp()
 {
-    QProcess::startDetached(QLatin1String("kdeconnect-sms"), { QStringLiteral("--device"), device()->id() });
+    QProcess::startDetached(QLatin1String("kdeconnect-sms"), {QStringLiteral("--device"), device()->id()});
 }
 
 #include "smsplugin.moc"
-

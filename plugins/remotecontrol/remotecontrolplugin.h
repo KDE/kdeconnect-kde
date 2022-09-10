@@ -13,22 +13,26 @@
 
 #define PACKET_TYPE_MOUSEPAD_REQUEST QStringLiteral("kdeconnect.mousepad.request")
 
-class Q_DECL_EXPORT RemoteControlPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT RemoteControlPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotecontrol")
 
 public:
-    explicit RemoteControlPlugin(QObject* parent, const QVariantList &args);
+    explicit RemoteControlPlugin(QObject *parent, const QVariantList &args);
     ~RemoteControlPlugin() override;
 
-    bool receivePacket(const NetworkPacket& /*np*/) override { return false; }
-    void connected() override {}
+    bool receivePacket(const NetworkPacket & /*np*/) override
+    {
+        return false;
+    }
+    void connected() override
+    {
+    }
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void moveCursor(const QPoint &p);
-    Q_SCRIPTABLE void sendCommand(const QVariantMap& body);
+    Q_SCRIPTABLE void sendCommand(const QVariantMap &body);
 };
 
 #endif

@@ -9,13 +9,12 @@
 
 #include <QAbstractItemModel>
 #include <QAbstractListModel>
-#include <QPixmap>
 #include <QList>
+#include <QPixmap>
 
 #include "dbusinterfaces.h"
 
-class KDECONNECTINTERFACES_EXPORT NotificationsModel
-    : public QAbstractListModel
+class KDECONNECTINTERFACES_EXPORT NotificationsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
@@ -24,10 +23,10 @@ class KDECONNECTINTERFACES_EXPORT NotificationsModel
 
 public:
     enum ModelRoles {
-        IconModelRole      = Qt::DecorationRole,
-        NameModelRole      = Qt::DisplayRole,
-        ContentModelRole   = Qt::UserRole,
-        AppNameModelRole   = Qt::UserRole + 1,
+        IconModelRole = Qt::DecorationRole,
+        NameModelRole = Qt::DisplayRole,
+        ContentModelRole = Qt::UserRole,
+        AppNameModelRole = Qt::UserRole + 1,
         IdModelRole,
         DismissableModelRole,
         RepliableModelRole,
@@ -37,16 +36,16 @@ public:
         TextModelRole
     };
 
-    explicit NotificationsModel(QObject* parent = nullptr);
+    explicit NotificationsModel(QObject *parent = nullptr);
     ~NotificationsModel() override;
 
     QString deviceId() const;
-    void setDeviceId(const QString& deviceId);
+    void setDeviceId(const QString &deviceId);
 
-    QVariant data(const QModelIndex& index, int role) const override;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    NotificationDbusInterface* getNotification(const QModelIndex& index) const;
+    NotificationDbusInterface *getNotification(const QModelIndex &index) const;
 
     Q_INVOKABLE bool isAnyDimissable() const;
     QHash<int, QByteArray> roleNames() const override;
@@ -55,21 +54,21 @@ public Q_SLOTS:
     void dismissAll();
 
 private Q_SLOTS:
-    void notificationAdded(const QString& id);
-    void notificationRemoved(const QString& id);
+    void notificationAdded(const QString &id);
+    void notificationRemoved(const QString &id);
     void notificationUpdated();
     void refreshNotificationList();
-    void receivedNotifications(QDBusPendingCallWatcher* watcher);
+    void receivedNotifications(QDBusPendingCallWatcher *watcher);
     void clearNotifications();
 
 Q_SIGNALS:
-    void deviceIdChanged(const QString& value);
+    void deviceIdChanged(const QString &value);
     void anyDismissableChanged();
     void rowsChanged();
 
 private:
-    DeviceNotificationsDbusInterface* m_dbusInterface;
-    QList<NotificationDbusInterface*> m_notificationList;
+    DeviceNotificationsDbusInterface *m_dbusInterface;
+    QList<NotificationDbusInterface *> m_notificationList;
     QString m_deviceId;
 };
 

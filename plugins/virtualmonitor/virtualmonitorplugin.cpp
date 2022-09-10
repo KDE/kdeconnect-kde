@@ -8,17 +8,17 @@
 
 #include <KPluginFactory>
 
+#include "plugin_virtualmonitor_debug.h"
 #include <QDesktopServices>
 #include <QGuiApplication>
 #include <QJsonArray>
 #include <QProcess>
 #include <QScreen>
-#include "plugin_virtualmonitor_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(VirtualMonitorPlugin, "kdeconnect_virtualmonitor.json")
 #define QS QLatin1String
 
-VirtualMonitorPlugin::VirtualMonitorPlugin(QObject* parent, const QVariantList& args)
+VirtualMonitorPlugin::VirtualMonitorPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
@@ -47,24 +47,24 @@ void VirtualMonitorPlugin::connected()
     auto screen = QGuiApplication::primaryScreen();
     auto resolution = screen->size();
     QString resolutionString = QString::number(resolution.width()) + QLatin1Char('x') + QString::number(resolution.height());
-    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR, {
-        { QS("resolutions"), QJsonArray {
-            QJsonObject {
-                { QS("resolution"), resolutionString },
-                { QS("scale"), screen->devicePixelRatio() },
-            }
-        } },
-    });
+    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR,
+                     {
+                         {QS("resolutions"),
+                          QJsonArray{QJsonObject{
+                              {QS("resolution"), resolutionString},
+                              {QS("scale"), screen->devicePixelRatio()},
+                          }}},
+                     });
     sendPacket(np);
 }
 
-bool VirtualMonitorPlugin::receivePacket(const NetworkPacket& received)
+bool VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
 {
     if (received.type() == PACKET_TYPE_VIRTUALMONITOR_REQUEST && received.has(QS("url"))) {
         QUrl url(received.get<QString>(QS("url")));
         if (!QDesktopServices::openUrl(url)) {
             qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Failed to open" << url.toDisplayString();
-            NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR, { { QS("failed"), 0 } });
+            NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR, {{QS("failed"), 0}});
             sendPacket(np);
         }
     } else if (received.type() == PACKET_TYPE_VIRTUALMONITOR) {
@@ -104,8 +104,17 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     m_process = new QProcess(this);
     m_process->setProgram(QS("krfb-virtualmonitor"));
     const double scale = m_remoteResolution.value(QLatin1String("scale")).toDouble();
-    m_process->setArguments({QS("--name"), device()->name(), QS("--resolution"), m_remoteResolution.value(QLatin1String("resolution")).toString(), QS("--scale"), QString::number(scale), QS("--password"), uuid.toString(), QS("--port"), port});
-    connect(m_process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [this] (int exitCode, QProcess::ExitStatus exitStatus) {
+    m_process->setArguments({QS("--name"),
+                             device()->name(),
+                             QS("--resolution"),
+                             m_remoteResolution.value(QLatin1String("resolution")).toString(),
+                             QS("--scale"),
+                             QString::number(scale),
+                             QS("--password"),
+                             uuid.toString(),
+                             QS("--port"),
+                             port});
+    connect(m_process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
         if (m_retries < 5 && (exitCode == 1 || exitStatus == QProcess::CrashExit)) {
             m_retries++;
             requestVirtualMonitor();
@@ -128,9 +137,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     url.setPassword(uuid.toString());
     url.setHost(device()->getLocalIpAddress().toString());
 
-    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST, {
-        { QS("url"), url.toEncoded() }
-    });
+    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST, {{QS("url"), url.toEncoded()}});
     sendPacket(np);
     return true;
 }

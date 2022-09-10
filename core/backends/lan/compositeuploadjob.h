@@ -8,42 +8,36 @@
 #define COMPOSITEUPLOADJOB_H
 
 #include "kdeconnectcore_export.h"
-#include <KCompositeJob>
 #include "server.h"
 #include "uploadjob.h"
+#include <KCompositeJob>
 
-class KDECONNECTCORE_EXPORT CompositeUploadJob
-    : public KCompositeJob
+class KDECONNECTCORE_EXPORT CompositeUploadJob : public KCompositeJob
 {
     Q_OBJECT
 
 public:
-    explicit CompositeUploadJob(const QString& deviceId, bool displayNotification);
-    
+    explicit CompositeUploadJob(const QString &deviceId, bool displayNotification);
+
     void start() override;
     QVariantMap transferInfo();
     bool isRunning();
-    bool addSubjob(KJob* job) override;
-    
+    bool addSubjob(KJob *job) override;
+
 private:
     bool startListening();
-    void emitDescription(const QString& currentFileName);
-    
+    void emitDescription(const QString &currentFileName);
+
 protected:
     bool doKill() override;
 
 private:
-    enum {
-        NoPortAvailable = UserDefinedError,
-        SendingNetworkPacketFailed,
-        SocketError,
-        SslError
-    };
-    
+    enum { NoPortAvailable = UserDefinedError, SendingNetworkPacketFailed, SocketError, SslError };
+
     Server *const m_server;
     QSslSocket *m_socket;
     quint16 m_port;
-    const QString& m_deviceId;
+    const QString &m_deviceId;
     bool m_running;
     int m_currentJobNum;
     int m_totalJobs;
@@ -57,12 +51,12 @@ private:
 
     const static quint16 MIN_PORT = 1739;
     const static quint16 MAX_PORT = 1764;
-    
+
 private Q_SLOTS:
     void newConnection();
     void socketDisconnected();
     void socketError(QAbstractSocket::SocketError socketError);
-    void sslError(const QList<QSslError>& errors);
+    void sslError(const QList<QSslError> &errors);
     void encrypted();
     void slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount);
     void slotResult(KJob *job) override;
@@ -70,4 +64,4 @@ private Q_SLOTS:
     void sendUpdatePacket();
 };
 
-#endif //COMPOSITEUPLOADJOB_H
+#endif // COMPOSITEUPLOADJOB_H

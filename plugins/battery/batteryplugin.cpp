@@ -9,8 +9,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <Solid/Device>
 #include <Solid/Battery>
+#include <Solid/Device>
 #include <Solid/Predicate>
 
 #include <core/daemon.h>
@@ -19,7 +19,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(BatteryPlugin, "kdeconnect_battery.json")
 
-BatteryPlugin::BatteryPlugin(QObject* parent, const QVariantList& args)
+BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
@@ -37,7 +37,7 @@ bool BatteryPlugin::isCharging() const
 void BatteryPlugin::connected()
 {
     // We've just connected. Request battery information from the remote device...
-    NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{QStringLiteral("request"),true}});
+    NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{QStringLiteral("request"), true}});
     sendPacket(np);
 
     // ...and then figure out whether we have any batteries
@@ -55,7 +55,7 @@ void BatteryPlugin::connected()
 
     // Ok, there's at least one. Let's assume it will remain attached (for most laptops
     // and desktops, this is a safe assumption).
-    const Solid::Battery* chosen = batteries.first().as<Solid::Battery>();
+    const Solid::Battery *chosen = batteries.first().as<Solid::Battery>();
 
     connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::slotChargeChanged);
     connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::slotChargeChanged);
@@ -79,7 +79,7 @@ void BatteryPlugin::slotChargeChanged()
     QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
 
     for (auto device : batteries) {
-        const Solid::Battery* battery = device.as<Solid::Battery>();
+        const Solid::Battery *battery = device.as<Solid::Battery>();
 
         // Don't look at batteries that can be easily detached
         if (battery->isPowerSupply()) {
@@ -97,7 +97,7 @@ void BatteryPlugin::slotChargeChanged()
     }
 
     // Load a new Battery object to represent the first device in the list
-    Solid::Battery* chosen = batteries.first().as<Solid::Battery>();
+    Solid::Battery *chosen = batteries.first().as<Solid::Battery>();
 
     // Prepare an outgoing network packet
     NetworkPacket status(PACKET_TYPE_BATTERY, {{}});
@@ -115,7 +115,7 @@ void BatteryPlugin::slotChargeChanged()
     sendPacket(status);
 }
 
-bool BatteryPlugin::receivePacket(const NetworkPacket& np)
+bool BatteryPlugin::receivePacket(const NetworkPacket &np)
 {
     m_isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
     m_charge = np.get<int>(QStringLiteral("currentCharge"), -1);
@@ -124,7 +124,10 @@ bool BatteryPlugin::receivePacket(const NetworkPacket& np)
     Q_EMIT refreshed(m_isCharging, m_charge);
 
     if (thresholdEvent == ThresholdBatteryLow && !m_isCharging) {
-        Daemon::instance()->sendSimpleNotification(QStringLiteral("batteryLow"), i18nc("device name: low battery", "%1: Low Battery", device()->name()), i18n("Battery at %1%", m_charge), QStringLiteral("battery-040"));
+        Daemon::instance()->sendSimpleNotification(QStringLiteral("batteryLow"),
+                                                   i18nc("device name: low battery", "%1: Low Battery", device()->name()),
+                                                   i18n("Battery at %1%", m_charge),
+                                                   QStringLiteral("battery-040"));
     }
 
     return true;

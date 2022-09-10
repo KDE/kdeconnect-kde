@@ -8,8 +8,8 @@
 #ifndef SENDFILEITEMACTION_H
 #define SENDFILEITEMACTION_H
 
-#include <KFileItemListProperties>
 #include <KAbstractFileItemActionPlugin>
+#include <KFileItemListProperties>
 
 class QAction;
 class KFileItemListProperties;
@@ -17,14 +17,13 @@ class QWidget;
 
 class SendFileItemAction : public KAbstractFileItemActionPlugin
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    SendFileItemAction(QObject* parent, const QVariantList& args);
-    QList< QAction* > actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget) override;
+    SendFileItemAction(QObject *parent, const QVariantList &args);
+    QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 
 private Q_SLOTS:
     void sendFile();
-
 };
 
 #endif // SENDFILEITEMACTION_H

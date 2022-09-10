@@ -6,7 +6,7 @@
 
 /**
  * Map used to determine that ASCII character is in GSM 03.38 7-bit alphabet.
- * 
+ *
  * Only allowed control characters are CR and LF but GSM alphabet has more of them.
  */
 bool gsm_ascii_map[] = {

@@ -7,8 +7,8 @@
 #ifndef PLUGINLOADER_H
 #define PLUGINLOADER_H
 
-#include <QObject>
 #include <QHash>
+#include <QObject>
 #include <QString>
 
 #include <KPluginMetaData>
@@ -21,24 +21,23 @@ class KPluginFactory;
 
 class KDECONNECTCORE_EXPORT PluginLoader
 {
-
 public:
-    static PluginLoader* instance();
+    static PluginLoader *instance();
 
     QStringList getPluginList() const;
-    KPluginMetaData getPluginInfo(const QString& name) const;
-    KdeConnectPlugin* instantiatePluginForDevice(const QString& name, Device* device) const;
+    KPluginMetaData getPluginInfo(const QString &name) const;
+    KdeConnectPlugin *instantiatePluginForDevice(const QString &name, Device *device) const;
 
     QStringList incomingCapabilities() const;
     QStringList outgoingCapabilities() const;
-    QSet<QString> pluginsForCapabilities(const QSet<QString>& incoming, const QSet<QString>& outgoing);
+    QSet<QString> pluginsForCapabilities(const QSet<QString> &incoming, const QSet<QString> &outgoing);
 
 private:
     PluginLoader();
 
     QHash<QString, KPluginMetaData> plugins;
 #ifdef SAILFISHOS
-    QHash<QString, KPluginFactory*> pluginsFactories;
+    QHash<QString, KPluginFactory *> pluginsFactories;
 #endif
 };
 

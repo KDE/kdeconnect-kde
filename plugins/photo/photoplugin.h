@@ -14,25 +14,26 @@ class QObject;
 #define PACKET_TYPE_PHOTO_REQUEST QStringLiteral("kdeconnect.photo.request")
 #define PACKET_TYPE_PHOTO QStringLiteral("kdeconnect.photo")
 
-class Q_DECL_EXPORT PhotoPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT PhotoPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.photo")
 
 public:
-    explicit PhotoPlugin(QObject* parent, const QVariantList& args);
+    explicit PhotoPlugin(QObject *parent, const QVariantList &args);
     ~PhotoPlugin() override;
 
-    Q_SCRIPTABLE void requestPhoto(const QString& url);
+    Q_SCRIPTABLE void requestPhoto(const QString &url);
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override {}
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
 
     QString dbusPath() const override;
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void photoReceived(const QString& url);
+    Q_SCRIPTABLE void photoReceived(const QString &url);
 
 private:
     QStringList requestedFiles;

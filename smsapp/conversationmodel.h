@@ -8,8 +8,8 @@
 #ifndef CONVERSATIONMODEL_H
 #define CONVERSATIONMODEL_H
 
-#include <QStandardItemModel>
 #include <QSet>
+#include <QStandardItemModel>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
@@ -17,8 +17,7 @@
 
 #define INVALID_THREAD_ID -1
 
-class ConversationModel
-    : public QStandardItemModel
+class ConversationModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY(qint64 threadId READ threadId WRITE setThreadId)
@@ -26,35 +25,41 @@ class ConversationModel
     Q_PROPERTY(QList<ConversationAddress> addressList READ addressList WRITE setAddressList)
 
 public:
-    ConversationModel(QObject* parent = nullptr);
+    ConversationModel(QObject *parent = nullptr);
     ~ConversationModel() override;
 
     enum Roles {
         FromMeRole = Qt::UserRole,
-        SenderRole,     // The sender of the message. Undefined if this is an outgoing message
+        SenderRole, // The sender of the message. Undefined if this is an outgoing message
         DateRole,
-        AvatarRole,     // URI to the avatar of the sender of the message. Undefined if outgoing.
+        AvatarRole, // URI to the avatar of the sender of the message. Undefined if outgoing.
         AttachmentsRole, // The list of attachments. Undefined if there is no attachment in a message
     };
 
     Q_ENUM(Roles)
 
     qint64 threadId() const;
-    void setThreadId(const qint64& threadId);
+    void setThreadId(const qint64 &threadId);
 
-    QString deviceId() const { return m_deviceId; }
-    void setDeviceId(const QString &/*deviceId*/);
+    QString deviceId() const
+    {
+        return m_deviceId;
+    }
+    void setDeviceId(const QString & /*deviceId*/);
 
-    QList<ConversationAddress> addressList() const { return m_addressList; }
-    void setAddressList(const QList<ConversationAddress>& addressList);
+    QList<ConversationAddress> addressList() const
+    {
+        return m_addressList;
+    }
+    void setAddressList(const QList<ConversationAddress> &addressList);
 
-    Q_INVOKABLE bool sendReplyToConversation(const QString& textMessage, QList<QUrl> attachmentUrls);
-    Q_INVOKABLE bool startNewConversation(const QString& textMessage, const QList<ConversationAddress>& addressList, QList<QUrl> attachmentUrls);
-    Q_INVOKABLE void requestMoreMessages(const quint32& howMany = 10);
+    Q_INVOKABLE bool sendReplyToConversation(const QString &textMessage, QList<QUrl> attachmentUrls);
+    Q_INVOKABLE bool startNewConversation(const QString &textMessage, const QList<ConversationAddress> &addressList, QList<QUrl> attachmentUrls);
+    Q_INVOKABLE void requestMoreMessages(const quint32 &howMany = 10);
 
-    Q_INVOKABLE QString getCharCountInfo(const QString& message) const;
+    Q_INVOKABLE QString getCharCountInfo(const QString &message) const;
 
-    Q_INVOKABLE void requestAttachmentPath(const qint64& partID, const QString& UniqueIdentifier);
+    Q_INVOKABLE void requestAttachmentPath(const qint64 &partID, const QString &UniqueIdentifier);
 
 Q_SIGNALS:
     void loadingFinished();
@@ -68,8 +73,8 @@ private Q_SLOTS:
 private:
     void createRowFromMessage(const ConversationMessage &message, int pos);
 
-    DeviceConversationsDbusInterface* m_conversationsInterface;
-    ThumbnailsProvider* m_thumbnailsProvider;
+    DeviceConversationsDbusInterface *m_conversationsInterface;
+    ThumbnailsProvider *m_thumbnailsProvider;
     QString m_deviceId;
     qint64 m_threadId = INVALID_THREAD_ID;
     QList<ConversationAddress> m_addressList;

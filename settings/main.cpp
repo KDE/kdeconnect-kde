@@ -6,17 +6,17 @@
 
 #include <QApplication>
 #include <QCommandLineParser>
-#include <QStyle>
 #include <QStandardPaths>
+#include <QStyle>
 
-#include <KCMultiDialog>
-#include <KAboutData>
-#include <KLocalizedString>
-#include <KDBusService>
-#include <KWindowSystem>
 #include "kdeconnect-version.h"
+#include <KAboutData>
+#include <KCMultiDialog>
+#include <KDBusService>
+#include <KLocalizedString>
+#include <KWindowSystem>
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
@@ -41,13 +41,13 @@ int main(int argc, char** argv)
 
     KDBusService dbusService(KDBusService::Unique);
 
-    KCMultiDialog* dialog = new KCMultiDialog;
+    KCMultiDialog *dialog = new KCMultiDialog;
     dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
 
-    QObject::connect(&dbusService, &KDBusService::activateRequested, dialog, [dialog](const QStringList &args, const QString &/*workingDir*/) {
+    QObject::connect(&dbusService, &KDBusService::activateRequested, dialog, [dialog](const QStringList &args, const QString & /*workingDir*/) {
         KWindowSystem::updateStartupId(dialog->windowHandle());
         KWindowSystem::activateWindow(dialog->windowHandle());
 
@@ -63,4 +63,3 @@ int main(int argc, char** argv)
 
     return app.exec();
 }
-

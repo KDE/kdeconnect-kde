@@ -9,16 +9,16 @@
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
-namespace Ui {
-    class PauseMusicConfigUi;
+namespace Ui
+{
+class PauseMusicConfigUi;
 }
 
-class PauseMusicConfig
-    : public KdeConnectPluginKcm
+class PauseMusicConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    PauseMusicConfig(QWidget* parent, const QVariantList&);
+    PauseMusicConfig(QWidget *parent, const QVariantList &);
     ~PauseMusicConfig() override;
 
 public Q_SLOTS:
@@ -27,8 +27,7 @@ public Q_SLOTS:
     void defaults() override;
 
 private:
-    Ui::PauseMusicConfigUi* m_ui;
-
+    Ui::PauseMusicConfigUi *m_ui;
 };
 
 #endif

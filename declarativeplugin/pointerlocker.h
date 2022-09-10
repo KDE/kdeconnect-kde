@@ -16,9 +16,12 @@ class AbstractPointerLocker : public QObject
     Q_PROPERTY(bool isSupported READ isSupported NOTIFY supportedChanged)
     Q_PROPERTY(bool isLocked READ isLocked WRITE setLocked NOTIFY lockedChanged)
     Q_PROPERTY(bool isLockEffective READ isLockEffective NOTIFY lockEffectiveChanged)
-    Q_PROPERTY(QWindow* window READ window WRITE setWindow NOTIFY windowChanged)
+    Q_PROPERTY(QWindow *window READ window WRITE setWindow NOTIFY windowChanged)
 public:
-    AbstractPointerLocker(QObject *parent = nullptr) : QObject(parent) {}
+    AbstractPointerLocker(QObject *parent = nullptr)
+        : QObject(parent)
+    {
+    }
 
     virtual void setLocked(bool locked) = 0;
     virtual bool isLocked() const = 0;
@@ -26,7 +29,8 @@ public:
     virtual bool isSupported() const = 0;
 
     virtual void setWindow(QWindow *window);
-    QWindow *window() const {
+    QWindow *window() const
+    {
         return m_window;
     }
 
@@ -50,15 +54,20 @@ public:
 
     void setLocked(bool locked) override;
     bool isLocked() const override;
-    bool isSupported() const override { return true; }
-    bool isLockEffective() const override { return isLocked(); }
+    bool isSupported() const override
+    {
+        return true;
+    }
+    bool isLockEffective() const override
+    {
+        return isLocked();
+    }
 
 private:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
     QPoint m_originalPosition;
     bool m_isLocked = false;
-
 };
 
 #endif

@@ -11,13 +11,13 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include "attachmentinfo.h"
 #include "interfaces/conversationmessage.h"
 #include "smshelper.h"
-#include "attachmentinfo.h"
 
 #include "sms_conversation_debug.h"
 
-ConversationModel::ConversationModel(QObject* parent)
+ConversationModel::ConversationModel(QObject *parent)
     : QStandardItemModel(parent)
     , m_conversationsInterface(nullptr)
 {
@@ -39,7 +39,7 @@ qint64 ConversationModel::threadId() const
     return m_threadId;
 }
 
-void ConversationModel::setThreadId(const qint64& threadId)
+void ConversationModel::setThreadId(const qint64 &threadId)
 {
     if (m_threadId == threadId)
         return;
@@ -53,12 +53,13 @@ void ConversationModel::setThreadId(const qint64& threadId)
     }
 }
 
-void ConversationModel::setDeviceId(const QString& deviceId)
+void ConversationModel::setDeviceId(const QString &deviceId)
 {
     if (deviceId == m_deviceId)
         return;
 
-    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
+    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId"
+                                               << "of" << this;
     if (m_conversationsInterface) {
         disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
         disconnect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
@@ -75,21 +76,22 @@ void ConversationModel::setDeviceId(const QString& deviceId)
 
     connect(m_conversationsInterface, SIGNAL(attachmentReceived(QString, QString)), this, SIGNAL(filePathReceived(QString, QString)));
 
-    QQmlApplicationEngine* engine = qobject_cast<QQmlApplicationEngine*>(QQmlEngine::contextForObject(this)->engine());
-    m_thumbnailsProvider = dynamic_cast<ThumbnailsProvider*>(engine->imageProvider(QStringLiteral("thumbnailsProvider")));
+    QQmlApplicationEngine *engine = qobject_cast<QQmlApplicationEngine *>(QQmlEngine::contextForObject(this)->engine());
+    m_thumbnailsProvider = dynamic_cast<ThumbnailsProvider *>(engine->imageProvider(QStringLiteral("thumbnailsProvider")));
 
     // Clear any previous data on device change
     m_thumbnailsProvider->clear();
 }
 
-void ConversationModel::setAddressList(const QList<ConversationAddress>& addressList) {
+void ConversationModel::setAddressList(const QList<ConversationAddress> &addressList)
+{
     m_addressList = addressList;
 }
 
-bool ConversationModel::sendReplyToConversation(const QString& textMessage, QList<QUrl> attachmentUrls)
+bool ConversationModel::sendReplyToConversation(const QString &textMessage, QList<QUrl> attachmentUrls)
 {
     QVariantList fileUrls;
-    for (const auto& url : attachmentUrls) {
+    for (const auto &url : attachmentUrls) {
         fileUrls << QVariant::fromValue(url.toLocalFile());
     }
 
@@ -97,16 +99,16 @@ bool ConversationModel::sendReplyToConversation(const QString& textMessage, QLis
     return true;
 }
 
-bool ConversationModel::startNewConversation(const QString& textMessage, const QList<ConversationAddress>& addressList, QList<QUrl> attachmentUrls)
+bool ConversationModel::startNewConversation(const QString &textMessage, const QList<ConversationAddress> &addressList, QList<QUrl> attachmentUrls)
 {
     QVariantList addresses;
 
-    for (const auto& address : addressList) {
+    for (const auto &address : addressList) {
         addresses << QVariant::fromValue(address);
     }
 
     QVariantList fileUrls;
-    for (const auto& url : attachmentUrls) {
+    for (const auto &url : attachmentUrls) {
         fileUrls << QVariant::fromValue(url.toLocalFile());
     }
 
@@ -114,41 +116,36 @@ bool ConversationModel::startNewConversation(const QString& textMessage, const Q
     return true;
 }
 
-void ConversationModel::requestMoreMessages(const quint32& howMany)
+void ConversationModel::requestMoreMessages(const quint32 &howMany)
 {
     if (m_threadId == INVALID_THREAD_ID) {
         return;
     }
-    const auto& numMessages = knownMessageIDs.size();
+    const auto &numMessages = knownMessageIDs.size();
     m_conversationsInterface->requestConversation(m_threadId, numMessages, numMessages + howMany);
 }
 
-void ConversationModel::createRowFromMessage(const ConversationMessage& message, int pos)
+void ConversationModel::createRowFromMessage(const ConversationMessage &message, int pos)
 {
     if (message.threadID() != m_threadId) {
         // Because of the asynchronous nature of the current implementation of this model, if the
         // user clicks quickly between threads or for some other reason a message comes when we're
         // not expecting it, we should not display it in the wrong place
-        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
-                << "Got a message for a thread" << message.threadID()
-                << "but we are currently viewing" << m_threadId
-                << "Discarding.";
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Got a message for a thread" << message.threadID() << "but we are currently viewing" << m_threadId
+                                                   << "Discarding.";
         return;
     }
 
     if (knownMessageIDs.contains(message.uID())) {
-        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
-                << "Ignoring duplicate message with ID" << message.uID();
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Ignoring duplicate message with ID" << message.uID();
         return;
     }
 
     ConversationAddress sender;
     if (!message.addresses().isEmpty()) {
         sender = message.addresses().first();
-    }
-    else {
-        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
-            << "Conversation with ID " << message.threadID() << " did not have any addresses";
+    } else {
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Conversation with ID " << message.threadID() << " did not have any addresses";
     }
 
     QString senderName = message.isIncoming() ? SmsHelper::getTitleForAddresses({sender}) : QString();
@@ -163,7 +160,7 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
     QList<QVariant> attachmentInfoList;
     const QList<Attachment> attachmentList = message.attachments();
 
-    for (const Attachment& attachment : attachmentList) {
+    for (const Attachment &attachment : attachmentList) {
         AttachmentInfo attachmentInfo(attachment);
         attachmentInfoList.append(QVariant::fromValue(attachmentInfo));
 
@@ -183,25 +180,24 @@ void ConversationModel::createRowFromMessage(const ConversationMessage& message,
     knownMessageIDs.insert(message.uID());
 }
 
-void ConversationModel::handleConversationUpdate(const QDBusVariant& msg)
+void ConversationModel::handleConversationUpdate(const QDBusVariant &msg)
 {
     ConversationMessage message = ConversationMessage::fromDBus(msg);
 
     if (message.threadID() != m_threadId) {
         // If a conversation which we are not currently viewing was updated, discard the information
-        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL)
-                << "Saw update for thread" << message.threadID()
-                << "but we are currently viewing" << m_threadId;
+        qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Saw update for thread" << message.threadID() << "but we are currently viewing" << m_threadId;
         return;
     }
     createRowFromMessage(message, 0);
 }
 
-void ConversationModel::handleConversationCreated(const QDBusVariant& msg)
+void ConversationModel::handleConversationCreated(const QDBusVariant &msg)
 {
     ConversationMessage message = ConversationMessage::fromDBus(msg);
 
-    if (m_threadId == INVALID_THREAD_ID && SmsHelper::isPhoneNumberMatch(m_addressList[0].address(), message.addresses().first().address()) && !message.isMultitarget()) {
+    if (m_threadId == INVALID_THREAD_ID && SmsHelper::isPhoneNumberMatch(m_addressList[0].address(), message.addresses().first().address())
+        && !message.isMultitarget()) {
         m_threadId = message.threadID();
         createRowFromMessage(message, 0);
     }
@@ -218,7 +214,7 @@ void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMes
     Q_EMIT loadingFinished();
 }
 
-QString ConversationModel::getCharCountInfo(const QString& message) const
+QString ConversationModel::getCharCountInfo(const QString &message) const
 {
     SmsCharCount count = SmsHelper::getCharCount(message);
 
@@ -229,14 +225,13 @@ QString ConversationModel::getCharCountInfo(const QString& message) const
     if (count.messages == 1 && count.remaining < 10) {
         // Show only remaining char count
         return QString::number(count.remaining);
-    }
-    else {
+    } else {
         // Do not show anything
         return QString();
     }
 }
 
-void ConversationModel::requestAttachmentPath(const qint64& partID, const QString& uniqueIdentifier)
+void ConversationModel::requestAttachmentPath(const qint64 &partID, const QString &uniqueIdentifier)
 {
     m_conversationsInterface->requestAttachmentFile(partID, uniqueIdentifier);
 }

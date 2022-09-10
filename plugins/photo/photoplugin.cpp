@@ -10,12 +10,12 @@
 
 #include <QDebug>
 
-#include <core/filetransferjob.h>
 #include "plugin_photo_debug.h"
+#include <core/filetransferjob.h>
 
 K_PLUGIN_CLASS_WITH_JSON(PhotoPlugin, "kdeconnect_photo.json")
 
-PhotoPlugin::PhotoPlugin(QObject* parent, const QVariantList& args)
+PhotoPlugin::PhotoPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
@@ -24,9 +24,8 @@ PhotoPlugin::~PhotoPlugin()
 {
 }
 
-bool PhotoPlugin::receivePacket(const NetworkPacket& np)
+bool PhotoPlugin::receivePacket(const NetworkPacket &np)
 {
-
     if (np.get<bool>(QStringLiteral("cancel"))) {
         requestedFiles.takeFirst();
     }
@@ -36,7 +35,7 @@ bool PhotoPlugin::receivePacket(const NetworkPacket& np)
     }
 
     const QString url = requestedFiles.takeFirst();
-    FileTransferJob* job = np.createPayloadTransferJob(QUrl(url));
+    FileTransferJob *job = np.createPayloadTransferJob(QUrl(url));
     connect(job, &FileTransferJob::result, this, [this, url] {
         Q_EMIT photoReceived(url);
     });
@@ -44,7 +43,7 @@ bool PhotoPlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void PhotoPlugin::requestPhoto(const QString& url)
+void PhotoPlugin::requestPhoto(const QString &url)
 {
     requestedFiles.append(url);
     NetworkPacket np(PACKET_TYPE_PHOTO_REQUEST);
@@ -57,4 +56,3 @@ QString PhotoPlugin::dbusPath() const
 }
 
 #include "photoplugin.moc"
-

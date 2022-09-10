@@ -7,8 +7,8 @@
 #ifndef CLIPBOARDPLUGIN_H
 #define CLIPBOARDPLUGIN_H
 
-#include <QObject>
 #include <QClipboard>
+#include <QObject>
 #include <core/kdeconnectplugin.h>
 
 /**
@@ -36,20 +36,18 @@
  */
 #define PACKET_TYPE_CLIPBOARD_CONNECT QStringLiteral("kdeconnect.clipboard.connect")
 
-class ClipboardPlugin
-    : public KdeConnectPlugin
+class ClipboardPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit ClipboardPlugin(QObject* parent, const QVariantList& args);
+    explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 private Q_SLOTS:
-    void propagateClipboard(const QString& content);
+    void propagateClipboard(const QString &content);
     void sendConnectPacket();
-
 };
 
 #endif

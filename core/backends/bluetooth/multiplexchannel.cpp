@@ -5,10 +5,12 @@
  */
 
 #include "multiplexchannel.h"
-#include "multiplexchannelstate.h"
 #include "core_debug.h"
+#include "multiplexchannelstate.h"
 
-MultiplexChannel::MultiplexChannel(QSharedPointer<MultiplexChannelState> state) : state{state} {
+MultiplexChannel::MultiplexChannel(QSharedPointer<MultiplexChannelState> state)
+    : state{state}
+{
     QIODevice::open(QIODevice::ReadWrite);
 
     connect(this, &QIODevice::aboutToClose, state.data(), &MultiplexChannelState::requestClose);
@@ -17,13 +19,17 @@ MultiplexChannel::MultiplexChannel(QSharedPointer<MultiplexChannelState> state) 
     connect(state.data(), &MultiplexChannelState::disconnected, this, &MultiplexChannel::disconnect);
 }
 
-MultiplexChannel::~MultiplexChannel() {}
+MultiplexChannel::~MultiplexChannel()
+{
+}
 
-bool MultiplexChannel::atEnd() const {
+bool MultiplexChannel::atEnd() const
+{
     return !isOpen() || (!state->connected && state->read_buffer.isEmpty());
 }
 
-void MultiplexChannel::disconnect() {
+void MultiplexChannel::disconnect()
+{
     state->connected = false;
     setOpenMode(QIODevice::ReadOnly);
     Q_EMIT state->readyRead();
@@ -33,15 +39,18 @@ void MultiplexChannel::disconnect() {
     }
 }
 
-qint64 MultiplexChannel::bytesAvailable() const {
+qint64 MultiplexChannel::bytesAvailable() const
+{
     return state->read_buffer.size() + QIODevice::bytesAvailable();
 }
 
-qint64 MultiplexChannel::bytesToWrite() const {
+qint64 MultiplexChannel::bytesToWrite() const
+{
     return state->write_buffer.size() + QIODevice::bytesToWrite();
 }
 
-qint64 MultiplexChannel::readData(char* data, qint64 maxlen) {
+qint64 MultiplexChannel::readData(char *data, qint64 maxlen)
+{
     if (maxlen <= state->read_buffer.size()) {
         for (int i = 0; i < maxlen; ++i) {
             data[i] = state->read_buffer[i];
@@ -74,16 +83,19 @@ qint64 MultiplexChannel::readData(char* data, qint64 maxlen) {
     }
 }
 
-qint64 MultiplexChannel::writeData(const char* data, qint64 len) {
+qint64 MultiplexChannel::writeData(const char *data, qint64 len)
+{
     state->write_buffer.append(data, len);
     Q_EMIT state->writeAvailable();
     return len;
 }
 
-bool MultiplexChannel::canReadLine() const {
+bool MultiplexChannel::canReadLine() const
+{
     return isReadable() && (QIODevice::canReadLine() || state->read_buffer.contains('\n'));
 }
 
-bool MultiplexChannel::isSequential() const {
+bool MultiplexChannel::isSequential() const
+{
     return true;
 }

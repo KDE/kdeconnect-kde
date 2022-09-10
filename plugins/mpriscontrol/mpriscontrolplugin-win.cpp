@@ -22,18 +22,21 @@ using namespace Windows::Foundation;
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
 
-MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args) : KdeConnectPlugin(parent, args) {
+MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
+{
     sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
-    sessionManager->SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs){
+    sessionManager->SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
         this->updatePlayerList();
     });
     this->updatePlayerList();
 }
 
-std::optional<QString> MprisControlPlugin::getPlayerName(GlobalSystemMediaTransportControlsSession const& player) {
+std::optional<QString> MprisControlPlugin::getPlayerName(GlobalSystemMediaTransportControlsSession const &player)
+{
     auto entry = std::find(this->playerList.constBegin(), this->playerList.constEnd(), player);
 
-    if(entry == this->playerList.constEnd()) {
+    if (entry == this->playerList.constEnd()) {
         qCWarning(KDECONNECT_PLUGIN_MPRIS) << "PlaybackInfoChanged received for no longer tracked session" << player.SourceAppUserModelId().c_str();
         return std::nullopt;
     }
@@ -41,23 +44,25 @@ std::optional<QString> MprisControlPlugin::getPlayerName(GlobalSystemMediaTransp
     return entry.key();
 }
 
-QString MprisControlPlugin::randomUrl() {
+QString MprisControlPlugin::randomUrl()
+{
     const QString VALID_CHARS = QStringLiteral("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution(0,VALID_CHARS.size() - 1);
-    
+    std::uniform_int_distribution<int> distribution(0, VALID_CHARS.size() - 1);
+
     const int size = 10;
     QString fileUrl(size, QChar());
-    for(int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {
         fileUrl[i] = VALID_CHARS[distribution(generator)];
     }
 
     return QStringLiteral("file://") + fileUrl;
 }
 
-void MprisControlPlugin::sendMediaProperties(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player) {
+void MprisControlPlugin::sendMediaProperties(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player)
+{
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
 
     auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
@@ -66,21 +71,24 @@ void MprisControlPlugin::sendMediaProperties(std::variant<NetworkPacket, QString
     np.set(QStringLiteral("artist"), QString::fromWCharArray(mediaProperties.Artist().c_str()));
     np.set(QStringLiteral("album"), QString::fromWCharArray(mediaProperties.AlbumTitle().c_str()));
     np.set(QStringLiteral("albumArtUrl"), randomUrl());
-    np.set(QStringLiteral("nowPlaying"), mediaProperties.Artist().empty() ?  QString::fromWCharArray(mediaProperties.Title().c_str()) : (QString::fromWCharArray(mediaProperties.Artist().c_str()) + QStringLiteral(" - ") + QString::fromWCharArray(mediaProperties.Title().c_str())));
-    
+    np.set(QStringLiteral("nowPlaying"),
+           mediaProperties.Artist().empty() ? QString::fromWCharArray(mediaProperties.Title().c_str())
+                                            : (QString::fromWCharArray(mediaProperties.Artist().c_str()) + QStringLiteral(" - ")
+                                               + QString::fromWCharArray(mediaProperties.Title().c_str())));
+
     np.set(QStringLiteral("url"), QString());
     sendTimelineProperties(np, player, true); // "length"
 
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         sendPacket(np);
 }
 
-void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player) {
-    
+void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player)
+{
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
-    
+
     sendMediaProperties(np, player);
 
     auto playbackInfo = player.GetPlaybackInfo();
@@ -100,49 +108,55 @@ void MprisControlPlugin::sendPlaybackInfo(std::variant<NetworkPacket, QString> c
 
     if (playbackInfo.AutoRepeatMode()) {
         QString loopStatus;
-        switch(playbackInfo.AutoRepeatMode().Value()) {
-            case Windows::Media::MediaPlaybackAutoRepeatMode::List: {
-                loopStatus = QStringLiteral("Playlist");
-                break;
-                }
-            case Windows::Media::MediaPlaybackAutoRepeatMode::Track: {
-                loopStatus = QStringLiteral("Track");
-                break;
-                }
-            default: {
-                loopStatus = QStringLiteral("None");
-                break;
-                }
+        switch (playbackInfo.AutoRepeatMode().Value()) {
+        case Windows::Media::MediaPlaybackAutoRepeatMode::List: {
+            loopStatus = QStringLiteral("Playlist");
+            break;
+        }
+        case Windows::Media::MediaPlaybackAutoRepeatMode::Track: {
+            loopStatus = QStringLiteral("Track");
+            break;
+        }
+        default: {
+            loopStatus = QStringLiteral("None");
+            break;
+        }
         }
         np.set(QStringLiteral("loopStatus"), loopStatus);
     }
 
     sendTimelineProperties(np, player);
 
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         sendPacket(np);
 }
 
-void MprisControlPlugin::sendTimelineProperties(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player, bool lengthOnly) {
+void MprisControlPlugin::sendTimelineProperties(std::variant<NetworkPacket, QString> const &packetOrName,
+                                                GlobalSystemMediaTransportControlsSession const &player,
+                                                bool lengthOnly)
+{
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
 
     auto timelineProperties = player.GetTimelineProperties();
 
-    if(!lengthOnly){
+    if (!lengthOnly) {
         const auto playbackInfo = player.GetPlaybackInfo();
         const auto playbackControls = playbackInfo.Controls();
         np.set(QStringLiteral("canSeek"), playbackControls.IsPlaybackPositionEnabled());
-        np.set(QStringLiteral("pos"), std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.Position() - timelineProperties.StartTime()).count());
+        np.set(QStringLiteral("pos"),
+               std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.Position() - timelineProperties.StartTime()).count());
     }
-    np.set(QStringLiteral("length"), std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.EndTime() - timelineProperties.StartTime()).count());
+    np.set(QStringLiteral("length"),
+           std::chrono::duration_cast<std::chrono::milliseconds>(timelineProperties.EndTime() - timelineProperties.StartTime()).count());
 
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         sendPacket(np);
 }
 
-void MprisControlPlugin::updatePlayerList() {
+void MprisControlPlugin::updatePlayerList()
+{
     playerList.clear();
     playbackInfoChangedHandlers.clear();
     mediaPropertiesChangedHandlers.clear();
@@ -153,7 +167,7 @@ void MprisControlPlugin::updatePlayerList() {
     mediaPropertiesChangedHandlers.resize(sessions.Size());
     timelinePropertiesChangedHandlers.resize(sessions.Size());
 
-    for(uint32_t i = 0; i < sessions.Size(); i++) {
+    for (uint32_t i = 0; i < sessions.Size(); i++) {
         const auto player = sessions.GetAt(i);
         auto playerName = player.SourceAppUserModelId();
 
@@ -172,42 +186,51 @@ void MprisControlPlugin::updatePlayerList() {
 
         playerList.insert(uniqueName, player);
 
-        player.PlaybackInfoChanged(auto_revoke, [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args){
-            if(auto name = getPlayerName(player))
-                this->sendPlaybackInfo(name.value(), player);
-        }).swap(playbackInfoChangedHandlers[i]);
-        concurrency::create_task([this, player]{
+        player
+            .PlaybackInfoChanged(auto_revoke,
+                                 [this](GlobalSystemMediaTransportControlsSession player, PlaybackInfoChangedEventArgs args) {
+                                     if (auto name = getPlayerName(player))
+                                         this->sendPlaybackInfo(name.value(), player);
+                                 })
+            .swap(playbackInfoChangedHandlers[i]);
+        concurrency::create_task([this, player] {
             std::chrono::milliseconds timespan(50);
             std::this_thread::sleep_for(timespan);
 
-            if(auto name = getPlayerName(player))
+            if (auto name = getPlayerName(player))
                 this->sendPlaybackInfo(name.value(), player);
         });
 
-        if(auto name = getPlayerName(player))
+        if (auto name = getPlayerName(player))
             sendPlaybackInfo(name.value(), player);
 
-        player.MediaPropertiesChanged(auto_revoke, [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args){
-            if(auto name = getPlayerName(player))
-                this->sendMediaProperties(name.value(), player);
-        }).swap(mediaPropertiesChangedHandlers[i]);
-        concurrency::create_task([this, player]{
+        player
+            .MediaPropertiesChanged(auto_revoke,
+                                    [this](GlobalSystemMediaTransportControlsSession player, MediaPropertiesChangedEventArgs args) {
+                                        if (auto name = getPlayerName(player))
+                                            this->sendMediaProperties(name.value(), player);
+                                    })
+            .swap(mediaPropertiesChangedHandlers[i]);
+        concurrency::create_task([this, player] {
             std::chrono::milliseconds timespan(50);
             std::this_thread::sleep_for(timespan);
 
-            if(auto name = getPlayerName(player))
+            if (auto name = getPlayerName(player))
                 this->sendMediaProperties(name.value(), player);
         });
 
-        player.TimelinePropertiesChanged(auto_revoke, [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args){
-            if(auto name = getPlayerName(player))
-                this->sendTimelineProperties(name.value(), player);
-        }).swap(timelinePropertiesChangedHandlers[i]);
-        concurrency::create_task([this, player]{
+        player
+            .TimelinePropertiesChanged(auto_revoke,
+                                       [this](GlobalSystemMediaTransportControlsSession player, TimelinePropertiesChangedEventArgs args) {
+                                           if (auto name = getPlayerName(player))
+                                               this->sendTimelineProperties(name.value(), player);
+                                       })
+            .swap(timelinePropertiesChangedHandlers[i]);
+        concurrency::create_task([this, player] {
             std::chrono::milliseconds timespan(50);
             std::this_thread::sleep_for(timespan);
 
-            if(auto name = getPlayerName(player))
+            if (auto name = getPlayerName(player))
                 this->sendTimelineProperties(name.value(), player);
         });
     }
@@ -215,7 +238,8 @@ void MprisControlPlugin::updatePlayerList() {
     sendPlayerList();
 }
 
-void MprisControlPlugin::sendPlayerList() {
+void MprisControlPlugin::sendPlayerList()
+{
     NetworkPacket np(PACKET_TYPE_MPRIS);
 
     np.set(QStringLiteral("playerList"), playerList.keys());
@@ -224,35 +248,37 @@ void MprisControlPlugin::sendPlayerList() {
     sendPacket(np);
 }
 
-bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player, QString artUrl) {
+bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const &packetOrName,
+                                      GlobalSystemMediaTransportControlsSession const &player,
+                                      QString artUrl)
+{
     qWarning(KDECONNECT_PLUGIN_MPRIS) << "Sending Album Art";
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
-    if(packetOrName.index() == 1)
+    if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
-    
+
     auto thumbnail = player.TryGetMediaPropertiesAsync().get().Thumbnail();
-    if(thumbnail) {
+    if (thumbnail) {
         auto stream = thumbnail.OpenReadAsync().get();
-        if(stream && stream.CanRead()) {
+        if (stream && stream.CanRead()) {
             IBuffer data = Buffer(stream.Size());
             data = stream.ReadAsync(data, stream.Size(), InputStreamOptions::None).get();
             QSharedPointer<QBuffer> qdata = QSharedPointer<QBuffer>(new QBuffer());
-            qdata->setData((char*)data.data(), data.Capacity());
+            qdata->setData((char *)data.data(), data.Capacity());
 
             np.set(QStringLiteral("transferringAlbumArt"), true);
             np.set(QStringLiteral("albumArtUrl"), artUrl);
 
             np.setPayload(qdata, qdata->size());
 
-            if(packetOrName.index() == 1)
+            if (packetOrName.index() == 1)
                 sendPacket(np);
 
             return true;
         }
 
         return false;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -260,10 +286,10 @@ bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const
 bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("playerList"))) {
-        return false; //Whoever sent this is an mpris client and not an mpris control!
+        return false; // Whoever sent this is an mpris client and not an mpris control!
     }
 
-    //Send the player list
+    // Send the player list
     const QString name = np.get<QString>(QStringLiteral("player"));
     auto it = playerList.find(name);
     bool valid_player = (it != playerList.end());
@@ -281,27 +307,18 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
     }
 
     if (np.has(QStringLiteral("action"))) {
-        const QString& action = np.get<QString>(QStringLiteral("action"));
-        if(action == QStringLiteral("Next")) {
+        const QString &action = np.get<QString>(QStringLiteral("action"));
+        if (action == QStringLiteral("Next")) {
             player.TrySkipNextAsync().get();
-        }
-        else if(action == QStringLiteral("Previous")) {
+        } else if (action == QStringLiteral("Previous")) {
             player.TrySkipPreviousAsync().get();
-        }
-        else if (action == QStringLiteral("Pause"))
-        {
+        } else if (action == QStringLiteral("Pause")) {
             player.TryPauseAsync().get();
-        }
-        else if (action == QStringLiteral("PlayPause"))
-        {
+        } else if (action == QStringLiteral("PlayPause")) {
             player.TryTogglePlayPauseAsync().get();
-        }
-        else if (action == QStringLiteral("Stop"))
-        {
+        } else if (action == QStringLiteral("Stop")) {
             player.TryStopAsync().get();
-        }
-        else if (action == QStringLiteral("Play"))
-        {
+        } else if (action == QStringLiteral("Play")) {
             player.TryPlayAsync().get();
         }
     }
@@ -314,18 +331,16 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
         player.TryChangePlaybackPositionAsync((player.GetTimelineProperties().Position() + offset).count()).get();
     }
 
-    if (np.has(QStringLiteral("SetPosition"))){
+    if (np.has(QStringLiteral("SetPosition"))) {
         TimeSpan position = std::chrono::milliseconds(np.get<qlonglong>(QStringLiteral("SetPosition"), 0));
         player.TryChangePlaybackPositionAsync((player.GetTimelineProperties().StartTime() + position).count()).get();
     }
 
-    if (np.has(QStringLiteral("setShuffle")))
-    {
+    if (np.has(QStringLiteral("setShuffle"))) {
         player.TryChangeShuffleActiveAsync(np.get<bool>(QStringLiteral("setShuffle")));
     }
 
-    if (np.has(QStringLiteral("setLoopStatus")))
-    {
+    if (np.has(QStringLiteral("setLoopStatus"))) {
         QString loopStatus = np.get<QString>(QStringLiteral("setLoopStatus"));
         enum class winrt::Windows::Media::MediaPlaybackAutoRepeatMode loopStatusEnumVal;
         if (loopStatus == QStringLiteral("Track")) {
@@ -338,7 +353,7 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
         player.TryChangeAutoRepeatModeAsync(loopStatusEnumVal);
     }
 
-    //Send something read from the mpris interface
+    // Send something read from the mpris interface
     NetworkPacket answer(PACKET_TYPE_MPRIS);
     answer.set(QStringLiteral("player"), name);
     bool somethingToSend = false;

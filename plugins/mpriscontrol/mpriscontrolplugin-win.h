@@ -14,10 +14,10 @@
 #include <QHash>
 #include <vector>
 
+#include <winrt/Windows.ApplicationModel.h>
+#include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Media.Control.h>
 #include <winrt/Windows.Storage.Streams.h>
-#include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/Windows.ApplicationModel.h>
 
 using namespace winrt;
 using namespace Windows::Media::Control;
@@ -26,18 +26,19 @@ using namespace Windows::ApplicationModel;
 
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
-class Q_DECL_EXPORT MprisControlPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT MprisControlPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
-  public:
+public:
     explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override {}
+    void connected() override
+    {
+    }
 
-  private:
+private:
     std::optional<GlobalSystemMediaTransportControlsSessionManager> sessionManager;
     QHash<QString, GlobalSystemMediaTransportControlsSession> playerList;
 
@@ -45,14 +46,16 @@ class Q_DECL_EXPORT MprisControlPlugin
     std::vector<GlobalSystemMediaTransportControlsSession::MediaPropertiesChanged_revoker> mediaPropertiesChangedHandlers;
     std::vector<GlobalSystemMediaTransportControlsSession::TimelinePropertiesChanged_revoker> timelinePropertiesChangedHandlers;
 
-    std::optional<QString> getPlayerName(GlobalSystemMediaTransportControlsSession const& player);
-    void sendMediaProperties(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player);
-    void sendPlaybackInfo(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player);
-    void sendTimelineProperties(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player, bool lengthOnly = false);
+    std::optional<QString> getPlayerName(GlobalSystemMediaTransportControlsSession const &player);
+    void sendMediaProperties(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player);
+    void sendPlaybackInfo(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player);
+    void sendTimelineProperties(std::variant<NetworkPacket, QString> const &packetOrName,
+                                GlobalSystemMediaTransportControlsSession const &player,
+                                bool lengthOnly = false);
     void updatePlayerList();
     void sendPlayerList();
-    bool sendAlbumArt(std::variant<NetworkPacket, QString> const& packetOrName, GlobalSystemMediaTransportControlsSession const& player, QString artUrl);
+    bool sendAlbumArt(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player, QString artUrl);
 
     QString randomUrl();
 };
-#endif //MPRISCONTROLPLUGINWIN_H
+#endif // MPRISCONTROLPLUGINWIN_H

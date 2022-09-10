@@ -18,21 +18,22 @@
 
 #ifdef Q_OS_WIN
 #include <QUrl>
-    namespace processes {
-            const QString dbus_daemon = QStringLiteral("dbus-daemon.exe");
-            const QString kdeconnect_daemon = QStringLiteral("kdeconnectd.exe");
-            const QString kdeconnect_app = QStringLiteral("kdeconnect-app.exe");
-            const QString kdeconnect_handler = QStringLiteral("kdeconnect-handler.exe");
-            const QString kdeconnect_settings = QStringLiteral("kdeconnect-settings.exe");
-            const QString kdeconnect_sms = QStringLiteral("kdeconnect-sms.exe");
-    };
+namespace processes
+{
+const QString dbus_daemon = QStringLiteral("dbus-daemon.exe");
+const QString kdeconnect_daemon = QStringLiteral("kdeconnectd.exe");
+const QString kdeconnect_app = QStringLiteral("kdeconnect-app.exe");
+const QString kdeconnect_handler = QStringLiteral("kdeconnect-handler.exe");
+const QString kdeconnect_settings = QStringLiteral("kdeconnect-settings.exe");
+const QString kdeconnect_sms = QStringLiteral("kdeconnect-sms.exe");
+};
 #endif
 
 class IndicatorHelper
 {
 public:
 #ifdef Q_OS_WIN
-    IndicatorHelper(const QUrl& indicatorUrl);
+    IndicatorHelper(const QUrl &indicatorUrl);
 #else
     IndicatorHelper();
 #endif
@@ -66,7 +67,6 @@ private:
     bool terminateProcess(const QString &processName, const QUrl &indicatorUrl) const;
     QUrl m_indicatorUrl;
 #endif
-
 };
 
 #endif

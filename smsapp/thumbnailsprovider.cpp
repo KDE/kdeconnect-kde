@@ -6,11 +6,13 @@
 
 #include "thumbnailsprovider.h"
 
-ThumbnailsProvider::ThumbnailsProvider() : QQuickImageProvider(QQuickImageProvider::Image)
+ThumbnailsProvider::ThumbnailsProvider()
+    : QQuickImageProvider(QQuickImageProvider::Image)
 {
 }
 
-QImage ThumbnailsProvider::requestImage(const QString& id, QSize* size, const QSize& requestedSize) {
+QImage ThumbnailsProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize)
+{
     Q_UNUSED(size)
     Q_UNUSED(requestedSize)
 
@@ -21,10 +23,12 @@ QImage ThumbnailsProvider::requestImage(const QString& id, QSize* size, const QS
     return QImage();
 }
 
-void ThumbnailsProvider::addImage(const QString& id, const QImage& image) {
+void ThumbnailsProvider::addImage(const QString &id, const QImage &image)
+{
     m_thumbnails.insert(id, image);
 }
 
-void ThumbnailsProvider::clear() {
+void ThumbnailsProvider::clear()
+{
     m_thumbnails.clear();
 }

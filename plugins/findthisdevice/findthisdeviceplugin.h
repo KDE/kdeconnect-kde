@@ -14,8 +14,8 @@
 #include <Windows.h>
 #define INFO_BUFFER_SIZE 32767
 #else
-#include <QStandardPaths>
 #include <QFile>
+#include <QStandardPaths>
 #include <QUrl>
 #endif
 // Qt
@@ -23,19 +23,18 @@
 
 #define PACKET_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
 
-class FindThisDevicePlugin
-    : public KdeConnectPlugin
+class FindThisDevicePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.findthisdevice")
 
 public:
-    explicit FindThisDevicePlugin(QObject* parent, const QVariantList& args);
+    explicit FindThisDevicePlugin(QObject *parent, const QVariantList &args);
     ~FindThisDevicePlugin() override;
 
-    void connected() override {};
+    void connected() override{};
     QString dbusPath() const override;
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
 };
 
 inline QString defaultSound()
@@ -44,23 +43,19 @@ inline QString defaultSound()
     QUrl soundURL;
 #ifdef Q_OS_WIN
     wchar_t infoBuf[INFO_BUFFER_SIZE];
-    if(!GetWindowsDirectory(infoBuf, INFO_BUFFER_SIZE)) {
+    if (!GetWindowsDirectory(infoBuf, INFO_BUFFER_SIZE)) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Error with getting the Windows Directory.";
     } else {
         dirPath = QString::fromStdWString(infoBuf) + QStringLiteral("/media");
         if (!dirPath.isEmpty()) {
-            soundURL = QUrl::fromUserInput(QStringLiteral("Ring01.wav"),
-                                            dirPath,
-                                            QUrl::AssumeLocalFile);
+            soundURL = QUrl::fromUserInput(QStringLiteral("Ring01.wav"), dirPath, QUrl::AssumeLocalFile);
         }
     }
 #else
     const QStringList dataLocations = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
     for (const QString &dataLocation : dataLocations) {
         dirPath = dataLocation + QStringLiteral("/sounds");
-        soundURL = QUrl::fromUserInput(QStringLiteral("Oxygen-Im-Phone-Ring.ogg"),
-                                        dirPath,
-                                        QUrl::AssumeLocalFile);
+        soundURL = QUrl::fromUserInput(QStringLiteral("Oxygen-Im-Phone-Ring.ogg"), dirPath, QUrl::AssumeLocalFile);
         if ((soundURL.isLocalFile() && soundURL.isValid() && QFile::exists(soundURL.toLocalFile()))) {
             break;
         }
@@ -72,4 +67,4 @@ inline QString defaultSound()
     return soundURL.toLocalFile();
 }
 
-#endif //FINDTHISDEVICEPLUGIN_H
+#endif // FINDTHISDEVICEPLUGIN_H

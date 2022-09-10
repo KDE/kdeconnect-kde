@@ -8,27 +8,26 @@
 
 #include <KLocalizedString>
 
-#include <QFile>
-#include <QDebug>
-#include <QFileInfo>
-#include <QUuid>
-#include <QDir>
-#include <QStandardPaths>
 #include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
 #include <QHostInfo>
 #include <QSettings>
 #include <QSslCertificate>
-#include <QtCrypto>
+#include <QStandardPaths>
 #include <QThread>
+#include <QUuid>
+#include <QtCrypto>
 
 #include "core_debug.h"
-#include "dbushelper.h"
 #include "daemon.h"
+#include "dbushelper.h"
 
 const QFile::Permissions strictPermissions = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
 
 struct KdeConnectConfigPrivate {
-
     // The Initializer object sets things up, and also does cleanup when it goes out of scope
     // Note it's not being used anywhere. That's intended
     QCA::Initializer m_qcaInitializer;
@@ -36,15 +35,16 @@ struct KdeConnectConfigPrivate {
     QCA::PrivateKey m_privateKey;
     QSslCertificate m_certificate; // Use QSslCertificate instead of QCA::Certificate due to compatibility with QSslSocket
 
-    QSettings* m_config;
-    QSettings* m_trustedDevices;
+    QSettings *m_config;
+    QSettings *m_trustedDevices;
 
 #ifdef Q_OS_MAC
-    QString m_privateDBusAddress;  // Private DBus Address cache
+    QString m_privateDBusAddress; // Private DBus Address cache
 #endif
 };
 
-static QString getDefaultDeviceName() {
+static QString getDefaultDeviceName()
+{
 #ifdef SAILFISHOS
     const QString hwReleaseFile = QStringLiteral("/etc/hw-release");
     // QSettings will crash if the file does not exist or can be created, like in this case by us in /etc.
@@ -61,8 +61,7 @@ static QString getDefaultDeviceName() {
     return QHostInfo::localHostName();
 }
 
-
-KdeConnectConfig& KdeConnectConfig::instance()
+KdeConnectConfig &KdeConnectConfig::instance()
 {
     static KdeConnectConfig kcc;
     return kcc;
@@ -71,17 +70,16 @@ KdeConnectConfig& KdeConnectConfig::instance()
 KdeConnectConfig::KdeConnectConfig()
     : d(new KdeConnectConfigPrivate)
 {
-    //qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
-    if(!QCA::isSupported("rsa")) {
+    // qCDebug(KDECONNECT_CORE) << "QCA supported capabilities:" << QCA::supportedFeatures().join(",");
+    if (!QCA::isSupported("rsa")) {
         qCritical() << "Could not find support for RSA in your QCA installation";
-        Daemon::instance()->reportError(
-                             i18n("KDE Connect failed to start"),
-                             i18n("Could not find support for RSA in your QCA installation. If your "
-                                  "distribution provides separate packets for QCA-ossl and QCA-gnupg, "
-                                  "make sure you have them installed and try again."));
+        Daemon::instance()->reportError(i18n("KDE Connect failed to start"),
+                                        i18n("Could not find support for RSA in your QCA installation. If your "
+                                             "distribution provides separate packets for QCA-ossl and QCA-gnupg, "
+                                             "make sure you have them installed and try again."));
     }
 
-    //Make sure base directory exists
+    // Make sure base directory exists
     QDir().mkpath(baseConfigDir().path());
 
     //.config/kdeconnect/config
@@ -101,7 +99,7 @@ QString KdeConnectConfig::name()
     return d->m_config->value(QStringLiteral("name")).toString();
 }
 
-void KdeConnectConfig::setName(const QString& name)
+void KdeConnectConfig::setName(const QString &name)
 {
     d->m_config->setValue(QStringLiteral("name"), name);
     d->m_config->sync();
@@ -118,7 +116,7 @@ QString KdeConnectConfig::deviceType()
         return QStringLiteral("phone");
     } else if (platforms.contains("tablet")) {
         return QStringLiteral("tablet");
-    } else if(platforms.contains("mediacenter")) {
+    } else if (platforms.contains("mediacenter")) {
         return QStringLiteral("tv");
     }
 
@@ -157,12 +155,11 @@ QDir KdeConnectConfig::baseConfigDir()
 
 QStringList KdeConnectConfig::trustedDevices()
 {
-    const QStringList& list = d->m_trustedDevices->childGroups();
+    const QStringList &list = d->m_trustedDevices->childGroups();
     return list;
 }
 
-
-void KdeConnectConfig::addTrustedDevice(const QString& id, const QString& name, const QString& type)
+void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type)
 {
     d->m_trustedDevices->beginGroup(id);
     d->m_trustedDevices->setValue(QStringLiteral("name"), name);
@@ -173,7 +170,7 @@ void KdeConnectConfig::addTrustedDevice(const QString& id, const QString& name, 
     QDir().mkpath(deviceConfigDir(id).path());
 }
 
-KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString& id)
+KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
 {
     d->m_trustedDevices->beginGroup(id);
 
@@ -185,15 +182,15 @@ KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString& i
     return info;
 }
 
-void KdeConnectConfig::removeTrustedDevice(const QString& deviceId)
+void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)
 {
     d->m_trustedDevices->remove(deviceId);
     d->m_trustedDevices->sync();
-    //We do not remove the config files.
+    // We do not remove the config files.
 }
 
 // Utility functions to set and get a value
-void KdeConnectConfig::setDeviceProperty(const QString& deviceId, const QString& key, const QString& value)
+void KdeConnectConfig::setDeviceProperty(const QString &deviceId, const QString &key, const QString &value)
 {
     // do not store values for untrusted devices (it would make them trusted)
     if (!trustedDevices().contains(deviceId))
@@ -205,7 +202,7 @@ void KdeConnectConfig::setDeviceProperty(const QString& deviceId, const QString&
     d->m_trustedDevices->sync();
 }
 
-QString KdeConnectConfig::getDeviceProperty(const QString& deviceId, const QString& key, const QString& defaultValue)
+QString KdeConnectConfig::getDeviceProperty(const QString &deviceId, const QString &key, const QString &defaultValue)
 {
     QString value;
     d->m_trustedDevices->beginGroup(deviceId);
@@ -214,7 +211,7 @@ QString KdeConnectConfig::getDeviceProperty(const QString& deviceId, const QStri
     return value;
 }
 
-void KdeConnectConfig::setCustomDevices(const QStringList& addresses)
+void KdeConnectConfig::setCustomDevices(const QStringList &addresses)
 {
     d->m_config->setValue(QStringLiteral("customDevices"), addresses);
     d->m_config->sync();
@@ -225,13 +222,13 @@ QStringList KdeConnectConfig::customDevices() const
     return d->m_config->value(QStringLiteral("customDevices")).toStringList();
 }
 
-QDir KdeConnectConfig::deviceConfigDir(const QString& deviceId)
+QDir KdeConnectConfig::deviceConfigDir(const QString &deviceId)
 {
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     return QDir(deviceConfigPath);
 }
 
-QDir KdeConnectConfig::pluginConfigDir(const QString& deviceId, const QString& pluginName)
+QDir KdeConnectConfig::pluginConfigDir(const QString &deviceId, const QString &pluginName)
 {
     QString deviceConfigPath = baseConfigDir().absoluteFilePath(deviceId);
     QString pluginConfigDir = QDir(deviceConfigPath).absoluteFilePath(pluginName);
@@ -259,7 +256,7 @@ void KdeConnectConfig::loadPrivateKey()
         generatePrivateKey(keyPath);
     }
 
-    //Extra security check
+    // Extra security check
     if (QFile::permissions(keyPath) != strictPermissions) {
         qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect private key file has too open permissions " << keyPath;
     }
@@ -287,13 +284,13 @@ void KdeConnectConfig::loadCertificate()
         generateCertificate(certPath);
     }
 
-    //Extra security check
+    // Extra security check
     if (QFile::permissions(certPath) != strictPermissions) {
         qCWarning(KDECONNECT_CORE) << "Warning: KDE Connect certificate file has too open permissions " << certPath;
     }
 }
 
-void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
+void KdeConnectConfig::generatePrivateKey(const QString &keyPath)
 {
     qCDebug(KDECONNECT_CORE) << "Generating private key";
 
@@ -302,7 +299,7 @@ void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
     d->m_privateKey = QCA::KeyGenerator().createRSA(2048);
 
     QFile privKey(keyPath);
-    if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
+    if (!privKey.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
         error = true;
     } else {
         privKey.setPermissions(strictPermissions);
@@ -315,10 +312,9 @@ void KdeConnectConfig::generatePrivateKey(const QString& keyPath)
     if (error) {
         Daemon::instance()->reportError(QStringLiteral("KDE Connect"), i18n("Could not store private key file: %1", keyPath));
     }
-
 }
 
-void KdeConnectConfig::generateCertificate(const QString& certPath)
+void KdeConnectConfig::generateCertificate(const QString &certPath)
 {
     qCDebug(KDECONNECT_CORE) << "Generating certificate";
 
@@ -330,15 +326,16 @@ void KdeConnectConfig::generateCertificate(const QString& certPath)
 
     // FIXME: We only use QCA here to generate the cert and key, would be nice to get rid of it completely.
     // The same thing we are doing with QCA could be done invoking openssl (although it's potentially less portable):
-    // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
+    // openssl req -new -x509 -sha256 -newkey rsa:2048 -nodes -keyout privateKey.pem -days 3650 -out certificate.pem -subj "/O=KDE/OU=KDE
+    // Connect/CN=_e6e29ad4_2b31_4b6d_8f7a_9872dbaa9095_"
 
     QCA::CertificateOptions certificateOptions = QCA::CertificateOptions();
     QDateTime startTime = QDateTime::currentDateTime().addYears(-1);
     QDateTime endTime = startTime.addYears(10);
     QCA::CertificateInfo certificateInfo;
     certificateInfo.insert(QCA::CommonName, uuid);
-    certificateInfo.insert(QCA::Organization,QStringLiteral("KDE"));
-    certificateInfo.insert(QCA::OrganizationalUnit,QStringLiteral("Kde connect"));
+    certificateInfo.insert(QCA::Organization, QStringLiteral("KDE"));
+    certificateInfo.insert(QCA::OrganizationalUnit, QStringLiteral("Kde connect"));
     certificateOptions.setInfo(certificateInfo);
     certificateOptions.setFormat(QCA::PKCS10);
     certificateOptions.setSerialNumber(QCA::BigInteger(10));
@@ -347,7 +344,7 @@ void KdeConnectConfig::generateCertificate(const QString& certPath)
     d->m_certificate = QSslCertificate(QCA::Certificate(certificateOptions, d->m_privateKey).toPEM().toLatin1());
 
     QFile cert(certPath);
-    if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate))  {
+    if (!cert.open(QIODevice::ReadWrite | QIODevice::Truncate)) {
         error = true;
     } else {
         cert.setPermissions(strictPermissions);
@@ -370,7 +367,8 @@ QString KdeConnectConfig::privateDBusAddressPath()
 
 QString KdeConnectConfig::privateDBusAddress()
 {
-    if (d->m_privateDBusAddress.length() != 0) return d->m_privateDBusAddress;
+    if (d->m_privateDBusAddress.length() != 0)
+        return d->m_privateDBusAddress;
 
     QString dbusAddressPath = privateDBusAddressPath();
     QFile dbusAddressFile(dbusAddressPath);
@@ -386,11 +384,11 @@ QString KdeConnectConfig::privateDBusAddress()
 
     int retry = 0;
     QString addr = in.readLine();
-    while(addr.length() == 0 && retry < 5) {
+    while (addr.length() == 0 && retry < 5) {
         qCDebug(KDECONNECT_CORE) << "Retry reading private DBus address after 3s";
         QThread::sleep(3);
-        retry ++;
-        addr = in.readLine();   // Read until first not empty line
+        retry++;
+        addr = in.readLine(); // Read until first not empty line
     }
 
     if (addr.length() == 0) {

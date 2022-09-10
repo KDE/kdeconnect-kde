@@ -9,11 +9,11 @@
 #include "connectionmultiplexer.h"
 #include "multiplexchannel.h"
 
-#include <QBluetoothSocket>
 #include "core_debug.h"
+#include <QBluetoothSocket>
 #include <QCoreApplication>
 
-BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice>& data, ConnectionMultiplexer *connection, QObject* parent)
+BluetoothUploadJob::BluetoothUploadJob(const QSharedPointer<QIODevice> &data, ConnectionMultiplexer *connection, QObject *parent)
     : QObject(parent)
     , mData(data)
     , mTransferUuid(connection->newChannel())
@@ -32,14 +32,15 @@ void BluetoothUploadJob::start()
 {
     if (!mData->open(QIODevice::ReadOnly)) {
         qCWarning(KDECONNECT_CORE) << "error when opening the input to upload";
-        return; //TODO: Handle error, clean up...
+        return; // TODO: Handle error, clean up...
     }
     connect(mSocket.data(), &MultiplexChannel::bytesWritten, this, &BluetoothUploadJob::writeSome);
     connect(mSocket.data(), &MultiplexChannel::aboutToClose, this, &BluetoothUploadJob::closeConnection);
     writeSome();
 }
 
-void BluetoothUploadJob::writeSome() {
+void BluetoothUploadJob::writeSome()
+{
     bool errorOccurred = false;
     while (mSocket->bytesToWrite() == 0 && mData->bytesAvailable() && mSocket->isWritable()) {
         qint64 bytes = qMin<qint64>(mData->bytesAvailable(), 4096);
@@ -58,7 +59,8 @@ void BluetoothUploadJob::writeSome() {
     }
 }
 
-void BluetoothUploadJob::closeConnection() {
+void BluetoothUploadJob::closeConnection()
+{
     mData->close();
     deleteLater();
 }

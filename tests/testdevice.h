@@ -8,19 +8,19 @@
 #ifndef TESTDEVICE_H
 #define TESTDEVICE_H
 
-#include <QtCore>
 #include "core/device.h"
+#include <QtCore>
 
 // Tweaked Device for testing:
-class TestDevice: public Device
+class TestDevice : public Device
 {
     Q_OBJECT
 private:
     int sentPackets;
-    NetworkPacket* lastPacket;
+    NetworkPacket *lastPacket;
 
 public:
-    explicit TestDevice(QObject* parent, const QString& id);
+    explicit TestDevice(QObject *parent, const QString &id);
 
     ~TestDevice() override;
 
@@ -31,7 +31,7 @@ public:
         return sentPackets;
     }
 
-    NetworkPacket* getLastPacket()
+    NetworkPacket *getLastPacket()
     {
         return lastPacket;
     }
@@ -44,8 +44,7 @@ private:
     }
 
 public Q_SLOTS:
-    bool sendPacket(NetworkPacket& np) override;
-
+    bool sendPacket(NetworkPacket &np) override;
 };
 
 #endif

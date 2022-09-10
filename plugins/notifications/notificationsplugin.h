@@ -15,38 +15,37 @@
 #define PACKET_TYPE_NOTIFICATION_REPLY QStringLiteral("kdeconnect.notification.reply")
 #define PACKET_TYPE_NOTIFICATION_ACTION QStringLiteral("kdeconnect.notification.action")
 
-class NotificationsPlugin
-    : public KdeConnectPlugin
+class NotificationsPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.notifications")
 
 public:
-    explicit NotificationsPlugin(QObject* parent, const QVariantList& args);
+    explicit NotificationsPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
     QString dbusPath() const override;
 
     void clearNotifications();
-    void dismissRequested(const QString& notification);
-    void replyRequested(Notification* noti);
-    void addNotification(Notification* noti);
+    void dismissRequested(const QString &notification);
+    void replyRequested(Notification *noti);
+    void addNotification(Notification *noti);
 
 public Q_SLOTS:
     Q_SCRIPTABLE QStringList activeNotifications();
-    Q_SCRIPTABLE void sendReply(const QString& replyId, const QString& message);
-    Q_SCRIPTABLE void sendAction(const QString& key, const QString& action);
+    Q_SCRIPTABLE void sendReply(const QString &replyId, const QString &message);
+    Q_SCRIPTABLE void sendAction(const QString &key, const QString &action);
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void notificationPosted(const QString& publicId);
-    Q_SCRIPTABLE void notificationRemoved(const QString& publicId);
-    Q_SCRIPTABLE void notificationUpdated(const QString& publicId);
+    Q_SCRIPTABLE void notificationPosted(const QString &publicId);
+    Q_SCRIPTABLE void notificationRemoved(const QString &publicId);
+    Q_SCRIPTABLE void notificationUpdated(const QString &publicId);
     Q_SCRIPTABLE void allNotificationsRemoved();
 
 private:
-    void removeNotification(const QString& internalId);
-    QString newId(); //Generates successive identifiers to use as public ids
+    void removeNotification(const QString &internalId);
+    QString newId(); // Generates successive identifiers to use as public ids
     void notificationReady();
 
     QHash<QString, QPointer<Notification>> m_notifications;

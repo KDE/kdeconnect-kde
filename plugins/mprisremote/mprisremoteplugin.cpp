@@ -16,8 +16,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(MprisRemotePlugin, "kdeconnect_mprisremote.json")
 
-
-MprisRemotePlugin::MprisRemotePlugin(QObject* parent, const QVariantList& args)
+MprisRemotePlugin::MprisRemotePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_currentPlayer()
     , m_players()
@@ -28,15 +27,15 @@ MprisRemotePlugin::~MprisRemotePlugin()
 {
 }
 
-bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
+bool MprisRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() != PACKET_TYPE_MPRIS)
         return false;
 
     if (np.has(QStringLiteral("player"))) {
         const QString player = np.get<QString>(QStringLiteral("player"));
-        if(!m_players.contains(player)) {
-             m_players[player] = new MprisRemotePlayer(player, this);
+        if (!m_players.contains(player)) {
+            m_players[player] = new MprisRemotePlayer(player, this);
         }
         m_players[player]->parseNetworkPacket(np);
     }
@@ -44,7 +43,7 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
     if (np.has(QStringLiteral("playerList"))) {
         QStringList players = np.get<QStringList>(QStringLiteral("playerList"));
 
-        //Remove players not available any more
+        // Remove players not available any more
         for (auto iter = m_players.begin(); iter != m_players.end();) {
             if (!players.contains(iter.key())) {
                 iter.value()->deleteLater();
@@ -54,8 +53,8 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
             }
         }
 
-        //Add new players
-        for (const QString& player : players) {
+        // Add new players
+        for (const QString &player : players) {
             if (!m_players.contains(player)) {
                 m_players[player] = new MprisRemotePlayer(player, this);
                 requestPlayerStatus(player);
@@ -67,7 +66,6 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket& np)
         } else if (!m_players.contains(m_currentPlayer)) {
             m_currentPlayer = m_players.firstKey();
         }
-
     }
     Q_EMIT propertiesChanged();
 
@@ -85,13 +83,10 @@ QString MprisRemotePlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/mprisremote");
 }
 
-void MprisRemotePlugin::requestPlayerStatus(const QString& player)
+void MprisRemotePlugin::requestPlayerStatus(const QString &player)
 {
-    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {QStringLiteral("player"), player},
-        {QStringLiteral("requestNowPlaying"), true},
-        {QStringLiteral("requestVolume"), true}}
-    );
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST,
+                     {{QStringLiteral("player"), player}, {QStringLiteral("requestNowPlaying"), true}, {QStringLiteral("requestVolume"), true}});
     sendPacket(np);
 }
 
@@ -101,44 +96,33 @@ void MprisRemotePlugin::requestPlayerList()
     sendPacket(np);
 }
 
-void MprisRemotePlugin::sendAction(const QString& action)
+void MprisRemotePlugin::sendAction(const QString &action)
 {
-    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {QStringLiteral("player"), m_currentPlayer},
-        {QStringLiteral("action"), action}
-    });
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("player"), m_currentPlayer}, {QStringLiteral("action"), action}});
     sendPacket(np);
 }
 
 void MprisRemotePlugin::seek(int offset) const
 {
-    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {QStringLiteral("player"), m_currentPlayer},
-        {QStringLiteral("Seek"), offset}});
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("player"), m_currentPlayer}, {QStringLiteral("Seek"), offset}});
     sendPacket(np);
 }
 
 void MprisRemotePlugin::setVolume(int volume)
 {
-    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {QStringLiteral("player"), m_currentPlayer},
-        {QStringLiteral("setVolume"), volume}
-    });
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("player"), m_currentPlayer}, {QStringLiteral("setVolume"), volume}});
     sendPacket(np);
 }
 
 void MprisRemotePlugin::setPosition(int position)
 {
-    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {
-        {QStringLiteral("player"), m_currentPlayer},
-        {QStringLiteral("SetPosition"), position}
-    });
+    NetworkPacket np(PACKET_TYPE_MPRIS_REQUEST, {{QStringLiteral("player"), m_currentPlayer}, {QStringLiteral("SetPosition"), position}});
     sendPacket(np);
 
     m_players[m_currentPlayer]->setPosition(position);
 }
 
-void MprisRemotePlugin::setPlayer(const QString& player)
+void MprisRemotePlugin::setPlayer(const QString &player)
 {
     if (m_currentPlayer != player) {
         m_currentPlayer = player;

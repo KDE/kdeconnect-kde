@@ -6,16 +6,16 @@
 
 #include "notifyingapplication.h"
 
-#include <QDebug>
 #include <QDataStream>
+#include <QDebug>
 
-QDataStream& operator<<(QDataStream& out, const NotifyingApplication& app)
+QDataStream &operator<<(QDataStream &out, const NotifyingApplication &app)
 {
     out << app.name << app.icon << app.active << app.blacklistExpression.pattern();
     return out;
 }
 
-QDataStream& operator>>(QDataStream& in, NotifyingApplication& app)
+QDataStream &operator>>(QDataStream &in, NotifyingApplication &app)
 {
     QString pattern;
     in >> app.name;
@@ -26,11 +26,8 @@ QDataStream& operator>>(QDataStream& in, NotifyingApplication& app)
     return in;
 }
 
-QDebug operator<<(QDebug dbg, const NotifyingApplication& a) {
-    dbg.nospace() << "{ name=" << a.name
-                  << ", icon=" << a.icon
-                  << ", active=" << a.active
-                  << ", blacklistExpression =" << a.blacklistExpression
-                  << " }";
+QDebug operator<<(QDebug dbg, const NotifyingApplication &a)
+{
+    dbg.nospace() << "{ name=" << a.name << ", icon=" << a.icon << ", active=" << a.active << ", blacklistExpression =" << a.blacklistExpression << " }";
     return dbg.space();
 }

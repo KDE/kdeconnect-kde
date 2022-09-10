@@ -15,12 +15,14 @@ LinkProvider::LinkProvider()
                                          QStringLiteral("/org/freedesktop/login1"),
                                          QStringLiteral("org.freedesktop.login1.Manager"),
                                          QStringLiteral("PrepareForSleep"),
-                                         this, SLOT(suspend(bool)));
+                                         this,
+                                         SLOT(suspend(bool)));
     QDBusConnection::systemBus().connect(QStringLiteral("org.freedesktop.login1"),
                                          QStringLiteral("/org/freedesktop/login1"),
                                          QStringLiteral("org.freedesktop.login1.Manager"),
                                          QStringLiteral("PrepareForShutdown"),
-                                         this, SLOT(suspend(bool)));
+                                         this,
+                                         SLOT(suspend(bool)));
 }
 
 void LinkProvider::suspend(bool suspend)

@@ -7,27 +7,24 @@
 #include "commandsmodel.h"
 
 #include <QDebug>
-#include <QJsonObject>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QUuid>
 
 #include <dbushelper.h>
 
-CommandsModel::CommandsModel(QObject* parent)
+CommandsModel::CommandsModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_config()
 {
-
     m_config.setPluginName(QStringLiteral("kdeconnect_runcommand"));
-    connect(this, &QAbstractItemModel::rowsInserted,
-            this, &CommandsModel::rowsChanged);
-    connect(this, &QAbstractItemModel::rowsRemoved,
-            this, &CommandsModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsInserted, this, &CommandsModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsRemoved, this, &CommandsModel::rowsChanged);
 }
 
 QHash<int, QByteArray> CommandsModel::roleNames() const
 {
-    //Role names for QML
+    // Role names for QML
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names.insert(KeyRole, "key");
     names.insert(NameRole, "name");
@@ -44,7 +41,7 @@ QString CommandsModel::deviceId() const
     return m_deviceId;
 }
 
-void CommandsModel::setDeviceId(const QString& deviceId)
+void CommandsModel::setDeviceId(const QString &deviceId)
 {
     m_deviceId = deviceId;
     m_config.setDeviceId(deviceId);
@@ -61,7 +58,7 @@ void CommandsModel::refreshCommandList()
     beginResetModel();
     m_commandList.clear();
 
-    for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it!=itEnd; ++it) {
+    for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it != itEnd; ++it) {
         const QJsonObject cont = it->toObject();
         CommandEntry command;
         command.key = it.key();
@@ -73,33 +70,30 @@ void CommandsModel::refreshCommandList()
     endResetModel();
 }
 
-QVariant CommandsModel::data(const QModelIndex& index, int role) const
+QVariant CommandsModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()
-        || index.row() < 0
-        || index.row() >= m_commandList.count())
-    {
+    if (!index.isValid() || index.row() < 0 || index.row() >= m_commandList.count()) {
         return QVariant();
     }
 
     CommandEntry command = m_commandList[index.row()];
 
     switch (role) {
-        case KeyRole:
-            return command.key;
-        case NameRole:
-            return command.name;
-        case CommandRole:
-            return command.command;
-        default:
-             return QVariant();
+    case KeyRole:
+        return command.key;
+    case NameRole:
+        return command.name;
+    case CommandRole:
+        return command.command;
+    default:
+        return QVariant();
     }
 }
 
-int CommandsModel::rowCount(const QModelIndex& parent) const
+int CommandsModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
-        //Return size 0 if we are a child because this is not a tree
+        // Return size 0 if we are a child because this is not a tree
         return 0;
     }
 
@@ -128,7 +122,7 @@ void CommandsModel::saveCommands()
     m_config.set(QStringLiteral("commands"), document.toJson(QJsonDocument::Compact));
 }
 
-void CommandsModel::addCommand(const QString& name, const QString& command)
+void CommandsModel::addCommand(const QString &name, const QString &command)
 {
     CommandEntry entry;
     QString key = QUuid::createUuid().toString();

@@ -9,12 +9,12 @@
 
 #include <QStandardPaths>
 
-#include <KUrlRequester>
 #include <KPluginFactory>
+#include <KUrlRequester>
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
 
-ShareConfig::ShareConfig(QWidget* parent, const QVariantList& args)
+ShareConfig::ShareConfig(QWidget *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_share"))
     , m_ui(new Ui::ShareConfigUi())
 {

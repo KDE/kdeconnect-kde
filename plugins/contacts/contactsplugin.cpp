@@ -10,8 +10,8 @@
 
 #include <QDBusConnection>
 #include <QDBusMetaType>
-#include <QFile>
 #include <QDir>
+#include <QFile>
 #include <QIODevice>
 
 #include <core/device.h>
@@ -20,8 +20,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(ContactsPlugin, "kdeconnect_contacts.json")
 
-ContactsPlugin::ContactsPlugin(QObject* parent, const QVariantList& args) :
-        KdeConnectPlugin(parent, args)
+ContactsPlugin::ContactsPlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
 {
     vcardsPath = QString(*vcardsLocation).append(QStringLiteral("/kdeconnect-").append(device()->id()));
 
@@ -45,10 +45,10 @@ void ContactsPlugin::connected()
     synchronizeRemoteWithLocal();
 }
 
-bool ContactsPlugin::receivePacket(const NetworkPacket& np)
+bool ContactsPlugin::receivePacket(const NetworkPacket &np)
 {
-    //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
-    //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
+    // qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
+    // qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
 
     if (np.type() == PACKAGE_TYPE_CONTACTS_RESPONSE_UIDS_TIMESTAMPS) {
         return handleResponseUIDsTimestamps(np);
@@ -56,8 +56,7 @@ bool ContactsPlugin::receivePacket(const NetworkPacket& np)
         return handleResponseVCards(np);
     } else {
         // Is this check necessary?
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown packet type received from device: "
-                << device()->name() << ". Maybe you need to upgrade KDE Connect?";
+        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown packet type received from device: " << device()->name() << ". Maybe you need to upgrade KDE Connect?";
         return false;
     }
 }
@@ -67,11 +66,11 @@ void ContactsPlugin::synchronizeRemoteWithLocal()
     sendRequest(PACKET_TYPE_CONTACTS_REQUEST_ALL_UIDS_TIMESTAMP);
 }
 
-bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
+bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket &np)
 {
     if (!np.has(QStringLiteral("uids"))) {
         qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:"
-                << "Malformed packet does not have uids key";
+                                            << "Malformed packet does not have uids key";
         return false;
     }
     uIDList_t uIDsToUpdate;
@@ -81,13 +80,13 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
     // Clean out IDs returned from the remote. Anything leftover should be deleted
     QFileInfoList localVCards = vcardsDir.entryInfoList({QStringLiteral("*.vcard"), QStringLiteral("*.vcf")});
 
-    const QStringList& uIDs = np.get<QStringList>(QStringLiteral("uids"));
+    const QStringList &uIDs = np.get<QStringList>(QStringLiteral("uids"));
 
     // Check local storage for the contacts:
     //  If the contact is not found in local storage, request its vcard be sent
     //  If the contact is in local storage but not reported, delete it
     //  If the contact is in local storage, compare its timestamp. If different, request the contact
-    for (const QString& ID : uIDs) {
+    for (const QString &ID : uIDs) {
         QString filename = vcardsDir.filePath(ID + VCARD_EXTENSION);
         QFile vcardFile(filename);
 
@@ -104,7 +103,7 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
         // Check if the vcard needs to be updated
         if (!vcardFile.open(QIODevice::ReadOnly)) {
             qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:"
-                    << "Unable to open" << filename << "to read even though it was reported to exist";
+                                                  << "Unable to open" << filename << "to read even though it was reported to exist";
             continue;
         }
 
@@ -129,7 +128,7 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
     }
 
     // Delete all locally-known files which were not reported by the remote device
-    for (const QFileInfo& unknownFile : localVCards) {
+    for (const QFileInfo &unknownFile : localVCards) {
         QFile toDelete(unknownFile.filePath());
         toDelete.remove();
     }
@@ -139,38 +138,40 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket& np)
     return true;
 }
 
-bool ContactsPlugin::handleResponseVCards(const NetworkPacket& np)
+bool ContactsPlugin::handleResponseVCards(const NetworkPacket &np)
 {
     if (!np.has(QStringLiteral("uids"))) {
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS)
-        << "handleResponseVCards:" << "Malformed packet does not have uids key";
+        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:"
+                                            << "Malformed packet does not have uids key";
         return false;
     }
 
     QDir vcardsDir(vcardsPath);
-    const QStringList& uIDs = np.get<QStringList>(QStringLiteral("uids"));
+    const QStringList &uIDs = np.get<QStringList>(QStringLiteral("uids"));
 
     // Loop over all IDs, extract the VCard from the packet and write the file
-    for (const auto& ID : uIDs) {
-        //qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Got VCard:" << np.get<QString>(ID);
+    for (const auto &ID : uIDs) {
+        // qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Got VCard:" << np.get<QString>(ID);
         QString filename = vcardsDir.filePath(ID + VCARD_EXTENSION);
         QFile vcardFile(filename);
         bool vcardFileOpened = vcardFile.open(QIODevice::WriteOnly); // Want to smash anything that might have already been there
         if (!vcardFileOpened) {
-            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Unable to open" << filename;
+            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:"
+                                                  << "Unable to open" << filename;
             continue;
         }
 
         QTextStream fileWriteStream(&vcardFile);
-        const QString& vcard = np.get<QString>(ID);
+        const QString &vcard = np.get<QString>(ID);
         fileWriteStream << vcard;
     }
-    qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Got" << uIDs.size() << "VCards";
+    qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:"
+                                        << "Got" << uIDs.size() << "VCards";
     Q_EMIT localCacheSynchronized(uIDs);
     return true;
 }
 
-bool ContactsPlugin::sendRequest(const QString& packetType)
+bool ContactsPlugin::sendRequest(const QString &packetType)
 {
     NetworkPacket np(packetType);
     bool success = sendPacket(np);
@@ -179,7 +180,7 @@ bool ContactsPlugin::sendRequest(const QString& packetType)
     return success;
 }
 
-bool ContactsPlugin::sendRequestWithIDs(const QString& packetType, const uIDList_t& uIDs)
+bool ContactsPlugin::sendRequestWithIDs(const QString &packetType, const uIDList_t &uIDs)
 {
     NetworkPacket np(packetType);
 
@@ -194,4 +195,3 @@ QString ContactsPlugin::dbusPath() const
 }
 
 #include "contactsplugin.moc"
-

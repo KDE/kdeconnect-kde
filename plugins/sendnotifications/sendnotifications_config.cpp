@@ -5,15 +5,15 @@
  */
 
 #include "sendnotifications_config.h"
-#include "ui_sendnotifications_config.h"
 #include "notifyingapplicationmodel.h"
+#include "ui_sendnotifications_config.h"
 
 #include <KCModule>
 #include <KPluginFactory>
 
 K_PLUGIN_FACTORY(SendNotificationsConfigFactory, registerPlugin<SendNotificationsConfig>();)
 
-SendNotificationsConfig::SendNotificationsConfig(QWidget* parent, const QVariantList& args)
+SendNotificationsConfig::SendNotificationsConfig(QWidget *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_sendnotifications"))
     , m_ui(new Ui::SendNotificationsConfigUi())
     , appModel(new NotifyingApplicationModel)
@@ -21,7 +21,7 @@ SendNotificationsConfig::SendNotificationsConfig(QWidget* parent, const QVariant
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
     m_ui->setupUi(this);
-    m_ui->appList->setIconSize(QSize(32,32));
+    m_ui->appList->setIconSize(QSize(32, 32));
 
     m_ui->appList->setModel(appModel);
 
@@ -31,8 +31,7 @@ SendNotificationsConfig::SendNotificationsConfig(QWidget* parent, const QVariant
     for (int i = 0; i < 3; i++)
         m_ui->appList->resizeColumnToContents(i);
 
-    connect(m_ui->appList->horizontalHeader(), SIGNAL(sortIndicatorChanged(int,Qt::SortOrder)),
-            m_ui->appList, SLOT(sortByColumn(int)));
+    connect(m_ui->appList->horizontalHeader(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), m_ui->appList, SLOT(sortByColumn(int)));
 
     connect(m_ui->check_persistent, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->spin_urgency, SIGNAL(editingFinished()), this, SLOT(changed()));
@@ -63,7 +62,7 @@ void SendNotificationsConfig::loadApplications()
 {
     appModel->clearApplications();
     QVariantList list = config()->getList(QStringLiteral("applications"));
-    for (const auto& a: list) {
+    for (const auto &a : list) {
         NotifyingApplication app = a.value<NotifyingApplication>();
         if (!appModel->containsApp(app.name)) {
             appModel->appendApp(app);
@@ -97,7 +96,7 @@ void SendNotificationsConfig::save()
     QVariantList list;
     const auto apps = appModel->apps();
     list.reserve(apps.size());
-    for (const auto& a: apps) {
+    for (const auto &a : apps) {
         list.append(QVariant::fromValue<NotifyingApplication>(a));
     }
     config()->setList(QStringLiteral("applications"), list);

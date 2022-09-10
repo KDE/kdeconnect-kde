@@ -7,18 +7,16 @@
 #ifndef KDECONNECT_BLUETOOTHPAIRINGHANDLER_H
 #define KDECONNECT_BLUETOOTHPAIRINGHANDLER_H
 
-#include "device.h"
 #include "../devicelink.h"
 #include "../pairinghandler.h"
+#include "device.h"
 
 #include <QTimer>
 
 // This class is used pairing related stuff. It has direct access to links and can directly send packets
-class BluetoothPairingHandler
-    : public PairingHandler
+class BluetoothPairingHandler : public PairingHandler
 {
 public:
-
     enum InternalPairStatus {
         NotPaired,
         Requested,
@@ -26,17 +24,25 @@ public:
         Paired,
     };
 
-    BluetoothPairingHandler(DeviceLink* deviceLink);
-    virtual ~BluetoothPairingHandler() { }
+    BluetoothPairingHandler(DeviceLink *deviceLink);
+    virtual ~BluetoothPairingHandler()
+    {
+    }
 
-    void packetReceived(const NetworkPacket& np) override;
+    void packetReceived(const NetworkPacket &np) override;
     bool requestPairing() override;
     bool acceptPairing() override;
     void rejectPairing() override;
     void unpair() override;
 
-    bool isPairRequested() const { return m_status == Requested; }
-    bool isPaired() const { return m_status == Paired; }
+    bool isPairRequested() const
+    {
+        return m_status == Requested;
+    }
+    bool isPaired() const
+    {
+        return m_status == Paired;
+    }
 
 private Q_SLOTS:
     void pairingTimeout();
@@ -49,5 +55,4 @@ protected:
     InternalPairStatus m_status;
 };
 
-
-#endif //KDECONNECT_BLUETOOTHPAIRINGHANDLER_H
+#endif // KDECONNECT_BLUETOOTHPAIRINGHANDLER_H

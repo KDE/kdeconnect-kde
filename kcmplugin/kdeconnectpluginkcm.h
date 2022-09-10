@@ -18,13 +18,12 @@ struct KdeConnectPluginKcmPrivate;
  * Inheriting your plugin's KCM from this class gets you a easy way to share
  * configuration values between the KCM and the plugin.
  */
-class KDECONNECTPLUGINKCM_EXPORT KdeConnectPluginKcm
-    : public KCModule
+class KDECONNECTPLUGINKCM_EXPORT KdeConnectPluginKcm : public KCModule
 {
     Q_OBJECT
 
 public:
-    KdeConnectPluginKcm(QWidget* parent, const QVariantList& args, const QString& componentName);
+    KdeConnectPluginKcm(QWidget *parent, const QVariantList &args, const QString &componentName);
     ~KdeConnectPluginKcm() override;
 
     /**
@@ -35,7 +34,7 @@ public:
     /**
      * The object where to save the config, so the plugin can access it
      */
-    KdeConnectPluginConfig* config() const;
+    KdeConnectPluginConfig *config() const;
 
 private:
     QScopedPointer<KdeConnectPluginKcmPrivate> d;

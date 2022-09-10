@@ -8,8 +8,8 @@
 
 #include <KPluginFactory>
 
-#include <core/networkpacket.h>
 #include <core/device.h>
+#include <core/networkpacket.h>
 
 #include "plugin_remotecommands_debug.h"
 
@@ -17,7 +17,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteCommandsPlugin, "kdeconnect_remotecommands.json")
 
-RemoteCommandsPlugin::RemoteCommandsPlugin(QObject* parent, const QVariantList& args)
+RemoteCommandsPlugin::RemoteCommandsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_commands("{}")
     , m_canAddCommand(false)
@@ -26,7 +26,7 @@ RemoteCommandsPlugin::RemoteCommandsPlugin(QObject* parent, const QVariantList& 
 
 RemoteCommandsPlugin::~RemoteCommandsPlugin() = default;
 
-bool RemoteCommandsPlugin::receivePacket(const NetworkPacket& np)
+bool RemoteCommandsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("commandList"))) {
         m_canAddCommand = np.get<bool>(QStringLiteral("canAddCommand"));
@@ -48,7 +48,7 @@ QString RemoteCommandsPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotecommands");
 }
 
-void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
+void RemoteCommandsPlugin::setCommands(const QByteArray &cmds)
 {
     if (m_commands != cmds) {
         m_commands = cmds;
@@ -56,15 +56,15 @@ void RemoteCommandsPlugin::setCommands(const QByteArray& cmds)
     }
 }
 
-void RemoteCommandsPlugin::triggerCommand(const QString& key)
+void RemoteCommandsPlugin::triggerCommand(const QString &key)
 {
-    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("key"), key }});
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("key"), key}});
     sendPacket(np);
 }
 
 void RemoteCommandsPlugin::editCommands()
 {
-    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("setup"), true }});
+    NetworkPacket np(PACKET_TYPE_RUNCOMMAND_REQUEST, {{QStringLiteral("setup"), true}});
     sendPacket(np);
 }
 

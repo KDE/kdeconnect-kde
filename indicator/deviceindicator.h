@@ -15,15 +15,18 @@ class RemoteCommandsDbusInterface;
 class DeviceIndicator : public QMenu
 {
     Q_OBJECT
-    public:
-        DeviceIndicator(DeviceDbusInterface* device);
+public:
+    DeviceIndicator(DeviceDbusInterface *device);
 
-    public Q_SLOTS:
-        void setText(const QString& text) { setTitle(text); }
+public Q_SLOTS:
+    void setText(const QString &text)
+    {
+        setTitle(text);
+    }
 
-    private:
-        DeviceDbusInterface* m_device;
-        RemoteCommandsDbusInterface* m_remoteCommandsInterface;
+private:
+    DeviceDbusInterface *m_device;
+    RemoteCommandsDbusInterface *m_remoteCommandsInterface;
 };
 
 #endif // DEVICEINDICATOR_H

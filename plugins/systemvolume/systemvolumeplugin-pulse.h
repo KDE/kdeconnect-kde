@@ -7,8 +7,8 @@
 #ifndef SYSTEMVOLUMEPLUGINPULSE_H
 #define SYSTEMVOLUMEPLUGINPULSE_H
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 
 #include <core/kdeconnectplugin.h>
 
@@ -17,21 +17,19 @@
 #define PACKET_TYPE_SYSTEMVOLUME QStringLiteral("kdeconnect.systemvolume")
 #define PACKET_TYPE_SYSTEMVOLUME_REQUEST QStringLiteral("kdeconnect.systemvolume.request")
 
-
-class Q_DECL_EXPORT SystemvolumePlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit SystemvolumePlugin(QObject* parent, const QVariantList& args);
+    explicit SystemvolumePlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:
     void sendSinkList();
-    QMap<QString, PulseAudioQt::Sink*> sinksMap;
+    QMap<QString, PulseAudioQt::Sink *> sinksMap;
 };
 
 #endif

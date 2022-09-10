@@ -5,20 +5,21 @@
  */
 #pragma once
 
-#include <QString>
 #include <QDBusConnection>
+#include <QString>
 
 class NetworkPacket;
 class MprisRemotePlugin;
 
-class MprisRemotePlayer : public QObject {
+class MprisRemotePlayer : public QObject
+{
     Q_OBJECT
 
 public:
     explicit MprisRemotePlayer(QString id, MprisRemotePlugin *plugin);
     ~MprisRemotePlayer() override;
 
-    void parseNetworkPacket(const NetworkPacket& np);
+    void parseNetworkPacket(const NetworkPacket &np);
     long position() const;
     void setPosition(long position);
     int volume() const;
@@ -46,7 +47,6 @@ Q_SIGNALS:
     void playingChanged();
 
 private:
-
     QString id;
     bool m_playing;
     bool m_canPlay;
@@ -63,7 +63,7 @@ private:
     QString m_album;
     bool m_canSeek;
 
-    //Use an unique connection for every player, otherwise we can't distinguish which mpris player is being controlled
+    // Use an unique connection for every player, otherwise we can't distinguish which mpris player is being controlled
     QString m_dbusConnectionName;
     QDBusConnection m_dbusConnection;
 };

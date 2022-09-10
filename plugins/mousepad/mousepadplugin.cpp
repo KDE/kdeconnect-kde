@@ -7,27 +7,26 @@
  */
 
 #include "mousepadplugin.h"
-#include <KPluginFactory>
 #include <KLocalizedString>
+#include <KPluginFactory>
 #include <QGuiApplication>
 
 #if HAVE_WINDOWS
-    #include "windowsremoteinput.h"
+#include "windowsremoteinput.h"
 #elif HAVE_MACOS
-    #include "macosremoteinput.h"
+#include "macosremoteinput.h"
 #else
-    #if HAVE_X11
-        #include "x11remoteinput.h"
-    #endif
-    #if HAVE_WAYLAND
-        #include "waylandremoteinput.h"
-    #endif
+#if HAVE_X11
+#include "x11remoteinput.h"
 #endif
-
+#if HAVE_WAYLAND
+#include "waylandremoteinput.h"
+#endif
+#endif
 
 K_PLUGIN_CLASS_WITH_JSON(MousepadPlugin, "kdeconnect_mousepad.json")
 
-MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
+MousepadPlugin::MousepadPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_impl(nullptr)
 {
@@ -36,23 +35,22 @@ MousepadPlugin::MousepadPlugin(QObject* parent, const QVariantList& args)
 #elif HAVE_MACOS
     m_impl = new MacOSRemoteInput(this);
 #else
-    #if HAVE_X11
+#if HAVE_X11
     if (QGuiApplication::platformName() == QLatin1String("xcb")) {
         m_impl = new X11RemoteInput(this);
     }
-    #endif
+#endif
 
-    #if HAVE_WAYLAND
+#if HAVE_WAYLAND
     if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
         m_impl = new WaylandRemoteInput(this);
     }
-    #endif
+#endif
 #endif
 
     if (!m_impl) {
         qDebug() << "KDE Connect was built without" << QGuiApplication::platformName() << "support";
     }
-
 }
 
 MousepadPlugin::~MousepadPlugin()
@@ -60,7 +58,7 @@ MousepadPlugin::~MousepadPlugin()
     delete m_impl;
 }
 
-bool MousepadPlugin::receivePacket(const NetworkPacket& np)
+bool MousepadPlugin::receivePacket(const NetworkPacket &np)
 {
     if (m_impl) {
         return m_impl->handlePacket(np);
@@ -69,8 +67,8 @@ bool MousepadPlugin::receivePacket(const NetworkPacket& np)
     }
 }
 
-
-void MousepadPlugin::connected() {
+void MousepadPlugin::connected()
+{
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE);
     if (m_impl) {
         np.set<bool>(QStringLiteral("state"), m_impl->hasKeyboardSupport());

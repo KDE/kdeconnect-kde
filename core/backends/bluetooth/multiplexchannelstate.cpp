@@ -6,4 +6,10 @@
 
 #include "multiplexchannelstate.h"
 
-MultiplexChannelState::MultiplexChannelState() : requestedReadAmount{0}, freeWriteAmount{0}, connected{true}, close_after_write{false} {}
+MultiplexChannelState::MultiplexChannelState()
+    : requestedReadAmount{0}
+    , freeWriteAmount{0}
+    , connected{true}
+    , close_after_write{false}
+{
+}

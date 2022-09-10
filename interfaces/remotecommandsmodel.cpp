@@ -11,25 +11,22 @@
 
 #include <dbushelper.h>
 
-RemoteCommandsModel::RemoteCommandsModel(QObject* parent)
+RemoteCommandsModel::RemoteCommandsModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(nullptr)
 {
+    connect(this, &QAbstractItemModel::rowsInserted, this, &RemoteCommandsModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsRemoved, this, &RemoteCommandsModel::rowsChanged);
 
-    connect(this, &QAbstractItemModel::rowsInserted,
-            this, &RemoteCommandsModel::rowsChanged);
-    connect(this, &QAbstractItemModel::rowsRemoved,
-            this, &RemoteCommandsModel::rowsChanged);
-
-    QDBusServiceWatcher* watcher = new QDBusServiceWatcher(DaemonDbusInterface::activatedService(),
-                                                           QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
+    QDBusServiceWatcher *watcher =
+        new QDBusServiceWatcher(DaemonDbusInterface::activatedService(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForOwnerChange, this);
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &RemoteCommandsModel::refreshCommandList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &RemoteCommandsModel::clearCommands);
 }
 
 QHash<int, QByteArray> RemoteCommandsModel::roleNames() const
 {
-    //Role names for QML
+    // Role names for QML
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names.insert(KeyRole, "key");
     names.insert(NameRole, "name");
@@ -46,7 +43,7 @@ QString RemoteCommandsModel::deviceId() const
     return m_deviceId;
 }
 
-void RemoteCommandsModel::setDeviceId(const QString& deviceId)
+void RemoteCommandsModel::setDeviceId(const QString &deviceId)
 {
     m_deviceId = deviceId;
 
@@ -56,8 +53,7 @@ void RemoteCommandsModel::setDeviceId(const QString& deviceId)
 
     m_dbusInterface = new RemoteCommandsDbusInterface(deviceId, this);
 
-    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotecommandsInterface::commandsChanged,
-            this, &RemoteCommandsModel::refreshCommandList);
+    connect(m_dbusInterface, &OrgKdeKdeconnectDeviceRemotecommandsInterface::commandsChanged, this, &RemoteCommandsModel::refreshCommandList);
 
     refreshCommandList();
 
@@ -81,7 +77,7 @@ void RemoteCommandsModel::refreshCommandList()
 
     beginResetModel();
 
-    for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it!=itEnd; ++it) {
+    for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it != itEnd; ++it) {
         const QJsonObject cont = it->toObject();
         Command command;
         command.key = it.key();
@@ -93,12 +89,9 @@ void RemoteCommandsModel::refreshCommandList()
     endResetModel();
 }
 
-QVariant RemoteCommandsModel::data(const QModelIndex& index, int role) const
+QVariant RemoteCommandsModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()
-        || index.row() < 0
-        || index.row() >= m_commandList.count())
-    {
+    if (!index.isValid() || index.row() < 0 || index.row() >= m_commandList.count()) {
         return QVariant();
     }
 
@@ -109,21 +102,21 @@ QVariant RemoteCommandsModel::data(const QModelIndex& index, int role) const
     Command command = m_commandList[index.row()];
 
     switch (role) {
-        case KeyRole:
-            return command.key;
-        case NameRole:
-            return command.name;
-        case CommandRole:
-            return command.command;
-        default:
-             return QVariant();
+    case KeyRole:
+        return command.key;
+    case NameRole:
+        return command.name;
+    case CommandRole:
+        return command.command;
+    default:
+        return QVariant();
     }
 }
 
-int RemoteCommandsModel::rowCount(const QModelIndex& parent) const
+int RemoteCommandsModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
-        //Return size 0 if we are a child because this is not a tree
+        // Return size 0 if we are a child because this is not a tree
         return 0;
     }
 

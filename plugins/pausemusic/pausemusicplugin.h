@@ -13,21 +13,21 @@
 
 #include <core/kdeconnectplugin.h>
 
-class PauseMusicPlugin
-    : public KdeConnectPlugin
+class PauseMusicPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit PauseMusicPlugin(QObject* parent, const QVariantList& args);
+    explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override { }
-    
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
+
 private:
     QSet<QString> pausedSources;
     QSet<QString> mutedSinks;
-
 };
 
 #endif

@@ -36,6 +36,7 @@ include(ECMQtDeclareLoggingCategory)
 include(FeatureSummary)
 include(GenerateExportHeader)
 include(ECMGenerateQmlTypes)
+include(KDEClangFormat)
 if (NOT SAILFISHOS)
     include(ECMQMLModules)
 endif()
@@ -161,5 +162,8 @@ if(BUILD_TESTING)
 endif()
 
 ecm_qt_install_logging_categories(EXPORT kdeconnect-kde FILE kdeconnect-kde.categories SORT DESTINATION "${KDE_INSTALL_LOGGINGCATEGORIESDIR}")
+
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

@@ -7,11 +7,11 @@
 #ifndef TESTDAEMON_H
 #define TESTDAEMON_H
 
-#include <core/daemon.h>
 #include <core/backends/pairinghandler.h>
+#include <core/daemon.h>
 
-#include <QCoreApplication>
 #include <KJobTrackerInterface>
+#include <QCoreApplication>
 
 #ifdef HAVE_KIO
 #include <KIO/AccessManager>
@@ -22,7 +22,7 @@
 class TestDaemon : public Daemon
 {
 public:
-    TestDaemon(QObject* parent = nullptr)
+    TestDaemon(QObject *parent = nullptr)
         : Daemon(parent, true)
         , m_nam(nullptr)
         , m_jobTrackerInterface(nullptr)
@@ -32,20 +32,22 @@ public:
         QCoreApplication::processEvents();
     }
 
-    void addDevice(Device* device) {
+    void addDevice(Device *device)
+    {
         Daemon::addDevice(device);
     }
 
-    void reportError(const QString & title, const QString & description) override
+    void reportError(const QString &title, const QString &description) override
     {
         qWarning() << "error:" << title << description;
     }
 
-    void askPairingConfirmation(Device * d) override {
+    void askPairingConfirmation(Device *d) override
+    {
         d->acceptPairing();
     }
 
-    QNetworkAccessManager* networkAccessManager() override
+    QNetworkAccessManager *networkAccessManager() override
     {
         if (!m_nam) {
 #ifdef HAVE_KIO
@@ -62,11 +64,12 @@ public:
         qDebug() << eventId << title << text << iconName;
     }
 
-    void quit() override {
+    void quit() override
+    {
         qDebug() << "quit was called";
     }
 
-    KJobTrackerInterface* jobTracker() override
+    KJobTrackerInterface *jobTracker() override
     {
         if (!m_jobTrackerInterface) {
             m_jobTrackerInterface = new KJobTrackerInterface();
@@ -75,8 +78,8 @@ public:
     }
 
 private:
-    QNetworkAccessManager* m_nam;
-     KJobTrackerInterface* m_jobTrackerInterface;
+    QNetworkAccessManager *m_nam;
+    KJobTrackerInterface *m_jobTrackerInterface;
 };
 
 #endif

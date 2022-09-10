@@ -5,13 +5,13 @@
  */
 
 #include "compositefiletransferjob.h"
-#include <core_debug.h>
-#include <KLocalizedString>
-#include <KJobTrackerInterface>
-#include <daemon.h>
 #include "filetransferjob.h"
+#include <KJobTrackerInterface>
+#include <KLocalizedString>
+#include <core_debug.h>
+#include <daemon.h>
 
-CompositeFileTransferJob::CompositeFileTransferJob(const QString& deviceId)
+CompositeFileTransferJob::CompositeFileTransferJob(const QString &deviceId)
     : KCompositeJob()
     , m_deviceId(deviceId)
     , m_running(false)
@@ -39,27 +39,29 @@ void CompositeFileTransferJob::start()
 
 void CompositeFileTransferJob::startNextSubJob()
 {
-    m_currentJob = qobject_cast<FileTransferJob*>(subjobs().at(0));
+    m_currentJob = qobject_cast<FileTransferJob *>(subjobs().at(0));
     m_currentJobSentPayloadSize = 0;
 
-    Q_EMIT description(this, i18ncp("@title job", "Receiving file", "Receiving files", m_totalJobs),
-        {i18nc("The source of a file operation", "Source"), Daemon::instance()->getDevice(this->m_deviceId)->name()},
-        {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)}
-    );
+    Q_EMIT description(this,
+                       i18ncp("@title job", "Receiving file", "Receiving files", m_totalJobs),
+                       {i18nc("The source of a file operation", "Source"), Daemon::instance()->getDevice(this->m_deviceId)->name()},
+                       {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)});
 
     m_currentJob->start();
 #ifdef SAILFISHOS
-    connect(m_currentJob, SIGNAL(processedAmount(KJob*,KJob::Unit,qulonglong)), this, SLOT(slotProcessedAmount(KJob*,KJob::Unit,qulonglong)));
+    connect(m_currentJob, SIGNAL(processedAmount(KJob *, KJob::Unit, qulonglong)), this, SLOT(slotProcessedAmount(KJob *, KJob::Unit, qulonglong)));
 #else
-    connect(m_currentJob, QOverload<KJob*,KJob::Unit,qulonglong>::of(&FileTransferJob::processedAmount), this, &CompositeFileTransferJob::slotProcessedAmount);
+    connect(m_currentJob,
+            QOverload<KJob *, KJob::Unit, qulonglong>::of(&FileTransferJob::processedAmount),
+            this,
+            &CompositeFileTransferJob::slotProcessedAmount);
 #endif
 }
 
-bool CompositeFileTransferJob::addSubjob(KJob* job)
+bool CompositeFileTransferJob::addSubjob(KJob *job)
 {
-    if (FileTransferJob *uploadJob = qobject_cast<FileTransferJob*>(job)) {
-
-        const NetworkPacket* np = uploadJob->networkPacket();
+    if (FileTransferJob *uploadJob = qobject_cast<FileTransferJob *>(job)) {
+        const NetworkPacket *np = uploadJob->networkPacket();
 
         if (np->has(QStringLiteral("totalPayloadSize"))) {
             m_totalPayloadSize = np->get<quint64>(QStringLiteral("totalPayloadSize"));
@@ -119,7 +121,7 @@ void CompositeFileTransferJob::slotProcessedAmount(KJob *job, KJob::Unit unit, q
 
 void CompositeFileTransferJob::slotResult(KJob *job)
 {
-    //Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
+    // Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
     KCompositeJob::slotResult(job);
 
     if (error() || !m_running) {
@@ -140,4 +142,3 @@ void CompositeFileTransferJob::slotResult(KJob *job)
         emitResult();
     }
 }
-

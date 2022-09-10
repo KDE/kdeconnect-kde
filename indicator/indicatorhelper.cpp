@@ -9,14 +9,24 @@
 #include <QApplication>
 #include <QIcon>
 
-IndicatorHelper::IndicatorHelper() {}
-IndicatorHelper::~IndicatorHelper() {}
+IndicatorHelper::IndicatorHelper()
+{
+}
+IndicatorHelper::~IndicatorHelper()
+{
+}
 
-void IndicatorHelper::preInit() {}
+void IndicatorHelper::preInit()
+{
+}
 
-void IndicatorHelper::postInit() {}
+void IndicatorHelper::postInit()
+{
+}
 
-void IndicatorHelper::iconPathHook() {}
+void IndicatorHelper::iconPathHook()
+{
+}
 
 int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {

@@ -7,14 +7,14 @@
 #ifndef SYSTEMVOLUMEPLUGINWIN_H
 #define SYSTEMVOLUMEPLUGINWIN_H
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 
 #include <core/kdeconnectplugin.h>
 
 #include <Windows.h>
-#include <mmdeviceapi.h>
 #include <endpointvolume.h>
+#include <mmdeviceapi.h>
 
 #ifdef __MINGW32__
 #include <initguid.h>
@@ -27,24 +27,24 @@ class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
-  public:
+public:
     explicit SystemvolumePlugin(QObject *parent, const QVariantList &args);
     ~SystemvolumePlugin();
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
-  private:
+private:
     class CMMNotificationClient;
     class CAudioEndpointVolumeCallback;
 
     bool valid;
-    IMMDeviceEnumerator* deviceEnumerator;
-    CMMNotificationClient* deviceCallback;
+    IMMDeviceEnumerator *deviceEnumerator;
+    CMMNotificationClient *deviceCallback;
     QMap<QString, QPair<IAudioEndpointVolume *, CAudioEndpointVolumeCallback *>> sinkList;
     QMap<QString, QString> idToNameMap;
 
     bool sendSinkList();
-    HRESULT setDefaultAudioPlaybackDevice(QString& name, bool enabled);
+    HRESULT setDefaultAudioPlaybackDevice(QString &name, bool enabled);
 };
 
 #endif // SYSTEMVOLUMEPLUGINWIN_H

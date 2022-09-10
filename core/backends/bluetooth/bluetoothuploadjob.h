@@ -8,23 +8,22 @@
 #ifndef BLUETOOTHUPLOADJOB_H
 #define BLUETOOTHUPLOADJOB_H
 
+#include <QBluetoothAddress>
+#include <QBluetoothServer>
+#include <QBluetoothUuid>
 #include <QIODevice>
+#include <QSharedPointer>
 #include <QThread>
 #include <QVariantMap>
-#include <QSharedPointer>
-#include <QBluetoothAddress>
-#include <QBluetoothUuid>
-#include <QBluetoothServer>
 
 class ConnectionMultiplexer;
 class MultiplexChannel;
 
-class BluetoothUploadJob
-    : public QObject
+class BluetoothUploadJob : public QObject
 {
     Q_OBJECT
 public:
-    explicit BluetoothUploadJob(const QSharedPointer<QIODevice>& data, ConnectionMultiplexer *connection, QObject* parent = 0);
+    explicit BluetoothUploadJob(const QSharedPointer<QIODevice> &data, ConnectionMultiplexer *connection, QObject *parent = 0);
 
     QVariantMap transferInfo() const;
     void start();

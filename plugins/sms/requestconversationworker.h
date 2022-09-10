@@ -23,8 +23,7 @@ class RequestConversationWorker : public QObject
     Q_OBJECT
 
 public:
-    RequestConversationWorker(const qint64& conversationID, int start, int end, ConversationsDbusInterface* interface);
-
+    RequestConversationWorker(const qint64 &conversationID, int start, int end, ConversationsDbusInterface *interface);
 
 public Q_SLOTS:
     /**
@@ -38,16 +37,16 @@ public Q_SLOTS:
     void work();
 
 Q_SIGNALS:
-    void conversationMessageRead(const QDBusVariant& msg);
+    void conversationMessageRead(const QDBusVariant &msg);
     void finished();
 
 private:
     qint64 conversationID;
     int start; // Start of range to request messages
     size_t howMany; // Number of messages being requested
-    ConversationsDbusInterface* parent;
+    ConversationsDbusInterface *parent;
 
-    QThread* m_thread;
+    QThread *m_thread;
 
     /**
      * Reply with all messages we currently have available in the requested range
@@ -60,7 +59,7 @@ private:
      * @param howMany Maximum number of messages to return
      * $return Number of messages processed
      */
-    size_t replyForConversation(const QList<ConversationMessage>& conversation, int start, size_t howMany);
+    size_t replyForConversation(const QList<ConversationMessage> &conversation, int start, size_t howMany);
 };
 
 #endif // REQUESTCONVERSATIONWORKER_H

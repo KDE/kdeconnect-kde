@@ -22,11 +22,20 @@ class AttachmentInfo
 
 public:
     AttachmentInfo();
-    AttachmentInfo(const Attachment& attachment);
+    AttachmentInfo(const Attachment &attachment);
 
-    qint64 partID() const { return m_partID; }
-    QString mimeType() const { return m_mimeType; }
-    QString uniqueIdentifier() const { return m_uniqueIdentifier; }
+    qint64 partID() const
+    {
+        return m_partID;
+    }
+    QString mimeType() const
+    {
+        return m_mimeType;
+    }
+    QString uniqueIdentifier() const
+    {
+        return m_uniqueIdentifier;
+    }
 
 private:
     qint64 m_partID;

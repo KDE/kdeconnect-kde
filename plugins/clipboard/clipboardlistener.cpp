@@ -8,20 +8,20 @@
 
 #include <KSystemClipboard>
 
-#include <QMimeData>
 #include <QDateTime>
+#include <QMimeData>
 
 QString ClipboardListener::currentContent()
 {
     return m_currentContent;
 }
 
-qint64 ClipboardListener::updateTimestamp(){
-
+qint64 ClipboardListener::updateTimestamp()
+{
     return m_updateTimestamp;
 }
 
-ClipboardListener* ClipboardListener::instance()
+ClipboardListener *ClipboardListener::instance()
 {
     static ClipboardListener *me = nullptr;
     if (!me) {
@@ -30,7 +30,7 @@ ClipboardListener* ClipboardListener::instance()
     return me;
 }
 
-void ClipboardListener::refreshContent(const QString& content)
+void ClipboardListener::refreshContent(const QString &content)
 {
     m_updateTimestamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
     m_currentContent = content;
@@ -40,8 +40,10 @@ ClipboardListener::ClipboardListener()
     : clipboard(KSystemClipboard::instance())
 {
 #ifdef Q_OS_MAC
-    connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this](){ updateClipboard(QClipboard::Clipboard); });
-    m_clipboardMonitorTimer.start(1000);    // Refresh 1s
+    connect(&m_clipboardMonitorTimer, &QTimer::timeout, this, [this]() {
+        updateClipboard(QClipboard::Clipboard);
+    });
+    m_clipboardMonitorTimer.start(1000); // Refresh 1s
 #endif
     connect(clipboard, &KSystemClipboard::changed, this, &ClipboardListener::updateClipboard);
 }
@@ -60,7 +62,7 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
     Q_EMIT clipboardChanged(content);
 }
 
-void ClipboardListener::setText(const QString& content)
+void ClipboardListener::setText(const QString &content)
 {
     refreshContent(content);
     auto mime = new QMimeData;

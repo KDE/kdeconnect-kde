@@ -7,24 +7,23 @@
 
 #include "socketlinereader.h"
 
-SocketLineReader::SocketLineReader(QSslSocket* socket, QObject* parent)
+SocketLineReader::SocketLineReader(QSslSocket *socket, QObject *parent)
     : QObject(parent)
     , m_socket(socket)
 {
-    connect(m_socket, &QIODevice::readyRead,
-            this, &SocketLineReader::dataReceived);
+    connect(m_socket, &QIODevice::readyRead, this, &SocketLineReader::dataReceived);
 }
 
 void SocketLineReader::dataReceived()
 {
     while (m_socket->canReadLine()) {
         const QByteArray line = m_socket->readLine();
-        if (line.length() > 1) { //we don't want a single \n
+        if (line.length() > 1) { // we don't want a single \n
             m_packets.enqueue(line);
         }
     }
 
-    //If we have any packets, tell it to the world.
+    // If we have any packets, tell it to the world.
     if (!m_packets.isEmpty()) {
         Q_EMIT readyRead();
     }

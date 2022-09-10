@@ -9,15 +9,14 @@
 
 #include "abstractremoteinput.h"
 
-class WindowsRemoteInput
-    : public AbstractRemoteInput
+class WindowsRemoteInput : public AbstractRemoteInput
 {
     Q_OBJECT
 
 public:
-    explicit WindowsRemoteInput(QObject* parent);
+    explicit WindowsRemoteInput(QObject *parent);
 
-    bool handlePacket(const NetworkPacket& np) override;
+    bool handlePacket(const NetworkPacket &np) override;
     bool hasKeyboardSupport() override;
 };
 

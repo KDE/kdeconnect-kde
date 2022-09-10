@@ -16,21 +16,20 @@
 #endif
 
 // Qt
+#include "plugin_findthisdevice_debug.h"
 #include <QDBusConnection>
 #include <QMediaPlayer>
-#include "plugin_findthisdevice_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 
-FindThisDevicePlugin::FindThisDevicePlugin(QObject* parent, const QVariantList& args)
+FindThisDevicePlugin::FindThisDevicePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
 
 FindThisDevicePlugin::~FindThisDevicePlugin() = default;
 
-
-bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
+bool FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);
 
@@ -42,21 +41,21 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket& np)
         return true;
     }
 
-    QMediaPlayer* player = new QMediaPlayer;
+    QMediaPlayer *player = new QMediaPlayer;
     player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
     player->setMedia(soundURL);
     player->setVolume(100);
 
 #ifndef Q_OS_WIN
     const auto sinks = PulseAudioQt::Context::instance()->sinks();
-    QVector<PulseAudioQt::Sink*> mutedSinks;
+    QVector<PulseAudioQt::Sink *> mutedSinks;
     for (auto sink : sinks) {
         if (sink->isMuted()) {
             sink->setMuted(false);
             mutedSinks.append(sink);
         }
     }
-    connect(player, &QMediaPlayer::stateChanged, this, [player, mutedSinks]{
+    connect(player, &QMediaPlayer::stateChanged, this, [player, mutedSinks] {
         for (auto sink : qAsConst(mutedSinks)) {
             sink->setMuted(true);
         }
@@ -76,4 +75,3 @@ QString FindThisDevicePlugin::dbusPath() const
 }
 
 #include "findthisdeviceplugin.moc"
-

@@ -9,16 +9,16 @@
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
-namespace Ui {
-    class ShareConfigUi;
+namespace Ui
+{
+class ShareConfigUi;
 }
 
-class ShareConfig
-    : public KdeConnectPluginKcm
+class ShareConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    ShareConfig(QWidget* parent, const QVariantList&);
+    ShareConfig(QWidget *parent, const QVariantList &);
     ~ShareConfig() override;
 
 public Q_SLOTS:
@@ -27,8 +27,7 @@ public Q_SLOTS:
     void defaults() override;
 
 private:
-    Ui::ShareConfigUi* m_ui;
-
+    Ui::ShareConfigUi *m_ui;
 };
 
 #endif

@@ -4,37 +4,37 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+#include <QAbstractButton>
 #include <QApplication>
-#include <QDialog>
-#include <QCommandLineParser>
 #include <QComboBox>
-#include <QTextStream>
-#include <QUrl>
+#include <QCommandLineParser>
 #include <QDBusMessage>
+#include <QDialog>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QAbstractButton>
+#include <QTextStream>
+#include <QUrl>
 
 #include <KAboutData>
+#include <KColorSchemeManager>
+#include <KDBusService>
 #include <KLocalizedString>
 #include <KUrlRequester>
-#include <KDBusService>
-#include <KColorSchemeManager>
 
 #include <dbushelper.h>
 
-#include <interfaces/devicesmodel.h>
-#include <interfaces/devicespluginfilterproxymodel.h>
-#include <interfaces/dbusinterfaces.h>
-#include <interfaces/dbushelpers.h>
 #include "kdeconnect-version.h"
 #include "ui_dialog.h"
+#include <interfaces/dbushelpers.h>
+#include <interfaces/dbusinterfaces.h>
+#include <interfaces/devicesmodel.h>
+#include <interfaces/devicespluginfilterproxymodel.h>
 
 /**
  * Show only devices that can be shared to
  */
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -47,7 +47,7 @@ int main(int argc, char** argv)
                      description,
                      KAboutLicense::GPL,
                      i18n("(C) 2017 Aleix Pol Gonzalez"));
-    about.addAuthor( QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org") );
+    about.addAuthor(QStringLiteral("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"));
     about.setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
     KAboutData::setApplicationData(about);
     KDBusService dbusService(KDBusService::Unique);
@@ -93,7 +93,7 @@ int main(int argc, char** argv)
 
     uidialog.openOnPeerCheckBox->setChecked(open);
 
-    KUrlRequester* urlRequester = new KUrlRequester(&dialog);
+    KUrlRequester *urlRequester = new KUrlRequester(&dialog);
     urlRequester->setStartDir(QUrl::fromLocalFile(QDir::homePath()));
     uidialog.urlHorizontalLayout->addWidget(urlRequester);
 
@@ -113,11 +113,10 @@ int main(int argc, char** argv)
         }
     });
 
-    QObject::connect(urlRequester, &KUrlRequester::textChanged, [urlRequester, &uidialog](const QString& newUrl)
-    {
-            bool isLocalFileUrl = QFileInfo(newUrl).exists() && QFileInfo(newUrl).isFile();   // we don't support sending directories yet!
-            uidialog.sendFileRadioButton->setChecked(isLocalFileUrl);
-            uidialog.sendUrlRadioButton->setChecked(!isLocalFileUrl);
+    QObject::connect(urlRequester, &KUrlRequester::textChanged, [urlRequester, &uidialog](const QString &newUrl) {
+        bool isLocalFileUrl = QFileInfo(newUrl).exists() && QFileInfo(newUrl).isFile(); // we don't support sending directories yet!
+        uidialog.sendFileRadioButton->setChecked(isLocalFileUrl);
+        uidialog.sendUrlRadioButton->setChecked(!isLocalFileUrl);
     });
 
     if (!urlToShare.isEmpty()) {
@@ -139,7 +138,6 @@ int main(int argc, char** argv)
             displayUrl = urlToShare.toDisplayString(QUrl::PreferLocalFile);
             uidialog.label->setText(i18n("Device to send %1 to:", displayUrl));
         }
-
     }
 
     if (open || urlToShare.isLocalFile()) {
@@ -151,23 +149,23 @@ int main(int argc, char** argv)
         urlRequester->setUrl(urlToShare);
     }
 
-
     if (dialog.exec() == QDialog::Accepted) {
         const QUrl url = urlRequester->url();
         open = uidialog.openOnPeerCheckBox->isChecked();
         const int currentDeviceIndex = uidialog.devicePicker->currentIndex();
-        if(!url.isEmpty() && currentDeviceIndex >= 0) {
+        if (!url.isEmpty() && currentDeviceIndex >= 0) {
             const QString device = proxyModel.index(currentDeviceIndex, 0).data(DevicesModel::IdModelRole).toString();
             const QString action = open && url.isLocalFile() ? QStringLiteral("openFile") : QStringLiteral("shareUrl");
 
-            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"), QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"), QStringLiteral("org.kde.kdeconnect.device.share"), action);
-            msg.setArguments({ url.toString() });
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
+                                                              QStringLiteral("org.kde.kdeconnect.device.share"),
+                                                              action);
+            msg.setArguments({url.toString()});
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             return 0;
         } else {
-            QMessageBox::critical(nullptr, description,
-                                i18n("Couldn't share %1", url.toString())
-                                );
+            QMessageBox::critical(nullptr, description, i18n("Couldn't share %1", url.toString()));
             return 1;
         }
     } else {

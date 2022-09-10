@@ -7,9 +7,9 @@
 #ifndef COMMANDSMODEL_H
 #define COMMANDSMODEL_H
 
-#include <QAbstractListModel>
-#include "kdeconnectinterfaces_export.h"
 #include "core/kdeconnectpluginconfig.h"
+#include "kdeconnectinterfaces_export.h"
+#include <QAbstractListModel>
 
 struct CommandEntry {
     QString key;
@@ -17,38 +17,33 @@ struct CommandEntry {
     QString command;
 };
 
-class KDECONNECTINTERFACES_EXPORT CommandsModel
-    : public QAbstractListModel
+class KDECONNECTINTERFACES_EXPORT CommandsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
 
 public:
-    enum ModelRoles {
-        KeyRole,
-        NameRole,
-        CommandRole
-    };
+    enum ModelRoles { KeyRole, NameRole, CommandRole };
 
-    explicit CommandsModel(QObject* parent = nullptr);
+    explicit CommandsModel(QObject *parent = nullptr);
     ~CommandsModel() override;
 
     QString deviceId() const;
-    void setDeviceId(const QString& deviceId);
+    void setDeviceId(const QString &deviceId);
 
-    QVariant data(const QModelIndex& index, int role) const override;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QHash<int, QByteArray> roleNames() const override;
 
     Q_SCRIPTABLE void removeCommand(int index);
-    Q_SCRIPTABLE void addCommand(const QString& name, const QString& command);
+    Q_SCRIPTABLE void addCommand(const QString &name, const QString &command);
 
 private Q_SLOTS:
     void refreshCommandList();
 
 Q_SIGNALS:
-    void deviceIdChanged(const QString& value);
+    void deviceIdChanged(const QString &value);
     void rowsChanged();
 
 private:
@@ -60,4 +55,3 @@ private:
 };
 
 #endif // DEVICESMODEL_H
-

@@ -14,25 +14,26 @@
 
 #include "sftpplugin.h"
 
-class Mounter
-    : public QObject
+class Mounter : public QObject
 {
     Q_OBJECT
 public:
-
-    explicit Mounter(SftpPlugin* sftp);
+    explicit Mounter(SftpPlugin *sftp);
     ~Mounter() override;
 
     bool wait();
-    bool isMounted() const { return m_started; }
+    bool isMounted() const
+    {
+        return m_started;
+    }
 
 Q_SIGNALS:
     void mounted();
     void unmounted();
-    void failed(const QString& message);
+    void failed(const QString &message);
 
 private Q_SLOTS:
-    void onPackageReceived(const NetworkPacket& np);
+    void onPackageReceived(const NetworkPacket &np);
     void onStarted();
     void onError(QProcess::ProcessError error);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);
@@ -43,12 +44,11 @@ private:
     void unmount(bool finished);
 
 private:
-    SftpPlugin* m_sftp;
-    KProcess* m_proc;
+    SftpPlugin *m_sftp;
+    KProcess *m_proc;
     QTimer m_connectTimer;
     QString m_mountPoint;
     bool m_started;
 };
-
 
 #endif

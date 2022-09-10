@@ -6,39 +6,41 @@
 
 #include "kcm.h"
 
+#include <KAboutData>
+#include <KColorSchemeManager>
+#include <KLocalizedString>
 #include <KPluginInfo>
 #include <KPluginMetaData>
-#include <KAboutData>
-#include <KLocalizedString>
 #include <kcmutils_version.h>
-#include <KColorSchemeManager>
 
-#include "ui_kcm.h"
 #include "dbusinterfaces.h"
 #include "devicesmodel.h"
 #include "devicessortproxymodel.h"
 #include "kdeconnect-version.h"
+#include "ui_kcm.h"
 
 K_PLUGIN_CLASS_WITH_JSON(KdeConnectKcm, "kcm_kdeconnect.json")
 
-static QString createId() { return QStringLiteral("kcm")+QString::number(QCoreApplication::applicationPid()); }
+static QString createId()
+{
+    return QStringLiteral("kcm") + QString::number(QCoreApplication::applicationPid());
+}
 
-KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
+KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList &args)
     : KCModule(parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
     , currentDevice(nullptr)
 {
-    KAboutData* about = new KAboutData(QStringLiteral("kdeconnect-kcm"),
+    KAboutData *about = new KAboutData(QStringLiteral("kdeconnect-kcm"),
                                        i18n("KDE Connect Settings"),
                                        QStringLiteral(KDECONNECT_VERSION_STRING),
                                        i18n("KDE Connect Settings module"),
                                        KAboutLicense::KAboutLicense::GPL_V2,
                                        i18n("(C) 2015 Albert Vaca Cintora"),
                                        QString(),
-                                       QStringLiteral("https://community.kde.org/KDEConnect")
-    );
+                                       QStringLiteral("https://community.kde.org/KDEConnect"));
     about->addAuthor(i18n("Albert Vaca Cintora"));
     about->setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
 
@@ -59,54 +61,46 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
     kcmUi->progressBar->setVisible(false);
     kcmUi->messages->setVisible(false);
 
-    //Workaround: If we set this directly (or if we set it in the .ui file), the layout breaks
+    // Workaround: If we set this directly (or if we set it in the .ui file), the layout breaks
     kcmUi->noDeviceLinks->setWordWrap(false);
-    QTimer::singleShot(0, this, [this] { kcmUi->noDeviceLinks->setWordWrap(true); });
+    QTimer::singleShot(0, this, [this] {
+        kcmUi->noDeviceLinks->setWordWrap(true);
+    });
 
-    setWhenAvailable(daemon->announcedName(), [this](const QString& announcedName) {
-        kcmUi->rename_label->setText(announcedName);
-        kcmUi->rename_edit->setText(announcedName);
-    }, this);
-    connect(daemon, SIGNAL(announcedNameChanged(QString)),
-            kcmUi->rename_edit, SLOT(setText(QString)));
-    connect(daemon, SIGNAL(announcedNameChanged(QString)),
-            kcmUi->rename_label, SLOT(setText(QString)));
+    setWhenAvailable(
+        daemon->announcedName(),
+        [this](const QString &announcedName) {
+            kcmUi->rename_label->setText(announcedName);
+            kcmUi->rename_edit->setText(announcedName);
+        },
+        this);
+    connect(daemon, SIGNAL(announcedNameChanged(QString)), kcmUi->rename_edit, SLOT(setText(QString)));
+    connect(daemon, SIGNAL(announcedNameChanged(QString)), kcmUi->rename_label, SLOT(setText(QString)));
     setRenameMode(false);
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
 
-    connect(devicesModel, &QAbstractItemModel::dataChanged,
-            this, &KdeConnectKcm::resetSelection);
-    connect(kcmUi->deviceList->selectionModel(), &QItemSelectionModel::currentChanged,
-            this, &KdeConnectKcm::deviceSelected);
-    connect(kcmUi->accept_button, &QAbstractButton::clicked,
-            this, &KdeConnectKcm::acceptPairing);
-    connect(kcmUi->reject_button, &QAbstractButton::clicked,
-            this, &KdeConnectKcm::rejectPairing);
-    connect(kcmUi->pair_button, &QAbstractButton::clicked,
-            this, &KdeConnectKcm::requestPair);
-    connect(kcmUi->unpair_button, &QAbstractButton::clicked,
-            this, &KdeConnectKcm::unpair);
-    connect(kcmUi->ping_button, &QAbstractButton::clicked,
-            this, &KdeConnectKcm::sendPing);
-    connect(kcmUi->refresh_button,&QAbstractButton::clicked,
-            this, &KdeConnectKcm::refresh);
-    connect(kcmUi->rename_edit,&QLineEdit::returnPressed,
-            this, &KdeConnectKcm::renameDone);
-    connect(kcmUi->renameDone_button,&QAbstractButton::clicked,
-            this, &KdeConnectKcm::renameDone);
-    connect(kcmUi->renameShow_button,&QAbstractButton::clicked,
-            this, &KdeConnectKcm::renameShow);
+    connect(devicesModel, &QAbstractItemModel::dataChanged, this, &KdeConnectKcm::resetSelection);
+    connect(kcmUi->deviceList->selectionModel(), &QItemSelectionModel::currentChanged, this, &KdeConnectKcm::deviceSelected);
+    connect(kcmUi->accept_button, &QAbstractButton::clicked, this, &KdeConnectKcm::acceptPairing);
+    connect(kcmUi->reject_button, &QAbstractButton::clicked, this, &KdeConnectKcm::rejectPairing);
+    connect(kcmUi->pair_button, &QAbstractButton::clicked, this, &KdeConnectKcm::requestPair);
+    connect(kcmUi->unpair_button, &QAbstractButton::clicked, this, &KdeConnectKcm::unpair);
+    connect(kcmUi->ping_button, &QAbstractButton::clicked, this, &KdeConnectKcm::sendPing);
+    connect(kcmUi->refresh_button, &QAbstractButton::clicked, this, &KdeConnectKcm::refresh);
+    connect(kcmUi->rename_edit, &QLineEdit::returnPressed, this, &KdeConnectKcm::renameDone);
+    connect(kcmUi->renameDone_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameDone);
+    connect(kcmUi->renameShow_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameShow);
 
     daemon->acquireDiscoveryMode(createId());
 
-    #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
+#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
 
     if (!args.isEmpty() && args.first().type() == QVariant::String) {
         const QString input = args.first().toString();
         const auto colonIdx = input.indexOf(QLatin1Char(':'));
         const QString deviceId = input.left(colonIdx);
-        const QString pluginCM = colonIdx < 0 ? QString() : input.mid(colonIdx+1);
+        const QString pluginCM = colonIdx < 0 ? QString() : input.mid(colonIdx + 1);
 
         connect(devicesModel, &DevicesModel::rowsInserted, this, [this, deviceId, pluginCM]() {
             auto row = devicesModel->rowForDevice(deviceId);
@@ -121,7 +115,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget* parent, const QVariantList& args)
         });
     }
 
-    #endif
+#endif
 }
 
 void KdeConnectKcm::renameShow()
@@ -133,7 +127,7 @@ void KdeConnectKcm::renameDone()
 {
     QString newName = kcmUi->rename_edit->text();
     if (newName.isEmpty()) {
-        //Rollback changes
+        // Rollback changes
         kcmUi->rename_edit->setText(kcmUi->rename_label->text());
     } else {
         kcmUi->rename_label->setText(newName);
@@ -142,7 +136,8 @@ void KdeConnectKcm::renameDone()
     setRenameMode(false);
 }
 
-void KdeConnectKcm::setRenameMode(bool b) {
+void KdeConnectKcm::setRenameMode(bool b)
+{
     kcmUi->renameDone_button->setVisible(b);
     kcmUi->rename_edit->setVisible(b);
     kcmUi->renameShow_button->setVisible(!b);
@@ -169,7 +164,7 @@ void KdeConnectKcm::resetSelection()
     kcmUi->deviceList->selectionModel()->setCurrentIndex(sortProxyModel->mapFromSource(currentIndex), QItemSelectionModel::ClearAndSelect);
 }
 
-void KdeConnectKcm::deviceSelected(const QModelIndex& current)
+void KdeConnectKcm::deviceSelected(const QModelIndex &current)
 {
     if (currentDevice) {
         disconnect(currentDevice, 0, this, 0);
@@ -205,9 +200,12 @@ void KdeConnectKcm::currentDevicePairingChanged(bool pairing)
     if (pairing) {
         setCurrentDeviceTrusted(RequestedByPeer);
     } else {
-        setWhenAvailable(currentDevice->isTrusted(), [this](bool trusted) {
-            setCurrentDeviceTrusted(trusted ? Trusted : NotTrusted);
-        }, this);
+        setWhenAvailable(
+            currentDevice->isTrusted(),
+            [this](bool trusted) {
+                setCurrentDeviceTrusted(trusted ? Trusted : NotTrusted);
+            },
+            this);
     }
 }
 
@@ -224,22 +222,27 @@ void KdeConnectKcm::resetDeviceView()
 {
     kcmUi->verificationKey->setText(i18n("Key: %1", QString::fromUtf8(currentDevice->verificationKey())));
 
-
     kcmUi->name_label->setText(currentDevice->name());
-    setWhenAvailable(currentDevice->isTrusted(), [this](bool trusted) {
-        if (trusted)
-            setCurrentDeviceTrusted(Trusted);
-        else
-            setWhenAvailable(currentDevice->hasPairingRequests(), [this](bool haspr) {
-                setCurrentDeviceTrusted(haspr ? RequestedByPeer : NotTrusted);
-            }, this);
-    }, this);
+    setWhenAvailable(
+        currentDevice->isTrusted(),
+        [this](bool trusted) {
+            if (trusted)
+                setCurrentDeviceTrusted(Trusted);
+            else
+                setWhenAvailable(
+                    currentDevice->hasPairingRequests(),
+                    [this](bool haspr) {
+                        setCurrentDeviceTrusted(haspr ? RequestedByPeer : NotTrusted);
+                    },
+                    this);
+        },
+        this);
 
     const QVector<KPluginMetaData> pluginInfo = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect/"));
     QVector<KPluginMetaData> availablePluginInfo;
 
     m_oldSupportedPluginNames = currentDevice->supportedPlugins();
-    for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it!=itEnd; ++it) {
+    for (auto it = pluginInfo.cbegin(), itEnd = pluginInfo.cend(); it != itEnd; ++it) {
         if (m_oldSupportedPluginNames.contains(it->pluginId())) {
             availablePluginInfo.append(*it);
         }
@@ -264,7 +267,6 @@ void KdeConnectKcm::requestPair()
     setCurrentDeviceTrusted(Requested);
 
     currentDevice->requestPair();
-
 }
 
 void KdeConnectKcm::unpair()
@@ -295,19 +297,20 @@ void KdeConnectKcm::rejectPairing()
     currentDevice->rejectPairing();
 }
 
-void KdeConnectKcm::pairingFailed(const QString& error)
+void KdeConnectKcm::pairingFailed(const QString &error)
 {
-    if (sender() != currentDevice) return;
+    if (sender() != currentDevice)
+        return;
 
     setCurrentDeviceTrusted(NotTrusted);
 
-    kcmUi->messages->setText(i18n("Error trying to pair: %1",error));
+    kcmUi->messages->setText(i18n("Error trying to pair: %1", error));
     kcmUi->messages->animatedShow();
 }
 
 void KdeConnectKcm::trustedChanged(bool trusted)
 {
-    DeviceDbusInterface* senderDevice = (DeviceDbusInterface*) sender();
+    DeviceDbusInterface *senderDevice = (DeviceDbusInterface *)sender();
     if (senderDevice == currentDevice)
         setCurrentDeviceTrusted(trusted ? Trusted : NotTrusted);
 }
@@ -321,25 +324,26 @@ void KdeConnectKcm::setCurrentDeviceTrusted(KdeConnectKcm::TrustStatus trusted)
     kcmUi->progressBar->setVisible(trusted == Requested);
     kcmUi->ping_button->setVisible(trusted == Trusted);
     switch (trusted) {
-        case Trusted:
-            kcmUi->status_label->setText(i18n("(paired)"));
-            break;
-        case NotTrusted:
-            kcmUi->status_label->setText(i18n("(not paired)"));
-            break;
-        case RequestedByPeer:
-            kcmUi->status_label->setText(i18n("(incoming pair request)"));
-            break;
-        case Requested:
-            kcmUi->status_label->setText(i18n("(pairing requested)"));
-            break;
+    case Trusted:
+        kcmUi->status_label->setText(i18n("(paired)"));
+        break;
+    case NotTrusted:
+        kcmUi->status_label->setText(i18n("(not paired)"));
+        break;
+    case RequestedByPeer:
+        kcmUi->status_label->setText(i18n("(incoming pair request)"));
+        break;
+    case Requested:
+        kcmUi->status_label->setText(i18n("(pairing requested)"));
+        break;
     }
 }
 
 void KdeConnectKcm::pluginsConfigChanged()
 {
-    //Store previous selection
-    if (!currentDevice) return;
+    // Store previous selection
+    if (!currentDevice)
+        return;
 
     kcmUi->pluginSelector->save();
     currentDevice->reloadPlugins();
@@ -352,18 +356,19 @@ void KdeConnectKcm::save()
 
 void KdeConnectKcm::sendPing()
 {
-    if (!currentDevice) return;
+    if (!currentDevice)
+        return;
     currentDevice->pluginCall(QStringLiteral("ping"), QStringLiteral("sendPing"));
 }
 
 QSize KdeConnectKcm::sizeHint() const
 {
-    return QSize(890,550); //Golden ratio :D
+    return QSize(890, 550); // Golden ratio :D
 }
 
 QSize KdeConnectKcm::minimumSizeHint() const
 {
-    return QSize(500,300);
+    return QSize(500, 300);
 }
 
 #include "kcm.moc"

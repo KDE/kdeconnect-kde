@@ -7,7 +7,7 @@
 
 #include "devicelinereader.h"
 
-DeviceLineReader::DeviceLineReader(QIODevice* device, QObject* parent)
+DeviceLineReader::DeviceLineReader(QIODevice *device, QObject *parent)
     : QObject(parent)
     , m_device(device)
 {
@@ -17,22 +17,22 @@ DeviceLineReader::DeviceLineReader(QIODevice* device, QObject* parent)
 
 void DeviceLineReader::dataReceived()
 {
-    while(m_device->canReadLine()) {
+    while (m_device->canReadLine()) {
         const QByteArray line = m_device->readLine();
         if (line.length() > 1) {
-            m_packets.enqueue(line);//we don't want single \n
+            m_packets.enqueue(line); // we don't want single \n
         }
     }
 
-    //If we still have things to read from the device, call dataReceived again
-    //We do this manually because we do not trust readyRead to be emitted again
-    //So we call this method again just in case.
+    // If we still have things to read from the device, call dataReceived again
+    // We do this manually because we do not trust readyRead to be emitted again
+    // So we call this method again just in case.
     if (m_device->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
         return;
     }
 
-    //If we have any packets, tell it to the world.
+    // If we have any packets, tell it to the world.
     if (!m_packets.isEmpty()) {
         Q_EMIT readyRead();
     }

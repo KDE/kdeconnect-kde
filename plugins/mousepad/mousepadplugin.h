@@ -9,28 +9,26 @@
 #ifndef MOUSEPADPLUGIN_H
 #define MOUSEPADPLUGIN_H
 
-#include <core/kdeconnectplugin.h>
 #include <config-mousepad.h>
+#include <core/kdeconnectplugin.h>
 
 #include "abstractremoteinput.h"
 
 #define PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE QLatin1String("kdeconnect.mousepad.keyboardstate")
 
-class MousepadPlugin
-    : public KdeConnectPlugin
+class MousepadPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit MousepadPlugin(QObject* parent, const QVariantList& args);
+    explicit MousepadPlugin(QObject *parent, const QVariantList &args);
     ~MousepadPlugin() override;
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:
-    AbstractRemoteInput* m_impl;
-
+    AbstractRemoteInput *m_impl;
 };
 
 #endif

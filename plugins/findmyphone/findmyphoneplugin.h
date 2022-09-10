@@ -13,21 +13,22 @@
 
 #define PACKET_TYPE_FINDMYPHONE_REQUEST QStringLiteral("kdeconnect.findmyphone.request")
 
-class FindMyPhonePlugin
-    : public KdeConnectPlugin
+class FindMyPhonePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.findmyphone")
 
 public:
-    explicit FindMyPhonePlugin(QObject* parent, const QVariantList& args);
+    explicit FindMyPhonePlugin(QObject *parent, const QVariantList &args);
     ~FindMyPhonePlugin() override;
-    
+
     Q_SCRIPTABLE void ring();
 
     QString dbusPath() const override;
-    void connected() override {}
-    bool receivePacket(const NetworkPacket& np) override;
+    void connected() override
+    {
+    }
+    bool receivePacket(const NetworkPacket &np) override;
 };
 
 #endif // FINDMYPHONEPLUGIN_H

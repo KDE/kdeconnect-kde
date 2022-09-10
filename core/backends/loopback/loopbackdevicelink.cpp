@@ -8,10 +8,9 @@
 
 #include "loopbacklinkprovider.h"
 
-LoopbackDeviceLink::LoopbackDeviceLink(const QString& deviceId, LoopbackLinkProvider* provider)
+LoopbackDeviceLink::LoopbackDeviceLink(const QString &deviceId, LoopbackLinkProvider *provider)
     : DeviceLink(deviceId, provider)
 {
-
 }
 
 QString LoopbackDeviceLink::name()
@@ -19,12 +18,12 @@ QString LoopbackDeviceLink::name()
     return QStringLiteral("LoopbackLink");
 }
 
-bool LoopbackDeviceLink::sendPacket(NetworkPacket& input)
+bool LoopbackDeviceLink::sendPacket(NetworkPacket &input)
 {
     NetworkPacket output((QString()));
     NetworkPacket::unserialize(input.serialize(), &output);
 
-    //LoopbackDeviceLink does not need deviceTransferInfo
+    // LoopbackDeviceLink does not need deviceTransferInfo
     if (input.hasPayload()) {
         bool b = input.payload()->open(QIODevice::ReadOnly);
         Q_ASSERT(b);
@@ -35,4 +34,3 @@ bool LoopbackDeviceLink::sendPacket(NetworkPacket& input)
 
     return true;
 }
-

@@ -6,29 +6,29 @@
 
 #include "shareplugin.h"
 
-#include <QStandardPaths>
-#include <QProcess>
-#include <QDir>
-#include <QDesktopServices>
 #include <QDBusConnection>
-#include <QTemporaryFile>
 #include <QDateTime>
+#include <QDesktopServices>
+#include <QDir>
+#include <QProcess>
+#include <QStandardPaths>
+#include <QTemporaryFile>
 
-#include <KLocalizedString>
-#include <KJobTrackerInterface>
-#include <KPluginFactory>
-#include <KIO/Job>
-#include <KIO/MkpathJob>
 #include <KApplicationTrader>
 #include <KFileUtils>
+#include <KIO/Job>
+#include <KIO/MkpathJob>
+#include <KJobTrackerInterface>
+#include <KLocalizedString>
+#include <KPluginFactory>
 
-#include "core/filetransferjob.h"
 #include "core/daemon.h"
+#include "core/filetransferjob.h"
 #include "plugin_share_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(SharePlugin, "kdeconnect_share.json")
 
-SharePlugin::SharePlugin(QObject* parent, const QVariantList& args)
+SharePlugin::SharePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_compositeJob()
 {
@@ -43,7 +43,7 @@ QUrl SharePlugin::destinationDir() const
         dir.setPath(dir.path().arg(device()->name()));
     }
 
-    KJob* job = KIO::mkpath(dir);
+    KJob *job = KIO::mkpath(dir);
     bool ret = job->exec();
     if (!ret) {
         qWarning() << "couldn't create" << dir;
@@ -66,10 +66,10 @@ QUrl SharePlugin::getFileDestination(const QString filename) const
 static QString cleanFilename(const QString &filename)
 {
     int idx = filename.lastIndexOf(QLatin1Char('/'));
-    return idx>=0 ? filename.mid(idx + 1) : filename;
+    return idx >= 0 ? filename.mid(idx + 1) : filename;
 }
 
-void SharePlugin::setDateModified(const QUrl& destination, const qint64 timestamp)
+void SharePlugin::setDateModified(const QUrl &destination, const qint64 timestamp)
 {
     QFile receivedFile(destination.toLocalFile());
     if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
@@ -78,7 +78,7 @@ void SharePlugin::setDateModified(const QUrl& destination, const qint64 timestam
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileModificationTime));
 }
 
-void SharePlugin::setDateCreated(const QUrl& destination, const qint64 timestamp)
+void SharePlugin::setDateCreated(const QUrl &destination, const qint64 timestamp)
 {
     QFile receivedFile(destination.toLocalFile());
     if (!receivedFile.exists() || !receivedFile.open(QIODevice::ReadWrite | QIODevice::Text)) {
@@ -87,31 +87,32 @@ void SharePlugin::setDateCreated(const QUrl& destination, const qint64 timestamp
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileBirthTime));
 }
 
-bool SharePlugin::receivePacket(const NetworkPacket& np)
+bool SharePlugin::receivePacket(const NetworkPacket &np)
 {
-/*
-    //TODO: Write a test like this
-    if (np.type() == PACKET_TYPE_PING) {
+    /*
+        //TODO: Write a test like this
+        if (np.type() == PACKET_TYPE_PING) {
 
-        qCDebug(KDECONNECT_PLUGIN_SHARE) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
+            qCDebug(KDECONNECT_PLUGIN_SHARE) << "sending file" << (QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc");
 
-        NetworkPacket out(PACKET_TYPE_SHARE_REQUEST);
-        out.set("filename", mDestinationDir + "itworks.txt");
-        AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to transfer
+            NetworkPacket out(PACKET_TYPE_SHARE_REQUEST);
+            out.set("filename", mDestinationDir + "itworks.txt");
+            AutoClosingQFile* file = new AutoClosingQFile(QDesktopServices::storageLocation(QDesktopServices::HomeLocation) + "/.bashrc"); //Test file to
+       transfer
 
-        out.setPayload(file, file->size());
+            out.setPayload(file, file->size());
 
-        device()->sendPacket(out);
+            device()->sendPacket(out);
 
-        return true;
+            return true;
 
-    }
-*/
+        }
+    */
 
     qCDebug(KDECONNECT_PLUGIN_SHARE) << "File transfer";
 
     if (np.hasPayload() || np.has(QStringLiteral("filename"))) {
-//         qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file" << filename << "in" << dir << "into" << destination;
+        //         qCDebug(KDECONNECT_PLUGIN_SHARE) << "receiving file" << filename << "in" << dir << "into" << destination;
         const QString filename = cleanFilename(np.get<QString>(QStringLiteral("filename"), QString::number(QDateTime::currentMSecsSinceEpoch())));
         QUrl destination = getFileDestination(filename);
 
@@ -127,9 +128,9 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
                 KIO::getJobTracker()->registerJob(m_compositeJob);
             }
 
-            FileTransferJob* job = np.createPayloadTransferJob(destination);
+            FileTransferJob *job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
-            connect(job, &KJob::result, this, [this, dateCreated, dateModified, open] (KJob* job) -> void {
+            connect(job, &KJob::result, this, [this, dateCreated, dateModified, open](KJob *job) -> void {
                 finished(job, dateCreated, dateModified, open);
             });
             m_compositeJob->addSubjob(job);
@@ -149,9 +150,9 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
         const QString defaultApp = service ? service->desktopEntryName() : QString();
 
         if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
-            QProcess* proc = new QProcess();
+            QProcess *proc = new QProcess();
             connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
-            proc->start(defaultApp.section(QStringLiteral("."), 2,2), QStringList(QStringLiteral("--stdin")));
+            proc->start(defaultApp.section(QStringLiteral("."), 2, 2), QStringList(QStringLiteral("--stdin")));
             proc->write(text.toUtf8());
             proc->closeWriteChannel();
         } else {
@@ -177,9 +178,9 @@ bool SharePlugin::receivePacket(const NetworkPacket& np)
     return true;
 }
 
-void SharePlugin::finished(KJob* job, const qint64 dateModified, const qint64 dateCreated, const bool open)
+void SharePlugin::finished(KJob *job, const qint64 dateModified, const qint64 dateCreated, const bool open)
 {
-    FileTransferJob* ftjob = qobject_cast<FileTransferJob*>(job);
+    FileTransferJob *ftjob = qobject_cast<FileTransferJob *>(job);
     if (ftjob && !job->error()) {
         Q_EMIT shareReceived(ftjob->destination().toString());
         setDateCreated(ftjob->destination(), dateCreated);
@@ -198,7 +199,7 @@ void SharePlugin::openDestinationFolder()
     QDesktopServices::openUrl(destinationDir());
 }
 
-void SharePlugin::shareUrl(const QUrl& url, bool open)
+void SharePlugin::shareUrl(const QUrl &url, bool open)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     if (url.isLocalFile()) {
@@ -221,13 +222,14 @@ void SharePlugin::shareUrl(const QUrl& url, bool open)
     sendPacket(packet);
 }
 
-void SharePlugin::shareUrls(const QStringList& urls) {
-    for(const QString& url : urls) {
+void SharePlugin::shareUrls(const QStringList &urls)
+{
+    for (const QString &url : urls) {
         shareUrl(QUrl(url), false);
     }
 }
 
-void SharePlugin::shareText(const QString& text)
+void SharePlugin::shareText(const QString &text)
 {
     NetworkPacket packet(PACKET_TYPE_SHARE_REQUEST);
     packet.set<QString>(QStringLiteral("text"), text);

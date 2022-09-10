@@ -10,21 +10,22 @@
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
 
-#include <dbushelper.h>
 #include "mprisplayer.h"
+#include <dbushelper.h>
 
-//In older Qt released, qAsConst isnt available
-#include "qtcompat_p.h"
+// In older Qt released, qAsConst isnt available
 #include "plugin_pausemusic_debug.h"
+#include "qtcompat_p.h"
 
 K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
 
-PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
+PauseMusicPlugin::PauseMusicPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , mutedSinks()
-{}
+{
+}
 
-bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
+bool PauseMusicPlugin::receivePacket(const NetworkPacket &np)
 {
     bool pauseOnlyWhenTalking = config()->getBool(QStringLiteral("conditionTalking"), false);
 
@@ -32,7 +33,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
         if (np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
-    } else { //Pause as soon as it rings
+    } else { // Pause as soon as it rings
         if (np.get<QString>(QStringLiteral("event")) != QLatin1String("ringing") && np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
@@ -46,7 +47,6 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
     const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
 
     if (pauseConditionFulfilled) {
-
         if (mute) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting system volume";
             const auto sinks = PulseAudioQt::Context::instance()->sinks();
@@ -59,9 +59,9 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
         }
 
         if (pause) {
-            //Search for interfaces currently playing
+            // Search for interfaces currently playing
             const QStringList interfaces = QDBusConnection::sessionBus().interface()->registeredServiceNames().value();
-            for (const QString& iface : interfaces) {
+            for (const QString &iface : interfaces) {
                 if (iface.startsWith(QLatin1String("org.mpris.MediaPlayer2"))) {
                     OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
                     QString status = mprisInterface.playbackStatus();
@@ -80,9 +80,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
         }
 
     } else {
-
         if (mute) {
-
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting system volume";
 
             if (autoResume) {
@@ -98,18 +96,16 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
 
         if (pause && !pausedSources.empty()) {
             if (autoResume) {
-                for (const QString& iface : qAsConst(pausedSources)) {
+                for (const QString &iface : qAsConst(pausedSources)) {
                     OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
                     mprisInterface.Play();
                 }
             }
             pausedSources.clear();
         }
-
     }
 
     return true;
-
 }
 
 #include "pausemusicplugin.moc"

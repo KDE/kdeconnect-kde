@@ -9,25 +9,25 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include <QDBusConnection>
+#include <QDebug>
 #include <QLoggingCategory>
 
-#include <core/device.h>
 #include <core/daemon.h>
+#include <core/device.h>
 
 K_PLUGIN_CLASS_WITH_JSON(BigscreenPlugin, "kdeconnect_bigscreen.json")
 
 Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BIGSCREEN, "kdeconnect.plugin.bigscreen")
 
-BigscreenPlugin::BigscreenPlugin(QObject* parent, const QVariantList& args)
+BigscreenPlugin::BigscreenPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
 
 BigscreenPlugin::~BigscreenPlugin() = default;
 
-bool BigscreenPlugin::receivePacket(const NetworkPacket& np)
+bool BigscreenPlugin::receivePacket(const NetworkPacket &np)
 {
     QString message = np.get<QString>(QStringLiteral("content"));
     /* Emit a signal that will be consumed by Plasma BigScreen:

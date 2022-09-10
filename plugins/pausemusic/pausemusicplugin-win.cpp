@@ -7,22 +7,21 @@
 
 #include "pausemusicplugin-win.h"
 
-#include <KPluginFactory>
 #include "plugin_pausemusic_debug.h"
+#include <KPluginFactory>
 
 #include <Functiondiscoverykeys_devpkey.h>
 
 K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
 
-PauseMusicPlugin::PauseMusicPlugin(QObject* parent, const QVariantList& args)
+PauseMusicPlugin::PauseMusicPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
     CoInitialize(nullptr);
     deviceEnumerator = nullptr;
     HRESULT hr = CoCreateInstance(__uuidof(MMDeviceEnumerator), nullptr, CLSCTX_INPROC_SERVER, __uuidof(IMMDeviceEnumerator), (LPVOID *)&deviceEnumerator);
     valid = (hr == S_OK);
-    if (!valid)
-    {
+    if (!valid) {
         qWarning("Initialization failed: Failed to create MMDeviceEnumerator");
         qWarning("Error Code: %lx", hr);
     }
@@ -39,8 +38,7 @@ bool PauseMusicPlugin::updateSinksList()
     IMMDeviceCollection *devices = nullptr;
     HRESULT hr = deviceEnumerator->EnumAudioEndpoints(eRender, DEVICE_STATE_ACTIVE, &devices);
 
-    if (hr != S_OK)
-    {
+    if (hr != S_OK) {
         qWarning("Failed to Enumumerate AudioEndpoints");
         qWarning("Error Code: %lx", hr);
         return false;
@@ -49,8 +47,7 @@ bool PauseMusicPlugin::updateSinksList()
     unsigned int deviceCount;
     devices->GetCount(&deviceCount);
 
-    for (unsigned int i = 0; i < deviceCount; i++)
-    {
+    for (unsigned int i = 0; i < deviceCount; i++) {
         IMMDevice *device = nullptr;
 
         IPropertyStore *deviceProperties = nullptr;
@@ -65,11 +62,10 @@ bool PauseMusicPlugin::updateSinksList()
 
         deviceProperties->GetValue(PKEY_Device_FriendlyName, &deviceProperty);
         name = QString::fromWCharArray(deviceProperty.pwszVal);
-        //PropVariantClear(&deviceProperty);
+        // PropVariantClear(&deviceProperty);
 
         hr = device->Activate(__uuidof(IAudioEndpointVolume), CLSCTX_ALL, NULL, (void **)&endpoint);
-        if (hr != S_OK)
-        {
+        if (hr != S_OK) {
             qWarning() << "Failed to create IAudioEndpointVolume for device:" << name;
             qWarning("Error Code: %lx", hr);
 
@@ -87,12 +83,11 @@ bool PauseMusicPlugin::updateSinksList()
     return true;
 }
 
-
-
-void PauseMusicPlugin::updatePlayersList() {
+void PauseMusicPlugin::updatePlayersList()
+{
     playersList.clear();
     auto sessions = sessionManager->GetSessions();
-    for(uint32_t i = 0; i < sessions.Size(); i++) {
+    for (uint32_t i = 0; i < sessions.Size(); i++) {
         const auto player = sessions.GetAt(i);
         auto playerName = player.SourceAppUserModelId();
 
@@ -100,7 +95,7 @@ void PauseMusicPlugin::updatePlayersList() {
         for (int i = 2; playersList.contains(uniqueName); ++i) {
             uniqueName += QStringLiteral(" [") + QString::number(i) + QStringLiteral("]");
         }
-    playersList.insert(uniqueName, player);
+        playersList.insert(uniqueName, player);
     }
 }
 
@@ -109,9 +104,8 @@ PauseMusicPlugin::~PauseMusicPlugin()
     CoUninitialize();
 }
 
-bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
+bool PauseMusicPlugin::receivePacket(const NetworkPacket &np)
 {
-
     bool pauseOnlyWhenTalking = config()->getBool(QStringLiteral("conditionTalking"), false);
 
     if (pauseOnlyWhenTalking) {
@@ -119,8 +113,7 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
             return true;
         }
     } else {
-        if (np.get<QString>(QStringLiteral("event")) != QLatin1String("ringing")
-            && np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
+        if (np.get<QString>(QStringLiteral("event")) != QLatin1String("ringing") && np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
             return true;
         }
     }
@@ -137,13 +130,13 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muting all the unmuted sinks";
             this->updateSinksList();
             QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
-            while(sinksIterator.hasNext()) {
+            while (sinksIterator.hasNext()) {
                 sinksIterator.next();
                 BOOL muted;
                 sinksIterator.value()->GetMute(&muted);
                 if (!((bool)muted)) {
                     qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to mute " << sinksIterator.key();
-                    if(sinksIterator.value()->SetMute(true, NULL) == S_OK) {
+                    if (sinksIterator.value()->SetMute(true, NULL) == S_OK) {
                         qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Muted " << sinksIterator.key();
                         mutedSinks.insert(sinksIterator.key());
                     }
@@ -155,10 +148,10 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Pausing all the playing media";
             this->updatePlayersList();
             QHashIterator<QString, GlobalSystemMediaTransportControlsSession> playersIterator(playersList);
-            while(playersIterator.hasNext()) {
+            while (playersIterator.hasNext()) {
                 playersIterator.next();
-                auto& player = playersIterator.value();
-                auto& playerName = playersIterator.key();
+                auto &player = playersIterator.value();
+                auto &playerName = playersIterator.key();
 
                 auto playbackInfo = player.GetPlaybackInfo();
                 auto playbackControls = playbackInfo.Controls();
@@ -181,26 +174,26 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
         }
     } else if (autoResume) {
         if (mute) {
-                qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting sinks";
-                QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
-                while(sinksIterator.hasNext()) {
-                    sinksIterator.next();
-                    if (mutedSinks.contains(sinksIterator.key())) {
-                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to unmute " << sinksIterator.key();
-                        if (sinksIterator.value()->SetMute(false, NULL) == S_OK) {
-                            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuted " << sinksIterator.key();
-                        }
-                        mutedSinks.remove(sinksIterator.key());
+            qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuting sinks";
+            QHashIterator<QString, IAudioEndpointVolume *> sinksIterator(sinksList);
+            while (sinksIterator.hasNext()) {
+                sinksIterator.next();
+                if (mutedSinks.contains(sinksIterator.key())) {
+                    qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Trying to unmute " << sinksIterator.key();
+                    if (sinksIterator.value()->SetMute(false, NULL) == S_OK) {
+                        qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unmuted " << sinksIterator.key();
                     }
+                    mutedSinks.remove(sinksIterator.key());
                 }
+            }
         }
         if (pause) {
             qCDebug(KDECONNECT_PLUGIN_PAUSEMUSIC) << "Unpausing media";
             QHashIterator<QString, GlobalSystemMediaTransportControlsSession> playersIterator(playersList);
-            while(playersIterator.hasNext()) {
+            while (playersIterator.hasNext()) {
                 playersIterator.next();
-                auto& player = playersIterator.value();
-                auto& playerName = playersIterator.key();
+                auto &player = playersIterator.value();
+                auto &playerName = playersIterator.key();
 
                 auto playbackInfo = player.GetPlaybackInfo();
                 auto playbackControls = playbackInfo.Controls();
@@ -218,7 +211,6 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket& np)
     }
 
     return true;
-
 }
 
 #include "pausemusicplugin-win.moc"

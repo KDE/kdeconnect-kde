@@ -6,17 +6,23 @@
 
 #include "objectfactory.h"
 
-QObject* ObjectFactory::create() {
-    if (m_f0) return m_f0();
+QObject *ObjectFactory::create()
+{
+    if (m_f0)
+        return m_f0();
     return nullptr;
 }
 
-QObject* ObjectFactory::create(const QVariant& arg1) {
-    if (m_f1) return m_f1(arg1);
+QObject *ObjectFactory::create(const QVariant &arg1)
+{
+    if (m_f1)
+        return m_f1(arg1);
     return nullptr;
 }
 
-QObject* ObjectFactory::create(const QVariant& arg1, const QVariant& arg2) {
-    if (m_f2) return m_f2(arg1, arg2);
+QObject *ObjectFactory::create(const QVariant &arg1, const QVariant &arg2)
+{
+    if (m_f2)
+        return m_f2(arg1, arg2);
     return nullptr;
 }

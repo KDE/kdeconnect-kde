@@ -7,17 +7,16 @@
 #ifndef NOTIFICATION_H
 #define NOTIFICATION_H
 
-#include <QObject>
-#include <QString>
 #include <KNotification>
 #include <QDir>
+#include <QObject>
 #include <QPointer>
+#include <QString>
 
-#include <core/networkpacket.h>
 #include <core/device.h>
+#include <core/networkpacket.h>
 
-class Notification
-    : public QObject
+class Notification : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.notifications.notification")
@@ -33,34 +32,67 @@ class Notification
     Q_PROPERTY(QString replyId READ replyId NOTIFY ready)
 
 public:
-    Notification(const NetworkPacket& np, const Device* device, QObject* parent);
+    Notification(const NetworkPacket &np, const Device *device, QObject *parent);
     ~Notification() override;
 
-    QString internalId() const { return m_internalId; }
-    QString appName() const { return m_appName; }
-    QString ticker() const { return m_ticker; }
-    QString title() const { return m_title; }
-    QString text() const { return m_text; }
-    QString iconPath() const { return m_iconPath; }
-    bool dismissable() const { return m_dismissable; }
-    QString replyId() const { return m_requestReplyId; }
-    bool hasIcon() const { return m_hasIcon; }
+    QString internalId() const
+    {
+        return m_internalId;
+    }
+    QString appName() const
+    {
+        return m_appName;
+    }
+    QString ticker() const
+    {
+        return m_ticker;
+    }
+    QString title() const
+    {
+        return m_title;
+    }
+    QString text() const
+    {
+        return m_text;
+    }
+    QString iconPath() const
+    {
+        return m_iconPath;
+    }
+    bool dismissable() const
+    {
+        return m_dismissable;
+    }
+    QString replyId() const
+    {
+        return m_requestReplyId;
+    }
+    bool hasIcon() const
+    {
+        return m_hasIcon;
+    }
     void show();
-    bool silent() const { return m_silent; }
-    void update(const NetworkPacket& np);
-    bool isReady() const { return m_ready; }
-    void createKNotification(const NetworkPacket& np);
+    bool silent() const
+    {
+        return m_silent;
+    }
+    void update(const NetworkPacket &np);
+    bool isReady() const
+    {
+        return m_ready;
+    }
+    void createKNotification(const NetworkPacket &np);
 
 public Q_SLOTS:
     Q_SCRIPTABLE void dismiss();
     Q_SCRIPTABLE void reply();
 
 Q_SIGNALS:
-    void dismissRequested(const QString& m_internalId);
+    void dismissRequested(const QString &m_internalId);
     void replyRequested();
     Q_SCRIPTABLE void ready();
-    void actionTriggered(const QString& key, const QString& action);
-    void replied(const QString& message);
+    void actionTriggered(const QString &key, const QString &action);
+    void replied(const QString &message);
 
 private:
     QString m_internalId;
@@ -78,13 +110,13 @@ private:
     QString m_payloadHash;
     bool m_ready;
     QStringList m_actions;
-    const Device* m_device;
+    const Device *m_device;
 
-    void parseNetworkPacket(const NetworkPacket& np);
-    void loadIcon(const NetworkPacket& np);
+    void parseNetworkPacket(const NetworkPacket &np);
+    void loadIcon(const NetworkPacket &np);
     void applyIcon();
 
-    static QMap<QString, FileTransferJob*> s_downloadsInProgress;
+    static QMap<QString, FileTransferJob *> s_downloadsInProgress;
 };
 
 #endif

@@ -7,11 +7,12 @@
 
 #include "testdevice.h"
 
-TestDevice::TestDevice(QObject* parent, const QString& id)
-    : Device (parent, id)
+TestDevice::TestDevice(QObject *parent, const QString &id)
+    : Device(parent, id)
     , sentPackets(0)
     , lastPacket(nullptr)
-{}
+{
+}
 
 TestDevice::~TestDevice()
 {
@@ -23,15 +24,14 @@ bool TestDevice::isReachable() const
     return true;
 }
 
-bool TestDevice::sendPacket(NetworkPacket& np)
+bool TestDevice::sendPacket(NetworkPacket &np)
 {
     ++sentPackets;
     // copy packet manually to allow for inspection (can't use copy-constructor)
     deleteLastPacket();
     lastPacket = new NetworkPacket(np.type());
     Q_ASSERT(lastPacket);
-    for (QVariantMap::ConstIterator iter = np.body().constBegin();
-         iter != np.body().constEnd(); iter++)
+    for (QVariantMap::ConstIterator iter = np.body().constBegin(); iter != np.body().constEnd(); iter++)
         lastPacket->set(iter.key(), iter.value());
     lastPacket->setPayload(np.payload(), np.payloadSize());
     return true;

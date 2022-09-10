@@ -12,37 +12,30 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 // Qt
-#include <QStandardPaths>
 #include <QMediaPlayer>
-
+#include <QStandardPaths>
 
 K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfig>();)
 
-
-FindThisDeviceConfig::FindThisDeviceConfig(QWidget* parent, const QVariantList& args)
+FindThisDeviceConfig::FindThisDeviceConfig(QWidget *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_findthisdevice"))
     , m_ui(new Ui::FindThisDeviceConfigUi())
 {
     m_ui->setupUi(this);
 
-    const QStringList soundDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                                            QStringLiteral("sounds"),
-                                                            QStandardPaths::LocateDirectory);
+    const QStringList soundDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("sounds"), QStandardPaths::LocateDirectory);
     if (!soundDirs.isEmpty()) {
         m_ui->soundFileRequester->setStartDir(QUrl::fromLocalFile(soundDirs.last()));
     }
 
-    connect(m_ui->playSoundButton, &QToolButton::clicked,
-            this, &FindThisDeviceConfig::playSound);
-    connect(m_ui->soundFileRequester, &KUrlRequester::textChanged,
-            this, &FindThisDeviceConfig::markAsChanged);
+    connect(m_ui->playSoundButton, &QToolButton::clicked, this, &FindThisDeviceConfig::playSound);
+    connect(m_ui->soundFileRequester, &KUrlRequester::textChanged, this, &FindThisDeviceConfig::markAsChanged);
 }
 
 FindThisDeviceConfig::~FindThisDeviceConfig()
 {
     delete m_ui;
 }
-
 
 void FindThisDeviceConfig::defaults()
 {
@@ -79,7 +72,7 @@ void FindThisDeviceConfig::playSound()
     if (soundURL.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
     } else {
-        QMediaPlayer* player = new QMediaPlayer;
+        QMediaPlayer *player = new QMediaPlayer;
         player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
         player->setMedia(soundURL);
         player->setVolume(100);
@@ -87,6 +80,5 @@ void FindThisDeviceConfig::playSound()
         connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
     }
 }
-
 
 #include "findthisdevice_config.moc"

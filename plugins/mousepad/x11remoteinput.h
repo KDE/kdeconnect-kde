@@ -11,20 +11,19 @@
 
 struct FakeKey;
 
-class X11RemoteInput
-    : public AbstractRemoteInput
+class X11RemoteInput : public AbstractRemoteInput
 {
     Q_OBJECT
 
 public:
-    explicit X11RemoteInput(QObject* parent);
+    explicit X11RemoteInput(QObject *parent);
     ~X11RemoteInput() override;
 
-    bool handlePacket(const NetworkPacket& np) override;
+    bool handlePacket(const NetworkPacket &np) override;
     bool hasKeyboardSupport() override;
 
 private:
-    FakeKey* m_fakekey;
+    FakeKey *m_fakekey;
 };
 
 #endif

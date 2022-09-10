@@ -13,7 +13,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SendNotificationsPlugin, "kdeconnect_sendnotifications.json")
 
-SendNotificationsPlugin::SendNotificationsPlugin(QObject* parent, const QVariantList& args)
+SendNotificationsPlugin::SendNotificationsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
     notificationsListener = new NotificationsListener(this);
@@ -24,7 +24,7 @@ SendNotificationsPlugin::~SendNotificationsPlugin()
     delete notificationsListener;
 }
 
-bool SendNotificationsPlugin::receivePacket(const NetworkPacket& np)
+bool SendNotificationsPlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);
     return true;
@@ -32,7 +32,6 @@ bool SendNotificationsPlugin::receivePacket(const NetworkPacket& np)
 
 void SendNotificationsPlugin::connected()
 {
-
 }
 
 #include "sendnotificationsplugin.moc"

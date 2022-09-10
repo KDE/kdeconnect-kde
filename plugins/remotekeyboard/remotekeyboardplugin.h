@@ -7,9 +7,9 @@
 #ifndef REMOTEKEYBOARDPLUGIN_H
 #define REMOTEKEYBOARDPLUGIN_H
 
-#include <core/kdeconnectplugin.h>
 #include <QDBusInterface>
 #include <QVariantMap>
+#include <core/kdeconnectplugin.h>
 
 struct FakeKey;
 
@@ -17,8 +17,7 @@ struct FakeKey;
 #define PACKET_TYPE_MOUSEPAD_ECHO QLatin1String("kdeconnect.mousepad.echo")
 #define PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE QLatin1String("kdeconnect.mousepad.keyboardstate")
 
-class RemoteKeyboardPlugin
-    : public KdeConnectPlugin
+class RemoteKeyboardPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotekeyboard")
@@ -28,28 +27,24 @@ private:
     bool m_remoteState;
 
 public:
-    explicit RemoteKeyboardPlugin(QObject* parent, const QVariantList& args);
+    explicit RemoteKeyboardPlugin(QObject *parent, const QVariantList &args);
     ~RemoteKeyboardPlugin() override;
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
     void connected() override;
 
-    bool remoteState() const {
+    bool remoteState() const
+    {
         return m_remoteState;
     }
 
-    Q_SCRIPTABLE void sendKeyPress(const QString& key, int specialKey = 0,
-                                   bool shift = false, bool ctrl = false,
-                                   bool alt = false, bool sendAck = true) const;
-    Q_SCRIPTABLE void sendQKeyEvent(const QVariantMap& keyEvent,
-                                    bool sendAck = true) const;
+    Q_SCRIPTABLE void sendKeyPress(const QString &key, int specialKey = 0, bool shift = false, bool ctrl = false, bool alt = false, bool sendAck = true) const;
+    Q_SCRIPTABLE void sendQKeyEvent(const QVariantMap &keyEvent, bool sendAck = true) const;
     Q_SCRIPTABLE int translateQtKey(int qtKey) const;
 
 Q_SIGNALS:
-    Q_SCRIPTABLE void keyPressReceived(const QString& key, int specialKey = 0,
-                                       bool shift = false, bool ctrl = false,
-                                       bool alt = false);
+    Q_SCRIPTABLE void keyPressReceived(const QString &key, int specialKey = 0, bool shift = false, bool ctrl = false, bool alt = false);
     Q_SCRIPTABLE void remoteStateChanged(bool state);
 };
 

@@ -12,8 +12,7 @@
 #define PACKET_TYPE_BATTERY QStringLiteral("kdeconnect.battery")
 #define PACKET_TYPE_BATTERY_REQUEST QStringLiteral("kdeconnect.battery.request")
 
-class BatteryPlugin
-    : public KdeConnectPlugin
+class BatteryPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.battery")
@@ -21,9 +20,9 @@ class BatteryPlugin
     Q_PROPERTY(bool isCharging READ isCharging NOTIFY refreshed)
 
 public:
-    explicit BatteryPlugin(QObject* parent, const QVariantList& args);
+    explicit BatteryPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
     QString dbusPath() const override;
 
@@ -39,10 +38,7 @@ private:
     // Keep these values in sync with THRESHOLD* constants in
     // kdeconnect-android:BatteryPlugin.java
     // see README for their meaning
-    enum ThresholdBatteryEvent {
-        ThresholdNone       = 0,
-        ThresholdBatteryLow = 1
-    };
+    enum ThresholdBatteryEvent { ThresholdNone = 0, ThresholdBatteryLow = 1 };
 
     int m_charge = -1;
     bool m_isCharging = false;

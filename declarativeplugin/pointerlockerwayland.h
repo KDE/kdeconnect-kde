@@ -9,8 +9,10 @@
 
 #include "pointerlocker.h"
 
-namespace KWayland {
-namespace Client {
+namespace KWayland
+{
+namespace Client
+{
 
 class ConnectionThread;
 class Registry;
@@ -33,13 +35,17 @@ public:
     PointerLockerWayland(QObject *parent = nullptr);
 
     void setLocked(bool locked) override;
-    bool isLocked() const override { return m_isLocked; }
+    bool isLocked() const override
+    {
+        return m_isLocked;
+    }
     bool isLockEffective() const override;
-    bool isSupported() const override {
+    bool isSupported() const override
+    {
         return m_pointerConstraints && m_relativePointerManager;
     }
 
-    void setWindow(QWindow * window) override;
+    void setWindow(QWindow *window) override;
 
 private:
     void setupRegistry();

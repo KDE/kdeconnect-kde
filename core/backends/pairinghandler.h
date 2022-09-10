@@ -7,8 +7,8 @@
 #ifndef KDECONNECT_PAIRINGHANDLER_H
 #define KDECONNECT_PAIRINGHANDLER_H
 
-#include "networkpacket.h"
 #include "devicelink.h"
+#include "networkpacket.h"
 
 /*
  * This class separates the pairing interface for each type of link.
@@ -21,21 +21,23 @@
  * After that if any one of the link is paired, then we can say that device is paired, so new link will pair automatically
  */
 
-class KDECONNECTCORE_EXPORT PairingHandler
-    : public QObject
+class KDECONNECTCORE_EXPORT PairingHandler : public QObject
 {
     Q_OBJECT
 
 public:
-    PairingHandler(DeviceLink* parent);
+    PairingHandler(DeviceLink *parent);
     ~PairingHandler() override = default;
 
-    DeviceLink* deviceLink() const;
-    void setDeviceLink(DeviceLink* dl);
+    DeviceLink *deviceLink() const;
+    void setDeviceLink(DeviceLink *dl);
 
-    virtual void packetReceived(const NetworkPacket& np) = 0;
+    virtual void packetReceived(const NetworkPacket &np) = 0;
     virtual void unpair() = 0;
-    static int pairingTimeoutMsec() { return 30 * 1000; } // 30 seconds of timeout (default), subclasses that use different values should override
+    static int pairingTimeoutMsec()
+    {
+        return 30 * 1000;
+    } // 30 seconds of timeout (default), subclasses that use different values should override
 
 public Q_SLOTS:
     virtual bool requestPairing() = 0;
@@ -43,12 +45,10 @@ public Q_SLOTS:
     virtual void rejectPairing() = 0;
 
 Q_SIGNALS:
-    void pairingError(const QString& errorMessage);
+    void pairingError(const QString &errorMessage);
 
 private:
-    DeviceLink* m_deviceLink;
-
+    DeviceLink *m_deviceLink;
 };
 
-
-#endif //KDECONNECT_PAIRINGHANDLER_H
+#endif // KDECONNECT_PAIRINGHANDLER_H

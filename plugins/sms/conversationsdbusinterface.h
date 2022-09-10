@@ -9,13 +9,13 @@
 #define CONVERSATIONSDBUSINTERFACE_H
 
 #include <QDBusAbstractAdaptor>
+#include <QDir>
 #include <QHash>
 #include <QList>
 #include <QMap>
+#include <QPointer>
 #include <QString>
 #include <QStringList>
-#include <QDir>
-#include <QPointer>
 
 #include "interfaces/conversationmessage.h"
 #include "interfaces/dbusinterfaces.h"
@@ -30,29 +30,28 @@ Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_CONVERSATIONS)
 // Some low-water mark after which we want to fill the cache
 #define CACHE_LOW_WATER_MARK_PERCENT 10
 
-class ConversationsDbusInterface
-    : public QDBusAbstractAdaptor
+class ConversationsDbusInterface : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.conversations")
 
 public:
-    explicit ConversationsDbusInterface(KdeConnectPlugin* plugin);
+    explicit ConversationsDbusInterface(KdeConnectPlugin *plugin);
     ~ConversationsDbusInterface() override;
 
     void addMessages(const QList<ConversationMessage> &messages);
-    void removeMessage(const QString& internalId);
+    void removeMessage(const QString &internalId);
 
     /**
      * Return a shallow copy of the requested conversation
      */
-    QList<ConversationMessage> getConversation(const qint64& conversationID) const;
+    QList<ConversationMessage> getConversation(const qint64 &conversationID) const;
 
     /**
      * Get some new messages for the requested conversation from the remote device
      * Requests a quantity of new messages equal to the current number of messages in the conversation
      */
-    void updateConversation(const qint64& conversationID);
+    void updateConversation(const qint64 &conversationID);
 
     /**
      * Gets the path of the succesfully downloaded attachment file and send
@@ -82,12 +81,12 @@ public Q_SLOTS:
     /**
      * Send a new message to this conversation
      */
-    void replyToConversation(const qint64& conversationID, const QString& message, const QVariantList& attachmentUrls);
+    void replyToConversation(const qint64 &conversationID, const QString &message, const QVariantList &attachmentUrls);
 
     /**
      * Send a new message to the contact having no previous coversation with
      */
-    void sendWithoutConversation(const QVariantList& addressList, const QString& message, const QVariantList& attachmentUrls);
+    void sendWithoutConversation(const QVariantList &addressList, const QString &message, const QVariantList &attachmentUrls);
 
     /**
      * Send the request to the Telephony plugin to update the list of conversation threads
@@ -97,25 +96,25 @@ public Q_SLOTS:
     /**
      * Send the request to SMS plugin to fetch original attachment file path
      */
-    void requestAttachmentFile(const qint64& partID, const QString& uniqueIdentifier);
+    void requestAttachmentFile(const qint64 &partID, const QString &uniqueIdentifier);
 
 Q_SIGNALS:
     /**
      * Emitted whenever a conversation with no cached messages is added, either because the cache
      * is being populated or because a new conversation has been created
      */
-    Q_SCRIPTABLE void conversationCreated(const QDBusVariant& msg);
+    Q_SCRIPTABLE void conversationCreated(const QDBusVariant &msg);
 
     /**
      * Emitted whenever a conversation is being deleted
      */
-    Q_SCRIPTABLE void conversationRemoved(const qint64& conversationID);
+    Q_SCRIPTABLE void conversationRemoved(const qint64 &conversationID);
 
     /**
      * Emitted whenever a message is added to a conversation and it is the newest message in the
      * conversation
      */
-    Q_SCRIPTABLE void conversationUpdated(const QDBusVariant& msg);
+    Q_SCRIPTABLE void conversationUpdated(const QDBusVariant &msg);
 
     /**
      * Emitted whenever we have handled a response from the phone indicating the total number of
@@ -128,10 +127,10 @@ Q_SIGNALS:
      */
     Q_SCRIPTABLE void attachmentReceived(QString filePath, QString fileName);
 
-private /*methods*/:
-    QString newId(); //Generates successive identifiers to use as public ids
+    private /*methods*/:
+    QString newId(); // Generates successive identifiers to use as public ids
 
-private /*attributes*/:
+    private /*attributes*/:
     const QString m_device;
 
     /**
@@ -154,7 +153,7 @@ private /*attributes*/:
      * we have replaced them (in ConversationsDbusInterface's constructor)
      * See the comment in ~NotificationsPlugin() for more information
      */
-    static QMap<QString, ConversationsDbusInterface*> liveConversationInterfaces;
+    static QMap<QString, ConversationsDbusInterface *> liveConversationInterfaces;
 
     int m_lastId;
 

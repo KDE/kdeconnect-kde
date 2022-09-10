@@ -6,16 +6,16 @@
 
 #include "runcommand_config.h"
 
-#include <QTableView>
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QHeaderView>
-#include <QPushButton>
-#include <QMenu>
-#include <QStandardItemModel>
-#include <QDebug>
-#include <QUuid>
 #include <QJsonDocument>
+#include <QMenu>
+#include <QPushButton>
+#include <QStandardItemModel>
 #include <QStandardPaths>
+#include <QTableView>
+#include <QUuid>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -24,8 +24,7 @@
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
-
-RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
+RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand"))
 {
     // The qdbus executable name is different on some systems
@@ -34,7 +33,7 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
         qdbusExe = QStringLiteral("qdbus");
     }
 
-    QMenu* defaultMenu = new QMenu(this);
+    QMenu *defaultMenu = new QMenu(this);
 
 #ifdef Q_OS_WIN
     addSuggestedCommand(defaultMenu, i18n("Schedule a shutdown"), QStringLiteral("shutdown /s /t 60"));
@@ -43,24 +42,35 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     addSuggestedCommand(defaultMenu, i18n("Schedule a reboot"), QStringLiteral("shutdown /r /t 60"));
     addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("rundll32.exe powrprof.dll,SetSuspendState 0,1,0"));
     addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("rundll32.exe user32.dll,LockWorkStation"));
-    addSuggestedCommand(defaultMenu, i18n("Say Hello"), QStringLiteral("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');\""));
+    addSuggestedCommand(
+        defaultMenu,
+        i18n("Say Hello"),
+        QStringLiteral("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');\""));
 #else
     addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("poweroff"));
     addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("reboot"));
     addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("suspend"));
-    addSuggestedCommand(defaultMenu, i18n("Maximum Brightness"), QStringLiteral("%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`").arg(qdbusExe));
+    addSuggestedCommand(
+        defaultMenu,
+        i18n("Maximum Brightness"),
+        QStringLiteral("%0 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/Actions/BrightnessControl "
+                       "org.kde.Solid.PowerManagement.Actions.BrightnessControl.setBrightness `%0 org.kde.Solid.PowerManagement "
+                       "/org/kde/Solid/PowerManagement/Actions/BrightnessControl org.kde.Solid.PowerManagement.Actions.BrightnessControl.brightnessMax`")
+            .arg(qdbusExe));
     addSuggestedCommand(defaultMenu, i18n("Lock Screen"), QStringLiteral("loginctl lock-session"));
     addSuggestedCommand(defaultMenu, i18n("Unlock Screen"), QStringLiteral("loginctl unlock-session"));
     addSuggestedCommand(defaultMenu, i18n("Close All Vaults"), QStringLiteral("%0 org.kde.kded5 /modules/plasmavault closeAllVaults").arg(qdbusExe));
-    addSuggestedCommand(defaultMenu, i18n("Forcefully Close All Vaults"), QStringLiteral("%0 org.kde.kded5 /modules/plasmavault forceCloseAllVaults").arg(qdbusExe));
+    addSuggestedCommand(defaultMenu,
+                        i18n("Forcefully Close All Vaults"),
+                        QStringLiteral("%0 org.kde.kded5 /modules/plasmavault forceCloseAllVaults").arg(qdbusExe));
 #endif
 
-    QTableView* table = new QTableView(this);
+    QTableView *table = new QTableView(this);
     table->horizontalHeader()->setStretchLastSection(true);
     table->verticalHeader()->setVisible(false);
-    QVBoxLayout* layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(table);
-    QPushButton* button = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Sample commands"), this);
+    QPushButton *button = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Sample commands"), this);
     button->setMenu(defaultMenu);
     layout->addWidget(button);
 
@@ -70,14 +80,13 @@ RunCommandConfig::RunCommandConfig(QWidget* parent, const QVariantList& args)
     table->setModel(m_entriesModel);
 
     m_entriesModel->setHorizontalHeaderLabels(QStringList() << i18n("Name") << i18n("Command"));
-
 }
 
 RunCommandConfig::~RunCommandConfig()
 {
 }
 
-void RunCommandConfig::addSuggestedCommand(QMenu* menu, const QString &name, const QString &command)
+void RunCommandConfig::addSuggestedCommand(QMenu *menu, const QString &name, const QString &command)
 {
     auto action = new QAction(name);
     connect(action, &QAction::triggered, action, [this, name, command]() {
@@ -90,7 +99,7 @@ void RunCommandConfig::addSuggestedCommand(QMenu* menu, const QString &name, con
 void RunCommandConfig::defaults()
 {
     KCModule::defaults();
-    m_entriesModel->removeRows(0,m_entriesModel->rowCount());
+    m_entriesModel->removeRows(0, m_entriesModel->rowCount());
 
     Q_EMIT changed(true);
 }
@@ -102,18 +111,18 @@ void RunCommandConfig::load()
     QJsonDocument jsonDocument = QJsonDocument::fromJson(config()->getByteArray(QStringLiteral("commands"), "{}"));
     QJsonObject jsonConfig = jsonDocument.object();
     const QStringList keys = jsonConfig.keys();
-    for (const QString& key : keys) {
+    for (const QString &key : keys) {
         const QJsonObject entry = jsonConfig[key].toObject();
         const QString name = entry[QStringLiteral("name")].toString();
         const QString command = entry[QStringLiteral("command")].toString();
 
-        QStandardItem* newName = new QStandardItem(name);
+        QStandardItem *newName = new QStandardItem(name);
         newName->setEditable(true);
         newName->setData(key);
-        QStandardItem* newCommand = new QStandardItem(command);
+        QStandardItem *newCommand = new QStandardItem(command);
         newName->setEditable(true);
 
-        m_entriesModel->appendRow(QList<QStandardItem*>() << newName << newCommand);
+        m_entriesModel->appendRow(QList<QStandardItem *>() << newName << newCommand);
     }
 
     m_entriesModel->sort(0);
@@ -127,7 +136,7 @@ void RunCommandConfig::load()
 void RunCommandConfig::save()
 {
     QJsonObject jsonConfig;
-    for (int i=0;i < m_entriesModel->rowCount(); i++) {
+    for (int i = 0; i < m_entriesModel->rowCount(); i++) {
         QString key = m_entriesModel->item(i, 0)->data().toString();
         const QString name = m_entriesModel->item(i, 0)->text();
         const QString command = m_entriesModel->item(i, 1)->text();
@@ -159,25 +168,24 @@ void RunCommandConfig::insertEmptyRow()
     insertRow(m_entriesModel->rowCount(), {}, {});
 }
 
-void RunCommandConfig::insertRow(int i, const QString& name, const QString& command)
+void RunCommandConfig::insertRow(int i, const QString &name, const QString &command)
 {
-    QStandardItem* newName = new QStandardItem(name);
+    QStandardItem *newName = new QStandardItem(name);
     newName->setEditable(true);
-    QStandardItem* newCommand = new QStandardItem(command);
+    QStandardItem *newCommand = new QStandardItem(command);
     newName->setEditable(true);
 
-    m_entriesModel->insertRow(i, QList<QStandardItem*>() << newName << newCommand);
+    m_entriesModel->insertRow(i, QList<QStandardItem *>() << newName << newCommand);
 }
 
-void RunCommandConfig::onDataChanged(const QModelIndex& topLeft, const QModelIndex& bottomRight)
+void RunCommandConfig::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
     Q_EMIT changed(true);
     Q_UNUSED(topLeft);
     if (bottomRight.row() == m_entriesModel->rowCount() - 1) {
-        //TODO check both entries are still empty
+        // TODO check both entries are still empty
         insertEmptyRow();
     }
 }
-
 
 #include "runcommand_config.moc"

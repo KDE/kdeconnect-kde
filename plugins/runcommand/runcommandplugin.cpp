@@ -9,10 +9,10 @@
 #include <KPluginFactory>
 
 #include <QDBusConnection>
-#include <QProcess>
 #include <QDir>
-#include <QSettings>
 #include <QJsonDocument>
+#include <QProcess>
+#include <QSettings>
 
 #ifdef SAILFISHOS
 #define KCMUTILS_VERSION 0
@@ -21,9 +21,9 @@
 #include <kcmutils_version.h>
 #endif
 
-#include <core/networkpacket.h>
-#include <core/device.h>
 #include <core/daemon.h>
+#include <core/device.h>
+#include <core/networkpacket.h>
 #include <core/openconfig.h>
 
 #include "plugin_runcommand_debug.h"
@@ -35,7 +35,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(RunCommandPlugin, "kdeconnect_runcommand.json")
 
-RunCommandPlugin::RunCommandPlugin(QObject* parent, const QVariantList& args)
+RunCommandPlugin::RunCommandPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
     connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::configChanged);
@@ -45,7 +45,7 @@ RunCommandPlugin::~RunCommandPlugin()
 {
 }
 
-bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
+bool RunCommandPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("requestCommandList"), false)) {
         sendConfig();
@@ -65,7 +65,7 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
 #ifdef Q_OS_WIN
         QProcess::startDetached(commandJson[QStringLiteral("command")].toString());
 #else
-        QProcess::startDetached(QStringLiteral(COMMAND), QStringList()<< QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
+        QProcess::startDetached(QStringLiteral(COMMAND), QStringList() << QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
 #endif
         return true;
     } else if (np.has(QStringLiteral("setup"))) {
@@ -78,23 +78,23 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket& np)
 
 void RunCommandPlugin::connected()
 {
-
     sendConfig();
 }
 
 void RunCommandPlugin::sendConfig()
 {
-    QString commands = config()->getString(QStringLiteral("commands"),QStringLiteral("{}"));
+    QString commands = config()->getString(QStringLiteral("commands"), QStringLiteral("{}"));
     NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{QStringLiteral("commandList"), commands}});
 
-    #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
-        np.set<bool>(QStringLiteral("canAddCommand"), true);
-    #endif
+#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
+    np.set<bool>(QStringLiteral("canAddCommand"), true);
+#endif
 
     sendPacket(np);
 }
 
-void RunCommandPlugin::configChanged() {
+void RunCommandPlugin::configChanged()
+{
     sendConfig();
 }
 

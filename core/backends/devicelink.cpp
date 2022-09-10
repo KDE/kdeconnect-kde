@@ -8,7 +8,7 @@
 #include "kdeconnectconfig.h"
 #include "linkprovider.h"
 
-DeviceLink::DeviceLink(const QString& deviceId, LinkProvider* parent)
+DeviceLink::DeviceLink(const QString &deviceId, LinkProvider *parent)
     : QObject(parent)
     , m_deviceId(deviceId)
     , m_linkProvider(parent)
@@ -26,4 +26,3 @@ void DeviceLink::setPairStatus(DeviceLink::PairStatus status)
         Q_EMIT pairStatusChanged(status);
     }
 }
-

@@ -7,8 +7,8 @@
 #ifndef MULTIPLEXCHANNELSTATE_H
 #define MULTIPLEXCHANNELSTATE_H
 
-#include <QObject>
 #include <QByteArray>
+#include <QObject>
 
 class ConnectionMultiplexer;
 class MultiplexChannel;
@@ -19,11 +19,13 @@ class MultiplexChannel;
  * @internal
  * @see ConnectionMultiplexer
  */
-class MultiplexChannelState : public QObject {
+class MultiplexChannelState : public QObject
+{
     Q_OBJECT
 
 private:
     MultiplexChannelState();
+
 public:
     ~MultiplexChannelState() = default;
 

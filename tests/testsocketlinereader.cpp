@@ -4,23 +4,26 @@
  *  SPDX-License-Identifier: LGPL-2.1-or-later
  *************************************************************************************/
 
-#include "../core/backends/lan/socketlinereader.h"
 #include "../core/backends/lan/server.h"
+#include "../core/backends/lan/socketlinereader.h"
 #include "../core/qtcompat_p.h"
 
-#include <QTest>
-#include <QSslSocket>
-#include <QProcess>
 #include <QEventLoop>
-#include <QTimer>
+#include <QProcess>
 #include <QSignalSpy>
+#include <QSslSocket>
+#include <QTest>
+#include <QTimer>
 
 class TestSocketLineReader : public QObject
 {
     Q_OBJECT
 public Q_SLOTS:
     void init();
-    void cleanup() { delete m_server; }
+    void cleanup()
+    {
+        delete m_server;
+    }
     void newPacket();
 
 private Q_SLOTS:
@@ -31,9 +34,9 @@ private:
     QTimer m_timer;
     QEventLoop m_loop;
     QList<QByteArray> m_packets;
-    Server* m_server;
-    QSslSocket* m_conn;
-    SocketLineReader* m_reader;
+    Server *m_server;
+    QSslSocket *m_conn;
+    SocketLineReader *m_reader;
 };
 
 void TestSocketLineReader::init()
@@ -43,7 +46,7 @@ void TestSocketLineReader::init()
 
     QVERIFY2(m_server->listen(QHostAddress::LocalHost, 8694), "Failed to create local tcp server");
 
-    m_timer.setInterval(4000);//For second is more enough to send some data via local socket
+    m_timer.setInterval(4000); // For second is more enough to send some data via local socket
     m_timer.setSingleShot(true);
     connect(&m_timer, &QTimer::timeout, &m_loop, &QEventLoop::quit);
 
@@ -59,19 +62,24 @@ void TestSocketLineReader::init()
 void TestSocketLineReader::socketLineReader()
 {
     QList<QByteArray> dataToSend;
-    dataToSend << "foobar\n" << "barfoo\n" << "foobar?\n" << "\n" << "barfoo!\n" << "panda\n";
-    for (const QByteArray& line : qAsConst(dataToSend)) {
+    dataToSend << "foobar\n"
+               << "barfoo\n"
+               << "foobar?\n"
+               << "\n"
+               << "barfoo!\n"
+               << "panda\n";
+    for (const QByteArray &line : qAsConst(dataToSend)) {
         m_conn->write(line);
     }
     m_conn->flush();
 
     int maxAttemps = 5;
-    while(!m_server->hasPendingConnections() && maxAttemps > 0) {
+    while (!m_server->hasPendingConnections() && maxAttemps > 0) {
         --maxAttemps;
         QTest::qSleep(1000);
     }
 
-    QSslSocket* sock = m_server->nextPendingConnection();
+    QSslSocket *sock = m_server->nextPendingConnection();
 
     QVERIFY2(sock != nullptr, "Could not open a connection to the client");
 
@@ -83,23 +91,23 @@ void TestSocketLineReader::socketLineReader()
     /* remove the empty line before compare */
     dataToSend.removeOne("\n");
 
-    QCOMPARE(m_packets.count(), 5);//We expect 5 Packets
-    for(int x = 0;x < 5; ++x) {
+    QCOMPARE(m_packets.count(), 5); // We expect 5 Packets
+    for (int x = 0; x < 5; ++x) {
         QCOMPARE(m_packets[x], dataToSend[x]);
     }
 }
 
 void TestSocketLineReader::badData()
 {
-    const QList<QByteArray> dataToSend = { "data1\n", "data" }; //does not end in a \n
-    for (const QByteArray& line : qAsConst(dataToSend)) {
+    const QList<QByteArray> dataToSend = {"data1\n", "data"}; // does not end in a \n
+    for (const QByteArray &line : qAsConst(dataToSend)) {
         m_conn->write(line);
     }
     m_conn->flush();
 
     QSignalSpy spy(m_server, &QTcpServer::newConnection);
     QVERIFY(m_server->hasPendingConnections() || spy.wait(1000));
-    QSslSocket* sock = m_server->nextPendingConnection();
+    QSslSocket *sock = m_server->nextPendingConnection();
 
     QVERIFY2(sock != nullptr, "Could not open a connection to the client");
 
@@ -115,7 +123,7 @@ void TestSocketLineReader::badData()
 void TestSocketLineReader::newPacket()
 {
     int maxLoops = 5;
-    while(m_reader->hasPacketsAvailable() && maxLoops > 0) {
+    while (m_reader->hasPacketsAvailable() && maxLoops > 0) {
         --maxLoops;
         const QByteArray packet = m_reader->readLine();
         if (!packet.isEmpty()) {
@@ -127,7 +135,6 @@ void TestSocketLineReader::newPacket()
         }
     }
 }
-
 
 QTEST_GUILESS_MAIN(TestSocketLineReader)
 

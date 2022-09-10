@@ -7,22 +7,21 @@
 #ifndef KDECONNECT_SERVER_H
 #define KDECONNECT_SERVER_H
 
-#include <QTcpServer>
 #include <QSslSocket>
+#include <QTcpServer>
 
 #include "kdeconnectcore_export.h"
 
 // This class overrides QTcpServer to bind QSslSocket to native socket descriptor instead of QTcpSocket
-class KDECONNECTCORE_EXPORT Server
-    : public QTcpServer
+class KDECONNECTCORE_EXPORT Server : public QTcpServer
 {
     Q_OBJECT
 
 public:
-    Server(QObject* parent = 0);
+    Server(QObject *parent = 0);
     ~Server() override = default;
 
-    QSslSocket* nextPendingConnection() override;
+    QSslSocket *nextPendingConnection() override;
     void close();
 
 Q_SIGNALS:
@@ -35,4 +34,4 @@ private:
     void errorFound(QAbstractSocket::SocketError socketError);
 };
 
-#endif //KDECONNECT_SERVER_H
+#endif // KDECONNECT_SERVER_H

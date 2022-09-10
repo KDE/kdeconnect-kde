@@ -8,7 +8,7 @@
 #include "connectionmultiplexer.h"
 #include "multiplexchannel.h"
 
-BluetoothDownloadJob::BluetoothDownloadJob(ConnectionMultiplexer *connection, const QVariantMap& transferInfo, QObject* parent)
+BluetoothDownloadJob::BluetoothDownloadJob(ConnectionMultiplexer *connection, const QVariantMap &transferInfo, QObject *parent)
     : QObject(parent)
 {
     QBluetoothUuid id{transferInfo.value(QStringLiteral("uuid")).toString()};

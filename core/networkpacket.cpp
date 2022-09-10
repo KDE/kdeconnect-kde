@@ -7,20 +7,20 @@
 #include "networkpacket.h"
 #include "core_debug.h"
 
-#include <QMetaObject>
-#include <QMetaProperty>
 #include <QByteArray>
 #include <QDataStream>
 #include <QDateTime>
-#include <QJsonDocument>
 #include <QDebug>
+#include <QJsonDocument>
+#include <QMetaObject>
+#include <QMetaProperty>
 
 #include "dbushelper.h"
 #include "filetransferjob.h"
-#include "pluginloader.h"
 #include "kdeconnectconfig.h"
+#include "pluginloader.h"
 
-QDebug operator<<(QDebug s, const NetworkPacket& pkg)
+QDebug operator<<(QDebug s, const NetworkPacket &pkg)
 {
     s.nospace() << "NetworkPacket(" << pkg.type() << ':' << pkg.body();
     if (pkg.hasPayload()) {
@@ -32,7 +32,7 @@ QDebug operator<<(QDebug s, const NetworkPacket& pkg)
 
 const int NetworkPacket::s_protocolVersion = 7;
 
-NetworkPacket::NetworkPacket(const QString& type, const QVariantMap& body)
+NetworkPacket::NetworkPacket(const QString &type, const QVariantMap &body)
     : m_id(QString::number(QDateTime::currentMSecsSinceEpoch()))
     , m_type(type)
     , m_body(body)
@@ -41,7 +41,7 @@ NetworkPacket::NetworkPacket(const QString& type, const QVariantMap& body)
 {
 }
 
-void NetworkPacket::createIdentityPacket(NetworkPacket* np)
+void NetworkPacket::createIdentityPacket(NetworkPacket *np)
 {
     np->m_id = QString::number(QDateTime::currentMSecsSinceEpoch());
     np->m_type = PACKET_TYPE_IDENTITY;
@@ -50,16 +50,16 @@ void NetworkPacket::createIdentityPacket(NetworkPacket* np)
     np->set(QStringLiteral("deviceId"), KdeConnectConfig::instance().deviceId());
     np->set(QStringLiteral("deviceName"), KdeConnectConfig::instance().name());
     np->set(QStringLiteral("deviceType"), KdeConnectConfig::instance().deviceType());
-    np->set(QStringLiteral("protocolVersion"),  NetworkPacket::s_protocolVersion);
+    np->set(QStringLiteral("protocolVersion"), NetworkPacket::s_protocolVersion);
     np->set(QStringLiteral("incomingCapabilities"), PluginLoader::instance()->incomingCapabilities());
     np->set(QStringLiteral("outgoingCapabilities"), PluginLoader::instance()->outgoingCapabilities());
 
-    //qCDebug(KDECONNECT_CORE) << "createIdentityPacket" << np->serialize();
+    // qCDebug(KDECONNECT_CORE) << "createIdentityPacket" << np->serialize();
 }
 
 QByteArray NetworkPacket::serialize() const
 {
-    //Object -> QVariant
+    // Object -> QVariant
     QVariantMap variant;
     variant.insert(QStringLiteral("id"), m_id);
     variant.insert(QStringLiteral("type"), m_type);
@@ -70,7 +70,7 @@ QByteArray NetworkPacket::serialize() const
         variant.insert(QStringLiteral("payloadTransferInfo"), m_payloadTransferInfo);
     }
 
-    //QVariant -> json
+    // QVariant -> json
     auto jsonDocument = QJsonDocument::fromVariant(variant);
     QByteArray json = jsonDocument.toJson(QJsonDocument::Compact);
     if (json.isEmpty()) {
@@ -85,11 +85,10 @@ QByteArray NetworkPacket::serialize() const
     return json;
 }
 
-template <class T>
-void qvariant2qobject(const QVariantMap& variant, T* object)
+template<class T>
+void qvariant2qobject(const QVariantMap &variant, T *object)
 {
-    for ( QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter )
-    {
+    for (QVariantMap::const_iterator iter = variant.begin(); iter != variant.end(); ++iter) {
         const int propertyIndex = T::staticMetaObject.indexOfProperty(iter.key().toLatin1().data());
         if (propertyIndex < 0) {
             qCWarning(KDECONNECT_CORE) << "missing property" << object << iter.key();
@@ -104,9 +103,9 @@ void qvariant2qobject(const QVariantMap& variant, T* object)
     }
 }
 
-bool NetworkPacket::unserialize(const QByteArray& a, NetworkPacket* np)
+bool NetworkPacket::unserialize(const QByteArray &a, NetworkPacket *np)
 {
-    //Json -> QVariant
+    // Json -> QVariant
     QJsonParseError parseError;
     auto parser = QJsonDocument::fromJson(a, &parseError);
     if (parser.isNull()) {
@@ -120,22 +119,19 @@ bool NetworkPacket::unserialize(const QByteArray& a, NetworkPacket* np)
     if (np->m_payloadSize == -1) {
         np->m_payloadSize = np->get<qint64>(QStringLiteral("size"), -1);
     }
-    np->m_payloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); //Will return an empty qvariantmap if was not present, which is ok
+    np->m_payloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); // Will return an empty qvariantmap if was not present, which is ok
 
-    //Ids containing characters that are not allowed as dbus paths would make app crash
-    if (np->m_body.contains(QStringLiteral("deviceId")))
-    {
+    // Ids containing characters that are not allowed as dbus paths would make app crash
+    if (np->m_body.contains(QStringLiteral("deviceId"))) {
         QString deviceId = np->get<QString>(QStringLiteral("deviceId"));
         DBusHelper::filterNonExportableCharacters(deviceId);
         np->set(QStringLiteral("deviceId"), deviceId);
     }
 
     return true;
-
 }
 
-FileTransferJob* NetworkPacket::createPayloadTransferJob(const QUrl& destination) const
+FileTransferJob *NetworkPacket::createPayloadTransferJob(const QUrl &destination) const
 {
     return new FileTransferJob(this, destination);
 }
-

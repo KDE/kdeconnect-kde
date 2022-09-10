@@ -10,4 +10,3 @@
 extern bool gsm_ascii_map[128];
 
 #endif // GSMASCIIMAP_H
-

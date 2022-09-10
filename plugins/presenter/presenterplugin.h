@@ -17,22 +17,23 @@
 
 class PresenterView;
 
-class Q_DECL_EXPORT PresenterPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT PresenterPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.presenter")
 
 public:
-    explicit PresenterPlugin(QObject* parent, const QVariantList& args);
+    explicit PresenterPlugin(QObject *parent, const QVariantList &args);
     ~PresenterPlugin() override;
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override {}
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
 
 private:
     QPointer<PresenterView> m_view;
-    QTimer* m_timer;
+    QTimer *m_timer;
     float m_xPos, m_yPos;
 };
 

@@ -8,14 +8,13 @@
 
 #include <KPluginFactory>
 
+#include "plugin_systemvolume_debug.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include "plugin_systemvolume_debug.h"
 
-K_PLUGIN_FACTORY_WITH_JSON( KdeConnectPluginFactory, "kdeconnect_systemvolume.json", registerPlugin< SystemvolumePlugin >(); )
-
+K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_systemvolume.json", registerPlugin<SystemvolumePlugin>();)
 
 class MacOSCoreAudioDevice
 {
@@ -25,6 +24,7 @@ private:
     bool m_isStereo;
 
     friend class SystemvolumePlugin;
+
 public:
     MacOSCoreAudioDevice(AudioDeviceID);
     ~MacOSCoreAudioDevice();
@@ -39,53 +39,33 @@ public:
     void updateType();
 };
 
-static const AudioObjectPropertyAddress kAudioHardwarePropertyAddress = {
-    kAudioHardwarePropertyDevices,
-    kAudioObjectPropertyScopeGlobal,
-    kAudioObjectPropertyElementMaster
-};
+static const AudioObjectPropertyAddress kAudioHardwarePropertyAddress = {kAudioHardwarePropertyDevices,
+                                                                         kAudioObjectPropertyScopeGlobal,
+                                                                         kAudioObjectPropertyElementMaster};
 
-static const AudioObjectPropertyAddress kAudioStreamPropertyAddress = {
-    kAudioDevicePropertyStreams,
-    kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster
-};
+static const AudioObjectPropertyAddress kAudioStreamPropertyAddress = {kAudioDevicePropertyStreams,
+                                                                       kAudioDevicePropertyScopeOutput,
+                                                                       kAudioObjectPropertyElementMaster};
 
-static const AudioObjectPropertyAddress kAudioMasterVolumePropertyAddress = {
-    kAudioDevicePropertyVolumeScalar,
-    kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster
-};
+static const AudioObjectPropertyAddress kAudioMasterVolumePropertyAddress = {kAudioDevicePropertyVolumeScalar,
+                                                                             kAudioDevicePropertyScopeOutput,
+                                                                             kAudioObjectPropertyElementMaster};
 
-static const AudioObjectPropertyAddress kAudioLeftVolumePropertyAddress = {
-    kAudioDevicePropertyVolumeScalar,
-    kAudioDevicePropertyScopeOutput,
-    1
-};
+static const AudioObjectPropertyAddress kAudioLeftVolumePropertyAddress = {kAudioDevicePropertyVolumeScalar, kAudioDevicePropertyScopeOutput, 1};
 
-static const AudioObjectPropertyAddress kAudioRightVolumePropertyAddress = {
-    kAudioDevicePropertyVolumeScalar,
-    kAudioDevicePropertyScopeOutput,
-    2
-};
+static const AudioObjectPropertyAddress kAudioRightVolumePropertyAddress = {kAudioDevicePropertyVolumeScalar, kAudioDevicePropertyScopeOutput, 2};
 
-static const AudioObjectPropertyAddress kAudioMasterMutedPropertyAddress = {
-    kAudioDevicePropertyMute,
-    kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster
-};
+static const AudioObjectPropertyAddress kAudioMasterMutedPropertyAddress = {kAudioDevicePropertyMute,
+                                                                            kAudioDevicePropertyScopeOutput,
+                                                                            kAudioObjectPropertyElementMaster};
 
-static const AudioObjectPropertyAddress kAudioMasterDataSourcePropertyAddress = {
-    kAudioDevicePropertyDataSource,
-    kAudioDevicePropertyScopeOutput,
-    kAudioObjectPropertyElementMaster
-};
+static const AudioObjectPropertyAddress kAudioMasterDataSourcePropertyAddress = {kAudioDevicePropertyDataSource,
+                                                                                 kAudioDevicePropertyScopeOutput,
+                                                                                 kAudioObjectPropertyElementMaster};
 
-static const AudioObjectPropertyAddress kAudioDefaultOutputDevicePropertyAddress = {
-    kAudioHardwarePropertyDefaultOutputDevice,
-    kAudioObjectPropertyScopeGlobal,
-    kAudioObjectPropertyElementMaster
-};
+static const AudioObjectPropertyAddress kAudioDefaultOutputDevicePropertyAddress = {kAudioHardwarePropertyDefaultOutputDevice,
+                                                                                    kAudioObjectPropertyScopeGlobal,
+                                                                                    kAudioObjectPropertyElementMaster};
 
 OSStatus onVolumeChanged(AudioObjectID object, UInt32 numAddresses, const AudioObjectPropertyAddress addresses[], void *context)
 {
@@ -93,7 +73,7 @@ OSStatus onVolumeChanged(AudioObjectID object, UInt32 numAddresses, const AudioO
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
+    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
     plugin->updateDeviceVolume(object);
     return noErr;
 }
@@ -104,7 +84,7 @@ OSStatus onMutedChanged(AudioObjectID object, UInt32 numAddresses, const AudioOb
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
+    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
     plugin->updateDeviceMuted(object);
     return noErr;
 }
@@ -115,7 +95,7 @@ OSStatus onDefaultChanged(AudioObjectID object, UInt32 numAddresses, const Audio
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
+    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
     plugin->sendSinkList();
     return noErr;
 }
@@ -126,12 +106,13 @@ OSStatus onOutputSourceChanged(AudioObjectID object, UInt32 numAddresses, const 
     Q_UNUSED(addresses);
     Q_UNUSED(numAddresses);
 
-    SystemvolumePlugin *plugin = (SystemvolumePlugin*)context;
+    SystemvolumePlugin *plugin = (SystemvolumePlugin *)context;
     plugin->sendSinkList();
     return noErr;
 }
 
-AudioObjectID getDefaultOutputDeviceId() {
+AudioObjectID getDefaultOutputDeviceId()
+{
     AudioObjectID dataSourceId;
     UInt32 size = sizeof(dataSourceId);
     OSStatus result = AudioObjectGetPropertyData(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, 0, NULL, &size, &dataSourceId);
@@ -141,7 +122,8 @@ AudioObjectID getDefaultOutputDeviceId() {
     return dataSourceId;
 }
 
-UInt32 getDeviceSourceId(AudioObjectID deviceId) {
+UInt32 getDeviceSourceId(AudioObjectID deviceId)
+{
     UInt32 dataSourceId;
     UInt32 size = sizeof(dataSourceId);
     OSStatus result = AudioObjectGetPropertyData(deviceId, &kAudioMasterDataSourcePropertyAddress, 0, NULL, &size, &dataSourceId);
@@ -151,7 +133,8 @@ UInt32 getDeviceSourceId(AudioObjectID deviceId) {
     return dataSourceId;
 }
 
-QString translateDeviceSource(AudioObjectID deviceId) {
+QString translateDeviceSource(AudioObjectID deviceId)
+{
     UInt32 sourceId = getDeviceSourceId(deviceId);
 
     if (sourceId == kAudioDeviceUnknown) {
@@ -167,10 +150,9 @@ QString translateDeviceSource(AudioObjectID deviceId) {
     translation.mOutputDataSize = sizeof(sourceName);
 
     UInt32 translationSize = sizeof(AudioValueTranslation);
-    AudioObjectPropertyAddress propertyAddress = {
-        kAudioDevicePropertyDataSourceNameForIDCFString,
-        kAudioDevicePropertyScopeOutput,
-        kAudioObjectPropertyElementMaster};
+    AudioObjectPropertyAddress propertyAddress = {kAudioDevicePropertyDataSourceNameForIDCFString,
+                                                  kAudioDevicePropertyScopeOutput,
+                                                  kAudioObjectPropertyElementMaster};
 
     OSStatus result = AudioObjectGetPropertyData(deviceId, &propertyAddress, 0, NULL, &translationSize, &translation);
     if (result != noErr) {
@@ -184,7 +166,8 @@ QString translateDeviceSource(AudioObjectID deviceId) {
     return ret;
 }
 
-std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs() {
+std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs()
+{
     std::vector<AudioObjectID> outputDeviceIds;
 
     UInt32 size = 0;
@@ -193,9 +176,8 @@ std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs() {
     result = AudioObjectGetPropertyDataSize(kAudioObjectSystemObject, &kAudioHardwarePropertyAddress, 0, NULL, &size);
 
     if (result != noErr) {
-        qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME)
-            << "Failed to read size of property " << kAudioHardwarePropertyDevices
-            << " for device/object " << kAudioObjectSystemObject;
+        qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Failed to read size of property " << kAudioHardwarePropertyDevices << " for device/object "
+                                                << kAudioObjectSystemObject;
         return {};
     }
 
@@ -206,9 +188,8 @@ std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs() {
     std::vector<AudioObjectID> deviceIds(deviceCount);
     result = AudioObjectGetPropertyData(kAudioObjectSystemObject, &kAudioHardwarePropertyAddress, 0, NULL, &size, deviceIds.data());
     if (result != noErr) {
-        qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME)
-            << "Failed to read object IDs from property " << kAudioHardwarePropertyDevices
-            << " for device/object " << kAudioObjectSystemObject;
+        qCDebug(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Failed to read object IDs from property " << kAudioHardwarePropertyDevices << " for device/object "
+                                                << kAudioObjectSystemObject;
         return {};
     }
 
@@ -227,16 +208,18 @@ std::vector<AudioObjectID> GetAllOutputAudioDeviceIDs() {
     return outputDeviceIds;
 }
 
-SystemvolumePlugin::SystemvolumePlugin(QObject* parent, const QVariantList& args)
-    : KdeConnectPlugin(parent, args), m_sinksMap()
-{}
+SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args)
+    : KdeConnectPlugin(parent, args)
+    , m_sinksMap()
+{
+}
 
 SystemvolumePlugin::~SystemvolumePlugin()
 {
     AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, &onDefaultChanged, (void *)this);
 }
 
-bool SystemvolumePlugin::receivePacket(const NetworkPacket& np)
+bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("requestSinks"))) {
         sendSinkList();
@@ -292,14 +275,12 @@ void SystemvolumePlugin::sendSinkList()
         // Add data source change listerner
         AudioObjectAddPropertyListener(deviceId, &kAudioMasterDataSourcePropertyAddress, &onOutputSourceChanged, (void *)this);
 
-        QJsonObject sinkObject {
-            {QStringLiteral("name"), QStringLiteral("default-") + QString::number(deviceId)},
-            {QStringLiteral("muted"), audioDevice->isMuted()},
-            {QStringLiteral("description"), audioDevice->m_description},
-            {QStringLiteral("volume"), audioDevice->volume() * 100},
-            {QStringLiteral("maxVolume"), 100},
-            {QStringLiteral("enabled"), audioDevice->isDefault()}
-        };
+        QJsonObject sinkObject{{QStringLiteral("name"), QStringLiteral("default-") + QString::number(deviceId)},
+                               {QStringLiteral("muted"), audioDevice->isMuted()},
+                               {QStringLiteral("description"), audioDevice->m_description},
+                               {QStringLiteral("volume"), audioDevice->volume() * 100},
+                               {QStringLiteral("maxVolume"), 100},
+                               {QStringLiteral("enabled"), audioDevice->isDefault()}};
 
         array.append(sinkObject);
     }
@@ -355,20 +336,15 @@ MacOSCoreAudioDevice::MacOSCoreAudioDevice(AudioDeviceID deviceId)
 MacOSCoreAudioDevice::~MacOSCoreAudioDevice()
 {
     // Volume listener
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterVolumePropertyAddress,
-        &onVolumeChanged, (void *)this);
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioLeftVolumePropertyAddress,
-        &onVolumeChanged, (void *)this);
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioRightVolumePropertyAddress,
-        &onVolumeChanged, (void *)this);
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterVolumePropertyAddress, &onVolumeChanged, (void *)this);
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioLeftVolumePropertyAddress, &onVolumeChanged, (void *)this);
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioRightVolumePropertyAddress, &onVolumeChanged, (void *)this);
 
     // Muted listener
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterMutedPropertyAddress,
-        &onMutedChanged, (void *)this);
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterMutedPropertyAddress, &onMutedChanged, (void *)this);
 
     // Data source listener
-    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterDataSourcePropertyAddress,
-        &onOutputSourceChanged, (void *)this);
+    AudioObjectRemovePropertyListener(m_deviceId, &kAudioMasterDataSourcePropertyAddress, &onOutputSourceChanged, (void *)this);
 }
 
 void MacOSCoreAudioDevice::setVolume(float volume)
@@ -410,7 +386,8 @@ void MacOSCoreAudioDevice::setMuted(bool muted)
 
 void MacOSCoreAudioDevice::setDefault(bool enabled)
 {
-    if (!enabled) return;
+    if (!enabled)
+        return;
 
     if (m_deviceId == kAudioObjectUnknown) {
         qWarning(KDECONNECT_PLUGIN_SYSTEMVOLUME) << "Unable to set an Unknown Device as default output";
@@ -467,7 +444,8 @@ bool MacOSCoreAudioDevice::isMuted()
     return muted == 1;
 }
 
-bool MacOSCoreAudioDevice::isDefault() {
+bool MacOSCoreAudioDevice::isDefault()
+{
     AudioObjectID defaultDeviceId = getDefaultOutputDeviceId();
     return m_deviceId == defaultDeviceId;
 }
@@ -485,6 +463,4 @@ void MacOSCoreAudioDevice::updateType()
     }
 }
 
-
 #include "systemvolumeplugin-macos.moc"
-

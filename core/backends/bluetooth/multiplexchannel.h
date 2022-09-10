@@ -19,7 +19,8 @@ class MultiplexChannelState;
  * @see ConnectionMultiplexer
  * @see ConnectionMultiplexer::getChannel
  */
-class MultiplexChannel : public QIODevice {
+class MultiplexChannel : public QIODevice
+{
     Q_OBJECT
 
 private:
@@ -27,6 +28,7 @@ private:
      * You cannot construct a MultiplexChannel yourself, use the ConnectionMultiplexer
      */
     MultiplexChannel(QSharedPointer<MultiplexChannelState> state);
+
 public:
     ~MultiplexChannel();
 
@@ -40,8 +42,8 @@ public:
     bool isSequential() const override;
 
 protected:
-    qint64 readData(char * data, qint64 maxlen) override;
-    qint64 writeData(const char * data, qint64 len) override;
+    qint64 readData(char *data, qint64 maxlen) override;
+    qint64 writeData(const char *data, qint64 len) override;
 
 private:
     QSharedPointer<MultiplexChannelState> state;

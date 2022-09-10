@@ -7,16 +7,16 @@
 #ifndef BLUETOOTHLINKPROVIDER_H
 #define BLUETOOTHLINKPROVIDER_H
 
+#include <QBluetoothAddress>
+#include <QBluetoothDeviceDiscoveryAgent>
+#include <QBluetoothLocalDevice>
+#include <QBluetoothServer>
+#include <QBluetoothServiceDiscoveryAgent>
+#include <QBluetoothSocket>
+#include <QBluetoothUuid>
 #include <QObject>
 #include <QPointer>
 #include <QTimer>
-#include <QBluetoothAddress>
-#include <QBluetoothLocalDevice>
-#include <QBluetoothUuid>
-#include <QBluetoothServer>
-#include <QBluetoothDeviceDiscoveryAgent>
-#include <QBluetoothServiceDiscoveryAgent>
-#include <QBluetoothSocket>
 
 #include "../linkprovider.h"
 
@@ -24,8 +24,7 @@ class BluetoothDeviceLink;
 class ConnectionMultiplexer;
 class MultiplexChannel;
 
-class KDECONNECTCORE_EXPORT BluetoothLinkProvider
-    : public LinkProvider
+class KDECONNECTCORE_EXPORT BluetoothLinkProvider : public LinkProvider
 {
     Q_OBJECT
 
@@ -33,8 +32,14 @@ public:
     BluetoothLinkProvider();
     virtual ~BluetoothLinkProvider();
 
-    QString name() override { return QStringLiteral("BluetoothLinkProvider"); }
-    int priority() override { return PRIORITY_MEDIUM; }
+    QString name() override
+    {
+        return QStringLiteral("BluetoothLinkProvider");
+    }
+    int priority() override
+    {
+        return PRIORITY_MEDIUM;
+    }
 
 public Q_SLOTS:
     virtual void onNetworkChange() override;
@@ -43,7 +48,7 @@ public Q_SLOTS:
     void connectError();
 
 private Q_SLOTS:
-    void deviceLinkDestroyed(QObject* destroyedDeviceLink);
+    void deviceLinkDestroyed(QObject *destroyedDeviceLink);
     void socketDisconnected(const QBluetoothAddress &peerAddress, MultiplexChannel *socket);
 
     void serverNewConnection();
@@ -54,19 +59,18 @@ private Q_SLOTS:
     void serviceDiscovered(const QBluetoothServiceInfo &info);
 
 private:
-    void addLink(BluetoothDeviceLink* deviceLink, const QString& deviceId);
+    void addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId);
     QList<QBluetoothAddress> getPairedDevices();
 
     QBluetoothUuid mServiceUuid;
     QPointer<QBluetoothServer> mBluetoothServer;
     QBluetoothServiceInfo mKdeconnectService;
-    QBluetoothServiceDiscoveryAgent* mServiceDiscoveryAgent;
-    QTimer* connectTimer;
+    QBluetoothServiceDiscoveryAgent *mServiceDiscoveryAgent;
+    QTimer *connectTimer;
 
-    QMap<QString, DeviceLink*> mLinks;
+    QMap<QString, DeviceLink *> mLinks;
 
-    QMap<QBluetoothAddress, ConnectionMultiplexer*> mSockets;
-
+    QMap<QBluetoothAddress, ConnectionMultiplexer *> mSockets;
 };
 
 #endif

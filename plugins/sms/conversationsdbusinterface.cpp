@@ -5,8 +5,8 @@
  */
 
 #include "conversationsdbusinterface.h"
-#include "interfaces/dbusinterfaces.h"
 #include "interfaces/conversationmessage.h"
+#include "interfaces/dbusinterfaces.h"
 
 #include "requestconversationworker.h"
 
@@ -17,10 +17,10 @@
 
 #include "kdeconnect_conversations_debug.h"
 
-QMap<QString, ConversationsDbusInterface*> ConversationsDbusInterface::liveConversationInterfaces;
+QMap<QString, ConversationsDbusInterface *> ConversationsDbusInterface::liveConversationInterfaces;
 
-ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin* plugin)
-    : QDBusAbstractAdaptor(const_cast<Device*>(plugin->device()))
+ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin *plugin)
+    : QDBusAbstractAdaptor(const_cast<Device *>(plugin->device()))
     , m_device(plugin->device()->id())
     , m_lastId(0)
     , m_smsInterface(m_device)
@@ -29,9 +29,9 @@ ConversationsDbusInterface::ConversationsDbusInterface(KdeConnectPlugin* plugin)
 
     // Check for an existing interface for the same device
     // If there is already an interface for this device, we can safely delete is since we have just replaced it
-    const auto& oldInterfaceItr = ConversationsDbusInterface::liveConversationInterfaces.find(m_device);
+    const auto &oldInterfaceItr = ConversationsDbusInterface::liveConversationInterfaces.find(m_device);
     if (oldInterfaceItr != ConversationsDbusInterface::liveConversationInterfaces.end()) {
-        ConversationsDbusInterface* oldInterface = oldInterfaceItr.value();
+        ConversationsDbusInterface *oldInterface = oldInterfaceItr.value();
         oldInterface->deleteLater();
         ConversationsDbusInterface::liveConversationInterfaces.erase(oldInterfaceItr);
     }
@@ -59,41 +59,40 @@ QVariantList ConversationsDbusInterface::activeConversations()
     toReturn.reserve(m_conversations.size());
 
     for (auto it = m_conversations.cbegin(); it != m_conversations.cend(); ++it) {
-        const auto& conversation = it.value().values();
+        const auto &conversation = it.value().values();
         if (conversation.isEmpty()) {
             // This should really never happen because we create a conversation at the same time
             // as adding a message, but better safe than sorry
-            qCWarning(KDECONNECT_CONVERSATIONS)
-                    << "Conversation with ID" << it.key() << "is unexpectedly empty";
+            qCWarning(KDECONNECT_CONVERSATIONS) << "Conversation with ID" << it.key() << "is unexpectedly empty";
             break;
         }
-        const QVariant& message = QVariant::fromValue<ConversationMessage>(*conversation.crbegin());
+        const QVariant &message = QVariant::fromValue<ConversationMessage>(*conversation.crbegin());
         toReturn.append(message);
     }
 
     return toReturn;
 }
 
-void ConversationsDbusInterface::requestConversation(const qint64& conversationID, int start, int end)
+void ConversationsDbusInterface::requestConversation(const qint64 &conversationID, int start, int end)
 {
     if (start < 0 || end < 0) {
-        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation" << "Start and end must be >= 0";
+        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation"
+                                            << "Start and end must be >= 0";
         return;
     }
 
     if (end - start < 0) {
-        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation" <<"Start must be before end";
+        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation"
+                                            << "Start must be before end";
         return;
     }
 
-    RequestConversationWorker* worker = new RequestConversationWorker(conversationID, start, end, this);
-    connect(worker, &RequestConversationWorker::conversationMessageRead,
-            this, &ConversationsDbusInterface::conversationUpdated,
-            Qt::QueuedConnection);
+    RequestConversationWorker *worker = new RequestConversationWorker(conversationID, start, end, this);
+    connect(worker, &RequestConversationWorker::conversationMessageRead, this, &ConversationsDbusInterface::conversationUpdated, Qt::QueuedConnection);
     worker->work();
 }
 
-void ConversationsDbusInterface::requestAttachmentFile(const qint64& partID, const QString& uniqueIdentifier)
+void ConversationsDbusInterface::requestAttachmentFile(const qint64 &partID, const QString &uniqueIdentifier)
 {
     m_smsInterface.getAttachment(partID, uniqueIdentifier);
 }
@@ -102,8 +101,8 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
 {
     QSet<qint64> updatedConversationIDs;
 
-    for (const auto& message : messages) {
-        const qint32& threadId = message.threadID();
+    for (const auto &message : messages) {
+        const qint32 &threadId = message.threadID();
 
         // We might discover that there are no new messages in this conversation, thus calling it
         // "updated" might turn out to be a bit misleading
@@ -119,7 +118,7 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
 
         // Store the Message in the list corresponding to its thread
         bool newConversation = !m_conversations.contains(threadId);
-        const auto& threadPosition = m_conversations[threadId].insert(message.date(), message);
+        const auto &threadPosition = m_conversations[threadId].insert(message.date(), message);
         m_known_messages[threadId].insert(message.uID());
 
         // If this message was inserted at the end of the list, it is the latest message in the conversation
@@ -147,18 +146,18 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
     waitingForMessagesLock.unlock();
 }
 
-void ConversationsDbusInterface::removeMessage(const QString& internalId)
+void ConversationsDbusInterface::removeMessage(const QString &internalId)
 {
     // TODO: Delete the specified message from our internal structures
     Q_UNUSED(internalId);
 }
 
-QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qint64& conversationID) const
+QList<ConversationMessage> ConversationsDbusInterface::getConversation(const qint64 &conversationID) const
 {
     return m_conversations.value(conversationID).values();
 }
 
-void ConversationsDbusInterface::updateConversation(const qint64& conversationID)
+void ConversationsDbusInterface::updateConversation(const qint64 &conversationID)
 {
     waitingForMessagesLock.lock();
     if (conversationsWaitingForMessages.contains(conversationID)) {
@@ -180,7 +179,9 @@ void ConversationsDbusInterface::updateConversation(const qint64& conversationID
         rangeStartTimestamp = -1; // Value < 0 indicates to return the newest messages
         numberToRequest = MIN_NUMBER_TO_REQUEST; // Start off with a small batch
     }
-    if (numberToRequest < MIN_NUMBER_TO_REQUEST) { numberToRequest = MIN_NUMBER_TO_REQUEST; }
+    if (numberToRequest < MIN_NUMBER_TO_REQUEST) {
+        numberToRequest = MIN_NUMBER_TO_REQUEST;
+    }
     m_smsInterface.requestConversation(conversationID, rangeStartTimestamp, numberToRequest);
 
     while (conversationsWaitingForMessages.contains(conversationID)) {
@@ -189,7 +190,7 @@ void ConversationsDbusInterface::updateConversation(const qint64& conversationID
     waitingForMessagesLock.unlock();
 }
 
-void ConversationsDbusInterface::replyToConversation(const qint64& conversationID, const QString& message, const QVariantList& attachmentUrls)
+void ConversationsDbusInterface::replyToConversation(const qint64 &conversationID, const QString &message, const QVariantList &attachmentUrls)
 {
     const auto messagesList = m_conversations[conversationID];
     if (messagesList.isEmpty()) {
@@ -197,17 +198,18 @@ void ConversationsDbusInterface::replyToConversation(const qint64& conversationI
         return;
     }
 
-    const QList<ConversationAddress>& addressList = messagesList.first().addresses();
+    const QList<ConversationAddress> &addressList = messagesList.first().addresses();
     QVariantList addresses;
 
-    for (const auto& address : addressList) {
+    for (const auto &address : addressList) {
         addresses << QVariant::fromValue(address);
     }
 
     m_smsInterface.sendSms(addresses, message, attachmentUrls, messagesList.first().subID());
 }
 
-void ConversationsDbusInterface::sendWithoutConversation(const QVariantList& addresses, const QString& message, const QVariantList& attachmentUrls) {
+void ConversationsDbusInterface::sendWithoutConversation(const QVariantList &addresses, const QString &message, const QVariantList &attachmentUrls)
+{
     m_smsInterface.sendSms(addresses, message, attachmentUrls);
 }
 
@@ -222,6 +224,7 @@ QString ConversationsDbusInterface::newId()
     return QString::number(++m_lastId);
 }
 
-void ConversationsDbusInterface::attachmentDownloaded(const QString& filePath, const QString& fileName) {
+void ConversationsDbusInterface::attachmentDownloaded(const QString &filePath, const QString &fileName)
+{
     Q_EMIT attachmentReceived(filePath, fileName);
 }

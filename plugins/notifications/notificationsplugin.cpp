@@ -19,7 +19,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(NotificationsPlugin, "kdeconnect_notifications.json")
 
-NotificationsPlugin::NotificationsPlugin(QObject* parent, const QVariantList& args)
+NotificationsPlugin::NotificationsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
@@ -30,9 +30,10 @@ void NotificationsPlugin::connected()
     sendPacket(np);
 }
 
-bool NotificationsPlugin::receivePacket(const NetworkPacket& np)
+bool NotificationsPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (np.get<bool>(QStringLiteral("request"))) return false;
+    if (np.get<bool>(QStringLiteral("request")))
+        return false;
 
     if (np.get<bool>(QStringLiteral("isCancel"))) {
         QString id = np.get<QString>(QStringLiteral("id"));
@@ -45,7 +46,7 @@ bool NotificationsPlugin::receivePacket(const NetworkPacket& np)
 
     QString id = np.get<QString>(QStringLiteral("id"));
 
-    Notification* noti = nullptr;
+    Notification *noti = nullptr;
 
     if (!m_internalIdToPublicId.contains(id)) {
         noti = new Notification(np, device(), this);
@@ -78,44 +79,45 @@ QStringList NotificationsPlugin::activeNotifications()
 
 void NotificationsPlugin::notificationReady()
 {
-    Notification* noti = static_cast<Notification*>(sender());
+    Notification *noti = static_cast<Notification *>(sender());
     disconnect(noti, &Notification::ready, this, &NotificationsPlugin::notificationReady);
     addNotification(noti);
 }
 
-void NotificationsPlugin::addNotification(Notification* noti)
+void NotificationsPlugin::addNotification(Notification *noti)
 {
-    const QString& internalId = noti->internalId();
+    const QString &internalId = noti->internalId();
 
     if (m_internalIdToPublicId.contains(internalId)) {
         removeNotification(internalId);
     }
 
-    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
+    // qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
 
-    connect(noti, &Notification::dismissRequested,
-            this, &NotificationsPlugin::dismissRequested);
+    connect(noti, &Notification::dismissRequested, this, &NotificationsPlugin::dismissRequested);
 
-    connect(noti, &Notification::replyRequested, this, [this,noti]{
+    connect(noti, &Notification::replyRequested, this, [this, noti] {
         replyRequested(noti);
     });
 
     connect(noti, &Notification::actionTriggered, this, &NotificationsPlugin::sendAction);
-    connect(noti, &Notification::replied, this, [this, noti](const QString& message){
+    connect(noti, &Notification::replied, this, [this, noti](const QString &message) {
         sendReply(noti->replyId(), message);
     });
 
-    const QString& publicId = newId();
+    const QString &publicId = newId();
     m_notifications[publicId] = noti;
     m_internalIdToPublicId[internalId] = publicId;
 
-    QDBusConnection::sessionBus().registerObject(device()->dbusPath() + QStringLiteral("/notifications/") + publicId, noti, QDBusConnection::ExportScriptableContents);
+    QDBusConnection::sessionBus().registerObject(device()->dbusPath() + QStringLiteral("/notifications/") + publicId,
+                                                 noti,
+                                                 QDBusConnection::ExportScriptableContents);
     Q_EMIT notificationPosted(publicId);
 }
 
-void NotificationsPlugin::removeNotification(const QString& internalId)
+void NotificationsPlugin::removeNotification(const QString &internalId)
 {
-    //qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
+    // qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
 
     if (!m_internalIdToPublicId.contains(internalId)) {
         qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by internal Id: " << internalId;
@@ -124,41 +126,41 @@ void NotificationsPlugin::removeNotification(const QString& internalId)
 
     QString publicId = m_internalIdToPublicId.take(internalId);
 
-    Notification* noti = m_notifications.take(publicId);
+    Notification *noti = m_notifications.take(publicId);
     if (!noti) {
         qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by public Id: " << publicId;
         return;
     }
 
-    //Deleting the notification will unregister it automatically
+    // Deleting the notification will unregister it automatically
     noti->deleteLater();
 
     Q_EMIT notificationRemoved(publicId);
 }
 
-void NotificationsPlugin::dismissRequested(const QString& internalId)
+void NotificationsPlugin::dismissRequested(const QString &internalId)
 {
     NetworkPacket np(PACKET_TYPE_NOTIFICATION_REQUEST);
     np.set<QString>(QStringLiteral("cancel"), internalId);
     sendPacket(np);
 
-    //Workaround: we erase notifications without waiting a response from the
-    //phone because we won't receive a response if we are out of sync and this
-    //notification no longer exists. Ideally, each time we reach the phone
-    //after some time disconnected we should re-sync all the notifications.
+    // Workaround: we erase notifications without waiting a response from the
+    // phone because we won't receive a response if we are out of sync and this
+    // notification no longer exists. Ideally, each time we reach the phone
+    // after some time disconnected we should re-sync all the notifications.
     removeNotification(internalId);
 }
 
-void NotificationsPlugin::replyRequested(Notification* noti)
+void NotificationsPlugin::replyRequested(Notification *noti)
 {
     QString replyId = noti->replyId();
     QString appName = noti->appName();
     QString originalMessage = noti->ticker();
-    SendReplyDialog* dialog = new SendReplyDialog(originalMessage, replyId, appName);
+    SendReplyDialog *dialog = new SendReplyDialog(originalMessage, replyId, appName);
     connect(dialog, &SendReplyDialog::sendReply, this, &NotificationsPlugin::sendReply);
     dialog->show();
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
-    auto window = qobject_cast<QWindow*>(dialog->windowHandle());
+    auto window = qobject_cast<QWindow *>(dialog->windowHandle());
     if (window && QX11Info::isPlatformX11()) {
         KStartupInfo::setNewStartupId(window, QX11Info::nextStartupId());
     }
@@ -166,7 +168,7 @@ void NotificationsPlugin::replyRequested(Notification* noti)
     dialog->raise();
 }
 
-void NotificationsPlugin::sendReply(const QString& replyId, const QString& message)
+void NotificationsPlugin::sendReply(const QString &replyId, const QString &message)
 {
     NetworkPacket np(PACKET_TYPE_NOTIFICATION_REPLY);
     np.set<QString>(QStringLiteral("requestReplyId"), replyId);
@@ -174,7 +176,7 @@ void NotificationsPlugin::sendReply(const QString& replyId, const QString& messa
     sendPacket(np);
 }
 
-void NotificationsPlugin::sendAction(const QString& key, const QString& action)
+void NotificationsPlugin::sendAction(const QString &key, const QString &action)
 {
     NetworkPacket np(PACKET_TYPE_NOTIFICATION_ACTION);
     np.set<QString>(QStringLiteral("key"), key);

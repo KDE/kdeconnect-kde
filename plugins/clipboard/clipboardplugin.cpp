@@ -13,11 +13,10 @@
 
 K_PLUGIN_CLASS_WITH_JSON(ClipboardPlugin, "kdeconnect_clipboard.json")
 
-ClipboardPlugin::ClipboardPlugin(QObject* parent, const QVariantList& args)
+ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-    connect(ClipboardListener::instance(), &ClipboardListener::clipboardChanged,
-            this, &ClipboardPlugin::propagateClipboard);
+    connect(ClipboardListener::instance(), &ClipboardListener::clipboardChanged, this, &ClipboardPlugin::propagateClipboard);
 }
 
 void ClipboardPlugin::connected()
@@ -25,7 +24,7 @@ void ClipboardPlugin::connected()
     sendConnectPacket();
 }
 
-void ClipboardPlugin::propagateClipboard(const QString& content)
+void ClipboardPlugin::propagateClipboard(const QString &content)
 {
     NetworkPacket np(PACKET_TYPE_CLIPBOARD, {{QStringLiteral("content"), content}});
     sendPacket(np);
@@ -33,14 +32,13 @@ void ClipboardPlugin::propagateClipboard(const QString& content)
 
 void ClipboardPlugin::sendConnectPacket()
 {
-    NetworkPacket np(PACKET_TYPE_CLIPBOARD_CONNECT, {
-        {QStringLiteral("content"), ClipboardListener::instance()->currentContent()},
-        {QStringLiteral("timestamp"), ClipboardListener::instance()->updateTimestamp()}
-    });
+    NetworkPacket np(PACKET_TYPE_CLIPBOARD_CONNECT,
+                     {{QStringLiteral("content"), ClipboardListener::instance()->currentContent()},
+                      {QStringLiteral("timestamp"), ClipboardListener::instance()->updateTimestamp()}});
     sendPacket(np);
 }
 
-bool ClipboardPlugin::receivePacket(const NetworkPacket& np)
+bool ClipboardPlugin::receivePacket(const NetworkPacket &np)
 {
     QString content = np.get<QString>(QStringLiteral("content"));
     if (np.type() == PACKET_TYPE_CLIPBOARD) {

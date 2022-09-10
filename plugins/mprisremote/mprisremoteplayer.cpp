@@ -5,17 +5,17 @@
  */
 
 #include "mprisremoteplayer.h"
-#include "mprisremoteplugin.h"
 #include "mprisremoteplayermediaplayer2.h"
 #include "mprisremoteplayermediaplayer2player.h"
+#include "mprisremoteplugin.h"
 
 #include <QDateTime>
 
-#include <networkpacket.h>
 #include <QUuid>
+#include <networkpacket.h>
 
-MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin) :
-    QObject(plugin)
+MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
+    : QObject(plugin)
     , id(id)
     , m_playing(false)
     , m_canPlay(true)
@@ -34,45 +34,45 @@ MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin) :
     , m_dbusConnectionName(QStringLiteral("mpris_") + QUuid::createUuid().toString(QUuid::Id128))
     , m_dbusConnection(QDBusConnection::connectToBus(QDBusConnection::SessionBus, m_dbusConnectionName))
 {
-    //Expose this player on the newly created connection. This allows multiple mpris services in the same Qt process
+    // Expose this player on the newly created connection. This allows multiple mpris services in the same Qt process
     new MprisRemotePlayerMediaPlayer2(this, plugin);
     new MprisRemotePlayerMediaPlayer2Player(this, plugin);
 
     m_dbusConnection.registerObject(QStringLiteral("/org/mpris/MediaPlayer2"), this);
-    //Make sure our service name is unique. Reuse the connection name for this.
+    // Make sure our service name is unique. Reuse the connection name for this.
     m_dbusConnection.registerService(QStringLiteral("org.mpris.MediaPlayer2.kdeconnect.") + m_dbusConnectionName);
 }
 
 MprisRemotePlayer::~MprisRemotePlayer()
 {
-    //Drop the DBus connection (it was only used for this class)
+    // Drop the DBus connection (it was only used for this class)
     QDBusConnection::disconnectFromBus(m_dbusConnectionName);
 }
 
-void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket& np)
+void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
 {
     bool trackInfoHasChanged = false;
 
-    //Track properties
+    // Track properties
     QString newNowPlaying = np.get<QString>(QStringLiteral("nowPlaying"), m_nowPlaying);
     QString newTitle = np.get<QString>(QStringLiteral("title"), m_title);
     QString newArtist = np.get<QString>(QStringLiteral("artist"), m_artist);
     QString newAlbum = np.get<QString>(QStringLiteral("album"), m_album);
     int newLength = np.get<int>(QStringLiteral("length"), m_length);
 
-    //Check if they changed
+    // Check if they changed
     if (newNowPlaying != m_nowPlaying || newTitle != m_title || newArtist != m_artist || newAlbum != m_album || newLength != m_length) {
         trackInfoHasChanged = true;
         Q_EMIT trackInfoChanged();
     }
-    //Set the new values
+    // Set the new values
     m_nowPlaying = newNowPlaying;
     m_title = newTitle;
     m_artist = newArtist;
     m_album = newAlbum;
     m_length = newLength;
 
-    //Check volume changes
+    // Check volume changes
     int newVolume = np.get<int>(QStringLiteral("volume"), m_volume);
     if (newVolume != m_volume) {
         Q_EMIT volumeChanged();
@@ -80,37 +80,37 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket& np)
     m_volume = newVolume;
 
     if (np.has(QStringLiteral("pos"))) {
-        //Check position
+        // Check position
         int newLastPosition = np.get<int>(QStringLiteral("pos"), m_lastPosition);
         int positionDiff = qAbs(position() - newLastPosition);
         m_lastPosition = newLastPosition;
         m_lastPositionTime = QDateTime::currentMSecsSinceEpoch();
 
-        //Only consider it seeking if the position changed more than 1 second, and the track has not changed
+        // Only consider it seeking if the position changed more than 1 second, and the track has not changed
         if (qAbs(positionDiff) >= 1000 && !trackInfoHasChanged) {
             Q_EMIT positionChanged();
         }
     }
 
-    //Check if we started/stopped playing
+    // Check if we started/stopped playing
     bool newPlaying = np.get<bool>(QStringLiteral("isPlaying"), m_playing);
     if (newPlaying != m_playing) {
         Q_EMIT playingChanged();
     }
     m_playing = newPlaying;
 
-    //Control properties
+    // Control properties
     bool newCanSeek = np.get<bool>(QStringLiteral("canSeek"), m_canSeek);
     bool newCanPlay = np.get<bool>(QStringLiteral("canPlay"), m_canPlay);
     bool newCanPause = np.get<bool>(QStringLiteral("canPause"), m_canPause);
     bool newCanGoPrevious = np.get<bool>(QStringLiteral("canGoPrevious"), m_canGoPrevious);
     bool newCanGoNext = np.get<bool>(QStringLiteral("canGoNext"), m_canGoNext);
 
-    //Check if they changed
+    // Check if they changed
     if (newCanSeek != m_canSeek || newCanPlay != m_canPlay || newCanPause != m_canPause || newCanGoPrevious != m_canGoPrevious || newCanGoNext != m_canGoNext) {
         Q_EMIT controlsChanged();
     }
-    //Set the new values
+    // Set the new values
     m_canSeek = newCanSeek;
     m_canPlay = newCanPlay;
     m_canPause = newCanPause;
@@ -120,7 +120,7 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket& np)
 
 long MprisRemotePlayer::position() const
 {
-    if(m_playing) {
+    if (m_playing) {
         return m_lastPosition + (QDateTime::currentMSecsSinceEpoch() - m_lastPositionTime);
     } else {
         return m_lastPosition;
@@ -173,26 +173,32 @@ bool MprisRemotePlayer::canSeek() const
     return m_canSeek;
 }
 
-QString MprisRemotePlayer::identity() const {
+QString MprisRemotePlayer::identity() const
+{
     return id;
 }
 
-bool MprisRemotePlayer::canPlay() const {
+bool MprisRemotePlayer::canPlay() const
+{
     return m_canPlay;
 }
 
-bool MprisRemotePlayer::canPause() const {
+bool MprisRemotePlayer::canPause() const
+{
     return m_canPause;
 }
 
-bool MprisRemotePlayer::canGoPrevious() const {
+bool MprisRemotePlayer::canGoPrevious() const
+{
     return m_canGoPrevious;
 }
 
-bool MprisRemotePlayer::canGoNext() const {
+bool MprisRemotePlayer::canGoNext() const
+{
     return m_canGoNext;
 }
 
-QDBusConnection & MprisRemotePlayer::dbus() {
+QDBusConnection &MprisRemotePlayer::dbus()
+{
     return m_dbusConnection;
 }

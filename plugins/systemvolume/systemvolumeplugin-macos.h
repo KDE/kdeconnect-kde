@@ -7,8 +7,8 @@
 #ifndef SYSTEMVOLUMEPLUGINMACOS_H
 #define SYSTEMVOLUMEPLUGINMACOS_H
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 
 #include <core/kdeconnectplugin.h>
 
@@ -27,14 +27,15 @@ public:
     explicit SystemvolumePlugin(QObject *parent, const QVariantList &args);
     ~SystemvolumePlugin();
 
-    bool receivePacket(const NetworkPacket& np) override;
+    bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
     void sendSinkList();
 
     void updateDeviceVolume(AudioDeviceID deviceId);
     void updateDeviceMuted(AudioDeviceID deviceId);
+
 private:
-    QMap<QString, MacOSCoreAudioDevice*> m_sinksMap;
+    QMap<QString, MacOSCoreAudioDevice *> m_sinksMap;
 };
 
 #endif // SYSTEMVOLUMEPLUGINMACOS_H

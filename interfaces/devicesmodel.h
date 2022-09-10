@@ -8,8 +8,8 @@
 #define DEVICESMODEL_H
 
 #include <QAbstractListModel>
-#include <QPixmap>
 #include <QList>
+#include <QPixmap>
 
 #include "kdeconnectinterfaces_export.h"
 
@@ -17,8 +17,7 @@ class QDBusPendingCallWatcher;
 class DaemonDbusInterface;
 class DeviceDbusInterface;
 
-class KDECONNECTINTERFACES_EXPORT DevicesModel
-    : public QAbstractListModel
+class KDECONNECTINTERFACES_EXPORT DevicesModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter)
@@ -26,10 +25,10 @@ class KDECONNECTINTERFACES_EXPORT DevicesModel
 
 public:
     enum ModelRoles {
-        NameModelRole   = Qt::DisplayRole,
-        IconModelRole   = Qt::DecorationRole,
+        NameModelRole = Qt::DisplayRole,
+        IconModelRole = Qt::DecorationRole,
         StatusModelRole = Qt::InitialSortOrderRole,
-        IdModelRole     = Qt::UserRole,
+        IdModelRole = Qt::UserRole,
         IconNameRole,
         DeviceRole
     };
@@ -38,48 +37,48 @@ public:
     // A device is always paired or reachable or both
     // You can combine the Paired and Reachable flags
     enum StatusFilterFlag {
-        NoFilter   = 0x00,
-        Paired     = 0x01, // show device only if it's paired
-        Reachable  = 0x02  // show device only if it's reachable
+        NoFilter = 0x00,
+        Paired = 0x01, // show device only if it's paired
+        Reachable = 0x02 // show device only if it's reachable
     };
     Q_DECLARE_FLAGS(StatusFilterFlags, StatusFilterFlag)
     Q_FLAGS(StatusFilterFlags)
     Q_ENUM(StatusFilterFlag)
 
-    explicit DevicesModel(QObject* parent = nullptr);
+    explicit DevicesModel(QObject *parent = nullptr);
     ~DevicesModel() override;
 
     void setDisplayFilter(int flags);
     int displayFilter() const;
 
-    QVariant data(const QModelIndex& index, int role) const override;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    Q_SCRIPTABLE DeviceDbusInterface* getDevice(int row) const;
+    Q_SCRIPTABLE DeviceDbusInterface *getDevice(int row) const;
     QHash<int, QByteArray> roleNames() const override;
-    Q_SCRIPTABLE int rowForDevice(const QString& id) const;
+    Q_SCRIPTABLE int rowForDevice(const QString &id) const;
 
 private Q_SLOTS:
-    void deviceAdded(const QString& id);
-    void deviceRemoved(const QString& id);
-    void deviceUpdated(const QString& id, bool isVisible);
+    void deviceAdded(const QString &id);
+    void deviceRemoved(const QString &id);
+    void deviceUpdated(const QString &id, bool isVisible);
     void refreshDeviceList();
-    void receivedDeviceList(QDBusPendingCallWatcher* watcher);
-    void nameChanged(const QString& newName);
+    void receivedDeviceList(QDBusPendingCallWatcher *watcher);
+    void nameChanged(const QString &newName);
 
 Q_SIGNALS:
     void rowsChanged();
 
 private:
     void clearDevices();
-    void appendDevice(DeviceDbusInterface* dev);
-    bool passesFilter(DeviceDbusInterface* dev) const;
+    void appendDevice(DeviceDbusInterface *dev);
+    bool passesFilter(DeviceDbusInterface *dev) const;
 
-    DaemonDbusInterface* m_dbusInterface;
-    QVector<DeviceDbusInterface*> m_deviceList;
+    DaemonDbusInterface *m_dbusInterface;
+    QVector<DeviceDbusInterface *> m_deviceList;
     StatusFilterFlag m_displayFilter;
 };
 
-//Q_DECLARE_OPERATORS_FOR_FLAGS(DevicesModel::StatusFilterFlag)
+// Q_DECLARE_OPERATORS_FOR_FLAGS(DevicesModel::StatusFilterFlag)
 
 #endif // DEVICESMODEL_H

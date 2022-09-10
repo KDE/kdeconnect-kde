@@ -9,13 +9,13 @@
 #include "daemon.h"
 #include <core_debug.h>
 
-#include <qalgorithms.h>
-#include <QFileInfo>
 #include <QDebug>
+#include <QFileInfo>
+#include <qalgorithms.h>
 
 #include <KLocalizedString>
 
-FileTransferJob::FileTransferJob(const NetworkPacket* np, const QUrl& destination)
+FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destination)
     : KJob()
     , m_origin(np->payload())
     , m_reply(nullptr)
@@ -27,8 +27,8 @@ FileTransferJob::FileTransferJob(const NetworkPacket* np, const QUrl& destinatio
     , m_np(np)
 {
     Q_ASSERT(m_origin);
-    //Disabled this assert: QBluetoothSocket doesn't report "->isReadable() == true" until it's connected
-    //Q_ASSERT(m_origin->isReadable());
+    // Disabled this assert: QBluetoothSocket doesn't report "->isReadable() == true" until it's connected
+    // Q_ASSERT(m_origin->isReadable());
     if (m_destination.scheme().isEmpty()) {
         qCWarning(KDECONNECT_CORE) << "Destination QUrl" << m_destination << "lacks a scheme. Setting its scheme to 'file'.";
         m_destination.setScheme(QStringLiteral("file"));
@@ -41,7 +41,7 @@ FileTransferJob::FileTransferJob(const NetworkPacket* np, const QUrl& destinatio
 void FileTransferJob::start()
 {
     QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
-    //qCDebug(KDECONNECT_CORE) << "FileTransferJob start";
+    // qCDebug(KDECONNECT_CORE) << "FileTransferJob start";
 }
 
 void FileTransferJob::doStart()
@@ -85,9 +85,8 @@ void FileTransferJob::startTransfer()
 
         m_written = bytesSent;
     });
-#if QT_VERSION < QT_VERSION_CHECK(5,15,0)
-    connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error),
-            this, &FileTransferJob::transferFailed);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
+    connect(m_reply, static_cast<void (QNetworkReply::*)(QNetworkReply::NetworkError)>(&QNetworkReply::error), this, &FileTransferJob::transferFailed);
 #else
     connect(m_reply, &QNetworkReply::errorOccurred, this, &FileTransferJob::transferFailed);
 #endif
@@ -106,12 +105,12 @@ void FileTransferJob::transferFailed(QNetworkReply::NetworkError error)
 
 void FileTransferJob::transferFinished()
 {
-    //TODO: MD5-check the file
+    // TODO: MD5-check the file
     if (m_size == m_written) {
         qCDebug(KDECONNECT_CORE) << "Finished transfer" << m_destination;
         emitResult();
     } else {
-        qCDebug(KDECONNECT_CORE) << "Received incomplete file ("<< m_written << "/" << m_size << "bytes ), deleting";
+        qCDebug(KDECONNECT_CORE) << "Received incomplete file (" << m_written << "/" << m_size << "bytes ), deleting";
 
         deleteDestinationFile();
 

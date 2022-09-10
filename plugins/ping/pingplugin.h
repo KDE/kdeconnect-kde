@@ -13,21 +13,22 @@
 
 #define PACKET_TYPE_PING QStringLiteral("kdeconnect.ping")
 
-class Q_DECL_EXPORT PingPlugin
-    : public KdeConnectPlugin
+class Q_DECL_EXPORT PingPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.ping")
 
 public:
-    explicit PingPlugin(QObject* parent, const QVariantList& args);
+    explicit PingPlugin(QObject *parent, const QVariantList &args);
     ~PingPlugin() override;
 
     Q_SCRIPTABLE void sendPing();
-    Q_SCRIPTABLE void sendPing(const QString& customMessage);
+    Q_SCRIPTABLE void sendPing(const QString &customMessage);
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override {}
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
 
     QString dbusPath() const override;
 };

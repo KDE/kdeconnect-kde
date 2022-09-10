@@ -6,18 +6,18 @@
 
 #include "sendreplydialog.h"
 
-#include <QPushButton>
-#include <QTextEdit>
-#include <QLineEdit>
 #include <QBoxLayout>
-#include <QStandardPaths>
 #include <QKeyEvent>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QStandardPaths>
+#include <QTextEdit>
 
 #include <KLocalizedString>
 
 #include "ui_sendreplydialog.h"
 
-SendReplyDialog::SendReplyDialog(const QString& originalMessage, const QString& replyId, const QString& topicName, QWidget* parent)
+SendReplyDialog::SendReplyDialog(const QString &originalMessage, const QString &replyId, const QString &topicName, QWidget *parent)
     : QDialog(parent)
     , m_replyId(replyId)
     , m_ui(new Ui::SendReplyDialog)
@@ -56,7 +56,7 @@ SendReplyTextEdit::SendReplyTextEdit(QWidget *parent)
 {
 }
 
-void SendReplyTextEdit::keyPressEvent(QKeyEvent* event)
+void SendReplyTextEdit::keyPressEvent(QKeyEvent *event)
 {
     // Send reply on enter, except when shift + enter is pressed, then insert newline
     const int key = event->key();

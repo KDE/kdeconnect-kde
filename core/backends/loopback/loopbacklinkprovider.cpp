@@ -16,12 +16,11 @@ LoopbackLinkProvider::LoopbackLinkProvider()
 
 LoopbackLinkProvider::~LoopbackLinkProvider()
 {
-
 }
 
 void LoopbackLinkProvider::onNetworkChange()
 {
-    LoopbackDeviceLink* newLoopbackDeviceLink = new LoopbackDeviceLink(QStringLiteral("loopback"), this);
+    LoopbackDeviceLink *newLoopbackDeviceLink = new LoopbackDeviceLink(QStringLiteral("loopback"), this);
     Q_EMIT onConnectionReceived(identityPacket, newLoopbackDeviceLink);
 
     if (loopbackDeviceLink) {
@@ -42,4 +41,3 @@ void LoopbackLinkProvider::onStop()
         delete loopbackDeviceLink;
     }
 }
-

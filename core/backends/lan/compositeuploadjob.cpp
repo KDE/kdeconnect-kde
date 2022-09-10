@@ -5,19 +5,19 @@
  */
 
 #include "compositeuploadjob.h"
-#include <core_debug.h>
-#include <KLocalizedString>
-#include <KJobTrackerInterface>
 #include "lanlinkprovider.h"
-#include <daemon.h>
 #include "plugins/share/shareplugin.h"
 #include "qtcompat_p.h"
+#include <KJobTrackerInterface>
+#include <KLocalizedString>
+#include <core_debug.h>
+#include <daemon.h>
 
 #ifdef HAVE_KIO
 #include <kio/global.h>
 #endif
 
-CompositeUploadJob::CompositeUploadJob(const QString& deviceId, bool displayNotification)
+CompositeUploadJob::CompositeUploadJob(const QString &deviceId, bool displayNotification)
     : KCompositeJob()
     , m_server(new Server(this))
     , m_socket(nullptr)
@@ -45,7 +45,8 @@ bool CompositeUploadJob::isRunning()
     return m_running;
 }
 
-void CompositeUploadJob::start() {
+void CompositeUploadJob::start()
+{
     if (m_running) {
         qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::start() - already running";
         return;
@@ -65,7 +66,7 @@ void CompositeUploadJob::start() {
 
     m_running = true;
 
-    //Give SharePlugin some time to add subjobs
+    // Give SharePlugin some time to add subjobs
     QMetaObject::invokeMethod(this, "startNextSubJob", Qt::QueuedConnection);
 }
 
@@ -74,7 +75,7 @@ bool CompositeUploadJob::startListening()
     m_port = MIN_PORT;
     while (!m_server->listen(QHostAddress::Any, m_port)) {
         m_port++;
-        if (m_port > MAX_PORT) { //No ports available?
+        if (m_port > MAX_PORT) { // No ports available?
             qCWarning(KDECONNECT_CORE) << "CompositeUploadJob::startListening() - Error opening a port in range" << MIN_PORT << "-" << MAX_PORT;
             m_port = 0;
             setError(NoPortAvailable);
@@ -90,21 +91,21 @@ bool CompositeUploadJob::startListening()
 
 void CompositeUploadJob::startNextSubJob()
 {
-    m_currentJob = qobject_cast<UploadJob*>(subjobs().at(0));
+    m_currentJob = qobject_cast<UploadJob *>(subjobs().at(0));
     m_currentJobSendPayloadSize = 0;
     emitDescription(m_currentJob->getNetworkPacket().get<QString>(QStringLiteral("filename")));
 
 #ifdef SAILFISHOS
-    connect(m_currentJob, SIGNAL(processedAmount(KJob*,KJob::Unit,qulonglong)), this, SLOT(slotProcessedAmount(KJob*,KJob::Unit,qulonglong)));
+    connect(m_currentJob, SIGNAL(processedAmount(KJob *, KJob::Unit, qulonglong)), this, SLOT(slotProcessedAmount(KJob *, KJob::Unit, qulonglong)));
 #else
-    connect(m_currentJob, QOverload<KJob*,KJob::Unit,qulonglong>::of(&UploadJob::processedAmount), this, &CompositeUploadJob::slotProcessedAmount);
+    connect(m_currentJob, QOverload<KJob *, KJob::Unit, qulonglong>::of(&UploadJob::processedAmount), this, &CompositeUploadJob::slotProcessedAmount);
 #endif
-    //Already done by KCompositeJob
-    //connect(m_currentJob, &KJob::result, this, &CompositeUploadJob::slotResult);
+    // Already done by KCompositeJob
+    // connect(m_currentJob, &KJob::result, this, &CompositeUploadJob::slotResult);
 
-    //TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
+    // TODO: Create a copy of the networkpacket that can be re-injected if sending via lan fails?
     NetworkPacket np = m_currentJob->getNetworkPacket();
-#if QT_VERSION < QT_VERSION_CHECK(5,8,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 8, 0)
     np.setPayload({}, np.payloadSize());
 #else
     np.setPayload(nullptr, np.payloadSize());
@@ -137,7 +138,7 @@ void CompositeUploadJob::newConnection()
     m_currentJob->setSocket(m_socket);
 
     connect(m_socket, &QSslSocket::disconnected, this, &CompositeUploadJob::socketDisconnected);
-#if QT_VERSION < QT_VERSION_CHECK(5,15,0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     connect(m_socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &CompositeUploadJob::socketError);
 #else
     connect(m_socket, &QAbstractSocket::errorOccurred, this, &CompositeUploadJob::socketError);
@@ -159,14 +160,15 @@ void CompositeUploadJob::socketError(QAbstractSocket::SocketError error)
 {
     Q_UNUSED(error);
 
-    //Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a segv
+    // Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a
+    // segv
     setError(SocketError);
     emitResult();
 
     m_running = false;
 }
 
-void CompositeUploadJob::sslError(const QList<QSslError>& errors)
+void CompositeUploadJob::sslError(const QList<QSslError> &errors)
 {
     Q_UNUSED(errors);
 
@@ -186,14 +188,14 @@ void CompositeUploadJob::encrypted()
     m_currentJob->start();
 }
 
-bool CompositeUploadJob::addSubjob(KJob* job)
+bool CompositeUploadJob::addSubjob(KJob *job)
 {
-    if (UploadJob *uploadJob = qobject_cast<UploadJob*>(job)) {
+    if (UploadJob *uploadJob = qobject_cast<UploadJob *>(job)) {
         NetworkPacket np = uploadJob->getNetworkPacket();
 
         m_totalJobs++;
 
-        if (np.payloadSize() >= 0 ) {
+        if (np.payloadSize() >= 0) {
             m_totalPayloadSize += np.payloadSize();
             setTotalAmount(Bytes, m_totalPayloadSize);
         }
@@ -221,7 +223,8 @@ bool CompositeUploadJob::addSubjob(KJob* job)
     }
 }
 
-void CompositeUploadJob::sendUpdatePacket() {
+void CompositeUploadJob::sendUpdatePacket()
+{
     NetworkPacket np(PACKET_TYPE_SHARE_REQUEST_UPDATE);
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
@@ -242,7 +245,8 @@ bool CompositeUploadJob::doKill()
     return true;
 }
 
-void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount) {
+void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount)
+{
     Q_UNUSED(job);
 
     m_currentJobSendPayloadSize = amount;
@@ -259,8 +263,9 @@ void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulongl
     }
 }
 
-void CompositeUploadJob::slotResult(KJob *job) {
-    //Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
+void CompositeUploadJob::slotResult(KJob *job)
+{
+    // Copies job error and errorText and emits result if job is in error otherwise removes job from subjob list
     KCompositeJob::slotResult(job);
 
     if (error() || !m_running) {
@@ -277,10 +282,9 @@ void CompositeUploadJob::slotResult(KJob *job) {
     }
 }
 
-void CompositeUploadJob::emitDescription(const QString& currentFileName) {
-    Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()),
-                       { i18n("File"), currentFileName }, {}
-    );
+void CompositeUploadJob::emitDescription(const QString &currentFileName)
+{
+    Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()), {i18n("File"), currentFileName}, {});
 
     setProcessedAmount(Files, m_currentJobNum);
     setTotalAmount(Files, m_totalJobs);

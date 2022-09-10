@@ -8,9 +8,9 @@
 #ifndef BATTERYACTION_H
 #define BATTERYACTION_H
 
-#include <QMenu>
-#include <QFileDialog>
 #include <KLocalizedString>
+#include <QFileDialog>
+#include <QMenu>
 
 #include "interfaces/dbusinterfaces.h"
 
@@ -18,9 +18,9 @@
 
 class BatteryAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    BatteryAction(DeviceDbusInterface* device);
+    BatteryAction(DeviceDbusInterface *device);
     void update();
 private Q_SLOTS:
     void setCharge(int charge);

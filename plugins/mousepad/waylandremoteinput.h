@@ -11,16 +11,15 @@
 
 class FakeInput;
 
-class WaylandRemoteInput
-    : public AbstractRemoteInput
+class WaylandRemoteInput : public AbstractRemoteInput
 {
     Q_OBJECT
 
 public:
-    explicit WaylandRemoteInput(QObject* parent);
+    explicit WaylandRemoteInput(QObject *parent);
     ~WaylandRemoteInput();
 
-    bool handlePacket(const NetworkPacket& np) override;
+    bool handlePacket(const NetworkPacket &np) override;
 
 private:
     void setupWaylandIntegration();

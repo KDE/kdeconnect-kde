@@ -15,10 +15,10 @@
 void logBacktrace()
 {
 #if defined(__GNU_LIBRARY__)
-    void* array[32];
-    size_t size = backtrace (array, 32);
-    char** strings = backtrace_symbols (array, size);
+    void *array[32];
+    size_t size = backtrace(array, 32);
+    char **strings = backtrace_symbols(array, size);
     backtrace_symbols_fd(array, size, STDERR_FILENO);
-    free (strings);
+    free(strings);
 #endif
 }

@@ -8,21 +8,21 @@
 #include "telephonyplugin.h"
 
 #include <KLocalizedString>
-#include <QDebug>
 #include <QDBusReply>
+#include <QDebug>
 
-#include <KPluginFactory>
-#include <KNotification>
 #include "plugin_telephony_debug.h"
+#include <KNotification>
+#include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(TelephonyPlugin, "kdeconnect_telephony.json")
 
-TelephonyPlugin::TelephonyPlugin(QObject* parent, const QVariantList& args)
+TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
 }
 
-void TelephonyPlugin::createNotification(const NetworkPacket& np)
+void TelephonyPlugin::createNotification(const NetworkPacket &np)
 {
     const QString event = np.get<QString>(QStringLiteral("event"));
     const QString phoneNumber = np.get<QString>(QStringLiteral("phoneNumber"), i18n("unknown number"));
@@ -66,14 +66,14 @@ void TelephonyPlugin::createNotification(const NetworkPacket& np)
     m_currentCallNotification->setText(content);
 
     if (event == QLatin1String("ringing")) {
-        m_currentCallNotification->setActions( QStringList(i18n("Mute Call")) );
+        m_currentCallNotification->setActions(QStringList(i18n("Mute Call")));
         connect(m_currentCallNotification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
     }
 
     m_currentCallNotification->sendEvent();
 }
 
-bool TelephonyPlugin::receivePacket(const NetworkPacket& np)
+bool TelephonyPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("isCancel"))) {
         if (m_currentCallNotification) {

@@ -14,12 +14,8 @@
 PluginModel::PluginModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
-    connect(this, &QAbstractItemModel::rowsInserted,
-            this, &PluginModel::rowsChanged);
-    connect(this, &QAbstractItemModel::rowsRemoved,
-            this, &PluginModel::rowsChanged);
-
+    connect(this, &QAbstractItemModel::rowsInserted, this, &PluginModel::rowsChanged);
+    connect(this, &QAbstractItemModel::rowsRemoved, this, &PluginModel::rowsChanged);
 
     beginResetModel();
     m_plugins = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
@@ -30,7 +26,7 @@ PluginModel::~PluginModel()
 {
 }
 
-void PluginModel::setDeviceId(const QString& deviceId)
+void PluginModel::setDeviceId(const QString &deviceId)
 {
     if (deviceId == m_deviceId)
         return;
@@ -49,8 +45,7 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
     const KPluginMetaData &pluginEntry = m_plugins[index.row()];
 
     switch (role) {
-    case Qt::CheckStateRole:
-    {
+    case Qt::CheckStateRole: {
         const QString def = pluginEntry.isEnabledByDefault() ? QStringLiteral("true") : QStringLiteral("false");
         return m_config->group("Plugins").readEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), def) == QStringLiteral("true");
     }
@@ -60,9 +55,9 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
         return pluginEntry.iconName();
     case IdRole:
         return pluginEntry.pluginId();
-    case ConfigSourceRole:
-    {
-        const QString configFile = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kdeconnect/%1_config.qml").arg(pluginEntry.pluginId()));
+    case ConfigSourceRole: {
+        const QString configFile =
+            QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("kdeconnect/%1_config.qml").arg(pluginEntry.pluginId()));
         if (configFile.isEmpty())
             return QUrl();
 
@@ -75,7 +70,6 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
     }
 }
 
-
 QHash<int, QByteArray> PluginModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();
@@ -87,7 +81,6 @@ QHash<int, QByteArray> PluginModel::roleNames() const
     roles[DescriptionRole] = "description";
     return roles;
 }
-
 
 bool PluginModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {

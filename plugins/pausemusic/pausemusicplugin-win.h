@@ -8,35 +8,36 @@
 #ifndef PAUSEMUSICPLUGINWIN_H
 #define PAUSEMUSICPLUGINWIN_H
 
+#include <QHash>
 #include <QObject>
 #include <QSet>
 #include <QString>
-#include <QHash>
 
-#include <winrt/Windows.Media.Control.h>
-#include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.ApplicationModel.h>
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.Media.Control.h>
 
 #include <core/kdeconnectplugin.h>
 
-#include <mmdeviceapi.h>
 #include <endpointvolume.h>
+#include <mmdeviceapi.h>
 
 using namespace winrt;
 using namespace Windows::Media::Control;
 using namespace Windows::ApplicationModel;
 
-class PauseMusicPlugin
-    : public KdeConnectPlugin
+class PauseMusicPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
 public:
-    explicit PauseMusicPlugin(QObject* parent, const QVariantList& args);
+    explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
     ~PauseMusicPlugin();
 
-    bool receivePacket(const NetworkPacket& np) override;
-    void connected() override { }
+    bool receivePacket(const NetworkPacket &np) override;
+    void connected() override
+    {
+    }
 
 private:
     void updatePlayersList();

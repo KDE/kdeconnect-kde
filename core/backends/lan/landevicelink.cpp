@@ -8,21 +8,21 @@
 
 #include <KLocalizedString>
 
+#include "backends/linkprovider.h"
 #include "core_debug.h"
 #include "kdeconnectconfig.h"
-#include "backends/linkprovider.h"
-#include "socketlinereader.h"
 #include "lanlinkprovider.h"
 #include "plugins/share/shareplugin.h"
+#include "socketlinereader.h"
 
-LanDeviceLink::LanDeviceLink(const QString& deviceId, LinkProvider* parent, QSslSocket* socket, ConnectionStarted connectionSource)
+LanDeviceLink::LanDeviceLink(const QString &deviceId, LinkProvider *parent, QSslSocket *socket, ConnectionStarted connectionSource)
     : DeviceLink(deviceId, parent)
     , m_socketLineReader(nullptr)
 {
     reset(socket, connectionSource);
 }
 
-void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource)
+void LanDeviceLink::reset(QSslSocket *socket, ConnectionStarted connectionSource)
 {
     if (m_socketLineReader) {
         disconnect(m_socketLineReader->m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
@@ -34,16 +34,16 @@ void LanDeviceLink::reset(QSslSocket* socket, ConnectionStarted connectionSource
     connect(socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
     connect(m_socketLineReader, &SocketLineReader::readyRead, this, &LanDeviceLink::dataReceived);
 
-    //We take ownership of the socket.
-    //When the link provider destroys us,
-    //the socket (and the reader) will be
-    //destroyed as well
+    // We take ownership of the socket.
+    // When the link provider destroys us,
+    // the socket (and the reader) will be
+    // destroyed as well
     socket->setParent(m_socketLineReader);
 
     m_connectionSource = connectionSource;
 
     QString certString = KdeConnectConfig::instance().getDeviceProperty(deviceId(), QStringLiteral("certificate"));
-    DeviceLink::setPairStatus(certString.isEmpty()? PairStatus::NotPaired : PairStatus::Paired);
+    DeviceLink::setPairStatus(certString.isEmpty() ? PairStatus::NotPaired : PairStatus::Paired);
 }
 
 QHostAddress LanDeviceLink::hostAddress() const
@@ -68,7 +68,7 @@ QString LanDeviceLink::name()
     return QStringLiteral("LanLink"); // Should be same in both android and kde version
 }
 
-bool LanDeviceLink::sendPacket(NetworkPacket& np)
+bool LanDeviceLink::sendPacket(NetworkPacket &np)
 {
     if (np.payload()) {
         if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payloadSize() >= 0) {
@@ -81,8 +81,8 @@ bool LanDeviceLink::sendPacket(NetworkPacket& np)
             if (!m_compositeUploadJob->isRunning()) {
                 m_compositeUploadJob->start();
             }
-        } else { //Infinite stream
-            CompositeUploadJob* fireAndForgetJob = new CompositeUploadJob(deviceId(), false);
+        } else { // Infinite stream
+            CompositeUploadJob *fireAndForgetJob = new CompositeUploadJob(deviceId(), false);
             fireAndForgetJob->addSubjob(new UploadJob(np));
             fireAndForgetJob->start();
         }
@@ -91,31 +91,32 @@ bool LanDeviceLink::sendPacket(NetworkPacket& np)
     } else {
         int written = m_socketLineReader->write(np.serialize());
 
-        //Actually we can't detect if a packet is received or not. We keep TCP
+        // Actually we can't detect if a packet is received or not. We keep TCP
         //"ESTABLISHED" connections that look legit (return true when we use them),
-        //but that are actually broken (until keepalive detects that they are down).
+        // but that are actually broken (until keepalive detects that they are down).
         return (written != -1);
     }
 }
 
 void LanDeviceLink::dataReceived()
 {
-    if (!m_socketLineReader->hasPacketsAvailable()) return;
+    if (!m_socketLineReader->hasPacketsAvailable())
+        return;
 
     const QByteArray serializedPacket = m_socketLineReader->readLine();
     NetworkPacket packet((QString()));
     NetworkPacket::unserialize(serializedPacket, &packet);
 
-    //qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
+    // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
 
     if (packet.type() == PACKET_TYPE_PAIR) {
-        //TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
-        qobject_cast<LanLinkProvider*>(provider())->incomingPairPacket(this, packet);
+        // TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
+        qobject_cast<LanLinkProvider *>(provider())->incomingPairPacket(this, packet);
         return;
     }
 
     if (packet.hasPayloadTransferInfo()) {
-        //qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
+        // qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
         const QVariantMap transferInfo = packet.payloadTransferInfo();
 
         QSharedPointer<QSslSocket> socket(new QSslSocket);
@@ -137,7 +138,6 @@ void LanDeviceLink::dataReceived()
     if (m_socketLineReader->hasPacketsAvailable()) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
-
 }
 
 void LanDeviceLink::userRequestsPair()
@@ -145,13 +145,13 @@ void LanDeviceLink::userRequestsPair()
     if (m_socketLineReader->peerCertificate().isNull()) {
         Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
     } else {
-        qobject_cast<LanLinkProvider*>(provider())->userRequestsPair(deviceId());
+        qobject_cast<LanLinkProvider *>(provider())->userRequestsPair(deviceId());
     }
 }
 
 void LanDeviceLink::userRequestsUnpair()
 {
-    qobject_cast<LanLinkProvider*>(provider())->userRequestsUnpair(deviceId());
+    qobject_cast<LanLinkProvider *>(provider())->userRequestsUnpair(deviceId());
 }
 
 void LanDeviceLink::setPairStatus(PairStatus status)
@@ -168,14 +168,13 @@ void LanDeviceLink::setPairStatus(PairStatus status)
     }
 }
 
-bool LanDeviceLink::linkShouldBeKeptAlive() {
+bool LanDeviceLink::linkShouldBeKeptAlive()
+{
+    return true; // FIXME: Current implementation is broken, so for now we will keep links always established
 
-    return true;     //FIXME: Current implementation is broken, so for now we will keep links always established
-
-    //We keep the remotely initiated connections, since the remotes require them if they want to request
-    //pairing to us, or connections that are already paired. TODO: Keep connections in the process of pairing
-    //return (mConnectionSource == ConnectionStarted::Remotely || pairStatus() == Paired);
-
+    // We keep the remotely initiated connections, since the remotes require them if they want to request
+    // pairing to us, or connections that are already paired. TODO: Keep connections in the process of pairing
+    // return (mConnectionSource == ConnectionStarted::Remotely || pairStatus() == Paired);
 }
 
 QSslCertificate LanDeviceLink::certificate() const

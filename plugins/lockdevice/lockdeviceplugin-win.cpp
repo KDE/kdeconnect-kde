@@ -9,19 +9,19 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <QDebug>
 #include "plugin_lock_debug.h"
+#include <QDebug>
 
 #include <core/daemon.h>
 #include <core/device.h>
 #include <dbushelper.h>
 
 #include <Windows.h>
-#pragma comment( lib, "user32.lib" )
+#pragma comment(lib, "user32.lib")
 
 K_PLUGIN_CLASS_WITH_JSON(LockDevicePlugin, "kdeconnect_lockdevice.json")
 
-LockDevicePlugin::LockDevicePlugin(QObject* parent, const QVariantList& args)
+LockDevicePlugin::LockDevicePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_remoteLocked(false)
 {
@@ -60,7 +60,10 @@ bool LockDevicePlugin::receivePacket(const NetworkPacket &np)
     if (np.has(QStringLiteral("lockResult"))) {
         bool lockSuccess = np.get<bool>(QStringLiteral("lockResult"));
         if (lockSuccess) {
-            Daemon::instance()->sendSimpleNotification(QStringLiteral("remoteLockSuccess"), device()->name(), i18n("Remote lock successful"), QStringLiteral("error"));
+            Daemon::instance()->sendSimpleNotification(QStringLiteral("remoteLockSuccess"),
+                                                       device()->name(),
+                                                       i18n("Remote lock successful"),
+                                                       QStringLiteral("error"));
         } else {
             Daemon::instance()->sendSimpleNotification(QStringLiteral("remoteLockFail"), device()->name(), i18n("Remote lock failed"), QStringLiteral("error"));
             Daemon::instance()->reportError(device()->name(), i18n("Remote lock failed"));

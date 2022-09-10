@@ -14,9 +14,9 @@ class ThumbnailsProvider : public QQuickImageProvider
 public:
     ThumbnailsProvider();
 
-    QImage requestImage(const QString& id, QSize* size, const QSize& requestedSize) override;
+    QImage requestImage(const QString &id, QSize *size, const QSize &requestedSize) override;
 
-    void addImage(const QString& id, const QImage& image);
+    void addImage(const QString &id, const QImage &image);
 
     void clear();
 

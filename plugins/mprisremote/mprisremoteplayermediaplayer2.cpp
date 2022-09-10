@@ -4,44 +4,59 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "mprisremoteplayer.h"
 #include "mprisremoteplayermediaplayer2.h"
+#include "mprisremoteplayer.h"
 #include "mprisremoteplugin.h"
 
-MprisRemotePlayerMediaPlayer2::MprisRemotePlayerMediaPlayer2(MprisRemotePlayer* parent, const MprisRemotePlugin *plugin) :
-    QDBusAbstractAdaptor{parent}, m_parent{parent}, m_plugin{plugin} {}
+MprisRemotePlayerMediaPlayer2::MprisRemotePlayerMediaPlayer2(MprisRemotePlayer *parent, const MprisRemotePlugin *plugin)
+    : QDBusAbstractAdaptor{parent}
+    , m_parent{parent}
+    , m_plugin{plugin}
+{
+}
 
 MprisRemotePlayerMediaPlayer2::~MprisRemotePlayerMediaPlayer2() = default;
 
-bool MprisRemotePlayerMediaPlayer2::CanQuit() const {
+bool MprisRemotePlayerMediaPlayer2::CanQuit() const
+{
     return false;
 }
 
-bool MprisRemotePlayerMediaPlayer2::CanRaise() const {
+bool MprisRemotePlayerMediaPlayer2::CanRaise() const
+{
     return false;
 }
 
-bool MprisRemotePlayerMediaPlayer2::HasTrackList() const {
+bool MprisRemotePlayerMediaPlayer2::HasTrackList() const
+{
     return false;
 }
 
-QString MprisRemotePlayerMediaPlayer2::DesktopEntry() const {
-    //Allows controlling mpris from the KDE Connect application's taskbar entry.
+QString MprisRemotePlayerMediaPlayer2::DesktopEntry() const
+{
+    // Allows controlling mpris from the KDE Connect application's taskbar entry.
     return QStringLiteral("org.kde.kdeconnect.app");
 }
 
-QString MprisRemotePlayerMediaPlayer2::Identity() const {
+QString MprisRemotePlayerMediaPlayer2::Identity() const
+{
     return m_parent->identity() + QStringLiteral(" - ") + m_plugin->device()->name();
 }
 
-void MprisRemotePlayerMediaPlayer2::Quit() {}
+void MprisRemotePlayerMediaPlayer2::Quit()
+{
+}
 
-void MprisRemotePlayerMediaPlayer2::Raise() {}
+void MprisRemotePlayerMediaPlayer2::Raise()
+{
+}
 
-QStringList MprisRemotePlayerMediaPlayer2::SupportedUriSchemes() const {
+QStringList MprisRemotePlayerMediaPlayer2::SupportedUriSchemes() const
+{
     return {};
 }
 
-QStringList MprisRemotePlayerMediaPlayer2::SupportedMimeTypes() const {
+QStringList MprisRemotePlayerMediaPlayer2::SupportedMimeTypes() const
+{
     return {};
 }

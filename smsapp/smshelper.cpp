@@ -7,17 +7,17 @@
 #include "smshelper.h"
 
 #include <QClipboard>
+#include <QFileInfo>
 #include <QGuiApplication>
+#include <QHash>
 #include <QIcon>
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QPainter>
 #include <QRegularExpression>
-#include <QString>
 #include <QStandardPaths>
-#include <QHash>
+#include <QString>
 #include <QtDebug>
-#include <QFileInfo>
 
 #include <KPeople/PersonData>
 #include <KPeople/PersonsModel>
@@ -26,7 +26,7 @@
 #include "smsapp/gsmasciimap.h"
 #include "smshelper_debug.h"
 
-QObject* SmsHelper::singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+QObject *SmsHelper::singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine);
     Q_UNUSED(scriptEngine);
@@ -34,7 +34,7 @@ QObject* SmsHelper::singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngin
     return new SmsHelper();
 }
 
-bool SmsHelper::isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, const QString& canonicalPhone2)
+bool SmsHelper::isPhoneNumberMatchCanonicalized(const QString &canonicalPhone1, const QString &canonicalPhone2)
 {
     if (canonicalPhone1.isEmpty() || canonicalPhone2.isEmpty()) {
         // The empty string is not a valid phone number so does not match anything
@@ -45,10 +45,10 @@ bool SmsHelper::isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, 
     // 1. Are they similar lengths? If two numbers are very different, probably one is junk data and should be ignored
     // 2. Is one a superset of the other? Phone number digits get more specific the further towards the end of the string,
     //    so if one phone number ends with the other, it is probably just a more-complete version of the same thing
-    const QString& longerNumber = canonicalPhone1.length() >= canonicalPhone2.length() ? canonicalPhone1 : canonicalPhone2;
-    const QString& shorterNumber = canonicalPhone1.length() < canonicalPhone2.length() ? canonicalPhone1 : canonicalPhone2;
+    const QString &longerNumber = canonicalPhone1.length() >= canonicalPhone2.length() ? canonicalPhone1 : canonicalPhone2;
+    const QString &shorterNumber = canonicalPhone1.length() < canonicalPhone2.length() ? canonicalPhone1 : canonicalPhone2;
 
-    const CountryCode& country = determineCountryCode(longerNumber);
+    const CountryCode &country = determineCountryCode(longerNumber);
 
     const bool shorterNumberIsShortCode = isShortCode(shorterNumber, country);
     const bool longerNumberIsShortCode = isShortCode(longerNumber, country);
@@ -63,15 +63,15 @@ bool SmsHelper::isPhoneNumberMatchCanonicalized(const QString& canonicalPhone1, 
     return matchingPhoneNumber;
 }
 
-bool SmsHelper::isPhoneNumberMatch(const QString& phone1, const QString& phone2)
+bool SmsHelper::isPhoneNumberMatch(const QString &phone1, const QString &phone2)
 {
-    const QString& canonicalPhone1 = canonicalizePhoneNumber(phone1);
-    const QString& canonicalPhone2 = canonicalizePhoneNumber(phone2);
+    const QString &canonicalPhone1 = canonicalizePhoneNumber(phone1);
+    const QString &canonicalPhone2 = canonicalizePhoneNumber(phone2);
 
     return isPhoneNumberMatchCanonicalized(canonicalPhone1, canonicalPhone2);
 }
 
-bool SmsHelper::isShortCode(const QString& phoneNumber, const SmsHelper::CountryCode& country)
+bool SmsHelper::isShortCode(const QString &phoneNumber, const SmsHelper::CountryCode &country)
 {
     // Regardless of which country this number belongs to, a number of length less than 6 is a "short code"
     if (phoneNumber.length() <= 6) {
@@ -89,7 +89,7 @@ bool SmsHelper::isShortCode(const QString& phoneNumber, const SmsHelper::Country
     return false;
 }
 
-SmsHelper::CountryCode SmsHelper::determineCountryCode(const QString& canonicalNumber)
+SmsHelper::CountryCode SmsHelper::determineCountryCode(const QString &canonicalNumber)
 {
     // This is going to fall apart if someone has not entered a country code into their contact book
     // or if Android decides it can't be bothered to report the country code, but probably we will
@@ -106,7 +106,7 @@ SmsHelper::CountryCode SmsHelper::determineCountryCode(const QString& canonicalN
     return CountryCode::Other;
 }
 
-QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
+QString SmsHelper::canonicalizePhoneNumber(const QString &phoneNumber)
 {
     static const QRegularExpression leadingZeroes(QStringLiteral("^0*"));
 
@@ -125,7 +125,7 @@ QString SmsHelper::canonicalizePhoneNumber(const QString& phoneNumber)
     return toReturn;
 }
 
-bool SmsHelper::isAddressValid(const QString& address)
+bool SmsHelper::isAddressValid(const QString &address)
 {
     QString canonicalizedNumber = canonicalizePhoneNumber(address);
 
@@ -142,28 +142,32 @@ bool SmsHelper::isAddressValid(const QString& address)
     return false;
 }
 
-class PersonsCache : public QObject {
+class PersonsCache : public QObject
+{
 public:
-    PersonsCache() {
-        connect(&m_people, &QAbstractItemModel::rowsRemoved, this, [this] (const QModelIndex &parent, int first, int last) {
+    PersonsCache()
+    {
+        connect(&m_people, &QAbstractItemModel::rowsRemoved, this, [this](const QModelIndex &parent, int first, int last) {
             if (parent.isValid())
                 return;
-            for (int i=first; i<=last; ++i) {
-                const QString& uri = m_people.get(i, KPeople::PersonsModel::PersonUriRole).toString();
+            for (int i = first; i <= last; ++i) {
+                const QString &uri = m_people.get(i, KPeople::PersonsModel::PersonUriRole).toString();
                 m_personDataCache.remove(uri);
             }
         });
     }
 
-    QSharedPointer<KPeople::PersonData> personAt(int rowIndex) {
-        const QString& uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
-        auto& person = m_personDataCache[uri];
+    QSharedPointer<KPeople::PersonData> personAt(int rowIndex)
+    {
+        const QString &uri = m_people.get(rowIndex, KPeople::PersonsModel::PersonUriRole).toString();
+        auto &person = m_personDataCache[uri];
         if (!person)
             person.reset(new KPeople::PersonData(uri));
         return person;
     }
 
-    int count() const {
+    int count() const
+    {
         return m_people.rowCount();
     }
 
@@ -172,27 +176,27 @@ private:
     QHash<QString, QSharedPointer<KPeople::PersonData>> m_personDataCache;
 };
 
-QList<QSharedPointer<KPeople::PersonData>> SmsHelper::getAllPersons() {
-
+QList<QSharedPointer<KPeople::PersonData>> SmsHelper::getAllPersons()
+{
     static PersonsCache s_cache;
     QList<QSharedPointer<KPeople::PersonData>> personDataList;
 
-    for(int rowIndex = 0; rowIndex < s_cache.count(); rowIndex++) {
+    for (int rowIndex = 0; rowIndex < s_cache.count(); rowIndex++) {
         const auto person = s_cache.personAt(rowIndex);
         personDataList.append(person);
     }
     return personDataList;
 }
 
-QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QString& address)
+QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QString &address)
 {
-    const QString& canonicalAddress = SmsHelper::canonicalizePhoneNumber(address);
+    const QString &canonicalAddress = SmsHelper::canonicalizePhoneNumber(address);
     QList<QSharedPointer<KPeople::PersonData>> personDataList = getAllPersons();
 
-    for (const auto& person : personDataList) {
-        const QStringList& allEmails = person->allEmails();
+    for (const auto &person : personDataList) {
+        const QStringList &allEmails = person->allEmails();
 
-        for (const QString& email : allEmails) {
+        for (const QString &email : allEmails) {
             // Although we are nominally an SMS messaging app, it is possible to send messages to phone numbers using email -> sms bridges
             if (address == email) {
                 return person;
@@ -201,12 +205,12 @@ QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QStri
 
         // TODO: Either upgrade KPeople with an allPhoneNumbers method
         const QVariantList allPhoneNumbers = person->contactCustomProperty(QStringLiteral("all-phoneNumber")).toList();
-        for (const QVariant& rawPhoneNumber : allPhoneNumbers) {
-            const QString& phoneNumber = SmsHelper::canonicalizePhoneNumber(rawPhoneNumber.toString());
+        for (const QVariant &rawPhoneNumber : allPhoneNumbers) {
+            const QString &phoneNumber = SmsHelper::canonicalizePhoneNumber(rawPhoneNumber.toString());
             bool matchingPhoneNumber = SmsHelper::isPhoneNumberMatchCanonicalized(canonicalAddress, phoneNumber);
 
             if (matchingPhoneNumber) {
-                //qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
+                // qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Matched" << address << "to" << person->name();
                 return person;
             }
         }
@@ -215,7 +219,7 @@ QSharedPointer<KPeople::PersonData> SmsHelper::lookupPersonByAddress(const QStri
     return nullptr;
 }
 
-QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons)
+QIcon SmsHelper::combineIcons(const QList<QPixmap> &icons)
 {
     QIcon icon;
     if (icons.size() == 0) {
@@ -259,10 +263,10 @@ QIcon SmsHelper::combineIcons(const QList<QPixmap>& icons)
     return icon;
 }
 
-QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addresses)
+QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress> &addresses)
 {
     QStringList titleParts;
-    for (const ConversationAddress& address : addresses) {
+    for (const ConversationAddress &address : addresses) {
         const auto personData = SmsHelper::lookupPersonByAddress(address.address());
 
         if (personData) {
@@ -277,10 +281,10 @@ QString SmsHelper::getTitleForAddresses(const QList<ConversationAddress>& addres
     return titleParts.join(QLatin1String(", "));
 }
 
-QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses)
+QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress> &addresses)
 {
     QList<QPixmap> icons;
-    for (const ConversationAddress& address : addresses) {
+    for (const ConversationAddress &address : addresses) {
         const auto personData = SmsHelper::lookupPersonByAddress(address.address());
         static const QIcon defaultIcon = QIcon::fromTheme(QStringLiteral("im-user"));
         static const QPixmap defaultAvatar = defaultIcon.pixmap(defaultIcon.actualSize(QSize(32, 32)));
@@ -305,12 +309,12 @@ QIcon SmsHelper::getIconForAddresses(const QList<ConversationAddress>& addresses
     return combineIcons(icons);
 }
 
-void SmsHelper::copyToClipboard(const QString& text)
+void SmsHelper::copyToClipboard(const QString &text)
 {
     QGuiApplication::clipboard()->setText(text);
 }
 
-SmsCharCount SmsHelper::getCharCount(const QString& message)
+SmsCharCount SmsHelper::getCharCount(const QString &message)
 {
     const int remainingWhenEmpty = 160;
     const int septetsInSingleSms = 160;
@@ -329,11 +333,9 @@ SmsCharCount SmsHelper::getCharCount(const QString& message)
 
         if (isInGsmAlphabet(ch)) {
             septets++;
-        }
-        else if (isInGsmAlphabetExtension(ch)) {
+        } else if (isInGsmAlphabetExtension(ch)) {
             septets += 2;
-        }
-        else {
+        } else {
             enc7bit = false;
             break;
         }
@@ -344,27 +346,23 @@ SmsCharCount SmsHelper::getCharCount(const QString& message)
         count.octets = 0;
         count.remaining = remainingWhenEmpty;
         count.messages = 1;
-    }
-    else if (enc7bit) {
+    } else if (enc7bit) {
         count.bitsPerChar = 7;
         count.octets = (septets * 7 + 6) / 8;
         if (septets > septetsInSingleSms) {
             count.messages = (septetsInSingleConcatSms - 1 + septets) / septetsInSingleConcatSms;
             count.remaining = (septetsInSingleConcatSms * count.messages - septets) % septetsInSingleConcatSms;
-        }
-        else {
+        } else {
             count.messages = 1;
             count.remaining = (septetsInSingleSms - septets) % septetsInSingleSms;
         }
-    }
-    else {
+    } else {
         count.bitsPerChar = 16;
         count.octets = length * 2; // QString should be in UTF-16
         if (length > charsInSingleUcs2Sms) {
             count.messages = (charsInSingleConcatUcs2Sms - 1 + length) / charsInSingleConcatUcs2Sms;
             count.remaining = (charsInSingleConcatUcs2Sms * count.messages - length) % charsInSingleConcatUcs2Sms;
-        }
-        else {
+        } else {
             count.messages = 1;
             count.remaining = (charsInSingleUcs2Sms - length) % charsInSingleUcs2Sms;
         }
@@ -373,80 +371,80 @@ SmsCharCount SmsHelper::getCharCount(const QString& message)
     return count;
 }
 
-bool SmsHelper::isInGsmAlphabet(const QChar& ch)
+bool SmsHelper::isInGsmAlphabet(const QChar &ch)
 {
     wchar_t unicode = ch.unicode();
 
     if ((unicode & ~0x7f) == 0) { // If the character is ASCII
         // use map
         return gsm_ascii_map[unicode];
-    }
-    else {
+    } else {
         switch (unicode) {
-            case 0xa1: // “¡”
-            case 0xa7: // “§”
-            case 0xbf: // “¿”
-            case 0xa4: // “¤”
-            case 0xa3: // “£”
-            case 0xa5: // “¥”
-            case 0xe0: // “à”
-            case 0xe5: // “å”
-            case 0xc5: // “Å”
-            case 0xe4: // “ä”
-            case 0xc4: // “Ä”
-            case 0xe6: // “æ”
-            case 0xc6: // “Æ”
-            case 0xc7: // “Ç”
-            case 0xe9: // “é”
-            case 0xc9: // “É”
-            case 0xe8: // “è”
-            case 0xec: // “ì”
-            case 0xf1: // “ñ”
-            case 0xd1: // “Ñ”
-            case 0xf2: // “ò”
-            case 0xf6: // “ö”
-            case 0xd6: // “Ö”
-            case 0xf8: // “ø”
-            case 0xd8: // “Ø”
-            case 0xdf: // “ß”
-            case 0xf9: // “ù”
-            case 0xfc: // “ü”
-            case 0xdc: // “Ü”
-            case 0x393: // “Γ”
-            case 0x394: // “Δ”
-            case 0x398: // “Θ”
-            case 0x39b: // “Λ”
-            case 0x39e: // “Ξ”
-            case 0x3a0: // “Π”
-            case 0x3a3: // “Σ”
-            case 0x3a6: // “Φ”
-            case 0x3a8: // “Ψ”
-            case 0x3a9: // “Ω”
-                return true;
+        case 0xa1: // “¡”
+        case 0xa7: // “§”
+        case 0xbf: // “¿”
+        case 0xa4: // “¤”
+        case 0xa3: // “£”
+        case 0xa5: // “¥”
+        case 0xe0: // “à”
+        case 0xe5: // “å”
+        case 0xc5: // “Å”
+        case 0xe4: // “ä”
+        case 0xc4: // “Ä”
+        case 0xe6: // “æ”
+        case 0xc6: // “Æ”
+        case 0xc7: // “Ç”
+        case 0xe9: // “é”
+        case 0xc9: // “É”
+        case 0xe8: // “è”
+        case 0xec: // “ì”
+        case 0xf1: // “ñ”
+        case 0xd1: // “Ñ”
+        case 0xf2: // “ò”
+        case 0xf6: // “ö”
+        case 0xd6: // “Ö”
+        case 0xf8: // “ø”
+        case 0xd8: // “Ø”
+        case 0xdf: // “ß”
+        case 0xf9: // “ù”
+        case 0xfc: // “ü”
+        case 0xdc: // “Ü”
+        case 0x393: // “Γ”
+        case 0x394: // “Δ”
+        case 0x398: // “Θ”
+        case 0x39b: // “Λ”
+        case 0x39e: // “Ξ”
+        case 0x3a0: // “Π”
+        case 0x3a3: // “Σ”
+        case 0x3a6: // “Φ”
+        case 0x3a8: // “Ψ”
+        case 0x3a9: // “Ω”
+            return true;
         }
     }
     return false;
 }
 
-bool SmsHelper::isInGsmAlphabetExtension(const QChar& ch)
+bool SmsHelper::isInGsmAlphabetExtension(const QChar &ch)
 {
     wchar_t unicode = ch.unicode();
     switch (unicode) {
-        case '{':
-        case '}':
-        case '|':
-        case '\\':
-        case '^':
-        case '[':
-        case ']':
-        case '~':
-        case 0x20ac: // Euro sign
-            return true;
+    case '{':
+    case '}':
+    case '|':
+    case '\\':
+    case '^':
+    case '[':
+    case ']':
+    case '~':
+    case 0x20ac: // Euro sign
+        return true;
     }
     return false;
 }
 
-quint64 SmsHelper::totalMessageSize(const QList<QUrl>& urls, const QString& text) {
+quint64 SmsHelper::totalMessageSize(const QList<QUrl> &urls, const QString &text)
+{
     quint64 totalSize = text.size();
     for (QUrl url : urls) {
         QFileInfo fileInfo(url.toLocalFile());
@@ -456,12 +454,12 @@ quint64 SmsHelper::totalMessageSize(const QList<QUrl>& urls, const QString& text
     return totalSize;
 }
 
-QIcon SmsHelper::getThumbnailForAttachment(const Attachment& attachment) {
+QIcon SmsHelper::getThumbnailForAttachment(const Attachment &attachment)
+{
     static const QMimeDatabase mimeDatabase;
     const QByteArray rawData = QByteArray::fromBase64(attachment.base64EncodedFile().toUtf8());
 
-    if (attachment.mimeType().startsWith(QStringLiteral("image"))
-     || attachment.mimeType().startsWith(QStringLiteral("video"))) {
+    if (attachment.mimeType().startsWith(QStringLiteral("image")) || attachment.mimeType().startsWith(QStringLiteral("video"))) {
         QPixmap preview;
         preview.loadFromData(rawData);
         return QIcon(preview);

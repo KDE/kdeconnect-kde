@@ -11,16 +11,21 @@
 #include "loopbackdevicelink.h"
 #include <QPointer>
 
-class LoopbackLinkProvider
-    : public LinkProvider
+class LoopbackLinkProvider : public LinkProvider
 {
     Q_OBJECT
 public:
     LoopbackLinkProvider();
     ~LoopbackLinkProvider() override;
 
-    QString name() override { return QStringLiteral("LoopbackLinkProvider"); }
-    int priority() override { return PRIORITY_LOW; }
+    QString name() override
+    {
+        return QStringLiteral("LoopbackLinkProvider");
+    }
+    int priority() override
+    {
+        return PRIORITY_LOW;
+    }
 
     void onStart() override;
     void onStop() override;
@@ -29,7 +34,6 @@ public:
 private:
     QPointer<LoopbackDeviceLink> loopbackDeviceLink;
     NetworkPacket identityPacket;
-    
 };
 
 #endif

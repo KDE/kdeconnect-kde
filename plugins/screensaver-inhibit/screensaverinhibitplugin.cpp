@@ -6,18 +6,18 @@
 
 #include "screensaverinhibitplugin.h"
 
+#include "kdeconnect_screensaverinhibit_debug.h"
+#include "screensaverinterface.h"
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <QDBusConnection>
-#include "screensaverinterface.h"
-#include "kdeconnect_screensaverinhibit_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(ScreensaverInhibitPlugin, "kdeconnect_screensaver_inhibit.json")
 
 #define INHIBIT_SERVICE QStringLiteral("org.freedesktop.ScreenSaver")
 #define INHIBIT_PATH QStringLiteral("/ScreenSaver")
 
-ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVariantList& args)
+ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
     OrgFreedesktopScreenSaverInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, QDBusConnection::sessionBus(), this);
@@ -27,7 +27,8 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject* parent, const QVaria
 
 ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
 {
-    if (inhibitCookie == 0) return;
+    if (inhibitCookie == 0)
+        return;
 
     OrgFreedesktopScreenSaverInterface inhibitInterface(INHIBIT_SERVICE, INHIBIT_PATH, QDBusConnection::sessionBus(), this);
     inhibitInterface.UnInhibit(inhibitCookie);
@@ -45,7 +46,7 @@ void ScreensaverInhibitPlugin::connected()
 {
 }
 
-bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket& np)
+bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);
     return false;

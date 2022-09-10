@@ -7,10 +7,12 @@
 #include "attachmentinfo.h"
 
 AttachmentInfo::AttachmentInfo()
-{}
+{
+}
 
-AttachmentInfo::AttachmentInfo(const Attachment& attachment)
-    : m_partID(attachment.partID()),
-      m_mimeType(attachment.mimeType()),
-      m_uniqueIdentifier(attachment.uniqueIdentifier())
-{}
+AttachmentInfo::AttachmentInfo(const Attachment &attachment)
+    : m_partID(attachment.partID())
+    , m_mimeType(attachment.mimeType())
+    , m_uniqueIdentifier(attachment.uniqueIdentifier())
+{
+}

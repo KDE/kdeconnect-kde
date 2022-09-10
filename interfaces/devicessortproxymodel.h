@@ -7,8 +7,8 @@
 #ifndef DEVICESSORTPROXYMODEL_H
 #define DEVICESSORTPROXYMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "kdeconnectinterfaces_export.h"
+#include <QSortFilterProxyModel>
 
 class DevicesModel;
 
@@ -16,9 +16,9 @@ class KDECONNECTINTERFACES_EXPORT DevicesSortProxyModel : public QSortFilterProx
 {
     Q_OBJECT
 public:
-    explicit DevicesSortProxyModel(DevicesModel* devicesModel = nullptr);
-    bool lessThan(const QModelIndex& left, const QModelIndex& right) const override;
-    bool filterAcceptsRow(int source_row, const QModelIndex& source_parent) const override;
+    explicit DevicesSortProxyModel(DevicesModel *devicesModel = nullptr);
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 };
 
 #endif // DEVICESSORTPROXYMODEL_H

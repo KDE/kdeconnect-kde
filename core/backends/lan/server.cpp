@@ -9,18 +9,19 @@
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 
+#include <QSslError>
 #include <QSslKey>
 #include <QSslSocket>
-#include <QSslError>
 
-Server::Server(QObject * parent)
-    :QTcpServer(parent)
+Server::Server(QObject *parent)
+    : QTcpServer(parent)
 {
     connect(this, &QTcpServer::acceptError, this, &Server::errorFound);
 }
 
-void Server::incomingConnection(qintptr socketDescriptor) {
-    QSslSocket* serverSocket = new QSslSocket(parent());
+void Server::incomingConnection(qintptr socketDescriptor)
+{
+    QSslSocket *serverSocket = new QSslSocket(parent());
     if (serverSocket->setSocketDescriptor(socketDescriptor)) {
         QObject::connect(this, &Server::closed, serverSocket, &QSslSocket::abort);
         addPendingConnection(serverSocket);
@@ -30,7 +31,8 @@ void Server::incomingConnection(qintptr socketDescriptor) {
     }
 }
 
-QSslSocket* Server::nextPendingConnection() {
+QSslSocket *Server::nextPendingConnection()
+{
     return qobject_cast<QSslSocket *>(QTcpServer::nextPendingConnection());
 }
 

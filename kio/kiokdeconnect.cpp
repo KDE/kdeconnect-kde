@@ -4,11 +4,10 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-
 #include "kiokdeconnect.h"
 
-#include <QThread>
 #include <QDBusMetaType>
+#include <QThread>
 
 #include <KLocalizedString>
 
@@ -23,7 +22,7 @@ class KIOPluginForMetaData : public QObject
     Q_PLUGIN_METADATA(IID "org.kde.kio.slave.kdeconnect" FILE "kdeconnect.json")
 };
 
-extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
+extern "C" int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
     QCoreApplication app(argc, argv);
     app.setApplicationName(QStringLiteral("kio_kdeconnect"));
@@ -38,54 +37,51 @@ extern "C" int Q_DECL_EXPORT kdemain(int argc, char** argv)
     return 0;
 }
 
-//Some useful error mapping
+// Some useful error mapping
 KIO::Error toKioError(const QDBusError::ErrorType type)
 {
-    switch (type)
-    {
-        case QDBusError::NoError:
-            return KIO::Error(KJob::NoError);
-        case QDBusError::NoMemory:
-            return KIO::ERR_OUT_OF_MEMORY;
-        case QDBusError::Timeout:
-            return KIO::ERR_SERVER_TIMEOUT;
-        case QDBusError::TimedOut:
-            return KIO::ERR_SERVER_TIMEOUT;
-        default:
-            return KIO::ERR_SLAVE_DEFINED;
+    switch (type) {
+    case QDBusError::NoError:
+        return KIO::Error(KJob::NoError);
+    case QDBusError::NoMemory:
+        return KIO::ERR_OUT_OF_MEMORY;
+    case QDBusError::Timeout:
+        return KIO::ERR_SERVER_TIMEOUT;
+    case QDBusError::TimedOut:
+        return KIO::ERR_SERVER_TIMEOUT;
+    default:
+        return KIO::ERR_SLAVE_DEFINED;
     };
 };
 
-template <typename T>
-KIO::WorkerResult handleDBusError(QDBusReply<T>& reply)
+template<typename T>
+KIO::WorkerResult handleDBusError(QDBusReply<T> &reply)
 {
-    if (!reply.isValid())
-    {
+    if (!reply.isValid()) {
         qCDebug(KDECONNECT_KIO) << "Error in DBus request:" << reply.error();
         return KIO::WorkerResult::fail(toKioError(reply.error().type()), reply.error().message());
     }
     return KIO::WorkerResult::pass();
 }
 
-KioKdeconnect::KioKdeconnect(const QByteArray& pool, const QByteArray& app)
-    : WorkerBase("kdeconnect", pool, app),
-    m_dbusInterface(new DaemonDbusInterface(this))
+KioKdeconnect::KioKdeconnect(const QByteArray &pool, const QByteArray &app)
+    : WorkerBase("kdeconnect", pool, app)
+    , m_dbusInterface(new DaemonDbusInterface(this))
 {
-
 }
 
 KIO::WorkerResult KioKdeconnect::listAllDevices()
 {
     infoMessage(i18n("Listing devices..."));
 
-    //TODO: Change to all devices and show different icons for connected and disconnected?
+    // TODO: Change to all devices and show different icons for connected and disconnected?
     const QStringList devices = m_dbusInterface->devices(true, true);
 
-    for (const QString& deviceId : devices) {
-
+    for (const QString &deviceId : devices) {
         DeviceDbusInterface interface(deviceId);
 
-        if (!interface.hasPlugin(QStringLiteral("kdeconnect_sftp"))) continue;
+        if (!interface.hasPlugin(QStringLiteral("kdeconnect_sftp")))
+            continue;
 
         const QString path = QStringLiteral("kdeconnect://").append(deviceId).append(QStringLiteral("/"));
         const QString name = interface.name();
@@ -96,9 +92,9 @@ KIO::WorkerResult KioKdeconnect::listAllDevices()
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
         entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::ExeOwner
-                                                | QFileDevice::ReadGroup | QFileDevice::ExeGroup
-                                                | QFileDevice::ReadOther | QFileDevice::ExeOther);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS,
+                         QFileDevice::ReadOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::ExeGroup | QFileDevice::ReadOther
+                             | QFileDevice::ExeOther);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
         entry.fastInsert(KIO::UDSEntry::UDS_URL, path);
         listEntry(entry);
@@ -110,16 +106,16 @@ KIO::WorkerResult KioKdeconnect::listAllDevices()
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::WriteOwner
-                    | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup
-                    | QFileDevice::ExeGroup | QFileDevice::ReadOther | QFileDevice::ExeOther);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS,
+                     QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup
+                         | QFileDevice::ExeGroup | QFileDevice::ReadOther | QFileDevice::ExeOther);
     listEntry(entry);
 
     infoMessage(QLatin1String(""));
     return KIO::WorkerResult::pass();
 }
 
-KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
+KIO::WorkerResult KioKdeconnect::listDevice(const QString &device)
 {
     infoMessage(i18n("Accessing device..."));
 
@@ -130,7 +126,6 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
     QDBusReply<bool> mountreply = interface.mountAndWait();
 
     if (mountreply.error().type() == QDBusError::UnknownObject) {
-
         DaemonDbusInterface daemon;
 
         auto devsRepl = daemon.devices(false, false);
@@ -163,7 +158,7 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
         return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, interface.getMountError());
     }
 
-    QDBusReply< QVariantMap > urlreply = interface.getDirectories();
+    QDBusReply<QVariantMap> urlreply = interface.getDirectories();
 
     if (auto result = handleDBusError(urlreply); !result.success()) {
         return result;
@@ -172,7 +167,6 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
     QVariantMap urls = urlreply.value();
 
     for (QVariantMap::iterator it = urls.begin(); it != urls.end(); ++it) {
-
         const QString path = it.key();
         const QString name = it.value().toString();
         const QString icon = QStringLiteral("folder");
@@ -182,9 +176,9 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
         entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::ExeOwner
-                                                | QFileDevice::ReadGroup | QFileDevice::ExeGroup
-                                                | QFileDevice::ReadOther | QFileDevice::ExeOther);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS,
+                         QFileDevice::ReadOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::ExeGroup | QFileDevice::ReadOther
+                             | QFileDevice::ExeOther);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QLatin1String(""));
         entry.fastInsert(KIO::UDSEntry::UDS_URL, QUrl::fromLocalFile(path).toString());
         listEntry(entry);
@@ -196,9 +190,9 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, QT_STAT_DIR);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, QFileDevice::ReadOwner | QFileDevice::WriteOwner
-                    | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup
-                    | QFileDevice::ExeGroup | QFileDevice::ReadOther | QFileDevice::ExeOther);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS,
+                     QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner | QFileDevice::ReadGroup | QFileDevice::WriteGroup
+                         | QFileDevice::ExeGroup | QFileDevice::ReadOther | QFileDevice::ExeOther);
 
     listEntry(entry);
 
@@ -206,9 +200,7 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString& device)
     return KIO::WorkerResult::pass();
 }
 
-
-
-KIO::WorkerResult KioKdeconnect::listDir(const QUrl& url)
+KIO::WorkerResult KioKdeconnect::listDir(const QUrl &url)
 {
     qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
@@ -225,7 +217,7 @@ KIO::WorkerResult KioKdeconnect::listDir(const QUrl& url)
     }
 }
 
-KIO::WorkerResult KioKdeconnect::stat(const QUrl& url)
+KIO::WorkerResult KioKdeconnect::stat(const QUrl &url)
 {
     qCDebug(KDECONNECT_KIO) << "Stat: " << url;
 
@@ -250,12 +242,12 @@ KIO::WorkerResult KioKdeconnect::stat(const QUrl& url)
     return KIO::WorkerResult::pass();
 }
 
-KIO::WorkerResult KioKdeconnect::get(const QUrl& url)
+KIO::WorkerResult KioKdeconnect::get(const QUrl &url)
 {
     qCDebug(KDECONNECT_KIO) << "Get: " << url;
     mimeType(QLatin1String(""));
     return KIO::WorkerResult::pass();
 }
 
-//needed for JSON file embedding
+// needed for JSON file embedding
 #include "kiokdeconnect.moc"
