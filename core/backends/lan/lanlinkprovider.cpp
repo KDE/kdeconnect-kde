@@ -171,6 +171,7 @@ void LanLinkProvider::broadcastToNetwork()
                 QHostAddress sourceAddress = ifaceAddress.ip();
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                     qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
+                    sendSocket.bind(sourceAddress);
                     sendBroadcasts(sendSocket, np, destinations);
                     sendSocket.close();
                 }
