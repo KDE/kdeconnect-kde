@@ -252,8 +252,18 @@ bool SystemvolumePlugin::sendSinkList()
     unsigned int deviceCount;
     devices->GetCount(&deviceCount);
 
+    if (!deviceCount) {
+        qWarning("No audio devices detected");
+        return false;
+    }
+
     IMMDevice *defaultDevice = nullptr;
     deviceEnumerator->GetDefaultAudioEndpoint(eRender, eMultimedia, &defaultDevice);
+
+    if (!defaultDevice) {
+        qWarning("No default audio device detected");
+        return false;
+    }
 
     LPWSTR defaultId = NULL;
     defaultDevice->GetId(&defaultId);
