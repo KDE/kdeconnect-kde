@@ -20,13 +20,13 @@ TextField {
         pluginName: "remotekeyboard"
     }
 
-    property variant remoteKeyboard: null
+    property var remoteKeyboard: null
 
     readonly property bool remoteState: available ? remoteKeyboard.remoteState : false
 
     Connections {
         target: remoteKeyboard
-        onKeyPressReceived: {
+        function onKeyPressReceived() {
             //console.log("XXX received keypress key=" + key + " special=" + specialKey + " shift=" + shift + " ctrl=" + ctrl + " text=" + text + " cursorPos=" + cursorPosition);
             // interpret some special keys:
             if (specialKey == 12 || specialKey == 14)  // Return/Esc -> clear

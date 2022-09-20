@@ -135,7 +135,7 @@ Item {
 
     Connections {
         target: conversationModel
-        onFilePathReceived: {
+        function onFilePathReceived() {
             if (root.uniqueIdentifier == fileName && root.sourcePath == "") {
                 root.sourcePath = "file:" + filePath
 

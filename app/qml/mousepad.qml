@@ -61,9 +61,10 @@ Kirigami.Page
 
             Connections {
                 target: PointerLocker
-                onPointerMoved: {
-                    if (!PointerLocker.isLocked)
+                function onPointerMoved() {
+                    if (!PointerLocker.isLocked) {
                         return;
+                    }
                     mousepad.pluginInterface.moveCursor(Qt.point(delta.x, delta.y));
                 }
             }

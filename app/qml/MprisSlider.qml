@@ -57,7 +57,7 @@ Loader {
 
     Connections {
         target: plugin
-        onNowPlayingChanged: {
+        function onNowPlayingChanged() {
             item.value = lastPosition
         }
     }
