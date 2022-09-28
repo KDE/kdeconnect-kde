@@ -28,6 +28,7 @@
 #include "shareinterface.h"
 #include "smsinterface.h"
 #include "virtualmonitorinterface.h"
+#include "photointerface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -229,7 +230,17 @@ public:
     ~ShareDbusInterface() override;
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
+class KDECONNECTINTERFACES_EXPORT PhotoDbusInterface
+    : public OrgKdeKdeconnectDevicePhotoInterface
+{
+    Q_OBJECT
+public:
+    explicit PhotoDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    ~PhotoDbusInterface() override;
+};
+
+class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface
+    : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
 {
     Q_OBJECT
 public:
