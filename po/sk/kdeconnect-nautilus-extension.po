@@ -1,0 +1,26 @@
+# translation of kdeconnect-nautilus-extension.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2019.
+# Dusan Kazik <prescott66@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-nautilus-extension\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-19 00:44+0000\n"
+"PO-Revision-Date: 2020-04-06 08:10+0200\n"
+"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: kdeconnect-share.py:106
+#, python-format
+msgid "Send to %s via KDE Connect"
+msgstr "Odoslať do %s pomocou KDE Connect"
+
+#: kdeconnect-share.py:113
+msgid "Send via KDE Connect"
+msgstr "Odoslať pomocou KDE Connect"

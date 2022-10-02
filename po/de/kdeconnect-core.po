@@ -1,0 +1,202 @@
+# Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020.
+# Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2016, 2018, 2019, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-03-07 13:34+0100\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "Abbruch durch Gegenstelle"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Bereits verbunden"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: Die Kopplung für dieses Gerät wurde bereits angefragt"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "Zeitüberschreitung"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "Es ist kein Port verfügbar"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "Das Senden des Pakets an %1s ist fehlgeschlagen"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "Senden an %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "Datei"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"Dieses Gerät kann nicht verbunden werden, da es mit einer alten Version von "
+"KDE Connect läuft."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "Datei wird empfangen"
+msgstr[1] "Dateien werden empfangen"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Quelle"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Ziel"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "Bereits verbunden"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "Das Gerät ist nicht erreichbar"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "Der SHA256-Fingerabdruck Ihres Gerätezertifikats lautet: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr ""
+"Der SHA256-Fingerabdruck des Gerätezertifikats der Gegenstelle lautet: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "Der Dateiname ist bereits vorhanden"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "Unvollständige Datei erhalten: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "Unvollständige Datei erhalten von: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "Start von KDE Connect ist fehlgeschlagen"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"Es wurde keine Unterstützung für RSA in Ihrer QCA-Installation gefunden. "
+"Wenn Ihre Distribution getrennte Pakete für QCA-ossl und QCA-gnupg bereit "
+"stellt, installieren Sie diese bitte und versuchen es erneut."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "Die private Schlüsseldatei kann nicht gespeichert werden: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "Die Zertifikatsdatei kann nicht gespeichert werden: %1"
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "Eine Datei gesendet"
+#~ msgstr[1] "%1 Dateien gesendet"
+
+#~ msgid "Progress"
+#~ msgstr "Fortschritt"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "Datei %1 von %2 wird gesendet"
+
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "Datei %1 von %2 wird empfangen"
+
+#~ msgid "Receiving file over KDE Connect"
+#~ msgstr "Datei wird über KDE-Connect empfangen"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Von"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Nach"
+
+#~ msgid "Finished sending to %1"
+#~ msgstr "Senden an %1 abgeschlossen"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Fehler beim Verbinden mit dem Gerät"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Falschen Schlüssel erhalten"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Vom Benutzer abgebrochen"
+
+#~ msgid "Pairing request from %1"
+#~ msgstr "Verbindungsanfrage von %1 "
+
+#~ msgid "Accept"
+#~ msgstr "Annehmen"
+
+#~ msgid "Reject"
+#~ msgstr "Ablehnen"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Eingehende Datei existiert bereits"
+
+#~ msgctxt "Device name that will appear on the jobs"
+#~ msgid "KDE-Connect"
+#~ msgstr "KDE-Connect"

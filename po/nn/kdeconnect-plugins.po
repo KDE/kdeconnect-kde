@@ -1,0 +1,431 @@
+# Translation of kdeconnect-plugins to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-11 12:07+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.3\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: battery/batteryplugin.cpp:128
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: lite batteri"
+
+#: battery/batteryplugin.cpp:129
+#, kde-format
+msgid "Battery at %1%"
+msgstr "Batterinivå: %1 %"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: findthisdevice/findthisdevice_config.ui:17
+#, kde-format
+msgid "Discovery Utilities"
+msgstr "Oppdagingsverktøy"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: findthisdevice/findthisdevice_config.ui:25
+#, kde-format
+msgid "Sound to play:"
+msgstr "Lyd som skal spelast:"
+
+#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
+#: findthisdevice/findthisdevice_config.ui:39
+#, kde-format
+msgid "Select the sound to play"
+msgstr "Vel lyden som skal spelast"
+
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#, kde-format
+msgid "Remote lock successful"
+msgstr "Eininga er no låst"
+
+#: lockdevice/lockdeviceplugin-win.cpp:68
+#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
+#: lockdevice/lockdeviceplugin.cpp:100
+#, kde-format
+msgid "Remote lock failed"
+msgstr "Mislukka fjernlåsing"
+
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: mousepad/waylandremoteinput.cpp:47
+#, kde-format
+msgid "Use your phone as a touchpad and keyboard"
+msgstr "Bruk telefonen som styreplate og tastatur"
+
+#: notifications/notification.cpp:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Svar"
+
+#: notifications/notification.cpp:129
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1..."
+msgstr "Svar til %1 …"
+
+#: notifications/notification.cpp:135
+#, kde-format
+msgid "Reply"
+msgstr "Svar"
+
+#: notifications/sendreplydialog.cpp:29
+#, kde-format
+msgid "Send"
+msgstr "Send"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialogvindauge"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
+#: pausemusic/pausemusic_config.ui:17
+#, kde-format
+msgid "Pause music plugin"
+msgstr "Tillegg for pausing av musikk"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: pausemusic/pausemusic_config.ui:32
+#, kde-format
+msgid "Condition"
+msgstr "Vilkår"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
+#: pausemusic/pausemusic_config.ui:38
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Set på pause når telefon ringjer"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
+#: pausemusic/pausemusic_config.ui:45
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Set berre på pause ved samtale"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: pausemusic/pausemusic_config.ui:61
+#, kde-format
+msgid "Actions"
+msgstr "Handlingar"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
+#: pausemusic/pausemusic_config.ui:67
+#, kde-format
+msgid "Pause media players"
+msgstr "Set mediespelarar på pause"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
+#: pausemusic/pausemusic_config.ui:74
+#, kde-format
+msgid "Mute system sound"
+msgstr "Demp systemlydar"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
+#: pausemusic/pausemusic_config.ui:81
+#, kde-format
+msgid "Automatically resume media when call has finished"
+msgstr "Gjenoppta automatisk medieavspeling når samtalen er ferdig"
+
+#: ping/pingplugin.cpp:37
+#, kde-format
+msgid "Ping!"
+msgstr "Ping!"
+
+#: runcommand/runcommand_config.cpp:39
+#, kde-format
+msgid "Schedule a shutdown"
+msgstr "Planlegg avslåing"
+
+#: runcommand/runcommand_config.cpp:40
+#, kde-format
+msgid "Shutdown now"
+msgstr "Slå av no"
+
+#: runcommand/runcommand_config.cpp:41
+#, kde-format
+msgid "Cancel last shutdown"
+msgstr "Avbryt siste avslåing"
+
+#: runcommand/runcommand_config.cpp:42
+#, kde-format
+msgid "Schedule a reboot"
+msgstr "Planlegg omstart"
+
+#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#, kde-format
+msgid "Suspend"
+msgstr "Kvilemodus"
+
+#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#, kde-format
+msgid "Lock Screen"
+msgstr "Lås skjermen"
+
+#: runcommand/runcommand_config.cpp:47
+#, kde-format
+msgid "Say Hello"
+msgstr "Sei hei"
+
+#: runcommand/runcommand_config.cpp:50
+#, kde-format
+msgid "Shutdown"
+msgstr "Slå av"
+
+#: runcommand/runcommand_config.cpp:51
+#, kde-format
+msgid "Reboot"
+msgstr "Start på nytt"
+
+#: runcommand/runcommand_config.cpp:55
+#, kde-format
+msgid "Maximum Brightness"
+msgstr "Maks lysstyrke"
+
+#: runcommand/runcommand_config.cpp:61
+#, kde-format
+msgid "Unlock Screen"
+msgstr "Lås opp skjermen"
+
+#: runcommand/runcommand_config.cpp:62
+#, kde-format
+msgid "Close All Vaults"
+msgstr "Lukk alle datakvelv"
+
+#: runcommand/runcommand_config.cpp:64
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr "Tvangslukk alle datakvelv"
+
+#: runcommand/runcommand_config.cpp:73
+#, kde-format
+msgid "Sample commands"
+msgstr "Eksempel-kommandoar"
+
+#: runcommand/runcommand_config.cpp:82
+#: sendnotifications/notifyingapplicationmodel.cpp:182
+#, kde-format
+msgid "Name"
+msgstr "Namn"
+
+#: runcommand/runcommand_config.cpp:82
+#, kde-format
+msgid "Command"
+msgstr "Kommando"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:25
+#, kde-format
+msgid "Phone is connected"
+msgstr "Telefonen er kopla til"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:186
+#, kde-format
+msgid "Blacklisted"
+msgstr "Svartelista"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:190
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "Namn på program med varsling."
+
+#: sendnotifications/notifyingapplicationmodel.cpp:192
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "Vil du synkronisera programvarslingar?"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:195
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"Regulært uttrykk som definerer kva varslingar som ikkje skal sendast.\n"
+"Mønsteret vert brukt på samandraget og, viss det er valt ovanfor, "
+"meldingsteksten."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: sendnotifications/sendnotifications_config.ui:38
+#, kde-format
+msgid "General"
+msgstr "Generelt"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:44
+#, kde-format
+msgid "Synchronize only notifications with a timeout value of 0?"
+msgstr "Vil du berre synkronisera varslingar med avbrotstid lik 0?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:47
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Berre evigvarande varslingar"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:60
+#, kde-format
+msgid ""
+"Append the notification body to the summary when synchronizing notifications?"
+msgstr ""
+"Vil du leggja meldingsteksten til samandraget ved synkronsering av "
+"varslingar?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:63
+#, kde-format
+msgid "Include body"
+msgstr "Ta med meldingstekst"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:76
+#, kde-format
+msgid "Synchronize icons of notifying applications if possible?"
+msgstr "Vil du, om mogleg, synkronisera ikona til programma som varslar?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:79
+#, kde-format
+msgid "Synchronize icons"
+msgstr "Synkroniser ikon"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
+#: sendnotifications/sendnotifications_config.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Minste viktignivå for varslingar</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:123
+#, kde-format
+msgid "Synchronize only notifications with the given urgency level."
+msgstr "Synkroniser berre varslingar med valt viktignivå."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:126
+#, kde-format
+msgid "Minimum urgency level"
+msgstr "Minste viktignivå"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: sendnotifications/sendnotifications_config.ui:148
+#, kde-format
+msgid "Applications"
+msgstr "Program"
+
+#: sftp/mounter.cpp:167
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "Klarte ikkje starta sshfs"
+
+#: sftp/mounter.cpp:171
+#, kde-format
+msgid "sshfs process crashed"
+msgstr "sshfs-prosessen krasja"
+
+#: sftp/mounter.cpp:175
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr "Ukjend feil i sshfs"
+
+#: sftp/mounter.cpp:186
+#, kde-format
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr ""
+"Klarte ikkje kopla til filsystemet. sshfs vart avslutta med feilkoden %0."
+
+#: sftp/mounter.cpp:195
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "Klarte ikkje montera filsystem: eininga svarer ikkje"
+
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr "Kan dessverre ikkje handtera SFTP-protokollen."
+
+#: sftp/sftpplugin.cpp:143
+#, kde-format
+msgid "All files"
+msgstr "Alle filer"
+
+#: sftp/sftpplugin.cpp:144
+#, kde-format
+msgid "Camera pictures"
+msgstr "Kamerabilete"
+
+#: share/share_config.cpp:24
+#, kde-format
+msgid "&percnt;1 in the path will be replaced with the specific device name."
+msgstr "&percnt;1 i adressa vert bytt ut med det aktuelle einingsnamnet."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
+#: share/share_config.ui:17
+#, kde-format
+msgid "Share plugin settings"
+msgstr "Del tillegginnstillingar"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: share/share_config.ui:23
+#, kde-format
+msgid "Receiving"
+msgstr "Tek imot"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: share/share_config.ui:31
+#, kde-format
+msgid "Save files in:"
+msgstr "Lagra filer i:"
+
+#: share/shareplugin.cpp:209
+#, kde-format
+msgid "Could not share file"
+msgstr "Klarte ikkje dela fil"
+
+#: share/shareplugin.cpp:209
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 finst ikkje"
+
+#: telephony/telephonyplugin.cpp:28
+#, kde-format
+msgid "unknown number"
+msgstr "ukjent nummer"
+
+#: telephony/telephonyplugin.cpp:37
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "Oppringing frå %1"
+
+#: telephony/telephonyplugin.cpp:41
+#, kde-format
+msgid "Missed call from %1"
+msgstr "Tapt oppringing frå %1"
+
+#: telephony/telephonyplugin.cpp:69
+#, kde-format
+msgid "Mute Call"
+msgstr "Demp samtale"

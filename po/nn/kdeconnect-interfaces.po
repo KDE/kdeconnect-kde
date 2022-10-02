@@ -1,0 +1,40 @@
+# Translation of kdeconnect-interfaces to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-02-16 13:19+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.12.2\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: dbushelpers.h:19 dbushelpers.h:29
+#, kde-format
+msgid "error: "
+msgstr "feil: "
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "Tiltrudd og tilkopla eining"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device not trusted"
+msgstr "Ikkje-tiltrudd eining"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device disconnected"
+msgstr "Ikkje-tilkopla eining"

@@ -1,0 +1,225 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-08-24 12:02+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sveinn í Felli"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sv1@fellsnet.is"
+
+#: conversationlistmodel.cpp:197
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is an image"
+msgid "Picture"
+msgstr "Mynd"
+
+#: conversationlistmodel.cpp:199
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is a video"
+msgid "Video"
+msgstr "Myndskeið"
+
+#: conversationlistmodel.cpp:203
+#, kde-format
+msgctxt ""
+"Used as a text placeholder when the most-recent message is an arbitrary "
+"attachment, resulting in something like \"pdf file\""
+msgid "%1 file"
+msgstr "%1-skrá"
+
+#: conversationlistmodel.cpp:219
+#, kde-format
+msgid "You: %1"
+msgstr "Þú: %1"
+
+#: conversationlistmodel.cpp:225
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: conversationlistmodel.cpp:267 conversationlistmodel.cpp:289
+#, kde-format
+msgid "%1"
+msgstr "%1"
+
+#: main.cpp:50 qml/main.qml:67
+#, kde-format
+msgid "KDE Connect SMS"
+msgstr "KDE Connect SMS"
+
+#: main.cpp:52
+#, kde-format
+msgid "SMS Instant Messaging"
+msgstr "SMS-smáskilaboð"
+
+#: main.cpp:54
+#, kde-format
+msgid "(C) 2018-2022, KDE Connect Team"
+msgstr "(C) 2018-2022, KDE Connect þróunarteymið"
+
+#: main.cpp:55
+#, kde-format
+msgid "Simon Redman"
+msgstr "Simon Redman"
+
+#: main.cpp:56
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:57
+#, kde-format
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:75
+#, kde-format
+msgid "Select a device"
+msgstr "Veldu tæki"
+
+#: main.cpp:75
+#, kde-format
+msgid "id"
+msgstr "Auðkenni"
+
+#: main.cpp:76
+#, kde-format
+msgid "Send a message"
+msgstr "Senda skilaboð"
+
+#: main.cpp:76
+#, kde-format
+msgid "message"
+msgstr "skilaboð"
+
+#: qml/AttachmentViewer.qml:20
+#, kde-format
+msgid "Open with default"
+msgstr "Opna með sjálfgefnu"
+
+#: qml/ChatMessage.qml:154
+#, kde-format
+msgid "Copy Message"
+msgstr "Afrita skilaboð"
+
+#: qml/ChatMessage.qml:159
+#, kde-format
+msgid "Copy Selection"
+msgstr "Afrita val"
+
+#: qml/ConversationList.qml:24
+#, kde-format
+msgid "No devices available"
+msgstr "Engin tæki tiltæk"
+
+#: qml/ConversationList.qml:34
+#, kde-format
+msgid ""
+"No new messages can be sent or received, but you can browse cached content"
+msgstr ""
+"Ekki er hægt að taka á móti eða senda nein ný skilaboð, en þú getur skoðað "
+"geymt efni."
+
+#: qml/ConversationList.qml:50
+#, kde-format
+msgid ""
+"Loading conversations from device. If this takes a long time, please wake up "
+"your device and then click Refresh."
+msgstr ""
+"Hleð inn samtölum af tæki. Ef þetta tekur langan tíma, ættirðu að vekja "
+"tækið ög smella á Endurlesa."
+
+#: qml/ConversationList.qml:58
+#, kde-format
+msgid ""
+"Tip: If you plug in your device, it should not go into doze mode and should "
+"load quickly."
+msgstr ""
+"Ábending: Ef þú tengir tækið þitt, ætti það ekki að svæfast og ætti að "
+"hlaðast fljótt."
+
+#: qml/ConversationList.qml:66 qml/main.qml:87
+#, kde-format
+msgid "Refresh"
+msgstr "Endurlesa"
+
+#: qml/ConversationList.qml:80
+#, kde-format
+msgid "Choose recipient"
+msgstr "Veldu viðtakanda"
+
+#: qml/ConversationList.qml:85
+#, kde-format
+msgid "Cancel"
+msgstr "Hætta við"
+
+#: qml/ConversationList.qml:112
+#, kde-format
+msgid "Search or start conversation..."
+msgstr "Leita eða hefja samtal..."
+
+#: qml/ConversationList.qml:144
+#, kde-format
+msgid "New"
+msgstr "Nýtt"
+
+#: qml/ConversationList.qml:149
+#, kde-format
+msgid "Start new conversation"
+msgstr "Hefja nýtt samtal"
+
+#: qml/ConversationList.qml:248
+#, kde-format
+msgctxt "Placeholder message text when no messages are found"
+msgid "No matches"
+msgstr "Engar samsvaranir"
+
+#: qml/main.qml:82
+#, kde-format
+msgid "Devices"
+msgstr "Tæki"
+
+#: qml/main.qml:95
+#, kde-format
+msgid "About"
+msgstr "Um hugbúnaðinn"
+
+#: qml/MessageAttachments.qml:131
+#, kde-format
+msgid "Audio clip"
+msgstr "Hljóðklippa"
+
+#: qml/SendingArea.qml:24
+#, kde-format
+msgid "Failed to send"
+msgstr "Mistókst að senda"
+
+#: qml/SendingArea.qml:25
+#, kde-format
+msgid "Max message size limit exceeded."
+msgstr "Stærð skilaboða fer fram úr hámarki."
+
+#: qml/SendingArea.qml:73
+#, kde-format
+msgid "Compose message"
+msgstr "Skrifa skilaboð"

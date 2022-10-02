@@ -1,0 +1,31 @@
+# Translation of kdeconnect-nautilus-extension.po to Euskara/Basque (eu).
+# Copyright (C) 2019, This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+#
+# Translators:
+# Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-19 00:44+0000\n"
+"PO-Revision-Date: 2019-11-16 07:59+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 19.08.3\n"
+
+#: kdeconnect-share.py:106
+#, python-format
+msgid "Send to %s via KDE Connect"
+msgstr "Bidali %s(e)ra KDE Connect bidez"
+
+#: kdeconnect-share.py:113
+msgid "Send via KDE Connect"
+msgstr "Bidali KDE Connect bidez"

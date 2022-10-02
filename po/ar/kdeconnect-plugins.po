@@ -1,0 +1,462 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015, ٢٠١٦.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-02-19 20:04+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#: battery/batteryplugin.cpp:128
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: البطّاريّة ضعيفة"
+
+#: battery/batteryplugin.cpp:129
+#, kde-format
+msgid "Battery at %1%"
+msgstr "البطّاريّة عند %1%"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: findthisdevice/findthisdevice_config.ui:17
+#, kde-format
+msgid "Discovery Utilities"
+msgstr "أدوات الاستكشاف"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: findthisdevice/findthisdevice_config.ui:25
+#, kde-format
+msgid "Sound to play:"
+msgstr "صوت ليُشغل:"
+
+#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
+#: findthisdevice/findthisdevice_config.ui:39
+#, kde-format
+msgid "Select the sound to play"
+msgstr "اختر الصوت الذي تريد تشغيله"
+
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#, kde-format
+msgid "Remote lock successful"
+msgstr "نجح القفل عن بعد"
+
+#: lockdevice/lockdeviceplugin-win.cpp:68
+#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
+#: lockdevice/lockdeviceplugin.cpp:100
+#, kde-format
+msgid "Remote lock failed"
+msgstr "فشل القفل عن بعد"
+
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#, kde-format
+msgid "KDE Connect"
+msgstr "كدي المتّصل"
+
+#: mousepad/waylandremoteinput.cpp:47
+#, kde-format
+msgid "Use your phone as a touchpad and keyboard"
+msgstr "استخدم هاتفك كلوحتي لمس ومفاتيح"
+
+#: notifications/notification.cpp:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "رُدّ"
+
+#: notifications/notification.cpp:129
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1..."
+msgstr "ردّ على %1..."
+
+#: notifications/notification.cpp:135
+#, kde-format
+msgid "Reply"
+msgstr "رُدّ"
+
+#: notifications/sendreplydialog.cpp:29
+#, kde-format
+msgid "Send"
+msgstr "أرسل"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "حواريّ"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
+#: pausemusic/pausemusic_config.ui:17
+#, kde-format
+msgid "Pause music plugin"
+msgstr "ملحقة إلباث الموسيقى"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: pausemusic/pausemusic_config.ui:32
+#, kde-format
+msgid "Condition"
+msgstr "الشّرط"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
+#: pausemusic/pausemusic_config.ui:38
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "ألبث بمجرّد رنّ الهاتف"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
+#: pausemusic/pausemusic_config.ui:45
+#, kde-format
+msgid "Pause only while talking"
+msgstr "ألبث فقط عند التحدّث"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: pausemusic/pausemusic_config.ui:61
+#, kde-format
+msgid "Actions"
+msgstr "إجراءات"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
+#: pausemusic/pausemusic_config.ui:67
+#, kde-format
+msgid "Pause media players"
+msgstr "ألبث مشغّلات الوسائط"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
+#: pausemusic/pausemusic_config.ui:74
+#, kde-format
+msgid "Mute system sound"
+msgstr "اكتم صوت النّظام"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
+#: pausemusic/pausemusic_config.ui:81
+#, kde-format
+msgid "Automatically resume media when call has finished"
+msgstr "استأنف الوسائط عندما تنتهي المكالمة"
+
+#: ping/pingplugin.cpp:37
+#, kde-format
+msgid "Ping!"
+msgstr "وخزة!"
+
+#: runcommand/runcommand_config.cpp:39
+#, kde-format
+msgid "Schedule a shutdown"
+msgstr "جدول إطفاء"
+
+#: runcommand/runcommand_config.cpp:40
+#, kde-format
+msgid "Shutdown now"
+msgstr "أطفئ الآن"
+
+#: runcommand/runcommand_config.cpp:41
+#, kde-format
+msgid "Cancel last shutdown"
+msgstr "ألغ أخر إطفاء"
+
+#: runcommand/runcommand_config.cpp:42
+#, kde-format
+msgid "Schedule a reboot"
+msgstr "جدول إعادة تشغيل"
+
+#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#, kde-format
+msgid "Suspend"
+msgstr "علّق"
+
+#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#, kde-format
+msgid "Lock Screen"
+msgstr "اقفل الشّاشة"
+
+#: runcommand/runcommand_config.cpp:47
+#, kde-format
+msgid "Say Hello"
+msgstr "قل مرحبا"
+
+#: runcommand/runcommand_config.cpp:50
+#, kde-format
+msgid "Shutdown"
+msgstr "أطفئ"
+
+#: runcommand/runcommand_config.cpp:51
+#, kde-format
+msgid "Reboot"
+msgstr "أعِد التشغيل"
+
+#: runcommand/runcommand_config.cpp:55
+#, kde-format
+msgid "Maximum Brightness"
+msgstr "أقصى سطوع"
+
+#: runcommand/runcommand_config.cpp:61
+#, kde-format
+msgid "Unlock Screen"
+msgstr "فك قفل الشاشة"
+
+#: runcommand/runcommand_config.cpp:62
+#, kde-format
+msgid "Close All Vaults"
+msgstr "أغلق كل الخزنات"
+
+#: runcommand/runcommand_config.cpp:64
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr "أغلق كل الخزنات بالقوة"
+
+#: runcommand/runcommand_config.cpp:73
+#, kde-format
+msgid "Sample commands"
+msgstr "أمثلة أوامر"
+
+#: runcommand/runcommand_config.cpp:82
+#: sendnotifications/notifyingapplicationmodel.cpp:182
+#, kde-format
+msgid "Name"
+msgstr "الاسم"
+
+#: runcommand/runcommand_config.cpp:82
+#, kde-format
+msgid "Command"
+msgstr "الأمر"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:25
+#, kde-format
+msgid "Phone is connected"
+msgstr "الهاتف متصل"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:186
+#, kde-format
+msgid "Blacklisted"
+msgstr "ممنوع"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:190
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "اسم التّطبيق المُخطر."
+
+#: sendnotifications/notifyingapplicationmodel.cpp:192
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "أأزامن إخطارات التّطبيق؟"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:195
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"تعبير نمطيّ يحدّد أيّ الإخطارات يجب ألّا تُرسل.\n"
+"يُطبّق هذا النّمط على الملخّص ومتن الإخطارات (إن كان محدّدًا أعلاه)."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: sendnotifications/sendnotifications_config.ui:38
+#, kde-format
+msgid "General"
+msgstr "عامّ"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:44
+#, kde-format
+msgid "Synchronize only notifications with a timeout value of 0?"
+msgstr "أأزامن فقط الإخطارات ذات قيمة المهلة 0؟"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:47
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "الإخطارات المستمرّة فقط"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:60
+#, kde-format
+msgid ""
+"Append the notification body to the summary when synchronizing notifications?"
+msgstr "أأضيف متن الإخطار إلى الملخّص عند مزامنة الإخطارات؟"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:63
+#, kde-format
+msgid "Include body"
+msgstr "ضمّن المتن"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:76
+#, kde-format
+msgid "Synchronize icons of notifying applications if possible?"
+msgstr "أأزامن أيقونات البرمجيّات المُخطرة إن كان ممكنًا؟"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:79
+#, kde-format
+msgid "Synchronize icons"
+msgstr "زامن الأيقونات"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
+#: sendnotifications/sendnotifications_config.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
+"html>"
+msgstr "<html><head/><body><p>أدنى مستوى أهميّة للإخطارات</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:123
+#, kde-format
+msgid "Synchronize only notifications with the given urgency level."
+msgstr "زامن فقط الإخطارات ذات مستوى أهميّة عالٍ."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:126
+#, kde-format
+msgid "Minimum urgency level"
+msgstr "أدنى مستوى أهميّة"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: sendnotifications/sendnotifications_config.ui:148
+#, kde-format
+msgid "Applications"
+msgstr "التّطبيقات"
+
+#: sftp/mounter.cpp:167
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "فشل بدء sshfs"
+
+#: sftp/mounter.cpp:171
+#, kde-format
+msgid "sshfs process crashed"
+msgstr "انهارت عملية sshfs"
+
+#: sftp/mounter.cpp:175
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr "خطأ مجهول في sshfs"
+
+#: sftp/mounter.cpp:186
+#, kde-format
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr "خطأ أثناء النّفاذ إلى نظام الملفّات. انتهت sshfs بخطأ خروج %0"
+
+#: sftp/mounter.cpp:195
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "فشل ضمّ نظام الملفّات: الجهاز لا يستجيب"
+
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr "لا يمكن معالجة ميفاق SFTP. نأسف للإزعاج"
+
+#: sftp/sftpplugin.cpp:143
+#, kde-format
+msgid "All files"
+msgstr "كلّ الملفّات"
+
+#: sftp/sftpplugin.cpp:144
+#, kde-format
+msgid "Camera pictures"
+msgstr "صور الكاميرا"
+
+#: share/share_config.cpp:24
+#, kde-format
+msgid "&percnt;1 in the path will be replaced with the specific device name."
+msgstr "&percnt;1 هو المسار الذي سيُستبدل باسم الجهاز المحدّد."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
+#: share/share_config.ui:17
+#, kde-format
+msgid "Share plugin settings"
+msgstr "إعدادات ملحقة المشاركة"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: share/share_config.ui:23
+#, kde-format
+msgid "Receiving"
+msgstr "الاستقبال"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: share/share_config.ui:31
+#, kde-format
+msgid "Save files in:"
+msgstr "احفظ الملفّات في:"
+
+#: share/shareplugin.cpp:209
+#, kde-format
+msgid "Could not share file"
+msgstr "لا يمكن مشاركة الملف"
+
+#: share/shareplugin.cpp:209
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 غير موجود"
+
+#: telephony/telephonyplugin.cpp:28
+#, kde-format
+msgid "unknown number"
+msgstr "رقم مجهول"
+
+#: telephony/telephonyplugin.cpp:37
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "مكالمة واردة من %1"
+
+#: telephony/telephonyplugin.cpp:41
+#, kde-format
+msgid "Missed call from %1"
+msgstr "مكالمة فائتة من %1"
+
+#: telephony/telephonyplugin.cpp:69
+#, kde-format
+msgid "Mute Call"
+msgstr "اكتم المكالمة"
+
+#~ msgid "Unknown telephony event: %1"
+#~ msgstr "حدث هاتفيّ مجهول: %1"
+
+#~ msgid "SMS from %1<br>%2"
+#~ msgstr "رسالة SMS من %1<br>‏%2"
+
+#, fuzzy
+#~| msgid "Transfer finished"
+#~ msgid "Transfer Failed"
+#~ msgstr "اكتمل النّقل"
+
+#, fuzzy
+#~| msgid "Transfer finished"
+#~ msgid "Transfer Finished"
+#~ msgstr "اكتمل النّقل"
+
+#~ msgid "Error"
+#~ msgstr "خطأ"
+
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "لم يُعثر على sshf في PATH"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "اقطع الاتّصال عند الخمول"
+
+#~ msgid "Timeout:"
+#~ msgstr "المهلة:"
+
+#~ msgid " min"
+#~ msgstr " دق"
+
+#~ msgid "Device %1"
+#~ msgstr "الجهاز %1"
+
+#~ msgid "Open destination folder"
+#~ msgstr "افتح مجلّد المقصد"

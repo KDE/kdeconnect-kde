@@ -1,0 +1,211 @@
+# Bosnian translations for PACKAGE package
+# engleski prevodi za paket PACKAGE.
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: $2\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"PO-Revision-Date: 2015-02-16 11:58+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: none\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-02-17 06:23+0000\n"
+"X-Generator: Launchpad (build 17341)\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1% charging"
+msgstr ""
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1%"
+msgstr ""
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "No info"
+msgstr "Nema info"
+
+#: package/contents/ui/Connectivity.qml:41
+#, kde-format
+msgid "Unknown"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:51
+#, kde-format
+msgid "No signal"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:51
+#, kde-format
+msgid "File Transfer"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:52
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Virtual Display"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:138
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:160
+#, kde-format
+msgid "Please choose a file"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:169
+#, kde-format
+msgid "Share file"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:178
+#, kde-format
+msgid "Save As"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:191
+#, kde-format
+msgid "Take a photo"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:206
+#, kde-format
+msgid "Ring my phone"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:224
+#, kde-format
+msgid "Browse this device"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:241
+#, kde-format
+msgid "SMS Messages"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:262
+#, kde-format
+msgid "Remote Keyboard"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:278
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications:"
+msgstr "Napomene"
+
+#: package/contents/ui/DeviceDelegate.qml:285
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Dismiss all notifications"
+msgstr "Napomene"
+
+#: package/contents/ui/DeviceDelegate.qml:324
+#, kde-format
+msgid "Reply"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:333
+#, kde-format
+msgid "Dismiss"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:344
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:357
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:373
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:397
+#, kde-format
+msgid "Run command"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:405
+#, kde-format
+msgid "Add command"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, fuzzy, kde-format
+#| msgid "No paired devices available"
+msgid "No paired devices"
+msgstr "Nema uparenih dostupnih uređaja"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, fuzzy, kde-format
+#| msgid "No paired devices available"
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "Nema uparenih dostupnih uređaja"
+msgstr[1] "Nema uparenih dostupnih uređaja"
+msgstr[2] "Nema uparenih dostupnih uređaja"
+
+#: package/contents/ui/FullRepresentation.qml:55
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:59
+#, kde-format
+msgid "Pair a Device..."
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:71
+#, kde-format
+msgid "Install from Google Play"
+msgstr ""
+
+#: package/contents/ui/FullRepresentation.qml:81
+#, kde-format
+msgid "Install from F-Droid"
+msgstr ""
+
+#: package/contents/ui/main.qml:49
+#, fuzzy, kde-format
+#| msgid "KDE Connect device notifications"
+msgid "KDE Connect Settings..."
+msgstr "Notifikacije KDE povezivačkog uređaja"
+
+#, fuzzy
+#~| msgid "Battery"
+#~ msgctxt ""
+#~ "Display the battery charge percentage with the label \"Battery:\" so the "
+#~ "user knows what is being displayed"
+#~ msgid "Battery: %1"
+#~ msgstr "Baterija"
+
+#~ msgid "Charging: %1%"
+#~ msgstr "Punjenje: %1%"
+
+#~ msgid "Discharging: %1%"
+#~ msgstr "Pražnjenje: %1%"

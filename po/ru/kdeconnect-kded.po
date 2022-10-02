@@ -1,0 +1,148 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Julia Dronova <juliette.tux@gmail.com>, 2013, 2021.
+# Alexander Potashev <aspotashev@gmail.com>, 2015, 2019.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-05-20 11:06+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Олеся Герасименко, Юлия Дронова"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "gammaray@basealt.ru, juliette.tux@gmail.com"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Запрос на сопряжение от %1\n"
+"Ключ: %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Открыть"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Принять"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Отклонить"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Просмотреть ключ"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "Фоновая служба KDE Connect"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Заменить существующее сопряжение"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+"Запустить отдельную службу D-Bus для использования с kdeconnectd (только для "
+"тестирования в macOS)"
+
+#, fuzzy
+#~| msgid "Error contacting device"
+#~ msgid "Connect your devices and KDE"
+#~ msgstr "Ошибка соединения с устройством"
+
+#~ msgid "Already paired"
+#~ msgstr "Устройство уже спарено"
+
+#~ msgid "Pairing already requested for this device"
+#~ msgstr "Запрос на объединение в пару уже был сделан"
+
+#~ msgid "Device not reachable"
+#~ msgstr "Устройство недоступно"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Ошибка соединения с устройством"
+
+#~ msgid "Timed out"
+#~ msgstr "Истекло время ожидания"
+
+#~ msgid "Canceled by other peer"
+#~ msgstr "Отменено другим участником"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Получен неверный ключ"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Отменено пользователем"
+
+#~ msgid "Received incomplete file"
+#~ msgstr "Получен неполный файл"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1: низкий заряд батареи"
+
+#, fuzzy
+#~| msgid "Battery at 14%"
+#~ msgid "Battery at %1%"
+#~ msgstr "14% заряда батареи"
+
+#~ msgid "Ping!"
+#~ msgstr "Пинг!"
+
+#, fuzzy
+#~| msgid "Timed out"
+#~ msgid "Timeout:"
+#~ msgstr "Истекло время ожидания"
+
+#~ msgid "Transfer finished"
+#~ msgstr "Передача завершена"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Открыть целевую папку"
+
+#~ msgid "unknown number"
+#~ msgstr "неизвестный номер"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Входящий вызов от %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Пропущенный звонок от %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS от %1: %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Неизвестное событие телефонии: %2"

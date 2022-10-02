@@ -1,0 +1,181 @@
+# Lithuanian translations for l package.
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the l package.
+# Automatically generated, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-08-21 13:15+0300\n"
+"Last-Translator: Moo\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "Kitas lygiarangis atsisakė"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Jau suporuota"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: Suporavimas šiam įrenginiui jau užklaustas"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "Pasibaigė laikas"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "Nepavyko rasti prieinamo privado"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "Nepavyko išsiųsti paketo į %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "Siunčiama į %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "Failas"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"Šis įrenginys negali būti suporuotas, nes jame veikia senesnė KDE Connect "
+"versija."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "Gaunamas failas"
+msgstr[1] "Gaunami failai"
+msgstr[2] "Gaunami failai"
+msgstr[3] "Gaunami failai"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Šaltinis"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Paskirtis"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "Jau suporuota"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "Įrenginys nepasiekiamas"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "Jūsų įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "Nuotolinio įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "Failo pavadinimas jau yra"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "Gautas nepilnas failas: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "Gautas nepilnas failas iš: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "KDE Connect nepasileido"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"Nepavyko jūsų QCA diegime rasti RSA palaikymo. Jeigu jūsų platinimas teikia "
+"atskirus paketus, skirtus QCA-ossl ir QCA-gnupg, tuomet įsitikinkite, kad "
+"esate juos įdiegę ir bandykite dar kartą."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "Nepavyko laikyti privačiojo rakto failo: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "Nepavyko laikyti liudijimo failo: %1"
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "Išsiųstas 1 failas"
+#~ msgstr[1] "Išsiųsti %1 failai"
+#~ msgstr[2] "Išsiųsta %1 failų"
+#~ msgstr[3] "Išsiųstas %1 failas"
+
+#~ msgid "Progress"
+#~ msgstr "Eiga"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "Siunčiamas failas %1 iš %2"
+
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "Gaunamas failas %1 iš %2"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Nuo"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Klaida, jungiantis prie įrenginio"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Gautas netinkamas raktas"

@@ -1,0 +1,218 @@
+# Simon Depiets <sdepiets@gmail.com>, 2020.
+# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-08-10 09:42+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.07.90\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Simon Depiets, Xavier Besnard"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sdepiets@gmail.com, xavier.besnard@neuf.fr"
+
+#: main.cpp:30 main.cpp:32
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:34
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#: main.cpp:35
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:35
+#, kde-format
+msgid "Maintainer"
+msgstr "Mainteneur"
+
+#: main.cpp:51
+#, kde-format
+msgid "URL to share"
+msgstr "URL à partager"
+
+#: qml/DevicePage.qml:24
+#, kde-format
+msgid "Unpair"
+msgstr "Dissocier"
+
+#: qml/DevicePage.qml:29
+#, kde-format
+msgid "Send Ping"
+msgstr "Envoyer un « Ping »"
+
+#: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
+#, kde-format
+msgid "Plugin Settings"
+msgstr "Configuration du module externe"
+
+#: qml/DevicePage.qml:63
+#, kde-format
+msgid "Multimedia control"
+msgstr "Contrôle multimédia"
+
+#: qml/DevicePage.qml:70
+#, kde-format
+msgid "Remote input"
+msgstr "Saisie à distance"
+
+#: qml/DevicePage.qml:77 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr "Présentation à distance"
+
+#: qml/DevicePage.qml:86 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Verrouiller"
+
+#: qml/DevicePage.qml:86
+#, kde-format
+msgid "Unlock"
+msgstr "Déverrouiller"
+
+#: qml/DevicePage.qml:93
+#, kde-format
+msgid "Find Device"
+msgstr "Trouver l'appareil"
+
+#: qml/DevicePage.qml:98 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr "Exécuter une commande"
+
+#: qml/DevicePage.qml:106
+#, kde-format
+msgid "Share File"
+msgstr "Partager un fichier"
+
+#: qml/DevicePage.qml:111 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr "Contrôle du volume"
+
+#: qml/DevicePage.qml:120
+#, kde-format
+msgid "This device is not paired"
+msgstr "Ce périphérique est non associé"
+
+#: qml/DevicePage.qml:124 qml/FindDevicesPage.qml:23
+#, kde-format
+msgid "Pair"
+msgstr "Associer"
+
+#: qml/DevicePage.qml:136
+#, kde-format
+msgid "Pair requested"
+msgstr "Association demandée"
+
+#: qml/DevicePage.qml:142
+#, kde-format
+msgid "Accept"
+msgstr "Accepter"
+
+#: qml/DevicePage.qml:148
+#, kde-format
+msgid "Reject"
+msgstr "Rejeter"
+
+#: qml/DevicePage.qml:157
+#, kde-format
+msgid "This device is not reachable"
+msgstr "Ce périphérique est injoignable"
+
+#: qml/DevicePage.qml:165
+#, kde-format
+msgid "Please choose a file"
+msgstr "Veuillez choisir un fichier"
+
+#: qml/FindDevicesPage.qml:38
+#, kde-format
+msgid "No devices found"
+msgstr "Aucun périphérique trouvé"
+
+#: qml/FindDevicesPage.qml:51
+#, kde-format
+msgid "Remembered"
+msgstr "Mémorisé"
+
+#: qml/FindDevicesPage.qml:53
+#, kde-format
+msgid "Available"
+msgstr "Disponible"
+
+#: qml/FindDevicesPage.qml:55
+#, kde-format
+msgid "Connected"
+msgstr "Connecté"
+
+#: qml/main.qml:28
+#, kde-format
+msgid "Find devices..."
+msgstr "Trouver les périphériques..."
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr "Contrôle à distance"
+
+#: qml/mousepad.qml:59
+#, kde-format
+msgid "Press the left and right mouse buttons at the same time to unlock"
+msgstr ""
+"Appuyez sur les boutons gauche et droit de la souris en même temps pour "
+"déverrouiller le système."
+
+#: qml/mpris.qml:19
+#, kde-format
+msgid "Multimedia Controls"
+msgstr "Contrôles multimédia"
+
+#: qml/mpris.qml:61
+#, kde-format
+msgid "No players available"
+msgstr "Aucun lecteur disponible"
+
+#: qml/mpris.qml:109
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: qml/presentationRemote.qml:20
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr "Activer le mode plein écran"
+
+#: qml/runcommand.qml:21
+#, kde-format
+msgid "Edit commands"
+msgstr "Modifier les commandes"
+
+#: qml/runcommand.qml:24
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr "Vous pouvez modifier les commandes sur l'appareil connecté"
+
+#: qml/runcommand.qml:43
+#, kde-format
+msgid "No commands defined"
+msgstr "Aucune commande définie"

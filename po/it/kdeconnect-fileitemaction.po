@@ -1,0 +1,28 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Paolo Zamponi <zapaolo@email.it>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-04-02 10:19+0200\n"
+"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 18.12.3\n"
+
+#: sendfileitemaction.cpp:64
+#, kde-format
+msgid "Send via KDE Connect"
+msgstr "Invia tramite KDE Connect"
+
+#: sendfileitemaction.cpp:71
+#, kde-format
+msgid "Send to '%1' via KDE Connect"
+msgstr "Invia a «%1» tramite KDE Connect"

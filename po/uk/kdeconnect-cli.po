@@ -1,0 +1,361 @@
+# Translation of kdeconnect-cli.po to Ukrainian
+# Copyright (C) 2014-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-cli\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-12-03 08:56+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.11.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: kdeconnect-cli.cpp:31
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "Інструмент керування KDE Connect з командного рядка"
+
+#: kdeconnect-cli.cpp:33
+#, kde-format
+msgid "(C) 2015 Aleix Pol Gonzalez"
+msgstr "© Aleix Pol Gonzalez, 2015"
+
+#: kdeconnect-cli.cpp:36
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: kdeconnect-cli.cpp:37
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kdeconnect-cli.cpp:39
+#, kde-format
+msgid "List all devices"
+msgstr "Вивести список усіх пристроїв"
+
+#: kdeconnect-cli.cpp:41
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "Список доступних (пов’язаних і придатних до пов’язування) пристроїв"
+
+#: kdeconnect-cli.cpp:43
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"Зробити, щоб параметри --list-devices і --list-available виводили лише "
+"ідентифікатори пристроїв для спрощення використання у скриптах"
+
+#: kdeconnect-cli.cpp:45
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"Зробити, щоб параметри --list-devices і --list-available виводили лише назви "
+"пристроїв для спрощення використання у скриптах"
+
+#: kdeconnect-cli.cpp:47
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"Зробити, щоб параметри --list-devices і --list-available виводили лише "
+"ідентифікатори і назви пристроїв для спрощення використання у скриптах"
+
+#: kdeconnect-cli.cpp:48
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "Виконати пошук пристроїв у мережі і повторно встановити з’єднання"
+
+#: kdeconnect-cli.cpp:49
+#, kde-format
+msgid "Request pairing to a said device"
+msgstr "Надіслати запит щодо встановлення зв’язку із вказаним пристроєм"
+
+#: kdeconnect-cli.cpp:50
+#, kde-format
+msgid "Find the said device by ringing it."
+msgstr "Знайти вказаний пристрій, відтворивши на ньому дзвінок."
+
+#: kdeconnect-cli.cpp:51
+#, kde-format
+msgid "Stop pairing to a said device"
+msgstr "Розірвати зв’язок із вказаним пристроєм"
+
+#: kdeconnect-cli.cpp:52
+#, kde-format
+msgid "Sends a ping to said device"
+msgstr "Надіслати луна-імпульс підтримання зв’язку до вказаного пристрою"
+
+#: kdeconnect-cli.cpp:53
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr ""
+"Те саме, що і надсилання луна-імпульсу, але можна налаштувати показане "
+"повідомлення"
+
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#, kde-format
+msgid "message"
+msgstr "повідомлення"
+
+#: kdeconnect-cli.cpp:54
+#, kde-format
+msgid "Share a file/URL to a said device"
+msgstr "Надати файл або адресу у спільне зі вказаним пристроєм користування"
+
+#: kdeconnect-cli.cpp:55
+#, kde-format
+msgid "Share text to a said device"
+msgstr "Надати текст у спільне зі вказаним пристроєм користування"
+
+#: kdeconnect-cli.cpp:56
+#, kde-format
+msgid "Display the notifications on a said device"
+msgstr "Показувати сповіщення щодо вказаного пристрою"
+
+#: kdeconnect-cli.cpp:57
+#, kde-format
+msgid "Lock the specified device"
+msgstr "Заблокувати вказаний пристрій"
+
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "Розблокувати вказаний пристрій"
+
+#: kdeconnect-cli.cpp:59
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "Надсилає SMS. Потребує зазначення отримувача"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "Номер телефону для надсилання повідомлення"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "phone number"
+msgstr "номер телефону"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid ""
+"File urls to send attachments with the message (can be passed multiple times)"
+msgstr ""
+"Адреси файлів, які слід надіслати як долучення до повідомлення (можна "
+"передавати декілька файлів)"
+
+#: kdeconnect-cli.cpp:63
+#, kde-format
+msgid "file urls"
+msgstr "адреси файлів"
+
+#: kdeconnect-cli.cpp:64
+#, kde-format
+msgid "Device ID"
+msgstr "Ід. пристрою"
+
+#: kdeconnect-cli.cpp:65
+#, kde-format
+msgid "Device Name"
+msgstr "Назва пристрою"
+
+#: kdeconnect-cli.cpp:66
+#, kde-format
+msgid "Get encryption info about said device"
+msgstr "Отримати дані щодо шифрування на вказаному пристрої"
+
+#: kdeconnect-cli.cpp:67
+#, kde-format
+msgid "Lists remote commands and their ids"
+msgstr "Показує віддалені команди та їхні ідентифікатори"
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "Executes a remote command by id"
+msgstr "Виконує віддалену команду за ідентифікатором"
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "Sends keys to a said device"
+msgstr "Надіслати натискання клавіш на вказаний пристрій"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "Показати ідентифікатор цього пристрою і завершити роботу"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Open the connected device's camera and transfer the photo"
+msgstr "Відкрити камеру з'єднаного пристрою і передати фотографію"
+
+#: kdeconnect-cli.cpp:120
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(пов’язаний і придатний до пов’язуваний)"
+
+#: kdeconnect-cli.cpp:122
+#, kde-format
+msgid "(reachable)"
+msgstr "(придатний до зв’язування)"
+
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:144
+#, kde-format
+msgid "(paired)"
+msgstr "(пов’язано)"
+
+#: kdeconnect-cli.cpp:130
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "Виявлено %1 пристрій"
+msgstr[1] "Виявлено %1 пристрої"
+msgstr[2] "Виявлено %1 пристроїв"
+msgstr[3] "Виявлено %1 пристрій"
+
+#: kdeconnect-cli.cpp:132
+#, kde-format
+msgid "No devices found"
+msgstr "Пристроїв не виявлено"
+
+#: kdeconnect-cli.cpp:146
+#, kde-format
+msgid "(unpaired)"
+msgstr "(не пов’язано)"
+
+#: kdeconnect-cli.cpp:183
+#, kde-format
+msgid ""
+"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
+"device. \n"
+"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
+"View complete help with --help option"
+msgstr ""
+"Не вказано пристрою: скористайтеся параметрами -d <ідентифікатор_пристрою> "
+"або -n <назва пристрою>, щоб вказати пристрій. \n"
+"Визначити ідентифікатор або назву пристрою можна за допомогою команди "
+"«kdeconnect-cli -l».\n"
+"Із повним текстом довідки можна ознайомитися, скориставшись параметром --help"
+
+#: kdeconnect-cli.cpp:216
+#, kde-format
+msgid "Shared %1"
+msgstr "Спільний %1"
+
+#: kdeconnect-cli.cpp:225
+#, kde-format
+msgid "Shared text: %1"
+msgstr "Спільний текст: %1"
+
+#: kdeconnect-cli.cpp:232
+#, kde-format
+msgctxt "device has requested to lock peer device"
+msgid "Requested to lock %1."
+msgstr "Отримано запит на блокування %1."
+
+#: kdeconnect-cli.cpp:234
+#, kde-format
+msgctxt "device has requested to unlock peer device"
+msgid "Requested to unlock %1."
+msgstr "Отримано запит на розблокування %1."
+
+#: kdeconnect-cli.cpp:241
+#, kde-format
+msgid "waiting for device..."
+msgstr "очікуємо на пристрій…"
+
+#: kdeconnect-cli.cpp:255
+#, kde-format
+msgid "Device not found"
+msgstr "Пристрій не знайдено"
+
+#: kdeconnect-cli.cpp:257
+#, kde-format
+msgid "Already paired"
+msgstr "Вже пов’язано"
+
+#: kdeconnect-cli.cpp:259
+#, kde-format
+msgid "Pair requested"
+msgstr "Запит щодо пов’язування"
+
+#: kdeconnect-cli.cpp:266
+#, kde-format
+msgid "Already not paired"
+msgstr "Вже не пов’язано"
+
+#: kdeconnect-cli.cpp:268
+#, kde-format
+msgid "Unpaired"
+msgstr "Не пов’язано"
+
+#: kdeconnect-cli.cpp:308
+#, kde-format
+msgid ""
+"error: should specify the SMS's recipient by passing --destination <phone "
+"number>"
+msgstr ""
+"помилка: слід вказати отримувача SMS передаванням параметра --destination "
+"<номер телефону>"
+
+#: kdeconnect-cli.cpp:327
+#, kde-format
+msgid "Please specify a filename for the photo"
+msgstr "Будь ласка, вкажіть назву файла фотографії"
+
+#: kdeconnect-cli.cpp:374
+#, kde-format
+msgid "Nothing to be done"
+msgstr "Ніяких дій не передбачено"
+
+#~ msgid "No device specified"
+#~ msgstr "Не вказано пристрій"
+
+#~ msgid "Please give exactly 1 file name"
+#~ msgstr "Будь ласка, вкажіть точно одну назву файла"
+
+#~ msgid "Can't find the file: %1"
+#~ msgstr "Не знайдено файл: %1"
+
+#~ msgid "Sent %1"
+#~ msgstr "Надіслано %1"
+
+#~ msgid "Device does not exist"
+#~ msgstr "Пристрою не існує"
+
+#~ msgid "Couldn't share %1"
+#~ msgstr "Не вдалося надати у спільне користування %1"
+
+#~ msgid "error: "
+#~ msgstr "помилка: "
+
+#~ msgid "Share a file"
+#~ msgstr "Надати у спільне використання файл"

@@ -1,0 +1,38 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-12-22 22:24+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.12.0\n"
+
+#: dbushelpers.h:19 dbushelpers.h:29
+#, kde-format
+msgid "error: "
+msgstr "fout: "
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "Apparaat vertrouwd en verbonden"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device not trusted"
+msgstr "Apparaat niet vertrouwd"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device disconnected"
+msgstr "Apparaat verbinding verbroken"

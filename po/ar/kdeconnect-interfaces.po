@@ -1,0 +1,39 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-09-12 22:33+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: dbushelpers.h:19 dbushelpers.h:29
+#, kde-format
+msgid "error: "
+msgstr "خطأ: "
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "الجهاز موثوق ومتصل"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device not trusted"
+msgstr "جهاز غير موثوق"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device disconnected"
+msgstr "الجهاز مفصول"

@@ -1,0 +1,467 @@
+# Translation of kdeconnect-plugins.po to Ukrainian
+# Copyright (C) 2014-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-plugins\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-18 08:34+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: battery/batteryplugin.cpp:128
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: низький рівень заряду"
+
+#: battery/batteryplugin.cpp:129
+#, kde-format
+msgid "Battery at %1%"
+msgstr "Рівень заряду — %1%"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: findthisdevice/findthisdevice_config.ui:17
+#, kde-format
+msgid "Discovery Utilities"
+msgstr "Засоби виявлення"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: findthisdevice/findthisdevice_config.ui:25
+#, kde-format
+msgid "Sound to play:"
+msgstr "Відтворити звук:"
+
+#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
+#: findthisdevice/findthisdevice_config.ui:39
+#, kde-format
+msgid "Select the sound to play"
+msgstr "Виберіть звук для відтворення"
+
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#, kde-format
+msgid "Remote lock successful"
+msgstr "Успішне віддалене блокування"
+
+#: lockdevice/lockdeviceplugin-win.cpp:68
+#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
+#: lockdevice/lockdeviceplugin.cpp:100
+#, kde-format
+msgid "Remote lock failed"
+msgstr "Помилка під час віддаленого блокування"
+
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: mousepad/waylandremoteinput.cpp:47
+#, kde-format
+msgid "Use your phone as a touchpad and keyboard"
+msgstr "Скористайтеся телефоном як замінником сенсорної панелі і клавіатури"
+
+#: notifications/notification.cpp:128
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Відповісти"
+
+#: notifications/notification.cpp:129
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1..."
+msgstr "Відповісти %1…"
+
+#: notifications/notification.cpp:135
+#, kde-format
+msgid "Reply"
+msgstr "Відповісти"
+
+#: notifications/sendreplydialog.cpp:29
+#, kde-format
+msgid "Send"
+msgstr "Надіслати"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Вікно"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
+#: pausemusic/pausemusic_config.ui:17
+#, kde-format
+msgid "Pause music plugin"
+msgstr "Додаток призупинення відтворення"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: pausemusic/pausemusic_config.ui:32
+#, kde-format
+msgid "Condition"
+msgstr "Умова"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
+#: pausemusic/pausemusic_config.ui:38
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Призупиняти, щойно надійде телефонний дзвінок"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
+#: pausemusic/pausemusic_config.ui:45
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Призупинити лише на час розмови"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: pausemusic/pausemusic_config.ui:61
+#, kde-format
+msgid "Actions"
+msgstr "Дії"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
+#: pausemusic/pausemusic_config.ui:67
+#, kde-format
+msgid "Pause media players"
+msgstr "Призупинити відтворення мультимедійних даних"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
+#: pausemusic/pausemusic_config.ui:74
+#, kde-format
+msgid "Mute system sound"
+msgstr "Вимкнути звук у системі"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
+#: pausemusic/pausemusic_config.ui:81
+#, kde-format
+msgid "Automatically resume media when call has finished"
+msgstr "Автоматично відновлювати відтворення після завершення дзвінка"
+
+#: ping/pingplugin.cpp:37
+#, kde-format
+msgid "Ping!"
+msgstr "Пінг!"
+
+#: runcommand/runcommand_config.cpp:39
+#, kde-format
+msgid "Schedule a shutdown"
+msgstr "Запланувати вимикання"
+
+#: runcommand/runcommand_config.cpp:40
+#, kde-format
+msgid "Shutdown now"
+msgstr "Вимкнути зараз"
+
+#: runcommand/runcommand_config.cpp:41
+#, kde-format
+msgid "Cancel last shutdown"
+msgstr "Скасувати останнє вимикання"
+
+#: runcommand/runcommand_config.cpp:42
+#, kde-format
+msgid "Schedule a reboot"
+msgstr "Запланувати перезавантаження"
+
+#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#, kde-format
+msgid "Suspend"
+msgstr "Призупинити"
+
+#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#, kde-format
+msgid "Lock Screen"
+msgstr "Заблокувати екран"
+
+#: runcommand/runcommand_config.cpp:47
+#, kde-format
+msgid "Say Hello"
+msgstr "Сказати «Привіт!»"
+
+#: runcommand/runcommand_config.cpp:50
+#, kde-format
+msgid "Shutdown"
+msgstr "Вимкнути"
+
+#: runcommand/runcommand_config.cpp:51
+#, kde-format
+msgid "Reboot"
+msgstr "Перезавантажити"
+
+#: runcommand/runcommand_config.cpp:55
+#, kde-format
+msgid "Maximum Brightness"
+msgstr "Максимальна яскравість"
+
+#: runcommand/runcommand_config.cpp:61
+#, kde-format
+msgid "Unlock Screen"
+msgstr "Розблокувати екран"
+
+#: runcommand/runcommand_config.cpp:62
+#, kde-format
+msgid "Close All Vaults"
+msgstr "Закрити усі сховища"
+
+#: runcommand/runcommand_config.cpp:64
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr "Примусово закрити усі сховища"
+
+#: runcommand/runcommand_config.cpp:73
+#, kde-format
+msgid "Sample commands"
+msgstr "Зразки команд"
+
+#: runcommand/runcommand_config.cpp:82
+#: sendnotifications/notifyingapplicationmodel.cpp:182
+#, kde-format
+msgid "Name"
+msgstr "Назва"
+
+#: runcommand/runcommand_config.cpp:82
+#, kde-format
+msgid "Command"
+msgstr "Команда"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:25
+#, kde-format
+msgid "Phone is connected"
+msgstr "З'єднано телефон"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:186
+#, kde-format
+msgid "Blacklisted"
+msgstr "Заборонені"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:190
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "Назва програми походження сповіщення."
+
+#: sendnotifications/notifyingapplicationmodel.cpp:192
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "Синхронізувати сповіщення програми?"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:195
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"Формальний вираз, що визначає, які сповіщення не слід надсилати.\n"
+"Цей взірець буде застосовано до резюме і, якщо позначено пункт вище, до "
+"тексту сповіщень."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: sendnotifications/sendnotifications_config.ui:38
+#, kde-format
+msgid "General"
+msgstr "Загальне"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:44
+#, kde-format
+msgid "Synchronize only notifications with a timeout value of 0?"
+msgstr "Синхронізувати лише сповіщення із значенням часу очікування 0?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:47
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Лише постійні сповіщення"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:60
+#, kde-format
+msgid ""
+"Append the notification body to the summary when synchronizing notifications?"
+msgstr "Додавати текст сповіщення до резюме під час синхронізації сповіщень?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:63
+#, kde-format
+msgid "Include body"
+msgstr "Включати текст"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:76
+#, kde-format
+msgid "Synchronize icons of notifying applications if possible?"
+msgstr "Синхронізувати, якщо можна, піктограми програм зі сповіщеннями?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:79
+#, kde-format
+msgid "Synchronize icons"
+msgstr "Синхронізувати піктограми"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
+#: sendnotifications/sendnotifications_config.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Мінімальний рівень терміновості сповіщень</p></body></"
+"html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:123
+#, kde-format
+msgid "Synchronize only notifications with the given urgency level."
+msgstr "Синхронізувати лише сповіщення і вказаними рівнем терміновості."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:126
+#, kde-format
+msgid "Minimum urgency level"
+msgstr "Мінімальний рівень терміновості"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: sendnotifications/sendnotifications_config.ui:148
+#, kde-format
+msgid "Applications"
+msgstr "Програми"
+
+#: sftp/mounter.cpp:167
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "Не вдалося запустити sshfs"
+
+#: sftp/mounter.cpp:171
+#, kde-format
+msgid "sshfs process crashed"
+msgstr "Аварійне завершення процесу sshfs"
+
+#: sftp/mounter.cpp:175
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr "Невідома помилку у sshfs"
+
+#: sftp/mounter.cpp:186
+#, kde-format
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr ""
+"Помилка під час спроби доступу до файлової системи. Роботу sshfs завершено з "
+"кодом виходу %0"
+
+#: sftp/mounter.cpp:195
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "Не вдалося змонтувати файлову систему: пристрій не відповідає"
+
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr "Обробки протоколу SFTP не передбачено. Вибачте за незручності."
+
+#: sftp/sftpplugin.cpp:143
+#, kde-format
+msgid "All files"
+msgstr "Усі файли"
+
+#: sftp/sftpplugin.cpp:144
+#, kde-format
+msgid "Camera pictures"
+msgstr "Знімки фотоапарата"
+
+#: share/share_config.cpp:24
+#, kde-format
+msgid "&percnt;1 in the path will be replaced with the specific device name."
+msgstr "&percnt;1 у записі шляху буде замінено на специфічну назву пристрою."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
+#: share/share_config.ui:17
+#, kde-format
+msgid "Share plugin settings"
+msgstr "Параметри додатка спільного користування"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: share/share_config.ui:23
+#, kde-format
+msgid "Receiving"
+msgstr "Отримання"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: share/share_config.ui:31
+#, kde-format
+msgid "Save files in:"
+msgstr "Зберігати файли до:"
+
+#: share/shareplugin.cpp:209
+#, kde-format
+msgid "Could not share file"
+msgstr "Не вдалося оприлюднити файл"
+
+#: share/shareplugin.cpp:209
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 не існує"
+
+#: telephony/telephonyplugin.cpp:28
+#, kde-format
+msgid "unknown number"
+msgstr "невідомий номер"
+
+#: telephony/telephonyplugin.cpp:37
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "Вхідний дзвінок від %1"
+
+#: telephony/telephonyplugin.cpp:41
+#, kde-format
+msgid "Missed call from %1"
+msgstr "Пропущено дзвінок від %1"
+
+#: telephony/telephonyplugin.cpp:69
+#, kde-format
+msgid "Mute Call"
+msgstr "Вимкнути звук"
+
+#~ msgid "Unknown telephony event: %1"
+#~ msgstr "Невідома подія телефонії: %1"
+
+#~ msgid "SMS from %1<br>%2"
+#~ msgstr "SMS від %1<br>%2"
+
+#~ msgid "Transfer Failed"
+#~ msgstr "Помилка під час передавання"
+
+#~ msgid "Transfer Finished"
+#~ msgstr "Передавання завершено"
+
+#~ msgid "Open"
+#~ msgstr "Відкрити"
+
+#~ msgid "Error"
+#~ msgstr "Помилка"
+
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "sshfs не знайдено у каталогах PATH"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "Від’єднуватися за бездіяльності"
+
+#~ msgid "Timeout:"
+#~ msgstr "Час очікування:"
+
+#~ msgid " min"
+#~ msgstr " хв"
+
+#~ msgid "Device %1"
+#~ msgstr "Пристрій %1"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Відкрити теку призначення"

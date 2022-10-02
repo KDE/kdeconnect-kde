@@ -1,0 +1,183 @@
+# Translation of kdeconnect-indicator to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-11 12:32+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.3\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Karl Ove Hufthammer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "karl@huftis.org"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "Bla gjennom eining"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Ring device"
+msgstr "Ring eining"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgid "Get a photo"
+msgstr "Ta foto"
+
+#: deviceindicator.cpp:101
+#, kde-format
+msgid "Send a file/URL"
+msgstr "Send fil/nettadresse"
+
+#: deviceindicator.cpp:111
+#, kde-format
+msgid "SMS Messages..."
+msgstr "SMS-ar …"
+
+#: deviceindicator.cpp:124
+#, kde-format
+msgid "Run command"
+msgstr "Køyr kommando"
+
+#: deviceindicator.cpp:126
+#, kde-format
+msgid "Add commands"
+msgstr "Legg til kommandoar"
+
+#: indicatorhelper_mac.cpp:34
+#, kde-format
+msgid "Launching"
+msgstr "Startar"
+
+#: indicatorhelper_mac.cpp:84
+#, kde-format
+msgid "Launching daemon"
+msgstr "Startar teneste"
+
+#: indicatorhelper_mac.cpp:93
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "Ventar på D-Bus"
+
+#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"Klarte ikkje kopla til D-Bus.\n"
+"KDE Connect vert no avslutta."
+
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "Fann ikkje kdeconnectd"
+
+#: indicatorhelper_mac.cpp:140
+#, kde-format
+msgid "Loading modules"
+msgstr "Lastar modular"
+
+#: main.cpp:41
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "KDE Connect-indikator"
+
+#: main.cpp:43
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "KDE Connect-indikatorverktøy"
+
+#: main.cpp:45
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "© 2016 Aleix Pol Gonzalez"
+
+#: main.cpp:80
+#, kde-format
+msgid "Configure..."
+msgstr "Set opp …"
+
+#: main.cpp:102
+#, kde-format
+msgid "Pairing requests"
+msgstr "Paringsførespurnadar"
+
+#: main.cpp:107
+#, kde-format
+msgid "Pair"
+msgstr "Par"
+
+#: main.cpp:108
+#, kde-format
+msgid "Reject"
+msgstr "Avvis"
+
+#: main.cpp:114 main.cpp:124
+#, kde-format
+msgid "Quit"
+msgstr "Avslutt"
+
+#: main.cpp:143 main.cpp:167
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "%1 eining kopla til"
+msgstr[1] "%1 einingar kopla til"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "Manglar batteri"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "Batteri: %1 % (ladar)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "Batteri: %1 %"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "Manglar mobilt samband"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1 | ~%2 %"

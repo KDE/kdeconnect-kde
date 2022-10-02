@@ -1,0 +1,229 @@
+# Translation of kdeconnect-sms.po to Catalan (Valencian)
+# Copyright (C) 2014-2022 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2014, 2015, 2017, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-07-21 10:26+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antoni Bella"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "antonibella5@yahoo.com"
+
+#: conversationlistmodel.cpp:197
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is an image"
+msgid "Picture"
+msgstr "Imatge"
+
+#: conversationlistmodel.cpp:199
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is a video"
+msgid "Video"
+msgstr "Vídeo"
+
+#: conversationlistmodel.cpp:203
+#, kde-format
+msgctxt ""
+"Used as a text placeholder when the most-recent message is an arbitrary "
+"attachment, resulting in something like \"pdf file\""
+msgid "%1 file"
+msgstr "Fitxer %1"
+
+#: conversationlistmodel.cpp:219
+#, kde-format
+msgid "You: %1"
+msgstr "Vós: %1"
+
+#: conversationlistmodel.cpp:225
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: conversationlistmodel.cpp:267 conversationlistmodel.cpp:289
+#, kde-format
+msgid "%1"
+msgstr "%1"
+
+#: main.cpp:50 qml/main.qml:67
+#, kde-format
+msgid "KDE Connect SMS"
+msgstr "SMS de KDE Connect"
+
+#: main.cpp:52
+#, kde-format
+msgid "SMS Instant Messaging"
+msgstr "Missatgeria instantània d'SMS"
+
+#: main.cpp:54
+#, kde-format
+msgid "(C) 2018-2022, KDE Connect Team"
+msgstr "(C) 2018-2022, l'equip de KDE Connect"
+
+#: main.cpp:55
+#, kde-format
+msgid "Simon Redman"
+msgstr "Simon Redman"
+
+#: main.cpp:56
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:57
+#, kde-format
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:75
+#, kde-format
+msgid "Select a device"
+msgstr "Seleccioneu un dispositiu"
+
+#: main.cpp:75
+#, kde-format
+msgid "id"
+msgstr "ID"
+
+#: main.cpp:76
+#, kde-format
+msgid "Send a message"
+msgstr "Envia un missatge"
+
+#: main.cpp:76
+#, kde-format
+msgid "message"
+msgstr "missatge"
+
+#: qml/AttachmentViewer.qml:20
+#, kde-format
+msgid "Open with default"
+msgstr "Obri amb la predeterminada"
+
+#: qml/ChatMessage.qml:154
+#, kde-format
+msgid "Copy Message"
+msgstr "Copia el missatge"
+
+#: qml/ChatMessage.qml:159
+#, kde-format
+msgid "Copy Selection"
+msgstr "Copia la selecció"
+
+#: qml/ConversationList.qml:24
+#, kde-format
+msgid "No devices available"
+msgstr "No hi ha disponible cap dispositiu"
+
+#: qml/ConversationList.qml:34
+#, kde-format
+msgid ""
+"No new messages can be sent or received, but you can browse cached content"
+msgstr ""
+"No es poden enviar ni rebre missatges nous, però podeu explorar el contingut "
+"a la memòria cau"
+
+#: qml/ConversationList.qml:50
+#, kde-format
+msgid ""
+"Loading conversations from device. If this takes a long time, please wake up "
+"your device and then click Refresh."
+msgstr ""
+"S'estan carregant les converses del dispositiu. Si açò tarda massa, "
+"desperteu el dispositiu i feu clic a Actualitza."
+
+#: qml/ConversationList.qml:58
+#, kde-format
+msgid ""
+"Tip: If you plug in your device, it should not go into doze mode and should "
+"load quickly."
+msgstr ""
+"Consell: Si connecteu el dispositiu, no hauria d'entrar en mode migdiada i "
+"hauria de carregar ràpidament."
+
+#: qml/ConversationList.qml:66 qml/main.qml:87
+#, kde-format
+msgid "Refresh"
+msgstr "Actualitza"
+
+#: qml/ConversationList.qml:80
+#, kde-format
+msgid "Choose recipient"
+msgstr "Seleccioneu el destinatari"
+
+#: qml/ConversationList.qml:85
+#, kde-format
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: qml/ConversationList.qml:112
+#, kde-format
+msgid "Search or start conversation..."
+msgstr "Busca o inicia una conversa..."
+
+#: qml/ConversationList.qml:144
+#, kde-format
+msgid "New"
+msgstr "Nova"
+
+#: qml/ConversationList.qml:149
+#, kde-format
+msgid "Start new conversation"
+msgstr "Inicia una conversa nova"
+
+#: qml/ConversationList.qml:248
+#, kde-format
+msgctxt "Placeholder message text when no messages are found"
+msgid "No matches"
+msgstr "No s'ha trobat cap coincidència"
+
+#: qml/main.qml:82
+#, kde-format
+msgid "Devices"
+msgstr "Dispositius"
+
+#: qml/main.qml:95
+#, kde-format
+msgid "About"
+msgstr "Quant a"
+
+#: qml/MessageAttachments.qml:131
+#, kde-format
+msgid "Audio clip"
+msgstr "Clip d'àudio"
+
+#: qml/SendingArea.qml:24
+#, kde-format
+msgid "Failed to send"
+msgstr "No s'ha pogut enviar"
+
+#: qml/SendingArea.qml:25
+#, kde-format
+msgid "Max message size limit exceeded."
+msgstr "S'ha superat el límit màxim de la mida del missatge."
+
+#: qml/SendingArea.qml:73
+#, kde-format
+msgid "Compose message"
+msgstr "Redacta un missatge"

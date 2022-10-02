@@ -1,0 +1,245 @@
+# Translation for kdeconnect-sms.po to Euskara/Basque (eu).
+# Copyright (C) 2020-2022, This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+#
+# Translators:
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-07-30 23:46+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Iñigo Salvador Azurmendi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xalba@ni.eus"
+
+#: conversationlistmodel.cpp:197
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is an image"
+msgid "Picture"
+msgstr "Irudia"
+
+#: conversationlistmodel.cpp:199
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is a video"
+msgid "Video"
+msgstr "Bideoa"
+
+#: conversationlistmodel.cpp:203
+#, kde-format
+msgctxt ""
+"Used as a text placeholder when the most-recent message is an arbitrary "
+"attachment, resulting in something like \"pdf file\""
+msgid "%1 file"
+msgstr "%1 fitxategia"
+
+#: conversationlistmodel.cpp:219
+#, kde-format
+msgid "You: %1"
+msgstr "Zu: %1"
+
+#: conversationlistmodel.cpp:225
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: conversationlistmodel.cpp:267 conversationlistmodel.cpp:289
+#, kde-format
+msgid "%1"
+msgstr "%1"
+
+#: main.cpp:50 qml/main.qml:67
+#, kde-format
+msgid "KDE Connect SMS"
+msgstr "KDE Connect SMS"
+
+#: main.cpp:52
+#, kde-format
+msgid "SMS Instant Messaging"
+msgstr "SMS bat-bateko mezularitza"
+
+#: main.cpp:54
+#, kde-format
+msgid "(C) 2018-2022, KDE Connect Team"
+msgstr "(C) 2018-2022, KDE Connect taldea"
+
+#: main.cpp:55
+#, kde-format
+msgid "Simon Redman"
+msgstr "Simon Redman"
+
+#: main.cpp:56
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:57
+#, kde-format
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:75
+#, kde-format
+msgid "Select a device"
+msgstr "Hautatu gailu bat"
+
+#: main.cpp:75
+#, kde-format
+msgid "id"
+msgstr "IDa"
+
+#: main.cpp:76
+#, kde-format
+msgid "Send a message"
+msgstr "Bidali mezu bat"
+
+#: main.cpp:76
+#, kde-format
+msgid "message"
+msgstr "mezua"
+
+#: qml/AttachmentViewer.qml:20
+#, kde-format
+msgid "Open with default"
+msgstr "Ireki lehenetsitakoarekin"
+
+#: qml/ChatMessage.qml:154
+#, kde-format
+msgid "Copy Message"
+msgstr "Kopiatu mezua"
+
+#: qml/ChatMessage.qml:159
+#, kde-format
+msgid "Copy Selection"
+msgstr "Kopiatu hautapena"
+
+#: qml/ConversationList.qml:24
+#, kde-format
+msgid "No devices available"
+msgstr "Ez dago gailu erabilgarririk"
+
+#: qml/ConversationList.qml:34
+#, kde-format
+msgid ""
+"No new messages can be sent or received, but you can browse cached content"
+msgstr ""
+"Ezin da mezu berririk bidali edo jaso, baino cacheko edukia araka dezakezu"
+
+#: qml/ConversationList.qml:50
+#, kde-format
+msgid ""
+"Loading conversations from device. If this takes a long time, please wake up "
+"your device and then click Refresh."
+msgstr ""
+"Gailuko elkarrizketak zamatzen. Denbora luzea badarama, mesedez, esnatu zure "
+"gailua eta ondoren sakatu freskatu."
+
+#: qml/ConversationList.qml:58
+#, kde-format
+msgid ""
+"Tip: If you plug in your device, it should not go into doze mode and should "
+"load quickly."
+msgstr ""
+"Argibidea: Zure gailua entxufatzen baduzu, ez litzateke lo arin moduan sartu "
+"behar eta azkar zamatu beharko luke."
+
+#: qml/ConversationList.qml:66 qml/main.qml:87
+#, kde-format
+msgid "Refresh"
+msgstr "Freskatu"
+
+#: qml/ConversationList.qml:80
+#, kde-format
+msgid "Choose recipient"
+msgstr "Aukeratu hartzailea"
+
+#: qml/ConversationList.qml:85
+#, kde-format
+msgid "Cancel"
+msgstr "Utzi"
+
+#: qml/ConversationList.qml:112
+#, kde-format
+msgid "Search or start conversation..."
+msgstr "Bilatu edo abiatu elkarrizketa..."
+
+#: qml/ConversationList.qml:144
+#, kde-format
+msgid "New"
+msgstr "Berria"
+
+#: qml/ConversationList.qml:149
+#, kde-format
+msgid "Start new conversation"
+msgstr "Abiatu elkarrizketa berria"
+
+#: qml/ConversationList.qml:248
+#, kde-format
+msgctxt "Placeholder message text when no messages are found"
+msgid "No matches"
+msgstr "Ez dago bat datorrenik"
+
+#: qml/main.qml:82
+#, kde-format
+msgid "Devices"
+msgstr "Gailuak"
+
+#: qml/main.qml:95
+#, kde-format
+msgid "About"
+msgstr "Honi buruz"
+
+#: qml/MessageAttachments.qml:131
+#, kde-format
+msgid "Audio clip"
+msgstr "Audio klipa"
+
+#: qml/SendingArea.qml:24
+#, kde-format
+msgid "Failed to send"
+msgstr "Bidaltzea huts egin du"
+
+#: qml/SendingArea.qml:25
+#, kde-format
+msgid "Max message size limit exceeded."
+msgstr "Mezuen gehienezko neurria gainditu da."
+
+#: qml/SendingArea.qml:73
+#, kde-format
+msgid "Compose message"
+msgstr "Idatzi mezua"
+
+#~ msgid "Filter..."
+#~ msgstr "Iragazi..."
+
+#~ msgid "No matched results found : ("
+#~ msgstr "Ez da bat datorren emaitzarik aurkitu :("
+
+#~ msgid "(Unsupported Message Type)"
+#~ msgstr "(Onartzen ez den mezu mota)"
+
+#~ msgid "Replying to multitarget messages is not supported"
+#~ msgstr "Hartzaile-aniztuneko mezuei erantzutea ez da onartzen"
+
+#~ msgid "Spoiler"
+#~ msgstr "Errebelazioa"
+
+#~ msgid "Download"
+#~ msgstr "Zama-jaitsi"

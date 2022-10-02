@@ -1,0 +1,171 @@
+# Malayalam translations for kdeconnect-kde package.
+# Copyright (C) 2020 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-03-22 10:50+0000\n"
+"Last-Translator: Subin Siby <subins2000@gmail.com>\n"
+"Language-Team: SMC <smc.org.in>\n"
+"Language: ml\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "വിവേക് കെ ജെ | VIVEK K J"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "vivekkj2004@gmail.com"
+
+#: kcm.cpp:37
+#, kde-format
+msgid "KDE Connect Settings"
+msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണങ്ങൾ"
+
+#: kcm.cpp:39
+#, kde-format
+msgid "KDE Connect Settings module"
+msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണഭാഗം"
+
+#: kcm.cpp:41
+#, kde-format
+msgid "(C) 2015 Albert Vaca Cintora"
+msgstr ""
+
+#: kcm.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr ""
+
+#: kcm.cpp:223
+#, kde-format
+msgid "Key: %1"
+msgstr ""
+
+#: kcm.cpp:254
+#, kde-format
+msgid "Available plugins"
+msgstr "ലഭ്യമായിട്ടുള്ള സംയോജകങ്ങൾ"
+
+#: kcm.cpp:307
+#, kde-format
+msgid "Error trying to pair: %1"
+msgstr "ബന്ധപ്പെടാൻ ശ്രമിക്കുന്നതിൽ പിശക്:%1"
+
+#: kcm.cpp:328
+#, kde-format
+msgid "(paired)"
+msgstr "(ബന്ധിച്ചു)"
+
+#: kcm.cpp:331
+#, kde-format
+msgid "(not paired)"
+msgstr "(ബന്ധിച്ചിട്ടില്ല)"
+
+#: kcm.cpp:334
+#, kde-format
+msgid "(incoming pair request)"
+msgstr ""
+
+#: kcm.cpp:337
+#, kde-format
+msgid "(pairing requested)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, rename_label)
+#: kcm.ui:59
+#, kde-format
+msgid "KDE Connect"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
+#: kcm.ui:82
+#, kde-format
+msgid "Edit"
+msgstr "തിരുത്തുക"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
+#: kcm.ui:104
+#, kde-format
+msgid "Save"
+msgstr "സേവ്"
+
+#. i18n: ectx: property (text), widget (QPushButton, refresh_button)
+#: kcm.ui:120
+#, kde-format
+msgid "Refresh"
+msgstr "പുതുക്കുക"
+
+#. i18n: ectx: property (text), widget (QLabel, name_label)
+#: kcm.ui:193
+#, kde-format
+msgid "Device"
+msgstr "ഉപകരണം"
+
+#. i18n: ectx: property (text), widget (QLabel, status_label)
+#: kcm.ui:209
+#, kde-format
+msgid "(status)"
+msgstr "(സ്ഥിതിവിവരം)"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, accept_button)
+#: kcm.ui:276
+#, kde-format
+msgid "Accept"
+msgstr "സ്വീകരിക്കുക"
+
+#. i18n: ectx: property (text), widget (QPushButton, reject_button)
+#: kcm.ui:283
+#, kde-format
+msgid "Reject"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, pair_button)
+#: kcm.ui:296
+#, kde-format
+msgid "Request pair"
+msgstr "ബന്ധപ്പെടുന്നതിനായി അപേക്ഷിക്കുക"
+
+#. i18n: ectx: property (text), widget (QPushButton, unpair_button)
+#: kcm.ui:309
+#, kde-format
+msgid "Unpair"
+msgstr "വിച്ഛേദിക്കുക"
+
+#. i18n: ectx: property (text), widget (QPushButton, ping_button)
+#: kcm.ui:322
+#, kde-format
+msgid "Send ping"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
+#: kcm.ui:360
+#, kde-format
+msgid ""
+"<html><head/><body><p>No device selected.<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+"available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
+"are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
+"Community wiki</span></a> for help.</p></body></html>"
+msgstr ""

@@ -1,0 +1,213 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander <mschlander@opensuse.org>, 2013, 2014, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-09-05 20:29+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Martin Schlander"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mschlander@opensuse.org"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Parringsanmodning fra %1\n"
+"Nøgle: %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Åbn"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Acceptér"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Afvis"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Vis nøgle"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "KDE-Connect-dæmon"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Erstat en eksisterende instans"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+
+#~ msgid "kdeconnect"
+#~ msgstr "kdeconnect"
+
+#~ msgid "Connect your devices and KDE"
+#~ msgstr "Forbind dine enheder med KDE"
+
+#~ msgid "Already paired"
+#~ msgstr "Allerede parret"
+
+#~ msgid "Pairing already requested for this device"
+#~ msgstr "Allerede anmodet om parring med denne enhed"
+
+#~ msgid "Device not reachable"
+#~ msgstr "Enheden kan ikke nås"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Fejl ved kontakt til enhed"
+
+#~ msgid "Timed out"
+#~ msgstr "Tidsudløb"
+
+#~ msgid "Canceled by other peer"
+#~ msgstr "Annulleret af modpart"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Modtog forkert nøgle"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Annulleret af brugeren"
+
+#~ msgid "Receiving file over KDE-Connect"
+#~ msgstr "Modtagelse af fil over KDE-Connect"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Fra"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Indkommende fil findes"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Til"
+
+#~ msgid "Received incomplete file"
+#~ msgstr "Modtog ukomplet fil"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1: lavt batteri"
+
+#~ msgid "Battery at %1%"
+#~ msgstr "Batteri på %1%"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Plugin til at sætte musik på pause"
+
+#~ msgid "Pause condition"
+#~ msgstr "Betingelse for pause"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Sæt på pause når telefonen ringer"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Sæt kun på pause når der tales"
+
+#~ msgid "Mute system instead of pause"
+#~ msgstr "Sæt systemet på lydløs i stedet for pause"
+
+#~ msgid "Ping!"
+#~ msgstr "Ping!"
+
+#~ msgid "Failed to start sshfs"
+#~ msgstr "kunne ikke starte sshfs"
+
+#~ msgid "Error when accessing to filesystem"
+#~ msgstr "Fejl ved tilgang til filsystemet"
+
+#~ msgid "Failed to mount filesystem: device not responding"
+#~ msgstr "Kunne ikke montere filsystemet: Enheden svarer ikke"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Indstilling af deling-plugin"
+
+#~ msgid "Error"
+#~ msgstr "Fejl"
+
+#, fuzzy
+#~| msgid "sshfsf not found in PATH"
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "sshfsf ikke fundet i PATH"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "Afbryd forbindelse når inaktiv"
+
+#~ msgid "Timeout:"
+#~ msgstr "Tidsudløb:"
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "Device %1"
+#~ msgstr "Enhed %1"
+
+#~ msgid "Receiving"
+#~ msgstr "Modtager"
+
+#~ msgid "Save files in:"
+#~ msgstr "Gem filer i:"
+
+#~ msgid "Transfer finished"
+#~ msgstr "Overførsel gennemført"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Åbn destinationsmappe"
+
+#~ msgid "unknown number"
+#~ msgstr "ukendt nummer"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Indkommende opkald fra %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Ubesvaret opkald fra %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS fra %1: %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Ukendt telefonihændelse: %2"
+
+#~ msgid "Mountpoint:"
+#~ msgstr "Monteringspunkt:"
+
+#~ msgid "Filesystem mounted at %1"
+#~ msgstr "Filsystem monteret i %1"
+
+#~ msgid "Filesystem unmounted"
+#~ msgstr "Filsystem afmonteret"

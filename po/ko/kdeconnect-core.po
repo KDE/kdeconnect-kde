@@ -1,0 +1,196 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2015, 2017, 2018, 2019, 2020, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-05-16 20:16+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 20.12.3\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "다른 쪽에서 취소함"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: 이미 연결됨"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: 이 장치 연결이 이미 요청됨"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "시간 초과됨"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "사용 가능한 포트를 찾을 수 없음"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "%1(으)로 패킷을 보낼 수 없음"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "%1(으)로 보내는 중|/|%1$[으 %1]로 보내는 중"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "파일"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr "이 장치에서 오래된 KDE Connect를 실행 중이므로 연결할 수 없습니다."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "파일 받는 중"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "원본"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "대상"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "이미 연결됨"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "장치에 접근할 수 없음"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "내 장치 인증서의 SHA256 지문: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "원격 장치 인증서의 SHA256 지문: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "파일 이름이 이미 존재함"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "완전하지 않은 파일 받음: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "완전하지 않은 파일 받음: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "KDE Connect를 시작할 수 없음"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"QCA 설치에서 RSA를 찾을 수 없습니다. 배포판에서 QCA-ossl 및 QCA-gnupg 패키지"
+"를 별도로 제공하면 해당 패키지를 설치한 후 다시 시도하십시오."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "개인 키 파일을 저장할 수 없음: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "인증서 파일을 저장할 수 없음: %1"
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "파일 %1개 보냄"
+
+#~ msgid "Progress"
+#~ msgstr "진행"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "파일 %2개 중 %1개 보내는 중"
+
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "파일 %2개 중 %1개 받는 중"
+
+#~ msgid "Receiving file over KDE Connect"
+#~ msgstr "KDE Connect로 파일 받는 중"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "보냄"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "받음"
+
+#~ msgid "Error contacting device"
+#~ msgstr "장치와 통신하는 중 오류 발생"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "잘못된 키 받음"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "사용자가 취소함"
+
+#~ msgid "Pairing request from %1"
+#~ msgstr "%1에서 페어링 요청 보냄"
+
+#~ msgid "Accept"
+#~ msgstr "수락"
+
+#~ msgid "Reject"
+#~ msgstr "거부"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "들어오는 파일 있음"
+
+#~ msgctxt "Device name that will appear on the jobs"
+#~ msgid "KDE-Connect"
+#~ msgstr "KDE-Connect"

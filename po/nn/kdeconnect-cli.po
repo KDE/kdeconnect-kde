@@ -1,0 +1,332 @@
+# Translation of kdeconnect-cli to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2016, 2017, 2018, 2019, 2020.
+# Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-12-04 23:25+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.3\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Karl Ove Hufthammer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "karl@huftis.org"
+
+#: kdeconnect-cli.cpp:31
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "Kommandolinjeverktøy for KDE Connect"
+
+#: kdeconnect-cli.cpp:33
+#, kde-format
+msgid "(C) 2015 Aleix Pol Gonzalez"
+msgstr "© 2015 Aleix Pol Gonzalez"
+
+#: kdeconnect-cli.cpp:36
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: kdeconnect-cli.cpp:37
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kdeconnect-cli.cpp:39
+#, kde-format
+msgid "List all devices"
+msgstr "Vis oversikt over alle einingar."
+
+#: kdeconnect-cli.cpp:41
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "Vis oversikt over tilgjengelege (para og tilgjengelege) einingar."
+
+#: kdeconnect-cli.cpp:43
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"Få «--list-devices» og «--list-available» til berre å visa einings-ID (for "
+"skriptbruk)."
+
+#: kdeconnect-cli.cpp:45
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"Få «--list-devices» og «--list-available» til berre å visa einingsnamn (for "
+"skriptbruk)."
+
+#: kdeconnect-cli.cpp:47
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"Få «--list-devices» og «--list-available» til berre å visa einings-ID og -"
+"namn (for skriptbruk)."
+
+#: kdeconnect-cli.cpp:48
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "Søk etter einingar på nettverket og gjenoppta samband."
+
+#: kdeconnect-cli.cpp:49
+#, kde-format
+msgid "Request pairing to a said device"
+msgstr "Send paringsførespurnad til vald eining."
+
+#: kdeconnect-cli.cpp:50
+#, kde-format
+msgid "Find the said device by ringing it."
+msgstr "Finn vald eining ved å ringja til ho."
+
+#: kdeconnect-cli.cpp:51
+#, kde-format
+msgid "Stop pairing to a said device"
+msgstr "Fjern paring med vald eining."
+
+#: kdeconnect-cli.cpp:52
+#, kde-format
+msgid "Sends a ping to said device"
+msgstr "Send pingsignal til vald eining."
+
+#: kdeconnect-cli.cpp:53
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "Det same som eit pingsignal, men med valfri melding."
+
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#, kde-format
+msgid "message"
+msgstr "melding"
+
+#: kdeconnect-cli.cpp:54
+#, kde-format
+msgid "Share a file/URL to a said device"
+msgstr "Del ei fil/nettadresse til vald eining."
+
+#: kdeconnect-cli.cpp:55
+#, kde-format
+msgid "Share text to a said device"
+msgstr "Del tekst med vald eining."
+
+#: kdeconnect-cli.cpp:56
+#, kde-format
+msgid "Display the notifications on a said device"
+msgstr "Vis varslinga på vald eining."
+
+#: kdeconnect-cli.cpp:57
+#, kde-format
+msgid "Lock the specified device"
+msgstr "Lås den valde eininga."
+
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "Lås opp den valde eininga."
+
+#: kdeconnect-cli.cpp:59
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "Sender SMS. Krev eit telefonnummer."
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "Telefonnummeret meldinga skal sendast til"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "phone number"
+msgstr "telefonnummer"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid ""
+"File urls to send attachments with the message (can be passed multiple times)"
+msgstr ""
+"Filadresser for sending som meldingsvedlegg (kan oppgjevast fleire gongar)"
+
+#: kdeconnect-cli.cpp:63
+#, kde-format
+msgid "file urls"
+msgstr "filadresser"
+
+#: kdeconnect-cli.cpp:64
+#, kde-format
+msgid "Device ID"
+msgstr "Einings-ID."
+
+#: kdeconnect-cli.cpp:65
+#, kde-format
+msgid "Device Name"
+msgstr "Einingsnamn."
+
+#: kdeconnect-cli.cpp:66
+#, kde-format
+msgid "Get encryption info about said device"
+msgstr "Hent krypteringsinformasjon om eininga."
+
+#: kdeconnect-cli.cpp:67
+#, kde-format
+msgid "Lists remote commands and their ids"
+msgstr "Vis fjernkommandoar og tilhøyrande ID-ar."
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "Executes a remote command by id"
+msgstr "Køyr fjernkommando basert på ID."
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "Sends keys to a said device"
+msgstr "Sender nøklar til vald eining"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "Vis ID til eininga og avslutt"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Open the connected device's camera and transfer the photo"
+msgstr "Opna kameraet på eininga og overfør biletet."
+
+#: kdeconnect-cli.cpp:120
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(para og tilgjengeleg)"
+
+#: kdeconnect-cli.cpp:122
+#, kde-format
+msgid "(reachable)"
+msgstr "(tilgjengeleg)"
+
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:144
+#, kde-format
+msgid "(paired)"
+msgstr "(para)"
+
+#: kdeconnect-cli.cpp:130
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "Fann 1 eining"
+msgstr[1] "Fann %1 einingar"
+
+#: kdeconnect-cli.cpp:132
+#, kde-format
+msgid "No devices found"
+msgstr "Fann ingen einingar"
+
+#: kdeconnect-cli.cpp:146
+#, kde-format
+msgid "(unpaired)"
+msgstr "(ikkje para)"
+
+#: kdeconnect-cli.cpp:183
+#, kde-format
+msgid ""
+"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
+"device. \n"
+"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
+"View complete help with --help option"
+msgstr ""
+"Eining ikkje valt: Bruk «-d <einings-ID>» eller «-n <einingsnamn>» for å "
+"velja eining. \n"
+"Du kan sjå tilgjengelege einings-ID-ar og einingsnamn med «kdeconnect-cli -"
+"l».\n"
+"Bruk «--help» for utvida hjelp."
+
+#: kdeconnect-cli.cpp:216
+#, kde-format
+msgid "Shared %1"
+msgstr "Delte %1"
+
+#: kdeconnect-cli.cpp:225
+#, kde-format
+msgid "Shared text: %1"
+msgstr "Delt tekst: %1"
+
+#: kdeconnect-cli.cpp:232
+#, kde-format
+msgctxt "device has requested to lock peer device"
+msgid "Requested to lock %1."
+msgstr "Førespurnad om å låsa %1."
+
+#: kdeconnect-cli.cpp:234
+#, kde-format
+msgctxt "device has requested to unlock peer device"
+msgid "Requested to unlock %1."
+msgstr "Førespurnad om å låsa opp %1."
+
+#: kdeconnect-cli.cpp:241
+#, kde-format
+msgid "waiting for device..."
+msgstr "ventar på eining …"
+
+#: kdeconnect-cli.cpp:255
+#, kde-format
+msgid "Device not found"
+msgstr "Fann ikkje eining"
+
+#: kdeconnect-cli.cpp:257
+#, kde-format
+msgid "Already paired"
+msgstr "Alt para"
+
+#: kdeconnect-cli.cpp:259
+#, kde-format
+msgid "Pair requested"
+msgstr "Paringsførespurnad"
+
+#: kdeconnect-cli.cpp:266
+#, kde-format
+msgid "Already not paired"
+msgstr "Alt ikkje para"
+
+#: kdeconnect-cli.cpp:268
+#, kde-format
+msgid "Unpaired"
+msgstr "Ikkje para"
+
+#: kdeconnect-cli.cpp:308
+#, kde-format
+msgid ""
+"error: should specify the SMS's recipient by passing --destination <phone "
+"number>"
+msgstr ""
+"feil: bør spesifisera mottakar av SMS-en med argumentet «--destination "
+"<tlfnummer>»"
+
+#: kdeconnect-cli.cpp:327
+#, kde-format
+msgid "Please specify a filename for the photo"
+msgstr "Vel filnamn for biletet"
+
+#: kdeconnect-cli.cpp:374
+#, kde-format
+msgid "Nothing to be done"
+msgstr "Ingenting å gjera"

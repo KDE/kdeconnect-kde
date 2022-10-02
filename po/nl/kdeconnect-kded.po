@@ -1,0 +1,216 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freek@opensuse.org>, 2013, 2014, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-13 08:25+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - t/m 2022"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Verzoek om een paar te maken van %1\n"
+"Sleutel: %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Openen"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Accepteren"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Afwijzen"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Sleutel bekijken"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "KDE-Connect-daemon"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Een bestaand exemplaar vervangen"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+"Start een private D-Bus-daemon met kdeconnectd (alleen voor testen met macOS)"
+
+#~ msgid "kdeconnect"
+#~ msgstr "kdeconnect"
+
+#~ msgid "Connect your devices and KDE"
+#~ msgstr "Uw apparaten verbinden en KDE"
+
+#~ msgid "Already paired"
+#~ msgstr "Paar al gemaakt"
+
+#~ msgid "Pairing already requested for this device"
+#~ msgstr "Paar maken voor dit apparaat is al gevraagd"
+
+#~ msgid "Device not reachable"
+#~ msgstr "Apparaat niet bereikbaar"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Fout bij het contact maken met apparaat"
+
+#~ msgid "Timed out"
+#~ msgstr "Tijdslimiet overschreden"
+
+#~ msgid "Canceled by other peer"
+#~ msgstr "Geannuleerd door andere kant"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Onjuiste sleutel ontvangen"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Geannuleerd door de gebruiker"
+
+#~ msgid "Receiving file over KDE-Connect"
+#~ msgstr "Bezig bestand te ontvangen via KDE-Connect"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Vanaf"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Inkomend bestand bestaat al"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Naar"
+
+#~ msgid "Received incomplete file"
+#~ msgstr "Onvolledig bestand ontvangen"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1: laag batterijniveau"
+
+#~ msgid "Battery at %1%"
+#~ msgstr "Batterij op %1%"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Plug-in voor muziek pauzeren"
+
+#~ msgid "Pause condition"
+#~ msgstr "Staat: gepauzeerd"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Pauzeren zodra de telefoon belt"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Alleen pauzeren bij praten"
+
+#~ msgid "Mute system instead of pause"
+#~ msgstr "Demp het systeem in plaats van pauzeren"
+
+#~ msgid "Ping!"
+#~ msgstr "Ping!"
+
+#~ msgid "Failed to start sshfs"
+#~ msgstr "Starten van sshfs is mislukt"
+
+#~ msgid "Error when accessing to filesystem"
+#~ msgstr "Fout bij toegang tot bestandssysteem"
+
+#~ msgid "Failed to mount filesystem: device not responding"
+#~ msgstr "Bestandssysteem aankoppelen is mislukt: apparaat geeft geen respons"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Plug-in-instellingen van delen"
+
+#~ msgid "Error"
+#~ msgstr "Fout"
+
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "sshfs niet in PATH gevonden"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "Verbinding verbreken bij niets doen"
+
+#~ msgid "Timeout:"
+#~ msgstr "Tijdslimiet:"
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "Device %1"
+#~ msgstr "Apparaat %1"
+
+#~ msgid "Receiving"
+#~ msgstr "Ontvangen"
+
+#~ msgid "Save files in:"
+#~ msgstr "Bestanden opslaan in:"
+
+#~ msgid "%1  in the path will be replaced with the specific device name."
+#~ msgstr ""
+#~ "%1 in het pad zal worden vervangen door de gespecificeerd apparaatnaam."
+
+#~ msgid "Transfer finished"
+#~ msgstr "Overdracht is voltooid"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Doelmap openen"
+
+#~ msgid "unknown number"
+#~ msgstr "onbekend nummer"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Inkomend gesprek van %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Gemist gesprek van %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS van %1: %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Onbekende telefoongebeurtenis: %2"
+
+#~ msgid "Mountpoint:"
+#~ msgstr "Aankoppelpunt:"
+
+#~ msgid "Filesystem mounted at %1"
+#~ msgstr "Bestandssysteem aangekoppeld op %1"
+
+#~ msgid "Filesystem unmounted"
+#~ msgstr "Bestandssysteem afgekoppeld"

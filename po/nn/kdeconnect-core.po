@@ -1,0 +1,153 @@
+# Translation of kdeconnect-core to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2020, 2021.
+# Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-02-06 13:58+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.03.70\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "Avbroten av den andre eininga"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Allereie para"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: Paringsførespurnad er alt send"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "Tidsavbrot"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "Fann ingen tilgjengeleg port"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "Klarte ikkje senda pakke til %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "Sender til %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "Fil"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"Eininga kan ikkje parast, då ho køyrer på ein gammal versjon av KDE Connect."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "Tek imot fil"
+msgstr[1] "Tek imot filer"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Kjelde"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Mål"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "Allereie para"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "Får ikkje kontakt med eininga"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "SHA-256-fingeravtrykket til einingssertifikatet er: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "SHA-256-fingeravtrykket til fjerneiningssertifikatet er: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "Filnamnet finst frå før"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "Fekk ufullstendig fil: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "Fekk ufullstendig fil frå: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "Klarte ikkje starta KDE Connect"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"Fann ikkje støtte for RSA i den installerte QCA-versjonen. Viss "
+"distribusjonen din har eigne pakkar for QCA-ossl og QCA-gnupg, sjå til at "
+"desse er installerte, og prøv så på nytt."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "Klarte ikkje lagra privatnøkkelfila: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "Klarte ikkje lagra sertifikatfila: %1"

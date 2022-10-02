@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-09-29 05:43+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Temuri Doghonadze"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Temuri.doghonadze@gmail.com"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "მოწყობილობის დათვალიერება"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Ring device"
+msgstr "მოწყობილობაზე დარეკვა"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgid "Get a photo"
+msgstr "სურათის მიღება"
+
+#: deviceindicator.cpp:101
+#, kde-format
+msgid "Send a file/URL"
+msgstr "ფაილი/URL-ი გაგზავნა"
+
+#: deviceindicator.cpp:111
+#, kde-format
+msgid "SMS Messages..."
+msgstr "SMS შეტყობინებები..."
+
+#: deviceindicator.cpp:124
+#, kde-format
+msgid "Run command"
+msgstr "ბრძანების გაშვება"
+
+#: deviceindicator.cpp:126
+#, kde-format
+msgid "Add commands"
+msgstr "ბრძანების დამატება"
+
+#: indicatorhelper_mac.cpp:34
+#, kde-format
+msgid "Launching"
+msgstr "გაშვება"
+
+#: indicatorhelper_mac.cpp:84
+#, kde-format
+msgid "Launching daemon"
+msgstr "დემონის გაშვება"
+
+#: indicatorhelper_mac.cpp:93
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "D-Bus-ის მოლოდინი"
+
+#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"D-Bus-თან მიერთების შეცდომა\n"
+"KDE Connect ასრულებს მუშაობას"
+
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "შეცდომა kdeconnectd-ის მოძებნისას"
+
+#: indicatorhelper_mac.cpp:140
+#, kde-format
+msgid "Loading modules"
+msgstr "მოდულების ჩატვირთვა"
+
+#: main.cpp:41
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "KDE Connect -ის მაჩვენებელი"
+
+#: main.cpp:43
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "KDE Connect -ის მაჩვნებელი ხელსაწყო"
+
+#: main.cpp:45
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "(C) 2016 Aleix Pol Gonzalez"
+
+#: main.cpp:80
+#, kde-format
+msgid "Configure..."
+msgstr "მორგება..."
+
+#: main.cpp:102
+#, kde-format
+msgid "Pairing requests"
+msgstr "შეწყვილების მოთხოვნები"
+
+#: main.cpp:107
+#, kde-format
+msgid "Pair"
+msgstr "დაწყვილება"
+
+#: main.cpp:108
+#, kde-format
+msgid "Reject"
+msgstr "უარყოფა"
+
+#: main.cpp:114 main.cpp:124
+#, kde-format
+msgid "Quit"
+msgstr "დასრულება"
+
+#: main.cpp:143 main.cpp:167
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "მიერთებულია %1 მოწყობილობა"
+msgstr[1] "მიერთებულია %1 მოწყობილობა"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "ელემენტის გარეშე"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "ელემენტი: %1% (იტენება)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "ელემენტი: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "ფიჭური შეერთების გარეშე"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"

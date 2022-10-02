@@ -1,0 +1,177 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-18 11:59+0100\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-POFile-SpellExtra: Gonzalez Pol kdeconnectd Connect Aleix\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "José Nuno Pires"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zepires@gmail.com"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "Navegar no dispositivo"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Ring device"
+msgstr "Tocar o dispositivo"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgid "Get a photo"
+msgstr "Tirar uma fotografia"
+
+#: deviceindicator.cpp:101
+#, kde-format
+msgid "Send a file/URL"
+msgstr "Enviar um ficheiro/URL"
+
+#: deviceindicator.cpp:111
+#, kde-format
+msgid "SMS Messages..."
+msgstr "Mensagens SMS..."
+
+#: deviceindicator.cpp:124
+#, kde-format
+msgid "Run command"
+msgstr "Executar um comando"
+
+#: deviceindicator.cpp:126
+#, kde-format
+msgid "Add commands"
+msgstr "Adicionar comandos"
+
+#: indicatorhelper_mac.cpp:34
+#, kde-format
+msgid "Launching"
+msgstr "A iniciar"
+
+#: indicatorhelper_mac.cpp:84
+#, kde-format
+msgid "Launching daemon"
+msgstr "A iniciar o servidor"
+
+#: indicatorhelper_mac.cpp:93
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "À Espera do D-Bus"
+
+#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"Não é possível ligar ao D-Bus\n"
+"O KDE Connect irá sair"
+
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "Não é possível encontrar o 'kdeconnectd'"
+
+#: indicatorhelper_mac.cpp:140
+#, kde-format
+msgid "Loading modules"
+msgstr "A carregar os módulos"
+
+#: main.cpp:41
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "Indicador do KDE Connect"
+
+#: main.cpp:43
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "Ferramenta de Indicador do KDE Connect"
+
+#: main.cpp:45
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "(C) 2016 Aleix Pol Gonzalez"
+
+#: main.cpp:80
+#, kde-format
+msgid "Configure..."
+msgstr "Configurar..."
+
+#: main.cpp:102
+#, kde-format
+msgid "Pairing requests"
+msgstr "A emparelhar os pedidos"
+
+#: main.cpp:107
+#, kde-format
+msgid "Pair"
+msgstr "Emparelhar"
+
+#: main.cpp:108
+#, kde-format
+msgid "Reject"
+msgstr "Rejeitar"
+
+#: main.cpp:114 main.cpp:124
+#, kde-format
+msgid "Quit"
+msgstr "Sair"
+
+#: main.cpp:143 main.cpp:167
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "%1 dispositivo ligado"
+msgstr[1] "%1 dispositivos ligados"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "Sem Bateria"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "Bateria: %1% (A carregar)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "Bateria: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "Sem Ligação à Rede"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"

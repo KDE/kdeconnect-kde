@@ -1,0 +1,92 @@
+# Maxime Corteel <mcorteel@gmail.com>, 2017.
+# Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
+# Xavier Besnard <xavier.besnard@neuf.fr>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-urlhandler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-19 15:54+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.04.2\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Geoffray Levasseur, Matthieu Robin, Maxime Corteel, Simon Depiets"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"geoffray.levasseurbrandin@numericable.fr, kde@macolu.org, mcorteel@gmail."
+"com, sdepiets@gmail.com"
+
+#: kdeconnect-handler.cpp:43
+#, kde-format
+msgid "KDE Connect URL handler"
+msgstr "Gestionnaire d'URL de KDE Connect"
+
+#: kdeconnect-handler.cpp:49
+#, kde-format
+msgid "(C) 2017 Aleix Pol Gonzalez"
+msgstr "(C) 2017 Aleix Pol Gonzalez"
+
+#: kdeconnect-handler.cpp:65
+#, kde-format
+msgid "URL to share"
+msgstr "URL à partager"
+
+#: kdeconnect-handler.cpp:66
+#, kde-format
+msgid "Select a device"
+msgstr "Sélectionnez un périphérique"
+
+#: kdeconnect-handler.cpp:66
+#, kde-format
+msgid "id"
+msgstr "id"
+
+#: kdeconnect-handler.cpp:102
+#, kde-format
+msgid "Enter URL here"
+msgstr "Saisissez l'URL ici"
+
+#: kdeconnect-handler.cpp:110
+#, kde-format
+msgid "Enter file location here"
+msgstr "Saisissez l'emplacement du fichier ici"
+
+#: kdeconnect-handler.cpp:130
+#, kde-format
+msgid "Device to call %1 with:"
+msgstr "Appareil sur lequel appeler %1 :"
+
+#: kdeconnect-handler.cpp:133
+#, kde-format
+msgid "Device to open %1 on:"
+msgstr "Appareil sur lequel ouvrir %1 :"
+
+#: kdeconnect-handler.cpp:136
+#, kde-format
+msgid "Device to send a SMS with:"
+msgstr "Appareil depuis lequel envoyer un SMS :"
+
+#: kdeconnect-handler.cpp:139
+#, kde-format
+msgid "Device to send %1 to:"
+msgstr "Appareil auquel envoyer %1 :"
+
+#: kdeconnect-handler.cpp:168
+#, kde-format
+msgid "Couldn't share %1"
+msgstr "Impossible de partager %1"

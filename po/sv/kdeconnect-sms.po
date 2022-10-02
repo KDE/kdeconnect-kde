@@ -1,0 +1,243 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-08-03 09:51+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: conversationlistmodel.cpp:197
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is an image"
+msgid "Picture"
+msgstr "Bild"
+
+#: conversationlistmodel.cpp:199
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is a video"
+msgid "Video"
+msgstr "Video"
+
+#: conversationlistmodel.cpp:203
+#, kde-format
+msgctxt ""
+"Used as a text placeholder when the most-recent message is an arbitrary "
+"attachment, resulting in something like \"pdf file\""
+msgid "%1 file"
+msgstr "%1-fil"
+
+#: conversationlistmodel.cpp:219
+#, kde-format
+msgid "You: %1"
+msgstr "Du: %1"
+
+#: conversationlistmodel.cpp:225
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: conversationlistmodel.cpp:267 conversationlistmodel.cpp:289
+#, kde-format
+msgid "%1"
+msgstr "%1"
+
+#: main.cpp:50 qml/main.qml:67
+#, kde-format
+msgid "KDE Connect SMS"
+msgstr "KDE-anslut SMS"
+
+#: main.cpp:52
+#, kde-format
+msgid "SMS Instant Messaging"
+msgstr "SMS-direktmeddelanden"
+
+#: main.cpp:54
+#, kde-format
+msgid "(C) 2018-2022, KDE Connect Team"
+msgstr "© 2018-2022, KDE Connect Team"
+
+#: main.cpp:55
+#, kde-format
+msgid "Simon Redman"
+msgstr "Simon Redman"
+
+#: main.cpp:56
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:57
+#, kde-format
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:75
+#, kde-format
+msgid "Select a device"
+msgstr "Välj en apparat"
+
+#: main.cpp:75
+#, kde-format
+msgid "id"
+msgstr "id"
+
+#: main.cpp:76
+#, kde-format
+msgid "Send a message"
+msgstr "Skicka ett meddelande"
+
+#: main.cpp:76
+#, kde-format
+msgid "message"
+msgstr "meddelande"
+
+#: qml/AttachmentViewer.qml:20
+#, kde-format
+msgid "Open with default"
+msgstr "Öppna med förval"
+
+#: qml/ChatMessage.qml:154
+#, kde-format
+msgid "Copy Message"
+msgstr "Kopiera meddelande"
+
+#: qml/ChatMessage.qml:159
+#, kde-format
+msgid "Copy Selection"
+msgstr "Kopiera markering"
+
+#: qml/ConversationList.qml:24
+#, kde-format
+msgid "No devices available"
+msgstr "Inga apparater tillgängliga"
+
+#: qml/ConversationList.qml:34
+#, kde-format
+msgid ""
+"No new messages can be sent or received, but you can browse cached content"
+msgstr ""
+"Inga nya meddelanden kan skickas eller tas emot, men du kan bläddra i lagrat "
+"innehåll"
+
+#: qml/ConversationList.qml:50
+#, kde-format
+msgid ""
+"Loading conversations from device. If this takes a long time, please wake up "
+"your device and then click Refresh."
+msgstr ""
+"Läser in konversationer från apparat. Om det tar lång tid, väck apparaten "
+"och klicka sedan på Uppdatera."
+
+#: qml/ConversationList.qml:58
+#, kde-format
+msgid ""
+"Tip: If you plug in your device, it should not go into doze mode and should "
+"load quickly."
+msgstr ""
+"Tips: Om du ansluter apparaten, bör den inte slumra och därmed läsas in "
+"snabbt."
+
+#: qml/ConversationList.qml:66 qml/main.qml:87
+#, kde-format
+msgid "Refresh"
+msgstr "Uppdatera"
+
+#: qml/ConversationList.qml:80
+#, kde-format
+msgid "Choose recipient"
+msgstr "Välj mottagare"
+
+#: qml/ConversationList.qml:85
+#, kde-format
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: qml/ConversationList.qml:112
+#, kde-format
+msgid "Search or start conversation..."
+msgstr "Sök eller starta konversation..."
+
+#: qml/ConversationList.qml:144
+#, kde-format
+msgid "New"
+msgstr "Ny"
+
+#: qml/ConversationList.qml:149
+#, kde-format
+msgid "Start new conversation"
+msgstr "Starta ny konversation"
+
+#: qml/ConversationList.qml:248
+#, kde-format
+msgctxt "Placeholder message text when no messages are found"
+msgid "No matches"
+msgstr "Inga träffar"
+
+#: qml/main.qml:82
+#, kde-format
+msgid "Devices"
+msgstr "Apparater"
+
+#: qml/main.qml:95
+#, kde-format
+msgid "About"
+msgstr "Om"
+
+#: qml/MessageAttachments.qml:131
+#, kde-format
+msgid "Audio clip"
+msgstr "Ljudklipp"
+
+#: qml/SendingArea.qml:24
+#, kde-format
+msgid "Failed to send"
+msgstr "Misslyckades skicka"
+
+#: qml/SendingArea.qml:25
+#, kde-format
+msgid "Max message size limit exceeded."
+msgstr "Maximal meddelandestorlek överskriden."
+
+#: qml/SendingArea.qml:73
+#, kde-format
+msgid "Compose message"
+msgstr "Skriv meddelande"
+
+#~ msgid "Filter..."
+#~ msgstr "Filtrera..."
+
+#~ msgid "No matched results found : ("
+#~ msgstr "Inga matchande resultat hittades"
+
+#~ msgid "(Unsupported Message Type)"
+#~ msgstr "(meddelandetyp stöds inte)"
+
+#~ msgid "Replying to multitarget messages is not supported"
+#~ msgstr "Svar på meddelanden med flera mål stöds inte"
+
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgid "Download"
+#~ msgstr "Ladda ner"

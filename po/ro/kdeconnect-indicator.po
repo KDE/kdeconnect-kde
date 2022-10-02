@@ -1,0 +1,186 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Sergiu Bivol <sergiu@cip.md>, 2020, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-07-26 12:40+0100\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "Răsfoiește dispozitivul"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Ring device"
+msgstr "Sună dispozitivul"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgid "Get a photo"
+msgstr "Ia o poză"
+
+#: deviceindicator.cpp:101
+#, kde-format
+msgid "Send a file/URL"
+msgstr "Trimite un fișier/URL"
+
+#: deviceindicator.cpp:111
+#, kde-format
+msgid "SMS Messages..."
+msgstr "Mesaje SMS..."
+
+#: deviceindicator.cpp:124
+#, kde-format
+msgid "Run command"
+msgstr "Rulează comandă"
+
+#: deviceindicator.cpp:126
+#, kde-format
+msgid "Add commands"
+msgstr "Adaugă comenzi"
+
+#: indicatorhelper_mac.cpp:34
+#, kde-format
+msgid "Launching"
+msgstr "Se lansează"
+
+#: indicatorhelper_mac.cpp:84
+#, kde-format
+msgid "Launching daemon"
+msgstr "Se lansează demonul"
+
+#: indicatorhelper_mac.cpp:93
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "Se așteaptă D-Bus"
+
+#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"Nu se poate conecta la D-Bus\n"
+"KDE Connect se va închide"
+
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "Nu s-a putut găsi kdeconnectd"
+
+#: indicatorhelper_mac.cpp:140
+#, kde-format
+msgid "Loading modules"
+msgstr "Se încarcă module"
+
+#: main.cpp:41
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "Indicator KDE Connect"
+
+#: main.cpp:43
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "Unealtă de indicator KDE Connect"
+
+#: main.cpp:45
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "(C) 2016 Aleix Pol Gonzalez"
+
+#: main.cpp:80
+#, kde-format
+msgid "Configure..."
+msgstr "Configurare..."
+
+#: main.cpp:102
+#, kde-format
+msgid "Pairing requests"
+msgstr "Cereri de asociere"
+
+#: main.cpp:107
+#, kde-format
+msgid "Pair"
+msgstr "Asociază"
+
+#: main.cpp:108
+#, kde-format
+msgid "Reject"
+msgstr "Refuză"
+
+#: main.cpp:114 main.cpp:124
+#, kde-format
+msgid "Quit"
+msgstr "Termină"
+
+#: main.cpp:143 main.cpp:167
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "%1 dispozitiv conectat"
+msgstr[1] "%1 dispozitive conectate"
+msgstr[2] "%1 de dispozitive conectate"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "Fără acumulator"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "Acumulator: %1% (se încarcă)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "Acumulator: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "Fără conectivitate celulară"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"
+
+#~ msgid "Select file to send to '%1'"
+#~ msgstr "Alegeți fișierul de trimis la „%1”"

@@ -1,0 +1,187 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-07-25 08:08+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Matjaž Jeran"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "matjaz.jeran@amis.net"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "Brskaj po napravi"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Ring device"
+msgstr "Pozvoni na napravi"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgid "Get a photo"
+msgstr "Pridobi fotografijo"
+
+#: deviceindicator.cpp:101
+#, kde-format
+msgid "Send a file/URL"
+msgstr "Pošlji datoteko/naslov"
+
+#: deviceindicator.cpp:111
+#, kde-format
+msgid "SMS Messages..."
+msgstr "SMS sporočila..."
+
+#: deviceindicator.cpp:124
+#, kde-format
+msgid "Run command"
+msgstr "Poženi ukaz"
+
+#: deviceindicator.cpp:126
+#, kde-format
+msgid "Add commands"
+msgstr "Dodaj ukaze"
+
+#: indicatorhelper_mac.cpp:34
+#, kde-format
+msgid "Launching"
+msgstr "Zaganjam"
+
+#: indicatorhelper_mac.cpp:84
+#, kde-format
+msgid "Launching daemon"
+msgstr "Zaganjam demona"
+
+#: indicatorhelper_mac.cpp:93
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "Čakam na D-Bus"
+
+#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"Ni se mogoče povezati na DBus\n"
+"KDE Connect bo prenehal"
+
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "Ni mogoče najti kdeconnectd"
+
+#: indicatorhelper_mac.cpp:140
+#, kde-format
+msgid "Loading modules"
+msgstr "Nalaganje modulov"
+
+#: main.cpp:41
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "Indikator KDE Connect"
+
+#: main.cpp:43
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "Orodje indikatorja KDE Connect"
+
+#: main.cpp:45
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "(C) 2016 Aleix Pol Gonzalez"
+
+#: main.cpp:80
+#, kde-format
+msgid "Configure..."
+msgstr "Nastavi..."
+
+#: main.cpp:102
+#, kde-format
+msgid "Pairing requests"
+msgstr "Zahtevki za uparjanje"
+
+#: main.cpp:107
+#, kde-format
+msgid "Pair"
+msgstr "Par"
+
+#: main.cpp:108
+#, kde-format
+msgid "Reject"
+msgstr "Zavrni"
+
+#: main.cpp:114 main.cpp:124
+#, kde-format
+msgid "Quit"
+msgstr "Zapusti"
+
+#: main.cpp:143 main.cpp:167
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "Povezana %1 naprava"
+msgstr[1] "Povezani %1 napravi"
+msgstr[2] "Povezane %1 naprave"
+msgstr[3] "Povezano %1 naprav"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "Ni baterije"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "Baterija: %1% (Se polni)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "Baterija: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "Ni mobilne povezave"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"
+
+#~ msgid "Select file to send to '%1'"
+#~ msgstr "Izberite datoteko, ki jo želite poslati k '%1'"

@@ -1,0 +1,30 @@
+# Spanish translations for kdeconnect-fileitemaction.po package.
+# Copyright (C) 2019 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Automatically generated, 2019.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-fileitemaction\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-04-21 16:51+0100\n"
+"Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: sendfileitemaction.cpp:64
+#, kde-format
+msgid "Send via KDE Connect"
+msgstr "Enviar via KDE Connect"
+
+#: sendfileitemaction.cpp:71
+#, kde-format
+msgid "Send to '%1' via KDE Connect"
+msgstr "Enviar a «%1» via KDE Connect"

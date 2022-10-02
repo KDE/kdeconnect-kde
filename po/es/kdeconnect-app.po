@@ -1,0 +1,223 @@
+# Spanish translations for kdeconnect-app.po package.
+# Copyright (C) 2020 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
+# Automatically generated, 2020.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2020.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-app\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-07-31 16:58+0200\n"
+"Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Víctor Rodrigo Córdoba"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "vrcordoba@gmail.com"
+
+#: main.cpp:30 main.cpp:32
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:34
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "© 2015 Aleix Pol i Gonzalez"
+
+#: main.cpp:35
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:35
+#, kde-format
+msgid "Maintainer"
+msgstr "Mantenedor"
+
+#: main.cpp:51
+#, kde-format
+msgid "URL to share"
+msgstr "URL para compartir"
+
+#: qml/DevicePage.qml:24
+#, kde-format
+msgid "Unpair"
+msgstr "Desemparejar"
+
+#: qml/DevicePage.qml:29
+#, kde-format
+msgid "Send Ping"
+msgstr "Enviar sonido"
+
+#: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
+#, kde-format
+msgid "Plugin Settings"
+msgstr "Preferencias del complemento"
+
+#: qml/DevicePage.qml:63
+#, kde-format
+msgid "Multimedia control"
+msgstr "Control multimedia"
+
+#: qml/DevicePage.qml:70
+#, kde-format
+msgid "Remote input"
+msgstr "Entrada remota"
+
+#: qml/DevicePage.qml:77 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr "Presentación remota"
+
+#: qml/DevicePage.qml:86 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Bloquear"
+
+#: qml/DevicePage.qml:86
+#, kde-format
+msgid "Unlock"
+msgstr "Desbloquear"
+
+#: qml/DevicePage.qml:93
+#, kde-format
+msgid "Find Device"
+msgstr "Encontar dispositivo"
+
+#: qml/DevicePage.qml:98 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr "Ejecutar orden"
+
+#: qml/DevicePage.qml:106
+#, kde-format
+msgid "Share File"
+msgstr "Compartir archivo"
+
+#: qml/DevicePage.qml:111 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr "Control de volumen"
+
+#: qml/DevicePage.qml:120
+#, kde-format
+msgid "This device is not paired"
+msgstr "Este dispositivo no está vinculado"
+
+#: qml/DevicePage.qml:124 qml/FindDevicesPage.qml:23
+#, kde-format
+msgid "Pair"
+msgstr "Emparejar"
+
+#: qml/DevicePage.qml:136
+#, kde-format
+msgid "Pair requested"
+msgstr "Vinculación solicitada"
+
+#: qml/DevicePage.qml:142
+#, kde-format
+msgid "Accept"
+msgstr "Aceptar"
+
+#: qml/DevicePage.qml:148
+#, kde-format
+msgid "Reject"
+msgstr "Rechazar"
+
+#: qml/DevicePage.qml:157
+#, kde-format
+msgid "This device is not reachable"
+msgstr "Este dispositivo no es alcanzable"
+
+#: qml/DevicePage.qml:165
+#, kde-format
+msgid "Please choose a file"
+msgstr "Por favor, elija un archivo"
+
+#: qml/FindDevicesPage.qml:38
+#, kde-format
+msgid "No devices found"
+msgstr "No se encontró ningún dispositivo"
+
+#: qml/FindDevicesPage.qml:51
+#, kde-format
+msgid "Remembered"
+msgstr "Recordado"
+
+#: qml/FindDevicesPage.qml:53
+#, kde-format
+msgid "Available"
+msgstr "Disponible"
+
+#: qml/FindDevicesPage.qml:55
+#, kde-format
+msgid "Connected"
+msgstr "Conectado"
+
+#: qml/main.qml:28
+#, kde-format
+msgid "Find devices..."
+msgstr "Encontrar dispositivos..."
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr "Control remoto"
+
+#: qml/mousepad.qml:59
+#, kde-format
+msgid "Press the left and right mouse buttons at the same time to unlock"
+msgstr ""
+"Pulse los botones derecho e izquierdo del ratón a la vez para desbloquear"
+
+#: qml/mpris.qml:19
+#, kde-format
+msgid "Multimedia Controls"
+msgstr "Controles multimedia"
+
+#: qml/mpris.qml:61
+#, kde-format
+msgid "No players available"
+msgstr "No hay reproductores disponibles"
+
+#: qml/mpris.qml:109
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: qml/presentationRemote.qml:20
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr "Activar pantalla completa"
+
+#: qml/runcommand.qml:21
+#, kde-format
+msgid "Edit commands"
+msgstr "Editar órdenes"
+
+#: qml/runcommand.qml:24
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr "Puede editar órdenes en el dispositivo conectado"
+
+#: qml/runcommand.qml:43
+#, kde-format
+msgid "No commands defined"
+msgstr "No hay ninguna orden definida"

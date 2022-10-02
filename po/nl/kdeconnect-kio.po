@@ -1,0 +1,73 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2014, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-03-13 12:06+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 18.12.2\n"
+
+#: kiokdeconnect.cpp:75
+#, kde-format
+msgid "Listing devices..."
+msgstr "Lijst met apparaten maken..."
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "Accessing device..."
+msgstr "Toegang tot apparaat proberen..."
+
+#: kiokdeconnect.cpp:135
+#, kde-format
+msgid "No such device: %0"
+msgstr "Dit apparaat bestaat niet: %0"
+
+#: kiokdeconnect.cpp:141
+#, kde-format
+msgid "%0 is not paired"
+msgstr "%0 is niet gepaard"
+
+#: kiokdeconnect.cpp:145
+#, kde-format
+msgid "%0 is not connected"
+msgstr "%0 is niet verbonden"
+
+#: kiokdeconnect.cpp:149
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr "%0 heeft geen plug-in voor bestandssysteem op afstand"
+
+#: kiokdeconnect.cpp:208
+#, kde-format
+msgid "Could not contact background service."
+msgstr "Kon geen contact maken met de achtergrondservice."
+
+#~ msgid "Could not mount device filesystem"
+#~ msgstr "Kon het bestandssysteem van het apparaat niet aankoppelen"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Freek de Kruijf"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "freekdekruijf@kde.nl"
+
+#~ msgid "kiokdeconnect"
+#~ msgstr "kiokdeconnect"
+
+#~ msgid "Camera pictures"
+#~ msgstr "Afbeeldingen van camera"
+
+#~ msgid "All files"
+#~ msgstr "Alle bestanden"

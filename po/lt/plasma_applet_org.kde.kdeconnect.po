@@ -1,0 +1,216 @@
+# Lithuanian translations for l package.
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the l package.
+# Automatically generated, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"PO-Revision-Date: 2022-09-19 13:15+0300\n"
+"Last-Translator: Moo <<>>\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1% charging"
+msgstr "%1% įkraunama"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "No info"
+msgstr "Nėra informacijos"
+
+#: package/contents/ui/Connectivity.qml:41
+#, kde-format
+msgid "Unknown"
+msgstr "Nežinoma"
+
+#: package/contents/ui/Connectivity.qml:51
+#, kde-format
+msgid "No signal"
+msgstr "Nėra signalo"
+
+#: package/contents/ui/DeviceDelegate.qml:51
+#, kde-format
+msgid "File Transfer"
+msgstr "Failų persiuntimas"
+
+#: package/contents/ui/DeviceDelegate.qml:52
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr "Tempkite failą, norėdami jį persiųsti į savo telefoną."
+
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Virtual Display"
+msgstr "Virtualus ekranas"
+
+#: package/contents/ui/DeviceDelegate.qml:138
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:160
+#, kde-format
+msgid "Please choose a file"
+msgstr "Pasirinkite failą"
+
+#: package/contents/ui/DeviceDelegate.qml:169
+#, kde-format
+msgid "Share file"
+msgstr "Bendrinti failą"
+
+#: package/contents/ui/DeviceDelegate.qml:178
+#, kde-format
+msgid "Save As"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:191
+#, kde-format
+msgid "Take a photo"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:206
+#, kde-format
+msgid "Ring my phone"
+msgstr "Skambinti į mano telefoną"
+
+#: package/contents/ui/DeviceDelegate.qml:224
+#, kde-format
+msgid "Browse this device"
+msgstr "Naršyti šį įrenginį"
+
+#: package/contents/ui/DeviceDelegate.qml:241
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS žinutės"
+
+#: package/contents/ui/DeviceDelegate.qml:262
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Nuotolinė klaviatūra"
+
+#: package/contents/ui/DeviceDelegate.qml:278
+#, kde-format
+msgid "Notifications:"
+msgstr "Pranešimai:"
+
+#: package/contents/ui/DeviceDelegate.qml:285
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "Atmesti visus pranešimus"
+
+#: package/contents/ui/DeviceDelegate.qml:324
+#, kde-format
+msgid "Reply"
+msgstr "Atsakyti"
+
+#: package/contents/ui/DeviceDelegate.qml:333
+#, kde-format
+msgid "Dismiss"
+msgstr "Atmesti"
+
+#: package/contents/ui/DeviceDelegate.qml:344
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:357
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:373
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:397
+#, kde-format
+msgid "Run command"
+msgstr "Vykdyti komandą"
+
+#: package/contents/ui/DeviceDelegate.qml:405
+#, kde-format
+msgid "Add command"
+msgstr "Pridėti komandą"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "No paired devices"
+msgstr "Nėra suporuotų įrenginių"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "Suporuotas įrenginys neprieinamas"
+msgstr[1] "Visi suporuoti įrenginiai yra neprieinami"
+msgstr[2] "Visi suporuoti įrenginiai yra neprieinami"
+msgstr[3] "Visi suporuoti įrenginiai yra neprieinami"
+
+#: package/contents/ui/FullRepresentation.qml:55
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr ""
+"Įdiekite KDE Connect savo Android įrenginyje, kad integruotumėte jį su "
+"Plasma!"
+
+#: package/contents/ui/FullRepresentation.qml:59
+#, kde-format
+msgid "Pair a Device..."
+msgstr "Suporuoti įrenginį..."
+
+#: package/contents/ui/FullRepresentation.qml:71
+#, kde-format
+msgid "Install from Google Play"
+msgstr "Įdiegti iš Google Play"
+
+#: package/contents/ui/FullRepresentation.qml:81
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "Įdiegti iš F-Droid"
+
+#: package/contents/ui/main.qml:49
+#, kde-format
+msgid "KDE Connect Settings..."
+msgstr "KDE Connect nuostatos..."
+
+#~ msgid "Configure..."
+#~ msgstr "Konfigūruoti..."
+
+#, fuzzy
+#~| msgid "Battery"
+#~ msgctxt ""
+#~ "Display the battery charge percentage with the label \"Battery:\" so the "
+#~ "user knows what is being displayed"
+#~ msgid "Battery: %1"
+#~ msgstr "Akumuliatorius"
+
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
+
+#~ msgid "Share text"
+#~ msgstr "Bendrinti tekstą"
+
+#~ msgid "Charging: %1%"
+#~ msgstr "Įkraunamas: %1%"
+
+#~ msgid "Discharging: %1%"
+#~ msgstr "Išsikrauna: %1%"

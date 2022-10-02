@@ -1,0 +1,74 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Dimitris Kardarakos <dimkard@gmail.com>, 2016.
+# Stelios <sstavra@gmail.com>, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-14 15:47+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Δημήτρης Καρδαράκος,Stelios"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "dimkard@gmail.com,sstavra@gmail.com"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Αίτημα σύζευξης από το %1\n"
+"Πλήκτρο: %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Αποδοχή"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Απόρριψη"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Πλήκτρο προβολής"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "Δαίμων KDE Connect"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Αντικατάσταση μιας υπάρχουσας εκτελούμενης διεργασίας"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""

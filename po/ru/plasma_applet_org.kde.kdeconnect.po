@@ -1,0 +1,212 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Julia Dronova <juliette.tux@gmail.com>, 2013, 2021.
+# Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"PO-Revision-Date: 2022-09-29 21:47+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.08.3\n"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1% charging"
+msgstr "%1%, заряжается"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "No info"
+msgstr "Нет данных"
+
+#: package/contents/ui/Connectivity.qml:41
+#, kde-format
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: package/contents/ui/Connectivity.qml:51
+#, kde-format
+msgid "No signal"
+msgstr "Нет сигнала"
+
+#: package/contents/ui/DeviceDelegate.qml:51
+#, kde-format
+msgid "File Transfer"
+msgstr "Передача файла"
+
+#: package/contents/ui/DeviceDelegate.qml:52
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr "Перетащите файл для его передачи на телефон."
+
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Virtual Display"
+msgstr "Виртуальный экран"
+
+#: package/contents/ui/DeviceDelegate.qml:138
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:160
+#, kde-format
+msgid "Please choose a file"
+msgstr "Выберите файл"
+
+#: package/contents/ui/DeviceDelegate.qml:169
+#, kde-format
+msgid "Share file"
+msgstr "Отправить файл"
+
+#: package/contents/ui/DeviceDelegate.qml:178
+#, kde-format
+msgid "Save As"
+msgstr "Сохранить как"
+
+#: package/contents/ui/DeviceDelegate.qml:191
+#, kde-format
+msgid "Take a photo"
+msgstr "Сделать фотографию"
+
+#: package/contents/ui/DeviceDelegate.qml:206
+#, kde-format
+msgid "Ring my phone"
+msgstr "Найти телефон"
+
+#: package/contents/ui/DeviceDelegate.qml:224
+#, kde-format
+msgid "Browse this device"
+msgstr "Просмотр файлов на устройстве"
+
+#: package/contents/ui/DeviceDelegate.qml:241
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS-сообщения"
+
+#: package/contents/ui/DeviceDelegate.qml:262
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Удалённая клавиатура"
+
+#: package/contents/ui/DeviceDelegate.qml:278
+#, kde-format
+msgid "Notifications:"
+msgstr "Уведомления:"
+
+#: package/contents/ui/DeviceDelegate.qml:285
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "Отклонить все уведомления"
+
+#: package/contents/ui/DeviceDelegate.qml:324
+#, kde-format
+msgid "Reply"
+msgstr "Ответить"
+
+#: package/contents/ui/DeviceDelegate.qml:333
+#, kde-format
+msgid "Dismiss"
+msgstr "Отклонить"
+
+#: package/contents/ui/DeviceDelegate.qml:344
+#, kde-format
+msgid "Cancel"
+msgstr "Отмена"
+
+#: package/contents/ui/DeviceDelegate.qml:357
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr "Ответить %1…"
+
+#: package/contents/ui/DeviceDelegate.qml:373
+#, kde-format
+msgid "Send"
+msgstr "Отправить"
+
+#: package/contents/ui/DeviceDelegate.qml:397
+#, kde-format
+msgid "Run command"
+msgstr "Выполнить команду"
+
+#: package/contents/ui/DeviceDelegate.qml:405
+#, kde-format
+msgid "Add command"
+msgstr "Добавить команду"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "No paired devices"
+msgstr "Отсутствуют сопряжённые устройства"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "Все сопряжённые устройства недоступны"
+msgstr[1] "Все сопряжённые устройства недоступны"
+msgstr[2] "Все сопряжённые устройства недоступны"
+msgstr[3] "Сопряжённое устройство недоступно"
+
+#: package/contents/ui/FullRepresentation.qml:55
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr ""
+"Установите KDE Connect на вашем устройстве под управлением Android, чтобы "
+"интегрировать его с Plasma!"
+
+#: package/contents/ui/FullRepresentation.qml:59
+#, kde-format
+msgid "Pair a Device..."
+msgstr "Запустить сопряжение..."
+
+#: package/contents/ui/FullRepresentation.qml:71
+#, kde-format
+msgid "Install from Google Play"
+msgstr "Установить из Google Play"
+
+#: package/contents/ui/FullRepresentation.qml:81
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "Установить из F-Droid"
+
+#: package/contents/ui/main.qml:49
+#, kde-format
+msgid "KDE Connect Settings..."
+msgstr "Настроить KDE Connect..."
+
+#~ msgid "Configure..."
+#~ msgstr "Настроить..."
+
+#~ msgctxt ""
+#~ "Display the battery charge percentage with the label \"Battery:\" so the "
+#~ "user knows what is being displayed"
+#~ msgid "Battery: %1"
+#~ msgstr "Батарея: %1"
+
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
+
+#~ msgid "Charging: %1%"
+#~ msgstr "Заряжается: %1%"
+
+#~ msgid "Discharging: %1%"
+#~ msgstr "Разряжается: %1%"

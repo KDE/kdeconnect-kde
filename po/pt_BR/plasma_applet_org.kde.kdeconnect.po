@@ -1,0 +1,205 @@
+# Translation of plasma_applet_org.kde.kdeconnect.po to Brazilian Portuguese
+# Copyright (C) 2015-2019 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2015, 2016, 2018, 2019.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"PO-Revision-Date: 2022-07-13 11:57-0300\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1% charging"
+msgstr "%1% carregando"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "No info"
+msgstr "Sem informações"
+
+#: package/contents/ui/Connectivity.qml:41
+#, kde-format
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: package/contents/ui/Connectivity.qml:51
+#, kde-format
+msgid "No signal"
+msgstr "Sem sinal"
+
+#: package/contents/ui/DeviceDelegate.qml:51
+#, kde-format
+msgid "File Transfer"
+msgstr "Transferência de arquivo"
+
+#: package/contents/ui/DeviceDelegate.qml:52
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr "Solte um arquivo para transferir para o seu celular."
+
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Virtual Display"
+msgstr "Tela virtual"
+
+#: package/contents/ui/DeviceDelegate.qml:138
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:160
+#, kde-format
+msgid "Please choose a file"
+msgstr "Escolha um arquivo"
+
+#: package/contents/ui/DeviceDelegate.qml:169
+#, kde-format
+msgid "Share file"
+msgstr "Compartilhar arquivo"
+
+#: package/contents/ui/DeviceDelegate.qml:178
+#, kde-format
+msgid "Save As"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:191
+#, kde-format
+msgid "Take a photo"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:206
+#, kde-format
+msgid "Ring my phone"
+msgstr "Tocar meu celular"
+
+#: package/contents/ui/DeviceDelegate.qml:224
+#, kde-format
+msgid "Browse this device"
+msgstr "Navegar neste dispositivo"
+
+#: package/contents/ui/DeviceDelegate.qml:241
+#, kde-format
+msgid "SMS Messages"
+msgstr "Mensagens SMS"
+
+#: package/contents/ui/DeviceDelegate.qml:262
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Teclado remoto"
+
+#: package/contents/ui/DeviceDelegate.qml:278
+#, kde-format
+msgid "Notifications:"
+msgstr "Notificações:"
+
+#: package/contents/ui/DeviceDelegate.qml:285
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "Descartar todas as notificações"
+
+#: package/contents/ui/DeviceDelegate.qml:324
+#, kde-format
+msgid "Reply"
+msgstr "Responder"
+
+#: package/contents/ui/DeviceDelegate.qml:333
+#, kde-format
+msgid "Dismiss"
+msgstr "Descartar"
+
+#: package/contents/ui/DeviceDelegate.qml:344
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:357
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:373
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:397
+#, kde-format
+msgid "Run command"
+msgstr "Executar comando"
+
+#: package/contents/ui/DeviceDelegate.qml:405
+#, kde-format
+msgid "Add command"
+msgstr "Adicionar comando"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "No paired devices"
+msgstr "Nenhum dispositivo emparelhado"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "O dispositivo emparelhado não está disponível"
+msgstr[1] "Todos os dispositivos emparelhados não estão disponíveis"
+
+#: package/contents/ui/FullRepresentation.qml:55
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr ""
+"Instalar o KDE Connect no seu dispositivo Android para integrá-lo ao Plasma!"
+
+#: package/contents/ui/FullRepresentation.qml:59
+#, kde-format
+msgid "Pair a Device..."
+msgstr "Emparelhar um dispositivo..."
+
+#: package/contents/ui/FullRepresentation.qml:71
+#, kde-format
+msgid "Install from Google Play"
+msgstr "Instalar da Google Play"
+
+#: package/contents/ui/FullRepresentation.qml:81
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "Instalar do F-Droid"
+
+#: package/contents/ui/main.qml:49
+#, kde-format
+msgid "KDE Connect Settings..."
+msgstr "Configurações do KDE Connect..."
+
+#~ msgid "Configure..."
+#~ msgstr "Configurar..."
+
+#~ msgctxt ""
+#~ "Display the battery charge percentage with the label \"Battery:\" so the "
+#~ "user knows what is being displayed"
+#~ msgid "Battery: %1"
+#~ msgstr "Bateria: %1"
+
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"
+
+#~ msgid "Share text"
+#~ msgstr "Compartilhar texto"

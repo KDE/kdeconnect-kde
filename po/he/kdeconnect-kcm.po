@@ -1,0 +1,199 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# elkana bardugo <ttv200@gmail.com>, 2016.
+# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kcm\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2017-05-24 07:49-0400\n"
+"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Zanata 3.9.6\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "אלקנה ברדוגו"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ttv200@gmail.com"
+
+#: kcm.cpp:37
+#, kde-format
+msgid "KDE Connect Settings"
+msgstr "הגדרות KDE Connect"
+
+#: kcm.cpp:39
+#, kde-format
+msgid "KDE Connect Settings module"
+msgstr "מודול ההגדרה של KDE Connect"
+
+#: kcm.cpp:41
+#, kde-format
+msgid "(C) 2015 Albert Vaca Cintora"
+msgstr "(C) 2015 Albert Vaca Cintora"
+
+#: kcm.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kcm.cpp:223
+#, kde-format
+msgid "Key: %1"
+msgstr ""
+
+#: kcm.cpp:254
+#, kde-format
+msgid "Available plugins"
+msgstr "תוספים זמינים"
+
+#: kcm.cpp:307
+#, kde-format
+msgid "Error trying to pair: %1"
+msgstr "שגיאה בניסיון להתאים: %1"
+
+#: kcm.cpp:328
+#, kde-format
+msgid "(paired)"
+msgstr "(מתואם)"
+
+#: kcm.cpp:331
+#, kde-format
+msgid "(not paired)"
+msgstr "(לא מתואם)"
+
+#: kcm.cpp:334
+#, kde-format
+msgid "(incoming pair request)"
+msgstr "(בקשת התאמה נכנסת)"
+
+#: kcm.cpp:337
+#, kde-format
+msgid "(pairing requested)"
+msgstr "(בקשת התאמה)"
+
+#. i18n: ectx: property (text), widget (QLabel, rename_label)
+#: kcm.ui:59
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
+#: kcm.ui:82
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
+#: kcm.ui:104
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, refresh_button)
+#: kcm.ui:120
+#, kde-format
+msgid "Refresh"
+msgstr "רענן"
+
+#. i18n: ectx: property (text), widget (QLabel, name_label)
+#: kcm.ui:193
+#, kde-format
+msgid "Device"
+msgstr "התקן"
+
+#. i18n: ectx: property (text), widget (QLabel, status_label)
+#: kcm.ui:209
+#, kde-format
+msgid "(status)"
+msgstr "(מצב)"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, accept_button)
+#: kcm.ui:276
+#, kde-format
+msgid "Accept"
+msgstr "אשר"
+
+#. i18n: ectx: property (text), widget (QPushButton, reject_button)
+#: kcm.ui:283
+#, kde-format
+msgid "Reject"
+msgstr "דחה"
+
+#. i18n: ectx: property (text), widget (QPushButton, pair_button)
+#: kcm.ui:296
+#, kde-format
+msgid "Request pair"
+msgstr "בקש התאמה"
+
+#. i18n: ectx: property (text), widget (QPushButton, unpair_button)
+#: kcm.ui:309
+#, kde-format
+msgid "Unpair"
+msgstr "בטל התאמה"
+
+#. i18n: ectx: property (text), widget (QPushButton, ping_button)
+#: kcm.ui:322
+#, kde-format
+msgid "Send ping"
+msgstr "שלח פינג"
+
+#. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
+#: kcm.ui:360
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>If you own an Android device, make sure to install "
+#| "the <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+#| "kdeconnect_tp\"><span style=\" text-decoration: underline; \">KDE Connect "
+#| "Android app</span></a> (also available <a href=\"https://f-droid.org/"
+#| "repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+#| "decoration: underline; \">from F-Droid</span></a>) and it should appear "
+#| "in the list.</p></body></html>"
+msgid ""
+"<html><head/><body><p>No device selected.<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+"available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
+"are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
+"Community wiki</span></a> for help.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>אם יש לך מכשיר אנדרואיד, וודא שהתקנת את <a href="
+"\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
+"\"><span style=\" text-decoration: underline; \">יישום האנדרואיד KDE "
+"Connect</span></a> (זמין גם <a href=\"https://f-droid.org/repository/browse/?"
+"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; \">מ־"
+"F-Droid</span></a>) וצריך להופיע הרשימה.</p></body></html>"
+
+#~ msgid "No device selected."
+#~ msgstr "לא נבחרו התקנים"
+
+#~ msgid ""
+#~ "<html><head/><body><p>If you are having problems, visit the <a href="
+#~ "\"https://community.kde.org/KDEConnect\"><span style=\" text-decoration: "
+#~ "underline; \">KDE Connect Community wiki</span></a> for help.</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>אם אתם נתקלים בבעיות, בקרו ב<a href=\"https://"
+#~ "community.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
+#~ "\">קהילת הויקי של KDE Connect</span></a> לעזרה.</p></body></html>"

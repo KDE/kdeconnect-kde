@@ -1,0 +1,183 @@
+# Malayalam translations for kdeconnect-kde package.
+# Copyright (C) 2020 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-03-22 10:50+0000\n"
+"Last-Translator: Subin Siby <subins2000@gmail.com>\n"
+"Language-Team: SMC <smc.org.in>\n"
+"Language: ml\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "വിവേക് കെ ജെ,ആദിത്യ കെ,സുബിന്‍ സിബി"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "vivekkj2004@gmail.com,adithyak04@gmail.com,subins2000@gmail.com"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "ഉപകരണം തുറക്കുക"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Ring device"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgid "Get a photo"
+msgstr ""
+
+#: deviceindicator.cpp:101
+#, fuzzy, kde-format
+#| msgid "Send file"
+msgid "Send a file/URL"
+msgstr "ഫയൽ അയയ്ക്കുക"
+
+#: deviceindicator.cpp:111
+#, kde-format
+msgid "SMS Messages..."
+msgstr "എസ്.എം.എസ്. സന്ദേശങ്ങൾ"
+
+#: deviceindicator.cpp:124
+#, kde-format
+msgid "Run command"
+msgstr "ആജ്ഞ റൺ ചെയ്യുക"
+
+#: deviceindicator.cpp:126
+#, kde-format
+msgid "Add commands"
+msgstr "ആജ്ഞകൾ കൂട്ടിച്ചേർക്കുക"
+
+#: indicatorhelper_mac.cpp:34
+#, kde-format
+msgid "Launching"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:84
+#, kde-format
+msgid "Launching daemon"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:93
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "D-Bus നായി കാത്തിരിക്കുന്നു"
+
+#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "KDE Connect"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:135
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "kdeconnectd കണ്ടുപിടിക്കാൻ കഴിഞ്ഞില്ല"
+
+#: indicatorhelper_mac.cpp:140
+#, kde-format
+msgid "Loading modules"
+msgstr ""
+
+#: main.cpp:41
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr ""
+
+#: main.cpp:43
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr ""
+
+#: main.cpp:45
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr ""
+
+#: main.cpp:80
+#, kde-format
+msgid "Configure..."
+msgstr ""
+
+#: main.cpp:102
+#, kde-format
+msgid "Pairing requests"
+msgstr ""
+
+#: main.cpp:107
+#, kde-format
+msgid "Pair"
+msgstr ""
+
+#: main.cpp:108
+#, kde-format
+msgid "Reject"
+msgstr "നിരസിക്കുക"
+
+#: main.cpp:114 main.cpp:124
+#, kde-format
+msgid "Quit"
+msgstr ""
+
+#: main.cpp:143 main.cpp:167
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] ""
+msgstr[1] ""
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "ബാറ്ററി തീർന്നു"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "ബാറ്ററി: %1% (ചാർജ് ചെയ്തുകൊണ്ടിരിക്കുന്നു.)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "ബാറ്ററി: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr ""
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr ""
+
+#~ msgid "Select file to send to '%1'"
+#~ msgstr "'%1' ത്തിലേക്ക് അയയ്ക്കാനുള്ള ഫയൽ തിരഞ്ഞെടുക്കുക "

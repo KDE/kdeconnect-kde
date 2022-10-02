@@ -1,0 +1,79 @@
+# Translation of kdeconnect-kded.po to Catalan (Valencian)
+# Copyright (C) 2014-2022 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2019, 2020, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-13 12:59+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antoni Bella"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "antonibella5@yahoo.com"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"S'ha demanat aparellar des de %1\n"
+"Clau: %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Obri"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Accepta"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Rebutja"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Visualitza la clau"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "Dimoni de KDE Connect"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Substituïx una instància existent"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+"Inicia un dimoni D-Bus privat amb «kdeconnectd» (només amb finalitat de "
+"proves de macOS)"

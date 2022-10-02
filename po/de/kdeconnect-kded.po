@@ -1,0 +1,210 @@
+# Burkhard Lück <lueck@hube-lueck.de>, 2013, 2014, 2019, 2020, 2021.
+# Frederik Schwarzer <schwarzer@kde.org>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-04-18 14:24+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Burkhard Lück"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lueck@hube-lueck.de"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Kopplungsanfrage von %1 \n"
+"Schlüssel: %2 ..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Öffnen"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Annehmen"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Ablehnen"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Schlüssel anzeigen"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "KDE Connect-Dienst"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Eine bestehende Instanz ersetzen"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+
+#~ msgid "kdeconnect"
+#~ msgstr "KdeConnect"
+
+#~ msgid "Connect your devices and KDE"
+#~ msgstr "Verbinden Sie Ihre Geräte mit KDE"
+
+#~ msgid "Already paired"
+#~ msgstr "Bereits verbunden"
+
+#~ msgid "Pairing already requested for this device"
+#~ msgstr "Die Verbindung für dieses Gerät wurde bereits angefragt"
+
+#~ msgid "Device not reachable"
+#~ msgstr "Das Gerät ist nicht erreichbar"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Fehler beim Verbinden mit dem Gerät"
+
+#~ msgid "Timed out"
+#~ msgstr "Zeitüberschreitung"
+
+#~ msgid "Canceled by other peer"
+#~ msgstr "Abbruch durch Gegenstelle"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Falschen Schlüssen erhalten"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Vom Benutzer abgebrochen"
+
+#~ msgid "Receiving file over KDE-Connect"
+#~ msgstr "Datei wird über KDE-Connect empfangen"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Von"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Eingehende Datei existiert bereits"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Zu"
+
+#~ msgid "Received incomplete file"
+#~ msgstr "Unvollständige Datei erhalten"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1: Niedriger Ladestand"
+
+#~ msgid "Battery at %1%"
+#~ msgstr "Akku %1 % geladen"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Modul für das Anhalten der Musikwiedergabe"
+
+#~ msgid "Pause condition"
+#~ msgstr "Bedingung für Anhalten"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "So schnell wie möglich anhalten"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Anhalten nur beim Sprechen"
+
+#~ msgid "Mute system instead of pause"
+#~ msgstr "System Stummschalten anstatt Anhalten"
+
+#~ msgid "Ping!"
+#~ msgstr "Ping!"
+
+#~ msgid "Failed to start sshfs"
+#~ msgstr "Start von SSHFS ist fehlgeschlagen"
+
+#~ msgid "Error when accessing to filesystem"
+#~ msgstr "Fehler beim Zugriff auf das Dateisystem"
+
+#~ msgid "Failed to mount filesystem: device not responding"
+#~ msgstr "Fehler beim Einbinden des Dateisystems: Das Gerät antwortet nicht"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Modul-Einstellungen für Veröffentlichung"
+
+#~ msgid "Error"
+#~ msgstr "Fehler"
+
+#, fuzzy
+#~| msgid "sshfsf not found in PATH"
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "SSHFS wurde im Pfad („PATH“) nicht gefunden"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "Verbindung bei Inaktivität trennen"
+
+#~ msgid "Timeout:"
+#~ msgstr "Zeitüberschreitung:"
+
+#~ msgid " min"
+#~ msgstr " Min"
+
+#~ msgid "Device %1"
+#~ msgstr "Gerät %1"
+
+#~ msgid "Receiving"
+#~ msgstr "Empfang"
+
+#~ msgid "Save files in:"
+#~ msgstr "Dateien speichern unter:"
+
+#~ msgid "Transfer finished"
+#~ msgstr "Übertragung abgeschlossen"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Zielordner öffnen"
+
+#~ msgid "unknown number"
+#~ msgstr "Unbekannte Nummer"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Eingehender Anruf von %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Verpasster Anruf von %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS von %1: %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Unbekanntes Telefon-Ereignis: %2"
+
+#~ msgid "Mountpoint:"
+#~ msgstr "Mount-Punkt:"
+
+#~ msgid "Filesystem mounted at %1"
+#~ msgstr "Dateisystem eingebunden an %1"
+
+#~ msgid "Filesystem unmounted"
+#~ msgstr "Einbindung des Dateisystems gelöst"

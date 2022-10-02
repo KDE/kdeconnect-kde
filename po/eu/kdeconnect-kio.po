@@ -1,0 +1,62 @@
+# Translation of kdeconnect-kio.po to Euskara/Basque (eu).
+# Copyright (C) 2017, Free Software Foundation, Inc.
+# Copyright (C) 2019, This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# KDE euskaratzeko proiektuaren arduraduna <xalba@euskalnet.net>.
+#
+# Translators:
+# Osoitz <oelkoro@gmail.com>, 2017.
+# Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-11-16 07:46+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 19.08.3\n"
+
+#: kiokdeconnect.cpp:75
+#, kde-format
+msgid "Listing devices..."
+msgstr "Gailuak zerrendatzen..."
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "Accessing device..."
+msgstr "Gailua atzitzen..."
+
+#: kiokdeconnect.cpp:135
+#, kde-format
+msgid "No such device: %0"
+msgstr "Ed dago horrelako gailurik: %0"
+
+#: kiokdeconnect.cpp:141
+#, kde-format
+msgid "%0 is not paired"
+msgstr "%0 ez dago parekatuta"
+
+#: kiokdeconnect.cpp:145
+#, kde-format
+msgid "%0 is not connected"
+msgstr "%0 ez dago konektatuta"
+
+#: kiokdeconnect.cpp:149
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr "%0 ez du urruneko fitxategi-sistema pluginik"
+
+#: kiokdeconnect.cpp:208
+#, kde-format
+msgid "Could not contact background service."
+msgstr "Ezin izan da atzeko planoko zerbitzuarekin kontaktatu"
+
+#~ msgid "Could not mount device filesystem"
+#~ msgstr "Ezin izan da gailuaren fitxategi-sistema muntatu"

@@ -1,0 +1,29 @@
+# Translation of kdeconnect-fileitemaction.po to Brazilian Portuguese
+# Copyright (C) 2019 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-05-02 22:39-0300\n"
+"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 19.04.0\n"
+
+#: sendfileitemaction.cpp:64
+#, kde-format
+msgid "Send via KDE Connect"
+msgstr "Enviar via KDE Connect"
+
+#: sendfileitemaction.cpp:71
+#, kde-format
+msgid "Send to '%1' via KDE Connect"
+msgstr "Enviar para '%1' via KDE Connect"

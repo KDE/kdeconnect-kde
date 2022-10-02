@@ -1,0 +1,39 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-11-28 10:18+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#: dbushelpers.h:19 dbushelpers.h:29
+#, kde-format
+msgid "error: "
+msgstr "napaka: "
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "Naprava je zaupanja vredna in povezana"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device not trusted"
+msgstr "Naprava ni zaupanja vredna"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device disconnected"
+msgstr "Naprava ni povezana"

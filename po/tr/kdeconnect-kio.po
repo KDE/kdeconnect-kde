@@ -1,0 +1,57 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Volkan Gezer <volkangezer@gmail.com>, 2017, 2021.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-03-30 22:27+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: kiokdeconnect.cpp:75
+#, kde-format
+msgid "Listing devices..."
+msgstr "Aygıtlar listeleniyor..."
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "Accessing device..."
+msgstr "Aygıta erişiliyor ..."
+
+#: kiokdeconnect.cpp:135
+#, kde-format
+msgid "No such device: %0"
+msgstr "Böyle bir aygıt yok: %0"
+
+#: kiokdeconnect.cpp:141
+#, kde-format
+msgid "%0 is not paired"
+msgstr "%0 eşlenmemiş"
+
+#: kiokdeconnect.cpp:145
+#, kde-format
+msgid "%0 is not connected"
+msgstr "%0 bağlı değil"
+
+#: kiokdeconnect.cpp:149
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr "%0 uzak dosya sistemi eklentisi yok"
+
+#: kiokdeconnect.cpp:208
+#, kde-format
+msgid "Could not contact background service."
+msgstr "Arka plan hizmeti ile bağlantı kurulamadı."
+
+#~ msgid "Could not mount device filesystem"
+#~ msgstr "Aygıt dosya sistemi bağlanamadı"

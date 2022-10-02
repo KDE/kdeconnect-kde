@@ -1,0 +1,189 @@
+# Translation of plasma_applet_org.kde.kdeconnect to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"PO-Revision-Date: 2022-06-18 14:53+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.04.2\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1% charging"
+msgstr "%1 % – ladar"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "%1%"
+msgstr "%1 %"
+
+#: package/contents/ui/Battery.qml:26
+#, kde-format
+msgid "No info"
+msgstr "Ingen info"
+
+#: package/contents/ui/Connectivity.qml:41
+#, kde-format
+msgid "Unknown"
+msgstr "Ukjend"
+
+#: package/contents/ui/Connectivity.qml:51
+#, kde-format
+msgid "No signal"
+msgstr "Inkje signal"
+
+#: package/contents/ui/DeviceDelegate.qml:51
+#, kde-format
+msgid "File Transfer"
+msgstr "Filoverføring"
+
+#: package/contents/ui/DeviceDelegate.qml:52
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr "Slepp ei fil for å overføra ho til telefonen."
+
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Virtual Display"
+msgstr "Virtuell skjerm"
+
+#: package/contents/ui/DeviceDelegate.qml:138
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1 %"
+
+#: package/contents/ui/DeviceDelegate.qml:160
+#, kde-format
+msgid "Please choose a file"
+msgstr "Vel ei fil"
+
+#: package/contents/ui/DeviceDelegate.qml:169
+#, kde-format
+msgid "Share file"
+msgstr "Del fil"
+
+#: package/contents/ui/DeviceDelegate.qml:178
+#, kde-format
+msgid "Save As"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:191
+#, kde-format
+msgid "Take a photo"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:206
+#, kde-format
+msgid "Ring my phone"
+msgstr "Ring telefonen"
+
+#: package/contents/ui/DeviceDelegate.qml:224
+#, kde-format
+msgid "Browse this device"
+msgstr "Bla gjennom eininga"
+
+#: package/contents/ui/DeviceDelegate.qml:241
+#, kde-format
+msgid "SMS Messages"
+msgstr "Tekstmeldingar"
+
+#: package/contents/ui/DeviceDelegate.qml:262
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Fjerntastatur"
+
+#: package/contents/ui/DeviceDelegate.qml:278
+#, kde-format
+msgid "Notifications:"
+msgstr "Varslingar:"
+
+#: package/contents/ui/DeviceDelegate.qml:285
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "Lukk alle varslingar"
+
+#: package/contents/ui/DeviceDelegate.qml:324
+#, kde-format
+msgid "Reply"
+msgstr "Svar"
+
+#: package/contents/ui/DeviceDelegate.qml:333
+#, kde-format
+msgid "Dismiss"
+msgstr "Lukk"
+
+#: package/contents/ui/DeviceDelegate.qml:344
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:357
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:373
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:397
+#, kde-format
+msgid "Run command"
+msgstr "Køyr kommando"
+
+#: package/contents/ui/DeviceDelegate.qml:405
+#, kde-format
+msgid "Add command"
+msgstr "Legg til kommando"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "No paired devices"
+msgstr "Ingen para einingar"
+
+#: package/contents/ui/FullRepresentation.qml:53
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "Para eining er utilgjengeleg"
+msgstr[1] "Alle para einingar er utilgjengelege"
+
+#: package/contents/ui/FullRepresentation.qml:55
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr "Installert KDE Connect på Android-eininga di for Plasma-integrasjon!"
+
+#: package/contents/ui/FullRepresentation.qml:59
+#, kde-format
+msgid "Pair a Device..."
+msgstr "Par ny eining …"
+
+#: package/contents/ui/FullRepresentation.qml:71
+#, kde-format
+msgid "Install from Google Play"
+msgstr "Installer via Google Play"
+
+#: package/contents/ui/FullRepresentation.qml:81
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "Installer via F-Droid"
+
+#: package/contents/ui/main.qml:49
+#, kde-format
+msgid "KDE Connect Settings..."
+msgstr "Innstillingar for KDE Connect …"

@@ -1,0 +1,211 @@
+# Translation of kdeconnect-core.po to Ukrainian
+# Copyright (C) 2014-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2018, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-core\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-02-01 13:16+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.11.70\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "Скасовано іншим вузлом"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: вже пов’язано"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: запит щодо пов’язування цього пристрою вже надійшов"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "Перевищено час очікування"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "Не вдалося знайти доступний порт"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "Не вдалося надіслати пакет до %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "Надсилаємо на %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "Файл"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"Зв’язатися з цим пристроєм не можна, оскільки на ньому запущено застарілу "
+"версію KDE Connect."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "Отримуємо файли"
+msgstr[1] "Отримуємо файли"
+msgstr[2] "Отримуємо файли"
+msgstr[3] "Отримуємо файл"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Джерело"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Призначення"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "Вже пов’язано"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "Пристрій недоступний"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "Відбиток SHA256 сертифіката пристрою: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "Відбиток SHA256 сертифіката віддаленого пристрою: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "Файл із такою назвою вже існує"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "Файл отримано не повністю: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "Файл отримано не повністю від %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "Не вдалося запустити засіб з’єднання KDE"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"Не вдалося виявити підтримки RSA у встановленій вами версії QCA. Якщо у "
+"вашому дистрибутиві передбачено окремі пакунки для QCA-ossl і QCA-gnupg, "
+"встановіть обидва і повторіть спробу."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "Не вдалося зберегти файл закритого ключа: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "Не вдалося зберегти файл сертифіката: %1"
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "Надіслано %1 файл"
+#~ msgstr[1] "Надіслано %1 файли"
+#~ msgstr[2] "Надіслано %1 файлів"
+#~ msgstr[3] "Надіслано файл"
+
+#~ msgid "Progress"
+#~ msgstr "Поступ"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "Надсилаємо файл %1 з %2"
+
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "Отримуємо файл %1 з %2"
+
+#~ msgid "Receiving file over KDE Connect"
+#~ msgstr "Отримуємо файл за допомогою KDE Connect"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Звідки"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Куди"
+
+#~ msgid "Finished sending to %1"
+#~ msgstr "Завершено надсилання на %1"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Помилка під час спроби встановити зв’язок із пристроєм"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Отримано помилковий ключ"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Скасовано користувачем"
+
+#~ msgid "Pairing request from %1"
+#~ msgstr "Запит щодо пов’язування від %1"
+
+#~ msgid "Accept"
+#~ msgstr "Прийняти"
+
+#~ msgid "Reject"
+#~ msgstr "Відхилити"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Вхідний файл вже існує"
+
+#~ msgctxt "Device name that will appear on the jobs"
+#~ msgid "KDE-Connect"
+#~ msgstr "KDE-Connect"

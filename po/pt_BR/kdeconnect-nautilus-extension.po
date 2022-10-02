@@ -1,0 +1,28 @@
+# Translation of kdeconnect-nautilus-extension.po to Brazilian Portuguese
+# Copyright (C) 2019 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-19 00:44+0000\n"
+"PO-Revision-Date: 2019-07-07 10:19-0300\n"
+"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 19.04.2\n"
+
+#: kdeconnect-share.py:106
+#, python-format
+msgid "Send to %s via KDE Connect"
+msgstr "Enviar para %s via KDE Connect"
+
+#: kdeconnect-share.py:113
+msgid "Send via KDE Connect"
+msgstr "Enviar via KDE Connect"

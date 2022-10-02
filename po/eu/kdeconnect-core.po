@@ -1,0 +1,178 @@
+# Translation for kdeconnect-core.po to Euskara/Basque (eu).
+# Copyright (C) 2017, Free Software Foundation, Inc.
+# Copyright (C) 2019-2021, This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+#
+# Translators:
+# Osoitz <oelkoro@gmail.com>, 2017.
+# Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-13 18:17+0200\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.04.2\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "Beste kideak utzita"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: dagoeneko parekatuta"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: Parekatzea eskatu da dagoeneko gailu honentzat"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "Denbora-muga agortu da"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "Ezin izan da ataka eskuragarri bat aurkitu"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "%1(r)i paketea bidaltzea huts egin du"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "%1(r)i bidaltzen"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "Fitxategia"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"Gailu hau ezin da parekatu KDE Connect-en bertsio zahar bar darabilelako."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "Fitxategia jasotzen"
+msgstr[1] "Fitxategiak jasotzen"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Sorburua"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Jomuga"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "Dagoeneko parekatua"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "Gailua ez dago eskuragarri"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "Zure gailuaren ziurtagiriaren SHA256 hatz-marka hau da: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "Urruneko gailuaren ziurtagiriaren SHA256 hatz-marka hau da: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "Fitxategi-izena badago aurretik"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "Osatu gabeko fitxategia jaso da: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "Osatu gabeko fitxategia jaso da hemendik: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "KDE Connect-ek huts egin du abiatzean"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"Ezin izan da RSA euskarria aurkitu zure QCA instalazioan. Zure banaketak QCA-"
+"ossl eta QCA-gnupg euskarrirako pakete bereiziak baditu, egiaztatu "
+"instalatuta dituzula eta saiatu berriro."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "Ezin izan da gako pribatuaren fitxategia gorde: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "Ezin izan da ziurtagiriaren fitxategia gorde: %1"
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "Fitxategi 1 bidali da"
+#~ msgstr[1] "%1 fitxategi bidali dira"
+
+#~ msgid "Progress"
+#~ msgstr "Aurrerapena"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "%1/%2 fitxategia bidaltzen"
+
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "%1/%2 fitxategia jasotzen"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Hemendik:"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Hona: "

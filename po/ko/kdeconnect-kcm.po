@@ -1,0 +1,211 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2014, 2015, 2017, 2018, 2019, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-11-12 00:01+0100\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 21.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: kcm.cpp:37
+#, kde-format
+msgid "KDE Connect Settings"
+msgstr "KDE Connect 설정"
+
+#: kcm.cpp:39
+#, kde-format
+msgid "KDE Connect Settings module"
+msgstr "KDE Connect 설정 모듈"
+
+#: kcm.cpp:41
+#, kde-format
+msgid "(C) 2015 Albert Vaca Cintora"
+msgstr "(C) 2015 Albert Vaca Cintora"
+
+#: kcm.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kcm.cpp:223
+#, kde-format
+msgid "Key: %1"
+msgstr "키: %1"
+
+#: kcm.cpp:254
+#, kde-format
+msgid "Available plugins"
+msgstr "사용 가능한 플러그인"
+
+#: kcm.cpp:307
+#, kde-format
+msgid "Error trying to pair: %1"
+msgstr "페어링 중 오류 발생: %1"
+
+#: kcm.cpp:328
+#, kde-format
+msgid "(paired)"
+msgstr "(페어링됨)"
+
+#: kcm.cpp:331
+#, kde-format
+msgid "(not paired)"
+msgstr "(페어링되지 않음)"
+
+#: kcm.cpp:334
+#, kde-format
+msgid "(incoming pair request)"
+msgstr "(들어오는 페어링 요청)"
+
+#: kcm.cpp:337
+#, kde-format
+msgid "(pairing requested)"
+msgstr "(페어링 요청됨)"
+
+#. i18n: ectx: property (text), widget (QLabel, rename_label)
+#: kcm.ui:59
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
+#: kcm.ui:82
+#, kde-format
+msgid "Edit"
+msgstr "편집"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
+#: kcm.ui:104
+#, kde-format
+msgid "Save"
+msgstr "저장"
+
+#. i18n: ectx: property (text), widget (QPushButton, refresh_button)
+#: kcm.ui:120
+#, kde-format
+msgid "Refresh"
+msgstr "새로 고침"
+
+#. i18n: ectx: property (text), widget (QLabel, name_label)
+#: kcm.ui:193
+#, kde-format
+msgid "Device"
+msgstr "장치"
+
+#. i18n: ectx: property (text), widget (QLabel, status_label)
+#: kcm.ui:209
+#, kde-format
+msgid "(status)"
+msgstr "(상태)"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr "🔑 abababab"
+
+#. i18n: ectx: property (text), widget (QPushButton, accept_button)
+#: kcm.ui:276
+#, kde-format
+msgid "Accept"
+msgstr "수락"
+
+#. i18n: ectx: property (text), widget (QPushButton, reject_button)
+#: kcm.ui:283
+#, kde-format
+msgid "Reject"
+msgstr "거부"
+
+#. i18n: ectx: property (text), widget (QPushButton, pair_button)
+#: kcm.ui:296
+#, kde-format
+msgid "Request pair"
+msgstr "페어링 요청"
+
+#. i18n: ectx: property (text), widget (QPushButton, unpair_button)
+#: kcm.ui:309
+#, kde-format
+msgid "Unpair"
+msgstr "페어링 해제"
+
+#. i18n: ectx: property (text), widget (QPushButton, ping_button)
+#: kcm.ui:322
+#, kde-format
+msgid "Send ping"
+msgstr "핑 보내기"
+
+#. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
+#: kcm.ui:360
+#, kde-format
+msgid ""
+"<html><head/><body><p>No device selected.<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+"available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
+"are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
+"Community wiki</span></a> for help.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>장치를 선택하지 않았습니다.<br><br>안드로이드 장치가 있"
+"으면 <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">KDE Connect 안드로이드 앱</span></a>(<a href=\"https://f-droid.org/"
+"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline; color:#4c6b8a;\">F-Droid</span></a>에서도 사용 가능) "
+"앱을 설치해야 장치가 목록에 나타납니다.<br><br>계속 문제가 발생한다면 <a "
+"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect 커뮤니티 위키</span></a>에서 도움말"
+"을 볼 수 있습니다.</p></body></html>"
+
+#~ msgid "(C) 2018 Nicolas Fella"
+#~ msgstr "(C) 2018 Nicolas Fella"
+
+#~ msgid "No device selected."
+#~ msgstr "장치를 선택하지 않았습니다."
+
+#~ msgid ""
+#~ "<html><head/><body><p>If you are having problems, visit the <a href="
+#~ "\"https://community.kde.org/KDEConnect\"><span style=\" text-decoration: "
+#~ "underline; \">KDE Connect Community wiki</span></a> for help.</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>문제가 발생했으면 <a href=\"https://community.kde."
+#~ "org/KDEConnect\"><span style=\" text-decoration: underline;\">KDE Connect "
+#~ "커뮤니티 위키</span></a>를 방문하셔서 도움을 얻으십시오.</p></body></html>"
+
+#, fuzzy
+#~| msgid "Available plugins"
+#~ msgid "Unavailable plugins"
+#~ msgstr "사용 가능한 플러그인"
+
+#~ msgid "Plugins unsupported by the device"
+#~ msgstr "장치에서 플러그인 지원하지 않음"
+
+#~ msgid "Plugins"
+#~ msgstr "플러그인"
+
+#~ msgid "Browse"
+#~ msgstr "탐색"

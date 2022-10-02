@@ -1,0 +1,91 @@
+# Translation of kdeconnect-urlhandler.po to Ukrainian
+# Copyright (C) 2017-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2017, 2018, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-urlhandler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-18 08:34+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: kdeconnect-handler.cpp:43
+#, kde-format
+msgid "KDE Connect URL handler"
+msgstr "Обробник адрес KDE Connect"
+
+#: kdeconnect-handler.cpp:49
+#, kde-format
+msgid "(C) 2017 Aleix Pol Gonzalez"
+msgstr "© Aleix Pol Gonzalez, 2017"
+
+#: kdeconnect-handler.cpp:65
+#, kde-format
+msgid "URL to share"
+msgstr "Адреса для оприлюднення"
+
+#: kdeconnect-handler.cpp:66
+#, kde-format
+msgid "Select a device"
+msgstr "Виберіть пристрій"
+
+#: kdeconnect-handler.cpp:66
+#, kde-format
+msgid "id"
+msgstr "ід."
+
+#: kdeconnect-handler.cpp:102
+#, kde-format
+msgid "Enter URL here"
+msgstr "Тут можна ввести адресу"
+
+#: kdeconnect-handler.cpp:110
+#, kde-format
+msgid "Enter file location here"
+msgstr "Тут можна ввести місце зберігання файла"
+
+#: kdeconnect-handler.cpp:130
+#, kde-format
+msgid "Device to call %1 with:"
+msgstr "Пристрій, за допомогою якого слід подзвонити %1:"
+
+#: kdeconnect-handler.cpp:133
+#, kde-format
+msgid "Device to open %1 on:"
+msgstr "Пристрій, за допомогою якого слід відкрити %1:"
+
+#: kdeconnect-handler.cpp:136
+#, kde-format
+msgid "Device to send a SMS with:"
+msgstr "Пристрій, за допомогою якого слід надіслати SMS:"
+
+#: kdeconnect-handler.cpp:139
+#, kde-format
+msgid "Device to send %1 to:"
+msgstr "Пристрій, за допомогою якого слід надіслати %1:"
+
+#: kdeconnect-handler.cpp:168
+#, kde-format
+msgid "Couldn't share %1"
+msgstr "Не вдалося надати у спільне користування %1"

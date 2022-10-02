@@ -1,0 +1,352 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
+# Dmitry Serov <dmitri.s93@gmail.com>, 2015.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2021.
+# Дронова Юлия <juliette.tux@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-07-26 18:15+0300\n"
+"Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
+"Language-Team: RU\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Александр Поташев,Дмитрий Серов,Олеся Герасименко, Дронова Юлия"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"aspotashev@gmail.com,dmitri.s93@gmail.com,gammaray@basealt.ru, juliette."
+"tux@gmail.com"
+
+#: kdeconnect-cli.cpp:31
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "Утилита командной строки для KDE Connect"
+
+#: kdeconnect-cli.cpp:33
+#, kde-format
+msgid "(C) 2015 Aleix Pol Gonzalez"
+msgstr "© Aleix Pol Gonzalez, 2015"
+
+#: kdeconnect-cli.cpp:36
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: kdeconnect-cli.cpp:37
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kdeconnect-cli.cpp:39
+#, kde-format
+msgid "List all devices"
+msgstr "Показать список всех устройств."
+
+#: kdeconnect-cli.cpp:41
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "Показать список доступных устройств (сопряжённых и на связи)."
+
+#: kdeconnect-cli.cpp:43
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"С параметрами --list-devices или --list-available выводить только "
+"идентификаторы устройств, для облегчения написания сценариев"
+
+#: kdeconnect-cli.cpp:45
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"С параметрами --list-devices или --list-available выводить только имена "
+"устройств, для облегчения написания сценариев"
+
+#: kdeconnect-cli.cpp:47
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"С параметрами --list-devices или --list-available выводить только имена и "
+"идентификаторы устройств, для облегчения написания сценариев"
+
+#: kdeconnect-cli.cpp:48
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "Выполнить поиск устройств в сети и возобновить подключения."
+
+#: kdeconnect-cli.cpp:49
+#, kde-format
+msgid "Request pairing to a said device"
+msgstr "Запросить сопряжение с указанным устройством."
+
+#: kdeconnect-cli.cpp:50
+#, kde-format
+msgid "Find the said device by ringing it."
+msgstr "Найти устройство при помощи звукового сигнала."
+
+#: kdeconnect-cli.cpp:51
+#, kde-format
+msgid "Stop pairing to a said device"
+msgstr "Разорвать сопряжение с указанным устройством."
+
+#: kdeconnect-cli.cpp:52
+#, kde-format
+msgid "Sends a ping to said device"
+msgstr "Отправить тестовый сигнал на выбранное устройство."
+
+#: kdeconnect-cli.cpp:53
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "Аналог ping, но можно выбрать показываемое сообщение"
+
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#, kde-format
+msgid "message"
+msgstr "сообщение"
+
+#: kdeconnect-cli.cpp:54
+#, kde-format
+msgid "Share a file/URL to a said device"
+msgstr "Поделиться файлом/URL с выбранным устройством."
+
+#: kdeconnect-cli.cpp:55
+#, kde-format
+msgid "Share text to a said device"
+msgstr "Поделиться текстом с выбранным устройством."
+
+#: kdeconnect-cli.cpp:56
+#, kde-format
+msgid "Display the notifications on a said device"
+msgstr "Показать уведомления на указанном устройстве"
+
+#: kdeconnect-cli.cpp:57
+#, kde-format
+msgid "Lock the specified device"
+msgstr "Заблокировать указанное устройство."
+
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "Разблокировать указанное устройство."
+
+#: kdeconnect-cli.cpp:59
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "Отправить SMS. Необходимо указать получателя."
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "Номер телефона для отправки сообщения"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "phone number"
+msgstr "номер телефона"
+
+#: kdeconnect-cli.cpp:62
+#, kde-format
+msgid ""
+"File urls to send attachments with the message (can be passed multiple times)"
+msgstr ""
+"Адреса URL файлов для отправки прикреплённого содержимого (можно указывать "
+"более одного раза)"
+
+#: kdeconnect-cli.cpp:63
+#, kde-format
+msgid "file urls"
+msgstr "адреса URL файлов"
+
+#: kdeconnect-cli.cpp:64
+#, kde-format
+msgid "Device ID"
+msgstr "Идентификатор устройства."
+
+#: kdeconnect-cli.cpp:65
+#, kde-format
+msgid "Device Name"
+msgstr "Имя устройства"
+
+#: kdeconnect-cli.cpp:66
+#, kde-format
+msgid "Get encryption info about said device"
+msgstr "Получить информацию о шифровании на выбранном устройстве."
+
+#: kdeconnect-cli.cpp:67
+#, kde-format
+msgid "Lists remote commands and their ids"
+msgstr "Показывает список удалённых команд и их идентификаторов."
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "Executes a remote command by id"
+msgstr "Выполнение удалённой команды по идентификатору."
+
+#: kdeconnect-cli.cpp:70
+#, kde-format
+msgid "Sends keys to a said device"
+msgstr "Отправка нажатий клавиш на выбранное устройство"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "Показать идентификатор этого устройства и выйти."
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Open the connected device's camera and transfer the photo"
+msgstr ""
+"Запустить камеру на присоединённом устройстве, сделать и передать фотографию."
+
+#: kdeconnect-cli.cpp:120
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(сопряжено и на связи)"
+
+#: kdeconnect-cli.cpp:122
+#, kde-format
+msgid "(reachable)"
+msgstr "(на связи)"
+
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:144
+#, kde-format
+msgid "(paired)"
+msgstr "(сопряжено)"
+
+#: kdeconnect-cli.cpp:130
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "Найдено %1 устройство."
+msgstr[1] "Найдены %1 устройства."
+msgstr[2] "Найдены %1 устройств."
+msgstr[3] "Найдено %1 устройство."
+
+#: kdeconnect-cli.cpp:132
+#, kde-format
+msgid "No devices found"
+msgstr "Устройств не найдено."
+
+#: kdeconnect-cli.cpp:146
+#, kde-format
+msgid "(unpaired)"
+msgstr "(сопряжение не создано)"
+
+#: kdeconnect-cli.cpp:183
+#, kde-format
+msgid ""
+"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
+"device. \n"
+"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
+"View complete help with --help option"
+msgstr ""
+"Устройство не указано: для указания устройства используйте параметр «-d "
+"<идентификатор устройства>» или параметр «-n <имя устройства>».\n"
+"Для определения идентификаторов или имён устройств служит команда "
+"«kdeconnect-cli -i».\n"
+"Для просмотра полной справки по использованию программы, запустите её с "
+"параметром «--help»."
+
+#: kdeconnect-cli.cpp:216
+#, kde-format
+msgid "Shared %1"
+msgstr "Создан общий доступ к %1"
+
+#: kdeconnect-cli.cpp:225
+#, kde-format
+msgid "Shared text: %1"
+msgstr "Создан общий доступ к тексту: %1"
+
+#: kdeconnect-cli.cpp:232
+#, kde-format
+msgctxt "device has requested to lock peer device"
+msgid "Requested to lock %1."
+msgstr "Запрошено блокирование %1."
+
+#: kdeconnect-cli.cpp:234
+#, kde-format
+msgctxt "device has requested to unlock peer device"
+msgid "Requested to unlock %1."
+msgstr "Запрошено разблокирование %1."
+
+#: kdeconnect-cli.cpp:241
+#, kde-format
+msgid "waiting for device..."
+msgstr "ожидание устройства…"
+
+#: kdeconnect-cli.cpp:255
+#, kde-format
+msgid "Device not found"
+msgstr "Устройство не найдено."
+
+#: kdeconnect-cli.cpp:257
+#, kde-format
+msgid "Already paired"
+msgstr "Устройство уже сопряжено."
+
+#: kdeconnect-cli.cpp:259
+#, kde-format
+msgid "Pair requested"
+msgstr "Запрошено сопряжение."
+
+#: kdeconnect-cli.cpp:266
+#, kde-format
+msgid "Already not paired"
+msgstr "Сопряжение уже разорвано"
+
+#: kdeconnect-cli.cpp:268
+#, kde-format
+msgid "Unpaired"
+msgstr "Сопряжение разорвано"
+
+#: kdeconnect-cli.cpp:308
+#, kde-format
+msgid ""
+"error: should specify the SMS's recipient by passing --destination <phone "
+"number>"
+msgstr ""
+"ошибка: необходимо указать получателя SMS, передав параметр «--destination "
+"<номер телефона>»"
+
+#: kdeconnect-cli.cpp:327
+#, kde-format
+msgid "Please specify a filename for the photo"
+msgstr "Укажите имя файла фотографии."
+
+#: kdeconnect-cli.cpp:374
+#, kde-format
+msgid "Nothing to be done"
+msgstr "Нет действий для выполнения"
+
+#~ msgid "No device specified"
+#~ msgstr "Устройство не выбрано."
+
+#~ msgid "Device does not exist"
+#~ msgstr "Устройство не существует."
+
+#~ msgid "Couldn't share %1"
+#~ msgstr "Не удалось отправить %1"
+
+#~ msgid "error: "
+#~ msgstr "ошибка: "

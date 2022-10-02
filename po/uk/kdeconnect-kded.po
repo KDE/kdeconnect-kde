@@ -1,0 +1,219 @@
+# Translation of kdeconnect-kded.po to Ukrainian
+# Copyright (C) 2013-2021 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2014, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kded\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-13 08:43+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Запит щодо пов’язування від %1\n"
+"Ключ: %2…"
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Відкрити"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Прийняти"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Відмовити"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Переглянути ключ"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "Фонова служба KDE Connect"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Замінити наявний екземпляр"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+"Запустити приватну фонову службу D-Bus разом із kdeconnectd (лише для "
+"тестування у macOS)"
+
+#~ msgid "kdeconnect"
+#~ msgstr "kdeconnect"
+
+#~ msgid "Connect your devices and KDE"
+#~ msgstr "Зв’язок ваших пристроїв з KDE"
+
+#~ msgid "Already paired"
+#~ msgstr "Вже пов’язано"
+
+#~ msgid "Pairing already requested for this device"
+#~ msgstr "Запит щодо пов’язування з цим пристроєм уже надіслано"
+
+#~ msgid "Device not reachable"
+#~ msgstr "Немає доступу до пристрою"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Помилка під час спроби зв’язатися з пристроєм"
+
+#~ msgid "Timed out"
+#~ msgstr "Час очікування вичерпано"
+
+#~ msgid "Canceled by other peer"
+#~ msgstr "Скасовано з іншого вузла пов’язування"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Отримано некоректний ключ"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Скасовано користувачем"
+
+#~ msgid "Receiving file over KDE-Connect"
+#~ msgstr "Отримуємо файл за допомогою KDE-Connect"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Походження"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Вхідний файл вже існує"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Призначення"
+
+#~ msgid "Received incomplete file"
+#~ msgstr "Отримано незавершений файл"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1: низький рівень заряду"
+
+#~ msgid "Battery at %1%"
+#~ msgstr "Рівень заряду — %1%"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Додаток призупинення відтворення"
+
+#~ msgid "Pause condition"
+#~ msgstr "Умова призупинення"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Призупиняти, щойно надійде телефонний дзвінок"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Призупинити лише на час розмови"
+
+#~ msgid "Mute system instead of pause"
+#~ msgstr "Вимкнути звук замість призупинення"
+
+#~ msgid "Ping!"
+#~ msgstr "Перевірити!"
+
+#~ msgid "Failed to start sshfs"
+#~ msgstr "Не вдалося запустити sshfs"
+
+#~ msgid "Error when accessing to filesystem"
+#~ msgstr "Помилка під час спроби доступу до файлової системи"
+
+#~ msgid "Failed to mount filesystem: device not responding"
+#~ msgstr "Не вдалося змонтувати файлову систему: пристрій не відповідає"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Параметри додатка спільного користування"
+
+#~ msgid "Error"
+#~ msgstr "Помилка"
+
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "sshfs не знайдено у каталогах PATH"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "Від’єднуватися за бездіяльності"
+
+#~ msgid "Timeout:"
+#~ msgstr "Час очікування:"
+
+#~ msgid " min"
+#~ msgstr " хв."
+
+#~ msgid "Device %1"
+#~ msgstr "Пристрій %1"
+
+#~ msgid "Receiving"
+#~ msgstr "Отримання"
+
+#~ msgid "Save files in:"
+#~ msgstr "Зберігати файли до:"
+
+#~ msgid "%1  in the path will be replaced with the specific device name."
+#~ msgstr "%1 у записі шляху буде замінено на специфічну назву пристрою."
+
+#~ msgid "Transfer finished"
+#~ msgstr "Передавання завершено"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Відкрити теку призначення"
+
+#~ msgid "unknown number"
+#~ msgstr "невідоме число"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Вхідний дзвінок від %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Пропущено дзвінок від %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS від %1: %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Невідома подія телефонії: %2"
+
+#~ msgid "Mountpoint:"
+#~ msgstr "Точка монтування:"
+
+#~ msgid "Filesystem mounted at %1"
+#~ msgstr "Файлову систему змонтовано до %1"
+
+#~ msgid "Filesystem unmounted"
+#~ msgstr "Файлову систему демонтовано"

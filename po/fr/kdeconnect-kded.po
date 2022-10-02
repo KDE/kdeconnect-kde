@@ -1,0 +1,226 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Joëlle Cornavin <jcorn@free.fr>, 2013.
+# Vincent PINON <vincent.pinon@st.com>, 2013.
+# Nicolas Ménard <nico.menard@gmail.com>, 2014.
+# Sebastien Renard <renard@kde.org>, 2014, 2015.
+# Maxime Corteel <mcorteel@gmail.com>, 2017.
+# Simon Depiets <sdepiets@gmail.com>, 2019, 2020.
+# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-13 19:57+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sébastien Renard, Simon Depiets, Xavier Besnard"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "renard@kde.org, sdepiets@gmail.com, xavier.besnard@neuf.fr"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Demande d'association provenant de %1\n"
+"Clé : %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Ouvrir"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Accepter"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Rejeter"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Afficher la clé"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "Démon KDE Connect"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Remplacer une instance existante"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+"Lancer un démon privé « D-Bus » avec le processus "
+"« kdeconnectd » (Uniquement pour des besoins de tests sous MacOs)"
+
+#~ msgid "kdeconnect"
+#~ msgstr "kdeconnect"
+
+#~ msgid "Connect your devices and KDE"
+#~ msgstr "Connecter vos périphériques avec KDE"
+
+#~ msgid "Already paired"
+#~ msgstr "Déjà apparié"
+
+#~ msgid "Pairing already requested for this device"
+#~ msgstr "Appariement déjà demandé pour ce périphérique"
+
+#~ msgid "Device not reachable"
+#~ msgstr "Périphérique non accessible"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Erreur lors du contact du périphérique"
+
+#~ msgid "Timed out"
+#~ msgstr "Délai expiré"
+
+#~ msgid "Canceled by other peer"
+#~ msgstr "Annulé par l'autre homologue"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Clé incorrecte reçue"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Annulé par l'utilisateur"
+
+#~ msgid "Receiving file over KDE-Connect"
+#~ msgstr "Réception d'un fichier via KDE-Connect"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Depuis"
+
+#~ msgid "Incoming file exists"
+#~ msgstr "Le fichier entrant existe"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "À"
+
+#~ msgid "Received incomplete file"
+#~ msgstr "Fichier incomplet reçu"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1 : batterie faible"
+
+#~ msgid "Battery at %1%"
+#~ msgstr "Batterie à %1 %"
+
+#~ msgid "Pause music plugin"
+#~ msgstr "Module de mise en pause de la musique"
+
+#~ msgid "Pause condition"
+#~ msgstr "Condition de mise en pause"
+
+#~ msgid "Pause as soon as phone rings"
+#~ msgstr "Mettre en pause dès que le téléphone sonne"
+
+#~ msgid "Pause only while talking"
+#~ msgstr "Mettre en pause seulement en parlant"
+
+#~ msgid "Mute system instead of pause"
+#~ msgstr "Mettre en sourdine plutôt qu'en pause"
+
+#~ msgid "Ping!"
+#~ msgstr "Ping !"
+
+#~ msgid "Failed to start sshfs"
+#~ msgstr "Impossible de démarrer sshfs"
+
+#~ msgid "Error when accessing to filesystem"
+#~ msgstr "Erreur lors de l'accès au système de fichiers"
+
+#~ msgid "Failed to mount filesystem: device not responding"
+#~ msgstr ""
+#~ "Impossible de monter le système de fichiers : le périphérique ne répond "
+#~ "pas"
+
+#~ msgid "Share plugin settings"
+#~ msgstr "Paramètres du module de partage"
+
+#~ msgid "Error"
+#~ msgstr "Erreur"
+
+#, fuzzy
+#~| msgid "sshfsf not found in PATH"
+#~ msgid "sshfs not found in PATH"
+#~ msgstr "Impossible de trouver sshfsf dans le PATH"
+
+#~ msgid "Disconnect when idle"
+#~ msgstr "Déconnecter en cas d'inactivité"
+
+#~ msgid "Timeout:"
+#~ msgstr "Délai : "
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "Device %1"
+#~ msgstr "Périphérique %1"
+
+#~ msgid "Receiving"
+#~ msgstr "Réception"
+
+#~ msgid "Save files in:"
+#~ msgstr "Enregistrer les fichiers dans :"
+
+#~ msgid "Transfer finished"
+#~ msgstr "Transfert terminé"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Ouvrir le dossier de destination"
+
+#~ msgid "unknown number"
+#~ msgstr "nombre inconnu"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Appel entrant provenant de %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Appel manqué provenant de %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS provenant de %1 : %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Évènement de téléphonie inconnu : %2"
+
+#~ msgid "Mountpoint:"
+#~ msgstr "Point de montage :"
+
+#~ msgid "Filesystem mounted at %1"
+#~ msgstr "Système de fichiers monté à %1"
+
+#~ msgid "Filesystem unmounted"
+#~ msgstr "Système de fichiers libéré"

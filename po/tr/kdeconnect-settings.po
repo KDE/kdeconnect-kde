@@ -1,0 +1,43 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Volkan Gezer <volkangezer@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-07 00:44+0000\n"
+"PO-Revision-Date: 2021-03-23 12:44+0100\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 20.08.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Hasan Kıran"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sunder67@hotmail.com"
+
+#: main.cpp:28 main.cpp:30
+#, kde-format
+msgid "KDE Connect Settings"
+msgstr "KDE Connect Ayarları"
+
+#: main.cpp:32
+#, kde-format
+msgid "(C) 2018-2020 Nicolas Fella"
+msgstr "(C) 2018-2020 Nicolas Fella"
+
+#: main.cpp:36 main.cpp:55
+#, kde-format
+msgid "Arguments for the config module"
+msgstr "Yapılandırma modülü için argümanlar"

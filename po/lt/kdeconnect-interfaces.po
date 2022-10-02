@@ -1,0 +1,40 @@
+# Lithuanian translations for kdeconnect-kde package.
+# Copyright (C) 2019 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2019-12-30 00:49+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: dbushelpers.h:19 dbushelpers.h:29
+#, kde-format
+msgid "error: "
+msgstr "klaida: "
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device trusted and connected"
+msgstr "Įrenginys patikimas ir prijungtas"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device not trusted"
+msgstr "Įrenginys nepatikimas"
+
+#: devicesmodel.cpp:244
+#, kde-format
+msgid "Device disconnected"
+msgstr "Įrenginys atjungtas"

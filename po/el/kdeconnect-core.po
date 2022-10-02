@@ -1,0 +1,185 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Dimitris Kardarakos <dimkard@gmail.com>, 2016.
+# Stelios <sstavra@gmail.com>, 2016, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-14 15:37+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "Ακυρώθηκε από την άλλη πλευρά"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Έχει γίνει ήδη σύζευξη"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: Έχει ήδη ζητηθεί σύζευξη με αυτήν τη συσκευή"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "Λήξη χρονικού περιθωρίου"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "Αδυναμία εύρεσης διαθέσιμης θύρας"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "Αποτυχία αποστολής πακέτου στο %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "Αποστολή στο %1"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "Αρχείο"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"Αδυναμία σύζευξης της συσκευής αυτής επειδή εκτελεί μια παλαιά έκδοση του "
+"KDE Connect."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "Λήψη αρχείου"
+msgstr[1] "Λήψη αρχείων"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "Πηγή"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "Προορισμός"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "Έχει γίνει ήδη σύζευξη"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "Η συσκευή δεν είναι προσβάσιμη"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "Το αποτύπωμα SHA256 του πιστοποιητικού της συσκευής σας είναι: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr ""
+"Το αποτύπωμα SHA256 του πιστοποιητικού της απομακρυσμένης συσκευής είναι: "
+"%1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "Το αρχείο υπάρχει ήδη"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "Λήψη μη ολοκληρωμένου αρχείου: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "Λήψη μη ολοκληρωμένου αρχείου από: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "Αποτυχία εκκίνησης του KDE Connect"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"Αδυναμία εύρεσης υποστήριξης για RSA στην εγκατάσταση του QCA. Αν η διανομή "
+"σας παρέχει ξεχωριστά πακέτα για το QCA-ossl και το QCA-gnupg, εξασφαλίστε "
+"ότι έχουν εγκατασταθεί και ξαναπροσπαθήστε."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "Αδυναμία αποθήκευσης ιδιωτικού κλειδιού: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποιητικού: %1"
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "Εστάλη 1 αρχείο"
+#~ msgstr[1] "Εστάλησαν %1 αρχεία"
+
+#~ msgid "Progress"
+#~ msgstr "Πρόοδος"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "Αποστολή αρχείου %1 από %2"
+
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "Λήψη αρχείου %1 από %2"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "Από"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "Προς"
+
+#~ msgid "Error contacting device"
+#~ msgstr "Σφάλμα κατά την επικοινωνία με τη συσκευή"
+
+#~ msgid "Received incorrect key"
+#~ msgstr "Λήψη λανθασμένου κλειδιού"
+
+#~ msgid "Canceled by the user"
+#~ msgstr "Ακυρώθηκε από τον χρήστη"

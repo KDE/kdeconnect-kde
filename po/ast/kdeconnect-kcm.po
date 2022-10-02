@@ -1,0 +1,195 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# enolp <enolp@softastur.org>, 2019, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-11-28 01:46+0100\n"
+"Last-Translator: enolp <enolp@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"Language: ast\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.11.80\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Softastur"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alministradores@softastur.org"
+
+#: kcm.cpp:37
+#, kde-format
+msgid "KDE Connect Settings"
+msgstr "Axustes de KDE Connect"
+
+#: kcm.cpp:39
+#, kde-format
+msgid "KDE Connect Settings module"
+msgstr "Módulu d'axustes de KDE Connect"
+
+#: kcm.cpp:41
+#, kde-format
+msgid "(C) 2015 Albert Vaca Cintora"
+msgstr "(C) 2015 Albert Vaca Cintora"
+
+#: kcm.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kcm.cpp:223
+#, kde-format
+msgid "Key: %1"
+msgstr ""
+
+#: kcm.cpp:254
+#, kde-format
+msgid "Available plugins"
+msgstr "Plugins disponibles"
+
+#: kcm.cpp:307
+#, kde-format
+msgid "Error trying to pair: %1"
+msgstr "Fallu al tentar d'empareyase con %1"
+
+#: kcm.cpp:328
+#, kde-format
+msgid "(paired)"
+msgstr "(empareyóse)"
+
+#: kcm.cpp:331
+#, kde-format
+msgid "(not paired)"
+msgstr "(nun s'empareyó)"
+
+#: kcm.cpp:334
+#, kde-format
+msgid "(incoming pair request)"
+msgstr "(solicitú entrante d'empareyamientu)"
+
+#: kcm.cpp:337
+#, kde-format
+msgid "(pairing requested)"
+msgstr "(solicitóse l'empareyamientu)"
+
+#. i18n: ectx: property (text), widget (QLabel, rename_label)
+#: kcm.ui:59
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
+#: kcm.ui:82
+#, kde-format
+msgid "Edit"
+msgstr "Editar"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
+#: kcm.ui:104
+#, kde-format
+msgid "Save"
+msgstr "Guardar"
+
+#. i18n: ectx: property (text), widget (QPushButton, refresh_button)
+#: kcm.ui:120
+#, kde-format
+msgid "Refresh"
+msgstr "Refrescar"
+
+#. i18n: ectx: property (text), widget (QLabel, name_label)
+#: kcm.ui:193
+#, kde-format
+msgid "Device"
+msgstr "Preséu"
+
+#. i18n: ectx: property (text), widget (QLabel, status_label)
+#: kcm.ui:209
+#, kde-format
+msgid "(status)"
+msgstr "(estáu)"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, accept_button)
+#: kcm.ui:276
+#, kde-format
+msgid "Accept"
+msgstr "Aceutar"
+
+#. i18n: ectx: property (text), widget (QPushButton, reject_button)
+#: kcm.ui:283
+#, kde-format
+msgid "Reject"
+msgstr "Refugar"
+
+#. i18n: ectx: property (text), widget (QPushButton, pair_button)
+#: kcm.ui:296
+#, kde-format
+msgid "Request pair"
+msgstr "Solicitar l'empareyamientu"
+
+#. i18n: ectx: property (text), widget (QPushButton, unpair_button)
+#: kcm.ui:309
+#, kde-format
+msgid "Unpair"
+msgstr "Desempareyar"
+
+#. i18n: ectx: property (text), widget (QPushButton, ping_button)
+#: kcm.ui:322
+#, kde-format
+msgid "Send ping"
+msgstr "Unviar un ping"
+
+#. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
+#: kcm.ui:360
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
+#| "device, make sure to install the <a href=\"https://play.google.com/store/"
+#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
+#| "you are having problems, visit the <a href=\"https://community.kde.org/"
+#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+msgid ""
+"<html><head/><body><p>No device selected.<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+"available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
+"are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
+"Community wiki</span></a> for help.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Nun s'esbilló nengún preséu.<br><br>Si tienes unu con "
+"Android, asegúrate d'instalar l'aplicación <a href=\"https://play.google.com/"
+"store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline; color:#4c6b8a;\">KDE Connect</span></a> (tamién "
+"disponible <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">en F-Droid</span></a>) pa qu'apaeza na llista.<br><br>Si tas teniendo "
+"problemes, visita la wiki de la comunidá de <a href=\"https://community.kde."
+"org/KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">KDE Connect</span></a> pa más ayuda.</p></body></html>"
+
+#~ msgid "(C) 2018 Nicolas Fella"
+#~ msgstr "(C) 2018 Nicolas Fella"

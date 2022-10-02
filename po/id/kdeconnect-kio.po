@@ -1,0 +1,56 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Wantoyo <wantoyek@gmail.com>, 2018, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-08-26 23:44+0700\n"
+"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
+"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#: kiokdeconnect.cpp:75
+#, kde-format
+msgid "Listing devices..."
+msgstr "Pendaftaran peranti..."
+
+#: kiokdeconnect.cpp:120
+#, kde-format
+msgid "Accessing device..."
+msgstr "Pengaksesan peranti..."
+
+#: kiokdeconnect.cpp:135
+#, kde-format
+msgid "No such device: %0"
+msgstr "Tidak ada peranti seperti: %0"
+
+#: kiokdeconnect.cpp:141
+#, kde-format
+msgid "%0 is not paired"
+msgstr "%0 tidaklah disandingkan"
+
+#: kiokdeconnect.cpp:145
+#, kde-format
+msgid "%0 is not connected"
+msgstr "%0 tidaklah terkoneksi"
+
+#: kiokdeconnect.cpp:149
+#, kde-format
+msgid "%0 has no Remote Filesystem plugin"
+msgstr "%0 tidak memiliki Remote Filesystem"
+
+#: kiokdeconnect.cpp:208
+#, kde-format
+msgid "Could not contact background service."
+msgstr "Tidak bisa mengontak layanan latarbelakang."
+
+#~ msgid "Could not mount device filesystem"
+#~ msgstr "Tidak dapat mengait filesystem perangkat"

@@ -1,0 +1,69 @@
+# Translation of kdeconnect-urlhandler.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-urlhandler\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-02-08 03:18+0100\n"
+"PO-Revision-Date: 2017-06-18 23:13+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr@ijekavianlatin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Časlav Ilić"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "caslav.ilic@gmx.net"
+
+#: kdeconnect-handler.cpp:48
+#, kde-format
+msgid "KDE Connect URL handler"
+msgstr "KDE‑konekcijin rukovalac URL‑ovima"
+
+#: kdeconnect-handler.cpp:54
+#, kde-format
+msgid "(C) 2017 Aleix Pol Gonzalez"
+msgstr "© 2017, Aleks Pol Gonzalez"
+
+#: kdeconnect-handler.cpp:62
+#, kde-format
+msgid "URL to share"
+msgstr "URL za deljenje"
+
+#: kdeconnect-handler.cpp:92
+#, kde-format
+msgid "Device to call %1 with:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:95
+#, kde-format
+msgid "Device to open %1 on:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:98
+#, kde-format
+msgid "Device to send a SMS with:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:101
+#, kde-format
+msgid "Device to send %1 to:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:118
+#, kde-format
+msgid "Couldn't share %1"
+msgstr "Ne mogu da podelim %1"

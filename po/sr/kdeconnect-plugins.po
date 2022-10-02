@@ -1,0 +1,371 @@
+# Translation of kdeconnect-plugins.po into Serbian.
+# Slobodan Simić <slsimic@gmail.com>, 2017.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-plugins\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-05-31 18:06+0200\n"
+"PO-Revision-Date: 2017-09-28 17:57+0200\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: battery/batteryplugin.cpp:147
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: батерија на измаку"
+
+#: battery/batteryplugin.cpp:147
+#, kde-format
+msgid "Battery at %1%"
+msgstr "батерија на %1%"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: findthisdevice/findthisdevice_config.ui:17
+#, kde-format
+msgid "Discovery Utilities"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: findthisdevice/findthisdevice_config.ui:25
+#, kde-format
+msgid "Sound to play:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
+#: findthisdevice/findthisdevice_config.ui:39
+#, kde-format
+msgid "Select the sound to play"
+msgstr ""
+
+#: mousepad/waylandremoteinput.cpp:60 sftp/sftpplugin-win.cpp:85
+#, kde-format
+msgid "KDE Connect"
+msgstr "КДЕ‑конекција"
+
+#: mousepad/waylandremoteinput.cpp:60
+#, kde-format
+msgid "Use your phone as a touchpad and keyboard"
+msgstr "Користите телефон као додирник и тастатуру"
+
+#: notifications/notification.cpp:131
+#, kde-format
+msgid "Reply"
+msgstr "Одговори"
+
+#: notifications/sendreplydialog.cpp:41
+#, kde-format
+msgid "Send"
+msgstr "Пошаљи"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Дијалог"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
+#: pausemusic/pausemusic_config.ui:17
+#, kde-format
+msgid "Pause music plugin"
+msgstr "Прикључак паузирања музике"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: pausemusic/pausemusic_config.ui:32
+#, kde-format
+msgid "Condition"
+msgstr "Услов"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
+#: pausemusic/pausemusic_config.ui:38
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "паузирај чим телефон зазвони"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
+#: pausemusic/pausemusic_config.ui:45
+#, kde-format
+msgid "Pause only while talking"
+msgstr "паузирај само кад се јавим"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: pausemusic/pausemusic_config.ui:61
+#, kde-format
+msgid "Actions"
+msgstr "Радње"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
+#: pausemusic/pausemusic_config.ui:67
+#, kde-format
+msgid "Pause media players"
+msgstr "Паузирај медија плејере"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
+#: pausemusic/pausemusic_config.ui:74
+#, kde-format
+msgid "Mute system sound"
+msgstr "Утишај звукове система"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
+#: pausemusic/pausemusic_config.ui:81
+#, kde-format
+msgid "Automatically resume media when call has finished"
+msgstr ""
+
+#: ping/pingplugin.cpp:49
+#, kde-format
+msgid "Ping!"
+msgstr "Пинг!"
+
+#: runcommand/runcommand_config.cpp:45
+#, kde-format
+msgid "Suspend"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:46
+#, kde-format
+msgid "Maximum Brightness"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:47
+#, kde-format
+msgid "Lock Screen"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:48
+#, kde-format
+msgid "Unlock Screen"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:49
+#, kde-format
+msgid "Close All Vaults"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:50
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:57
+#, kde-format
+msgid "Sample commands"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:66
+#: sendnotifications/notifyingapplicationmodel.cpp:208
+#, kde-format
+msgid "Name"
+msgstr "Назив"
+
+#: runcommand/runcommand_config.cpp:66
+#, kde-format
+msgid "Command"
+msgstr "Наредба"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:43
+#, kde-format
+msgid "Phone is connected"
+msgstr ""
+
+#: sendnotifications/notifyingapplicationmodel.cpp:212
+#, kde-format
+msgid "Blacklisted"
+msgstr "На црној листи"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:216
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "Назив обавештавајућег програма."
+
+#: sendnotifications/notifyingapplicationmodel.cpp:218
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "Синхронизовати обавештења програма?"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:220
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"Регуларним изразом одређује се која обавештења се не шаљу.\n"
+"Овај образац се примењује над сажетком и, ако је означено изнад, садржајем "
+"обавештења."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: sendnotifications/sendnotifications_config.ui:38
+#, kde-format
+msgid "General"
+msgstr "Опште"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:44
+#, kde-format
+msgid "Synchronize only notifications with a timeout value of 0?"
+msgstr "Синхронизовати само обавештења којима је време истека 0?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:47
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Само стална обавештења"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:60
+#, kde-format
+msgid ""
+"Append the notification body to the summary when synchronizing notifications?"
+msgstr "Прикључити садржај сажетку обавештења, приликом синхронизације?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:63
+#, kde-format
+msgid "Include body"
+msgstr "Укључи садржај"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:76
+#, kde-format
+msgid "Synchronize icons of notifying applications if possible?"
+msgstr "Синхронизовати, ако је могуће, и иконицу програма?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:79
+#, kde-format
+msgid "Synchronize icons"
+msgstr "Синхронизуј иконице"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
+#: sendnotifications/sendnotifications_config.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Минимум нивоа хитности обавештења</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:123
+#, kde-format
+msgid "Synchronize only notifications with the given urgency level."
+msgstr "Синхронизује само обавештења са одређеним нивоом хитности."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:126
+#, kde-format
+msgid "Minimum urgency level"
+msgstr "Минимум нивоа хитности"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: sendnotifications/sendnotifications_config.ui:148
+#, kde-format
+msgid "Applications"
+msgstr "Програми"
+
+#: sftp/mounter.cpp:185
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "Не могу да покренем sshfs"
+
+#: sftp/mounter.cpp:189
+#, kde-format
+msgid "sshfs process crashed"
+msgstr ""
+
+#: sftp/mounter.cpp:193
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr ""
+
+#: sftp/mounter.cpp:207
+#, fuzzy, kde-format
+#| msgid "Error when accessing to filesystem"
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr "Грешка у приступу фајл систему"
+
+#: sftp/mounter.cpp:216
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "Неуспело монтирање фајл система: уређај не одговара"
+
+#: sftp/sftpplugin-win.cpp:85
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr ""
+
+#: sftp/sftpplugin.cpp:153
+#, kde-format
+msgid "All files"
+msgstr "сви фајлови"
+
+#: sftp/sftpplugin.cpp:154
+#, kde-format
+msgid "Camera pictures"
+msgstr "Слике са камере"
+
+# ignore-entity: percnt
+#: share/share_config.cpp:38
+#, kde-format
+msgid "&percnt;1 in the path will be replaced with the specific device name."
+msgstr "&percnt;1 у путањи биће замењено са називом уређаја."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
+#: share/share_config.ui:17
+#, kde-format
+msgid "Share plugin settings"
+msgstr "Поставке прикључка дељења"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: share/share_config.ui:23
+#, kde-format
+msgid "Receiving"
+msgstr "Примање"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: share/share_config.ui:31
+#, kde-format
+msgid "Save files in:"
+msgstr "Уписуј фајлове у:"
+
+#: share/shareplugin.cpp:207
+#, kde-format
+msgid "Could not share file"
+msgstr ""
+
+#: share/shareplugin.cpp:207
+#, kde-format
+msgid "%1 does not exist"
+msgstr ""
+
+#: telephony/telephonyplugin.cpp:42
+#, kde-format
+msgid "unknown number"
+msgstr "непознат број"
+
+#: telephony/telephonyplugin.cpp:51
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "Долазни позив: %1"
+
+#: telephony/telephonyplugin.cpp:55
+#, kde-format
+msgid "Missed call from %1"
+msgstr "Пропуштен позив: %1"
+
+#: telephony/telephonyplugin.cpp:83
+#, kde-format
+msgid "Mute Call"
+msgstr "Утишај позив"

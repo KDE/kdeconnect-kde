@@ -1,0 +1,27 @@
+# translation of kdeconnect-fileitemaction.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2019.
+# Dusan Kazik <prescott66@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-fileitemaction\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2020-04-06 08:26+0200\n"
+"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: sendfileitemaction.cpp:64
+#, kde-format
+msgid "Send via KDE Connect"
+msgstr "Odoslať pomocou KDE Connect"
+
+#: sendfileitemaction.cpp:71
+#, kde-format
+msgid "Send to '%1' via KDE Connect"
+msgstr "Odoslať do zariadenia \"%1\" pomocou KDE Connect"

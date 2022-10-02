@@ -1,0 +1,162 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Kishore G <kishore96@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2021-06-29 19:43+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.04.2\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "மறு சாதனத்தால் ரத்து செய்யப்பட்டது"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: ஏற்கனவே இணைந்துள்ளது"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr "%1: இந்த சாதனத்திற்கு இணைப்பு ஏற்கனவே கோரப்பட்டுள்ளது"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "காலாவதி ஆனது"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "பயன்படுத்தக்கூடிய புறையை (port-ஐ) கண்டுபிடிக்க முடியவில்லை"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr "%1 என்பதற்கு packet-ஐ அனுப்புதல் தோல்வியடைந்தது"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr "%1 என்பதற்கு அனுப்பப்படுகிறது"
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr "கோப்பு"
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr ""
+"இந்த சாதனம், கே.டீ.யீ. கனெக்டின் ஓர் பழைய பதிப்பை பயன்படுத்துவதால், அதனுடன் இணைய "
+"முடியாது."
+
+#: compositefiletransferjob.cpp:46
+#, kde-format
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "கோப்பை பெறுதல்"
+msgstr[1] "கோப்புகளை பெறுதல்"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr "மூலம்"
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr "சேருமிடம்"
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "ஏற்கனவே இணைந்துள்ளது"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "சாதனத்தை கிட்ட முடியவில்லை"
+
+#: device.cpp:561
+#, kde-format
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "உங்கள் சாதன சான்றிதழின் SHA256 கைரேகை: %1\n"
+
+#: device.cpp:569
+#, kde-format
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "தொலை சாதன சான்றிதழின் SHA256 கைரேகை: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "இப்பெயருள்ள கோப்பு ஏற்கனவே உள்ளது"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "முடிவடையாத கோப்பு பெறப்பட்டது: %1"
+
+#: filetransferjob.cpp:118
+#, kde-format
+msgid "Received incomplete file from: %1"
+msgstr "இதிலிருந்து முடிவடையாத கோப்பு பெறப்பட்டது: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "கே.டீ.யீ. கனெக்டின் துவக்கம் தோல்வியடைந்தது"
+
+#: kdeconnectconfig.cpp:77
+#, kde-format
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"உங்கள் QCA நிறுவலில் RSA ஆதரவை கண்டுபிடிக்க முடியவில்லை. உங்கள் இயக்குதளம் QCA-ossl "
+"மற்றும் QCA-gnupg ஆகியவற்றிற்கு தனிப்பட்ட தொகுப்புகளை வழங்குமாயின், அவற்றை நிறுவி "
+"மீண்டும் முயற்சிக்கவும்."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr ""
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr ""
+
+#~ msgid "Sent 1 file"
+#~ msgid_plural "Sent %1 files"
+#~ msgstr[0] "1 கோப்பு அனுப்பப்பட்டது"
+#~ msgstr[1] "%1 கோப்புகள் அனுப்பப்பட்டன"
+
+#~ msgid "Progress"
+#~ msgstr "முன்னேற்றம்"
+
+#~ msgid "Sending file %1 of %2"
+#~ msgstr "%2-இல் %1-வது கோப்பு அனுப்பப்படுகிறது"

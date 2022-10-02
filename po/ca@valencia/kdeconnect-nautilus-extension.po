@@ -1,0 +1,30 @@
+# Translation of kdeconnect-nautilus-extension.po to Catalan (Valencian)
+# Copyright (C) 2019 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-19 00:44+0000\n"
+"PO-Revision-Date: 2019-07-06 13:06+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca@valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: kdeconnect-share.py:106
+#, python-format
+msgid "Send to %s via KDE Connect"
+msgstr "Envia a %s a través de KDE Connect"
+
+#: kdeconnect-share.py:113
+msgid "Send via KDE Connect"
+msgstr "Envia a través de KDE Connect"

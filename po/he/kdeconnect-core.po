@@ -1,0 +1,170 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# elkana bardugo <ttv200@gmail.com>, 2016.
+# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-core\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2017-05-24 07:45-0400\n"
+"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Zanata 3.9.6\n"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:56
+#: backends/lan/lanpairinghandler.cpp:52
+#, kde-format
+msgid "Canceled by other peer"
+msgstr "בוטל על ידי ההתקן האחר"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:65
+#: backends/lan/lanpairinghandler.cpp:61
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1 כבר מתואם"
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:68
+#, kde-format
+msgid "%1: Pairing already requested for this device"
+msgstr ""
+
+#: backends/bluetooth/bluetoothpairinghandler.cpp:124
+#: backends/lan/lanpairinghandler.cpp:106
+#, kde-format
+msgid "Timed out"
+msgstr "נגמר הזמן"
+
+#: backends/lan/compositeuploadjob.cpp:82
+#, kde-format
+msgid "Couldn't find an available port"
+msgstr "לא נמצאה יציאה פנויה"
+
+#: backends/lan/compositeuploadjob.cpp:121
+#, kde-format
+msgid "Failed to send packet to %1"
+msgstr ""
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "Sending to %1"
+msgstr ""
+
+#: backends/lan/compositeuploadjob.cpp:287
+#, kde-format
+msgid "File"
+msgstr ""
+
+#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#, kde-format
+msgid ""
+"This device cannot be paired because it is running an old version of KDE "
+"Connect."
+msgstr "אי אפשר להתחבר להתקן המתואם כי הוא מריץ גרסה ישנה מדי של KDE Connect"
+
+#: compositefiletransferjob.cpp:46
+#, fuzzy, kde-format
+#| msgid "Received incomplete file: %1"
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
+msgstr[0] "התקבל קובץ לא במלואו: %1"
+msgstr[1] "התקבל קובץ לא במלואו: %1"
+
+#: compositefiletransferjob.cpp:47
+#, kde-format
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr ""
+
+#: compositefiletransferjob.cpp:48
+#, kde-format
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr ""
+
+#: device.cpp:215
+#, kde-format
+msgid "Already paired"
+msgstr "כבר מתואם"
+
+#: device.cpp:220
+#, kde-format
+msgid "Device not reachable"
+msgstr "ההתקן לא זמין"
+
+#: device.cpp:561
+#, fuzzy, kde-format
+#| msgid "SHA1 fingerprint of your device certificate is: %1\n"
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
+msgstr "טביעת האצבע SHA1 של ההתקן היא: %1\n"
+
+#: device.cpp:569
+#, fuzzy, kde-format
+#| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
+msgstr "טביעת האצבע SHA1 של ההתקן המרוחק היא: %1\n"
+
+#: filetransferjob.cpp:51
+#, kde-format
+msgid "Filename already present"
+msgstr "קיים קובץ בעל שם זהה"
+
+#: filetransferjob.cpp:100
+#, kde-format
+msgid "Received incomplete file: %1"
+msgstr "התקבל קובץ לא במלואו: %1"
+
+#: filetransferjob.cpp:118
+#, fuzzy, kde-format
+#| msgid "Received incomplete file: %1"
+msgid "Received incomplete file from: %1"
+msgstr "התקבל קובץ לא במלואו: %1"
+
+#: kdeconnectconfig.cpp:76
+#, kde-format
+msgid "KDE Connect failed to start"
+msgstr "הפעלת KDE Connect נכשלה"
+
+#: kdeconnectconfig.cpp:77
+#, fuzzy, kde-format
+#| msgid ""
+#| "Could not find support for RSA in your QCA installation. If your "
+#| "distribution provides separate packages for QCA-ossl and QCA-gnupg, make "
+#| "sure you have them installed and try again."
+msgid ""
+"Could not find support for RSA in your QCA installation. If your "
+"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
+"you have them installed and try again."
+msgstr ""
+"לא נמצאה תמיכה ב־RSA בהתקנת ה־QCA שלך. אם ההפצה שלך מספקת חבילות נפרדות ל: "
+"QCA-ossl ו־QCA-gnupg, וודא שהם מותקנות ונסה שוב."
+
+#: kdeconnectconfig.cpp:313
+#, kde-format
+msgid "Could not store private key file: %1"
+msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
+
+#: kdeconnectconfig.cpp:358
+#, kde-format
+msgid "Could not store certificate file: %1"
+msgstr "לא ניתן לאחסן את קובץ התעודה: %1"
+
+#, fuzzy
+#~| msgid "Receiving file over KDE Connect"
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "מקבל קובץ דרך KDE Connect"
+
+#~ msgctxt "File transfer origin"
+#~ msgid "From"
+#~ msgstr "מאת"
+
+#~ msgctxt "File transfer destination"
+#~ msgid "To"
+#~ msgstr "אל"

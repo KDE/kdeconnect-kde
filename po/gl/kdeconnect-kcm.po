@@ -1,0 +1,220 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2018-12-10 19:33+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Adrián Chaves Fernández"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "adrian@chaves.io"
+
+#: kcm.cpp:37
+#, kde-format
+msgid "KDE Connect Settings"
+msgstr "Configuración de KDE Connect"
+
+#: kcm.cpp:39
+#, kde-format
+msgid "KDE Connect Settings module"
+msgstr "Módulo de configuración de KDE Connect"
+
+#: kcm.cpp:41
+#, kde-format
+msgid "(C) 2015 Albert Vaca Cintora"
+msgstr "© 2015 Albert Vaca Cintora"
+
+#: kcm.cpp:44
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "Albert Vaca Cintora"
+
+#: kcm.cpp:223
+#, kde-format
+msgid "Key: %1"
+msgstr ""
+
+#: kcm.cpp:254
+#, kde-format
+msgid "Available plugins"
+msgstr "Complementos dispoñíbeis"
+
+#: kcm.cpp:307
+#, kde-format
+msgid "Error trying to pair: %1"
+msgstr "Produciuse un erro ao intentar emparellarse: %1"
+
+#: kcm.cpp:328
+#, kde-format
+msgid "(paired)"
+msgstr "(emparellado)"
+
+#: kcm.cpp:331
+#, kde-format
+msgid "(not paired)"
+msgstr "(non emparellado)"
+
+#: kcm.cpp:334
+#, kde-format
+msgid "(incoming pair request)"
+msgstr "(recibiuse unha solicitude para emparellar)"
+
+#: kcm.cpp:337
+#, kde-format
+msgid "(pairing requested)"
+msgstr "(solicitouse emparellar)"
+
+#. i18n: ectx: property (text), widget (QLabel, rename_label)
+#: kcm.ui:59
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
+#: kcm.ui:82
+#, kde-format
+msgid "Edit"
+msgstr "Editar"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
+#: kcm.ui:104
+#, kde-format
+msgid "Save"
+msgstr "Gardar"
+
+#. i18n: ectx: property (text), widget (QPushButton, refresh_button)
+#: kcm.ui:120
+#, kde-format
+msgid "Refresh"
+msgstr "Actualizar"
+
+#. i18n: ectx: property (text), widget (QLabel, name_label)
+#: kcm.ui:193
+#, kde-format
+msgid "Device"
+msgstr "Dispositivo"
+
+#. i18n: ectx: property (text), widget (QLabel, status_label)
+#: kcm.ui:209
+#, kde-format
+msgid "(status)"
+msgstr "(estado)"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, accept_button)
+#: kcm.ui:276
+#, kde-format
+msgid "Accept"
+msgstr "Aceptar"
+
+#. i18n: ectx: property (text), widget (QPushButton, reject_button)
+#: kcm.ui:283
+#, kde-format
+msgid "Reject"
+msgstr "Rexeitar"
+
+#. i18n: ectx: property (text), widget (QPushButton, pair_button)
+#: kcm.ui:296
+#, kde-format
+msgid "Request pair"
+msgstr "Solicitar emparellarse"
+
+#. i18n: ectx: property (text), widget (QPushButton, unpair_button)
+#: kcm.ui:309
+#, kde-format
+msgid "Unpair"
+msgstr "Desemparellarse"
+
+#. i18n: ectx: property (text), widget (QPushButton, ping_button)
+#: kcm.ui:322
+#, kde-format
+msgid "Send ping"
+msgstr "Enviar un ping"
+
+#. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
+#: kcm.ui:360
+#, fuzzy, kde-format
+#| msgid ""
+#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
+#| "device, make sure to install the <a href=\"https://play.google.com/store/"
+#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
+#| "you are having problems, visit the <a href=\"https://community.kde.org/"
+#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+msgid ""
+"<html><head/><body><p>No device selected.<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
+"available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
+"are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect"
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
+"Community wiki</span></a> for help.</p></body></html>"
+msgstr ""
+"<html><head/><body><p>Non se seleccionou ningún dispositivo.<br><br>Se "
+"dispón dun dispositivo con Android, asegúrese de instalar o <a href="
+"\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">aplicativo de "
+"KDE Connect para Android</span></a> (tamén dispoñíbel <a href=\"https://f-"
+"droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
+"text-decoration: underline; color:#4c6b8a;\">en F-Droid</span></a>) e "
+"debería aparecer na lista.<br><br>Se ten problemas, visite o <a href="
+"\"https://community.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">wiki da comunidade de KDE Connect</span></a> "
+"para obter axuda.</p></body></html>"
+
+#~ msgid "(C) 2018 Nicolas Fella"
+#~ msgstr "© 2018 Nicolas Fella"
+
+#~ msgid "No device selected."
+#~ msgstr "Non se seleccionou ningún dispositivo."
+
+#~ msgid ""
+#~ "<html><head/><body><p>If you are having problems, visit the <a href="
+#~ "\"https://community.kde.org/KDEConnect\"><span style=\" text-decoration: "
+#~ "underline; \">KDE Connect Community wiki</span></a> for help.</p></body></"
+#~ "html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Se ten problemas, busque axuda no <a href=\"https://"
+#~ "community.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
+#~ "\">wiki da comunidade de KDE Connect</span></a>.</p></body></html>"
+
+#, fuzzy
+#~| msgid "Available plugins"
+#~ msgid "Unavailable plugins"
+#~ msgstr "Complementos dispoñíbeis"
+
+#~ msgid "Plugins unsupported by the device"
+#~ msgstr "Complementos incompatíbeis co dispositivo"
+
+#~ msgid "Plugins"
+#~ msgstr "Complementos"

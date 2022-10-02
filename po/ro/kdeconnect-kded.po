@@ -1,0 +1,119 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sergiu Bivol <sergiu@cip.md>, 2013, 2020, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"PO-Revision-Date: 2022-04-30 12:14+0100\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: kdeconnectd.cpp:54
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"Cerere de asociere de la %1\n"
+"Cheie: %2..."
+
+#: kdeconnectd.cpp:55
+#, kde-format
+msgid "Open"
+msgstr "Deschide"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Accept"
+msgstr "Acceptă"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "Reject"
+msgstr "Refuză"
+
+#: kdeconnectd.cpp:56
+#, kde-format
+msgid "View key"
+msgstr "Vezi cheia"
+
+#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "Demon KDE Connect"
+
+#: kdeconnectd.cpp:147
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Înlocuiește o instanță existentă"
+
+#: kdeconnectd.cpp:150
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr ""
+"Lansează un demon D-Bus privat cu kdeconnectd (doar pentru testare pe macOS)"
+
+#~ msgid "Already paired"
+#~ msgstr "Împerecheat deja"
+
+#~ msgid "Timed out"
+#~ msgstr "A expirat"
+
+#~ msgctxt "device name: low battery"
+#~ msgid "%1: low battery"
+#~ msgstr "%1: acumulator scăzut"
+
+#, fuzzy
+#~| msgid "Battery at 14%"
+#~ msgid "Battery at %1%"
+#~ msgstr "Acumulator la 14%"
+
+#~ msgid "Ping!"
+#~ msgstr "Ping!"
+
+#, fuzzy
+#~| msgid "Timed out"
+#~ msgid "Timeout:"
+#~ msgstr "A expirat"
+
+#~ msgid "Transfer finished"
+#~ msgstr "Transfer încheiat"
+
+#~ msgid "Open destination folder"
+#~ msgstr "Deschide dosarul destinație"
+
+#~ msgid "unknown number"
+#~ msgstr "număr necunoscut"
+
+#~ msgid "Incoming call from %1"
+#~ msgstr "Apel de intrare de la %1"
+
+#~ msgid "Missed call from %1"
+#~ msgstr "Apel pierdut de la %1"
+
+#~ msgid "SMS from %1: %2"
+#~ msgstr "SMS de la %1: %2"
+
+#~ msgid "Unknown telephony event: %2"
+#~ msgstr "Eveniment telefonic necunoscut: %2"
