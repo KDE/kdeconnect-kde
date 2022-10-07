@@ -150,14 +150,3 @@ msgstr "秘密鍵ファイル %1 を保存できませんでした"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "証明書ファイル %1 を保存できませんでした"
-
-#~ msgid "Sent 1 file"
-#~ msgid_plural "Sent %1 files"
-#~ msgstr[0] "1 つのファイルを送信"
-#~ msgstr[1] "%1 つのファイルを送信"
-
-#~ msgid "Progress"
-#~ msgstr "進捗"
-
-#~ msgid "Sending file %1 of %2"
-#~ msgstr "%2 のファイル %1 を送信中"
