@@ -111,6 +111,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
             requestVirtualMonitor();
         } else {
             m_process->deleteLater();
+            m_process = nullptr;
         }
         qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "virtual display finished with" << device()->name() << m_process->readAllStandardError();
     });
