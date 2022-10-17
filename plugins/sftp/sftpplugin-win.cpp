@@ -38,9 +38,10 @@ bool SftpPlugin::startBrowsing()
 
 bool SftpPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (!(expectedFields - np.body().keys().toSet()).isEmpty()) {
+    QSet<QString> receivedFields(np.body().keys().begin(), np.body().keys().end());
+    if (!(expectedFields - receivedFields).isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_SFTP) << "Invalid packet received.";
-        for (QString missingField : (expectedFields - np.body().keys().toSet()).toList()) {
+        for (QString missingField : (expectedFields - receivedFields)) {
             qCWarning(KDECONNECT_PLUGIN_SFTP) << "Field" << missingField << "missing from packet.";
         }
         return false;

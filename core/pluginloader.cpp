@@ -95,7 +95,8 @@ QStringList PluginLoader::incomingCapabilities() const
 {
     QSet<QString> ret;
     for (const KPluginMetaData &service : qAsConst(plugins)) {
-        ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPacketType")).toSet();
+        QStringList rawValues = service.value(QStringLiteral("X-KdeConnect-SupportedPacketType"), QStringList());
+        ret += QSet<QString>(rawValues.begin(), rawValues.end());
     }
     return ret.values();
 }
@@ -104,7 +105,8 @@ QStringList PluginLoader::outgoingCapabilities() const
 {
     QSet<QString> ret;
     for (const KPluginMetaData &service : qAsConst(plugins)) {
-        ret += KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-OutgoingPacketType")).toSet();
+        QStringList rawValues = service.value(QStringLiteral("X-KdeConnect-OutgoingPacketType"), QStringList());
+        ret += QSet<QString>(rawValues.begin(), rawValues.end());
     }
     return ret.values();
 }

@@ -32,8 +32,8 @@ void ConversationsSortFilterProxyModel::setConversationsFilterRole(int role)
 
 bool ConversationsSortFilterProxyModel::lessThan(const QModelIndex &leftIndex, const QModelIndex &rightIndex) const
 {
-    QVariant leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole);
-    QVariant rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole);
+    qlonglong leftDataTimeStamp = sourceModel()->data(leftIndex, ConversationListModel::DateRole).toLongLong();
+    qlonglong rightDataTimeStamp = sourceModel()->data(rightIndex, ConversationListModel::DateRole).toLongLong();
 
     if (leftDataTimeStamp == rightDataTimeStamp) {
         QVariant leftDataName = sourceModel()->data(leftIndex, Qt::DisplayRole);

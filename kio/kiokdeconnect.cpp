@@ -50,7 +50,7 @@ KIO::Error toKioError(const QDBusError::ErrorType type)
     case QDBusError::TimedOut:
         return KIO::ERR_SERVER_TIMEOUT;
     default:
-        return KIO::ERR_SLAVE_DEFINED;
+        return KIO::ERR_WORKER_DEFINED;
     };
 };
 
@@ -132,21 +132,21 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString &device)
         devsRepl.waitForFinished();
 
         if (!devsRepl.value().contains(device)) {
-            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("No such device: %0").arg(device));
+            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("No such device: %0").arg(device));
         }
 
         DeviceDbusInterface dev(device);
 
         if (!dev.isTrusted()) {
-            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not paired").arg(dev.name()));
+            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not paired").arg(dev.name()));
         }
 
         if (!dev.isReachable()) {
-            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("%0 is not connected").arg(dev.name()));
+            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not connected").arg(dev.name()));
         }
 
         if (!dev.hasPlugin(QStringLiteral("kdeconnect_sftp"))) {
-            return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
+            return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 has no Remote Filesystem plugin").arg(dev.name()));
         }
     }
 
@@ -155,7 +155,7 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString &device)
     }
 
     if (!mountreply.value()) {
-        return KIO::WorkerResult::fail(KIO::ERR_SLAVE_DEFINED, interface.getMountError());
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, interface.getMountError());
     }
 
     QDBusReply<QVariantMap> urlreply = interface.getDirectories();
@@ -205,7 +205,7 @@ KIO::WorkerResult KioKdeconnect::listDir(const QUrl &url)
     qCDebug(KDECONNECT_KIO) << "Listing..." << url;
 
     if (!m_dbusInterface->isValid()) {
-        return KIO::WorkerResult::fail(KIO::Error::ERR_SLAVE_DEFINED, i18n("Could not contact background service."));
+        return KIO::WorkerResult::fail(KIO::Error::ERR_WORKER_DEFINED, i18n("Could not contact background service."));
     }
 
     QString currentDevice = url.host();

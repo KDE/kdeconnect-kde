@@ -87,7 +87,7 @@ int main(int argc, char **argv)
     DaemonDbusInterface iface;
 
     if (parser.isSet(QStringLiteral("my-id"))) {
-        QTextStream(stdout) << iface.selfId() << endl;
+        QTextStream(stdout) << iface.selfId() << Qt::endl;
     } else if (parser.isSet(QStringLiteral("l")) || parser.isSet(QStringLiteral("a"))) {
         bool available = false;
         if (parser.isSet(QStringLiteral("a"))) {
@@ -101,15 +101,15 @@ int main(int argc, char **argv)
         bool displayCount = true;
         for (const QString &id : devices) {
             if (parser.isSet(QStringLiteral("id-only"))) {
-                QTextStream(stdout) << id << endl;
+                QTextStream(stdout) << id << Qt::endl;
                 displayCount = false;
             } else if (parser.isSet(QStringLiteral("name-only"))) {
                 DeviceDbusInterface deviceIface(id);
-                QTextStream(stdout) << deviceIface.name() << endl;
+                QTextStream(stdout) << deviceIface.name() << Qt::endl;
                 displayCount = false;
             } else if (parser.isSet(QStringLiteral("id-name-only"))) {
                 DeviceDbusInterface deviceIface(id);
-                QTextStream(stdout) << id << ' ' << deviceIface.name() << endl;
+                QTextStream(stdout) << id << ' ' << deviceIface.name() << Qt::endl;
                 displayCount = false;
             } else {
                 DeviceDbusInterface deviceIface(id);
@@ -123,13 +123,13 @@ int main(int argc, char **argv)
                 } else if (isTrusted) {
                     statusInfo = i18n("(paired)");
                 }
-                QTextStream(stdout) << "- " << deviceIface.name() << ": " << deviceIface.id() << ' ' << statusInfo << endl;
+                QTextStream(stdout) << "- " << deviceIface.name() << ": " << deviceIface.id() << ' ' << statusInfo << Qt::endl;
             }
         }
         if (displayCount) {
-            QTextStream(stderr) << i18np("1 device found", "%1 devices found", devices.size()) << endl;
+            QTextStream(stderr) << i18np("1 device found", "%1 devices found", devices.size()) << Qt::endl;
         } else if (devices.isEmpty()) {
-            QTextStream(stderr) << i18n("No devices found") << endl;
+            QTextStream(stderr) << i18n("No devices found") << Qt::endl;
         }
 
         blockOnReply(iface.releaseDiscoveryMode(id));
@@ -158,7 +158,7 @@ int main(int argc, char **argv)
             description.remove(QLatin1Char('\0'));
 
             // Output id and description
-            QTextStream(stdout) << id << '[' << description << ']' << endl;
+            QTextStream(stdout) << id << '[' << description << ']' << Qt::endl;
         }
 
         // Exit with 1 if we didn't find a device
@@ -174,7 +174,7 @@ int main(int argc, char **argv)
         if (device.isEmpty() && parser.isSet(QStringLiteral("name"))) {
             device = blockOnReply(iface.deviceIdByName(parser.value(QStringLiteral("name"))));
             if (device.isEmpty()) {
-                QTextStream(stderr) << "Couldn't find device: " << parser.value(QStringLiteral("name")) << endl;
+                QTextStream(stderr) << "Couldn't find device: " << parser.value(QStringLiteral("name")) << Qt::endl;
                 return 1;
             }
         }
@@ -182,12 +182,12 @@ int main(int argc, char **argv)
             QTextStream(stderr) << i18n(
                 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a device. \nDevice ID's and names may be found using \"kdeconnect-cli "
                 "-l\" \nView complete help with --help option")
-                                << endl;
+                                << Qt::endl;
             return 1;
         }
 
         if (!blockOnReply<QStringList>(iface.devices(false, false)).contains(device)) {
-            QTextStream(stderr) << "Couldn't find device with id \"" << device << "\". To specify a device by name use -n <devicename>" << endl;
+            QTextStream(stderr) << "Couldn't find device with id \"" << device << "\". To specify a device by name use -n <devicename>" << Qt::endl;
             return 1;
         }
 
@@ -213,7 +213,7 @@ int main(int argc, char **argv)
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
 
             for (const QString &url : qAsConst(urls)) {
-                QTextStream(stdout) << i18n("Shared %1", url) << endl;
+                QTextStream(stdout) << i18n("Shared %1", url) << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("share-text"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
@@ -222,23 +222,23 @@ int main(int argc, char **argv)
                                                               QStringLiteral("shareText"));
             msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
-            QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << endl;
+            QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << Qt::endl;
         } else if (parser.isSet(QStringLiteral("lock")) || parser.isSet(QStringLiteral("unlock"))) {
             LockDeviceDbusInterface iface(device);
             iface.setLocked(parser.isSet(QStringLiteral("lock")));
 
             DeviceDbusInterface deviceIface(device);
             if (parser.isSet(QStringLiteral("lock"))) {
-                QTextStream(stdout) << i18nc("device has requested to lock peer device", "Requested to lock %1.", deviceIface.name()) << endl;
+                QTextStream(stdout) << i18nc("device has requested to lock peer device", "Requested to lock %1.", deviceIface.name()) << Qt::endl;
             } else {
-                QTextStream(stdout) << i18nc("device has requested to unlock peer device", "Requested to unlock %1.", deviceIface.name()) << endl;
+                QTextStream(stdout) << i18nc("device has requested to unlock peer device", "Requested to unlock %1.", deviceIface.name()) << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("pair"))) {
             DeviceDbusInterface dev(device);
             if (!dev.isReachable()) {
                 // Device doesn't exist, go into discovery mode and wait up to 30 seconds for the device to appear
                 QEventLoop wait;
-                QTextStream(stderr) << i18n("waiting for device...") << endl;
+                QTextStream(stderr) << i18n("waiting for device...") << Qt::endl;
                 blockOnReply(iface.acquireDiscoveryMode(id));
 
                 QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, &iface, [&](const QString &deviceAddedId) {
@@ -252,20 +252,20 @@ int main(int argc, char **argv)
             }
 
             if (!dev.isReachable()) {
-                QTextStream(stderr) << i18n("Device not found") << endl;
+                QTextStream(stderr) << i18n("Device not found") << Qt::endl;
             } else if (blockOnReply<bool>(dev.isTrusted())) {
-                QTextStream(stderr) << i18n("Already paired") << endl;
+                QTextStream(stderr) << i18n("Already paired") << Qt::endl;
             } else {
-                QTextStream(stderr) << i18n("Pair requested") << endl;
+                QTextStream(stderr) << i18n("Pair requested") << Qt::endl;
                 blockOnReply(dev.requestPair());
             }
             blockOnReply(iface.releaseDiscoveryMode(id));
         } else if (parser.isSet(QStringLiteral("unpair"))) {
             DeviceDbusInterface dev(device);
             if (!dev.isTrusted()) {
-                QTextStream(stderr) << i18n("Already not paired") << endl;
+                QTextStream(stderr) << i18n("Already not paired") << Qt::endl;
             } else {
-                QTextStream(stderr) << i18n("Unpaired") << endl;
+                QTextStream(stderr) << i18n("Unpaired") << Qt::endl;
                 blockOnReply(dev.unpair());
             }
         } else if (parser.isSet(QStringLiteral("ping")) || parser.isSet(QStringLiteral("ping-msg"))) {
@@ -305,7 +305,7 @@ int main(int argc, char **argv)
 
                 reply.waitForFinished();
             } else {
-                QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>") << endl;
+                QTextStream(stderr) << i18n("error: should specify the SMS's recipient by passing --destination <phone number>") << Qt::endl;
                 return 1;
             }
         } else if (parser.isSet(QStringLiteral("ring"))) {
@@ -324,7 +324,7 @@ int main(int argc, char **argv)
                 msg.setArguments({QUrl::fromLocalFile(fileName).toString()});
                 blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             } else {
-                QTextStream(stderr) << i18n("Please specify a filename for the photo") << endl;
+                QTextStream(stderr) << i18n("Please specify a filename for the photo") << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("send-keys"))) {
             QString seq = parser.value(QStringLiteral("send-keys"));
@@ -353,7 +353,7 @@ int main(int argc, char **argv)
             for (int i = 0, rows = notifications.rowCount(); i < rows; ++i) {
                 QModelIndex idx = notifications.index(i);
                 QTextStream(stdout) << "- " << idx.data(NotificationsModel::AppNameModelRole).toString() << ": "
-                                    << idx.data(NotificationsModel::NameModelRole).toString() << endl;
+                                    << idx.data(NotificationsModel::NameModelRole).toString() << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("list-commands"))) {
             RemoteCommandsDbusInterface iface(device);
@@ -361,7 +361,7 @@ int main(int argc, char **argv)
             for (auto it = cmds.constBegin(), itEnd = cmds.constEnd(); it != itEnd; ++it) {
                 const QJsonObject cont = it->toObject();
                 QTextStream(stdout) << it.key() << ": " << cont.value(QStringLiteral("name")).toString() << ": "
-                                    << cont.value(QStringLiteral("command")).toString() << endl;
+                                    << cont.value(QStringLiteral("command")).toString() << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("execute-command"))) {
             RemoteCommandsDbusInterface iface(device);
@@ -369,9 +369,9 @@ int main(int argc, char **argv)
         } else if (parser.isSet(QStringLiteral("encryption-info"))) {
             DeviceDbusInterface dev(device);
             QString info = blockOnReply<QString>(dev.encryptionInfo()); // QSsl::Der = 1
-            QTextStream(stdout) << info << endl;
+            QTextStream(stdout) << info << Qt::endl;
         } else {
-            QTextStream(stderr) << i18n("Nothing to be done") << endl;
+            QTextStream(stderr) << i18n("Nothing to be done") << Qt::endl;
         }
     }
     QMetaObject::invokeMethod(&app, "quit", Qt::QueuedConnection);
