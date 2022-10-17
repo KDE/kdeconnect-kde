@@ -18,3 +18,14 @@ target_link_libraries(kdeconnect_clipboard kdeconnectcore
                                     KF5::GuiAddons
                                     ${kdeconnect_clipboard_WL_LINK_LIBS}
                                     )
+
+kcoreaddons_add_plugin(kdeconnect_clipboard_config INSTALL_NAMESPACE "kdeconnect/kcms")
+
+ki18n_wrap_ui(kdeconnect_clipboard_config clipboard_config.ui)
+target_sources(kdeconnect_clipboard_config PRIVATE clipboard_config.cpp ${debug_file_SRCS})
+target_link_libraries( kdeconnect_clipboard_config
+    kdeconnectcore
+    kdeconnectpluginkcm
+    KF5::I18n
+    KF5::KCMUtils
+)

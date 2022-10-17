@@ -16,6 +16,11 @@ QString ClipboardListener::currentContent()
     return m_currentContent;
 }
 
+ClipboardListener::ClipboardContentType ClipboardListener::currentContentType()
+{
+    return m_currentContentType;
+}
+
 qint64 ClipboardListener::updateTimestamp()
 {
     return m_updateTimestamp;
@@ -30,10 +35,11 @@ ClipboardListener *ClipboardListener::instance()
     return me;
 }
 
-void ClipboardListener::refreshContent(const QString &content)
+void ClipboardListener::refreshContent(const QString &content, ClipboardListener::ClipboardContentType contentType)
 {
     m_updateTimestamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
     m_currentContent = content;
+    m_currentContentType = contentType;
 }
 
 ClipboardListener::ClipboardListener()
@@ -54,17 +60,22 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
         return;
     }
 
+    ClipboardListener::ClipboardContentType contentType = ClipboardListener::ClipboardContentTypeUnknown;
+    if (clipboard->mimeData(mode)->data(QStringLiteral("x-kde-passwordManagerHint")) == QByteArrayLiteral("secret")) {
+        contentType = ClipboardListener::ClipboardContentTypePassword;
+    }
+
     const QString content = clipboard->text(QClipboard::Clipboard);
-    if (content == m_currentContent) {
+    if (content == m_currentContent && contentType == m_currentContentType) {
         return;
     }
-    refreshContent(content);
-    Q_EMIT clipboardChanged(content);
+    refreshContent(content, contentType);
+    Q_EMIT clipboardChanged(content, contentType);
 }
 
 void ClipboardListener::setText(const QString &content)
 {
-    refreshContent(content);
+    refreshContent(content, ClipboardListener::ClipboardContentTypeUnknown);
     auto mime = new QMimeData;
     mime->setText(content);
     clipboard->setMimeData(mime, QClipboard::Clipboard);

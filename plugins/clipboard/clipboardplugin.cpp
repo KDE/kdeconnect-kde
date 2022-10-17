@@ -24,8 +24,20 @@ void ClipboardPlugin::connected()
     sendConnectPacket();
 }
 
-void ClipboardPlugin::propagateClipboard(const QString &content)
+void ClipboardPlugin::propagateClipboard(const QString &content, ClipboardListener::ClipboardContentType contentType)
 {
+    if (contentType == ClipboardListener::ClipboardContentTypeUnknown) {
+        if (!config()->getBool(QStringLiteral("sendUnknown"), true)) {
+            return;
+        }
+    } else if (contentType == ClipboardListener::ClipboardContentTypePassword) {
+        if (!config()->getBool(QStringLiteral("sendPassword"), true)) {
+            return;
+        }
+    } else {
+        return;
+    }
+
     NetworkPacket np(PACKET_TYPE_CLIPBOARD, {{QStringLiteral("content"), content}});
     sendPacket(np);
 }

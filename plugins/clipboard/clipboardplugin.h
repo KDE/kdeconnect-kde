@@ -11,6 +11,8 @@
 #include <QObject>
 #include <core/kdeconnectplugin.h>
 
+#include "clipboardlistener.h"
+
 /**
  * Packet containing just clipboard contents, sent when a device updates its clipboard.
  * <p>
@@ -46,7 +48,7 @@ public:
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 private Q_SLOTS:
-    void propagateClipboard(const QString &content);
+    void propagateClipboard(const QString &content, ClipboardListener::ClipboardContentType contentType);
     void sendConnectPacket();
 };
 

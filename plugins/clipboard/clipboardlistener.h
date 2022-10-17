@@ -24,10 +24,14 @@ class ClipboardListener : public QObject
 {
     Q_OBJECT
 
+public:
+    enum ClipboardContentType { ClipboardContentTypeUnknown = 0, ClipboardContentTypePassword = 1 };
+
 protected:
     ClipboardListener();
-    void refreshContent(const QString &content);
+    void refreshContent(const QString &content, ClipboardContentType contentType);
     QString m_currentContent;
+    ClipboardContentType m_currentContentType;
 
 private:
     qint64 m_updateTimestamp = 0;
@@ -38,10 +42,11 @@ public:
     void setText(const QString &content);
 
     QString currentContent();
+    ClipboardContentType currentContentType();
     qint64 updateTimestamp();
 
 Q_SIGNALS:
-    void clipboardChanged(const QString &content);
+    void clipboardChanged(const QString &content, ClipboardContentType contentType);
 
 private:
     void updateClipboard(QClipboard::Mode mode);
