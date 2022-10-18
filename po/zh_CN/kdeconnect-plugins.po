@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2022-10-02 15:49\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,6 +27,30 @@ msgstr "%1：电池电量低"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "电量 %1%"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Contents shared to other devices"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Passwords (as marked by password managers)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Anything else"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -58,7 +82,7 @@ msgstr "远程锁定成功"
 msgid "Remote lock failed"
 msgstr "远程锁定失败"
 
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -354,7 +378,7 @@ msgstr "访问文件系统时出错。sshfs 完成退出代码 %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "挂载文件系统出错：设备未响应"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "抱歉，无法处理 SFTP 协议。"

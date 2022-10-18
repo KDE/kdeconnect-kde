@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2021-06-25 22:18+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -28,6 +28,30 @@ msgstr "%1: Prazna baterija"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Baterija na %1%"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Contents shared to other devices"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Passwords (as marked by password managers)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Anything else"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -59,7 +83,7 @@ msgstr "Oddaljeni zaklep uspešen"
 msgid "Remote lock failed"
 msgstr "Oddaljeni zaklep ni uspel"
 
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -357,7 +381,7 @@ msgstr "Napaka pri dostopu do sistema datotek. sshfs končal z izhodno kodo %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Priklop sistema datotek ni uspel: naprava se ne odziva"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Protokola SFTP ni mogoče obdelovati. Opravičilo za nevšečnosti"

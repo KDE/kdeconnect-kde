@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2021-06-20 19:22+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,6 +27,30 @@ msgstr "%1: Zəif batareya"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batareya %1%-dir"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Contents shared to other devices"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Passwords (as marked by password managers)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Anything else"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -58,7 +82,7 @@ msgstr "Uzaq kilidləmə uğurlu oldu"
 msgid "Remote lock failed"
 msgstr "Uzaq kilidləmə uğursuz oldu"
 
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -358,7 +382,7 @@ msgstr "Fayl sisteminə giriş zamanı xəta, sshf %0 çıxış kodu ilə sonlan
 msgid "Failed to mount filesystem: device not responding"
 msgstr "fayl sisteminin qoşulması baş tutmadı, cihaz cavab vermir"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP protokolunu işlətmək olmur. Narahatçılığa görə üzr istəyirik"

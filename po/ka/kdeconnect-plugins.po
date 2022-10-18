@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2022-09-29 06:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -28,6 +28,30 @@ msgstr "%1: ელემენტი დასატენია"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "ელემენტის მუხტია %1%"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Contents shared to other devices"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Passwords (as marked by password managers)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Anything else"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -59,7 +83,7 @@ msgstr "დაშორებული დაბლოკვა წარმა�
 msgid "Remote lock failed"
 msgstr "დაშორებული დაბლოკვა წარუმატებელია"
 
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -353,7 +377,7 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr ""
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
