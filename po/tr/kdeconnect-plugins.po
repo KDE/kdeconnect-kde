@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2022-03-30 22:29+0300\n"
+"PO-Revision-Date: 2022-10-18 04:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -33,25 +33,25 @@ msgstr "Pil düzeyi %​%1"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "Pano eklentisi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Contents shared to other devices"
-msgstr ""
+msgstr "Başka aygıtlara paylaşılan içerik"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Passwords (as marked by password managers)"
-msgstr ""
+msgstr "Parolalar (parola yöneticileri tarafından imlenen)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Anything else"
-msgstr ""
+msgstr "Başka bir şey"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -131,7 +131,7 @@ msgstr "Müzik duraklatma eklentisi"
 #: pausemusic/pausemusic_config.ui:32
 #, kde-format
 msgid "Condition"
-msgstr "Şart"
+msgstr "Koşul"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
 #: pausemusic/pausemusic_config.ui:38
@@ -207,7 +207,7 @@ msgstr "Kilit Ekranı"
 #: runcommand/runcommand_config.cpp:47
 #, kde-format
 msgid "Say Hello"
-msgstr "Merhaba De"
+msgstr "Merhaba de"
 
 #: runcommand/runcommand_config.cpp:50
 #, kde-format
@@ -222,7 +222,7 @@ msgstr "Yeniden başlat"
 #: runcommand/runcommand_config.cpp:55
 #, kde-format
 msgid "Maximum Brightness"
-msgstr "Maksimum Parlaklık"
+msgstr "En Yüksek Parlaklık"
 
 #: runcommand/runcommand_config.cpp:61
 #, kde-format
@@ -336,7 +336,7 @@ msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Bildirimlerin asgari aciliyet seviyesi</p></body></"
+"<html><head/><body><p>Bildirimlerin en düşük aciliyet düzeyi</p></body></"
 "html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
@@ -349,7 +349,7 @@ msgstr "Yalnızca belirtilen acil durum düzeyine sahip bildirimleri eşitle."
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr "Asgari aciliyet seviyesi"
+msgstr "En düşük aciliyet düzeyi"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148

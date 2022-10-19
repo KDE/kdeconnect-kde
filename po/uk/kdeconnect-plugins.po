@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
+# Yuri Chornoivan <yurchor@ukr.net>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2021-06-18 08:34+0300\n"
+"PO-Revision-Date: 2022-10-18 19:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -35,25 +35,25 @@ msgstr "Рівень заряду — %1%"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "Додаток буфера обміну даними"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Contents shared to other devices"
-msgstr ""
+msgstr "Спільні дані із іншими пристроями"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Passwords (as marked by password managers)"
-msgstr ""
+msgstr "Паролі (як позначено засобами керування паролями)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Anything else"
-msgstr ""
+msgstr "Усе інше"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
