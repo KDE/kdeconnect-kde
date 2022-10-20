@@ -5,7 +5,6 @@ Terminal=false
 Exec=kdeconnect-settings
 Name=KDE Connect Settings
 Name[ar]=إعدادات كدي المتّصل
-Name[ast]=Axustes de KDE Connect
 Name[az]=KDE Connect Ayarları
 Name[bg]=Настройки на KDE Connect
 Name[ca]=Arranjament del KDE Connect

@@ -12,7 +12,6 @@ X-KDE-System-Settings-Parent-Category=hardware
 
 Name=KDE Connect
 Name[ar]=كدي المتّصل
-Name[ast]=KDE Connect
 Name[az]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
@@ -63,7 +62,6 @@ Name[zh_TW]=KDE 連線
 
 Comment=Connect and sync your devices
 Comment[ar]=اتّصل وزامن أجهزتك
-Comment[ast]=Coneuta y sincroniza preseos
 Comment[az]=Cihazlarınızı qoşmaq və eyniləşdirmək
 Comment[bg]=Свържете и синхронизирайте вашите устройства
 Comment[ca]=Connecta i sincronitza els vostres dispositius
