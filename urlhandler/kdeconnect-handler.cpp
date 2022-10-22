@@ -113,8 +113,13 @@ int main(int argc, char **argv)
         }
     });
 
-    QObject::connect(urlRequester, &KUrlRequester::textChanged, [urlRequester, &uidialog](const QString &newUrl) {
-        bool isLocalFileUrl = QFileInfo(newUrl).exists() && QFileInfo(newUrl).isFile(); // we don't support sending directories yet!
+    QObject::connect(urlRequester, &KUrlRequester::textChanged, [&urlRequester, &uidialog]() {
+        QUrl fileUrl(urlRequester->url());
+        bool isLocalFileUrl = false;
+        if (fileUrl.isLocalFile()) {
+            QFileInfo fileInfo(fileUrl.toLocalFile());
+            isLocalFileUrl = fileInfo.exists() && fileInfo.isFile(); // we don't support sending directories yet!
+        }
         uidialog.sendFileRadioButton->setChecked(isLocalFileUrl);
         uidialog.sendUrlRadioButton->setChecked(!isLocalFileUrl);
     });
