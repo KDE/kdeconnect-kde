@@ -168,7 +168,7 @@ msgstr "número de telèfon"
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"URL dels fitxers que s'enviaran adjuntats al missatge (es poden indicar "
+"URL dels fitxers que s'enviaran adjuntats amb el missatge (es poden indicar "
 "múltiples vegades)"
 
 #: kdeconnect-cli.cpp:63
