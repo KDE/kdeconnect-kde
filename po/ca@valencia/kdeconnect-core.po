@@ -154,14 +154,3 @@ msgstr "No s'ha pogut emmagatzemar el fitxer de la clau privada: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
-
-#~ msgid "Sent 1 file"
-#~ msgid_plural "Sent %1 files"
-#~ msgstr[0] "Envia 1 fitxer"
-#~ msgstr[1] "Envia %1 fitxers"
-
-#~ msgid "Progress"
-#~ msgstr "Progrés"
-
-#~ msgid "Sending file %1 of %2"
-#~ msgstr "S'està enviant el fitxer %1 de %2"
