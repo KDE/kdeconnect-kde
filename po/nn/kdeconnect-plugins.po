@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2022-04-11 12:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -30,6 +30,30 @@ msgstr "%1: lite batteri"
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batterinivå: %1 %"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Contents shared to other devices"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Passwords (as marked by password managers)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Anything else"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -61,7 +85,7 @@ msgstr "Eininga er no låst"
 msgid "Remote lock failed"
 msgstr "Mislukka fjernlåsing"
 
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:73
+#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -362,7 +386,7 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Klarte ikkje montera filsystem: eininga svarer ikkje"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Kan dessverre ikkje handtera SFTP-protokollen."
