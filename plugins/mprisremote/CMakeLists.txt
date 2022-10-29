@@ -9,5 +9,5 @@ kdeconnect_add_plugin(kdeconnect_mprisremote SOURCES mprisremoteplugin.cpp mpris
 
 target_link_libraries(kdeconnect_mprisremote
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
 )

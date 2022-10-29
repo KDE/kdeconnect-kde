@@ -1,5 +1,5 @@
-qt5_add_dbus_interface(lockdevice_SRCS org.freedesktop.login1.xml login1dbusinterface)
-qt5_add_dbus_interface(lockdevice_SRCS org.freedesktop.DBus.Properties.xml propertiesdbusinterface)
+qt_add_dbus_interface(lockdevice_SRCS org.freedesktop.login1.xml login1dbusinterface)
+qt_add_dbus_interface(lockdevice_SRCS org.freedesktop.DBus.Properties.xml propertiesdbusinterface)
 
 set(debug_file_SRCS)
 ecm_qt_declare_logging_category(
@@ -18,6 +18,6 @@ kdeconnect_add_plugin(kdeconnect_lockdevice SOURCES ${lockdevice_SRCS} ${debug_f
 
 target_link_libraries(kdeconnect_lockdevice
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
     KF5::I18n
 )

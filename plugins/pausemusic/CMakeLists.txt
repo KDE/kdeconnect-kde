@@ -15,14 +15,14 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin pausemusic)")
 
-qt5_add_dbus_interface(kdeconnect_pausemusic_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
+qt_add_dbus_interface(kdeconnect_pausemusic_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
 
 kdeconnect_add_plugin(kdeconnect_pausemusic SOURCES ${kdeconnect_pausemusic_SRCS} ${debug_file_SRCS})
 
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
-    Qt5::Core
-    Qt5::DBus
+    Qt::Core
+    Qt::DBus
 )
 if (NOT WIN32)
     target_link_libraries(kdeconnect_pausemusic

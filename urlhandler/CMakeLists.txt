@@ -9,7 +9,7 @@ target_link_libraries(kdeconnect-handler
     kdeconnectinterfaces
     kdeconnectcore
     kdeconnectversion
-    Qt5::Widgets
+    Qt::Widgets
     KF5::CoreAddons
     KF5::DBusAddons
     KF5::I18n

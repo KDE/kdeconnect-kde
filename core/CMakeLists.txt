@@ -57,11 +57,11 @@ target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 
 target_link_libraries(kdeconnectcore
 PUBLIC
-    Qt5::Network
+    Qt${QT_MAJOR_VERSION}::Network
     KF5::CoreAddons
     ${Qca_LIBRARY}
 PRIVATE
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::I18n
     KF5::ConfigCore
 )

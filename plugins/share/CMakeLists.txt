@@ -14,7 +14,7 @@ kdeconnect_add_plugin(kdeconnect_share SOURCES ${kdeconnect_share_SRCS})
 
 target_link_libraries(kdeconnect_share
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
     KF5::Notifications
     KF5::I18n
     KF5::KIOWidgets

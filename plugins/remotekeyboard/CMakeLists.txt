@@ -10,5 +10,5 @@ kdeconnect_add_plugin(kdeconnect_remotekeyboard
 
 target_link_libraries(kdeconnect_remotekeyboard
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
 )

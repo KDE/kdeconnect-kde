@@ -18,14 +18,14 @@ kdeconnect_add_plugin(kdeconnect_notifications SOURCES ${kdeconnect_notification
 
 target_link_libraries(kdeconnect_notifications
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
     KF5::Notifications
     KF5::I18n
     KF5::WindowSystem
 )
 
-if (UNIX AND NOT APPLE)
+if (UNIX AND NOT APPLE AND QT_MAJOR_VERSION EQUAL "5")
     target_link_libraries(kdeconnect_notifications
-        Qt::X11Extras
+        Qt5::X11Extras
     )
 endif()

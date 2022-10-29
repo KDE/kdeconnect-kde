@@ -9,18 +9,25 @@ if(UNIX AND NOT APPLE)
                         PURPOSE "Needed for the remote mousepad plugin"
                         )
 
-    ecm_add_qtwayland_client_protocol(wayland_SRCS
-        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
-        BASENAME fake-input
-    )
+    if (QT_MAJOR_VERSION EQUAL "5")
+        ecm_add_qtwayland_client_protocol(wayland_SRCS
+            PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
+            BASENAME fake-input
+        )
+    else()
+        qt6_generate_wayland_protocol_client_sources(kdeconnect_mousepad FILES
+            ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
+    endif()
 
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
-    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt5::WaylandClient)
+    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt::WaylandClient)
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp)
     set(HAVE_WAYLAND TRUE)
 
     if (LibFakeKey_FOUND)
-        find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
+        if (QT_MAJOR_VERSION EQUAL "5")
+            find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
+        endif()
         find_package(XTest REQUIRED)
         find_package(X11 REQUIRED)
         target_include_directories(kdeconnect_mousepad PRIVATE ${XTEST_INCLUDE_DIRS} ${X11_INCLUDE_DIR} ${LibFakeKey_INCLUDE_DIRS})
@@ -32,7 +39,7 @@ set(HAVE_X11 ${LibFakeKey_FOUND})
 set(HAVE_MACOS ${APPLE})
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h )
 
-target_link_libraries(kdeconnect_mousepad kdeconnectcore Qt5::Gui KF5::I18n)
+target_link_libraries(kdeconnect_mousepad kdeconnectcore Qt::Gui KF5::I18n)
 
 if (HAVE_WINDOWS)
     target_sources(kdeconnect_mousepad PUBLIC windowsremoteinput.cpp)
@@ -40,7 +47,10 @@ endif()
 
 if(HAVE_X11)
     target_sources(kdeconnect_mousepad PUBLIC x11remoteinput.cpp)
-    target_link_libraries(kdeconnect_mousepad Qt5::X11Extras ${X11_LIBRARIES} ${XTEST_LIBRARIES} ${LibFakeKey_LIBRARIES})
+    if (QT_MAJOR_VERSION EQUAL "5")
+        target_link_libraries(kdeconnect_mousepad Qt5::X11Extras)
+    endif()
+    target_link_libraries(kdeconnect_mousepad ${X11_LIBRARIES} ${XTEST_LIBRARIES} ${LibFakeKey_LIBRARIES})
 endif()
 
 if (HAVE_MACOS)

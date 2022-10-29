@@ -15,9 +15,9 @@ kdeconnect_add_plugin(kdeconnect_findthisdevice
 
 target_link_libraries(kdeconnect_findthisdevice
     kdeconnectcore
-    Qt5::Core
-    Qt5::Multimedia
-    Qt5::DBus
+    Qt::Core
+    Qt::Multimedia
+    Qt::DBus
 )
 
 if (NOT WIN32)
@@ -32,7 +32,7 @@ ki18n_wrap_ui(kdeconnect_findthisdevice_config findthisdevice_config.ui)
 target_sources(kdeconnect_findthisdevice_config PRIVATE findthisdevice_config.cpp ${debug_file_SRCS})
 target_link_libraries(kdeconnect_findthisdevice_config
     kdeconnectpluginkcm
-    Qt5::Multimedia
+    Qt::Multimedia
     KF5::I18n
     KF5::CoreAddons
     KF5::ConfigWidgets

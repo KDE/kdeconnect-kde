@@ -12,5 +12,5 @@ kdeconnect_add_plugin(kdeconnect_remotecommands
 
 target_link_libraries(kdeconnect_remotecommands
     kdeconnectcore
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
     )

@@ -16,5 +16,5 @@ target_link_libraries(kdeconnect_telephony
     kdeconnectcore
     KF5::I18n
     KF5::Notifications
-    Qt5::DBus
+    Qt::DBus
 )

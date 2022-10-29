@@ -15,7 +15,7 @@ kdeconnect_add_plugin(kdeconnect_virtualmonitor
 
 target_link_libraries(kdeconnect_virtualmonitor
     kdeconnectcore
-    Qt5::Core
-    Qt5::Multimedia
-    Qt5::DBus
+    Qt::Core
+    Qt::Multimedia
+    Qt::DBus
 )

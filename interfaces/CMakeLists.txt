@@ -2,11 +2,11 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-interfaces\")
 
 function(geninterface source_h output_h)
     set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.xml)
-    qt5_generate_dbus_interface( ${source_h} ${xml_file})
+    qt_generate_dbus_interface( ${source_h} ${xml_file})
 
     set_source_files_properties(${xml_file} PROPERTIES NO_NAMESPACE true)
 
-    qt5_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${output_h})
+    qt_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${output_h})
     set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
 endfunction()
 
@@ -69,8 +69,8 @@ generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BIN
 
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
-    Qt5::Gui
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::Gui
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::ConfigCore
 LINK_PRIVATE
     kdeconnectcore

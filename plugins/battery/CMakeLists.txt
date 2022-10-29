@@ -14,7 +14,7 @@ kdeconnect_add_plugin(kdeconnect_battery SOURCES ${kdeconnect_battery_SRCS})
 
 target_link_libraries(kdeconnect_battery
     kdeconnectcore
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::Solid
     KF5::I18n
 )

@@ -14,7 +14,7 @@ kdeconnect_add_plugin(kdeconnect_connectivity_report SOURCES ${kdeconnect_connec
 
 target_link_libraries(kdeconnect_connectivity_report
     kdeconnectcore
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
     KF5::Solid
     KF5::I18n
 )

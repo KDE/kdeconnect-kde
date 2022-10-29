@@ -23,7 +23,7 @@ kdeconnect_add_plugin(kdeconnect_systemvolume SOURCES ${kdeconnect_systemvolume_
 if(WIN32)
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore
-        Qt5::Core
+        Qt::Core
         ole32
     )
     target_sources(kdeconnect_systemvolume
@@ -32,13 +32,13 @@ if(WIN32)
 elseif(APPLE)
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore
-        Qt5::Core
+        Qt::Core
         "-framework CoreAudio"
     )
 else()
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore
-        Qt5::Core
+        Qt::Core
         KF5::PulseAudioQt
     )
 endif()

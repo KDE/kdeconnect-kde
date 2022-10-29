@@ -25,9 +25,9 @@ kdeconnect_add_plugin(kdeconnect_sendnotifications SOURCES ${kdeconnect_sendnoti
 
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
     KF5::I18n
-    Qt5::Gui
+    Qt::Gui
     KF5::IconThemes
     KF5::ConfigCore
 )

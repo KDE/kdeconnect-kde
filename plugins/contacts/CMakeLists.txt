@@ -14,5 +14,5 @@ kdeconnect_add_plugin(kdeconnect_contacts SOURCES ${kdeconnect_contacts_SRCS})
 
 target_link_libraries(kdeconnect_contacts
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
 )

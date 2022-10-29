@@ -28,10 +28,10 @@ target_include_directories(kdeconnectsmshelper PUBLIC ${CMAKE_SOURCE_DIR})
 
 target_link_libraries(kdeconnectsmshelper
     PUBLIC
-    Qt5::Core
-    Qt5::DBus
+    Qt::Core
+    Qt::DBus
     KF5::People
-    Qt5::Qml
+    Qt::Qml
     kdeconnectinterfaces
 )
 
@@ -52,9 +52,9 @@ target_link_libraries(kdeconnect-sms
     kdeconnectsmshelper
     kdeconnectinterfaces
     kdeconnectversion
-    Qt5::Quick
-    Qt5::QuickControls2
-    Qt5::Widgets
+    Qt::Quick
+    Qt::QuickControls2
+    Qt::Widgets
     KF5::CoreAddons
     KF5::DBusAddons
     KF5::I18n

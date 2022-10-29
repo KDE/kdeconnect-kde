@@ -5,8 +5,8 @@ target_link_libraries(kdeconnectpluginkcm
 PUBLIC
     kdeconnectcore
 PRIVATE
-    Qt5::DBus
-    Qt5::Gui
+    Qt::DBus
+    Qt::Gui
     KF5::I18n
     KF5::ConfigCore
     KF5::KCMUtils

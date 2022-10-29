@@ -10,7 +10,7 @@ else()
     set(kdeconnect_screensaver_inhibit_SRCS
         screensaverinhibitplugin.cpp
     )
-    qt5_add_dbus_interface(kdeconnect_screensaver_inhibit_SRCS org.freedesktop.ScreenSaver.xml screensaverinterface)
+    qt_add_dbus_interface(kdeconnect_screensaver_inhibit_SRCS org.freedesktop.ScreenSaver.xml screensaverinterface)
 endif()
 
 set(debug_file_SRCS)
@@ -25,7 +25,7 @@ kdeconnect_add_plugin(kdeconnect_screensaver_inhibit SOURCES ${kdeconnect_screen
 target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore)
 if(NOT APPLE AND NOT WIN32)
     target_link_libraries(kdeconnect_screensaver_inhibit
-        Qt5::DBus
+        Qt::DBus
         KF5::I18n
     )
 endif()

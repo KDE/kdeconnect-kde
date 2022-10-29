@@ -10,7 +10,7 @@ ecm_qt_declare_logging_category(
 kdeconnect_add_plugin(kdeconnect_presenter SOURCES presenterplugin.cpp ${presenter_SRCS} ${debug_file_SRCS})
 target_link_libraries(kdeconnect_presenter
     kdeconnectcore
-    Qt5::DBus
-    Qt5::Quick
+    Qt${QT_MAJOR_VERSION}::DBus
+    Qt${QT_MAJOR_VERSION}::Quick
     KF5::I18n
 )

@@ -14,5 +14,5 @@ kdeconnect_add_plugin(kdeconnect_photo SOURCES ${kdeconnect_photo_SRCS})
 
 target_link_libraries(kdeconnect_photo
     kdeconnectcore
-    Qt5::DBus
+    Qt::DBus
 )

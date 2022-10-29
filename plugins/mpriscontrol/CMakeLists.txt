@@ -14,9 +14,9 @@ set_source_files_properties(
     PROPERTIES
     NO_NAMESPACE ON)
 
-qt5_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.freedesktop.DBus.Properties.xml dbusproperties)
-qt5_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
-qt5_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.mpris.MediaPlayer2.xml mprisroot)
+qt_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.freedesktop.DBus.Properties.xml dbusproperties)
+qt_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
+qt_add_dbus_interface(kdeconnect_mpriscontrol_SRCS org.mpris.MediaPlayer2.xml mprisroot)
 
 endif()
 
@@ -33,5 +33,5 @@ if(WIN32)
    target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore windowsapp)
    target_compile_features(kdeconnect_mpriscontrol PUBLIC cxx_std_17)
 else()
-   target_link_libraries(kdeconnect_mpriscontrol Qt5::DBus kdeconnectcore)
+   target_link_libraries(kdeconnect_mpriscontrol Qt::DBus kdeconnectcore)
 endif()
