@@ -181,6 +181,7 @@
     <value key="KDE::app_store">https://apps.apple.com/app/kde-connect/id1580245991</value>
   </custom>
   <releases>
+    <release version="22.08.3" date="2022-11-03"/>
     <release version="22.08.2" date="2022-10-13"/>
     <release version="22.08.1" date="2022-09-08"/>
     <release version="22.08.0" date="2022-08-18">
