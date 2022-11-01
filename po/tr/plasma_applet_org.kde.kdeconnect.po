@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-09-29 12:32+0300\n"
+"PO-Revision-Date: 2022-10-31 18:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -98,7 +98,7 @@ msgstr "Bu aygıta göz at"
 #: package/contents/ui/DeviceDelegate.qml:241
 #, kde-format
 msgid "SMS Messages"
-msgstr "SMS Mesajları"
+msgstr "SMS İletileri"
 
 #: package/contents/ui/DeviceDelegate.qml:262
 #, kde-format
@@ -176,12 +176,12 @@ msgstr "Bir Aygıt Eşleştir..."
 #: package/contents/ui/FullRepresentation.qml:71
 #, kde-format
 msgid "Install from Google Play"
-msgstr "Google Play'den kurun"
+msgstr "Google Play'den Kur"
 
 #: package/contents/ui/FullRepresentation.qml:81
 #, kde-format
 msgid "Install from F-Droid"
-msgstr "F-Droid'den kurun"
+msgstr "F-Droid'den Kur"
 
 #: package/contents/ui/main.qml:49
 #, kde-format
