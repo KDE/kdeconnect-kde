@@ -314,7 +314,8 @@ msgstr "Només les notificacions persistents"
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
 msgstr ""
-"Afig el cos de la notificació al resum en sincronitzar les notificacions?"
+"Voleu afegir el cos de la notificació al resum en sincronitzar les "
+"notificacions?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63

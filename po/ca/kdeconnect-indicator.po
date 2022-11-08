@@ -183,6 +183,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Select file to send to '%1'"
-#~ msgstr "Escolliu el fitxer per a enviar-lo a «%1»"
