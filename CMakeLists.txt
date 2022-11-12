@@ -120,10 +120,6 @@ if (WIN32)
     add_compile_definitions(WIN_SDK_VERSION=${WIN_SDK_VERSION})
 endif()
 
-if (NOT ZSH_AUTOCOMPLETE_DIR)
-set(ZSH_AUTOCOMPLETE_DIR "${KDE_INSTALL_DATADIR}/zsh/site-functions")
-endif()
-
 add_subdirectory(core)
 add_subdirectory(plugins)
 add_subdirectory(interfaces)
