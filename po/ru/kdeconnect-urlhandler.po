@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-11-14 00:45+0000\n"
 "PO-Revision-Date: 2021-07-26 16:33+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
@@ -30,6 +30,31 @@ msgstr "Дмитрий Серов,Олеся Герасименко, Дроно�
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dmitri.s93@gmail.com,gammaray@basealt.ru,juliette.tux@gmail.com"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialog.ui:31
+#, fuzzy, kde-format
+#| msgid "Select a device"
+msgid "Select device:"
+msgstr "Выберите устройство"
+
+#. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
+#: dialog.ui:55
+#, kde-format
+msgid "Send URL"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
+#: dialog.ui:62
+#, kde-format
+msgid "Send File"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
+#: dialog.ui:82
+#, kde-format
+msgid "Open on peer device"
+msgstr ""
 
 #: kdeconnect-handler.cpp:43
 #, kde-format

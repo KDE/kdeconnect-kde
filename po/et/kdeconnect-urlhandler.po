@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-11-14 00:45+0000\n"
 "PO-Revision-Date: 2020-02-08 12:49+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -26,6 +26,30 @@ msgstr "Marek Laane"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialog.ui:31
+#, kde-format
+msgid "Select device:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
+#: dialog.ui:55
+#, kde-format
+msgid "Send URL"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
+#: dialog.ui:62
+#, kde-format
+msgid "Send File"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
+#: dialog.ui:82
+#, kde-format
+msgid "Open on peer device"
+msgstr ""
 
 #: kdeconnect-handler.cpp:43
 #, kde-format
