@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-14 00:45+0000\n"
-"PO-Revision-Date: 2021-06-07 01:02+0100\n"
+"PO-Revision-Date: 2022-11-14 01:57+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -30,28 +30,27 @@ msgstr "zepires@gmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialog.ui:31
-#, fuzzy, kde-format
-#| msgid "Select a device"
+#, kde-format
 msgid "Select device:"
-msgstr "Seleccione um dispositivo"
+msgstr "Seleccione o dispositivo:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
 #, kde-format
 msgid "Send URL"
-msgstr ""
+msgstr "Enviar o URL"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
 #: dialog.ui:62
 #, kde-format
 msgid "Send File"
-msgstr ""
+msgstr "Enviar o Ficheiro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
 #: dialog.ui:82
 #, kde-format
 msgid "Open on peer device"
-msgstr ""
+msgstr "Abrir no outro dispositivo"
 
 #: kdeconnect-handler.cpp:43
 #, kde-format

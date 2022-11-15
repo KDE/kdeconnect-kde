@@ -1,19 +1,18 @@
 # Translation for kdeconnect-urlhandler.po to Euskara/Basque (eu).
-# Copyright (C) 2017, Free Software Foundation, Inc.
-# Copyright (C) 2018-2021, This file is copyright:
+# Copyright (C) 2017-2021, This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>.
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022.
 # Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-14 00:45+0000\n"
-"PO-Revision-Date: 2021-07-17 17:18+0200\n"
+"PO-Revision-Date: 2022-11-14 06:22+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.04.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,28 +34,27 @@ msgstr "oelkoro@gmail.com,gontzalpujana@protonmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialog.ui:31
-#, fuzzy, kde-format
-#| msgid "Select a device"
+#, kde-format
 msgid "Select device:"
-msgstr "Hautatu gailu bat"
+msgstr "Hautatu gailua:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
 #, kde-format
 msgid "Send URL"
-msgstr ""
+msgstr "Bidali URLa"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
 #: dialog.ui:62
 #, kde-format
 msgid "Send File"
-msgstr ""
+msgstr "Bidali fitxategia"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
 #: dialog.ui:82
 #, kde-format
 msgid "Open on peer device"
-msgstr ""
+msgstr "Ireki parekoaren gailuan"
 
 #: kdeconnect-handler.cpp:43
 #, kde-format
