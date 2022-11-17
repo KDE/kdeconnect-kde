@@ -1,28 +1,27 @@
-# Lithuanian translations for l package.
-# Copyright (C) 2014 This_file_is_part_of_KDE
-# This file is distributed under the same license as the l package.
-# Automatically generated, 2014.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeconnect\n"
+"Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-11-17 02:11+0200\n"
-"Last-Translator: Moo <<>>\n"
-"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
-"Language: lt\n"
+"PO-Revision-Date: 2022-11-16 16:04+0700\n"
+"Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
+"Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
+"Language: ie\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
 msgid "%1% charging"
-msgstr "%1% įkraunama"
+msgstr "%1%, chargeante"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -32,32 +31,32 @@ msgstr "%1%"
 #: package/contents/ui/Battery.qml:26
 #, kde-format
 msgid "No info"
-msgstr "Nėra informacijos"
+msgstr "Null information"
 
 #: package/contents/ui/Connectivity.qml:41
 #, kde-format
 msgid "Unknown"
-msgstr "Nežinoma"
+msgstr "Ínconosset"
 
 #: package/contents/ui/Connectivity.qml:51
 #, kde-format
 msgid "No signal"
-msgstr "Nėra signalo"
+msgstr "Null signale"
 
 #: package/contents/ui/DeviceDelegate.qml:51
 #, kde-format
 msgid "File Transfer"
-msgstr "Failų persiuntimas"
+msgstr "Transferte de files"
 
 #: package/contents/ui/DeviceDelegate.qml:52
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
-msgstr "Tempkite failą, norėdami jį persiųsti į savo telefoną."
+msgstr "Fa cader un file por transferter it a vor telefon."
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
 msgid "Virtual Display"
-msgstr "Virtualus ekranas"
+msgstr "Virtual monitor"
 
 #: package/contents/ui/DeviceDelegate.qml:138
 #, kde-format
@@ -68,149 +67,123 @@ msgstr "%1%"
 #: package/contents/ui/DeviceDelegate.qml:160
 #, kde-format
 msgid "Please choose a file"
-msgstr "Pasirinkite failą"
+msgstr "Ples selecter un file"
 
 #: package/contents/ui/DeviceDelegate.qml:169
 #, kde-format
 msgid "Share file"
-msgstr "Bendrinti failą"
+msgstr "Partir un file"
 
 #: package/contents/ui/DeviceDelegate.qml:178
 #, kde-format
 msgid "Save As"
-msgstr "Įrašyti kaip"
+msgstr "Gardar quam"
 
 #: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Take a photo"
-msgstr "Fotografuoti"
+msgstr "Far un foto"
 
 #: package/contents/ui/DeviceDelegate.qml:206
 #, kde-format
 msgid "Ring my phone"
-msgstr "Skambinti į mano telefoną"
+msgstr "Sonar mi telefon"
 
 #: package/contents/ui/DeviceDelegate.qml:224
 #, kde-format
 msgid "Browse this device"
-msgstr "Naršyti šį įrenginį"
+msgstr "Navigar ti aparate"
 
 #: package/contents/ui/DeviceDelegate.qml:241
 #, kde-format
 msgid "SMS Messages"
-msgstr "SMS žinutės"
+msgstr "Missages SMS"
 
 #: package/contents/ui/DeviceDelegate.qml:262
 #, kde-format
 msgid "Remote Keyboard"
-msgstr "Nuotolinė klaviatūra"
+msgstr "Lontan tastatura"
 
 #: package/contents/ui/DeviceDelegate.qml:278
 #, kde-format
 msgid "Notifications:"
-msgstr "Pranešimai:"
+msgstr "Notificationes:"
 
 #: package/contents/ui/DeviceDelegate.qml:285
 #, kde-format
 msgid "Dismiss all notifications"
-msgstr "Atmesti visus pranešimus"
+msgstr "Demisser omni notificationes"
 
 #: package/contents/ui/DeviceDelegate.qml:324
 #, kde-format
 msgid "Reply"
-msgstr "Atsakyti"
+msgstr "Responder"
 
 #: package/contents/ui/DeviceDelegate.qml:333
 #, kde-format
 msgid "Dismiss"
-msgstr "Atmesti"
+msgstr "Demisser"
 
 #: package/contents/ui/DeviceDelegate.qml:344
 #, kde-format
 msgid "Cancel"
-msgstr "Atsisakyti"
+msgstr "Anullar"
 
 #: package/contents/ui/DeviceDelegate.qml:357
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr "Atsakyti %1…"
+msgstr "Responder a %1..."
 
 #: package/contents/ui/DeviceDelegate.qml:373
 #, kde-format
 msgid "Send"
-msgstr "Siųsti"
+msgstr "Inviar"
 
 #: package/contents/ui/DeviceDelegate.qml:397
 #, kde-format
 msgid "Run command"
-msgstr "Vykdyti komandą"
+msgstr "Lansar un comande"
 
 #: package/contents/ui/DeviceDelegate.qml:405
 #, kde-format
 msgid "Add command"
-msgstr "Pridėti komandą"
+msgstr "Adjunter un comande"
 
 #: package/contents/ui/FullRepresentation.qml:53
 #, kde-format
 msgid "No paired devices"
-msgstr "Nėra suporuotų įrenginių"
+msgstr "Null acuplat aparates"
 
 #: package/contents/ui/FullRepresentation.qml:53
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
-msgstr[0] "Suporuotas įrenginys neprieinamas"
-msgstr[1] "Visi suporuoti įrenginiai yra neprieinami"
-msgstr[2] "Visi suporuoti įrenginiai yra neprieinami"
-msgstr[3] "Visi suporuoti įrenginiai yra neprieinami"
+msgstr[0] "Li acuplat aparate es índisponibil"
+msgstr[1] "Omni acuplat aparates es índisponibil"
 
 #: package/contents/ui/FullRepresentation.qml:55
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
-"Įdiekite KDE Connect savo Android įrenginyje, kad integruotumėte jį su "
-"Plasma!"
+"Installar KDE Connect a vor aparate Android por integrar it con Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:59
 #, kde-format
 msgid "Pair a Device..."
-msgstr "Suporuoti įrenginį..."
+msgstr "Acuplar un aparate..."
 
 #: package/contents/ui/FullRepresentation.qml:71
 #, kde-format
 msgid "Install from Google Play"
-msgstr "Įdiegti iš Google Play"
+msgstr "Installar de Google Play"
 
 #: package/contents/ui/FullRepresentation.qml:81
 #, kde-format
 msgid "Install from F-Droid"
-msgstr "Įdiegti iš F-Droid"
+msgstr "Installar de F-Droid"
 
 #: package/contents/ui/main.qml:49
 #, kde-format
 msgid "KDE Connect Settings..."
-msgstr "KDE Connect nuostatos..."
-
-#~ msgid "Configure..."
-#~ msgstr "Konfigūruoti..."
-
-#, fuzzy
-#~| msgid "Battery"
-#~ msgctxt ""
-#~ "Display the battery charge percentage with the label \"Battery:\" so the "
-#~ "user knows what is being displayed"
-#~ msgid "Battery: %1"
-#~ msgstr "Akumuliatorius"
-
-#~ msgid "%1 (%2)"
-#~ msgstr "%1 (%2)"
-
-#~ msgid "Share text"
-#~ msgstr "Bendrinti tekstą"
-
-#~ msgid "Charging: %1%"
-#~ msgstr "Įkraunamas: %1%"
-
-#~ msgid "Discharging: %1%"
-#~ msgstr "Išsikrauna: %1%"
+msgstr "Parametres de KDE Connect..."

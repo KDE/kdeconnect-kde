@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2021-08-21 13:25+0300\n"
-"Last-Translator: Moo\n"
+"PO-Revision-Date: 2022-11-17 02:16+0200\n"
+"Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.2.1\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -34,25 +34,25 @@ msgstr "Akumuliatorius ties %1%"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "Iškarpinės papildinys"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Contents shared to other devices"
-msgstr ""
+msgstr "Į kitus įrenginius bendrinamas turinys"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Passwords (as marked by password managers)"
-msgstr ""
+msgstr "Slaptažodžiai (kaip juos žymi slaptažodžių tvarkytuvės)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Anything else"
-msgstr ""
+msgstr "Bet kas kita"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
