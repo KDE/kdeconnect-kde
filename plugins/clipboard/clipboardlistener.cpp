@@ -61,7 +61,7 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
     }
 
     ClipboardListener::ClipboardContentType contentType = ClipboardListener::ClipboardContentTypeUnknown;
-    if (clipboard->mimeData(mode)->data(QStringLiteral("x-kde-passwordManagerHint")) == QByteArrayLiteral("secret")) {
+    if (clipboard->mimeData(mode) && clipboard->mimeData(mode)->data(QStringLiteral("x-kde-passwordManagerHint")) == QByteArrayLiteral("secret")) {
         contentType = ClipboardListener::ClipboardContentTypePassword;
     }
 
