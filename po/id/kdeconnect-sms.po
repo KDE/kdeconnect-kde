@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # Wantoyo <wantoyek@gmail.com>, 2021, 2022.
+# Linerly <linerly@protonmail.com>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2022-08-26 23:44+0700\n"
-"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
-"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
+"PO-Revision-Date: 2022-11-16 22:41+0700\n"
+"Last-Translator: Linerly <linerly@protonmail.com>\n"
+"Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,12 +46,12 @@ msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
 "attachment, resulting in something like \"pdf file\""
 msgid "%1 file"
-msgstr "%1 file"
+msgstr "%1 berkas"
 
 #: conversationlistmodel.cpp:219
 #, kde-format
 msgid "You: %1"
-msgstr "Kamu: %1"
+msgstr "Anda: %1"
 
 #: conversationlistmodel.cpp:225
 #, kde-format
@@ -73,10 +74,9 @@ msgid "SMS Instant Messaging"
 msgstr "Perpesanan Instan SMS"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2019, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2019, KDE Connect Team"
+msgstr "(C) 2018-2022, Tim KDE Connect"
 
 #: main.cpp:55
 #, kde-format
@@ -148,7 +148,7 @@ msgid ""
 "your device and then click Refresh."
 msgstr ""
 "Memuat obrolan dari peranti. Jika ini memakan waktu terlalu lama, silakan "
-"bangunkan perantimu dan kemudian klik Segarkan."
+"bangunkan peranti Anda dan kemudian klik Segarkan."
 
 #: qml/ConversationList.qml:58
 #, kde-format
@@ -156,8 +156,8 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
-"Kiat: Jika kamu mencolokkan peranti, itu seharusnya tidak menuju ke mode "
-"ngantuk dan seharusnya memuat secara cepat."
+"Kiat: Jika Anda mengisi daya peranti, itu seharusnya tidak menuju ke mode "
+"tidur dan seharusnya memuat secara cepat."
 
 #: qml/ConversationList.qml:66 qml/main.qml:87
 #, kde-format
