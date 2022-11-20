@@ -290,7 +290,7 @@ Comment[ta]=யாரோ உங்களைக் கூப்பிடுகி
 Comment[tr]=Biri sizi arıyor
 Comment[uk]=Хтось телефонує вам
 Comment[x-test]=xxSomeone is calling youxx
-Comment[zh_CN]=某人正在呼叫您
+Comment[zh_CN]=有人正在呼叫您
 Comment[zh_TW]=有人打電話給您
 Action=Popup
 
@@ -340,7 +340,7 @@ Name[ta]=தவறிய அழைப்பு
 Name[tr]=Yanıtsız Çağrı
 Name[uk]=Пропущений дзвінок
 Name[x-test]=xxMissed Callxx
-Name[zh_CN]=错过的呼叫
+Name[zh_CN]=未接来电
 Name[zh_TW]=未接來電
 Comment=You have a missed call
 Comment[ar]=لقد فاتتك مكالمة
