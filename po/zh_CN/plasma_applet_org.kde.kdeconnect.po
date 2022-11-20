@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-11-06 01:05\n"
+"PO-Revision-Date: 2022-11-19 14:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/kdeconnect-kde/plasma_applet_org.kde."
+"X-Crowdin-File: /kf5-stable/messages/kdeconnect-kde/plasma_applet_org.kde."
 "kdeconnect.pot\n"
-"X-Crowdin-File-ID: 11807\n"
+"X-Crowdin-File-ID: 12092\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "分享文件"
 #: package/contents/ui/DeviceDelegate.qml:178
 #, kde-format
 msgid "Save As"
-msgstr ""
+msgstr "另存为"
 
 #: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Take a photo"
-msgstr ""
+msgstr "拍摄照片"
 
 #: package/contents/ui/DeviceDelegate.qml:206
 #, kde-format
@@ -127,18 +127,18 @@ msgstr "忽略"
 #: package/contents/ui/DeviceDelegate.qml:344
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: package/contents/ui/DeviceDelegate.qml:357
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "回复给 %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:373
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: package/contents/ui/DeviceDelegate.qml:397
 #, kde-format
