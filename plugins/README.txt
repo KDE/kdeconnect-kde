@@ -20,7 +20,7 @@ For the desktop client (this project):
   C. Remove all the translations
   D. Set X-KDEConnect-SupportedPacketType and X-KDEConnect-OutgoingPacketType to the packet type your plugin will receive
      and send, respectively. In this example this is "kdeconnect.findmyphone". Make sure that this matches what is defined in
-     the findmyplugin.h file (in the line "#define PACKET_TYPE_..."), and also in Android.
+     the findmyphoneplugin.h file (in the line "#define PACKET_TYPE_..."), and also in Android.
 10. Now you have an empty skeleton to implement your new plugin logic.
 
 For Android (project kdeconnect-android):
