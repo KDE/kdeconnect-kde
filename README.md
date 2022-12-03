@@ -9,12 +9,15 @@ KDE Connect is a multi-platform app that allows your devices to communicate (eg:
 - **Multimedia remote control**: Use your phone as a remote for Linux media players.
 - **Virtual touchpad**: Use your phone screen as your computer's touchpad and keyboard.
 - **Presentation remote**: Advance your presentation slides straight from your phone.
-
+- **Run Commands **: Run commands from Android and iphone to pc.
+- Ring , Send ping , Send SMS.
 All this is done completely wirelessly, utilising TLS encryption.
 
 ## Supported platforms
 - Computers running Linux with Plasma 5, Gnome 3, Elementary OS... any distro with Qt5 support given a little work :)
 - Android, by installing the KDE Connect app from the [Play Store](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) or [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp).
+- Iphone Install from App Store
+- Windows from Microsoft store (https://apps.microsoft.com/store/detail/kde-connect/9N93MRMSXBF0?hl=ja-jp&gl=en)
 
 ## How to install
 These instructions explain how to install KDE Connect on your computer. You will also need to install it on your Android device and pair them together in the app before using this application. The Android app repository can be found [here](https://invent.kde.org/network/kdeconnect-android)
@@ -25,6 +28,7 @@ Look in your distribution repo for a package called `kdeconnect-kde`,
 If it's not there and you know how to build software from sources, you just
 found the repo :), instructions are
 [here](https://community.kde.org/KDEConnect#Building_KDE_Connect_.28Desktop.29)
+
 
 ### On Mac or Windows
 Platforms other than Linux are not officially supported, as there has yet to be an official release of KDE Connect for MacOS or Windows. However, most of the features have already been ported to windows so you can compile KDE Connect for Windows using [Craft](https://community.kde.org/Craft). It hasn't yet been completely tested on MacOS, contributions and feedback are welcome!
