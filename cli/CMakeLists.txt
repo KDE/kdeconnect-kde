@@ -12,4 +12,7 @@ target_link_libraries(kdeconnect-cli
 )
 
 install(TARGETS kdeconnect-cli ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES kdeconnect.zsh RENAME _kdeconnect DESTINATION ${KDE_INSTALL_ZSHAUTOCOMPLETEDIR})
+
+if (NOT SAILFISHOS)
+    install(FILES kdeconnect.zsh RENAME _kdeconnect DESTINATION ${KDE_INSTALL_ZSHAUTOCOMPLETEDIR})
+endif()
