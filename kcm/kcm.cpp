@@ -8,8 +8,9 @@
 
 #include <KAboutData>
 #include <KColorSchemeManager>
+#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KPluginInfo>
+#include <KPluginFactory>
 #include <KPluginMetaData>
 #include <kcmutils_version.h>
 
