@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-07 00:46+0000\n"
 "PO-Revision-Date: 2021-11-23 13:15+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -29,57 +29,57 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu"
 
-#: kcm.cpp:37
+#: kcm.cpp:38
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "A KDE Connect beállításai"
 
-#: kcm.cpp:39
+#: kcm.cpp:40
 #, kde-format
 msgid "KDE Connect Settings module"
 msgstr "KDE Connect beállítómodul"
 
-#: kcm.cpp:41
+#: kcm.cpp:42
 #, kde-format
 msgid "(C) 2015 Albert Vaca Cintora"
 msgstr "© Albert Vaca Cintora, 2015."
 
-#: kcm.cpp:44
+#: kcm.cpp:45
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:223
+#: kcm.cpp:224
 #, kde-format
 msgid "Key: %1"
 msgstr "Kulcs: %1"
 
-#: kcm.cpp:254
+#: kcm.cpp:255
 #, kde-format
 msgid "Available plugins"
 msgstr "Elérhető bővítmények"
 
-#: kcm.cpp:307
+#: kcm.cpp:308
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Hiba a párosítási kísérletkor: %1"
 
-#: kcm.cpp:328
+#: kcm.cpp:329
 #, kde-format
 msgid "(paired)"
 msgstr "(párosítva)"
 
-#: kcm.cpp:331
+#: kcm.cpp:332
 #, kde-format
 msgid "(not paired)"
 msgstr "(nincs párosítva)"
 
-#: kcm.cpp:334
+#: kcm.cpp:335
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(bejövő párosítási kérés)"
 
-#: kcm.cpp:337
+#: kcm.cpp:338
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(párosítás elindítva)"

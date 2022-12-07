@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-07 00:46+0000\n"
 "PO-Revision-Date: 2021-10-19 19:09+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -28,57 +28,57 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: kcm.cpp:37
+#: kcm.cpp:38
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "Impostazioni di KDE Connect"
 
-#: kcm.cpp:39
+#: kcm.cpp:40
 #, kde-format
 msgid "KDE Connect Settings module"
 msgstr "Modulo delle impostazioni di KDE Connect"
 
-#: kcm.cpp:41
+#: kcm.cpp:42
 #, kde-format
 msgid "(C) 2015 Albert Vaca Cintora"
 msgstr "(C) 2015 Albert Vaca Cintora"
 
-#: kcm.cpp:44
+#: kcm.cpp:45
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:223
+#: kcm.cpp:224
 #, kde-format
 msgid "Key: %1"
 msgstr "Chiave: %1"
 
-#: kcm.cpp:254
+#: kcm.cpp:255
 #, kde-format
 msgid "Available plugins"
 msgstr "Estensioni disponibili"
 
-#: kcm.cpp:307
+#: kcm.cpp:308
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Errore durante l'associazione: %1"
 
-#: kcm.cpp:328
+#: kcm.cpp:329
 #, kde-format
 msgid "(paired)"
 msgstr "(associato)"
 
-#: kcm.cpp:331
+#: kcm.cpp:332
 #, kde-format
 msgid "(not paired)"
 msgstr "(non associato)"
 
-#: kcm.cpp:334
+#: kcm.cpp:335
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(richiesta di associazione in ingresso)"
 
-#: kcm.cpp:337
+#: kcm.cpp:338
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(associazione richiesta)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-07 00:46+0000\n"
 "PO-Revision-Date: 2019-09-29 20:18+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -27,57 +27,57 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "victor.ibragimov@gmail.com"
 
-#: kcm.cpp:37
+#: kcm.cpp:38
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "Танзимоти Пайвасти KDE"
 
-#: kcm.cpp:39
+#: kcm.cpp:40
 #, kde-format
 msgid "KDE Connect Settings module"
 msgstr "Модули танзимоти Пайвасти KDE"
 
-#: kcm.cpp:41
+#: kcm.cpp:42
 #, kde-format
 msgid "(C) 2015 Albert Vaca Cintora"
 msgstr "(C) 2015 Алберт Вака Синтора (Albert Vaca Cintora)"
 
-#: kcm.cpp:44
+#: kcm.cpp:45
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Алберт Вака Синтора (Albert Vaca Cintora)"
 
-#: kcm.cpp:223
+#: kcm.cpp:224
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:254
+#: kcm.cpp:255
 #, kde-format
 msgid "Available plugins"
 msgstr "Васлкунакҳои дастрас"
 
-#: kcm.cpp:307
+#: kcm.cpp:308
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Ҳангоми пайвастшавӣ хато ба вуҷуд омад: %1"
 
-#: kcm.cpp:328
+#: kcm.cpp:329
 #, kde-format
 msgid "(paired)"
 msgstr "(пайваст шуд)"
 
-#: kcm.cpp:331
+#: kcm.cpp:332
 #, kde-format
 msgid "(not paired)"
 msgstr "(пайваст нашуд)"
 
-#: kcm.cpp:334
+#: kcm.cpp:335
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(дархости пайвастшавии даромад)"
 
-#: kcm.cpp:337
+#: kcm.cpp:338
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(пайвастшавӣ дархост шуд)"
