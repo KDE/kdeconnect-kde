@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-07 00:46+0000\n"
 "PO-Revision-Date: 2022-01-15 18:24+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -29,57 +29,57 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: kcm.cpp:37
+#: kcm.cpp:38
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "Innstillingar for KDE Connect"
 
-#: kcm.cpp:39
+#: kcm.cpp:40
 #, kde-format
 msgid "KDE Connect Settings module"
 msgstr "Modul for KDE Connect-innstillingar"
 
-#: kcm.cpp:41
+#: kcm.cpp:42
 #, kde-format
 msgid "(C) 2015 Albert Vaca Cintora"
 msgstr "© 2015 Albert Vaca Cintora"
 
-#: kcm.cpp:44
+#: kcm.cpp:45
 #, kde-format
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:223
+#: kcm.cpp:224
 #, kde-format
 msgid "Key: %1"
 msgstr "Nøkkel: %1"
 
-#: kcm.cpp:254
+#: kcm.cpp:255
 #, kde-format
 msgid "Available plugins"
 msgstr "Tilgjengelege programtillegg"
 
-#: kcm.cpp:307
+#: kcm.cpp:308
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Feil ved forsøk på paring: %1"
 
-#: kcm.cpp:328
+#: kcm.cpp:329
 #, kde-format
 msgid "(paired)"
 msgstr "(para)"
 
-#: kcm.cpp:331
+#: kcm.cpp:332
 #, kde-format
 msgid "(not paired)"
 msgstr "(ikkje para)"
 
-#: kcm.cpp:334
+#: kcm.cpp:335
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(får paringsførespurnad)"
 
-#: kcm.cpp:337
+#: kcm.cpp:338
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(paringsførespurnad)"
@@ -167,17 +167,17 @@ msgid ""
 "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
 "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
 "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
-"are having problems, visit the <a href=\"https://userbase.kde.org/KDEConnect"
-"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
-"Community wiki</span></a> for help.</p></body></html>"
+"are having problems, visit the <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE "
+"Connect Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
 "<html><head/><body><p>Inga eining valt.<br><br>Viss du har ei Android-"
 "eining, installer <a href=\"https://play.google.com/store/apps/details?"
 "id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; color:"
-"#4c6b8a;\">Android-appen KDE Connect</span></a> (òg tilgjengeleg <a href="
-"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
-"style=\" text-decoration: underline; color:#4c6b8a;\">frå F-Droid</span></"
-"a>). Eininga skal då automatisk dukka opp her.<br><br>Får du det ikkje til å "
-"fungera, sjå <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-"text-decoration: underline; color:#4c6b8a;\">wiki-sida for KDE Connect</"
-"span></a> for hjelp.</p></body></html>"
+"#4c6b8a;\">Android-appen KDE Connect</span></a> (òg tilgjengeleg <a "
+"href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">frå F-Droid</span></a>). Eininga skal då automatisk dukka opp her."
+"<br><br>Får du det ikkje til å fungera, sjå <a href=\"https://userbase.kde."
+"org/KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">wiki-sida for KDE Connect</span></a> for hjelp.</p></body></html>"

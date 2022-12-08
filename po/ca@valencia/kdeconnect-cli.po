@@ -258,8 +258,7 @@ msgid ""
 msgstr ""
 "No s'ha especificat cap dispositiu: utilitzeu -d <ID_de_dispositiu> o -n "
 "<Nom_del_dispositiu> per a especificar un dispositiu.\n"
-"Els ID i noms dels dispositius es poden trobar utilitzant «kdeconnect-cli -"
-"l» \n"
+"Els ID i noms dels dispositius es troben utilitzant «kdeconnect-cli -l» \n"
 "Vegeu tota l'ajuda amb l'opció --help"
 
 #: kdeconnect-cli.cpp:216
