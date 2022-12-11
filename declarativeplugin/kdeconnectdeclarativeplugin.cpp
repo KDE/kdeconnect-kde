@@ -25,7 +25,7 @@
 #include <pluginmodel.h>
 #include <remotecommandsmodel.h>
 #include <remotesinksmodel.h>
-#if WITH_WAYLAND == 1
+#if WITH_WAYLAND
 #include "pointerlockerwayland.h"
 #endif
 
@@ -86,7 +86,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
     });
     qmlRegisterSingletonType<AbstractPointerLocker>("org.kde.kdeconnect", 1, 0, "PointerLocker", [](QQmlEngine *, QJSEngine *) -> QObject * {
         AbstractPointerLocker *ret;
-#if WITH_WAYLAND == 1
+#if WITH_WAYLAND
         if (qGuiApp->platformName() == QLatin1String("wayland"))
             ret = new PointerLockerWayland;
         else

@@ -9,30 +9,16 @@
 
 #include "pointerlocker.h"
 
-namespace KWayland
-{
-namespace Client
-{
-
-class ConnectionThread;
-class Registry;
-class Compositor;
-class Seat;
-class Pointer;
 class PointerConstraints;
 class LockedPointer;
-class ConfinedPointer;
-class RelativePointer;
-class RelativePointerManager;
-
-}
-}
+class wl_pointer;
 
 class PointerLockerWayland : public AbstractPointerLocker
 {
     Q_OBJECT
 public:
     PointerLockerWayland(QObject *parent = nullptr);
+    ~PointerLockerWayland();
 
     void setLocked(bool locked) override;
     bool isLocked() const override
@@ -42,7 +28,7 @@ public:
     bool isLockEffective() const override;
     bool isSupported() const override
     {
-        return m_pointerConstraints && m_relativePointerManager;
+        return m_pointerConstraints;
     }
 
     void setWindow(QWindow *window) override;
@@ -52,16 +38,12 @@ private:
     void enforceLock();
     void cleanupLock();
 
-    bool m_isLocked = false;
-    KWayland::Client::ConnectionThread *m_connectionThreadObject;
-    KWayland::Client::Compositor *m_compositor = nullptr;
-    KWayland::Client::Seat *m_seat = nullptr;
-    KWayland::Client::Pointer *m_pointer = nullptr;
-    KWayland::Client::PointerConstraints *m_pointerConstraints = nullptr;
-    KWayland::Client::RelativePointer *m_relativePointer = nullptr;
-    KWayland::Client::RelativePointerManager *m_relativePointerManager = nullptr;
+    wl_pointer *getPointer();
 
-    KWayland::Client::LockedPointer *m_lockedPointer = nullptr;
+    bool m_isLocked = false;
+
+    PointerConstraints *m_pointerConstraints;
+    LockedPointer *m_lockedPointer = nullptr;
 };
 
 #endif

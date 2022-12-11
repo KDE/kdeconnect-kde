@@ -9,71 +9,73 @@
 
 #include <QDebug>
 
-#include <KWayland/Client/compositor.h>
-#include <KWayland/Client/connection_thread.h>
-#include <KWayland/Client/pointer.h>
-#include <KWayland/Client/pointerconstraints.h>
-#include <KWayland/Client/region.h>
-#include <KWayland/Client/registry.h>
-#include <KWayland/Client/relativepointer.h>
-#include <KWayland/Client/seat.h>
-#include <KWayland/Client/surface.h>
+#include "qwayland-pointer-constraints-unstable-v1.h"
+#include <QtWaylandClient/qwaylandclientextension.h>
+#include <qpa/qplatformnativeinterface.h>
 
-using namespace KWayland::Client;
+#include <QGuiApplication>
+
+class PointerConstraints : public QWaylandClientExtensionTemplate<PointerConstraints>, public QtWayland::zwp_pointer_constraints_v1
+{
+public:
+    PointerConstraints()
+        : QWaylandClientExtensionTemplate<PointerConstraints>(1)
+    {
+    }
+};
+
+class LockedPointer : public QObject, public QtWayland::zwp_locked_pointer_v1
+{
+    Q_OBJECT
+public:
+    LockedPointer(struct ::zwp_locked_pointer_v1 *object, QObject *parent)
+        : QObject(parent)
+        , zwp_locked_pointer_v1(object)
+    {
+    }
+
+    Q_SIGNAL void locked();
+
+    Q_SIGNAL void unlocked();
+
+private:
+    void zwp_locked_pointer_v1_locked() override
+    {
+        Q_EMIT locked();
+    }
+
+    void zwp_locked_pointer_v1_unlocked() override
+    {
+        Q_EMIT unlocked();
+    }
+};
 
 PointerLockerWayland::PointerLockerWayland(QObject *parent)
     : AbstractPointerLocker(parent)
-    , m_connectionThreadObject(ConnectionThread::fromApplication(this))
 {
-    setupRegistry();
+    m_pointerConstraints = new PointerConstraints;
 }
 
-void PointerLockerWayland::setupRegistry()
+PointerLockerWayland::~PointerLockerWayland()
 {
-    Registry *registry = new Registry(this);
-
-    connect(registry, &Registry::compositorAnnounced, this, [this, registry](quint32 name, quint32 version) {
-        m_compositor = registry->createCompositor(name, version, this);
-    });
-    connect(registry, &Registry::relativePointerManagerUnstableV1Announced, this, [this, registry](quint32 name, quint32 version) {
-        Q_ASSERT(!m_relativePointerManager);
-        m_relativePointerManager = registry->createRelativePointerManager(name, version, this);
-    });
-    connect(registry, &Registry::seatAnnounced, this, [this, registry](quint32 name, quint32 version) {
-        m_seat = registry->createSeat(name, version, this);
-        if (m_seat->hasPointer()) {
-            m_pointer = m_seat->createPointer(this);
-        }
-        connect(m_seat, &Seat::hasPointerChanged, this, [this](bool hasPointer) {
-            delete m_pointer;
-
-            if (!hasPointer)
-                return;
-
-            m_pointer = m_seat->createPointer(this);
-
-            delete m_relativePointer;
-            m_relativePointer = m_relativePointerManager->createRelativePointer(m_pointer, this);
-            connect(m_relativePointer, &RelativePointer::relativeMotion, this, [this](const QSizeF &delta) {
-                Q_EMIT pointerMoved({delta.width(), delta.height()});
-            });
-        });
-    });
-    connect(registry, &Registry::pointerConstraintsUnstableV1Announced, this, [this, registry](quint32 name, quint32 version) {
-        m_pointerConstraints = registry->createPointerConstraints(name, version, this);
-    });
-    connect(registry, &Registry::interfacesAnnounced, this, [this] {
-        Q_ASSERT(m_compositor);
-        Q_ASSERT(m_seat);
-        Q_ASSERT(m_pointerConstraints);
-    });
-    registry->create(m_connectionThreadObject);
-    registry->setup();
+    delete m_pointerConstraints;
 }
 
 bool PointerLockerWayland::isLockEffective() const
 {
-    return m_lockedPointer && m_lockedPointer->isValid();
+    return m_lockedPointer;
+}
+
+wl_pointer *PointerLockerWayland::getPointer()
+{
+    QPlatformNativeInterface *native = qGuiApp->platformNativeInterface();
+    if (!native) {
+        return nullptr;
+    }
+
+    window()->create();
+
+    return reinterpret_cast<wl_pointer *>(native->nativeResourceForIntegration(QByteArrayLiteral("wl_pointer")));
 }
 
 void PointerLockerWayland::enforceLock()
@@ -82,23 +84,31 @@ void PointerLockerWayland::enforceLock()
         return;
     }
 
-    QScopedPointer<Surface> winSurface(Surface::fromWindow(m_window));
-    if (!winSurface) {
-        qWarning() << "Locking a window that is not mapped";
-        return;
-    }
-    auto *lockedPointer = m_pointerConstraints->lockPointer(winSurface.data(), m_pointer, nullptr, PointerConstraints::LifeTime::Persistent, this);
+    wl_surface *wlSurface = [](QWindow *window) -> wl_surface * {
+        if (!window) {
+            return nullptr;
+        }
 
-    if (!lockedPointer) {
+        QPlatformNativeInterface *native = qGuiApp->platformNativeInterface();
+        if (!native) {
+            return nullptr;
+        }
+        window->create();
+        return reinterpret_cast<wl_surface *>(native->nativeResourceForWindow(QByteArrayLiteral("surface"), window));
+    }(m_window);
+
+    m_lockedPointer =
+        new LockedPointer(m_pointerConstraints->lock_pointer(wlSurface, getPointer(), nullptr, PointerConstraints::lifetime::lifetime_persistent), this);
+
+    if (!m_lockedPointer) {
         qDebug() << "ERROR when receiving locked pointer!";
         return;
     }
-    m_lockedPointer = lockedPointer;
 
-    connect(lockedPointer, &LockedPointer::locked, this, [this] {
+    connect(m_lockedPointer, &LockedPointer::locked, this, [this] {
         Q_EMIT lockEffectiveChanged(true);
     });
-    connect(lockedPointer, &LockedPointer::unlocked, this, [this] {
+    connect(m_lockedPointer, &LockedPointer::unlocked, this, [this] {
         Q_EMIT lockEffectiveChanged(false);
     });
 }
@@ -128,7 +138,7 @@ void PointerLockerWayland::cleanupLock()
     if (!m_lockedPointer) {
         return;
     }
-    m_lockedPointer->release();
+    m_lockedPointer->destroy();
     m_lockedPointer->deleteLater();
     m_lockedPointer = nullptr;
     Q_EMIT lockEffectiveChanged(false);
@@ -151,3 +161,5 @@ void PointerLockerWayland::setWindow(QWindow *window)
         enforceLock();
     }
 }
+
+#include "pointerlockerwayland.moc"

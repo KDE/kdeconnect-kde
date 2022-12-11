@@ -66,7 +66,7 @@ else()
     set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
 
     set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons)
-    set(KF5_OPTIONAL_COMPONENTS DocTools Wayland)
+    set(KF5_OPTIONAL_COMPONENTS DocTools)
 
     set_package_properties(KF5Kirigami2 PROPERTIES
         DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
@@ -84,6 +84,7 @@ else()
         find_package(Wayland 1.9 REQUIRED Client)
         find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS WaylandClient)
         find_package(PlasmaWaylandProtocols REQUIRED)
+        find_package(WaylandProtocols REQUIRED)
     endif()
 
     find_package(KF5PeopleVCard)
