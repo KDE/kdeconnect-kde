@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2022-10-18 04:44+0300\n"
+"PO-Revision-Date: 2022-12-11 20:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -155,7 +155,7 @@ msgstr "Eylemler"
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr "Medya oynatıcılarını duraklat"
+msgstr "Ortam oynatıcılarını duraklat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
@@ -167,7 +167,7 @@ msgstr "Sistem sesini sessiz yap"
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr "Çağrı bittiğinde medyayı otomatik olarak devam ettir"
+msgstr "Arama bittiğinde ortamı otomatik olarak sürdür"
 
 #: ping/pingplugin.cpp:37
 #, kde-format
@@ -439,17 +439,17 @@ msgstr "bilinmeyen numara"
 #: telephony/telephonyplugin.cpp:37
 #, kde-format
 msgid "Incoming call from %1"
-msgstr "Gelen çağrı: %1"
+msgstr "Gelen arama: %1"
 
 #: telephony/telephonyplugin.cpp:41
 #, kde-format
 msgid "Missed call from %1"
-msgstr "Yanıtsız çağrı: %1"
+msgstr "Yanıtsız arama: %1"
 
 #: telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
-msgstr "Çağrıyı Sessize Al"
+msgstr "Aramayı Sessize Al"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Bilinmeyen telefon olayı: %1"
