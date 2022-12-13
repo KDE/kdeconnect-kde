@@ -4,18 +4,18 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.2
-import QtQuick.Controls 2.5
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as QQC2
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
 
 ListView {
-
+    id: view
     Component.onCompleted: {
-    root.leftPadding = 0
-    root.rightPadding = 0
-    root.topPadding = 0
-    root.bottomPadding = 0
+        root.leftPadding = 0
+        root.rightPadding = 0
+        root.topPadding = 0
+        root.bottomPadding = 0
     }
 
     property string device
@@ -32,38 +32,47 @@ ListView {
     }
 
     delegate: Kirigami.SwipeListItem {
-            width: parent.width
-            enabled: true
+        width: parent.width
+        enabled: true
 
-            Label {
-                text: i18n("%1 <br> <i>%2</i>", name, command)
-            }
-
-            actions: [
-                Kirigami.Action {
-                    icon.name: "delete"
-                    onTriggered: commandModel.removeCommand(index)
-                }
-            ]
+        QQC2.Label {
+            text: i18n("%1 <br> <i>%2</i>", name, command)
         }
 
-    Dialog {
+        actions: Kirigami.Action {
+            text: i18n("Delete")
+            icon.name: "delete"
+            onTriggered: commandModel.removeCommand(index)
+        }
+    }
+
+    Kirigami.PlaceholderMessage {
+        icon.name: 'utilities-terminal'
+        anchors.centerIn: parent
+        visible: view.count === 0
+        width: parent.width - Kirigami.Units.gridUnit * 4
+        text: i18n("No Commands")
+        explanation: i18n("Add commands to run them remotely from other devices")
+        helpfulAction: view.action
+    }
+
+    QQC2.Dialog {
         id: addDialog
         title: "Add command"
 
-        standardButtons: Dialog.Save | Dialog.Cancel
+        standardButtons: QQC2.Dialog.Save | QQC2.Dialog.Cancel
 
         Kirigami.FormLayout {
-            TextField {
+            QQC2.TextField {
                 id: nameField
                 Kirigami.FormData.label: i18n("Name:")
             }
-            TextField {
+            QQC2.TextField {
                 id: commandField
                 Kirigami.FormData.label: i18n("Command:")
             }
 
-            ComboBox {
+            QQC2.ComboBox {
                 Kirigami.FormData.label: i18n("Sample commands:")
                 textRole: "name"
                 model: ListModel {
