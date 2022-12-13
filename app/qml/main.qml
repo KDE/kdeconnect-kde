@@ -119,7 +119,10 @@ Kirigami.ApplicationWindow {
 
             Kirigami.BasicListItem {
                 text: i18n("Settings")
-                onClicked: pageStack.pushDialogLayer('qrc:/qml/Settings.qml');
+                icon: "settings-configure"
+                onClicked: pageStack.pushDialogLayer('qrc:/qml/Settings.qml', {}, {
+                    title: i18n("Settings"),
+                });
             }
         }
     }
