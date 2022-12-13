@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-18 00:44+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2022-11-17 02:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -360,28 +360,28 @@ msgstr "Mažiausias skubumo lygis"
 msgid "Applications"
 msgstr "Programos"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:168
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Nepavyko paleisti sshfs"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs procesas lūžo"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:176
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Nežinoma klaida, esanti sshfs"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:187
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Klaida gaunant prieigą prie failų sistemos. sshfs užbaigė su išėjimo kodu %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Nepavyko prijungti failų sistemos: įrenginys neatsako"

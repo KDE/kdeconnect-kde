@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-18 00:44+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2022-11-11 14:28+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -357,27 +357,27 @@ msgstr "Minimum vaciblik səviyyəsi"
 msgid "Applications"
 msgstr "Tətbiqlər"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:168
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshf başlatmaq baş tutmadı"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshf prosesi çökdü"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:176
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshf-də naməlum xəta"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:187
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Fayl sisteminə giriş zamanı xəta, sshf %0 çıxış kodu ilə sonlandı"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "fayl sisteminin qoşulması baş tutmadı, cihaz cavab vermir"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-18 00:44+0000\n"
+"POT-Creation-Date: 2022-12-13 00:54+0000\n"
 "PO-Revision-Date: 2022-11-15 07:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -352,27 +352,27 @@ msgstr ""
 msgid "Applications"
 msgstr "აპლიკაციები"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:168
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "SSHFS-ის გაშვების შეცდომა"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs -ის პროცესი ავარიულად დასრულდა"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:176
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "უცნობი შეცდომა sshfs-ში"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:187
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "ფაილურ სისტემასთან წვდომისას sshfs-მა მუშაობა დაასრულა კოდით %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr ""
