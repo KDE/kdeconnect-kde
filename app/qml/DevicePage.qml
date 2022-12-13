@@ -116,7 +116,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             text: i18nd("kdeconnect-app", "This device is not paired")
             anchors.centerIn: parent
-            visible: root.currentDevice.isReachable && !root.currentDevice.isTrusted && !root.currentDevice.hasPairingRequests
+            visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isTrusted && !root.currentDevice.hasPairingRequests
             helpfulAction: Kirigami.Action {
                 text: i18nd("kdeconnect-app", "Pair")
                 icon.name:"network-connect"
@@ -145,7 +145,7 @@ Kirigami.ScrollablePage {
         }
 
         Kirigami.PlaceholderMessage {
-            visible: !root.currentDevice.isReachable
+            visible: root.currentDevice && !root.currentDevice.isReachable
             text: i18nd("kdeconnect-app", "This device is not reachable")
             anchors.centerIn: parent
         }
@@ -153,7 +153,7 @@ Kirigami.ScrollablePage {
 
     FileDialog {
         id: fileDialog
-        readonly property var shareIface: ShareDbusInterfaceFactory.create(root.currentDevice.id())
+        readonly property var shareIface: root.currentDevice ? ShareDbusInterfaceFactory.create(root.currentDevice.id()) : null
         title: i18nd("kdeconnect-app", "Please choose a file")
         folder: shortcuts.home
         onAccepted: shareIface.shareUrl(fileDialog.fileUrl)
