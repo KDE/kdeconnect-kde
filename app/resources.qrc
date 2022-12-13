@@ -13,5 +13,6 @@
     <file>qml/MprisSlider.qml</file>
     <file>qml/PluginSettings.qml</file>
     <file>qml/PluginInfoPage.qml</file>
+    <file>qml/Settings.qml</file>
  </qresource>
 </RCC>

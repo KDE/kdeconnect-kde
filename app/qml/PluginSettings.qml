@@ -10,8 +10,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.0 as Kirigami
 import org.kde.kdeconnect 1.0
 
-Kirigami.ScrollablePage
-{
+Kirigami.ScrollablePage {
     id: root
     title: i18n("Plugin Settings")
     property string device
@@ -60,14 +59,15 @@ Kirigami.ScrollablePage
                     visible: configSource != ""
                     onTriggered: {
                         if (pageStack.lastItem.toString().startsWith("PluginInfoPage")) {
-                            pageStack.lastItem.configFile = configSource
-                            pageStack.lastItem.title = name
+                            pageStack.lastItem.configFile = configSource;
+                            pageStack.lastItem.title = name;
+                            pageStack.goForward();
                         } else {
                             pageStack.push(Qt.resolvedUrl("PluginInfoPage.qml"), {
                                 title: name,
                                 configFile: configSource,
-                                device: root.device
-                            })
+                                device: root.device,
+                            });
                         }
                     }
                 }
