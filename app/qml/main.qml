@@ -4,121 +4,124 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.2
-import QtQuick.Controls 2.1
-import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.0 as Kirigami
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as QQC2
+import QtQuick.Layouts 1.15
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
 
-Kirigami.ApplicationWindow
-{
+Kirigami.ApplicationWindow {
     id: root
-    visible: true
-    width: 900
-    height: 500
+    property int columnWidth: Kirigami.Units.gridUnit * 13
+    minimumWidth: Kirigami.Units.gridUnit * 15
+    minimumHeight: Kirigami.Units.gridUnit * 15
+    wideScreen: width > columnWidth * 5
+    pageStack.globalToolBar.canContainHandles: true
+    pageStack.globalToolBar.showNavigationButtons: applicationWindow().pageStack.currentIndex > 0 ? Kirigami.ApplicationHeaderStyle.ShowBackButton : 0
 
-    onWideScreenChanged: {
-        if (wideScreen) {
-            drawer.open()
-        }
-    }
-
-    Kirigami.Action {
-        id: findDevicesAction
-        text: i18nd("kdeconnect-app", "Find devices...")
-        iconName: "list-add"
-        checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
-
-        onTriggered: {
-            root.pageStack.clear()
-            root.pageStack.push(Qt.resolvedUrl("FindDevicesPage.qml"));
-        }
-    }
-
-    globalDrawer: Kirigami.GlobalDrawer {
+    globalDrawer: Kirigami.OverlayDrawer {
         id: drawer
+        edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
+        modal: Kirigami.Settings.isMobile || (applicationWindow().width < Kirigami.Units.gridUnit * 50 && !collapsed) // Only modal when not collapsed, otherwise collapsed won't show.
+        drawerOpen: !Kirigami.Settings.isMobile
+        width: Kirigami.Units.gridUnit * 16
+        onModalChanged: if (!modal) {
+            drawerOpen = true;
+        }
 
-        modal: !root.wideScreen
-        handleVisible: !root.wideScreen
+        Behavior on width {
+            NumberAnimation {
+                duration: Kirigami.Units.longDuration
+                easing.type: Easing.InOutQuad
+            }
+        }
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
-        header: Kirigami.AbstractApplicationHeader {
-            topPadding: Kirigami.Units.smallSpacing
-            bottomPadding: Kirigami.Units.smallSpacing
-            leftPadding: Kirigami.Units.smallSpacing
-            rightPadding: Kirigami.Units.smallSpacing
-            contentItem: RowLayout {
-                anchors.fill: parent
-                spacing: Kirigami.Units.smallSpacing
+        handleClosedIcon.source: modal ? null : "sidebar-expand-left"
+        handleOpenIcon.source: modal ? null : "sidebar-collapse-left"
+        handleVisible: modal
 
-                DBusProperty {
-                    id: announcedNameProperty
-                    object: DaemonDbusInterface
-                    read: "announcedName"
-                    defaultValue: ""
-                }
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
 
-                TextField {
-                    id: nameField
-                    visible: false
-                    Layout.fillWidth: true
+        contentItem: ColumnLayout {
+            spacing: 0
+
+            QQC2.ToolBar {
+                Layout.fillWidth: true
+                Layout.preferredHeight: pageStack.globalToolBar.preferredHeight
+
+                leftPadding: Kirigami.Units.largeSpacing
+                rightPadding: Kirigami.Units.largeSpacing
+                topPadding: Kirigami.Units.smallSpacing
+                bottomPadding: Kirigami.Units.smallSpacing
+
+                contentItem: Kirigami.Heading {
                     text: announcedNameProperty.value
-                    onAccepted: {
-                        DaemonDbusInterface.setAnnouncedName(text)
-                        text = Qt.binding(function() {return announcedNameProperty.value})
-                    }
-                }
-
-                Kirigami.Heading {
-                    level: 1
-                    text: announcedNameProperty.value
-                    Layout.fillWidth: true
-                    visible: !nameField.visible
                     elide: Qt.ElideRight
-                }
 
-                Button {
-                    icon.name: nameField.visible ? "dialog-ok-apply" : "entry-edit"
-                    onClicked: {
-                        nameField.visible = !nameField.visible
-                        nameField.accepted()
+                    DBusProperty {
+                        id: announcedNameProperty
+                        object: DaemonDbusInterface
+                        read: "announcedName"
+                        defaultValue: ""
                     }
                 }
             }
-        }
 
-        property var objects: [findDevicesAction]
-        Instantiator {
-            model: DevicesSortProxyModel {
-                sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
-            }
-            delegate: Kirigami.Action {
-                icon.name: model.iconName
-                icon.color: "transparent"
-                text: model.name + "\n" + toolTip
-                visible: status & DevicesModel.Reachable
-                checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
-                onTriggered: {
+            Kirigami.BasicListItem {
+                id: findDevicesAction
+                text: i18nd("kdeconnect-app", "Find devices...")
+                icon: "list-add"
+                checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
+                Layout.fillWidth: true
+
+                onClicked: {
                     root.pageStack.clear()
-                    root.pageStack.push(
-                        Qt.resolvedUrl("DevicePage.qml"),
-                        {currentDevice: device}
-                    );
+                    root.pageStack.push(Qt.resolvedUrl("FindDevicesPage.qml"));
                 }
             }
 
-            onObjectAdded: {
-                drawer.objects.push(object)
-                drawer.objects = drawer.objects
+            Kirigami.Separator {
+                Layout.fillWidth: true
             }
-            onObjectRemoved: {
-                var idx = drawer.objects.indexOf(object);
-                if (idx>=0) {
-                    var removed = drawer.objects.splice(idx, 1)
-                    drawer.objects = drawer.objects
+
+            Repeater {
+                model: DevicesSortProxyModel {
+                    sourceModel: DevicesModel {
+                        displayFilter: DevicesModel.Paired | DevicesModel.Reachable
+                    }
+                }
+
+                Kirigami.BasicListItem {
+                    Layout.fillWidth: true
+                    text: model.name + "\n" + toolTip
+                    enabled: status & DevicesModel.Reachable
+                    checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
+                    icon: model.iconName
+                    iconColor: "transparent"
+                    onClicked: {
+                        root.pageStack.clear()
+                        root.pageStack.push(
+                            Qt.resolvedUrl("DevicePage.qml"),
+                            {currentDevice: device}
+                        );
+                    }
                 }
             }
+
+            Item {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+            }
+
+            Kirigami.BasicListItem {
+                text: i18n("Settings")
+                onClicked: pageStack.pushDialogLayer('qrc:/qml/Settings.qml');
+            }
         }
-        actions: objects
     }
 
     contextDrawer: Kirigami.ContextDrawer {
