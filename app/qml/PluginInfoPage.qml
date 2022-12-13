@@ -4,32 +4,26 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.2
-import QtQuick.Controls 2.2
-import org.kde.kirigami 2.0 as Kirigami
+import QtQuick 2.15
+import org.kde.kirigami 2.20 as Kirigami
 
-Kirigami.Page
-{
+Kirigami.Page {
     id: root
     property string configFile
     property string device
 
     actions.main: loader.item.action
 
-    onConfigFileChanged: {
-        loader.setSource(configFile, {
-            device: root.device
-        })
-    }
+    onConfigFileChanged: loader.setSource(configFile, {
+        device: root.device
+    })
 
     Loader {
         anchors.fill: parent
         id: loader
-        Component.onCompleted: {
-            setSource(configFile, {
-                device: root.device
-            })
-        }
+        Component.onCompleted: setSource(configFile, {
+            device: root.device
+        })
     }
 }
 
