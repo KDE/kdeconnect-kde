@@ -2,6 +2,11 @@ qt5_add_resources(kdeconnect_SRCS resources.qrc)
 
 qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
+ecm_setup_version(${PROJECT_VERSION}
+    VARIABLE_PREFIX KDE_CONNECT
+    VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
+)
+
 if (WIN32)
     include(ECMAddAppIcon)
     ecm_add_app_icon(kdeconnect_SRCS ICONS
@@ -16,6 +21,8 @@ if (WIN32)
         ${CMAKE_SOURCE_DIR}/icons/app/1024-apps-kdeconnect.png
     )
 endif()
+
+ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 0.1)
 
 add_executable(kdeconnect-app
     main.cpp

@@ -17,6 +17,7 @@
 #include <KColorSchemeManager>
 #include <KLocalizedContext>
 #include <KLocalizedString>
+#include "kdeconnect-version.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,14 +26,16 @@ int main(int argc, char *argv[])
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("kdeconnect-app");
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     KAboutData aboutData(QStringLiteral("kdeconnect.app"),
                          i18n("KDE Connect"),
-                         QStringLiteral("1.0"),
+                         QStringLiteral(KDE_CONNECT_VERSION_STRING),
                          i18n("KDE Connect"),
                          KAboutLicense::GPL,
                          i18n("(c) 2015, Aleix Pol Gonzalez"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), i18n("Maintainer"), QStringLiteral("aleixpol@kde.org"));
+    aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
     KAboutData::setApplicationData(aboutData);
 
 #ifdef Q_OS_WIN
@@ -62,6 +65,10 @@ int main(int argc, char *argv[])
             }
         }
     }
+
+    qmlRegisterSingletonType("org.kde.kdeconnect.app", 1, 0, "About", [](QQmlEngine *engine, QJSEngine *) -> QJSValue {
+        return engine->toScriptValue(KAboutData::applicationData());
+    });
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
