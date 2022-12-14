@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     KDBusService dbusService(KDBusService::Unique);
 
     KCMultiDialog *dialog = new KCMultiDialog;
-    dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
+    dialog->addModule(KPluginMetaData(QStringLiteral("plasma/kcms/systemsettings_qwidgets/kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
 
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->show();
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
         parser.parse(args);
 
         dialog->clear();
-        dialog->addModule(KPluginMetaData(QStringLiteral("kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
+        dialog->addModule(KPluginMetaData(QStringLiteral("plasma/kcms/systemsettings_qwidgets/kcm_kdeconnect")), {parser.value(QStringLiteral("args"))});
     });
 
     app.setQuitOnLastWindowClosed(true);

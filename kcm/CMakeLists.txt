@@ -1,10 +1,10 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kcm")
 
 
-add_library(kcm_kdeconnect MODULE kcm.cpp)
+kcoreaddons_add_plugin(kcm_kdeconnect SOURCES kcm.cpp INSTALL_NAMESPACE plasma/kcms/systemsettings_qwidgets)
+kcmutils_generate_desktop_file(kcm_kdeconnect)
 
 ki18n_wrap_ui(kcm_kdeconnect kcm.ui)
-kcoreaddons_desktop_to_json(kcm_kdeconnect "kcm_kdeconnect.desktop")
 
 target_link_libraries(kcm_kdeconnect
     Qt::Core
@@ -14,6 +14,3 @@ target_link_libraries(kcm_kdeconnect
     kdeconnectinterfaces
     kdeconnectversion
 )
-
-install(TARGETS kcm_kdeconnect DESTINATION ${KDE_INSTALL_PLUGINDIR})
-install(FILES kcm_kdeconnect.desktop DESTINATION ${KDE_INSTALL_KSERVICESDIR})
