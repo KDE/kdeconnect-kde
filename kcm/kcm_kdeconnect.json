@@ -98,10 +98,7 @@
         "Name[uk]": "З’єднання KDE",
         "Name[x-test]": "xxKDE Connectxx",
         "Name[zh_CN]": "KDE Connect",
-        "Name[zh_TW]": "KDE 連線",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "KDE 連線"
     },
     "X-DocPath": "kdeconnect/index.html",
     "X-KDE-Keywords": "network,kde connect,connect,phone,sync,mobile,android,ios,send files,share files,transfer files,receive files,devices,device,synchronization,calls,telephone,smartphone,contacts,sms,phone notifications,control volume,system volume,ringtone,play sound,presentation,take picture,take photo,shared clipboard,conectivity monitor,remote input,remote mouse,remote keyboard,mpris,phone integration,commands,lock device,multimedia control,sftp,browse phone,share",
@@ -141,6 +138,5 @@
     "X-KDE-Keywords[x-test]": "xxnetworkxx,xxkde connectxx,xxconnectxx,xxphonexx,xxsyncxx,xxmobilexx,xxandroidxx,xxiosxx,xxsend filesxx,xxshare filesxx,xxtransfer filesxx,xxreceive filesxx,xxdevicesxx,xxdevicexx,xxsynchronizationxx,xxcallsxx,xxtelephonexx,xxsmartphonexx,xxcontactsxx,xxsmsxx,xxphone notificationsxx,xxcontrol volumexx,xxsystem volumexx,xxringtonexx,xxplay soundxx,xxpresentationxx,xxtake picturexx,xxtake photoxx,xxshared clipboardxx,xxconectivity monitorxx,xxremote inputxx,xxremote mousexx,xxremote keyboardxx,xxmprisxx,xxphone integrationxx,xxcommandsxx,xxlock devicexx,xxmultimedia controlxx,xxsftpxx,xxbrowse phonexx,xxsharexx",
     "X-KDE-Keywords[zh_CN]": "network,kde connect,connect,phone,sync,mobile,android,ios,send files,share files,transfer files,receive files,devices,device,synchronization,calls,telephone,smartphone,contacts,sms,phone notifications,control volume,system volume,ringtone,play sound,presentation,take picture,take photo,shared clipboard,conectivity monitor,remote input,remote mouse,remote keyboard,mpris,phone integration,commands,lock device,multimedia control,sftp,browse phone,share,网络,连接,电话,同步,手机,移动,安卓,苹果,发送文件,传输文件,接收文件,设备,呼叫,通话,电话,智能手机,联系人,短信,电话通知,控制音量,系统音量,铃声,播放声音,演示,拍摄照片,剪贴板共享,连接监控,流量监控,网络监控,远程输入,远程鼠标,远程键盘,遥控,手机整合,命令,指令,锁定设备,多媒体控制,浏览手机,共享,分享",
     "X-KDE-Keywords[zh_TW]": "network,kde connect,connect,phone,sync,mobile,android,ios,send files,share files,transfer files,receive files,devices,device,synchronization,calls,telephone,smartphone,contacts,sms,phone notifications,control volume,system volume,ringtone,play sound,presentation,take picture,take photo,shared clipboard,conectivity monitor,remote input,remote mouse,remote keyboard,mpris,phone integration,commands,lock device,multimedia control,sftp,browse phone,share",
-    "X-KDE-ParentApp": "kcontrol",
     "X-KDE-System-Settings-Parent-Category": "hardware"
 }
