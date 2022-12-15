@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2022-10-18 11:32+0200\n"
+"PO-Revision-Date: 2022-12-14 11:26+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -445,7 +445,7 @@ msgstr "onbekend nummer"
 #: telephony/telephonyplugin.cpp:37
 #, kde-format
 msgid "Incoming call from %1"
-msgstr "Inkomend gesprek van %1"
+msgstr "Inkomende oproep van %1"
 
 #: telephony/telephonyplugin.cpp:41
 #, kde-format
