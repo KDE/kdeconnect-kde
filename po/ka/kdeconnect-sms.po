@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2022-09-29 06:15+0200\n"
+"PO-Revision-Date: 2022-12-14 10:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -138,6 +138,8 @@ msgstr "მოწყობილობები მიუწვდომელ�
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
+"ახალი შეტყობინებების მიღება და გაგზავნა შეუძლებელია, მაგრამ დაქეშილი "
+"შემცველობის დათვალიერება ჯერ კიდევ შეგიძლიათ"
 
 #: qml/ConversationList.qml:50
 #, kde-format
@@ -145,6 +147,8 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
+"მოწყობილობიდან საუბრების ჩატვირთვა. თუ ამას მეტისმეტად დიდი დრო დასჭირდა, "
+"გააღვიძეთ მოწყობილობა და შემდეგ განახლებას დააჭირეთ."
 
 #: qml/ConversationList.qml:58
 #, kde-format
@@ -152,6 +156,8 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
+"რჩევა: თუ მოწყობილობას შეაერთებთ, ის სჯობს არ გადავიდეს ძილის რეჟიმში და "
+"სწრაფად ჩაიტვირთება."
 
 #: qml/ConversationList.qml:66 qml/main.qml:87
 #, kde-format

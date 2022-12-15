@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-15 00:47+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -17,132 +17,134 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: main.cpp:32 main.cpp:34
+#, kde-format
+msgid "KDE Connect"
+msgstr "കെ.ഡി.ഇ കണക്റ്റ്"
+
+#: main.cpp:36
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015, അലെയ്‌സ് പോൽ ഗോൺസാലസ്"
+
+#: main.cpp:37
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "പരിപാലകൻ"
+
+#: main.cpp:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 
+#: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: main.cpp:30 main.cpp:32
-#, kde-format
-msgid "KDE Connect"
-msgstr "കെ.ഡി.ഇ കണക്റ്റ്"
-
-#: main.cpp:34
-#, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, അലെയ്‌സ് പോൽ ഗോൺസാലസ്"
-
-#: main.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr ""
-
-#: main.cpp:35
-#, kde-format
-msgid "Maintainer"
-msgstr "പരിപാലകൻ"
-
-#: main.cpp:51
+#: main.cpp:54
 #, kde-format
 msgid "URL to share"
 msgstr ""
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:23
 #, kde-format
 msgid "Unpair"
 msgstr "മറക്കുക"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Send Ping"
 msgstr "ഒന്ന് മുട്ടുക"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
+#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr ""
 
-#: qml/DevicePage.qml:63
+#: qml/DevicePage.qml:60
 #, kde-format
 msgid "Multimedia control"
 msgstr "മൾട്ടിമീഡിയ നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:70
+#: qml/DevicePage.qml:67
 #, kde-format
 msgid "Remote input"
 msgstr "വിദൂര ഇൻപുട്ട്"
 
-#: qml/DevicePage.qml:77 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "വിദൂര അവതരണം"
 
-#: qml/DevicePage.qml:86 qml/mousepad.qml:44
+#: qml/DevicePage.qml:83 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "പൂട്ടുക"
 
-#: qml/DevicePage.qml:86
+#: qml/DevicePage.qml:83
 #, kde-format
 msgid "Unlock"
 msgstr "പൂട്ടുതുറക്കുക"
 
-#: qml/DevicePage.qml:93
+#: qml/DevicePage.qml:90
 #, kde-format
 msgid "Find Device"
 msgstr "ഉപകരണം കണ്ടെത്തുക"
 
-#: qml/DevicePage.qml:98 qml/runcommand.qml:16
+#: qml/DevicePage.qml:95 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "കമാൻഡ് പ്രവർത്തിപ്പിക്കുക"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:103
 #, kde-format
 msgid "Share File"
 msgstr "ഫയൽ പങ്കിടുക"
 
-#: qml/DevicePage.qml:111 qml/volume.qml:16
+#: qml/DevicePage.qml:108 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ശബ്ദ നിയന്ത്രണം"
 
-#: qml/DevicePage.qml:120
+#: qml/DevicePage.qml:117
 #, fuzzy, kde-format
 msgid "This device is not paired"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:124 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
-#: qml/DevicePage.qml:136
+#: qml/DevicePage.qml:128
 #, kde-format
 msgid "Pair requested"
 msgstr ""
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
-#: qml/DevicePage.qml:148
+#: qml/DevicePage.qml:140
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
@@ -167,10 +169,15 @@ msgstr "ലഭ്യമായത്"
 msgid "Connected"
 msgstr "ബന്ധിപ്പിച്ചു"
 
-#: qml/main.qml:28
+#: qml/main.qml:76
 #, kde-format
 msgid "Find devices..."
 msgstr "ഉപകരണങ്ങൾ കണ്ടെത്തുക..."
+
+#: qml/main.qml:121 qml/main.qml:124
+#, kde-format
+msgid "Settings"
+msgstr ""
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -216,3 +223,20 @@ msgstr "കണക്റ്റുചെയ്‌ത ഉപകരണത്തി�
 #, kde-format
 msgid "No commands defined"
 msgstr "കമാൻഡുകളൊന്നും നിർവചിച്ചിട്ടില്ല"
+
+#: qml/Settings.qml:13
+#, kde-format
+msgctxt "@title:window"
+msgid "Settings"
+msgstr ""
+
+#: qml/Settings.qml:35
+#, kde-format
+msgid "Device name"
+msgstr ""
+
+#: qml/Settings.qml:52
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "About KDE Connect"
+msgstr "കെ.ഡി.ഇ കണക്റ്റ്"

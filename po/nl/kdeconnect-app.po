@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-15 00:47+0000\n"
 "PO-Revision-Date: 2021-08-09 09:52+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,132 +17,134 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.04.3\n"
 
+#: main.cpp:32 main.cpp:34
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:36
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Onderhouder"
+
+#: main.cpp:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2020 t/m 2021"
 
+#: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: main.cpp:30 main.cpp:32
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: main.cpp:34
-#, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
-
-#: main.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
-
-#: main.cpp:35
-#, kde-format
-msgid "Maintainer"
-msgstr "Onderhouder"
-
-#: main.cpp:51
+#: main.cpp:54
 #, kde-format
 msgid "URL to share"
 msgstr "Te delen URL"
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:23
 #, kde-format
 msgid "Unpair"
 msgstr "Paar uit elkaar halen"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Send Ping"
 msgstr "Ping verzenden"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
+#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Plug-in-instellingen"
 
-#: qml/DevicePage.qml:63
+#: qml/DevicePage.qml:60
 #, kde-format
 msgid "Multimedia control"
 msgstr "Bediening van multimedia"
 
-#: qml/DevicePage.qml:70
+#: qml/DevicePage.qml:67
 #, kde-format
 msgid "Remote input"
 msgstr "Invoer op afstand"
 
-#: qml/DevicePage.qml:77 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Presentatie op afstand"
 
-#: qml/DevicePage.qml:86 qml/mousepad.qml:44
+#: qml/DevicePage.qml:83 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Vergrendelen"
 
-#: qml/DevicePage.qml:86
+#: qml/DevicePage.qml:83
 #, kde-format
 msgid "Unlock"
 msgstr "Ontgrendelen"
 
-#: qml/DevicePage.qml:93
+#: qml/DevicePage.qml:90
 #, kde-format
 msgid "Find Device"
 msgstr "Apparaat zoeken"
 
-#: qml/DevicePage.qml:98 qml/runcommand.qml:16
+#: qml/DevicePage.qml:95 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Commando uitvoeren"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:103
 #, kde-format
 msgid "Share File"
 msgstr "Bestand delen"
 
-#: qml/DevicePage.qml:111 qml/volume.qml:16
+#: qml/DevicePage.qml:108 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Volumebesturing"
 
-#: qml/DevicePage.qml:120
+#: qml/DevicePage.qml:117
 #, kde-format
 msgid "This device is not paired"
 msgstr "Dit apparaat is niet gepaard"
 
-#: qml/DevicePage.qml:124 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "Paar"
 
-#: qml/DevicePage.qml:136
+#: qml/DevicePage.qml:128
 #, kde-format
 msgid "Pair requested"
 msgstr "Paarvorming gevraagd"
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Accept"
 msgstr "Accepteren"
 
-#: qml/DevicePage.qml:148
+#: qml/DevicePage.qml:140
 #, kde-format
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Dit apparaat is niet bereikbaar"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Please choose a file"
 msgstr "Kies een bestand a.u.b"
@@ -167,10 +169,16 @@ msgstr "Beschikbaar"
 msgid "Connected"
 msgstr "Verbonden"
 
-#: qml/main.qml:28
+#: qml/main.qml:76
 #, kde-format
 msgid "Find devices..."
 msgstr "Apparaten zoeken..."
+
+#: qml/main.qml:121 qml/main.qml:124
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgid "Settings"
+msgstr "Plug-in-instellingen"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -216,3 +224,21 @@ msgstr "U kunt commando's bewerken op het verbonden apparaat"
 #, kde-format
 msgid "No commands defined"
 msgstr "Geen commando's gedefinieerd"
+
+#: qml/Settings.qml:13
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "Plug-in-instellingen"
+
+#: qml/Settings.qml:35
+#, kde-format
+msgid "Device name"
+msgstr ""
+
+#: qml/Settings.qml:52
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "About KDE Connect"
+msgstr "KDE Connect"

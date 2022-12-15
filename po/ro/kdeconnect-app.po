@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-15 00:47+0000\n"
 "PO-Revision-Date: 2022-02-04 00:52+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -18,132 +18,134 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.12.2\n"
 
+#: main.cpp:32 main.cpp:34
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:36
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Responsabil"
+
+#: main.cpp:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Sergiu Bivol"
 
+#: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sergiu@cip.md"
 
-#: main.cpp:30 main.cpp:32
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: main.cpp:34
-#, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015, Aleix Pol Gonzalez"
-
-#: main.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
-
-#: main.cpp:35
-#, kde-format
-msgid "Maintainer"
-msgstr "Responsabil"
-
-#: main.cpp:51
+#: main.cpp:54
 #, kde-format
 msgid "URL to share"
 msgstr "URL de partajat"
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:23
 #, kde-format
 msgid "Unpair"
 msgstr "Dezasociază"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Send Ping"
 msgstr "Trimite ping"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
+#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Configurare extensii"
 
-#: qml/DevicePage.qml:63
+#: qml/DevicePage.qml:60
 #, kde-format
 msgid "Multimedia control"
 msgstr "Control multimedia"
 
-#: qml/DevicePage.qml:70
+#: qml/DevicePage.qml:67
 #, kde-format
 msgid "Remote input"
 msgstr "Introducere de la distanță"
 
-#: qml/DevicePage.qml:77 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Telecomandă pentru prezentări"
 
-#: qml/DevicePage.qml:86 qml/mousepad.qml:44
+#: qml/DevicePage.qml:83 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Blochează"
 
-#: qml/DevicePage.qml:86
+#: qml/DevicePage.qml:83
 #, kde-format
 msgid "Unlock"
 msgstr "Deblochează"
 
-#: qml/DevicePage.qml:93
+#: qml/DevicePage.qml:90
 #, kde-format
 msgid "Find Device"
 msgstr "Găsește dispozitivul"
 
-#: qml/DevicePage.qml:98 qml/runcommand.qml:16
+#: qml/DevicePage.qml:95 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Rulează comandă"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:103
 #, kde-format
 msgid "Share File"
 msgstr "Partajează fișier"
 
-#: qml/DevicePage.qml:111 qml/volume.qml:16
+#: qml/DevicePage.qml:108 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Control volum"
 
-#: qml/DevicePage.qml:120
+#: qml/DevicePage.qml:117
 #, kde-format
 msgid "This device is not paired"
 msgstr "Acest dispozitiv nu e asociat"
 
-#: qml/DevicePage.qml:124 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "Asociază"
 
-#: qml/DevicePage.qml:136
+#: qml/DevicePage.qml:128
 #, kde-format
 msgid "Pair requested"
 msgstr "Asociere cerută"
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Accept"
 msgstr "Acceptă"
 
-#: qml/DevicePage.qml:148
+#: qml/DevicePage.qml:140
 #, kde-format
 msgid "Reject"
 msgstr "Refuză"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Acest dispozitiv nu e accesibil"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Please choose a file"
 msgstr "Alegeți un fișier"
@@ -168,10 +170,16 @@ msgstr "Disponibil"
 msgid "Connected"
 msgstr "Conectat"
 
-#: qml/main.qml:28
+#: qml/main.qml:76
 #, kde-format
 msgid "Find devices..."
 msgstr "Găsește dispozitive..."
+
+#: qml/main.qml:121 qml/main.qml:124
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgid "Settings"
+msgstr "Configurare extensii"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -218,3 +226,21 @@ msgstr "Puteți modifica comenzile pe dispozitivul conectat"
 #, kde-format
 msgid "No commands defined"
 msgstr "Nicio comandă definită"
+
+#: qml/Settings.qml:13
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "Configurare extensii"
+
+#: qml/Settings.qml:35
+#, kde-format
+msgid "Device name"
+msgstr ""
+
+#: qml/Settings.qml:52
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "About KDE Connect"
+msgstr "KDE Connect"

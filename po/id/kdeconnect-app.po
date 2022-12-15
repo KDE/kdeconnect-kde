@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2022-12-15 00:47+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -17,132 +17,134 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
 
+#: main.cpp:32 main.cpp:34
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:36
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015 Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Pemelihara"
+
+#: main.cpp:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Wantoyèk"
 
+#: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wantoyek@gmail.com"
 
-#: main.cpp:30 main.cpp:32
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: main.cpp:34
-#, kde-format
-msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr "(c) 2015 Aleix Pol Gonzalez"
-
-#: main.cpp:35
-#, kde-format
-msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
-
-#: main.cpp:35
-#, kde-format
-msgid "Maintainer"
-msgstr "Pemelihara"
-
-#: main.cpp:51
+#: main.cpp:54
 #, kde-format
 msgid "URL to share"
 msgstr "URL untuk dibagikan"
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:23
 #, kde-format
 msgid "Unpair"
 msgstr "Leraikan"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:28
 #, kde-format
 msgid "Send Ping"
 msgstr "Kirim Ping"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
+#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Pengaturan Plugin"
 
-#: qml/DevicePage.qml:63
+#: qml/DevicePage.qml:60
 #, kde-format
 msgid "Multimedia control"
 msgstr "Kontrol multimedia"
 
-#: qml/DevicePage.qml:70
+#: qml/DevicePage.qml:67
 #, kde-format
 msgid "Remote input"
 msgstr "Input remot"
 
-#: qml/DevicePage.qml:77 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Remot Presentasi"
 
-#: qml/DevicePage.qml:86 qml/mousepad.qml:44
+#: qml/DevicePage.qml:83 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Kunci"
 
-#: qml/DevicePage.qml:86
+#: qml/DevicePage.qml:83
 #, kde-format
 msgid "Unlock"
 msgstr "Lepas-kunci"
 
-#: qml/DevicePage.qml:93
+#: qml/DevicePage.qml:90
 #, kde-format
 msgid "Find Device"
 msgstr "Temukan Peranti"
 
-#: qml/DevicePage.qml:98 qml/runcommand.qml:16
+#: qml/DevicePage.qml:95 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Jalankan perintah"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:103
 #, kde-format
 msgid "Share File"
 msgstr "Bagikan File"
 
-#: qml/DevicePage.qml:111 qml/volume.qml:16
+#: qml/DevicePage.qml:108 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Kontrol volume"
 
-#: qml/DevicePage.qml:120
+#: qml/DevicePage.qml:117
 #, kde-format
 msgid "This device is not paired"
 msgstr "Perangkat ini belum disandingkan"
 
-#: qml/DevicePage.qml:124 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "Sandingkan"
 
-#: qml/DevicePage.qml:136
+#: qml/DevicePage.qml:128
 #, kde-format
 msgid "Pair requested"
 msgstr "Diminta sandingkan"
 
-#: qml/DevicePage.qml:142
+#: qml/DevicePage.qml:134
 #, kde-format
 msgid "Accept"
 msgstr "Setujui"
 
-#: qml/DevicePage.qml:148
+#: qml/DevicePage.qml:140
 #, kde-format
 msgid "Reject"
 msgstr "Apkir"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Perangkat ini belum bisa diraih"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Please choose a file"
 msgstr "Silakan pilih sebuah file"
@@ -167,10 +169,16 @@ msgstr "Tersedia"
 msgid "Connected"
 msgstr "Terkoneksi"
 
-#: qml/main.qml:28
+#: qml/main.qml:76
 #, kde-format
 msgid "Find devices..."
 msgstr "Temukan peranti..."
+
+#: qml/main.qml:121 qml/main.qml:124
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgid "Settings"
+msgstr "Pengaturan Plugin"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -216,3 +224,21 @@ msgstr "Kamu bisa edit perintah dan pada peranti yang terkoneksi"
 #, kde-format
 msgid "No commands defined"
 msgstr "Tidak ada perintah yang ditentukan"
+
+#: qml/Settings.qml:13
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "Pengaturan Plugin"
+
+#: qml/Settings.qml:35
+#, kde-format
+msgid "Device name"
+msgstr ""
+
+#: qml/Settings.qml:52
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "About KDE Connect"
+msgstr "KDE Connect"

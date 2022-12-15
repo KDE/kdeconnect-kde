@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:54+0000\n"
-"PO-Revision-Date: 2022-11-15 07:04+0100\n"
+"PO-Revision-Date: 2022-12-14 10:51+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -273,7 +273,7 @@ msgstr "შემტყობინებელი აპლიკაციი�
 #: sendnotifications/notifyingapplicationmodel.cpp:192
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr ""
+msgstr "გნებავთ აპლიკაციის გაფრთხილებების სინქრონიზაცია?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:195
 #, kde-format
@@ -282,6 +282,9 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
+"რეგულარული გამოსახულებები, რომლებიც აღწერენ, რომელი შეტყობინებები არ უნდა "
+"გაიგზავნოს.\n"
+"ეს ნიმუში გადატარდება შეჯამებებზე და თუ ჩართულია, გაფრთხილების სხეულზე."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: sendnotifications/sendnotifications_config.ui:38
@@ -294,12 +297,14 @@ msgstr "ძირითადი"
 #, kde-format
 msgid "Synchronize only notifications with a timeout value of 0?"
 msgstr ""
+"მოხდეს მხოლოდ ნულოვანი მოლოდინის მნიშვნელობის მქონე გაფრთხილებების "
+"სინქრონიზაცია?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:47
 #, kde-format
 msgid "Persistent notifications only"
-msgstr ""
+msgstr "მხოლოდ მუდმივი შეტყობინებები"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:60
@@ -307,6 +312,7 @@ msgstr ""
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
 msgstr ""
+"მივაწერო გაფრთხილების სხეული შეჯამებას გაფრთხილებების სინქრონიზაციისას?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63
@@ -318,7 +324,7 @@ msgstr "სხეულის ჩასმა"
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
+msgstr "დავასინქრონო გაფრთხილებების აპლიკაციების ხატულები, თუ ეს შესაძლებელია?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
@@ -333,18 +339,20 @@ msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p>შეტყობინებების მინიმალური გადაუდებლობის დონე</p></"
+"body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr ""
+msgstr "სინქრონიზაცია მხოლოდ შეტყობინებებს მოცემული გადაუდებელი დონით."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr ""
+msgstr "გადაუდებლობის მინიმალური დონე"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148
@@ -375,12 +383,12 @@ msgstr "ფაილურ სისტემასთან წვდომი�
 #: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr ""
+msgstr "ფაილური სისტემის მიმაგრების შეცდომა: მოწყობილობა არ გვპასუხობს"
 
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr ""
+msgstr "SFTP პროტოკოლის მხარდაჭერა არ არსებობს. ბოდიში უხერხულობისთვის"
 
 #: sftp/sftpplugin.cpp:143
 #, kde-format
@@ -395,7 +403,7 @@ msgstr "კამერის სურათები"
 #: share/share_config.cpp:24
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr ""
+msgstr "&percnt;1 ბილიკში მითითებული მოწყობილობის სახელით შეიცვლება."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
 #: share/share_config.ui:17
