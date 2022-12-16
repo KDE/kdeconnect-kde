@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2022-08-25 21:47+0530\n"
+"PO-Revision-Date: 2022-12-15 21:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,22 +15,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "கே.டீ.யீ. கனெக்ட்"
 
 #: main.cpp:36
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr ""
+msgstr "(C) 2015 அலேயிக்சு போல் ஈ கொன்ஸாலெசு"
 
 #: main.cpp:37
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr ""
+msgstr "அலேயிக்சு போல் கொன்ஸாலெசு"
 
 #: main.cpp:37
 #, kde-format
@@ -41,13 +41,13 @@ msgstr "பராமரிப்பாளர்"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "கோ. கிஷோர்"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "Kde-l10n-ta@kde.org"
 
 #: main.cpp:54
 #, kde-format
@@ -175,10 +175,9 @@ msgid "Find devices..."
 msgstr "சாதனங்களை கண்டுபிடி..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "செருகுநிரல் அமைப்புகள்"
+msgstr "அமைப்புகள்"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -226,18 +225,17 @@ msgid "No commands defined"
 msgstr "எந்த கட்டளையும் வரையறுக்கப்படவில்லை"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "செருகுநிரல் அமைப்புகள்"
+msgstr "அமைப்புகள்"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "சாதனத்தின் பெயர்"
 
 #: qml/Settings.qml:52
 #, kde-format
 msgid "About KDE Connect"
-msgstr ""
+msgstr "கே.டீ.யீ. கனெக்ட் பற்றி"

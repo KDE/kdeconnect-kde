@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2021-08-14 09:45+0100\n"
+"PO-Revision-Date: 2022-12-15 09:31+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -171,10 +171,9 @@ msgid "Find devices..."
 msgstr "Procurar dispositivos..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Configuração do 'Plugin'"
+msgstr "Configuração"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -224,19 +223,17 @@ msgid "No commands defined"
 msgstr "Nenhuns comandos definidos"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Configuração do 'Plugin'"
+msgstr "Configuração"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Nome do dispositivo"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "Acerca do KDE Connect"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2022-03-30 22:19+0300\n"
+"PO-Revision-Date: 2022-12-15 19:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -42,13 +42,13 @@ msgstr "Bakımcı"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Volkan Gezer"
+msgstr "Volkan Gezer, Emir SARI"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "volkangezer@gmail.com"
+msgstr "volkangezer@gmail.com, emir_sari@icloud.com"
 
 #: main.cpp:54
 #, kde-format
@@ -163,7 +163,7 @@ msgstr "Hatırlanıyor"
 #: qml/FindDevicesPage.qml:53
 #, kde-format
 msgid "Available"
-msgstr "Mevcut"
+msgstr "Kullanılabilir"
 
 #: qml/FindDevicesPage.qml:55
 #, kde-format
@@ -176,10 +176,9 @@ msgid "Find devices..."
 msgstr "Aygıtları bul..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Eklenti Ayarları"
+msgstr "Ayarlar"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -227,19 +226,17 @@ msgid "No commands defined"
 msgstr "Tanımlanmış komut yok"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Eklenti Ayarları"
+msgstr "Ayarlar"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Aygıt adı"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "KDE Connect Hakkında"

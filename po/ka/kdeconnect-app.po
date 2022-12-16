@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2022-12-14 10:25+0100\n"
+"PO-Revision-Date: 2022-12-15 08:10+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -176,10 +176,9 @@ msgid "Find devices..."
 msgstr "მოწყობილობების ძებნა..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "მოდულის პარამეტრები"
+msgstr "მორგება"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -228,19 +227,17 @@ msgid "No commands defined"
 msgstr "ბრძანებები აღწერილი არაა"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "მოდულის პარამეტრები"
+msgstr "მორგება"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "მოწყობილობის სახელი"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "KDE Connect-ის შესახებ"
