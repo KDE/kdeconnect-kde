@@ -1,11 +1,11 @@
 # Simon Depiets <sdepiets@gmail.com>, 2020.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021.
+# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2021-08-10 09:42+0200\n"
+"PO-Revision-Date: 2022-12-16 21:15+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.07.90\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -173,10 +173,9 @@ msgid "Find devices..."
 msgstr "Trouver les périphériques..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Configuration du module externe"
+msgstr "Configuration"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -226,19 +225,17 @@ msgid "No commands defined"
 msgstr "Aucune commande définie"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Configuration du module externe"
+msgstr "Configuration"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Nom du périphérique"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "À propos de KDE Connect"
