@@ -22,9 +22,8 @@ K_PLUGIN_CLASS_WITH_JSON(ContactsPlugin, "kdeconnect_contacts.json")
 
 ContactsPlugin::ContactsPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , vcardsPath(QString(*vcardsLocation).append(QStringLiteral("/kdeconnect-").append(device()->id())))
 {
-    vcardsPath = QString(*vcardsLocation).append(QStringLiteral("/kdeconnect-").append(device()->id()));
-
     // Register custom types with dbus
     qRegisterMetaType<uID>("uID");
     qDBusRegisterMetaType<uID>();

@@ -24,8 +24,8 @@ K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , sessionManager(GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get())
 {
-    sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
     sessionManager->SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
         this->updatePlayerList();
     });

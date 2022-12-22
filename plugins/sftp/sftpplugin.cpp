@@ -40,8 +40,8 @@ struct SftpPlugin::Pimpl {
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , d(new Pimpl())
+    , deviceId(device()->id())
 {
-    deviceId = device()->id();
     addToDolphin();
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Created device:" << device()->name();
 }

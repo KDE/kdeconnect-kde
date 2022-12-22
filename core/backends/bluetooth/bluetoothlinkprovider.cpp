@@ -13,14 +13,13 @@
 #include <QBluetoothServiceInfo>
 
 BluetoothLinkProvider::BluetoothLinkProvider()
+    : mServiceUuid(QBluetoothUuid(QStringLiteral("185f3df4-3268-4e3f-9fca-d4d5059915bd")))
+    , mServiceDiscoveryAgent(new QBluetoothServiceDiscoveryAgent(this))
+    , connectTimer(new QTimer(this))
 {
-    mServiceUuid = QBluetoothUuid(QStringLiteral("185f3df4-3268-4e3f-9fca-d4d5059915bd"));
-
-    connectTimer = new QTimer(this);
     connectTimer->setInterval(30000);
     connectTimer->setSingleShot(false);
 
-    mServiceDiscoveryAgent = new QBluetoothServiceDiscoveryAgent(this);
     mServiceDiscoveryAgent->setUuidFilter(mServiceUuid);
     connect(connectTimer, &QTimer::timeout, this, [this]() {
         mServiceDiscoveryAgent->start();

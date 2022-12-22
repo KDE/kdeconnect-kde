@@ -21,8 +21,8 @@ K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , deviceId(device()->id())
 {
-    deviceId = device()->id();
 }
 
 SftpPlugin::~SftpPlugin()
