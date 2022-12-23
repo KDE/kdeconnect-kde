@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2022-09-12 22:25+0400\n"
+"PO-Revision-Date: 2022-12-22 09:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -176,10 +176,9 @@ msgid "Find devices..."
 msgstr "اعثر على أجهزة…"
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "أوضاع البرنامج المساعد"
+msgstr "إعدادات"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -227,19 +226,17 @@ msgid "No commands defined"
 msgstr "لم يُحدّد إجراء"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "أوضاع البرنامج المساعد"
+msgstr "إعدادات"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "اسم الجهاز"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "كدي المتّصل"
+msgstr "عن كدي المتّصل"
