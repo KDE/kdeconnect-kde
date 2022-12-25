@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2022-09-29 05:35+0200\n"
+"PO-Revision-Date: 2022-12-24 07:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -56,7 +56,7 @@ msgstr "მოწყობილობების სია"
 #: kdeconnect-cli.cpp:41
 #, kde-format
 msgid "List available (paired and reachable) devices"
-msgstr ""
+msgstr "ხელმისაწვდომი (დაწყვილებული და ხელმისაწვდომი) მოწყობილობების სია"
 
 #: kdeconnect-cli.cpp:43
 #, kde-format
@@ -64,6 +64,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
 "scripting"
 msgstr ""
+"სკრიპტინგის გასაადვილებლად --list-devices და --list-available -სთვის მხოლოდ "
+"მოწყობილობების ID-ების გამოტანის მორგება"
 
 #: kdeconnect-cli.cpp:45
 #, kde-format
@@ -71,6 +73,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
 "scripting"
 msgstr ""
+"სკრიპტინგის გასაადვილებლად --list-devices და --list-available -სთვის მხოლოდ "
+"მოწყობილობების სახელების გამოტანის მორგება"
 
 #: kdeconnect-cli.cpp:47
 #, kde-format
@@ -78,11 +82,13 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
 "to ease scripting"
 msgstr ""
+"სკრიპტინგის გასაადვილებლად --list-devices და --list-available -სთვის მხოლოდ "
+"მოწყობილობების სახელების და ID-ების გამოტანის მორგება"
 
 #: kdeconnect-cli.cpp:48
 #, kde-format
 msgid "Search for devices in the network and re-establish connections"
-msgstr ""
+msgstr "მოწყობილობების ქსელში მოძებნა და კავშირის თავიდან დამყარება"
 
 #: kdeconnect-cli.cpp:49
 #, kde-format
@@ -107,7 +113,7 @@ msgstr "მითითებული მოწყობილობის დ�
 #: kdeconnect-cli.cpp:53
 #, kde-format
 msgid "Same as ping but you can set the message to display"
-msgstr ""
+msgstr "იგივე, რაც პინგი, მაგრამ შეგიძლიათ გამოსატანი შეტყობინება დააყენოთ"
 
 #: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
 #, kde-format
@@ -117,7 +123,7 @@ msgstr "შეტყობინება"
 #: kdeconnect-cli.cpp:54
 #, kde-format
 msgid "Share a file/URL to a said device"
-msgstr ""
+msgstr "მონიშნული მოწყობილობისთვის ფაილის/ბმულის გაზიარება"
 
 #: kdeconnect-cli.cpp:55
 #, kde-format
@@ -127,7 +133,7 @@ msgstr "მითითებული მოწყობილობისთ�
 #: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Display the notifications on a said device"
-msgstr ""
+msgstr "გაფრთხილებების მონიშნულ მოწყობილობაზე ჩვენება"
 
 #: kdeconnect-cli.cpp:57
 #, kde-format
@@ -147,7 +153,7 @@ msgstr "SMS-ის გაგზავნა. დანიშნულები�
 #: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Phone number to send the message"
-msgstr ""
+msgstr "ტელეფონის ნომერი შეტყობინების გასაგზავნად"
 
 #: kdeconnect-cli.cpp:60
 #, kde-format
@@ -159,6 +165,8 @@ msgstr "ტელეფონის ნომერი"
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
 msgstr ""
+"ფაილის ბმულები, შეტყობინებასთან ერთად ფაილების მისამაგრებლად (შეიძლება ერთზე "
+"მეტჯერაც მითითება)"
 
 #: kdeconnect-cli.cpp:63
 #, kde-format
@@ -178,47 +186,47 @@ msgstr "მოწყობილობის სახელი"
 #: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Get encryption info about said device"
-msgstr ""
+msgstr "მონიშნული მოწყობილობის დაშიფვრის ინფორმაციის მიღბა"
 
 #: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "Lists remote commands and their ids"
-msgstr ""
+msgstr "დაშორებული ბრძანებებისა და მათი ID-ების სია"
 
 #: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Executes a remote command by id"
-msgstr ""
+msgstr "დაშორებული ბრძანების ID-ით შესრულება"
 
 #: kdeconnect-cli.cpp:70
 #, kde-format
 msgid "Sends keys to a said device"
-msgstr ""
+msgstr "მონიშნული მოწყობილობისთვის გასაღებების გაგზავნა"
 
 #: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Display this device's id and exit"
-msgstr ""
+msgstr "მოწყობილობის ID-ის ჩვენება და გასვლა"
 
 #: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Open the connected device's camera and transfer the photo"
-msgstr ""
+msgstr "მიერთებული მოწყობილობის კამერის გახსნა და სურათის გადატანა"
 
 #: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(paired and reachable)"
-msgstr ""
+msgstr "(დაწყვილებული და ხელმისაწვდომი)"
 
 #: kdeconnect-cli.cpp:122
 #, kde-format
 msgid "(reachable)"
-msgstr ""
+msgstr "(ხელმისაწვდომი)"
 
 #: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(paired)"
-msgstr ""
+msgstr "(შეწყვილებულია)"
 
 #: kdeconnect-cli.cpp:130
 #, kde-format
@@ -235,7 +243,7 @@ msgstr "მოწყობილობების პოვნა ვერ მ
 #: kdeconnect-cli.cpp:146
 #, kde-format
 msgid "(unpaired)"
-msgstr ""
+msgstr "(განწყვილებული)"
 
 #: kdeconnect-cli.cpp:183
 #, kde-format
@@ -245,6 +253,11 @@ msgid ""
 "Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
 "View complete help with --help option"
 msgstr ""
+"მოწყობილობა მითითებული არაა: გამოიყენეთ -d <Device id=\"\"> ან -n <Device "
+"Name> მოწყობილობის დასაზუსტებლად. \n"
+"მოწყობილობის ID-ის და სახელების ნახვა შესაძლებელია \"kdeconnect-cli -l\" "
+"გამოყენებით \n"
+"სრული დახმარების ნახვა შეგიძლიათ პარამეტრით --help"
 
 #: kdeconnect-cli.cpp:216
 #, kde-format
@@ -271,7 +284,7 @@ msgstr "%1-ის განბლოკვის მოთხოვნა."
 #: kdeconnect-cli.cpp:241
 #, kde-format
 msgid "waiting for device..."
-msgstr ""
+msgstr "მოწყობილობის მოლოდინი..."
 
 #: kdeconnect-cli.cpp:255
 #, kde-format
@@ -281,7 +294,7 @@ msgstr "მოწყობილობა ნაპოვნი არაა"
 #: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Already paired"
-msgstr ""
+msgstr "უკვე შეწყვილებულია"
 
 #: kdeconnect-cli.cpp:259
 #, kde-format
@@ -291,12 +304,12 @@ msgstr "დაწყვილების მოთხოვნა"
 #: kdeconnect-cli.cpp:266
 #, kde-format
 msgid "Already not paired"
-msgstr ""
+msgstr "უკვე დაწყვილებული არაა"
 
 #: kdeconnect-cli.cpp:268
 #, kde-format
 msgid "Unpaired"
-msgstr ""
+msgstr "დაწყვილება გაუქმებულია"
 
 #: kdeconnect-cli.cpp:308
 #, kde-format
@@ -304,13 +317,15 @@ msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr ""
+"შეცდომა: SMS-ის მითითება აუცილებელია --destination <ტელეფონის ნომერი> "
+"პარამეტრის გადაცემით"
 
 #: kdeconnect-cli.cpp:327
 #, kde-format
 msgid "Please specify a filename for the photo"
-msgstr ""
+msgstr "მიუთითეთ სახელი ამ სურათისთვის"
 
 #: kdeconnect-cli.cpp:374
 #, kde-format
 msgid "Nothing to be done"
-msgstr ""
+msgstr "გასაკეთებელი არაფერია"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-18 00:44+0000\n"
-"PO-Revision-Date: 2022-09-29 06:13+0200\n"
+"PO-Revision-Date: 2022-12-24 07:18+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -33,25 +33,25 @@ msgstr "ელემენტის მუხტია %1%"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "ბუფერის დამატება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Contents shared to other devices"
-msgstr ""
+msgstr "სხვა მოწყობილობებთან გაზიარებული შემცველობა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Passwords (as marked by password managers)"
-msgstr ""
+msgstr "პაროლები (როგორც მონიშნულია პაროლის მმართველების მიერ)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Anything else"
-msgstr ""
+msgstr "ყველაფერი სხვა"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -227,28 +227,28 @@ msgstr "მაქსიმალური სიკაშკაშე"
 #: runcommand/runcommand_config.cpp:61
 #, kde-format
 msgid "Unlock Screen"
-msgstr ""
+msgstr "ეკრანის განბლოკვა"
 
 #: runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Close All Vaults"
-msgstr ""
+msgstr "ყველა საცავის დახურვა"
 
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "ყველა საცავის ძალით დახურვა"
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
-msgstr ""
+msgstr "სანიმუშო ბრძანებები"
 
 #: runcommand/runcommand_config.cpp:82
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: runcommand/runcommand_config.cpp:82
 #, kde-format
@@ -258,22 +258,22 @@ msgstr "ბრძანება"
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
 msgid "Phone is connected"
-msgstr ""
+msgstr "ტელეფონი დაკავშირებულია"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Blacklisted"
-msgstr ""
+msgstr "შავ სიაშია"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
 msgid "Name of a notifying application."
-msgstr ""
+msgstr "შემტყობინებელი აპლიკაციის სახელი."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:192
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr ""
+msgstr "გნებავთ აპლიკაციის გაფრთხილებების სინქრონიზაცია?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:195
 #, kde-format
@@ -282,6 +282,9 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
+"რეგულარული გამოსახულებები, რომლებიც აღწერენ, რომელი შეტყობინებები არ უნდა "
+"გაიგზავნოს.\n"
+"ეს ნიმუში გადატარდება შეჯამებებზე და თუ ჩართულია, გაფრთხილების სხეულზე."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: sendnotifications/sendnotifications_config.ui:38
@@ -294,12 +297,14 @@ msgstr "ძირითადი"
 #, kde-format
 msgid "Synchronize only notifications with a timeout value of 0?"
 msgstr ""
+"მოხდეს მხოლოდ ნულოვანი მოლოდინის მნიშვნელობის მქონე გაფრთხილებების "
+"სინქრონიზაცია?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:47
 #, kde-format
 msgid "Persistent notifications only"
-msgstr ""
+msgstr "მხოლოდ მუდმივი შეტყობინებები"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:60
@@ -307,24 +312,25 @@ msgstr ""
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
 msgstr ""
+"მივაწერო გაფრთხილების სხეული შეჯამებას გაფრთხილებების სინქრონიზაციისას?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63
 #, kde-format
 msgid "Include body"
-msgstr ""
+msgstr "სხეულის ჩასმა"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
+msgstr "დავასინქრონო გაფრთხილებების აპლიკაციების ხატულები, თუ ეს შესაძლებელია?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
 #, kde-format
 msgid "Synchronize icons"
-msgstr ""
+msgstr "ხატულების სინქრონიზაცია"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
 #: sendnotifications/sendnotifications_config.ui:107
@@ -333,18 +339,20 @@ msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
 msgstr ""
+"<html><head/><body><p>შეტყობინებების მინიმალური გადაუდებლობის დონე</p></"
+"body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr ""
+msgstr "სინქრონიზაცია მხოლოდ შეტყობინებებს მოცემული გადაუდებელი დონით."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr ""
+msgstr "გადაუდებლობის მინიმალური დონე"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148
@@ -355,53 +363,53 @@ msgstr "აპლიკაციები"
 #: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr ""
+msgstr "SSHFS-ის გაშვების შეცდომა"
 
 #: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
-msgstr ""
+msgstr "sshfs -ის პროცესი ავარიულად დასრულდა"
 
 #: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr ""
+msgstr "უცნობი შეცდომა sshfs-ში"
 
 #: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
-msgstr ""
+msgstr "ფაილურ სისტემასთან წვდომისას sshfs-მა მუშაობა დაასრულა კოდით %0"
 
 #: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr ""
+msgstr "ფაილური სისტემის მიმაგრების შეცდომა: მოწყობილობა არ გვპასუხობს"
 
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr ""
+msgstr "SFTP პროტოკოლის მხარდაჭერა არ არსებობს. ბოდიში უხერხულობისთვის"
 
 #: sftp/sftpplugin.cpp:143
 #, kde-format
 msgid "All files"
-msgstr ""
+msgstr "ყველა ფაილი"
 
 #: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "Camera pictures"
-msgstr ""
+msgstr "კამერის სურათები"
 
 #: share/share_config.cpp:24
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr ""
+msgstr "&percnt;1 ბილიკში მითითებული მოწყობილობის სახელით შეიცვლება."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr ""
+msgstr "გაზიარების დამატების მორგება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23
@@ -418,29 +426,29 @@ msgstr "ფაილების შენახვა:"
 #: share/shareplugin.cpp:209
 #, kde-format
 msgid "Could not share file"
-msgstr ""
+msgstr "ფაილის გაზიარების შეცდომა"
 
 #: share/shareplugin.cpp:209
 #, kde-format
 msgid "%1 does not exist"
-msgstr ""
+msgstr "%1 არ არსებობს"
 
 #: telephony/telephonyplugin.cpp:28
 #, kde-format
 msgid "unknown number"
-msgstr ""
+msgstr "უცნობი ნომერი"
 
 #: telephony/telephonyplugin.cpp:37
 #, kde-format
 msgid "Incoming call from %1"
-msgstr ""
+msgstr "შემომავალი ზარი %1-დან"
 
 #: telephony/telephonyplugin.cpp:41
 #, kde-format
 msgid "Missed call from %1"
-msgstr ""
+msgstr "გამოტოვებული ზარი %1-დან"
 
 #: telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
-msgstr ""
+msgstr "ზარის დადუმება"

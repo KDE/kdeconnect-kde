@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2022-09-29 05:39+0200\n"
+"PO-Revision-Date: 2022-12-24 07:17+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:56
 #: backends/lan/lanpairinghandler.cpp:52
@@ -137,13 +137,16 @@ msgid ""
 "distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
 "you have them installed and try again."
 msgstr ""
+"თქვენს QCA-ის აგებაში RSA-ის მხარდაჭერა ვერ ვიპოვე. თუ თქვენს დისტრიბუტივს "
+"QCA-ossl და QCA-gnupg პაკეტები ცალ-ცალკე აქვს, დარწმუნდით, რომ ისინი "
+"დაყენებულია და თავიდან სცადეთ."
 
 #: kdeconnectconfig.cpp:313
 #, kde-format
 msgid "Could not store private key file: %1"
-msgstr ""
+msgstr "პირადი გასაღების დამახსოვრების შეცდომა: %1"
 
 #: kdeconnectconfig.cpp:358
 #, kde-format
 msgid "Could not store certificate file: %1"
-msgstr ""
+msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"

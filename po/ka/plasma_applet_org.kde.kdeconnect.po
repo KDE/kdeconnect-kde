@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-09-29 06:21+0200\n"
+"PO-Revision-Date: 2022-12-24 07:18+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "ფაილის გაზიარება"
 #: package/contents/ui/DeviceDelegate.qml:178
 #, kde-format
 msgid "Save As"
-msgstr ""
+msgstr "შენახვა, როგორც"
 
 #: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Take a photo"
-msgstr ""
+msgstr "სურათის გადაღება"
 
 #: package/contents/ui/DeviceDelegate.qml:206
 #, kde-format
