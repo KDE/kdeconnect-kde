@@ -1,0 +1,13 @@
+
+This plugin will display a notification each time a package with type
+"kdeconnect.telephony" is received. The type of notification will change
+depending on the contents of the field "event" (string).
+
+Valid contents for "event" are: "ringing", "talking", "missedCall" and "sms".
+
+If the incoming package contains a "phoneNumber" string field, the notification
+will also display it. Note that "phoneNumber" can be a contact name instead
+of an actual phone number.
+
+If the incoming package contains "isCancel" set to true, the package is ignored.
+

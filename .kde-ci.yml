@@ -27,3 +27,7 @@ Dependencies:
     'frameworks/kpackage': '@stable'
     'libraries/pulseaudio-qt': '@stable'
     'libraries/plasma-wayland-protocols': '@stable'
+
+- 'on': ['Linux']
+  'require':
+    'frameworks/modemmanager-qt': '@stable'

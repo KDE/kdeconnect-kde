@@ -38,6 +38,10 @@ if(NOT SAILFISHOS)
     add_subdirectory(screensaver-inhibit)
     add_subdirectory(virtualmonitor)
 
+    if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+    	add_subdirectory(mmtelephony)
+    endif()
+
     if(NOT WIN32)
         add_subdirectory(sendnotifications)
     endif()

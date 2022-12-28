@@ -1,0 +1,28 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "bhyoram@protonmail.com",
+                "Name": "Yoram Bar-Haim"
+            }
+        ],
+        "Description": "Show notifications for incoming calls",
+        "EnabledByDefault": true,
+        "Icon": "call-start",
+        "Id": "kdeconnect_mmtelephony",
+        "License": "GPL",
+        "Name": "ModemManager Telephony integration",
+        "ServiceTypes": [
+            "KdeConnect/Plugin"
+        ],
+        "Version": "0.1",
+        "Website": "https://kdeconnect.kde.org/"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.telephony"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.telephony",
+        "kdeconnect.telephony.request_mute"
+    ]
+}
