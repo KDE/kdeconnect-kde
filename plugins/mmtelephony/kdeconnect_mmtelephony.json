@@ -5,10 +5,12 @@
                 "Email": "bhyoram@protonmail.com",
                 "Name": "Yoram Bar-Haim",
                 "Name[ca]": "Yoram Bar-Haim",
+                "Name[eu]": "Yoram Bar-Haim",
                 "Name[ka]": "Yoram Bar-Haim",
                 "Name[nl]": "Yoram Bar-Haim",
                 "Name[pl]": "Yoram Bar-Haim",
                 "Name[pt]": "Yoram Bar-Haim",
+                "Name[tr]": "Yoram Bar-Haim",
                 "Name[uk]": "Йорам Бар-Хаїм",
                 "Name[x-test]": "xxYoram Bar-Haimxx"
             }
@@ -60,10 +62,12 @@
         "License": "GPL",
         "Name": "ModemManager Telephony integration",
         "Name[ca]": "Integració amb la telefonia del ModemManager",
+        "Name[eu]": "«ModemManager» telefonia bateratzea",
         "Name[ka]": "ModemManager -ის ტელეფონის ინტეგრაცია",
         "Name[nl]": "Modembeheerder telefoonintegratie",
         "Name[pl]": "Integracja z telefonią zarządzania modemem",
         "Name[pt]": "Integração telefónica com o ModemManager",
+        "Name[tr]": "ModemManager Telefon tümleştirmesi",
         "Name[uk]": "Інтеграція телефонії ModemManager",
         "Name[x-test]": "xxModemManager Telephony integrationxx",
         "ServiceTypes": [
