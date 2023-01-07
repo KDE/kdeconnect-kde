@@ -2,52 +2,85 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
 <!ENTITY % addindex "IGNORE">
-<!ENTITY % English "INCLUDE" > <!-- change language only here -->
+<!ENTITY % German "INCLUDE"
+> <!-- change language only here -->
 ]>
 
 <article id="kdeconnect" lang="&language;">
 <articleinfo>
-<title>KDE Connect</title>
+<title
+>KDE Connect</title>
 <authorgroup>
-<author>&Aleix.Pol;</author>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<author
+>&Aleix.Pol;</author>
+<othercredit role="translator"
+><firstname
+>Burkhard</firstname
+><surname
+>Lück</surname
+><affiliation
+><address
+><email
+>lueck@hube-lueck.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
 </authorgroup>
 
-<date>2015-10-19</date>
-<releaseinfo>0.9</releaseinfo>
+<date
+>2015-10-19</date>
+<releaseinfo
+>0.9</releaseinfo>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>Connect</keyword>
-<keyword>phone</keyword>
-<keyword>remote</keyword>
-<keyword>device</keyword>
-<keyword>pair</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>Verbinden</keyword>
+<keyword
+>Telefon</keyword>
+<keyword
+>Fremdgerät</keyword>
+<keyword
+>Gerät</keyword>
+<keyword
+>Verbindung</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kdeconnect-kcm">
 
-<title>KDE Connect</title>
+<title
+>KDE Connect</title>
 
-<para>You can use this dialog to configure which devices we're paired to and what we're sharing. The UI is divided in 2 main parts:</para>
+<para
+>Sie können in diesem Dialog einrichten, welche Geräte verbunden sind und was freigegeben ist. Die Benutzeroberfläche besteht aus zwei Hauptteilen:</para>
 
 <sect2>
-<title>Devices List</title>
+<title
+>Geräteliste</title>
 
-<para>It contains a list of devices separated between paired and unpaired. Select one to pair it and when it's paired, configure it.</para>
+<para
+>Hier wird eine Liste der Geräte getrennt nach verbundenem und nicht verbundenem Status angezeigt. Wählen Sie ein Gerät aus, um es zu verbinden und es dann einzurichten. </para>
 </sect2>
 
 <sect2>
-<title>Device Configuration</title>
+<title
+>Geräteeinstellungen</title>
 
-<para>It offers a list of the available plugins related to the device. These plugins will correspond to the different features available for the device. This is useful mainly for knowing what plugins are available and, in case there's some information that should not be shared with a device, explicitly disable it.</para>
+<para
+>In diesem Dialog sehen Sie eine Liste aller verfügbaren Module für das Gerät. Diese Module entsprechen den verschiedenen Funktionen des Geräts. Damit können Sie erkennen, welche Module verfügbar sind. Falls einige Informationen nicht für ein Gerät freigegeben werden sollen, können Sie dieses Modul deaktivieren.</para>
 </sect2>
 
 <sect2>
-<title>General interaction with the devices</title>
+<title
+>Allgemeine Interaktion mit Geräten</title>
 
-<para>KDE Connect doesn't offer a central place to interact with your devices. It's designed to integrate properly with your operating system, making it possible to share files from the different applications or integrating with the notification system to display information.</para>
+<para
+>In KDE Connect gibt es keinen zentralen Ort für die Interaktion mit Ihren Geräten. Es ist so konzipiert, dass es sich gut in Ihr Betriebssystem integrieren lässt. So haben Sie die Möglichkeit der gemeinsamen Nutzung von Dateien aus den verschiedenen Anwendungen oder die Integration des Benachrichtigungssystems zur Anzeige von Informationen.</para>
 </sect2>
 
 </sect1>
