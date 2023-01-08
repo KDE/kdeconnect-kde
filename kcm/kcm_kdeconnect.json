@@ -3,6 +3,7 @@
     "KPlugin": {
         "Description": "Connect and sync your devices",
         "Description[ar]": "اتّصل وزامن أجهزتك",
+        "Description[bg]": "Свържете и синхронизирайте вашите устройства",
         "Description[ca@valencia]": "Connecta i sincronitza els vostres dispositius",
         "Description[ca]": "Connecta i sincronitza els vostres dispositius",
         "Description[cs]": "Připojte a synchronizujte svá zařízení",
@@ -21,6 +22,7 @@
         "Icon": "preferences-kde-connect",
         "Name": "KDE Connect",
         "Name[ar]": "كدي المتّصل",
+        "Name[bg]": "KDE Connect",
         "Name[ca@valencia]": "KDE Connect",
         "Name[ca]": "KDE Connect",
         "Name[cs]": "KDE Connect",
