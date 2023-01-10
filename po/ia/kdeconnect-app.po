@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2020, 2021.
+# Giovanni Sora <g.sora@tiscali.it>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2021-11-03 14:04+0100\n"
+"PO-Revision-Date: 2023-01-09 12:23+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -175,10 +175,9 @@ msgid "Find devices..."
 msgstr "Trova dispositivos..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Preferentias de plugin"
+msgstr "Preferentias"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -227,19 +226,17 @@ msgid "No commands defined"
 msgstr "Necun commandos definite"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Preferentias de plugin"
+msgstr "Preferentias"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Nomine de dispositivo"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "Re KDE Connect"
