@@ -15,7 +15,7 @@ target_link_libraries(kdeconnect-handler
     KF5::CoreAddons
     KF5::DBusAddons
     KF5::I18n
-    KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets KF5::KIONTLM
+    KF5::KIOCore KF5::KIOFileWidgets KF5::KIOWidgets
 )
 
 install(TARGETS kdeconnect-handler ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
