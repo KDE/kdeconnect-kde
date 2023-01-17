@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2022-12-11 20:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -82,16 +82,6 @@ msgstr "Uzaktan kilitleme başarılı"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Uzaktan kilitleme başarısız"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Telefonunuzu bir dokunmatik yüzey ve klavye olarak kullanın"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -383,6 +373,11 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Dosya sistemi bağlanamadı: Aygıt yanıt vermiyor"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -450,6 +445,9 @@ msgstr "Yanıtsız arama: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Aramayı Sessize Al"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Telefonunuzu bir dokunmatik yüzey ve klavye olarak kullanın"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Bilinmeyen telefon olayı: %1"

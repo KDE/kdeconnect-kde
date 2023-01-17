@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2022-03-06 18:38+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -80,16 +80,6 @@ msgstr ""
 #, kde-format
 msgid "Remote lock failed"
 msgstr ""
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Verwendet Ihr Handy als Touchpad und Tastatur"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -385,6 +375,11 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Fehler beim Einhängen des Dateisystems: Das Gerät antwortet nicht"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -452,6 +447,9 @@ msgstr "Verpasster Anruf von %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Anruf Stummschalten"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Verwendet Ihr Handy als Touchpad und Tastatur"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Unbekanntes Telefon-Ereignis: %1"

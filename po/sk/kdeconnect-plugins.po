@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -82,16 +82,6 @@ msgstr "Vzdialené uzamknutie úspešné"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Vzdialené uzamknutie zlyhalo"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Použite váš telefón ako touchpad a klávesnicu"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -382,6 +372,11 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Zlyhalo pripojenie súborového systému: zariadenie neodpovedá"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -449,6 +444,9 @@ msgstr "Zmeškaný hovor od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Stlmiť hovor"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Použite váš telefón ako touchpad a klávesnicu"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Neznáma telefónna udalosť: %1"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2022-10-19 07:08+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -87,16 +87,6 @@ msgstr "Succès du verrouillage à distance"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Échec du verrouillage à distance"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Utilisez votre téléphone comme un pavé tactile et un clavier"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -394,6 +384,11 @@ msgid "Failed to mount filesystem: device not responding"
 msgstr ""
 "Impossible de monter le système de fichiers : le périphérique ne répond pas"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -463,6 +458,9 @@ msgstr "Appel manqué provenant de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Couper le son"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Utilisez votre téléphone comme un pavé tactile et un clavier"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Évènement de téléphonie inconnu : %1"

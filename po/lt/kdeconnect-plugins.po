@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2022-11-17 02:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -83,16 +83,6 @@ msgstr "Pavyko užrakinti per nuotolį"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Nepavyko užrakinti per nuotolį"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Naudoti telefoną kaip jutiklinį kilimėlį ir klaviatūrą"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -386,6 +376,11 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Nepavyko prijungti failų sistemos: įrenginys neatsako"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -453,6 +448,9 @@ msgstr "Praleistas skambutis nuo %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Nutildyti skambutį"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Naudoti telefoną kaip jutiklinį kilimėlį ir klaviatūrą"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Nežinomas telefonijos įvykis: %1"

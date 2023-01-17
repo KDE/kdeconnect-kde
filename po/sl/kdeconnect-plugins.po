@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2022-10-19 08:35+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -82,16 +82,6 @@ msgstr "Oddaljeni zaklep uspešen"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Oddaljeni zaklep ni uspel"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Uporabljaj telefon kot sledilno ploščico in tipkovnico"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -381,6 +371,11 @@ msgstr "Napaka pri dostopu do sistema datotek. sshfs končal z izhodno kodo %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Priklop sistema datotek ni uspel: naprava se ne odziva"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -448,3 +443,6 @@ msgstr "Zgrešeni klic od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Klic brez zvoka"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Uporabljaj telefon kot sledilno ploščico in tipkovnico"

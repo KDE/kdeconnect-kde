@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2022-10-18 07:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -87,16 +87,6 @@ msgstr "Urruneko giltzatze arrakastatsua"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Urruneko giltzatzeak huts egin du"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Erabili zure telefonoa ukimen-sagua eta teklatu gisa"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -390,6 +380,11 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Huts egin du fitxategi-sistema muntatzea: gailuak ez du erantzuten"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -457,6 +452,9 @@ msgstr "Galdutako deia, %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Isilarazi deia"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Erabili zure telefonoa ukimen-sagua eta teklatu gisa"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Telefonia-gertaera ezezaguna: %1"

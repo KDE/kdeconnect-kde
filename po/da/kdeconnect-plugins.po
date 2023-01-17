@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2020-07-21 18:28+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -81,16 +81,6 @@ msgstr ""
 #, kde-format
 msgid "Remote lock failed"
 msgstr ""
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Brug din telefon som touchpad og tastatur"
 
 #: notifications/notification.cpp:128
 #, fuzzy, kde-format
@@ -384,6 +374,11 @@ msgstr "Fejl ved tilgang til filsystemet. sshfs afsluttedes med exitkode %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Kunne ikke montere filsystemet: Enheden svarer ikke"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -451,6 +446,9 @@ msgstr "Ubesvaret opkald fra %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Sæt opkald på lydløs"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Brug din telefon som touchpad og tastatur"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Ukendt telefonihændelse: %1"

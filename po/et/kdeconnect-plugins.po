@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2020-10-11 01:31+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -82,16 +82,6 @@ msgstr ""
 #, kde-format
 msgid "Remote lock failed"
 msgstr ""
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Telefoni kasutamine puutepadja ja klaviatuurina"
 
 #: notifications/notification.cpp:128
 #, fuzzy, kde-format
@@ -384,6 +374,11 @@ msgstr "Tõrge failisüsteemi ligipääsul. sshfs lõpetas väljumiskoodiga %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Failisüsteemi ühendamine nurjus: seade ei reageeri"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -451,6 +446,9 @@ msgstr "Vastamata kõne kontaktilt %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Summuta kõne"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Telefoni kasutamine puutepadja ja klaviatuurina"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "Tundmatu telefonisündmus: %1"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2023-01-12 10:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -81,16 +81,6 @@ msgstr "远程锁定成功"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "远程锁定失败"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "用您的手机作为触摸板和键盘"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -378,6 +368,11 @@ msgstr "访问文件系统时出错。sshfs 完成退出代码 %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "挂载文件系统出错：设备未响应"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -445,3 +440,6 @@ msgstr "%1 的未接来电"
 #, kde-format
 msgid "Mute Call"
 msgstr "静音来电"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "用您的手机作为触摸板和键盘"

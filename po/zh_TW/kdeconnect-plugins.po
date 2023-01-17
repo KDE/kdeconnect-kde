@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2021-09-12 09:10+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -84,16 +84,6 @@ msgstr "遠端鎖定成功"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "無法遠端鎖定"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE連線"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "將您的智慧型手機當成觸碰板或鍵盤"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -381,6 +371,11 @@ msgstr "存取檔案系統時發生錯誤。sshfs 結束，並回傳結束碼 %0
 msgid "Failed to mount filesystem: device not responding"
 msgstr "掛載檔案系統時失敗：裝置未回應"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE連線"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -448,6 +443,9 @@ msgstr "錯過 %1 的來電"
 #, kde-format
 msgid "Mute Call"
 msgstr "通話靜音"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "將您的智慧型手機當成觸碰板或鍵盤"
 
 #~ msgid "Unknown telephony event: %1"
 #~ msgstr "未知的 telephony 活動：%1"

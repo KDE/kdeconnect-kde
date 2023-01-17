@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-13 00:54+0000\n"
+"POT-Creation-Date: 2023-01-17 00:56+0000\n"
 "PO-Revision-Date: 2021-11-24 12:31+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -81,16 +81,6 @@ msgstr "Sikeres távoli zárolás"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Sikertelen távoli zárolás"
-
-#: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
-#, kde-format
-msgid "KDE Connect"
-msgstr "KDE Connect"
-
-#: mousepad/waylandremoteinput.cpp:47
-#, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "A telefon használata érintőtáblaként és billentyűzetként"
 
 #: notifications/notification.cpp:128
 #, kde-format
@@ -385,6 +375,11 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Nem sikerült csatolni a fájlrendszert: az eszköz nem válaszol"
 
+#: sftp/sftpplugin-win.cpp:74
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
@@ -453,3 +448,6 @@ msgstr "Nem fogadott hívás: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Hívás némítása"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "A telefon használata érintőtáblaként és billentyűzetként"
