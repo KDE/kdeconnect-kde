@@ -414,7 +414,7 @@ msgstr "&percnt;1 en el camí serà substituït pel nom específic del dispositi
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr "Configuració del connector Compartició"
+msgstr "Configureu el connector Compartició"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23

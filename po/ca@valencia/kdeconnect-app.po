@@ -69,7 +69,7 @@ msgstr "Envia un ping"
 #: qml/DevicePage.qml:37 qml/PluginSettings.qml:16
 #, kde-format
 msgid "Plugin Settings"
-msgstr "Configuració del connector"
+msgstr "Configureu el connector"
 
 #: qml/DevicePage.qml:63
 #, kde-format

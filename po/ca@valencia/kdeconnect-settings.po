@@ -33,7 +33,7 @@ msgstr "txemaq@gmail.com"
 #: main.cpp:28 main.cpp:30
 #, kde-format
 msgid "KDE Connect Settings"
-msgstr "Configuració de KDE Connect"
+msgstr "Configureu KDE Connect"
 
 #: main.cpp:32
 #, kde-format

@@ -189,4 +189,4 @@ msgstr "Instal·la des del F-Droid"
 #: package/contents/ui/main.qml:49
 #, kde-format
 msgid "KDE Connect Settings..."
-msgstr "Configuració de KDE Connect..."
+msgstr "Configureu KDE Connect..."

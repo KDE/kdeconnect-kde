@@ -34,7 +34,7 @@ msgstr "antonibella5@yahoo.com"
 #: kcm.cpp:37
 #, kde-format
 msgid "KDE Connect Settings"
-msgstr "Configuració de KDE Connect"
+msgstr "Configureu KDE Connect"
 
 #: kcm.cpp:39
 #, kde-format
