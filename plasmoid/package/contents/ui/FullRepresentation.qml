@@ -58,7 +58,7 @@ PlasmaExtras.Representation {
                 helpfulAction: Action {
                     text: i18n("Pair a Device...")
                     icon.name: "list-add"
-                    onTriggered: KdeConnect.DaemonDbusInterface.openConfiguration()
+                    onTriggered: KdeConnect.OpenConfig.openConfiguration()
                     enabled: pairedDevicesModel.count == 0 && KCMShell.authorize("kcm_kdeconnect.desktop").length > 0
                 }
 
