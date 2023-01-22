@@ -6,20 +6,21 @@
 # Automatically generated, 2019.
 # pan93412 <pan93412@gmail.com>, 2019.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2021-09-12 09:15+0800\n"
-"Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-01-22 00:42+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -86,7 +87,7 @@ msgstr "遠端輸入"
 #: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
-msgstr "遠端簡報"
+msgstr "簡報遙控"
 
 #: qml/DevicePage.qml:83 qml/mousepad.qml:44
 #, kde-format
@@ -179,10 +180,9 @@ msgid "Find devices..."
 msgstr "尋找裝置…"
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "擴充元件設定"
+msgstr "設定"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -222,7 +222,7 @@ msgstr "編輯指令"
 #: qml/runcommand.qml:24
 #, kde-format
 msgid "You can edit commands on the connected device"
-msgstr "您能編輯連線裝置的指令"
+msgstr "您可以在已連線的裝置上編輯指令"
 
 #: qml/runcommand.qml:43
 #, kde-format
@@ -230,19 +230,17 @@ msgid "No commands defined"
 msgstr "未定義指令"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "擴充元件設定"
+msgstr "設定"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "裝置名稱"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE 連線"
+msgstr "關於 KDE 連線"

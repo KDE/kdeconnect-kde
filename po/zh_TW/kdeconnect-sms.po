@@ -6,20 +6,21 @@
 # Automatically generated, 2019.
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2021-09-12 09:12+0800\n"
-"Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-01-22 00:51+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -77,10 +78,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS 即時通訊"
 
 #: main.cpp:54
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2019, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2019, KDE 連線團隊"
+msgstr "(C) 2018-2022, KDE 連線團隊"
 
 #: main.cpp:55
 #, kde-format
@@ -151,7 +151,7 @@ msgstr "沒有要傳送或接收的新訊息，但你能瀏覽快取內容"
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
-msgstr ""
+msgstr "從裝置載入對話。如果這需要很久，請喚醒裝置後再按重新整理。"
 
 #: qml/ConversationList.qml:58
 #, kde-format
@@ -159,6 +159,7 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
+"提示：如果您插入裝置，它應該就不會進入省電 (doze) 模式而應該就會比較快載入。"
 
 #: qml/ConversationList.qml:66 qml/main.qml:87
 #, kde-format
@@ -176,10 +177,9 @@ msgid "Cancel"
 msgstr "取消"
 
 #: qml/ConversationList.qml:112
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgid "Search or start conversation..."
-msgstr "開始新對話"
+msgstr "搜尋或開始新對話…"
 
 #: qml/ConversationList.qml:144
 #, kde-format
@@ -200,7 +200,7 @@ msgstr "無相符的簡訊"
 #: qml/main.qml:82
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "裝置"
 
 #: qml/main.qml:95
 #, kde-format
