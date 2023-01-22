@@ -37,7 +37,8 @@
                 "Name[tr]": "Aleix Pol i Gonzalez",
                 "Name[uk]": "Aleix Pol i Gonzalez",
                 "Name[x-test]": "xxAleix Pol i Gonzalezxx",
-                "Name[zh_CN]": "Aleix Pol i Gonzalez"
+                "Name[zh_CN]": "Aleix Pol i Gonzalez",
+                "Name[zh_TW]": "Aleix Pol i Gonzalez"
             }
         ],
         "Description": "Use your devices as virtual monitors",
@@ -74,6 +75,7 @@
         "Description[uk]": "Використання ваших пристроїв як віртуальних моніторів",
         "Description[x-test]": "xxUse your devices as virtual monitorsxx",
         "Description[zh_CN]": "使用您的设备作为虚拟显示器",
+        "Description[zh_TW]": "將您的裝置作為虛擬螢幕使用",
         "EnabledByDefault": true,
         "Icon": "video-monitor",
         "Id": "kdeconnect_virtualmonitor",
@@ -112,6 +114,7 @@
         "Name[uk]": "Віртуальний монітор",
         "Name[x-test]": "xxVirtual Monitorxx",
         "Name[zh_CN]": "虚拟显示器",
+        "Name[zh_TW]": "虛擬螢幕",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],

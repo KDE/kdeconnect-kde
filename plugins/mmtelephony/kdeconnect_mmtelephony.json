@@ -24,7 +24,8 @@
                 "Name[sl]": "Yoram Bar-Haim",
                 "Name[tr]": "Yoram Bar-Haim",
                 "Name[uk]": "Йорам Бар-Хаїм",
-                "Name[x-test]": "xxYoram Bar-Haimxx"
+                "Name[x-test]": "xxYoram Bar-Haimxx",
+                "Name[zh_TW]": "Yoram Bar-Haim"
             }
         ],
         "Description": "Show notifications for incoming calls",
@@ -93,6 +94,7 @@
         "Name[tr]": "ModemManager Telefon tümleştirmesi",
         "Name[uk]": "Інтеграція телефонії ModemManager",
         "Name[x-test]": "xxModemManager Telephony integrationxx",
+        "Name[zh_TW]": "ModemManager 電話整合",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],

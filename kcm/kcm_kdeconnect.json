@@ -23,6 +23,7 @@
         "Description[tr]": "Aygıtlarını bağla ve eşzamanla",
         "Description[uk]": "З'єднання і синхронізація ваших пристроїв",
         "Description[x-test]": "xxConnect and sync your devicesxx",
+        "Description[zh_TW]": "與您的裝置連線並同步",
         "Icon": "preferences-kde-connect",
         "Name": "KDE Connect",
         "Name[ar]": "كدي المتّصل",
@@ -45,7 +46,8 @@
         "Name[sl]": "KDE Connect",
         "Name[tr]": "KDE Connect",
         "Name[uk]": "KDE Connect",
-        "Name[x-test]": "xxKDE Connectxx"
+        "Name[x-test]": "xxKDE Connectxx",
+        "Name[zh_TW]": "KDE 連線"
     },
     "X-DocPath": "kdeconnect/index.html",
     "X-KDE-Keywords": "network,kde connect,connect,phone,sync,mobile,android,ios,send files,share files,transfer files,receive files,devices,device,synchronization,calls,telephone,smartphone,contacts,sms,phone notifications,control volume,system volume,ringtone,play sound,presentation,take picture,take photo,shared clipboard,conectivity monitor,remote input,remote mouse,remote keyboard,mpris,phone integration,commands,lock device,multimedia control,sftp,browse phone,share",

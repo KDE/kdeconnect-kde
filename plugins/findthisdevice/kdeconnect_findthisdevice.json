@@ -86,7 +86,7 @@
         "Description[uk]": "Знайти цей пристрій, наказавши йому відтворити дзвінок",
         "Description[x-test]": "xxFind this device by making it play an alarm soundxx",
         "Description[zh_CN]": "通过播放铃声来找到您不见的手机",
-        "Description[zh_TW]": "讓手機發出警報聲，以讓您找到這個裝置。",
+        "Description[zh_TW]": "讓手機發出警報聲，以讓您找到這個裝置",
         "EnabledByDefault": true,
         "Icon": "edit-find",
         "Id": "kdeconnect_findthisdevice",
