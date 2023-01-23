@@ -40,9 +40,9 @@ Kirigami.ApplicationWindow
     Instantiator {
         id: instantiator
 
-        model: DevicesSortProxyModel {
+        model: DevicesPluginFilterProxyModel {
             id: devicesModel
-            //TODO: make it possible to filter if they can do sms
+            pluginFilter: "kdeconnect_sms"
             sourceModel: DevicesModel { displayFilter: DevicesModel.Paired | DevicesModel.Reachable }
         }
 

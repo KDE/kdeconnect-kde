@@ -11,6 +11,7 @@
 #include <QGuiApplication>
 #include <QQmlContext>
 #include <QQmlEngine>
+#include <devicespluginfilterproxymodel.h>
 
 #include "objectfactory.h"
 #include "responsewaiter.h"
@@ -51,6 +52,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
     qmlRegisterType<RemoteCommandsModel>(uri, 1, 0, "RemoteCommandsModel");
     qmlRegisterType<DBusAsyncResponse>(uri, 1, 0, "DBusAsyncResponse");
     qmlRegisterType<DevicesSortProxyModel>(uri, 1, 0, "DevicesSortProxyModel");
+    qmlRegisterType<DevicesPluginFilterProxyModel>(uri, 1, 0, "DevicesPluginFilterProxyModel");
     qmlRegisterType<RemoteSinksModel>(uri, 1, 0, "RemoteSinksModel");
     qmlRegisterType<PluginModel>(uri, 1, 0, "PluginModel");
     qmlRegisterType<KdeConnectPluginConfig>(uri, 1, 0, "KdeConnectPluginConfig");
