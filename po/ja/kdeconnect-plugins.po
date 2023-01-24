@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-18 00:44+0000\n"
+"POT-Creation-Date: 2023-01-23 02:32+0000\n"
 "PO-Revision-Date: 2021-09-25 15:41-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -354,29 +354,29 @@ msgstr "緊急性低"
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:168
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshfs の開始に失敗"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:172
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs のプロセスがクラッシュしました"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:176
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs の不明なエラー"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:187
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "ファイルシステムへのアクセス中にエラーが発生しました。sshfs が終了コード %0 "
 "で終了しました"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "ファイルシステムのマウントに失敗: デバイスが応答していません"
