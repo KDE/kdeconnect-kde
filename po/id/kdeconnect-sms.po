@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-01-24 00:57+0000\n"
 "PO-Revision-Date: 2022-11-16 22:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -63,52 +63,52 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:50 qml/main.qml:67
+#: main.cpp:51 qml/main.qml:67
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "SMS KDE Connect"
 
-#: main.cpp:52
+#: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr "Perpesanan Instan SMS"
 
-#: main.cpp:54
+#: main.cpp:55
 #, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
 msgstr "(C) 2018-2022, Tim KDE Connect"
 
-#: main.cpp:55
+#: main.cpp:56
 #, kde-format
 msgid "Simon Redman"
 msgstr "Simon Redman"
 
-#: main.cpp:56
+#: main.cpp:57
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:57
+#: main.cpp:58
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: main.cpp:75
+#: main.cpp:76
 #, kde-format
 msgid "Select a device"
 msgstr "Pilih peranti"
 
-#: main.cpp:75
+#: main.cpp:76
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: main.cpp:76
+#: main.cpp:77
 #, kde-format
 msgid "Send a message"
 msgstr "Kirim sebuah pesan"
 
-#: main.cpp:76
+#: main.cpp:77
 #, kde-format
 msgid "message"
 msgstr "perpesanan"
