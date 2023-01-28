@@ -444,6 +444,3 @@ msgstr "Пропуснато обаждане от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Заглушаване на обаждането"
-
-#~ msgid "Use your phone as a touchpad and keyboard"
-#~ msgstr "Използване на телефона като тъчпад и клавиатура"
