@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2017, 2021.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:46+0000\n"
-"PO-Revision-Date: 2022-03-30 22:32+0300\n"
+"PO-Revision-Date: 2023-02-01 21:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,12 +31,12 @@ msgstr "volkangezer@gmail.com"
 #: kcm.cpp:38
 #, kde-format
 msgid "KDE Connect Settings"
-msgstr "KDE Connect Ayarları"
+msgstr "KDE Bağlan Ayarları"
 
 #: kcm.cpp:40
 #, kde-format
 msgid "KDE Connect Settings module"
-msgstr "KDE Connect Ayarları modülü"
+msgstr "KDE Bağlan Ayarları modülü"
 
 #: kcm.cpp:42
 #, kde-format
@@ -87,7 +87,7 @@ msgstr "(eşleşme istendi)"
 #: kcm.ui:59
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE Connect"
+msgstr "KDE Bağlan"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:82
@@ -172,11 +172,11 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>Seçili aygıt yok.<br><br>Bir Android aygıtınız varsa "
 "<a href=\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
-"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
+"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Bağlan "
 "Android</span></a> (ayrıca <a href=\"https://f-droid.org/repository/browse/?"
 "fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; "
 "color:#4c6b8a;\">F-Droid</span></a>'ten de kurulabilir) uygulamasını "
 "kurduğunuzdan ve listede göründüğünden emin olun.<br><br>Sorun yaşıyorsanız "
 "yardım için <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-"text-decoration: underline; color:#4c6b8a;\">KDE Connect topluluk vikisini</"
+"text-decoration: underline; color:#4c6b8a;\">KDE Bağlan topluluk vikisini</"
 "span></a> ziyaret edin.</p></body></html>"

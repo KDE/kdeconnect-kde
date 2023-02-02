@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-01-18 22:31+0300\n"
+"PO-Revision-Date: 2023-02-01 21:20+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -32,7 +32,7 @@ msgstr "kaanozdincer@gmail.com"
 #: kdeconnect-cli.cpp:31
 #, kde-format
 msgid "KDE Connect CLI tool"
-msgstr "KDE Connect CLI aracı"
+msgstr "KDE Bağlan CLI aracı"
 
 #: kdeconnect-cli.cpp:33
 #, kde-format
