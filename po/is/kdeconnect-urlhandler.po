@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# Sveinn í Felli <sv1@fellsnet.is>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-14 00:45+0000\n"
-"PO-Revision-Date: 2022-08-24 11:31+0000\n"
+"PO-Revision-Date: 2023-02-02 15:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -32,25 +32,25 @@ msgstr "sv1@fellsnet.is"
 #, fuzzy, kde-format
 #| msgid "Select a device"
 msgid "Select device:"
-msgstr "Veldu tæki"
+msgstr "Veldu tæki:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
 #, kde-format
 msgid "Send URL"
-msgstr ""
+msgstr "Senda slóð"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
 #: dialog.ui:62
 #, kde-format
 msgid "Send File"
-msgstr ""
+msgstr "Senda skrá"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
 #: dialog.ui:82
 #, kde-format
 msgid "Open on peer device"
-msgstr ""
+msgstr "Opna á tæki jafningja"
 
 #: kdeconnect-handler.cpp:43
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# Sveinn í Felli <sv1@fellsnet.is>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2022-08-23 18:06+0000\n"
+"PO-Revision-Date: 2023-02-02 15:31+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -175,10 +175,9 @@ msgid "Find devices..."
 msgstr "Finna tæki..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Stillingar á forritsviðbót"
+msgstr "Stillingar"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -226,19 +225,17 @@ msgid "No commands defined"
 msgstr "Engar skipanir skilgreindar"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Stillingar á forritsviðbót"
+msgstr "Stillingar"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Heiti tækis"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "Um KDE Connect"
