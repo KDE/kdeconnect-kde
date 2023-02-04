@@ -72,7 +72,7 @@
   <summary xml:lang="hu">Eszközeinek zökkenőmentes csatlakoztatása</summary>
   <summary xml:lang="ia">Perfecte connexion de tu dispositivos</summary>
   <summary xml:lang="id">Koneksi yang mulus dari peranti Anda</summary>
-  <summary xml:lang="is">Saumlaus tenging milli tækjanna þinna</summary>
+  <summary xml:lang="is">Hnökralaus tenging milli tækjanna þinna</summary>
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="ka">თქვენი მოწყობილობების შეუმჩნეველი დაკავშირება</summary>
   <summary xml:lang="ko">장치와 항상 연결하기</summary>
@@ -121,7 +121,7 @@
     <p xml:lang="hu">A KDE Connect különböző funkciókat biztosít a telefon és a számítógép integrálásához. Lehetővé teszi fájlok küldését a másik eszközre, a médialejátszás vezérlését, távoli bevitel küldését, az értesítések megtekintését és még sok más dolgot. Elérhető (mobil) Linux, Android, FreeBSD, Windows és macOS operációs rendszerekhez.</p>
     <p xml:lang="ia">KDE Connect forni varie characteristicas pro integrar tu telephono e tu computator. Illo te permitte inviar files a altere dispositivos, controlar su reproductiones de media, inviar entrata remote, vider su notificationes e pote facer altere cosas. Illo es disponibile per (mobile) Linux, Android, FreeBSD, Windows e macOS.</p>
     <p xml:lang="id">KDE Connect menyediakan berbagai fitur untuk mengintegrasikan telepon dan komputer Anda. Ini memungkinkan Anda untuk mengirim berkas ke peranti lain, mengendalikan pemutaran media, mengirim masukan jarak jauh, melihat pemberitahuannya dan lebih banyak lagi. Ini tersedia untuk (seluler) Linux, Android, FreeBSD, Windows dan macOS.</p>
-    <p xml:lang="is">KDE Connect kemur með ýmsa eiginleika sem tengja símann þinn og tölvuna. Það gerir kleift að senda skrár yfir á hitt tækið, stýra afspilun margmiðlunarefnis þess, senda fjartengdan innslátt, skoða tilkynningar og margt fleira. Það er tiltækt fyrir Linux, Android, FreeBSD, Windows og macOS.</p>
+    <p xml:lang="is">KDE Connect býður upp á ýmsa eiginleika til að tengja símann þinn og tölvuna. Hægt er að senda skrár í hitt tækið, stýra afspilun miðlaefnis þess, senda fjarinnslátt, skoða tilkynningar þess og margt fleira. Það er í boði fyrir Linux, Android, FreeBSD, Windows og macOS.</p>
     <p xml:lang="it">KDE Connect fornisce diverse funzionalità per integrare il tuo telefono e il tuo computer. Ti consente di inviare file all'altro dispositivo, controlla la riproduzione di file multimediali, inviare impulsi remoti, visualizzare le sue notifiche e fare dell'altro. È disponibile per Linux (mobile), Android, FreeBSD, Windows e macOS.</p>
     <p xml:lang="ka">KDE Connect გთავაზობთ სხვადასხვა ფუნქციებს თქვენი ტელეფონისა და კომპიუტერის ინტეგრაციისთვის. ის საშუალებას გაძლევთ, გააგზავნოთ ფაილები სხვა მოწყობილობაზე, აკონტროლოთ დაკვრის მიმდინარეობა, აკრიფოთ ასზე, დაათვალიეროთ მისი გაფრთხილებებიდა მრავალი სხვა. ის ხელმისაწვდომია (მობილური) Linux, Android, FreeBSD, Windows და macOS-ze.</p>
     <p xml:lang="ko">KDE Connect를 사용하여 휴대폰과 컴퓨터를 통합할 수 있습니다. 다른 장치로 파일 보내기, 미디어 재생 제어, 원격 입력, 알림 보기 등 여러 기능을 제공합니다. (모바일) 리눅스, 안드로이드, FreeBSD, Windows, macOS에서 사용할 수 있습니다.</p>
