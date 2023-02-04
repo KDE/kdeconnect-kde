@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# gummi <gudmundure@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-10-14 11:37+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2023-01-26 04:17+0000\n"
+"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -50,7 +51,7 @@ msgstr "Skráaflutningur"
 #: package/contents/ui/DeviceDelegate.qml:52
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
-msgstr "Slepptu skrá til að flytja hana yfir á símann þinn."
+msgstr "Slepptu skrá til að flytja hana yfir í símann þinn."
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -71,7 +72,7 @@ msgstr "Veldu skrá"
 #: package/contents/ui/DeviceDelegate.qml:169
 #, kde-format
 msgid "Share file"
-msgstr "Deila skrá"
+msgstr "Samnýta skrá"
 
 #: package/contents/ui/DeviceDelegate.qml:178
 #, kde-format
@@ -91,7 +92,7 @@ msgstr "Hringja í símann minn"
 #: package/contents/ui/DeviceDelegate.qml:224
 #, kde-format
 msgid "Browse this device"
-msgstr "Fletta á þessu tæki"
+msgstr "Fletta í þessu tæki"
 
 #: package/contents/ui/DeviceDelegate.qml:241
 #, kde-format
@@ -111,7 +112,7 @@ msgstr "Tilkynningar:"
 #: package/contents/ui/DeviceDelegate.qml:285
 #, kde-format
 msgid "Dismiss all notifications"
-msgstr "Afgreiða allar tilkynningar"
+msgstr "Hafna öllum tilkynningum"
 
 #: package/contents/ui/DeviceDelegate.qml:324
 #, kde-format
@@ -121,7 +122,7 @@ msgstr "Svara"
 #: package/contents/ui/DeviceDelegate.qml:333
 #, kde-format
 msgid "Dismiss"
-msgstr "Vísa frá"
+msgstr "Hafna"
 
 #: package/contents/ui/DeviceDelegate.qml:344
 #, kde-format
@@ -159,18 +160,18 @@ msgstr "Engin pöruð tæki"
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Parað tæki er ekki tiltækt"
-msgstr[1] "Engin pöruð tæki eru tiltæk"
+msgstr[1] "Öll pöruð tæki eru ekki tiltæk"
 
 #: package/contents/ui/FullRepresentation.qml:55
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
-"Settu upp KDE Connect á Android-tækinu þínu til að samþætta það við Plasma!"
+"Settu upp KDE Connect á Android-tækinu þínu til að tengja það við Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:59
 #, kde-format
 msgid "Pair a Device..."
-msgstr "Para tæki"
+msgstr "Para tæki..."
 
 #: package/contents/ui/FullRepresentation.qml:71
 #, kde-format

@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# gummi <gudmundure@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2022-08-24 10:33+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2023-01-09 18:43+0000\n"
+"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:56
 #: backends/lan/lanpairinghandler.cpp:52
@@ -27,12 +28,12 @@ msgstr "Hætt við af hinum notandanum"
 #: backends/lan/lanpairinghandler.cpp:61
 #, kde-format
 msgid "%1: Already paired"
-msgstr "%1: Þegar parað"
+msgstr "%1: Nú þegar parað"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:68
 #, kde-format
 msgid "%1: Pairing already requested for this device"
-msgstr "%1: Þegar beðið um pörun á þessu tæki"
+msgstr "%1: Nú þegar beðið um pörun fyrir þetta tæki"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:124
 #: backends/lan/lanpairinghandler.cpp:106
@@ -43,7 +44,7 @@ msgstr "Féll á tíma"
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
 msgid "Couldn't find an available port"
-msgstr "Fann ekk tiltæka gátt"
+msgstr "Tókst ekki að finna tiltæka gátt"
 
 #: backends/lan/compositeuploadjob.cpp:121
 #, kde-format
@@ -66,7 +67,7 @@ msgid ""
 "This device cannot be paired because it is running an old version of KDE "
 "Connect."
 msgstr ""
-"Ekki er hægt að para þetta tæki þar sem það er að keyra eldri útgáfu af KDE "
+"Ekki er hægt að para þetta tæki þar sem það keyrir eldri útgáfu af KDE "
 "Connect."
 
 #: compositefiletransferjob.cpp:46
@@ -74,8 +75,8 @@ msgstr ""
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
-msgstr[0] "Tek á móti skrá"
-msgstr[1] "Tek á móti skrám"
+msgstr[0] "Tek við skrá"
+msgstr[1] "Tek við skrám"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
@@ -102,27 +103,27 @@ msgstr "Tæki er ekki aðgengilegt"
 #: device.cpp:561
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
-msgstr "SHA256-fingrafar af skilríki tækisins þíns er: %1\n"
+msgstr "SHA256-fingrafar af vottorði tækisins þíns er: %1\n"
 
 #: device.cpp:569
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
-msgstr "SHA256-fingrafar af skilríki fjartengda tækisins er: %1\n"
+msgstr "SHA256-fingrafar af vottorði fjartengda tækisins er: %1\n"
 
 #: filetransferjob.cpp:51
 #, kde-format
 msgid "Filename already present"
-msgstr "Skráarheiti er þegar til staðar"
+msgstr "Skrárheiti er þegar til staðar"
 
 #: filetransferjob.cpp:100
 #, kde-format
 msgid "Received incomplete file: %1"
-msgstr "Tók við ókláraðri skrá: %1"
+msgstr "Tók við ófullgerðri skrá: %1"
 
 #: filetransferjob.cpp:118
 #, kde-format
 msgid "Received incomplete file from: %1"
-msgstr "Tók við ókláraðri skrá frá: %1"
+msgstr "Tók við ófullgerðri skrá frá: %1"
 
 #: kdeconnectconfig.cpp:76
 #, kde-format
@@ -136,16 +137,16 @@ msgid ""
 "distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
 "you have them installed and try again."
 msgstr ""
-"Fann ekki stuðning við RSA í QCA-uppsetningunni þinni. Ef dreifingin þín "
-"býður sérstaka pakka fyrir QCA-ossl og QCA-gnupg, skaltu ganga úr skugga um "
-"að þú hafir sett þá upp og prófaðu svo aftur."
+"Fann ekki stuðning við RSA í QCA-uppsetningunni þinni. Ef útgáfa þín af "
+"Linux býður sérstaka pakka fyrir QCA-ossl og QCA-gnupg skaltu ganga úr "
+"skugga um að þú hafir sett þá upp og prófaðu svo aftur."
 
 #: kdeconnectconfig.cpp:313
 #, kde-format
 msgid "Could not store private key file: %1"
-msgstr "Gat ekki geymt einkalykilsskrá: %1"
+msgstr "Tókst ekki að geyma einkalykilsskrá: %1"
 
 #: kdeconnectconfig.cpp:358
 #, kde-format
 msgid "Could not store certificate file: %1"
-msgstr "Gat ekki geymt skilríkisskrá: %1"
+msgstr "Tókst ekki að geyma vottorðsskrá: %1"

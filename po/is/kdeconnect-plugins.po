@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# gummi <gudmundure@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:56+0000\n"
-"PO-Revision-Date: 2022-11-11 18:38+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2023-01-30 01:03+0000\n"
+"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -38,13 +39,13 @@ msgstr "Klippispjaldsviðbót"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Contents shared to other devices"
-msgstr "Efni deilt með öðrum tækjum"
+msgstr "Efni samnýtt með öðrum tækjum"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Passwords (as marked by password managers)"
-msgstr "Lykilorð (merkt af lykilorðastýringum)"
+msgstr "Lykilorð (merkt af lykilorðastjórum)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
 #: clipboard/clipboard_config.ui:45
@@ -56,7 +57,7 @@ msgstr "Hvaðeina annað"
 #: findthisdevice/findthisdevice_config.ui:17
 #, kde-format
 msgid "Discovery Utilities"
-msgstr "Uppgötvunartól"
+msgstr "Uppgötvunarverkfæri"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: findthisdevice/findthisdevice_config.ui:25
@@ -92,7 +93,7 @@ msgstr "Svara"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr "Svara til %1..."
+msgstr "Svara %1..."
 
 #: notifications/notification.cpp:135
 #, kde-format
@@ -108,13 +109,13 @@ msgstr "Senda"
 #: notifications/sendreplydialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "Samskiptagluggi"
+msgstr "Svargluggi"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
 #: pausemusic/pausemusic_config.ui:17
 #, kde-format
 msgid "Pause music plugin"
-msgstr "Setja tónlistarviðbót í bið"
+msgstr "Setja tónlistarviðbót á pásu"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: pausemusic/pausemusic_config.ui:32
@@ -126,13 +127,13 @@ msgstr "Skilyrði"
 #: pausemusic/pausemusic_config.ui:38
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr "Setja í bið um leið og síminn hringir"
+msgstr "Setja á pásu um leið og síminn hringir"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
 #: pausemusic/pausemusic_config.ui:45
 #, kde-format
 msgid "Pause only while talking"
-msgstr "Setja aðeins í bið þegar talað er"
+msgstr "Setja bara á pásu þegar talað er"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: pausemusic/pausemusic_config.ui:61
@@ -144,7 +145,7 @@ msgstr "Aðgerðir"
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr "Setja margmiðlunarspilara í bið"
+msgstr "Setja margmiðlunarspilara á pásu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
@@ -156,7 +157,7 @@ msgstr "Þagga kerfishljóð"
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr "Setja spilun sjálfvirkt aftur af stað þegar símtali er lokið"
+msgstr "Halda sjálfkrafa áfram að spila þegar símtali lýkur"
 
 #: ping/pingplugin.cpp:37
 #, kde-format
@@ -196,7 +197,7 @@ msgstr "Læsa skjá"
 #: runcommand/runcommand_config.cpp:47
 #, kde-format
 msgid "Say Hello"
-msgstr "Segðu Halló"
+msgstr "Segðu halló"
 
 #: runcommand/runcommand_config.cpp:50
 #, kde-format
@@ -221,23 +222,23 @@ msgstr "Aflæsa skjá"
 #: runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Close All Vaults"
-msgstr "Loka öllum lykilorðageymslum"
+msgstr "Loka öllum öryggisgeymslum"
 
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr "Þvinga fram lokun á öllum lykilorðageymslum"
+msgstr "Loka öllum öryggisgeymslum með valdi"
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
-msgstr "Sýniskipanir"
+msgstr "Dæmi um skipanir"
 
 #: runcommand/runcommand_config.cpp:82
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
-msgstr "Nafn"
+msgstr "Heiti"
 
 #: runcommand/runcommand_config.cpp:82
 #, kde-format
@@ -257,7 +258,7 @@ msgstr "Á bannlista"
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "Heiti forrits sem sér um tilkynningar."
+msgstr "Heiti forrits sem birtir tilkynningu."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:192
 #, kde-format
@@ -272,8 +273,8 @@ msgid ""
 "notifications."
 msgstr ""
 "Regluleg segð sem skilgreinir hvaða tilkynningar ætti ekki að senda.\n"
-"Þessu mynstri er beitt á yfirlit tilkynninga og, ef það er valið hér fyrir "
-"ofan, einnig á meginmálið."
+"Þessu mynstri er beitt á yfirlit tilkynninga og meginmál þeirra, ef það er "
+"valið hér fyrir ofan."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: sendnotifications/sendnotifications_config.ui:38
@@ -311,13 +312,13 @@ msgstr "Hafa með meginmál"
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr "Samstilla táknmyndir forrita sem sjá um tilkynningar, ef hægt er?"
+msgstr "Samstilla tákn forrita sem birta tilkynningar, ef hægt er?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
 #, kde-format
 msgid "Synchronize icons"
-msgstr "Samstilla táknmyndir"
+msgstr "Samstilla tákn"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
 #: sendnotifications/sendnotifications_config.ui:107
@@ -332,7 +333,7 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr "Samstilla einungis tilkynningar með uppgefnu forgangsstigi."
+msgstr "Samstilla einungis tilkynningar með tilgreindu forgangsstigi."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
@@ -365,12 +366,12 @@ msgstr "Óþekkt villa í sshfs"
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
-"Villa við að skoða skráarkerfið. sshfs kláraði og skilaði útgangskóðanum %0"
+"Villa við að skoða skráakerfið. sshfs kláraði og skilaði útgangskóðanum %0"
 
 #: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr "Mistókst að tengja skráakerfi: tækið svarar ekki"
+msgstr "Mistókst að tengja skráakerfi: tæki svarar ekki"
 
 #: sftp/sftpplugin-win.cpp:74
 #, kde-format
@@ -381,8 +382,7 @@ msgstr "KDE Connect"
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
-"Getur ekki meðhöndlað SFTP-samskiptastaðalinn. Biðjumst velvirðingar á "
-"óþægindunum"
+"Get ekki meðhöndlað SFTP-samskiptareglu. Biðst velvirðingar á óþægindunum"
 
 #: sftp/sftpplugin.cpp:143
 #, kde-format
@@ -392,18 +392,18 @@ msgstr "Allar skrár"
 #: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "Camera pictures"
-msgstr "Myndir á myndavél"
+msgstr "Myndir úr myndavél"
 
 #: share/share_config.cpp:24
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 í slóðinni verður skipt út með nafni tiltekins tækis."
+msgstr "&percnt;1 í slóðinni verður skipt út fyrir heiti tilgreinda tækisins."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr "Stillingar á deilingarviðbót"
+msgstr "Stillingar samnýtingarviðbótar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23
@@ -420,7 +420,7 @@ msgstr "Vista skrár í:"
 #: share/shareplugin.cpp:209
 #, kde-format
 msgid "Could not share file"
-msgstr "Gat ekki deilt skrá"
+msgstr "Gat ekki samnýtt skrá"
 
 #: share/shareplugin.cpp:209
 #, kde-format
@@ -445,7 +445,7 @@ msgstr "Ósvarað símtal frá %1"
 #: telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
-msgstr "Þagga niður símtal"
+msgstr "Þagga símtal"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "Notaðu símann þinn sem snertiplatta og lyklaborð"
