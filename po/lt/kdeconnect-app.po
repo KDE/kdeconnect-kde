@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2021-08-21 13:22+0300\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-02-05 01:06+0200\n"
+"Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -177,10 +177,9 @@ msgid "Find devices..."
 msgstr "Rasti įrenginius..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Papildinio nuostatos"
+msgstr "Nuostatos"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -229,19 +228,17 @@ msgid "No commands defined"
 msgstr "Nėra jokių apibrėžtų komandų"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Papildinio nuostatos"
+msgstr "Nuostatos"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Įrenginio pavadinimas"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "Apie KDE Connect"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-02-01 21:20+0300\n"
+"PO-Revision-Date: 2023-02-04 20:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: sendfileitemaction.cpp:64
 #, kde-format
@@ -26,4 +26,4 @@ msgstr "KDE Bağlan ile gönder"
 #: sendfileitemaction.cpp:71
 #, kde-format
 msgid "Send to '%1' via KDE Connect"
-msgstr "KDE Bağlan ile  '%1'  gönder"
+msgstr "KDE Bağlan ile şuraya gönder: '%1'"
