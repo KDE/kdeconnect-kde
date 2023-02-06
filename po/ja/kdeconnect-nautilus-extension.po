@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-19 00:44+0000\n"
+"POT-Creation-Date: 2023-02-06 02:58+0000\n"
 "PO-Revision-Date: 2022-08-10 17:13+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 22.04.1\n"
 
-#: kdeconnect-share.py:106
+#: kdeconnect-share.py:105
 #, python-format
 msgid "Send to %s via KDE Connect"
 msgstr "KDE Connect で %s へ送信"
 
-#: kdeconnect-share.py:113
+#: kdeconnect-share.py:112
 msgid "Send via KDE Connect"
 msgstr "KDE Connect で送信"

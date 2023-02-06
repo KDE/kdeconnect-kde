@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-19 00:44+0000\n"
+"POT-Creation-Date: 2023-02-06 02:58+0000\n"
 "PO-Revision-Date: 2019-07-07 07:47+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 19.07.70\n"
 
-#: kdeconnect-share.py:106
+#: kdeconnect-share.py:105
 #, python-format
 msgid "Send to %s via KDE Connect"
 msgstr "Wyślij do %s przez KDE Connect"
 
-#: kdeconnect-share.py:113
+#: kdeconnect-share.py:112
 msgid "Send via KDE Connect"
 msgstr "Wyślij przez KDE Connect"
