@@ -22,11 +22,13 @@
                 "Name[nn]": "Yoram Bar-Haim",
                 "Name[pl]": "Yoram Bar-Haim",
                 "Name[pt]": "Yoram Bar-Haim",
+                "Name[pt_BR]": "Yoram Bar-Haim",
                 "Name[ru]": "Yoram Bar-Haim",
                 "Name[sl]": "Yoram Bar-Haim",
                 "Name[tr]": "Yoram Bar-Haim",
                 "Name[uk]": "Йорам Бар-Хаїм",
                 "Name[x-test]": "xxYoram Bar-Haimxx",
+                "Name[zh_CN]": "Yoram Bar-Haim",
                 "Name[zh_TW]": "Yoram Bar-Haim"
             }
         ],
@@ -94,10 +96,12 @@
         "Name[nn]": "ModemManager-telefoniintegrering",
         "Name[pl]": "Integracja z telefonią zarządzania modemem",
         "Name[pt]": "Integração telefónica com o ModemManager",
+        "Name[pt_BR]": "Integração telefônica do ModemManager",
         "Name[sl]": "Upravljalnik modema integracija telefonije",
         "Name[tr]": "ModemManager Telefon tümleştirmesi",
         "Name[uk]": "Інтеграція телефонії ModemManager",
         "Name[x-test]": "xxModemManager Telephony integrationxx",
+        "Name[zh_CN]": "ModemManager Telephony 集成",
         "Name[zh_TW]": "ModemManager 電話整合",
         "ServiceTypes": [
             "KdeConnect/Plugin"
