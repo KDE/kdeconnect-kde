@@ -1,20 +1,21 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020, 2022.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2017, 2018, 2019, 2021.
 # hkaelber <holger.k@elberer.de>, 2016.
+# Jannick Kuhr <opensource@kuhr.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-23 02:32+0000\n"
-"PO-Revision-Date: 2022-03-06 18:38+0100\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-02-07 17:58+0100\n"
+"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -230,12 +231,12 @@ msgstr "Bildschirm entsperren"
 #: runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Close All Vaults"
-msgstr "Alle Vaults schließen"
+msgstr "Alle Tresore schließen"
 
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr "Schließen aller Vaults erzwingen"
+msgstr "Schließen aller Tresore erzwingen"
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
