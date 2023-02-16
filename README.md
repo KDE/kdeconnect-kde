@@ -17,7 +17,7 @@ All this is done completely wirelessly, utilising TLS encryption.
 ## Supported platforms
 - Computers running Linux with Plasma 5, Gnome 3, Elementary OS... any distro with Qt5 support :)
 - Android, by installing the KDE Connect app from the [Play Store](https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp) or [F-Droid](https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp).
-- iPhone, by installing from the [App Store](https://apps.apple.com/us/app/kde-connect/id1580245991)
+- iPhone and iPad, by installing from the [App Store](https://apps.apple.com/us/app/kde-connect/id1580245991)
 - Computers running Windows, by installing from the [Microsoft Store](https://apps.microsoft.com/store/detail/kde-connect/9N93MRMSXBF0)
 
 ## How to install
