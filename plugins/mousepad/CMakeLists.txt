@@ -16,16 +16,6 @@ if(UNIX AND NOT APPLE)
                         PURPOSE "Needed for the remote mousepad plugin"
                         )
 
-    if (QT_MAJOR_VERSION EQUAL "5")
-        ecm_add_qtwayland_client_protocol(wayland_SRCS
-            PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
-            BASENAME fake-input
-        )
-    else()
-        qt6_generate_wayland_protocol_client_sources(kdeconnect_mousepad FILES
-            ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
-    endif()
-
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
     target_link_libraries(kdeconnect_mousepad Wayland::Client Qt::WaylandClient PkgConfig::XkbCommon)
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp)
