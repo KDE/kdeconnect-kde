@@ -15,9 +15,6 @@ DropArea {
         || plasmoid.location == PlasmaCore.Types.BottomEdge
         || plasmoid.location == PlasmaCore.Types.LeftEdge)
 
-    Layout.maximumWidth: inPanel ? units.iconSizeHints.panel : -1
-    Layout.maximumHeight: inPanel ? units.iconSizeHints.panel : -1
-
     onEntered: {
         if (drag.hasUrls) {
             plasmoid.expanded = true;
