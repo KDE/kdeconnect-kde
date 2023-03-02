@@ -152,12 +152,12 @@ msgstr "문자 메시지를 보냅니다. 대상이 필요합니다"
 #: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Phone number to send the message"
-msgstr "메시지를 보낼 전화 번호"
+msgstr "메시지를 보낼 전화번호"
 
 #: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "phone number"
-msgstr "전화 번호"
+msgstr "전화번호"
 
 #: kdeconnect-cli.cpp:62
 #, kde-format
