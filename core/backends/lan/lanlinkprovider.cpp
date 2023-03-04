@@ -311,9 +311,11 @@ void LanLinkProvider::tcpSocketConnected()
 {
     QSslSocket *socket = qobject_cast<QSslSocket *>(sender());
 
-    if (!socket)
+    if (!socket) {
         return;
-        // TODO Delete me?
+    }
+
+    // TODO Delete me?
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     disconnect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
 #else
