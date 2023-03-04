@@ -12,6 +12,9 @@
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <sys/socket.h>
+#else
+#include <winsock2.h>
+#include <mstcpip.h>
 #endif
 
 #include <QHostInfo>
@@ -601,6 +604,27 @@ void LanLinkProvider::configureSocket(QSslSocket *socket)
     // number of missed keepalive packets before disconnecting
     int count = 3;
     setsockopt(socket->socketDescriptor(), IPPROTO_TCP, TCP_KEEPCNT, &count, sizeof(count));
+#endif
+
+#if defined(Q_OS_WIN)
+    int maxIdle = 5 * 60 * 1000; // 5 minutes of idle before sending keep-alives
+    int interval = 5 * 1000; // 5 seconds interval between probes after 5 minute delay
+    DWORD nop;
+
+    // see https://learn.microsoft.com/en-us/windows/win32/winsock/sio-keepalive-vals
+    struct tcp_keepalive keepalive = {
+        1 /* true */,
+        maxIdle,
+        interval
+    };
+
+    int rv = WSAIoctl(socket->socketDescriptor(), SIO_KEEPALIVE_VALS, &keepalive,
+                        sizeof(keepalive), nullptr, 0, &nop,
+                        nullptr, nullptr);
+    if (!rv) {
+        int error = WSAGetLastError();
+        qCDebug(KDECONNECT_CORE) << "Could not enable TCP Keep-Alive: " << error;
+    }
 #endif
 }
 
