@@ -546,15 +546,8 @@ void LanLinkProvider::deviceLinkDestroyed(QObject *destroyedDeviceLink)
 
 void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted)
 {
-    // Setting supported ciphers manually, to match those on Android (FIXME: Test if this can be left unconfigured and still works for Android 4)
-    QList<QSslCipher> socketCiphers;
-    socketCiphers.append(QSslCipher(QStringLiteral("ECDHE-ECDSA-AES256-GCM-SHA384")));
-    socketCiphers.append(QSslCipher(QStringLiteral("ECDHE-ECDSA-AES128-GCM-SHA256")));
-    socketCiphers.append(QSslCipher(QStringLiteral("ECDHE-RSA-AES128-SHA")));
-
     // Configure for ssl
     QSslConfiguration sslConfig;
-    sslConfig.setCiphers(socketCiphers);
     sslConfig.setLocalCertificate(KdeConnectConfig::instance().certificate());
 
     QFile privateKeyFile(KdeConnectConfig::instance().privateKeyPath());
