@@ -87,7 +87,7 @@ msgstr "فشل القفل عن بعد"
 #: mousepad/waylandremoteinput.cpp:47 sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
-msgstr "كدي المتّصل"
+msgstr "كِيدِي المتّصل"
 
 #: mousepad/waylandremoteinput.cpp:47
 #, kde-format

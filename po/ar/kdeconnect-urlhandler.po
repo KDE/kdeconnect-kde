@@ -55,7 +55,7 @@ msgstr "افتح على الجهاز المقترن"
 #: kdeconnect-handler.cpp:43
 #, kde-format
 msgid "KDE Connect URL handler"
-msgstr "معالج عناوين «كدي المتّصل»"
+msgstr "معالج عناوين «كِيدِي المتّصل»"
 
 #: kdeconnect-handler.cpp:49
 #, kde-format

@@ -61,7 +61,7 @@ msgstr "شاهد المفتاح"
 #: kdeconnectd.cpp:139 kdeconnectd.cpp:141
 #, kde-format
 msgid "KDE Connect Daemon"
-msgstr "عفريت كدي المتصل"
+msgstr "عفريت كِيدِي المتصل"
 
 #: kdeconnectd.cpp:147
 #, kde-format
@@ -75,4 +75,4 @@ msgid ""
 msgstr "أطلق خدمة دي-باص خاص بواسطة kdeconnectd (لأغراض الاختبار لماك أوس)"
 
 #~ msgid "Connect your devices and KDE"
-#~ msgstr "صِل أجهزتك بكدي"
+#~ msgstr "صِل أجهزتك بكِيدِي"

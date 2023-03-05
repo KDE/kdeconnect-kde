@@ -82,7 +82,7 @@ msgstr "ينتظر دي-باص"
 #: indicatorhelper_mac.cpp:135
 #, kde-format
 msgid "KDE Connect"
-msgstr "كدي المتّصل"
+msgstr "كِيدِي المتّصل"
 
 #: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
 #, kde-format
@@ -91,7 +91,7 @@ msgid ""
 "KDE Connect will quit"
 msgstr ""
 "تعذر الاتصال بدي باص\n"
-"كدي المتصل سيخرج"
+"كِيدِي المتصل سيخرج"
 
 #: indicatorhelper_mac.cpp:135
 #, kde-format
@@ -106,12 +106,12 @@ msgstr "يحمل الوحدات"
 #: main.cpp:41
 #, kde-format
 msgid "KDE Connect Indicator"
-msgstr "مؤشر كدي المتّصل"
+msgstr "مؤشر كِيدِي المتّصل"
 
 #: main.cpp:43
 #, kde-format
 msgid "KDE Connect Indicator tool"
-msgstr "أداة مؤشر كدي المتّصل"
+msgstr "أداة مؤشر كِيدِي المتّصل"
 
 #: main.cpp:45
 #, kde-format
