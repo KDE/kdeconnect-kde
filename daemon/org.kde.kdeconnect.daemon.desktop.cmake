@@ -9,7 +9,7 @@ NoDisplay=true
 Icon=kdeconnect
 
 Name=KDE Connect
-Name[ar]=كدي المتّصل
+Name[ar]=كِيدِي المتّصل
 Name[az]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
