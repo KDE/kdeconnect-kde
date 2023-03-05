@@ -190,7 +190,7 @@ msgstr "ثبت من اف-درويد"
 #: package/contents/ui/main.qml:49
 #, kde-format
 msgid "KDE Connect Settings..."
-msgstr "إعدادات «كدي المتّصل»..."
+msgstr "إعدادات «كِيدِي المتّصل»..."
 
 #~ msgid "Configure..."
 #~ msgstr "اضبط..."

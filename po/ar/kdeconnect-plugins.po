@@ -373,7 +373,7 @@ msgstr "فشل ضمّ نظام الملفّات: الجهاز لا يستجيب"
 #: sftp/sftpplugin-win.cpp:74
 #, kde-format
 msgid "KDE Connect"
-msgstr "كدي المتّصل"
+msgstr "كِيدِي المتّصل"
 
 #: sftp/sftpplugin-win.cpp:75
 #, kde-format

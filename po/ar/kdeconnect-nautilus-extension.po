@@ -21,8 +21,8 @@ msgstr ""
 #: kdeconnect-share.py:105
 #, python-format
 msgid "Send to %s via KDE Connect"
-msgstr "أرسل إلى %s عبر كدي المتّصل"
+msgstr "أرسل إلى %s عبر كِيدِي المتّصل"
 
 #: kdeconnect-share.py:112
 msgid "Send via KDE Connect"
-msgstr "أرسِل عبر كدي المتّصل"
+msgstr "أرسِل عبر كِيدِي المتّصل"

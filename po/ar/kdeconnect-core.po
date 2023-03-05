@@ -67,7 +67,7 @@ msgstr "ملف"
 msgid ""
 "This device cannot be paired because it is running an old version of KDE "
 "Connect."
-msgstr "لا يمكن الاقتران بهذا الجهاز لأنّه يشغّل نسخة قديمة من «كدي المتصّل»."
+msgstr "لا يمكن الاقتران بهذا الجهاز لأنّه يشغّل نسخة قديمة من «كِيدِي المتصّل»."
 
 #: compositefiletransferjob.cpp:46
 #, kde-format
@@ -131,7 +131,7 @@ msgstr "استُقبل ملفّ غير مكتمل من: %1"
 #: kdeconnectconfig.cpp:76
 #, kde-format
 msgid "KDE Connect failed to start"
-msgstr "فشل بدء «كدي المتّصل»"
+msgstr "فشل بدء «كِيدِي المتّصل»"
 
 #: kdeconnectconfig.cpp:77
 #, kde-format
@@ -171,7 +171,7 @@ msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
 #, fuzzy
 #~| msgid "Receiving file over KDE Connect"
 #~ msgid "Receiving file %1 of %2"
-#~ msgstr "يستقبل ملفّات ب‍«كدي المتّصل»"
+#~ msgstr "يستقبل ملفّات ب‍«كِيدِي المتّصل»"
 
 #~ msgctxt "File transfer origin"
 #~ msgid "From"
@@ -204,4 +204,4 @@ msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
 
 #~ msgctxt "Device name that will appear on the jobs"
 #~ msgid "KDE-Connect"
-#~ msgstr "كدي المتّصل"
+#~ msgstr "كِيدِي المتّصل"

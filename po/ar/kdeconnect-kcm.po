@@ -32,12 +32,12 @@ msgstr "safa1996alfulaij@gmail.com"
 #: kcm.cpp:38
 #, kde-format
 msgid "KDE Connect Settings"
-msgstr "إعدادات «كدي المتّصل»"
+msgstr "إعدادات «كِيدِي المتّصل»"
 
 #: kcm.cpp:40
 #, kde-format
 msgid "KDE Connect Settings module"
-msgstr "وحدة إعدادات «كدي المتّصل»"
+msgstr "وحدة إعدادات «كِيدِي المتّصل»"
 
 #: kcm.cpp:42
 #, kde-format
@@ -88,7 +88,7 @@ msgstr "(طُلب الاقتران)"
 #: kcm.ui:59
 #, kde-format
 msgid "KDE Connect"
-msgstr "كدي المتّصل"
+msgstr "كِيدِي المتّصل"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:82
@@ -174,12 +174,12 @@ msgstr ""
 "<html><head/><body><p>لم يحدد أي جهاز.<br><br>إن كنت تملك جهاز أندرويد، تأكّد "
 "من تثبيت <a href=\"https://play.google.com/store/apps/details?id=org.kde."
 "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">تطبيق «كدي المتّصل» لأندويد</span></a> (متوفّر أيضًا <a href=\"https://f-"
+"\">تطبيق «كِيدِي المتّصل» لأندويد</span></a> (متوفّر أيضًا <a href=\"https://f-"
 "droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
 "text-decoration: underline; color:#4c6b8a;\">في F-Droid</span></a>) وسيظهر "
 "الجهاز في القائمة. <br><br>إذا واجهتك مشكلة فزر <a href=\"https://userbase."
 "kde.org/KDEConnect\"><span style=\" text-decoration: underline; color:"
-"#4c6b8a;\">ويكي كدي المتصل</span></a> للمساعدة.</p></body></html>"
+"#4c6b8a;\">ويكي كِيدِي المتصل</span></a> للمساعدة.</p></body></html>"
 
 #~ msgid "No device selected."
 #~ msgstr "لم يحدّد جهاز."
@@ -192,7 +192,7 @@ msgstr ""
 #~ msgstr ""
 #~ "<html><head/><body><p>إن واجهتك مشاكل زُر <a href=\"https://community.kde."
 #~ "org/KDEConnect\"><span style=\" text-decoration: underline; \">ويكي مجتمع "
-#~ "«كدي المتّصل»</span></a> للمساعدة.</p></body></html>"
+#~ "«كِيدِي المتّصل»</span></a> للمساعدة.</p></body></html>"
 
 #~ msgid "(trusted)"
 #~ msgstr "(موثوق)"

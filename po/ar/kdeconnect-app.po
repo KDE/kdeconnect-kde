@@ -21,7 +21,7 @@ msgstr ""
 #: main.cpp:32 main.cpp:34
 #, kde-format
 msgid "KDE Connect"
-msgstr "كدي المتّصل"
+msgstr "كِيدِي المتّصل"
 
 #: main.cpp:36
 #, kde-format
@@ -239,4 +239,4 @@ msgstr "اسم الجهاز"
 #: qml/Settings.qml:52
 #, kde-format
 msgid "About KDE Connect"
-msgstr "عن كدي المتّصل"
+msgstr "عن كِيدِي المتّصل"

@@ -21,9 +21,9 @@ msgstr ""
 #: sendfileitemaction.cpp:64
 #, kde-format
 msgid "Send via KDE Connect"
-msgstr "أرسل عبر كدي المتّصل"
+msgstr "أرسل عبر كِيدِي المتّصل"
 
 #: sendfileitemaction.cpp:71
 #, kde-format
 msgid "Send to '%1' via KDE Connect"
-msgstr "أرسل إلى '%1' عبر كدي المتّصل"
+msgstr "أرسل إلى '%1' عبر كِيدِي المتّصل"
