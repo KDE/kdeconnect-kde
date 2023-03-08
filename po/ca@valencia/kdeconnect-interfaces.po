@@ -22,7 +22,7 @@ msgstr ""
 #: dbushelpers.h:19 dbushelpers.h:29
 #, kde-format
 msgid "error: "
-msgstr "error: "
+msgstr "s'ha produït un error: "
 
 #: devicesmodel.cpp:244
 #, kde-format
