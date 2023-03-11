@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-06-13 19:30+0300\n"
+"PO-Revision-Date: 2022-11-20 22:21+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "Jaa tiedosto"
 #: package/contents/ui/DeviceDelegate.qml:178
 #, kde-format
 msgid "Save As"
-msgstr ""
+msgstr "Tallenna nimellä"
 
 #: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Take a photo"
-msgstr ""
+msgstr "Ota valokuva"
 
 #: package/contents/ui/DeviceDelegate.qml:206
 #, kde-format
@@ -127,18 +127,18 @@ msgstr "Hylkää"
 #: package/contents/ui/DeviceDelegate.qml:344
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Peru"
 
 #: package/contents/ui/DeviceDelegate.qml:357
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Vastaa: %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:373
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Lähetä"
 
 #: package/contents/ui/DeviceDelegate.qml:397
 #, kde-format
