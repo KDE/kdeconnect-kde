@@ -46,7 +46,7 @@
   <name xml:lang="sv">KDE-anslut</name>
   <name xml:lang="ta">கே.டீ.யீ. கனெக்ட்</name>
   <name xml:lang="tg">Пайвасти KDE</name>
-  <name xml:lang="tr">KDE Bağlan</name>
+  <name xml:lang="tr">KDE Connect</name>
   <name xml:lang="uk">KDE Connect</name>
   <name xml:lang="x-test">xxKDE Connectxx</name>
   <name xml:lang="zh-CN">KDE Connect</name>
@@ -72,7 +72,7 @@
   <summary xml:lang="hu">Eszközeinek zökkenőmentes csatlakoztatása</summary>
   <summary xml:lang="ia">Perfecte connexion de tu dispositivos</summary>
   <summary xml:lang="id">Koneksi yang mulus dari peranti Anda</summary>
-  <summary xml:lang="is">Hnökralaus tenging milli tækjanna þinna</summary>
+  <summary xml:lang="is">Saumlaus tenging milli tækjanna þinna</summary>
   <summary xml:lang="it">Connessione trasparente dei tuoi dispositivi</summary>
   <summary xml:lang="ka">თქვენი მოწყობილობების შეუმჩნეველი დაკავშირება</summary>
   <summary xml:lang="ko">장치와 항상 연결하기</summary>
@@ -121,7 +121,7 @@
     <p xml:lang="hu">A KDE Connect különböző funkciókat biztosít a telefon és a számítógép integrálásához. Lehetővé teszi fájlok küldését a másik eszközre, a médialejátszás vezérlését, távoli bevitel küldését, az értesítések megtekintését és még sok más dolgot. Elérhető (mobil) Linux, Android, FreeBSD, Windows és macOS operációs rendszerekhez.</p>
     <p xml:lang="ia">KDE Connect forni varie characteristicas pro integrar tu telephono e tu computator. Illo te permitte inviar files a altere dispositivos, controlar su reproductiones de media, inviar entrata remote, vider su notificationes e pote facer altere cosas. Illo es disponibile per (mobile) Linux, Android, FreeBSD, Windows e macOS.</p>
     <p xml:lang="id">KDE Connect menyediakan berbagai fitur untuk mengintegrasikan telepon dan komputer Anda. Ini memungkinkan Anda untuk mengirim berkas ke peranti lain, mengendalikan pemutaran media, mengirim masukan jarak jauh, melihat pemberitahuannya dan lebih banyak lagi. Ini tersedia untuk (seluler) Linux, Android, FreeBSD, Windows dan macOS.</p>
-    <p xml:lang="is">KDE Connect býður upp á ýmsa eiginleika til að tengja símann þinn og tölvuna. Hægt er að senda skrár í hitt tækið, stýra afspilun miðlaefnis þess, senda fjarinnslátt, skoða tilkynningar þess og margt fleira. Það er í boði fyrir Linux, Android, FreeBSD, Windows og macOS.</p>
+    <p xml:lang="is">KDE Connect kemur með ýmsa eiginleika sem tengja símann þinn og tölvuna. Það gerir kleift að senda skrár yfir á hitt tækið, stýra afspilun margmiðlunarefnis þess, senda fjartengdan innslátt, skoða tilkynningar og margt fleira. Það er tiltækt fyrir Linux, Android, FreeBSD, Windows og macOS.</p>
     <p xml:lang="it">KDE Connect fornisce diverse funzionalità per integrare il tuo telefono e il tuo computer. Ti consente di inviare file all'altro dispositivo, controlla la riproduzione di file multimediali, inviare impulsi remoti, visualizzare le sue notifiche e fare dell'altro. È disponibile per Linux (mobile), Android, FreeBSD, Windows e macOS.</p>
     <p xml:lang="ka">KDE Connect გთავაზობთ სხვადასხვა ფუნქციებს თქვენი ტელეფონისა და კომპიუტერის ინტეგრაციისთვის. ის საშუალებას გაძლევთ, გააგზავნოთ ფაილები სხვა მოწყობილობაზე, აკონტროლოთ დაკვრის მიმდინარეობა, აკრიფოთ ასზე, დაათვალიეროთ მისი გაფრთხილებებიდა მრავალი სხვა. ის ხელმისაწვდომია (მობილური) Linux, Android, FreeBSD, Windows და macOS-ze.</p>
     <p xml:lang="ko">KDE Connect를 사용하여 휴대폰과 컴퓨터를 통합할 수 있습니다. 다른 장치로 파일 보내기, 미디어 재생 제어, 원격 입력, 알림 보기 등 여러 기능을 제공합니다. (모바일) 리눅스, 안드로이드, FreeBSD, Windows, macOS에서 사용할 수 있습니다.</p>
@@ -136,7 +136,7 @@
     <p xml:lang="sk">Aplikácia KDE Connect poskytuje rôzne funkcie na integráciu vášho telefónu a vášho počítača. Umožňuje vám odosielať súbory do iného zariadenia, ovládať prehrávanie jeho médií, odosielať vzdialený vstup, zobrazovať jeho upozornenia a viac iných funkcií. Aplikácia je dostupná pre (mobilný) Linux, Android, FreeBSD, Windows a macOS.</p>
     <p xml:lang="sl">KDE Connect ponuja različne funkcije za integracijo telefona in vašega računalnika. Omogoča vam pošiljanje datotek v drugo napravo, nadzor nad njenimi mediji, predvajanje, pošiljanje iz oddaljenega inputa, ogled obvestil in še mnogo drugega. To je je na voljo za (mobilne telefone) Linux, Android, FreeBSD, Windows in macOS.</p>
     <p xml:lang="sv">KDE-anslut tillhandahåller diverse funktioner för att integrera telefon och dator. Det låter dig skicka filer till den andra apparaten, styr dess medieuppspelning, skickar fjärrinmatning, visar dess underrättelser, med mera. Det är tillgängligt för (mobil) Linux, Android, FreeBSD, Windows och MacOS.</p>
-    <p xml:lang="tr">KDE Bağlan, telefonunuzu ve bilgisayarınızı tümleştirmek için çeşitli özellikler sunar. Diğer aygıta dosya göndermenize, ortam oynatımını denetlemenize, uzaktan girdi göndermenize, bildirimlerini görüntülemenize ve daha fazlasını yapmanıza olanak tanır. (Taşınabilir) Linux, Android, FreeBSD, Windows ve macOS için kullanılabilir.</p>
+    <p xml:lang="tr">KDE Connect, telefonunuzu ve bilgisayarınızı tümleştirmek için çeşitli özellikler sunar. Diğer aygıta dosya göndermenize, ortam oynatımını denetlemenize, uzaktan girdi göndermenize, bildirimlerini görüntülemenize ve daha fazlasını yapmanıza olanak tanır. (Taşınabilir) Linux, Android, FreeBSD, Windows ve macOS için mevcuttur.</p>
     <p xml:lang="uk">За допомогою KDE Connect ви зможете скористатися інтеграцією вашого телефону і комп'ютера. У цьому комплексі програм реалізовано можливості надсилання файлів на інший пристрій, керування відтворенням мультимедійних даних, введення даних, перегляд сповіщень та багато інших можливостей. Комплекс програм може працювати на (мобільних) платформах Linux, Android, FreeBSD, Windows та macOS.</p>
     <p xml:lang="x-test">xxKDE Connect provides various features to integrate your phone and your computer. It allows you to send files to the other device, control its media playback, send remote input, view its notifications and may things more. It is available for (mobile) Linux, Android, FreeBSD, Windows and macOS.xx</p>
     <p xml:lang="zh-CN">KDE Connect提供了各种用于整合您手机和计算机的功能。它使您可以将文件发送到另一台设备，控制它的媒体播放，发送远程输入，查看它的通知，以及做许多其他事情。它在 (移动) Linux，Android，FreeBSD，Windows，和 macOS 上均可用。</p>
