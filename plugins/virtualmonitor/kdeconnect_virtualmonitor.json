@@ -18,7 +18,6 @@
                 "Name[fr]": "Aleix Pol i Gonzalez",
                 "Name[ia]": "Aleix Pol i Gonzalez",
                 "Name[id]": "Aleix Pol i Gonzalez",
-                "Name[ie]": "Aleix Pol i Gonzalez",
                 "Name[is]": "Aleix Pol i Gonzalez",
                 "Name[it]": "Aleix Pol i Gonzalez",
                 "Name[ka]": "Aleix Pol i Gonzalez",
@@ -37,8 +36,7 @@
                 "Name[tr]": "Aleix Pol i Gonzalez",
                 "Name[uk]": "Aleix Pol i Gonzalez",
                 "Name[x-test]": "xxAleix Pol i Gonzalezxx",
-                "Name[zh_CN]": "Aleix Pol i Gonzalez",
-                "Name[zh_TW]": "Aleix Pol i Gonzalez"
+                "Name[zh_CN]": "Aleix Pol i Gonzalez"
             }
         ],
         "Description": "Use your devices as virtual monitors",
@@ -56,7 +54,7 @@
         "Description[fr]": "Utilisez vos périphériques comme des écrans virtuels",
         "Description[ia]": "Usa tu dispositivos como monitor virtual",
         "Description[id]": "Gunakan peranti Anda sebagai monitor virtual",
-        "Description[is]": "Nota tækin þín sem sýndarskjái",
+        "Description[is]": "Notaðu tækin þín sem sýndarskjái",
         "Description[it]": "Usa i tuoi dispositivi come schermi virtuali",
         "Description[ka]": "გამოიყენეთ თქვენი მოწყობილობები ვირტუალურ მონიტორებად",
         "Description[ko]": "내 장치를 가상 모니터로 사용",
@@ -75,7 +73,6 @@
         "Description[uk]": "Використання ваших пристроїв як віртуальних моніторів",
         "Description[x-test]": "xxUse your devices as virtual monitorsxx",
         "Description[zh_CN]": "使用您的设备作为虚拟显示器",
-        "Description[zh_TW]": "將您的裝置作為虛擬螢幕使用",
         "EnabledByDefault": true,
         "Icon": "video-monitor",
         "Id": "kdeconnect_virtualmonitor",
@@ -114,7 +111,6 @@
         "Name[uk]": "Віртуальний монітор",
         "Name[x-test]": "xxVirtual Monitorxx",
         "Name[zh_CN]": "虚拟显示器",
-        "Name[zh_TW]": "虛擬螢幕",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
