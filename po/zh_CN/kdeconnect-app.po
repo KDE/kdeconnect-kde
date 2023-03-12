@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2023-02-24 12:43\n"
+"PO-Revision-Date: 2023-03-11 04:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/kdeconnect-kde/kdeconnect-app.pot\n"
-"X-Crowdin-File-ID: 11837\n"
+"X-Crowdin-File: /kf5-stable/messages/kdeconnect-kde/kdeconnect-app.pot\n"
+"X-Crowdin-File-ID: 12094\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -177,9 +177,10 @@ msgid "Find devices..."
 msgstr "查找设备..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
 msgid "Settings"
-msgstr "设置"
+msgstr "插件设置"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -227,17 +228,19 @@ msgid "No commands defined"
 msgstr "未定义命令"
 
 #: qml/Settings.qml:13
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Plugin Settings"
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "设置"
+msgstr "插件设置"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr "设备名称"
+msgstr ""
 
 #: qml/Settings.qml:52
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
 msgid "About KDE Connect"
-msgstr "关于 KDE Connect"
+msgstr "KDE Connect"
