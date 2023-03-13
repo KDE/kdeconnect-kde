@@ -13,14 +13,15 @@
 #include <QFile>
 #include <core/device.h>
 
+#include <gio/gio.h>
+
 class KdeConnectPlugin;
 class Notification;
 struct NotifyingApplication;
 
-class NotificationsListener : public QDBusAbstractAdaptor
+class NotificationsListener : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Notifications")
 
 public:
     explicit NotificationsListener(KdeConnectPlugin *aPlugin);
@@ -32,7 +33,7 @@ protected:
 
     // virtual helper function to make testing possible (QDBusArgument can not
     // be injected without making a DBUS-call):
-    virtual bool parseImageDataArgument(const QVariant &argument,
+    virtual bool parseImageDataArgument(GVariant *argument,
                                         int &width,
                                         int &height,
                                         int &rowStride,
@@ -40,11 +41,10 @@ protected:
                                         int &channels,
                                         bool &hasAlpha,
                                         QByteArray &imageData) const;
-    QSharedPointer<QIODevice> iconForImageData(const QVariant &argument) const;
-    QSharedPointer<QIODevice> iconForIconName(const QString &iconName) const;
+    QSharedPointer<QIODevice> iconForImageData(GVariant *argument) const;
+    static QSharedPointer<QIODevice> iconForIconName(const QString &iconName);
 
-public Q_SLOTS:
-    Q_SCRIPTABLE uint Notify(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
+    static GDBusMessage *onMessageFiltered(GDBusConnection *connection, GDBusMessage *msg, int incoming, void *parent);
 
 private Q_SLOTS:
     void loadApplications();
@@ -52,6 +52,9 @@ private Q_SLOTS:
 private:
     void setTranslatedAppName();
     QString m_translatedAppName;
+
+    GDBusConnection *m_gdbusConnection = nullptr;
+    unsigned m_gdbusFilterId = 0;
 };
 
 #endif // NOTIFICATIONSLISTENER_H

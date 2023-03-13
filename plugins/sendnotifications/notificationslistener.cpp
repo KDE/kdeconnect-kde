@@ -5,13 +5,17 @@
  */
 #include "notificationslistener.h"
 
+#include <unordered_map>
+
 #include <KConfig>
 #include <KConfigGroup>
 #include <QDBusArgument>
 #include <QDBusInterface>
 #include <QImage>
+#include <QScopeGuard>
 #include <QStandardPaths>
 #include <QtDebug>
+
 #include <kiconloader.h>
 #include <kicontheme.h>
 
@@ -28,20 +32,26 @@
 #include "qtcompat_p.h"
 
 NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
-    : QDBusAbstractAdaptor(aPlugin)
+    : QObject(aPlugin)
     , m_plugin(aPlugin)
 {
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 
-    bool ret = QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/freedesktop/Notifications"), this, QDBusConnection::ExportScriptableContents);
-    if (!ret)
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Error registering notifications listener for device" << m_plugin->device()->name() << ":"
-                                                      << QDBusConnection::sessionBus().lastError();
-    else
-        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Registered notifications listener for device" << m_plugin->device()->name();
+    GError *error = nullptr;
+    m_gdbusConnection = g_bus_get_sync(G_BUS_TYPE_SESSION, nullptr, &error);
+    g_assert_no_error(error);
+    m_gdbusFilterId = g_dbus_connection_add_filter(m_gdbusConnection, NotificationsListener::onMessageFiltered, this, nullptr);
 
-    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"), QStringLiteral("org.freedesktop.DBus"));
-    iface.call(QStringLiteral("AddMatch"), QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
+    g_autoptr(GDBusMessage) msg =
+        g_dbus_message_new_method_call("org.freedesktop.DBus", "/org/freedesktop/DBus", "org.freedesktop.DBus.Monitoring", "BecomeMonitor");
+
+    GVariantBuilder *arrayBuilder = g_variant_builder_new(G_VARIANT_TYPE("as"));
+    g_variant_builder_add(arrayBuilder, "s", "interface='org.freedesktop.Notifications'");
+    g_variant_builder_add(arrayBuilder, "s", "member='Notify'");
+
+    g_dbus_message_set_body(msg, g_variant_new("(asu)", arrayBuilder, 0u));
+    g_dbus_connection_send_message(m_gdbusConnection, msg, GDBusSendMessageFlags::G_DBUS_SEND_MESSAGE_FLAGS_NONE, nullptr, &error);
+    g_assert_no_error(error);
 
     setTranslatedAppName();
     loadApplications();
@@ -52,10 +62,8 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
 NotificationsListener::~NotificationsListener()
 {
     qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Destroying NotificationsListener";
-    QDBusInterface iface(QStringLiteral("org.freedesktop.DBus"), QStringLiteral("/org/freedesktop/DBus"), QStringLiteral("org.freedesktop.DBus"));
-    QDBusMessage res = iface.call(QStringLiteral("RemoveMatch"),
-                                  QStringLiteral("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
-    QDBusConnection::sessionBus().unregisterObject(QStringLiteral("/org/freedesktop/Notifications"));
+    g_dbus_connection_remove_filter(m_gdbusConnection, m_gdbusFilterId);
+    g_object_unref(m_gdbusConnection);
 }
 
 void NotificationsListener::setTranslatedAppName()
@@ -86,7 +94,7 @@ void NotificationsListener::loadApplications()
     // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
 }
 
-bool NotificationsListener::parseImageDataArgument(const QVariant &argument,
+bool NotificationsListener::parseImageDataArgument(GVariant *argument,
                                                    int &width,
                                                    int &height,
                                                    int &rowStride,
@@ -95,16 +103,58 @@ bool NotificationsListener::parseImageDataArgument(const QVariant &argument,
                                                    bool &hasAlpha,
                                                    QByteArray &imageData) const
 {
-    if (!argument.canConvert<QDBusArgument>())
+    if (g_variant_n_children(argument) != 7) {
         return false;
-    const QDBusArgument dbusArg = argument.value<QDBusArgument>();
-    dbusArg.beginStructure();
-    dbusArg >> width >> height >> rowStride >> hasAlpha >> bitsPerSample >> channels >> imageData;
-    dbusArg.endStructure();
+    }
+
+    g_autoptr(GVariant) variant;
+
+    variant = g_variant_get_child_value(argument, 0);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_INT32)) {
+        return false;
+    }
+    width = g_variant_get_int32(variant);
+
+    variant = g_variant_get_child_value(argument, 1);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_INT32)) {
+        return false;
+    }
+    height = g_variant_get_int32(variant);
+
+    variant = g_variant_get_child_value(argument, 2);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_INT32)) {
+        return false;
+    }
+    rowStride = g_variant_get_int32(variant);
+
+    variant = g_variant_get_child_value(argument, 3);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_BOOLEAN)) {
+        return false;
+    }
+    hasAlpha = g_variant_get_boolean(variant);
+
+    variant = g_variant_get_child_value(argument, 4);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_INT32)) {
+        return false;
+    }
+    bitsPerSample = g_variant_get_int32(variant);
+
+    variant = g_variant_get_child_value(argument, 5);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_INT32)) {
+        return false;
+    }
+    channels = g_variant_get_int32(variant);
+
+    variant = g_variant_get_child_value(argument, 6);
+    if (g_variant_is_of_type(variant, G_VARIANT_TYPE_ARRAY)) {
+        return false;
+    }
+    imageData = g_variant_get_bytestring(variant);
+
     return true;
 }
 
-QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant &argument) const
+QSharedPointer<QIODevice> NotificationsListener::iconForImageData(GVariant *argument) const
 {
     int width, height, rowStride, bitsPerSample, channels;
     bool hasAlpha;
@@ -133,7 +183,7 @@ QSharedPointer<QIODevice> NotificationsListener::iconForImageData(const QVariant
     return buffer;
 }
 
-QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &iconName) const
+QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &iconName)
 {
     int size = KIconLoader::SizeEnormous; // use big size to allow for good
                                           // quality on high-DPI mobile devices
@@ -154,65 +204,110 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &
     return QSharedPointer<QIODevice>();
 }
 
-uint NotificationsListener::Notify(const QString &appName,
-                                   uint replacesId,
-                                   const QString &appIcon,
-                                   const QString &summary,
-                                   const QString &body,
-                                   const QStringList &actions,
-                                   const QVariantMap &hints,
-                                   int timeout)
+GDBusMessage *NotificationsListener::onMessageFiltered(GDBusConnection *, GDBusMessage *msg, int, void *parent)
 {
-    static int id = 0;
-    Q_UNUSED(actions);
+    static unsigned id = 0;
+    if (!msg) {
+        return msg;
+    }
 
-    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon <<
-    // "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
+    const gchar *interface = g_dbus_message_get_interface(msg);
+    if (!interface || strcmp(interface, "org.freedesktop.Notifications")) {
+        // The first message will be from org.freedesktop.DBus.Monitoring
+        return msg;
+    }
+    const gchar *member = g_dbus_message_get_member(msg);
+    if (!member || strcmp(member, "Notify")) {
+        // Even if member is set, the monitor will still notify messages from other members.
+        return nullptr;
+    }
 
+    g_autoptr(GVariant) bodyVariant = g_dbus_message_get_body(msg);
+    Q_ASSERT(bodyVariant);
+
+    // Data order and types: https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
+    g_autoptr(GVariant) variant = g_variant_get_child_value(bodyVariant, 0);
+    const QString appName = QString::fromUtf8(g_variant_get_string(variant, nullptr));
     // skip our own notifications
-    if (appName == m_translatedAppName)
-        return 0;
+    auto listener = static_cast<NotificationsListener *>(parent);
+
+    if (appName == listener->m_translatedAppName) {
+        return nullptr;
+    }
+
+    variant = g_variant_get_child_value(bodyVariant, 2);
+    const QString appIcon = QString::fromUtf8(g_variant_get_string(variant, nullptr));
 
     NotifyingApplication app;
-    if (!m_applications.contains(appName)) {
+    if (!listener->m_applications.contains(appName)) {
         // new application -> add to config
         app.name = appName;
         app.icon = appIcon;
         app.active = true;
         app.blacklistExpression = QRegularExpression();
-        m_applications.insert(app.name, app);
+        listener->m_applications.insert(app.name, app);
         // update config:
         QVariantList list;
-        for (const auto &a : qAsConst(m_applications))
+        for (const auto &a : std::as_const(listener->m_applications))
             list << QVariant::fromValue<NotifyingApplication>(a);
-        m_plugin->config()->setList(QStringLiteral("applications"), list);
+        listener->m_plugin->config()->setList(QStringLiteral("applications"), list);
         // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
     } else {
-        app = m_applications.value(appName);
+        app = listener->m_applications.value(appName);
     }
 
-    if (!app.active)
-        return 0;
+    if (!app.active) {
+        return nullptr;
+    }
 
-    if (timeout > 0 && m_plugin->config()->getBool(QStringLiteral("generalPersistent"), false))
-        return 0;
+    variant = g_variant_get_child_value(bodyVariant, 7);
+    const auto timeout = g_variant_get_int32(variant);
+    if (timeout > 0 && listener->m_plugin->config()->getBool(QStringLiteral("generalPersistent"), false)) {
+        return nullptr;
+    }
+
+    variant = g_variant_get_child_value(bodyVariant, 6);
+    std::unordered_map<QString, GVariant *> hints;
+    GVariantIter *iter;
+    const gchar *key;
+    GVariant *value = nullptr;
+    g_variant_get(variant, "a{sv}", &iter);
+    while (g_variant_iter_loop(iter, "{sv}", &key, &value)) {
+        hints.emplace(QString::fromUtf8(key), value);
+    }
+    g_variant_iter_free(iter);
+
+    QScopeGuard cleanupHints([&hints] {
+        for (auto &[_, hint] : hints) {
+            g_variant_unref(hint);
+        }
+    });
 
     int urgency = -1;
-    if (hints.contains(QStringLiteral("urgency"))) {
-        bool ok;
-        urgency = hints[QStringLiteral("urgency")].toInt(&ok);
-        if (!ok)
-            urgency = -1;
+    if (auto it = hints.find(QStringLiteral("urgency")); it != hints.end()) {
+        if (g_variant_is_of_type(it->second, G_VARIANT_TYPE_BYTE)) {
+            urgency = g_variant_get_byte(it->second);
+        }
     }
-    if (urgency > -1 && urgency < m_plugin->config()->getInt(QStringLiteral("generalUrgency"), 0))
-        return 0;
+    if (urgency > -1 && urgency < listener->m_plugin->config()->getInt(QStringLiteral("generalUrgency"), 0))
+        return nullptr;
 
-    QString ticker = summary;
-    if (!body.isEmpty() && m_plugin->config()->getBool(QStringLiteral("generalIncludeBody"), true))
+    variant = g_variant_get_child_value(bodyVariant, 3);
+    QString ticker = QString::fromUtf8(g_variant_get_string(variant, nullptr));
+
+    variant = g_variant_get_child_value(bodyVariant, 4);
+    const QString body = QString::fromUtf8(g_variant_get_string(variant, nullptr));
+
+    if (!body.isEmpty() && listener->m_plugin->config()->getBool(QStringLiteral("generalIncludeBody"), true)) {
         ticker += QStringLiteral(": ") + body;
+    }
 
-    if (app.blacklistExpression.isValid() && !app.blacklistExpression.pattern().isEmpty() && app.blacklistExpression.match(ticker).hasMatch())
-        return 0;
+    if (app.blacklistExpression.isValid() && !app.blacklistExpression.pattern().isEmpty() && app.blacklistExpression.match(ticker).hasMatch()) {
+        return nullptr;
+    }
+
+    variant = g_variant_get_child_value(bodyVariant, 1);
+    const unsigned replacesId = g_variant_get_uint32(variant);
 
     // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
     NetworkPacket np(PACKET_TYPE_NOTIFICATION,
@@ -224,28 +319,33 @@ uint NotificationsListener::Notify(const QString &appName,
                                                                        // clearability is pointless
 
     // sync any icon data?
-    if (m_plugin->config()->getBool(QStringLiteral("generalSynchronizeIcons"), true)) {
+    if (listener->m_plugin->config()->getBool(QStringLiteral("generalSynchronizeIcons"), true)) {
         QSharedPointer<QIODevice> iconSource;
         // try different image sources according to priorities in notifications-
         // spec version 1.2:
-        if (hints.contains(QStringLiteral("image-data")))
-            iconSource = iconForImageData(hints[QStringLiteral("image-data")]);
-        else if (hints.contains(QStringLiteral("image_data"))) // 1.1 backward compatibility
-            iconSource = iconForImageData(hints[QStringLiteral("image_data")]);
-        else if (hints.contains(QStringLiteral("image-path")))
-            iconSource = iconForIconName(hints[QStringLiteral("image-path")].toString());
-        else if (hints.contains(QStringLiteral("image_path"))) // 1.1 backward compatibility
-            iconSource = iconForIconName(hints[QStringLiteral("image_path")].toString());
-        else if (!appIcon.isEmpty())
+        if (auto it = hints.find(QStringLiteral("image-data")); it != hints.end()) {
+            iconSource = listener->iconForImageData(it->second);
+        } else if (auto it = hints.find(QStringLiteral("image_data")); it != hints.end()) { // 1.1 backward compatibility
+            iconSource = listener->iconForImageData(it->second);
+        } else if (auto it = hints.find(QStringLiteral("image-path")); it != hints.end()) {
+            iconSource = iconForIconName(QString::fromUtf8(g_variant_get_string(it->second, nullptr)));
+        } else if (auto it = hints.find(QStringLiteral("image_path")); it != hints.end()) { // 1.1 backward compatibility
+            iconSource = iconForIconName(QString::fromUtf8(g_variant_get_string(it->second, nullptr)));
+        } else if (!appIcon.isEmpty()) {
             iconSource = iconForIconName(appIcon);
-        else if (hints.contains(QStringLiteral("icon_data"))) // < 1.1 backward compatibility
-            iconSource = iconForImageData(hints[QStringLiteral("icon_data")]);
+        } else if (auto it = hints.find(QStringLiteral("icon_data")); it != hints.end()) { // < 1.1 backward compatibility
+            iconSource = listener->iconForImageData(it->second);
+        }
 
         if (iconSource)
             np.setPayload(iconSource, iconSource->size());
     }
 
-    m_plugin->sendPacket(np);
+    listener->m_plugin->sendPacket(np);
 
-    return (replacesId > 0 ? replacesId : id);
+    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon
+                                                << "summary=" << ticker << "body=" << body << "hints=" << hints.size() << "urgency=" << urgency
+                                                << "timeout=" << timeout;
+
+    return nullptr;
 }

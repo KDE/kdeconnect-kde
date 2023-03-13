@@ -30,6 +30,7 @@ target_link_libraries(kdeconnect_sendnotifications
     Qt::Gui
     KF5::IconThemes
     KF5::ConfigCore
+    PkgConfig::GIO
 )
 
 #######################################

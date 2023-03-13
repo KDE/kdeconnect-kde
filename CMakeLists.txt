@@ -85,6 +85,7 @@ else()
         find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS WaylandClient)
         find_package(WaylandProtocols REQUIRED)
         pkg_check_modules(XkbCommon IMPORTED_TARGET xkbcommon)
+        pkg_check_modules(GIO REQUIRED IMPORTED_TARGET gio-2.0)
     endif()
 
     find_package(KF5PeopleVCard)
