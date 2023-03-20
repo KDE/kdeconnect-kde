@@ -39,7 +39,10 @@ if(NOT SAILFISHOS)
     add_subdirectory(virtualmonitor)
 
     if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    	add_subdirectory(mmtelephony)
+        find_package(KF5ModemManagerQt ${KF5_MIN_VERSION})
+        if (TARGET KF5::ModemManagerQt)
+            add_subdirectory(mmtelephony)
+        endif()
     endif()
 
     if(NOT WIN32)

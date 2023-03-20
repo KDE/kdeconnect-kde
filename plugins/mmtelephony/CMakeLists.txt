@@ -1,4 +1,3 @@
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ModemManagerQt)
 set(debug_file_SRCS)
 ecm_qt_declare_logging_category(
     debug_file_SRCS HEADER plugin_mmtelephony_debug.h
