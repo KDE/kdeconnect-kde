@@ -116,9 +116,6 @@ bool NetworkPacket::unserialize(const QByteArray &a, NetworkPacket *np)
     auto variant = parser.toVariant().toMap();
     qvariant2qobject(variant, np);
 
-    if (np->m_payloadSize == -1) {
-        np->m_payloadSize = np->get<qint64>(QStringLiteral("size"), -1);
-    }
     np->m_payloadTransferInfo = variant[QStringLiteral("payloadTransferInfo")].toMap(); // Will return an empty qvariantmap if was not present, which is ok
 
     // Ids containing characters that are not allowed as dbus paths would make app crash
