@@ -47,19 +47,19 @@ void BatteryPlugin::connected()
     QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
 
     if (batteries.isEmpty()) {
+        // Treat as if we're working with a desktop computer.
         qCWarning(KDECONNECT_PLUGIN_BATTERY) << "No Primary Battery detected on this system. This may be a bug.";
         QList<Solid::Device> allBatteries = Solid::Device::listFromType(batteryDevice);
         qCWarning(KDECONNECT_PLUGIN_BATTERY) << "Total quantity of batteries found: " << allBatteries.size();
-        return;
+        // return;
+    } else {
+        // Ok, there's at least one. Let's assume it will remain attached (for most laptops
+        // and desktops, this is a safe assumption).
+        const Solid::Battery *chosen = batteries.first().as<Solid::Battery>();
+
+        connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::slotChargeChanged);
+        connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::slotChargeChanged);
     }
-
-    // Ok, there's at least one. Let's assume it will remain attached (for most laptops
-    // and desktops, this is a safe assumption).
-    const Solid::Battery *chosen = batteries.first().as<Solid::Battery>();
-
-    connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::slotChargeChanged);
-    connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::slotChargeChanged);
-
     // Explicitly send the current charge
     slotChargeChanged();
 }
@@ -75,6 +75,7 @@ void BatteryPlugin::slotChargeChanged()
 
     const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
     const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
+    int charge = 0;
 
     QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
 
@@ -91,27 +92,30 @@ void BatteryPlugin::slotChargeChanged()
         }
     }
 
-    if (batteryQuantity == 0) {
-        qCWarning(KDECONNECT_PLUGIN_BATTERY) << "Primary Battery seems to have been removed. Suspending packets until it is reconnected.";
-        return;
-    }
-
-    // Load a new Battery object to represent the first device in the list
-    Solid::Battery *chosen = batteries.first().as<Solid::Battery>();
-
     // Prepare an outgoing network packet
     NetworkPacket status(PACKET_TYPE_BATTERY, {{}});
     status.set(QStringLiteral("isCharging"), isAnyBatteryCharging);
-    const int charge = cumulativeCharge / batteryQuantity;
-    status.set(QStringLiteral("currentCharge"), charge);
     // FIXME: In future, we should consider sending an array of battery objects
     status.set(QStringLiteral("batteryQuantity"), batteryQuantity);
-    // We consider the primary battery to be low if it's below 15%
-    if (charge <= 15 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
-        status.set(QStringLiteral("thresholdEvent"), (int)ThresholdBatteryLow);
+
+    if (batteryQuantity == 0) {
+        qCWarning(KDECONNECT_PLUGIN_BATTERY) << "Primary Battery seems to not be available.";
+        // return;
     } else {
-        status.set(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
+        // Load a new Battery object to represent the first device in the list
+        Solid::Battery *chosen = batteries.first().as<Solid::Battery>();
+
+        charge = cumulativeCharge / batteryQuantity;
+
+        // We consider the primary battery to be low if it's below 15%
+        if (charge <= 15 && chosen->chargeState() == Solid::Battery::ChargeState::Discharging) {
+            status.set(QStringLiteral("thresholdEvent"), (int)ThresholdBatteryLow);
+        } else {
+            status.set(QStringLiteral("thresholdEvent"), (int)ThresholdNone);
+        }
     }
+    status.set(QStringLiteral("currentCharge"), charge);
+
     sendPacket(status);
 }
 

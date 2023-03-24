@@ -7,12 +7,7 @@ add_subdirectory(remotecontrol)
 add_subdirectory(remotesystemvolume)
 add_subdirectory(clipboard)
 add_subdirectory(runcommand)
-
-
-if(NOT WIN32)
-    # https://bugs.kde.org/show_bug.cgi?id=444612
-    add_subdirectory(battery)
-endif()
+add_subdirectory(battery)
 
 if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(bigscreen)
