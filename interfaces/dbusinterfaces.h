@@ -152,7 +152,7 @@ class KDECONNECTINTERFACES_EXPORT MprisDbusInterface : public OrgKdeKdeconnectDe
     Q_PROPERTY(int length READ length NOTIFY propertiesChangedProxy)
     Q_PROPERTY(QString nowPlaying READ nowPlaying NOTIFY propertiesChangedProxy)
     Q_PROPERTY(QString title READ title NOTIFY propertiesChangedProxy)
-    Q_PROPERTY(QString artist READ artist NOTIFY propertiesChangedProxy)
+    Q_PROPERTY(QStringList artist READ artist NOTIFY propertiesChangedProxy)
     Q_PROPERTY(QString album READ album NOTIFY propertiesChangedProxy)
 
     Q_PROPERTY(QStringList playerList READ playerList NOTIFY propertiesChangedProxy)

@@ -27,7 +27,7 @@ public:
     bool playing() const;
     QString nowPlaying() const;
     QString title() const;
-    QString artist() const;
+    QStringList artist() const;
     QString album() const;
     QString identity() const;
 
@@ -59,7 +59,7 @@ private:
     long m_lastPosition;
     qint64 m_lastPositionTime;
     QString m_title;
-    QString m_artist;
+    QStringList m_artist;
     QString m_album;
     bool m_canSeek;
 

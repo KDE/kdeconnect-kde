@@ -28,7 +28,6 @@ MprisRemotePlayer::MprisRemotePlayer(QString id, MprisRemotePlugin *plugin)
     , m_lastPosition(0)
     , m_lastPositionTime()
     , m_title()
-    , m_artist()
     , m_album()
     , m_canSeek(false)
     , m_dbusConnectionName(QStringLiteral("mpris_") + QUuid::createUuid().toString(QUuid::Id128))
@@ -56,7 +55,7 @@ void MprisRemotePlayer::parseNetworkPacket(const NetworkPacket &np)
     // Track properties
     QString newNowPlaying = np.get<QString>(QStringLiteral("nowPlaying"), m_nowPlaying);
     QString newTitle = np.get<QString>(QStringLiteral("title"), m_title);
-    QString newArtist = np.get<QString>(QStringLiteral("artist"), m_artist);
+    const QStringList newArtist = np.get<QStringList>(QStringLiteral("artist"), m_artist);
     QString newAlbum = np.get<QString>(QStringLiteral("album"), m_album);
     int newLength = np.get<int>(QStringLiteral("length"), m_length);
 
@@ -158,7 +157,7 @@ QString MprisRemotePlayer::title() const
     return m_title;
 }
 
-QString MprisRemotePlayer::artist() const
+QStringList MprisRemotePlayer::artist() const
 {
     return m_artist;
 }

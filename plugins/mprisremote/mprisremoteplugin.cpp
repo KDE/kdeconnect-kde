@@ -179,10 +179,10 @@ QString MprisRemotePlugin::album() const
     return player ? player->album() : QString();
 }
 
-QString MprisRemotePlugin::artist() const
+QStringList MprisRemotePlugin::artist() const
 {
     auto player = m_players.value(m_currentPlayer);
-    return player ? player->artist() : QString();
+    return player ? player->artist() : QStringList();
 }
 
 bool MprisRemotePlugin::canSeek() const

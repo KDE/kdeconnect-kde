@@ -68,7 +68,7 @@ void MprisControlPlugin::sendMediaProperties(std::variant<NetworkPacket, QString
     auto mediaProperties = player.TryGetMediaPropertiesAsync().get();
 
     np.set(QStringLiteral("title"), QString::fromWCharArray(mediaProperties.Title().c_str()));
-    np.set(QStringLiteral("artist"), QString::fromWCharArray(mediaProperties.Artist().c_str()));
+    np.set(QStringLiteral("artist"), QStringList{QString::fromWCharArray(mediaProperties.Artist().c_str())});
     np.set(QStringLiteral("album"), QString::fromWCharArray(mediaProperties.AlbumTitle().c_str()));
     np.set(QStringLiteral("albumArtUrl"), randomUrl());
     np.set(QStringLiteral("nowPlaying"),

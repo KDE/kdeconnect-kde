@@ -374,12 +374,12 @@ void MprisControlPlugin::sendPlayerList()
 void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket &np, const QVariantMap &nowPlayingMap) const
 {
     QString title = nowPlayingMap[QStringLiteral("xesam:title")].toString();
-    QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toString();
+    const QStringList artist = nowPlayingMap[QStringLiteral("xesam:artist")].toStringList();
     QString album = nowPlayingMap[QStringLiteral("xesam:album")].toString();
     QString albumArtUrl = nowPlayingMap[QStringLiteral("mpris:artUrl")].toString();
     QUrl fileUrl = nowPlayingMap[QStringLiteral("xesam:url")].toUrl();
 
-    if (title.isEmpty() && artist.isEmpty() && fileUrl.isLocalFile()) {
+    if (title.isEmpty() && artist.empty() && fileUrl.isLocalFile()) {
         title = fileUrl.fileName();
 
         QStringList splitUrl = fileUrl.path().split(QDir::separator());
@@ -390,8 +390,8 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket &np, c
 
     QString nowPlaying = title;
 
-    if (!artist.isEmpty()) {
-        nowPlaying = artist + QStringLiteral(" - ") + title;
+    if (!artist.empty()) {
+        nowPlaying = artist.join(QLatin1String(", ")) + QStringLiteral(" - ") + title;
     }
 
     np.set(QStringLiteral("title"), title);

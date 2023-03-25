@@ -93,7 +93,7 @@ Kirigami.Page
         }
         Label {
             Layout.fillWidth: true
-            text: root.pluginInterface.artist
+            text: root.pluginInterface.artist.join(', ')
             visible: !nowPlaying.visible && !artistAlbum.visible && root.pluginInterface.artist.length > 0
             wrapMode: Text.Wrap
         }
@@ -106,7 +106,7 @@ Kirigami.Page
         Label {
             id: artistAlbum
             Layout.fillWidth: true
-            text: i18nd("kdeconnect-app", "%1 - %2", root.pluginInterface.artist, root.pluginInterface.album)
+            text: i18nd("kdeconnect-app", "%1 - %2", root.pluginInterface.artist.join(', '), root.pluginInterface.album)
             visible: !nowPlaying.visible && root.pluginInterface.album.length > 0 && root.pluginInterface.artist.length > 0
             wrapMode: Text.Wrap
         }

@@ -28,7 +28,7 @@ class Q_DECL_EXPORT MprisRemotePlugin : public KdeConnectPlugin
     Q_PROPERTY(QString player READ player WRITE setPlayer)
     Q_PROPERTY(QString nowPlaying READ nowPlaying NOTIFY propertiesChanged)
     Q_PROPERTY(QString title READ title NOTIFY propertiesChanged)
-    Q_PROPERTY(QString artist READ artist NOTIFY propertiesChanged)
+    Q_PROPERTY(QStringList artist READ artist NOTIFY propertiesChanged)
     Q_PROPERTY(QString album READ album NOTIFY propertiesChanged)
     Q_PROPERTY(bool canSeek READ canSeek NOTIFY propertiesChanged)
 
@@ -44,7 +44,7 @@ public:
     QString player() const;
     QString nowPlaying() const;
     QString title() const;
-    QString artist() const;
+    QStringList artist() const;
     QString album() const;
     bool canSeek() const;
 
