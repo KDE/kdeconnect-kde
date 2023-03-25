@@ -374,7 +374,7 @@ void MprisControlPlugin::sendPlayerList()
 void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket &np, const QVariantMap &nowPlayingMap) const
 {
     QString title = nowPlayingMap[QStringLiteral("xesam:title")].toString();
-    QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toString();
+    QString artist = nowPlayingMap[QStringLiteral("xesam:artist")].toStringList().join(QLatin1String(", "));
     QString album = nowPlayingMap[QStringLiteral("xesam:album")].toString();
     QString albumArtUrl = nowPlayingMap[QStringLiteral("mpris:artUrl")].toString();
     QUrl fileUrl = nowPlayingMap[QStringLiteral("xesam:url")].toUrl();

@@ -55,7 +55,7 @@ QVariantMap MprisRemotePlayerMediaPlayer2Player::Metadata() const
         metadata[QStringLiteral("xesam:title")] = m_parent->title();
     }
     if (!m_parent->artist().isEmpty()) {
-        metadata[QStringLiteral("xesam:artist")] = m_parent->artist();
+        metadata[QStringLiteral("xesam:artist")] = QStringList{m_parent->artist()};
     }
     if (!m_parent->album().isEmpty()) {
         metadata[QStringLiteral("xesam:album")] = m_parent->album();
