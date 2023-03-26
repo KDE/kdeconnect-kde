@@ -147,9 +147,9 @@ void MprisControlPlugin::propertiesChanged(const QString &propertyInterface, con
         }
     }
     if (properties.contains(QStringLiteral("Metadata"))) {
-        QDBusArgument bullshit = qvariant_cast<QDBusArgument>(properties[QStringLiteral("Metadata")]);
+        QDBusArgument aux = qvariant_cast<QDBusArgument>(properties[QStringLiteral("Metadata")]);
         QVariantMap nowPlayingMap;
-        bullshit >> nowPlayingMap;
+        aux >> nowPlayingMap;
 
         mprisPlayerMetadataToNetworkPacket(np, nowPlayingMap);
         somethingToSend = true;
