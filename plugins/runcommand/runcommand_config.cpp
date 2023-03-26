@@ -47,9 +47,9 @@ RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
         i18n("Say Hello"),
         QStringLiteral("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');\""));
 #else
-    addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("poweroff"));
-    addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("reboot"));
-    addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("suspend"));
+    addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("systemctl poweroff"));
+    addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("systemctl reboot"));
+    addSuggestedCommand(defaultMenu, i18n("Suspend"), QStringLiteral("systemctl suspend"));
     addSuggestedCommand(
         defaultMenu,
         i18n("Maximum Brightness"),
