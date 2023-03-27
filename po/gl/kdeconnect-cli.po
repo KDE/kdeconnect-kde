@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2020-03-07 17:52+0100\n"
+"PO-Revision-Date: 2023-03-26 11:09+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -122,10 +122,9 @@ msgid "message"
 msgstr "mensaxe"
 
 #: kdeconnect-cli.cpp:54
-#, fuzzy, kde-format
-#| msgid "Share a file to a said device"
+#, kde-format
 msgid "Share a file/URL to a said device"
-msgstr "Compartir un ficheiro co dispositivo indicado."
+msgstr "Compartir un ficheiro ou URL co dispositivo indicado"
 
 #: kdeconnect-cli.cpp:55
 #, kde-format
@@ -143,10 +142,9 @@ msgid "Lock the specified device"
 msgstr "Bloquear o dispositivo indicado."
 
 #: kdeconnect-cli.cpp:58
-#, fuzzy, kde-format
-#| msgid "Lock the specified device"
+#, kde-format
 msgid "Unlock the specified device"
-msgstr "Bloquear o dispositivo indicado."
+msgstr "Desbloquear o dispositivo indicado"
 
 #: kdeconnect-cli.cpp:59
 #, kde-format
@@ -164,16 +162,17 @@ msgid "phone number"
 msgstr "número de teléfono"
 
 #: kdeconnect-cli.cpp:62
-#, fuzzy, kde-format
-#| msgid "Phone number to send the message"
+#, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
-msgstr "Número de teléfono ao que enviar a mensaxe."
+msgstr ""
+"Os URL de ficheiros para enviar anexos coa mensaxe (pode pasarse varias "
+"veces)"
 
 #: kdeconnect-cli.cpp:63
 #, kde-format
 msgid "file urls"
-msgstr ""
+msgstr "URL de ficheiros"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
@@ -275,13 +274,13 @@ msgstr "Texto compartido: %1"
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
-msgstr ""
+msgstr "Solicitouse bloquear %1."
 
 #: kdeconnect-cli.cpp:234
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
-msgstr ""
+msgstr "Solicitouse desbloquear %1."
 
 #: kdeconnect-cli.cpp:241
 #, kde-format

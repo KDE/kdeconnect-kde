@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-15 00:47+0000\n"
-"PO-Revision-Date: 2020-03-07 18:09+0100\n"
+"PO-Revision-Date: 2023-03-26 11:07+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -52,7 +52,7 @@ msgstr "adrian@chaves.io"
 #: main.cpp:54
 #, kde-format
 msgid "URL to share"
-msgstr ""
+msgstr "URL para compartir"
 
 #: qml/DevicePage.qml:23
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Enviar unha sonda"
 #: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
-msgstr ""
+msgstr "Configuración do complemento"
 
 #: qml/DevicePage.qml:60
 #, kde-format
@@ -117,7 +117,7 @@ msgstr "Control do volume"
 #: qml/DevicePage.qml:117
 #, kde-format
 msgid "This device is not paired"
-msgstr ""
+msgstr "Este dispositivo non está emparellado"
 
 #: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
 #, kde-format
@@ -127,7 +127,7 @@ msgstr "Emparellar"
 #: qml/DevicePage.qml:128
 #, kde-format
 msgid "Pair requested"
-msgstr ""
+msgstr "Solicitouse un emparellamento"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -177,7 +177,7 @@ msgstr "Atopar dispositivos…"
 #: qml/main.qml:121 qml/main.qml:124
 #, kde-format
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -188,6 +188,7 @@ msgstr "Mando a distancia"
 #, kde-format
 msgid "Press the left and right mouse buttons at the same time to unlock"
 msgstr ""
+"Premer os botóns esquerdo e dereito do rato ao mesmo tempo para desbloquear"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -228,15 +229,14 @@ msgstr "Non hai ningunha orde definida"
 #, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr ""
+msgstr "Configuración"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Nome do dispositivo"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "Sobre KDE Connect"

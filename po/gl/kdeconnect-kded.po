@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2020-03-07 17:51+0100\n"
+"PO-Revision-Date: 2023-03-26 11:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,12 +29,13 @@ msgid "Your emails"
 msgstr "adriyetichaves@gmail.com"
 
 #: kdeconnectd.cpp:54
-#, fuzzy, kde-format
-#| msgid "Pairing request from %1"
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2..."
-msgstr "Solicitude de emparellamento con %1"
+msgstr ""
+"Solicitude de emparellamento de %1\n"
+"Chave: %2…"
 
 #: kdeconnectd.cpp:55
 #, kde-format
@@ -54,7 +55,7 @@ msgstr "Rexeitar"
 #: kdeconnectd.cpp:56
 #, kde-format
 msgid "View key"
-msgstr ""
+msgstr "Ver a chave"
 
 #: kdeconnectd.cpp:139 kdeconnectd.cpp:141
 #, kde-format
@@ -71,6 +72,7 @@ msgstr "Substituír unha instancia existente"
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
 msgstr ""
+"Iniciar un servizo de D-Bus privado con kdeconnectd (só para probas en macOS)"
 
 #~ msgid "kdeconnect"
 #~ msgstr "kdeconnect"
