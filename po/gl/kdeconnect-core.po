@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2019-07-13 12:45+0200\n"
+"PO-Revision-Date: 2023-03-26 11:09+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:56
 #: backends/lan/lanpairinghandler.cpp:52
@@ -70,26 +71,24 @@ msgstr ""
 "vella de KDE Connet."
 
 #: compositefiletransferjob.cpp:46
-#, fuzzy, kde-format
-#| msgid "Receiving file from %2"
-#| msgid_plural "Receiving %1 files from %2"
+#, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
-msgstr[0] "Recibindo un ficheiro de %2"
-msgstr[1] "Recibindo %1 ficheiros de %2"
+msgstr[0] "Recibindo un ficheiro"
+msgstr[1] "Recibindo ficheiros"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
-msgstr ""
+msgstr "Orixe"
 
 #: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 #: device.cpp:215
 #, kde-format
@@ -102,16 +101,14 @@ msgid "Device not reachable"
 msgstr "Dispositivo fóra do alcance"
 
 #: device.cpp:561
-#, fuzzy, kde-format
-#| msgid "SHA1 fingerprint of your device certificate is: %1\n"
+#, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
-msgstr "A pegada SHA1 do certificado do seu dispositivo é: %1\n"
+msgstr "A pegada SHA256 do certificado do seu dispositivo é: %1\n"
 
 #: device.cpp:569
-#, fuzzy, kde-format
-#| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
+#, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
-msgstr "A pegada SHA1 do certificado do dispositivo remoto é: %1\n"
+msgstr "A pegada SHA256 do certificado do dispositivo remoto é: %1\n"
 
 #: filetransferjob.cpp:51
 #, kde-format

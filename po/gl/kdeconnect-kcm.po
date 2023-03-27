@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:46+0000\n"
-"PO-Revision-Date: 2018-12-10 19:33+0100\n"
+"PO-Revision-Date: 2023-03-26 11:11+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -50,7 +51,7 @@ msgstr "Albert Vaca Cintora"
 #: kcm.cpp:224
 #, kde-format
 msgid "Key: %1"
-msgstr ""
+msgstr "Chave: %1"
 
 #: kcm.cpp:255
 #, kde-format
@@ -122,7 +123,7 @@ msgstr "(estado)"
 #: kcm.ui:232
 #, kde-format
 msgid "🔑 abababab"
-msgstr ""
+msgstr "🔑 abababab"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:276
@@ -156,18 +157,7 @@ msgstr "Enviar un ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:360
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://community.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -188,7 +178,7 @@ msgstr ""
 "droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
 "text-decoration: underline; color:#4c6b8a;\">en F-Droid</span></a>) e "
 "debería aparecer na lista.<br><br>Se ten problemas, visite o <a href="
-"\"https://community.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
 "underline; color:#4c6b8a;\">wiki da comunidade de KDE Connect</span></a> "
 "para obter axuda.</p></body></html>"
 

@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:56+0000\n"
-"PO-Revision-Date: 2019-10-27 07:36+0100\n"
+"PO-Revision-Date: 2023-03-26 11:17+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -33,25 +33,25 @@ msgstr "Batería ao %1%"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "Complemento de portapapeis"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Contents shared to other devices"
-msgstr ""
+msgstr "Contido compartido con outros dispositivos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Passwords (as marked by password managers)"
-msgstr ""
+msgstr "Contrasinais (marcadas por xestores de contrasinais)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Anything else"
-msgstr ""
+msgstr "Outras cousas"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -74,27 +74,26 @@ msgstr "Escolla o son para reproducir"
 #: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
 #, kde-format
 msgid "Remote lock successful"
-msgstr ""
+msgstr "Completouse o bloqueo remoto"
 
 #: lockdevice/lockdeviceplugin-win.cpp:68
 #: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
 #: lockdevice/lockdeviceplugin.cpp:100
 #, kde-format
 msgid "Remote lock failed"
-msgstr ""
+msgstr "O bloqueo remoto fallou"
 
 #: notifications/notification.cpp:128
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
-msgstr "Resposta"
+msgstr "Responder"
 
 #: notifications/notification.cpp:129
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr ""
+msgstr "Responder a %1…"
 
 #: notifications/notification.cpp:135
 #, kde-format
@@ -158,7 +157,7 @@ msgstr "Silenciar o son do sistema."
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr ""
+msgstr "Continuar a reprodución ao rematar a chamada"
 
 #: ping/pingplugin.cpp:37
 #, kde-format
@@ -168,22 +167,22 @@ msgstr "Ping!"
 #: runcommand/runcommand_config.cpp:39
 #, kde-format
 msgid "Schedule a shutdown"
-msgstr ""
+msgstr "Programar un apagado"
 
 #: runcommand/runcommand_config.cpp:40
 #, kde-format
 msgid "Shutdown now"
-msgstr ""
+msgstr "Apagar agora"
 
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Cancel last shutdown"
-msgstr ""
+msgstr "Cancelar o último apagado"
 
 #: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Schedule a reboot"
-msgstr ""
+msgstr "Programar un reinicio"
 
 #: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
 #, kde-format
@@ -198,17 +197,17 @@ msgstr "Bloquear a pantalla"
 #: runcommand/runcommand_config.cpp:47
 #, kde-format
 msgid "Say Hello"
-msgstr ""
+msgstr "Saudar"
 
 #: runcommand/runcommand_config.cpp:50
 #, kde-format
 msgid "Shutdown"
-msgstr ""
+msgstr "Apagar"
 
 #: runcommand/runcommand_config.cpp:51
 #, kde-format
 msgid "Reboot"
-msgstr ""
+msgstr "Reiniciar"
 
 #: runcommand/runcommand_config.cpp:55
 #, kde-format
