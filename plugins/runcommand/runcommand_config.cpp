@@ -10,6 +10,8 @@
 #include <QHBoxLayout>
 #include <QHeaderView>
 #include <QJsonDocument>
+#include <QJsonArray>
+#include <QFileDialog>
 #include <QMenu>
 #include <QPushButton>
 #include <QStandardItemModel>
@@ -74,6 +76,15 @@ RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
     button->setMenu(defaultMenu);
     layout->addWidget(button);
 
+    QHBoxLayout *importExportLayout = new QHBoxLayout(this);
+    QPushButton *exportButton = new QPushButton(i18n("Export"), this);
+    importExportLayout->addWidget(exportButton);
+    connect(exportButton, &QPushButton::clicked, this, &RunCommandConfig::exportCommands);
+    QPushButton *importButton = new QPushButton(i18n("Import"), this);
+    importExportLayout->addWidget(importButton);
+    connect(importButton, &QPushButton::clicked, this, &RunCommandConfig::importCommands);
+    layout->addLayout(importExportLayout);
+
     setLayout(layout);
 
     m_entriesModel = new QStandardItemModel(this);
@@ -84,6 +95,67 @@ RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
 
 RunCommandConfig::~RunCommandConfig()
 {
+}
+
+void RunCommandConfig::exportCommands()
+{
+    QString filePath = QFileDialog::getSaveFileName(this, i18n("Export Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));
+    if (filePath.isEmpty())
+        return;
+
+    QFile file(filePath);
+    if (!file.open(QFile::WriteOnly | QFile::Text)) {
+        qWarning() << "Could not write to file:" << filePath;
+        return;
+    }
+
+    QJsonArray jsonArray;
+    for (int i = 0; i < m_entriesModel->rowCount(); i++) {
+        QJsonObject jsonObj;
+        jsonObj[QStringLiteral("name")] = m_entriesModel->index(i, 0).data().toString();
+        jsonObj[QStringLiteral("command")] = m_entriesModel->index(i, 1).data().toString();
+        jsonArray.append(jsonObj);
+    }
+
+    QJsonDocument jsonDocument(jsonArray);
+    file.write(jsonDocument.toJson());
+    file.close();
+}
+
+void RunCommandConfig::importCommands()
+{
+    QString filePath = QFileDialog::getOpenFileName(this, i18n("Import Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));
+    if (filePath.isEmpty())
+        return;
+
+    QFile file(filePath);
+    if (!file.open(QFile::ReadOnly | QFile::Text)) {
+        qWarning() << "Could not read file:" << filePath;
+        return;
+    }
+
+    QByteArray jsonData = file.readAll();
+    file.close();
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData);
+    if (jsonDoc.isNull() || !jsonDoc.isArray()) {
+        qWarning() << "Invalid JSON format.";
+        return;
+    }
+
+    // Clear the current command list
+    m_entriesModel->removeRows(0, m_entriesModel->rowCount());
+
+    // Populate the model with the imported commands
+    QJsonArray jsonArray = jsonDoc.array();
+    for (const QJsonValue &jsonValue : jsonArray) {
+        QJsonObject jsonObj = jsonValue.toObject();
+        QString name = jsonObj.value(QStringLiteral("name")).toString();
+        QString command = jsonObj.value(QStringLiteral("command")).toString();
+        insertRow(m_entriesModel->rowCount(), name, command);
+    }
+
+    Q_EMIT changed(true);
 }
 
 void RunCommandConfig::addSuggestedCommand(QMenu *menu, const QString &name, const QString &command)

@@ -26,6 +26,8 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
+    void exportCommands();
+    void importCommands();
 
 private:
     void addSuggestedCommand(QMenu *menu, const QString &name, const QString &command);
