@@ -15,11 +15,10 @@ The received packages will contain the following fields:
 "ticker" (string): The title or headline of the notification, for compatibility with older Android versions.
 "isClearable" (boolean): True if we can request to dismiss the notification.
 "isCancel" (boolean): True if the notification was dismissed in the peer device.
-"requestAnswer" (boolean): True if this is an answer to a "request" package.
 "title" (string): The title of the notification.
 "text" (string): The text/content of the notification.
 "requestReplyId" (string): Used to reply to messages.
-"silent" (bool): Handle this notification silent, i.e. don't show a notification, but show it in the plasmoid.
+"silent" (bool): Don't show a notification popup for this notification.
 
 Additionally the package can contain a payload with the icon of the notification
 in PNG format. If there another field will be present:
