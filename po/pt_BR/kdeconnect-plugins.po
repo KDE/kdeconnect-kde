@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:56+0000\n"
+"POT-Creation-Date: 2023-03-31 00:46+0000\n"
 "PO-Revision-Date: 2022-10-19 16:05-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -165,86 +165,108 @@ msgstr "Reiniciar automaticamente a mídia quando a chamada terminar"
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:39
+#: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
 msgstr "Agendar um desligamento"
 
-#: runcommand/runcommand_config.cpp:40
+#: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
 msgstr "Desligar agora"
 
-#: runcommand/runcommand_config.cpp:41
+#: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
 msgstr "Cancelar último desligamento"
 
-#: runcommand/runcommand_config.cpp:42
+#: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
 msgstr "Agendar uma reinicialização"
 
-#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
 msgstr "Suspender"
 
-#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
 msgstr "Bloquear tela"
 
-#: runcommand/runcommand_config.cpp:47
+#: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
 msgstr "Dizer olá"
 
-#: runcommand/runcommand_config.cpp:50
+#: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
 msgstr "Desligar"
 
-#: runcommand/runcommand_config.cpp:51
+#: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: runcommand/runcommand_config.cpp:55
+#: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
 msgstr "Brilho máximo"
 
-#: runcommand/runcommand_config.cpp:61
+#: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
 msgstr "Desbloquear a tela"
 
-#: runcommand/runcommand_config.cpp:62
+#: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
 msgstr "Fechar todos os cofres"
 
-#: runcommand/runcommand_config.cpp:64
+#: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
 msgstr "Fechar à força todos os cofres"
 
-#: runcommand/runcommand_config.cpp:73
+#: runcommand/runcommand_config.cpp:75
 #, kde-format
 msgid "Sample commands"
 msgstr "Exemplos de comandos"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Export"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:83
+#, kde-format
+msgid "Import"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
 msgstr "Nome"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
 msgstr "Comando"
+
+#: runcommand/runcommand_config.cpp:102
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Export Commands"
+msgstr "Comando"
+
+#: runcommand/runcommand_config.cpp:127
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Import Commands"
+msgstr "Exemplos de comandos"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:56+0000\n"
+"POT-Creation-Date: 2023-03-31 00:46+0000\n"
 "PO-Revision-Date: 2022-10-18 10:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -167,86 +167,108 @@ msgstr "Reprèn automàticament el multimèdia quan finalitzi la trucada"
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:39
+#: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
 msgstr "Planifica una aturada"
 
-#: runcommand/runcommand_config.cpp:40
+#: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
 msgstr "Atura ara"
 
-#: runcommand/runcommand_config.cpp:41
+#: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
 msgstr "Cancel·la l'última aturada"
 
-#: runcommand/runcommand_config.cpp:42
+#: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
 msgstr "Planifica un reinici"
 
-#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
 msgstr "Suspèn"
 
-#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
 msgstr "Bloqueja la pantalla"
 
-#: runcommand/runcommand_config.cpp:47
+#: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
 msgstr "Digues hola"
 
-#: runcommand/runcommand_config.cpp:50
+#: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
 msgstr "Atura"
 
-#: runcommand/runcommand_config.cpp:51
+#: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
 msgstr "Reinicia"
 
-#: runcommand/runcommand_config.cpp:55
+#: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
 msgstr "Lluminositat màxima"
 
-#: runcommand/runcommand_config.cpp:61
+#: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
 msgstr "Desbloqueja la pantalla"
 
-#: runcommand/runcommand_config.cpp:62
+#: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
 msgstr "Tanca totes les caixes fortes"
 
-#: runcommand/runcommand_config.cpp:64
+#: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
 msgstr "Tanca fortament totes les caixes fortes"
 
-#: runcommand/runcommand_config.cpp:73
+#: runcommand/runcommand_config.cpp:75
 #, kde-format
 msgid "Sample commands"
 msgstr "Ordres de mostra"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Export"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:83
+#, kde-format
+msgid "Import"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
 msgstr "Nom"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
 msgstr "Ordre"
+
+#: runcommand/runcommand_config.cpp:102
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Export Commands"
+msgstr "Ordre"
+
+#: runcommand/runcommand_config.cpp:127
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Import Commands"
+msgstr "Ordres de mostra"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format

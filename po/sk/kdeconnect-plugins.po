@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:56+0000\n"
+"POT-Creation-Date: 2023-03-31 00:46+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -164,86 +164,108 @@ msgstr "Po ukončení hovoru automaticky obnoviť prehrávanie médií"
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:39
+#: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
 msgstr "Naplánovať vypnutie"
 
-#: runcommand/runcommand_config.cpp:40
+#: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
 msgstr "Vypnúť teraz"
 
-#: runcommand/runcommand_config.cpp:41
+#: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
 msgstr "Zrušiť posledné vypnutie"
 
-#: runcommand/runcommand_config.cpp:42
+#: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
 msgstr "Naplánovať reštart"
 
-#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
 msgstr "Uspať"
 
-#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
 msgstr "Uzamknutá obrazovka"
 
-#: runcommand/runcommand_config.cpp:47
+#: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
 msgstr "Povedz ahoj"
 
-#: runcommand/runcommand_config.cpp:50
+#: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
 msgstr "Vypnúť"
 
-#: runcommand/runcommand_config.cpp:51
+#: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
 msgstr "Reštartovať"
 
-#: runcommand/runcommand_config.cpp:55
+#: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
 msgstr "Maximálny jas"
 
-#: runcommand/runcommand_config.cpp:61
+#: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
 msgstr "Odomknúť obrazovku"
 
-#: runcommand/runcommand_config.cpp:62
+#: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
 msgstr "Zatvoriť všetky klenby"
 
-#: runcommand/runcommand_config.cpp:64
+#: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
 msgstr "Vynútiť uzavretie všetkých klenieb"
 
-#: runcommand/runcommand_config.cpp:73
+#: runcommand/runcommand_config.cpp:75
 #, kde-format
 msgid "Sample commands"
 msgstr "Vzorové príkazy"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Export"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:83
+#, kde-format
+msgid "Import"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
 msgstr "Názov"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
 msgstr "Príkaz"
+
+#: runcommand/runcommand_config.cpp:102
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Export Commands"
+msgstr "Príkaz"
+
+#: runcommand/runcommand_config.cpp:127
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Import Commands"
+msgstr "Vzorové príkazy"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format

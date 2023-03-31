@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:56+0000\n"
+"POT-Creation-Date: 2023-03-31 00:46+0000\n"
 "PO-Revision-Date: 2022-12-14 10:51+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -164,86 +164,108 @@ msgstr "საუბრის დასრულებისა მედიი�
 msgid "Ping!"
 msgstr "პინგ!"
 
-#: runcommand/runcommand_config.cpp:39
+#: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
 msgstr "გათიშვის დაგეგმვა"
 
-#: runcommand/runcommand_config.cpp:40
+#: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
 msgstr "ახლა გამორთვა"
 
-#: runcommand/runcommand_config.cpp:41
+#: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
 msgstr "ბოლო გამორთვის გაუქმება"
 
-#: runcommand/runcommand_config.cpp:42
+#: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
 msgstr "გადატვირთვის დაგეგმვა"
 
-#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
 msgstr "ძილი"
 
-#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
 msgstr "ეკრანის დაბლოკვა"
 
-#: runcommand/runcommand_config.cpp:47
+#: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
 msgstr "თქვი: \"გამარჯობა, კინო\""
 
-#: runcommand/runcommand_config.cpp:50
+#: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
 msgstr "გამორთვა"
 
-#: runcommand/runcommand_config.cpp:51
+#: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
 msgstr "გადატვირთვა"
 
-#: runcommand/runcommand_config.cpp:55
+#: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
 msgstr "მაქსიმალური სიკაშკაშე"
 
-#: runcommand/runcommand_config.cpp:61
+#: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
 msgstr "ეკრანის განბლოკვა"
 
-#: runcommand/runcommand_config.cpp:62
+#: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
 msgstr "ყველა საცავის დახურვა"
 
-#: runcommand/runcommand_config.cpp:64
+#: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
 msgstr "ყველა საცავის ძალით დახურვა"
 
-#: runcommand/runcommand_config.cpp:73
+#: runcommand/runcommand_config.cpp:75
 #, kde-format
 msgid "Sample commands"
 msgstr "სანიმუშო ბრძანებები"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Export"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:83
+#, kde-format
+msgid "Import"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
 msgstr "სახელი"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
 msgstr "ბრძანება"
+
+#: runcommand/runcommand_config.cpp:102
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Export Commands"
+msgstr "ბრძანება"
+
+#: runcommand/runcommand_config.cpp:127
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Import Commands"
+msgstr "სანიმუშო ბრძანებები"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format

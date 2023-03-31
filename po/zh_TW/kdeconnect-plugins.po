@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-17 00:56+0000\n"
+"POT-Creation-Date: 2023-03-31 00:46+0000\n"
 "PO-Revision-Date: 2023-01-22 00:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -167,86 +167,108 @@ msgstr "結束通話後自動繼續播放媒體"
 msgid "Ping!"
 msgstr "Ping!"
 
-#: runcommand/runcommand_config.cpp:39
+#: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
 msgstr "預約關機時間"
 
-#: runcommand/runcommand_config.cpp:40
+#: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
 msgstr "立刻關機"
 
-#: runcommand/runcommand_config.cpp:41
+#: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
 msgstr "取消最新的關機指令"
 
-#: runcommand/runcommand_config.cpp:42
+#: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
 msgstr "預約重新開機的時間"
 
-#: runcommand/runcommand_config.cpp:43 runcommand/runcommand_config.cpp:52
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
 msgstr "暫停"
 
-#: runcommand/runcommand_config.cpp:44 runcommand/runcommand_config.cpp:60
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
 msgstr "鎖定螢幕"
 
-#: runcommand/runcommand_config.cpp:47
+#: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
 msgstr "說嗨"
 
-#: runcommand/runcommand_config.cpp:50
+#: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
 msgstr "關機"
 
-#: runcommand/runcommand_config.cpp:51
+#: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
 msgstr "重新開機"
 
-#: runcommand/runcommand_config.cpp:55
+#: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
 msgstr "最大亮度"
 
-#: runcommand/runcommand_config.cpp:61
+#: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
 msgstr "解鎖螢幕"
 
-#: runcommand/runcommand_config.cpp:62
+#: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
 msgstr "關閉所有 Vaults"
 
-#: runcommand/runcommand_config.cpp:64
+#: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
 msgstr "強制關閉所有 Vaults"
 
-#: runcommand/runcommand_config.cpp:73
+#: runcommand/runcommand_config.cpp:75
 #, kde-format
 msgid "Sample commands"
 msgstr "範例指令"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Export"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:83
+#, kde-format
+msgid "Import"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Name"
 msgstr "名字"
 
-#: runcommand/runcommand_config.cpp:82
+#: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
 msgstr "指令"
+
+#: runcommand/runcommand_config.cpp:102
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Export Commands"
+msgstr "指令"
+
+#: runcommand/runcommand_config.cpp:127
+#, fuzzy, kde-format
+#| msgid "Sample commands"
+msgid "Import Commands"
+msgstr "範例指令"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
