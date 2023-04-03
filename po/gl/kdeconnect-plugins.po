@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 00:46+0000\n"
-"PO-Revision-Date: 2023-03-26 11:17+0200\n"
+"PO-Revision-Date: 2023-04-02 11:46+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -237,12 +237,12 @@ msgstr "Ordes de exemplo"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Exportar"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -256,16 +256,14 @@ msgid "Command"
 msgstr "Orde"
 
 #: runcommand/runcommand_config.cpp:102
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Orde"
+msgstr "Exportar ordes"
 
 #: runcommand/runcommand_config.cpp:127
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Ordes de exemplo"
+msgstr "Importar ordes"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
