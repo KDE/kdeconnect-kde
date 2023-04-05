@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Vít Pelčák <vit@pelcak.org>, 2014, 2015, 2016, 2018, 2019, 2020.
-# Vit Pelcak <vit@pelcak.org>, 2021, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 00:46+0000\n"
-"PO-Revision-Date: 2022-11-08 16:51+0100\n"
+"PO-Revision-Date: 2023-03-31 15:05+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -237,12 +237,12 @@ msgstr "Ukázkové příkazy"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Exportovat"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Importovat"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -256,16 +256,14 @@ msgid "Command"
 msgstr "Příkaz"
 
 #: runcommand/runcommand_config.cpp:102
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Příkaz"
+msgstr "Exportovat příkazy"
 
 #: runcommand/runcommand_config.cpp:127
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Ukázkové příkazy"
+msgstr "Importovat příkazy"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
