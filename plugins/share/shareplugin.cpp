@@ -10,6 +10,7 @@
 #include <QDateTime>
 #include <QDesktopServices>
 #include <QDir>
+#include <QMimeData>
 #include <QProcess>
 #include <QStandardPaths>
 #include <QTemporaryFile>
@@ -20,7 +21,9 @@
 #include <KIO/MkpathJob>
 #include <KJobTrackerInterface>
 #include <KLocalizedString>
+#include <KNotification>
 #include <KPluginFactory>
+#include <KSystemClipboard>
 
 #include "core/daemon.h"
 #include "core/filetransferjob.h"
@@ -146,27 +149,59 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
     } else if (np.has(QStringLiteral("text"))) {
         QString text = np.get<QString>(QStringLiteral("text"));
 
-        KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
-        const QString defaultApp = service ? service->desktopEntryName() : QString();
+        auto mimeData = new QMimeData;
+        mimeData->setText(text);
+        KSystemClipboard::instance()->setMimeData(mimeData, QClipboard::Clipboard);
 
-        if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
-            QProcess *proc = new QProcess();
-            connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
-            proc->start(defaultApp.section(QStringLiteral("."), 2, 2), QStringList(QStringLiteral("--stdin")));
-            proc->write(text.toUtf8());
-            proc->closeWriteChannel();
-        } else {
-            QTemporaryFile tmpFile;
-            tmpFile.setFileTemplate(QStringLiteral("kdeconnect-XXXXXX.txt"));
-            tmpFile.setAutoRemove(false);
-            tmpFile.open();
-            tmpFile.write(text.toUtf8());
-            tmpFile.close();
-
-            const QString fileName = tmpFile.fileName();
-            Q_EMIT shareReceived(fileName);
-            QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+        QUrl url;
+        QStringList lines = text.split(QStringLiteral("\n"), Qt::SkipEmptyParts);
+        if (lines.count()) {
+            url.setUrl(lines[lines.count() - 1].trimmed());
         }
+
+        KNotification *notif = new KNotification(QStringLiteral("textShareReceived"));
+        notif->setComponentName(QStringLiteral("kdeconnect"));
+        notif->setText(text);
+        notif->setTitle(i18nc("@info Some piece of text was received from a connected device", "Shared text from %1 copied to clipboard", device()->name()));
+        QStringList actions;
+        actions << i18nc("@action:button Edit text with default text editor", "Open in Text Editor");
+        if (url.isValid() && (url.scheme() == QStringLiteral("http") || url.scheme() == QStringLiteral("https"))) {
+            qDebug() << url;
+            actions << i18nc("@action:button Open URL with default app", "Open Link");
+        }
+        notif->setActions(actions);
+
+        connect(notif, &KNotification::action1Activated, this, [this, text]() {
+            KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
+            const QString defaultApp = service ? service->desktopEntryName() : QString();
+
+            if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
+                QProcess *proc = new QProcess();
+                connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
+                proc->start(defaultApp.section(QStringLiteral("."), 2, 2), QStringList(QStringLiteral("--stdin")));
+                proc->write(text.toUtf8());
+                proc->closeWriteChannel();
+            } else {
+                QTemporaryFile tmpFile;
+                tmpFile.setFileTemplate(QStringLiteral("kdeconnect-XXXXXX.txt"));
+                tmpFile.setAutoRemove(false);
+                tmpFile.open();
+                tmpFile.write(text.toUtf8());
+                tmpFile.close();
+
+                const QString fileName = tmpFile.fileName();
+                QDesktopServices::openUrl(QUrl::fromLocalFile(fileName));
+                Q_EMIT shareReceived(fileName);
+            }
+        });
+
+        connect(notif, &KNotification::action2Activated, this, [this, url]() {
+            QDesktopServices::openUrl(url);
+            Q_EMIT shareReceived(url.toString());
+        });
+
+        notif->sendEvent();
+
     } else if (np.has(QStringLiteral("url"))) {
         QUrl url = QUrl::fromEncoded(np.get<QByteArray>(QStringLiteral("url")));
         QDesktopServices::openUrl(url);

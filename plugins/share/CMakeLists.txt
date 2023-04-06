@@ -17,6 +17,7 @@ target_link_libraries(kdeconnect_share
     Qt::DBus
     KF5::Notifications
     KF5::I18n
+    KF5::GuiAddons
     KF5::KIOWidgets
     KF5::Service
 )

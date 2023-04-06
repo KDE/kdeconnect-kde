@@ -851,3 +851,9 @@ Comment[x-test]=xxRemote lock failedxx
 Comment[zh_CN]=远程锁定失败
 Comment[zh_TW]=無法鎖定遠端裝置
 Action=Popup
+
+[Event/textShareReceived]
+Name=Text Received
+Comment=Received some text
+Action=Popup
+Urgency=Low
