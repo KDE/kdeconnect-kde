@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Mincho Kondarev <mkondarev@yahoo.de>, 2022.
+# Mincho Kondarev <mkondarev@yahoo.de>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:46+0000\n"
-"PO-Revision-Date: 2022-10-19 12:08+0200\n"
+"POT-Creation-Date: 2023-04-07 00:46+0000\n"
+"PO-Revision-Date: 2023-04-06 18:13+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -236,12 +236,12 @@ msgstr "Пробни команди"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Експортиране"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Импортиране"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -255,16 +255,14 @@ msgid "Command"
 msgstr "Команда"
 
 #: runcommand/runcommand_config.cpp:102
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Команда"
+msgstr "Команда за експортиране"
 
 #: runcommand/runcommand_config.cpp:127
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Пробни команди"
+msgstr "Команда за импортиране"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
@@ -437,12 +435,30 @@ msgstr "Получаване"
 msgid "Save files in:"
 msgstr "Запазване на файлове като:"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:165
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr ""
+
+#: share/shareplugin.cpp:167
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr ""
+
+#: share/shareplugin.cpp:170
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr ""
+
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "Could not share file"
 msgstr "Файлът не можа да се сподели"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 не съществува"

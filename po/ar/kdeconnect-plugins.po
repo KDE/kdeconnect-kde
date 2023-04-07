@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015, ٢٠١٦.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:46+0000\n"
-"PO-Revision-Date: 2022-10-22 19:06+0400\n"
+"POT-Creation-Date: 2023-04-07 00:46+0000\n"
+"PO-Revision-Date: 2023-04-06 09:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -238,12 +238,12 @@ msgstr "أمثلة أوامر"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "صدّر"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "استورد"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -257,16 +257,14 @@ msgid "Command"
 msgstr "الأمر"
 
 #: runcommand/runcommand_config.cpp:102
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "الأمر"
+msgstr "صدر الأوامر"
 
 #: runcommand/runcommand_config.cpp:127
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "أمثلة أوامر"
+msgstr "استورد أوامر"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
@@ -435,12 +433,30 @@ msgstr "الاستقبال"
 msgid "Save files in:"
 msgstr "احفظ الملفّات في:"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:165
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr ""
+
+#: share/shareplugin.cpp:167
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr ""
+
+#: share/shareplugin.cpp:170
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr ""
+
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "Could not share file"
 msgstr "لا يمكن مشاركة الملف"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 غير موجود"

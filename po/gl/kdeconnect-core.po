@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-03-26 11:09+0200\n"
+"PO-Revision-Date: 2023-04-06 22:26+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -68,7 +68,7 @@ msgid ""
 "Connect."
 msgstr ""
 "O dispositivo non pode emparellarse porque está a executar unha version "
-"vella de KDE Connet."
+"vella de KDE Connect."
 
 #: compositefiletransferjob.cpp:46
 #, kde-format
@@ -138,7 +138,7 @@ msgid ""
 "you have them installed and try again."
 msgstr ""
 "Non se puido atopar compatibilidade con RSA na súa instalación de QCA. Se a "
-"súa distribución fornece paquetes por separado para QCA-ossl e QCA-gnugp, "
+"súa distribución fornece paquetes por separado para QCA-ossl e QCA-gnupg, "
 "asegúrese de que os ten instalados e inténteo de novo."
 
 #: kdeconnectconfig.cpp:313

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:46+0000\n"
+"POT-Creation-Date: 2023-04-07 00:46+0000\n"
 "PO-Revision-Date: 2017-05-16 06:48-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -436,12 +436,30 @@ msgstr "מקבל"
 msgid "Save files in:"
 msgstr "שמור קבצים ב:"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:165
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr ""
+
+#: share/shareplugin.cpp:167
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr ""
+
+#: share/shareplugin.cpp:170
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr ""
+
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "Could not share file"
 msgstr ""
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "%1 does not exist"
 msgstr ""

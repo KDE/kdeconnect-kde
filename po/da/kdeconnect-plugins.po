@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:46+0000\n"
+"POT-Creation-Date: 2023-04-07 00:46+0000\n"
 "PO-Revision-Date: 2020-07-21 18:28+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -439,12 +439,30 @@ msgstr "Modtager"
 msgid "Save files in:"
 msgstr "Gem filer i:"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:165
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr ""
+
+#: share/shareplugin.cpp:167
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr ""
+
+#: share/shareplugin.cpp:170
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr ""
+
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "Could not share file"
 msgstr "Kunne ikke dele fil"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 findes ikke"

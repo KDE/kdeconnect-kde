@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:46+0000\n"
+"POT-Creation-Date: 2023-04-07 00:46+0000\n"
 "PO-Revision-Date: 2023-04-02 11:46+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -440,12 +440,31 @@ msgstr "Recibindo"
 msgid "Save files in:"
 msgstr "Gardar os ficheiros en:"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:165
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr ""
+
+#: share/shareplugin.cpp:167
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr ""
+
+#: share/shareplugin.cpp:170
+#, fuzzy, kde-format
+#| msgid "Open"
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr "Abrir"
+
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "Could not share file"
 msgstr "Non se puido compartir o ficheiro"
 
-#: share/shareplugin.cpp:209
+#: share/shareplugin.cpp:244
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 non existe"
@@ -484,9 +503,6 @@ msgstr "Silenciar a chamada"
 
 #~ msgid "Transfer Finished"
 #~ msgstr "Rematou a transferencia"
-
-#~ msgid "Open"
-#~ msgstr "Abrir"
 
 #~ msgid "Error"
 #~ msgstr "Erro"
