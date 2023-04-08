@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-03-31 11:39+0200\n"
+"PO-Revision-Date: 2023-04-07 09:49+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -446,20 +446,19 @@ msgstr "Bestanden opslaan in:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Gedeelde tekst van %1 is gekopieerd naar het klembord"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "In tekstbewerker openen"
 
 #: share/shareplugin.cpp:170
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr "Openen"
+msgstr "Koppeling openen"
 
 #: share/shareplugin.cpp:244
 #, kde-format

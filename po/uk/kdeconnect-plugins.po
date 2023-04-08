@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-03-31 14:14+0300\n"
+"PO-Revision-Date: 2023-04-07 09:02+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -443,20 +443,19 @@ msgstr "Зберігати файли до:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Оприлюднений текст з %1 скопійовано до буфера"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Відкрити у текстовому редакторі"
 
 #: share/shareplugin.cpp:170
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr "Відкрити"
+msgstr "Відкрити посилання"
 
 #: share/shareplugin.cpp:244
 #, kde-format
