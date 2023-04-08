@@ -854,6 +854,18 @@ Action=Popup
 
 [Event/textShareReceived]
 Name=Text Received
+Name[ca]=Text rebut
+Name[nl]=Tekst ontvangen
+Name[sl]=Besedilo prejeto
+Name[tr]=Metin Alındı
+Name[uk]=Отримано текст
+Name[x-test]=xxText Receivedxx
 Comment=Received some text
+Comment[ca]=S'ha rebut text
+Comment[nl]=Enige tekst ontvangen
+Comment[sl]=Prejeto nekaj besedila
+Comment[tr]=Metin alındı
+Comment[uk]=Отримано якийсь текст
+Comment[x-test]=xxReceived some textxx
 Action=Popup
 Urgency=Low
