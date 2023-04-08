@@ -51,7 +51,7 @@
         "Icon": "tvtrusted",
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
-        "Name": "Bigscreen Voice Control",
+        "Name": "Bigscreen voice control",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
