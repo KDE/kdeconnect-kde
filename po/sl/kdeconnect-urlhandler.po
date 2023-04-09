@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2022-11-14 17:46+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -87,27 +87,27 @@ msgstr "Tu vnesite naslov URL"
 msgid "Enter file location here"
 msgstr "Tu vnesite lokacijo datoteke"
 
-#: kdeconnect-handler.cpp:130
+#: kdeconnect-handler.cpp:135
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Naprava za klic %1 z:"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:138
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Naprava za odpiranje %1 na:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:141
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Naprava za pošiljanje SMS z:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Naprava za pošiljanje %1 na:"
 
-#: kdeconnect-handler.cpp:168
+#: kdeconnect-handler.cpp:173
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Ni bilo mogoče deliti %1"

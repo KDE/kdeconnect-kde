@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2022-11-14 01:57+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -87,27 +87,27 @@ msgstr "Indique o URL aqui"
 msgid "Enter file location here"
 msgstr "Indique a localização do ficheiro aqui"
 
-#: kdeconnect-handler.cpp:130
+#: kdeconnect-handler.cpp:135
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Dispositivo onde ligar ao %1:"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:138
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Dispositivo onde abrir o %1:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:141
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Dispositivo com o qual enviar um SMS:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Dispositivo para onde enviar o %1:"
 
-#: kdeconnect-handler.cpp:168
+#: kdeconnect-handler.cpp:173
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Não foi possível partilhar o %1"

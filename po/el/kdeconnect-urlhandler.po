@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2021-06-19 07:57+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -87,27 +87,27 @@ msgstr "Εισαγωγή του URL εδώ"
 msgid "Enter file location here"
 msgstr "Εισαγωγή της θέσης του αρχείου εδώ"
 
-#: kdeconnect-handler.cpp:130
+#: kdeconnect-handler.cpp:135
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Συσκευή για κλήση %1 με:"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:138
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Συσκευή για άνοιγμα %1 στο:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:141
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Συσκευή για αποστολή SMS με:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Συσκευή για αποστολή %1 στο:"
 
-#: kdeconnect-handler.cpp:168
+#: kdeconnect-handler.cpp:173
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Αδυναμία διαμοιρασμού %1"

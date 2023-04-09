@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2023-01-22 00:52+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -88,27 +88,27 @@ msgstr "在此輸入網址"
 msgid "Enter file location here"
 msgstr "在此輸入檔案位址"
 
-#: kdeconnect-handler.cpp:130
+#: kdeconnect-handler.cpp:135
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "要撥打 %1 的裝置："
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:138
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "要開啟 %1 的裝置："
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:141
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "要傳送簡訊至哪個裝置："
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "要將 %1 傳送到的目標裝置："
 
-#: kdeconnect-handler.cpp:168
+#: kdeconnect-handler.cpp:173
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "無法分享 %1"
