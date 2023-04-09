@@ -1,13 +1,13 @@
 # <tomhioo@outlook.jp>, 2019.
-# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022.
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022, 2023.
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-08-10 15:52+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
+"PO-Revision-Date: 2023-04-07 23:39-0700\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
 msgid "%1% charging"
-msgstr "%1%充電中"
+msgstr "%1% 充電中"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -77,12 +77,12 @@ msgstr "ファイルを共有"
 #: package/contents/ui/DeviceDelegate.qml:178
 #, kde-format
 msgid "Save As"
-msgstr ""
+msgstr "名前をつけて保存"
 
 #: package/contents/ui/DeviceDelegate.qml:191
 #, kde-format
 msgid "Take a photo"
-msgstr ""
+msgstr "写真を撮る"
 
 #: package/contents/ui/DeviceDelegate.qml:206
 #, kde-format
@@ -127,18 +127,18 @@ msgstr "無視"
 #: package/contents/ui/DeviceDelegate.qml:344
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: package/contents/ui/DeviceDelegate.qml:357
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "%1に返信…"
 
 #: package/contents/ui/DeviceDelegate.qml:373
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "送信"
 
 #: package/contents/ui/DeviceDelegate.qml:397
 #, kde-format
