@@ -855,6 +855,8 @@ Action=Popup
 [Event/textShareReceived]
 Name=Text Received
 Name[ca]=Text rebut
+Name[en_GB]=Text Received
+Name[gl]=Recibiuse texto
 Name[nl]=Tekst ontvangen
 Name[sl]=Besedilo prejeto
 Name[tr]=Metin Alındı
@@ -862,6 +864,8 @@ Name[uk]=Отримано текст
 Name[x-test]=xxText Receivedxx
 Comment=Received some text
 Comment[ca]=S'ha rebut text
+Comment[en_GB]=Received some text
+Comment[gl]=Recibiuse un texto
 Comment[nl]=Enige tekst ontvangen
 Comment[sl]=Prejeto nekaj besedila
 Comment[tr]=Metin alındı

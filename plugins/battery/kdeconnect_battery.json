@@ -3,7 +3,15 @@
         "Authors": [
             {
                 "Email": "albertvaka@gmail.com",
-                "Name": "Albert Vaca Cintora"
+                "Name": "Albert Vaca Cintora",
+                "Name[ca]": "Albert Vaca Cintora",
+                "Name[en_GB]": "Albert Vaca Cintora",
+                "Name[ka]": "Albert Vaca Cintora",
+                "Name[nl]": "Albert Vaca Cintora",
+                "Name[sl]": "Albert Vaca Cintora",
+                "Name[tr]": "Albert Vaca Cintora",
+                "Name[uk]": "Albert Vaca Cintora",
+                "Name[x-test]": "xxAlbert Vaca Cintoraxx"
             }
         ],
         "Description": "Show your phone battery next to your computer battery",
