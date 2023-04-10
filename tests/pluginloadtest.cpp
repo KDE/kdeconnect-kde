@@ -5,7 +5,6 @@
  */
 
 #include <QCoreApplication>
-#include <QNetworkAccessManager>
 #include <QSignalSpy>
 #include <QSocketNotifier>
 #include <QStandardPaths>

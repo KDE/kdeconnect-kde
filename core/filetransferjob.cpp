@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <qalgorithms.h>
+#include <QNetworkAccessManager>
 
 #include <KLocalizedString>
 
