@@ -18,7 +18,6 @@ class TestDaemon : public Daemon
 public:
     TestDaemon(QObject *parent = nullptr)
         : Daemon(parent, true)
-        , m_nam(nullptr)
         , m_jobTrackerInterface(nullptr)
     {
         // Necessary to force the event loop to run because the test harness seems to behave differently
@@ -60,7 +59,6 @@ public:
     }
 
 private:
-    QNetworkAccessManager *m_nam;
     KJobTrackerInterface *m_jobTrackerInterface;
 };
 

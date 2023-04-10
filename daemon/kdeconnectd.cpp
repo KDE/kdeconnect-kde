@@ -9,7 +9,6 @@
 #include <QCommandLineParser>
 #include <QDBusMessage>
 #include <QIcon>
-#include <QNetworkAccessManager>
 #include <QProcess>
 #include <QSessionManager>
 #include <QStandardPaths>
@@ -17,7 +16,6 @@
 
 #include <KAboutData>
 #include <KDBusService>
-#include <KIO/AccessManager>
 #include <KLocalizedString>
 #include <KNotification>
 #include <KWindowSystem>
@@ -38,7 +36,6 @@ class DesktopDaemon : public Daemon
 public:
     DesktopDaemon(QObject *parent = nullptr)
         : Daemon(parent)
-        , m_nam(nullptr)
     {
         qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
     }
@@ -92,9 +89,6 @@ public:
     {
         QApplication::quit();
     }
-
-private:
-    QNetworkAccessManager *m_nam;
 };
 
 // Copied from plasma-workspace/libkworkspace/kworkspace.cpp
