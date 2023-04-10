@@ -19,6 +19,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <KWindowSystem>
+#include <KIO/Global>
 
 #include <dbushelper.h>
 

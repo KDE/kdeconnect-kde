@@ -128,7 +128,7 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
                 m_compositeJob = new CompositeFileTransferJob(device()->id());
                 m_compositeJob->setProperty("destUrl", destinationDir().toString());
                 m_compositeJob->setProperty("immediateProgressReporting", true);
-                KIO::getJobTracker()->registerJob(m_compositeJob);
+                Daemon::instance()->jobTracker()->registerJob(m_compositeJob);
             }
 
             FileTransferJob *job = np.createPayloadTransferJob(destination);

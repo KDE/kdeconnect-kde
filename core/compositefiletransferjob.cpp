@@ -6,7 +6,6 @@
 
 #include "compositefiletransferjob.h"
 #include "filetransferjob.h"
-#include <KJobTrackerInterface>
 #include <KLocalizedString>
 #include <core_debug.h>
 #include <daemon.h>
