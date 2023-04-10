@@ -47,8 +47,10 @@
             }
         ],
         "Description": "Send voice commands to your TV running Plasma Bigscreen",
+        "Description[ca@valencia]": "Envieu ordres de veu al TV executant Plasma Bigscreen",
         "Description[ca]": "Envieu ordres de veu al TV executant el Plasma Bigscreen",
         "Description[en_GB]": "Send voice commands to your TV running Plasma Bigscreen",
+        "Description[ia]": "Invia commandos de voce a tu TV executante  Bigscreen de Plasma",
         "Description[ka]": "გაუგზავნეთ თქვენს TV-ზე გაშვებულ Plasma Bigscreen-ს ხმოვანი ბრძანებები",
         "Description[nl]": "Stemcommando s naar uw TV zenden bij actief Plasma Bigscreen",
         "Description[sl]": "Pošljite glasovne ukaze vašemu televizorju, kjer teče Plasma Bigscreen",
@@ -60,6 +62,15 @@
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen voice control",
+        "Name[ca@valencia]": "Control de veu de Bigscreen",
+        "Name[ca]": "Control de veu de la Bigscreen",
+        "Name[ia]": "Controlo de voce de BigScreen",
+        "Name[ka]": "Bigscreen-ის ხმოვანი კონტროლი",
+        "Name[nl]": "Bigscreen stembesturing",
+        "Name[sl]": "Glasovni nadzor velikega zaslona",
+        "Name[tr]": "Büyük Ekran sesle denetim",
+        "Name[uk]": "Голосове керування Bigscreen",
+        "Name[x-test]": "xxBigscreen voice controlxx",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
