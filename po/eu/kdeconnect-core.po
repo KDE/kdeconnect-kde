@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2021-06-13 18:17+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -74,7 +74,7 @@ msgid ""
 msgstr ""
 "Gailu hau ezin da parekatu KDE Connect-en bertsio zahar bar darabilelako."
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:45
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -82,13 +82,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Fitxategia jasotzen"
 msgstr[1] "Fitxategiak jasotzen"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Sorburua"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -114,17 +114,17 @@ msgstr "Zure gailuaren ziurtagiriaren SHA256 hatz-marka hau da: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Urruneko gailuaren ziurtagiriaren SHA256 hatz-marka hau da: %1\n"
 
-#: filetransferjob.cpp:51
+#: filetransferjob.cpp:52
 #, kde-format
 msgid "Filename already present"
 msgstr "Fitxategi-izena badago aurretik"
 
-#: filetransferjob.cpp:100
+#: filetransferjob.cpp:101
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Osatu gabeko fitxategia jaso da: %1"
 
-#: filetransferjob.cpp:118
+#: filetransferjob.cpp:119
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Osatu gabeko fitxategia jaso da hemendik: %1"

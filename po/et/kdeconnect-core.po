@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -69,7 +69,7 @@ msgstr ""
 "Seadmega paardumine ei ole võimalik, sest seal töötab KDE Connecti vana "
 "versioon."
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:45
 #, fuzzy, kde-format
 #| msgid "Receiving file from %2"
 #| msgid_plural "Receiving %1 files from %2"
@@ -79,13 +79,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Saadi fail seadmest %2"
 msgstr[1] "Saadi %1 faili seadmest %2"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr ""
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -113,17 +113,17 @@ msgstr "Sinu seadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Kaugseadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 
-#: filetransferjob.cpp:51
+#: filetransferjob.cpp:52
 #, kde-format
 msgid "Filename already present"
 msgstr "Failinimi on juba olemas"
 
-#: filetransferjob.cpp:100
+#: filetransferjob.cpp:101
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Saadi ebatäielik fail: %1"
 
-#: filetransferjob.cpp:118
+#: filetransferjob.cpp:119
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Saadi ebatäielik fail seadmest %1"

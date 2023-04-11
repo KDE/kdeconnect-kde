@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2021-03-12 20:22+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 "Tätä laitetta ei voi yhdistää pariksi, koska se käyttää vanhaa versiota KDE "
 "Connectista."
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:45
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -78,13 +78,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Vastaanotetaan tiedostoa"
 msgstr[1] "Vastaanotetaan tiedostoja"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Lähde"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -110,17 +110,17 @@ msgstr "Laitteen varmenteen SHA256-sormenjälki on: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Etälaitteen varmenteen SHA256-sormenjälki on: %1\n"
 
-#: filetransferjob.cpp:51
+#: filetransferjob.cpp:52
 #, kde-format
 msgid "Filename already present"
 msgstr "Tiedostonimi on jo olemassa"
 
-#: filetransferjob.cpp:100
+#: filetransferjob.cpp:101
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Vastaanotettiin epätäydellinen tiedosto: %1"
 
-#: filetransferjob.cpp:118
+#: filetransferjob.cpp:119
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Vastaanotettiin epätäydellinen lähettäjältä: %1"

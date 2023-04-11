@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2021-03-07 13:34+0100\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 "Dieses Gerät kann nicht verbunden werden, da es mit einer alten Version von "
 "KDE Connect läuft."
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:45
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -74,13 +74,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Datei wird empfangen"
 msgstr[1] "Dateien werden empfangen"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Quelle"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -107,17 +107,17 @@ msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
 "Der SHA256-Fingerabdruck des Gerätezertifikats der Gegenstelle lautet: %1\n"
 
-#: filetransferjob.cpp:51
+#: filetransferjob.cpp:52
 #, kde-format
 msgid "Filename already present"
 msgstr "Der Dateiname ist bereits vorhanden"
 
-#: filetransferjob.cpp:100
+#: filetransferjob.cpp:101
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Unvollständige Datei erhalten: %1"
 
-#: filetransferjob.cpp:118
+#: filetransferjob.cpp:119
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Unvollständige Datei erhalten von: %1"

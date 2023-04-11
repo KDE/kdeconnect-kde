@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2021-02-01 11:51+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 "Dit apparaat kan niet gepaard worden omdat het een oude versie van KDE "
 "Connect gebruikt."
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:45
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -77,13 +77,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Bestand wordt ontvangen"
 msgstr[1] "Bestanden worden ontvangen"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Bron"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -111,17 +111,17 @@ msgstr ""
 "De SHA256 vingerafdruk van het certificaat van het apparaat op afstand is: "
 "%1\n"
 
-#: filetransferjob.cpp:51
+#: filetransferjob.cpp:52
 #, kde-format
 msgid "Filename already present"
 msgstr "Bestandsnaam reeds aanwezig"
 
-#: filetransferjob.cpp:100
+#: filetransferjob.cpp:101
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Onvolledig bestand ontvangen: %1"
 
-#: filetransferjob.cpp:118
+#: filetransferjob.cpp:119
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Onvolledig bestand ontvangen van: %1"

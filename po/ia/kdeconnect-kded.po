@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2022-07-14 23:04+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:52
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -36,37 +36,37 @@ msgstr ""
 "Requesta de association ab %1\n"
 "Clave: %2"
 
-#: kdeconnectd.cpp:55
+#: kdeconnectd.cpp:53
 #, kde-format
 msgid "Open"
 msgstr "Aperi"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Accepta"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Rejecta"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:54
 #, kde-format
 msgid "View key"
 msgstr "Vide clave"
 
-#: kdeconnectd.cpp:139 kdeconnectd.cpp:141
+#: kdeconnectd.cpp:126 kdeconnectd.cpp:128
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect Daemon"
 
-#: kdeconnectd.cpp:147
+#: kdeconnectd.cpp:134
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Reimplacia un instantia existente"
 
-#: kdeconnectd.cpp:150
+#: kdeconnectd.cpp:137
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-04-11 00:47+0000\n"
 "PO-Revision-Date: 2021-06-29 19:43+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 "இந்த சாதனம், கே.டீ.யீ. கனெக்டின் ஓர் பழைய பதிப்பை பயன்படுத்துவதால், அதனுடன் இணைய "
 "முடியாது."
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:45
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -77,13 +77,13 @@ msgid_plural "Receiving files"
 msgstr[0] "கோப்பை பெறுதல்"
 msgstr[1] "கோப்புகளை பெறுதல்"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "மூலம்"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -109,17 +109,17 @@ msgstr "உங்கள் சாதன சான்றிதழின் SHA256
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "தொலை சாதன சான்றிதழின் SHA256 கைரேகை: %1\n"
 
-#: filetransferjob.cpp:51
+#: filetransferjob.cpp:52
 #, kde-format
 msgid "Filename already present"
 msgstr "இப்பெயருள்ள கோப்பு ஏற்கனவே உள்ளது"
 
-#: filetransferjob.cpp:100
+#: filetransferjob.cpp:101
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "முடிவடையாத கோப்பு பெறப்பட்டது: %1"
 
-#: filetransferjob.cpp:118
+#: filetransferjob.cpp:119
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "இதிலிருந்து முடிவடையாத கோப்பு பெறப்பட்டது: %1"
