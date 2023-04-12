@@ -67,6 +67,7 @@
         "Name": "Bigscreen voice control",
         "Name[ca@valencia]": "Control de veu de Bigscreen",
         "Name[ca]": "Control de veu de la Bigscreen",
+        "Name[fr]": "Contrôle vocal pour Bigscreen",
         "Name[ia]": "Controlo de voce de BigScreen",
         "Name[ka]": "Bigscreen-ის ხმოვანი კონტროლი",
         "Name[nl]": "Bigscreen stembesturing",
@@ -85,10 +86,10 @@
         "kdeconnect.mousepad.request",
         "kdeconnect.bigscreen.stt"
     ],
-    "X-KdeConnect-SupportedPacketType": [
-        "kdeconnect.bigscreen.stt"
-    ],
     "X-KdeConnect-SupportedDeviceTypes": [
         "tv"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.bigscreen.stt"
     ]
 }
