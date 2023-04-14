@@ -859,6 +859,8 @@ Action=Popup
 
 [Event/textShareReceived]
 Name=Text Received
+Name[ar]=استُلمت نص
+Name[bg]=Текстът е приет
 Name[ca]=Text rebut
 Name[ca@valencia]=Text rebut
 Name[en_GB]=Text Received
@@ -875,6 +877,8 @@ Name[uk]=Отримано текст
 Name[x-test]=xxText Receivedxx
 Name[zh_CN]=收到文本
 Comment=Received some text
+Comment[ar]=وصل نص إلى الجهاز
+Comment[bg]=Получен е някакъв текст
 Comment[ca]=S'ha rebut text
 Comment[ca@valencia]=S'ha rebut text
 Comment[en_GB]=Received some text

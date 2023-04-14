@@ -47,6 +47,8 @@
             }
         ],
         "Description": "Send voice commands to your TV running Plasma Bigscreen",
+        "Description[ar]": "أرسل أوامر صوتية إلى تلفازك الذي يشغل بلازما الشاشة الكبيرة",
+        "Description[bg]": "Изпращане на гласови команди към телевизора с Bigscreen на Plasma",
         "Description[ca@valencia]": "Envieu ordres de veu al TV executant Plasma Bigscreen",
         "Description[ca]": "Envieu ordres de veu al TV executant el Plasma Bigscreen",
         "Description[en_GB]": "Send voice commands to your TV running Plasma Bigscreen",
@@ -65,6 +67,8 @@
         "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen voice control",
+        "Name[ar]": "التحكم الصوتي للشاشة الكبيرة",
+        "Name[bg]": "Bigscreen управление на гласа",
         "Name[ca@valencia]": "Control de veu de Bigscreen",
         "Name[ca]": "Control de veu de la Bigscreen",
         "Name[fr]": "Contrôle vocal pour Bigscreen",
