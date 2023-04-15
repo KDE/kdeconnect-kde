@@ -26,8 +26,8 @@ kdeconnect_add_plugin(kdeconnect_sftp SOURCES ${kdeconnect_sftp_SRCS} ${debug_fi
 target_link_libraries(kdeconnect_sftp
     kdeconnectcore
     Qt::DBus
-    KF5::I18n
-    KF5::KIOFileWidgets
-    KF5::KIOWidgets
-    KF5::Notifications
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KIOFileWidgets
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::Notifications
 )

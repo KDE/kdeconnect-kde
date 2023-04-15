@@ -43,7 +43,7 @@ add_executable(kdeconnect-indicator ${indicator_SRCS} ${debug_file_SRCS})
 
 target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions)
 
-target_link_libraries(kdeconnect-indicator Qt::Widgets KF5::CoreAddons KF5::I18n KF5::Notifications KF5::DBusAddons KF5::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
+target_link_libraries(kdeconnect-indicator Qt::Widgets KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::DBusAddons KF${QT_MAJOR_VERSION}::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
 
 if (WIN32)
     add_compile_definitions(QSYSTRAY)

@@ -12,5 +12,5 @@ target_link_libraries(kdeconnect_presenter
     kdeconnectcore
     Qt${QT_MAJOR_VERSION}::DBus
     Qt${QT_MAJOR_VERSION}::Quick
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::I18n
 )

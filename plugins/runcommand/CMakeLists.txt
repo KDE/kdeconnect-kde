@@ -15,8 +15,8 @@ kdeconnect_add_plugin(kdeconnect_runcommand SOURCES ${kdeconnect_runcommand_SRCS
 target_link_libraries(kdeconnect_runcommand
     kdeconnectcore
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::KCMUtils
-    KF5::I18n)
+    KF${QT_MAJOR_VERSION}::KCMUtils
+    KF${QT_MAJOR_VERSION}::I18n)
 
 #----------------------
 if(NOT SAILFISHOS)
@@ -24,9 +24,9 @@ if(NOT SAILFISHOS)
     target_link_libraries( kdeconnect_runcommand_config
         kdeconnectcore
         kdeconnectpluginkcm
-        KF5::I18n
-        KF5::CoreAddons
-        KF5::ConfigWidgets
+        KF${QT_MAJOR_VERSION}::I18n
+        KF${QT_MAJOR_VERSION}::CoreAddons
+        KF${QT_MAJOR_VERSION}::ConfigWidgets
 
     )
 endif()

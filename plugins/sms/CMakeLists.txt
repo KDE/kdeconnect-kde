@@ -24,7 +24,7 @@ target_link_libraries(kdeconnect_sms
     kdeconnectcore
     kdeconnectinterfaces
     Qt::DBus
-    KF5::I18n
-    KF5::Notifications
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::Notifications
     Qt::Widgets
 )

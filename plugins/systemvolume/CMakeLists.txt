@@ -39,6 +39,6 @@ else()
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore
         Qt::Core
-        KF5::PulseAudioQt
+        KF${QT_MAJOR_VERSION}::PulseAudioQt
     )
 endif()

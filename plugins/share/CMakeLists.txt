@@ -15,11 +15,11 @@ kdeconnect_add_plugin(kdeconnect_share SOURCES ${kdeconnect_share_SRCS})
 target_link_libraries(kdeconnect_share
     kdeconnectcore
     Qt::DBus
-    KF5::Notifications
-    KF5::I18n
-    KF5::GuiAddons
-    KF5::KIOWidgets
-    KF5::Service
+    KF${QT_MAJOR_VERSION}::Notifications
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::GuiAddons
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::Service
 )
 
 #######################################
@@ -30,9 +30,9 @@ kcoreaddons_add_plugin(kdeconnect_share_config SOURCES share_config.cpp INSTALL_
 ki18n_wrap_ui(kdeconnect_share_config share_config.ui)
 target_link_libraries( kdeconnect_share_config
     kdeconnectpluginkcm
-    KF5::I18n
-    KF5::CoreAddons
-    KF5::ConfigWidgets
-    KF5::KIOWidgets
-    KF5::Notifications
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::ConfigWidgets
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::Notifications
 )

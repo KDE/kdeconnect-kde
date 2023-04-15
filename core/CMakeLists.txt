@@ -58,16 +58,16 @@ target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt${QT_MAJOR_VERSION}::Network
-    KF5::CoreAddons
+    KF${QT_MAJOR_VERSION}::CoreAddons
     ${Qca_LIBRARY}
 PRIVATE
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::I18n
-    KF5::ConfigCore
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::ConfigCore
 )
 
 if(${KF5KIO_FOUND})
-    target_link_libraries(kdeconnectcore PUBLIC KF5::KIOCore KF5::KIOGui)
+    target_link_libraries(kdeconnectcore PUBLIC KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOGui)
 endif()
 
 if (BLUETOOTH_ENABLED)

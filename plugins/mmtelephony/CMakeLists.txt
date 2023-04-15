@@ -15,6 +15,6 @@ kdeconnect_add_plugin(kdeconnect_mmtelephony SOURCES ${kdeconnect_mmtelephony_SR
 target_link_libraries(kdeconnect_mmtelephony
     kdeconnectcore
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::ModemManagerQt
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::ModemManagerQt
+    KF${QT_MAJOR_VERSION}::I18n
 )
