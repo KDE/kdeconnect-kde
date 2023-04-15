@@ -18,8 +18,8 @@ target_link_libraries(kio_kdeconnect
     kdeconnectinterfaces
     Qt::Core
     Qt::Network
-    KF5::KIOCore
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::KIOCore
+    KF${QT_MAJOR_VERSION}::I18n
 )
 
 ########### install files ###############

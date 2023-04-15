@@ -18,10 +18,10 @@ kdeconnect_add_plugin(kdeconnect_sendnotifications SOURCES ${kdeconnect_sendnoti
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
     Qt::DBus
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::I18n
     Qt::Gui
-    KF5::IconThemes
-    KF5::ConfigCore
+    KF${QT_MAJOR_VERSION}::IconThemes
+    KF${QT_MAJOR_VERSION}::ConfigCore
     PkgConfig::GIO
 )
 
@@ -40,6 +40,6 @@ target_sources(kdeconnect_sendnotifications_config PRIVATE
 target_link_libraries( kdeconnect_sendnotifications_config
     kdeconnectcore
     kdeconnectpluginkcm
-    KF5::I18n
-    KF5::KCMUtils
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KCMUtils
 )

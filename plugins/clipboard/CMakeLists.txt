@@ -15,7 +15,7 @@ set(kdeconnect_clipboard_SRCS
 kdeconnect_add_plugin(kdeconnect_clipboard SOURCES ${kdeconnect_clipboard_SRCS})
 
 target_link_libraries(kdeconnect_clipboard kdeconnectcore
-                                    KF5::GuiAddons
+                                    KF${QT_MAJOR_VERSION}::GuiAddons
                                     Qt${QT_MAJOR_VERSION}::DBus
                                     ${kdeconnect_clipboard_WL_LINK_LIBS}
                                     )
@@ -27,6 +27,6 @@ target_sources(kdeconnect_clipboard_config PRIVATE clipboard_config.cpp ${debug_
 target_link_libraries( kdeconnect_clipboard_config
     kdeconnectcore
     kdeconnectpluginkcm
-    KF5::I18n
-    KF5::KCMUtils
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KCMUtils
 )

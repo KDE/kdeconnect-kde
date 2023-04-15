@@ -15,5 +15,5 @@ kdeconnect_add_plugin(kdeconnect_ping SOURCES ${kdeconnect_ping_SRCS})
 target_link_libraries(kdeconnect_ping
     kdeconnectcore
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::I18n
 )

@@ -30,12 +30,12 @@ target_link_libraries(kdeconnectsmshelper
     PUBLIC
     Qt::Core
     Qt::DBus
-    KF5::People
+    KF${QT_MAJOR_VERSION}::People
     Qt::Qml
     kdeconnectinterfaces
 )
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 add_executable(kdeconnect-sms
     main.cpp
@@ -55,11 +55,11 @@ target_link_libraries(kdeconnect-sms
     Qt::Quick
     Qt::QuickControls2
     Qt::Widgets
-    KF5::CoreAddons
-    KF5::DBusAddons
-    KF5::I18n
-    KF5::People
-    KF5::KCMUtils
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::DBusAddons
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::People
+    KF${QT_MAJOR_VERSION}::KCMUtils
     )
 
 install(TARGETS kdeconnect-sms ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

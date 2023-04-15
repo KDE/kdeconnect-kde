@@ -1,6 +1,6 @@
-qt5_add_resources(kdeconnect_SRCS resources.qrc)
+qt_add_resources(kdeconnect_SRCS resources.qrc)
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX KDE_CONNECT
@@ -29,7 +29,7 @@ add_executable(kdeconnect-app
     ${kdeconnect_SRCS}
     ${kdeconnect_custom_icons_SRCS}
 )
-target_link_libraries(kdeconnect-app Qt::Quick Qt::QuickControls2 Qt::Widgets KF5::CoreAddons KF5::I18n KF5::KCMUtils)
+target_link_libraries(kdeconnect-app Qt::Quick Qt::QuickControls2 Qt::Widgets KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::KCMUtils)
 
 install(TARGETS kdeconnect-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kdeconnect.app.desktop DESTINATION ${KDE_INSTALL_APPDIR})

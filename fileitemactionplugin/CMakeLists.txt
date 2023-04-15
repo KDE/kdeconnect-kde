@@ -10,8 +10,8 @@ ecm_qt_declare_logging_category(
 add_library(kdeconnectfileitemaction MODULE sendfileitemaction.cpp ${debug_file_SRCS})
 target_link_libraries(
     kdeconnectfileitemaction
-    KF5::KIOWidgets
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::I18n
     kdeconnectinterfaces
     kdeconnectcore
 )

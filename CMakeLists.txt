@@ -68,9 +68,9 @@ else()
 endif()
 
 if(UNIX AND NOT APPLE)
-    find_package(KF5Package REQUIRED)
+    find_package(KF${QT_MAJOR_VERSION}Package REQUIRED)
     if (WITH_PULSEAUDIO)
-        find_package(KF5PulseAudioQt)
+        find_package(KF${QT_MAJOR_VERSION}PulseAudioQt)
     endif()
     find_package(QtWaylandScanner REQUIRED)
     find_package(Wayland 1.9 REQUIRED Client)
@@ -96,7 +96,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Qu
 if (UNIX AND NOT APPLE AND QT_MAJOR_VERSION EQUAL "5")
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
 endif()
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
+find_package(KF${QT_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -111,8 +111,8 @@ add_subdirectory(core)
 add_subdirectory(plugins)
 add_subdirectory(interfaces)
 
-find_package(KF5QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
-set_package_properties(KF5QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
+find_package(KF${QT_MAJOR_VERSION}QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
+set_package_properties(KF${QT_MAJOR_VERSION}QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
 
 add_subdirectory(icons)
 add_subdirectory(data)

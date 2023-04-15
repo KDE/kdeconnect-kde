@@ -19,5 +19,5 @@ kdeconnect_add_plugin(kdeconnect_lockdevice SOURCES ${lockdevice_SRCS} ${debug_f
 target_link_libraries(kdeconnect_lockdevice
     kdeconnectcore
     Qt::DBus
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::I18n
 )

@@ -3,8 +3,8 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 set(kdeconnect_libraries
     kdeconnectcore
     kdeconnectversion
-    KF5::I18n
-    KF5::KIOWidgets
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KIOWidgets
     Qt::DBus
     Qt::Network
     Qt::Test

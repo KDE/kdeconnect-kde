@@ -62,18 +62,22 @@ target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt${QT_MAJOR_VERSION}::Network
-    KF5::CoreAddons
+    KF${QT_MAJOR_VERSION}::CoreAddons
     ${Qca_LIBRARY}
-    KF5::KIOCore
-    KF5::KIOGui
+    KF${QT_MAJOR_VERSION}::KIOCore
+    KF${QT_MAJOR_VERSION}::KIOGui
 PRIVATE
     Qt${QT_MAJOR_VERSION}::DBus
-    KF5::I18n
-    KF5::ConfigCore
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::ConfigCore
 )
 
 if(WIN32)
     target_link_libraries(kdeconnectcore PRIVATE ws2_32.lib) # winsock2
+endif()
+
+if(KF5KIO_FOUND OR KF6KIO_FOUND)
+    target_link_libraries(kdeconnectcore PUBLIC KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOGui)
 endif()
 
 if (BLUETOOTH_ENABLED)

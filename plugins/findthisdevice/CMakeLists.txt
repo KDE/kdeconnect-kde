@@ -22,7 +22,7 @@ target_link_libraries(kdeconnect_findthisdevice
 
 if (NOT WIN32)
     target_link_libraries(kdeconnect_findthisdevice
-        KF5::PulseAudioQt
+        KF${QT_MAJOR_VERSION}::PulseAudioQt
     )
 endif()
 
@@ -33,8 +33,8 @@ target_sources(kdeconnect_findthisdevice_config PRIVATE findthisdevice_config.cp
 target_link_libraries(kdeconnect_findthisdevice_config
     kdeconnectpluginkcm
     Qt::Multimedia
-    KF5::I18n
-    KF5::CoreAddons
-    KF5::ConfigWidgets
-    KF5::KIOWidgets     # KUrlRequester
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::ConfigWidgets
+    KF${QT_MAJOR_VERSION}::KIOWidgets     # KUrlRequester
 )

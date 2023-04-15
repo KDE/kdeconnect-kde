@@ -1,4 +1,4 @@
-qt5_add_resources(presenter_SRCS assets.qrc)
+qt_add_resources(presenter_SRCS assets.qrc)
 
 set(debug_file_SRCS)
 ecm_qt_declare_logging_category(
@@ -12,5 +12,5 @@ target_link_libraries(kdeconnect_presenter
     kdeconnectcore
     Qt${QT_MAJOR_VERSION}::DBus
     Qt${QT_MAJOR_VERSION}::Quick
-    KF5::I18n
+    KF${QT_MAJOR_VERSION}::I18n
 )

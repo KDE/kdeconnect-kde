@@ -7,16 +7,16 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 add_executable(kdeconnectd kdeconnectd.cpp ${kdeconnect_custom_icons_SRCS} ${debug_file_SRCS})
 target_link_libraries(kdeconnectd
     kdeconnectcore kdeconnectversion
-    KF5::KIOWidgets
-    KF5::DBusAddons
-    KF5::Notifications
-    KF5::I18n
-    KF5::WindowSystem
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::DBusAddons
+    KF${QT_MAJOR_VERSION}::Notifications
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::WindowSystem
     Qt::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)
