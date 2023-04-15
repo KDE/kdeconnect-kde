@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-03-31 15:05+0200\n"
+"PO-Revision-Date: 2023-04-11 18:07+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -439,19 +439,19 @@ msgstr "Uložit soubory v:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Sdílený text %1 byl zkopírován do schránky"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Otevřít v textovém editoru"
 
 #: share/shareplugin.cpp:170
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Otevřít odkaz"
 
 #: share/shareplugin.cpp:244
 #, kde-format
