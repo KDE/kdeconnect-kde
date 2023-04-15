@@ -66,7 +66,7 @@ PRIVATE
     KF${QT_MAJOR_VERSION}::ConfigCore
 )
 
-if(${KF5KIO_FOUND})
+if(KF5KIO_FOUND OR KF6KIO_FOUND)
     target_link_libraries(kdeconnectcore PUBLIC KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOGui)
 endif()
 

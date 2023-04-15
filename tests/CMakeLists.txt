@@ -9,7 +9,7 @@ set(kdeconnect_libraries
     Qt::Test
 )
 
-if(${KF5KIO_FOUND})
+if(KF5KIO_FOUND OR KF6KIO_FOUND)
     list(APPEND kdeconnect_libraries KF${QT_MAJOR_VERSION}::KIOWidgets)
 endif()
 
