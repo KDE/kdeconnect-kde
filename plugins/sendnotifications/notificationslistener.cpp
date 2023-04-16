@@ -35,7 +35,9 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
     : QObject(aPlugin)
     , m_plugin(aPlugin)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
+#endif
 
     GError *error = nullptr;
     m_gdbusConnection = g_bus_get_sync(G_BUS_TYPE_SESSION, nullptr, &error);
