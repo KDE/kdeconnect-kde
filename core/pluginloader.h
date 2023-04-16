@@ -25,6 +25,15 @@ public:
     static PluginLoader *instance();
 
     QStringList getPluginList() const;
+    QSet<QString> getPluginSet() const
+    {
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+        return getPluginList().toSet();
+#else
+        const QStringList pluginList = getPluginList();
+        return QSet(pluginList.begin(), pluginList.end());
+#endif
+    }
     KPluginMetaData getPluginInfo(const QString &name) const;
     KdeConnectPlugin *instantiatePluginForDevice(const QString &name, Device *device) const;
 

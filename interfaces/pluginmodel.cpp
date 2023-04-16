@@ -8,8 +8,11 @@
 
 #include <QDebug>
 
+#include "kcoreaddons_version.h"
 #include <KConfigGroup>
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
 #include <KPluginLoader>
+#endif
 
 PluginModel::PluginModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -18,7 +21,11 @@ PluginModel::PluginModel(QObject *parent)
     connect(this, &QAbstractItemModel::rowsRemoved, this, &PluginModel::rowsChanged);
 
     beginResetModel();
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 84, 0)
     m_plugins = KPluginLoader::findPlugins(QStringLiteral("kdeconnect/"));
+#else
+    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect/"));
+#endif
     endResetModel();
 }
 
