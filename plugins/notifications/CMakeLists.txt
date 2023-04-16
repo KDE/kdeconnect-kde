@@ -24,8 +24,10 @@ target_link_libraries(kdeconnect_notifications
     KF${QT_MAJOR_VERSION}::WindowSystem
 )
 
-if (UNIX AND NOT APPLE AND QT_MAJOR_VERSION EQUAL "5")
-    target_link_libraries(kdeconnect_notifications
-        Qt5::X11Extras
-    )
+if (UNIX AND NOT APPLE)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        target_link_libraries(kdeconnect_notifications Qt5::X11Extras)
+    else()
+        target_link_libraries(kdeconnect_notifications Qt6::GuiPrivate)
+    endif()
 endif()
