@@ -14,6 +14,7 @@
 #include <QJsonArray>
 #include <QProcess>
 #include <QScreen>
+#include <QStandardPaths>
 
 K_PLUGIN_CLASS_WITH_JSON(VirtualMonitorPlugin, "kdeconnect_virtualmonitor.json")
 #define QS QLatin1String
