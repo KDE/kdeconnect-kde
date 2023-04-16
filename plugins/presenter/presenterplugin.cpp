@@ -34,7 +34,9 @@ public:
         windowFlags |= Qt::WindowTransparentForInput;
 #endif
         setFlags(windowFlags);
+#if QT_VERSION_MAJOR < 6
         setClearBeforeRendering(true);
+#endif
         setColor(QColor(Qt::transparent));
 
         setResizeMode(QQuickView::SizeViewToRootObject);
