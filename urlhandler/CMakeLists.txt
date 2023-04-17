@@ -13,6 +13,7 @@ target_link_libraries(kdeconnect-handler
     kdeconnectversion
     Qt::Widgets
     KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::ConfigWidgets
     KF${QT_MAJOR_VERSION}::DBusAddons
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOFileWidgets KF${QT_MAJOR_VERSION}::KIOWidgets
