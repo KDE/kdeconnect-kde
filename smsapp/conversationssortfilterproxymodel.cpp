@@ -50,7 +50,7 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
     if (filterRole() == ConversationListModel::ConversationIdRole) {
         return sourceModel()->data(index, ConversationListModel::ConversationIdRole) != INVALID_THREAD_ID;
     } else {
-        if (sourceModel()->data(index, Qt::DisplayRole).toString().contains(filterRegExp())) {
+        if (sourceModel()->data(index, Qt::DisplayRole).toString().contains(filterRegularExpression())) {
             return true;
         }
 
@@ -58,7 +58,11 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
         const QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
         for (const ConversationAddress &address : addressList) {
             QString canonicalAddress = SmsHelper::canonicalizePhoneNumber(address.address());
+#if QT_VERSION_MAJOR < 6
             if (canonicalAddress.contains(filterRegExp())) {
+#else
+            if (canonicalAddress.contains(filterRegularExpression())) {
+#endif
                 return true;
             }
         }
