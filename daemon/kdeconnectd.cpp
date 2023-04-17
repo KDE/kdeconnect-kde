@@ -16,10 +16,10 @@
 
 #include <KAboutData>
 #include <KDBusService>
+#include <KIO/Global>
 #include <KLocalizedString>
 #include <KNotification>
 #include <KWindowSystem>
-#include <KIO/Global>
 
 #include <dbushelper.h>
 
@@ -61,7 +61,7 @@ public:
             oc.openConfiguration(deviceId);
         };
         connect(notification, &KNotification::action3Activated, openSettings);
-        connect(notification, QOverload<>::of(&KNotification::activated), openSettings);
+        connect(notification, QOverload<unsigned int>::of(&KNotification::activated), openSettings);
         notification->sendEvent();
     }
 
