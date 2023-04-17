@@ -70,21 +70,21 @@ RunCommandConfig::RunCommandConfig(QObject *parent, const QVariantList &args)
     QTableView *table = new QTableView(widget());
     table->horizontalHeader()->setStretchLastSection(true);
     table->verticalHeader()->setVisible(false);
-    QVBoxLayout *layout = new QVBoxLayout(widget());
-    layout->addWidget(table);
     QPushButton *button = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Sample commands"), widget());
     button->setMenu(defaultMenu);
-    layout->addWidget(button);
 
-    QHBoxLayout *importExportLayout = new QHBoxLayout(widget());
+    QHBoxLayout *importExportLayout = new QHBoxLayout();
     QPushButton *exportButton = new QPushButton(i18n("Export"), widget());
     importExportLayout->addWidget(exportButton);
     connect(exportButton, &QPushButton::clicked, this, &RunCommandConfig::exportCommands);
     QPushButton *importButton = new QPushButton(i18n("Import"), widget());
     importExportLayout->addWidget(importButton);
     connect(importButton, &QPushButton::clicked, this, &RunCommandConfig::importCommands);
-    layout->addLayout(importExportLayout);
 
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(table);
+    layout->addLayout(importExportLayout);
+    layout->addWidget(button);
     widget()->setLayout(layout);
 
     m_entriesModel = new QStandardItemModel(this);
