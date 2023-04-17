@@ -18,7 +18,7 @@ class PauseMusicConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    PauseMusicConfig(QWidget *parent, const QVariantList &);
+    PauseMusicConfig(QObject *parent, const QVariantList &);
     ~PauseMusicConfig() override;
 
 public Q_SLOTS:

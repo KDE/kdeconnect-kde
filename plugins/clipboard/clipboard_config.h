@@ -18,7 +18,7 @@ class ClipboardConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    ClipboardConfig(QWidget *parent, const QVariantList &);
+    ClipboardConfig(QObject *parent, const QVariantList &);
     ~ClipboardConfig() override;
 
 public Q_SLOTS:

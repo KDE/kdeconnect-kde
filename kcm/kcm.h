@@ -9,6 +9,7 @@
 
 #include <KCModule>
 #include <QStandardItemModel>
+#include <kconfigwidgets_version.h>
 
 #include <core/pairstate.h>
 
@@ -27,13 +28,18 @@ class KdeConnectKcm : public KCModule
 {
     Q_OBJECT
 public:
-    KdeConnectKcm(QWidget *parent, const QVariantList &);
+    KdeConnectKcm(QObject *parent, const QVariantList &);
     ~KdeConnectKcm() override;
+
+#if KCONFIGWIDGETS_VERSION < QT_VERSION_CHECK(5, 105, 0)
+    QWidget *widget()
+    {
+        return this;
+    }
+#endif
 
 private:
     void save() override;
-    QSize sizeHint() const override;
-    QSize minimumSizeHint() const override;
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex &current);

@@ -108,7 +108,7 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming
         if (!supportedDeviceTypes.isEmpty()) {
             if (!supportedDeviceTypes.contains(myDeviceType)) {
                 qCDebug(KDECONNECT_CORE) << "Not loading plugin" << service.pluginId() << "because this device of type" << myDeviceType
-                                         << "is not supported. Supports:" << supportedDeviceTypes.toList().join(QStringLiteral(", "));
+                                         << "is not supported. Supports:" << supportedDeviceTypes.join(QStringLiteral(", "));
                 continue;
             }
         }

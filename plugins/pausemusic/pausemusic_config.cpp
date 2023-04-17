@@ -11,11 +11,11 @@
 
 K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
 
-PauseMusicConfig::PauseMusicConfig(QWidget *parent, const QVariantList &args)
+PauseMusicConfig::PauseMusicConfig(QObject *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_pausemusic"))
     , m_ui(new Ui::PauseMusicConfigUi())
 {
-    m_ui->setupUi(this);
+    m_ui->setupUi(widget());
 
     connect(m_ui->rad_ringing, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->rad_talking, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -37,7 +37,7 @@ void PauseMusicConfig::defaults()
     m_ui->check_pause->setChecked(true);
     m_ui->check_mute->setChecked(false);
     m_ui->check_resume->setChecked(true);
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void PauseMusicConfig::load()
@@ -54,8 +54,6 @@ void PauseMusicConfig::load()
 
     const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
     m_ui->check_resume->setChecked(autoResume);
-
-    Q_EMIT changed(false);
 }
 
 void PauseMusicConfig::save()
@@ -65,7 +63,6 @@ void PauseMusicConfig::save()
     config()->set(QStringLiteral("actionMute"), m_ui->check_mute->isChecked());
     config()->set(QStringLiteral("actionResume"), m_ui->check_resume->isChecked());
     KCModule::save();
-    Q_EMIT changed(false);
 }
 
 #include "pausemusic_config.moc"

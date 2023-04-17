@@ -17,11 +17,11 @@
 
 K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfig>();)
 
-FindThisDeviceConfig::FindThisDeviceConfig(QWidget *parent, const QVariantList &args)
+FindThisDeviceConfig::FindThisDeviceConfig(QObject *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_findthisdevice"))
     , m_ui(new Ui::FindThisDeviceConfigUi())
 {
-    m_ui->setupUi(this);
+    m_ui->setupUi(widget());
 
     const QStringList soundDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("sounds"), QStandardPaths::LocateDirectory);
     if (!soundDirs.isEmpty()) {
@@ -42,8 +42,7 @@ void FindThisDeviceConfig::defaults()
     KCModule::defaults();
 
     m_ui->soundFileRequester->setText(defaultSound());
-
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void FindThisDeviceConfig::load()
@@ -52,8 +51,6 @@ void FindThisDeviceConfig::load()
 
     const QString ringTone = config()->getString(QStringLiteral("ringtone"), defaultSound());
     m_ui->soundFileRequester->setText(ringTone);
-
-    Q_EMIT changed(false);
 }
 
 void FindThisDeviceConfig::save()
@@ -61,8 +58,6 @@ void FindThisDeviceConfig::save()
     config()->set(QStringLiteral("ringtone"), m_ui->soundFileRequester->text());
 
     KCModule::save();
-
-    Q_EMIT changed(false);
 }
 
 void FindThisDeviceConfig::playSound()

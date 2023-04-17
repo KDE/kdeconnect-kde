@@ -4,12 +4,12 @@ add_library(kdeconnectpluginkcm kdeconnectpluginkcm.cpp)
 target_link_libraries(kdeconnectpluginkcm
 PUBLIC
     kdeconnectcore
+    KF${QT_MAJOR_VERSION}::KCMUtils
 PRIVATE
     Qt::DBus
     Qt::Gui
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::ConfigCore
-    KF${QT_MAJOR_VERSION}::KCMUtils
 )
 
 set_target_properties(kdeconnectpluginkcm PROPERTIES

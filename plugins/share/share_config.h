@@ -18,7 +18,7 @@ class ShareConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    ShareConfig(QWidget *parent, const QVariantList &);
+    ShareConfig(QObject *parent, const QVariantList &);
     ~ShareConfig() override;
 
 public Q_SLOTS:

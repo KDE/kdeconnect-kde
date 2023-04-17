@@ -11,11 +11,11 @@
 
 K_PLUGIN_FACTORY(ClipboardConfigFactory, registerPlugin<ClipboardConfig>();)
 
-ClipboardConfig::ClipboardConfig(QWidget *parent, const QVariantList &args)
+ClipboardConfig::ClipboardConfig(QObject *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_clipboard"))
     , m_ui(new Ui::ClipboardConfigUi())
 {
-    m_ui->setupUi(this);
+    m_ui->setupUi(widget());
 
     connect(m_ui->check_autoshare, SIGNAL(toggled(bool)), this, SLOT(autoShareChanged()));
     connect(m_ui->check_password, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -29,7 +29,7 @@ ClipboardConfig::~ClipboardConfig()
 void ClipboardConfig::autoShareChanged()
 {
     m_ui->check_password->setEnabled(m_ui->check_autoshare->isChecked());
-    Q_EMIT changed();
+    markAsChanged();
 }
 
 void ClipboardConfig::defaults()
@@ -37,7 +37,7 @@ void ClipboardConfig::defaults()
     KCModule::defaults();
     m_ui->check_autoshare->setChecked(true);
     m_ui->check_password->setChecked(true);
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void ClipboardConfig::load()
@@ -56,7 +56,6 @@ void ClipboardConfig::save()
     config()->set(QStringLiteral("autoShare"), m_ui->check_autoshare->isChecked());
     config()->set(QStringLiteral("sendPassword"), m_ui->check_password->isChecked());
     KCModule::save();
-    Q_EMIT changed(false);
 }
 
 #include "clipboard_config.moc"
