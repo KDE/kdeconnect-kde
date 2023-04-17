@@ -22,7 +22,13 @@ KdeConnectPlugin::KdeConnectPlugin(QObject *parent, const QVariantList &args)
 {
     d->m_device = qvariant_cast<Device *>(args.at(0));
     d->m_pluginName = args.at(1).toString();
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+    const QStringList cap = args.at(2).toStringList();
+    d->m_outgoingCapabilties = QSet(cap.begin(), cap.end());
+#else
     d->m_outgoingCapabilties = args.at(2).toStringList().toSet();
+#endif
     d->m_config = nullptr;
     d->iconName = args.at(3).toString();
 }
