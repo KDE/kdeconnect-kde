@@ -13,14 +13,16 @@
 
 K_PLUGIN_FACTORY(SendNotificationsConfigFactory, registerPlugin<SendNotificationsConfig>();)
 
-SendNotificationsConfig::SendNotificationsConfig(QWidget *parent, const QVariantList &args)
+SendNotificationsConfig::SendNotificationsConfig(QObject *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_sendnotifications"))
     , m_ui(new Ui::SendNotificationsConfigUi())
     , appModel(new NotifyingApplicationModel)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
+#endif
 
-    m_ui->setupUi(this);
+    m_ui->setupUi(widget());
     m_ui->appList->setIconSize(QSize(32, 32));
 
     m_ui->appList->setModel(appModel);
@@ -55,7 +57,7 @@ void SendNotificationsConfig::defaults()
     m_ui->spin_urgency->setValue(0);
     m_ui->check_body->setChecked(true);
     m_ui->check_icons->setChecked(true);
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void SendNotificationsConfig::loadApplications()
@@ -83,11 +85,11 @@ void SendNotificationsConfig::load()
     m_ui->spin_urgency->setValue(urgency);
 
     loadApplications();
-    Q_EMIT changed(false);
 }
 
 void SendNotificationsConfig::save()
 {
+    KCModule::save();
     config()->set(QStringLiteral("generalPersistent"), m_ui->check_persistent->isChecked());
     config()->set(QStringLiteral("generalIncludeBody"), m_ui->check_body->isChecked());
     config()->set(QStringLiteral("generalSynchronizeIcons"), m_ui->check_icons->isChecked());
@@ -100,8 +102,6 @@ void SendNotificationsConfig::save()
         list.append(QVariant::fromValue<NotifyingApplication>(a));
     }
     config()->setList(QStringLiteral("applications"), list);
-    KCModule::save();
-    Q_EMIT changed(false);
 }
 
 #include "sendnotifications_config.moc"

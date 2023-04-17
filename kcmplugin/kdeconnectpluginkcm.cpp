@@ -15,7 +15,7 @@ struct KdeConnectPluginKcmPrivate {
     KdeConnectPluginConfig *m_config = nullptr;
 };
 
-KdeConnectPluginKcm::KdeConnectPluginKcm(QWidget *parent, const QVariantList &args, const QString &pluginName)
+KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const QVariantList &args, const QString &pluginName)
     : KCModule(parent, args)
     , d(new KdeConnectPluginKcmPrivate())
 {

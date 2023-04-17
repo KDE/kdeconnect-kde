@@ -23,7 +23,7 @@ class KDECONNECTPLUGINKCM_EXPORT KdeConnectPluginKcm : public KCModule
     Q_OBJECT
 
 public:
-    KdeConnectPluginKcm(QWidget *parent, const QVariantList &args, const QString &componentName);
+    KdeConnectPluginKcm(QObject *parent, const QVariantList &args, const QString &componentName);
     ~KdeConnectPluginKcm() override;
 
     /**

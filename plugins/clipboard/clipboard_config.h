@@ -9,16 +9,16 @@
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
-namespace Ui {
-    class ClipboardConfigUi;
+namespace Ui
+{
+class ClipboardConfigUi;
 }
 
-class ClipboardConfig
-    : public KdeConnectPluginKcm
+class ClipboardConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    ClipboardConfig(QWidget *parent, const QVariantList&);
+    ClipboardConfig(QObject *parent, const QVariantList &);
     ~ClipboardConfig() override;
 
 public Q_SLOTS:
@@ -28,7 +28,6 @@ public Q_SLOTS:
 
 private:
     Ui::ClipboardConfigUi *m_ui;
-
 };
 
 #endif

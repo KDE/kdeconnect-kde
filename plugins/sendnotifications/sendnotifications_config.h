@@ -20,7 +20,7 @@ class SendNotificationsConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    SendNotificationsConfig(QWidget *parent, const QVariantList &);
+    SendNotificationsConfig(QObject *parent, const QVariantList &);
     ~SendNotificationsConfig() override;
 
 public Q_SLOTS:

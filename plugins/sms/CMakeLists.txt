@@ -28,3 +28,8 @@ target_link_libraries(kdeconnect_sms
     KF${QT_MAJOR_VERSION}::Notifications
     Qt::Widgets
 )
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
+    target_link_libraries(kdeconnect_sms Qt::Core5Compat) # for QTextCodec
+endif()

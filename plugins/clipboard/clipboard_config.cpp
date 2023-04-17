@@ -11,11 +11,11 @@
 
 K_PLUGIN_FACTORY(ClipboardConfigFactory, registerPlugin<ClipboardConfig>();)
 
-ClipboardConfig::ClipboardConfig(QWidget* parent, const QVariantList &args)
+ClipboardConfig::ClipboardConfig(QObject *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_clipboard"))
     , m_ui(new Ui::ClipboardConfigUi())
 {
-    m_ui->setupUi(this);
+    m_ui->setupUi(widget());
 
     connect(m_ui->check_unknown, SIGNAL(toggled(bool)), this, SLOT(changed()));
     connect(m_ui->check_password, SIGNAL(toggled(bool)), this, SLOT(changed()));
@@ -31,7 +31,7 @@ void ClipboardConfig::defaults()
     KCModule::defaults();
     m_ui->check_unknown->setChecked(true);
     m_ui->check_password->setChecked(true);
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void ClipboardConfig::load()
@@ -41,8 +41,6 @@ void ClipboardConfig::load()
     bool password = config()->getBool(QStringLiteral("sendPassword"), true);
     m_ui->check_unknown->setChecked(unknown);
     m_ui->check_password->setChecked(password);
-
-    Q_EMIT changed(false);
 }
 
 void ClipboardConfig::save()
@@ -50,7 +48,6 @@ void ClipboardConfig::save()
     config()->set(QStringLiteral("sendUnknown"), m_ui->check_unknown->isChecked());
     config()->set(QStringLiteral("sendPassword"), m_ui->check_password->isChecked());
     KCModule::save();
-    Q_EMIT changed(false);
 }
 
 #include "clipboard_config.moc"

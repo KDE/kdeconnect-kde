@@ -7,11 +7,11 @@
 #include "runcommand_config.h"
 
 #include <QDebug>
+#include <QFileDialog>
 #include <QHBoxLayout>
 #include <QHeaderView>
-#include <QJsonDocument>
 #include <QJsonArray>
-#include <QFileDialog>
+#include <QJsonDocument>
 #include <QMenu>
 #include <QPushButton>
 #include <QStandardItemModel>
@@ -26,7 +26,7 @@
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
 
-RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
+RunCommandConfig::RunCommandConfig(QObject *parent, const QVariantList &args)
     : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_runcommand"))
 {
     // The qdbus executable name is different on some systems
@@ -35,7 +35,7 @@ RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
         qdbusExe = QStringLiteral("qdbus");
     }
 
-    QMenu *defaultMenu = new QMenu(this);
+    QMenu *defaultMenu = new QMenu(widget());
 
 #ifdef Q_OS_WIN
     addSuggestedCommand(defaultMenu, i18n("Schedule a shutdown"), QStringLiteral("shutdown /s /t 60"));
@@ -67,25 +67,25 @@ RunCommandConfig::RunCommandConfig(QWidget *parent, const QVariantList &args)
                         QStringLiteral("%0 org.kde.kded5 /modules/plasmavault forceCloseAllVaults").arg(qdbusExe));
 #endif
 
-    QTableView *table = new QTableView(this);
+    QTableView *table = new QTableView(widget());
     table->horizontalHeader()->setStretchLastSection(true);
     table->verticalHeader()->setVisible(false);
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(widget());
     layout->addWidget(table);
-    QPushButton *button = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Sample commands"), this);
+    QPushButton *button = new QPushButton(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Sample commands"), widget());
     button->setMenu(defaultMenu);
     layout->addWidget(button);
 
-    QHBoxLayout *importExportLayout = new QHBoxLayout(this);
-    QPushButton *exportButton = new QPushButton(i18n("Export"), this);
+    QHBoxLayout *importExportLayout = new QHBoxLayout(widget());
+    QPushButton *exportButton = new QPushButton(i18n("Export"), widget());
     importExportLayout->addWidget(exportButton);
     connect(exportButton, &QPushButton::clicked, this, &RunCommandConfig::exportCommands);
-    QPushButton *importButton = new QPushButton(i18n("Import"), this);
+    QPushButton *importButton = new QPushButton(i18n("Import"), widget());
     importExportLayout->addWidget(importButton);
     connect(importButton, &QPushButton::clicked, this, &RunCommandConfig::importCommands);
     layout->addLayout(importExportLayout);
 
-    setLayout(layout);
+    widget()->setLayout(layout);
 
     m_entriesModel = new QStandardItemModel(this);
     table->setModel(m_entriesModel);
@@ -99,7 +99,7 @@ RunCommandConfig::~RunCommandConfig()
 
 void RunCommandConfig::exportCommands()
 {
-    QString filePath = QFileDialog::getSaveFileName(this, i18n("Export Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));
+    QString filePath = QFileDialog::getSaveFileName(widget(), i18n("Export Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));
     if (filePath.isEmpty())
         return;
 
@@ -124,7 +124,7 @@ void RunCommandConfig::exportCommands()
 
 void RunCommandConfig::importCommands()
 {
-    QString filePath = QFileDialog::getOpenFileName(this, i18n("Import Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));
+    QString filePath = QFileDialog::getOpenFileName(widget(), i18n("Import Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));
     if (filePath.isEmpty())
         return;
 
@@ -155,7 +155,7 @@ void RunCommandConfig::importCommands()
         insertRow(m_entriesModel->rowCount(), name, command);
     }
 
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void RunCommandConfig::addSuggestedCommand(QMenu *menu, const QString &name, const QString &command)
@@ -163,7 +163,7 @@ void RunCommandConfig::addSuggestedCommand(QMenu *menu, const QString &name, con
     auto action = new QAction(name);
     connect(action, &QAction::triggered, action, [this, name, command]() {
         insertRow(0, name, command);
-        Q_EMIT changed(true);
+        markAsChanged();
     });
     menu->addAction(action);
 }
@@ -173,7 +173,7 @@ void RunCommandConfig::defaults()
     KCModule::defaults();
     m_entriesModel->removeRows(0, m_entriesModel->rowCount());
 
-    Q_EMIT changed(true);
+    markAsChanged();
 }
 
 void RunCommandConfig::load()
@@ -201,12 +201,11 @@ void RunCommandConfig::load()
 
     insertEmptyRow();
     connect(m_entriesModel, &QAbstractItemModel::dataChanged, this, &RunCommandConfig::onDataChanged);
-
-    Q_EMIT changed(false);
 }
 
 void RunCommandConfig::save()
 {
+    KCModule::save();
     QJsonObject jsonConfig;
     for (int i = 0; i < m_entriesModel->rowCount(); i++) {
         QString key = m_entriesModel->item(i, 0)->data().toString();
@@ -229,10 +228,6 @@ void RunCommandConfig::save()
     QJsonDocument document;
     document.setObject(jsonConfig);
     config()->set(QStringLiteral("commands"), document.toJson(QJsonDocument::Compact));
-
-    KCModule::save();
-
-    Q_EMIT changed(false);
 }
 
 void RunCommandConfig::insertEmptyRow()
@@ -252,7 +247,7 @@ void RunCommandConfig::insertRow(int i, const QString &name, const QString &comm
 
 void RunCommandConfig::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
 {
-    Q_EMIT changed(true);
+    markAsChanged();
     Q_UNUSED(topLeft);
     if (bottomRight.row() == m_entriesModel->rowCount() - 1) {
         // TODO check both entries are still empty

@@ -124,7 +124,13 @@ bool SftpPlugin::startBrowsing()
 
 bool SftpPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (!(fields_c - np.body().keys().toSet()).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+    const auto keys = np.body().keys().toSet();
+#else
+    const QStringList keysList = np.body().keys();
+    const auto keys = QSet(keysList.begin(), keysList.end());
+#endif
+    if (!(fields_c - keys).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
         // packet is invalid
         return false;
     }

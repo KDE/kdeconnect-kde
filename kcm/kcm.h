@@ -25,13 +25,11 @@ class KdeConnectKcm : public KCModule
 {
     Q_OBJECT
 public:
-    KdeConnectKcm(QWidget *parent, const QVariantList &);
+    KdeConnectKcm(QObject *parent, const QVariantList &);
     ~KdeConnectKcm() override;
 
 private:
     void save() override;
-    QSize sizeHint() const override;
-    QSize minimumSizeHint() const override;
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex &current);

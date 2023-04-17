@@ -27,32 +27,19 @@ static QString createId()
     return QStringLiteral("kcm") + QString::number(QCoreApplication::applicationPid());
 }
 
-KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList &args)
+KdeConnectKcm::KdeConnectKcm(QObject *parent, const QVariantList &args)
     : KCModule(parent)
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
     , currentDevice(nullptr)
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kdeconnect-kcm"),
-                                       i18n("KDE Connect Settings"),
-                                       QStringLiteral(KDECONNECT_VERSION_STRING),
-                                       i18n("KDE Connect Settings module"),
-                                       KAboutLicense::KAboutLicense::GPL_V2,
-                                       i18n("(C) 2015 Albert Vaca Cintora"),
-                                       QString(),
-                                       QStringLiteral("https://community.kde.org/KDEConnect"));
-    about->addAuthor(i18n("Albert Vaca Cintora"));
-    about->setProgramLogo(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
-
-    setAboutData(about);
-
 #ifdef Q_OS_WIN
     KColorSchemeManager manager;
     QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 
-    kcmUi->setupUi(this);
+    kcmUi->setupUi(widget());
 
     sortProxyModel = new DevicesSortProxyModel(devicesModel);
 
@@ -95,8 +82,6 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList &args)
 
     daemon->acquireDiscoveryMode(createId());
 
-#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
-
     if (!args.isEmpty() && args.first().type() == QVariant::String) {
         const QString input = args.first().toString();
         const auto colonIdx = input.indexOf(QLatin1Char(':'));
@@ -115,8 +100,6 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList &args)
             disconnect(devicesModel, &DevicesModel::rowsInserted, this, nullptr);
         });
     }
-
-#endif
 }
 
 void KdeConnectKcm::renameShow()
@@ -251,7 +234,7 @@ void KdeConnectKcm::resetDeviceView()
 
     KSharedConfigPtr deviceConfig = KSharedConfig::openConfig(currentDevice->pluginsConfigFile());
     kcmUi->pluginSelector->clear();
-    kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
+    kcmUi->pluginSelector->setConfigurationArguments({currentDevice->id()});
     kcmUi->pluginSelector->addPlugins(availablePluginInfo, i18n("Available plugins"));
     kcmUi->pluginSelector->setConfig(deviceConfig->group("Plugins"));
     connect(kcmUi->pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
@@ -360,16 +343,6 @@ void KdeConnectKcm::sendPing()
     if (!currentDevice)
         return;
     currentDevice->pluginCall(QStringLiteral("ping"), QStringLiteral("sendPing"));
-}
-
-QSize KdeConnectKcm::sizeHint() const
-{
-    return QSize(890, 550); // Golden ratio :D
-}
-
-QSize KdeConnectKcm::minimumSizeHint() const
-{
-    return QSize(500, 300);
 }
 
 #include "kcm.moc"
