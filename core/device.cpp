@@ -62,7 +62,8 @@ Device::Device(QObject *parent, const QString &id)
     d = new Device::DevicePrivate(info);
 
     d->m_pairingHandler = new PairingHandler(this, PairState::Paired);
-    d->m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet(); // Assume every plugin is supported until we get the capabilities
+    const auto supported = PluginLoader::instance()->getPluginList();
+    d->m_supportedPlugins = QSet(supported.begin(), supported.end()); // Assume every plugin is supported until we get the capabilities
 
     // Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -79,7 +80,8 @@ Device::Device(QObject *parent, DeviceLink *dl)
     d = new Device::DevicePrivate(dl->deviceInfo());
 
     d->m_pairingHandler = new PairingHandler(this, PairState::NotPaired);
-    d->m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet(); // Assume every plugin is supported until we get the capabilities
+    const auto supported = PluginLoader::instance()->getPluginList();
+    d->m_supportedPlugins = QSet(supported.begin(), supported.end()); // Assume every plugin is supported until we get the capabilities
 
     addLink(dl);
 
@@ -133,7 +135,7 @@ int Device::protocolVersion()
 
 QStringList Device::supportedPlugins() const
 {
-    return d->m_supportedPlugins.toList();
+    return QList(d->m_supportedPlugins.cbegin(), d->m_supportedPlugins.cend());
 }
 
 bool Device::hasPlugin(const QString &name) const
@@ -161,8 +163,7 @@ void Device::reloadPlugins()
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
 
             const bool pluginEnabled = isPluginEnabled(pluginName);
-            const QSet<QString> incomingCapabilities =
-                KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedPacketType")).toSet();
+            const QStringList incomingCapabilities = service.rawData().value(QStringLiteral("X-KdeConnect-SupportedPacketType")).toVariant().toStringList();
 
             if (pluginEnabled) {
                 KdeConnectPlugin *plugin = d->m_plugins.take(pluginName);

@@ -133,13 +133,15 @@ QSslCertificate KdeConnectConfig::certificate()
 
 DeviceInfo KdeConnectConfig::deviceInfo()
 {
+    const auto incoming = PluginLoader::instance()->incomingCapabilities();
+    const auto outgoing = PluginLoader::instance()->outgoingCapabilities();
     return DeviceInfo(deviceId(),
                       certificate(),
                       name(),
                       deviceType(),
                       NetworkPacket::s_protocolVersion,
-                      PluginLoader::instance()->incomingCapabilities().toSet(),
-                      PluginLoader::instance()->outgoingCapabilities().toSet());
+                      QSet(incoming.begin(), incoming.end()),
+                      QSet(outgoing.begin(), outgoing.end()));
 }
 
 QDir KdeConnectConfig::baseConfigDir()
