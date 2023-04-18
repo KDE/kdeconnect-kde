@@ -59,7 +59,13 @@ geninterface(${PROJECT_SOURCE_DIR}/plugins/bigscreen/bigscreenplugin.h bigscreen
 geninterface(${PROJECT_SOURCE_DIR}/plugins/virtualmonitor/virtualmonitorplugin.h virtualmonitorinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/photo/photoplugin.h photointerface)
 
-add_library(kdeconnectinterfaces ${libkdeconnect_SRC})
+if ("${QT_MAJOR_VERSION}" STREQUAL "6")
+    add_library(kdeconnectinterfaces STATIC)
+else()
+    add_library(kdeconnectinterfaces)
+endif()
+
+target_sources(kdeconnectinterfaces PRIVATE ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES
     VERSION ${KDECONNECT_VERSION}
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
