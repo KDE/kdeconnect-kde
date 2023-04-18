@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-04-01 16:54+0200\n"
+"PO-Revision-Date: 2023-04-15 17:51+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -449,19 +449,19 @@ msgstr "Guardar archivos en:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Texto compartido de %1 copiado al portapapeles"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Abrir en editor de texto"
 
 #: share/shareplugin.cpp:170
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Abrir enlace"
 
 #: share/shareplugin.cpp:244
 #, kde-format
