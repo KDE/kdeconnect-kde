@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2014, 2018, 2019, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2014, 2018, 2019, 2020, 2021, 2022, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2015, 2016.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2022-11-20 22:20+0200\n"
+"PO-Revision-Date: 2023-04-12 15:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -238,12 +238,12 @@ msgstr "Esimerkkikomentoja"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Vie"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Tuo"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -256,17 +256,17 @@ msgstr "Nimi"
 msgid "Command"
 msgstr "Komento"
 
+# *** TARKISTA: Voisi olla myös ”vie komentoja”?
 #: runcommand/runcommand_config.cpp:102
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Komento"
+msgstr "Vientikomennot"
 
+# *** TARKISTA: Voisi olla myös ”tuo komentoja”?
 #: runcommand/runcommand_config.cpp:127
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Esimerkkikomentoja"
+msgstr "Tuontikomennot"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
