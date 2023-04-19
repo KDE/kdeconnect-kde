@@ -47,10 +47,7 @@ void CompositeFileTransferJob::startNextSubJob()
                        {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)});
 
     m_currentJob->start();
-    connect(m_currentJob,
-            QOverload<KJob *, KJob::Unit, qulonglong>::of(&FileTransferJob::processedAmount),
-            this,
-            &CompositeFileTransferJob::slotProcessedAmount);
+    connect(m_currentJob, &FileTransferJob::processedAmountChanged, this, &CompositeFileTransferJob::slotProcessedAmount);
 }
 
 bool CompositeFileTransferJob::addSubjob(KJob *job)
