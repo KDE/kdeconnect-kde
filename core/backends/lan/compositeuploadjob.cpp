@@ -98,7 +98,7 @@ void CompositeUploadJob::startNextSubJob()
 #ifdef SAILFISHOS
     connect(m_currentJob, SIGNAL(processedAmount(KJob *, KJob::Unit, qulonglong)), this, SLOT(slotProcessedAmount(KJob *, KJob::Unit, qulonglong)));
 #else
-    connect(m_currentJob, QOverload<KJob *, KJob::Unit, qulonglong>::of(&UploadJob::processedAmount), this, &CompositeUploadJob::slotProcessedAmount);
+    connect(m_currentJob, &UploadJob::processedAmountChanged, this, &CompositeUploadJob::slotProcessedAmount);
 #endif
     // Already done by KCompositeJob
     // connect(m_currentJob, &KJob::result, this, &CompositeUploadJob::slotResult);

@@ -50,10 +50,7 @@ void CompositeFileTransferJob::startNextSubJob()
 #ifdef SAILFISHOS
     connect(m_currentJob, SIGNAL(processedAmount(KJob *, KJob::Unit, qulonglong)), this, SLOT(slotProcessedAmount(KJob *, KJob::Unit, qulonglong)));
 #else
-    connect(m_currentJob,
-            QOverload<KJob *, KJob::Unit, qulonglong>::of(&FileTransferJob::processedAmount),
-            this,
-            &CompositeFileTransferJob::slotProcessedAmount);
+    connect(m_currentJob, &FileTransferJob::processedAmountChanged, this, &CompositeFileTransferJob::slotProcessedAmount);
 #endif
 }
 
