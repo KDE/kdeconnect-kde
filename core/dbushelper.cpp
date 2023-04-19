@@ -11,7 +11,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QProcess>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QUrl>
 
@@ -44,7 +44,7 @@ static DBusInstancePrivate dbusInstance;
 
 void filterNonExportableCharacters(QString &s)
 {
-    static QRegExp regexp(QStringLiteral("[^A-Za-z0-9_]"), Qt::CaseSensitive, QRegExp::Wildcard);
+    static QRegularExpression regexp(QStringLiteral("[^A-Za-z0-9_]"), QRegularExpression::CaseInsensitiveOption);
     s.replace(regexp, QLatin1String("_"));
 }
 
