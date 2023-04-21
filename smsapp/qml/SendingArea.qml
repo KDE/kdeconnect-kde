@@ -68,7 +68,7 @@ ColumnLayout {
                 Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
 
                 Controls.TextArea {
-                    anchors.fill: parent
+                    width: parent.width
                     id: messageField
                     placeholderText: i18nd("kdeconnect-sms", "Compose message")
                     wrapMode: TextEdit.Wrap
@@ -144,15 +144,14 @@ ColumnLayout {
 
                         onClicked: {
                             selectedFileUrls = []
-                            if (messageField.text == "") {
-                                sendButton.enabled = false
-                            }
                         }
                     }
 
                     Controls.ToolButton {
+                        property bool isSendingInProcess: false
+
                         id: sendButton
-                        enabled: messageField.text.length || selectedFileUrls.length
+                        enabled: (messageField.text.length || selectedFileUrls.length) && !isSendingInProcess
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 2
                         Layout.preferredHeight: Kirigami.Units.gridUnit * 2
                         padding: 0
@@ -169,9 +168,13 @@ ColumnLayout {
                         property bool messageSent: false
 
                         onClicked: {
-                            // disable the button to prevent sending
-                            // the same message several times
-                            sendButton.enabled = false
+
+                            // prevent sending the same message several times
+                            // and don't touch enabled property
+                            if (isSendingInProcess){
+                                return;
+                            }
+                            isSendingInProcess = true
 
                             if (SmsHelper.totalMessageSize(selectedFileUrls, messageField.text) > maxMessageSize) {
                                 messageDialog.visible = true
@@ -184,14 +187,14 @@ ColumnLayout {
                             if (messageSent) {
                                 messageField.text = ""
                                 selectedFileUrls = []
-                                sendButton.enabled = false
                             }
+                            isSendingInProcess = false
                         }
                     }
                 }
 
                 Controls.Label {
-                    id: "charCount"
+                    id: charCount
                     text: conversationModel.getCharCountInfo(messageField.text)
                     visible: text.length > 0
                     Layout.minimumWidth: Math.max(Layout.minimumWidth, width) // Make this label only grow, never shrink

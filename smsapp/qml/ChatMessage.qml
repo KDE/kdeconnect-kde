@@ -21,7 +21,7 @@ Item {
     property date dateTime
     property string name
     property bool multiTarget
-    property var attachmentList
+    property var attachmentList: []
 
     signal messageCopyRequested(string message)
 
