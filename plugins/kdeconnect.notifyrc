@@ -860,6 +860,7 @@ Action=Popup
 [Event/textShareReceived]
 Name=Text Received
 Name[ar]=استُلمت نص
+Name[az]=Mətn alındı
 Name[bg]=Текстът е приет
 Name[ca]=Text rebut
 Name[ca@valencia]=Text rebut
@@ -884,6 +885,7 @@ Name[x-test]=xxText Receivedxx
 Name[zh_CN]=收到文本
 Comment=Received some text
 Comment[ar]=وصل نص إلى الجهاز
+Comment[az]=Bəzi mətnlər alındı
 Comment[bg]=Получен е някакъв текст
 Comment[ca]=S'ha rebut text
 Comment[ca@valencia]=S'ha rebut text
