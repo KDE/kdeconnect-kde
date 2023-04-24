@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Paolo Zamponi <zapaolo@email.it>, 2019.
+# Paolo Zamponi <feus73@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
