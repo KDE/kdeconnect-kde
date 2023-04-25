@@ -54,6 +54,6 @@ Kirigami.FormLayout {
     }
 
     QQC2.Label {
-        text: i18n("%1 in the path will be replaced with the specific device name")
+        text: i18n("&percnt;1 in the path will be replaced with the specific device name")
     }
 }
