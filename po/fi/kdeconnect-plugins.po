@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-04-12 15:04+0300\n"
+"PO-Revision-Date: 2023-04-20 11:34+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -447,20 +447,19 @@ msgstr "Tallenna tiedostot kohteeseen:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Laitteelta %1 jaettu teksti kopioitu leikepöydälle"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Avaa tekstimuokkaimeen"
 
 #: share/shareplugin.cpp:170
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr "Avaa"
+msgstr "Avaa linkki"
 
 #: share/shareplugin.cpp:244
 #, kde-format
