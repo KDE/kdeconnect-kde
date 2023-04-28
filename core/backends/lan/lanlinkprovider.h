@@ -7,12 +7,17 @@
 #ifndef LANLINKPROVIDER_H
 #define LANLINKPROVIDER_H
 
-#include <QNetworkSession>
 #include <QObject>
 #include <QSslSocket>
 #include <QTcpServer>
 #include <QTimer>
 #include <QUdpSocket>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#include <QNetworkConfigurationManager>
+#include <QNetworkSession>
+#else
+#include <QNetworkInformation>
+#endif
 
 #include "backends/linkprovider.h"
 #include "kdeconnectcore_export.h"
@@ -75,7 +80,6 @@ private Q_SLOTS:
 private:
     LanPairingHandler *createPairingHandler(DeviceLink *link);
 
-    void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
     void addLink(const QString &deviceId, QSslSocket *socket, NetworkPacket *receivedPacket, LanDeviceLink::ConnectionStarted connectionOrigin);
     QList<QHostAddress> getBroadcastAddresses();
     void sendBroadcasts(QUdpSocket &socket, const NetworkPacket &np, const QList<QHostAddress> &addresses);
@@ -95,9 +99,11 @@ private:
         QHostAddress sender;
     };
     QMap<QSslSocket *, PendingConnect> m_receivedIdentityPackets;
-    QNetworkConfiguration m_lastConfig;
     const bool m_testMode;
     QTimer m_combineBroadcastsTimer;
+#if QT_VERSION_MAJOR < 6
+    QNetworkConfiguration m_lastConfig;
+#endif
 };
 
 #endif
