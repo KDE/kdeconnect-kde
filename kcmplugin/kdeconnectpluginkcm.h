@@ -8,6 +8,7 @@
 #define KDECONNECTPLUGINKCM_H
 
 #include <KCModule>
+#include <kconfigwidgets_version.h>
 
 #include "core/kdeconnectpluginconfig.h"
 #include "kdeconnectpluginkcm_export.h"
@@ -35,6 +36,13 @@ public:
      * The object where to save the config, so the plugin can access it
      */
     KdeConnectPluginConfig *config() const;
+
+#if KCONFIGWIDGETS_VERSION < QT_VERSION_CHECK(5, 105, 0)
+    QWidget *widget()
+    {
+        return this;
+    }
+#endif
 
 private:
     QScopedPointer<KdeConnectPluginKcmPrivate> d;

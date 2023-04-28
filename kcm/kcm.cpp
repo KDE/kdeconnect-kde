@@ -28,7 +28,7 @@ static QString createId()
 }
 
 KdeConnectKcm::KdeConnectKcm(QObject *parent, const QVariantList &args)
-    : KCModule(parent)
+    : KCModule(qobject_cast<QWidget *>(parent))
     , kcmUi(new Ui::KdeConnectKcmUi())
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))

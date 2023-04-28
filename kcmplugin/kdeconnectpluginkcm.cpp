@@ -16,7 +16,7 @@ struct KdeConnectPluginKcmPrivate {
 };
 
 KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const QVariantList &args, const QString &pluginName)
-    : KCModule(parent, args)
+    : KCModule(qobject_cast<QWidget *>(parent), args)
     , d(new KdeConnectPluginKcmPrivate())
 {
     d->m_deviceId = args.at(0).toString();
