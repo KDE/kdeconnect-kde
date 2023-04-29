@@ -7,7 +7,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
-import QtQuick.Dialogs 1.0
+import QtQuick.Dialogs @QTQUICK_DIALOGS_IMPORT_VERSION@
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
 
@@ -16,15 +16,15 @@ Kirigami.ScrollablePage {
     property QtObject currentDevice
     title: currentDevice.name
 
-    actions.contextualActions: [
+    @KIRIGAMI_PAGE_ACTIONS@: [
         Kirigami.Action {
-            iconName:"network-disconnect"
+            icon.name: "network-disconnect"
             onTriggered: root.currentDevice.unpair()
             text: i18nd("kdeconnect-app", "Unpair")
             visible: root.currentDevice.isPaired
         },
         Kirigami.Action {
-            iconName:"hands-free"
+            icon.name: "hands-free"
             text: i18nd("kdeconnect-app", "Send Ping")
             visible: root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
             }
         },
         Kirigami.Action {
-            iconName: "settings-configure"
+            icon.name: "settings-configure"
             text: i18n("Plugin Settings")
             visible: root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
@@ -48,7 +48,7 @@ Kirigami.ScrollablePage {
         model: plugins
         delegate: Kirigami.BasicListItem {
             label: name
-            icon: iconName
+            @KIRIGAMI_ICON@: iconName
             highlighted: false
             iconColor: "transparent"
             visible: loaded
@@ -171,7 +171,7 @@ Kirigami.ScrollablePage {
         id: fileDialog
         readonly property var shareIface: root.currentDevice ? ShareDbusInterfaceFactory.create(root.currentDevice.id()) : null
         title: i18nd("kdeconnect-app", "Please choose a file")
-        folder: shortcuts.home
+        @QTQUICK_FILEDIALOG_FOLDER@: shortcuts.home
         onAccepted: shareIface.shareUrl(fileDialog.fileUrl)
     }
 }

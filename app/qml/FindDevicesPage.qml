@@ -61,7 +61,7 @@ Kirigami.ScrollablePage
             sourceModel: DevicesModel {}
         }
         delegate: Kirigami.BasicListItem {
-            icon: iconName
+            @KIRIGAMI_ICON@: iconName
             iconColor: "transparent"
             label: model.name
             subtitle: toolTip

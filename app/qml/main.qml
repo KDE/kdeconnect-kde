@@ -74,7 +74,7 @@ Kirigami.ApplicationWindow {
             Kirigami.BasicListItem {
                 id: findDevicesAction
                 text: i18nd("kdeconnect-app", "Find devices...")
-                icon: "list-add"
+                @KIRIGAMI_ICON@: "list-add"
                 checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
                 Layout.fillWidth: true
 
@@ -100,7 +100,7 @@ Kirigami.ApplicationWindow {
                     text: model.name + "\n" + toolTip
                     enabled: status & DevicesModel.Reachable
                     checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
-                    icon: model.iconName
+                    @KIRIGAMI_ICON@: model.iconName
                     iconColor: "transparent"
                     onClicked: {
                         root.pageStack.clear()
@@ -119,7 +119,7 @@ Kirigami.ApplicationWindow {
 
             Kirigami.BasicListItem {
                 text: i18n("Settings")
-                icon: "settings-configure"
+                @KIRIGAMI_ICON@: "settings-configure"
                 onClicked: pageStack.pushDialogLayer('qrc:/qml/Settings.qml', {}, {
                     title: i18n("Settings"),
                 });
