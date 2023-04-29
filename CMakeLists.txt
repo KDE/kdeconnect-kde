@@ -53,6 +53,20 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
 
+if(QT_MAJOR_VERSION STREQUAL "6")
+    set(KIRIGAMI_ICON "icon.name")
+    set(KIRIGAMI_ICON_NAME "icon.name")
+    set(KIRIGAMI_PAGE_ACTIONS "actions")
+    set(QTQUICK_FILEDIALOG_FOLDER "currentFolder")
+else()
+    set(QTQUICK_DIALOGS_IMPORT_VERSION 1.0)
+    set(KIRIGAMI_ICON_NAME "iconName")
+    set(KIRIGAMI_ICON "icon")
+    set(KIRIGAMI_PAGE_ACTIONS "contextualActions")
+    set(QTQUICK_FILEDIALOG_FOLDER "folder")
+endif()
+
+
 # Make the version header available by linking against kdeconnectversion
 add_library(kdeconnectversion INTERFACE)
 target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DIR})

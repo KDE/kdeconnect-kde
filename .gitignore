@@ -33,3 +33,4 @@ CMakeLists.txt.user
 .idea
 /cmake-build*
 .clang-format
+app/resources.generated.qrc
