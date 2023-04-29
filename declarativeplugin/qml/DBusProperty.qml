@@ -41,10 +41,10 @@ QtObject {
     readonly property var v: DBusAsyncResponse {
         id: response
         autoDelete: false
-        onSuccess: {
+        onSuccess: result => {
             prop._value = result;
         }
-        onError: {
+        onError: message => {
             console.warn("failed call", object, read, write, change)
         }
     }
