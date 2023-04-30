@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-04-26 19:15+0200\n"
+"PO-Revision-Date: 2023-04-29 11:56+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "Bildschirm sperren"
 #: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
-msgstr ""
+msgstr "Sagen Sie „Hallo“"
 
 #: runcommand/runcommand_config.cpp:52
 #, kde-format
@@ -236,12 +236,12 @@ msgstr "Beispielbefehle"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Exportieren"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Importieren"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -255,16 +255,14 @@ msgid "Command"
 msgstr "Befehl"
 
 #: runcommand/runcommand_config.cpp:102
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Befehl"
+msgstr "Exportbefehle"
 
 #: runcommand/runcommand_config.cpp:127
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Beispielbefehle"
+msgstr "Importbefehle"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
@@ -445,20 +443,19 @@ msgstr "Dateien speichern unter:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Geteilter Text von %1 in die Zwischenablage kopiert"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Im Texteditor öffnen"
 
 #: share/shareplugin.cpp:170
-#, fuzzy, kde-format
-#| msgid "Open"
+#, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr "Öffnen"
+msgstr "Verknüpfung öffnen"
 
 #: share/shareplugin.cpp:244
 #, kde-format
