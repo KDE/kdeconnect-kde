@@ -99,5 +99,5 @@ void BluetoothDeviceLink::dataReceived()
 
 QSslCertificate BluetoothDeviceLink::certificate() const
 {
-    return {}; // TODO Not sure what to do here. For LanDeviceLink we use the SSL connection's certificate, but we don't have that here
+    return QSslCertificate({}); // TODO Not sure what to do here. For LanDeviceLink we use the SSL connection's certificate, but we don't have that here
 }
