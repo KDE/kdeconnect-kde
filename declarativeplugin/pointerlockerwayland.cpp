@@ -10,6 +10,7 @@
 #include <QDebug>
 
 #include "qwayland-pointer-constraints-unstable-v1.h"
+#include "qwayland-relative-pointer-unstable-v1.h"
 #include <QtWaylandClient/qwaylandclientextension.h>
 #include <qpa/qplatformnativeinterface.h>
 
@@ -50,9 +51,52 @@ private:
     }
 };
 
+class RelativePointerManagerV1 : public QWaylandClientExtensionTemplate<RelativePointerManagerV1>, public QtWayland::zwp_relative_pointer_manager_v1
+{
+public:
+    explicit RelativePointerManagerV1()
+        : QWaylandClientExtensionTemplate<RelativePointerManagerV1>(1)
+    {
+    }
+
+    ~RelativePointerManagerV1()
+    {
+        destroy();
+    }
+};
+
+class RelativePointerV1 : public QtWayland::zwp_relative_pointer_v1
+{
+public:
+    explicit RelativePointerV1(PointerLockerWayland *locker, struct ::zwp_relative_pointer_v1 *p)
+        : QtWayland::zwp_relative_pointer_v1(p)
+        , locker(locker)
+    {
+    }
+
+    ~RelativePointerV1()
+    {
+        destroy();
+    }
+
+    void zwp_relative_pointer_v1_relative_motion(uint32_t /*utime_hi*/,
+                                                 uint32_t /*utime_lo*/,
+                                                 wl_fixed_t dx,
+                                                 wl_fixed_t dy,
+                                                 wl_fixed_t /*dx_unaccel*/,
+                                                 wl_fixed_t /*dy_unaccel*/) override
+    {
+        locker->pointerMoved({wl_fixed_to_double(dx), wl_fixed_to_double(dy)});
+    }
+
+private:
+    PointerLockerWayland *const locker;
+};
+
 PointerLockerWayland::PointerLockerWayland(QObject *parent)
     : AbstractPointerLocker(parent)
 {
+    m_relativePointerMgr = std::make_unique<RelativePointerManagerV1>();
     m_pointerConstraints = new PointerConstraints;
 }
 
@@ -84,6 +128,11 @@ void PointerLockerWayland::enforceLock()
         return;
     }
 
+    auto pointer = getPointer();
+    if (!m_relativePointer) {
+        m_relativePointer.reset(new RelativePointerV1(this, m_relativePointerMgr->get_relative_pointer(pointer)));
+    }
+
     wl_surface *wlSurface = [](QWindow *window) -> wl_surface * {
         if (!window) {
             return nullptr;
@@ -98,7 +147,7 @@ void PointerLockerWayland::enforceLock()
     }(m_window);
 
     m_lockedPointer =
-        new LockedPointer(m_pointerConstraints->lock_pointer(wlSurface, getPointer(), nullptr, PointerConstraints::lifetime::lifetime_persistent), this);
+        new LockedPointer(m_pointerConstraints->lock_pointer(wlSurface, pointer, nullptr, PointerConstraints::lifetime::lifetime_persistent), this);
 
     if (!m_lockedPointer) {
         qDebug() << "ERROR when receiving locked pointer!";

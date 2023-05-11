@@ -10,8 +10,10 @@
 #include "pointerlocker.h"
 
 class PointerConstraints;
+class RelativePointerManagerV1;
+class RelativePointerV1;
 class LockedPointer;
-class wl_pointer;
+struct wl_pointer;
 
 class PointerLockerWayland : public AbstractPointerLocker
 {
@@ -44,6 +46,8 @@ private:
 
     PointerConstraints *m_pointerConstraints;
     LockedPointer *m_lockedPointer = nullptr;
+    std::unique_ptr<RelativePointerManagerV1> m_relativePointerMgr;
+    std::unique_ptr<RelativePointerV1> m_relativePointer;
 };
 
 #endif

@@ -61,7 +61,7 @@ Kirigami.Page
 
             Connections {
                 target: PointerLocker
-                function onPointerMoved() {
+                function onPointerMoved(delta) {
                     if (!PointerLocker.isLocked) {
                         return;
                     }

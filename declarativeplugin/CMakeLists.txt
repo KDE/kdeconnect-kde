@@ -21,9 +21,15 @@ if(UNIX AND NOT APPLE)
             PROTOCOL ${WaylandProtocols_DATADIR}/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml
             BASENAME pointer-constraints-unstable-v1
         )
+        ecm_add_qtwayland_client_protocol(wayland_SRCS
+            PROTOCOL ${WaylandProtocols_DATADIR}/unstable/relative-pointer/relative-pointer-unstable-v1.xml
+            BASENAME relative-pointer-unstable-v1
+        )
     else()
         qt6_generate_wayland_protocol_client_sources(kdeconnectdeclarativeplugin FILES
             ${WaylandProtocols_DATADIR}/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml)
+        qt6_generate_wayland_protocol_client_sources(kdeconnectdeclarativeplugin FILES
+            ${WaylandProtocols_DATADIR}/unstable/relative-pointer/relative-pointer-unstable-v1.xml)
     endif()
 
     target_sources(kdeconnectdeclarativeplugin PRIVATE ${wayland_SRCS})
