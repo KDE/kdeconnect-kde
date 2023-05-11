@@ -56,7 +56,7 @@ Kirigami.Page
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignHCenter
 
-                text: i18n("Press the left and right mouse buttons at the same time to unlock")
+                text: i18n("Press %1 or the left and right mouse buttons at the same time to unlock", unlockShortcut.nativeText)
             }
 
             Connections {
@@ -73,6 +73,15 @@ Kirigami.Page
             TapHandler {
                 acceptedDevices: PointerDevice.TouchScreen
                 onTapped: lockButton.visible = false
+            }
+
+            Shortcut {
+                id: unlockShortcut
+                sequence: "Alt+X"
+                onActivated: {
+                    console.log("shortcut triggered, unlocking")
+                    PointerLocker.isLocked = false
+                }
             }
 
             onClicked: {
