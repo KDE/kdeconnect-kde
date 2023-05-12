@@ -163,6 +163,10 @@ void MprisControlPlugin::propertiesChanged(const QString &propertyInterface, con
         np.set(QStringLiteral("loopStatus"), properties[QStringLiteral("LoopStatus")]);
         somethingToSend = true;
     }
+    if (properties.contains(QStringLiteral("Rate"))) {
+        np.set(QStringLiteral("rate"), properties[QStringLiteral("Rate")].toDouble());
+        somethingToSend = true;
+    }
     if (properties.contains(QStringLiteral("Shuffle"))) {
         np.set(QStringLiteral("shuffle"), properties[QStringLiteral("Shuffle")].toBool());
         somethingToSend = true;
@@ -293,6 +297,11 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
         qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting loopStatus" << loopStatus << "to" << serviceName;
         mprisInterface.setLoopStatus(loopStatus);
     }
+    if (np.has(QStringLiteral("setRate"))) {
+        double rate = np.get<double>(QStringLiteral("setRate"));
+        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting rate" << rate << "to" << serviceName;
+        mprisInterface.setRate(rate);
+    }
     if (np.has(QStringLiteral("setShuffle"))) {
         bool shuffle = np.get<bool>(QStringLiteral("setShuffle"));
         qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting shuffle" << shuffle << "to" << serviceName;
@@ -334,6 +343,7 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
         answer.set(QStringLiteral("canGoNext"), mprisInterface.canGoNext());
         answer.set(QStringLiteral("canGoPrevious"), mprisInterface.canGoPrevious());
         answer.set(QStringLiteral("canSeek"), mprisInterface.canSeek());
+        answer.set(QStringLiteral("rate"), mprisInterface.rate());
 
         // LoopStatus is an optional field
         if (mprisInterface.property("LoopStatus").isValid()) {
