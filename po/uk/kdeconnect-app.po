@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-15 00:47+0000\n"
+"POT-Creation-Date: 2023-05-14 00:47+0000\n"
 "PO-Revision-Date: 2022-12-15 09:10+0200\n"
 "Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -188,8 +188,9 @@ msgid "Remote Control"
 msgstr "Дистанційне керування"
 
 #: qml/mousepad.qml:59
-#, kde-format
-msgid "Press the left and right mouse buttons at the same time to unlock"
+#, fuzzy, kde-format
+#| msgid "Press the left and right mouse buttons at the same time to unlock"
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "Натисніть ліву і праву кнопки миші одночасно, щоб розблокувати"
 
 #: qml/mpris.qml:19

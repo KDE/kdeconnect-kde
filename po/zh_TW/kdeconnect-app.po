@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-15 00:47+0000\n"
+"POT-Creation-Date: 2023-05-14 00:47+0000\n"
 "PO-Revision-Date: 2023-01-22 00:42+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -190,8 +190,9 @@ msgid "Remote Control"
 msgstr "遠端控制"
 
 #: qml/mousepad.qml:59
-#, kde-format
-msgid "Press the left and right mouse buttons at the same time to unlock"
+#, fuzzy, kde-format
+#| msgid "Press the left and right mouse buttons at the same time to unlock"
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr "同時按下滑鼠左鍵與右鍵以解鎖"
 
 #: qml/mpris.qml:19

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-15 00:47+0000\n"
+"POT-Creation-Date: 2023-05-14 00:47+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -186,7 +186,7 @@ msgstr "വിദൂര നിയന്ത്രണം"
 
 #: qml/mousepad.qml:59
 #, kde-format
-msgid "Press the left and right mouse buttons at the same time to unlock"
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
 
 #: qml/mpris.qml:19
