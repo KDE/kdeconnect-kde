@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2022.
+# Kishore G <kishore96@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-14 00:47+0000\n"
-"PO-Revision-Date: 2022-12-15 21:37+0530\n"
+"PO-Revision-Date: 2023-05-14 15:19+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -185,10 +185,10 @@ msgid "Remote Control"
 msgstr "தொலையியக்கி"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "திறக்க, இடது மற்றும் வலது சுட்டி பட்டன்களை சேர்த்து அழுத்துங்கள்"
+msgstr ""
+"திறக்க, இடது மற்றும் வலது சுட்டி பட்டன்களை சேர்த்து அழுத்துங்கள் அல்லது %1 தனை அழுத்துங்கள்"
 
 #: qml/mpris.qml:19
 #, kde-format

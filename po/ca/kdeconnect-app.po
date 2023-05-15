@@ -1,16 +1,16 @@
 # Translation of kdeconnect-app.po to Catalan
-# Copyright (C) 2014-2022 This_file_is_part_of_KDE
+# Copyright (C) 2014-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2018, 2019, 2020, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2018, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-14 00:47+0000\n"
-"PO-Revision-Date: 2022-12-15 12:39+0100\n"
+"PO-Revision-Date: 2023-05-14 10:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -189,12 +189,11 @@ msgid "Remote Control"
 msgstr "Control remot"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Per a desbloquejar, premeu els botons esquerre i dret del ratolí al mateix "
-"temps"
+"Per a desbloquejar, premeu %1 o els botons esquerre i dret del ratolí al "
+"mateix temps"
 
 #: qml/mpris.qml:19
 #, kde-format
