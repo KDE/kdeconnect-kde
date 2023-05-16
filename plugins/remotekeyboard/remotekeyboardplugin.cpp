@@ -8,6 +8,7 @@
 #include "plugin_remotekeyboard_debug.h"
 #include <KPluginFactory>
 #include <QDebug>
+#include <QKeySequence>
 #include <QString>
 #include <QVariantMap>
 
@@ -100,11 +101,23 @@ void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool
 
 void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendAck) const
 {
-    if (!keyEvent.contains(QStringLiteral("key")))
+    if (!keyEvent.contains(QStringLiteral("key"))) {
         return;
-    int k = translateQtKey(keyEvent.value(QStringLiteral("key")).toInt());
+    }
+    const int key = keyEvent.value(QStringLiteral("key")).toInt();
+    int k = translateQtKey(key);
     int modifiers = keyEvent.value(QStringLiteral("modifiers")).toInt();
-    sendKeyPress(keyEvent.value(QStringLiteral("text")).toString(),
+
+    // Qt will be calling xkb_state_key_get_utf8 to create this string.
+    // As documented, it will be giving us weird strings with Ctrl combinations:
+    // https://xkbcommon.org/doc/current/group__keysyms.html
+    // Instead, just use QKeySequence to tell us which key that is and move on
+    QString text = keyEvent.value(QStringLiteral("text")).toString();
+    if (!text.isEmpty() && !text[0].isLetterOrNumber()) {
+        text = QKeySequence(key).toString().toLower();
+    }
+
+    sendKeyPress(text,
                  k,
                  modifiers & Qt::ShiftModifier,
                  modifiers & Qt::ControlModifier,

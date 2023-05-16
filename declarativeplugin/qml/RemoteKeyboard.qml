@@ -79,20 +79,8 @@ TextField {
     function sendEvent(event) {
         if (remoteKeyboard) {
             var transEvent = JSON.parse(JSON.stringify(event)); // transform to anonymous object
-            if (transEvent.modifiers & Qt.ControlModifier) {
-                // special handling for ctrl+c/v/x/a, for which only 'key' gets
-                // set, but no visible 'text', which is expected by the remoteKeyboard
-                // wire-format:
-                if (transEvent.key === Qt.Key_C)
-                    transEvent.text = 'c';
-                if (transEvent.key === Qt.Key_V)
-                    transEvent.text = 'v';
-                if (transEvent.key === Qt.Key_A)
-                    transEvent.text = 'a';
-                if (transEvent.key === Qt.Key_X)
-                    transEvent.text = 'x';
-            }
             remoteKeyboard.sendQKeyEvent(transEvent);
+            event.accepted = true
         }
     }
 
