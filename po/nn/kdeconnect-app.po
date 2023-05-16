@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-15 00:47+0000\n"
+"POT-Creation-Date: 2023-05-14 00:47+0000\n"
 "PO-Revision-Date: 2023-01-15 11:18+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -188,8 +188,8 @@ msgstr "Fjernstyring"
 
 #: qml/mousepad.qml:59
 #, kde-format
-msgid "Press the left and right mouse buttons at the same time to unlock"
-msgstr "Trykk på venstre og høgre museknapp samtidig for å låsa opp"
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
 
 #: qml/mpris.qml:19
 #, kde-format
