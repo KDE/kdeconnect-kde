@@ -220,19 +220,44 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
             s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 0);
         } else if (isScroll) {
             s_session->iface->NotifyPointerAxis(s_session->m_xdpPath, {}, dx, dy);
-        } else if (specialKey) {
-            s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 1);
-            s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 0);
-        } else if (!key.isEmpty()) {
-            for (const QChar character : key) {
-                const auto keysym = xkb_utf32_to_keysym(character.unicode());
-                if (keysym != XKB_KEY_NoSymbol) {
-                    s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 1).waitForFinished();
-                    s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 0).waitForFinished();
-                } else {
-                    qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
+        } else if (specialKey || !key.isEmpty()) {
+            bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
+            bool alt = np.get<bool>(QStringLiteral("alt"), false);
+            bool shift = np.get<bool>(QStringLiteral("shift"), false);
+            bool super = np.get<bool>(QStringLiteral("super"), false);
+
+            if (ctrl)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTCTRL, 1);
+            if (alt)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTALT, 1);
+            if (shift)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTSHIFT, 1);
+            if (super)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTMETA, 1);
+
+            if (specialKey) {
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 1);
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 0);
+            } else if (!key.isEmpty()) {
+                for (const QChar character : key) {
+                    const auto keysym = xkb_utf32_to_keysym(character.toLower().unicode());
+                    if (keysym != XKB_KEY_NoSymbol) {
+                        s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 1).waitForFinished();
+                        s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 0).waitForFinished();
+                    } else {
+                        qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
+                    }
                 }
             }
+
+            if (ctrl)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTCTRL, 0);
+            if (alt)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTALT, 0);
+            if (shift)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTSHIFT, 0);
+            if (super)
+                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTMETA, 0);
         }
     } else { // Is a mouse move event
         s_session->iface->NotifyPointerMotion(s_session->m_xdpPath, {}, dx, dy);
