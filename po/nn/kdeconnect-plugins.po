@@ -1,13 +1,13 @@
 # Translation of kdeconnect-plugins to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-17 00:56+0000\n"
-"PO-Revision-Date: 2022-10-30 10:04+0100\n"
+"PO-Revision-Date: 2023-05-17 18:29+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 23.04.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -374,7 +374,7 @@ msgstr ""
 #: sftp/mounter.cpp:196
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr "Klarte ikkje montera filsystem: eininga svarer ikkje"
+msgstr "Klarte ikkje montera filsystem: eininga svarar ikkje"
 
 #: sftp/sftpplugin-win.cpp:74
 #, kde-format
