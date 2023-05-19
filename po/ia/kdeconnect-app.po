@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-14 00:47+0000\n"
-"PO-Revision-Date: 2023-01-09 12:23+0100\n"
+"PO-Revision-Date: 2023-05-18 15:02+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -185,11 +185,11 @@ msgid "Remote Control"
 msgstr "Controlo remote o teleguidage"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Pressa le buttones sinistre e dextere de mus al mesme tempore per disblocar"
+"Pressa %1 o le buttones sinistre e dextere de mus al mesme tempore per "
+"disblocar"
 
 #: qml/mpris.qml:19
 #, kde-format
