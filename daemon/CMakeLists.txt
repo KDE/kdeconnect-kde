@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 add_executable(kdeconnectd kdeconnectd.cpp ${kdeconnect_custom_icons_SRCS} ${debug_file_SRCS})
 target_link_libraries(kdeconnectd

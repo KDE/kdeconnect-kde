@@ -2,7 +2,7 @@ add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-urlhandler")
 
 ki18n_wrap_ui(telhandler_SRCS dialog.ui)
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 add_executable(kdeconnect-handler kdeconnect-handler.cpp ${telhandler_SRCS} ${kdeconnect_custom_icons_SRCS})
 

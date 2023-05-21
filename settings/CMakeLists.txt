@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-settings")
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 add_executable(kdeconnect-settings
     main.cpp

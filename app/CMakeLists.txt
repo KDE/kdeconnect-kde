@@ -1,6 +1,6 @@
-qt5_add_resources(kdeconnect_SRCS resources.qrc)
+qt_add_resources(kdeconnect_SRCS resources.qrc)
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX KDE_CONNECT

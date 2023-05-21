@@ -35,7 +35,7 @@ target_link_libraries(kdeconnectsmshelper
     kdeconnectinterfaces
 )
 
-qt5_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 add_executable(kdeconnect-sms
     main.cpp

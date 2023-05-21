@@ -1,4 +1,4 @@
-qt5_add_resources(presenter_SRCS assets.qrc)
+qt_add_resources(presenter_SRCS assets.qrc)
 
 set(debug_file_SRCS)
 ecm_qt_declare_logging_category(
