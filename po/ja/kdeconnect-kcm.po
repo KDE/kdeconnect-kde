@@ -1,12 +1,12 @@
 # <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022.
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:46+0000\n"
-"PO-Revision-Date: 2022-08-24 22:31+0900\n"
+"PO-Revision-Date: 2023-05-07 16:37+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -179,5 +179,5 @@ msgstr ""
 "能) をインストールしてください。インストール後、こちらのリストに表示されま"
 "す。<br><br>もし問題が発生し、サポートが必要な場合は、<a href=\"https://"
 "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
-"color:#4c6b8a;\">KDE Connect Community wiki</span></a>をご覧ください</p></"
+"color:#4c6b8a;\">KDE Connect Community wiki</span></a> をご覧ください。</p></"
 "body></html>"
