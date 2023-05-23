@@ -97,6 +97,7 @@
         "Name[tr]": "Büyük Ekran sesle denetim",
         "Name[uk]": "Голосове керування Bigscreen",
         "Name[x-test]": "xxBigscreen voice controlxx",
+        "Name[zh_CN]": "Bigscreen 语音控制",
         "ServiceTypes": [
             "KdeConnect/Plugin"
         ],
