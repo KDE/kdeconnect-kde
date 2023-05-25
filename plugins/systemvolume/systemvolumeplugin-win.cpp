@@ -413,9 +413,6 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
         if (sinkListIterator != this->sinkList.end()) {
             auto &sink = sinkListIterator.value();
 
-            // unregister ControlChangeNotify before doing any changes to a sink
-            HRESULT unregisterSuccess = sink.first->UnregisterControlChangeNotify(sink.second);
-
             if (np.has(QStringLiteral("volume"))) {
                 float requestedVolume = (float)np.get<int>(QStringLiteral("volume"), 100) / 100;
                 sinkList[name].first->SetMasterVolumeLevelScalar(requestedVolume, NULL);
@@ -442,10 +439,6 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
                 }
             }
 
-            // re-register ControlChangeNotify in case we unregistered it
-            if (unregisterSuccess == S_OK) {
-                sink.first->RegisterControlChangeNotify(sink.second);
-            }
         }
     }
     return true;
