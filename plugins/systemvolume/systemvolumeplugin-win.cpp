@@ -227,6 +227,11 @@ SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args
 SystemvolumePlugin::~SystemvolumePlugin()
 {
     if (valid) {
+        for (auto &entry : sinkList) {
+            entry.first->UnregisterControlChangeNotify(entry.second);
+            entry.second->Release();
+            entry.first->Release();
+        }
         deviceEnumerator->UnregisterEndpointNotificationCallback(deviceCallback);
         deviceEnumerator->Release();
         deviceEnumerator = nullptr;
