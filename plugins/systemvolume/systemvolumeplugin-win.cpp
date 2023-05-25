@@ -227,6 +227,15 @@ SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args
 SystemvolumePlugin::~SystemvolumePlugin()
 {
     if (valid) {
+        QSet<IAudioEndpointVolume*> endpoints;
+        for (auto &entry : sinkList.toStdMap()) {
+            endpoint->UnRegisterControlChangeNotify(entry.second);
+            endpoint->Release();
+            endpoints.insert(entry.first);
+        }
+        for (IAudioEndpointVolume* endpoint : endpoints) {
+            endpoint->Release();
+        }
         deviceEnumerator->UnregisterEndpointNotificationCallback(deviceCallback);
         deviceEnumerator->Release();
         deviceEnumerator = nullptr;
