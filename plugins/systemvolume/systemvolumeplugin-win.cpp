@@ -72,7 +72,6 @@ public:
 
     HRESULT STDMETHODCALLTYPE OnNotify(PAUDIO_VOLUME_NOTIFICATION_DATA pNotify) override
     {
-        qWarning("OnNotify");
         NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME);
         np.set<int>(QStringLiteral("volume"), (int)(pNotify->fMasterVolume * 100));
         np.set<bool>(QStringLiteral("muted"), pNotify->bMuted);
@@ -188,6 +187,8 @@ public:
         HANDLE threadHandle = CreateThread(NULL, 0, releaseRemovedDevice, &data, 0, &threadId);
         CloseHandle(threadHandle);
 
+        enclosing.sendSinkList();
+
         return S_OK;
     }
 
@@ -195,14 +196,20 @@ public:
     {
         if (dwNewState == DEVICE_STATE_UNPLUGGED)
             return OnDeviceRemoved(pwstrDeviceId);
-
-        enclosing.sendSinkList();
         return S_OK;
     }
 
     HRESULT STDMETHODCALLTYPE OnPropertyValueChanged(LPCWSTR pwstrDeviceId, const PROPERTYKEY key) override
     {
-        enclosing.sendSinkList();
+        // This callback is supper spammy. Care only about name and description changes.
+        if (IsEqualPropertyKey(key, PKEY_Device_FriendlyName)) {
+            enclosing.sendSinkList();
+        }
+#ifndef __MINGW32__
+        else if (IsEqualPropertyKey(key, PKEY_Device_DeviceDesc)) {
+            enclosing.sendSinkList();
+        }
+#endif
         return S_OK;
     }
 
