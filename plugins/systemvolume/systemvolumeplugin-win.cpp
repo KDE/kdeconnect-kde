@@ -417,21 +417,13 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
             HRESULT unregisterSuccess = sink.first->UnregisterControlChangeNotify(sink.second);
 
             if (np.has(QStringLiteral("volume"))) {
-                float currentVolume;
-                sink.first->GetMasterVolumeLevelScalar(&currentVolume);
                 float requestedVolume = (float)np.get<int>(QStringLiteral("volume"), 100) / 100;
-                if (currentVolume != requestedVolume) {
-                    sinkList[name].first->SetMasterVolumeLevelScalar(requestedVolume, NULL);
-                }
+                sinkList[name].first->SetMasterVolumeLevelScalar(requestedVolume, NULL);
             }
 
             if (np.has(QStringLiteral("muted"))) {
-                BOOL currentMuteStatus;
-                sink.first->GetMute(&currentMuteStatus);
                 BOOL requestedMuteStatus = np.get<bool>(QStringLiteral("muted"), false);
-                if (currentMuteStatus != requestedMuteStatus) {
-                    sinkList[name].first->SetMute(requestedMuteStatus, NULL);
-                }
+                sinkList[name].first->SetMute(requestedMuteStatus, NULL);
             }
 
             if (np.has(QStringLiteral("enabled"))) {
