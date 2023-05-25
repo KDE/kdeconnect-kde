@@ -72,6 +72,7 @@ public:
 
     HRESULT STDMETHODCALLTYPE OnNotify(PAUDIO_VOLUME_NOTIFICATION_DATA pNotify) override
     {
+        qWarning("OnNotify");
         NetworkPacket np(PACKET_TYPE_SYSTEMVOLUME);
         np.set<int>(QStringLiteral("volume"), (int)(pNotify->fMasterVolume * 100));
         np.set<bool>(QStringLiteral("muted"), pNotify->bMuted);
@@ -433,8 +434,7 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
                 // get current sink's device ID
                 QString qDefaultId = QString::fromWCharArray(defaultId);
                 QString currentDeviceId = idToNameMap.key(name);
-
-                if ((bool)qDefaultId.compare(currentDeviceId)) {
+                if (qDefaultId != currentDeviceId) {
                     setDefaultAudioPlaybackDevice(name, np.get<bool>(QStringLiteral("enabled")));
                 }
             }
