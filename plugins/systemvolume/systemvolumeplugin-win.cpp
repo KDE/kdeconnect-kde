@@ -293,12 +293,12 @@ bool SystemvolumePlugin::sendSinkList()
 
         deviceProperties->GetValue(PKEY_Device_FriendlyName, &deviceProperty);
         name = QString::fromWCharArray(deviceProperty.pwszVal);
-        // PropVariantClear(&deviceProperty);
+        PropVariantClear(&deviceProperty);
 
 #ifndef __MINGW32__
         deviceProperties->GetValue(PKEY_Device_DeviceDesc, &deviceProperty);
         desc = QString::fromWCharArray(deviceProperty.pwszVal);
-        // PropVariantClear(&deviceProperty);
+        PropVariantClear(&deviceProperty);
 #else
         desc = name;
 #endif
