@@ -409,14 +409,12 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
     } else {
         QString name = np.get<QString>(QStringLiteral("name"));
 
-        if (sinkList.contains(name)) {
-            // unregister ControlChangeNotify before doing any changes to a sink
-            HRESULT unregisterSuccess = E_POINTER;
-            auto sinkListIterator = this->sinkList.find(name);
+        auto sinkListIterator = this->sinkList.find(name);
+        if (sinkListIterator != this->sinkList.end()) {
             auto &sink = sinkListIterator.value();
-            if (!(sinkListIterator == this->sinkList.end())) {
-                unregisterSuccess = sink.first->UnregisterControlChangeNotify(sink.second);
-            }
+
+            // unregister ControlChangeNotify before doing any changes to a sink
+            HRESULT unregisterSuccess = sink.first->UnregisterControlChangeNotify(sink.second);
 
             if (np.has(QStringLiteral("volume"))) {
                 float currentVolume;
