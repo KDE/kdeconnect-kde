@@ -15,6 +15,7 @@
 #include <QNetworkAccessManager>
 
 #include <KLocalizedString>
+#include <KFileUtils>
 
 FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destination)
     : KJob()
@@ -26,6 +27,7 @@ FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destinatio
     , m_written(0)
     , m_size(np->payloadSize())
     , m_np(np)
+    , m_autoRename(false)
 {
     Q_ASSERT(m_origin);
     // Disabled this assert: QBluetoothSocket doesn't report "->isReadable() == true" until it's connected
@@ -48,10 +50,17 @@ void FileTransferJob::start()
 void FileTransferJob::doStart()
 {
     if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
-        setError(2);
-        setErrorText(i18n("Filename already present"));
-        emitResult();
-        return;
+        if (m_autoRename) {
+            QFileInfo fileInfo(m_destination.toLocalFile());
+            QString path = fileInfo.path();
+            QString fileName = fileInfo.fileName();
+            m_destination.setPath(path + QStringLiteral("/") + KFileUtils::suggestName(QUrl(path), fileName), QUrl::DecodedMode);
+        } else {
+            setError(2);
+            setErrorText(i18n("Filename already present"));
+            emitResult();
+            return;
+        }
     }
 
     if (m_origin->bytesAvailable())

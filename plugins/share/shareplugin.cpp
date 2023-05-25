@@ -16,7 +16,6 @@
 #include <QTemporaryFile>
 
 #include <KApplicationTrader>
-#include <KFileUtils>
 #include <KIO/Job>
 #include <KIO/MkpathJob>
 #include <KJobTrackerInterface>
@@ -60,9 +59,6 @@ QUrl SharePlugin::getFileDestination(const QString filename) const
     const QUrl dir = destinationDir().adjusted(QUrl::StripTrailingSlash);
     QUrl destination(dir);
     destination.setPath(dir.path() + QStringLiteral("/") + filename, QUrl::DecodedMode);
-    if (destination.isLocalFile() && QFile::exists(destination.toLocalFile())) {
-        destination.setPath(dir.path() + QStringLiteral("/") + KFileUtils::suggestName(dir, filename), QUrl::DecodedMode);
-    }
     return destination;
 }
 
@@ -133,6 +129,7 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
 
             FileTransferJob *job = np.createPayloadTransferJob(destination);
             job->setOriginName(device()->name() + QStringLiteral(": ") + filename);
+            job->setAutoRenameIfDestinatinonExists(true);
             connect(job, &KJob::result, this, [this, dateCreated, dateModified, open](KJob *job) -> void {
                 finished(job, dateCreated, dateModified, open);
             });

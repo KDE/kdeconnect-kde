@@ -45,6 +45,10 @@ public:
     {
         m_from = from;
     }
+    void setAutoRenameIfDestinatinonExists(bool autoRename)
+    {
+        m_autoRename = autoRename;
+    }
     const NetworkPacket *networkPacket()
     {
         return m_np;
@@ -71,6 +75,7 @@ private:
     qint64 m_written;
     qint64 m_size;
     const NetworkPacket *m_np;
+    bool m_autoRename;
 };
 
 #endif
