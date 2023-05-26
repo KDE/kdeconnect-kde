@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2022-11-16 22:43+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -110,17 +110,17 @@ msgstr "Sidik jari SHA256 pada sertifikat peranti Anda adalah: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Sidik jari SHA256 pada sertifikat peranti jarak jauh adalah: %1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "Nama berkas sudah ada"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Menerima berkas yang belum selesai: %1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Menerima berkas yang belum selesai dari: %1"

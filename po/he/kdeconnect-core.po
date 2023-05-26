@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2017-05-24 07:45-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -111,17 +111,17 @@ msgstr "טביעת האצבע SHA1 של ההתקן היא: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "טביעת האצבע SHA1 של ההתקן המרוחק היא: %1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "קיים קובץ בעל שם זהה"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "התקבל קובץ לא במלואו: %1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, fuzzy, kde-format
 #| msgid "Received incomplete file: %1"
 msgid "Received incomplete file from: %1"

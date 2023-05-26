@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2021-02-01 11:51+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -111,17 +111,17 @@ msgstr ""
 "De SHA256 vingerafdruk van het certificaat van het apparaat op afstand is: "
 "%1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "Bestandsnaam reeds aanwezig"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Onvolledig bestand ontvangen: %1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Onvolledig bestand ontvangen van: %1"

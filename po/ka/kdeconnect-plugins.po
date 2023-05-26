@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-07 00:46+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2023-04-08 06:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -438,30 +438,30 @@ msgstr "მიღება"
 msgid "Save files in:"
 msgstr "ფაილების შენახვა:"
 
-#: share/shareplugin.cpp:165
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "გაზიარებული ტექსტი %1-სგან ბუფერში დაკოპირდა"
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "ტექსტურ რედაქტორში გახსნა"
 
-#: share/shareplugin.cpp:170
+#: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "ბმულის გახსნა"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "Could not share file"
 msgstr "ფაილის გაზიარების შეცდომა"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 არ არსებობს"

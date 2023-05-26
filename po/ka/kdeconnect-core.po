@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2022-12-14 10:34+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -110,17 +110,17 @@ msgstr "თქვენი მოწყობილობის სერტი�
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "დაშორებული მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "ფაილის სახელი უკვე არსებობს"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "მიღებული ფაილი დაუსრულებელია: %1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "მიღებულია დაუსრულებელი ფაილი წყაროდან: %1"

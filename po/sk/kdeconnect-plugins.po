@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-07 00:46+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -437,31 +437,31 @@ msgstr "Prijímanie"
 msgid "Save files in:"
 msgstr "Uložiť súbory do:"
 
-#: share/shareplugin.cpp:165
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:170
+#: share/shareplugin.cpp:167
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Otvoriť"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "Could not share file"
 msgstr "Nepodarilo sa zdieľať súbor"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Súbor %1 neexistuje"

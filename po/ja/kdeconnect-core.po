@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2021-09-25 15:31-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -109,17 +109,17 @@ msgstr "あなたのデバイスの SHA256 fingerprint 証明書 : %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "リモートデバイスの SHA256 fingerprint 証明書 : %1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "そのファイル名は既に存在します"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "不完全なファイルを受信 : %1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "不完全なファイルを %1 から受信しました"

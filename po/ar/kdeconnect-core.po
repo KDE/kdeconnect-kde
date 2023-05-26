@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2021-07-23 00:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -113,17 +113,17 @@ msgstr "بصمة SHA256 لشهادة جهازك هي: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة الجهاز البعيد هي: %1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "اسم الملفّ موجود فعلًا"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "استُقبل ملفّ غير مكتمل: %1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "استُقبل ملفّ غير مكتمل من: %1"

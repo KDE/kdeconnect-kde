@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-07 00:46+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2023-04-13 09:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -433,30 +433,30 @@ msgstr "الاستقبال"
 msgid "Save files in:"
 msgstr "احفظ الملفّات في:"
 
-#: share/shareplugin.cpp:165
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "نُسخ  نص مشارك من جهاز %1 إلى الحافظة"
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "افتح في محرر النصوص"
 
-#: share/shareplugin.cpp:170
+#: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "افتح الرابط"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "Could not share file"
 msgstr "لا يمكن مشاركة الملف"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 غير موجود"

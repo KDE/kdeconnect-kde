@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 00:47+0000\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
 "PO-Revision-Date: 2021-09-16 01:30+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -108,17 +108,17 @@ msgstr "本機裝置憑證的 SHA256 指紋是：%1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "遠端裝置憑證的 SHA256 指紋是：%1\n"
 
-#: filetransferjob.cpp:52
+#: filetransferjob.cpp:60
 #, kde-format
 msgid "Filename already present"
 msgstr "檔案名稱已存在"
 
-#: filetransferjob.cpp:101
+#: filetransferjob.cpp:110
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "接收到不完整的檔案：%1"
 
-#: filetransferjob.cpp:119
+#: filetransferjob.cpp:128
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "已從該位置接收到不完全檔案：%1"
