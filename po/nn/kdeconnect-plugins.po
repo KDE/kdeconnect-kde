@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-07 00:46+0000\n"
-"PO-Revision-Date: 2023-05-17 18:29+0200\n"
+"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"PO-Revision-Date: 2023-05-27 14:58+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -239,12 +239,12 @@ msgstr "Eksempel-kommandoar"
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Eksporter"
 
 #: runcommand/runcommand_config.cpp:83
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:182
@@ -260,12 +260,12 @@ msgstr "Kommando"
 #: runcommand/runcommand_config.cpp:102
 #, kde-format
 msgid "Export Commands"
-msgstr ""
+msgstr "Eksporter kommandoar"
 
 #: runcommand/runcommand_config.cpp:127
 #, kde-format
 msgid "Import Commands"
-msgstr ""
+msgstr "Importer kommandoar"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
@@ -439,30 +439,30 @@ msgstr "Tek imot"
 msgid "Save files in:"
 msgstr "Lagra filer i:"
 
-#: share/shareplugin.cpp:165
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Delt tekst frå %1 kopiert til utklippstavla"
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Opna i skriveprogram"
 
-#: share/shareplugin.cpp:170
+#: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Opna lenkje"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "Could not share file"
 msgstr "Klarte ikkje dela fil"
 
-#: share/shareplugin.cpp:244
+#: share/shareplugin.cpp:241
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 finst ikkje"

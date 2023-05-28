@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-14 00:47+0000\n"
-"PO-Revision-Date: 2023-01-15 11:18+0100\n"
+"PO-Revision-Date: 2023-05-27 15:01+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.04.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -189,7 +189,7 @@ msgstr "Fjernstyring"
 #: qml/mousepad.qml:59
 #, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr ""
+msgstr "Trykk på %1 eller venstre og høgre museknapp samtidig for å låsa opp"
 
 #: qml/mpris.qml:19
 #, kde-format
