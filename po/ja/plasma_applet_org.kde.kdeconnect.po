@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 22.12.3\n"
@@ -160,7 +160,6 @@ msgstr "ペアリング済みのデバイスはありません"
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "ペアリング済みのデバイスが利用できません"
-msgstr[1] "ペアリング済みのデバイスが利用できません"
 
 #: package/contents/ui/FullRepresentation.qml:55
 #, kde-format
