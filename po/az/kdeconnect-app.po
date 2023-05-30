@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-14 00:47+0000\n"
-"PO-Revision-Date: 2023-02-19 14:23+0400\n"
+"PO-Revision-Date: 2023-05-29 21:50+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -185,10 +185,11 @@ msgid "Remote Control"
 msgstr "Uzaqdan idarə"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "Kilidləmək üçün siçanın sağ və sol düyməsini eyni zamanda basın"
+msgstr ""
+"Kiliddən çıxarmaq üçün %1 və ya siçanın sağ və sol düyməsini eyni zamanda "
+"basın"
 
 #: qml/mpris.qml:19
 #, kde-format
