@@ -22,7 +22,6 @@ class DeviceLink : public QObject
     Q_OBJECT
 
 public:
-    enum PairStatus { NotPaired, Paired };
 
     DeviceLink(const QString &deviceId, LinkProvider *parent);
     ~DeviceLink() override = default;
@@ -40,35 +39,14 @@ public:
 
     virtual bool sendPacket(NetworkPacket &np) = 0;
 
-    // user actions
-    virtual void userRequestsPair() = 0;
-    virtual void userRequestsUnpair() = 0;
-
-    PairStatus pairStatus() const
-    {
-        return m_pairStatus;
-    }
-    virtual void setPairStatus(PairStatus status);
-
-    // The daemon will periodically destroy unpaired links if this returns false
-    virtual bool linkShouldBeKeptAlive()
-    {
-        return false;
-    }
-
     virtual QSslCertificate certificate() const = 0;
 
 Q_SIGNALS:
-    void pairingRequest(PairingHandler *handler);
-    void pairingRequestExpired(PairingHandler *handler);
-    void pairStatusChanged(DeviceLink::PairStatus status);
-    void pairingError(const QString &error);
     void receivedPacket(const NetworkPacket &np);
 
 private:
     const QString m_deviceId;
     LinkProvider *m_linkProvider;
-    PairStatus m_pairStatus;
 };
 
 #endif

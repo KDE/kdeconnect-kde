@@ -21,12 +21,12 @@ Kirigami.ScrollablePage {
             iconName:"network-disconnect"
             onTriggered: root.currentDevice.unpair()
             text: i18nd("kdeconnect-app", "Unpair")
-            visible: root.currentDevice.isTrusted
+            visible: root.currentDevice.isPaired
         },
         Kirigami.Action {
             iconName:"hands-free"
             text: i18nd("kdeconnect-app", "Send Ping")
-            visible: root.currentDevice.isTrusted && root.currentDevice.isReachable
+            visible: root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
                 root.currentDevice.pluginCall("ping", "sendPing");
             }
@@ -34,7 +34,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             iconName: "settings-configure"
             text: i18n("Plugin Settings")
-            visible: root.currentDevice.isTrusted && root.currentDevice.isReachable
+            visible: root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
                 pageStack.push(
                     Qt.resolvedUrl("PluginSettings.qml"),
@@ -116,17 +116,17 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             text: i18nd("kdeconnect-app", "This device is not paired")
             anchors.centerIn: parent
-            visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isTrusted && !root.currentDevice.hasPairingRequests
+            visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isPaired && !root.currentDevice.isPairRequestedByPeer
             helpfulAction: Kirigami.Action {
                 text: i18nd("kdeconnect-app", "Pair")
                 icon.name:"network-connect"
-                onTriggered: root.currentDevice.requestPair()
+                onTriggered: root.currentDevice.requestPairing()
             }
         }
 
         Kirigami.PlaceholderMessage {
             text: i18n("Pair requested")
-            visible: root.currentDevice && root.currentDevice.hasPairingRequests
+            visible: root.currentDevice && root.currentDevice.isPairRequestedByPeer
             anchors.centerIn: parent
             spacing: Kirigami.Units.largeSpacing
             RowLayout {
@@ -139,7 +139,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     text: i18nd("kdeconnect-app", "Reject")
                     icon.name:"dialog-cancel"
-                    onClicked: root.currentDevice.rejectPairing()
+                    onClicked: root.currentDevice.cancelPairing()
                 }
             }
         }

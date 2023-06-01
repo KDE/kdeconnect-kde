@@ -13,6 +13,7 @@
 
 #include "backends/devicelink.h"
 #include "networkpacket.h"
+#include "pairstate.h"
 
 class DeviceLink;
 class KdeConnectPlugin;
@@ -26,9 +27,11 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
-    Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChanged)
+    Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
+    Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChanged)
+    Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChanged)
+    Q_PROPERTY(int pairState READ pairStateAsInt NOTIFY pairStateChanged)
     Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
-    Q_PROPERTY(bool hasPairingRequests READ hasPairingRequests NOTIFY hasPairingRequestsChanged)
 
 public:
     enum DeviceType {
@@ -72,7 +75,11 @@ public:
     void addLink(const NetworkPacket &identityPacket, DeviceLink *);
     void removeLink(DeviceLink *);
 
-    Q_SCRIPTABLE bool isTrusted() const;
+    PairState pairState() const;
+    Q_SCRIPTABLE int pairStateAsInt() const; // Hack because qdbus doesn't like enums
+    Q_SCRIPTABLE bool isPaired() const;
+    Q_SCRIPTABLE bool isPairRequested() const;
+    Q_SCRIPTABLE bool isPairRequestedByPeer() const;
 
     Q_SCRIPTABLE QStringList availableLinks() const;
     virtual bool isReachable() const;
@@ -86,8 +93,6 @@ public:
     Q_SCRIPTABLE void setPluginEnabled(const QString &pluginName, bool enabled);
     Q_SCRIPTABLE bool isPluginEnabled(const QString &pluginName) const;
 
-    void cleanUnneededLinks();
-
     int protocolVersion();
     QStringList supportedPlugins() const;
 
@@ -100,32 +105,31 @@ public Q_SLOTS:
 
     // Dbus operations
 public Q_SLOTS:
-    Q_SCRIPTABLE void requestPair(); // to all links
-    Q_SCRIPTABLE void unpair(); // from all links
+    Q_SCRIPTABLE void requestPairing();
+    Q_SCRIPTABLE void unpair();
     Q_SCRIPTABLE void reloadPlugins(); // from kconf
 
     Q_SCRIPTABLE void acceptPairing();
-    Q_SCRIPTABLE void rejectPairing();
-    Q_SCRIPTABLE bool hasPairingRequests() const;
+    Q_SCRIPTABLE void cancelPairing();
 
     Q_SCRIPTABLE QString pluginIconName(const QString &pluginName);
 private Q_SLOTS:
     void privateReceivedPacket(const NetworkPacket &np);
     void linkDestroyed(QObject *o);
-    void pairStatusChanged(DeviceLink::PairStatus current);
-    void addPairingRequest(PairingHandler *handler);
-    void removePairingRequest(PairingHandler *handler);
+
+    void pairingHandler_incomingPairRequest();
+    void pairingHandler_pairingFailed(const QString &errorMessage);
+    void pairingHandler_pairingSuccessful();
+    void pairingHandler_unpaired();
 
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
     Q_SCRIPTABLE void reachableChanged(bool reachable);
-    Q_SCRIPTABLE void trustedChanged(bool trusted);
-    Q_SCRIPTABLE void pairingError(const QString &error);
+    Q_SCRIPTABLE void pairStateChanged(int pairState); // Hack because qdbus doesn't like enums
+    Q_SCRIPTABLE void pairingFailed(const QString &error);
     Q_SCRIPTABLE void nameChanged(const QString &name);
     Q_SCRIPTABLE void typeChanged(const QString &type);
     Q_SCRIPTABLE void statusIconNameChanged();
-
-    Q_SCRIPTABLE void hasPairingRequestsChanged(bool hasPairingRequests);
 
 private: // Methods
     static DeviceType str2type(const QString &deviceType);

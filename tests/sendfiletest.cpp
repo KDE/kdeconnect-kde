@@ -40,22 +40,20 @@ private Q_SLOTS:
             QFAIL("No links available, but loopback should have been provided by the test");
         }
 
-        m_daemon->acquireDiscoveryMode(QStringLiteral("test"));
         Device *d = nullptr;
         const QList<Device *> devicesList = m_daemon->devicesList();
         for (Device *id : devicesList) {
             if (id->isReachable()) {
-                if (!id->isTrusted())
-                    id->requestPair();
+                if (!id->isPaired())
+                    id->requestPairing();
                 d = id;
             }
         }
         if (d == nullptr) {
             QFAIL("Unable to determine device");
         }
-        m_daemon->releaseDiscoveryMode(QStringLiteral("test"));
         QCOMPARE(d->isReachable(), true);
-        QCOMPARE(d->isTrusted(), true);
+        QCOMPARE(d->isPaired(), true);
 
         QByteArray content("12312312312313213123213123");
 

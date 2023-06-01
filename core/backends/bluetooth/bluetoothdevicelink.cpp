@@ -22,7 +22,6 @@ BluetoothDeviceLink::BluetoothDeviceLink(const QString &deviceId,
     , mSocketReader(new DeviceLineReader(socket.data(), this))
     , mConnection(connection)
     , mChannel(socket)
-    , mPairingHandler(new BluetoothPairingHandler(this))
 {
     connect(mSocketReader, &DeviceLineReader::readyRead, this, &BluetoothDeviceLink::dataReceived);
 
@@ -51,21 +50,6 @@ bool BluetoothDeviceLink::sendPacket(NetworkPacket &np)
     return (written != -1);
 }
 
-void BluetoothDeviceLink::userRequestsPair()
-{
-    mPairingHandler->requestPairing();
-}
-
-void BluetoothDeviceLink::userRequestsUnpair()
-{
-    mPairingHandler->unpair();
-}
-
-bool BluetoothDeviceLink::linkShouldBeKeptAlive()
-{
-    return pairStatus() == Paired;
-}
-
 void BluetoothDeviceLink::dataReceived()
 {
     if (mSocketReader->bytesAvailable() == 0)
@@ -77,12 +61,6 @@ void BluetoothDeviceLink::dataReceived()
 
     NetworkPacket packet((QString()));
     NetworkPacket::unserialize(serializedPacket, &packet);
-
-    if (packet.type() == PACKET_TYPE_PAIR) {
-        // TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
-        mPairingHandler->packetReceived(packet);
-        return;
-    }
 
     if (packet.hasPayloadTransferInfo()) {
         BluetoothDownloadJob *downloadJob = new BluetoothDownloadJob(mConnection, packet.payloadTransferInfo(), this);

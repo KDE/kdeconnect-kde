@@ -43,7 +43,6 @@ void LanDeviceLink::reset(QSslSocket *socket, ConnectionStarted connectionSource
     m_connectionSource = connectionSource;
 
     QString certString = KdeConnectConfig::instance().getDeviceProperty(deviceId(), QStringLiteral("certificate"));
-    DeviceLink::setPairStatus(certString.isEmpty() ? PairStatus::NotPaired : PairStatus::Paired);
 }
 
 QHostAddress LanDeviceLink::hostAddress() const
@@ -109,12 +108,6 @@ void LanDeviceLink::dataReceived()
 
     // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
 
-    if (packet.type() == PACKET_TYPE_PAIR) {
-        // TODO: Handle pair/unpair requests and forward them (to the pairing handler?)
-        qobject_cast<LanLinkProvider *>(provider())->incomingPairPacket(this, packet);
-        return;
-    }
-
     if (packet.hasPayloadTransferInfo()) {
         // qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
         const QVariantMap transferInfo = packet.payloadTransferInfo();
@@ -138,43 +131,6 @@ void LanDeviceLink::dataReceived()
     if (m_socketLineReader->hasPacketsAvailable()) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
-}
-
-void LanDeviceLink::userRequestsPair()
-{
-    if (m_socketLineReader->peerCertificate().isNull()) {
-        Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
-    } else {
-        qobject_cast<LanLinkProvider *>(provider())->userRequestsPair(deviceId());
-    }
-}
-
-void LanDeviceLink::userRequestsUnpair()
-{
-    qobject_cast<LanLinkProvider *>(provider())->userRequestsUnpair(deviceId());
-}
-
-void LanDeviceLink::setPairStatus(PairStatus status)
-{
-    if (status == Paired && m_socketLineReader->peerCertificate().isNull()) {
-        Q_EMIT pairingError(i18n("This device cannot be paired because it is running an old version of KDE Connect."));
-        return;
-    }
-
-    DeviceLink::setPairStatus(status);
-    if (status == Paired) {
-        Q_ASSERT(KdeConnectConfig::instance().trustedDevices().contains(deviceId()));
-        KdeConnectConfig::instance().setDeviceProperty(deviceId(), QStringLiteral("certificate"), QString::fromLatin1(certificate().toPem()));
-    }
-}
-
-bool LanDeviceLink::linkShouldBeKeptAlive()
-{
-    return true; // FIXME: Current implementation is broken, so for now we will keep links always established
-
-    // We keep the remotely initiated connections, since the remotes require them if they want to request
-    // pairing to us, or connections that are already paired. TODO: Keep connections in the process of pairing
-    // return (mConnectionSource == ConnectionStarted::Remotely || pairStatus() == Paired);
 }
 
 QSslCertificate LanDeviceLink::certificate() const

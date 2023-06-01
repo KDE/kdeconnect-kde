@@ -36,12 +36,11 @@ private Q_SLOTS:
         }
 
         Device *d = nullptr;
-        m_daemon->acquireDiscoveryMode(QStringLiteral("plugintest"));
         const QList<Device *> devicesList = m_daemon->devicesList();
         for (Device *id : devicesList) {
             if (id->isReachable()) {
-                if (!id->isTrusted())
-                    id->requestPair();
+                if (!id->isPaired())
+                    id->requestPairing();
                 d = id;
                 break;
             }
@@ -49,14 +48,13 @@ private Q_SLOTS:
         if (d == nullptr) {
             QFAIL("Unable to determine device");
         }
-        m_daemon->releaseDiscoveryMode(QStringLiteral("plugintest"));
 
         if (!d->loadedPlugins().contains(QStringLiteral("kdeconnect_remotecontrol"))) {
             QSKIP("kdeconnect_remotecontrol is required for this test");
         }
 
         QVERIFY(d);
-        QVERIFY(d->isTrusted());
+        QVERIFY(d->isPaired());
         QVERIFY(d->isReachable());
 
         d->setPluginEnabled(QStringLiteral("kdeconnect_mousepad"), false);

@@ -32,7 +32,6 @@
 #include "daemon.h"
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
-#include "lanpairinghandler.h"
 #include "qtcompat_p.h"
 
 #define MIN_VERSION_WITH_SSL_SUPPORT 6
@@ -537,10 +536,6 @@ void LanLinkProvider::deviceLinkDestroyed(QObject *destroyedDeviceLink)
     if (linkIterator != m_links.end()) {
         Q_ASSERT(linkIterator.value() == destroyedDeviceLink);
         m_links.erase(linkIterator);
-        auto pairingHandler = m_pairingHandlers.take(id);
-        if (pairingHandler) {
-            pairingHandler->deleteLater();
-        }
     }
 }
 
@@ -648,42 +643,6 @@ void LanLinkProvider::addLink(const QString &deviceId, QSslSocket *socket, Netwo
         }
         connect(deviceLink, &QObject::destroyed, this, &LanLinkProvider::deviceLinkDestroyed);
         m_links[deviceId] = deviceLink;
-        if (m_pairingHandlers.contains(deviceId)) {
-            // We shouldn't have a pairinghandler if we didn't have a link.
-            // Crash if debug, recover if release (by setting the new devicelink to the old pairinghandler)
-            Q_ASSERT(m_pairingHandlers.contains(deviceId));
-            m_pairingHandlers[deviceId]->setDeviceLink(deviceLink);
-        }
     }
     Q_EMIT onConnectionReceived(*receivedPacket, deviceLink);
-}
-
-LanPairingHandler *LanLinkProvider::createPairingHandler(DeviceLink *link)
-{
-    LanPairingHandler *ph = m_pairingHandlers.value(link->deviceId());
-    if (!ph) {
-        ph = new LanPairingHandler(link);
-        qCDebug(KDECONNECT_CORE) << "creating pairing handler for" << link->deviceId();
-        connect(ph, &LanPairingHandler::pairingError, link, &DeviceLink::pairingError);
-        m_pairingHandlers[link->deviceId()] = ph;
-    }
-    return ph;
-}
-
-void LanLinkProvider::userRequestsPair(const QString &deviceId)
-{
-    LanPairingHandler *ph = createPairingHandler(m_links.value(deviceId));
-    ph->requestPairing();
-}
-
-void LanLinkProvider::userRequestsUnpair(const QString &deviceId)
-{
-    LanPairingHandler *ph = createPairingHandler(m_links.value(deviceId));
-    ph->unpair();
-}
-
-void LanLinkProvider::incomingPairPacket(DeviceLink *deviceLink, const NetworkPacket &np)
-{
-    LanPairingHandler *ph = createPairingHandler(deviceLink);
-    ph->packetReceived(np);
 }

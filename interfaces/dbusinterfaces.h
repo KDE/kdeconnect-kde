@@ -56,9 +56,11 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectD
     //  TODO: Workaround because OrgKdeKdeconnectDeviceInterface is not generating
     //  the signals for the properties
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
-    Q_PROPERTY(bool isTrusted READ isTrusted NOTIFY trustedChangedProxy)
+    Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChangedProxy)
+    Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChangedProxy)
+    Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChangedProxy)
+    Q_PROPERTY(int pairState READ pairState NOTIFY pairStateChangedProxy)
     Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
-    Q_PROPERTY(bool hasPairingRequests READ hasPairingRequests NOTIFY hasPairingRequestsChangedProxy)
 
 public:
     explicit DeviceDbusInterface(const QString &deviceId, QObject *parent = nullptr);
@@ -69,9 +71,8 @@ public:
 
 Q_SIGNALS:
     void nameChangedProxy(const QString &name);
-    void trustedChangedProxy(bool paired);
+    void pairStateChangedProxy(int pairState);
     void reachableChangedProxy(bool reachable);
-    void hasPairingRequestsChangedProxy(bool);
 
 private:
     const QString m_id;

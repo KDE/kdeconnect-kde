@@ -19,7 +19,6 @@
 #include "landevicelink.h"
 #include "server.h"
 
-class LanPairingHandler;
 class KDECONNECTCORE_EXPORT LanLinkProvider : public LinkProvider
 {
     Q_OBJECT
@@ -41,10 +40,6 @@ public:
     {
         return PRIORITY_HIGH;
     }
-
-    void userRequestsPair(const QString &deviceId);
-    void userRequestsUnpair(const QString &deviceId);
-    void incomingPairPacket(DeviceLink *device, const NetworkPacket &np);
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);
@@ -73,8 +68,6 @@ private Q_SLOTS:
     void broadcastToNetwork();
 
 private:
-    LanPairingHandler *createPairingHandler(DeviceLink *link);
-
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
     void addLink(const QString &deviceId, QSslSocket *socket, NetworkPacket *receivedPacket, LanDeviceLink::ConnectionStarted connectionOrigin);
     QList<QHostAddress> getBroadcastAddresses();
@@ -88,7 +81,6 @@ private:
     quint16 m_udpListenPort;
 
     QMap<QString, LanDeviceLink *> m_links;
-    QMap<QString, LanPairingHandler *> m_pairingHandlers;
 
     struct PendingConnect {
         NetworkPacket *np;

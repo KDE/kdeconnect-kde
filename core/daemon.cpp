@@ -40,7 +40,6 @@ struct DaemonPrivate {
     // Every known device
     QMap<QString, Device *> m_devices;
 
-    QSet<QString> m_discoveryModeAcquisitions;
     bool m_testMode;
 };
 
@@ -101,28 +100,6 @@ void Daemon::init()
     qCDebug(KDECONNECT_CORE) << "Daemon started";
 }
 
-void Daemon::acquireDiscoveryMode(const QString &key)
-{
-    bool oldState = d->m_discoveryModeAcquisitions.isEmpty();
-
-    d->m_discoveryModeAcquisitions.insert(key);
-
-    if (oldState != d->m_discoveryModeAcquisitions.isEmpty()) {
-        forceOnNetworkChange();
-    }
-}
-
-void Daemon::releaseDiscoveryMode(const QString &key)
-{
-    bool oldState = d->m_discoveryModeAcquisitions.isEmpty();
-
-    d->m_discoveryModeAcquisitions.remove(key);
-
-    if (oldState != d->m_discoveryModeAcquisitions.isEmpty()) {
-        cleanDevices();
-    }
-}
-
 void Daemon::removeDevice(Device *device)
 {
     d->m_devices.remove(device->id());
@@ -131,20 +108,6 @@ void Daemon::removeDevice(Device *device)
     Q_EMIT deviceListChanged();
 }
 
-void Daemon::cleanDevices()
-{
-    const auto devs = d->m_devices;
-    for (Device *device : devs) {
-        if (device->isTrusted()) {
-            continue;
-        }
-        device->cleanUnneededLinks();
-        // If there are no links remaining
-        if (!device->isReachable()) {
-            removeDevice(device);
-        }
-    }
-}
 
 void Daemon::forceOnNetworkChange()
 {
@@ -175,7 +138,7 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
     for (Device *device : qAsConst(d->m_devices)) {
         if (onlyReachable && !device->isReachable())
             continue;
-        if (onlyTrusted && !device->isTrusted())
+        if (onlyTrusted && !device->isPaired())
             continue;
         ret.append(device->id());
     }
@@ -188,7 +151,7 @@ QMap<QString, QString> Daemon::deviceNames(bool onlyReachable, bool onlyTrusted)
     for (Device *device : qAsConst(d->m_devices)) {
         if (onlyReachable && !device->isReachable())
             continue;
-        if (onlyTrusted && !device->isTrusted())
+        if (onlyTrusted && !device->isPaired())
             continue;
         ret[device->id()] = device->name();
     }
@@ -213,13 +176,7 @@ void Daemon::onNewDeviceLink(const NetworkPacket &identityPacket, DeviceLink *dl
     } else {
         qCDebug(KDECONNECT_CORE) << "It is a new device" << identityPacket.get<QString>(QStringLiteral("deviceName"));
         Device *device = new Device(this, identityPacket, dl);
-
-        // we discard the connections that we created but it's not paired.
-        if (!isDiscoveringDevices() && !device->isTrusted() && !dl->linkShouldBeKeptAlive()) {
-            device->deleteLater();
-        } else {
-            addDevice(device);
-        }
+        addDevice(device);
     }
 }
 
@@ -229,7 +186,7 @@ void Daemon::onDeviceStatusChanged()
 
     // qCDebug(KDECONNECT_CORE) << "Device" << device->name() << "status changed. Reachable:" << device->isReachable() << ". Paired: " << device->isPaired();
 
-    if (!device->isReachable() && !device->isTrusted()) {
+    if (!device->isReachable() && !device->isPaired()) {
         // qCDebug(KDECONNECT_CORE) << "Destroying device" << device->name();
         removeDevice(device);
     } else {
@@ -284,15 +241,10 @@ QList<Device *> Daemon::devicesList() const
     return d->m_devices.values();
 }
 
-bool Daemon::isDiscoveringDevices() const
-{
-    return !d->m_discoveryModeAcquisitions.isEmpty();
-}
-
 QString Daemon::deviceIdByName(const QString &name) const
 {
     for (Device *device : qAsConst(d->m_devices)) {
-        if (device->name() == name && device->isTrusted())
+        if (device->name() == name && device->isPaired())
             return device->id();
     }
     return {};
@@ -302,10 +254,11 @@ void Daemon::addDevice(Device *device)
 {
     const QString id = device->id();
     connect(device, &Device::reachableChanged, this, &Daemon::onDeviceStatusChanged);
-    connect(device, &Device::trustedChanged, this, &Daemon::onDeviceStatusChanged);
-    connect(device, &Device::hasPairingRequestsChanged, this, &Daemon::pairingRequestsChanged);
-    connect(device, &Device::hasPairingRequestsChanged, this, [this, device](bool hasPairingRequests) {
-        if (hasPairingRequests)
+    connect(device, &Device::pairStateChanged, this, &Daemon::onDeviceStatusChanged);
+    connect(device, &Device::pairStateChanged, this, &Daemon::pairingRequestsChanged);
+    connect(device, &Device::pairStateChanged, this, [this, device](int pairStateAsInt) {
+        PairState pairState = (PairState)pairStateAsInt;
+        if (pairState == PairState::RequestedByPeer)
             askPairingConfirmation(device);
     });
     d->m_devices[id] = device;
@@ -318,7 +271,7 @@ QStringList Daemon::pairingRequests() const
 {
     QStringList ret;
     for (Device *dev : qAsConst(d->m_devices)) {
-        if (dev->hasPairingRequests())
+        if (dev->isPairRequestedByPeer())
             ret += dev->id();
     }
     return ret;

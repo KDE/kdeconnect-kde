@@ -33,13 +33,6 @@ public:
     QString name() override;
     bool sendPacket(NetworkPacket &np) override;
 
-    void userRequestsPair() override;
-    void userRequestsUnpair() override;
-
-    void setPairStatus(PairStatus status) override;
-
-    bool linkShouldBeKeptAlive() override;
-
     QHostAddress hostAddress() const;
     QSslCertificate certificate() const override;
 

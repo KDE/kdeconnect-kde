@@ -10,6 +10,8 @@
 #include <KCModule>
 #include <QStandardItemModel>
 
+#include <core/pairstate.h>
+
 class QModelIndex;
 class DeviceDbusInterface;
 class DaemonDbusInterface;
@@ -35,24 +37,22 @@ private:
 
 private Q_SLOTS:
     void deviceSelected(const QModelIndex &current);
-    void requestPair();
+    void requestPairing();
     void pluginsConfigChanged();
     void sendPing();
     void resetSelection();
-    void trustedChanged(bool);
     void pairingFailed(const QString &error);
     void refresh();
     void renameShow();
     void renameDone();
     void setRenameMode(bool b);
     void resetCurrentDevice();
-    void currentDevicePairingChanged(bool pairing);
+    void setCurrentDevicePairState(int pairStateAsInt);
     void acceptPairing();
-    void rejectPairing();
+    void cancelPairing();
+
 
 private:
-    enum TrustStatus { NotTrusted, Requested, RequestedByPeer, Trusted };
-    void setCurrentDeviceTrusted(TrustStatus trusted);
     void resetDeviceView();
 
     Ui::KdeConnectKcmUi *kcmUi;

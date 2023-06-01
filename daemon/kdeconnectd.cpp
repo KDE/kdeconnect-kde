@@ -44,7 +44,7 @@ public:
     void askPairingConfirmation(Device *device) override
     {
         KNotification *notification = new KNotification(QStringLiteral("pairingRequest"), KNotification::NotificationFlag::Persistent);
-        QTimer::singleShot(PairingHandler::pairingTimeoutMsec(), notification, &KNotification::close);
+        QTimer::singleShot(PairingHandler::pairingTimeoutMsec, notification, &KNotification::close);
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(QStringLiteral("KDE Connect"));
@@ -53,7 +53,7 @@ public:
         notification->setDefaultAction(i18n("Open"));
         notification->setActions(QStringList() << i18n("Accept") << i18n("Reject") << i18n("View key"));
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
-        connect(notification, &KNotification::action2Activated, device, &Device::rejectPairing);
+        connect(notification, &KNotification::action2Activated, device, &Device::cancelPairing);
         QString deviceId = device->id();
         auto openSettings = [deviceId, notification] {
             OpenConfig oc;

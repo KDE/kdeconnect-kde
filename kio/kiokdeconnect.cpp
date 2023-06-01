@@ -137,7 +137,7 @@ KIO::WorkerResult KioKdeconnect::listDevice(const QString &device)
 
         DeviceDbusInterface dev(device);
 
-        if (!dev.isTrusted()) {
+        if (!dev.isPaired()) {
             return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("%0 is not paired").arg(dev.name()));
         }
 

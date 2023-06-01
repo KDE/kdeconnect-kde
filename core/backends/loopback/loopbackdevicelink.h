@@ -21,15 +21,6 @@ public:
     QString name() override;
     bool sendPacket(NetworkPacket &np) override;
 
-    void userRequestsPair() override
-    {
-        setPairStatus(Paired);
-    }
-    void userRequestsUnpair() override
-    {
-        setPairStatus(NotPaired);
-    }
-
     QSslCertificate certificate() const override
     {
         return QSslCertificate();

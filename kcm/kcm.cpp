@@ -84,16 +84,15 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList &args)
     connect(devicesModel, &QAbstractItemModel::dataChanged, this, &KdeConnectKcm::resetSelection);
     connect(kcmUi->deviceList->selectionModel(), &QItemSelectionModel::currentChanged, this, &KdeConnectKcm::deviceSelected);
     connect(kcmUi->accept_button, &QAbstractButton::clicked, this, &KdeConnectKcm::acceptPairing);
-    connect(kcmUi->reject_button, &QAbstractButton::clicked, this, &KdeConnectKcm::rejectPairing);
-    connect(kcmUi->pair_button, &QAbstractButton::clicked, this, &KdeConnectKcm::requestPair);
+    connect(kcmUi->reject_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
+    connect(kcmUi->cancel_button, &QAbstractButton::clicked, this, &KdeConnectKcm::cancelPairing);
+    connect(kcmUi->pair_button, &QAbstractButton::clicked, this, &KdeConnectKcm::requestPairing);
     connect(kcmUi->unpair_button, &QAbstractButton::clicked, this, &KdeConnectKcm::unpair);
     connect(kcmUi->ping_button, &QAbstractButton::clicked, this, &KdeConnectKcm::sendPing);
     connect(kcmUi->refresh_button, &QAbstractButton::clicked, this, &KdeConnectKcm::refresh);
     connect(kcmUi->rename_edit, &QLineEdit::returnPressed, this, &KdeConnectKcm::renameDone);
     connect(kcmUi->renameDone_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameDone);
     connect(kcmUi->renameShow_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameShow);
-
-    daemon->acquireDiscoveryMode(createId());
 
 #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
 
@@ -147,13 +146,11 @@ void KdeConnectKcm::setRenameMode(bool b)
 
 KdeConnectKcm::~KdeConnectKcm()
 {
-    daemon->releaseDiscoveryMode(createId());
     delete kcmUi;
 }
 
 void KdeConnectKcm::refresh()
 {
-    daemon->acquireDiscoveryMode(createId());
     daemon->forceOnNetworkChange();
 }
 
@@ -191,23 +188,8 @@ void KdeConnectKcm::deviceSelected(const QModelIndex &current)
     resetDeviceView();
 
     connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
-    connect(currentDevice, SIGNAL(trustedChanged(bool)), this, SLOT(trustedChanged(bool)));
-    connect(currentDevice, SIGNAL(pairingError(QString)), this, SLOT(pairingFailed(QString)));
-    connect(currentDevice, &DeviceDbusInterface::hasPairingRequestsChangedProxy, this, &KdeConnectKcm::currentDevicePairingChanged);
-}
-
-void KdeConnectKcm::currentDevicePairingChanged(bool pairing)
-{
-    if (pairing) {
-        setCurrentDeviceTrusted(RequestedByPeer);
-    } else {
-        setWhenAvailable(
-            currentDevice->isTrusted(),
-            [this](bool trusted) {
-                setCurrentDeviceTrusted(trusted ? Trusted : NotTrusted);
-            },
-            this);
-    }
+    connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
+    connect(currentDevice, &DeviceDbusInterface::pairStateChangedProxy, this, &KdeConnectKcm::setCurrentDevicePairState);
 }
 
 void KdeConnectKcm::resetCurrentDevice()
@@ -225,17 +207,9 @@ void KdeConnectKcm::resetDeviceView()
 
     kcmUi->name_label->setText(currentDevice->name());
     setWhenAvailable(
-        currentDevice->isTrusted(),
-        [this](bool trusted) {
-            if (trusted)
-                setCurrentDeviceTrusted(Trusted);
-            else
-                setWhenAvailable(
-                    currentDevice->hasPairingRequests(),
-                    [this](bool haspr) {
-                        setCurrentDeviceTrusted(haspr ? RequestedByPeer : NotTrusted);
-                    },
-                    this);
+        currentDevice->pairStateAsInt(),
+        [this](int pairStateAsInt) {
+            setCurrentDevicePairState(pairStateAsInt);
         },
         this);
 
@@ -257,7 +231,7 @@ void KdeConnectKcm::resetDeviceView()
     connect(kcmUi->pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
 }
 
-void KdeConnectKcm::requestPair()
+void KdeConnectKcm::requestPairing()
 {
     if (!currentDevice) {
         return;
@@ -265,9 +239,7 @@ void KdeConnectKcm::requestPair()
 
     kcmUi->messages->hide();
 
-    setCurrentDeviceTrusted(Requested);
-
-    currentDevice->requestPair();
+    currentDevice->requestPairing();
 }
 
 void KdeConnectKcm::unpair()
@@ -276,7 +248,6 @@ void KdeConnectKcm::unpair()
         return;
     }
 
-    setCurrentDeviceTrusted(NotTrusted);
     currentDevice->unpair();
 }
 
@@ -289,13 +260,13 @@ void KdeConnectKcm::acceptPairing()
     currentDevice->acceptPairing();
 }
 
-void KdeConnectKcm::rejectPairing()
+void KdeConnectKcm::cancelPairing()
 {
     if (!currentDevice) {
         return;
     }
 
-    currentDevice->rejectPairing();
+    currentDevice->cancelPairing();
 }
 
 void KdeConnectKcm::pairingFailed(const QString &error)
@@ -303,38 +274,32 @@ void KdeConnectKcm::pairingFailed(const QString &error)
     if (sender() != currentDevice)
         return;
 
-    setCurrentDeviceTrusted(NotTrusted);
-
     kcmUi->messages->setText(i18n("Error trying to pair: %1", error));
     kcmUi->messages->animatedShow();
 }
 
-void KdeConnectKcm::trustedChanged(bool trusted)
-{
-    DeviceDbusInterface *senderDevice = (DeviceDbusInterface *)sender();
-    if (senderDevice == currentDevice)
-        setCurrentDeviceTrusted(trusted ? Trusted : NotTrusted);
-}
 
-void KdeConnectKcm::setCurrentDeviceTrusted(KdeConnectKcm::TrustStatus trusted)
+void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
 {
-    kcmUi->accept_button->setVisible(trusted == RequestedByPeer);
-    kcmUi->reject_button->setVisible(trusted == RequestedByPeer);
-    kcmUi->pair_button->setVisible(trusted == NotTrusted);
-    kcmUi->unpair_button->setVisible(trusted == Trusted);
-    kcmUi->progressBar->setVisible(trusted == Requested);
-    kcmUi->ping_button->setVisible(trusted == Trusted);
-    switch (trusted) {
-    case Trusted:
+    PairState state = (PairState)pairStateAsInt; // Hack because qdbus doesn't like enums
+    kcmUi->accept_button->setVisible(state == PairState::RequestedByPeer);
+    kcmUi->reject_button->setVisible(state == PairState::RequestedByPeer);
+    kcmUi->cancel_button->setVisible(state == PairState::Requested);
+    kcmUi->pair_button->setVisible(state == PairState::NotPaired);
+    kcmUi->unpair_button->setVisible(state == PairState::Paired);
+    kcmUi->progressBar->setVisible(state == PairState::Requested);
+    kcmUi->ping_button->setVisible(state == PairState::Paired);
+    switch (state) {
+    case PairState::Paired:
         kcmUi->status_label->setText(i18n("(paired)"));
         break;
-    case NotTrusted:
+    case PairState::NotPaired:
         kcmUi->status_label->setText(i18n("(not paired)"));
         break;
-    case RequestedByPeer:
+    case PairState::RequestedByPeer:
         kcmUi->status_label->setText(i18n("(incoming pair request)"));
         break;
-    case Requested:
+    case PairState::Requested:
         kcmUi->status_label->setText(i18n("(pairing requested)"));
         break;
     }

@@ -39,6 +39,7 @@ public:
 
     ~DevicePrivate()
     {
+        delete m_pairingHandler;
         qDeleteAll(m_deviceLinks);
         m_deviceLinks.clear();
     }
@@ -54,7 +55,7 @@ public:
     QMultiMap<QString, KdeConnectPlugin *> m_pluginsByIncomingCapability;
     QSet<QString> m_supportedPlugins;
     QSet<QString> m_allPlugins;
-    QSet<PairingHandler *> m_pairRequests;
+    PairingHandler* m_pairingHandler;
 };
 
 static void warn(const QString &info)
@@ -66,6 +67,8 @@ Device::Device(QObject *parent, const QString &id)
     : QObject(parent)
     , d(new Device::DevicePrivate(id))
 {
+    d->m_pairingHandler = new PairingHandler(this, PairState::Paired);
+
     d->m_protocolVersion = NetworkPacket::s_protocolVersion;
     KdeConnectConfig::DeviceInfo info = KdeConnectConfig::instance().getTrustedDevice(d->m_deviceId);
 
@@ -79,13 +82,17 @@ Device::Device(QObject *parent, const QString &id)
     d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
     d->m_supportedPlugins = d->m_allPlugins;
 
-    connect(this, &Device::pairingError, this, &warn);
+    connect(d->m_pairingHandler, &PairingHandler::incomingPairRequest, this, &Device::pairingHandler_incomingPairRequest);
+    connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
+    connect(d->m_pairingHandler, &PairingHandler::pairingSuccessful, this, &Device::pairingHandler_pairingSuccessful);
+    connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
 }
 
 Device::Device(QObject *parent, const NetworkPacket &identityPacket, DeviceLink *dl)
     : QObject(parent)
     , d(new Device::DevicePrivate(identityPacket.get<QString>(QStringLiteral("deviceId"))))
 {
+    d->m_pairingHandler = new PairingHandler(this, PairState::NotPaired);
     d->m_deviceName = identityPacket.get<QString>(QStringLiteral("deviceName"));
     d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
 
@@ -94,10 +101,15 @@ Device::Device(QObject *parent, const NetworkPacket &identityPacket, DeviceLink 
     // Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
 
-    connect(this, &Device::pairingError, this, &warn);
+    connect(this, &Device::pairingFailed, this, &warn);
 
     connect(this, &Device::reachableChanged, this, &Device::statusIconNameChanged);
-    connect(this, &Device::trustedChanged, this, &Device::statusIconNameChanged);
+    connect(this, &Device::pairStateChanged, this, &Device::statusIconNameChanged);
+
+    connect(d->m_pairingHandler, &PairingHandler::incomingPairRequest, this, &Device::pairingHandler_incomingPairRequest);
+    connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
+    connect(d->m_pairingHandler, &PairingHandler::pairingSuccessful, this, &Device::pairingHandler_pairingSuccessful);
+    connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
 }
 
 Device::~Device()
@@ -150,7 +162,7 @@ void Device::reloadPlugins()
     QHash<QString, KdeConnectPlugin *> newPluginMap, oldPluginMap = d->m_plugins;
     QMultiMap<QString, KdeConnectPlugin *> newPluginsByIncomingCapability;
 
-    if (isTrusted() && isReachable()) { // Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
+    if (isPaired() && isReachable()) { // Do not load any plugin for unpaired devices, nor useless loading them for unreachable devices
 
         PluginLoader *loader = PluginLoader::instance();
 
@@ -209,51 +221,60 @@ QString Device::pluginsConfigFile() const
     return KdeConnectConfig::instance().deviceConfigDir(id()).absoluteFilePath(QStringLiteral("config"));
 }
 
-void Device::requestPair()
+void Device::requestPairing()
 {
-    if (isTrusted()) {
-        Q_EMIT pairingError(i18n("Already paired"));
-        return;
-    }
-
-    if (!isReachable()) {
-        Q_EMIT pairingError(i18n("Device not reachable"));
-        return;
-    }
-
-    for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
-        dl->userRequestsPair();
-    }
+    qCDebug(KDECONNECT_CORE) << "Request pairing";
+    d->m_pairingHandler->requestPairing();
+    Q_EMIT pairStateChanged(pairStateAsInt());
 }
 
 void Device::unpair()
 {
-    for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
-        dl->userRequestsUnpair();
-    }
-    KdeConnectConfig::instance().removeTrustedDevice(id());
-    Q_EMIT trustedChanged(false);
+    qCDebug(KDECONNECT_CORE) << "Request unpairing";
+    d->m_pairingHandler->unpair();
 }
 
-void Device::pairStatusChanged(DeviceLink::PairStatus status)
+void Device::acceptPairing()
 {
-    if (status == DeviceLink::NotPaired) {
-        KdeConnectConfig::instance().removeTrustedDevice(id());
+    qCDebug(KDECONNECT_CORE) << "Accept pairing";
+    d->m_pairingHandler->acceptPairing();
+}
 
-        for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
-            if (dl != sender()) {
-                dl->setPairStatus(DeviceLink::NotPaired);
-            }
-        }
-    } else {
-        KdeConnectConfig::instance().addTrustedDevice(id(), name(), type());
-    }
+void Device::cancelPairing()
+{
+    qCDebug(KDECONNECT_CORE) << "Cancel pairing";
+    d->m_pairingHandler->cancelPairing();
+}
 
+void Device::pairingHandler_incomingPairRequest()
+{
+    Q_ASSERT(d->m_pairingHandler->pairState() == PairState::RequestedByPeer);
+    Q_EMIT pairStateChanged(pairStateAsInt());
+}
+
+void Device::pairingHandler_pairingSuccessful()
+{
+    Q_ASSERT(d->m_pairingHandler->pairState() == PairState::Paired);
+    KdeConnectConfig::instance().addTrustedDevice(id(), name(), type());
+    KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("certificate"), QString::fromLatin1(certificate().toPem()));
     reloadPlugins(); // Will load/unload plugins
+    Q_EMIT pairStateChanged(pairStateAsInt());
+}
 
-    bool isTrusted = (status == DeviceLink::Paired);
-    Q_EMIT trustedChanged(isTrusted);
-    Q_ASSERT(isTrusted == this->isTrusted());
+void Device::pairingHandler_pairingFailed(const QString &errorMessage)
+{
+    Q_ASSERT(d->m_pairingHandler->pairState() == PairState::NotPaired);
+    Q_EMIT pairingFailed(errorMessage);
+    Q_EMIT pairStateChanged(pairStateAsInt());
+}
+
+void Device::pairingHandler_unpaired()
+{
+    Q_ASSERT(d->m_pairingHandler->pairState() == PairState::NotPaired);
+    qCDebug(KDECONNECT_CORE) << "Unpaired";
+    KdeConnectConfig::instance().removeTrustedDevice(id());
+    reloadPlugins(); // Will load/unload plugins
+    Q_EMIT pairStateChanged(pairStateAsInt());
 }
 
 static bool lessThan(DeviceLink *p1, DeviceLink *p2)
@@ -306,56 +327,6 @@ void Device::addLink(const NetworkPacket &identityPacket, DeviceLink *link)
     if (d->m_deviceLinks.size() == 1) {
         Q_EMIT reachableChanged(true);
     }
-
-    connect(link, &DeviceLink::pairStatusChanged, this, &Device::pairStatusChanged);
-    connect(link, &DeviceLink::pairingRequest, this, &Device::addPairingRequest);
-    connect(link, &DeviceLink::pairingRequestExpired, this, &Device::removePairingRequest);
-    connect(link, &DeviceLink::pairingError, this, &Device::pairingError);
-}
-
-void Device::addPairingRequest(PairingHandler *handler)
-{
-    const bool wasEmpty = d->m_pairRequests.isEmpty();
-    d->m_pairRequests.insert(handler);
-
-    if (wasEmpty != d->m_pairRequests.isEmpty())
-        Q_EMIT hasPairingRequestsChanged(!d->m_pairRequests.isEmpty());
-}
-
-void Device::removePairingRequest(PairingHandler *handler)
-{
-    const bool wasEmpty = d->m_pairRequests.isEmpty();
-    d->m_pairRequests.remove(handler);
-
-    if (wasEmpty != d->m_pairRequests.isEmpty())
-        Q_EMIT hasPairingRequestsChanged(!d->m_pairRequests.isEmpty());
-}
-
-bool Device::hasPairingRequests() const
-{
-    return !d->m_pairRequests.isEmpty();
-}
-
-void Device::acceptPairing()
-{
-    if (d->m_pairRequests.isEmpty())
-        qWarning() << "no pair requests to accept!";
-
-    // copying because the pairing handler will be removed upon accept
-    const auto prCopy = d->m_pairRequests;
-    for (auto ph : prCopy)
-        ph->acceptPairing();
-}
-
-void Device::rejectPairing()
-{
-    if (d->m_pairRequests.isEmpty())
-        qWarning() << "no pair requests to reject!";
-
-    // copying because the pairing handler will be removed upon reject
-    const auto prCopy = d->m_pairRequests;
-    for (auto ph : prCopy)
-        ph->rejectPairing();
 }
 
 void Device::linkDestroyed(QObject *o)
@@ -377,8 +348,7 @@ void Device::removeLink(DeviceLink *link)
 
 bool Device::sendPacket(NetworkPacket &np)
 {
-    Q_ASSERT(np.type() != PACKET_TYPE_PAIR);
-    Q_ASSERT(isTrusted());
+    Q_ASSERT(isPaired() || np.type() == PACKET_TYPE_PAIR);
 
     // Maybe we could block here any packet that is not an identity or a pairing packet to prevent sending non encrypted data
     for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
@@ -391,8 +361,9 @@ bool Device::sendPacket(NetworkPacket &np)
 
 void Device::privateReceivedPacket(const NetworkPacket &np)
 {
-    Q_ASSERT(np.type() != PACKET_TYPE_PAIR);
-    if (isTrusted()) {
+    if (np.type() == PACKET_TYPE_PAIR) {
+        d->m_pairingHandler->packetReceived(np);
+    } else if (isPaired()) {
         const QList<KdeConnectPlugin *> plugins = d->m_pluginsByIncomingCapability.values(np.type());
         if (plugins.isEmpty()) {
             qWarning() << "discarding unsupported packet" << np.type() << "for" << name();
@@ -406,10 +377,32 @@ void Device::privateReceivedPacket(const NetworkPacket &np)
     }
 }
 
-bool Device::isTrusted() const
+PairState Device::pairState() const
 {
-    return KdeConnectConfig::instance().trustedDevices().contains(id());
+    return d->m_pairingHandler->pairState();
 }
+
+int Device::pairStateAsInt() const
+{
+    return (int)pairState();
+}
+
+bool Device::isPaired() const
+{
+    return d->m_pairingHandler->pairState() == PairState::Paired;
+}
+
+bool Device::isPairRequested() const
+{
+    return d->m_pairingHandler->pairState() == PairState::Requested;
+}
+
+
+bool Device::isPairRequestedByPeer() const
+{
+    return d->m_pairingHandler->pairState() == PairState::RequestedByPeer;
+}
+
 
 QStringList Device::availableLinks() const
 {
@@ -419,22 +412,6 @@ QStringList Device::availableLinks() const
         sl.append(dl->provider()->name());
     }
     return sl;
-}
-
-void Device::cleanUnneededLinks()
-{
-    if (isTrusted()) {
-        return;
-    }
-    for (int i = 0; i < d->m_deviceLinks.size();) {
-        DeviceLink *dl = d->m_deviceLinks[i];
-        if (!dl->linkShouldBeKeptAlive()) {
-            dl->deleteLater();
-            d->m_deviceLinks.remove(i);
-        } else {
-            i++;
-        }
-    }
 }
 
 QHostAddress Device::getLocalIpAddress() const
@@ -480,7 +457,7 @@ QString Device::type2str(Device::DeviceType deviceType)
 
 QString Device::statusIconName() const
 {
-    return iconForStatus(isReachable(), isTrusted());
+    return iconForStatus(isReachable(), isPaired());
 }
 
 QString Device::iconName() const

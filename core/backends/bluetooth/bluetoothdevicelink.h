@@ -14,7 +14,6 @@
 
 #include "../devicelinereader.h"
 #include "../devicelink.h"
-#include "bluetoothpairinghandler.h"
 
 class ConnectionMultiplexer;
 class MultiplexChannel;
@@ -29,10 +28,6 @@ public:
     virtual QString name() override;
     bool sendPacket(NetworkPacket &np) override;
 
-    virtual void userRequestsPair() override;
-    virtual void userRequestsUnpair() override;
-
-    virtual bool linkShouldBeKeptAlive() override;
     QSslCertificate certificate() const override;
 
 private Q_SLOTS:
@@ -42,7 +37,6 @@ private:
     DeviceLineReader *mSocketReader;
     ConnectionMultiplexer *mConnection;
     QSharedPointer<MultiplexChannel> mChannel;
-    BluetoothPairingHandler *mPairingHandler;
 
     void sendMessage(const QString mMessage);
 };

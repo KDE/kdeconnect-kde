@@ -93,7 +93,6 @@ int main(int argc, char **argv)
         if (parser.isSet(QStringLiteral("a"))) {
             available = true;
         } else {
-            blockOnReply(iface.acquireDiscoveryMode(id));
             QThread::sleep(2);
         }
         const QStringList devices = blockOnReply<QStringList>(iface.devices(available, available));
@@ -115,12 +114,12 @@ int main(int argc, char **argv)
                 DeviceDbusInterface deviceIface(id);
                 QString statusInfo;
                 const bool isReachable = deviceIface.isReachable();
-                const bool isTrusted = deviceIface.isTrusted();
-                if (isReachable && isTrusted) {
+                const bool isPaired = deviceIface.isPaired();
+                if (isReachable && isPaired) {
                     statusInfo = i18n("(paired and reachable)");
                 } else if (isReachable) {
                     statusInfo = i18n("(reachable)");
-                } else if (isTrusted) {
+                } else if (isPaired) {
                     statusInfo = i18n("(paired)");
                 }
                 QTextStream(stdout) << "- " << deviceIface.name() << ": " << deviceIface.id() << ' ' << statusInfo << Qt::endl;
@@ -132,15 +131,14 @@ int main(int argc, char **argv)
             QTextStream(stderr) << i18n("No devices found") << Qt::endl;
         }
 
-        blockOnReply(iface.releaseDiscoveryMode(id));
     } else if (parser.isSet(QStringLiteral("shell-device-autocompletion"))) {
         // Outputs a list of reachable devices in zsh autocomplete format, with the name as description
         const QStringList devices = blockOnReply<QStringList>(iface.devices(true, false));
         for (const QString &id : devices) {
             DeviceDbusInterface deviceIface(id);
             QString statusInfo;
-            const bool isTrusted = deviceIface.isTrusted();
-            if (isTrusted) {
+            const bool isPaired = deviceIface.isPaired();
+            if (isPaired) {
                 statusInfo = i18n("(paired)");
             } else {
                 statusInfo = i18n("(unpaired)");
@@ -239,7 +237,6 @@ int main(int argc, char **argv)
                 // Device doesn't exist, go into discovery mode and wait up to 30 seconds for the device to appear
                 QEventLoop wait;
                 QTextStream(stderr) << i18n("waiting for device...") << Qt::endl;
-                blockOnReply(iface.acquireDiscoveryMode(id));
 
                 QObject::connect(&iface, &DaemonDbusInterface::deviceAdded, &iface, [&](const QString &deviceAddedId) {
                     if (device == deviceAddedId) {
@@ -253,16 +250,15 @@ int main(int argc, char **argv)
 
             if (!dev.isReachable()) {
                 QTextStream(stderr) << i18n("Device not found") << Qt::endl;
-            } else if (blockOnReply<bool>(dev.isTrusted())) {
+            } else if (blockOnReply<bool>(dev.isPaired())) {
                 QTextStream(stderr) << i18n("Already paired") << Qt::endl;
             } else {
                 QTextStream(stderr) << i18n("Pair requested") << Qt::endl;
-                blockOnReply(dev.requestPair());
+                blockOnReply(dev.requestPairing());
             }
-            blockOnReply(iface.releaseDiscoveryMode(id));
         } else if (parser.isSet(QStringLiteral("unpair"))) {
             DeviceDbusInterface dev(device);
-            if (!dev.isTrusted()) {
+            if (!dev.isPaired()) {
                 QTextStream(stderr) << i18n("Already not paired") << Qt::endl;
             } else {
                 QTextStream(stderr) << i18n("Unpaired") << Qt::endl;

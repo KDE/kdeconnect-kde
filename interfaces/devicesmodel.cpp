@@ -43,7 +43,6 @@ DevicesModel::DevicesModel(QObject *parent)
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &DevicesModel::refreshDeviceList);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &DevicesModel::clearDevices);
 
-    // refresh the view, acquireDiscoveryMode if necessary
     setDisplayFilter(NoFilter);
 }
 
@@ -60,7 +59,6 @@ QHash<int, QByteArray> DevicesModel::roleNames() const
 
 DevicesModel::~DevicesModel()
 {
-    m_dbusInterface->releaseDiscoveryMode(*s_keyId);
 }
 
 int DevicesModel::rowForDevice(const QString &id) const
@@ -139,12 +137,6 @@ int DevicesModel::displayFilter() const
 void DevicesModel::setDisplayFilter(int flags)
 {
     m_displayFilter = (StatusFilterFlag)flags;
-
-    const bool reachableNeeded = (m_displayFilter & StatusFilterFlag::Reachable);
-    if (reachableNeeded)
-        m_dbusInterface->acquireDiscoveryMode(*s_keyId);
-    else
-        m_dbusInterface->releaseDiscoveryMode(*s_keyId);
 
     refreshDeviceList();
 }
@@ -239,7 +231,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
     case NameModelRole:
         return device->name();
     case Qt::ToolTipRole: {
-        bool trusted = device->isTrusted();
+        bool trusted = device->isPaired();
         bool reachable = device->isReachable();
         QString status = reachable ? (trusted ? i18n("Device trusted and connected") : i18n("Device not trusted")) : i18n("Device disconnected");
         return status;
@@ -249,7 +241,7 @@ QVariant DevicesModel::data(const QModelIndex &index, int role) const
         if (device->isReachable()) {
             status |= StatusFilterFlag::Reachable;
         }
-        if (device->isTrusted()) {
+        if (device->isPaired()) {
             status |= StatusFilterFlag::Paired;
         }
         return status;
@@ -287,5 +279,5 @@ bool DevicesModel::passesFilter(DeviceDbusInterface *dev) const
     bool onlyPaired = (m_displayFilter & StatusFilterFlag::Paired);
     bool onlyReachable = (m_displayFilter & StatusFilterFlag::Reachable);
 
-    return !((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isTrusted()));
+    return !((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isPaired()));
 }

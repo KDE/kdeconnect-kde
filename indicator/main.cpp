@@ -105,7 +105,7 @@ int main(int argc, char **argv)
                 DeviceDbusInterface *dev = new DeviceDbusInterface(req, menu);
                 auto pairMenu = menu->addMenu(dev->name());
                 pairMenu->addAction(i18n("Pair"), dev, &DeviceDbusInterface::acceptPairing);
-                pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::rejectPairing);
+                pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::cancelPairing);
             }
         }
         // Add quit menu

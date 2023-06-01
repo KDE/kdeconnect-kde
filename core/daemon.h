@@ -24,7 +24,6 @@ class KDECONNECTCORE_EXPORT Daemon : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.daemon")
-    Q_PROPERTY(bool isDiscoveringDevices READ isDiscoveringDevices)
     Q_PROPERTY(QStringList pairingRequests READ pairingRequests NOTIFY pairingRequestsChanged)
     Q_PROPERTY(QStringList customDevices READ customDevices WRITE setCustomDevices NOTIFY customDevicesChanged)
 
@@ -54,9 +53,6 @@ public:
 
     Q_SCRIPTABLE QString selfId() const;
 public Q_SLOTS:
-    Q_SCRIPTABLE void acquireDiscoveryMode(const QString &id);
-    Q_SCRIPTABLE void releaseDiscoveryMode(const QString &id);
-
     Q_SCRIPTABLE void forceOnNetworkChange();
 
     /// don't try to turn into Q_PROPERTY, it doesn't work
@@ -90,9 +86,7 @@ private:
 
 protected:
     void addDevice(Device *device);
-    bool isDiscoveringDevices() const;
     void removeDevice(Device *d);
-    void cleanDevices();
 
     QScopedPointer<struct DaemonPrivate> d;
 };

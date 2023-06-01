@@ -7,48 +7,48 @@
 #ifndef KDECONNECT_PAIRINGHANDLER_H
 #define KDECONNECT_PAIRINGHANDLER_H
 
-#include "devicelink.h"
+#include "device.h"
 #include "networkpacket.h"
+#include "pairstate.h"
 
-/*
- * This class separates the pairing interface for each type of link.
- * Since different links can pair via different methods, like for LanLink certificate and public key should be shared,
- * for Bluetooth link they should be paired via bluetooth etc.
- * Each "Device" instance maintains a hash map for these pairing handlers so that there can be single pairing handler per
- * per link type per device.
- * Pairing handler keeps information about device, latest link, and pair status of the link
- * During first pairing process, the pairing process is nearly same as old process.
- * After that if any one of the link is paired, then we can say that device is paired, so new link will pair automatically
- */
+#include <QTimer>
 
 class KDECONNECTCORE_EXPORT PairingHandler : public QObject
 {
     Q_OBJECT
-
 public:
-    PairingHandler(DeviceLink *parent);
+    const static int pairingTimeoutMsec = 30 * 1000; // 30 seconds of timeout
+
+    PairingHandler(Device *parent, PairState initialState);
     ~PairingHandler() override = default;
 
-    DeviceLink *deviceLink() const;
-    void setDeviceLink(DeviceLink *dl);
+    void packetReceived(const NetworkPacket &np);
 
-    virtual void packetReceived(const NetworkPacket &np) = 0;
-    virtual void unpair() = 0;
-    static int pairingTimeoutMsec()
-    {
-        return 30 * 1000;
-    } // 30 seconds of timeout (default), subclasses that use different values should override
+    PairState pairState() { return m_pairState; }
 
 public Q_SLOTS:
-    virtual bool requestPairing() = 0;
-    virtual bool acceptPairing() = 0;
-    virtual void rejectPairing() = 0;
+    bool requestPairing();
+    bool acceptPairing();
+    void cancelPairing();
+    void unpair();
 
 Q_SIGNALS:
-    void pairingError(const QString &errorMessage);
+    void incomingPairRequest();
+    void pairingFailed(const QString &errorMessage);
+    void pairingSuccessful();
+    void unpaired();
+
 
 private:
-    DeviceLink *m_deviceLink;
+    void pairingDone();
+
+    QTimer m_pairingTimeout;
+    Device *m_device;
+    PairState m_pairState;
+
+private Q_SLOTS:
+    void pairingTimeout();
+
 };
 
 #endif // KDECONNECT_PAIRINGHANDLER_H
