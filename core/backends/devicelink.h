@@ -26,8 +26,6 @@ public:
     DeviceLink(const QString &deviceId, LinkProvider *parent);
     ~DeviceLink() override = default;
 
-    virtual QString name() = 0;
-
     const QString &deviceId() const
     {
         return m_deviceId;

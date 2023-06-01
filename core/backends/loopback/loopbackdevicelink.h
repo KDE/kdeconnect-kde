@@ -18,7 +18,6 @@ class LoopbackDeviceLink : public DeviceLink
 public:
     LoopbackDeviceLink(const QString &d, LoopbackLinkProvider *a);
 
-    QString name() override;
     bool sendPacket(NetworkPacket &np) override;
 
     QSslCertificate certificate() const override

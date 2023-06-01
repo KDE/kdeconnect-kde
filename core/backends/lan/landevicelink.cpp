@@ -62,11 +62,6 @@ QHostAddress LanDeviceLink::hostAddress() const
     return addr;
 }
 
-QString LanDeviceLink::name()
-{
-    return QStringLiteral("LanLink"); // Should be same in both android and kde version
-}
-
 bool LanDeviceLink::sendPacket(NetworkPacket &np)
 {
     if (np.payload()) {

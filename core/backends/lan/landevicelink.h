@@ -30,7 +30,6 @@ public:
     LanDeviceLink(const QString &deviceId, LinkProvider *parent, QSslSocket *socket, ConnectionStarted connectionSource);
     void reset(QSslSocket *socket, ConnectionStarted connectionSource);
 
-    QString name() override;
     bool sendPacket(NetworkPacket &np) override;
 
     QHostAddress hostAddress() const;

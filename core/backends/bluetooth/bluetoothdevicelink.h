@@ -25,7 +25,6 @@ class KDECONNECTCORE_EXPORT BluetoothDeviceLink : public DeviceLink
 public:
     BluetoothDeviceLink(const QString &deviceId, LinkProvider *parent, ConnectionMultiplexer *connection, QSharedPointer<MultiplexChannel> socket);
 
-    virtual QString name() override;
     bool sendPacket(NetworkPacket &np) override;
 
     QSslCertificate certificate() const override;

@@ -13,11 +13,6 @@ LoopbackDeviceLink::LoopbackDeviceLink(const QString &deviceId, LoopbackLinkProv
 {
 }
 
-QString LoopbackDeviceLink::name()
-{
-    return QStringLiteral("LoopbackLink");
-}
-
 bool LoopbackDeviceLink::sendPacket(NetworkPacket &input)
 {
     NetworkPacket output((QString()));

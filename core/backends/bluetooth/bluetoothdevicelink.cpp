@@ -33,11 +33,6 @@ BluetoothDeviceLink::BluetoothDeviceLink(const QString &deviceId,
     connect(socket.data(), &MultiplexChannel::aboutToClose, this, &QObject::deleteLater);
 }
 
-QString BluetoothDeviceLink::name()
-{
-    return QStringLiteral("BluetoothLink"); // Should be same in both android and kde version
-}
-
 bool BluetoothDeviceLink::sendPacket(NetworkPacket &np)
 {
     if (np.hasPayload()) {
