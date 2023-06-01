@@ -116,11 +116,20 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             text: i18nd("kdeconnect-app", "This device is not paired")
             anchors.centerIn: parent
-            visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isPaired && !root.currentDevice.isPairRequestedByPeer
+            visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isPaired && !root.currentDevice.isPairRequestedByPeer && !root.currentDevice.isPairRequested
             helpfulAction: Kirigami.Action {
                 text: i18nd("kdeconnect-app", "Pair")
                 icon.name:"network-connect"
                 onTriggered: root.currentDevice.requestPairing()
+            }
+        }
+
+        Kirigami.PlaceholderMessage {
+            text: i18nd("kdeconnect-app", "Pair requested")
+            anchors.centerIn: parent
+            visible: root.currentDevice && root.currentDevice.isReachable && root.currentDevice.isPairRequested
+            QQC2.BusyIndicator {
+                Layout.alignment: Qt.AlignHCenter
             }
         }
 
