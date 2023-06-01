@@ -215,7 +215,7 @@ msgstr "Reinicia"
 #: runcommand/runcommand_config.cpp:55
 #, kde-format
 msgid "Maximum Brightness"
-msgstr "Lluminositat màxima"
+msgstr "Brillantor màxima"
 
 #: runcommand/runcommand_config.cpp:61
 #, kde-format
@@ -452,6 +452,3 @@ msgstr "Tocada perduda de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silencia la tocada"
-
-#~ msgid "Use your phone as a touchpad and keyboard"
-#~ msgstr "Utilitza el telèfon com un ratolí tàctil i teclat"
