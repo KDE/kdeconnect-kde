@@ -215,7 +215,7 @@ msgstr "Reinicia"
 #: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
-msgstr "Lluminositat màxima"
+msgstr "Brillantor màxima"
 
 #: runcommand/runcommand_config.cpp:63
 #, kde-format
