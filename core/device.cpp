@@ -224,7 +224,7 @@ void Device::requestPairing()
 {
     qCDebug(KDECONNECT_CORE) << "Request pairing";
     d->m_pairingHandler->requestPairing();
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    Q_EMIT pairStateChanged(pairState());
 }
 
 void Device::unpair()
@@ -248,7 +248,7 @@ void Device::cancelPairing()
 void Device::pairingHandler_incomingPairRequest()
 {
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::RequestedByPeer);
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    Q_EMIT pairStateChanged(pairState());
 }
 
 void Device::pairingHandler_pairingSuccessful()
@@ -257,14 +257,14 @@ void Device::pairingHandler_pairingSuccessful()
     KdeConnectConfig::instance().addTrustedDevice(id(), name(), type());
     KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("certificate"), QString::fromLatin1(certificate().toPem()));
     reloadPlugins(); // Will load/unload plugins
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    Q_EMIT pairStateChanged(pairState());
 }
 
 void Device::pairingHandler_pairingFailed(const QString &errorMessage)
 {
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::NotPaired);
     Q_EMIT pairingFailed(errorMessage);
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    Q_EMIT pairStateChanged(pairState());
 }
 
 void Device::pairingHandler_unpaired()
@@ -273,7 +273,7 @@ void Device::pairingHandler_unpaired()
     qCDebug(KDECONNECT_CORE) << "Unpaired";
     KdeConnectConfig::instance().removeTrustedDevice(id());
     reloadPlugins(); // Will load/unload plugins
-    Q_EMIT pairStateChanged(pairStateAsInt());
+    Q_EMIT pairStateChanged(pairState());
 }
 
 static bool lessThan(DeviceLink *p1, DeviceLink *p2)
@@ -379,11 +379,6 @@ void Device::privateReceivedPacket(const NetworkPacket &np)
 PairState Device::pairState() const
 {
     return d->m_pairingHandler->pairState();
-}
-
-int Device::pairStateAsInt() const
-{
-    return (int)pairState();
 }
 
 bool Device::isPaired() const

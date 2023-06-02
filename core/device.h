@@ -30,7 +30,7 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChanged)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChanged)
-    Q_PROPERTY(int pairState READ pairStateAsInt NOTIFY pairStateChanged)
+    Q_PROPERTY(PairState pairState READ pairState NOTIFY pairStateChanged)
     Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
 
 public:
@@ -76,7 +76,6 @@ public:
     void removeLink(DeviceLink *);
 
     PairState pairState() const;
-    Q_SCRIPTABLE int pairStateAsInt() const; // Hack because qdbus doesn't like enums
     Q_SCRIPTABLE bool isPaired() const;
     Q_SCRIPTABLE bool isPairRequested() const;
     Q_SCRIPTABLE bool isPairRequestedByPeer() const;
@@ -125,7 +124,7 @@ private Q_SLOTS:
 Q_SIGNALS:
     Q_SCRIPTABLE void pluginsChanged();
     Q_SCRIPTABLE void reachableChanged(bool reachable);
-    Q_SCRIPTABLE void pairStateChanged(int pairState); // Hack because qdbus doesn't like enums
+    Q_SCRIPTABLE void pairStateChanged(PairState pairState);
     Q_SCRIPTABLE void pairingFailed(const QString &error);
     Q_SCRIPTABLE void nameChanged(const QString &name);
     Q_SCRIPTABLE void typeChanged(const QString &type);

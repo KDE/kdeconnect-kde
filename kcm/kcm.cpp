@@ -207,9 +207,9 @@ void KdeConnectKcm::resetDeviceView()
 
     kcmUi->name_label->setText(currentDevice->name());
     setWhenAvailable(
-        currentDevice->pairStateAsInt(),
-        [this](int pairStateAsInt) {
-            setCurrentDevicePairState(pairStateAsInt);
+        currentDevice->pairState(),
+        [this](PairState pairState) {
+            setCurrentDevicePairState(pairState);
         },
         this);
 
@@ -279,9 +279,8 @@ void KdeConnectKcm::pairingFailed(const QString &error)
 }
 
 
-void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
+void KdeConnectKcm::setCurrentDevicePairState(PairState pairState)
 {
-    PairState state = (PairState)pairStateAsInt; // Hack because qdbus doesn't like enums
     kcmUi->accept_button->setVisible(state == PairState::RequestedByPeer);
     kcmUi->reject_button->setVisible(state == PairState::RequestedByPeer);
     kcmUi->cancel_button->setVisible(state == PairState::Requested);

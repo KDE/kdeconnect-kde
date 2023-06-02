@@ -59,7 +59,7 @@ class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectD
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequestedByPeer READ isPairRequestedByPeer NOTIFY pairStateChangedProxy)
-    Q_PROPERTY(int pairState READ pairState NOTIFY pairStateChangedProxy)
+    Q_PROPERTY(PairState pairState READ pairState NOTIFY pairStateChangedProxy)
     Q_PROPERTY(QString name READ name NOTIFY nameChangedProxy)
 
 public:
@@ -71,7 +71,7 @@ public:
 
 Q_SIGNALS:
     void nameChangedProxy(const QString &name);
-    void pairStateChangedProxy(int pairState);
+    void pairStateChangedProxy(PairState pairState);
     void reachableChangedProxy(bool reachable);
 
 private:

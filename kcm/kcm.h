@@ -47,7 +47,7 @@ private Q_SLOTS:
     void renameDone();
     void setRenameMode(bool b);
     void resetCurrentDevice();
-    void setCurrentDevicePairState(int pairStateAsInt);
+    void setCurrentDevicePairState(PairState pairState);
     void acceptPairing();
     void cancelPairing();
 
