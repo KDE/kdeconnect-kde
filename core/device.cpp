@@ -39,7 +39,6 @@ public:
 
     ~DevicePrivate()
     {
-        delete m_pairingHandler;
         qDeleteAll(m_deviceLinks);
         m_deviceLinks.clear();
     }
