@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2020-02-03 04:49+0800\n"
 "Last-Translator: Simon Depiets <sdepiets@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -19,17 +19,17 @@ msgstr ""
 msgid "error: "
 msgstr "erreur : "
 
-#: devicesmodel.cpp:244
+#: devicesmodel.cpp:236
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Périphérique approuvé et connecté"
 
-#: devicesmodel.cpp:244
+#: devicesmodel.cpp:236
 #, kde-format
 msgid "Device not trusted"
 msgstr "Périphérique non approuvé"
 
-#: devicesmodel.cpp:244
+#: devicesmodel.cpp:236
 #, kde-format
 msgid "Device disconnected"
 msgstr "Périphérique déconnecté"

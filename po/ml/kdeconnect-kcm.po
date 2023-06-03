@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -47,37 +47,37 @@ msgstr ""
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: kcm.cpp:224
+#: kcm.cpp:206
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:255
+#: kcm.cpp:229
 #, kde-format
 msgid "Available plugins"
 msgstr "ലഭ്യമായിട്ടുള്ള സംയോജകങ്ങൾ"
 
-#: kcm.cpp:308
+#: kcm.cpp:277
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ബന്ധപ്പെടാൻ ശ്രമിക്കുന്നതിൽ പിശക്:%1"
 
-#: kcm.cpp:329
+#: kcm.cpp:294
 #, kde-format
 msgid "(paired)"
 msgstr "(ബന്ധിച്ചു)"
 
-#: kcm.cpp:332
+#: kcm.cpp:297
 #, kde-format
 msgid "(not paired)"
 msgstr "(ബന്ധിച്ചിട്ടില്ല)"
 
-#: kcm.cpp:335
+#: kcm.cpp:300
 #, kde-format
 msgid "(incoming pair request)"
 msgstr ""
 
-#: kcm.cpp:338
+#: kcm.cpp:303
 #, kde-format
 msgid "(pairing requested)"
 msgstr ""
@@ -124,38 +124,44 @@ msgstr "(സ്ഥിതിവിവരം)"
 msgid "🔑 abababab"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QPushButton, cancel_button)
+#: kcm.ui:263
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:276
+#: kcm.ui:289
 #, kde-format
 msgid "Accept"
 msgstr "സ്വീകരിക്കുക"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:283
+#: kcm.ui:296
 #, kde-format
 msgid "Reject"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:296
+#: kcm.ui:309
 #, kde-format
 msgid "Request pair"
 msgstr "ബന്ധപ്പെടുന്നതിനായി അപേക്ഷിക്കുക"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:309
+#: kcm.ui:322
 #, kde-format
 msgid "Unpair"
 msgstr "വിച്ഛേദിക്കുക"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:322
+#: kcm.ui:335
 #, kde-format
 msgid "Send ping"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:360
+#: kcm.ui:373
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "

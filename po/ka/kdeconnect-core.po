@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2022-12-14 10:34+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -17,29 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "გაუქმებულია პარტნიორის მიერ"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: უკვე შეწყვილებულია"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: ამ მოწყობილობასთან დაწყვილების მოთხოვნა უკვე გაგზავნილია"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "ვადა გავიდა"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -61,14 +38,37 @@ msgstr "%1-თან გაგზავნა"
 msgid "File"
 msgstr "ფაილი"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"მასზე გაშვებული KDE Connect-ის ვერსიის სიძველის გამო მოწყობილობასთან "
-"დაწყვილება შეუძლებელია."
+msgid "Canceled by other peer"
+msgstr "გაუქმებულია პარტნიორის მიერ"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: უკვე შეწყვილებულია"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "მოწყობილობა მიუწვდოელია"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "მოწყობილობა მიუწვდოელია"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by other peer"
+msgid "Cancelled by user"
+msgstr "გაუქმებულია პარტნიორის მიერ"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "ვადა გავიდა"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -90,22 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "დანიშნულება"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "უკვე შეწყვილებულია"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "მოწყობილობა მიუწვდოელია"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "თქვენი მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "დაშორებული მოწყობილობის სერტიფიკატის SHA256 ანაბეჭდია: %1\n"
@@ -150,3 +140,16 @@ msgstr "პირადი გასაღების დამახსოვ�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"
+
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: ამ მოწყობილობასთან დაწყვილების მოთხოვნა უკვე გაგზავნილია"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "მასზე გაშვებული KDE Connect-ის ვერსიის სიძველის გამო მოწყობილობასთან "
+#~ "დაწყვილება შეუძლებელია."
+
+#~ msgid "Already paired"
+#~ msgstr "უკვე შეწყვილებულია"

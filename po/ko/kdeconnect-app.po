@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2023-03-01 01:24+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -124,27 +124,27 @@ msgstr "장치가 연결되지 않음"
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:128
+#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
 #, kde-format
 msgid "Pair requested"
 msgstr "연결 요청됨"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:143
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:140
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"

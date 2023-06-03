@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2022-12-17 09:39+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -127,27 +127,27 @@ msgstr "Gailu hau ez dago parekatuta"
 msgid "Pair"
 msgstr "Parekatu"
 
-#: qml/DevicePage.qml:128
+#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
 #, kde-format
 msgid "Pair requested"
 msgstr "Parekatzea eskatu da"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:143
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
 
-#: qml/DevicePage.qml:140
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Reject"
 msgstr "Errefuxatu"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Gailu hau ez da irisgarria"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Please choose a file"
 msgstr "Mesedez aukeratu fitxategi bat"

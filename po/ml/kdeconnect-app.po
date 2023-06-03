@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -124,27 +124,27 @@ msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴ
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
-#: qml/DevicePage.qml:128
+#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
 #, kde-format
 msgid "Pair requested"
 msgstr ""
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:143
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
-#: qml/DevicePage.qml:140
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "This device is not reachable"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"

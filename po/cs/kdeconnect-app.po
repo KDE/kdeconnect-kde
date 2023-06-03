@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2023-01-04 22:17+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -124,27 +124,27 @@ msgstr "Toto zařízení není spárováno"
 msgid "Pair"
 msgstr "Spárovat"
 
-#: qml/DevicePage.qml:128
+#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
 #, kde-format
 msgid "Pair requested"
 msgstr "Bylo vyžádáno párování"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:143
 #, kde-format
 msgid "Accept"
 msgstr "Přijmout"
 
-#: qml/DevicePage.qml:140
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Reject"
 msgstr "Odmítnout"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Toto zařízení je nedostupné"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Please choose a file"
 msgstr "Prosím, vyberte soubor"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-14 00:47+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2023-05-17 19:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -125,27 +125,27 @@ msgstr "الجهاز غير مقترن"
 msgid "Pair"
 msgstr "اقرن"
 
-#: qml/DevicePage.qml:128
+#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
 #, kde-format
 msgid "Pair requested"
 msgstr "طُلب الاقتران"
 
-#: qml/DevicePage.qml:134
+#: qml/DevicePage.qml:143
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
 
-#: qml/DevicePage.qml:140
+#: qml/DevicePage.qml:149
 #, kde-format
 msgid "Reject"
 msgstr "ارفض"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "This device is not reachable"
 msgstr "الجهاز غير قابل الوصول"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "Please choose a file"
 msgstr "رجاءً اختر ملفا"

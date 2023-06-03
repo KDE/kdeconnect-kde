@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-01 08:38+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -20,29 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 20.12.1\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Cancel·lat per l'altre parell"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Ja està aparellat"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: Ja s'ha demanat aparellar aquest dispositiu"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Ha excedit el temps"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -64,14 +41,37 @@ msgstr "S'està enviant a %1"
 msgid "File"
 msgstr "Fitxer"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"No es pot aparellar amb aquest dispositiu perquè està executant una versió "
-"antiga del KDE Connect."
+msgid "Canceled by other peer"
+msgstr "Cancel·lat per l'altre parell"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Ja està aparellat"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "No es pot accedir al dispositiu"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "No es pot accedir al dispositiu"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by other peer"
+msgid "Cancelled by user"
+msgstr "Cancel·lat per l'altre parell"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Ha excedit el temps"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -93,23 +93,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destinació"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Ja està aparellat"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "No es pot accedir al dispositiu"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr ""
 "L'empremta digital SHA256 del certificat del vostre dispositiu és: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "L'empremta digital SHA256 del certificat del dispositiu remot és: %1\n"
@@ -154,6 +144,19 @@ msgstr "No s'ha pogut emmagatzemar el fitxer de la clau privada: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
+
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: Ja s'ha demanat aparellar aquest dispositiu"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "No es pot aparellar amb aquest dispositiu perquè està executant una "
+#~ "versió antiga del KDE Connect."
+
+#~ msgid "Already paired"
+#~ msgstr "Ja està aparellat"
 
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"

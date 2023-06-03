@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-14 08:35+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <<lukasz.wojnilowicz@gmail.com>>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -17,29 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 20.12.1\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Anulowane przez innego uczestnika"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Już sparowane"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: Już zażądano parowania dla tego urządzenia"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Upłynął czasu oczekiwania"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -61,14 +38,37 @@ msgstr "Wysyłanie do %1"
 msgid "File"
 msgstr "Plik"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Nie można sparować tego urządzenia, bo działa ono na starej wersji KDE "
-"Connect."
+msgid "Canceled by other peer"
+msgstr "Anulowane przez innego uczestnika"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Już sparowane"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Urządzenie nieosiągalne"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Urządzenie nieosiągalne"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Anulowane przez użytkownika"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Upłynął czasu oczekiwania"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -91,22 +91,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Cel"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Już sparowane"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Urządzenie nieosiągalne"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Odcisk palca SHA256 certyfikatu twojego urządzenia to: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Odcisk palca SHA256 certyfikatu twojego zdalnego urządzenia to: %1\n"
@@ -152,6 +142,19 @@ msgstr "Nie można zachować pliku klucza prywatnego: %1"
 msgid "Could not store certificate file: %1"
 msgstr "Nie można zachować pliku certyfikatu: %1"
 
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: Już zażądano parowania dla tego urządzenia"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Nie można sparować tego urządzenia, bo działa ono na starej wersji KDE "
+#~ "Connect."
+
+#~ msgid "Already paired"
+#~ msgstr "Już sparowane"
+
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"
 #~ msgstr[0] "Wysłano 1 plik"
@@ -186,9 +189,6 @@ msgstr "Nie można zachować pliku certyfikatu: %1"
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Otrzymano niepoprawny klucz"
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Anulowane przez użytkownika"
 
 #~ msgid "Pairing request from %1"
 #~ msgstr "Żądanie parowania z %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2017-05-24 07:45-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -17,29 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Zanata 3.9.6\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "בוטל על ידי ההתקן האחר"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1 כבר מתואם"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr ""
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "נגמר הזמן"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -61,12 +38,37 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr "אי אפשר להתחבר להתקן המתואם כי הוא מריץ גרסה ישנה מדי של KDE Connect"
+msgid "Canceled by other peer"
+msgstr "בוטל על ידי ההתקן האחר"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1 כבר מתואם"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "ההתקן לא זמין"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "ההתקן לא זמין"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by other peer"
+msgid "Cancelled by user"
+msgstr "בוטל על ידי ההתקן האחר"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "נגמר הזמן"
 
 #: compositefiletransferjob.cpp:45
 #, fuzzy, kde-format
@@ -89,23 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "כבר מתואם"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "ההתקן לא זמין"
-
-#: device.cpp:561
+#: device.cpp:537
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "טביעת האצבע SHA1 של ההתקן היא: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -155,6 +147,15 @@ msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "לא ניתן לאחסן את קובץ התעודה: %1"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "אי אפשר להתחבר להתקן המתואם כי הוא מריץ גרסה ישנה מדי של KDE Connect"
+
+#~ msgid "Already paired"
+#~ msgstr "כבר מתואם"
 
 #, fuzzy
 #~| msgid "Receiving file over KDE Connect"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-01 13:16+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -19,29 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 20.11.70\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Скасовано іншим вузлом"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: вже пов’язано"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: запит щодо пов’язування цього пристрою вже надійшов"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Перевищено час очікування"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -63,14 +40,37 @@ msgstr "Надсилаємо на %1"
 msgid "File"
 msgstr "Файл"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Зв’язатися з цим пристроєм не можна, оскільки на ньому запущено застарілу "
-"версію KDE Connect."
+msgid "Canceled by other peer"
+msgstr "Скасовано іншим вузлом"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: вже пов’язано"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Пристрій недоступний"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Пристрій недоступний"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Скасовано користувачем"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Перевищено час очікування"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -94,22 +94,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Призначення"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Вже пов’язано"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Пристрій недоступний"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Відбиток SHA256 сертифіката пристрою: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Відбиток SHA256 сертифіката віддаленого пристрою: %1\n"
@@ -155,6 +145,19 @@ msgstr "Не вдалося зберегти файл закритого клю�
 msgid "Could not store certificate file: %1"
 msgstr "Не вдалося зберегти файл сертифіката: %1"
 
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: запит щодо пов’язування цього пристрою вже надійшов"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Зв’язатися з цим пристроєм не можна, оскільки на ньому запущено застарілу "
+#~ "версію KDE Connect."
+
+#~ msgid "Already paired"
+#~ msgstr "Вже пов’язано"
+
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"
 #~ msgstr[0] "Надіслано %1 файл"
@@ -190,9 +193,6 @@ msgstr "Не вдалося зберегти файл сертифіката: %1
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Отримано помилковий ключ"
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Скасовано користувачем"
 
 #~ msgid "Pairing request from %1"
 #~ msgstr "Запит щодо пов’язування від %1"

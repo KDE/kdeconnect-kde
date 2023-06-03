@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2022-05-20 19:27+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -49,37 +49,37 @@ msgstr "(C) 2015 Albert Vaca Cintora"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:224
+#: kcm.cpp:206
 #, kde-format
 msgid "Key: %1"
 msgstr "Ключ: %1"
 
-#: kcm.cpp:255
+#: kcm.cpp:229
 #, kde-format
 msgid "Available plugins"
 msgstr "Налични приставки"
 
-#: kcm.cpp:308
+#: kcm.cpp:277
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Грешка при сдвояване: %1"
 
-#: kcm.cpp:329
+#: kcm.cpp:294
 #, kde-format
 msgid "(paired)"
 msgstr "(сдвоени)"
 
-#: kcm.cpp:332
+#: kcm.cpp:297
 #, kde-format
 msgid "(not paired)"
 msgstr "(несдвоени)"
 
-#: kcm.cpp:335
+#: kcm.cpp:300
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(входящо запитване за сдвояване)"
 
-#: kcm.cpp:338
+#: kcm.cpp:303
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(запитване за сдвояване)"
@@ -126,38 +126,44 @@ msgstr "(състояние)"
 msgid "🔑 abababab"
 msgstr "🔑 abababab"
 
+#. i18n: ectx: property (text), widget (QPushButton, cancel_button)
+#: kcm.ui:263
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:276
+#: kcm.ui:289
 #, kde-format
 msgid "Accept"
 msgstr "Приемане"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:283
+#: kcm.ui:296
 #, kde-format
 msgid "Reject"
 msgstr "Отхвърляне"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:296
+#: kcm.ui:309
 #, kde-format
 msgid "Request pair"
 msgstr "Заявка за сдвояване"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:309
+#: kcm.ui:322
 #, kde-format
 msgid "Unpair"
 msgstr "Разкачване"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:322
+#: kcm.ui:335
 #, kde-format
 msgid "Send ping"
 msgstr "Изпращане на пинг"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:360
+#: kcm.ui:373
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "

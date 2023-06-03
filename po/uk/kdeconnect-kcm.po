@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-10-13 08:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -50,37 +50,37 @@ msgstr "© Albert Vaca Cintora, 2015"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:224
+#: kcm.cpp:206
 #, kde-format
 msgid "Key: %1"
 msgstr "Ключ: %1"
 
-#: kcm.cpp:255
+#: kcm.cpp:229
 #, kde-format
 msgid "Available plugins"
 msgstr "Доступні додатки"
 
-#: kcm.cpp:308
+#: kcm.cpp:277
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Помилка під час спроби пов’язати: %1"
 
-#: kcm.cpp:329
+#: kcm.cpp:294
 #, kde-format
 msgid "(paired)"
 msgstr "(пов’язано)"
 
-#: kcm.cpp:332
+#: kcm.cpp:297
 #, kde-format
 msgid "(not paired)"
 msgstr "(не пов’язано)"
 
-#: kcm.cpp:335
+#: kcm.cpp:300
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(вхідний запит щодо прив’язування)"
 
-#: kcm.cpp:338
+#: kcm.cpp:303
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(отримано запит щодо прив’язування)"
@@ -127,38 +127,44 @@ msgstr "(стан)"
 msgid "🔑 abababab"
 msgstr "🔑 abababab"
 
+#. i18n: ectx: property (text), widget (QPushButton, cancel_button)
+#: kcm.ui:263
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:276
+#: kcm.ui:289
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:283
+#: kcm.ui:296
 #, kde-format
 msgid "Reject"
 msgstr "Відхилити"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:296
+#: kcm.ui:309
 #, kde-format
 msgid "Request pair"
 msgstr "Запит щодо пов’язування"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:309
+#: kcm.ui:322
 #, kde-format
 msgid "Unpair"
 msgstr "Скасувати пов’язування"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:322
+#: kcm.ui:335
 #, kde-format
 msgid "Send ping"
 msgstr "Надіслати сигнал підтримання зв’язку"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:360
+#: kcm.ui:373
 #, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "

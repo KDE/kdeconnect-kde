@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-06-14 15:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -17,29 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Ακυρώθηκε από την άλλη πλευρά"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Έχει γίνει ήδη σύζευξη"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: Έχει ήδη ζητηθεί σύζευξη με αυτήν τη συσκευή"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Λήξη χρονικού περιθωρίου"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -61,14 +38,37 @@ msgstr "Αποστολή στο %1"
 msgid "File"
 msgstr "Αρχείο"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Αδυναμία σύζευξης της συσκευής αυτής επειδή εκτελεί μια παλαιά έκδοση του "
-"KDE Connect."
+msgid "Canceled by other peer"
+msgstr "Ακυρώθηκε από την άλλη πλευρά"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Έχει γίνει ήδη σύζευξη"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Η συσκευή δεν είναι προσβάσιμη"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Η συσκευή δεν είναι προσβάσιμη"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Ακυρώθηκε από τον χρήστη"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Λήξη χρονικού περιθωρίου"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -90,22 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Προορισμός"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Έχει γίνει ήδη σύζευξη"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Η συσκευή δεν είναι προσβάσιμη"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Το αποτύπωμα SHA256 του πιστοποιητικού της συσκευής σας είναι: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
@@ -153,6 +143,19 @@ msgstr "Αδυναμία αποθήκευσης ιδιωτικού κλειδι�
 msgid "Could not store certificate file: %1"
 msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποιητικού: %1"
 
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: Έχει ήδη ζητηθεί σύζευξη με αυτήν τη συσκευή"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Αδυναμία σύζευξης της συσκευής αυτής επειδή εκτελεί μια παλαιά έκδοση του "
+#~ "KDE Connect."
+
+#~ msgid "Already paired"
+#~ msgstr "Έχει γίνει ήδη σύζευξη"
+
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"
 #~ msgstr[0] "Εστάλη 1 αρχείο"
@@ -180,6 +183,3 @@ msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποι�
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Λήψη λανθασμένου κλειδιού"
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Ακυρώθηκε από τον χρήστη"

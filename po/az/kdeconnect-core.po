@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-01 21:50+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -16,29 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 20.12.1\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Digər istifadəçi ləğv etdi"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Artıq qoşulub"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: Bu cihaz üçün qoşulma artıq qoşulma təlb edilib"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Vaxt bitdi"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -60,12 +37,37 @@ msgstr "%1'ə(a) göndərilir"
 msgid "File"
 msgstr "Fayl"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr "Bu cihaz qoşula bilmir, çünki KDE Connectin versiyası köhnədir."
+msgid "Canceled by other peer"
+msgstr "Digər istifadəçi ləğv etdi"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Artıq qoşulub"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Cihaz əlçatan deyil"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Cihaz əlçatan deyil"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by other peer"
+msgid "Cancelled by user"
+msgstr "Digər istifadəçi ləğv etdi"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Vaxt bitdi"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -87,22 +89,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Təyinat"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Artıq qoşulub"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Cihaz əlçatan deyil"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Cihazınızın sertifikatının SHA256 şifrə izi: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Uzaq cihazın sertifikatının SHA256 şifrə izi: %1\n"
@@ -147,6 +139,17 @@ msgstr "Bu məxfi açar faylını saxlamaq mümkün olmadı: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Bu sertifikat faylını saxlamaq mümkün olmadı: %1"
+
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: Bu cihaz üçün qoşulma artıq qoşulma təlb edilib"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr "Bu cihaz qoşula bilmir, çünki KDE Connectin versiyası köhnədir."
+
+#~ msgid "Already paired"
+#~ msgstr "Artıq qoşulub"
 
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"

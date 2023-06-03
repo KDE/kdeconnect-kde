@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-07-27 16:57+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
@@ -20,29 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.04.3\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Отменено другим клиентом."
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: уже сопряжено"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: сопряжение уже запрошено для этого устройства"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Истекло время ожидания."
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -64,14 +41,37 @@ msgstr "Передача на %1"
 msgid "File"
 msgstr "Файл"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Это устройство не может быть сопряжено, так как на нём установлена старая "
-"версия KDE Connect."
+msgid "Canceled by other peer"
+msgstr "Отменено другим клиентом."
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: уже сопряжено"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Устройство недоступно."
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Устройство недоступно."
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Отменено пользователем."
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Истекло время ожидания."
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -95,22 +95,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Назначение"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Уже сопряжено"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Устройство недоступно."
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Отпечаток SHA256 сертификата данного устройства: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Отпечаток SHA256 сертификата удалённого устройства: %1\n"
@@ -156,6 +146,19 @@ msgstr "Не удалось сохранить файл закрытого кл�
 msgid "Could not store certificate file: %1"
 msgstr "Не удалось сохранить файл сертификата: %1"
 
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: сопряжение уже запрошено для этого устройства"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Это устройство не может быть сопряжено, так как на нём установлена старая "
+#~ "версия KDE Connect."
+
+#~ msgid "Already paired"
+#~ msgstr "Уже сопряжено"
+
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"
 #~ msgstr[0] "Передан %1 файл"
@@ -186,6 +189,3 @@ msgstr "Не удалось сохранить файл сертификата: 
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Получен неправильный ключ."
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Отменено пользователем."

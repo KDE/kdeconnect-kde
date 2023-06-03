@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-08-21 13:15+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -18,29 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.0\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Kitas lygiarangis atsisakė"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Jau suporuota"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: Suporavimas šiam įrenginiui jau užklaustas"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Pasibaigė laikas"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -62,14 +39,37 @@ msgstr "Siunčiama į %1"
 msgid "File"
 msgstr "Failas"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Šis įrenginys negali būti suporuotas, nes jame veikia senesnė KDE Connect "
-"versija."
+msgid "Canceled by other peer"
+msgstr "Kitas lygiarangis atsisakė"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Jau suporuota"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Įrenginys nepasiekiamas"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Įrenginys nepasiekiamas"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by other peer"
+msgid "Cancelled by user"
+msgstr "Kitas lygiarangis atsisakė"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Pasibaigė laikas"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -93,22 +93,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Paskirtis"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Jau suporuota"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Įrenginys nepasiekiamas"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Jūsų įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Nuotolinio įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
@@ -153,6 +143,19 @@ msgstr "Nepavyko laikyti privačiojo rakto failo: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nepavyko laikyti liudijimo failo: %1"
+
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: Suporavimas šiam įrenginiui jau užklaustas"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Šis įrenginys negali būti suporuotas, nes jame veikia senesnė KDE Connect "
+#~ "versija."
+
+#~ msgid "Already paired"
+#~ msgstr "Jau suporuota"
 
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"

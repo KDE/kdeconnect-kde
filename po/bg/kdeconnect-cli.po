@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2022-02-15 10:28+0100\n"
 "Last-Translator: mkkDr2010 <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -214,39 +214,39 @@ msgstr "Показване на идентификацията и изхода �
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Отворете камерата на свързаното устройство и прехвърлете снимката"
 
-#: kdeconnect-cli.cpp:120
+#: kdeconnect-cli.cpp:119
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(сдвоено и достъпно)"
 
-#: kdeconnect-cli.cpp:122
+#: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(reachable)"
 msgstr "(достъпно)"
 
-#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
 #, kde-format
 msgid "(paired)"
 msgstr "(сдвоено)"
 
-#: kdeconnect-cli.cpp:130
+#: kdeconnect-cli.cpp:129
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "Намерено е едно устройство"
 msgstr[1] "Намерени са %1 устройства"
 
-#: kdeconnect-cli.cpp:132
+#: kdeconnect-cli.cpp:131
 #, kde-format
 msgid "No devices found"
 msgstr "Няма намерени устройства"
 
-#: kdeconnect-cli.cpp:146
+#: kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(unpaired)"
 msgstr "(несдвоено)"
 
-#: kdeconnect-cli.cpp:183
+#: kdeconnect-cli.cpp:181
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -260,59 +260,59 @@ msgstr ""
 "\"kdeconnect-cli -l\" \n"
 "Вижте пълната информация с опцията --help"
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:214
 #, kde-format
 msgid "Shared %1"
 msgstr "Споделено %1"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:223
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Споделен текст: %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:230
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Заявено е заключване на %1"
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:232
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Заявено е отключване на %1"
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:239
 #, kde-format
 msgid "waiting for device..."
 msgstr "изчакване на устройство..."
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:252
 #, kde-format
 msgid "Device not found"
 msgstr "Не е намерено устройство"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:254
 #, kde-format
 msgid "Already paired"
 msgstr "Вече е сдвоено"
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Pair requested"
 msgstr "(запитване за сдвояване)"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:262
 #, kde-format
 msgid "Already not paired"
 msgstr "Вече не е сдвоено"
 
-#: kdeconnect-cli.cpp:268
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgid "Unpaired"
 msgstr "(Несдвоено)"
 
-#: kdeconnect-cli.cpp:308
+#: kdeconnect-cli.cpp:304
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -321,12 +321,12 @@ msgstr ""
 "грешка: трябва за се посочи получател на SMS като се въведе --destination "
 "<phone number>"
 
-#: kdeconnect-cli.cpp:327
+#: kdeconnect-cli.cpp:323
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Моля, посочете файл за снимката"
 
-#: kdeconnect-cli.cpp:374
+#: kdeconnect-cli.cpp:370
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Няма нищо за правене"

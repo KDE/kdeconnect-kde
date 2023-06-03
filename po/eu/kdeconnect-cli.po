@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2020-12-18 23:48+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -217,39 +217,39 @@ msgstr "Bistaratu gailu honen IDa eta irten"
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Ireki konektatutako gailuaren kamera eta transferitu argazkia"
 
-#: kdeconnect-cli.cpp:120
+#: kdeconnect-cli.cpp:119
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(parekatua eta atzigarria)"
 
-#: kdeconnect-cli.cpp:122
+#: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(reachable)"
 msgstr "(atzigarria)"
 
-#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
 #, kde-format
 msgid "(paired)"
 msgstr "(parekatua)"
 
-#: kdeconnect-cli.cpp:130
+#: kdeconnect-cli.cpp:129
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "gailu 1 aurkitu da"
 msgstr[1] "%1 gailu aurkitu dira"
 
-#: kdeconnect-cli.cpp:132
+#: kdeconnect-cli.cpp:131
 #, kde-format
 msgid "No devices found"
 msgstr "Ez da gailurik aurkitu"
 
-#: kdeconnect-cli.cpp:146
+#: kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(unpaired)"
 msgstr "(bereizita)"
 
-#: kdeconnect-cli.cpp:183
+#: kdeconnect-cli.cpp:181
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -262,59 +262,59 @@ msgstr ""
 "Gailu IDak eta izenak aurki daitezke \"kdeconnect-cli -l\" erabiliz.\n"
 "Ikusi laguntza osoa --help aukera erabiliz."
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:214
 #, kde-format
 msgid "Shared %1"
 msgstr "%1 partekatuta"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:223
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Partekatutako testua: %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:230
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1 blokeatzea eskatu da"
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:232
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1 desblokeatzea eskatu da."
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:239
 #, kde-format
 msgid "waiting for device..."
 msgstr "gailuaren zain..."
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:252
 #, kde-format
 msgid "Device not found"
 msgstr "Ez da gailua aurkitu"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:254
 #, kde-format
 msgid "Already paired"
 msgstr "Dagoeneko parekatua"
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Pair requested"
 msgstr "Parekatzea eskatu da"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:262
 #, kde-format
 msgid "Already not paired"
 msgstr "Dagoeneko desparekatua"
 
-#: kdeconnect-cli.cpp:268
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgid "Unpaired"
 msgstr "Desparekatua"
 
-#: kdeconnect-cli.cpp:308
+#: kdeconnect-cli.cpp:304
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -323,12 +323,12 @@ msgstr ""
 "errorea: SMSaren jasotzailea zehaztu behar duzu --destination pasatuz<phone "
 "number>"
 
-#: kdeconnect-cli.cpp:327
+#: kdeconnect-cli.cpp:323
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Mesedez adierazi fitxategi-izen bat argazkirako"
 
-#: kdeconnect-cli.cpp:374
+#: kdeconnect-cli.cpp:370
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Ez dago ezer egiteko"

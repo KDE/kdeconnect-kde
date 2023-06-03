@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-02 08:23+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -22,29 +22,6 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Annulé par l'autre périphérique"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1 : déjà associé"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1 : association déjà demandée pour ce périphérique"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Délai expiré"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -66,14 +43,37 @@ msgstr "Envoi vers %1"
 msgid "File"
 msgstr "Fichier"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Impossible d'associer ce périphérique car il utilise une ancienne version de "
-"KDE Connect."
+msgid "Canceled by other peer"
+msgstr "Annulé par l'autre périphérique"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1 : déjà associé"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Périphérique non accessible"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Périphérique non accessible"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Annulé par l'utilisateur"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Délai expiré"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -95,22 +95,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destination"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Déjà associé"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Périphérique non accessible"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "L'empreinte « SHA256 » du certificat de votre appareil est : %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
@@ -157,6 +147,19 @@ msgstr "Impossible de stocker le fichier de clé privée : %1"
 msgid "Could not store certificate file: %1"
 msgstr "Impossible de stocker le fichier de certificat : %1"
 
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1 : association déjà demandée pour ce périphérique"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Impossible d'associer ce périphérique car il utilise une ancienne version "
+#~ "de KDE Connect."
+
+#~ msgid "Already paired"
+#~ msgstr "Déjà associé"
+
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"
 #~ msgstr[0] "1 fichier envoyé"
@@ -190,9 +193,6 @@ msgstr "Impossible de stocker le fichier de certificat : %1"
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Clé incorrecte reçue"
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Annulé par l'utilisateur"
 
 #~ msgid "Pairing request from %1"
 #~ msgstr "Demande d'appariement provenant de %1"

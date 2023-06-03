@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -16,29 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.08.1\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Teine pool katkestas"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: juba paardunud"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: selle seadme paardumist on juba soovitud"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Ajaületus"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -60,14 +37,37 @@ msgstr "Saatmine seadmesse %1"
 msgid "File"
 msgstr "Fail"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Seadmega paardumine ei ole võimalik, sest seal töötab KDE Connecti vana "
-"versioon."
+msgid "Canceled by other peer"
+msgstr "Teine pool katkestas"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: juba paardunud"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Seade pole saadaval"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Seade pole saadaval"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Kasutaja katkestas"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Ajaületus"
 
 #: compositefiletransferjob.cpp:45
 #, fuzzy, kde-format
@@ -91,23 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Juba paardunud"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Seade pole saadaval"
-
-#: device.cpp:561
+#: device.cpp:537
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Sinu seadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -154,6 +144,19 @@ msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 msgid "Could not store certificate file: %1"
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"
 
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: selle seadme paardumist on juba soovitud"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Seadmega paardumine ei ole võimalik, sest seal töötab KDE Connecti vana "
+#~ "versioon."
+
+#~ msgid "Already paired"
+#~ msgstr "Juba paardunud"
+
 #~ msgid "Sent 1 file"
 #~ msgid_plural "Sent %1 files"
 #~ msgstr[0] "Saadeti 1 fail"
@@ -181,6 +184,3 @@ msgstr "Sertifikaadifaili salvestamine nurjus: %1"
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Saadi vigane võti"
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Kasutaja katkestas"

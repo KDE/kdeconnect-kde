@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2014-12-19 00:46+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -19,31 +19,6 @@ msgstr ""
 "X-Generator: Launchpad (build 17286)\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Prekinuo drugi korisnik"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, fuzzy, kde-format
-#| msgid "Already paired"
-msgid "%1: Already paired"
-msgstr "Već uparen"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, fuzzy, kde-format
-#| msgid "Pairing already requested for this device"
-msgid "%1: Pairing already requested for this device"
-msgstr "Uparivanje već zatraženo za ovaj uređaj"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Isteklo"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -65,12 +40,38 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
+msgid "Canceled by other peer"
+msgstr "Prekinuo drugi korisnik"
+
+#: backends/pairinghandler.cpp:70
+#, fuzzy, kde-format
+#| msgid "Already paired"
+msgid "%1: Already paired"
+msgstr "Već uparen"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, fuzzy, kde-format
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Uređaj nije dostupan"
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Uređaj nije dostupan"
+
+#: backends/pairinghandler.cpp:120
+#, fuzzy, kde-format
+#| msgid "Canceled by the user"
+msgid "Cancelled by user"
+msgstr "Poništeno od strane korisnika"
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Isteklo"
 
 #: compositefiletransferjob.cpp:45
 #, fuzzy, kde-format
@@ -94,22 +95,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Već uparen"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Uređaj nije dostupan"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr ""
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
@@ -155,6 +146,14 @@ msgid "Could not store certificate file: %1"
 msgstr ""
 
 #, fuzzy
+#~| msgid "Pairing already requested for this device"
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "Uparivanje već zatraženo za ovaj uređaj"
+
+#~ msgid "Already paired"
+#~ msgstr "Već uparen"
+
+#, fuzzy
 #~| msgid "Receiving file over KDE-Connect"
 #~ msgid "Receiving file %1 of %2"
 #~ msgstr "Preuzimanje datoteke preko KDE-Veze"
@@ -172,9 +171,6 @@ msgstr ""
 
 #~ msgid "Received incorrect key"
 #~ msgstr "Primljen pogrešan ključ"
-
-#~ msgid "Canceled by the user"
-#~ msgstr "Poništeno od strane korisnika"
 
 #~ msgid "Pairing request from %1"
 #~ msgstr "Zahtjev za uparivanje od %1"
