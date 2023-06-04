@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-03 00:46+0000\n"
 "PO-Revision-Date: 2021-02-06 13:58+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,29 +19,6 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:56
-#: backends/lan/lanpairinghandler.cpp:52
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Avbroten av den andre eininga"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:65
-#: backends/lan/lanpairinghandler.cpp:61
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: Allereie para"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:68
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: Paringsførespurnad er alt send"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:124
-#: backends/lan/lanpairinghandler.cpp:106
-#, kde-format
-msgid "Timed out"
-msgstr "Tidsavbrot"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -63,13 +40,35 @@ msgstr "Sender til %1"
 msgid "File"
 msgstr "Fil"
 
-#: backends/lan/landevicelink.cpp:146 backends/lan/landevicelink.cpp:160
+#: backends/pairinghandler.cpp:54
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
+msgid "Canceled by other peer"
+msgstr "Avbroten av den andre eininga"
+
+#: backends/pairinghandler.cpp:70
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: Allereie para"
+
+#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#, kde-format
+msgid "%1: Device not reachable"
 msgstr ""
-"Eininga kan ikkje parast, då ho køyrer på ein gammal versjon av KDE Connect."
+
+#: backends/pairinghandler.cpp:109
+#, kde-format
+msgid "Device not reachable"
+msgstr "Får ikkje kontakt med eininga"
+
+#: backends/pairinghandler.cpp:120
+#, kde-format
+msgid "Cancelled by user"
+msgstr ""
+
+#: backends/pairinghandler.cpp:136
+#, kde-format
+msgid "Timed out"
+msgstr "Tidsavbrot"
 
 #: compositefiletransferjob.cpp:45
 #, kde-format
@@ -91,22 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Mål"
 
-#: device.cpp:215
-#, kde-format
-msgid "Already paired"
-msgstr "Allereie para"
-
-#: device.cpp:220
-#, kde-format
-msgid "Device not reachable"
-msgstr "Får ikkje kontakt med eininga"
-
-#: device.cpp:561
+#: device.cpp:537
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA-256-fingeravtrykket til einingssertifikatet er: %1\n"
 
-#: device.cpp:569
+#: device.cpp:545
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA-256-fingeravtrykket til fjerneiningssertifikatet er: %1\n"

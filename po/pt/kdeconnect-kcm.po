@@ -124,7 +124,7 @@ msgstr "🔑 abababab"
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289

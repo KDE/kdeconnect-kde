@@ -1,17 +1,17 @@
 # Translation of kdeconnect-core.po to Catalan (Valencian)
-# Copyright (C) 2014-2021 This_file_is_part_of_KDE
+# Copyright (C) 2014-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2018, 2020, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2019.
+# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2021-02-01 08:38+0100\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2023-06-03 13:19+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.1\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -52,10 +52,9 @@ msgid "%1: Already paired"
 msgstr "%1: Ja està aparellat"
 
 #: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "No es pot accedir al dispositiu"
+msgstr "%1: No es pot accedir al dispositiu"
 
 #: backends/pairinghandler.cpp:109
 #, kde-format
@@ -63,10 +62,9 @@ msgid "Device not reachable"
 msgstr "No es pot accedir al dispositiu"
 
 #: backends/pairinghandler.cpp:120
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Cancel·lat per l'altre parell"
+msgstr "Cancel·lat per l'usuari"
 
 #: backends/pairinghandler.cpp:136
 #, kde-format
@@ -144,16 +142,3 @@ msgstr "No s'ha pogut emmagatzemar el fitxer de la clau privada: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: Ja s'ha demanat aparellar este dispositiu"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "No es pot aparellar amb este dispositiu perquè està executant una versió "
-#~ "antiga de KDE Connect."
-
-#~ msgid "Already paired"
-#~ msgstr "Ja està aparellat"

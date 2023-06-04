@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2021-02-02 00:50+0000\n"
+"PO-Revision-Date: 2023-06-03 10:43+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -44,10 +44,9 @@ msgid "%1: Already paired"
 msgstr "%1: Já emparelhado"
 
 #: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Dispositivo inacessível"
+msgstr "%1: Dispositivo inacessível"
 
 #: backends/pairinghandler.cpp:109
 #, kde-format
@@ -55,10 +54,9 @@ msgid "Device not reachable"
 msgstr "Dispositivo inacessível"
 
 #: backends/pairinghandler.cpp:120
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Cancelado pelo outro dispositivo"
+msgstr "Cancelado pelo utilizador"
 
 #: backends/pairinghandler.cpp:136
 #, kde-format
@@ -136,27 +134,3 @@ msgstr "Não foi possível guardar o ficheiro da chave privada: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Não foi possível guardar o ficheiro do certificado: %1"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: Já foi pedido o emparelhamento deste dispositivo"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "Este dispositivo não pode ser emparelhado por estar a correr uma versão "
-#~ "antiga do KDE Connect."
-
-#~ msgid "Already paired"
-#~ msgstr "Já emparelhado"
-
-#~ msgid "Sent 1 file"
-#~ msgid_plural "Sent %1 files"
-#~ msgstr[0] "Foi enviado 1 ficheiro"
-#~ msgstr[1] "Foram enviados %1 ficheiros"
-
-#~ msgid "Progress"
-#~ msgstr "Evolução"
-
-#~ msgid "Sending file %1 of %2"
-#~ msgstr "A enviar o ficheiro %1 de %2"
