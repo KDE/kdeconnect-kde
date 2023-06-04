@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-02-04 20:46+0300\n"
+"PO-Revision-Date: 2023-06-03 12:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:56
 #: backends/lan/lanpairinghandler.cpp:52
@@ -44,12 +44,12 @@ msgstr "Zaman aşımına uğradı"
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
 msgid "Couldn't find an available port"
-msgstr "Kullanılabilir bir bağlantı noktası bulunamadı"
+msgstr "Kullanılabilir bir kapı bulunamadı"
 
 #: backends/lan/compositeuploadjob.cpp:121
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr "%1 alıcıısna paket gönderilemedi"
+msgstr "Paket, %1 alıcısına gönderilemedi"
 
 #: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
@@ -111,7 +111,7 @@ msgstr "Uzak aygıt sertifikasının SHA256 parmak izi: %1\n"
 #: filetransferjob.cpp:51
 #, kde-format
 msgid "Filename already present"
-msgstr "Dosya adı zaten mevcut"
+msgstr "Dosya adı halihazırda var"
 
 #: filetransferjob.cpp:100
 #, kde-format
