@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-14 10:34+0100\n"
+"PO-Revision-Date: 2023-06-04 05:17+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -49,21 +49,19 @@ msgid "%1: Already paired"
 msgstr "%1: უკვე შეწყვილებულია"
 
 #: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "მოწყობილობა მიუწვდოელია"
+msgstr "%1: მოწყობილობა მიუწვდომელია"
 
 #: backends/pairinghandler.cpp:109
 #, kde-format
 msgid "Device not reachable"
-msgstr "მოწყობილობა მიუწვდოელია"
+msgstr "მოწყობილობა მიუწვდომელია"
 
 #: backends/pairinghandler.cpp:120
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "გაუქმებულია პარტნიორის მიერ"
+msgstr "შეწყვეტილია მომხმარებლის მიერ"
 
 #: backends/pairinghandler.cpp:136
 #, kde-format
