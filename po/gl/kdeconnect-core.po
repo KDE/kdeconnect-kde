@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2023-04-06 22:26+0200\n"
+"PO-Revision-Date: 2023-06-05 08:30+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -49,10 +49,9 @@ msgid "%1: Already paired"
 msgstr "%1: xa está emparellado."
 
 #: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Dispositivo fóra do alcance"
+msgstr "%1: dispositivo fóra do alcance"
 
 #: backends/pairinghandler.cpp:109
 #, kde-format
@@ -60,10 +59,9 @@ msgid "Device not reachable"
 msgstr "Dispositivo fóra do alcance"
 
 #: backends/pairinghandler.cpp:120
-#, fuzzy, kde-format
-#| msgid "Canceled by the user"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Cancelada polo usuario"
+msgstr "Cancelado pola persoa usuaria"
 
 #: backends/pairinghandler.cpp:136
 #, kde-format
