@@ -17,7 +17,7 @@ ClipboardConfig::ClipboardConfig(QWidget* parent, const QVariantList &args)
 {
     m_ui->setupUi(this);
 
-    connect(m_ui->check_unknown, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->check_autoshare, SIGNAL(toggled(bool)), this, SLOT(autoShareChanged()));
     connect(m_ui->check_password, SIGNAL(toggled(bool)), this, SLOT(changed()));
 }
 
@@ -26,10 +26,16 @@ ClipboardConfig::~ClipboardConfig()
     delete m_ui;
 }
 
+void ClipboardConfig::autoShareChanged()
+{
+    m_ui->check_password->setEnabled(m_ui->check_autoshare->isChecked());
+    Q_EMIT changed();
+}
+
 void ClipboardConfig::defaults()
 {
     KCModule::defaults();
-    m_ui->check_unknown->setChecked(true);
+    m_ui->check_autoshare->setChecked(true);
     m_ui->check_password->setChecked(true);
     Q_EMIT changed(true);
 }
@@ -37,17 +43,17 @@ void ClipboardConfig::defaults()
 void ClipboardConfig::load()
 {
     KCModule::load();
-    bool unknown = config()->getBool(QStringLiteral("sendUnknown"), true);
+    // "sendUnknown" is the legacy name for this setting
+    bool autoShare = config()->getBool(QStringLiteral("autoShare"), config()->getBool(QStringLiteral("sendUnknown"), true));
     bool password = config()->getBool(QStringLiteral("sendPassword"), true);
-    m_ui->check_unknown->setChecked(unknown);
+    m_ui->check_autoshare->setChecked(autoShare);
     m_ui->check_password->setChecked(password);
-
-    Q_EMIT changed(false);
+    autoShareChanged();
 }
 
 void ClipboardConfig::save()
 {
-    config()->set(QStringLiteral("sendUnknown"), m_ui->check_unknown->isChecked());
+    config()->set(QStringLiteral("autoShare"), m_ui->check_autoshare->isChecked());
     config()->set(QStringLiteral("sendPassword"), m_ui->check_password->isChecked());
     KCModule::save();
     Q_EMIT changed(false);

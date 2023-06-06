@@ -16,6 +16,7 @@ kdeconnect_add_plugin(kdeconnect_clipboard SOURCES ${kdeconnect_clipboard_SRCS})
 
 target_link_libraries(kdeconnect_clipboard kdeconnectcore
                                     KF5::GuiAddons
+                                    Qt${QT_MAJOR_VERSION}::DBus
                                     ${kdeconnect_clipboard_WL_LINK_LIBS}
                                     )
 

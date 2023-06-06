@@ -16,7 +16,9 @@ K_PLUGIN_CLASS_WITH_JSON(ClipboardPlugin, "kdeconnect_clipboard.json")
 ClipboardPlugin::ClipboardPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-    connect(ClipboardListener::instance(), &ClipboardListener::clipboardChanged, this, &ClipboardPlugin::propagateClipboard);
+    connect(ClipboardListener::instance(), &ClipboardListener::clipboardChanged, this, &ClipboardPlugin::clipboardChanged);
+    connect(config(), &KdeConnectPluginConfig::configChanged, this, &ClipboardPlugin::configChanged);
+    configChanged();
 }
 
 void ClipboardPlugin::connected()
@@ -24,20 +26,49 @@ void ClipboardPlugin::connected()
     sendConnectPacket();
 }
 
-void ClipboardPlugin::propagateClipboard(const QString &content, ClipboardListener::ClipboardContentType contentType)
+QString ClipboardPlugin::dbusPath() const
 {
-    if (contentType == ClipboardListener::ClipboardContentTypeUnknown) {
-        if (!config()->getBool(QStringLiteral("sendUnknown"), true)) {
-            return;
-        }
-    } else if (contentType == ClipboardListener::ClipboardContentTypePassword) {
-        if (!config()->getBool(QStringLiteral("sendPassword"), true)) {
-            return;
-        }
-    } else {
+    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/clipboard");
+}
+
+void ClipboardPlugin::clipboardChanged(const QString &content, ClipboardListener::ClipboardContentType contentType)
+{
+    if (!autoShare) {
         return;
     }
 
+    if (contentType == ClipboardListener::ClipboardContentTypePassword) {
+        if (!sharePasswords) {
+            return;
+        }
+    }
+
+    sendClipboard(content);
+}
+
+#include <iostream>
+void ClipboardPlugin::configChanged()
+{
+    autoShare = config()->getBool(QStringLiteral("autoShare"), config()->getBool(QStringLiteral("sendUnknown"), true));
+    sharePasswords = config()->getBool(QStringLiteral("sendPassword"), true);
+    std::cout << "CONFIG CHANGED KCM" << std::endl;
+    Q_EMIT autoShareDisabledChanged(isAutoShareDisabled());
+}
+
+bool ClipboardPlugin::isAutoShareDisabled()
+{
+    // Return true also if autoShare is enabled but disabled for passwords
+    return !autoShare || !sharePasswords;
+}
+
+void ClipboardPlugin::sendClipboard()
+{
+    QString content = ClipboardListener::instance()->currentContent();
+    sendClipboard(content);
+}
+
+void ClipboardPlugin::sendClipboard(const QString &content)
+{
     NetworkPacket np(PACKET_TYPE_CLIPBOARD, {{QStringLiteral("content"), content}});
     sendPacket(np);
 }

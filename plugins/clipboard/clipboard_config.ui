@@ -29,20 +29,20 @@
       </sizepolicy>
      </property>
      <property name="title">
-      <string>Contents shared to other devices</string>
+      <string>Automatic synchronization</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QCheckBox" name="check_password">
+       <widget class="QCheckBox" name="check_autoshare">
         <property name="text">
-         <string>Passwords (as marked by password managers)</string>
+         <string>Automatically share the clipboard from this device</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="check_unknown">
+       <widget class="QCheckBox" name="check_password">
         <property name="text">
-         <string>Anything else</string>
+         <string>Including passwords (as marked by password managers)</string>
         </property>
        </widget>
       </item>
