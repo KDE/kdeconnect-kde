@@ -133,9 +133,11 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
     parser.addOption(replaceOption);
+#ifdef Q_OS_MAC
     QCommandLineOption macosPrivateDBusOption({QStringLiteral("use-private-dbus")},
                                               i18n("Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"));
     parser.addOption(macosPrivateDBusOption);
+#endif
     aboutData.setupCommandLine(&parser);
 
     parser.process(app);
