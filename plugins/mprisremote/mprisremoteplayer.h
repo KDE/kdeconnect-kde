@@ -25,7 +25,6 @@ public:
     int volume() const;
     long length() const;
     bool playing() const;
-    QString nowPlaying() const;
     QString title() const;
     QString artist() const;
     QString album() const;
@@ -53,7 +52,6 @@ private:
     bool m_canPause;
     bool m_canGoPrevious;
     bool m_canGoNext;
-    QString m_nowPlaying;
     int m_volume;
     long m_length;
     long m_lastPosition;

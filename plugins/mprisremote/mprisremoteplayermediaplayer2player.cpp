@@ -248,7 +248,7 @@ void MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged()
     // Send it over the correct DBus connection
     m_parent->dbus().send(message);
 
-    if (m_positionChanged) {
+    if (m_positionChanged || m_trackInfoChanged) {
         Q_EMIT Seeked(Position());
     }
 

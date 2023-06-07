@@ -183,15 +183,13 @@ void MprisControlPlugin::propertiesChanged(const QString &propertyInterface, con
         np.set(QStringLiteral("canGoPrevious"), properties[QStringLiteral("CanGoPrevious")].toBool());
         somethingToSend = true;
     }
-    if (properties.contains(QStringLiteral("CanSeek"))) {
-        np.set(QStringLiteral("canSeek"), properties[QStringLiteral("CanSeek")].toBool());
-        somethingToSend = true;
-    }
 
     if (somethingToSend) {
         np.set(QStringLiteral("player"), playerName);
-        // Always also update the position
-        if (mediaPlayer2PlayerInterface->canSeek()) {
+        // Always also update the position if can seek
+        bool canSeek = mediaPlayer2PlayerInterface->canSeek();
+        np.set(QStringLiteral("canSeek"), canSeek);
+        if (canSeek) {
             long long pos = mediaPlayer2PlayerInterface->position();
             np.set(QStringLiteral("pos"), pos / 1000); // Send milis instead of nanos
         }
@@ -388,17 +386,10 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket &np, c
         }
     }
 
-    QString nowPlaying = title;
-
-    if (!artist.isEmpty()) {
-        nowPlaying = artist + QStringLiteral(" - ") + title;
-    }
-
     np.set(QStringLiteral("title"), title);
     np.set(QStringLiteral("artist"), artist);
     np.set(QStringLiteral("album"), album);
     np.set(QStringLiteral("albumArtUrl"), albumArtUrl);
-    np.set(QStringLiteral("nowPlaying"), nowPlaying);
 
     bool hasLength = false;
     long long length = nowPlayingMap[QStringLiteral("mpris:length")].toLongLong(&hasLength) / 1000; // nanoseconds to milliseconds

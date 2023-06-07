@@ -161,12 +161,6 @@ QStringList MprisRemotePlugin::playerList() const
     return m_players.keys();
 }
 
-QString MprisRemotePlugin::nowPlaying() const
-{
-    auto player = m_players.value(m_currentPlayer);
-    return player ? player->nowPlaying() : QString();
-}
-
 QString MprisRemotePlugin::title() const
 {
     auto player = m_players.value(m_currentPlayer);
