@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2014, 2015, 2016, 2018, 2019, 2021.
+# Vít Pelčák <vit@pelcak.org>, 2014, 2015, 2016, 2018, 2019, 2021, 2023.
 #
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.2\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:56
 #: backends/lan/lanpairinghandler.cpp:52
