@@ -80,7 +80,7 @@ void LanLinkProvider::onStart()
 {
     const QHostAddress bindAddress = m_testMode ? QHostAddress::LocalHost : QHostAddress::Any;
 
-    bool success = m_udpSocket.bind(bindAddress, m_udpListenPort, QUdpSocket::ShareAddress);
+    bool success = m_udpSocket.bind(bindAddress, m_udpListenPort, QAbstractSocket::ShareAddress | QAbstractSocket::ReuseAddressHint);
     if (!success) {
         QAbstractSocket::SocketError sockErr = m_udpSocket.error();
         // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
