@@ -170,6 +170,24 @@ PlasmaComponents.ListItem
                         onClicked: fileDialog.open()
                     }
 
+                    //Clipboard
+                    PlasmaComponents.MenuItem
+                    {
+                        Clipboard {
+                            id: clipboard
+                            device: root.device
+                        }
+
+                        id: sendclipboard
+                        icon: "klipper"
+                        visible: clipboard.available && clipboard.clipboard.isAutoShareDisabled
+                        text: i18n("Send Clipboard")
+
+                        onClicked: {
+                            clipboard.sendClipboard()
+                        }
+                    }
+
                     //Photo
                     PlasmaComponents.MenuItem
                     {

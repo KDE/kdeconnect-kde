@@ -21,19 +21,20 @@ Kirigami.FormLayout {
     }
 
     Component.onCompleted: {
-        unknown.checked = config.getBool("sendUnknown", true)
+        autoShare.checked = config.getBool("autoShare", config.getBool("sendUnknown", true))
         password.checked = config.getBool("sendPassword", true)
     }
 
     QQC2.CheckBox {
-        id: password
-        text: i18n("Passwords (as marked by password managers)")
-        onClicked: config.set("sendPassword", checked)
+        id: autoShare
+        text: i18n("Automatically share the clipboard from this device")
+        onClicked: config.set("autoShare", checked)
     }
 
     QQC2.CheckBox {
-        id: unknown
-        text: i18n("Anything else")
-        onClicked: config.set("sendUnknown", checked)
+        id: password
+        text: i18n("Including passwords (as marked by password managers)")
+        onClicked: config.set("sendPassword", checked)
     }
+
 }

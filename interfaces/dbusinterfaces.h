@@ -14,6 +14,7 @@
 #include "connectivityinterface.h"
 #include "conversationsinterface.h"
 #include "daemoninterface.h"
+#include "deviceclipboardinterface.h"
 #include "devicefindmyphoneinterface.h"
 #include "deviceinterface.h"
 #include "devicenotificationsinterface.h"
@@ -21,6 +22,7 @@
 #include "lockdeviceinterface.h"
 #include "mprisremoteinterface.h"
 #include "notificationinterface.h"
+#include "photointerface.h"
 #include "remotecommandsinterface.h"
 #include "remotecontrolinterface.h"
 #include "remotekeyboardinterface.h"
@@ -28,7 +30,6 @@
 #include "shareinterface.h"
 #include "smsinterface.h"
 #include "virtualmonitorinterface.h"
-#include "photointerface.h"
 
 /**
  * Using these "proxy" classes just in case we need to rename the
@@ -275,5 +276,16 @@ static void setWhenAvailable(const QDBusPendingReply<T> &pending, W func, QObjec
         func(reply.value());
     });
 }
+
+class KDECONNECTINTERFACES_EXPORT ClipboardDbusInterface : public OrgKdeKdeconnectDeviceClipboardInterface
+{
+    Q_OBJECT
+    Q_PROPERTY(bool isAutoShareDisabled READ isAutoShareDisabled NOTIFY autoShareDisabledChangedProxy)
+public:
+    explicit ClipboardDbusInterface(const QString &deviceId, QObject *parent = nullptr);
+    ~ClipboardDbusInterface() override;
+Q_SIGNALS:
+    void autoShareDisabledChangedProxy(bool b);
+};
 
 #endif

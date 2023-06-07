@@ -25,6 +25,7 @@ public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;
+    void autoShareChanged();
 
 private:
     Ui::ClipboardConfigUi *m_ui;

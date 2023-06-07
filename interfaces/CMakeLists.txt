@@ -58,6 +58,7 @@ geninterface(${PROJECT_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolume
 geninterface(${PROJECT_SOURCE_DIR}/plugins/bigscreen/bigscreenplugin.h bigscreeninterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/virtualmonitor/virtualmonitorplugin.h virtualmonitorinterface)
 geninterface(${PROJECT_SOURCE_DIR}/plugins/photo/photoplugin.h photointerface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/clipboard/clipboardplugin.h deviceclipboardinterface)
 
 add_library(kdeconnectinterfaces ${libkdeconnect_SRC})
 set_target_properties(kdeconnectinterfaces PROPERTIES

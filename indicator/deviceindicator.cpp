@@ -63,6 +63,20 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
         },
         this);
 
+    // Clipboard
+    auto clipboard = addAction(QIcon::fromTheme(QStringLiteral("klipper")), i18n("Send clipboard"));
+    connect(clipboard, &QAction::triggered, device, [device]() {
+        ClipboardDbusInterface *clipboardIface = new ClipboardDbusInterface(device->id(), device);
+        clipboardIface->sendClipboard();
+        clipboardIface->deleteLater();
+    });
+    setWhenAvailable(
+        device->hasPlugin(QStringLiteral("kdeconnect_clipboard")),
+        [clipboard](bool available) {
+            clipboard->setVisible(available);
+        },
+        this);
+
     // Find device
     auto findDevice = addAction(QIcon::fromTheme(QStringLiteral("irc-voice")), i18n("Ring device"));
     connect(findDevice, &QAction::triggered, device, [device]() {

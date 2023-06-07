@@ -41,15 +41,30 @@
 class ClipboardPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
-
+    Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.clipboard")
+    Q_PROPERTY(bool isAutoShareDisabled READ isAutoShareDisabled NOTIFY autoShareDisabledChanged)
 public:
     explicit ClipboardPlugin(QObject *parent, const QVariantList &args);
 
+    Q_SCRIPTABLE void sendClipboard();
+    Q_SCRIPTABLE void sendClipboard(const QString &content);
+    QString dbusPath() const override;
+
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
+    bool isAutoShareDisabled();
+
+Q_SIGNALS:
+    Q_SCRIPTABLE void autoShareDisabledChanged(bool b);
+
 private Q_SLOTS:
-    void propagateClipboard(const QString &content, ClipboardListener::ClipboardContentType contentType);
+    void clipboardChanged(const QString &content, ClipboardListener::ClipboardContentType contentType);
     void sendConnectPacket();
+    void configChanged();
+
+private:
+    bool autoShare;
+    bool sharePasswords;
 };
 
 #endif

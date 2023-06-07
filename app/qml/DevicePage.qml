@@ -99,6 +99,13 @@ Kirigami.ScrollablePage {
                 device: root.currentDevice
             },
             PluginItem {
+                readonly property var clipboardIface: ClipboardDbusInterfaceFactory.create(root.currentDevice.id())
+                pluginName: "clipboard"
+                name: i18nd("kdeconnect-app", "Send Clipboard")
+                onClick: () => clipboardIface.sendClipboard()
+                device: root.currentDevice
+            },
+            PluginItem {
                 pluginName: "share"
                 name: i18nd("kdeconnect-app", "Share File")
                 onClick: () => fileDialog.open()

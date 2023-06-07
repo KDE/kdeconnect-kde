@@ -64,6 +64,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
                                                                0,
                                                                "FindMyPhoneDbusInterface",
                                                                QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<ClipboardDbusInterface>(uri, 1, 0, "ClipboardDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<RemoteKeyboardDbusInterface>(uri,
                                                             1,
                                                             0,
@@ -113,6 +114,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
     registerFactory<FindMyPhoneDeviceDbusInterface>(uri, "FindMyPhoneDbusInterfaceFactory");
     registerFactory<SftpDbusInterface>(uri, "SftpDbusInterfaceFactory");
     registerFactory<RemoteKeyboardDbusInterface>(uri, "RemoteKeyboardDbusInterfaceFactory");
+    registerFactory<ClipboardDbusInterface>(uri, "ClipboardDbusInterfaceFactory");
     registerFactory<MprisDbusInterface>(uri, "MprisDbusInterfaceFactory");
     registerFactory<RemoteControlDbusInterface>(uri, "RemoteControlDbusInterfaceFactory");
     registerFactory<LockDeviceDbusInterface>(uri, "LockDeviceDbusInterfaceFactory");

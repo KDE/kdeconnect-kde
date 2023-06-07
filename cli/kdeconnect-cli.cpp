@@ -51,6 +51,7 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringLiteral("unpair"), i18n("Stop pairing to a said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ping"), i18n("Sends a ping to said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("ping-msg"), i18n("Same as ping but you can set the message to display"), i18n("message")));
+    parser.addOption(QCommandLineOption(QStringLiteral("send-clipboard"), i18n("Sends the current clipboard to said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("share"), i18n("Share a file/URL to a said device"), QStringLiteral("path or URL")));
     parser.addOption(QCommandLineOption(QStringLiteral("share-text"), i18n("Share text to a said device"), QStringLiteral("text")));
     parser.addOption(QCommandLineOption(QStringLiteral("list-notifications"), i18n("Display the notifications on a said device")));
@@ -264,6 +265,12 @@ int main(int argc, char **argv)
                 QTextStream(stderr) << i18n("Unpaired") << Qt::endl;
                 blockOnReply(dev.unpair());
             }
+        } else if (parser.isSet(QStringLiteral("send-clipboard"))) {
+            QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/clipboard"),
+                                                              QStringLiteral("org.kde.kdeconnect.device.clipboard"),
+                                                              QStringLiteral("sendClipboard"));
+            blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if (parser.isSet(QStringLiteral("ping")) || parser.isSet(QStringLiteral("ping-msg"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
                                                               QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/ping"),

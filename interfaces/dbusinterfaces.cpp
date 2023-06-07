@@ -261,3 +261,17 @@ VirtualmonitorDbusInterface::VirtualmonitorDbusInterface(const QString &deviceId
 VirtualmonitorDbusInterface::~VirtualmonitorDbusInterface()
 {
 }
+
+#include <iostream>
+ClipboardDbusInterface::ClipboardDbusInterface(const QString &deviceId, QObject *parent)
+    : OrgKdeKdeconnectDeviceClipboardInterface(DaemonDbusInterface::activatedService(),
+                                               QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/clipboard"),
+                                               QDBusConnection::sessionBus(),
+                                               parent)
+{
+    connect(this, &OrgKdeKdeconnectDeviceClipboardInterface::autoShareDisabledChanged, this, &ClipboardDbusInterface::autoShareDisabledChangedProxy);
+}
+
+ClipboardDbusInterface::~ClipboardDbusInterface()
+{
+}
