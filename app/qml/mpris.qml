@@ -44,15 +44,19 @@ Kirigami.Page
         root.pluginInterface.volume = muted ? 0 : volumeUnmuted
     }
 
-    function msToTime(currentTime, totalTime)
+    function padTimeNumber(n) {
+        return (n < 10) ? ("0" + n) : n;
+    }
+
+    function msToTime(totalTimeMs)
     {
-        if (totalTime.getHours() >= 2) {
-            // Skip a day ahead as Date type's minimum is 1am on the 1st of January and can't go lower
-            currentTime.setDate(2)
-            currentTime.setHours(currentTime.getHours() - 1)
-            return currentTime.toLocaleTimeString(Qt.locale(),"hh:mm:ss")
+        let hours = Math.floor(totalTimeMs/(1000*60*60));
+        let minutes = Math.floor((totalTimeMs-(hours*1000*60*60))/(1000*60));
+        let seconds = Math.floor((totalTimeMs-(minutes*1000*60)-(hours*1000*60*60))/1000);
+        if (hours > 0) {
+            return `${padTimeNumber(hours)}:${padTimeNumber(minutes)}:${padTimeNumber(seconds)}`;
         } else {
-            return currentTime.toLocaleTimeString(Qt.locale(),"mm:ss")
+            return `${padTimeNumber(minutes)}:${padTimeNumber(seconds)}`;
         }
     }
 
@@ -123,7 +127,7 @@ Kirigami.Page
         RowLayout {
             Layout.fillWidth: true
             Label {
-                text: msToTime(new Date(positionIndicator.item.value), new Date(root.pluginInterface.length))
+                text: msToTime(positionIndicator.item.value)
             }
 
             MprisSlider {
@@ -133,7 +137,7 @@ Kirigami.Page
             }
 
             Label {
-                text: msToTime(new Date(root.pluginInterface.length), new Date(root.pluginInterface.length))
+                text: msToTime(root.pluginInterface.length)
             }
         }
         RowLayout {
