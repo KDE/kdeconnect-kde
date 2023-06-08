@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-05-14 15:19+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -104,47 +104,52 @@ msgstr "சாதனத்தை கண்டுபிடி"
 msgid "Run command"
 msgstr "கட்டளையை இயக்கு"
 
-#: qml/DevicePage.qml:103
+#: qml/DevicePage.qml:104
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: qml/DevicePage.qml:110
 #, kde-format
 msgid "Share File"
 msgstr "கோப்பை பகிர்"
 
-#: qml/DevicePage.qml:108 qml/volume.qml:16
+#: qml/DevicePage.qml:115 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ஒலியளவு கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:117
+#: qml/DevicePage.qml:124
 #, kde-format
 msgid "This device is not paired"
 msgstr "இச்சாதனம் இணைக்கப்படவில்லை"
 
-#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "இணை"
 
-#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
+#: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
 msgid "Pair requested"
 msgstr "இணைப்பு கோரப்பட்டது"
 
-#: qml/DevicePage.qml:143
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "This device is not reachable"
 msgstr "சாதனத்தைத் தொடர்புகொள்ள முடியவில்லை"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Please choose a file"
 msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"

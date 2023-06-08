@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2022-11-17 02:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -39,20 +39,21 @@ msgstr "Iškarpinės papildinys"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
-msgid "Contents shared to other devices"
-msgstr "Į kitus įrenginius bendrinamas turinys"
+msgid "Automatic synchronization"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
-msgid "Passwords (as marked by password managers)"
-msgstr "Slaptažodžiai (kaip juos žymi slaptažodžių tvarkytuvės)"
+msgid "Automatically share the clipboard from this device"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Anything else"
-msgstr "Bet kas kita"
+#, fuzzy, kde-format
+#| msgid "Passwords (as marked by password managers)"
+msgid "Including passwords (as marked by password managers)"
+msgstr "Slaptažodžiai (kaip juos žymi slaptažodžių tvarkytuvės)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -488,6 +489,12 @@ msgstr "Praleistas skambutis nuo %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Nutildyti skambutį"
+
+#~ msgid "Contents shared to other devices"
+#~ msgstr "Į kitus įrenginius bendrinamas turinys"
+
+#~ msgid "Anything else"
+#~ msgstr "Bet kas kita"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "Naudoti telefoną kaip jutiklinį kilimėlį ir klaviatūrą"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2022-12-14 10:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -115,52 +115,58 @@ msgstr "მითითებული მოწყობილობის დ�
 msgid "Same as ping but you can set the message to display"
 msgstr "იგივე, რაც პინგი, მაგრამ შეგიძლიათ გამოსატანი შეტყობინება დააყენოთ"
 
-#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
 #, kde-format
 msgid "message"
 msgstr "შეტყობინება"
 
 #: kdeconnect-cli.cpp:54
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Sends the current clipboard to said device"
+msgstr "მითითებული მოწყობილობის დაპინგვა"
+
+#: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Share a file/URL to a said device"
 msgstr "მონიშნული მოწყობილობისთვის ფაილის/ბმულის გაზიარება"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Share text to a said device"
 msgstr "მითითებული მოწყობილობისთვის ტექსტის გაზიარება"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Display the notifications on a said device"
 msgstr "გაფრთხილებების მონიშნულ მოწყობილობაზე ჩვენება"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Lock the specified device"
 msgstr "მითითებული მოწყობილობის დაბლოკვა"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "მითითებული მოწყობილობის განდაბლოკვა"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "SMS-ის გაგზავნა. დანიშნულების მითითება აუცილებელია"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "ტელეფონის ნომერი შეტყობინების გასაგზავნად"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "phone number"
 msgstr "ტელეფონის ნომერი"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:63
 #, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
@@ -168,84 +174,84 @@ msgstr ""
 "ფაილის ბმულები, შეტყობინებასთან ერთად ფაილების მისამაგრებლად (შეიძლება ერთზე "
 "მეტჯერაც მითითება)"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "file urls"
 msgstr "ფაილის URL-ები"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:65
 #, kde-format
 msgid "Device ID"
 msgstr "მოწყობილობის ID"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Device Name"
 msgstr "მოწყობილობის სახელი"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "Get encryption info about said device"
 msgstr "მონიშნული მოწყობილობის დაშიფვრის ინფორმაციის მიღბა"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Lists remote commands and their ids"
 msgstr "დაშორებული ბრძანებებისა და მათი ID-ების სია"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "Executes a remote command by id"
 msgstr "დაშორებული ბრძანების ID-ით შესრულება"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Sends keys to a said device"
 msgstr "მონიშნული მოწყობილობისთვის გასაღებების გაგზავნა"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "მოწყობილობის ID-ის ჩვენება და გასვლა"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:73
 #, kde-format
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "მიერთებული მოწყობილობის კამერის გახსნა და სურათის გადატანა"
 
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(დაწყვილებული და ხელმისაწვდომი)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:122
 #, kde-format
 msgid "(reachable)"
 msgstr "(ხელმისაწვდომი)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(paired)"
 msgstr "(შეწყვილებულია)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "ნაპოვნია 1 მოწყობილობა"
 msgstr[1] "ნაპოვნია %1 მოწყობილობა"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:132
 #, kde-format
 msgid "No devices found"
 msgstr "მოწყობილობების პოვნა ვერ მოხერხდა"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:145
 #, kde-format
 msgid "(unpaired)"
 msgstr "(განწყვილებული)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:182
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -259,59 +265,59 @@ msgstr ""
 "გამოყენებით \n"
 "სრული დახმარების ნახვა შეგიძლიათ პარამეტრით --help"
 
-#: kdeconnect-cli.cpp:214
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "გაზიარებული %1"
 
-#: kdeconnect-cli.cpp:223
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "გაზიარებული ტექსტი: %1"
 
-#: kdeconnect-cli.cpp:230
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1-ის დაბლოკვის მოთხოვნა."
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1-ის განბლოკვის მოთხოვნა."
 
-#: kdeconnect-cli.cpp:239
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "მოწყობილობის მოლოდინი..."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "მოწყობილობა ნაპოვნი არაა"
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "უკვე შეწყვილებულია"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "დაწყვილების მოთხოვნა"
 
-#: kdeconnect-cli.cpp:262
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "უკვე დაწყვილებული არაა"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "დაწყვილება გაუქმებულია"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -320,12 +326,12 @@ msgstr ""
 "შეცდომა: SMS-ის მითითება აუცილებელია --destination <ტელეფონის ნომერი> "
 "პარამეტრის გადაცემით"
 
-#: kdeconnect-cli.cpp:323
+#: kdeconnect-cli.cpp:330
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "მიუთითეთ სახელი ამ სურათისთვის"
 
-#: kdeconnect-cli.cpp:370
+#: kdeconnect-cli.cpp:377
 #, kde-format
 msgid "Nothing to be done"
 msgstr "გასაკეთებელი არაფერია"

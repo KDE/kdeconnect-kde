@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-06-29 21:23+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -34,30 +34,35 @@ msgstr "சாதனத்தில் உலாவு"
 
 #: deviceindicator.cpp:67
 #, kde-format
+msgid "Send clipboard"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
 msgid "Ring device"
 msgstr "சாதனத்தை ஒலிக்க செய்"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:95
 #, kde-format
 msgid "Get a photo"
 msgstr "புகைப்படத்தை பெறு"
 
-#: deviceindicator.cpp:101
+#: deviceindicator.cpp:115
 #, kde-format
 msgid "Send a file/URL"
 msgstr "கோப்பை/முகவரியை அனுப்பு"
 
-#: deviceindicator.cpp:111
+#: deviceindicator.cpp:125
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS குறுஞ்செய்திகள்..."
 
-#: deviceindicator.cpp:124
+#: deviceindicator.cpp:138
 #, kde-format
 msgid "Run command"
 msgstr "கட்டளையை இயக்கு"
 
-#: deviceindicator.cpp:126
+#: deviceindicator.cpp:140
 #, kde-format
 msgid "Add commands"
 msgstr "கட்டளைகளை சேர்"

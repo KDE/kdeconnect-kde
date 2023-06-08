@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-04-09 22:27+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -37,20 +37,21 @@ msgstr "Plugin de Area de transferentia"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
-msgid "Contents shared to other devices"
-msgstr "Contentos compartite con altere dispositivos"
+msgid "Automatic synchronization"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
-msgid "Passwords (as marked by password managers)"
-msgstr "Contrasignos (como marcate per administratores de contrasignos)"
+msgid "Automatically share the clipboard from this device"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Anything else"
-msgstr "Alique altere"
+#, fuzzy, kde-format
+#| msgid "Passwords (as marked by password managers)"
+msgid "Including passwords (as marked by password managers)"
+msgstr "Contrasignos (como marcate per administratores de contrasignos)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -487,6 +488,12 @@ msgstr "Appello perdite ab %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Appello silente"
+
+#~ msgid "Contents shared to other devices"
+#~ msgstr "Contentos compartite con altere dispositivos"
+
+#~ msgid "Anything else"
+#~ msgstr "Alique altere"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "Usa tu telephono como un pannello tactile e claviero"

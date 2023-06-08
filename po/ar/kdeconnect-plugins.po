@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-04-13 09:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -39,20 +39,21 @@ msgstr "ملحق الحافظة"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
-msgid "Contents shared to other devices"
-msgstr "شوركت المحتويات مع أجهزة أخرى"
+msgid "Automatic synchronization"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
-msgid "Passwords (as marked by password managers)"
-msgstr "كلمات السر (معلّمة كما في مديرو الكلمات السر)"
+msgid "Automatically share the clipboard from this device"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Anything else"
-msgstr "أي شيء أخر"
+#, fuzzy, kde-format
+#| msgid "Passwords (as marked by password managers)"
+msgid "Including passwords (as marked by password managers)"
+msgstr "كلمات السر (معلّمة كما في مديرو الكلمات السر)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -480,6 +481,12 @@ msgstr "مكالمة فائتة من %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "اكتم المكالمة"
+
+#~ msgid "Contents shared to other devices"
+#~ msgstr "شوركت المحتويات مع أجهزة أخرى"
+
+#~ msgid "Anything else"
+#~ msgstr "أي شيء أخر"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "استخدم هاتفك كلوحتي لمس ومفاتيح"

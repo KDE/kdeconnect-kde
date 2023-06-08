@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-08-21 13:14+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -36,30 +36,35 @@ msgstr "Naršyti įrenginį"
 
 #: deviceindicator.cpp:67
 #, kde-format
+msgid "Send clipboard"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
 msgid "Ring device"
 msgstr "Skambinti į įrenginį"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:95
 #, kde-format
 msgid "Get a photo"
 msgstr "Gauti nuotrauką"
 
-#: deviceindicator.cpp:101
+#: deviceindicator.cpp:115
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Siųsti failą/URL"
 
-#: deviceindicator.cpp:111
+#: deviceindicator.cpp:125
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS žinutės..."
 
-#: deviceindicator.cpp:124
+#: deviceindicator.cpp:138
 #, kde-format
 msgid "Run command"
 msgstr "Vykdyti komandą"
 
-#: deviceindicator.cpp:126
+#: deviceindicator.cpp:140
 #, kde-format
 msgid "Add commands"
 msgstr "Pridėti komandas"

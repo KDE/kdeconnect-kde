@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-06-24 00:15+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -34,30 +34,35 @@ msgstr "장치 탐색"
 
 #: deviceindicator.cpp:67
 #, kde-format
+msgid "Send clipboard"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
 msgid "Ring device"
 msgstr "장치 울리기"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:95
 #, kde-format
 msgid "Get a photo"
 msgstr "사진 받기"
 
-#: deviceindicator.cpp:101
+#: deviceindicator.cpp:115
 #, kde-format
 msgid "Send a file/URL"
 msgstr "파일/URL 보내기"
 
-#: deviceindicator.cpp:111
+#: deviceindicator.cpp:125
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS 메시지..."
 
-#: deviceindicator.cpp:124
+#: deviceindicator.cpp:138
 #, kde-format
 msgid "Run command"
 msgstr "명령 실행"
 
-#: deviceindicator.cpp:126
+#: deviceindicator.cpp:140
 #, kde-format
 msgid "Add commands"
 msgstr "명령 추가"

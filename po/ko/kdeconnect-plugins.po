@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-04-22 00:07+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -37,20 +37,21 @@ msgstr "클립보드 플러그인"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
-msgid "Contents shared to other devices"
-msgstr "다른 장치와 공유된 내용"
+msgid "Automatic synchronization"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
-msgid "Passwords (as marked by password managers)"
-msgstr "암호(암호 관리자에서 지정한 대로)"
+msgid "Automatically share the clipboard from this device"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Anything else"
-msgstr "다른 모든 것"
+#, fuzzy, kde-format
+#| msgid "Passwords (as marked by password managers)"
+msgid "Including passwords (as marked by password managers)"
+msgstr "암호(암호 관리자에서 지정한 대로)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -480,6 +481,12 @@ msgstr "부재 중 전화: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "통화 음소거"
+
+#~ msgid "Contents shared to other devices"
+#~ msgstr "다른 장치와 공유된 내용"
+
+#~ msgid "Anything else"
+#~ msgstr "다른 모든 것"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "휴대폰을 터치패드와 키보드로 사용"

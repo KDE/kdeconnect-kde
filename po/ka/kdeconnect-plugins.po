@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-26 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-04-08 06:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -38,20 +38,21 @@ msgstr "ბუფერის დამატება"
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
-msgid "Contents shared to other devices"
-msgstr "სხვა მოწყობილობებთან გაზიარებული შემცველობა"
+msgid "Automatic synchronization"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
-msgid "Passwords (as marked by password managers)"
-msgstr "პაროლები (როგორც მონიშნულია პაროლის მმართველების მიერ)"
+msgid "Automatically share the clipboard from this device"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QCheckBox, check_unknown)
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, kde-format
-msgid "Anything else"
-msgstr "ყველაფერი სხვა"
+#, fuzzy, kde-format
+#| msgid "Passwords (as marked by password managers)"
+msgid "Including passwords (as marked by password managers)"
+msgstr "პაროლები (როგორც მონიშნულია პაროლის მმართველების მიერ)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -485,6 +486,12 @@ msgstr "გამოტოვებული ზარი %1-დან"
 #, kde-format
 msgid "Mute Call"
 msgstr "ზარის დადუმება"
+
+#~ msgid "Contents shared to other devices"
+#~ msgstr "სხვა მოწყობილობებთან გაზიარებული შემცველობა"
+
+#~ msgid "Anything else"
+#~ msgstr "ყველაფერი სხვა"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "გამოიყენეთ ტელეფონი, როგორც თაჩპედი და კლავიატურა"

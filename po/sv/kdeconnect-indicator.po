@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-06-26 21:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -34,30 +34,35 @@ msgstr "Bläddra apparat"
 
 #: deviceindicator.cpp:67
 #, kde-format
+msgid "Send clipboard"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
 msgid "Ring device"
 msgstr "Ring apparat"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:95
 #, kde-format
 msgid "Get a photo"
 msgstr "Hämta ett foto"
 
-#: deviceindicator.cpp:101
+#: deviceindicator.cpp:115
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Skicka en fil eller webbadress"
 
-#: deviceindicator.cpp:111
+#: deviceindicator.cpp:125
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS-meddelanden..."
 
-#: deviceindicator.cpp:124
+#: deviceindicator.cpp:138
 #, kde-format
 msgid "Run command"
 msgstr "Kör kommando"
 
-#: deviceindicator.cpp:126
+#: deviceindicator.cpp:140
 #, kde-format
 msgid "Add commands"
 msgstr "Lägg till kommandon"

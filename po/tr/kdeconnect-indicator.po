@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-05-24 01:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -35,30 +35,35 @@ msgstr "Aygıta göz at"
 
 #: deviceindicator.cpp:67
 #, kde-format
+msgid "Send clipboard"
+msgstr ""
+
+#: deviceindicator.cpp:81
+#, kde-format
 msgid "Ring device"
 msgstr "Aygıtı çaldır"
 
-#: deviceindicator.cpp:81
+#: deviceindicator.cpp:95
 #, kde-format
 msgid "Get a photo"
 msgstr "Bir fotoğraf al"
 
-#: deviceindicator.cpp:101
+#: deviceindicator.cpp:115
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Dosya/URL gönder"
 
-#: deviceindicator.cpp:111
+#: deviceindicator.cpp:125
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS Mesajları ..."
 
-#: deviceindicator.cpp:124
+#: deviceindicator.cpp:138
 #, kde-format
 msgid "Run command"
 msgstr "Komut çalıştır"
 
-#: deviceindicator.cpp:126
+#: deviceindicator.cpp:140
 #, kde-format
 msgid "Add commands"
 msgstr "Komut ekle"

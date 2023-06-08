@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -34,31 +34,36 @@ msgstr "ഉപകരണം തുറക്കുക"
 
 #: deviceindicator.cpp:67
 #, kde-format
-msgid "Ring device"
+msgid "Send clipboard"
 msgstr ""
 
 #: deviceindicator.cpp:81
 #, kde-format
+msgid "Ring device"
+msgstr ""
+
+#: deviceindicator.cpp:95
+#, kde-format
 msgid "Get a photo"
 msgstr ""
 
-#: deviceindicator.cpp:101
+#: deviceindicator.cpp:115
 #, fuzzy, kde-format
 #| msgid "Send file"
 msgid "Send a file/URL"
 msgstr "ഫയൽ അയയ്ക്കുക"
 
-#: deviceindicator.cpp:111
+#: deviceindicator.cpp:125
 #, kde-format
 msgid "SMS Messages..."
 msgstr "എസ്.എം.എസ്. സന്ദേശങ്ങൾ"
 
-#: deviceindicator.cpp:124
+#: deviceindicator.cpp:138
 #, kde-format
 msgid "Run command"
 msgstr "ആജ്ഞ റൺ ചെയ്യുക"
 
-#: deviceindicator.cpp:126
+#: deviceindicator.cpp:140
 #, kde-format
 msgid "Add commands"
 msgstr "ആജ്ഞകൾ കൂട്ടിച്ചേർക്കുക"

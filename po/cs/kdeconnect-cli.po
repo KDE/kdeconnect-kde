@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-08-25 21:40+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -115,119 +115,125 @@ msgstr "Pošle na dané zařízení ping"
 msgid "Same as ping but you can set the message to display"
 msgstr "Stejné jako ping, ale můžete nastavit zobrazenou zprávu."
 
-#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
 #, kde-format
 msgid "message"
 msgstr "zpráva"
 
 #: kdeconnect-cli.cpp:54
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Sends the current clipboard to said device"
+msgstr "Pošle na dané zařízení ping"
+
+#: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Share a file/URL to a said device"
 msgstr "Sdílet soubor/URL s daným zařízením"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Share text to a said device"
 msgstr "Sdílet text s daným zařízením"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Display the notifications on a said device"
 msgstr "Zobrazit oznámení na daném zařízení"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Uzamknout zadané zařízení"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Odemknout zadané zařízení"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Pošle SMS. Požaduje cíl"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Telefonní číslo pro poslání zprávy"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "phone number"
 msgstr "telefonní číslo"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:63
 #, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
 msgstr ""
 "URL souborů po posílání příloh se zprávou (může být předáno několikrát)"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "file urls"
 msgstr "URL souborů"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:65
 #, kde-format
 msgid "Device ID"
 msgstr "ID zařízení"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Device Name"
 msgstr "Název zařízení"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "Get encryption info about said device"
 msgstr "Vyžádat informace o šifrování daného zařízení"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Lists remote commands and their ids"
 msgstr "Vypíše vzdálené příkazy a jejich id"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "Executes a remote command by id"
 msgstr "Spustit vzdálený příkaz podle id"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Sends keys to a said device"
 msgstr "Pošle na dané zařízení stisky kláves"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Zobrazit id tohoto zařízení a ukončit"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:73
 #, kde-format
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Otevřít fotoaparát připojeného zařízení a přenést fotografii"
 
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(spárovaná a dosažitelná)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:122
 #, kde-format
 msgid "(reachable)"
 msgstr "(nedostupná)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(paired)"
 msgstr "(spárovaná)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -235,17 +241,17 @@ msgstr[0] "Nalezeno 1 zařízení"
 msgstr[1] "Nalezena %1 zařízení"
 msgstr[2] "Nalezeno %1 zařízení"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:132
 #, kde-format
 msgid "No devices found"
 msgstr "Nenalezena žádná zařízení"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:145
 #, kde-format
 msgid "(unpaired)"
 msgstr "(nespárovaný)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:182
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -258,59 +264,59 @@ msgstr ""
 "ID zařízení a názvy lze najít pomocí \"kdeconnect-cli -l\" \n"
 "Kompletní nápovědu dostanete s volbou --help"
 
-#: kdeconnect-cli.cpp:214
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "Sdílené %1"
 
-#: kdeconnect-cli.cpp:223
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Sdílený text: %1"
 
-#: kdeconnect-cli.cpp:230
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Vyžádáno zamčení %1."
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Vyžádáno odemčení %1."
 
-#: kdeconnect-cli.cpp:239
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "čeká se na zařízení..."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "Zařízení nenalezeno"
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Již spárované"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "Bylo vyžádáno párování"
 
-#: kdeconnect-cli.cpp:262
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Již nespárované"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Nespárované"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -318,12 +324,12 @@ msgid ""
 msgstr ""
 "chyba: měli byste určit příjemce SMS předáním --destination <telefonní číslo>"
 
-#: kdeconnect-cli.cpp:323
+#: kdeconnect-cli.cpp:330
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Prosím, zadejte příponu fotografie"
 
-#: kdeconnect-cli.cpp:370
+#: kdeconnect-cli.cpp:377
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nebude nic provedeno"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-01-31 21:51+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -116,52 +116,58 @@ msgstr "Siųsti ryšio patikrinimą į nusakytą įrenginį"
 msgid "Same as ping but you can set the message to display"
 msgstr "Tas pats kas ryšio patikrinimas, tik galite nustatyti rodomą žinutę"
 
-#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
 #, kde-format
 msgid "message"
 msgstr "žinutė"
 
 #: kdeconnect-cli.cpp:54
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Sends the current clipboard to said device"
+msgstr "Siųsti ryšio patikrinimą į nusakytą įrenginį"
+
+#: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Share a file/URL to a said device"
 msgstr "Bendrinti failą/URL su nusakytu įrenginiu"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Share text to a said device"
 msgstr "Bendrinti tekstą su nusakytu įrenginiu"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Display the notifications on a said device"
 msgstr "Rodyti pranešimus nusakytame įrenginyje"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Užrakinti nurodytą įrenginį"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Atrakinti nurodytą įrenginį"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Siunčia SMS žinutę. Reikalauja paskirties"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Telefono numeris į kurį siųsti žinutę"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "phone number"
 msgstr "telefono numeris"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:63
 #, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
@@ -169,67 +175,67 @@ msgstr ""
 "Failų, kuriuos siųsti kaip priedus kartu su žinute, url adresai (gali būti "
 "perduota keletą kartų)"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "file urls"
 msgstr "failų url"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:65
 #, kde-format
 msgid "Device ID"
 msgstr "Įrenginio ID"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Device Name"
 msgstr "Įrenginio pavadinimas"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "Get encryption info about said device"
 msgstr "Gauti šifravimo informaciją apie nusakytą įrenginį"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Lists remote commands and their ids"
 msgstr "Išvardija nuotolines komandas ir jų id"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "Executes a remote command by id"
 msgstr "Nuotoliniu būdu vykdo komandą pagal id"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Sends keys to a said device"
 msgstr "Siunčia klavišus į nusakytą įrenginį"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Rodyti šio įrenginio id ir išeiti"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:73
 #, kde-format
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Atverti prijungto įrenginio kamerą ir persiųsti nuotrauką"
 
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(suporuotas ir pasiekiamas)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:122
 #, kde-format
 msgid "(reachable)"
 msgstr "(pasiekiamas)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(paired)"
 msgstr "(suporuotas)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -238,17 +244,17 @@ msgstr[1] "Rasti %1 įrenginiai"
 msgstr[2] "Rasta %1 įrenginių"
 msgstr[3] "Rastas %1 įrenginys"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:132
 #, kde-format
 msgid "No devices found"
 msgstr "Nerasta jokių įrenginių"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:145
 #, kde-format
 msgid "(unpaired)"
 msgstr "(nesuporuotas)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:182
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -261,59 +267,59 @@ msgstr ""
 "Įrenginių ID ir pavadinimus galite rasti naudodami \"kdeconnect-cli -l\" \n"
 "Žiūrėkite visą pagalbą naudodami --help parinktį"
 
-#: kdeconnect-cli.cpp:214
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "Buvo bendrinta %1"
 
-#: kdeconnect-cli.cpp:223
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Bendrintas tekstas: %1"
 
-#: kdeconnect-cli.cpp:230
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Užklausta užrakinti %1."
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Užklausta atrakinti %1."
 
-#: kdeconnect-cli.cpp:239
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "laukiama įrenginio..."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "Įrenginys nerastas"
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Jau suporuota"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "Užklaustas suporavimas"
 
-#: kdeconnect-cli.cpp:262
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Jau nesuporuota"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Nesuporuota"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -322,12 +328,12 @@ msgstr ""
 "klaida: turėtumėte nurodyti SMS žinutės gavėją, perduodami --destination "
 "<telefono numeris>"
 
-#: kdeconnect-cli.cpp:323
+#: kdeconnect-cli.cpp:330
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Nurodykite nuotraukai failo pavadinimą"
 
-#: kdeconnect-cli.cpp:370
+#: kdeconnect-cli.cpp:377
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nėra ką atlikti"

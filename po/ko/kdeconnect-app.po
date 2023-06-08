@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-03-01 01:24+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -104,47 +104,52 @@ msgstr "장치 찾기"
 msgid "Run command"
 msgstr "명령 실행"
 
-#: qml/DevicePage.qml:103
+#: qml/DevicePage.qml:104
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: qml/DevicePage.qml:110
 #, kde-format
 msgid "Share File"
 msgstr "파일 공유"
 
-#: qml/DevicePage.qml:108 qml/volume.qml:16
+#: qml/DevicePage.qml:115 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "음량 제어"
 
-#: qml/DevicePage.qml:117
+#: qml/DevicePage.qml:124
 #, kde-format
 msgid "This device is not paired"
 msgstr "장치가 연결되지 않음"
 
-#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
+#: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
 msgid "Pair requested"
 msgstr "연결 요청됨"
 
-#: qml/DevicePage.qml:143
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"

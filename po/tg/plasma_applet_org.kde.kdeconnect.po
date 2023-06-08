@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2019-09-30 19:52+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -74,78 +74,83 @@ msgstr "Лутфан, файлеро интихоб намоед"
 msgid "Share file"
 msgstr "Мубодилаи файлҳо"
 
-#: package/contents/ui/DeviceDelegate.qml:178
+#: package/contents/ui/DeviceDelegate.qml:184
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format
 msgid "Save As"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:191
+#: package/contents/ui/DeviceDelegate.qml:209
 #, kde-format
 msgid "Take a photo"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:206
+#: package/contents/ui/DeviceDelegate.qml:224
 #, kde-format
 msgid "Ring my phone"
 msgstr "Ба телефони ман занг задан"
 
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:242
 #, kde-format
 msgid "Browse this device"
 msgstr "Намоиш додани ин дастгоҳ"
 
-#: package/contents/ui/DeviceDelegate.qml:241
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "SMS Messages"
 msgstr "Паёмҳои СМС"
 
-#: package/contents/ui/DeviceDelegate.qml:262
+#: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Клавиатураи дурдаст"
 
-#: package/contents/ui/DeviceDelegate.qml:278
+#: package/contents/ui/DeviceDelegate.qml:296
 #, kde-format
 msgid "Notifications:"
 msgstr "Огоҳиҳо:"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:303
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Нодида гузарондани ҳамаи огоҳиҳо"
 
-#: package/contents/ui/DeviceDelegate.qml:324
+#: package/contents/ui/DeviceDelegate.qml:342
 #, kde-format
 msgid "Reply"
 msgstr "Ҷавоб додан"
 
-#: package/contents/ui/DeviceDelegate.qml:333
+#: package/contents/ui/DeviceDelegate.qml:351
 #, kde-format
 msgid "Dismiss"
 msgstr "Нодида гузарондан"
 
-#: package/contents/ui/DeviceDelegate.qml:344
+#: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:357
+#: package/contents/ui/DeviceDelegate.qml:375
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:373
+#: package/contents/ui/DeviceDelegate.qml:391
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:397
+#: package/contents/ui/DeviceDelegate.qml:415
 #, kde-format
 msgid "Run command"
 msgstr "Иҷро кардани фармон"
 
-#: package/contents/ui/DeviceDelegate.qml:405
+#: package/contents/ui/DeviceDelegate.qml:423
 #, kde-format
 msgid "Add command"
 msgstr "Илова кардани фармон"

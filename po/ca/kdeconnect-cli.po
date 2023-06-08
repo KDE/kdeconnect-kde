@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2021-10-30 14:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -118,52 +118,58 @@ msgstr "Envia un ping a un dispositiu indicat"
 msgid "Same as ping but you can set the message to display"
 msgstr "Igual que el ping, però es pot definir el missatge que es mostrarà"
 
-#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
 #, kde-format
 msgid "message"
 msgstr "missatge"
 
 #: kdeconnect-cli.cpp:54
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Sends the current clipboard to said device"
+msgstr "Envia un ping a un dispositiu indicat"
+
+#: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Share a file/URL to a said device"
 msgstr "Comparteix un fitxer/URL amb un dispositiu indicat"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Share text to a said device"
 msgstr "Comparteix text a un dispositiu indicat"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Display the notifications on a said device"
 msgstr "Mostra les notificacions a un dispositiu indicat"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Bloqueja el dispositiu especificat"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Desbloqueja el dispositiu especificat"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Envia un SMS. Requereix una destinació"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Número de telèfon a on enviar el missatge"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "phone number"
 msgstr "número de telèfon"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:63
 #, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
@@ -171,84 +177,84 @@ msgstr ""
 "URL dels fitxers a enviar adjuntats al missatge (es pot indicar diverses "
 "vegades)"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "file urls"
 msgstr "URL dels fitxers"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:65
 #, kde-format
 msgid "Device ID"
 msgstr "ID del dispositiu"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Device Name"
 msgstr "Nom del dispositiu"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "Get encryption info about said device"
 msgstr "Obtén la informació d'encriptatge del dispositiu indicat"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Lists remote commands and their ids"
 msgstr "Llista les ordres remotes i les seves ID"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "Executes a remote command by id"
 msgstr "Executa una ordre remota pel seu ID"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Sends keys to a said device"
 msgstr "Envia les tecles a un dispositiu indicat"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Mostra l'ID d'aquest dispositiu i surt"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:73
 #, kde-format
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Obre la càmera del dispositiu connectat i transfereix la fotografia"
 
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(aparellat i accessible)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:122
 #, kde-format
 msgid "(reachable)"
 msgstr "(accessible)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(paired)"
 msgstr "(aparellat)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "S'ha trobat 1 dispositiu"
 msgstr[1] "S'han trobat %1 dispositius"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:132
 #, kde-format
 msgid "No devices found"
 msgstr "No s'ha trobat cap dispositiu"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:145
 #, kde-format
 msgid "(unpaired)"
 msgstr "(sense aparellar)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:182
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -261,59 +267,59 @@ msgstr ""
 "Els ID i noms dels dispositius es poden trobar usant «kdeconnect-cli -l» \n"
 "Vegeu tota l'ajuda amb l'opció --help"
 
-#: kdeconnect-cli.cpp:214
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "Compartit %1"
 
-#: kdeconnect-cli.cpp:223
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Text compartit %1"
 
-#: kdeconnect-cli.cpp:230
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Sol·licitud de bloqueig %1."
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Sol·licitud de desbloqueig %1."
 
-#: kdeconnect-cli.cpp:239
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "s'està esperant per un dispositiu..."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "No s'ha trobat cap dispositiu"
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Ja està aparellat"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "S'ha demanat aparellar"
 
-#: kdeconnect-cli.cpp:262
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Ja no està aparellat"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Sense aparellar"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -322,12 +328,12 @@ msgstr ""
 "Error: cal especificar el destinatari de l'SMS informant --destination "
 "<número de telèfon>"
 
-#: kdeconnect-cli.cpp:323
+#: kdeconnect-cli.cpp:330
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Especifiqueu un nom de fitxer per a la fotografia"
 
-#: kdeconnect-cli.cpp:370
+#: kdeconnect-cli.cpp:377
 #, kde-format
 msgid "Nothing to be done"
 msgstr "No es fa res"

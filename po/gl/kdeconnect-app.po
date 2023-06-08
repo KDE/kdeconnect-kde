@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-05-15 05:15+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -104,47 +104,52 @@ msgstr "Atopar o dispositivo"
 msgid "Run command"
 msgstr "Executar unha orde"
 
-#: qml/DevicePage.qml:103
+#: qml/DevicePage.qml:104
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: qml/DevicePage.qml:110
 #, kde-format
 msgid "Share File"
 msgstr "Compartir un ficheiro"
 
-#: qml/DevicePage.qml:108 qml/volume.qml:16
+#: qml/DevicePage.qml:115 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Control do volume"
 
-#: qml/DevicePage.qml:117
+#: qml/DevicePage.qml:124
 #, kde-format
 msgid "This device is not paired"
 msgstr "Este dispositivo non está emparellado"
 
-#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "Emparellar"
 
-#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
+#: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
 msgid "Pair requested"
 msgstr "Solicitouse un emparellamento"
 
-#: qml/DevicePage.qml:143
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Accept"
 msgstr "Aceptar"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Reject"
 msgstr "Rexeitar"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "This device is not reachable"
 msgstr "O dispositivo está fóra de alcance"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Please choose a file"
 msgstr "Escolla un ficheiro"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-05-17 19:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -105,47 +105,52 @@ msgstr "اعثر على جهاز"
 msgid "Run command"
 msgstr "نفّذ أمرًا"
 
-#: qml/DevicePage.qml:103
+#: qml/DevicePage.qml:104
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: qml/DevicePage.qml:110
 #, kde-format
 msgid "Share File"
 msgstr "شارك ملف"
 
-#: qml/DevicePage.qml:108 qml/volume.qml:16
+#: qml/DevicePage.qml:115 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "تحكم بالصوت"
 
-#: qml/DevicePage.qml:117
+#: qml/DevicePage.qml:124
 #, kde-format
 msgid "This device is not paired"
 msgstr "الجهاز غير مقترن"
 
-#: qml/DevicePage.qml:121 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
 #, kde-format
 msgid "Pair"
 msgstr "اقرن"
 
-#: qml/DevicePage.qml:128 qml/DevicePage.qml:137
+#: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
 msgid "Pair requested"
 msgstr "طُلب الاقتران"
 
-#: qml/DevicePage.qml:143
+#: qml/DevicePage.qml:150
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
 
-#: qml/DevicePage.qml:149
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Reject"
 msgstr "ارفض"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:165
 #, kde-format
 msgid "This device is not reachable"
 msgstr "الجهاز غير قابل الوصول"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "Please choose a file"
 msgstr "رجاءً اختر ملفا"

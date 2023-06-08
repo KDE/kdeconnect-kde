@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2020-12-19 16:57+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -115,52 +115,58 @@ msgstr "Trimite ping unui dispozitiv numit"
 msgid "Same as ping but you can set the message to display"
 msgstr "La fel ca ping dar puteți stabili mesajul de afișat"
 
-#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
 #, kde-format
 msgid "message"
 msgstr "mesaj"
 
 #: kdeconnect-cli.cpp:54
+#, fuzzy, kde-format
+#| msgid "Sends a ping to said device"
+msgid "Sends the current clipboard to said device"
+msgstr "Trimite ping unui dispozitiv numit"
+
+#: kdeconnect-cli.cpp:55
 #, kde-format
 msgid "Share a file/URL to a said device"
 msgstr "Partajează un fișier/URL cu un dispozitiv numit"
 
-#: kdeconnect-cli.cpp:55
+#: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Share text to a said device"
 msgstr "Partajează text cu un dispozitiv numit"
 
-#: kdeconnect-cli.cpp:56
+#: kdeconnect-cli.cpp:57
 #, kde-format
 msgid "Display the notifications on a said device"
 msgstr "Afișează notificările pe un dispozitiv numit"
 
-#: kdeconnect-cli.cpp:57
+#: kdeconnect-cli.cpp:58
 #, kde-format
 msgid "Lock the specified device"
 msgstr "Blochează dispozitivul specificat"
 
-#: kdeconnect-cli.cpp:58
+#: kdeconnect-cli.cpp:59
 #, kde-format
 msgid "Unlock the specified device"
 msgstr "Deblochează dispozitivul specificat"
 
-#: kdeconnect-cli.cpp:59
+#: kdeconnect-cli.cpp:60
 #, kde-format
 msgid "Sends an SMS. Requires destination"
 msgstr "Trimite un SMS: Necesită destinație"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "Phone number to send the message"
 msgstr "Număr de telefon pentru trimis mesajul"
 
-#: kdeconnect-cli.cpp:60
+#: kdeconnect-cli.cpp:61
 #, kde-format
 msgid "phone number"
 msgstr "număr de telefon"
 
-#: kdeconnect-cli.cpp:62
+#: kdeconnect-cli.cpp:63
 #, kde-format
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
@@ -168,67 +174,67 @@ msgstr ""
 "URL-uri de fișiere pentru trimis atașamente cu mesajul (poate fi folosit "
 "repetat)"
 
-#: kdeconnect-cli.cpp:63
+#: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "file urls"
 msgstr "url-uri fișiere"
 
-#: kdeconnect-cli.cpp:64
+#: kdeconnect-cli.cpp:65
 #, kde-format
 msgid "Device ID"
 msgstr "ID dispozitiv"
 
-#: kdeconnect-cli.cpp:65
+#: kdeconnect-cli.cpp:66
 #, kde-format
 msgid "Device Name"
 msgstr "Denumire dispozitiv"
 
-#: kdeconnect-cli.cpp:66
+#: kdeconnect-cli.cpp:67
 #, kde-format
 msgid "Get encryption info about said device"
 msgstr "Obține informații de criptare despre dispozitivul numit"
 
-#: kdeconnect-cli.cpp:67
+#: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Lists remote commands and their ids"
 msgstr "Enumeră comenzi distante și id-urile acestora"
 
-#: kdeconnect-cli.cpp:68
+#: kdeconnect-cli.cpp:69
 #, kde-format
 msgid "Executes a remote command by id"
 msgstr "Execută o comandă distantă după id"
 
-#: kdeconnect-cli.cpp:70
+#: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Sends keys to a said device"
 msgstr "Trimite taste unui dispozitiv numit"
 
-#: kdeconnect-cli.cpp:71
+#: kdeconnect-cli.cpp:72
 #, kde-format
 msgid "Display this device's id and exit"
 msgstr "Afișează identificatorul acestui dispozitiv și termină"
 
-#: kdeconnect-cli.cpp:72
+#: kdeconnect-cli.cpp:73
 #, kde-format
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Deschide camera dispozitivului conectat și transferă poza"
 
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(asociat și accesibil)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:122
 #, kde-format
 msgid "(reachable)"
 msgstr "(accesibil)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(paired)"
 msgstr "(asociat)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -236,17 +242,17 @@ msgstr[0] "1 dispozitiv găsit"
 msgstr[1] "%1 dispozitive găsite"
 msgstr[2] "%1 de dispozitive găsite"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:132
 #, kde-format
 msgid "No devices found"
 msgstr "Niciun dispozitiv găsit"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:145
 #, kde-format
 msgid "(unpaired)"
 msgstr "(neasociat)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:182
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -260,59 +266,59 @@ msgstr ""
 "cli -l” \n"
 "Vedeți ajutorul complet cu opțiunea --help"
 
-#: kdeconnect-cli.cpp:214
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "Partajat %1"
 
-#: kdeconnect-cli.cpp:223
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Text partajat: %1"
 
-#: kdeconnect-cli.cpp:230
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "S-a cerut blocarea %1."
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "S-a cerut deblocarea %1."
 
-#: kdeconnect-cli.cpp:239
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "se așteaptă dispozitivul..."
 
-#: kdeconnect-cli.cpp:252
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "Dispozitivul nu a fost găsit"
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Asociat deja"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "Asociere cerută"
 
-#: kdeconnect-cli.cpp:262
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Neasociat deja"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Neasociat"
 
-#: kdeconnect-cli.cpp:304
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -321,12 +327,12 @@ msgstr ""
 "eroare: trebuie specificat destinatarul SMS-ului prin transmiterea --"
 "destination <număr de telefon>"
 
-#: kdeconnect-cli.cpp:323
+#: kdeconnect-cli.cpp:330
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Specificați o denumire de fișier pentru poză"
 
-#: kdeconnect-cli.cpp:370
+#: kdeconnect-cli.cpp:377
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nimic de făcut"

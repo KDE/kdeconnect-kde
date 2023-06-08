@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-29 00:46+0000\n"
+"POT-Creation-Date: 2023-06-08 00:46+0000\n"
 "PO-Revision-Date: 2023-03-26 11:23+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -75,78 +75,83 @@ msgstr "Escolla un ficheiro"
 msgid "Share file"
 msgstr "Compartir o ficheiro"
 
-#: package/contents/ui/DeviceDelegate.qml:178
+#: package/contents/ui/DeviceDelegate.qml:184
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format
 msgid "Save As"
 msgstr "Gardar como"
 
-#: package/contents/ui/DeviceDelegate.qml:191
+#: package/contents/ui/DeviceDelegate.qml:209
 #, kde-format
 msgid "Take a photo"
 msgstr "Sacar unha foto"
 
-#: package/contents/ui/DeviceDelegate.qml:206
+#: package/contents/ui/DeviceDelegate.qml:224
 #, kde-format
 msgid "Ring my phone"
 msgstr "Facer soar o meu móbil"
 
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:242
 #, kde-format
 msgid "Browse this device"
 msgstr "Explorar este dispositivo"
 
-#: package/contents/ui/DeviceDelegate.qml:241
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "SMS Messages"
 msgstr "Mensaxes SMS"
 
-#: package/contents/ui/DeviceDelegate.qml:262
+#: package/contents/ui/DeviceDelegate.qml:280
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Teclado remoto"
 
-#: package/contents/ui/DeviceDelegate.qml:278
+#: package/contents/ui/DeviceDelegate.qml:296
 #, kde-format
 msgid "Notifications:"
 msgstr "Notificacións:"
 
-#: package/contents/ui/DeviceDelegate.qml:285
+#: package/contents/ui/DeviceDelegate.qml:303
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Descartar todas as notificacións"
 
-#: package/contents/ui/DeviceDelegate.qml:324
+#: package/contents/ui/DeviceDelegate.qml:342
 #, kde-format
 msgid "Reply"
 msgstr "Responder"
 
-#: package/contents/ui/DeviceDelegate.qml:333
+#: package/contents/ui/DeviceDelegate.qml:351
 #, kde-format
 msgid "Dismiss"
 msgstr "Descartar"
 
-#: package/contents/ui/DeviceDelegate.qml:344
+#: package/contents/ui/DeviceDelegate.qml:362
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: package/contents/ui/DeviceDelegate.qml:357
+#: package/contents/ui/DeviceDelegate.qml:375
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responder a %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:373
+#: package/contents/ui/DeviceDelegate.qml:391
 #, kde-format
 msgid "Send"
 msgstr "Enviar"
 
-#: package/contents/ui/DeviceDelegate.qml:397
+#: package/contents/ui/DeviceDelegate.qml:415
 #, kde-format
 msgid "Run command"
 msgstr "Executar unha orde"
 
-#: package/contents/ui/DeviceDelegate.qml:405
+#: package/contents/ui/DeviceDelegate.qml:423
 #, kde-format
 msgid "Add command"
 msgstr "Engadir unha orde"
