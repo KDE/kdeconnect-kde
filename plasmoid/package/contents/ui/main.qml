@@ -10,7 +10,7 @@ import org.kde.plasma.plasmoid 2.0
 import org.kde.kquickcontrolsaddons 2.0
 import org.kde.kdeconnect 1.0
 
-Item
+PlasmoidItem
 {
     DevicesModel {
         id: connectDeviceModel
@@ -28,16 +28,16 @@ Item
         value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
     }
 
-    Plasmoid.fullRepresentation: FullRepresentation {
+    fullRepresentation: FullRepresentation {
         devicesModel: connectDeviceModel
     }
 
-    Plasmoid.compactRepresentation: CompactRepresentation {
+    compactRepresentation: CompactRepresentation {
     }
 
     readonly property bool isConstrained: (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal)
 
-    Plasmoid.preferredRepresentation: isConstrained ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
+    preferredRepresentation: isConstrained ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 
     function action_launchkcm() {
         OpenConfig.openConfiguration()

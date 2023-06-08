@@ -7,13 +7,13 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kdeconnect 1.0
-import QtQuick.Dialogs 1.0
+import QtQuick.Dialogs
 import QtQuick.Controls 2.4
 
-PlasmaComponents.ListItem
+PlasmaComponents3.ItemDelegate
 {
     id: root
     readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
@@ -70,7 +70,7 @@ PlasmaComponents.ListItem
                 device: root.device
             }
 
-            PlasmaComponents.Label {
+            PlasmaComponents3.Label {
                 id: deviceName
                 elide: Text.ElideRight
                 text: model.name
@@ -110,7 +110,7 @@ PlasmaComponents.ListItem
                     visible: valid
                 }
 
-                PlasmaComponents.Label {
+                PlasmaComponents3.Label {
                     // Fallback plain-text label. Only show this if the icon doesn't work.
                     id: connectivityText
                     text: connectivity.displayString
@@ -133,7 +133,7 @@ PlasmaComponents.ListItem
                     Layout.alignment: Qt.AlignCenter
                 }
 
-                PlasmaComponents.Label {
+                PlasmaComponents3.Label {
                     id: batteryPercent
                     text: i18nc("Battery charge percentage", "%1%", battery.charge)
                     textFormat: Text.PlainText
@@ -143,23 +143,23 @@ PlasmaComponents.ListItem
             PlasmaComponents3.ToolButton {
                 id: overflowMenu
                 icon.name: "application-menu"
-                checked: menu.status === PlasmaComponents.DialogStatus.Open
+                checked: menu.status === PlasmaExtras.DialogStatus.Open
 
                 onPressed: menu.openRelative()
 
-                PlasmaComponents.ContextMenu {
+                PlasmaExtras.Menu {
                     id: menu
                     visualParent: overflowMenu
                     placement: PlasmaCore.Types.BottomPosedLeftAlignedPopup
 
                     //Share
-                    PlasmaComponents.MenuItem
+                    PlasmaExtras.MenuItem
                     {
                         FileDialog {
                             id: fileDialog
                             title: i18n("Please choose a file")
-                            folder: shortcuts.home
-                            selectMultiple: true
+                            currentFolder: shortcuts.home
+                            fileMode: FileDialog.OpenFiles
                             onAccepted: fileDialog.fileUrls.forEach(url => share.plugin.shareUrl(url))
                         }
 
@@ -171,14 +171,14 @@ PlasmaComponents.ListItem
                     }
 
                     //Photo
-                    PlasmaComponents.MenuItem
+                    PlasmaExtras.MenuItem
                     {
                         FileDialog {
                             id: photoFileDialog
                             title: i18n("Save As")
-                            folder: shortcuts.pictures
-                            selectMultiple: false
-                            selectExisting: false
+                            currentFolder: shortcuts.pictures
+                            fileMode: FileDialog.SaveFile
+                            //selectExisting: false
                             onAccepted: {
                                 var path = photoFileDialog.fileUrl.toString();
                                 photo.plugin.requestPhoto(path);
@@ -193,7 +193,7 @@ PlasmaComponents.ListItem
                     }
 
                     //Find my phone
-                    PlasmaComponents.MenuItem
+                    PlasmaExtras.MenuItem
                     {
                         FindMyPhone {
                             id: findmyphone
@@ -211,7 +211,7 @@ PlasmaComponents.ListItem
                     }
 
                     //SFTP
-                    PlasmaComponents.MenuItem
+                    PlasmaExtras.MenuItem
                     {
                         Sftp {
                             id: sftp
@@ -229,7 +229,7 @@ PlasmaComponents.ListItem
                     }
 
                     //SMS
-                    PlasmaComponents.MenuItem
+                    PlasmaExtras.MenuItem
                     {
                         SMS {
                             id: sms
@@ -249,7 +249,7 @@ PlasmaComponents.ListItem
         }
 
         //RemoteKeyboard
-        PlasmaComponents.ListItem {
+        PlasmaComponents3.ItemDelegate {
             visible: remoteKeyboard.remoteState
             width: parent.width
 
@@ -257,7 +257,7 @@ PlasmaComponents.ListItem
                 width: parent.width
                 spacing: 5
 
-                PlasmaComponents.Label {
+                PlasmaComponents3.Label {
                     id: remoteKeyboardLabel
                     text: i18n("Remote Keyboard")
                 }
@@ -271,18 +271,20 @@ PlasmaComponents.ListItem
         }
 
         //Notifications
-        PlasmaComponents.ListItem {
+        PlasmaComponents3.ItemDelegate {
             visible: notificationsModel.count>0
             enabled: true
-            PlasmaComponents.Label {
+            PlasmaComponents3.Label {
                 text: i18n("Notifications:")
             }
-            PlasmaComponents.ToolButton {
+            PlasmaComponents3.ToolButton {
                 enabled: true
                 visible: notificationsModel.isAnyDimissable;
                 anchors.right: parent.right
-                iconSource: "edit-clear-history"
-                tooltip: i18n("Dismiss all notifications")
+                icon.name: "edit-clear-history"
+                PlasmaComponents3.ToolTip.text: i18n("Dismiss all notifications")
+                PlasmaComponents3.ToolTip.visible: hovered
+                PlasmaComponents3.ToolTip.delay: Kirigami.Units.toolTipDelay
                 onClicked: notificationsModel.dismissAll();
             }
         }
@@ -292,7 +294,7 @@ PlasmaComponents.ListItem
                 id: notificationsModel
                 deviceId: root.device.id()
             }
-            delegate: PlasmaComponents.ListItem {
+            delegate: PlasmaComponents3.ItemDelegate {
                 id: listitem
                 enabled: true
                 onClicked: checked = !checked
@@ -306,7 +308,7 @@ PlasmaComponents.ListItem
                     height: width
                     anchors.left: parent.left
                 }
-                PlasmaComponents.Label {
+                PlasmaComponents3.Label {
                     id: notificationLabel
                     text: appName + ": " + (title.length>0 ? (appName==title?notitext:title+": "+notitext) : model.name)
                     anchors.right: replyButton.left
@@ -315,22 +317,26 @@ PlasmaComponents.ListItem
                     maximumLineCount: listitem.checked ? 0 : 1
                     wrapMode: Text.WordWrap
                 }
-                PlasmaComponents.ToolButton {
+                PlasmaComponents3.ToolButton {
                     id: replyButton
                     visible: repliable
                     enabled: repliable && !replying
                     anchors.right: dismissButton.left
-                    iconSource: "mail-reply-sender"
-                    tooltip: i18n("Reply")
+                    icon.name: "mail-reply-sender"
+                    PlasmaComponents3.ToolTip.text: i18n("Reply")
+                    PlasmaComponents3.ToolTip.visible: hovered
+                    PlasmaComponents3.ToolTip.delay: Kirigami.Units.toolTipDelay
                     onClicked: { replying = true; replyTextField.forceActiveFocus(); }
                 }
-                PlasmaComponents.ToolButton {
+                PlasmaComponents3.ToolButton {
                     id: dismissButton
                     visible: notificationsModel.isAnyDimissable;
                     enabled: dismissable
                     anchors.right: parent.right
-                    iconSource: "window-close"
-                    tooltip: i18n("Dismiss")
+                    icon.name: "window-close"
+                    PlasmaComponents3.ToolTip.text: i18n("Dismiss")
+                    PlasmaComponents3.ToolTip.visible: hovered
+                    PlasmaComponents3.ToolTip.delay: Kirigami.Units.toolTipDelay
                     onClicked: dbusInterface.dismiss();
                 }
                 RowLayout {
@@ -393,16 +399,18 @@ PlasmaComponents.ListItem
             visible: rc.available
             width: parent.width
 
-            PlasmaComponents.Label {
+            PlasmaComponents3.Label {
                 text: i18n("Run command")
                 Layout.fillWidth: true
             }
 
-            PlasmaComponents.Button
+            PlasmaComponents3.Button
             {
                 id: addCommandButton
-                iconSource: "list-add"
-                tooltip: i18n("Add command")
+                icon.name: "list-add"
+                PlasmaComponents3.ToolTip.text: i18n("Add command")
+                PlasmaComponents3.ToolTip.visible: hovered
+                PlasmaComponents3.ToolTip.delay: Kirigami.Units.toolTipDelay
                 onClicked: rc.plugin.editCommands()
                 visible: rc.plugin && rc.plugin.canAddCommand
             }
@@ -414,11 +422,11 @@ PlasmaComponents.ListItem
                 id: commandsModel
                 deviceId: rc.device.id()
             }
-            delegate: PlasmaComponents.ListItem {
+            delegate: PlasmaComponents3.ItemDelegate {
                 enabled: true
                 onClicked: rc.plugin.triggerCommand(key)
 
-                PlasmaComponents.Label {
+                PlasmaComponents3.Label {
                     text: name + "\n" + command
                 }
             }
