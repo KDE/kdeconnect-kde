@@ -24,9 +24,13 @@ DropArea {
     MouseArea {
         id: kdeConnectMouseArea
         anchors.fill: parent
+        property bool wasExpanded
 
+        onPressed: {
+            wasExpanded = root.expanded;
+        }
         onClicked: {
-            plasmoid.expanded = !plasmoid.expanded;
+            root.expanded = !wasExpanded;
         }
     }
 

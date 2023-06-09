@@ -12,6 +12,7 @@ import org.kde.kdeconnect 1.0
 
 PlasmoidItem
 {
+    id: root
     DevicesModel {
         id: connectDeviceModel
         displayFilter: DevicesModel.Paired | DevicesModel.Reachable
