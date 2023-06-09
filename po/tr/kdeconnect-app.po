@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-05-29 12:36+0300\n"
+"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"PO-Revision-Date: 2023-06-08 12:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "Komut çalıştır"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Pano Gönder"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -207,7 +207,7 @@ msgstr "Çoklu Ortam Denetimleri"
 msgid "No players available"
 msgstr "Oynatıcı bulunamadı"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:101
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

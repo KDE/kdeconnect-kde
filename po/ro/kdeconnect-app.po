@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-09 00:47+0000\n"
 "PO-Revision-Date: 2022-02-04 00:52+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -208,7 +208,7 @@ msgstr "Control multimedia"
 msgid "No players available"
 msgstr "Niciun lector disponibil"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:101
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

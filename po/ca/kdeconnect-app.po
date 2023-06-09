@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-05-14 10:36+0200\n"
+"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"PO-Revision-Date: 2023-06-08 08:25+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -111,7 +111,7 @@ msgstr "Executa una ordre"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Envia el porta-retalls"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -210,7 +210,7 @@ msgstr "Controls multimèdia"
 msgid "No players available"
 msgstr "No hi ha disponible cap reproductor"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:101
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

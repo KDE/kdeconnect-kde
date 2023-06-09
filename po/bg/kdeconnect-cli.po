@@ -1,22 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Mincho Kondarev <mkondarev@yahoo.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2022-02-15 10:28+0100\n"
-"Last-Translator: mkkDr2010 <mkondarev@yahoo.de>\n"
+"PO-Revision-Date: 2023-06-08 23:26+0200\n"
+"Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -122,10 +121,9 @@ msgid "message"
 msgstr "съобщение"
 
 #: kdeconnect-cli.cpp:54
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Sends the current clipboard to said device"
-msgstr "Изпраща сигнал към познато устройство"
+msgstr "Изпраща съдържанието на клипборда към познато устройство"
 
 #: kdeconnect-cli.cpp:55
 #, kde-format

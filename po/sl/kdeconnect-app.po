@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-05-14 09:50+0200\n"
+"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"PO-Revision-Date: 2023-06-08 06:09+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "Zaženi ukaz"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Pošlji odložišče"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -205,7 +205,7 @@ msgstr "Nadzor večpredstavnosti"
 msgid "No players available"
 msgstr "Ni na voljo predvajalnikov"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:101
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

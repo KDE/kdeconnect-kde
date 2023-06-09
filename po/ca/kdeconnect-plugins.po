@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-04-07 08:38+0100\n"
+"PO-Revision-Date: 2023-06-08 08:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -42,20 +42,19 @@ msgstr "Connector de porta-retalls"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Sincronització automàtica"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Comparteix automàticament el porta-retalls d'aquest dispositiu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Contrasenyes (marcades pels gestors de contrasenyes)"
+msgstr "Incloent contrasenyes (marcades pels gestors de contrasenyes)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -490,9 +489,3 @@ msgstr "Trucada perduda de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silencia la trucada"
-
-#~ msgid "Contents shared to other devices"
-#~ msgstr "Contingut compartit amb altres dispositius"
-
-#~ msgid "Anything else"
-#~ msgstr "Tota la resta"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-05-16 22:47+0200\n"
+"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"PO-Revision-Date: 2023-06-08 23:26+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -107,7 +107,7 @@ msgstr "Изпълняване на команда"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Изпращане на клипборда"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -205,7 +205,7 @@ msgstr "Мултимедиен контрол"
 msgid "No players available"
 msgstr "Няма налични програми за възпроизвеждане"
 
-#: qml/mpris.qml:109
+#: qml/mpris.qml:101
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

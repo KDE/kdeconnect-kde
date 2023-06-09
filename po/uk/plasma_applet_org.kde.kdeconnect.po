@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2022-09-29 09:56+0300\n"
+"PO-Revision-Date: 2023-06-08 09:06+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -79,7 +79,7 @@ msgstr "Оприлюднити файл"
 #: package/contents/ui/DeviceDelegate.qml:184
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Надіслати вміст буфера"
 
 #: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-04-07 09:49+0200\n"
+"PO-Revision-Date: 2023-06-08 11:39+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: battery/batteryplugin.cpp:128
 #, kde-format
@@ -38,20 +38,19 @@ msgstr "Plug-in voor klembord"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Automatische synchronisatie"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Het klembord uit dit apparaat automatisch delen"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Wachtwoorden (zoals gemarkeerd door wachtwoordbeheerders)"
+msgstr "Inclusief wachtwoorden (zoals gemarkeerd door wachtwoordbeheerders)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
