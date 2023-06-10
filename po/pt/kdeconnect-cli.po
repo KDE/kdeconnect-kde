@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2020-12-03 10:21+0000\n"
+"PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -117,10 +117,10 @@ msgid "message"
 msgstr "mensagem"
 
 #: kdeconnect-cli.cpp:54
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Sends the current clipboard to said device"
-msgstr "Enviar um contacto para um dado dispositivo"
+msgstr ""
+"Envia os dados actuais da área de transferência para um dado dispositivo"
 
 #: kdeconnect-cli.cpp:55
 #, kde-format
