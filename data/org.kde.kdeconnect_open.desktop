@@ -1,4 +1,5 @@
 [Desktop Entry]
+Type=Application
 GenericName=Open on connected device via KDE Connect
 GenericName[ar]=افتح في الجهاز المتصل عبر «كِيدِي المتّصل»
 GenericName[az]=Connectd cihazında KDE Connect ilə açın
@@ -128,7 +129,6 @@ Comment[zh_TW]=使用 KDE 連線於連線裝置中開啟
 MimeType=application/octet-stream;
 Exec=kdeconnect-handler --open %U
 Icon=kdeconnect
-Type=Service
 Terminal=false
 Categories=Qt;KDE;Network;
 X-KDE-FormFactor=desktop;tablet;handset;
