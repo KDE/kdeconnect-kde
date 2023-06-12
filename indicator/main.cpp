@@ -9,6 +9,10 @@
 #include <QProcess>
 #include <QThread>
 
+#ifdef Q_OS_WIN
+#include <Windows.h>
+#endif
+
 #ifdef QSYSTRAY
 #include <QSystemTrayIcon>
 #else
@@ -32,6 +36,14 @@
 
 int main(int argc, char **argv)
 {
+#ifdef Q_OS_WIN
+    // If ran from a console, redirect the output there
+    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+    }
+#endif
+
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
