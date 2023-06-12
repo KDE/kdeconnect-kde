@@ -142,12 +142,6 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     return 0;
 }
 
-#ifdef QSYSTRAY
-void IndicatorHelper::systrayIconHook(QSystemTrayIcon &systray)
-{
-    Q_UNUSED(systray);
-}
-#else
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
     const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory);
@@ -160,4 +154,3 @@ void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
         qWarning() << "Fail to find indicator icon, continue anyway";
     }
 }
-#endif

@@ -46,7 +46,8 @@ target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_CURRENT_SOURCE_DI
 target_link_libraries(kdeconnect-indicator Qt::Widgets KF5::CoreAddons KF5::I18n KF5::Notifications KF5::DBusAddons KF5::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
 
 if (WIN32)
-    add_compile_definitions(QSYSTRAY)
+    target_link_libraries(kdeconnect-indicator windowsapp)
+    target_compile_features(kdeconnect-indicator PUBLIC cxx_std_17)
 endif()
 
 if (APPLE)

@@ -8,18 +8,25 @@
 #include <QFile>
 #include <QIcon>
 #include <QStandardPaths>
+#include <QSettings>
 
 #include <iostream>
 
 #include <Windows.h>
 #include <tlhelp32.h>
 
+#include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.Foundation.Collections.h>
+
 #include "indicator_debug.h"
 #include "indicatorhelper.h"
+
+winrt::Windows::UI::ViewManagement::UISettings uiSettings;
 
 IndicatorHelper::IndicatorHelper(const QUrl &indicatorUrl)
     : m_indicatorUrl(indicatorUrl)
 {
+    uiSettings = winrt::Windows::UI::ViewManagement::UISettings();
 }
 
 IndicatorHelper::~IndicatorHelper()
@@ -42,6 +49,13 @@ void IndicatorHelper::postInit()
 
 void IndicatorHelper::iconPathHook()
 {
+    // FIXME: This doesn't seem to be enough for QIcon::fromTheme to find the icons, so we still have to use the full path when setting the icon
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("icons"), QStandardPaths::LocateDirectory);
+    if (!iconPath.isNull()) {
+        QStringList themeSearchPaths = QIcon::themeSearchPaths();
+        themeSearchPaths << iconPath;
+        QIcon::setThemeSearchPaths(themeSearchPaths);
+    }
 }
 
 int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
@@ -50,17 +64,26 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     return 0;
 }
 
-#ifdef QSYSTRAY
+void onThemeChanged(QSystemTrayIcon &systray)
+{
+    // Since this is a system tray icon,  we care about the system theme and not the app theme
+    QSettings registry(QStringLiteral("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize"), QSettings::Registry64Format);
+    bool isLightTheme = registry.value(QStringLiteral("SystemUsesLightTheme")).toBool();
+    if (isLightTheme) {
+        systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicator.svg"))));
+    } else {
+        systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicatordark.svg"))));
+    }
+}
+
 void IndicatorHelper::systrayIconHook(QSystemTrayIcon &systray)
 {
-    systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnect-tray")));
+    // Set a callback so we can detect changes to light/dark themes and manually call the callback once the first time
+    uiSettings.ColorValuesChanged([&systray](auto &&unused1, auto &&unused2) {
+        onThemeChanged(systray);
+    });
+    onThemeChanged(systray);
 }
-#else
-void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
-{
-    Q_UNUSED(systray);
-}
-#endif
 
 bool IndicatorHelper::terminateProcess(const QString &processName, const QUrl &indicatorUrl) const
 {

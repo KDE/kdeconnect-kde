@@ -35,14 +35,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     return 0;
 }
 
-#ifdef QSYSTRAY
-void IndicatorHelper::systrayIconHook(QSystemTrayIcon &systray)
-{
-    systray.setIcon(QIcon::fromTheme(QStringLiteral("kdeconnectindicatordark")));
-}
-#else
 void IndicatorHelper::systrayIconHook(KStatusNotifierItem &systray)
 {
     systray.setIconByName(QStringLiteral("kdeconnectindicatordark"));
 }
-#endif

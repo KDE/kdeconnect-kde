@@ -10,7 +10,7 @@
 #include <QProcess>
 #include <QSplashScreen>
 
-#ifdef QSYSTRAY
+#ifdef Q_OS_WIN
 #include <QSystemTrayIcon>
 #else
 #include <KStatusNotifierItem>
@@ -46,7 +46,7 @@ public:
 
     int daemonHook(QProcess &kdeconnectd);
 
-#ifdef QSYSTRAY
+#ifdef Q_OS_WIN
     void systrayIconHook(QSystemTrayIcon &systray);
 #else
     void systrayIconHook(KStatusNotifierItem &systray);

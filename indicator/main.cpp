@@ -13,7 +13,7 @@
 #include <Windows.h>
 #endif
 
-#ifdef QSYSTRAY
+#ifdef Q_OS_WIN
 #include <QSystemTrayIcon>
 #else
 #include <KStatusNotifierItem>
@@ -146,7 +146,7 @@ int main(int argc, char **argv)
     // Run icon to add icon path (if necessary)
     helper.iconPathHook();
 
-#ifdef QSYSTRAY
+#ifdef Q_OS_WIN
     QSystemTrayIcon systray;
     helper.systrayIconHook(systray);
     systray.setVisible(true);
