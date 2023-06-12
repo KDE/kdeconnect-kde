@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2021.
+# Kishore G <kishore96@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2021-06-29 21:23+0530\n"
+"PO-Revision-Date: 2023-06-11 17:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "கோ. கிஷோர்"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "Kde-l10n-ta@kde.org"
 
 #: deviceindicator.cpp:53
 #, kde-format
@@ -35,7 +35,7 @@ msgstr "சாதனத்தில் உலாவு"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "பிடிப்புப்பலகையை அனுப்பு"
 
 #: deviceindicator.cpp:81
 #, kde-format
@@ -120,7 +120,7 @@ msgstr "கே.டீ.யீ. கனெக்ட் நிலைகாட்ட�
 #: main.cpp:45
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
-msgstr ""
+msgstr "(C) 2016 அலேயிக்சு போல் கொன்ஸாலெசு"
 
 #: main.cpp:80
 #, kde-format

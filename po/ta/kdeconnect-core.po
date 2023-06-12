@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2021.
+# Kishore G <kishore96@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2021-06-29 19:43+0530\n"
+"PO-Revision-Date: 2023-06-11 16:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.04.2\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -48,10 +48,9 @@ msgid "%1: Already paired"
 msgstr "%1: ஏற்கனவே இணைந்துள்ளது"
 
 #: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "சாதனத்தை கிட்ட முடியவில்லை"
+msgstr "%1: சாதனத்தை கிட்ட முடியவில்லை"
 
 #: backends/pairinghandler.cpp:109
 #, kde-format
@@ -59,10 +58,9 @@ msgid "Device not reachable"
 msgstr "சாதனத்தை கிட்ட முடியவில்லை"
 
 #: backends/pairinghandler.cpp:120
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "மறு சாதனத்தால் ரத்து செய்யப்பட்டது"
+msgstr "பயனரால் ரத்து செய்யப்பட்டது"
 
 #: backends/pairinghandler.cpp:136
 #, kde-format
@@ -133,12 +131,12 @@ msgstr ""
 #: kdeconnectconfig.cpp:313
 #, kde-format
 msgid "Could not store private key file: %1"
-msgstr ""
+msgstr "கமுக்க சாவி கோப்பை சேமிக்க முடியவில்லை: %1"
 
 #: kdeconnectconfig.cpp:358
 #, kde-format
 msgid "Could not store certificate file: %1"
-msgstr ""
+msgstr "சான்றிதழ் கோப்பை சேமிக்க முடியவில்லை: %1"
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: இந்த சாதனத்திற்கு இணைப்பு ஏற்கனவே கோரப்பட்டுள்ளது"

@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2014.
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021.
+# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2021-10-16 17:17+0200\n"
+"PO-Revision-Date: 2023-06-10 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -129,7 +129,7 @@ msgstr "🔑 abababab"
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
+# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2021-02-06 17:01+0100\n"
+"PO-Revision-Date: 2023-06-10 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -48,10 +48,9 @@ msgid "%1: Already paired"
 msgstr "%1: Ya conectado"
 
 #: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Dispositivo no accesible"
+msgstr "%1: Dispositivo no accesible"
 
 #: backends/pairinghandler.cpp:109
 #, kde-format
@@ -59,10 +58,9 @@ msgid "Device not reachable"
 msgstr "Dispositivo no accesible"
 
 #: backends/pairinghandler.cpp:120
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Cancelado desde el otro dispositivo"
+msgstr "Cancelado por el usuario"
 
 #: backends/pairinghandler.cpp:136
 #, kde-format
@@ -140,27 +138,3 @@ msgstr "No se pudo almacenar archivo de clave privada: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No se pudo almacenar archivo del certificado: %1"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: Ya se había solicitado vinculación para este dispositivo"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "No se puede conectar este dispositivo ya que está ejecutando una versión "
-#~ "antigua de KDE Connect."
-
-#~ msgid "Already paired"
-#~ msgstr "Ya conectado"
-
-#~ msgid "Sent 1 file"
-#~ msgid_plural "Sent %1 files"
-#~ msgstr[0] "1 archivo enviado"
-#~ msgstr[1] "%1 archivos enviados"
-
-#~ msgid "Progress"
-#~ msgstr "Progreso"
-
-#~ msgid "Sending file %1 of %2"
-#~ msgstr "Enviando archivo %1 a %2"

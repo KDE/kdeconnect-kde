@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-03-26 11:23+0200\n"
+"PO-Revision-Date: 2023-06-11 07:52+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "Compartir o ficheiro"
 #: package/contents/ui/DeviceDelegate.qml:184
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Enviar o portapapeis"
 
 #: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format

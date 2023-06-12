@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2023-04-15 17:51+0200\n"
+"PO-Revision-Date: 2023-06-10 17:30+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -39,20 +39,20 @@ msgstr "Complemento del portapapeles"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Sincronización automática"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Compartir automáticamente el portapapeles desde este dispositivo"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Contraseñas (como indican los administradores de contraseñas)"
+msgstr ""
+"Incluyendo contraseñas (como indican los administradores de contraseñas)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -493,9 +493,3 @@ msgstr "Llamada perdida de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silenciar llamada"
-
-#~ msgid "Contents shared to other devices"
-#~ msgstr "Contenidos compartidos con otros dispositivos"
-
-#~ msgid "Anything else"
-#~ msgstr "Cualquier otra cosa"

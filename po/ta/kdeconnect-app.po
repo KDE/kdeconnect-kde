@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-09 00:47+0000\n"
-"PO-Revision-Date: 2023-05-14 15:19+0530\n"
+"PO-Revision-Date: 2023-06-11 16:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -107,7 +107,7 @@ msgstr "கட்டளையை இயக்கு"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "பிடிப்புப்பலகையை அனுப்பு"
 
 #: qml/DevicePage.qml:110
 #, kde-format

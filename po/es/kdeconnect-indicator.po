@@ -5,13 +5,13 @@
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
 # Automatically generated, 2020.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2020.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2021-07-04 10:00+0200\n"
+"PO-Revision-Date: 2023-06-10 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -39,7 +39,7 @@ msgstr "Navegar dispositivo"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "Enviar portapapeles"
 
 #: deviceindicator.cpp:81
 #, kde-format

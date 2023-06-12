@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2021.
+# Kishore G <kishore96@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-03 00:46+0000\n"
-"PO-Revision-Date: 2021-05-29 21:44+0530\n"
+"PO-Revision-Date: 2023-06-11 17:18+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "கோ. கிஷோர்"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "Kde-l10n-ta@kde.org"
 
 #: kcm.cpp:38
 #, kde-format
@@ -122,13 +122,13 @@ msgstr "(நிலை)"
 #: kcm.ui:232
 #, kde-format
 msgid "🔑 abababab"
-msgstr ""
+msgstr "🔑 abababab"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்து செய்"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289
@@ -175,3 +175,13 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>எந்த சாதனமும் தேர்ந்தெடுக்கப்படவில்லை.<br><br>ஆண்ட்ராய்டு சாதனம் "
+"இருந்தால், <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
+"\">கே.டீ.யீ. கனெக்ட் ஆண்ட்ராய்டு செயலியை</span></a> நிறுவியிபின் <a href=\"https://f-"
+"droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
+"text-decoration: underline; color:#4c6b8a;\">F-Droid</span></a>-இலும் "
+"கிடைக்கும்) அது இப்பட்டியலில் தெரியும்.<br><br>பிரச்சனைகள் இருந்தால் <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
+"color:#4c6b8a;\">கே.டீ.யீ. கனெக்ட் சமூக விக்கியில்</span></a> உதவி பெறலாம்.</p></"
+"body></html>"

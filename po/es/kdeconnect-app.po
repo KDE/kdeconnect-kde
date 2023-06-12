@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-09 00:47+0000\n"
-"PO-Revision-Date: 2023-05-27 17:20+0200\n"
+"PO-Revision-Date: 2023-06-10 17:27+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -111,7 +111,7 @@ msgstr "Ejecutar orden"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Enviar portapapeles"
 
 #: qml/DevicePage.qml:110
 #, kde-format
