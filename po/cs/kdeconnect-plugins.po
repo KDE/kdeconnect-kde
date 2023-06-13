@@ -49,10 +49,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Hesla (jak označena správci hesel)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -483,9 +482,3 @@ msgstr "Zmeškaný hovor od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Ztlumení telefonátu"
-
-#~ msgid "Contents shared to other devices"
-#~ msgstr "Obsah sdílený s jinými zařízeními"
-
-#~ msgid "Anything else"
-#~ msgstr "Cokoliv jiného"

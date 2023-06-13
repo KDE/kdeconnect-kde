@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kheyyam Gojayev <xxmn77@gmail.com>, 2020, 2021, 2022.
+# Kheyyam Gojayev <xxmn77@gmail.com>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2022-11-11 14:29+0400\n"
+"PO-Revision-Date: 2023-06-12 17:07+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -76,7 +76,7 @@ msgstr "Fayl mübadiləsi"
 #: package/contents/ui/DeviceDelegate.qml:184
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Mübadilə yaddaşını göndərin"
 
 #: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-13 00:47+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -107,47 +107,47 @@ msgstr "Tidak bisa menemukan kdeconnectd"
 msgid "Loading modules"
 msgstr "Memuat modul-modul"
 
-#: main.cpp:41
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Indikator KDE Connect"
 
-#: main.cpp:43
+#: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Alat Indikator KDE Connect"
 
-#: main.cpp:45
+#: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:80
+#: main.cpp:92
 #, kde-format
 msgid "Configure..."
 msgstr "Konfigurasikan..."
 
-#: main.cpp:102
+#: main.cpp:114
 #, kde-format
 msgid "Pairing requests"
 msgstr "Permintaan persandingan"
 
-#: main.cpp:107
+#: main.cpp:119
 #, kde-format
 msgid "Pair"
 msgstr "Sandingkan"
 
-#: main.cpp:108
+#: main.cpp:120
 #, kde-format
 msgid "Reject"
 msgstr "Apkir"
 
-#: main.cpp:114 main.cpp:124
+#: main.cpp:126 main.cpp:136
 #, kde-format
 msgid "Quit"
 msgstr "Berhenti"
 
-#: main.cpp:143 main.cpp:167
+#: main.cpp:155 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

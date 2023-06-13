@@ -121,10 +121,9 @@ msgid "message"
 msgstr "zpráva"
 
 #: kdeconnect-cli.cpp:54
-#, fuzzy, kde-format
-#| msgid "Sends a ping to said device"
+#, kde-format
 msgid "Sends the current clipboard to said device"
-msgstr "Pošle na dané zařízení ping"
+msgstr ""
 
 #: kdeconnect-cli.cpp:55
 #, kde-format

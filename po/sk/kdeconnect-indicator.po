@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-13 00:47+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -107,47 +107,47 @@ msgstr "Nepodarilo sa nájsť službu kdeconnectd"
 msgid "Loading modules"
 msgstr "Načítavajú sa moduly"
 
-#: main.cpp:41
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Indikátor aplikácie KDE Connect"
 
-#: main.cpp:43
+#: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Nástroj indikátora aplikácie KDE Connect"
 
-#: main.cpp:45
+#: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:80
+#: main.cpp:92
 #, kde-format
 msgid "Configure..."
 msgstr "Nastaviť..."
 
-#: main.cpp:102
+#: main.cpp:114
 #, kde-format
 msgid "Pairing requests"
 msgstr "Žiadosti o spárovanie"
 
-#: main.cpp:107
+#: main.cpp:119
 #, kde-format
 msgid "Pair"
 msgstr "Spárovať"
 
-#: main.cpp:108
+#: main.cpp:120
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: main.cpp:114 main.cpp:124
+#: main.cpp:126 main.cpp:136
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: main.cpp:143 main.cpp:167
+#: main.cpp:155 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-13 00:47+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -106,47 +106,47 @@ msgstr "kdeconnectd കണ്ടുപിടിക്കാൻ കഴിഞ്�
 msgid "Loading modules"
 msgstr ""
 
-#: main.cpp:41
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr ""
 
-#: main.cpp:43
+#: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr ""
 
-#: main.cpp:80
+#: main.cpp:92
 #, kde-format
 msgid "Configure..."
 msgstr ""
 
-#: main.cpp:102
+#: main.cpp:114
 #, kde-format
 msgid "Pairing requests"
 msgstr ""
 
-#: main.cpp:107
+#: main.cpp:119
 #, kde-format
 msgid "Pair"
 msgstr ""
 
-#: main.cpp:108
+#: main.cpp:120
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: main.cpp:114 main.cpp:124
+#: main.cpp:126 main.cpp:136
 #, kde-format
 msgid "Quit"
 msgstr ""
 
-#: main.cpp:143 main.cpp:167
+#: main.cpp:155 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

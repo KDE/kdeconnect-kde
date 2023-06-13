@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-13 00:47+0000\n"
 "PO-Revision-Date: 2023-06-12 00:14+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -108,47 +108,47 @@ msgstr "Das Programm kdeconnect wurde nicht gefunden"
 msgid "Loading modules"
 msgstr "Module werden geladen"
 
-#: main.cpp:41
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect-Anzeige"
 
-#: main.cpp:43
+#: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Dienstprogramm zur KDE Connect-Anzeige"
 
-#: main.cpp:45
+#: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:80
+#: main.cpp:92
 #, kde-format
 msgid "Configure..."
 msgstr "Einrichten ..."
 
-#: main.cpp:102
+#: main.cpp:114
 #, kde-format
 msgid "Pairing requests"
 msgstr "Verbindung angefordert"
 
-#: main.cpp:107
+#: main.cpp:119
 #, kde-format
 msgid "Pair"
 msgstr "Verbinden"
 
-#: main.cpp:108
+#: main.cpp:120
 #, kde-format
 msgid "Reject"
 msgstr "Ablehnen"
 
-#: main.cpp:114 main.cpp:124
+#: main.cpp:126 main.cpp:136
 #, kde-format
 msgid "Quit"
 msgstr "Beenden"
 
-#: main.cpp:143 main.cpp:167
+#: main.cpp:155 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
