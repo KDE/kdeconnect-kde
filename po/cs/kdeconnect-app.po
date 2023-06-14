@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-09 00:47+0000\n"
-"PO-Revision-Date: 2023-05-16 10:56+0200\n"
+"PO-Revision-Date: 2023-06-12 16:24+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -107,7 +107,7 @@ msgstr "Spustit příkaz"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Poslat schránku"
 
 #: qml/DevicePage.qml:110
 #, kde-format
