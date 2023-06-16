@@ -33,10 +33,15 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
                 qCDebug(KDECONNECT_CORE) << "Ignoring second pairing request before the first one timed out";
                 break;
             case PairState::Paired:
-                qCDebug(KDECONNECT_CORE) << "Auto-accepting pairing request from a device we already trusted";
-                acceptPairing();
-                break;
             case PairState::NotPaired:
+                if (m_pairState == PairState::Paired) {
+                    qWarning() << "Received pairing request from a device we already trusted.";
+                    // It would be nice to auto-accept the pairing request here, but since the pairing accept and pairing request
+                    // messages are identical, this could create an infinite loop if both devices are "accepting" each other pairs.
+                    // Instead, unpair and handle as if "NotPaired".
+                    m_pairState = PairState::NotPaired;
+                    Q_EMIT unpaired();
+                }
                 m_pairState = PairState::RequestedByPeer;
                 m_pairingTimeout.start();
                 Q_EMIT incomingPairRequest();
