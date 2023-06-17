@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-17 00:48+0000\n"
 "PO-Revision-Date: 2021-08-21 13:15+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -39,34 +39,34 @@ msgstr "Siunčiama į %1"
 msgid "File"
 msgstr "Failas"
 
-#: backends/pairinghandler.cpp:54
+#: backends/pairinghandler.cpp:59
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Kitas lygiarangis atsisakė"
 
-#: backends/pairinghandler.cpp:70
+#: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: Jau suporuota"
 
-#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
 #, fuzzy, kde-format
 #| msgid "Device not reachable"
 msgid "%1: Device not reachable"
 msgstr "Įrenginys nepasiekiamas"
 
-#: backends/pairinghandler.cpp:109
+#: backends/pairinghandler.cpp:114
 #, kde-format
 msgid "Device not reachable"
 msgstr "Įrenginys nepasiekiamas"
 
-#: backends/pairinghandler.cpp:120
+#: backends/pairinghandler.cpp:125
 #, fuzzy, kde-format
 #| msgid "Canceled by other peer"
 msgid "Cancelled by user"
 msgstr "Kitas lygiarangis atsisakė"
 
-#: backends/pairinghandler.cpp:136
+#: backends/pairinghandler.cpp:141
 #, kde-format
 msgid "Timed out"
 msgstr "Pasibaigė laikas"

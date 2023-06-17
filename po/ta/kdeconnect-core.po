@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-11 16:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -37,32 +37,32 @@ msgstr "%1 என்பதற்கு அனுப்பப்படுகி�
 msgid "File"
 msgstr "கோப்பு"
 
-#: backends/pairinghandler.cpp:54
+#: backends/pairinghandler.cpp:59
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "மறு சாதனத்தால் ரத்து செய்யப்பட்டது"
 
-#: backends/pairinghandler.cpp:70
+#: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: ஏற்கனவே இணைந்துள்ளது"
 
-#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: சாதனத்தை கிட்ட முடியவில்லை"
 
-#: backends/pairinghandler.cpp:109
+#: backends/pairinghandler.cpp:114
 #, kde-format
 msgid "Device not reachable"
 msgstr "சாதனத்தை கிட்ட முடியவில்லை"
 
-#: backends/pairinghandler.cpp:120
+#: backends/pairinghandler.cpp:125
 #, kde-format
 msgid "Cancelled by user"
 msgstr "பயனரால் ரத்து செய்யப்பட்டது"
 
-#: backends/pairinghandler.cpp:136
+#: backends/pairinghandler.cpp:141
 #, kde-format
 msgid "Timed out"
 msgstr "காலாவதி ஆனது"

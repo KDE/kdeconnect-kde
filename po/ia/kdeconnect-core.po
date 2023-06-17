@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-11 22:14+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -37,32 +37,32 @@ msgstr "Inviante  a %1"
 msgid "File"
 msgstr "File"
 
-#: backends/pairinghandler.cpp:54
+#: backends/pairinghandler.cpp:59
 #, kde-format
 msgid "Canceled by other peer"
 msgstr "Cancellate per altere pare"
 
-#: backends/pairinghandler.cpp:70
+#: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: Jam coppiate"
 
-#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1 : Dispositivo non attingibile"
 
-#: backends/pairinghandler.cpp:109
+#: backends/pairinghandler.cpp:114
 #, kde-format
 msgid "Device not reachable"
 msgstr "Dispositivo non attingibile"
 
-#: backends/pairinghandler.cpp:120
+#: backends/pairinghandler.cpp:125
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Cancellate per usator"
 
-#: backends/pairinghandler.cpp:136
+#: backends/pairinghandler.cpp:141
 #, kde-format
 msgid "Timed out"
 msgstr "Expirate"

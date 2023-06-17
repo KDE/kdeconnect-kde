@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-17 00:48+0000\n"
 "PO-Revision-Date: 2022-11-16 16:14+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -38,33 +38,33 @@ msgstr "Inviante a %1"
 msgid "File"
 msgstr "File"
 
-#: backends/pairinghandler.cpp:54
+#: backends/pairinghandler.cpp:59
 #, fuzzy, kde-format
 msgid "Canceled by other peer"
 msgstr "Anullat."
 
-#: backends/pairinghandler.cpp:70
+#: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
 msgstr "%1: Ja acuplat"
 
-#: backends/pairinghandler.cpp:79 backends/pairinghandler.cpp:94
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
 #, fuzzy, kde-format
 #| msgid "Device not reachable"
 msgid "%1: Device not reachable"
 msgstr "Li aparate es ínatingibil"
 
-#: backends/pairinghandler.cpp:109
+#: backends/pairinghandler.cpp:114
 #, kde-format
 msgid "Device not reachable"
 msgstr "Li aparate es ínatingibil"
 
-#: backends/pairinghandler.cpp:120
+#: backends/pairinghandler.cpp:125
 #, fuzzy, kde-format
 msgid "Cancelled by user"
 msgstr "Anullat."
 
-#: backends/pairinghandler.cpp:136
+#: backends/pairinghandler.cpp:141
 #, fuzzy, kde-format
 msgid "Timed out"
 msgstr "Gstreamer ne ha startat transcoder"
