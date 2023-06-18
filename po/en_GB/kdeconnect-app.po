@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-09 00:47+0000\n"
-"PO-Revision-Date: 2023-05-21 14:53+0100\n"
+"PO-Revision-Date: 2023-06-17 12:16+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -107,7 +107,7 @@ msgstr "Run command"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Send Clipboard"
 
 #: qml/DevicePage.qml:110
 #, kde-format

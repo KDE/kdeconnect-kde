@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-17 00:48+0000\n"
-"PO-Revision-Date: 2023-05-22 14:00\n"
+"PO-Revision-Date: 2023-06-17 04:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -45,13 +45,12 @@ msgstr "被其他对等点取消"
 #: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
-msgstr "%1：已配对"
+msgstr "%1：设备已被配对过"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "设备不可达"
+msgstr "%1：设备无法连接"
 
 #: backends/pairinghandler.cpp:114
 #, kde-format
@@ -59,10 +58,9 @@ msgid "Device not reachable"
 msgstr "设备不可达"
 
 #: backends/pairinghandler.cpp:125
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "被其他对等点取消"
+msgstr "已被用户取消"
 
 #: backends/pairinghandler.cpp:141
 #, kde-format
@@ -137,14 +135,3 @@ msgstr "无法保存私钥文件：%1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "无法保存证书文件：%1"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: 对此设备已请求配对"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr "无法配对此设备，因为它运行旧版本的 KDE Connect。"
-
-#~ msgid "Already paired"
-#~ msgstr "已经配对"

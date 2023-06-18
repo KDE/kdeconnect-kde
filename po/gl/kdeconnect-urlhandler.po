@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-09 00:47+0000\n"
-"PO-Revision-Date: 2023-03-26 11:22+0200\n"
+"PO-Revision-Date: 2023-06-17 08:37+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -84,7 +84,7 @@ msgstr "Escriba aquí o URL"
 #: kdeconnect-handler.cpp:110
 #, kde-format
 msgid "Enter file location here"
-msgstr "Indique aquí a localización do ficheiro"
+msgstr "Insira aquí a localización do ficheiro"
 
 #: kdeconnect-handler.cpp:135
 #, kde-format
