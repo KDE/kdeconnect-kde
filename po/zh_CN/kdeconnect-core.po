@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-05-22 14:04\n"
+"PO-Revision-Date: 2023-06-17 04:14\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -27,7 +27,7 @@ msgstr "被其他对等点取消"
 #: backends/lan/lanpairinghandler.cpp:61
 #, kde-format
 msgid "%1: Already paired"
-msgstr "%1：已配对"
+msgstr "%1：设备已被配对过"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:68
 #, kde-format
