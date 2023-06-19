@@ -1,4 +1,4 @@
-# Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020.
+# Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2016, 2018, 2019, 2021.
 msgid ""
 msgstr ""
@@ -13,6 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.07.70\n"
 
 #: backends/bluetooth/bluetoothpairinghandler.cpp:56
 #: backends/lan/lanpairinghandler.cpp:52
