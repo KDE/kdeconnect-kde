@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-04-06 22:26+0200\n"
+"PO-Revision-Date: 2023-06-11 07:51+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -64,8 +64,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id, to ease "
 "scripting"
 msgstr ""
-"Facer que «--list-devices» e «--list-available» só mostren os "
-"identificadores dos dispositivos, para facilitar o seu uso en scripts."
+"Facer que «--list-devices» e «--list-available» só amosen os identificadores "
+"dos dispositivos, para facilitar o seu uso en scripts."
 
 #: kdeconnect-cli.cpp:45
 #, kde-format
@@ -73,7 +73,7 @@ msgid ""
 "Make --list-devices or --list-available print only the devices name, to ease "
 "scripting"
 msgstr ""
-"Facer que «--list-devices» e «--list-available» só mostren os nomes dos "
+"Facer que «--list-devices» e «--list-available» só amosen os nomes dos "
 "dispositivos, para facilitar o seu uso en scripts."
 
 #: kdeconnect-cli.cpp:47
@@ -82,9 +82,8 @@ msgid ""
 "Make --list-devices or --list-available print only the devices id and name, "
 "to ease scripting"
 msgstr ""
-"Facer que «--list-devices» e «--list-available» só mostren os "
-"identificadores e nomes dos dispositivos, para facilitar o seu uso en "
-"scripts."
+"Facer que «--list-devices» e «--list-available» só amosen os identificadores "
+"e nomes dos dispositivos, para facilitar o seu uso en scripts."
 
 #: kdeconnect-cli.cpp:48
 #, kde-format
@@ -114,7 +113,7 @@ msgstr "Envía un ping ao dispositivo indicado."
 #: kdeconnect-cli.cpp:53
 #, kde-format
 msgid "Same as ping but you can set the message to display"
-msgstr "Igual que «ping», pero permítelle definir a mensaxe para mostrar."
+msgstr "Igual que «ping», pero permítelle definir a mensaxe para amosar."
 
 #: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:59
 #, kde-format
@@ -134,7 +133,7 @@ msgstr "Compartir o texto co dispositivo indicado"
 #: kdeconnect-cli.cpp:56
 #, kde-format
 msgid "Display the notifications on a said device"
-msgstr "Mostrar as notificacións do dispositivo indicado."
+msgstr "Amosar as notificacións do dispositivo indicado."
 
 #: kdeconnect-cli.cpp:57
 #, kde-format
@@ -207,7 +206,7 @@ msgstr "Envía teclas ao dispositivo indicado."
 #: kdeconnect-cli.cpp:71
 #, kde-format
 msgid "Display this device's id and exit"
-msgstr "Mostrar o identificador do dispositivo e saír."
+msgstr "Amosar o identificador do dispositivo e saír."
 
 #: kdeconnect-cli.cpp:72
 #, kde-format
