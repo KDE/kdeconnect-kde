@@ -23,8 +23,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
-static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("ip") << QStringLiteral("port") << QStringLiteral("user") << QStringLiteral("port")
-                                                      << QStringLiteral("path");
+static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("user") << QStringLiteral("port") << QStringLiteral("path");
 
 struct SftpPlugin::Pimpl {
     Pimpl()
