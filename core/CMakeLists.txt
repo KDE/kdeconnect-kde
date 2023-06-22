@@ -64,6 +64,7 @@ PRIVATE
     Qt${QT_MAJOR_VERSION}::DBus
     KF5::I18n
     KF5::ConfigCore
+    KF5::DNSSD
 )
 
 if(${KF5KIO_FOUND})

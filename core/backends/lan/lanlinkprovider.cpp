@@ -45,6 +45,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
     , m_udpListenPort(udpListenPort)
     , m_testMode(testMode)
     , m_combineBroadcastsTimer(this)
+    , m_mdnsDiscovery(this)
 {
     m_combineBroadcastsTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineBroadcastsTimer.setSingleShot(true);
@@ -101,12 +102,17 @@ void LanLinkProvider::onStart()
         }
     }
 
-    onNetworkChange();
+    broadcastUdpIdentityPacket();
+    m_mdnsDiscovery.startAnnouncing();
+    m_mdnsDiscovery.startDiscovering();
+
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider started";
 }
 
 void LanLinkProvider::onStop()
 {
+    m_mdnsDiscovery.stopAnnouncing();
+    m_mdnsDiscovery.stopDiscovering();
     m_udpSocket.close();
     m_server->close();
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider stopped";
@@ -125,15 +131,25 @@ void LanLinkProvider::onNetworkChange()
 void LanLinkProvider::broadcastToNetwork()
 {
     if (!m_server->isListening()) {
-        // Not started
+        qWarning() << "TCP server not listening, not broadcasting";
         return;
     }
 
     Q_ASSERT(m_tcpPort != 0);
 
-    qCDebug(KDECONNECT_CORE()) << "Broadcasting identity packet";
+    broadcastUdpIdentityPacket();
+    m_mdnsDiscovery.stopDiscovering();
+    m_mdnsDiscovery.startDiscovering();
+}
 
-    QList<QHostAddress> destinations = getBroadcastAddresses();
+void LanLinkProvider::broadcastUdpIdentityPacket()
+{
+    sendUdpIdentityPacket(getBroadcastAddresses());
+}
+
+void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &destinations)
+{
+    qCDebug(KDECONNECT_CORE()) << "Broadcasting identity packet";
 
     NetworkPacket np = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
     np.set(QStringLiteral("tcpPort"), m_tcpPort);
@@ -175,14 +191,14 @@ void LanLinkProvider::broadcastToNetwork()
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                     qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
                     sendSocket.bind(sourceAddress);
-                    sendBroadcasts(sendSocket, np, destinations);
+                    sendUdpPacket(sendSocket, np, destinations);
                     sendSocket.close();
                 }
             }
         }
     }
 #else
-    sendBroadcasts(m_udpSocket, np, destinations);
+    sendUdpPacket(m_udpSocket, np, destinations);
 #endif
 }
 
@@ -209,7 +225,7 @@ QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
     return destinations;
 }
 
-void LanLinkProvider::sendBroadcasts(QUdpSocket &socket, const NetworkPacket &np, const QList<QHostAddress> &addresses)
+void LanLinkProvider::sendUdpPacket(QUdpSocket &socket, const NetworkPacket &np, const QList<QHostAddress> &addresses)
 {
     const QByteArray payload = np.serialize();
 
