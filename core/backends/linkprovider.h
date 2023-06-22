@@ -19,15 +19,10 @@ class KDECONNECTCORE_EXPORT LinkProvider : public QObject
     Q_OBJECT
 
 public:
-    const static int PRIORITY_LOW = 0; // eg: 3g internet
-    const static int PRIORITY_MEDIUM = 50; // eg: internet
-    const static int PRIORITY_HIGH = 100; // eg: lan
-
     LinkProvider();
     ~LinkProvider() override = default;
 
     virtual QString name() = 0;
-    virtual int priority() = 0;
 
 public Q_SLOTS:
     virtual void onStart() = 0;

@@ -36,10 +36,6 @@ public:
     {
         return QStringLiteral("LanLinkProvider");
     }
-    int priority() override
-    {
-        return PRIORITY_HIGH;
-    }
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);

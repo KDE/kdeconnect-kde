@@ -276,11 +276,6 @@ void Device::pairingHandler_unpaired()
     Q_EMIT pairStateChanged(pairStateAsInt());
 }
 
-static bool lessThan(DeviceLink *p1, DeviceLink *p2)
-{
-    return p1->provider()->priority() > p2->provider()->priority();
-}
-
 void Device::addLink(const NetworkPacket &identityPacket, DeviceLink *link)
 {
     // qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
@@ -307,8 +302,6 @@ void Device::addLink(const NetworkPacket &identityPacket, DeviceLink *link)
     //-- Actually, we should not destroy them or the provider will store an invalid ref!
 
     connect(link, &DeviceLink::receivedPacket, this, &Device::privateReceivedPacket);
-
-    std::sort(d->m_deviceLinks.begin(), d->m_deviceLinks.end(), lessThan);
 
     const bool capabilitiesSupported = identityPacket.has(QStringLiteral("incomingCapabilities")) || identityPacket.has(QStringLiteral("outgoingCapabilities"));
     if (capabilitiesSupported) {
