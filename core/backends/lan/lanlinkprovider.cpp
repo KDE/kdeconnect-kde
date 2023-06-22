@@ -144,6 +144,10 @@ void LanLinkProvider::broadcastToNetwork()
 
 void LanLinkProvider::broadcastUdpIdentityPacket()
 {
+    if (qEnvironmentVariableIsSet("KDECONNECT_DISABLE_UDP_BROADCAST")) {
+        qWarning() << "Not broadcasting UDP because KDECONNECT_DISABLE_UDP_BROADCAST is set";
+        return;
+    }
     sendUdpIdentityPacket(getBroadcastAddresses());
 }
 
