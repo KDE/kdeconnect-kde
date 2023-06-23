@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 00:48+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2021-06-13 18:17+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -95,12 +95,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Jomuga"
 
-#: device.cpp:537
+#: device.cpp:530
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Zure gailuaren ziurtagiriaren SHA256 hatz-marka hau da: %1\n"
 
-#: device.cpp:545
+#: device.cpp:538
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Urruneko gailuaren ziurtagiriaren SHA256 hatz-marka hau da: %1\n"

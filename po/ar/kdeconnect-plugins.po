@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-23 00:47+0000\n"
 "PO-Revision-Date: 2023-06-08 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -400,12 +400,12 @@ msgstr "كِيدِي المتّصل"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "لا يمكن معالجة ميفاق SFTP. نأسف للإزعاج"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:142
 #, kde-format
 msgid "All files"
 msgstr "كلّ الملفّات"
 
-#: sftp/sftpplugin.cpp:144
+#: sftp/sftpplugin.cpp:143
 #, kde-format
 msgid "Camera pictures"
 msgstr "صور الكاميرا"
