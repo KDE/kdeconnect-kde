@@ -180,6 +180,8 @@ void Device::reloadPlugins()
                 }
 
                 newPluginMap[pluginName] = plugin;
+
+                plugin->connected();
             }
         }
     }
@@ -192,11 +194,9 @@ void Device::reloadPlugins()
     d->m_plugins = newPluginMap;
     d->m_pluginsByIncomingCapability = newPluginsByIncomingCapability;
 
+    // Recreate dbus paths for all plugins (new and existing)
     QDBusConnection bus = QDBusConnection::sessionBus();
     for (KdeConnectPlugin *plugin : qAsConst(d->m_plugins)) {
-        // TODO: see how it works in Android (only done once, when created)
-        plugin->connected();
-
         const QString dbusPath = plugin->dbusPath();
         if (!dbusPath.isEmpty()) {
             bus.registerObject(dbusPath,
