@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-29 00:46+0000\n"
-"PO-Revision-Date: 2022-10-10 16:47+0200\n"
+"PO-Revision-Date: 2023-06-23 09:37+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -168,7 +168,7 @@ msgstr[2] "Všechna spárovaná zařízení jsou nedostupná"
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
-"Pro integraci zařízení Andriod a prostředí Plasma je potřeba nainstalovat "
+"Pro integraci zařízení Android a prostředí Plasma je potřeba nainstalovat "
 "KDE Connect."
 
 #: package/contents/ui/FullRepresentation.qml:59
