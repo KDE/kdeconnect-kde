@@ -85,15 +85,14 @@ bool PairingHandler::requestPairing()
         return false;
     }
 
-    m_pairingTimeout.stop();
-
     m_pairState = PairState::Requested;
+
+    m_pairingTimeout.start();
 
     NetworkPacket np(PACKET_TYPE_PAIR, {{QStringLiteral("pair"), true}});
     const bool success = m_device->sendPacket(np);
-    if (success) {
-        m_pairingTimeout.start();
-    } else {
+    if (!success) {
+        m_pairingTimeout.stop();
         qWarning() << m_device->name() << ": Failed to send pair request packet.";
         m_pairState = PairState::NotPaired;
         Q_EMIT pairingFailed(i18n("%1: Device not reachable", m_device->name()));
