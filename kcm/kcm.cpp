@@ -93,6 +93,7 @@ KdeConnectKcm::KdeConnectKcm(QWidget *parent, const QVariantList &args)
     connect(kcmUi->rename_edit, &QLineEdit::returnPressed, this, &KdeConnectKcm::renameDone);
     connect(kcmUi->renameDone_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameDone);
     connect(kcmUi->renameShow_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameShow);
+    connect(kcmUi->pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
 
 #if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
 
@@ -228,7 +229,6 @@ void KdeConnectKcm::resetDeviceView()
     kcmUi->pluginSelector->setConfigurationArguments(QStringList(currentDevice->id()));
     kcmUi->pluginSelector->addPlugins(availablePluginInfo, i18n("Available plugins"));
     kcmUi->pluginSelector->setConfig(deviceConfig->group("Plugins"));
-    connect(kcmUi->pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
 }
 
 void KdeConnectKcm::requestPairing()
@@ -305,9 +305,11 @@ void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
     }
 }
 
-void KdeConnectKcm::pluginsConfigChanged()
+void KdeConnectKcm::pluginsConfigChanged(bool changed)
 {
-    // Store previous selection
+    if (!changed)
+        return;
+
     if (!currentDevice)
         return;
 
