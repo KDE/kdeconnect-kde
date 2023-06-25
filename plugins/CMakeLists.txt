@@ -45,7 +45,7 @@ if(NOT SAILFISHOS)
         endif()
     endif()
 
-    if(NOT WIN32)
+    if(NOT WIN32 AND NOT APPLE)
         add_subdirectory(sendnotifications)
     endif()
 
