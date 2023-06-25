@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2021-07-27 16:57+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
@@ -51,24 +51,24 @@ msgstr "Отменено другим клиентом."
 msgid "%1: Already paired"
 msgstr "%1: уже сопряжено"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, fuzzy, kde-format
 #| msgid "Device not reachable"
 msgid "%1: Device not reachable"
 msgstr "Устройство недоступно."
 
-#: backends/pairinghandler.cpp:114
+#: backends/pairinghandler.cpp:113
 #, kde-format
 msgid "Device not reachable"
 msgstr "Устройство недоступно."
 
-#: backends/pairinghandler.cpp:125
+#: backends/pairinghandler.cpp:124
 #, fuzzy, kde-format
 #| msgid "Canceled by the user"
 msgid "Cancelled by user"
 msgstr "Отменено пользователем."
 
-#: backends/pairinghandler.cpp:141
+#: backends/pairinghandler.cpp:140
 #, kde-format
 msgid "Timed out"
 msgstr "Истекло время ожидания."

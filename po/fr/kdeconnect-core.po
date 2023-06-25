@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2023-06-13 06:29+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -53,22 +53,22 @@ msgstr "Annulé par l'autre périphérique"
 msgid "%1: Already paired"
 msgstr "%1 : déjà associé"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1 : périphérique non accessible"
 
-#: backends/pairinghandler.cpp:114
+#: backends/pairinghandler.cpp:113
 #, kde-format
 msgid "Device not reachable"
 msgstr "Périphérique non accessible"
 
-#: backends/pairinghandler.cpp:125
+#: backends/pairinghandler.cpp:124
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Annulé par l'utilisateur"
 
-#: backends/pairinghandler.cpp:141
+#: backends/pairinghandler.cpp:140
 #, kde-format
 msgid "Timed out"
 msgstr "Délai expiré"

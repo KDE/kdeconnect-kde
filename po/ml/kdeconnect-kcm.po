@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -47,12 +47,12 @@ msgstr ""
 msgid "Albert Vaca Cintora"
 msgstr ""
 
-#: kcm.cpp:206
+#: kcm.cpp:207
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:229
+#: kcm.cpp:230
 #, kde-format
 msgid "Available plugins"
 msgstr "ലഭ്യമായിട്ടുള്ള സംയോജകങ്ങൾ"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2023-06-05 08:13+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -48,12 +48,12 @@ msgstr "(C) 2015 Albert Vaca Cintora"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:206
+#: kcm.cpp:207
 #, kde-format
 msgid "Key: %1"
 msgstr "Chiave: %1"
 
-#: kcm.cpp:229
+#: kcm.cpp:230
 #, kde-format
 msgid "Available plugins"
 msgstr "Estensioni disponibili"

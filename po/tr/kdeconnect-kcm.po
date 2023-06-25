@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2023-06-03 12:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -48,12 +48,12 @@ msgstr "(C) 2015 Albert Vaca Cintora"
 msgid "Albert Vaca Cintora"
 msgstr "Albert Vaca Cintora"
 
-#: kcm.cpp:206
+#: kcm.cpp:207
 #, kde-format
 msgid "Key: %1"
 msgstr "Anahtar: %1"
 
-#: kcm.cpp:229
+#: kcm.cpp:230
 #, kde-format
 msgid "Available plugins"
 msgstr "Kullanılabilir eklentiler"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2021-09-16 01:30+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -49,24 +49,24 @@ msgstr "已被其他相同程式取消"
 msgid "%1: Already paired"
 msgstr "%1: 已配對"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, fuzzy, kde-format
 #| msgid "Device not reachable"
 msgid "%1: Device not reachable"
 msgstr "裝置無法連接"
 
-#: backends/pairinghandler.cpp:114
+#: backends/pairinghandler.cpp:113
 #, kde-format
 msgid "Device not reachable"
 msgstr "裝置無法連接"
 
-#: backends/pairinghandler.cpp:125
+#: backends/pairinghandler.cpp:124
 #, fuzzy, kde-format
 #| msgid "Canceled by other peer"
 msgid "Cancelled by user"
 msgstr "已被其他相同程式取消"
 
-#: backends/pairinghandler.cpp:141
+#: backends/pairinghandler.cpp:140
 #, kde-format
 msgid "Timed out"
 msgstr "逾時"

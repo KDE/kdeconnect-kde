@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2021-05-16 20:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -47,24 +47,24 @@ msgstr "다른 쪽에서 취소함"
 msgid "%1: Already paired"
 msgstr "%1: 이미 연결됨"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, fuzzy, kde-format
 #| msgid "Device not reachable"
 msgid "%1: Device not reachable"
 msgstr "장치에 접근할 수 없음"
 
-#: backends/pairinghandler.cpp:114
+#: backends/pairinghandler.cpp:113
 #, kde-format
 msgid "Device not reachable"
 msgstr "장치에 접근할 수 없음"
 
-#: backends/pairinghandler.cpp:125
+#: backends/pairinghandler.cpp:124
 #, fuzzy, kde-format
 #| msgid "Canceled by the user"
 msgid "Cancelled by user"
 msgstr "사용자가 취소함"
 
-#: backends/pairinghandler.cpp:141
+#: backends/pairinghandler.cpp:140
 #, kde-format
 msgid "Timed out"
 msgstr "시간 초과됨"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-06-25 00:52+0000\n"
 "PO-Revision-Date: 2023-06-03 09:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -48,22 +48,22 @@ msgstr "Že odpovedal drugi vrstnik"
 msgid "%1: Already paired"
 msgstr "%1: Že uparjeno"
 
-#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:99
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, kde-format
 msgid "%1: Device not reachable"
 msgstr "%1: Naprava ni dostopna"
 
-#: backends/pairinghandler.cpp:114
+#: backends/pairinghandler.cpp:113
 #, kde-format
 msgid "Device not reachable"
 msgstr "Naprava ni dostopna"
 
-#: backends/pairinghandler.cpp:125
+#: backends/pairinghandler.cpp:124
 #, kde-format
 msgid "Cancelled by user"
 msgstr "Odpovedano od uporabnika"
 
-#: backends/pairinghandler.cpp:141
+#: backends/pairinghandler.cpp:140
 #, kde-format
 msgid "Timed out"
 msgstr "Čas potekel"
