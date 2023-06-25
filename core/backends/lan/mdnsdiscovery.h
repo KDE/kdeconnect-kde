@@ -18,13 +18,12 @@ class PublicService;
 class ServiceBrowser;
 };
 
-// This class overrides QTcpServer to bind QSslSocket to native socket descriptor instead of QTcpSocket
 class KDECONNECTCORE_EXPORT MdnsDiscovery : public QObject
 {
     Q_OBJECT
 
 public:
-    MdnsDiscovery(LanLinkProvider *parent);
+    explicit MdnsDiscovery(LanLinkProvider *parent);
     ~MdnsDiscovery();
 
     void startDiscovering();
