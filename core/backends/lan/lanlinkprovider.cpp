@@ -148,41 +148,9 @@ void LanLinkProvider::broadcastUdpIdentityPacket()
         qWarning() << "Not broadcasting UDP because KDECONNECT_DISABLE_UDP_BROADCAST is set";
         return;
     }
-    sendUdpIdentityPacket(getBroadcastAddresses());
-}
-
-void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &destinations)
-{
     qCDebug(KDECONNECT_CORE()) << "Broadcasting identity packet";
 
-    NetworkPacket np = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
-    np.set(QStringLiteral("tcpPort"), m_tcpPort);
-#if defined(Q_OS_MAC) || defined(Q_OS_FREEBSD)
-    // On macOS and FreeBSD, the too large UDP packet (larger than MTU) causes
-    // incomplete transmission.
-    // We remove the capacitilities to reduce the discovery packet to the min
-    // MTU of the interfaces with broadcast feature.
-    int mtu = 1500;
-    for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
-        if ((iface.flags() & QNetworkInterface::IsUp) && (iface.flags() & QNetworkInterface::IsRunning) && (iface.flags() & QNetworkInterface::CanBroadcast)) {
-            int ifaceMtu = iface.maximumTransmissionUnit();
-            if (ifaceMtu < mtu && ifaceMtu > 0) {
-                mtu = ifaceMtu;
-            }
-        }
-    }
-    QByteArray payload = np.serialize();
-    if (payload.length() > mtu) {
-        // First try to drop the less important outgoing capabilities
-        np.set(QStringLiteral("outgoingCapabilities"), QStringList());
-        payload = np.serialize();
-    }
-    if (payload.length() > mtu) {
-        // If still too large, drop the incoming capabilities
-        np.set(QStringLiteral("incomingCapabilities"), QStringList());
-        payload = np.serialize();
-    }
-#endif
+    QList<QHostAddress> addresses = getBroadcastAddresses();
 
 #if defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
     // On Windows and FreeBSD we need to broadcast from every local IP address to reach all networks
@@ -195,16 +163,17 @@ void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &destinati
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                     qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
                     sendSocket.bind(sourceAddress);
-                    sendUdpPacket(sendSocket, np, destinations);
+                    sendUdpIdentityPacket(sendSocket, addresses);
                     sendSocket.close();
                 }
             }
         }
     }
 #else
-    sendUdpPacket(m_udpSocket, np, destinations);
+    sendUdpIdentityPacket(addresses);
 #endif
 }
+
 
 QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
 {
@@ -229,12 +198,31 @@ QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
     return destinations;
 }
 
-void LanLinkProvider::sendUdpPacket(QUdpSocket &socket, const NetworkPacket &np, const QList<QHostAddress> &addresses)
+void LanLinkProvider::sendUdpIdentityPacket(const QList<QHostAddress> &addresses)
 {
-    const QByteArray payload = np.serialize();
+    sendUdpIdentityPacket(m_udpSocket, addresses);
+}
+
+void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHostAddress> &addresses)
+{
+    DeviceInfo myDeviceInfo = KdeConnectConfig::instance().deviceInfo();
+    NetworkPacket identityPacket = myDeviceInfo.toIdentityPacket();
+    identityPacket.set(QStringLiteral("tcpPort"), m_tcpPort);
+    const QByteArray payload = identityPacket.serialize();
 
     for (auto &address : addresses) {
-        socket.writeDatagram(payload, address, m_udpBroadcastPort);
+        qint64 bytes = socket.writeDatagram(payload, address, m_udpBroadcastPort);
+        if (bytes == -1 && socket.error() == QAbstractSocket::DatagramTooLargeError) {
+            // On macOS and FreeBSD, UDP broadcasts larger than MTU get dropped. See:
+            // https://opensource.apple.com/source/xnu/xnu-3789.1.32/bsd/netinet/ip_output.c.auto.html#:~:text=/*%20don%27t%20allow%20broadcast%20messages%20to%20be%20fragmented%20*/
+            // We remove the capabilities to reduce the size of the packet.
+            // This should only happen for broadcasts, so UDP packets sent from MDNS discoveries should still work.
+            qWarning() << "Identity packet to" << address << "got rejected because it was too large. Retrying without including the capabilities";
+            identityPacket.set(QStringLiteral("outgoingCapabilities"), QStringList());
+            identityPacket.set(QStringLiteral("incomingCapabilities"), QStringList());
+            const QByteArray smallPayload = identityPacket.serialize();
+            socket.writeDatagram(smallPayload, address, m_udpBroadcastPort);
+        }
     }
 }
 
