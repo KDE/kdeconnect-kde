@@ -62,6 +62,10 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
     // Detect when a network interface changes status, so we announce ourselves in the new network
     QNetworkConfigurationManager *networkManager = new QNetworkConfigurationManager(this);
     connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, &LanLinkProvider::onNetworkConfigurationChanged);
+
+    connect(&m_udpSocket, &QAbstractSocket::errorOccurred, [](QAbstractSocket::SocketError socketError) {
+        qWarning() << "Error sending UDP packet:" << socketError;
+    });
 }
 
 void LanLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration &config)
