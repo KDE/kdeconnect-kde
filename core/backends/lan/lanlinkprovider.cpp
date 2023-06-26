@@ -72,6 +72,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
     });
 #else
     // Detect when a network interface changes status, so we announce ourselves in the new network
+    QNetworkInformation::instance()->loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
     connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, [this]() {
         if (QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online) {
             onNetworkChange();
