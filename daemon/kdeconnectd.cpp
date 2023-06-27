@@ -14,6 +14,10 @@
 #include <QStandardPaths>
 #include <QTimer>
 
+#ifdef Q_OS_WIN
+#include <Windows.h>
+#endif
+
 #include <KAboutData>
 #include <KDBusService>
 #include <KLocalizedString>
@@ -117,6 +121,14 @@ static void detectPlatform(int argc, char **argv)
 
 int main(int argc, char *argv[])
 {
+#ifdef Q_OS_WIN
+    // If ran from a console, redirect the output there
+    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+    }
+#endif
+
     detectPlatform(argc, argv);
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
