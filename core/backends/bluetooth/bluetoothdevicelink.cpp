@@ -55,7 +55,7 @@ void BluetoothDeviceLink::dataReceived()
 
     // qCDebug(KDECONNECT_CORE) << "BluetoothDeviceLink dataReceived" << packet;
 
-    NetworkPacket packet((QString()));
+    NetworkPacket packet;
     NetworkPacket::unserialize(serializedPacket, &packet);
 
     if (packet.hasPayloadTransferInfo()) {

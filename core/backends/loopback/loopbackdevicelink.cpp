@@ -16,7 +16,7 @@ LoopbackDeviceLink::LoopbackDeviceLink(LoopbackLinkProvider *parent)
 
 bool LoopbackDeviceLink::sendPacket(NetworkPacket &input)
 {
-    NetworkPacket output((QString()));
+    NetworkPacket output;
     NetworkPacket::unserialize(input.serialize(), &output);
 
     // LoopbackDeviceLink does not need deviceTransferInfo

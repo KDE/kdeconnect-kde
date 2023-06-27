@@ -235,8 +235,6 @@ void LanLinkProvider::udpBroadcastReceived()
         NetworkPacket *receivedPacket = new NetworkPacket();
         bool success = NetworkPacket::unserialize(datagram, receivedPacket);
 
-        // qCDebug(KDECONNECT_CORE) << "udp connection from " << receivedPacket->;
-
         // qCDebug(KDECONNECT_CORE) << "Datagram " << datagram.data() ;
 
         if (!success) {
@@ -314,7 +312,6 @@ void LanLinkProvider::tcpSocketConnected()
         return;
     }
 
-    // TODO Delete me?
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
     disconnect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
 #else
