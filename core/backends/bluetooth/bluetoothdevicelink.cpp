@@ -14,14 +14,15 @@
 #include "core_debug.h"
 #include "multiplexchannel.h"
 
-BluetoothDeviceLink::BluetoothDeviceLink(const QString &deviceId,
-                                         LinkProvider *parent,
+BluetoothDeviceLink::BluetoothDeviceLink(const DeviceInfo &deviceInfo,
+                                         BluetoothLinkProvider *parent,
                                          ConnectionMultiplexer *connection,
                                          QSharedPointer<MultiplexChannel> socket)
-    : DeviceLink(deviceId, parent)
+    : DeviceLink(deviceInfo.id, parent)
     , mSocketReader(new DeviceLineReader(socket.data(), this))
     , mConnection(connection)
     , mChannel(socket)
+    , mDeviceInfo(deviceInfo)
 {
     connect(mSocketReader, &DeviceLineReader::readyRead, this, &BluetoothDeviceLink::dataReceived);
 
@@ -68,9 +69,4 @@ void BluetoothDeviceLink::dataReceived()
     if (mSocketReader->bytesAvailable() > 0) {
         QMetaObject::invokeMethod(this, &BluetoothDeviceLink::dataReceived, Qt::QueuedConnection);
     }
-}
-
-QSslCertificate BluetoothDeviceLink::certificate() const
-{
-    return QSslCertificate({}); // TODO Not sure what to do here. For LanDeviceLink we use the SSL connection's certificate, but we don't have that here
 }

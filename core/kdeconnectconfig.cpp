@@ -24,6 +24,8 @@
 #include "core_debug.h"
 #include "daemon.h"
 #include "dbushelper.h"
+#include "deviceinfo.h"
+#include "pluginloader.h"
 
 const QFile::Permissions strictPermissions = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
 
@@ -105,24 +107,24 @@ void KdeConnectConfig::setName(const QString &name)
     d->m_config->sync();
 }
 
-QString KdeConnectConfig::deviceType()
+DeviceType KdeConnectConfig::deviceType()
 {
 #ifdef SAILFISHOS
-    return QStringLiteral("phone");
+    return DeviceType::Phone;
 #else
     const QByteArrayList platforms = qgetenv("PLASMA_PLATFORM").split(':');
 
     if (platforms.contains("phone")) {
-        return QStringLiteral("phone");
+        return DeviceType::Phone;
     } else if (platforms.contains("tablet")) {
-        return QStringLiteral("tablet");
+        return DeviceType::Tablet;
     } else if (platforms.contains("mediacenter")) {
-        return QStringLiteral("tv");
+        return DeviceType::Tv;
     }
 
     // TODO non-Plasma mobile platforms
 
-    return QStringLiteral("desktop");
+    return DeviceType::Desktop;
 #endif
 }
 
@@ -146,6 +148,17 @@ QSslCertificate KdeConnectConfig::certificate()
     return d->m_certificate;
 }
 
+DeviceInfo KdeConnectConfig::deviceInfo()
+{
+    return DeviceInfo(deviceId(),
+                      certificate(),
+                      name(),
+                      deviceType(),
+                      NetworkPacket::s_protocolVersion,
+                      PluginLoader::instance()->incomingCapabilities().toSet(),
+                      PluginLoader::instance()->outgoingCapabilities().toSet());
+}
+
 QDir KdeConnectConfig::baseConfigDir()
 {
     QString configPath = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
@@ -159,27 +172,54 @@ QStringList KdeConnectConfig::trustedDevices()
     return list;
 }
 
-void KdeConnectConfig::addTrustedDevice(const QString &id, const QString &name, const QString &type)
+void KdeConnectConfig::addTrustedDevice(const DeviceInfo &deviceInfo)
 {
-    d->m_trustedDevices->beginGroup(id);
-    d->m_trustedDevices->setValue(QStringLiteral("name"), name);
-    d->m_trustedDevices->setValue(QStringLiteral("type"), type);
+    d->m_trustedDevices->beginGroup(deviceInfo.id);
+    d->m_trustedDevices->setValue(QStringLiteral("name"), deviceInfo.name);
+    d->m_trustedDevices->setValue(QStringLiteral("type"), deviceInfo.type.toString());
+    QString certString = QString::fromLatin1(deviceInfo.certificate.toPem());
+    d->m_trustedDevices->setValue(QStringLiteral("certificate"), certString);
     d->m_trustedDevices->endGroup();
     d->m_trustedDevices->sync();
 
-    QDir().mkpath(deviceConfigDir(id).path());
+    QDir().mkpath(deviceConfigDir(deviceInfo.id).path());
 }
 
-KdeConnectConfig::DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
+void KdeConnectConfig::updateTrustedDeviceInfo(const DeviceInfo &deviceInfo)
+{
+    if (!trustedDevices().contains(deviceInfo.id)) {
+        // do not store values for untrusted devices (it would make them trusted)
+        return;
+    }
+
+    d->m_trustedDevices->beginGroup(deviceInfo.id);
+    d->m_trustedDevices->setValue(QStringLiteral("name"), deviceInfo.name);
+    d->m_trustedDevices->setValue(QStringLiteral("type"), deviceInfo.type.toString());
+    d->m_trustedDevices->endGroup();
+    d->m_trustedDevices->sync();
+}
+
+QSslCertificate KdeConnectConfig::getTrustedDeviceCertificate(const QString &id)
+{
+    d->m_trustedDevices->beginGroup(id);
+    QString certString = d->m_trustedDevices->value(QStringLiteral("certificate"), QString()).toString();
+    d->m_trustedDevices->endGroup();
+    return QSslCertificate(certString.toLatin1());
+}
+
+DeviceInfo KdeConnectConfig::getTrustedDevice(const QString &id)
 {
     d->m_trustedDevices->beginGroup(id);
 
-    KdeConnectConfig::DeviceInfo info;
-    info.deviceName = d->m_trustedDevices->value(QStringLiteral("name"), QLatin1String("unnamed")).toString();
-    info.deviceType = d->m_trustedDevices->value(QStringLiteral("type"), QLatin1String("unknown")).toString();
+    QString certString = d->m_trustedDevices->value(QStringLiteral("certificate"), QString()).toString();
+    QSslCertificate certificate(certString.toLatin1());
+    QString name = d->m_trustedDevices->value(QStringLiteral("name"), QLatin1String("unnamed")).toString();
+    QString typeString = d->m_trustedDevices->value(QStringLiteral("type"), QLatin1String("unknown")).toString();
+    DeviceType type = DeviceType::FromString(typeString);
 
     d->m_trustedDevices->endGroup();
-    return info;
+
+    return DeviceInfo(id, certificate, name, type);
 }
 
 void KdeConnectConfig::removeTrustedDevice(const QString &deviceId)

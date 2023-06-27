@@ -9,6 +9,7 @@
 
 #include <QDir>
 
+#include "deviceinfo.h"
 #include "kdeconnectcore_export.h"
 
 class QSslCertificate;
@@ -16,11 +17,6 @@ class QSslCertificate;
 class KDECONNECTCORE_EXPORT KdeConnectConfig
 {
 public:
-    struct DeviceInfo {
-        QString deviceName;
-        QString deviceType;
-    };
-
     static KdeConnectConfig &instance();
 
     /*
@@ -29,11 +25,11 @@ public:
 
     QString deviceId();
     QString name();
-    QString deviceType();
-
+    DeviceType deviceType();
+    QSslCertificate certificate();
+    DeviceInfo deviceInfo();
     QString privateKeyPath();
     QString certificatePath();
-    QSslCertificate certificate();
 
     void setName(const QString &name);
 
@@ -43,8 +39,10 @@ public:
 
     QStringList trustedDevices(); // list of ids
     void removeTrustedDevice(const QString &id);
-    void addTrustedDevice(const QString &id, const QString &name, const QString &type);
-    KdeConnectConfig::DeviceInfo getTrustedDevice(const QString &id);
+    void addTrustedDevice(const DeviceInfo &deviceInfo);
+    void updateTrustedDeviceInfo(const DeviceInfo &deviceInfo);
+    DeviceInfo getTrustedDevice(const QString &id);
+    QSslCertificate getTrustedDeviceCertificate(const QString &id);
 
     void setDeviceProperty(const QString &deviceId, const QString &name, const QString &value);
     QString getDeviceProperty(const QString &deviceId, const QString &name, const QString &defaultValue = QString());

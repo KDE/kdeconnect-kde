@@ -158,24 +158,24 @@ QMap<QString, QString> Daemon::deviceNames(bool onlyReachable, bool onlyTrusted)
     return ret;
 }
 
-void Daemon::onNewDeviceLink(const NetworkPacket &identityPacket, DeviceLink *dl)
+void Daemon::onNewDeviceLink(DeviceLink *link)
 {
-    const QString &id = identityPacket.get<QString>(QStringLiteral("deviceId"));
+    const QString &id = link->deviceId();
 
-    // qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->provider()->name();
+    // qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->name();
 
     if (d->m_devices.contains(id)) {
-        qCDebug(KDECONNECT_CORE) << "It is a known device" << identityPacket.get<QString>(QStringLiteral("deviceName"));
+        qCDebug(KDECONNECT_CORE) << "It is a known device" << link->deviceInfo().name;
         Device *device = d->m_devices[id];
         bool wasReachable = device->isReachable();
-        device->addLink(identityPacket, dl);
+        device->addLink(link);
         if (!wasReachable) {
             Q_EMIT deviceVisibilityChanged(id, true);
             Q_EMIT deviceListChanged();
         }
     } else {
-        qCDebug(KDECONNECT_CORE) << "It is a new device" << identityPacket.get<QString>(QStringLiteral("deviceName"));
-        Device *device = new Device(this, identityPacket, dl);
+        qCDebug(KDECONNECT_CORE) << "It is a new device" << link->deviceInfo().name;
+        Device *device = new Device(this, link);
         addDevice(device);
     }
 }

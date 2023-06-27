@@ -17,17 +17,24 @@
 
 class ConnectionMultiplexer;
 class MultiplexChannel;
+class BluetoothLinkProvider;
 
 class KDECONNECTCORE_EXPORT BluetoothDeviceLink : public DeviceLink
 {
     Q_OBJECT
 
 public:
-    BluetoothDeviceLink(const QString &deviceId, LinkProvider *parent, ConnectionMultiplexer *connection, QSharedPointer<MultiplexChannel> socket);
+    BluetoothDeviceLink(const DeviceInfo &deviceInfo,
+                        BluetoothLinkProvider *parent,
+                        ConnectionMultiplexer *connection,
+                        QSharedPointer<MultiplexChannel> socket);
 
     bool sendPacket(NetworkPacket &np) override;
 
-    QSslCertificate certificate() const override;
+    DeviceInfo deviceInfo() const override
+    {
+        return mDeviceInfo;
+    }
 
 private Q_SLOTS:
     void dataReceived();
@@ -36,6 +43,7 @@ private:
     DeviceLineReader *mSocketReader;
     ConnectionMultiplexer *mConnection;
     QSharedPointer<MultiplexChannel> mChannel;
+    DeviceInfo mDeviceInfo;
 
     void sendMessage(const QString mMessage);
 };

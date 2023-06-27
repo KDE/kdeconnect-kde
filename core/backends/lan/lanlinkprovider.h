@@ -49,6 +49,7 @@ public:
 
 public Q_SLOTS:
     void onNetworkChange() override;
+    void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
     void onStart() override;
     void onStop() override;
     void tcpSocketConnected();
@@ -59,13 +60,12 @@ private Q_SLOTS:
     void udpBroadcastReceived();
     void newConnection();
     void dataReceived();
-    void deviceLinkDestroyed(QObject *destroyedDeviceLink);
     void sslErrors(const QList<QSslError> &errors);
     void broadcastToNetwork();
 
 private:
     void onNetworkConfigurationChanged(const QNetworkConfiguration &config);
-    void addLink(const QString &deviceId, QSslSocket *socket, NetworkPacket *receivedPacket, LanDeviceLink::ConnectionStarted connectionOrigin);
+    void addLink(QSslSocket *socket, const DeviceInfo &deviceInfo);
     QList<QHostAddress> getBroadcastAddresses();
     void sendBroadcasts(QUdpSocket &socket, const NetworkPacket &np, const QList<QHostAddress> &addresses);
 

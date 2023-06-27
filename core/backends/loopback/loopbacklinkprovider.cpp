@@ -9,9 +9,7 @@
 #include "core_debug.h"
 
 LoopbackLinkProvider::LoopbackLinkProvider()
-    : identityPacket(PACKET_TYPE_IDENTITY)
 {
-    NetworkPacket::createIdentityPacket(&identityPacket);
 }
 
 LoopbackLinkProvider::~LoopbackLinkProvider()
@@ -20,8 +18,8 @@ LoopbackLinkProvider::~LoopbackLinkProvider()
 
 void LoopbackLinkProvider::onNetworkChange()
 {
-    LoopbackDeviceLink *newLoopbackDeviceLink = new LoopbackDeviceLink(QStringLiteral("loopback"), this);
-    Q_EMIT onConnectionReceived(identityPacket, newLoopbackDeviceLink);
+    LoopbackDeviceLink *newLoopbackDeviceLink = new LoopbackDeviceLink(this);
+    Q_EMIT onConnectionReceived(newLoopbackDeviceLink);
 
     if (loopbackDeviceLink) {
         delete loopbackDeviceLink;

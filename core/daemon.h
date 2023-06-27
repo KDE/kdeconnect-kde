@@ -78,7 +78,7 @@ Q_SIGNALS:
     Q_SCRIPTABLE void customDevicesChanged(const QStringList &customDevices);
 
 private Q_SLOTS:
-    void onNewDeviceLink(const NetworkPacket &identityPacket, DeviceLink *dl);
+    void onNewDeviceLink(DeviceLink *dl);
     void onDeviceStatusChanged();
 
 private:

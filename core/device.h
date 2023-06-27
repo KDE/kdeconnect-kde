@@ -12,6 +12,7 @@
 #include <QString>
 
 #include "backends/devicelink.h"
+#include "deviceinfo.h"
 #include "networkpacket.h"
 #include "pairstate.h"
 
@@ -22,7 +23,7 @@ class KDECONNECTCORE_EXPORT Device : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device")
-    Q_PROPERTY(QString type READ type NOTIFY typeChanged)
+    Q_PROPERTY(QString type READ typeAsString NOTIFY typeChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
@@ -34,15 +35,6 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(QStringList supportedPlugins READ supportedPlugins NOTIFY pluginsChanged)
 
 public:
-    enum DeviceType {
-        Unknown,
-        Desktop,
-        Laptop,
-        Phone,
-        Tablet,
-        Tv,
-    };
-
     /**
      * Restores the @p device from the saved configuration
      *
@@ -55,7 +47,7 @@ public:
      *
      * We know everything but we don't trust it yet
      */
-    Device(QObject *parent, const NetworkPacket &np, DeviceLink *dl);
+    Device(QObject *parent, DeviceLink *link);
 
     ~Device() override;
 
@@ -65,23 +57,27 @@ public:
     {
         return QStringLiteral("/modules/kdeconnect/devices/") + id();
     }
-    QString type() const;
+    DeviceType type() const;
+    QString typeAsString() const
+    {
+        return type().toString();
+    };
     QString iconName() const;
     QString statusIconName() const;
     Q_SCRIPTABLE QByteArray verificationKey() const;
     Q_SCRIPTABLE QString encryptionInfo() const;
 
     // Add and remove links
-    void addLink(const NetworkPacket &identityPacket, DeviceLink *);
-    void removeLink(DeviceLink *);
+    void addLink(DeviceLink *link);
+    void removeLink(DeviceLink *link);
+
+    bool updateDeviceInfo(const DeviceInfo &deviceInfo);
 
     PairState pairState() const;
     Q_SCRIPTABLE int pairStateAsInt() const; // Hack because qdbus doesn't like enums
     Q_SCRIPTABLE bool isPaired() const;
     Q_SCRIPTABLE bool isPairRequested() const;
     Q_SCRIPTABLE bool isPairRequestedByPeer() const;
-
-    Q_SCRIPTABLE QStringList availableLinks() const;
     virtual bool isReachable() const;
 
     Q_SCRIPTABLE QStringList loadedPlugins() const;
@@ -132,12 +128,6 @@ Q_SIGNALS:
     Q_SCRIPTABLE void statusIconNameChanged();
 
 private: // Methods
-    static DeviceType str2type(const QString &deviceType);
-    static QString type2str(DeviceType deviceType);
-
-    void setName(const QString &name);
-    void setType(const QString &strtype);
-    QString iconForStatus(bool reachable, bool paired) const;
     QSslCertificate certificate() const;
 
 private:

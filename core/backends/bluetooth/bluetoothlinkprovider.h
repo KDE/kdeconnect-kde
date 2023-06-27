@@ -41,10 +41,10 @@ public Q_SLOTS:
     virtual void onNetworkChange() override;
     virtual void onStart() override;
     virtual void onStop() override;
+    virtual void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) override;
     void connectError();
 
 private Q_SLOTS:
-    void deviceLinkDestroyed(QObject *destroyedDeviceLink);
     void socketDisconnected(const QBluetoothAddress &peerAddress, MultiplexChannel *socket);
 
     void serverNewConnection();

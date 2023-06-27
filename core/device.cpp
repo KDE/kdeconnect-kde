@@ -32,8 +32,8 @@
 class Device::DevicePrivate
 {
 public:
-    DevicePrivate(const QString &id)
-        : m_deviceId(id)
+    DevicePrivate(const DeviceInfo &deviceInfo)
+        : m_deviceInfo(deviceInfo)
     {
     }
 
@@ -43,17 +43,13 @@ public:
         m_deviceLinks.clear();
     }
 
-    const QString m_deviceId;
-    QString m_deviceName;
-    DeviceType m_deviceType;
-    int m_protocolVersion;
+    DeviceInfo m_deviceInfo;
 
     QVector<DeviceLink *> m_deviceLinks;
     QHash<QString, KdeConnectPlugin *> m_plugins;
 
     QMultiMap<QString, KdeConnectPlugin *> m_pluginsByIncomingCapability;
     QSet<QString> m_supportedPlugins;
-    QSet<QString> m_allPlugins;
     PairingHandler* m_pairingHandler;
 };
 
@@ -64,22 +60,15 @@ static void warn(const QString &info)
 
 Device::Device(QObject *parent, const QString &id)
     : QObject(parent)
-    , d(new Device::DevicePrivate(id))
 {
+    DeviceInfo info = KdeConnectConfig::instance().getTrustedDevice(id);
+    d = new Device::DevicePrivate(info);
+
     d->m_pairingHandler = new PairingHandler(this, PairState::Paired);
-
-    d->m_protocolVersion = NetworkPacket::s_protocolVersion;
-    KdeConnectConfig::DeviceInfo info = KdeConnectConfig::instance().getTrustedDevice(d->m_deviceId);
-
-    d->m_deviceName = info.deviceName;
-    d->m_deviceType = str2type(info.deviceType);
+    d->m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet(); // Assume every plugin is supported until we get the capabilities
 
     // Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
-
-    // Assume every plugin is supported until addLink is called and we can get the actual list
-    d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
-    d->m_supportedPlugins = d->m_allPlugins;
 
     connect(d->m_pairingHandler, &PairingHandler::incomingPairRequest, this, &Device::pairingHandler_incomingPairRequest);
     connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
@@ -87,15 +76,15 @@ Device::Device(QObject *parent, const QString &id)
     connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
 }
 
-Device::Device(QObject *parent, const NetworkPacket &identityPacket, DeviceLink *dl)
+Device::Device(QObject *parent, DeviceLink *dl)
     : QObject(parent)
-    , d(new Device::DevicePrivate(identityPacket.get<QString>(QStringLiteral("deviceId"))))
 {
-    d->m_pairingHandler = new PairingHandler(this, PairState::NotPaired);
-    d->m_deviceName = identityPacket.get<QString>(QStringLiteral("deviceName"));
-    d->m_allPlugins = PluginLoader::instance()->getPluginList().toSet();
+    d = new Device::DevicePrivate(dl->deviceInfo());
 
-    addLink(identityPacket, dl);
+    d->m_pairingHandler = new PairingHandler(this, PairState::NotPaired);
+    d->m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet(); // Assume every plugin is supported until we get the capabilities
+
+    addLink(dl);
 
     // Register in bus
     QDBusConnection::sessionBus().registerObject(dbusPath(), this, QDBusConnection::ExportScriptableContents | QDBusConnection::ExportAdaptors);
@@ -109,6 +98,10 @@ Device::Device(QObject *parent, const NetworkPacket &identityPacket, DeviceLink 
     connect(d->m_pairingHandler, &PairingHandler::pairingFailed, this, &Device::pairingHandler_pairingFailed);
     connect(d->m_pairingHandler, &PairingHandler::pairingSuccessful, this, &Device::pairingHandler_pairingSuccessful);
     connect(d->m_pairingHandler, &PairingHandler::unpaired, this, &Device::pairingHandler_unpaired);
+
+    if (protocolVersion() != NetworkPacket::s_protocolVersion) {
+        qCWarning(KDECONNECT_CORE) << name() << " uses a different protocol version" << protocolVersion() << "expected" << NetworkPacket::s_protocolVersion;
+    }
 }
 
 Device::~Device()
@@ -118,17 +111,17 @@ Device::~Device()
 
 QString Device::id() const
 {
-    return d->m_deviceId;
+    return d->m_deviceInfo.id;
 }
 
 QString Device::name() const
 {
-    return d->m_deviceName;
+    return d->m_deviceInfo.name;
 }
 
-QString Device::type() const
+DeviceType Device::type() const
 {
-    return type2str(d->m_deviceType);
+    return d->m_deviceInfo.type;
 }
 
 bool Device::isReachable() const
@@ -138,7 +131,7 @@ bool Device::isReachable() const
 
 int Device::protocolVersion()
 {
-    return d->m_protocolVersion;
+    return d->m_deviceInfo.protocolVersion;
 }
 
 QStringList Device::supportedPlugins() const
@@ -158,6 +151,8 @@ QStringList Device::loadedPlugins() const
 
 void Device::reloadPlugins()
 {
+    qCDebug(KDECONNECT_CORE) << name() << "- reload plugins";
+
     QHash<QString, KdeConnectPlugin *> newPluginMap, oldPluginMap = d->m_plugins;
     QMultiMap<QString, KdeConnectPlugin *> newPluginsByIncomingCapability;
 
@@ -254,8 +249,7 @@ void Device::pairingHandler_incomingPairRequest()
 void Device::pairingHandler_pairingSuccessful()
 {
     Q_ASSERT(d->m_pairingHandler->pairState() == PairState::Paired);
-    KdeConnectConfig::instance().addTrustedDevice(id(), name(), type());
-    KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("certificate"), QString::fromLatin1(certificate().toPem()));
+    KdeConnectConfig::instance().addTrustedDevice(d->m_deviceInfo);
     reloadPlugins(); // Will load/unload plugins
     Q_EMIT pairStateChanged(pairStateAsInt());
 }
@@ -276,49 +270,53 @@ void Device::pairingHandler_unpaired()
     Q_EMIT pairStateChanged(pairStateAsInt());
 }
 
-void Device::addLink(const NetworkPacket &identityPacket, DeviceLink *link)
+void Device::addLink(DeviceLink *link)
 {
-    // qCDebug(KDECONNECT_CORE) << "Adding link to" << id() << "via" << link->provider();
-
-    setName(identityPacket.get<QString>(QStringLiteral("deviceName")));
-    setType(identityPacket.get<QString>(QStringLiteral("deviceType")));
-
     if (d->m_deviceLinks.contains(link)) {
         return;
     }
 
-    d->m_protocolVersion = identityPacket.get<int>(QStringLiteral("protocolVersion"), -1);
-    if (d->m_protocolVersion != NetworkPacket::s_protocolVersion) {
-        qCWarning(KDECONNECT_CORE) << d->m_deviceName << "- warning, device uses a different protocol version" << d->m_protocolVersion << "expected"
-                                   << NetworkPacket::s_protocolVersion;
-    }
-
-    connect(link, &QObject::destroyed, this, &Device::linkDestroyed);
-
     d->m_deviceLinks.append(link);
 
-    // Theoretically we will never add two links from the same provider (the provider should destroy
-    // the old one before this is called), so we do not have to worry about destroying old links.
-    //-- Actually, we should not destroy them or the provider will store an invalid ref!
-
+    connect(link, &QObject::destroyed, this, &Device::linkDestroyed);
     connect(link, &DeviceLink::receivedPacket, this, &Device::privateReceivedPacket);
 
-    const bool capabilitiesSupported = identityPacket.has(QStringLiteral("incomingCapabilities")) || identityPacket.has(QStringLiteral("outgoingCapabilities"));
-    if (capabilitiesSupported) {
-        const QSet<QString> outgoingCapabilities = identityPacket.get<QStringList>(QStringLiteral("outgoingCapabilities")).toSet(),
-                            incomingCapabilities = identityPacket.get<QStringList>(QStringLiteral("incomingCapabilities")).toSet();
-
-        d->m_supportedPlugins = PluginLoader::instance()->pluginsForCapabilities(incomingCapabilities, outgoingCapabilities);
-        // qDebug() << "new plugins for" << m_deviceName << m_supportedPlugins << incomingCapabilities << outgoingCapabilities;
-    } else {
-        d->m_supportedPlugins = PluginLoader::instance()->getPluginList().toSet();
-    }
-
-    reloadPlugins();
+    bool hasChanges = updateDeviceInfo(link->deviceInfo());
 
     if (d->m_deviceLinks.size() == 1) {
         Q_EMIT reachableChanged(true);
+        hasChanges = true;
     }
+
+    if (hasChanges) {
+        reloadPlugins();
+    }
+}
+
+bool Device::updateDeviceInfo(const DeviceInfo &newDeviceInfo)
+{
+    bool hasChanges = false;
+    if (d->m_deviceInfo.name != newDeviceInfo.name || d->m_deviceInfo.type != newDeviceInfo.type) {
+        hasChanges = true;
+        d->m_deviceInfo.name = newDeviceInfo.name;
+        d->m_deviceInfo.type = newDeviceInfo.type;
+        Q_EMIT typeChanged(d->m_deviceInfo.type.toString());
+        Q_EMIT nameChanged(d->m_deviceInfo.name);
+        if (isPaired()) {
+            KdeConnectConfig::instance().updateTrustedDeviceInfo(d->m_deviceInfo);
+        }
+    }
+
+    if (d->m_deviceInfo.outgoingCapabilities != newDeviceInfo.outgoingCapabilities
+        || d->m_deviceInfo.incomingCapabilities != newDeviceInfo.incomingCapabilities) {
+        if (!newDeviceInfo.incomingCapabilities.isEmpty() && !newDeviceInfo.outgoingCapabilities.isEmpty()) {
+            hasChanges = true;
+            d->m_supportedPlugins = PluginLoader::instance()->pluginsForCapabilities(newDeviceInfo.incomingCapabilities, newDeviceInfo.outgoingCapabilities);
+            qDebug() << "new capabilities for " << name();
+        }
+    }
+
+    return hasChanges;
 }
 
 void Device::linkDestroyed(QObject *o)
@@ -395,17 +393,6 @@ bool Device::isPairRequestedByPeer() const
     return d->m_pairingHandler->pairState() == PairState::RequestedByPeer;
 }
 
-
-QStringList Device::availableLinks() const
-{
-    QStringList sl;
-    sl.reserve(d->m_deviceLinks.size());
-    for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
-        sl.append(dl->provider()->name());
-    }
-    return sl;
-}
-
 QHostAddress Device::getLocalIpAddress() const
 {
     for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
@@ -417,78 +404,14 @@ QHostAddress Device::getLocalIpAddress() const
     return QHostAddress::Null;
 }
 
-Device::DeviceType Device::str2type(const QString &deviceType)
+QString Device::iconName() const
 {
-    if (deviceType == QLatin1String("desktop"))
-        return Desktop;
-    if (deviceType == QLatin1String("laptop"))
-        return Laptop;
-    if (deviceType == QLatin1String("smartphone") || deviceType == QLatin1String("phone"))
-        return Phone;
-    if (deviceType == QLatin1String("tablet"))
-        return Tablet;
-    if (deviceType == QLatin1String("tv"))
-        return Tv;
-    return Unknown;
-}
-
-QString Device::type2str(Device::DeviceType deviceType)
-{
-    if (deviceType == Desktop)
-        return QStringLiteral("desktop");
-    if (deviceType == Laptop)
-        return QStringLiteral("laptop");
-    if (deviceType == Phone)
-        return QStringLiteral("smartphone");
-    if (deviceType == Tablet)
-        return QStringLiteral("tablet");
-    if (deviceType == Tv)
-        return QStringLiteral("tv");
-    return QStringLiteral("unknown");
+    return d->m_deviceInfo.type.icon();
 }
 
 QString Device::statusIconName() const
 {
-    return iconForStatus(isReachable(), isPaired());
-}
-
-QString Device::iconName() const
-{
-    return iconForStatus(true, false);
-}
-
-QString Device::iconForStatus(bool reachable, bool trusted) const
-{
-    Device::DeviceType deviceType = d->m_deviceType;
-    if (deviceType == Device::Unknown) {
-        deviceType = Device::Phone; // Assume phone if we don't know the type
-    } else if (deviceType == Device::Desktop) {
-        deviceType = Device::Device::Laptop; // We don't have desktop icon yet
-    }
-
-    QString status = (reachable ? (trusted ? QStringLiteral("connected") : QStringLiteral("disconnected")) : QStringLiteral("trusted"));
-    QString type = type2str(deviceType);
-
-    return type + status;
-}
-
-void Device::setName(const QString &name)
-{
-    if (d->m_deviceName != name) {
-        d->m_deviceName = name;
-        KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("name"), name);
-        Q_EMIT nameChanged(name);
-    }
-}
-
-void Device::setType(const QString &strtype)
-{
-    auto type = str2type(strtype);
-    if (d->m_deviceType != type) {
-        d->m_deviceType = type;
-        KdeConnectConfig::instance().setDeviceProperty(d->m_deviceId, QStringLiteral("type"), strtype);
-        Q_EMIT typeChanged(strtype);
-    }
+    return d->m_deviceInfo.type.iconForStatus(isReachable(), isPaired());
 }
 
 KdeConnectPlugin *Device::plugin(const QString &pluginName) const
@@ -498,7 +421,8 @@ KdeConnectPlugin *Device::plugin(const QString &pluginName) const
 
 void Device::setPluginEnabled(const QString &pluginName, bool enabled)
 {
-    if (!d->m_allPlugins.contains(pluginName)) {
+    if (!PluginLoader::instance()->doesPluginExist(pluginName)) {
+        qWarning() << "Tried to enable a plugin that doesn't exist" << pluginName;
         return;
     }
 
@@ -529,9 +453,7 @@ QString Device::encryptionInfo() const
     }
     result += i18n("SHA256 fingerprint of your device certificate is: %1\n", localChecksum);
 
-    std::string remotePem = KdeConnectConfig::instance().getDeviceProperty(id(), QStringLiteral("certificate")).toStdString();
-    QSslCertificate remoteCertificate = QSslCertificate(QByteArray(remotePem.c_str(), (int)remotePem.size()));
-    QString remoteChecksum = QString::fromLatin1(remoteCertificate.digest(digestAlgorithm).toHex());
+    QString remoteChecksum = QString::fromLatin1(certificate().digest(digestAlgorithm).toHex());
     for (int i = 2; i < remoteChecksum.size(); i += 3) {
         remoteChecksum.insert(i, QStringLiteral(":")); // Improve readability
     }
@@ -542,10 +464,7 @@ QString Device::encryptionInfo() const
 
 QSslCertificate Device::certificate() const
 {
-    if (!d->m_deviceLinks.isEmpty()) {
-        return d->m_deviceLinks[0]->certificate();
-    }
-    return QSslCertificate();
+    return d->m_deviceInfo.certificate;
 }
 
 QByteArray Device::verificationKey() const

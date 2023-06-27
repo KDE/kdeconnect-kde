@@ -25,6 +25,7 @@ public:
     static PluginLoader *instance();
 
     QStringList getPluginList() const;
+    bool doesPluginExist(const QString &name) const;
     KPluginMetaData getPluginInfo(const QString &name) const;
     KdeConnectPlugin *instantiatePluginForDevice(const QString &name, Device *device) const;
 

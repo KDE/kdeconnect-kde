@@ -9,16 +9,17 @@
 
 #include <QObject>
 #include <QPointer>
-#include <QSslCertificate>
 #include <QSslSocket>
 #include <QString>
 
 #include "backends/devicelink.h"
 #include "compositeuploadjob.h"
+#include "deviceinfo.h"
 #include "uploadjob.h"
 #include <kdeconnectcore_export.h>
 
 class SocketLineReader;
+class LanLinkProvider;
 
 class KDECONNECTCORE_EXPORT LanDeviceLink : public DeviceLink
 {
@@ -27,13 +28,17 @@ class KDECONNECTCORE_EXPORT LanDeviceLink : public DeviceLink
 public:
     enum ConnectionStarted : bool { Locally, Remotely };
 
-    LanDeviceLink(const QString &deviceId, LinkProvider *parent, QSslSocket *socket, ConnectionStarted connectionSource);
-    void reset(QSslSocket *socket, ConnectionStarted connectionSource);
+    LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket);
+    void reset(QSslSocket *socket);
 
     bool sendPacket(NetworkPacket &np) override;
 
+    DeviceInfo deviceInfo() const override
+    {
+        return m_deviceInfo;
+    }
+
     QHostAddress hostAddress() const;
-    QSslCertificate certificate() const override;
 
 private Q_SLOTS:
     void dataReceived();
@@ -42,6 +47,7 @@ private:
     SocketLineReader *m_socketLineReader;
     ConnectionStarted m_connectionSource;
     QPointer<CompositeUploadJob> m_compositeUploadJob;
+    DeviceInfo m_deviceInfo;
 };
 
 #endif

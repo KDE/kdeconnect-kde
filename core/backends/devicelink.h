@@ -9,42 +9,29 @@
 
 #include <QObject>
 
+#include "deviceinfo.h"
 #include "networkpacket.h"
 
-class PairingHandler;
-class NetworkPacket;
 class LinkProvider;
-class Device;
-class QSslCertificate;
 
 class DeviceLink : public QObject
 {
     Q_OBJECT
-
 public:
-
     DeviceLink(const QString &deviceId, LinkProvider *parent);
     ~DeviceLink() override = default;
 
-    const QString &deviceId() const
+    QString deviceId() const
     {
-        return m_deviceId;
-    }
-    LinkProvider *provider()
-    {
-        return m_linkProvider;
+        return deviceInfo().id;
     }
 
     virtual bool sendPacket(NetworkPacket &np) = 0;
 
-    virtual QSslCertificate certificate() const = 0;
+    virtual DeviceInfo deviceInfo() const = 0;
 
 Q_SIGNALS:
     void receivedPacket(const NetworkPacket &np);
-
-private:
-    const QString m_deviceId;
-    LinkProvider *m_linkProvider;
 };
 
 #endif

@@ -84,24 +84,18 @@ private Q_SLOTS:
         const QString destFile = QDir::tempPath() + QStringLiteral("/kdeconnect-test-sentfile");
         QFile(destFile).remove();
 
-        const QString deviceId = KdeConnectConfig::instance().deviceId(), deviceName = QStringLiteral("testdevice"),
-                      deviceType = KdeConnectConfig::instance().deviceType();
-
-        KdeConnectConfig::instance().addTrustedDevice(deviceId, deviceName, deviceType);
-        KdeConnectConfig::instance().setDeviceProperty(
-            deviceId,
-            QStringLiteral("certificate"),
-            QString::fromLatin1(KdeConnectConfig::instance().certificate().toPem())); // Using same certificate from kcc, instead of generating
+        DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
+        KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
 
         // We need the device to be loaded on the daemon, otherwise CompositeUploadJob will get a null device
-        Device *device = new Device(this, deviceId);
+        Device *device = new Device(this, deviceInfo.id);
         m_daemon->addDevice(device);
 
         QSharedPointer<QFile> f(new QFile(aFile));
         NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
         np.setPayload(f, f->size());
 
-        CompositeUploadJob *job = new CompositeUploadJob(deviceId, false);
+        CompositeUploadJob *job = new CompositeUploadJob(deviceInfo.id, false);
         UploadJob *uj = new UploadJob(np);
         job->addSubjob(uj);
 

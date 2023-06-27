@@ -28,14 +28,12 @@ public Q_SLOTS:
     virtual void onStart() = 0;
     virtual void onStop() = 0;
     virtual void onNetworkChange() = 0;
+    virtual void onLinkDestroyed(const QString &deviceId, DeviceLink *oldPtr) = 0;
 
     void suspend(bool suspend);
 
 Q_SIGNALS:
-    // NOTE: The provider will destroy the DeviceLink when it's no longer accessible,
-    //       and every user should listen to the destroyed signal to remove its references.
-    //       That's the reason because there is no "onConnectionLost".
-    void onConnectionReceived(const NetworkPacket &identityPacket, DeviceLink *);
+    void onConnectionReceived(DeviceLink *);
 };
 
 #endif

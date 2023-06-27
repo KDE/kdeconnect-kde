@@ -32,11 +32,9 @@ class KDECONNECTCORE_EXPORT NetworkPacket
 public:
     const static int s_protocolVersion;
 
-    explicit NetworkPacket(const QString &type = QStringLiteral("empty"), const QVariantMap &body = {});
+    explicit NetworkPacket(const QString &type = QString(), const QVariantMap &body = {});
     NetworkPacket(const NetworkPacket &other) = default; // Copy constructor, required for QMetaType and queued signals
     NetworkPacket &operator=(const NetworkPacket &other) = default;
-
-    static void createIdentityPacket(NetworkPacket *);
 
     QByteArray serialize() const;
     static bool unserialize(const QByteArray &json, NetworkPacket *out);

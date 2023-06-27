@@ -26,10 +26,12 @@ public:
     void onStart() override;
     void onStop() override;
     void onNetworkChange() override;
+    void onLinkDestroyed(const QString &, DeviceLink *) override
+    {
+    }
 
 private:
     QPointer<LoopbackDeviceLink> loopbackDeviceLink;
-    NetworkPacket identityPacket;
 };
 
 #endif

@@ -15,14 +15,15 @@
 #include "plugins/share/shareplugin.h"
 #include "socketlinereader.h"
 
-LanDeviceLink::LanDeviceLink(const QString &deviceId, LinkProvider *parent, QSslSocket *socket, ConnectionStarted connectionSource)
-    : DeviceLink(deviceId, parent)
+LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket)
+    : DeviceLink(deviceInfo.id, parent)
     , m_socketLineReader(nullptr)
+    , m_deviceInfo(deviceInfo)
 {
-    reset(socket, connectionSource);
+    reset(socket);
 }
 
-void LanDeviceLink::reset(QSslSocket *socket, ConnectionStarted connectionSource)
+void LanDeviceLink::reset(QSslSocket *socket)
 {
     if (m_socketLineReader) {
         disconnect(m_socketLineReader->m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
@@ -39,10 +40,6 @@ void LanDeviceLink::reset(QSslSocket *socket, ConnectionStarted connectionSource
     // the socket (and the reader) will be
     // destroyed as well
     socket->setParent(m_socketLineReader);
-
-    m_connectionSource = connectionSource;
-
-    QString certString = KdeConnectConfig::instance().getDeviceProperty(deviceId(), QStringLiteral("certificate"));
 }
 
 QHostAddress LanDeviceLink::hostAddress() const
@@ -98,7 +95,7 @@ void LanDeviceLink::dataReceived()
         return;
 
     const QByteArray serializedPacket = m_socketLineReader->readLine();
-    NetworkPacket packet((QString()));
+    NetworkPacket packet;
     NetworkPacket::unserialize(serializedPacket, &packet);
 
     // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
@@ -126,9 +123,4 @@ void LanDeviceLink::dataReceived()
     if (m_socketLineReader->hasPacketsAvailable()) {
         QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
     }
-}
-
-QSslCertificate LanDeviceLink::certificate() const
-{
-    return m_socketLineReader->peerCertificate();
 }

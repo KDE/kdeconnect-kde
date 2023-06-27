@@ -5,16 +5,14 @@
  */
 
 #include "devicelink.h"
-#include "kdeconnectconfig.h"
+
 #include "linkprovider.h"
 
 DeviceLink::DeviceLink(const QString &deviceId, LinkProvider *parent)
     : QObject(parent)
-    , m_deviceId(deviceId)
-    , m_linkProvider(parent)
 {
-    Q_ASSERT(!deviceId.isEmpty());
-
-    setProperty("deviceId", deviceId);
+    connect(this, &QObject::destroyed, [this, deviceId, parent]() {
+        parent->onLinkDestroyed(deviceId, this);
+    });
 }
 
