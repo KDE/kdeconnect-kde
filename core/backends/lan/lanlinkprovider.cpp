@@ -213,7 +213,7 @@ void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHos
     for (auto &address : addresses) {
         qint64 bytes = socket.writeDatagram(payload, address, m_udpBroadcastPort);
         if (bytes == -1 && socket.error() == QAbstractSocket::DatagramTooLargeError) {
-            // On macOS and FreeBSD, UDP broadcasts larger than MTU get droped. See:
+            // On macOS and FreeBSD, UDP broadcasts larger than MTU get dropped. See:
             // https://opensource.apple.com/source/xnu/xnu-3789.1.32/bsd/netinet/ip_output.c.auto.html#:~:text=/*%20don%27t%20allow%20broadcast%20messages%20to%20be%20fragmented%20*/
             // We remove the capabilities to reduce the size of the packet.
             // This should only happen for broadcasts, so UDP packets sent from MDNS discoveries should still work.
