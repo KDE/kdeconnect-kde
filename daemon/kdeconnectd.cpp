@@ -42,7 +42,7 @@ public:
     DesktopDaemon(QObject *parent = nullptr)
         : Daemon(parent)
     {
-        qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.svg")));
+        qApp->setWindowIcon(QIcon(QStringLiteral(":/icons/kdeconnect/kdeconnect.png")));
     }
 
     void askPairingConfirmation(Device *device) override
