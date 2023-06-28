@@ -57,8 +57,6 @@ void MdnsDiscovery::startAnnouncing()
     data[QStringLiteral("name")] = config.name().toUtf8();
     data[QStringLiteral("type")] = config.deviceType().toString().toUtf8();
     data[QStringLiteral("protocol")] = QString::number(NetworkPacket::s_protocolVersion).toUtf8();
-    data[QStringLiteral("port")] = QString::number(LanLinkProvider::UDP_PORT).toUtf8(); // iOS needs ip and port here
-    data[QStringLiteral("ip")] = lanLinkProvider->localAddress().toString().toUtf8();
     m_publisher->setTextData(data);
 
     connect(m_publisher, &KDNSSD::PublicService::published, [](bool successful) {

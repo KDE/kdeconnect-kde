@@ -40,11 +40,6 @@ public:
 
     void sendUdpIdentityPacket(const QList<QHostAddress> &addresses);
 
-    QHostAddress localAddress() const
-    {
-        return m_udpSocket.localAddress();
-    };
-
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);
     static void configureSocket(QSslSocket *socket);
 
