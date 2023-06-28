@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2023-01-09 18:43+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -90,12 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Áfangastaður"
 
-#: device.cpp:530
+#: device.cpp:454
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA256-fingrafar af vottorði tækisins þíns er: %1\n"
 
-#: device.cpp:538
+#: device.cpp:460
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA256-fingrafar af vottorði fjartengda tækisins er: %1\n"
@@ -115,12 +115,12 @@ msgstr "Tók við ófullgerðri skrá: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Tók við ófullgerðri skrá frá: %1"
 
-#: kdeconnectconfig.cpp:76
+#: kdeconnectconfig.cpp:78
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Tókst ekki að ræsa KDE Connect"
 
-#: kdeconnectconfig.cpp:77
+#: kdeconnectconfig.cpp:79
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -131,12 +131,12 @@ msgstr ""
 "Linux býður sérstaka pakka fyrir QCA-ossl og QCA-gnupg skaltu ganga úr "
 "skugga um að þú hafir sett þá upp og prófaðu svo aftur."
 
-#: kdeconnectconfig.cpp:313
+#: kdeconnectconfig.cpp:353
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Tókst ekki að geyma einkalykilsskrá: %1"
 
-#: kdeconnectconfig.cpp:358
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Tókst ekki að geyma vottorðsskrá: %1"

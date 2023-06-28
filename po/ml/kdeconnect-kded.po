@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2020-02-02 13:49+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Vivekkj2004@gmail.com"
 
-#: kdeconnectd.cpp:52
+#: kdeconnectd.cpp:56
 #, fuzzy, kde-format
 #| msgid "Pairing request from %1"
 msgid ""
@@ -35,37 +35,37 @@ msgid ""
 "Key: %2..."
 msgstr "%1 ൽ നിന്നും ജോടി അപേക്ഷ"
 
-#: kdeconnectd.cpp:53
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid "Open"
 msgstr "തുറക്കുക"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "Accept"
 msgstr "സ്വീകരിക്കുക"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "Reject"
 msgstr "നിരസിക്കുക"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "View key"
 msgstr ""
 
-#: kdeconnectd.cpp:126 kdeconnectd.cpp:128
+#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "കെ.ഡി.ഇ കണക്ട് ഡീമണ്‍"
 
-#: kdeconnectd.cpp:134
+#: kdeconnectd.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "നിലവിലുള്ള ജാലകത്തിനെ പകരം വക്കുക"
 
-#: kdeconnectd.cpp:138
+#: kdeconnectd.cpp:150
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

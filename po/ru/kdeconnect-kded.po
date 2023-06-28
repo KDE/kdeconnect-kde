@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2022-05-20 11:06+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "gammaray@basealt.ru, juliette.tux@gmail.com"
 
-#: kdeconnectd.cpp:52
+#: kdeconnectd.cpp:56
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -39,37 +39,37 @@ msgstr ""
 "Запрос на сопряжение от %1\n"
 "Ключ: %2..."
 
-#: kdeconnectd.cpp:53
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid "Open"
 msgstr "Открыть"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "Accept"
 msgstr "Принять"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "Reject"
 msgstr "Отклонить"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "View key"
 msgstr "Просмотреть ключ"
 
-#: kdeconnectd.cpp:126 kdeconnectd.cpp:128
+#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Фоновая служба KDE Connect"
 
-#: kdeconnectd.cpp:134
+#: kdeconnectd.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Заменить существующее сопряжение"
 
-#: kdeconnectd.cpp:138
+#: kdeconnectd.cpp:150
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

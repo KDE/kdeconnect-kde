@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2022-04-18 17:36+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
-#: kdeconnectd.cpp:52
+#: kdeconnectd.cpp:56
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -36,37 +36,37 @@ msgstr ""
 "Požiadavka na spárovanie z %1\n"
 "Kľúč: %2..."
 
-#: kdeconnectd.cpp:53
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid "Open"
 msgstr "Otvoriť"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "Accept"
 msgstr "Prijať"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: kdeconnectd.cpp:54
+#: kdeconnectd.cpp:58
 #, kde-format
 msgid "View key"
 msgstr "Zobraziť kľúč"
 
-#: kdeconnectd.cpp:126 kdeconnectd.cpp:128
+#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Služba aplikácie KDE Connect"
 
-#: kdeconnectd.cpp:134
+#: kdeconnectd.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Nahradiť existujúcu inštanciu"
 
-#: kdeconnectd.cpp:138
+#: kdeconnectd.cpp:150
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

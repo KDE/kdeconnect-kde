@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2021-05-16 20:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -88,12 +88,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "대상"
 
-#: device.cpp:530
+#: device.cpp:454
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "내 장치 인증서의 SHA256 지문: %1\n"
 
-#: device.cpp:538
+#: device.cpp:460
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "원격 장치 인증서의 SHA256 지문: %1\n"
@@ -113,12 +113,12 @@ msgstr "완전하지 않은 파일 받음: %1"
 msgid "Received incomplete file from: %1"
 msgstr "완전하지 않은 파일 받음: %1"
 
-#: kdeconnectconfig.cpp:76
+#: kdeconnectconfig.cpp:78
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect를 시작할 수 없음"
 
-#: kdeconnectconfig.cpp:77
+#: kdeconnectconfig.cpp:79
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -128,12 +128,12 @@ msgstr ""
 "QCA 설치에서 RSA를 찾을 수 없습니다. 배포판에서 QCA-ossl 및 QCA-gnupg 패키지"
 "를 별도로 제공하면 해당 패키지를 설치한 후 다시 시도하십시오."
 
-#: kdeconnectconfig.cpp:313
+#: kdeconnectconfig.cpp:353
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "개인 키 파일을 저장할 수 없음: %1"
 
-#: kdeconnectconfig.cpp:358
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "인증서 파일을 저장할 수 없음: %1"

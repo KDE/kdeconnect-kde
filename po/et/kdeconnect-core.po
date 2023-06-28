@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:530
+#: device.cpp:454
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Sinu seadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 
-#: device.cpp:538
+#: device.cpp:460
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -118,12 +118,12 @@ msgstr "Saadi ebatäielik fail: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Saadi ebatäielik fail seadmest %1"
 
-#: kdeconnectconfig.cpp:76
+#: kdeconnectconfig.cpp:78
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connecti käivitamine nurjus"
 
-#: kdeconnectconfig.cpp:77
+#: kdeconnectconfig.cpp:79
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -134,12 +134,12 @@ msgstr ""
 "eraldi pakette QCA-ossl ja QCA-gnupg jaoks, kontrolli, kas need on ikka "
 "paigaldatud, ja proovi uuesti."
 
-#: kdeconnectconfig.cpp:313
+#: kdeconnectconfig.cpp:353
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:358
+#: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"

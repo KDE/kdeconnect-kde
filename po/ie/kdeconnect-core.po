@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-06-28 00:48+0000\n"
 "PO-Revision-Date: 2022-11-16 16:14+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -89,12 +89,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destination"
 
-#: device.cpp:530
+#: device.cpp:454
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr ""
 
-#: device.cpp:538
+#: device.cpp:460
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr ""
@@ -114,12 +114,12 @@ msgstr "Vu ha recivet un file"
 msgid "Received incomplete file from: %1"
 msgstr ""
 
-#: kdeconnectconfig.cpp:76
+#: kdeconnectconfig.cpp:78
 #, fuzzy, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Inviar per KDE Connect"
 
-#: kdeconnectconfig.cpp:77
+#: kdeconnectconfig.cpp:79
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -127,12 +127,12 @@ msgid ""
 "you have them installed and try again."
 msgstr ""
 
-#: kdeconnectconfig.cpp:313
+#: kdeconnectconfig.cpp:353
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr ""
 
-#: kdeconnectconfig.cpp:358
+#: kdeconnectconfig.cpp:398
 #, fuzzy, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne successat leer li file %1."
