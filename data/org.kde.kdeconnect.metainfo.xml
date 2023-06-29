@@ -182,6 +182,7 @@
     <value key="KDE::app_store">https://apps.apple.com/app/kde-connect/id1580245991</value>
   </custom>
   <releases>
+    <release version="23.04.3" date="2023-07-06"/>
     <release version="23.04.2" date="2023-06-08"/>
     <release version="23.04.1" date="2023-05-11"/>
     <release version="23.04.0" date="2023-04-20">
@@ -202,6 +203,5 @@
         </artifact>
       </artifacts>
     </release>
-    <release version="22.12.2" date="2023-02-02"/>
   </releases>
 </component>
