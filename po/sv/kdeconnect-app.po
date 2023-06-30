@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"POT-Creation-Date: 2023-06-30 00:47+0000\n"
 "PO-Revision-Date: 2021-08-09 18:45+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -201,12 +201,12 @@ msgstr "Tryck vänster och höger musknappar samtidigt för att låsa upp"
 msgid "Multimedia Controls"
 msgstr "Multimediakontroller"
 
-#: qml/mpris.qml:61
+#: qml/mpris.qml:65
 #, kde-format
 msgid "No players available"
 msgstr "Inga spelare tillgängliga"
 
-#: qml/mpris.qml:101
+#: qml/mpris.qml:105
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

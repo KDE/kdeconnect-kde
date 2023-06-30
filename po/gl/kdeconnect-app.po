@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"POT-Creation-Date: 2023-06-30 00:47+0000\n"
 "PO-Revision-Date: 2023-06-11 07:51+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -201,12 +201,12 @@ msgstr ""
 msgid "Multimedia Controls"
 msgstr "Controis multimedia"
 
-#: qml/mpris.qml:61
+#: qml/mpris.qml:65
 #, kde-format
 msgid "No players available"
 msgstr "Non hai reprodutores dispoñíbeis"
 
-#: qml/mpris.qml:101
+#: qml/mpris.qml:105
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

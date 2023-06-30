@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"POT-Creation-Date: 2023-06-30 00:47+0000\n"
 "PO-Revision-Date: 2023-03-01 01:24+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -200,12 +200,12 @@ msgstr "잠금을 해제하려면 마우스 왼쪽과 오른쪽 단추를 동시
 msgid "Multimedia Controls"
 msgstr "멀티미디어 제어"
 
-#: qml/mpris.qml:61
+#: qml/mpris.qml:65
 #, kde-format
 msgid "No players available"
 msgstr "사용 가능한 재생기 없음"
 
-#: qml/mpris.qml:101
+#: qml/mpris.qml:105
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"

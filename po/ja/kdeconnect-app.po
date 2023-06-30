@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"POT-Creation-Date: 2023-06-30 00:47+0000\n"
 "PO-Revision-Date: 2021-09-25 15:19-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -200,12 +200,12 @@ msgstr "左右のマウスボタンを同時に押してロック解除"
 msgid "Multimedia Controls"
 msgstr "マルチメディアコントロール"
 
-#: qml/mpris.qml:61
+#: qml/mpris.qml:65
 #, kde-format
 msgid "No players available"
 msgstr "利用可能なプレーヤーはありません"
 
-#: qml/mpris.qml:101
+#: qml/mpris.qml:105
 #, kde-format
 msgid "%1 - %2"
 msgstr ""

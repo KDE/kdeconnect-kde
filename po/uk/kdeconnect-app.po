@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 00:47+0000\n"
+"POT-Creation-Date: 2023-06-30 00:47+0000\n"
 "PO-Revision-Date: 2023-06-08 08:59+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -202,12 +202,12 @@ msgstr "Натисніть %1 або ліву і праву кнопки миш�
 msgid "Multimedia Controls"
 msgstr "Керування відтворенням"
 
-#: qml/mpris.qml:61
+#: qml/mpris.qml:65
 #, kde-format
 msgid "No players available"
 msgstr "Немає доступних програвачів"
 
-#: qml/mpris.qml:101
+#: qml/mpris.qml:105
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 – %2"
