@@ -37,12 +37,10 @@
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
 static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
 
-LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint16 udpListenPort)
+LanLinkProvider::LanLinkProvider(bool testMode)
     : m_server(new Server(this))
     , m_udpSocket(this)
     , m_tcpPort(0)
-    , m_udpBroadcastPort(udpBroadcastPort)
-    , m_udpListenPort(udpListenPort)
     , m_testMode(testMode)
     , m_combineBroadcastsTimer(this)
     , m_mdnsDiscovery(this)
@@ -83,12 +81,12 @@ void LanLinkProvider::onStart()
 {
     const QHostAddress bindAddress = m_testMode ? QHostAddress::LocalHost : QHostAddress::Any;
 
-    bool success = m_udpSocket.bind(bindAddress, m_udpListenPort, QUdpSocket::ShareAddress);
+    bool success = m_udpSocket.bind(bindAddress, UDP_PORT, QUdpSocket::ShareAddress);
     if (!success) {
         QAbstractSocket::SocketError sockErr = m_udpSocket.error();
         // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
         QString errorMessage = QString::fromLatin1(QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr));
-        qCritical(KDECONNECT_CORE) << QLatin1String("Failed to bind UDP socket on port") << m_udpListenPort << QLatin1String("with error") << errorMessage;
+        qCritical(KDECONNECT_CORE) << QLatin1String("Failed to bind UDP socket on port") << UDP_PORT << QLatin1String("with error") << errorMessage;
     }
     Q_ASSERT(success);
 
@@ -211,7 +209,7 @@ void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHos
     const QByteArray payload = identityPacket.serialize();
 
     for (auto &address : addresses) {
-        qint64 bytes = socket.writeDatagram(payload, address, m_udpBroadcastPort);
+        qint64 bytes = socket.writeDatagram(payload, address, UDP_PORT);
         if (bytes == -1 && socket.error() == QAbstractSocket::DatagramTooLargeError) {
             // On macOS and FreeBSD, UDP broadcasts larger than MTU get dropped. See:
             // https://opensource.apple.com/source/xnu/xnu-3789.1.32/bsd/netinet/ip_output.c.auto.html#:~:text=/*%20don%27t%20allow%20broadcast%20messages%20to%20be%20fragmented%20*/
@@ -221,7 +219,7 @@ void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHos
             identityPacket.set(QStringLiteral("outgoingCapabilities"), QStringList());
             identityPacket.set(QStringLiteral("incomingCapabilities"), QStringList());
             const QByteArray smallPayload = identityPacket.serialize();
-            socket.writeDatagram(smallPayload, address, m_udpBroadcastPort);
+            socket.writeDatagram(smallPayload, address, UDP_PORT);
         }
     }
 }
@@ -303,7 +301,7 @@ void LanLinkProvider::connectError(QAbstractSocket::SocketError socketError)
     qCDebug(KDECONNECT_CORE) << "Fallback (1), try reverse connection (send udp packet)" << socket->errorString();
     NetworkPacket np = KdeConnectConfig::instance().deviceInfo().toIdentityPacket();
     np.set(QStringLiteral("tcpPort"), m_tcpPort);
-    m_udpSocket.writeDatagram(np.serialize(), m_receivedIdentityPackets[socket].sender, m_udpBroadcastPort);
+    m_udpSocket.writeDatagram(np.serialize(), m_receivedIdentityPackets[socket].sender, UDP_PORT);
 
     // The socket we created didn't work, and we didn't manage
     // to create a LanDeviceLink from it, deleting everything.
@@ -358,7 +356,7 @@ void LanLinkProvider::tcpSocketConnected()
         // The socket doesn't seem to work, so we can't create the connection.
 
         qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection (send udp packet)";
-        m_udpSocket.writeDatagram(np2.serialize(), m_receivedIdentityPackets[socket].sender, m_udpBroadcastPort);
+        m_udpSocket.writeDatagram(np2.serialize(), m_receivedIdentityPackets[socket].sender, UDP_PORT);
 
         // Cleanup the network packet now. The socket should be deleted via the disconnected() signal.
         // We don't do this on success, because it is done later in the encrypted() slot.

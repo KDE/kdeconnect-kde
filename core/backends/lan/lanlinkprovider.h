@@ -27,10 +27,8 @@ class KDECONNECTCORE_EXPORT LanLinkProvider : public LinkProvider
 public:
     /**
      * @param testMode Some special overrides needed while testing
-     * @param udpBroadcastPort Port which should be used for *sending* identity packets
-     * @param udpListenPort Port which should be used for *receiving* identity packets
      */
-    LanLinkProvider(bool testMode = false, quint16 udpBroadcastPort = UDP_PORT, quint16 udpListenPort = UDP_PORT);
+    LanLinkProvider(bool testMode = false);
     ~LanLinkProvider() override;
 
     QString name() override
@@ -76,9 +74,6 @@ private:
     Server *m_server;
     QUdpSocket m_udpSocket;
     quint16 m_tcpPort;
-
-    quint16 m_udpBroadcastPort;
-    quint16 m_udpListenPort;
 
     QMap<QString, LanDeviceLink *> m_links;
 
