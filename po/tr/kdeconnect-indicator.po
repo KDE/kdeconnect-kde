@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2023-05-24 01:43+0300\n"
+"PO-Revision-Date: 2023-07-04 00:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -51,7 +51,7 @@ msgstr "Dosya/URL gönder"
 #: deviceindicator.cpp:111
 #, kde-format
 msgid "SMS Messages..."
-msgstr "SMS Mesajları ..."
+msgstr "SMS İletileri ..."
 
 #: deviceindicator.cpp:124
 #, kde-format
