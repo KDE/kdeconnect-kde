@@ -74,12 +74,18 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
         if (m_lastConfig != config && config.state() == QNetworkConfiguration::Active) {
             m_lastConfig = config;
             onNetworkChange();
+#ifdef KDECONNECT_MDNS
+            m_mdnsDiscovery.onNetworkChange();
+#endif
         }
     });
 #else
     const auto checkNetworkChange = [this]() {
         if (QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online) {
             onNetworkChange();
+#ifdef KDECONNECT_MDNS
+            m_mdnsDiscovery.onNetworkChange();
+#endif
         }
     };
     // Detect when a network interface changes status, so we announce ourselves in the new network
