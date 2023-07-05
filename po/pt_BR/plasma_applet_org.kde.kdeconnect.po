@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2015, 2016, 2018, 2019.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-19 16:04-0300\n"
+"PO-Revision-Date: 2023-07-04 15:15-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "Compartilhar arquivo"
 #: package/contents/ui/DeviceDelegate.qml:184
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Enviar área de transferência"
 
 #: package/contents/ui/DeviceDelegate.qml:196
 #, kde-format
