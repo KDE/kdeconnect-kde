@@ -12,6 +12,7 @@ if (MDNS_ENABLED)
     set(backends_kdeconnect_SRCS
         ${backends_kdeconnect_SRCS}
         backends/lan/mdnsdiscovery.cpp
+        backends/lan/mdns_wrapper.cpp
     )
 endif()
 

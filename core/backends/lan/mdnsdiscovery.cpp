@@ -10,26 +10,22 @@
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 
-#include <KDNSSD/DNSSD/PublicService>
-#include <KDNSSD/DNSSD/RemoteService>
-#include <KDNSSD/DNSSD/ServiceBrowser>
+#include "mdns_wrapper.h"
 
-const QString kServiceName = QStringLiteral("_kdeconnect._udp");
+#include <QHostInfo>
+const char *kServiceName = "_kdeconnect._udp.local";
 
 MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
     : lanLinkProvider(lanLinkProvider)
 {
-    switch (KDNSSD::ServiceBrowser::isAvailable()) {
-    case KDNSSD::ServiceBrowser::Stopped:
-        qCWarning(KDECONNECT_CORE) << "mDNS or Avahi daemons are not running, mDNS discovery not available";
-        break;
-    case KDNSSD::ServiceBrowser::Working:
-        qCDebug(KDECONNECT_CORE) << "mDNS discovery is available";
-        break;
-    case KDNSSD::ServiceBrowser::Unsupported:
-        qCWarning(KDECONNECT_CORE) << "mDNS discovery not available (library built without DNS-SD support)";
-        break;
-    }
+    connect(&mdnsWrapper, &MdnsWrapper::serviceFound, [lanLinkProvider](const MdnsWrapper::MdnsService &service) {
+        if (KdeConnectConfig::instance().deviceId() == service.serviceName) {
+            qCDebug(KDECONNECT_CORE) << "Discovered myself, ignoring";
+            return;
+        }
+        qCDebug(KDECONNECT_CORE) << "Discovered" << service.serviceName << "at" << service.address;
+        lanLinkProvider->sendUdpIdentityPacket(QList<QHostAddress>{service.address});
+    });
 }
 
 MdnsDiscovery::~MdnsDiscovery()
@@ -38,8 +34,13 @@ MdnsDiscovery::~MdnsDiscovery()
     stopDiscovering();
 }
 
+QString hostName = QHostInfo::localHostName();
+
 void MdnsDiscovery::startAnnouncing()
 {
+    // mdnsWrapper.startAnnouncing(hostName.toLatin1().data(), kServiceName, LanLinkProvider::UDP_PORT);
+
+    /*
     if (m_publisher != nullptr) {
         qCDebug(KDECONNECT_CORE) << "MDNS already announcing";
         return;
@@ -68,53 +69,26 @@ void MdnsDiscovery::startAnnouncing()
     });
 
     m_publisher->publishAsync();
+    */
 }
 
 void MdnsDiscovery::stopAnnouncing()
 {
-    if (m_publisher != nullptr) {
-        qCDebug(KDECONNECT_CORE) << "MDNS stop announcing";
-        delete m_publisher;
-        m_publisher = nullptr;
-    }
+    // mdnsWrapper.stopAnnouncing();
+
+    // if (m_publisher != nullptr) {
+    //     qCDebug(KDECONNECT_CORE) << "MDNS stop announcing";
+    //     delete m_publisher;
+    //     m_publisher = nullptr;
+    // }
 }
 
 void MdnsDiscovery::startDiscovering()
 {
-    if (m_serviceBrowser != nullptr) {
-        qCDebug(KDECONNECT_CORE) << "MDNS already discovering";
-        return;
-    }
-    qCDebug(KDECONNECT_CORE) << "MDNS start discovering";
-
-    m_serviceBrowser = new KDNSSD::ServiceBrowser(kServiceName, true);
-
-    connect(m_serviceBrowser, &KDNSSD::ServiceBrowser::serviceAdded, [this](KDNSSD::RemoteService::Ptr service) {
-        if (KdeConnectConfig::instance().deviceId() == service->serviceName()) {
-            qCDebug(KDECONNECT_CORE) << "Discovered myself, ignoring";
-            return;
-        }
-        qCDebug(KDECONNECT_CORE) << "Discovered " << service->serviceName() << " at " << service->hostName();
-        QHostAddress address(service->hostName());
-        lanLinkProvider->sendUdpIdentityPacket(QList<QHostAddress>{address});
-    });
-
-    connect(m_serviceBrowser, &KDNSSD::ServiceBrowser::serviceRemoved, [](KDNSSD::RemoteService::Ptr service) {
-        qCDebug(KDECONNECT_CORE) << "Lost " << service->serviceName();
-    });
-
-    connect(m_serviceBrowser, &KDNSSD::ServiceBrowser::finished, []() {
-        qCDebug(KDECONNECT_CORE) << "Finished discovery";
-    });
-
-    m_serviceBrowser->startBrowse();
+    mdnsWrapper.startDiscovering(kServiceName);
 }
 
 void MdnsDiscovery::stopDiscovering()
 {
-    if (m_serviceBrowser != nullptr) {
-        qCDebug(KDECONNECT_CORE) << "MDNS stop discovering";
-        delete m_serviceBrowser;
-        m_serviceBrowser = nullptr;
-    }
+    mdnsWrapper.stopDiscovering();
 }

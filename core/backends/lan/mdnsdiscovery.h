@@ -11,12 +11,9 @@
 
 #include "kdeconnectcore_export.h"
 
+#include "mdns_wrapper.h"
+
 class LanLinkProvider;
-namespace KDNSSD
-{
-class PublicService;
-class ServiceBrowser;
-};
 
 class KDECONNECTCORE_EXPORT MdnsDiscovery : public QObject
 {
@@ -34,8 +31,7 @@ public:
 
 private:
     LanLinkProvider *lanLinkProvider = nullptr;
-    KDNSSD::PublicService *m_publisher = nullptr;
-    KDNSSD::ServiceBrowser *m_serviceBrowser = nullptr;
+    MdnsWrapper mdnsWrapper;
 };
 
 #endif // KDECONNECT_SERVER_H
