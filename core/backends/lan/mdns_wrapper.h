@@ -32,7 +32,7 @@ public:
     int startAnnouncing(const char *hostname, const char *service_name, int service_port);
     void stopAnnouncing();
 
-    void startDiscovering(const char *serviceName);
+    void startDiscovering(const char *serviceType);
     void stopDiscovering();
 
     void sendQuery(const char *serviceName);
