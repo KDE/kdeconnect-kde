@@ -19,12 +19,12 @@ MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
     : lanLinkProvider(lanLinkProvider)
 {
     connect(&mdnsWrapper, &MdnsWrapper::serviceFound, [lanLinkProvider](const MdnsWrapper::MdnsService &service) {
-        if (KdeConnectConfig::instance().deviceId() == service.serviceName) {
+        if (KdeConnectConfig::instance().deviceId() == service.name) {
             qCDebug(KDECONNECT_CORE) << "Discovered myself, ignoring";
             return;
         }
-        qCDebug(KDECONNECT_CORE) << "Discovered" << service.serviceName << "at" << service.address;
         lanLinkProvider->sendUdpIdentityPacket(QList<QHostAddress>{service.address});
+        qCDebug(KDECONNECT_CORE) << "Discovered" << service.name << "at" << service.address;
     });
 }
 
