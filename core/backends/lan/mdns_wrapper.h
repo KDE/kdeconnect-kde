@@ -23,7 +23,7 @@ class MdnsWrapper : public QObject
 
 public:
     struct MdnsService {
-        QString serviceName;
+        QString name;
         int port;
         QHostAddress address;
         QMap<QString, QString> txtRecords;

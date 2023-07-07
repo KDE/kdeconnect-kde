@@ -72,10 +72,10 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
     case MDNS_RECORDTYPE_PTR: {
         // Keep just the service name instead of the full "<service-name>.<_service-type>._tcp.local." string
         mdns_string_pair_t serviceNamePos = mdns_get_next_substring(data, size, record_offset);
-        discoveredService->serviceName = QString::fromLatin1((char *)data + serviceNamePos.offset, serviceNamePos.length);
+        discoveredService->name = QString::fromLatin1((char *)data + serviceNamePos.offset, serviceNamePos.length);
         //static char serviceNameBuffer[256];
         //mdns_string_t serviceName = mdns_record_parse_ptr(data, size, record_offset, record_length, serviceNameBuffer, sizeof(serviceNameBuffer));
-        //discoveredService->serviceName = QString::fromLatin1(serviceName.str, serviceName.length);
+        //discoveredService->name = QString::fromLatin1(serviceName.str, serviceName.length);
         if (discoveredService->address == QHostAddress::Null) {
             discoveredService->address = QHostAddress(from); // In case we don't receive a A record, use from as address
         }
@@ -114,13 +114,13 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
     return 0;
 }
 
-void MdnsWrapper::startDiscovering(const char *serviceName)
+void MdnsWrapper::startDiscovering(const char *serviceType)
 {
     int num_sockets = listenForQueryResponses();
     if (num_sockets <= 0) {
         qWarning() << "Failed to open any client sockets";
     } else {
-        sendQuery(serviceName);
+        sendQuery(serviceType);
     }
 }
 
@@ -175,7 +175,7 @@ int MdnsWrapper::listenForQueryResponses()
             size_t num_records = mdns_query_recv(socket, buffer, capacity, query_callback, (void *)&discoveredService, 0);
             free(buffer);
 
-            // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.serviceName << "at" << discoveredService.address << "in" <<  num_records <<
+            // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" <<  num_records <<
             // "records via socket" << socket;
 
             Q_EMIT serviceFound(discoveredService);
@@ -188,13 +188,13 @@ int MdnsWrapper::listenForQueryResponses()
     return sockets.size();
 }
 
-void MdnsWrapper::sendQuery(const char *serviceName)
+void MdnsWrapper::sendQuery(const char *serviceType)
 {
-    qCDebug(KDECONNECT_CORE) << "Sending MDNS query for service" << serviceName;
+    qCDebug(KDECONNECT_CORE) << "Sending MDNS query for service" << serviceType;
 
     mdns_query_t query;
-    query.name = serviceName;
-    query.length = strlen(serviceName);
+    query.name = serviceType;
+    query.length = strlen(serviceType);
     query.type = MDNS_RECORDTYPE_PTR;
 
     size_t capacity = 2048;
@@ -395,21 +395,8 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
     size_t offset = name_offset;
     mdns_string_t name = mdns_string_extract(data, size, &offset, namebuffer, sizeof(namebuffer));
 
-    const char* record_name = 0;
-    if (rtype == MDNS_RECORDTYPE_PTR)
-        record_name = "PTR";
-    else if (rtype == MDNS_RECORDTYPE_SRV)
-        record_name = "SRV";
-    else if (rtype == MDNS_RECORDTYPE_A)
-        record_name = "A";
-    else if (rtype == MDNS_RECORDTYPE_AAAA)
-        record_name = "AAAA";
-    else if (rtype == MDNS_RECORDTYPE_TXT)
-        record_name = "TXT";
-    else if (rtype == MDNS_RECORDTYPE_ANY)
-        record_name = "ANY";
-    else
-        return 0;
+    const char* record_name = recordTypeToStr(rtype);
+
     printf("Query %s %.*s\n", record_name, MDNS_STRING_FORMAT(name));
 
     if ((name.length == (sizeof(dns_sd) - 1)) &&
