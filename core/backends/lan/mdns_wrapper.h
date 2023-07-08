@@ -29,13 +29,11 @@ public:
         QMap<QString, QString> txtRecords;
     };
 
-    int startAnnouncing(const char *hostname, const char *service_name, int service_port);
-    void stopAnnouncing();
-
-    void startDiscovering(const char *serviceType);
+    // serviceType should be of the form _kdeconnect._udp.local
+    void startDiscovering(const QString &serviceType);
     void stopDiscovering();
 
-    void sendQuery(const char *serviceName);
+    void sendQuery(const QString &serviceName);
 
 Q_SIGNALS:
     void serviceFound(const MdnsService &service);
@@ -45,6 +43,42 @@ private:
     void stopListeningForQueryResponses();
 
     QVector<QSocketNotifier *> responseSocketNotifiers;
+};
+
+class MdnsServiceAnnouncer : public QObject
+{
+    Q_OBJECT
+
+public:
+    struct AnnouncedInfo {
+        QString serviceType; // ie: "<_service-type>._tcp.local."
+        QString serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
+        QString hostname; // ie: "<hostname>.local."
+        int port;
+        QMap<QString, QString> txtRecords;
+    };
+
+    // serviceType should be of the form _kdeconnect._udp.local
+    MdnsServiceAnnouncer(const QString &name, const QString &serviceType, int port);
+
+    void putTxtRecord(const QString &key, const QString &value)
+    {
+        myself.txtRecords[key] = value;
+    }
+
+    void startAnnouncing();
+    void stopAnnouncing();
+
+    void sendMulticastAnnounce(bool isGoodbye);
+
+private:
+    int listenForQueries();
+    void stopListeningForQueries();
+
+    AnnouncedInfo myself;
+
+    QSocketNotifier *socketNotifier = nullptr;
+    QSocketNotifier *socketNotifierV6 = nullptr;
 };
 
 #endif
