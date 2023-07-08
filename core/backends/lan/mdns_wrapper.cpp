@@ -23,6 +23,7 @@
 #include <sys/time.h>
 #endif
 
+#include <QHostInfo>
 #include <QNetworkInterface>
 #include <QSocketNotifier>
 
@@ -114,14 +115,14 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
     return 0;
 }
 
-void MdnsWrapper::startDiscovering(const char *serviceType)
+void MdnsWrapper::startDiscovering(const QString &serviceType)
 {
     int num_sockets = listenForQueryResponses();
     if (num_sockets <= 0) {
         qWarning() << "Failed to open any client sockets";
-    } else {
-        sendQuery(serviceType);
+        return;
     }
+    sendQuery(serviceType);
 }
 
 void MdnsWrapper::stopDiscovering()
@@ -188,13 +189,14 @@ int MdnsWrapper::listenForQueryResponses()
     return sockets.size();
 }
 
-void MdnsWrapper::sendQuery(const char *serviceType)
+void MdnsWrapper::sendQuery(const QString &serviceType)
 {
     qCDebug(KDECONNECT_CORE) << "Sending MDNS query for service" << serviceType;
 
     mdns_query_t query;
-    query.name = serviceType;
-    query.length = strlen(serviceType);
+    QByteArray serviceTypeBytes = serviceType.toLatin1();
+    query.name = serviceTypeBytes.data();
+    query.length = serviceTypeBytes.length();
     query.type = MDNS_RECORDTYPE_PTR;
 
     size_t capacity = 2048;
@@ -310,105 +312,45 @@ static mdns_string_t ip_address_to_string(char* buffer, size_t capacity, const s
 char service_instance_buffer[256] = {0};
 char qualified_hostname_buffer[256] = {0};
 
-// Data for our service including the mDNS records
-typedef struct {
-    mdns_string_t service;
-    mdns_string_t hostname;
-    mdns_string_t service_instance;
-    mdns_string_t hostname_qualified;
-    struct sockaddr_in address_ipv4;
-    struct sockaddr_in6 address_ipv6;
-    int port;
-    mdns_record_t record_ptr;
-    mdns_record_t record_srv;
-    mdns_record_t record_a;
-    mdns_record_t record_aaaa;
-    mdns_record_t txt_record[2];
-} service_t;
-service_t service = {};
-
-// Open sockets to listen to incoming mDNS queries on port 5353
-static int open_service_sockets(int* sockets)
-{
-    // When recieving, each socket can recieve data from all network interfaces
-    // Thus we only need to open one socket for each address family
-    int num_sockets = 0;
-
-    {
-        struct sockaddr_in sock_addr;
-        memset(&sock_addr, 0, sizeof(struct sockaddr_in));
-        sock_addr.sin_family = AF_INET;
-    #ifdef _WIN32
-        sock_addr.sin_addr = in4addr_any;
-    #else
-        sock_addr.sin_addr.s_addr = INADDR_ANY;
-    #endif
-        sock_addr.sin_port = htons(MDNS_PORT);
-    #ifdef __APPLE__
-        sock_addr.sin_len = sizeof(struct sockaddr_in);
-    #endif
-        int sock = mdns_socket_open_ipv4(&sock_addr);
-        if (sock >= 0)
-            sockets[num_sockets++] = sock;
-    }
-
-    {
-        struct sockaddr_in6 sock_addr;
-        memset(&sock_addr, 0, sizeof(struct sockaddr_in6));
-        sock_addr.sin6_family = AF_INET6;
-        sock_addr.sin6_addr = in6addr_any;
-        sock_addr.sin6_port = htons(MDNS_PORT);
-    #ifdef __APPLE__
-        sock_addr.sin6_len = sizeof(struct sockaddr_in6);
-    #endif
-        int sock = mdns_socket_open_ipv6(&sock_addr);
-        if (sock >= 0)
-            sockets[num_sockets++] = sock;
-    }
-
-    return num_sockets;
-}
-
 static char sendbuffer[1024];
+static mdns_record_txt_t txtbuffer[128];
+static char addrbuffer[64];
+static char entrybuffer[256];
+
+const QString dnsSdName = QStringLiteral("_services._dns-sd._udp.local.");
 
 // Callback handling questions incoming on service sockets
-static int service_callback(int sock, const struct sockaddr* from, size_t addrlen, mdns_entry_type_t entry,
-                 uint16_t query_id, uint16_t rtype_int, uint16_t rclass, uint32_t ttl, const void* data,
+static int service_callback(int sock, const struct sockaddr* from, size_t addrlen, mdns_entry_type_t entry_type,
+                 uint16_t query_id, uint16_t record_type, uint16_t rclass, uint32_t ttl, const void* data,
                  size_t size, size_t name_offset, size_t name_length, size_t record_offset,
                  size_t record_length, void* user_data) {
+    Q_UNUSED(ttl);
+    Q_UNUSED(name_length);
+    Q_UNUSED(record_offset);
+    Q_UNUSED(record_length);
 
-    static mdns_record_txt_t txtbuffer[128];
-    static char addrbuffer[64];
-    static char entrybuffer[256];
-    static char namebuffer[256];
+    MdnsServiceAnnouncer::AnnouncedInfo *myself = (MdnsServiceAnnouncer::AnnouncedInfo *)user_data;
 
-    mdns_record_type_t rtype = (mdns_record_type_t)rtype_int;
-
-    (void)sizeof(ttl);
-    if (entry != MDNS_ENTRYTYPE_QUESTION)
+    if (entry_type != MDNS_ENTRYTYPE_QUESTION) {
         return 0;
+    }
 
-    const char dns_sd[] = "_services._dns-sd._udp.local.";
+    static char nameBuffer[256];
+    mdns_string_t nameMdnsString = mdns_string_extract(data, size, &name_offset, nameBuffer, sizeof(nameBuffer));
+    QString name = QString::fromLatin1(nameMdnsString.str, nameMdnsString.length);
 
-    mdns_string_t fromaddrstr = ip_address_to_string(addrbuffer, sizeof(addrbuffer), from, addrlen);
-
-    size_t offset = name_offset;
-    mdns_string_t name = mdns_string_extract(data, size, &offset, namebuffer, sizeof(namebuffer));
-
-    const char* record_name = recordTypeToStr(rtype);
-
-    printf("Query %s %.*s\n", record_name, MDNS_STRING_FORMAT(name));
-
-    if ((name.length == (sizeof(dns_sd) - 1)) &&
-        (strncmp(name.str, dns_sd, sizeof(dns_sd) - 1) == 0)) {
-        if ((rtype == MDNS_RECORDTYPE_PTR) || (rtype == MDNS_RECORDTYPE_ANY)) {
+    if (name == dnsSdName) {
+        qWarning() << "Someone queried all services for" << recordTypeToStr(record_type);
+        if ((record_type == MDNS_RECORDTYPE_PTR) || (record_type == MDNS_RECORDTYPE_ANY)) {
             // The PTR query was for the DNS-SD domain, send answer with a PTR record for the
             // service name we advertise, typically on the "<_service-name>._tcp.local." format
 
-            // Answer PTR record reverse mapping "<_service-name>._tcp.local." to
-            // "<hostname>.<_service-name>._tcp.local."
-            mdns_record_t answer = {
-                .name = name, .type = MDNS_RECORDTYPE_PTR, .data.ptr.name = service.service};
+            /*
+            // Answer PTR record reverse mapping "<_service-name>._tcp.local." to "<hostname>.<_service-name>._tcp.local."
+            mdns_record_t answer;
+            answer.name = nameMdnsString;
+            answer.type = MDNS_RECORDTYPE_PTR;
+            answer.data.ptr.name = service.service;
 
             // Send the answer, unicast or multicast depending on flag in query
             uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
@@ -417,15 +359,15 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             if (unicast) {
                 mdns_query_answer_unicast(sock, (void*)from, addrlen, (void*)sendbuffer, sizeof(sendbuffer),
-                                          query_id, rtype, name.str, name.length, answer, NULL, 0, NULL, 0);
+                                          query_id, (mdns_record_type_t)record_type, nameMdnsString.str, nameMdnsString.length, answer, NULL, 0, NULL, 0);
             } else {
-                mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0, 0,
-                                            0);
+                mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0, 0, 0);
             }
+            */
         }
-    } else if ((name.length == service.service.length) &&
-               (strncmp(name.str, service.service.str, name.length) == 0)) {
-        if ((rtype == MDNS_RECORDTYPE_PTR) || (rtype == MDNS_RECORDTYPE_ANY)) {
+    } else if (name == myself->serviceType) {
+        qWarning() << "Someone queried my service type for" << recordTypeToStr(record_type);
+        if ((record_type == MDNS_RECORDTYPE_PTR) || (record_type == MDNS_RECORDTYPE_ANY)) {
             // The PTR query was for our service (usually "<_service-name._tcp.local"), answer a PTR
             // record reverse mapping the queried service name to our service instance name
             // (typically on the "<hostname>.<_service-name>._tcp.local." format), and add
@@ -433,6 +375,7 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
             // qualified hostname (typically "<hostname>.local.") and port, as well as any IPv4/IPv6
             // address for the hostname as A/AAAA records, and two test TXT records
 
+            /*
             // Answer PTR record reverse mapping "<_service-name>._tcp.local." to
             // "<hostname>.<_service-name>._tcp.local."
             mdns_record_t answer = service.record_ptr;
@@ -463,22 +406,24 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             if (unicast) {
                 mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer),
-                                          query_id, rtype, name.str, name.length, answer, 0, 0,
+                                          query_id, (mdns_record_type_t)record_type, name.str, name.length, answer, 0, 0,
                                           additional, additional_count);
             } else {
                 mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
                                             additional, additional_count);
             }
+            */
         }
-    } else if ((name.length == service.service_instance.length) &&
-               (strncmp(name.str, service.service_instance.str, name.length) == 0)) {
-        if ((rtype == MDNS_RECORDTYPE_SRV) || (rtype == MDNS_RECORDTYPE_ANY)) {
+    } else if (name == myself->serviceInstance) {
+        qWarning() << "Someone queried my service instance" << recordTypeToStr(record_type);
+        if ((record_type == MDNS_RECORDTYPE_SRV) || (record_type == MDNS_RECORDTYPE_ANY)) {
             // The SRV query was for our service instance (usually
             // "<hostname>.<_service-name._tcp.local"), answer a SRV record mapping the service
             // instance name to our qualified hostname (typically "<hostname>.local.") and port, as
             // well as any IPv4/IPv6 address for the hostname as A/AAAA records, and two test TXT
             // records
 
+            /*
             // Answer PTR record reverse mapping "<_service-name>._tcp.local." to
             // "<hostname>.<_service-name>._tcp.local."
             mdns_record_t answer = service.record_srv;
@@ -505,144 +450,179 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             if (unicast) {
                 mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer),
-                                          query_id, rtype, name.str, name.length, answer, 0, 0,
+                                          query_id, (mdns_record_type_t)record_type, name.str, name.length, answer, 0, 0,
                                           additional, additional_count);
             } else {
                 mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
                                             additional, additional_count);
             }
+
+            */
         }
-    } else  {
+    } else if (name == myself->hostname) {
+        qWarning() << "Someone queried my host for" << recordTypeToStr(record_type);
+        if (((record_type == MDNS_RECORDTYPE_A) || (record_type == MDNS_RECORDTYPE_ANY)) /* && socketNotifier */) {
+            // The A query was for our qualified hostname (typically "<hostname>.local.") and we
+            // have an IPv4 address, answer with an A record mappiing the hostname to an IPv4
+            // address, as well as any IPv6 address for the hostname, and two test TXT records
 
-            qWarning() << "Is this for me?" << name.str << "VS" << service.hostname_qualified.str << "i" << service.address_ipv4.sin_family;
+            /*
+            // Answer A records mapping "<hostname>.local." to IPv4 address
+            mdns_record_t answer = service.record_a;
 
-            if ((name.length == service.hostname_qualified.length) &&
-                (strncmp(name.str, service.hostname_qualified.str, name.length) == 0)) {
-            if (((rtype == MDNS_RECORDTYPE_A) || (rtype == MDNS_RECORDTYPE_ANY)) &&
-                (service.address_ipv4.sin_family == AF_INET)) {
-                // The A query was for our qualified hostname (typically "<hostname>.local.") and we
-                // have an IPv4 address, answer with an A record mappiing the hostname to an IPv4
-                // address, as well as any IPv6 address for the hostname, and two test TXT records
+            mdns_record_t additional[5] = {0};
+            size_t additional_count = 0;
 
-                // Answer A records mapping "<hostname>.local." to IPv4 address
-                mdns_record_t answer = service.record_a;
+            // AAAA record mapping "<hostname>.local." to IPv6 addresses
+            if (service.address_ipv6.sin6_family == AF_INET6)
+                additional[additional_count++] = service.record_aaaa;
 
-                mdns_record_t additional[5] = {0};
-                size_t additional_count = 0;
+            // Add two test TXT records for our service instance name, will be coalesced into
+            // one record with both key-value pair strings by the library
+            additional[additional_count++] = service.txt_record[0];
+            additional[additional_count++] = service.txt_record[1];
 
-                // AAAA record mapping "<hostname>.local." to IPv6 addresses
-                if (service.address_ipv6.sin6_family == AF_INET6)
-                    additional[additional_count++] = service.record_aaaa;
+            // Send the answer, unicast or multicast depending on flag in query
+            uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
+            mdns_string_t addrstr = ip_address_to_string(
+                addrbuffer, sizeof(addrbuffer), (struct sockaddr*)&service.record_a.data.a.addr,
+                sizeof(service.record_a.data.a.addr));
+            printf("  --> answer %.*s IPv4 %.*s (%s)\n", MDNS_STRING_FORMAT(service.record_a.name),
+                MDNS_STRING_FORMAT(addrstr), (unicast ? "unicast" : "multicast"));
 
-                // Add two test TXT records for our service instance name, will be coalesced into
-                // one record with both key-value pair strings by the library
-                additional[additional_count++] = service.txt_record[0];
-                additional[additional_count++] = service.txt_record[1];
-
-                // Send the answer, unicast or multicast depending on flag in query
-                uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
-                mdns_string_t addrstr = ip_address_to_string(
-                    addrbuffer, sizeof(addrbuffer), (struct sockaddr*)&service.record_a.data.a.addr,
-                    sizeof(service.record_a.data.a.addr));
-                printf("  --> answer %.*s IPv4 %.*s (%s)\n", MDNS_STRING_FORMAT(service.record_a.name),
-                    MDNS_STRING_FORMAT(addrstr), (unicast ? "unicast" : "multicast"));
-
-                if (unicast) {
-                    mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer),
-                                            query_id, rtype, name.str, name.length, answer, 0, 0,
+            if (unicast) {
+                mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer),
+                                        query_id, (mdns_record_type_t)record_type, name.str, name.length, answer, 0, 0,
+                                        additional, additional_count);
+            } else {
+                mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
                                             additional, additional_count);
-                } else {
-                    mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
-                                                additional, additional_count);
-                }
-            } else if (((rtype == MDNS_RECORDTYPE_AAAA) || (rtype == MDNS_RECORDTYPE_ANY)) &&
-                    (service.address_ipv6.sin6_family == AF_INET6)) {
-                // The AAAA query was for our qualified hostname (typically "<hostname>.local.") and we
-                // have an IPv6 address, answer with an AAAA record mappiing the hostname to an IPv6
-                // address, as well as any IPv4 address for the hostname, and two test TXT records
-
-                // Answer AAAA records mapping "<hostname>.local." to IPv6 address
-                mdns_record_t answer = service.record_aaaa;
-
-                mdns_record_t additional[5] = {0};
-                size_t additional_count = 0;
-
-                // A record mapping "<hostname>.local." to IPv4 addresses
-                if (service.address_ipv4.sin_family == AF_INET)
-                    additional[additional_count++] = service.record_a;
-
-                // Add two test TXT records for our service instance name, will be coalesced into
-                // one record with both key-value pair strings by the library
-                additional[additional_count++] = service.txt_record[0];
-                additional[additional_count++] = service.txt_record[1];
-
-                // Send the answer, unicast or multicast depending on flag in query
-                uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
-                mdns_string_t addrstr =
-                    ip_address_to_string(addrbuffer, sizeof(addrbuffer),
-                                        (struct sockaddr*)&service.record_aaaa.data.aaaa.addr,
-                                        sizeof(service.record_aaaa.data.aaaa.addr));
-                printf("  --> answer %.*s IPv6 %.*s (%s)\n",
-                    MDNS_STRING_FORMAT(service.record_aaaa.name), MDNS_STRING_FORMAT(addrstr),
-                    (unicast ? "unicast" : "multicast"));
-
-                if (unicast) {
-                    mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer),
-                                            query_id, rtype, name.str, name.length, answer, 0, 0,
-                                            additional, additional_count);
-                } else {
-                    mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
-                                                additional, additional_count);
-                }
             }
+            */
+        } else if (((record_type == MDNS_RECORDTYPE_AAAA) || (record_type == MDNS_RECORDTYPE_ANY)) /* && socketNotifierV6 */) {
+            // The AAAA query was for our qualified hostname (typically "<hostname>.local.") and we
+            // have an IPv6 address, answer with an AAAA record mappiing the hostname to an IPv6
+            // address, as well as any IPv4 address for the hostname, and two test TXT records
+
+            /*
+            // Answer AAAA records mapping "<hostname>.local." to IPv6 address
+            mdns_record_t answer = service.record_aaaa;
+
+            mdns_record_t additional[5] = {0};
+            size_t additional_count = 0;
+
+            // A record mapping "<hostname>.local." to IPv4 addresses
+            if (service.address_ipv4.sin_family == AF_INET)
+                additional[additional_count++] = service.record_a;
+
+            // Add two test TXT records for our service instance name, will be coalesced into
+            // one record with both key-value pair strings by the library
+            additional[additional_count++] = service.txt_record[0];
+            additional[additional_count++] = service.txt_record[1];
+
+            // Send the answer, unicast or multicast depending on flag in query
+            uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
+            mdns_string_t addrstr =
+                ip_address_to_string(addrbuffer, sizeof(addrbuffer),
+                                    (struct sockaddr*)&service.record_aaaa.data.aaaa.addr,
+                                    sizeof(service.record_aaaa.data.aaaa.addr));
+            printf("  --> answer %.*s IPv6 %.*s (%s)\n",
+                MDNS_STRING_FORMAT(service.record_aaaa.name), MDNS_STRING_FORMAT(addrstr),
+                (unicast ? "unicast" : "multicast"));
+
+            if (unicast) {
+                mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer),
+                                        query_id, (mdns_record_type_t)record_type, name.str, name.length, answer, 0, 0,
+                                        additional, additional_count);
+            } else {
+                mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
+                                            additional, additional_count);
+            }
+            */
         }
-    }
+    } // else request is not for me
     return 0;
 }
 
 
-int sockets[32];
 
-int MdnsWrapper::startAnnouncing(const char* hostname, const char* service_name, int service_port)
+// Open sockets to listen to incoming mDNS queries on port 5353
+// When recieving, each socket can recieve data from all network interfaces
+// Thus we only need to open one socket for each address family
+int MdnsServiceAnnouncer::listenForQueries()
 {
-    int num_sockets = open_service_sockets(sockets);
-    if (num_sockets <= 0) {
-        printf("Failed to open any client sockets\n");
-        return -1;
+    auto callback = [this](QSocketDescriptor socket) {
+        size_t capacity = 2048;
+        void *buffer = malloc(capacity);
+        mdns_socket_listen(socket, buffer, capacity, service_callback, &myself);
+        free(buffer);
+    };
+
+    int numSockets = 0;
+
+    {
+        struct sockaddr_in sock_addr;
+        memset(&sock_addr, 0, sizeof(struct sockaddr_in));
+        sock_addr.sin_family = AF_INET;
+#ifdef _WIN32
+        sock_addr.sin_addr = in4addr_any;
+#else
+        sock_addr.sin_addr.s_addr = INADDR_ANY;
+#endif
+        sock_addr.sin_port = htons(MDNS_PORT);
+#ifdef __APPLE__
+        sock_addr.sin_len = sizeof(struct sockaddr_in);
+#endif
+        int socket = mdns_socket_open_ipv4(&sock_addr);
+        if (socket >= 0) {
+            socketNotifier = new QSocketNotifier(socket, QSocketNotifier::Read);
+            QObject::connect(socketNotifier, &QSocketNotifier::activated, callback);
+            numSockets++;
+        }
     }
-    printf("Opened %d socket%s for mDNS service\n", num_sockets, num_sockets ? "s" : "");
 
-    size_t service_name_length = strlen(service_name);
-    if (!service_name_length) {
-        printf("Invalid service name\n");
-        return -1;
+    {
+        struct sockaddr_in6 sock_addr;
+        memset(&sock_addr, 0, sizeof(struct sockaddr_in6));
+        sock_addr.sin6_family = AF_INET6;
+        sock_addr.sin6_addr = in6addr_any;
+        sock_addr.sin6_port = htons(MDNS_PORT);
+#ifdef __APPLE__
+        sock_addr.sin6_len = sizeof(struct sockaddr_in6);
+#endif
+        int socket = mdns_socket_open_ipv6(&sock_addr);
+        if (socket >= 0) {
+            socketNotifierV6 = new QSocketNotifier(socket, QSocketNotifier::Read);
+            QObject::connect(socketNotifierV6, &QSocketNotifier::activated, callback);
+            numSockets++;
+        }
     }
 
-    char* service_name_buffer = (char*)malloc(service_name_length + 2);
-    memcpy(service_name_buffer, service_name, service_name_length);
-    if (service_name_buffer[service_name_length - 1] != '.')
-        service_name_buffer[service_name_length++] = '.';
-    service_name_buffer[service_name_length] = 0;
-    service_name = service_name_buffer;
+    return numSockets;
+}
 
-    printf("Service mDNS: %s:%d\n", service_name, service_port);
-    printf("Hostname: %s\n", hostname);
+MdnsServiceAnnouncer::MdnsServiceAnnouncer(const QString &name, const QString &serviceType, int port)
+{
+    myself.serviceType = serviceType;
+    if (!myself.serviceType.endsWith(QChar::fromLatin1('.'))) {
+        // mdns.h needs all the qualified names to end with dot for some reason
+        myself.serviceType.append(QChar::fromLatin1('.'));
+    }
+    myself.port = port;
+    myself.hostname = QHostInfo::localHostName() + QStringLiteral(".local.");
+    myself.serviceInstance = name + QStringLiteral(".") + serviceType;
 
-    size_t capacity = 2048;
-    void* buffer = malloc(capacity);
-
-    mdns_string_t service_string = (mdns_string_t){service_name, strlen(service_name)};
-    mdns_string_t hostname_string = (mdns_string_t){hostname, strlen(hostname)};
-
-    // Build the service instance "<hostname>.<_service-name>._tcp.local." string
-    snprintf(service_instance_buffer, sizeof(service_instance_buffer) - 1, "%.*s.%.*s",
-             MDNS_STRING_FORMAT(hostname_string), MDNS_STRING_FORMAT(service_string));
-
-    qWarning() << service_instance_buffer;
-    // Build the "<hostname>.local." string
-
-    snprintf(qualified_hostname_buffer, sizeof(qualified_hostname_buffer) - 1, "%.*s.local.",
-             MDNS_STRING_FORMAT(hostname_string));
+    /*
+    // Maybe pre-compute?
+    mdns_string_t service;
+    mdns_string_t hostname;
+    mdns_string_t service_instance;
+    mdns_string_t hostname_qualified;
+    mdns_record_t record_ptr;
+    mdns_record_t record_srv;
+    mdns_record_t record_a;
+    mdns_record_t record_aaaa;
+    mdns_record_t txt_record[2];
 
     memset(&service, 0, sizeof(service));
     service.service.str = service_name;
@@ -706,65 +686,45 @@ int MdnsWrapper::startAnnouncing(const char* hostname, const char* service_name,
                                             .rclass = 0,
                                             .ttl = 0};
 
-    // Send an announcement on startup of service
-    {
-        printf("Sending announce\n");
-        mdns_record_t additional[5] = {0};
-        size_t additional_count = 0;
-        additional[additional_count++] = service.record_srv;
-        if (service.address_ipv4.sin_family == AF_INET)
-            additional[additional_count++] = service.record_a;
-        if (service.address_ipv6.sin6_family == AF_INET6)
-            additional[additional_count++] = service.record_aaaa;
-        additional[additional_count++] = service.txt_record[0];
-        additional[additional_count++] = service.txt_record[1];
+    */
+}
 
-        for (int isock = 0; isock < num_sockets; ++isock)
-            mdns_announce_multicast(sockets[isock], buffer, capacity, service.record_ptr, 0, 0,
-                                    additional, additional_count);
+void MdnsServiceAnnouncer::startAnnouncing()
+{
+    int num_sockets = listenForQueries();
+    if (num_sockets <= 0) {
+        qWarning() << "Failed to open any client sockets";
+        return;
     }
+    sendMulticastAnnounce(false);
+}
 
-    // This is a crude implementation that checks for incoming queries
-    while (true) {
-        int nfds = 0;
-        fd_set readfs;
-        FD_ZERO(&readfs);
-        for (int isock = 0; isock < num_sockets; ++isock) {
-            if (sockets[isock] >= nfds)
-                nfds = sockets[isock] + 1;
-            FD_SET(sockets[isock], &readfs);
-        }
-
-        struct timeval timeout;
-        timeout.tv_sec = 0;
-        timeout.tv_usec = 100000;
-
-        if (select(nfds, &readfs, 0, 0, &timeout) >= 0) {
-            for (int isock = 0; isock < num_sockets; ++isock) {
-                if (FD_ISSET(sockets[isock], &readfs)) {
-                    mdns_socket_listen(sockets[isock], buffer, capacity, service_callback,
-                                       &service);
-                }
-                FD_SET(sockets[isock], &readfs);
-            }
-        } else {
-            break;
-        }
-    }
-
-    free(buffer);
-    free(service_name_buffer);
-
-    return 0;
+void MdnsServiceAnnouncer::stopAnnouncing()
+{
+    sendMulticastAnnounce(true);
+    stopListeningForQueries();
 }
 
 
-
-
-void MdnsWrapper::stopAnnouncing()
+void MdnsServiceAnnouncer::stopListeningForQueries()
 {
-    printf("Sending goodbye\n");
-    mdns_record_t additional[5] = {};
+    if (socketNotifier != nullptr) {
+        delete socketNotifier;
+        socketNotifier = nullptr;
+    }
+    if (socketNotifierV6 != nullptr) {
+        delete socketNotifierV6;
+        socketNotifierV6 = nullptr;
+    }
+}
+
+void MdnsServiceAnnouncer::sendMulticastAnnounce(bool isGoodbye)
+{
+    size_t capacity = 2048;
+    void *buffer = malloc(capacity);
+
+    /*
+    mdns_record_t additional[5] = {0};
     size_t additional_count = 0;
     additional[additional_count++] = service.record_srv;
     if (service.address_ipv4.sin_family == AF_INET)
@@ -774,18 +734,16 @@ void MdnsWrapper::stopAnnouncing()
     additional[additional_count++] = service.txt_record[0];
     additional[additional_count++] = service.txt_record[1];
 
-    size_t capacity = 2048;
-    void *buffer = malloc(capacity);
-
-    int num_sockets = 2; // FIXME
-    for (int isock = 0; isock < num_sockets; ++isock) {
-        mdns_goodbye_multicast(sockets[isock], buffer, capacity, service.record_ptr, 0, 0, additional, additional_count);
+    if (isGoodbye) {
+        qCDebug(KDECONNECT_CORE) << "Sending goodbye";
+        if (socketNotifier) mdns_goodbye_multicast(socketNotifier->socket(), buffer, capacity, service.record_ptr, 0, 0, additional, additional_count);
+        if (socketNotifierV6) mdns_goodbye_multicast(socketNotifierV6->socket(), buffer, capacity, service.record_ptr, 0, 0, additional, additional_count);
+    } else {
+        qCDebug(KDECONNECT_CORE) << "Sending announce";
+        if (socketNotifier) mdns_announce_multicast(socketNotifier->socket(), buffer, capacity, service.record_ptr, 0, 0, additional, additional_count);
+        if (socketNotifierV6) mdns_announce_multicast(socketNotifierV6->socket(), buffer, capacity, service.record_ptr, 0, 0, additional, additional_count);
     }
-
-    for (int isock = 0; isock < num_sockets; ++isock) {
-        mdns_socket_close(sockets[isock]);
-    }
+    */
 
     free(buffer);
-    printf("Closed socket%s\n", num_sockets ? "s" : "");
 }

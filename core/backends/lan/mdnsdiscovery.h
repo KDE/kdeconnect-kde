@@ -32,6 +32,7 @@ public:
 private:
     LanLinkProvider *lanLinkProvider = nullptr;
     MdnsWrapper mdnsWrapper;
+    MdnsServiceAnnouncer mdnsAnnouncer;
 };
 
 #endif // KDECONNECT_SERVER_H
