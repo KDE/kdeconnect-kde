@@ -45,7 +45,9 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
     , m_udpListenPort(udpListenPort)
     , m_testMode(testMode)
     , m_combineBroadcastsTimer(this)
+#ifdef KDECONNET_MDNS
     , m_mdnsDiscovery(this)
+#endif
 {
     m_combineBroadcastsTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
     m_combineBroadcastsTimer.setSingleShot(true);
@@ -103,16 +105,21 @@ void LanLinkProvider::onStart()
     }
 
     broadcastUdpIdentityPacket();
+
+#ifdef KDECONNET_MDNS
     m_mdnsDiscovery.startAnnouncing();
     m_mdnsDiscovery.startDiscovering();
+#endif
 
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider started";
 }
 
 void LanLinkProvider::onStop()
 {
+#ifdef KDECONNET_MDNS
     m_mdnsDiscovery.stopAnnouncing();
     m_mdnsDiscovery.stopDiscovering();
+#endif
     m_udpSocket.close();
     m_server->close();
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider stopped";
@@ -138,8 +145,10 @@ void LanLinkProvider::broadcastToNetwork()
     Q_ASSERT(m_tcpPort != 0);
 
     broadcastUdpIdentityPacket();
+#ifdef KDECONNET_MDNS
     m_mdnsDiscovery.stopDiscovering();
     m_mdnsDiscovery.startDiscovering();
+#endif
 }
 
 void LanLinkProvider::broadcastUdpIdentityPacket()

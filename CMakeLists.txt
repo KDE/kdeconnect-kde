@@ -65,7 +65,7 @@ else()
     find_package(Qca-qt${QT_MAJOR_VERSION} ${QCA_MIN_VERSION} REQUIRED)
     set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
 
-    set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons DNSSD)
+    set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons)
     set(KF5_OPTIONAL_COMPONENTS DocTools)
 
     set_package_properties(KF5Kirigami2 PROPERTIES

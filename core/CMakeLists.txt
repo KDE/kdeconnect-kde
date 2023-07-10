@@ -18,6 +18,11 @@ configure_file(dbushelper.h.in ${CMAKE_CURRENT_BINARY_DIR}/dbushelper.h)
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
+option(MDNS_ENABLED "Use MDNS for device discovery" OFF)
+if (MDNS_ENABLED)
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DNSSD)
+endif()
+
 option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" OFF)
 if(BLUETOOTH_ENABLED)
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
@@ -63,7 +68,6 @@ PRIVATE
     Qt${QT_MAJOR_VERSION}::DBus
     KF5::I18n
     KF5::ConfigCore
-    KF5::DNSSD
 )
 
 if(${KF5KIO_FOUND})
@@ -77,6 +81,11 @@ endif()
 
 if (LOOPBACK_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_LOOPBACK)
+endif()
+
+if (MDNS_ENABLED)
+    target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_MDNS)
+    target_link_libraries(kdeconnectcore PRIVATE KF5::DNSSD)
 endif()
 
 set_target_properties(kdeconnectcore PROPERTIES
