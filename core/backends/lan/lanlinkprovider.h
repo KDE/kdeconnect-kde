@@ -17,10 +17,8 @@
 #include "backends/linkprovider.h"
 #include "kdeconnectcore_export.h"
 #include "landevicelink.h"
-#include "server.h"
-#ifdef KDECONNET_MDNS
 #include "mdnsdiscovery.h"
-#endif
+#include "server.h"
 
 class KDECONNECTCORE_EXPORT LanLinkProvider : public LinkProvider
 {
@@ -93,9 +91,7 @@ private:
     const bool m_testMode;
     QTimer m_combineBroadcastsTimer;
 
-#ifdef KDECONNET_MDNS
     MdnsDiscovery m_mdnsDiscovery;
-#endif
 };
 
 #endif
