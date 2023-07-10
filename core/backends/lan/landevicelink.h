@@ -18,7 +18,6 @@
 #include "uploadjob.h"
 #include <kdeconnectcore_export.h>
 
-class SocketLineReader;
 class LanLinkProvider;
 
 class KDECONNECTCORE_EXPORT LanDeviceLink : public DeviceLink
@@ -26,8 +25,6 @@ class KDECONNECTCORE_EXPORT LanDeviceLink : public DeviceLink
     Q_OBJECT
 
 public:
-    enum ConnectionStarted : bool { Locally, Remotely };
-
     LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket);
     void reset(QSslSocket *socket);
 
@@ -44,8 +41,7 @@ private Q_SLOTS:
     void dataReceived();
 
 private:
-    SocketLineReader *m_socketLineReader;
-    ConnectionStarted m_connectionSource;
+    QSslSocket *m_socket;
     QPointer<CompositeUploadJob> m_compositeUploadJob;
     DeviceInfo m_deviceInfo;
 };

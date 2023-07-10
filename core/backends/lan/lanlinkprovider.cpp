@@ -427,7 +427,7 @@ void LanLinkProvider::newConnection()
     }
 }
 
-// I'm the new device and this is the answer to my UDP identity packet (data received)
+// I'm the new device and this is the TCP response to my UDP identity packet
 void LanLinkProvider::dataReceived()
 {
     QSslSocket *socket = qobject_cast<QSslSocket *>(sender());
@@ -440,12 +440,10 @@ void LanLinkProvider::dataReceived()
         return;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
-    if (!socket->canReadLine())
+    if (!socket->canReadLine()) {
+        // This can happen if the packet is large enough to be split in two chunks
         return;
-#else
-    socket->startTransaction();
-#endif
+    }
 
     const QByteArray data = socket->readLine();
 
@@ -454,19 +452,10 @@ void LanLinkProvider::dataReceived()
     NetworkPacket *np = new NetworkPacket();
     bool success = NetworkPacket::unserialize(data, np);
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 7, 0)
     if (!success) {
         delete np;
         return;
     }
-#else
-    if (!success) {
-        delete np;
-        socket->rollbackTransaction();
-        return;
-    }
-    socket->commitTransaction();
-#endif
 
     if (np->type() != PACKET_TYPE_IDENTITY) {
         qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Expected identity, received " << np->type();

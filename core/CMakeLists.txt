@@ -32,7 +32,6 @@ set(kdeconnectcore_SRCS
     backends/linkprovider.cpp
     backends/devicelink.cpp
     backends/pairinghandler.cpp
-    backends/devicelinereader.cpp
 
     kdeconnectplugin.cpp
     kdeconnectpluginconfig.cpp

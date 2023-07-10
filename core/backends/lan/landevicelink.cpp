@@ -13,11 +13,10 @@
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 #include "plugins/share/shareplugin.h"
-#include "socketlinereader.h"
 
 LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *parent, QSslSocket *socket)
     : DeviceLink(deviceInfo.id, parent)
-    , m_socketLineReader(nullptr)
+    , m_socket(nullptr)
     , m_deviceInfo(deviceInfo)
 {
     reset(socket);
@@ -25,29 +24,24 @@ LanDeviceLink::LanDeviceLink(const DeviceInfo &deviceInfo, LanLinkProvider *pare
 
 void LanDeviceLink::reset(QSslSocket *socket)
 {
-    if (m_socketLineReader) {
-        disconnect(m_socketLineReader->m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
-        delete m_socketLineReader;
+    if (m_socket) {
+        disconnect(m_socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
+        delete m_socket;
     }
 
-    m_socketLineReader = new SocketLineReader(socket, this);
+    m_socket = socket;
+    socket->setParent(this);
 
     connect(socket, &QAbstractSocket::disconnected, this, &QObject::deleteLater);
-    connect(m_socketLineReader, &SocketLineReader::readyRead, this, &LanDeviceLink::dataReceived);
-
-    // We take ownership of the socket.
-    // When the link provider destroys us,
-    // the socket (and the reader) will be
-    // destroyed as well
-    socket->setParent(m_socketLineReader);
+    connect(socket, &QAbstractSocket::readyRead, this, &LanDeviceLink::dataReceived);
 }
 
 QHostAddress LanDeviceLink::hostAddress() const
 {
-    if (!m_socketLineReader) {
+    if (!m_socket) {
         return QHostAddress::Null;
     }
-    QHostAddress addr = m_socketLineReader->m_socket->peerAddress();
+    QHostAddress addr = m_socket->peerAddress();
     if (addr.protocol() == QAbstractSocket::IPv6Protocol) {
         bool success;
         QHostAddress convertedAddr = QHostAddress(addr.toIPv4Address(&success));
@@ -80,7 +74,7 @@ bool LanDeviceLink::sendPacket(NetworkPacket &np)
 
         return true;
     } else {
-        int written = m_socketLineReader->write(np.serialize());
+        int written = m_socket->write(np.serialize());
 
         // Actually we can't detect if a packet is received or not. We keep TCP
         //"ESTABLISHED" connections that look legit (return true when we use them),
@@ -91,36 +85,31 @@ bool LanDeviceLink::sendPacket(NetworkPacket &np)
 
 void LanDeviceLink::dataReceived()
 {
-    if (!m_socketLineReader->hasPacketsAvailable())
-        return;
+    while (m_socket->canReadLine()) {
+        const QByteArray serializedPacket = m_socket->readLine();
+        NetworkPacket packet;
+        NetworkPacket::unserialize(serializedPacket, &packet);
 
-    const QByteArray serializedPacket = m_socketLineReader->readLine();
-    NetworkPacket packet;
-    NetworkPacket::unserialize(serializedPacket, &packet);
+        // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
 
-    // qCDebug(KDECONNECT_CORE) << "LanDeviceLink dataReceived" << serializedPacket;
+        if (packet.hasPayloadTransferInfo()) {
+            // qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
+            const QVariantMap transferInfo = packet.payloadTransferInfo();
 
-    if (packet.hasPayloadTransferInfo()) {
-        // qCDebug(KDECONNECT_CORE) << "HasPayloadTransferInfo";
-        const QVariantMap transferInfo = packet.payloadTransferInfo();
+            QSharedPointer<QSslSocket> socket(new QSslSocket);
 
-        QSharedPointer<QSslSocket> socket(new QSslSocket);
+            LanLinkProvider::configureSslSocket(socket.data(), deviceId(), true);
 
-        LanLinkProvider::configureSslSocket(socket.data(), deviceId(), true);
+            // emit readChannelFinished when the socket gets disconnected. This seems to be a bug in upstream QSslSocket.
+            // Needs investigation and upstreaming of the fix. QTBUG-62257
+            connect(socket.data(), &QAbstractSocket::disconnected, socket.data(), &QAbstractSocket::readChannelFinished);
 
-        // emit readChannelFinished when the socket gets disconnected. This seems to be a bug in upstream QSslSocket.
-        // Needs investigation and upstreaming of the fix. QTBUG-62257
-        connect(socket.data(), &QAbstractSocket::disconnected, socket.data(), &QAbstractSocket::readChannelFinished);
+            const QString address = m_socket->peerAddress().toString();
+            const quint16 port = transferInfo[QStringLiteral("port")].toInt();
+            socket->connectToHostEncrypted(address, port, QIODevice::ReadWrite);
+            packet.setPayload(socket, packet.payloadSize());
+        }
 
-        const QString address = m_socketLineReader->peerAddress().toString();
-        const quint16 port = transferInfo[QStringLiteral("port")].toInt();
-        socket->connectToHostEncrypted(address, port, QIODevice::ReadWrite);
-        packet.setPayload(socket, packet.payloadSize());
-    }
-
-    Q_EMIT receivedPacket(packet);
-
-    if (m_socketLineReader->hasPacketsAvailable()) {
-        QMetaObject::invokeMethod(this, "dataReceived", Qt::QueuedConnection);
+        Q_EMIT receivedPacket(packet);
     }
 }

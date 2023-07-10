@@ -12,7 +12,6 @@
 #include <QSslCertificate>
 #include <QString>
 
-#include "../devicelinereader.h"
 #include "../devicelink.h"
 
 class ConnectionMultiplexer;
@@ -40,7 +39,6 @@ private Q_SLOTS:
     void dataReceived();
 
 private:
-    DeviceLineReader *mSocketReader;
     ConnectionMultiplexer *mConnection;
     QSharedPointer<MultiplexChannel> mChannel;
     DeviceInfo mDeviceInfo;
