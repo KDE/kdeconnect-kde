@@ -72,6 +72,7 @@ void LanLinkProvider::onNetworkConfigurationChanged(const QNetworkConfiguration 
     if (m_lastConfig != config && config.state() == QNetworkConfiguration::Active) {
         m_lastConfig = config;
         onNetworkChange();
+        m_mdnsDiscovery.onNetworkChange();
     }
 }
 

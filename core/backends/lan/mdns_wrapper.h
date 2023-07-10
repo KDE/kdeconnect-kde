@@ -13,13 +13,6 @@
 #include <QString>
 #include <QVector>
 
-#ifdef _WIN32
-#include <winsock2.h>
-#include <ws2ipdef.h>
-#else
-#include <netinet/in.h>
-#endif
-
 /*
  * A Qt wrapper for the mdns.h header-only library
  * from https://github.com/mjansson/mdns
@@ -39,7 +32,7 @@ public:
         QMap<QString, QString> txtRecords;
     };
 
-    // serviceType should be of the form _kdeconnect._udp.local
+    // serviceType must be of the form "_<name>._<tcp/udp>.local"
     void startDiscovering(const QString &serviceType);
     void stopDiscovering();
 
@@ -64,8 +57,8 @@ public:
         QByteArray serviceType; // ie: "<_service-type>._tcp.local."
         QByteArray serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
         QByteArray hostname; // ie: "<hostname>.local."
-        struct sockaddr_in address_ipv4;
-        struct sockaddr_in6 address_ipv6;
+        QVector<QHostAddress> addressesV4;
+        QVector<QHostAddress> addressesV6;
         uint16_t port;
         QHash<QByteArray, QByteArray> txtRecords;
     };
@@ -83,9 +76,18 @@ public:
 
     void sendMulticastAnnounce(bool isGoodbye);
 
+public Q_SLOTS:
+    // notify that network interfaces changed since the creation of this Announcer
+    void onNetworkChange()
+    {
+        detectHostAddresses();
+    }
+
 private:
     int listenForQueries();
     void stopListeningForQueries();
+
+    void detectHostAddresses();
 
     AnnouncedInfo self;
 
