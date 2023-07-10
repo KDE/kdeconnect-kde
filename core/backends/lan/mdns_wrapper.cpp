@@ -16,6 +16,9 @@
 #include <QNetworkInterface>
 #include <QSocketNotifier>
 
+namespace MdnsWrapper
+{
+
 const char *recordTypeToStr(int rtype)
 {
     switch (rtype) {
@@ -56,7 +59,7 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
 
     //qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" << entryTypeToStr(entry_type);
 
-    MdnsWrapper::MdnsService *discoveredService = (MdnsWrapper::MdnsService *)user_data;
+    Discoverer::MdnsService *discoveredService = (Discoverer::MdnsService *)user_data;
 
     switch (record_type) {
     case MDNS_RECORDTYPE_PTR: {
@@ -104,7 +107,7 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
     return 0;
 }
 
-void MdnsWrapper::startDiscovering(const QString &serviceType)
+void Discoverer::startDiscovering(const QString &serviceType)
 {
     int num_sockets = listenForQueryResponses();
     if (num_sockets <= 0) {
@@ -114,12 +117,12 @@ void MdnsWrapper::startDiscovering(const QString &serviceType)
     sendQuery(serviceType);
 }
 
-void MdnsWrapper::stopDiscovering()
+void Discoverer::stopDiscovering()
 {
     stopListeningForQueryResponses();
 }
 
-void MdnsWrapper::stopListeningForQueryResponses()
+void Discoverer::stopListeningForQueryResponses()
 {
     qCDebug(KDECONNECT_CORE) << "Closing" << responseSocketNotifiers.size() << "sockets";
     for (QSocketNotifier *socketNotifier : responseSocketNotifiers) {
@@ -129,7 +132,7 @@ void MdnsWrapper::stopListeningForQueryResponses()
     responseSocketNotifiers.clear();
 }
 
-int MdnsWrapper::listenForQueryResponses()
+int Discoverer::listenForQueryResponses()
 {
     // Open a socket for each interface
     QVector<int> sockets;
@@ -176,7 +179,7 @@ int MdnsWrapper::listenForQueryResponses()
     return sockets.size();
 }
 
-void MdnsWrapper::sendQuery(const QString &serviceType)
+void Discoverer::sendQuery(const QString &serviceType)
 {
     qCDebug(KDECONNECT_CORE) << "Sending MDNS query for service" << serviceType;
 
@@ -204,7 +207,7 @@ static mdns_string_t createMdnsString(const QByteArray &str)
     return mdns_string_t{str.constData(), (size_t)str.length()};
 }
 
-static mdns_record_t createMdnsRecord(const MdnsServiceAnnouncer::AnnouncedInfo &self,
+static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
                                       mdns_record_type_t record_type,
                                       QHash<QByteArray, QByteArray>::const_iterator txtIterator = {})
 {
@@ -252,9 +255,9 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
     Q_UNUSED(name_length);
     Q_UNUSED(record_offset);
     Q_UNUSED(record_length);
-    static char sendbuffer[2048];
+    static char sendbuffer[2024];
 
-    const MdnsServiceAnnouncer::AnnouncedInfo &self = *((MdnsServiceAnnouncer::AnnouncedInfo *)user_data);
+    const Announcer::AnnouncedInfo &self = *((Announcer::AnnouncedInfo *)user_data);
 
     if (entry_type != MDNS_ENTRYTYPE_QUESTION) {
         return 0;
@@ -419,7 +422,7 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 // Open sockets to listen to incoming mDNS queries on port 5353
 // When recieving, each socket can recieve data from all network interfaces
 // Thus we only need to open one socket for each address family
-int MdnsServiceAnnouncer::listenForQueries()
+int Announcer::listenForQueries()
 {
     auto callback = [this](QSocketDescriptor socket) {
         static char buffer[2048];
@@ -469,7 +472,7 @@ int MdnsServiceAnnouncer::listenForQueries()
     return numSockets;
 }
 
-MdnsServiceAnnouncer::MdnsServiceAnnouncer(const QString &serviceName, const QString &serviceType, uint16_t port)
+Announcer::Announcer(const QString &serviceName, const QString &serviceType, uint16_t port)
 {
     self.serviceType = serviceType.toLatin1();
     if (!self.serviceType.endsWith('.')) {
@@ -483,7 +486,7 @@ MdnsServiceAnnouncer::MdnsServiceAnnouncer(const QString &serviceName, const QSt
     memset(&self.address_ipv6, 0, sizeof(struct sockaddr_in6));
 }
 
-void MdnsServiceAnnouncer::startAnnouncing()
+void Announcer::startAnnouncing()
 {
     int num_sockets = listenForQueries();
     if (num_sockets <= 0) {
@@ -493,14 +496,13 @@ void MdnsServiceAnnouncer::startAnnouncing()
     sendMulticastAnnounce(false);
 }
 
-void MdnsServiceAnnouncer::stopAnnouncing()
+void Announcer::stopAnnouncing()
 {
     sendMulticastAnnounce(true);
     stopListeningForQueries();
 }
 
-
-void MdnsServiceAnnouncer::stopListeningForQueries()
+void Announcer::stopListeningForQueries()
 {
     if (socketNotifier != nullptr) {
         delete socketNotifier;
@@ -512,7 +514,7 @@ void MdnsServiceAnnouncer::stopListeningForQueries()
     }
 }
 
-void MdnsServiceAnnouncer::sendMulticastAnnounce(bool isGoodbye)
+void Announcer::sendMulticastAnnounce(bool isGoodbye)
 {
     mdns_record_t ptr_record = createMdnsRecord(self, MDNS_RECORDTYPE_PTR);
 
@@ -541,3 +543,5 @@ void MdnsServiceAnnouncer::sendMulticastAnnounce(bool isGoodbye)
     }
 
 }
+
+} // namespace MdnsWrapper

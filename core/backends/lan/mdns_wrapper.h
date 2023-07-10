@@ -23,7 +23,10 @@
  * A Qt wrapper for the mdns.h header-only library
  * from https://github.com/mjansson/mdns
  */
-class MdnsWrapper : public QObject
+namespace MdnsWrapper
+{
+
+class Discoverer : public QObject
 {
     Q_OBJECT
 
@@ -51,7 +54,7 @@ private:
     QVector<QSocketNotifier *> responseSocketNotifiers;
 };
 
-class MdnsServiceAnnouncer : public QObject
+class Announcer : public QObject
 {
     Q_OBJECT
 
@@ -60,14 +63,14 @@ public:
         QByteArray serviceType; // ie: "<_service-type>._tcp.local."
         QByteArray serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
         QByteArray hostname; // ie: "<hostname>.local."
-        uint16_t port;
-        QHash<QByteArray, QByteArray> txtRecords;
         sockaddr_in address_ipv4;
         sockaddr_in6 address_ipv6;
+        uint16_t port;
+        QHash<QByteArray, QByteArray> txtRecords;
     };
 
     // serviceType should be of the form _kdeconnect._udp.local
-    MdnsServiceAnnouncer(const QString &serviceName, const QString &serviceType, uint16_t port);
+    Announcer(const QString &serviceName, const QString &serviceType, uint16_t port);
 
     void putTxtRecord(const QString &key, const QString &value)
     {
@@ -88,5 +91,7 @@ private:
     QSocketNotifier *socketNotifier = nullptr;
     QSocketNotifier *socketNotifierV6 = nullptr;
 };
+
+} // namespace MdnsWrapper
 
 #endif

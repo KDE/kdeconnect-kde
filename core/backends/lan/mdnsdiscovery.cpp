@@ -24,7 +24,7 @@ MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
     mdnsAnnouncer.putTxtRecord(QStringLiteral("type"), config.deviceType().toString());
     mdnsAnnouncer.putTxtRecord(QStringLiteral("protocol"), QString::number(NetworkPacket::s_protocolVersion));
 
-    connect(&mdnsWrapper, &MdnsWrapper::serviceFound, [lanLinkProvider](const MdnsWrapper::MdnsService &service) {
+    connect(&mdnsDiscoverer, &MdnsWrapper::Discoverer::serviceFound, [lanLinkProvider](const MdnsWrapper::Discoverer::MdnsService &service) {
         if (KdeConnectConfig::instance().deviceId() == service.name) {
             qCDebug(KDECONNECT_CORE) << "Discovered myself, ignoring";
             return;
@@ -52,10 +52,10 @@ void MdnsDiscovery::stopAnnouncing()
 
 void MdnsDiscovery::startDiscovering()
 {
-    mdnsWrapper.startDiscovering(kServiceType);
+    mdnsDiscoverer.startDiscovering(kServiceType);
 }
 
 void MdnsDiscovery::stopDiscovering()
 {
-    mdnsWrapper.stopDiscovering();
+    mdnsDiscoverer.stopDiscovering();
 }
