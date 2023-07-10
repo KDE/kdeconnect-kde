@@ -15,6 +15,7 @@
 
 #ifdef _WIN32
 #include <winsock2.h>
+#include <ws2ipdef.h>
 #else
 #include <netinet/in.h>
 #endif
@@ -63,13 +64,13 @@ public:
         QByteArray serviceType; // ie: "<_service-type>._tcp.local."
         QByteArray serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
         QByteArray hostname; // ie: "<hostname>.local."
-        sockaddr_in address_ipv4;
-        sockaddr_in6 address_ipv6;
+        struct sockaddr_in address_ipv4;
+        struct sockaddr_in6 address_ipv6;
         uint16_t port;
         QHash<QByteArray, QByteArray> txtRecords;
     };
 
-    // serviceType should be of the form _kdeconnect._udp.local
+    // serviceType must be of the form "_<name>._<tcp/udp>.local"
     Announcer(const QString &serviceName, const QString &serviceType, uint16_t port);
 
     void putTxtRecord(const QString &key, const QString &value)
