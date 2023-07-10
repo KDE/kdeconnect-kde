@@ -13,6 +13,12 @@
 #include <QString>
 #include <QVector>
 
+#ifdef _WIN32
+#include <winsock2.h>
+#else
+#include <netinet/in.h>
+#endif
+
 /*
  * A Qt wrapper for the mdns.h header-only library
  * from https://github.com/mjansson/mdns
@@ -24,7 +30,7 @@ class MdnsWrapper : public QObject
 public:
     struct MdnsService {
         QString name;
-        int port;
+        uint16_t port;
         QHostAddress address;
         QMap<QString, QString> txtRecords;
     };
@@ -51,19 +57,21 @@ class MdnsServiceAnnouncer : public QObject
 
 public:
     struct AnnouncedInfo {
-        QString serviceType; // ie: "<_service-type>._tcp.local."
-        QString serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
-        QString hostname; // ie: "<hostname>.local."
-        int port;
-        QMap<QString, QString> txtRecords;
+        QByteArray serviceType; // ie: "<_service-type>._tcp.local."
+        QByteArray serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
+        QByteArray hostname; // ie: "<hostname>.local."
+        uint16_t port;
+        QHash<QByteArray, QByteArray> txtRecords;
+        sockaddr_in address_ipv4;
+        sockaddr_in6 address_ipv6;
     };
 
     // serviceType should be of the form _kdeconnect._udp.local
-    MdnsServiceAnnouncer(const QString &name, const QString &serviceType, int port);
+    MdnsServiceAnnouncer(const QString &serviceName, const QString &serviceType, uint16_t port);
 
     void putTxtRecord(const QString &key, const QString &value)
     {
-        myself.txtRecords[key] = value;
+        self.txtRecords[key.toLatin1()] = value.toLatin1();
     }
 
     void startAnnouncing();
@@ -75,7 +83,7 @@ private:
     int listenForQueries();
     void stopListeningForQueries();
 
-    AnnouncedInfo myself;
+    AnnouncedInfo self;
 
     QSocketNotifier *socketNotifier = nullptr;
     QSocketNotifier *socketNotifierV6 = nullptr;
