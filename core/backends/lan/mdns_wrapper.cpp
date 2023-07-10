@@ -43,6 +43,29 @@ const char *entryTypeToStr(int entry)
     }
 }
 
+static sockaddr_in qHostAddresstoSockaddr(QHostAddress hostAddress)
+{
+    Q_ASSERT(hostAddress.protocol() == QAbstractSocket::IPv4Protocol);
+    sockaddr_in socketAddress;
+    memset(&socketAddress, 0, sizeof(socketAddress));
+    socketAddress.sin_family = AF_INET;
+    socketAddress.sin_addr.s_addr = htonl(hostAddress.toIPv4Address());
+    return socketAddress;
+}
+
+static sockaddr_in6 qHostAddresstoSockaddr6(QHostAddress hostAddress)
+{
+    Q_ASSERT(hostAddress.protocol() == QAbstractSocket::IPv6Protocol);
+    sockaddr_in6 socketAddress;
+    memset(&socketAddress, 0, sizeof(socketAddress));
+    socketAddress.sin6_family = AF_INET6;
+    Q_IPV6ADDR ipv6Address = hostAddress.toIPv6Address();
+    for (int i = 0; i < 16; ++i) {
+        socketAddress.sin6_addr.s6_addr[i] = ipv6Address[i];
+    }
+    return socketAddress;
+}
+
 // Callback that handles responses to a query
 static int query_callback(int sock, const struct sockaddr* from, size_t addrlen, mdns_entry_type_t entry_type,
                uint16_t query_id, uint16_t record_type, uint16_t rclass, uint32_t ttl, const void* data,
@@ -145,15 +168,15 @@ int Discoverer::listenForQueryResponses()
             QHostAddress sourceAddress = ifaceAddress.ip();
             if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
                 qCDebug(KDECONNECT_CORE) << "Opening socket for address" << sourceAddress;
-                struct sockaddr_in saddr;
-                memset(&saddr, 0, sizeof(saddr));
-                saddr.sin_family = AF_INET;
-                saddr.sin_port = 0;
-                saddr.sin_addr.s_addr = htonl(sourceAddress.toIPv4Address());
+                struct sockaddr_in saddr = qHostAddresstoSockaddr(sourceAddress);
                 int socket = mdns_socket_open_ipv4(&saddr);
                 sockets.append(socket);
+            } else if (sourceAddress.protocol() == QAbstractSocket::IPv6Protocol && sourceAddress != QHostAddress::LocalHostIPv6) {
+                qCDebug(KDECONNECT_CORE) << "Opening socket for address6" << sourceAddress;
+                struct sockaddr_in6 saddr = qHostAddresstoSockaddr6(sourceAddress);
+                int socket = mdns_socket_open_ipv6(&saddr);
+                sockets.append(socket);
             }
-            // Ignore IPv6 interfaces for now
         }
     }
 
@@ -215,29 +238,6 @@ static QHostAddress findBestAddressMatch(QVector<QHostAddress> hostAddresses, co
     }
     // FIXME
     return hostAddresses[0];
-}
-
-static sockaddr_in qHostAddresstoSockaddr(QHostAddress hostAddress)
-{
-    Q_ASSERT(hostAddress.protocol() == QAbstractSocket::IPv4Protocol);
-    sockaddr_in socketAddress;
-    memset(&socketAddress, 0, sizeof(socketAddress));
-    socketAddress.sin_family = AF_INET;
-    socketAddress.sin_addr.s_addr = htonl(hostAddress.toIPv4Address());
-    return socketAddress;
-}
-
-static sockaddr_in6 qHostAddresstoSockaddr6(QHostAddress hostAddress)
-{
-    Q_ASSERT(hostAddress.protocol() == QAbstractSocket::IPv6Protocol);
-    sockaddr_in6 socketAddress;
-    memset(&socketAddress, 0, sizeof(socketAddress));
-    socketAddress.sin6_family = AF_INET6;
-    Q_IPV6ADDR ipv6Address = hostAddress.toIPv6Address();
-    for (int i = 0; i < 16; ++i) {
-        socketAddress.sin6_addr.s6_addr[i] = ipv6Address[i];
-    }
-    return socketAddress;
 }
 
 static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
