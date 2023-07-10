@@ -29,6 +29,12 @@ public:
     void stopAnnouncing();
     void startAnnouncing();
 
+public Q_SLOTS:
+    void onNetworkChange()
+    {
+        mdnsAnnouncer.onNetworkChange();
+    }
+
 private:
     LanLinkProvider *lanLinkProvider = nullptr;
     MdnsWrapper::Discoverer mdnsDiscoverer;

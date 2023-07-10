@@ -165,6 +165,7 @@ int Discoverer::listenForQueryResponses()
 
             static char buffer[2048];
             size_t num_records = mdns_query_recv(socket, buffer, sizeof(buffer), query_callback, (void *)&discoveredService, 0);
+            Q_UNUSED(num_records);
 
             // qCDebug(KDECONNECT_CORE) << "Discovered service" << discoveredService.name << "at" << discoveredService.address << "in" <<  num_records <<
             // "records via socket" << socket;
@@ -207,8 +208,41 @@ static mdns_string_t createMdnsString(const QByteArray &str)
     return mdns_string_t{str.constData(), (size_t)str.length()};
 }
 
+static QHostAddress findBestAddressMatch(QVector<QHostAddress> hostAddresses, const struct sockaddr *fromAddress)
+{
+    if (hostAddresses.size() == 1 || fromAddress == nullptr) {
+        return hostAddresses[0];
+    }
+    // FIXME
+    return hostAddresses[0];
+}
+
+static sockaddr_in qHostAddresstoSockaddr(QHostAddress hostAddress)
+{
+    Q_ASSERT(hostAddress.protocol() == QAbstractSocket::IPv4Protocol);
+    sockaddr_in socketAddress;
+    memset(&socketAddress, 0, sizeof(socketAddress));
+    socketAddress.sin_family = AF_INET;
+    socketAddress.sin_addr.s_addr = htonl(hostAddress.toIPv4Address());
+    return socketAddress;
+}
+
+static sockaddr_in6 qHostAddresstoSockaddr6(QHostAddress hostAddress)
+{
+    Q_ASSERT(hostAddress.protocol() == QAbstractSocket::IPv6Protocol);
+    sockaddr_in6 socketAddress;
+    memset(&socketAddress, 0, sizeof(socketAddress));
+    socketAddress.sin6_family = AF_INET6;
+    Q_IPV6ADDR ipv6Address = hostAddress.toIPv6Address();
+    for (int i = 0; i < 16; ++i) {
+        socketAddress.sin6_addr.s6_addr[i] = ipv6Address[i];
+    }
+    return socketAddress;
+}
+
 static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
                                       mdns_record_type_t record_type,
+                                      const struct sockaddr *fromAddress = nullptr, // used to determine IP to set in A and AAAA records
                                       QHash<QByteArray, QByteArray>::const_iterator txtIterator = {})
 {
     mdns_record_t answer;
@@ -228,11 +262,11 @@ static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
         break;
     case MDNS_RECORDTYPE_A: // maps "<hostname>.local." to IPv4
         answer.name = createMdnsString(self.hostname);
-        answer.data.a.addr = self.address_ipv4;
+        answer.data.a.addr = qHostAddresstoSockaddr(findBestAddressMatch(self.addressesV4, fromAddress));
         break;
     case MDNS_RECORDTYPE_AAAA: // maps "<hostname>.local." to IPv6
         answer.name = createMdnsString(self.hostname);
-        answer.data.aaaa.addr = self.address_ipv6;
+        answer.data.aaaa.addr = qHostAddresstoSockaddr6(findBestAddressMatch(self.addressesV6, fromAddress));
         break;
     case MDNS_RECORDTYPE_TXT:
         answer.name = createMdnsString(self.serviceInstance);
@@ -241,7 +275,7 @@ static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
         answer.data.txt.value = createMdnsString(txtIterator.value());
         break;
     default:
-        assert(false);
+        Q_ASSERT(false);
     }
     return answer;
 }
@@ -298,15 +332,15 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             QVector<mdns_record_t> additional;
             additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_SRV));
-            if (self.address_ipv4.sin_family == AF_INET) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A));
+            if (!self.addressesV4.empty()) {
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A, from));
             }
-            if (self.address_ipv4.sin_family == AF_INET6) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA));
+            if (!self.addressesV6.empty()) {
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA, from));
             }
 
             for (auto txtIterator = self.txtRecords.cbegin(); txtIterator != self.txtRecords.cend(); txtIterator++) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, txtIterator));
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, nullptr, txtIterator));
             }
 
             // Send the answer, unicast or multicast depending on flag in query
@@ -332,15 +366,15 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
             mdns_record_t answer = createMdnsRecord(self, MDNS_RECORDTYPE_SRV);
 
             QVector<mdns_record_t> additional;
-            if (self.address_ipv4.sin_family == AF_INET) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A));
+            if (!self.addressesV4.empty()) {
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A, from));
             }
-            if (self.address_ipv4.sin_family == AF_INET6) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA));
+            if (!self.addressesV6.empty()) {
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA, from));
             }
 
             for (auto txtIterator = self.txtRecords.cbegin(); txtIterator != self.txtRecords.cend(); txtIterator++) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, txtIterator));
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, nullptr, txtIterator));
             }
 
             // Send the answer, unicast or multicast depending on flag in query
@@ -358,19 +392,19 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
         }
     } else if (name == self.hostname) {
         qWarning() << "Someone queried my host for" << recordTypeToStr(record_type);
-        if (((record_type == MDNS_RECORDTYPE_A) || (record_type == MDNS_RECORDTYPE_ANY)) && self.address_ipv4.sin_family == AF_INET) {
+        if (((record_type == MDNS_RECORDTYPE_A) || (record_type == MDNS_RECORDTYPE_ANY)) && !self.addressesV4.empty()) {
             // The A query was for our qualified hostname and we have an IPv4 address, answer with an A
             // record mapping the hostname to an IPv4 address, as well as an AAAA record and TXT records
 
-            mdns_record_t answer = createMdnsRecord(self, MDNS_RECORDTYPE_A);
+            mdns_record_t answer = createMdnsRecord(self, MDNS_RECORDTYPE_A, from);
 
             QVector<mdns_record_t> additional;
-            if (self.address_ipv4.sin_family == AF_INET6) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA));
+            if (!self.addressesV6.empty()) {
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA, from));
             }
 
             for (auto txtIterator = self.txtRecords.cbegin(); txtIterator != self.txtRecords.cend(); txtIterator++) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, txtIterator));
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, nullptr, txtIterator));
             }
 
             // Send the answer, unicast or multicast depending on flag in query
@@ -385,19 +419,19 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
                 mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, 0, 0,
                                             additional.constData(), additional.length());
             }
-        } else if (((record_type == MDNS_RECORDTYPE_AAAA) || (record_type == MDNS_RECORDTYPE_ANY)) && self.address_ipv6.sin6_family == AF_INET6) {
+        } else if (((record_type == MDNS_RECORDTYPE_AAAA) || (record_type == MDNS_RECORDTYPE_ANY)) && !self.addressesV6.empty()) {
             // The AAAA query was for our qualified hostname and we have an IPv6 address, answer with an AAAA
             // record mapping the hostname to an IPv4 address, as well as an A record and TXT records
 
-            mdns_record_t answer = createMdnsRecord(self, MDNS_RECORDTYPE_AAAA);
+            mdns_record_t answer = createMdnsRecord(self, MDNS_RECORDTYPE_AAAA, from);
 
             QVector<mdns_record_t> additional;
-            if (self.address_ipv4.sin_family == AF_INET) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A));
+            if (!self.addressesV4.empty()) {
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A, from));
             }
 
             for (auto txtIterator = self.txtRecords.cbegin(); txtIterator != self.txtRecords.cend(); txtIterator++) {
-                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, txtIterator));
+                additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, nullptr, txtIterator));
             }
 
             // Send the answer, unicast or multicast depending on flag in query
@@ -479,11 +513,33 @@ Announcer::Announcer(const QString &serviceName, const QString &serviceType, uin
         // mdns.h needs all the qualified names to end with dot for some reason
         self.serviceType.append('.');
     }
-    self.port = port;
-    self.hostname = QHostInfo::localHostName().toLatin1() + QByteArray(".local.");
     self.serviceInstance = serviceName.toLatin1() + '.' + self.serviceType;
-    memset(&self.address_ipv4, 0, sizeof(struct sockaddr_in));
-    memset(&self.address_ipv6, 0, sizeof(struct sockaddr_in6));
+    self.hostname = QHostInfo::localHostName().toLatin1() + ".local.";
+    self.port = port;
+    detectHostAddresses();
+}
+
+void Announcer::detectHostAddresses()
+{
+    qWarning() << "detectHostAddresses";
+    self.addressesV4.clear();
+    self.addressesV6.clear();
+    for (const QNetworkInterface &iface : QNetworkInterface::allInterfaces()) {
+        int flags = iface.flags();
+        if (!(flags & QNetworkInterface::IsUp) || !(flags & QNetworkInterface::CanMulticast) || (flags & QNetworkInterface::IsLoopBack)) {
+            continue;
+        }
+        for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
+            QHostAddress sourceAddress = ifaceAddress.ip();
+            if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
+                qWarning() << "Found ipv4" << sourceAddress;
+                self.addressesV4.append(sourceAddress);
+            } else if (sourceAddress.protocol() == QAbstractSocket::IPv6Protocol && sourceAddress != QHostAddress::LocalHostIPv6) {
+                qWarning() << "Found ipv6" << sourceAddress;
+                self.addressesV6.append(sourceAddress);
+            }
+        }
+    }
 }
 
 void Announcer::startAnnouncing()
@@ -520,15 +576,15 @@ void Announcer::sendMulticastAnnounce(bool isGoodbye)
 
     QVector<mdns_record_t> additional;
     additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_SRV));
-    if (self.address_ipv4.sin_family == AF_INET) {
+    if (!self.addressesV4.empty()) {
         additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_A));
     }
-    if (self.address_ipv4.sin_family == AF_INET6) {
+    if (!self.addressesV6.empty()) {
         additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_AAAA));
     }
 
     for (auto txtIterator = self.txtRecords.cbegin(); txtIterator != self.txtRecords.cend(); txtIterator++) {
-        additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, txtIterator));
+        additional.append(createMdnsRecord(self, MDNS_RECORDTYPE_TXT, nullptr, txtIterator));
     }
 
     static char buffer[2048];
