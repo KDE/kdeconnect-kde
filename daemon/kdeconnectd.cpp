@@ -171,6 +171,11 @@ int main(int argc, char *argv[])
 
     DesktopDaemon daemon;
 
+#ifdef Q_OS_WIN
+    // make sure indicator shows up in the tray whenever daemon is spawned
+    QProcess::startDetached(QStringLiteral("kdeconnect-indicator.exe"));
+#endif
+
     // kdeconnectd is autostarted, so disable session management to speed up startup
     auto disableSessionManagement = [](QSessionManager &sm) {
         sm.setRestartHint(QSessionManager::RestartNever);
