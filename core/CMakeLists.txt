@@ -42,6 +42,7 @@ target_sources(kdeconnectcore PRIVATE
     compositefiletransferjob.cpp
     daemon.cpp
     device.cpp
+    sslhelper.cpp
     core_debug.cpp
     notificationserverinfo.cpp
     openconfig.cpp
@@ -55,13 +56,16 @@ ecm_qt_declare_logging_category(kdeconnectcore
 
 target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 
+find_package(OpenSSL REQUIRED)
+
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt::Network
     KF${QT_MAJOR_VERSION}::CoreAddons
-    ${Qca_LIBRARY}
     KF${QT_MAJOR_VERSION}::KIOCore
     KF${QT_MAJOR_VERSION}::KIOGui
+    OpenSSL::Crypto
+    OpenSSL::SSL
 PRIVATE
     Qt::DBus
     KF${QT_MAJOR_VERSION}::I18n

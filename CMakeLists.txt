@@ -10,7 +10,6 @@ project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
 set(KF_MIN_VERSION "5.101.0")
 set(QT_MIN_VERSION "5.15.2")
-set(QCA_MIN_VERSION "2.1.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -57,9 +56,6 @@ ecm_set_disabled_deprecation_versions(
 # Make the version header available by linking against kdeconnectversion
 add_library(kdeconnectversion INTERFACE)
 target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
-
-find_package(Qca-qt${QT_MAJOR_VERSION} ${QCA_MIN_VERSION} REQUIRED)
-set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
 
 set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons DocTools)
 

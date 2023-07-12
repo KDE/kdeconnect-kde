@@ -68,9 +68,10 @@ public:
 private:
     KdeConnectConfig();
 
-    void loadPrivateKey();
+    void loadOrGeneratePrivateKeyAndCertificate(const QString &keyPath, const QString &certPath);
+    bool loadPrivateKey(const QString &path);
+    bool loadCertificate(const QString &path);
     void generatePrivateKey(const QString &path);
-    void loadCertificate();
     void generateCertificate(const QString &path);
 
     struct KdeConnectConfigPrivate *d;
