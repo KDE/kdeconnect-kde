@@ -7,26 +7,14 @@
 #ifndef SSLHELPER_H
 #define SSLHELPER_H
 
-#include <openssl/evp.h>
-#include <openssl/x509.h>
-
-#include <QByteArray>
+#include <QSslCertificate>
+#include <QSslKey>
 #include <QString>
 
 namespace SslHelper
 {
-
-// Delete with X509_free(certificate);
-X509 *generateSelfSignedCertificate(EVP_PKEY *privateKey, const QString &commonName);
-
-// Delete with EVP_PKEY_free(privateKey);
-EVP_PKEY *generateRsaPrivateKey();
-
-QByteArray certificateToPEM(X509 *certificate);
-
-QByteArray privateKeyToPEM(EVP_PKEY *privateKey);
-EVP_PKEY *pemToRsaPrivateKey(const QByteArray &privateKeyPem);
-
+QSslKey generateRsaPrivateKey();
+QSslCertificate generateSelfSignedCertificate(const QSslKey &privateKey, const QString &commonName);
 }
 
 #endif

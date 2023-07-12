@@ -30,7 +30,7 @@
 const QFile::Permissions strictPermissions = QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser;
 
 struct KdeConnectConfigPrivate {
-    EVP_PKEY *m_privateKey;
+    QSslKey m_privateKey;
     QSslCertificate m_certificate;
 
     QSettings *m_config;
@@ -250,23 +250,21 @@ bool KdeConnectConfig::loadPrivateKey(const QString &keyPath)
 {
     QFile privKey(keyPath);
     if (privKey.exists() && privKey.open(QIODevice::ReadOnly)) {
-        d->m_privateKey = SslHelper::pemToRsaPrivateKey(privKey.readAll());
-        if (d->m_privateKey == nullptr) {
+        d->m_privateKey = QSslKey(privKey.readAll(), QSsl::KeyAlgorithm::Rsa);
+        if (d->m_privateKey.isNull()) {
             qCWarning(KDECONNECT_CORE) << "Private key from" << keyPath << "is not valid!";
         }
     }
-    return (d->m_privateKey == nullptr);
+    return d->m_privateKey.isNull();
 }
 
 bool KdeConnectConfig::loadCertificate(const QString &certPath)
 {
     QFile cert(certPath);
     if (cert.exists() && cert.open(QIODevice::ReadOnly)) {
-        auto loadedCerts = QSslCertificate::fromData(cert.readAll());
-        if (loadedCerts.empty()) {
+        d->m_certificate = QSslCertificate(cert.readAll());
+        if (d->m_certificate.isNull()) {
             qCWarning(KDECONNECT_CORE) << "Certificate from" << certPath << "is not valid";
-        } else {
-            d->m_certificate = loadedCerts.at(0);
         }
     }
     return d->m_certificate.isNull();
@@ -298,7 +296,6 @@ void KdeConnectConfig::generatePrivateKey(const QString &keyPath)
     qCDebug(KDECONNECT_CORE) << "Generating private key";
 
     d->m_privateKey = SslHelper::generateRsaPrivateKey();
-    QByteArray keyPem = SslHelper::privateKeyToPEM(d->m_privateKey);
 
     QFile privKey(keyPath);
     bool error = false;
@@ -306,7 +303,7 @@ void KdeConnectConfig::generatePrivateKey(const QString &keyPath)
         error = true;
     } else {
         privKey.setPermissions(strictPermissions);
-        int written = privKey.write(keyPem);
+        int written = privKey.write(d->m_privateKey.toPem());
         if (written <= 0) {
             error = true;
         }
@@ -325,10 +322,7 @@ void KdeConnectConfig::generateCertificate(const QString &certPath)
     DBusHelper::filterNonExportableCharacters(uuid);
     qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
 
-    X509 *certificate = SslHelper::generateSelfSignedCertificate(d->m_privateKey, uuid);
-    QByteArray pemCertificate = SslHelper::certificateToPEM(certificate);
-    X509_free(certificate);
-    d->m_certificate = QSslCertificate(pemCertificate);
+    d->m_certificate = SslHelper::generateSelfSignedCertificate(d->m_privateKey, uuid);
 
     QFile cert(certPath);
     bool error = false;
@@ -336,7 +330,7 @@ void KdeConnectConfig::generateCertificate(const QString &certPath)
         error = true;
     } else {
         cert.setPermissions(strictPermissions);
-        int written = cert.write(pemCertificate);
+        int written = cert.write(d->m_certificate.toPem());
         if (written <= 0) {
             error = true;
         }
