@@ -65,6 +65,10 @@ PRIVATE
     KF5::ConfigCore
 )
 
+if(WIN32)
+    target_link_libraries(kdeconnectcore PRIVATE ws2_32.lib) # winsock2
+endif()
+
 if(${KF5KIO_FOUND})
     target_link_libraries(kdeconnectcore PUBLIC KF5::KIOCore KF5::KIOGui)
 endif()
