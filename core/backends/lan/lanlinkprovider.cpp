@@ -46,7 +46,7 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
     , m_udpListenPort(udpListenPort)
     , m_testMode(testMode)
     , m_combineBroadcastsTimer(this)
-#ifdef KDECONNET_MDNS
+#ifdef KDECONNECT_MDNS
     , m_mdnsDiscovery(this)
 #endif
 {
@@ -107,7 +107,7 @@ void LanLinkProvider::onStart()
 
     broadcastUdpIdentityPacket();
 
-#ifdef KDECONNET_MDNS
+#ifdef KDECONNECT_MDNS
     m_mdnsDiscovery.startAnnouncing();
     m_mdnsDiscovery.startDiscovering();
 #endif
@@ -117,7 +117,7 @@ void LanLinkProvider::onStart()
 
 void LanLinkProvider::onStop()
 {
-#ifdef KDECONNET_MDNS
+#ifdef KDECONNECT_MDNS
     m_mdnsDiscovery.stopAnnouncing();
     m_mdnsDiscovery.stopDiscovering();
 #endif
@@ -146,7 +146,7 @@ void LanLinkProvider::broadcastToNetwork()
     Q_ASSERT(m_tcpPort != 0);
 
     broadcastUdpIdentityPacket();
-#ifdef KDECONNET_MDNS
+#ifdef KDECONNECT_MDNS
     m_mdnsDiscovery.stopDiscovering();
     m_mdnsDiscovery.startDiscovering();
 #endif

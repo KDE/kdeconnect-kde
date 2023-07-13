@@ -21,13 +21,13 @@ MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
 {
     switch (KDNSSD::ServiceBrowser::isAvailable()) {
     case KDNSSD::ServiceBrowser::Stopped:
-        qWarning() << "mDNS or Avahi daemons are not running, mDNS discovery not available";
+        qCWarning(KDECONNECT_CORE) << "mDNS or Avahi daemons are not running, mDNS discovery not available";
         break;
     case KDNSSD::ServiceBrowser::Working:
         qCDebug(KDECONNECT_CORE) << "mDNS discovery is available";
         break;
     case KDNSSD::ServiceBrowser::Unsupported:
-        qWarning() << "mDNS discovery not available (library built without DNS-SD support)";
+        qCWarning(KDECONNECT_CORE) << "mDNS discovery not available (library built without DNS-SD support)";
         break;
     }
 }
@@ -63,7 +63,7 @@ void MdnsDiscovery::startAnnouncing()
         if (successful) {
             qCDebug(KDECONNECT_CORE) << "MDNS published successfully";
         } else {
-            qWarning() << "MDNS failed to publish";
+            qCWarning(KDECONNECT_CORE) << "MDNS failed to publish";
         }
     });
 

@@ -18,7 +18,7 @@ configure_file(dbushelper.h.in ${CMAKE_CURRENT_BINARY_DIR}/dbushelper.h)
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
-option(MDNS_ENABLED "Use MDNS for device discovery" OFF)
+option(MDNS_ENABLED "Use MDNS for device discovery (under development)" OFF)
 if (MDNS_ENABLED)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DNSSD)
 endif()

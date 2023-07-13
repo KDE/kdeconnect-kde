@@ -18,7 +18,7 @@
 #include "kdeconnectcore_export.h"
 #include "landevicelink.h"
 #include "server.h"
-#ifdef KDECONNET_MDNS
+#ifdef KDECONNECT_MDNS
 #include "mdnsdiscovery.h"
 #endif
 
@@ -93,7 +93,7 @@ private:
     const bool m_testMode;
     QTimer m_combineBroadcastsTimer;
 
-#ifdef KDECONNET_MDNS
+#ifdef KDECONNECT_MDNS
     MdnsDiscovery m_mdnsDiscovery;
 #endif
 };
