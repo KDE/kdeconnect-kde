@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2014, 2018, 2019, 2020, 2021.
+# Tommi Nieminen <translator@legisign.org>, 2014, 2018, 2019, 2020, 2021, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2014, 2015, 2016.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-28 00:48+0000\n"
-"PO-Revision-Date: 2021-03-12 20:22+0200\n"
+"PO-Revision-Date: 2023-06-27 17:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
@@ -49,10 +49,9 @@ msgid "%1: Already paired"
 msgstr "%1: Pari on jo muodostettu"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Laite tavoittamattomissa"
+msgstr "%1: laite tavoittamattomissa"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -60,8 +59,7 @@ msgid "Device not reachable"
 msgstr "Laite tavoittamattomissa"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by the user"
+#, kde-format
 msgid "Cancelled by user"
 msgstr "Käyttäjä perui"
 

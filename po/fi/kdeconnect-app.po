@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-30 00:47+0000\n"
-"PO-Revision-Date: 2023-03-05 17:31+0200\n"
+"PO-Revision-Date: 2023-06-27 17:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -107,7 +107,7 @@ msgstr "Suorita komento"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Lähetä leikepöytä"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -190,10 +190,10 @@ msgid "Remote Control"
 msgstr "Kaukosäädin"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "Avaa lukitus painamalla yhtä aikaa vasenta ja oikeaa hiiripainiketta"
+msgstr ""
+"Avaa lukitus painamalla %1 tai yhtä aikaa vasenta ja oikeaa hiiripainiketta"
 
 #: qml/mpris.qml:19
 #, kde-format
