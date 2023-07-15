@@ -67,7 +67,12 @@ void CompositeUploadJob::start()
     m_running = true;
 
     // Give SharePlugin some time to add subjobs
-    QMetaObject::invokeMethod(this, "startNextSubJob", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(
+        Daemon::instance()->getDevice(m_deviceId),
+        [this] {
+            startNextSubJob();
+        },
+        Qt::QueuedConnection);
 }
 
 bool CompositeUploadJob::startListening()
