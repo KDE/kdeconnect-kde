@@ -296,6 +296,10 @@ void KdeConnectConfig::generatePrivateKey(const QString &keyPath)
     qCDebug(KDECONNECT_CORE) << "Generating private key";
 
     d->m_privateKey = SslHelper::generateRsaPrivateKey();
+    if (d->m_privateKey.isNull()) {
+        qCritical() << "Could not generate the private key";
+        Daemon::instance()->reportError(i18n("KDE Connect failed to start"), i18n("Could not generate the private key."));
+    }
 
     QFile privKey(keyPath);
     bool error = false;
@@ -323,6 +327,10 @@ void KdeConnectConfig::generateCertificate(const QString &certPath)
     qCDebug(KDECONNECT_CORE) << "My id:" << uuid;
 
     d->m_certificate = SslHelper::generateSelfSignedCertificate(d->m_privateKey, uuid);
+    if (d->m_certificate.isNull()) {
+        qCritical() << "Could not generate a certificate";
+        Daemon::instance()->reportError(i18n("KDE Connect failed to start"), i18n("Could not generate the device certificate."));
+    }
 
     QFile cert(certPath);
     bool error = false;
