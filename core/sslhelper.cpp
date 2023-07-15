@@ -29,75 +29,169 @@ QString getSslError()
 
 QSslKey generateRsaPrivateKey()
 {
-    RSA *rsa = RSA_new();
-    BIGNUM *exponent = BN_new();
-    BN_set_word(exponent, RSA_F4);
-    RSA_generate_key_ex(rsa, 2048, exponent, nullptr);
-    BN_free(exponent);
+    // Initialize context.
+    auto pctxRaw = EVP_PKEY_CTX_new_from_name(NULL, "RSA", NULL);
+    auto pctx = std::unique_ptr< EVP_PKEY_CTX, decltype(&::EVP_PKEY_CTX_free) >(pctxRaw, ::EVP_PKEY_CTX_free);
+    if (!pctx) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to allocate context " << getSslError();
+        return QSslKey();
+    }
 
-    EVP_PKEY *privateKey = EVP_PKEY_new();
-    EVP_PKEY_assign_RSA(privateKey, rsa);
+    if (EVP_PKEY_keygen_init(pctx.get()) <= 0) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to initialize context " << getSslError();
+        return QSslKey();
+    }
 
-    // Convert to PEM which is the format needed for QSslKey
-    BIO *bio = BIO_new(BIO_s_mem());
-    PEM_write_bio_PrivateKey(bio, privateKey, nullptr, nullptr, 0, nullptr, nullptr);
-    BUF_MEM *mem = nullptr;
-    BIO_get_mem_ptr(bio, &mem);
-    QByteArray pemData(mem->data, mem->length);
-    BIO_free_all(bio);
+    // Set key bits.
+    if (EVP_PKEY_CTX_set_rsa_keygen_bits(pctx.get(), 2048) <= 0) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to set key bits " << getSslError();
+        return QSslKey();
+    }
 
-    EVP_PKEY_free(privateKey);
+    // Generate private key.
+    auto pkey = std::unique_ptr< EVP_PKEY, decltype(&::EVP_PKEY_free) >(EVP_PKEY_new(), ::EVP_PKEY_free);
+    if (!pkey) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to allocate private key " << getSslError();
+        return QSslKey();
+    }
 
-    return QSslKey(pemData, QSsl::KeyAlgorithm::Rsa);
+    auto pkey_raw = pkey.get();
+    if (EVP_PKEY_keygen(pctx.get(), &pkey_raw) <= 0) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to generate private key " << getSslError();
+        return QSslKey();
+    }
+
+    // Convert private key format to PEM as required by QSslKey.
+    auto bio = std::unique_ptr< BIO, decltype(&::BIO_free_all) >(BIO_new(BIO_s_mem()), ::BIO_free_all);
+    if (!bio) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to allocate I/O abstraction " << getSslError();
+        return QSslKey();
+    }
+
+    if (!PEM_write_bio_PrivateKey(bio.get(), pkey_raw, nullptr, nullptr, 0, nullptr, nullptr)) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed write PEM format private key to BIO " << getSslError();
+        return QSslKey();
+    }
+
+    BUF_MEM *pem = nullptr;
+    if (!BIO_get_mem_ptr(bio.get(), &pem)) {
+        qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed get PEM format address " << getSslError();
+        return QSslKey();
+    }
+
+    return QSslKey(QByteArray(mem->data, mem->length), QSsl::KeyAlgorithm::Rsa);
 }
 
 QSslCertificate generateSelfSignedCertificate(const QSslKey &qtPrivateKey, const QString &commonName)
 {
-    X509 *x509 = X509_new();
-    X509_set_version(x509, 2);
+    // Create certificate.
+    auto x509 = std::unique_ptr< X509, decltype(&::X509_free) >(X509_new(), ::X509_free);
+    if (!x509) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to allocate certifcate " << getSslError();
+        return QSslCertificate();
+    }
 
-    // Generate a random serial number for the certificate
-    BIGNUM *serialNumber = BN_new();
-    BN_rand(serialNumber, 160, -1, 0);
-    ASN1_INTEGER *serial = X509_get_serialNumber(x509);
-    BN_to_ASN1_INTEGER(serialNumber, serial);
-    BN_free(serialNumber);
+    if (!X509_set_version(x509.get(), X509_VERSION_3)) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set version " << getSslError();
+        return QSslCertificate();
+    }
 
-    // Set the certificate subject and issuer (self-signed)
-    X509_NAME *name = X509_NAME_new();
-    X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC, reinterpret_cast<const unsigned char *>(commonName.toLatin1().data()), -1, -1, 0); // Common Name
-    X509_NAME_add_entry_by_txt(name, "O", MBSTRING_ASC, reinterpret_cast<const unsigned char *>("KDE"), -1, -1, 0); // Organization
-    X509_NAME_add_entry_by_txt(name, "OU", MBSTRING_ASC, reinterpret_cast<const unsigned char *>("KDE Connect"), -1, -1, 0); // Organizational Unit
-    X509_set_subject_name(x509, name);
-    X509_set_issuer_name(x509, name);
-    X509_NAME_free(name);
+    // Generate a random serial number for the certificate.
+    auto sn = std::unique_ptr< BIGNUM, decltype(&::BN_free) >(BN_new(), ::BN_free);
+    if (!sn) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to allocate big number structure " << getSslError();
+        return QSslCertificate();
+    }
 
-    // Set the certificate validity period
-    time_t now = time(nullptr);
+    if (!BN_rand(sn.get(), 160, -1, 0)) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to generate random number " << getSslError();
+        return QSslCertificate();
+    }
+
+    if (!BN_to_ASN1_INTEGER(sn.get(), X509_get_serialNumber(x509.get()))) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to convert number structure to integer" << getSslError();
+        return QSslCertificate();
+    }
+
+    // Set the certificate subject and issuer (self-signed).
+    auto name = X509_get_subject_name(x509.get());
+    auto cstr = reinterpret_cast<const unsigned char *>(commonName.toLatin1().data());
+    if (!X509_NAME_add_entry_by_txt(name, "CN", MBSTRING_ASC, cstr, -1, -1, 0)) {} // Common Name
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set common name to " << commonName << " " << getSslError();
+        return QSslCertificate();
+    }
+
+    cstr = reinterpret_cast<const unsigned char *>("KDE");
+    if (!X509_NAME_add_entry_by_txt(name, "O", MBSTRING_ASC, cstr, -1, -1, 0)) { // Organization
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set organization " << getSslError();
+        return QSslCertificate();
+    }
+
+    cstr = reinterpret_cast<const unsigned char *>("KDE Connect");
+    if (!X509_NAME_add_entry_by_txt(name, "OU", MBSTRING_ASC, cstr, -1, -1, 0)) { // Organizational Unit
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set organizational unit " << getSslError();
+        return QSslCertificate();
+    }
+
+    if (!X509_set_subject_name(x509.get(), name)) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set subject name" << getSslError();
+        return QSslCertificate();
+    }
+
+    if (!X509_set_issuer_name(x509.get(), name)) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set issuer name" << getSslError();
+        return QSslCertificate();
+    }
+
+    // Set the certificate validity period.
     int a_year_in_seconds = 356 * 24 * 60 * 60;
-    ASN1_TIME_set(X509_get_notBefore(x509), now - a_year_in_seconds);
-    ASN1_TIME_set(X509_get_notAfter(x509), now + 10 * a_year_in_seconds);
+    X509_gmtime_adj(X509_getm_notBefore(x509.get()), -a_year_in_seconds);
+    X509_gmtime_adj(X509_getm_notAfter(x509.get()), 10 * a_year_in_seconds);
 
-    // Convert the QSslKey to the OpenSSL private key format and sign the certificate
-    QByteArray keyPemData = qtPrivateKey.toPem();
-    BIO *keyBio = BIO_new_mem_buf(keyPemData.data(), -1);
-    EVP_PKEY *privateKey = PEM_read_bio_PrivateKey(keyBio, NULL, NULL, NULL);
-    X509_set_pubkey(x509, privateKey);
-    X509_sign(x509, privateKey, EVP_sha256());
-    EVP_PKEY_free(privateKey);
-    BIO_free_all(keyBio);
+    // Convert the QSslKey to the OpenSSL private key format.
+    auto bio = std::unique_ptr< BIO, decltype(&::BIO_free_all) >(BIO_new_mem_buf(qtPrivateKey.toPem().data(), -1), ::BIO_free_all);
+    if (!bio) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to allocate I/O abstraction " << getSslError();
+        return QSslCertificate();
+    }
 
-    // Convert to PEM which is the format needed for QSslCertificate
-    BIO *bio = BIO_new(BIO_s_mem());
-    PEM_write_bio_X509(bio, x509);
-    BUF_MEM *mem = nullptr;
-    BIO_get_mem_ptr(bio, &mem);
-    QByteArray pemData(mem->data, mem->length);
-    BIO_free_all(bio);
+    auto pkeyRaw = PEM_read_bio_PrivateKey(bio.get(), NULL, NULL, NULL);
+    auto pkey = std::unique_ptr< EVP_PKEY, decltype(&::EVP_PKEY_free) >(pkeyRaw, ::EVP_PKEY_free);
+    if (!pkey) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to read private key " << getSslError();
+        return QSslCertificate();
+    }
 
-    X509_free(x509);
+    if (!X509_set_pubkey(x509.get(), pkey.get())) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set private key " << getSslError();
+        return QSslCertificate();
+    }
 
-    return QSslCertificate(pemData);
+    // Sign the certificate with private key.
+    if (!X509_sign(x509.get(), pkey.get(), EVP_sha256())) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to sign certificate " << getSslError();
+        return QSslCertificate();
+    }
+
+    // Convert to PEM which is the format needed for QSslCertificate.
+    bio = std::unique_ptr< BIO, decltype(&::BIO_free_all) >(BIO_new(BIO_s_mem()), ::BIO_free_all);
+    if (!bio) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to allocate I/O abstraction " << getSslError();
+        return QSslCertificate();
+    }
+
+    if (!PEM_write_bio_X509(bio.get(), x509.get())) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed write PEM format certificate to BIO " << getSslError();
+        return QSslCertificate();
+    }
+
+    BUF_MEM *pem = nullptr;
+    if (!BIO_get_mem_ptr(bio.get(), &pem)) {
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed get PEM format address " << getSslError();
+        return QSslKey();
+    }
+
+    return QSslCertificate(QByteArray(pem->data, pem->length));
 }
 
 } // namespace SslHelper
