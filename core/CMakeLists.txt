@@ -56,7 +56,7 @@ ecm_qt_declare_logging_category(kdeconnectcore
 
 target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 
-find_package(OpenSSL REQUIRED)
+find_package(OpenSSL REQUIRED COMPONENTS Crypto)
 
 target_link_libraries(kdeconnectcore
 PUBLIC
@@ -65,7 +65,6 @@ PUBLIC
     KF${QT_MAJOR_VERSION}::KIOCore
     KF${QT_MAJOR_VERSION}::KIOGui
     OpenSSL::Crypto
-    OpenSSL::SSL
 PRIVATE
     Qt::DBus
     KF${QT_MAJOR_VERSION}::I18n
