@@ -1,20 +1,31 @@
 /**
  * SPDX-FileCopyrightText: 2023 Albert Vaca <albertvaka@gmail.com>
+ * SPDX-FileCopyrightText: 2023 Edward Kigwana <ekigwana@gmail.com>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
 #include "sslhelper.h"
+#include "core_debug.h"
 
-#include <openssl/bn.h>
-#include <openssl/evp.h>
-#include <openssl/pem.h>
-#include <openssl/rsa.h>
-#include <openssl/x509.h>
-#include <openssl/x509v3.h>
+extern "C" {
+    #include <openssl/bn.h>
+    #include <openssl/err.h>
+    #include <openssl/evp.h>
+    #include <openssl/pem.h>
+    #include <openssl/rsa.h>
+    #include <openssl/x509.h>
+}
 
 namespace SslHelper
 {
+
+QString getSslError()
+{
+    char buf[256];
+    ERR_error_string_n(ERR_get_error(), buf, sizeof(buf));
+    return QString::fromLatin1(buf);
+}
 
 QSslKey generateRsaPrivateKey()
 {
