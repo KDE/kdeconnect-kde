@@ -37,7 +37,7 @@ private:
     Server *const m_server;
     QSslSocket *m_socket;
     quint16 m_port;
-    const QString &m_deviceId;
+    QString m_deviceId;
     bool m_running;
     int m_currentJobNum;
     int m_totalJobs;
