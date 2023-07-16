@@ -114,11 +114,17 @@ void CompositeUploadJob::startNextSubJob()
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
 
-    if (Daemon::instance()->getDevice(m_deviceId)->sendPacket(np)) {
+    Device *device = Daemon::instance()->getDevice(m_deviceId);
+    if (device == nullptr) {
+        qCWarning(KDECONNECT_CORE) << "Device disconnected" << this->m_deviceId;
+        return;
+    }
+
+    if (device->sendPacket(np)) {
         m_server->resumeAccepting();
     } else {
         setError(SendingNetworkPacketFailed);
-        setErrorText(i18n("Failed to send packet to %1", Daemon::instance()->getDevice(m_deviceId)->name()));
+        setErrorText(i18n("Failed to send packet to %1", device->name()));
 
         emitResult();
     }
@@ -225,13 +231,18 @@ bool CompositeUploadJob::addSubjob(KJob *job)
 
 void CompositeUploadJob::sendUpdatePacket()
 {
+    m_updatePacketPending = false;
+
     NetworkPacket np(PACKET_TYPE_SHARE_REQUEST_UPDATE);
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
 
-    Daemon::instance()->getDevice(m_deviceId)->sendPacket(np);
-
-    m_updatePacketPending = false;
+    Device *device = Daemon::instance()->getDevice(m_deviceId);
+    if (device == nullptr) {
+        qCWarning(KDECONNECT_CORE) << "Device disconnected" << this->m_deviceId;
+        return;
+    }
+    device->sendPacket(np);
 }
 
 bool CompositeUploadJob::doKill()
@@ -284,7 +295,12 @@ void CompositeUploadJob::slotResult(KJob *job)
 
 void CompositeUploadJob::emitDescription(const QString &currentFileName)
 {
-    Q_EMIT description(this, i18n("Sending to %1", Daemon::instance()->getDevice(this->m_deviceId)->name()), {i18n("File"), currentFileName}, {});
+    Device *device = Daemon::instance()->getDevice(this->m_deviceId);
+    if (device == nullptr) {
+        qWarning() << "Device disconnected" << this->m_deviceId;
+        return;
+    }
+    Q_EMIT description(this, i18n("Sending to %1", device->name()), {i18n("File"), currentFileName}, {});
 
     setProcessedAmount(Files, m_currentJobNum);
     setTotalAmount(Files, m_totalJobs);
