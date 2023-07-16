@@ -12,7 +12,7 @@
 
 #include "mdns_wrapper.h"
 
-QString kServiceType = QStringLiteral("_kdeconnect._udp.local");
+const QString kServiceType = QStringLiteral("_kdeconnect._udp.local");
 
 MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
     : lanLinkProvider(lanLinkProvider)

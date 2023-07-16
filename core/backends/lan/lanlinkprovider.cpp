@@ -185,7 +185,6 @@ void LanLinkProvider::broadcastUdpIdentityPacket()
 #endif
 }
 
-
 QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
 {
     const QStringList customDevices = KdeConnectConfig::instance().customDevices();

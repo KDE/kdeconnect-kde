@@ -22,24 +22,36 @@ namespace MdnsWrapper
 const char *recordTypeToStr(int rtype)
 {
     switch (rtype) {
-        case MDNS_RECORDTYPE_PTR: return "PTR";
-        case MDNS_RECORDTYPE_SRV: return "SRV";
-        case MDNS_RECORDTYPE_TXT: return "TXT";
-        case MDNS_RECORDTYPE_A: return "A";
-        case MDNS_RECORDTYPE_AAAA: return "AAAA";
-        case MDNS_RECORDTYPE_ANY: return "ANY";
-        default: return "UNKNOWN";
+    case MDNS_RECORDTYPE_PTR:
+        return "PTR";
+    case MDNS_RECORDTYPE_SRV:
+        return "SRV";
+    case MDNS_RECORDTYPE_TXT:
+        return "TXT";
+    case MDNS_RECORDTYPE_A:
+        return "A";
+    case MDNS_RECORDTYPE_AAAA:
+        return "AAAA";
+    case MDNS_RECORDTYPE_ANY:
+        return "ANY";
+    default:
+        return "UNKNOWN";
     }
 }
 
 const char *entryTypeToStr(int entry)
 {
     switch (entry) {
-        case MDNS_ENTRYTYPE_QUESTION: return "QUESTION";
-        case MDNS_ENTRYTYPE_ANSWER: return "ANSWER";
-        case MDNS_ENTRYTYPE_AUTHORITY: return "AUTHORITY";
-        case MDNS_ENTRYTYPE_ADDITIONAL: return "ADDITIONAL";
-        default: return "UNKNOWN";
+    case MDNS_ENTRYTYPE_QUESTION:
+        return "QUESTION";
+    case MDNS_ENTRYTYPE_ANSWER:
+        return "ANSWER";
+    case MDNS_ENTRYTYPE_AUTHORITY:
+        return "AUTHORITY";
+    case MDNS_ENTRYTYPE_ADDITIONAL:
+        return "ADDITIONAL";
+    default:
+        return "UNKNOWN";
     }
 }
 
@@ -257,7 +269,8 @@ static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
     case MDNS_RECORDTYPE_SRV: // maps "<service-name>.<_service-type>._tcp.local." to "<hostname>.local." and port
         answer.name = createMdnsString(self.serviceInstance);
         answer.data.srv.name = createMdnsString(self.hostname);
-        answer.data.srv.port = self.port, answer.data.srv.priority = 0;
+        answer.data.srv.port = self.port;
+        answer.data.srv.priority = 0;
         answer.data.srv.weight = 0;
         break;
     case MDNS_RECORDTYPE_A: // maps "<hostname>.local." to IPv4
@@ -451,8 +464,6 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
     return 0;
 }
 
-
-
 // Open sockets to listen to incoming mDNS queries on port 5353
 // When recieving, each socket can recieve data from all network interfaces
 // Thus we only need to open one socket for each address family
@@ -590,14 +601,17 @@ void Announcer::sendMulticastAnnounce(bool isGoodbye)
     static char buffer[2048];
     if (isGoodbye) {
         qCDebug(KDECONNECT_CORE) << "Sending goodbye";
-        if (socketNotifier) mdns_goodbye_multicast(socketNotifier->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
-        if (socketNotifierV6) mdns_goodbye_multicast(socketNotifierV6->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
+        if (socketNotifier)
+            mdns_goodbye_multicast(socketNotifier->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
+        if (socketNotifierV6)
+            mdns_goodbye_multicast(socketNotifierV6->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
     } else {
         qCDebug(KDECONNECT_CORE) << "Sending announce";
-        if (socketNotifier) mdns_announce_multicast(socketNotifier->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
-        if (socketNotifierV6) mdns_announce_multicast(socketNotifierV6->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
+        if (socketNotifier)
+            mdns_announce_multicast(socketNotifier->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
+        if (socketNotifierV6)
+            mdns_announce_multicast(socketNotifierV6->socket(), buffer, sizeof(buffer), ptr_record, 0, 0, additional.constData(), additional.length());
     }
-
 }
 
 } // namespace MdnsWrapper
