@@ -257,7 +257,8 @@ static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
     case MDNS_RECORDTYPE_SRV: // maps "<service-name>.<_service-type>._tcp.local." to "<hostname>.local." and port
         answer.name = createMdnsString(self.serviceInstance);
         answer.data.srv.name = createMdnsString(self.hostname);
-        answer.data.srv.port = self.port, answer.data.srv.priority = 0;
+        answer.data.srv.port = self.port;
+        answer.data.srv.priority = 0;
         answer.data.srv.weight = 0;
         break;
     case MDNS_RECORDTYPE_A: // maps "<hostname>.local." to IPv4
