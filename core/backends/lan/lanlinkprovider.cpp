@@ -13,8 +13,9 @@
 #include <netinet/tcp.h>
 #include <sys/socket.h>
 #else
-#include <mstcpip.h>
 #include <winsock2.h>
+// Winsock2 needs to be included before any other header
+#include <mstcpip.h>
 #endif
 
 #include <QHostInfo>
