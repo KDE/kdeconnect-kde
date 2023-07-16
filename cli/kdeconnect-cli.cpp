@@ -193,13 +193,15 @@ int main(int argc, char **argv)
         if (parser.isSet(QStringLiteral("share"))) {
             QStringList urls;
 
-            QUrl url = QUrl::fromUserInput(parser.value(QStringLiteral("share")), QDir::currentPath());
-            urls.append(url.toString());
+            QString firstArg = parser.value(QStringLiteral("share"));
+            const auto args = QStringList(firstArg) + parser.positionalArguments();
 
-            // Check for more arguments
-            const auto args = parser.positionalArguments();
             for (const QString &input : args) {
                 QUrl url = QUrl::fromUserInput(input, QDir::currentPath());
+                if (url.isEmpty()) {
+                    qWarning() << "URL not valid:" << input;
+                    continue;
+                }
                 urls.append(url.toString());
             }
 
