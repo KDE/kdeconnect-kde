@@ -13,9 +13,9 @@
 #include <QStaticPlugin>
 #include <QVector>
 
-#include "kdeconnectconfig.h"
 #include "core_debug.h"
 #include "device.h"
+#include "kdeconnectconfig.h"
 #include "kdeconnectplugin.h"
 
 // In older Qt released, qAsConst isnt available
@@ -124,12 +124,13 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming
     QString myDeviceType = KdeConnectConfig::instance().deviceType().toString();
 
     for (const KPluginMetaData &service : qAsConst(plugins)) {
-
         // Check if the plugin support this device type
-        const QSet<QString> supportedDeviceTypes = KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedDeviceTypes")).toSet();
+        const QSet<QString> supportedDeviceTypes =
+            KPluginMetaData::readStringList(service.rawData(), QStringLiteral("X-KdeConnect-SupportedDeviceTypes")).toSet();
         if (!supportedDeviceTypes.isEmpty()) {
             if (!supportedDeviceTypes.contains(myDeviceType)) {
-                qCDebug(KDECONNECT_CORE) << "Not loading plugin" << service.pluginId() << "because this device of type" << myDeviceType << "is not supported. Supports:" << supportedDeviceTypes.toList().join(QStringLiteral(", "));
+                qCDebug(KDECONNECT_CORE) << "Not loading plugin" << service.pluginId() << "because this device of type" << myDeviceType
+                                         << "is not supported. Supports:" << supportedDeviceTypes.toList().join(QStringLiteral(", "));
                 continue;
             }
         }
@@ -142,15 +143,15 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming
 
         bool capabilitiesEmpty = (pluginIncomingCapabilities.isEmpty() && pluginOutgoingCapabilities.isEmpty());
         if (!capabilitiesEmpty) {
-    #if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
             bool capabilitiesIntersect = (outgoing.intersects(pluginIncomingCapabilities) || incoming.intersects(pluginOutgoingCapabilities));
-    #else
+#else
             QSet<QString> commonIncoming = incoming;
             commonIncoming.intersect(pluginOutgoingCapabilities);
             QSet<QString> commonOutgoing = outgoing;
             commonOutgoing.intersect(pluginIncomingCapabilities);
             bool capabilitiesIntersect = (!commonIncoming.isEmpty() || !commonOutgoing.isEmpty());
-    #endif
+#endif
 
             if (!capabilitiesIntersect) {
                 qCDebug(KDECONNECT_CORE) << "Not loading plugin" << service.pluginId() << "because device doesn't support it";
@@ -160,7 +161,6 @@ QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming
 
         // If we get here, the plugin can be loaded
         ret += service.pluginId();
-
     }
 
     return ret;

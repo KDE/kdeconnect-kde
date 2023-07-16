@@ -26,42 +26,42 @@ void PairingHandler::packetReceived(const NetworkPacket &np)
     bool wantsPair = np.get<bool>(QStringLiteral("pair"));
     if (wantsPair) {
         switch (m_pairState) {
-            case PairState::Requested:
-                pairingDone();
-                break;
-            case PairState::RequestedByPeer:
-                qCDebug(KDECONNECT_CORE) << "Ignoring second pairing request before the first one timed out";
-                break;
-            case PairState::Paired:
-            case PairState::NotPaired:
-                if (m_pairState == PairState::Paired) {
-                    qWarning() << "Received pairing request from a device we already trusted.";
-                    // It would be nice to auto-accept the pairing request here, but since the pairing accept and pairing request
-                    // messages are identical, this could create an infinite loop if both devices are "accepting" each other pairs.
-                    // Instead, unpair and handle as if "NotPaired".
-                    m_pairState = PairState::NotPaired;
-                    Q_EMIT unpaired();
-                }
-                m_pairState = PairState::RequestedByPeer;
-                m_pairingTimeout.start();
-                Q_EMIT incomingPairRequest();
-                break;
+        case PairState::Requested:
+            pairingDone();
+            break;
+        case PairState::RequestedByPeer:
+            qCDebug(KDECONNECT_CORE) << "Ignoring second pairing request before the first one timed out";
+            break;
+        case PairState::Paired:
+        case PairState::NotPaired:
+            if (m_pairState == PairState::Paired) {
+                qWarning() << "Received pairing request from a device we already trusted.";
+                // It would be nice to auto-accept the pairing request here, but since the pairing accept and pairing request
+                // messages are identical, this could create an infinite loop if both devices are "accepting" each other pairs.
+                // Instead, unpair and handle as if "NotPaired".
+                m_pairState = PairState::NotPaired;
+                Q_EMIT unpaired();
+            }
+            m_pairState = PairState::RequestedByPeer;
+            m_pairingTimeout.start();
+            Q_EMIT incomingPairRequest();
+            break;
         }
     } else { // wantsPair == false
         qCDebug(KDECONNECT_CORE) << "Unpair request received";
         switch (m_pairState) {
-            case PairState::NotPaired:
-                qCDebug(KDECONNECT_CORE) << "Ignoring unpair request for already unpaired device";
-                break;
-            case PairState::Requested: // We started pairing and got rejected
-            case PairState::RequestedByPeer: // They stared pairing, then cancelled
-                m_pairState = PairState::NotPaired;
-                Q_EMIT pairingFailed(i18n("Canceled by other peer"));
-                break;
-            case PairState::Paired:
-                m_pairState = PairState::NotPaired;
-                Q_EMIT unpaired();
-                break;
+        case PairState::NotPaired:
+            qCDebug(KDECONNECT_CORE) << "Ignoring unpair request for already unpaired device";
+            break;
+        case PairState::Requested: // We started pairing and got rejected
+        case PairState::RequestedByPeer: // They stared pairing, then cancelled
+            m_pairState = PairState::NotPaired;
+            Q_EMIT pairingFailed(i18n("Canceled by other peer"));
+            break;
+        case PairState::Paired:
+            m_pairState = PairState::NotPaired;
+            Q_EMIT unpaired();
+            break;
         }
     }
 }
@@ -140,7 +140,8 @@ void PairingHandler::pairingTimeout()
     Q_EMIT pairingFailed(i18n("Timed out"));
 }
 
-void PairingHandler::pairingDone() {
+void PairingHandler::pairingDone()
+{
     qCDebug(KDECONNECT_CORE) << "Pairing done";
     m_pairState = PairState::Paired;
     Q_EMIT pairingSuccessful();

@@ -50,7 +50,7 @@ public:
 
     QMultiMap<QString, KdeConnectPlugin *> m_pluginsByIncomingCapability;
     QSet<QString> m_supportedPlugins;
-    PairingHandler* m_pairingHandler;
+    PairingHandler *m_pairingHandler;
 };
 
 static void warn(const QString &info)
@@ -386,7 +386,6 @@ bool Device::isPairRequested() const
 {
     return d->m_pairingHandler->pairState() == PairState::Requested;
 }
-
 
 bool Device::isPairRequestedByPeer() const
 {

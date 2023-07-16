@@ -278,7 +278,6 @@ void KdeConnectKcm::pairingFailed(const QString &error)
     kcmUi->messages->animatedShow();
 }
 
-
 void KdeConnectKcm::setCurrentDevicePairState(int pairStateAsInt)
 {
     PairState state = (PairState)pairStateAsInt; // Hack because qdbus doesn't like enums

@@ -108,7 +108,6 @@ void Daemon::removeDevice(Device *device)
     Q_EMIT deviceListChanged();
 }
 
-
 void Daemon::forceOnNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to" << d->m_linkProviders.size() << "LinkProviders";

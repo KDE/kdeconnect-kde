@@ -226,15 +226,21 @@ ShareDbusInterface::ShareDbusInterface(const QString &deviceId, QObject *parent)
 
 ShareDbusInterface::~ShareDbusInterface() = default;
 
-PhotoDbusInterface::PhotoDbusInterface(const QString& deviceId, QObject* parent):
-    OrgKdeKdeconnectDevicePhotoInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/")  + deviceId + QStringLiteral("/photo"), QDBusConnection::sessionBus(), parent)
+PhotoDbusInterface::PhotoDbusInterface(const QString &deviceId, QObject *parent)
+    : OrgKdeKdeconnectDevicePhotoInterface(DaemonDbusInterface::activatedService(),
+                                           QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/photo"),
+                                           QDBusConnection::sessionBus(),
+                                           parent)
 {
 }
 
 PhotoDbusInterface::~PhotoDbusInterface() = default;
 
-RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString& deviceId, QObject* parent):
-    OrgKdeKdeconnectDeviceRemotesystemvolumeInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect/devices/")  + deviceId + QStringLiteral("/remotesystemvolume"), QDBusConnection::sessionBus(), parent)
+RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent)
+    : OrgKdeKdeconnectDeviceRemotesystemvolumeInterface(DaemonDbusInterface::activatedService(),
+                                                        QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/remotesystemvolume"),
+                                                        QDBusConnection::sessionBus(),
+                                                        parent)
 {
 }
 

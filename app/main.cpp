@@ -13,11 +13,11 @@
 #include <QQuickStyle>
 #include <QStandardPaths>
 
+#include "kdeconnect-version.h"
 #include <KAboutData>
 #include <KColorSchemeManager>
 #include <KLocalizedContext>
 #include <KLocalizedString>
-#include "kdeconnect-version.h"
 
 int main(int argc, char *argv[])
 {

@@ -51,7 +51,6 @@ private Q_SLOTS:
     void acceptPairing();
     void cancelPairing();
 
-
 private:
     void resetDeviceView();
 

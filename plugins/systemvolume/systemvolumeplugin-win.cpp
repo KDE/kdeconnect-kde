@@ -445,7 +445,6 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
                     setDefaultAudioPlaybackDevice(name, np.get<bool>(QStringLiteral("enabled")));
                 }
             }
-
         }
     }
     return true;

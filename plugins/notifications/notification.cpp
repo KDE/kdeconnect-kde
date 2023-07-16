@@ -187,12 +187,12 @@ void Notification::reply()
     Q_EMIT replyRequested();
 }
 
-void Notification::sendReply(const QString& message)
+void Notification::sendReply(const QString &message)
 {
     Q_EMIT replied(message);
 }
 
-void Notification::parseNetworkPacket(const NetworkPacket& np)
+void Notification::parseNetworkPacket(const NetworkPacket &np)
 {
     m_internalId = np.get<QString>(QStringLiteral("id"));
     m_appName = np.get<QString>(QStringLiteral("appName"));

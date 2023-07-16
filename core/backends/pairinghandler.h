@@ -24,7 +24,10 @@ public:
 
     void packetReceived(const NetworkPacket &np);
 
-    PairState pairState() { return m_pairState; }
+    PairState pairState()
+    {
+        return m_pairState;
+    }
 
 public Q_SLOTS:
     bool requestPairing();
@@ -38,7 +41,6 @@ Q_SIGNALS:
     void pairingSuccessful();
     void unpaired();
 
-
 private:
     void pairingDone();
 
@@ -48,7 +50,6 @@ private:
 
 private Q_SLOTS:
     void pairingTimeout();
-
 };
 
 #endif // KDECONNECT_PAIRINGHANDLER_H

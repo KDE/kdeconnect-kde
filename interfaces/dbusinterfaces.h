@@ -231,17 +231,15 @@ public:
     ~ShareDbusInterface() override;
 };
 
-class KDECONNECTINTERFACES_EXPORT PhotoDbusInterface
-    : public OrgKdeKdeconnectDevicePhotoInterface
+class KDECONNECTINTERFACES_EXPORT PhotoDbusInterface : public OrgKdeKdeconnectDevicePhotoInterface
 {
     Q_OBJECT
 public:
-    explicit PhotoDbusInterface(const QString& deviceId, QObject* parent = nullptr);
+    explicit PhotoDbusInterface(const QString &deviceId, QObject *parent = nullptr);
     ~PhotoDbusInterface() override;
 };
 
-class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface
-    : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
+class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
 {
     Q_OBJECT
 public:

@@ -15,4 +15,3 @@ DeviceLink::DeviceLink(const QString &deviceId, LinkProvider *parent)
         parent->onLinkDestroyed(deviceId, this);
     });
 }
-

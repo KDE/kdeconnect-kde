@@ -13,8 +13,8 @@
 #include <netinet/tcp.h>
 #include <sys/socket.h>
 #else
-#include <winsock2.h>
 #include <mstcpip.h>
+#include <winsock2.h>
 #endif
 
 #include <QHostInfo>
@@ -562,15 +562,9 @@ void LanLinkProvider::configureSocket(QSslSocket *socket)
     DWORD nop;
 
     // see https://learn.microsoft.com/en-us/windows/win32/winsock/sio-keepalive-vals
-    struct tcp_keepalive keepalive = {
-        1 /* true */,
-        maxIdle,
-        interval
-    };
+    struct tcp_keepalive keepalive = {1 /* true */, maxIdle, interval};
 
-    int rv = WSAIoctl(socket->socketDescriptor(), SIO_KEEPALIVE_VALS, &keepalive,
-                        sizeof(keepalive), nullptr, 0, &nop,
-                        nullptr, nullptr);
+    int rv = WSAIoctl(socket->socketDescriptor(), SIO_KEEPALIVE_VALS, &keepalive, sizeof(keepalive), nullptr, 0, &nop, nullptr, nullptr);
     if (!rv) {
         int error = WSAGetLastError();
         qCDebug(KDECONNECT_CORE) << "Could not enable TCP Keep-Alive: " << error;

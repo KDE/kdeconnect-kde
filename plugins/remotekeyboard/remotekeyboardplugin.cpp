@@ -117,12 +117,7 @@ void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendA
         text = QKeySequence(key).toString().toLower();
     }
 
-    sendKeyPress(text,
-                 k,
-                 modifiers & Qt::ShiftModifier,
-                 modifiers & Qt::ControlModifier,
-                 modifiers & Qt::AltModifier,
-                 sendAck);
+    sendKeyPress(text, k, modifiers & Qt::ShiftModifier, modifiers & Qt::ControlModifier, modifiers & Qt::AltModifier, sendAck);
 }
 
 int RemoteKeyboardPlugin::translateQtKey(int qtKey) const

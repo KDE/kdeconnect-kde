@@ -11,11 +11,11 @@
 
 #include <QDebug>
 #include <QFileInfo>
-#include <qalgorithms.h>
 #include <QNetworkAccessManager>
+#include <qalgorithms.h>
 
-#include <KLocalizedString>
 #include <KFileUtils>
+#include <KLocalizedString>
 
 FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destination)
     : KJob()

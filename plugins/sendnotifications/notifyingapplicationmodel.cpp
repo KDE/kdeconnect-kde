@@ -14,7 +14,7 @@
 
 #include <KLocalizedString>
 
-//#include "modeltest.h"
+// #include "modeltest.h"
 
 NotifyingApplicationModel::NotifyingApplicationModel(QObject *parent)
     : QAbstractTableModel(parent)

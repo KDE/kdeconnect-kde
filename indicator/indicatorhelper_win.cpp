@@ -7,16 +7,16 @@
 #include <QDebug>
 #include <QFile>
 #include <QIcon>
-#include <QStandardPaths>
 #include <QSettings>
+#include <QStandardPaths>
 
 #include <iostream>
 
 #include <Windows.h>
 #include <tlhelp32.h>
 
-#include <winrt/Windows.UI.ViewManagement.h>
 #include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.UI.ViewManagement.h>
 
 #include "indicator_debug.h"
 #include "indicatorhelper.h"
@@ -70,9 +70,11 @@ void onThemeChanged(QSystemTrayIcon &systray)
     QSettings registry(QStringLiteral("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize"), QSettings::Registry64Format);
     bool isLightTheme = registry.value(QStringLiteral("SystemUsesLightTheme")).toBool();
     if (isLightTheme) {
-        systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicator.svg"))));
+        systray.setIcon(
+            QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicator.svg"))));
     } else {
-        systray.setIcon(QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicatordark.svg"))));
+        systray.setIcon(
+            QIcon(QStandardPaths::locate(QStandardPaths::AppLocalDataLocation, QStringLiteral("icons/hicolor/scalable/apps/kdeconnectindicatordark.svg"))));
     }
 }
 

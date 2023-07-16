@@ -20,10 +20,10 @@
 
 #include <KAboutData>
 #include <KDBusService>
+#include <KIO/Global>
 #include <KLocalizedString>
 #include <KNotification>
 #include <KWindowSystem>
-#include <KIO/Global>
 
 #include <dbushelper.h>
 
