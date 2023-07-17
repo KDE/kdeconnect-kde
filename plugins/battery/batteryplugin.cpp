@@ -19,31 +19,12 @@
 
 K_PLUGIN_CLASS_WITH_JSON(BatteryPlugin, "kdeconnect_battery.json")
 
+const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
+const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
+
 BatteryPlugin::BatteryPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-}
-
-int BatteryPlugin::charge() const
-{
-    return m_charge;
-}
-
-bool BatteryPlugin::isCharging() const
-{
-    return m_isCharging;
-}
-
-void BatteryPlugin::connected()
-{
-    // We've just connected. Request battery information from the remote device...
-    NetworkPacket np(PACKET_TYPE_BATTERY_REQUEST, {{QStringLiteral("request"), true}});
-    sendPacket(np);
-
-    // ...and then figure out whether we have any batteries
-    const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
-    const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
-
     QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
 
     if (batteries.isEmpty()) {
@@ -59,7 +40,20 @@ void BatteryPlugin::connected()
 
     connect(chosen, &Solid::Battery::chargeStateChanged, this, &BatteryPlugin::slotChargeChanged);
     connect(chosen, &Solid::Battery::chargePercentChanged, this, &BatteryPlugin::slotChargeChanged);
+}
 
+int BatteryPlugin::charge() const
+{
+    return m_charge;
+}
+
+bool BatteryPlugin::isCharging() const
+{
+    return m_isCharging;
+}
+
+void BatteryPlugin::connected()
+{
     // Explicitly send the current charge
     slotChargeChanged();
 }
@@ -72,9 +66,6 @@ void BatteryPlugin::slotChargeChanged()
     bool isAnyBatteryCharging = false;
     int batteryQuantity = 0;
     int cumulativeCharge = 0;
-
-    const auto batteryDevice = Solid::DeviceInterface::Type::Battery;
-    const auto primary = Solid::Battery::BatteryType::PrimaryBattery;
 
     QList<Solid::Device> batteries = Solid::Device::listFromQuery(Solid::Predicate(batteryDevice, QStringLiteral("type"), primary));
 
@@ -117,6 +108,10 @@ void BatteryPlugin::slotChargeChanged()
 
 bool BatteryPlugin::receivePacket(const NetworkPacket &np)
 {
+    if (PACKET_TYPE_BATTERY != np.type()) {
+        return false;
+    }
+
     m_isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
     m_charge = np.get<int>(QStringLiteral("currentCharge"), -1);
     const int thresholdEvent = np.get<int>(QStringLiteral("thresholdEvent"), (int)ThresholdNone);

@@ -32,30 +32,28 @@ int ConnectivityReportPlugin::cellularNetworkStrength() const
 
 void ConnectivityReportPlugin::connected()
 {
-    // We've just connected. Request connectivity_report information from the remote device...
-    NetworkPacket np(PACKET_TYPE_CONNECTIVITY_REPORT_REQUEST, {{QStringLiteral("request"), true}});
-    sendPacket(np);
 }
 
 bool ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (np.type() == PACKET_TYPE_CONNECTIVITY_REPORT) {
-        auto subscriptions = np.get<QVariantMap>(QStringLiteral("signalStrengths"), QVariantMap());
-        if (!subscriptions.isEmpty()) {
-            auto networkInfo = subscriptions.first().toMap();
-
-            const auto oldCellularNetworkType = m_cellularNetworkType;
-            const auto oldNetworkStrength = m_cellularNetworkStrength;
-
-            m_cellularNetworkType = networkInfo.value(QStringLiteral("networkType")).toString();
-            m_cellularNetworkStrength = networkInfo.value(QStringLiteral("signalStrength")).toInt();
-
-            if (oldCellularNetworkType != m_cellularNetworkType || oldNetworkStrength != m_cellularNetworkStrength) {
-                Q_EMIT refreshed(m_cellularNetworkType, m_cellularNetworkStrength);
-            }
-        }
+    if (PACKET_TYPE_CONNECTIVITY_REPORT != np.type()) {
+        return false;
     }
 
+    auto subscriptions = np.get<QVariantMap>(QStringLiteral("signalStrengths"), QVariantMap());
+    if (!subscriptions.isEmpty()) {
+        auto networkInfo = subscriptions.first().toMap();
+
+        const auto oldCellularNetworkType = m_cellularNetworkType;
+        const auto oldNetworkStrength = m_cellularNetworkStrength;
+
+        m_cellularNetworkType = networkInfo.value(QStringLiteral("networkType")).toString();
+        m_cellularNetworkStrength = networkInfo.value(QStringLiteral("signalStrength")).toInt();
+
+        if (oldCellularNetworkType != m_cellularNetworkType || oldNetworkStrength != m_cellularNetworkStrength) {
+            Q_EMIT refreshed(m_cellularNetworkType, m_cellularNetworkStrength);
+        }
+    }
     return true;
 }
 

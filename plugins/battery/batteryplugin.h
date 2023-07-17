@@ -10,7 +10,6 @@
 #include <core/kdeconnectplugin.h>
 
 #define PACKET_TYPE_BATTERY QStringLiteral("kdeconnect.battery")
-#define PACKET_TYPE_BATTERY_REQUEST QStringLiteral("kdeconnect.battery.request")
 
 class BatteryPlugin : public KdeConnectPlugin
 {

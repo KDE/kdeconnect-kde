@@ -129,9 +129,7 @@
         ],
         "Version": "1.0"
     },
-    "X-KdeConnect-OutgoingPacketType": [
-        "kdeconnect.connectivity_report.request"
-    ],
+    "X-KdeConnect-OutgoingPacketType": [],
     "X-KdeConnect-SupportedPacketType": [
         "kdeconnect.connectivity_report"
     ]

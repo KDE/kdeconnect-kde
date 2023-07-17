@@ -32,13 +32,6 @@
  */
 #define PACKET_TYPE_CONNECTIVITY_REPORT QStringLiteral("kdeconnect.connectivity_report")
 
-/**
- * Packet sent to request the current connectivity state
- * <p>
- * The request packet shall contain no body
- */
-#define PACKET_TYPE_CONNECTIVITY_REPORT_REQUEST QStringLiteral("kdeconnect.connectivity_report.request")
-
 class ConnectivityReportPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
