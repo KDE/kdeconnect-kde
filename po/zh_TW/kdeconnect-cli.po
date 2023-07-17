@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2021-09-12 08:51+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -261,71 +261,71 @@ msgstr ""
 "裝置 ID 及名稱可使用「kdeconnect-cli -l」找到。\n"
 "請使用 --help 選項查閱完整說明。"
 
-#: kdeconnect-cli.cpp:215
+#: kdeconnect-cli.cpp:217
 #, kde-format
 msgid "Shared %1"
 msgstr "已分享 %1"
 
-#: kdeconnect-cli.cpp:224
+#: kdeconnect-cli.cpp:226
 #, kde-format
 msgid "Shared text: %1"
 msgstr "已分享文字：%1"
 
-#: kdeconnect-cli.cpp:231
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "向裝置 %1 提出鎖定需求。"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:235
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "向裝置 %1 提出解鎖需求。"
 
-#: kdeconnect-cli.cpp:240
+#: kdeconnect-cli.cpp:242
 #, kde-format
 msgid "waiting for device..."
 msgstr "等待裝置中..."
 
-#: kdeconnect-cli.cpp:253
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Device not found"
 msgstr "沒有找到裝置"
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Already paired"
 msgstr "已經配對"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:259
 #, kde-format
 msgid "Pair requested"
 msgstr "已請求配對"
 
-#: kdeconnect-cli.cpp:263
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Already not paired"
 msgstr "已經沒有取消配對"
 
-#: kdeconnect-cli.cpp:265
+#: kdeconnect-cli.cpp:267
 #, kde-format
 msgid "Unpaired"
 msgstr "未配對"
 
-#: kdeconnect-cli.cpp:311
+#: kdeconnect-cli.cpp:313
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
 "number>"
 msgstr "錯誤：需要透過指定 --destination <電話號碼> 來指定簡訊的接收者"
 
-#: kdeconnect-cli.cpp:330
+#: kdeconnect-cli.cpp:332
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "請指定圖片的檔名"
 
-#: kdeconnect-cli.cpp:377
+#: kdeconnect-cli.cpp:379
 #, kde-format
 msgid "Nothing to be done"
 msgstr "沒有什麼可以做"

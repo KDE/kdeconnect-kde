@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2021-05-16 20:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "사용 가능한 포트를 찾을 수 없음"
 
-#: backends/lan/compositeuploadjob.cpp:121
+#: backends/lan/compositeuploadjob.cpp:127
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "%1(으)로 패킷을 보낼 수 없음"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1(으)로 보내는 중|/|%1$[으 %1]로 보내는 중"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "파일"
@@ -88,12 +88,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "대상"
 
-#: device.cpp:454
+#: device.cpp:453
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "내 장치 인증서의 SHA256 지문: %1\n"
 
-#: device.cpp:460
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "원격 장치 인증서의 SHA256 지문: %1\n"

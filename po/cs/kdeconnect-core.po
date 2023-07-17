@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-05 11:06+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Nelze najít žádný dostupný port"
 
-#: backends/lan/compositeuploadjob.cpp:121
+#: backends/lan/compositeuploadjob.cpp:127
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Selhalo odesílání paketu na %1"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "Posílám na %1"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Soubor"
@@ -88,12 +88,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Cíl"
 
-#: device.cpp:454
+#: device.cpp:453
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Otisk certifikátu SHA256 vašeho zařízení je: %1\n"
 
-#: device.cpp:460
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Otisk certifikátu SHA256 vzdáleného zařízení je: %1\n"

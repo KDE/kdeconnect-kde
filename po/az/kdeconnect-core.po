@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-12 17:10+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Mövcud port tapıla bilmədi"
 
-#: backends/lan/compositeuploadjob.cpp:121
+#: backends/lan/compositeuploadjob.cpp:127
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Paketi %1'ə(a) göndərmək mümkün olmadı"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1'ə(a) göndərilir"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Fayl"
@@ -87,12 +87,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Təyinat"
 
-#: device.cpp:454
+#: device.cpp:453
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Cihazınızın sertifikatının SHA256 şifrə izi: %1\n"
 
-#: device.cpp:460
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Uzaq cihazın sertifikatının SHA256 şifrə izi: %1\n"

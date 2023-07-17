@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -264,59 +264,59 @@ msgstr ""
 "ID dan nama peranti bisa ditemukan menggunakan \"kdeconnect-cli -l\" \n"
 "Tampilan lengkap bantuan pakai opsi --help"
 
-#: kdeconnect-cli.cpp:215
+#: kdeconnect-cli.cpp:217
 #, kde-format
 msgid "Shared %1"
 msgstr "Dibagikan %1"
 
-#: kdeconnect-cli.cpp:224
+#: kdeconnect-cli.cpp:226
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Teks yang dibagikan: %1"
 
-#: kdeconnect-cli.cpp:231
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Diminta untuk mengunci %1."
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:235
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Diminta untuk membuka kunci %1."
 
-#: kdeconnect-cli.cpp:240
+#: kdeconnect-cli.cpp:242
 #, kde-format
 msgid "waiting for device..."
 msgstr "menunggu peranti..."
 
-#: kdeconnect-cli.cpp:253
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Device not found"
 msgstr "Peranti tidak ditemukan"
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Already paired"
 msgstr "Sudah disandingkan"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:259
 #, kde-format
 msgid "Pair requested"
 msgstr "Meminta sanding"
 
-#: kdeconnect-cli.cpp:263
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Already not paired"
 msgstr "Belum disandingkan"
 
-#: kdeconnect-cli.cpp:265
+#: kdeconnect-cli.cpp:267
 #, kde-format
 msgid "Unpaired"
 msgstr "Dileraikan"
 
-#: kdeconnect-cli.cpp:311
+#: kdeconnect-cli.cpp:313
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -325,12 +325,12 @@ msgstr ""
 "error: seharusnya menentukan penerimaan SMS dengan melalui --destination "
 "<phone number>"
 
-#: kdeconnect-cli.cpp:330
+#: kdeconnect-cli.cpp:332
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Silakan tentukan sebuah file name untuk foto"
 
-#: kdeconnect-cli.cpp:377
+#: kdeconnect-cli.cpp:379
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Tidak ada yang harus dilakukan"
