@@ -19,14 +19,11 @@ target_link_libraries(kdeconnect_runcommand
     KF5::I18n)
 
 #----------------------
-if(NOT SAILFISHOS)
-    kcoreaddons_add_plugin(kdeconnect_runcommand_config SOURCES runcommand_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
-    target_link_libraries( kdeconnect_runcommand_config
-        kdeconnectcore
-        kdeconnectpluginkcm
-        KF5::I18n
-        KF5::CoreAddons
-        KF5::ConfigWidgets
-
-    )
-endif()
+kcoreaddons_add_plugin(kdeconnect_runcommand_config SOURCES runcommand_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
+target_link_libraries( kdeconnect_runcommand_config
+    kdeconnectcore
+    kdeconnectpluginkcm
+    KF5::I18n
+    KF5::CoreAddons
+    KF5::ConfigWidgets
+)

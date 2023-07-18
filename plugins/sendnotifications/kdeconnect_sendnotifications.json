@@ -45,7 +45,7 @@
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",
         "Description[zh_CN]": "广播此计算机的通知，以被其他设备显示。",
         "Description[zh_TW]": "廣播此電腦的通知，這樣可以顯示在其他裝置上。",
-        "EnabledByDefault": ${SN_PLUGIN_ENABLED_BY_DEFAULT},
+        "EnabledByDefault": false,
         "Icon": "preferences-desktop-notification",
         "Id": "kdeconnect_sendnotifications",
         "License": "GPL",

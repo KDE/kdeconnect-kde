@@ -13,9 +13,7 @@
 #include "mprisplayer.h"
 #include <dbushelper.h>
 
-// In older Qt released, qAsConst isnt available
 #include "plugin_pausemusic_debug.h"
-#include "qtcompat_p.h"
 
 K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
 

@@ -102,11 +102,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
         return new OpenConfig;
     });
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 14, 0))
     qmlRegisterAnonymousType<QAbstractItemModel>(uri, 1);
-#else
-    qmlRegisterType<QAbstractItemModel>();
-#endif
 
     registerFactory<DeviceDbusInterface>(uri, "DeviceDbusInterfaceFactory");
     registerFactory<BatteryDbusInterface>(uri, "DeviceBatteryDbusInterfaceFactory");

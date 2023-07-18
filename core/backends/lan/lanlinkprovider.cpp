@@ -33,7 +33,6 @@
 #include "daemon.h"
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
-#include "qtcompat_p.h"
 
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
 static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
@@ -294,11 +293,7 @@ void LanLinkProvider::udpBroadcastReceived()
         m_receivedIdentityPackets[socket].np = receivedPacket;
         m_receivedIdentityPackets[socket].sender = sender;
         connect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::tcpSocketConnected);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        connect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
-#else
         connect(socket, &QAbstractSocket::errorOccurred, this, &LanLinkProvider::connectError);
-#endif
         socket->connectToHost(sender, tcpPort);
     }
 }
@@ -330,11 +325,7 @@ void LanLinkProvider::tcpSocketConnected()
         return;
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    disconnect(socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &LanLinkProvider::connectError);
-#else
     disconnect(socket, &QAbstractSocket::errorOccurred, this, &LanLinkProvider::connectError);
-#endif
 
     configureSocket(socket);
 

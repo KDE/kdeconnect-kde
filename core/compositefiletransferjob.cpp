@@ -47,14 +47,10 @@ void CompositeFileTransferJob::startNextSubJob()
                        {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)});
 
     m_currentJob->start();
-#ifdef SAILFISHOS
-    connect(m_currentJob, SIGNAL(processedAmount(KJob *, KJob::Unit, qulonglong)), this, SLOT(slotProcessedAmount(KJob *, KJob::Unit, qulonglong)));
-#else
     connect(m_currentJob,
             QOverload<KJob *, KJob::Unit, qulonglong>::of(&FileTransferJob::processedAmount),
             this,
             &CompositeFileTransferJob::slotProcessedAmount);
-#endif
 }
 
 bool CompositeFileTransferJob::addSubjob(KJob *job)

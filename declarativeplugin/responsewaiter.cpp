@@ -11,9 +11,6 @@
 #include <QDBusPendingReply>
 #include <QDebug>
 
-// In older Qt released, qAsConst isnt available
-#include "core/qtcompat_p.h"
-
 Q_DECLARE_METATYPE(QDBusPendingReply<>)
 Q_DECLARE_METATYPE(QDBusPendingReply<QVariant>)
 Q_DECLARE_METATYPE(QDBusPendingReply<bool>)

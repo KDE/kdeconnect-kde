@@ -11,12 +11,10 @@ QString DaemonDbusInterface::activatedService()
 {
     static const QString service = QStringLiteral("org.kde.kdeconnect");
 
-#ifndef SAILFISHOS
     auto reply = QDBusConnection::sessionBus().interface()->startService(service);
     if (!reply.isValid()) {
         qWarning() << "error activating kdeconnectd:" << reply.error();
     }
-#endif
 
     return service;
 }

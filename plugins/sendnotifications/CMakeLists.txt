@@ -1,10 +1,3 @@
-if (SAILFISHOS)
-	set(SN_PLUGIN_ENABLED_BY_DEFAULT "true")
-else()
-	set(SN_PLUGIN_ENABLED_BY_DEFAULT "false")
-endif()
-
-configure_file(kdeconnect_sendnotifications.json.in kdeconnect_sendnotifications.json)
 
 set(debug_file_SRCS)
 ecm_qt_declare_logging_category(
@@ -17,7 +10,6 @@ set(kdeconnect_sendnotifications_SRCS
     sendnotificationsplugin.cpp
     notificationslistener.cpp
     notifyingapplication.cpp
-    kdeconnect_sendnotifications.json
     ${debug_file_SRCS}
 )
 
@@ -35,7 +27,6 @@ target_link_libraries(kdeconnect_sendnotifications
 
 #######################################
 # Config
-if (NOT SAILFISHOS)
 
 kcoreaddons_add_plugin(kdeconnect_sendnotifications_config INSTALL_NAMESPACE "kdeconnect/kcms")
 
@@ -52,4 +43,3 @@ target_link_libraries( kdeconnect_sendnotifications_config
     KF5::I18n
     KF5::KCMUtils
 )
-endif()

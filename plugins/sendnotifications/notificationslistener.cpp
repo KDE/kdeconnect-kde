@@ -28,9 +28,6 @@
 #include "plugin_sendnotification_debug.h"
 #include "sendnotificationsplugin.h"
 
-// In older Qt released, qAsConst isnt available
-#include "qtcompat_p.h"
-
 NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
     : QObject(aPlugin)
     , m_plugin(aPlugin)

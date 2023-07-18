@@ -28,9 +28,6 @@
 #include "backends/loopback/loopbacklinkprovider.h"
 #include "device.h"
 
-// In older Qt released, qAsConst isnt available
-#include "qtcompat_p.h"
-
 static Daemon *s_instance = nullptr;
 
 struct DaemonPrivate {

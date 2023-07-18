@@ -11,8 +11,6 @@
 
 #include <dbushelper.h>
 
-// In older Qt released, qAsConst isnt available
-#include "core/qtcompat_p.h"
 #include "interfaces_debug.h"
 
 NotificationsModel::NotificationsModel(QObject *parent)

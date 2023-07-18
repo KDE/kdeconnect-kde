@@ -37,9 +37,6 @@ private:
     PluginLoader();
 
     QHash<QString, KPluginMetaData> plugins;
-#ifdef SAILFISHOS
-    QHash<QString, KPluginFactory *> pluginsFactories;
-#endif
 };
 
 #endif

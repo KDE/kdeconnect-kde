@@ -14,12 +14,8 @@
 #include <QProcess>
 #include <QSettings>
 
-#ifdef SAILFISHOS
-#define KCMUTILS_VERSION 0
-#else
 #include <KShell>
 #include <kcmutils_version.h>
-#endif
 
 #include <core/daemon.h>
 #include <core/device.h>

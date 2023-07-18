@@ -9,7 +9,6 @@
 
 #include <QDebug>
 
-#include <core/qtcompat_p.h>
 #include <dbushelper.h>
 
 RemoteSinksModel::RemoteSinksModel(QObject *parent)

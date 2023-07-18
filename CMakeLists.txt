@@ -8,15 +8,9 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
-if (SAILFISHOS)
-    set(KF5_MIN_VERSION "5.36.0")
-    set(QT_MIN_VERSION "5.6.0")
-else()
-    set(KF5_MIN_VERSION "5.101.0")
-    set(QT_MIN_VERSION "5.15.2")
-    set(KDE_COMPILERSETTINGS_LEVEL "5.84.0")
-endif()
-set(KDE_COMPILERSETTINGS_LEVEL "5.82")
+set(KF5_MIN_VERSION "5.101.0")
+set(QT_MIN_VERSION "5.15.2")
+set(KDE_COMPILERSETTINGS_LEVEL "5.84.0")
 set(QCA_MIN_VERSION "2.1.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
@@ -39,9 +33,7 @@ include(ECMGenerateQmlTypes)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMQmlModule)
-if (NOT SAILFISHOS)
-    include(ECMQMLModules)
-endif()
+include(ECMQMLModules)
 
 include(KDEConnectMacros.cmake)
 
@@ -54,53 +46,43 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
 add_library(kdeconnectversion INTERFACE)
 target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
 
-if (SAILFISHOS)
-    set(KF5_REQUIRED_COMPONENTS I18n CoreAddons Config)
-    set(KF5_OPTIONAL_COMPONENTS)
+find_package(Qca-qt${QT_MAJOR_VERSION} ${QCA_MIN_VERSION} REQUIRED)
+set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
 
-    set(Qca_LIBRARY CONAN_PKG::Qca-qt5)
+set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons)
+set(KF5_OPTIONAL_COMPONENTS DocTools)
 
-    add_definitions(-DSAILFISHOS)
-else()
-    find_package(Qca-qt${QT_MAJOR_VERSION} ${QCA_MIN_VERSION} REQUIRED)
-    set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
+set_package_properties(KF5Kirigami2 PROPERTIES
+    DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
+    PURPOSE "Required for KDE Connect's QML-based GUI applications"
+    URL "https://www.kde.org/products/kirigami/"
+    TYPE RUNTIME
+)
 
-    set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons)
-    set(KF5_OPTIONAL_COMPONENTS DocTools)
-
-    set_package_properties(KF5Kirigami2 PROPERTIES
-        DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
-        PURPOSE "Required for KDE Connect's QML-based GUI applications"
-        URL "https://www.kde.org/products/kirigami/"
-        TYPE RUNTIME
-    )
-
-    if(UNIX AND NOT APPLE)
-        find_package(KF5Package REQUIRED)
-        find_package(KF5PulseAudioQt)
-        if (QT_MAJOR_VERSION EQUAL "5")
-            find_package(QtWaylandScanner REQUIRED)
-        endif()
-        find_package(Wayland 1.9 REQUIRED Client)
-        find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS WaylandClient)
-        find_package(WaylandProtocols REQUIRED)
-        pkg_check_modules(XkbCommon IMPORTED_TARGET xkbcommon)
-        pkg_check_modules(GIO REQUIRED IMPORTED_TARGET gio-2.0)
+if(UNIX AND NOT APPLE)
+    find_package(KF5Package REQUIRED)
+    find_package(KF5PulseAudioQt)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        find_package(QtWaylandScanner REQUIRED)
     endif()
-
-    find_package(KF5PeopleVCard)
-    set_package_properties(KF5PeopleVCard PROPERTIES
-        PURPOSE "Read vcards from the file system"
-        URL "https://invent.kde.org/pim/kpeoplevcard"
-        TYPE RUNTIME
-    )
-
-    add_definitions(-DHAVE_KIO)
-
-    #ecm_find_qmlmodule(org.kde.people 1.0) FIXME This results in KPeople code being called which triggers DBus calls which breaks the Windows CI
-    ecm_find_qmlmodule(QtQuick.Particles 2.0)
-
+    find_package(Wayland 1.9 REQUIRED Client)
+    find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS WaylandClient)
+    find_package(WaylandProtocols REQUIRED)
+    pkg_check_modules(XkbCommon IMPORTED_TARGET xkbcommon)
+    pkg_check_modules(GIO REQUIRED IMPORTED_TARGET gio-2.0)
 endif()
+
+find_package(KF5PeopleVCard)
+set_package_properties(KF5PeopleVCard PROPERTIES
+    PURPOSE "Read vcards from the file system"
+    URL "https://invent.kde.org/pim/kpeoplevcard"
+    TYPE RUNTIME
+)
+
+add_definitions(-DHAVE_KIO)
+
+#ecm_find_qmlmodule(org.kde.people 1.0) FIXME This results in KPeople code being called which triggers DBus calls which breaks the Windows CI
+ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 
@@ -126,31 +108,28 @@ add_subdirectory(core)
 add_subdirectory(plugins)
 add_subdirectory(interfaces)
 
-if (NOT SAILFISHOS)
+find_package(KF5QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
+set_package_properties(KF5QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
 
-    find_package(KF5QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
-    set_package_properties(KF5QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
+add_subdirectory(icons)
+add_subdirectory(data)
+add_subdirectory(cli)
+add_subdirectory(declarativeplugin)
 
-    add_subdirectory(icons)
-    add_subdirectory(data)
-    add_subdirectory(cli)
-    add_subdirectory(declarativeplugin)
+add_subdirectory(kcm)
+add_subdirectory(kcmplugin)
+add_subdirectory(daemon)
+add_subdirectory(app)
+add_subdirectory(indicator)
+add_subdirectory(urlhandler)
+add_subdirectory(nautilus-extension)
+add_subdirectory(fileitemactionplugin)
+add_subdirectory(smsapp)
+add_subdirectory(settings)
 
-    add_subdirectory(kcm)
-    add_subdirectory(kcmplugin)
-    add_subdirectory(daemon)
-    add_subdirectory(app)
-    add_subdirectory(indicator)
-    add_subdirectory(urlhandler)
-    add_subdirectory(nautilus-extension)
-    add_subdirectory(fileitemactionplugin)
-    add_subdirectory(smsapp)
-    add_subdirectory(settings)
-
-    if(NOT WIN32 AND NOT APPLE)
-        add_subdirectory(kio)
-        add_subdirectory(plasmoid)
-    endif()
+if(NOT WIN32 AND NOT APPLE)
+    add_subdirectory(kio)
+    add_subdirectory(plasmoid)
 endif()
 
 if(KF5DocTools_FOUND)

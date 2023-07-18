@@ -26,9 +26,6 @@
 #include "networkpacket.h"
 #include "pluginloader.h"
 
-// In older Qt released, qAsConst isnt available
-#include "qtcompat_p.h"
-
 class Device::DevicePrivate
 {
 public:
