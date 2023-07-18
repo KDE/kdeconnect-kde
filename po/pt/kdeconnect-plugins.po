@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:48+0000\n"
 "PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -19,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-IgnoreConsistency: Name\n"
 
-#: battery/batteryplugin.cpp:128
+#: battery/batteryplugin.cpp:123
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: Bateria Fraca"
 
-#: battery/batteryplugin.cpp:129
+#: battery/batteryplugin.cpp:124
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Bateria a %1%"

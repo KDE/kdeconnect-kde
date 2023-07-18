@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:48+0000\n"
 "PO-Revision-Date: 2021-06-19 07:55+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: battery/batteryplugin.cpp:128
+#: battery/batteryplugin.cpp:123
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: Χαμηλή ισχύς μπαταρίας"
 
-#: battery/batteryplugin.cpp:129
+#: battery/batteryplugin.cpp:124
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Η μπαταρία είναι στο %1%"

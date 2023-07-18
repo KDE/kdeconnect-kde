@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:48+0000\n"
 "PO-Revision-Date: 2021-09-25 15:41-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 21.08.1\n"
 
-#: battery/batteryplugin.cpp:128
+#: battery/batteryplugin.cpp:123
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: バッテリー残量低下"
 
-#: battery/batteryplugin.cpp:129
+#: battery/batteryplugin.cpp:124
 #, kde-format
 msgid "Battery at %1%"
 msgstr "バッテリーは %1% です"

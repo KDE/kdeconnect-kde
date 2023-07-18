@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:48+0000\n"
 "PO-Revision-Date: 2023-06-08 06:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: battery/batteryplugin.cpp:128
+#: battery/batteryplugin.cpp:123
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: Prazna baterija"
 
-#: battery/batteryplugin.cpp:129
+#: battery/batteryplugin.cpp:124
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Baterija na %1%"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-18 00:48+0000\n"
 "PO-Revision-Date: 2023-06-13 06:30+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -24,13 +24,13 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: battery/batteryplugin.cpp:128
+#: battery/batteryplugin.cpp:123
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1 : batterie faible"
 
-#: battery/batteryplugin.cpp:129
+#: battery/batteryplugin.cpp:124
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batterie à %1 %"
