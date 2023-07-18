@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-12 17:09+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -62,22 +62,22 @@ msgstr "Mövcud əlavələr"
 msgid "Error trying to pair: %1"
 msgstr "Qoşulma cəhdi xətası: %1"
 
-#: kcm.cpp:294
+#: kcm.cpp:293
 #, kde-format
 msgid "(paired)"
 msgstr "(qoşulmuş)"
 
-#: kcm.cpp:297
+#: kcm.cpp:296
 #, kde-format
 msgid "(not paired)"
 msgstr "(qoşulmamış)"
 
-#: kcm.cpp:300
+#: kcm.cpp:299
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gələn qoşulma tələbi)"
 
-#: kcm.cpp:303
+#: kcm.cpp:302
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(qoşulma tələb edildi)"

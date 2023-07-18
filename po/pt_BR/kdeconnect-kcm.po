@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-07 10:53-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -64,22 +64,22 @@ msgstr "Plugins disponíveis"
 msgid "Error trying to pair: %1"
 msgstr "Erro ao tentar emparelhar: %1"
 
-#: kcm.cpp:294
+#: kcm.cpp:293
 #, kde-format
 msgid "(paired)"
 msgstr "(emparelhado)"
 
-#: kcm.cpp:297
+#: kcm.cpp:296
 #, kde-format
 msgid "(not paired)"
 msgstr "(não emparelhado)"
 
-#: kcm.cpp:300
+#: kcm.cpp:299
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(pedido de pareamento recebido)"
 
-#: kcm.cpp:303
+#: kcm.cpp:302
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(pareamento solicitado)"

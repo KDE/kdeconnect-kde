@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2021-04-16 17:06+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -23,17 +23,17 @@ msgstr ""
 msgid "Couldn't find an available port"
 msgstr "Nu a putut fi găsit un port disponibil"
 
-#: backends/lan/compositeuploadjob.cpp:121
+#: backends/lan/compositeuploadjob.cpp:127
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Trimiterea pachetului spre %1 a eșuat"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "Sending to %1"
 msgstr "Se trimite la %1"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
 msgid "File"
 msgstr "Fișier"
@@ -91,12 +91,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destinație"
 
-#: device.cpp:454
+#: device.cpp:453
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Amprenta SHA256 a certificatului acestui dispozitiv e: %1\n"
 
-#: device.cpp:460
+#: device.cpp:459
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Amprenta SHA256 a certificatului dispozitivului distant e: %1\n"

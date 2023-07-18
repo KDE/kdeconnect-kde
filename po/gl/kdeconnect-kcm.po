@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-05 08:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -63,22 +63,22 @@ msgstr "Complementos dispoñíbeis"
 msgid "Error trying to pair: %1"
 msgstr "Produciuse un erro ao intentar emparellarse: %1"
 
-#: kcm.cpp:294
+#: kcm.cpp:293
 #, kde-format
 msgid "(paired)"
 msgstr "(emparellado)"
 
-#: kcm.cpp:297
+#: kcm.cpp:296
 #, kde-format
 msgid "(not paired)"
 msgstr "(non emparellado)"
 
-#: kcm.cpp:300
+#: kcm.cpp:299
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(recibiuse unha solicitude para emparellar)"
 
-#: kcm.cpp:303
+#: kcm.cpp:302
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(solicitouse emparellar)"

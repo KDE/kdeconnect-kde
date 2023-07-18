@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-11 22:15+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -62,22 +62,22 @@ msgstr "Plugins disponibile"
 msgid "Error trying to pair: %1"
 msgstr "Error essayante associar: %1"
 
-#: kcm.cpp:294
+#: kcm.cpp:293
 #, kde-format
 msgid "(paired)"
 msgstr "(associate)"
 
-#: kcm.cpp:297
+#: kcm.cpp:296
 #, kde-format
 msgid "(not paired)"
 msgstr "(non asociate)"
 
-#: kcm.cpp:300
+#: kcm.cpp:299
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(requesta de associar in arrivata)"
 
-#: kcm.cpp:303
+#: kcm.cpp:302
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(associatio requirite)"

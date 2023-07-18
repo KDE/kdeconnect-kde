@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:52+0000\n"
+"POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-25 17:03+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-doc@kde.org>\n"
@@ -60,22 +60,22 @@ msgstr "Verfügbare Module"
 msgid "Error trying to pair: %1"
 msgstr "Fehler bei der Kopplung mit: %1"
 
-#: kcm.cpp:294
+#: kcm.cpp:293
 #, kde-format
 msgid "(paired)"
 msgstr "(Gekoppelt)"
 
-#: kcm.cpp:297
+#: kcm.cpp:296
 #, kde-format
 msgid "(not paired)"
 msgstr "(Nicht gekoppelt)"
 
-#: kcm.cpp:300
+#: kcm.cpp:299
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(Eingehende Kopplungsanfrage)"
 
-#: kcm.cpp:303
+#: kcm.cpp:302
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(Kopplung angefragt)"
