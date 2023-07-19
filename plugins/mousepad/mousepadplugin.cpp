@@ -11,16 +11,14 @@
 #include <KPluginFactory>
 #include <QGuiApplication>
 
-#if HAVE_WINDOWS
+#if defined(Q_OS_WIN)
 #include "windowsremoteinput.h"
-#elif HAVE_MACOS
+#elif defined(Q_OS_MACOS)
 #include "macosremoteinput.h"
 #else
-#if HAVE_X11
-#include "x11remoteinput.h"
-#endif
-#if HAVE_WAYLAND
 #include "waylandremoteinput.h"
+#if WITH_X11
+#include "x11remoteinput.h"
 #endif
 #endif
 
@@ -30,20 +28,17 @@ MousepadPlugin::MousepadPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
     , m_impl(nullptr)
 {
-#if HAVE_WINDOWS
+#if defined(Q_OS_WIN)
     m_impl = new WindowsRemoteInput(this);
-#elif HAVE_MACOS
+#elif defined(Q_OS_APPLE)
     m_impl = new MacOSRemoteInput(this);
 #else
-#if HAVE_X11
-    if (QGuiApplication::platformName() == QLatin1String("xcb")) {
-        m_impl = new X11RemoteInput(this);
-    }
-#endif
-
-#if HAVE_WAYLAND
     if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
         m_impl = new WaylandRemoteInput(this);
+    }
+#if WITH_X11
+    if (QGuiApplication::platformName() == QLatin1String("xcb")) {
+        m_impl = new X11RemoteInput(this);
     }
 #endif
 #endif

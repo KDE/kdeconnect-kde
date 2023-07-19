@@ -49,8 +49,7 @@ target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DI
 find_package(Qca-qt${QT_MAJOR_VERSION} ${QCA_MIN_VERSION} REQUIRED)
 set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
 
-set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons)
-set(KF5_OPTIONAL_COMPONENTS DocTools)
+set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons DocTools)
 
 set_package_properties(KF5Kirigami2 PROPERTIES
     DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
@@ -60,11 +59,20 @@ set_package_properties(KF5Kirigami2 PROPERTIES
 )
 
 if(UNIX AND NOT APPLE)
+    option(WITH_X11 "Build with X11 support" ON)
+    option(WITH_PULSEAUDIO "Build with Pulseaudio support" ON)
+else()
+    set(WITH_X11 OFF)
+    set(WITH_PULSEAUDIO OFF)
+
+endif()
+
+if(UNIX AND NOT APPLE)
     find_package(KF5Package REQUIRED)
-    find_package(KF5PulseAudioQt)
-    if (QT_MAJOR_VERSION EQUAL "5")
-        find_package(QtWaylandScanner REQUIRED)
+    if (WITH_PULSEAUDIO)
+        find_package(KF5PulseAudioQt)
     endif()
+    find_package(QtWaylandScanner REQUIRED)
     find_package(Wayland 1.9 REQUIRED Client)
     find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS WaylandClient)
     find_package(WaylandProtocols REQUIRED)
@@ -79,8 +87,6 @@ set_package_properties(KF5PeopleVCard PROPERTIES
     TYPE RUNTIME
 )
 
-add_definitions(-DHAVE_KIO)
-
 #ecm_find_qmlmodule(org.kde.people 1.0) FIXME This results in KPeople code being called which triggers DBus calls which breaks the Windows CI
 ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
@@ -91,9 +97,6 @@ if (UNIX AND NOT APPLE AND QT_MAJOR_VERSION EQUAL "5")
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
 endif()
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
-if (KF5_OPTIONAL_COMPONENTS)
-    find_package(KF5 ${KF5_MIN_VERSION} OPTIONAL_COMPONENTS ${KF5_OPTIONAL_COMPONENTS})
-endif()
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -132,10 +135,9 @@ if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(plasmoid)
 endif()
 
-if(KF5DocTools_FOUND)
-    add_subdirectory(doc)
-    kdoctools_install(po)
-endif()
+add_subdirectory(doc)
+kdoctools_install(po)
+
 ki18n_install(po)
 
 if(BUILD_TESTING)

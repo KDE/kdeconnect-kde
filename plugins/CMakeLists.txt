@@ -52,15 +52,15 @@ if(NOT APPLE)
     add_subdirectory(sftp)
 endif()
 
-if(KF5PulseAudioQt_FOUND OR WIN32)
+if(WITH_PULSEAUDIO OR WIN32)
     add_subdirectory(pausemusic)
 endif()
 
-if(Qt5Multimedia_FOUND AND (KF5PulseAudioQt_FOUND OR WIN32))
+if(WITH_PULSEAUDIO OR WIN32)
     add_subdirectory(findthisdevice)
 endif()
 
-if (WIN32 OR APPLE OR KF5PulseAudioQt_FOUND)
+if (WITH_PULSEAUDIO OR WIN32 OR APPLE)
     add_subdirectory(systemvolume)
 endif()
 

@@ -64,6 +64,8 @@ PUBLIC
     Qt${QT_MAJOR_VERSION}::Network
     KF5::CoreAddons
     ${Qca_LIBRARY}
+    KF5::KIOCore
+    KF5::KIOGui
 PRIVATE
     Qt${QT_MAJOR_VERSION}::DBus
     KF5::I18n
@@ -72,10 +74,6 @@ PRIVATE
 
 if(WIN32)
     target_link_libraries(kdeconnectcore PRIVATE ws2_32.lib) # winsock2
-endif()
-
-if(${KF5KIO_FOUND})
-    target_link_libraries(kdeconnectcore PUBLIC KF5::KIOCore KF5::KIOGui)
 endif()
 
 if (BLUETOOTH_ENABLED)

@@ -23,12 +23,12 @@
 #include "interfaces/notificationsmodel.h"
 #include "openconfig.h"
 #include "pointerlocker.h"
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+#include "pointerlockerwayland.h"
+#endif
 #include <pluginmodel.h>
 #include <remotecommandsmodel.h>
 #include <remotesinksmodel.h>
-#if WITH_WAYLAND
-#include "pointerlockerwayland.h"
-#endif
 
 QObject *createDBusResponse()
 {
@@ -89,7 +89,7 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
     });
     qmlRegisterSingletonType<AbstractPointerLocker>("org.kde.kdeconnect", 1, 0, "PointerLocker", [](QQmlEngine *, QJSEngine *) -> QObject * {
         AbstractPointerLocker *ret;
-#if WITH_WAYLAND
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
         if (qGuiApp->platformName() == QLatin1String("wayland"))
             ret = new PointerLockerWayland;
         else

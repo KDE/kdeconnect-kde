@@ -35,7 +35,6 @@ if(UNIX AND NOT APPLE)
     target_sources(kdeconnectdeclarativeplugin PRIVATE ${wayland_SRCS})
     target_link_libraries(kdeconnectdeclarativeplugin PRIVATE Wayland::Client Qt::WaylandClient Qt::GuiPrivate)
     target_sources(kdeconnectdeclarativeplugin PUBLIC pointerlockerwayland.cpp)
-    target_compile_definitions(kdeconnectdeclarativeplugin PRIVATE -DWITH_WAYLAND=1)
 endif()
 
 target_link_libraries(kdeconnectdeclarativeplugin PRIVATE Qt::Quick kdeconnectinterfaces kdeconnectcore)
