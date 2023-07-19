@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-19 00:50+0000\n"
 "PO-Revision-Date: 2023-01-09 18:43+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,22 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: backends/lan/compositeuploadjob.cpp:82
+#: backends/lan/compositeuploadjob.cpp:81
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Tókst ekki að finna tiltæka gátt"
 
-#: backends/lan/compositeuploadjob.cpp:127
+#: backends/lan/compositeuploadjob.cpp:119
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Mistókst að senda pakka til %1"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "Sending to %1"
 msgstr "Sendi til %1"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "File"
 msgstr "Skrá"
@@ -90,12 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Áfangastaður"
 
-#: device.cpp:453
+#: device.cpp:450
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA256-fingrafar af vottorði tækisins þíns er: %1\n"
 
-#: device.cpp:459
+#: device.cpp:456
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA256-fingrafar af vottorði fjartengda tækisins er: %1\n"
@@ -105,22 +105,22 @@ msgstr "SHA256-fingrafar af vottorði fjartengda tækisins er: %1\n"
 msgid "Filename already present"
 msgstr "Skrárheiti er þegar til staðar"
 
-#: filetransferjob.cpp:110
+#: filetransferjob.cpp:106
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Tók við ófullgerðri skrá: %1"
 
-#: filetransferjob.cpp:128
+#: filetransferjob.cpp:124
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Tók við ófullgerðri skrá frá: %1"
 
-#: kdeconnectconfig.cpp:78
+#: kdeconnectconfig.cpp:65
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Tókst ekki að ræsa KDE Connect"
 
-#: kdeconnectconfig.cpp:79
+#: kdeconnectconfig.cpp:66
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -131,12 +131,12 @@ msgstr ""
 "Linux býður sérstaka pakka fyrir QCA-ossl og QCA-gnupg skaltu ganga úr "
 "skugga um að þú hafir sett þá upp og prófaðu svo aftur."
 
-#: kdeconnectconfig.cpp:353
+#: kdeconnectconfig.cpp:336
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Tókst ekki að geyma einkalykilsskrá: %1"
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Tókst ekki að geyma vottorðsskrá: %1"

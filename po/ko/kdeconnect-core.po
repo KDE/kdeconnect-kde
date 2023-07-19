@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-19 00:50+0000\n"
 "PO-Revision-Date: 2021-05-16 20:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 20.12.3\n"
 
-#: backends/lan/compositeuploadjob.cpp:82
+#: backends/lan/compositeuploadjob.cpp:81
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "사용 가능한 포트를 찾을 수 없음"
 
-#: backends/lan/compositeuploadjob.cpp:127
+#: backends/lan/compositeuploadjob.cpp:119
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "%1(으)로 패킷을 보낼 수 없음"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1(으)로 보내는 중|/|%1$[으 %1]로 보내는 중"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "File"
 msgstr "파일"
@@ -88,12 +88,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "대상"
 
-#: device.cpp:453
+#: device.cpp:450
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "내 장치 인증서의 SHA256 지문: %1\n"
 
-#: device.cpp:459
+#: device.cpp:456
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "원격 장치 인증서의 SHA256 지문: %1\n"
@@ -103,22 +103,22 @@ msgstr "원격 장치 인증서의 SHA256 지문: %1\n"
 msgid "Filename already present"
 msgstr "파일 이름이 이미 존재함"
 
-#: filetransferjob.cpp:110
+#: filetransferjob.cpp:106
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "완전하지 않은 파일 받음: %1"
 
-#: filetransferjob.cpp:128
+#: filetransferjob.cpp:124
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "완전하지 않은 파일 받음: %1"
 
-#: kdeconnectconfig.cpp:78
+#: kdeconnectconfig.cpp:65
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect를 시작할 수 없음"
 
-#: kdeconnectconfig.cpp:79
+#: kdeconnectconfig.cpp:66
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -128,12 +128,12 @@ msgstr ""
 "QCA 설치에서 RSA를 찾을 수 없습니다. 배포판에서 QCA-ossl 및 QCA-gnupg 패키지"
 "를 별도로 제공하면 해당 패키지를 설치한 후 다시 시도하십시오."
 
-#: kdeconnectconfig.cpp:353
+#: kdeconnectconfig.cpp:336
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "개인 키 파일을 저장할 수 없음: %1"
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "인증서 파일을 저장할 수 없음: %1"

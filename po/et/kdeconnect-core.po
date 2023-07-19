@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-19 00:50+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.08.1\n"
 
-#: backends/lan/compositeuploadjob.cpp:82
+#: backends/lan/compositeuploadjob.cpp:81
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Kättesaadavat porti ei leitud"
 
-#: backends/lan/compositeuploadjob.cpp:127
+#: backends/lan/compositeuploadjob.cpp:119
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Paketi saatmine seadmesse %1 nurjus"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "Sending to %1"
 msgstr "Saatmine seadmesse %1"
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "File"
 msgstr "Fail"
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:453
+#: device.cpp:450
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Sinu seadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 
-#: device.cpp:459
+#: device.cpp:456
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -108,22 +108,22 @@ msgstr "Kaugseadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 msgid "Filename already present"
 msgstr "Failinimi on juba olemas"
 
-#: filetransferjob.cpp:110
+#: filetransferjob.cpp:106
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Saadi ebatäielik fail: %1"
 
-#: filetransferjob.cpp:128
+#: filetransferjob.cpp:124
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Saadi ebatäielik fail seadmest %1"
 
-#: kdeconnectconfig.cpp:78
+#: kdeconnectconfig.cpp:65
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connecti käivitamine nurjus"
 
-#: kdeconnectconfig.cpp:79
+#: kdeconnectconfig.cpp:66
 #, kde-format
 msgid ""
 "Could not find support for RSA in your QCA installation. If your "
@@ -134,12 +134,12 @@ msgstr ""
 "eraldi pakette QCA-ossl ja QCA-gnupg jaoks, kontrolli, kas need on ikka "
 "paigaldatud, ja proovi uuesti."
 
-#: kdeconnectconfig.cpp:353
+#: kdeconnectconfig.cpp:336
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"

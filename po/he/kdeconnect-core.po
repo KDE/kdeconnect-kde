@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-19 00:50+0000\n"
 "PO-Revision-Date: 2017-05-24 07:45-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -18,22 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Zanata 3.9.6\n"
 
-#: backends/lan/compositeuploadjob.cpp:82
+#: backends/lan/compositeuploadjob.cpp:81
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "לא נמצאה יציאה פנויה"
 
-#: backends/lan/compositeuploadjob.cpp:127
+#: backends/lan/compositeuploadjob.cpp:119
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "Sending to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:303
+#: backends/lan/compositeuploadjob.cpp:291
 #, kde-format
 msgid "File"
 msgstr ""
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:453
+#: device.cpp:450
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "טביעת האצבע SHA1 של ההתקן היא: %1\n"
 
-#: device.cpp:459
+#: device.cpp:456
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -108,23 +108,23 @@ msgstr "טביעת האצבע SHA1 של ההתקן המרוחק היא: %1\n"
 msgid "Filename already present"
 msgstr "קיים קובץ בעל שם זהה"
 
-#: filetransferjob.cpp:110
+#: filetransferjob.cpp:106
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "התקבל קובץ לא במלואו: %1"
 
-#: filetransferjob.cpp:128
+#: filetransferjob.cpp:124
 #, fuzzy, kde-format
 #| msgid "Received incomplete file: %1"
 msgid "Received incomplete file from: %1"
 msgstr "התקבל קובץ לא במלואו: %1"
 
-#: kdeconnectconfig.cpp:78
+#: kdeconnectconfig.cpp:65
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "הפעלת KDE Connect נכשלה"
 
-#: kdeconnectconfig.cpp:79
+#: kdeconnectconfig.cpp:66
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not find support for RSA in your QCA installation. If your "
@@ -138,12 +138,12 @@ msgstr ""
 "לא נמצאה תמיכה ב־RSA בהתקנת ה־QCA שלך. אם ההפצה שלך מספקת חבילות נפרדות ל: "
 "QCA-ossl ו־QCA-gnupg, וודא שהם מותקנות ונסה שוב."
 
-#: kdeconnectconfig.cpp:353
+#: kdeconnectconfig.cpp:336
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
 
-#: kdeconnectconfig.cpp:398
+#: kdeconnectconfig.cpp:381
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "לא ניתן לאחסן את קובץ התעודה: %1"
