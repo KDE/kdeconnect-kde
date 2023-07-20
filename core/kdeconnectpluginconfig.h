@@ -21,7 +21,7 @@ class KDECONNECTCORE_EXPORT KdeConnectPluginConfig : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY configChanged)
+    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
     Q_PROPERTY(QString pluginName READ pluginName WRITE setPluginName NOTIFY configChanged)
 
 public:
@@ -61,6 +61,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void configChanged();
+    void deviceIdChanged(const QString &value);
 
 private:
     void loadConfig();

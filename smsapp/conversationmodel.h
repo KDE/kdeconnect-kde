@@ -21,7 +21,7 @@ class ConversationModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY(qint64 threadId READ threadId WRITE setThreadId)
-    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId)
+    Q_PROPERTY(QString deviceId READ deviceId WRITE setDeviceId NOTIFY deviceIdChanged)
     Q_PROPERTY(QList<ConversationAddress> addressList READ addressList WRITE setAddressList)
 
 public:
@@ -64,6 +64,7 @@ public:
 Q_SIGNALS:
     void loadingFinished();
     void filePathReceived(QString filePath, QString fileName);
+    void deviceIdChanged(const QString &value);
 
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);

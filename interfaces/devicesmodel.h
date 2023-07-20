@@ -20,7 +20,7 @@ class DeviceDbusInterface;
 class KDECONNECTINTERFACES_EXPORT DevicesModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter)
+    Q_PROPERTY(int displayFilter READ displayFilter WRITE setDisplayFilter NOTIFY displayFilterChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowsChanged)
 
 public:
@@ -68,6 +68,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void rowsChanged();
+    void displayFilterChanged(int value);
 
 private:
     void clearDevices();

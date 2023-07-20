@@ -81,6 +81,8 @@ void ConversationModel::setDeviceId(const QString &deviceId)
 
     // Clear any previous data on device change
     m_thumbnailsProvider->clear();
+
+    Q_EMIT deviceIdChanged(deviceId);
 }
 
 void ConversationModel::setAddressList(const QList<ConversationAddress> &addressList)
