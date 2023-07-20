@@ -76,10 +76,6 @@ if(WIN32)
     target_link_libraries(kdeconnectcore PRIVATE ws2_32.lib) # winsock2
 endif()
 
-if(KF5KIO_FOUND OR KF6KIO_FOUND)
-    target_link_libraries(kdeconnectcore PUBLIC KF${QT_MAJOR_VERSION}::KIOCore KF${QT_MAJOR_VERSION}::KIOGui)
-endif()
-
 if (BLUETOOTH_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_BLUETOOTH)
     target_link_libraries(kdeconnectcore PRIVATE Qt5::Bluetooth)
