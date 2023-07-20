@@ -182,7 +182,7 @@ protected:
 class KDECONNECTINTERFACES_EXPORT ConversationAddress
 {
 public:
-    ConversationAddress(QString address = QStringLiteral());
+    ConversationAddress(QString address = QString());
 
     QString address() const
     {
