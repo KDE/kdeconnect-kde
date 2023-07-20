@@ -18,7 +18,7 @@ class KDECONNECTCORE_EXPORT Server : public QTcpServer
     Q_OBJECT
 
 public:
-    Server(QObject *parent = 0);
+    Server(QObject *parent = nullptr);
     ~Server() override = default;
 
     QSslSocket *nextPendingConnection() override;

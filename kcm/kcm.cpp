@@ -149,7 +149,7 @@ void KdeConnectKcm::resetSelection()
 void KdeConnectKcm::deviceSelected(const QModelIndex &current)
 {
     if (currentDevice) {
-        disconnect(currentDevice, 0, this, 0);
+        disconnect(currentDevice, nullptr, this, nullptr);
     }
 
     if (!current.isValid()) {
