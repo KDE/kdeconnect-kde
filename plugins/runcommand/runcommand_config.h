@@ -22,12 +22,11 @@ public:
     void load() override;
     void defaults() override;
 
-private Q_SLOTS:
+private:
     void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void exportCommands();
     void importCommands();
 
-private:
     void addSuggestedCommand(QMenu *menu, const QString &name, const QString &command);
     void insertRow(int i, const QString &name, const QString &command);
     void insertEmptyRow();

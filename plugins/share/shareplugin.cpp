@@ -174,7 +174,7 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
 
             if (defaultApp == QLatin1String("org.kde.kate") || defaultApp == QLatin1String("org.kde.kwrite")) {
                 QProcess *proc = new QProcess();
-                connect(proc, SIGNAL(finished(int)), proc, SLOT(deleteLater()));
+                connect(proc, &QProcess::finished, proc, &QObject::deleteLater);
                 proc->start(defaultApp.section(QStringLiteral("."), 2, 2), QStringList(QStringLiteral("--stdin")));
                 proc->write(text.toUtf8());
                 proc->closeWriteChannel();

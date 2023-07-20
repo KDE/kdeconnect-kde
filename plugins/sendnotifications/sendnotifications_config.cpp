@@ -33,14 +33,14 @@ SendNotificationsConfig::SendNotificationsConfig(QObject *parent, const QVariant
     for (int i = 0; i < 3; i++)
         m_ui->appList->resizeColumnToContents(i);
 
-    connect(m_ui->appList->horizontalHeader(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), m_ui->appList, SLOT(sortByColumn(int)));
+    connect(m_ui->appList->horizontalHeader(), &QHeaderView::sortIndicatorChanged, m_ui->appList, &QTableView::sortByColumn);
 
-    connect(m_ui->check_persistent, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_ui->spin_urgency, SIGNAL(editingFinished()), this, SLOT(changed()));
-    connect(m_ui->check_body, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_ui->check_icons, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->check_persistent, &QCheckBox::toggled, this, &SendNotificationsConfig::markAsChanged);
+    connect(m_ui->spin_urgency, &QSpinBox::editingFinished, this, &SendNotificationsConfig::markAsChanged);
+    connect(m_ui->check_body, &QCheckBox::toggled, this, &SendNotificationsConfig::markAsChanged);
+    connect(m_ui->check_icons, &QCheckBox::toggled, this, &SendNotificationsConfig::markAsChanged);
 
-    connect(appModel, SIGNAL(applicationsChanged()), this, SLOT(changed()));
+    connect(appModel, &NotifyingApplicationModel::applicationsChanged, this, &SendNotificationsConfig::markAsChanged);
 
     connect(config(), &KdeConnectPluginConfig::configChanged, this, &SendNotificationsConfig::loadApplications);
 }

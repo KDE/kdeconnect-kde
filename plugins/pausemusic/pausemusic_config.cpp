@@ -17,11 +17,11 @@ PauseMusicConfig::PauseMusicConfig(QObject *parent, const QVariantList &args)
 {
     m_ui->setupUi(widget());
 
-    connect(m_ui->rad_ringing, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_ui->rad_talking, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_ui->check_pause, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_ui->check_mute, SIGNAL(toggled(bool)), this, SLOT(changed()));
-    connect(m_ui->check_resume, SIGNAL(toggled(bool)), this, SLOT(changed()));
+    connect(m_ui->rad_ringing, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui->rad_talking, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui->check_pause, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui->check_mute, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui->check_resume, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
 }
 
 PauseMusicConfig::~PauseMusicConfig()
