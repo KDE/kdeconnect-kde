@@ -139,6 +139,8 @@ void DevicesModel::setDisplayFilter(int flags)
     m_displayFilter = (StatusFilterFlag)flags;
 
     refreshDeviceList();
+
+    Q_EMIT displayFilterChanged(flags);
 }
 
 void DevicesModel::refreshDeviceList()

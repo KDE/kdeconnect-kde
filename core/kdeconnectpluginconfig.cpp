@@ -140,6 +140,8 @@ void KdeConnectPluginConfig::setDeviceId(const QString &deviceId)
     if (!m_deviceId.isEmpty() && !m_pluginName.isEmpty()) {
         loadConfig();
     }
+
+    Q_EMIT deviceIdChanged(deviceId);
 }
 
 QString KdeConnectPluginConfig::deviceId()

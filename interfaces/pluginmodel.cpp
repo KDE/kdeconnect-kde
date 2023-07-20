@@ -41,6 +41,8 @@ void PluginModel::setDeviceId(const QString &deviceId)
     m_deviceId = deviceId;
     DeviceDbusInterface *device = new DeviceDbusInterface(m_deviceId);
     m_config = KSharedConfig::openConfig(device->pluginsConfigFile());
+
+    Q_EMIT deviceIdChanged(deviceId);
 }
 
 QVariant PluginModel::data(const QModelIndex &index, int role) const
