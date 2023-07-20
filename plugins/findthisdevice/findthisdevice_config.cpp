@@ -15,6 +15,10 @@
 #include <QMediaPlayer>
 #include <QStandardPaths>
 
+#if QT_VERSION_MAJOR == 6
+#include <QAudioOutput>
+#endif
+
 K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfig>();)
 
 FindThisDeviceConfig::FindThisDeviceConfig(QObject *parent, const QVariantList &args)
@@ -68,11 +72,20 @@ void FindThisDeviceConfig::playSound()
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
     } else {
         QMediaPlayer *player = new QMediaPlayer;
+#if QT_VERSION_MAJOR < 6
         player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
         player->setMedia(soundURL);
         player->setVolume(100);
         player->play();
         connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
+#else
+        auto audioOutput = new QAudioOutput();
+        audioOutput->setVolume(100);
+        player->setSource(soundURL);
+        player->setAudioOutput(audioOutput);
+        player->play();
+        connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
+#endif
     }
 }
 
