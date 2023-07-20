@@ -8,17 +8,15 @@ else()
     )
 endif()
 
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER plugin_pausemusic_debug.h
+qt_add_dbus_interface(kdeconnect_pausemusic_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
+
+kdeconnect_add_plugin(kdeconnect_pausemusic SOURCES ${kdeconnect_pausemusic_SRCS})
+
+ecm_qt_declare_logging_category(kdeconnect_pausemusic
+    HEADER plugin_pausemusic_debug.h
     IDENTIFIER KDECONNECT_PLUGIN_PAUSEMUSIC CATEGORY_NAME kdeconnect.plugin.pausemusic
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin pausemusic)")
-
-qt_add_dbus_interface(kdeconnect_pausemusic_SRCS org.mpris.MediaPlayer2.Player.xml mprisplayer)
-
-kdeconnect_add_plugin(kdeconnect_pausemusic SOURCES ${kdeconnect_pausemusic_SRCS} ${debug_file_SRCS})
-
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
     Qt::Core

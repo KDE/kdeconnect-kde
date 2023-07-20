@@ -1,17 +1,10 @@
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER plugin_runcommand_debug.h
+kdeconnect_add_plugin(kdeconnect_runcommand SOURCES runcommandplugin.cpp)
+
+ecm_qt_declare_logging_category(kdeconnect_runcommand
+    HEADER plugin_runcommand_debug.h
     IDENTIFIER KDECONNECT_PLUGIN_RUNCOMMAND CATEGORY_NAME kdeconnect.plugin.runcommand
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin runcommand)")
-
-set(kdeconnect_runcommand_SRCS
-    runcommandplugin.cpp
-    ${debug_file_SRCS}
-)
-
-kdeconnect_add_plugin(kdeconnect_runcommand SOURCES ${kdeconnect_runcommand_SRCS})
-
 target_link_libraries(kdeconnect_runcommand
     kdeconnectcore
     Qt${QT_MAJOR_VERSION}::DBus

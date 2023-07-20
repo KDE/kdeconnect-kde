@@ -1,12 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-indicator\")
 
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER indicator_debug.h
-    IDENTIFIER KDECONNECT_INDICATOR CATEGORY_NAME kdeconnect.indicator
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (indicator)")
-
 qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
 
 set(indicator_SRCS
@@ -39,7 +32,14 @@ else ()
     list(APPEND indicator_SRCS indicatorhelper.cpp)
 endif()
 
-add_executable(kdeconnect-indicator ${indicator_SRCS} ${debug_file_SRCS})
+add_executable(kdeconnect-indicator ${indicator_SRCS})
+
+ecm_qt_declare_logging_category(kdeconnect-indicator
+    HEADER indicator_debug.h
+    IDENTIFIER KDECONNECT_INDICATOR CATEGORY_NAME kdeconnect.indicator
+    DEFAULT_SEVERITY Warning
+    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (indicator)")
+
 
 target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions)
 

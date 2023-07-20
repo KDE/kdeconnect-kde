@@ -1,5 +1,6 @@
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(debug_file_SRCS
+kdeconnect_add_plugin(kdeconnect_share SOURCES shareplugin.cpp)
+
+ecm_qt_declare_logging_category(kdeconnect_share
     HEADER plugin_share_debug.h
     IDENTIFIER KDECONNECT_PLUGIN_SHARE
     CATEGORY_NAME kdeconnect.plugin.share
@@ -7,14 +8,6 @@ ecm_qt_declare_logging_category(debug_file_SRCS
     EXPORT kdeconnect-kde
     DESCRIPTION "kdeconnect (plugin share)"
 )
-
-set(kdeconnect_share_SRCS
-    shareplugin.cpp
-    ${debug_file_SRCS}
-)
-
-kdeconnect_add_plugin(kdeconnect_share SOURCES ${kdeconnect_share_SRCS})
-
 target_link_libraries(kdeconnect_share
     kdeconnectcore
     Qt::DBus

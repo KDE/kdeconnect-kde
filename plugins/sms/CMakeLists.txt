@@ -1,24 +1,21 @@
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER plugin_sms_debug.h
+kdeconnect_add_plugin(kdeconnect_sms SOURCES ${kdeconnect_sms_SRCS})
+
+target_sources(kdeconnect_sms PRIVATE
+    smsplugin.cpp
+    conversationsdbusinterface.cpp
+    requestconversationworker.cpp
+)
+ecm_qt_declare_logging_category(kdeconnect_sms
+    HEADER plugin_sms_debug.h
     IDENTIFIER KDECONNECT_PLUGIN_SMS CATEGORY_NAME kdeconnect.plugin.sms
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin sms)")
 
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER kdeconnect_conversations_debug.h
+ecm_qt_declare_logging_category(kdeconnect_sms
+    HEADER kdeconnect_conversations_debug.h
     IDENTIFIER KDECONNECT_CONVERSATIONS CATEGORY_NAME kdeconnect.conversations
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (conversations)")
-
-set(kdeconnect_sms_SRCS
-    smsplugin.cpp
-    conversationsdbusinterface.cpp
-    requestconversationworker.cpp
-    ${debug_file_SRCS}
-)
-
-kdeconnect_add_plugin(kdeconnect_sms SOURCES ${kdeconnect_sms_SRCS})
 
 target_link_libraries(kdeconnect_sms
     kdeconnectcore

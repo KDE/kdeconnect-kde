@@ -1,15 +1,11 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kded")
 
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER kdeconnectd_debug.h
+add_executable(kdeconnectd kdeconnectd.cpp ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
+ecm_qt_declare_logging_category(kdeconnectd
+    HEADER kdeconnectd_debug.h
     IDENTIFIER KDECONNECT_DAEMON CATEGORY_NAME kdeconnect.daemon
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
-
-qt_add_resources(kdeconnect_custom_icons_SRCS ${CMAKE_SOURCE_DIR}/icons/custom_icons.qrc)
-
-add_executable(kdeconnectd kdeconnectd.cpp ${kdeconnect_custom_icons_SRCS} ${debug_file_SRCS})
 target_link_libraries(kdeconnectd
     kdeconnectcore kdeconnectversion
     KF${QT_MAJOR_VERSION}::KIOWidgets

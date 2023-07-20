@@ -12,14 +12,13 @@ else()
     )
 endif()
 
-set(debug_file_SRCS)
-ecm_qt_declare_logging_category(
-    debug_file_SRCS HEADER plugin_systemvolume_debug.h
+kdeconnect_add_plugin(kdeconnect_systemvolume SOURCES ${kdeconnect_systemvolume_SRCS})
+
+ecm_qt_declare_logging_category(kdeconnect_systemvolume
+    HEADER plugin_systemvolume_debug.h
     IDENTIFIER KDECONNECT_PLUGIN_SYSTEMVOLUME CATEGORY_NAME kdeconnect.plugin.systemvolume
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin systemvolume)")
-kdeconnect_add_plugin(kdeconnect_systemvolume SOURCES ${kdeconnect_systemvolume_SRCS} ${debug_file_SRCS})
-
 if(WIN32)
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore
