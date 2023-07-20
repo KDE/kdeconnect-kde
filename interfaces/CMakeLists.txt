@@ -62,6 +62,7 @@ geninterface(${PROJECT_SOURCE_DIR}/plugins/clipboard/clipboardplugin.h devicecli
 
 if ("${QT_MAJOR_VERSION}" STREQUAL "6")
     add_library(kdeconnectinterfaces STATIC)
+    set_property(TARGET kdeconnectinterfaces PROPERTY POSITION_INDEPENDENT_CODE ON)
 else()
     add_library(kdeconnectinterfaces)
 endif()
