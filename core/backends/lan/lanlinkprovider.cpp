@@ -71,13 +71,17 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
         }
     });
 #else
-    // Detect when a network interface changes status, so we announce ourselves in the new network
-    QNetworkInformation::instance()->loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
-    connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, [this]() {
+    const auto checkNetworkChange = [this]() {
         if (QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online) {
             onNetworkChange();
         }
-    });
+    };
+    // Detect when a network interface changes status, so we announce ourselves in the new network
+    QNetworkInformation::instance()->loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
+
+    // We want to know if our current network reachability has changed, or if we change from one network to another
+    connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, checkNetworkChange);
+    connect(QNetworkInformation::instance(), &QNetworkInformation::transportMediumChanged, this, checkNetworkChange);
 #endif
 }
 
@@ -186,7 +190,6 @@ void LanLinkProvider::broadcastUdpIdentityPacket()
     sendUdpIdentityPacket(addresses);
 #endif
 }
-
 
 QList<QHostAddress> LanLinkProvider::getBroadcastAddresses()
 {
