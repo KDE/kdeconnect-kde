@@ -23,7 +23,6 @@ public:
     SendNotificationsConfig(QObject *parent, const QVariantList &);
     ~SendNotificationsConfig() override;
 
-public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;

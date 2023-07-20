@@ -21,7 +21,6 @@ public:
     PauseMusicConfig(QObject *parent, const QVariantList &);
     ~PauseMusicConfig() override;
 
-public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;

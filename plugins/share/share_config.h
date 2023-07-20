@@ -21,7 +21,6 @@ public:
     ShareConfig(QObject *parent, const QVariantList &);
     ~ShareConfig() override;
 
-public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;

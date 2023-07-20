@@ -18,7 +18,6 @@ class RunCommandConfig : public KdeConnectPluginKcm
 public:
     RunCommandConfig(QObject *parent, const QVariantList &);
 
-public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;

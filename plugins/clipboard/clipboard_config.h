@@ -21,10 +21,10 @@ public:
     ClipboardConfig(QObject *parent, const QVariantList &);
     ~ClipboardConfig() override;
 
-public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;
+public Q_SLOTS:
     void autoShareChanged();
 
 private:

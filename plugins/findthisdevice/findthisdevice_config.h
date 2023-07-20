@@ -21,15 +21,12 @@ public:
     FindThisDeviceConfig(QObject *parent, const QVariantList &);
     ~FindThisDeviceConfig() override;
 
-public Q_SLOTS:
     void save() override;
     void load() override;
     void defaults() override;
 
-private Q_SLOTS:
-    void playSound(const QUrl &soundUrl);
-
 private:
+    void playSound(const QUrl &soundUrl);
     Ui::FindThisDeviceConfigUi *m_ui;
 };
 
