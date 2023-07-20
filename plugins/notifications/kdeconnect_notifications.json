@@ -78,7 +78,6 @@
         "Description[zh_TW]": "在電腦上顯示裝置通知並且保持同步",
         "EnabledByDefault": true,
         "Icon": "preferences-desktop-notification",
-        "Id": "kdeconnect_notifications",
         "License": "GPL",
         "Name": "Receive notifications",
         "Name[ar]": "استقبل الإخطارات",

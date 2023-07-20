@@ -79,7 +79,6 @@
         "Description[zh_TW]": "傳送與接收 Ping 回應封包",
         "EnabledByDefault": true,
         "Icon": "dialog-ok",
-        "Id": "kdeconnect_ping",
         "License": "GPL",
         "Name": "Ping",
         "Name[ar]": "وخزة",

@@ -97,7 +97,6 @@
         "Description[zh_TW]": "讓您的智慧型手機當作觸碰板與鍵盤",
         "EnabledByDefault": true,
         "Icon": "edit-select",
-        "Id": "kdeconnect_mousepad",
         "License": "GPL",
         "Name": "Virtual input",
         "Name[ar]": "دخل وهميّ",

@@ -89,7 +89,6 @@
         "Description[zh_TW]": "讓手機發出警報聲，以讓您找到這個裝置",
         "EnabledByDefault": true,
         "Icon": "edit-find",
-        "Id": "kdeconnect_findthisdevice",
         "License": "GPL",
         "Name": "Find this device",
         "Name[ar]": "اعثر على هذا الهاتف",

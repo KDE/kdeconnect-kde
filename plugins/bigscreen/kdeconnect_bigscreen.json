@@ -74,7 +74,6 @@
         "Description[zh_CN]": "发送语音命令给运行 Plasma Bigscreen 的电视机",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
-        "Id": "kdeconnect_bigscreen",
         "License": "GPL",
         "Name": "Bigscreen voice control",
         "Name[ar]": "التحكم الصوتي للشاشة الكبيرة",

@@ -97,7 +97,6 @@
         "Description[zh_TW]": "當裝置連接中時停止螢幕保護",
         "EnabledByDefault": false,
         "Icon": "preferences-desktop-screensaver",
-        "Id": "kdeconnect_screensaver_inhibit",
         "License": "GPL",
         "Name": "Inhibit screensaver",
         "Name[ar]": "امنع حافظة الشّاشة",

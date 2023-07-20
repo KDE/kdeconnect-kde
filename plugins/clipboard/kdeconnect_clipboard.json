@@ -79,7 +79,6 @@
         "Description[zh_TW]": "在裝置之間共享剪貼簿",
         "EnabledByDefault": true,
         "Icon": "klipper",
-        "Id": "kdeconnect_clipboard",
         "License": "GPL",
         "Name": "Clipboard",
         "Name[ar]": "الحافظة",

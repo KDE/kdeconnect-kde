@@ -97,7 +97,6 @@
         "Description[zh_TW]": "利用您的鍵盤去傳送按鍵活動至您的配對裝置",
         "EnabledByDefault": true,
         "Icon": "edit-select",
-        "Id": "kdeconnect_remotekeyboard",
         "License": "GPL",
         "Name": "Remote keyboard from the desktop",
         "Name[ar]": "لوحة مفاتيح بعيده من سطح المكتب",

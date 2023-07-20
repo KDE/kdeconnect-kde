@@ -97,7 +97,6 @@
         "Description[zh_TW]": "使用 SFTP 來瀏覽遠端的檔案系統",
         "EnabledByDefault": true,
         "Icon": "folder-documents",
-        "Id": "kdeconnect_sftp",
         "License": "GPL",
         "Name": "Remote filesystem browser",
         "Name[ar]": "متصفّح نظام الملفّات البعيد",

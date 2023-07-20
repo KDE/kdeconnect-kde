@@ -145,7 +145,6 @@
         "Description[zh_TW]": "讓您的手機發出警報聲，讓您找到您遺失的手機",
         "EnabledByDefault": true,
         "Icon": "edit-find",
-        "Id": "kdeconnect_findmyphone",
         "License": "GPL",
         "Name": "Ring my phone",
         "Name[ar]": "رنّ هاتفي",

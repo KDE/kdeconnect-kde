@@ -79,7 +79,6 @@
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",
         "EnabledByDefault": false,
         "Icon": "preferences-desktop-notification",
-        "Id": "kdeconnect_sendnotifications",
         "License": "GPL",
         "Name": "Send notifications",
         "Name[ar]": "أرسل إخطارات",

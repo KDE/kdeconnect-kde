@@ -80,7 +80,6 @@
         "Description[zh_TW]": "顯示來電通知",
         "EnabledByDefault": true,
         "Icon": "call-start",
-        "Id": "kdeconnect_mmtelephony",
         "License": "GPL",
         "Name": "ModemManager Telephony integration",
         "Name[ar]": "تكامل هاتف ModemManager",

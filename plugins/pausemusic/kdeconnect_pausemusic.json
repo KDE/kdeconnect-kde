@@ -78,7 +78,6 @@
         "Description[zh_TW]": "在通話過程中暫停音樂與影片",
         "EnabledByDefault": true,
         "Icon": "media-playback-pause",
-        "Id": "kdeconnect_pausemusic",
         "License": "GPL",
         "Name": "Pause media during calls",
         "Name[ar]": "ألبث الوسائط أثناء المكالمات",

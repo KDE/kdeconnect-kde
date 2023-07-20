@@ -89,7 +89,6 @@
         "Description[zh_TW]": "從手機控制系統音量",
         "EnabledByDefault": true,
         "Icon": "audio-volume-high",
-        "Id": "kdeconnect_systemvolume",
         "License": "GPL",
         "Name": "System volume",
         "Name[ar]": "صوت النظام",

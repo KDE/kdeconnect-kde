@@ -84,7 +84,6 @@
         "Description[zh_TW]": "將聯絡人從連線裝置同步至桌面",
         "EnabledByDefault": true,
         "Icon": "tag-people",
-        "Id": "kdeconnect_contacts",
         "License": "GPL",
         "Name": "Contacts",
         "Name[ar]": "المتراسلون",

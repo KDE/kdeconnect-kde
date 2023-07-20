@@ -96,7 +96,6 @@
         "Description[zh_TW]": "執行預先設定在遠端裝置上的命令",
         "EnabledByDefault": true,
         "Icon": "system-run",
-        "Id": "kdeconnect_remotecommands",
         "License": "GPL",
         "Name": "Host remote commands",
         "Name[ar]": "استضف الأوامر البعيدة",

@@ -96,7 +96,6 @@
         "Description[zh_TW]": "控制遠端系統",
         "EnabledByDefault": true,
         "Icon": "edit-select",
-        "Id": "kdeconnect_remotecontrol",
         "License": "GPL",
         "Name": "RemoteControl",
         "Name[ar]": "التّحكّم عن بعد",

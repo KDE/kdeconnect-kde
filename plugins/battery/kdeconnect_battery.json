@@ -79,7 +79,6 @@
         "Description[zh_TW]": "在您的電腦電池電量旁邊顯示手機電池電量",
         "EnabledByDefault": true,
         "Icon": "preferences-system-power-management",
-        "Id": "kdeconnect_battery",
         "License": "GPL",
         "Name": "Battery monitor",
         "Name[ar]": "مرقاب البطّاريّة",

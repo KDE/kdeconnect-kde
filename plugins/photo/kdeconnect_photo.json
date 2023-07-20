@@ -88,7 +88,6 @@
         "Description[zh_TW]": "使用連結裝置拍照",
         "EnabledByDefault": true,
         "Icon": "camera-photo",
-        "Id": "kdeconnect_photo",
         "License": "GPL",
         "Name": "Photo",
         "Name[ar]": "صورة",

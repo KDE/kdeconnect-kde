@@ -79,7 +79,6 @@
         "Description[zh_TW]": "簡單地接收與傳送檔案、URL 網址或純文字檔",
         "EnabledByDefault": true,
         "Icon": "folder-network",
-        "Id": "kdeconnect_share",
         "License": "GPL",
         "Name": "Share and receive",
         "Name[ar]": "شارك واستقبل",

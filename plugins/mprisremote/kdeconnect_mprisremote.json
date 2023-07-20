@@ -96,7 +96,6 @@
         "Description[zh_TW]": "控制 MPRIS 服務",
         "EnabledByDefault": true,
         "Icon": "applications-multimedia",
-        "Id": "kdeconnect_mprisremote",
         "License": "GPL",
         "Name": "MprisRemote",
         "Name[ar]": "‏Mpris عن بعد",

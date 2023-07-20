@@ -89,7 +89,6 @@
         "Description[zh_TW]": "傳送和接收文字簡訊",
         "EnabledByDefault": true,
         "Icon": "mail-message-new-list",
-        "Id": "kdeconnect_sms",
         "License": "GPL",
         "Name": "SMS",
         "Name[ar]": "اس ام اس",

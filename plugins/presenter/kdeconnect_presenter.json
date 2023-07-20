@@ -92,7 +92,6 @@
         "Description[zh_TW]": "將您的行動裝置當作螢幕指標使用",
         "EnabledByDefault": true,
         "Icon": "view-presentation",
-        "Id": "kdeconnect_presenter",
         "License": "GPL",
         "Name": "Presenter",
         "Name[ar]": "المقدم",

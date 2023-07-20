@@ -127,7 +127,6 @@
         "Description[zh_TW]": "遠程執行控制台命令",
         "EnabledByDefault": true,
         "Icon": "system-run",
-        "Id": "kdeconnect_runcommand",
         "License": "GPL",
         "Name": "Run commands",
         "Name[ar]": "شغّل أوامر",

@@ -75,7 +75,6 @@
         "Description[zh_TW]": "顯示來電通知",
         "EnabledByDefault": true,
         "Icon": "call-start",
-        "Id": "kdeconnect_telephony",
         "License": "GPL",
         "Name": "Telephony integration",
         "Name[ar]": "تكامل الهاتف",

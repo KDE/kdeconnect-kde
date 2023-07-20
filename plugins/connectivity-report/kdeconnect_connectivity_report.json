@@ -84,7 +84,6 @@
         "Description[zh_TW]": "顯示手機網路訊號的強度",
         "EnabledByDefault": true,
         "Icon": "network-wireless",
-        "Id": "kdeconnect_connectivity_report",
         "License": "GPL",
         "Name": "Connectivity monitor",
         "Name[ar]": "مراقب الاتصال",

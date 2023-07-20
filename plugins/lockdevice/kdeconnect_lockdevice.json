@@ -96,7 +96,6 @@
         "Description[zh_TW]": "鎖定您的系統",
         "EnabledByDefault": true,
         "Icon": "lock",
-        "Id": "kdeconnect_lockdevice",
         "License": "GPL",
         "Name": "LockDevice",
         "Name[ar]": "أوصد الجهاز",

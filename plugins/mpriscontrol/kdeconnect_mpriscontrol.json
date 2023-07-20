@@ -79,7 +79,6 @@
         "Description[zh_TW]": "遠端控制您的音樂與影片",
         "EnabledByDefault": true,
         "Icon": "media-playback-start",
-        "Id": "kdeconnect_mpriscontrol",
         "License": "GPL",
         "Name": "Multimedia control receiver",
         "Name[ar]": "مستقبل تحكّمات الوسائط المتعدّدة",
