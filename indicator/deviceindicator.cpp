@@ -98,8 +98,8 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
                                                           QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/photo"),
                                                           QStringLiteral("org.kde.kdeconnect.device.photo"),
                                                           QStringLiteral("requestPhoto"));
-        msg.setArguments({QString(QStandardPaths::standardLocations(QStandardPaths::DownloadLocation).first()
-                                  + QDateTime::currentDateTime().toString(QStringLiteral("/dd-MM-yy_hh-mm-ss.png")))});
+        QStringList downloadDirs = QStandardPaths::standardLocations(QStandardPaths::DownloadLocation);
+        msg.setArguments({QString(downloadDirs.first() + QDateTime::currentDateTime().toString(QStringLiteral("/dd-MM-yy_hh-mm-ss.png")))});
         blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
     });
     setWhenAvailable(
