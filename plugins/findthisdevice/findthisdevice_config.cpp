@@ -32,7 +32,11 @@ FindThisDeviceConfig::FindThisDeviceConfig(QObject *parent, const QVariantList &
         m_ui->soundFileRequester->setStartDir(QUrl::fromLocalFile(soundDirs.last()));
     }
 
-    connect(m_ui->playSoundButton, &QToolButton::clicked, this, &FindThisDeviceConfig::playSound);
+    connect(m_ui->playSoundButton, &QToolButton::clicked, this, [this]() {
+        if (const QUrl soundUrl = m_ui->soundFileRequester->url(); soundUrl.isValid()) {
+            playSound(soundUrl);
+        }
+    });
     connect(m_ui->soundFileRequester, &KUrlRequester::textChanged, this, &FindThisDeviceConfig::markAsChanged);
 }
 
@@ -64,29 +68,23 @@ void FindThisDeviceConfig::save()
     KCModule::save();
 }
 
-void FindThisDeviceConfig::playSound()
+void FindThisDeviceConfig::playSound(const QUrl &soundUrl)
 {
-    const QUrl soundURL = m_ui->soundFileRequester->url();
-
-    if (soundURL.isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
-    } else {
-        QMediaPlayer *player = new QMediaPlayer;
+    QMediaPlayer *player = new QMediaPlayer;
 #if QT_VERSION_MAJOR < 6
-        player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
-        player->setMedia(soundURL);
-        player->setVolume(100);
-        player->play();
-        connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
+    player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
+    player->setMedia(soundUrl);
+    player->setVolume(100);
+    player->play();
+    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
 #else
-        auto audioOutput = new QAudioOutput();
-        audioOutput->setVolume(100);
-        player->setSource(soundURL);
-        player->setAudioOutput(audioOutput);
-        player->play();
-        connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
+    auto audioOutput = new QAudioOutput();
+    audioOutput->setVolume(100);
+    player->setSource(soundUrl);
+    player->setAudioOutput(audioOutput);
+    player->play();
+    connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
 #endif
-    }
 }
 
 #include "findthisdevice_config.moc"

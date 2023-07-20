@@ -61,7 +61,7 @@ inline QString defaultSound()
     }
 #endif
     if (soundURL.isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Could not find default ring tone.";
+        qWarning() << "Could not find default ring tone.";
     }
     return soundURL.toLocalFile();
 }

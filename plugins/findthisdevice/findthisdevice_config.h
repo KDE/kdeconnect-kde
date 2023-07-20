@@ -27,7 +27,7 @@ public Q_SLOTS:
     void defaults() override;
 
 private Q_SLOTS:
-    void playSound();
+    void playSound(const QUrl &soundUrl);
 
 private:
     Ui::FindThisDeviceConfigUi *m_ui;
