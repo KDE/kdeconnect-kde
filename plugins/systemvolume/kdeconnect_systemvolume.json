@@ -130,9 +130,7 @@
         "Name[uk]": "Системний том",
         "Name[x-test]": "xxSystem volumexx",
         "Name[zh_CN]": "系统音量",
-        "Name[zh_TW]": "系統音量",
-        "Version": "0.1",
-        "Website": "https://nicolasfella.wordpress.com"
+        "Name[zh_TW]": "系統音量"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.systemvolume"

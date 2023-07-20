@@ -142,9 +142,7 @@
         "Name[uk]": "MprisRemote",
         "Name[x-test]": "xxMprisRemotexx",
         "Name[zh_CN]": "远程 Mpris",
-        "Name[zh_TW]": "遠端 Mpris",
-        "Version": "0.1",
-        "Website": "https://kde.org"
+        "Name[zh_TW]": "遠端 Mpris"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mpris.request"

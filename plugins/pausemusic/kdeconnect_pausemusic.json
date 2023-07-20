@@ -124,9 +124,7 @@
         "Name[uk]": "Призупинка відтворення під час дзвінків",
         "Name[x-test]": "xxPause media during callsxx",
         "Name[zh_CN]": "来电时暂停媒体",
-        "Name[zh_TW]": "在通話過程中暫停媒體",
-        "Version": "0.1",
-        "Website": "https://albertvaka.wordpress.com"
+        "Name[zh_TW]": "在通話過程中暫停媒體"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_pausemusic_config",
     "X-KdeConnect-SupportedPacketType": [

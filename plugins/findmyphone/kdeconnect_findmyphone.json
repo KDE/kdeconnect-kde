@@ -192,9 +192,7 @@
         "Name[uk]": "Дзвінок на вашому телефоні",
         "Name[x-test]": "xxRing my phonexx",
         "Name[zh_CN]": "让我的手机响铃",
-        "Name[zh_TW]": "撥打我的電話",
-        "Version": "0.1",
-        "Website": "https://kde.org"
+        "Name[zh_TW]": "撥打我的電話"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.findmyphone.request"

@@ -143,8 +143,7 @@
         "Name[uk]": "Віртуальне введення даних",
         "Name[x-test]": "xxVirtual inputxx",
         "Name[zh_CN]": "虚拟输入",
-        "Name[zh_TW]": "虛擬輸入",
-        "Version": "0.1"
+        "Name[zh_TW]": "虛擬輸入"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.keyboardstate"

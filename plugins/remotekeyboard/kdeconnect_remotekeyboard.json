@@ -143,8 +143,7 @@
         "Name[uk]": "Віддалена клавіатура з комп’ютера",
         "Name[x-test]": "xxRemote keyboard from the desktopxx",
         "Name[zh_CN]": "来自桌面的远程键盘",
-        "Name[zh_TW]": "從桌面遠端控制鍵盤",
-        "Version": "0.1"
+        "Name[zh_TW]": "從桌面遠端控制鍵盤"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.request"

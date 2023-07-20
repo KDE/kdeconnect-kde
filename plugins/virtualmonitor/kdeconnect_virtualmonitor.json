@@ -117,9 +117,7 @@
         "Name[uk]": "Віртуальний монітор",
         "Name[x-test]": "xxVirtual Monitorxx",
         "Name[zh_CN]": "虚拟显示器",
-        "Name[zh_TW]": "虛擬螢幕",
-        "Version": "0.1",
-        "Website": "https://kde.org"
+        "Name[zh_TW]": "虛擬螢幕"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.virtualmonitor",

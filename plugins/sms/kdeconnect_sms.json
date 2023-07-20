@@ -133,9 +133,7 @@
         "Name[uk]": "SMS",
         "Name[x-test]": "xxSMSxx",
         "Name[zh_CN]": "短信",
-        "Name[zh_TW]": "文字簡訊",
-        "Version": "0.1",
-        "Website": "https://nicolasfella.wordpress.com"
+        "Name[zh_TW]": "文字簡訊"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.sms.request",

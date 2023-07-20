@@ -124,9 +124,7 @@
         "Name[uk]": "Отримати сповіщення",
         "Name[x-test]": "xxReceive notificationsxx",
         "Name[zh_CN]": "接收通知",
-        "Name[zh_TW]": "接收通知",
-        "Version": "0.1",
-        "Website": "https://albertvaka.wordpress.com"
+        "Name[zh_TW]": "接收通知"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.notification.request",
