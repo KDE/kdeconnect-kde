@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:50+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2021-09-16 01:30+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -19,22 +19,22 @@ msgstr ""
 "X-Generator: Lokalize 21.08.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: backends/lan/compositeuploadjob.cpp:81
+#: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "找不到任何可用的 port"
 
-#: backends/lan/compositeuploadjob.cpp:119
+#: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "無法傳送封包到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "Sending to %1"
 msgstr "正在傳送到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "File"
 msgstr "檔案"

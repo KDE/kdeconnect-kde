@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:50+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2021-07-27 16:57+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
@@ -21,22 +21,22 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.04.3\n"
 
-#: backends/lan/compositeuploadjob.cpp:81
+#: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Не удалось найти доступный порт"
 
-#: backends/lan/compositeuploadjob.cpp:119
+#: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Не удалось послать пакет на %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "Sending to %1"
 msgstr "Передача на %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "File"
 msgstr "Файл"

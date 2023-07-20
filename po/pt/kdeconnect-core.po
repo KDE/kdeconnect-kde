@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:50+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2023-06-03 10:43+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -13,22 +13,22 @@ msgstr ""
 "X-POFile-SpellExtra: Connect ossl RSA gnupg SHA\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: backends/lan/compositeuploadjob.cpp:81
+#: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Não foi possível detectar um porto disponível"
 
-#: backends/lan/compositeuploadjob.cpp:119
+#: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Não foi possível enviar um pacote de dados para o %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "Sending to %1"
 msgstr "A enviar para o %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "File"
 msgstr "Ficheiro"

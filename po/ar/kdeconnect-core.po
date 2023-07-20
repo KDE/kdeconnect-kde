@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:50+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2023-06-08 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -19,22 +19,22 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: backends/lan/compositeuploadjob.cpp:81
+#: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "تعّّر إيجاد منفذ متوفّر"
 
-#: backends/lan/compositeuploadjob.cpp:119
+#: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "فشل إرسال الحزمة من %1"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "Sending to %1"
 msgstr "يرسل إلى %1..."
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "File"
 msgstr "ملف"

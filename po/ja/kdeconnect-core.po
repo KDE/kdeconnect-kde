@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-19 00:50+0000\n"
+"POT-Creation-Date: 2023-07-20 00:48+0000\n"
 "PO-Revision-Date: 2021-09-25 15:31-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 21.08.1\n"
 
-#: backends/lan/compositeuploadjob.cpp:81
+#: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "利用可能なポートを見つけられませんでした"
 
-#: backends/lan/compositeuploadjob.cpp:119
+#: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "%1 へのパケット送信失敗"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1 に送信中"
 
-#: backends/lan/compositeuploadjob.cpp:291
+#: backends/lan/compositeuploadjob.cpp:287
 #, kde-format
 msgid "File"
 msgstr "ファイル"
