@@ -1,6 +1,5 @@
 {
     "KPlugin": {
-        "Category": "Utilities",
         "Description": "Send file to other device using KDE Connect",
         "Description[ar]": "أرسل ملف إلى جهاز أخر باستعمال كِيدِي المتصل",
         "Description[az]": "Digər cihazlara KDE Connect ilə fayl göndərin",
