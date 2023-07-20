@@ -131,9 +131,7 @@
         "Name[uk]": "Фото",
         "Name[x-test]": "xxPhotoxx",
         "Name[zh_CN]": "照片",
-        "Name[zh_TW]": "相片",
-        "Version": "0.1",
-        "Website": "https://nicolasfella.wordpress.com"
+        "Name[zh_TW]": "相片"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.photo.request"

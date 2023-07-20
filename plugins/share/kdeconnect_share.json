@@ -125,9 +125,7 @@
         "Name[uk]": "Оприлюднення і отримання",
         "Name[x-test]": "xxShare and receivexx",
         "Name[zh_CN]": "分享和接收",
-        "Name[zh_TW]": "分享及接收",
-        "Version": "0.1",
-        "Website": "https://albertvaka.wordpress.com"
+        "Name[zh_TW]": "分享及接收"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_share_config",
     "X-KdeConnect-OutgoingPacketType": [

@@ -126,9 +126,7 @@
         "Name[uk]": "Контакти",
         "Name[x-test]": "xxContactsxx",
         "Name[zh_CN]": "联系人",
-        "Name[zh_TW]": "聯絡人",
-        "Version": "0.1",
-        "Website": "https://albertvaka.wordpress.com"
+        "Name[zh_TW]": "聯絡人"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.contacts.request_all_uids_timestamps",

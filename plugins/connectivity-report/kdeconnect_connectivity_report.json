@@ -123,8 +123,7 @@
         "Name[uk]": "Монітор з'єднання",
         "Name[x-test]": "xxConnectivity monitorxx",
         "Name[zh_CN]": "信号监视器",
-        "Name[zh_TW]": "連線監視器",
-        "Version": "1.0"
+        "Name[zh_TW]": "連線監視器"
     },
     "X-KdeConnect-OutgoingPacketType": [],
     "X-KdeConnect-SupportedPacketType": [

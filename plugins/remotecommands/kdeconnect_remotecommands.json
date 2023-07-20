@@ -141,8 +141,7 @@
         "Name[uk]": "Віддалені команди вузлу",
         "Name[x-test]": "xxHost remote commandsxx",
         "Name[zh_CN]": "主机远程命令",
-        "Name[zh_TW]": "主機與遠端指令",
-        "Version": "0.1"
+        "Name[zh_TW]": "主機與遠端指令"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.runcommand.request"

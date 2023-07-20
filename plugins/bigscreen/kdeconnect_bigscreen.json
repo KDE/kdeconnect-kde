@@ -101,9 +101,7 @@
         "Name[tr]": "Büyük Ekran sesle denetim",
         "Name[uk]": "Голосове керування Bigscreen",
         "Name[x-test]": "xxBigscreen voice controlxx",
-        "Name[zh_CN]": "Bigscreen 语音控制",
-        "Version": "0.1",
-        "Website": "https://aiix.tk"
+        "Name[zh_CN]": "Bigscreen 语音控制"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mousepad.request",

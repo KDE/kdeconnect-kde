@@ -112,9 +112,7 @@
         "Name[uk]": "Інтеграція телефонії ModemManager",
         "Name[x-test]": "xxModemManager Telephony integrationxx",
         "Name[zh_CN]": "ModemManager Telephony 集成",
-        "Name[zh_TW]": "ModemManager 電話整合",
-        "Version": "0.1",
-        "Website": "https://kdeconnect.kde.org/"
+        "Name[zh_TW]": "ModemManager 電話整合"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.telephony"

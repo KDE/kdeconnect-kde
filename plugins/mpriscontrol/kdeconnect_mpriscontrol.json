@@ -124,9 +124,7 @@
         "Name[uk]": "Отримувач команд щодо керування мультимедійними функціями",
         "Name[x-test]": "xxMultimedia control receiverxx",
         "Name[zh_CN]": "多媒体控制接收器",
-        "Name[zh_TW]": "多媒體控制接收器",
-        "Version": "0.1",
-        "Website": "https://albertvaka.wordpress.com"
+        "Name[zh_TW]": "多媒體控制接收器"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.mpris"

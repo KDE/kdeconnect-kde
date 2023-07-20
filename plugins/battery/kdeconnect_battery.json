@@ -126,9 +126,7 @@
         "Name[uk]": "Монітор акумулятора",
         "Name[x-test]": "xxBattery monitorxx",
         "Name[zh_CN]": "电池监视器",
-        "Name[zh_TW]": "電池監視器",
-        "Version": "0.1",
-        "Website": "https://albertvaka.wordpress.com"
+        "Name[zh_TW]": "電池監視器"
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.battery"
