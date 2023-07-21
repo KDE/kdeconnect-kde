@@ -29,8 +29,8 @@ QtObject {
     readonly property var v: DBusAsyncResponse {
         id: availableResponse
         autoDelete: false
-        onSuccess: { root.available = result; }
-        onError: { root.available = false }
+        onSuccess: (result) => { root.available = result; }
+        onError: () => { root.available = false }
     }
 
     function pluginsChanged() {
@@ -42,7 +42,7 @@ QtObject {
     readonly property var vv: DBusAsyncResponse {
         id: iconResponse
         autoDelete: false
-        onSuccess: { root.iconName = result; }
-        onError: { root.iconName = "" }
+        onSuccess: (result) => { root.iconName = result; }
+        onError: () => { root.iconName = "" }
     }
 }
