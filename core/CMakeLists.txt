@@ -57,13 +57,13 @@ target_include_directories(kdeconnectcore PUBLIC ${PROJECT_SOURCE_DIR})
 
 target_link_libraries(kdeconnectcore
 PUBLIC
-    Qt${QT_MAJOR_VERSION}::Network
+    Qt::Network
     KF${QT_MAJOR_VERSION}::CoreAddons
     ${Qca_LIBRARY}
     KF${QT_MAJOR_VERSION}::KIOCore
     KF${QT_MAJOR_VERSION}::KIOGui
 PRIVATE
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::ConfigCore
 )

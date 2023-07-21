@@ -9,7 +9,7 @@ ecm_qt_declare_logging_category(kdeconnect_presenter
 
 target_link_libraries(kdeconnect_presenter
     kdeconnectcore
-    Qt${QT_MAJOR_VERSION}::DBus
-    Qt${QT_MAJOR_VERSION}::Quick
+    Qt::DBus
+    Qt::Quick
     KF${QT_MAJOR_VERSION}::I18n
 )

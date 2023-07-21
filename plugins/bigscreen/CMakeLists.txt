@@ -1,11 +1,7 @@
-set(kdeconnect_bigscreen_SRCS
-    bigscreenplugin.cpp
-)
-
-kdeconnect_add_plugin(kdeconnect_bigscreen SOURCES ${kdeconnect_bigscreen_SRCS})
+kdeconnect_add_plugin(kdeconnect_bigscreen SOURCES bigscreenplugin.cpp)
 
 target_link_libraries(kdeconnect_bigscreen
     kdeconnectcore
     kdeconnectinterfaces
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::I18n)

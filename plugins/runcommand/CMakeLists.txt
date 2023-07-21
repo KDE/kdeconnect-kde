@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(kdeconnect_runcommand
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin runcommand)")
 target_link_libraries(kdeconnect_runcommand
     kdeconnectcore
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::KCMUtils
     KF${QT_MAJOR_VERSION}::I18n)
 

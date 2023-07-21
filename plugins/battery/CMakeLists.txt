@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(kdeconnect_battery
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin battery)")
 target_link_libraries(kdeconnect_battery
     kdeconnectcore
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::Solid
     KF${QT_MAJOR_VERSION}::I18n
 )

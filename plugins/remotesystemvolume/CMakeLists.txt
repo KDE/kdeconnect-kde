@@ -7,6 +7,6 @@ ecm_qt_declare_logging_category(kdeconnect_remotesystemvolume
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin remotesystemvolume)")
 target_link_libraries(kdeconnect_remotesystemvolume
     kdeconnectcore
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::I18n
 )

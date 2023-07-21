@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(kdeconnect_connectivity_report
 
 target_link_libraries(kdeconnect_connectivity_report
     kdeconnectcore
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::Solid
     KF${QT_MAJOR_VERSION}::I18n
 )

@@ -7,5 +7,5 @@ ecm_qt_declare_logging_category(kdeconnect_remotecommands
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin remotecommands)")
 target_link_libraries(kdeconnect_remotecommands
     kdeconnectcore
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::DBus
 )

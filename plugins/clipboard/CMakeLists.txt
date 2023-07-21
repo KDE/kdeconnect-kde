@@ -7,15 +7,14 @@ ecm_qt_declare_logging_category(kdeconnect_clipboard
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin clipboard)")
 
 target_link_libraries(kdeconnect_clipboard kdeconnectcore
-                                    KF${QT_MAJOR_VERSION}::GuiAddons
-                                    Qt${QT_MAJOR_VERSION}::DBus
-                                    ${kdeconnect_clipboard_WL_LINK_LIBS}
-                                    )
+    Qt::DBus
+    KF${QT_MAJOR_VERSION}::GuiAddons
+    ${kdeconnect_clipboard_WL_LINK_LIBS}
+)
 
-kcoreaddons_add_plugin(kdeconnect_clipboard_config INSTALL_NAMESPACE "kdeconnect/kcms")
+kcoreaddons_add_plugin(kdeconnect_clipboard_config SOURCES clipboard_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
 
 ki18n_wrap_ui(kdeconnect_clipboard_config clipboard_config.ui)
-target_sources(kdeconnect_clipboard_config PRIVATE clipboard_config.cpp)
 target_link_libraries(kdeconnect_clipboard_config
     kdeconnectcore
     kdeconnectpluginkcm

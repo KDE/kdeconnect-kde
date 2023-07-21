@@ -101,8 +101,8 @@ generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BIN
 
 target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
-    Qt${QT_MAJOR_VERSION}::Gui
-    Qt${QT_MAJOR_VERSION}::DBus
+    Qt::Gui
+    Qt::DBus
     KF${QT_MAJOR_VERSION}::ConfigCore
 LINK_PRIVATE
     kdeconnectcore
