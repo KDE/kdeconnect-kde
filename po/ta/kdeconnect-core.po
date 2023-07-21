@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-11 16:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -87,12 +87,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "சேருமிடம்"
 
-#: device.cpp:450
+#: device.cpp:451
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "உங்கள் சாதன சான்றிதழின் SHA256 கைரேகை: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "தொலை சாதன சான்றிதழின் SHA256 கைரேகை: %1\n"
@@ -128,12 +128,12 @@ msgstr ""
 "மற்றும் QCA-gnupg ஆகியவற்றிற்கு தனிப்பட்ட தொகுப்புகளை வழங்குமாயின், அவற்றை நிறுவி "
 "மீண்டும் முயற்சிக்கவும்."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "கமுக்க சாவி கோப்பை சேமிக்க முடியவில்லை: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "சான்றிதழ் கோப்பை சேமிக்க முடியவில்லை: %1"

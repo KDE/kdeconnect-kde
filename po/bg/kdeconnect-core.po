@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-08 23:30+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -87,12 +87,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Дестинация"
 
-#: device.cpp:450
+#: device.cpp:451
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA256 отпечатъкът на сертификата на вашето устройство е: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA256 отпечатъкът на сертификата на отдалеченото устройство е: %1\n"
@@ -128,12 +128,12 @@ msgstr ""
 "дистрибуция осигурява отделни пакети за QCA-OSSL и QCA-GNUPG, уверете се, че "
 "сте ги инсталирали и опитайте отново."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Не може да се съхрани частен ключ: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не може да се съхрани сертификат на файл: %1"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-05-07 16:37+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -28,57 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ryuichi_ya220@outlook.jp"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "KDE Connect の設定"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "KDE Connect の設定モジュール"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "(C) 2015 Albert Vaca Cintora"
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr "キー: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "利用可能なプラグイン"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ペアリング試行エラー: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(ペアリング済み)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(ペアリングしていません)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(ペアリング要求を受信しました)"
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(ペアリング要求済み)"
@@ -187,3 +167,15 @@ msgstr ""
 "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
 "color:#4c6b8a;\">KDE Connect Community wiki</span></a> をご覧ください。</p></"
 "body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "KDE Connect の設定"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "KDE Connect の設定モジュール"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "(C) 2015 Albert Vaca Cintora"
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Albert Vaca Cintora"

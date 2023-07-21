@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-12 17:09+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -27,57 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xxmn77@gmail.com"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "KDE Connect Ayarları"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "KDE Connect Ayarları modulu"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "(C) 2015 Albert Vaca Cintora"
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr "Açar: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Mövcud əlavələr"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Qoşulma cəhdi xətası: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(qoşulmuş)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(qoşulmamış)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gələn qoşulma tələbi)"
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(qoşulma tələb edildi)"
@@ -185,3 +165,15 @@ msgstr ""
 "üçün <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
 "decoration: underline; color:#4c6b8a;\">KDE Connect Community wiki</span></"
 "a> səhifəsini ziyarət edin.</p></body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "KDE Connect Ayarları"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "KDE Connect Ayarları modulu"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "(C) 2015 Albert Vaca Cintora"
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Albert Vaca Cintora"

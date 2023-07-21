@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2021-11-23 13:15+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -29,57 +29,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "A KDE Connect beállításai"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "KDE Connect beállítómodul"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "© Albert Vaca Cintora, 2015."
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr "Kulcs: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Elérhető bővítmények"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Hiba a párosítási kísérletkor: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(párosítva)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(nincs párosítva)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(bejövő párosítási kérés)"
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(párosítás elindítva)"
@@ -187,6 +167,18 @@ msgstr ""
 "van, keresse fel a <a href=\"https://userbase.kde.org/KDEConnect\"><span "
 "style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect Community "
 "wiki oldalát</span></a> segítségért.</p></body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "A KDE Connect beállításai"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "KDE Connect beállítómodul"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "© Albert Vaca Cintora, 2015."
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Albert Vaca Cintora"
 
 #~ msgid "(C) 2018 Nicolas Fella"
 #~ msgstr "© Nicolas Fella, 2018."

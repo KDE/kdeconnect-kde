@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2020-07-21 18:28+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -229,17 +229,17 @@ msgstr "Luk alle sikkerhedsbokse"
 msgid "Forcefully Close All Vaults"
 msgstr "Gennemtving lukning af alle sikkerhedsbokse"
 
-#: runcommand/runcommand_config.cpp:75
+#: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
 msgstr "Sample-kommandoer"
 
-#: runcommand/runcommand_config.cpp:80
+#: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
 msgstr ""
 
-#: runcommand/runcommand_config.cpp:83
+#: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
 msgstr ""
@@ -406,12 +406,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Kan ikke håndtere SFTP-protokollen. Beklager ulejligheden"
 
-#: sftp/sftpplugin.cpp:142
+#: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "All files"
 msgstr "Alle filer"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:145
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerabilleder"

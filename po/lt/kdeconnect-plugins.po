@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2022-11-17 02:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -231,17 +231,17 @@ msgstr "Uždaryti visas saugyklas"
 msgid "Forcefully Close All Vaults"
 msgstr "Priverstinai uždaryti visas saugyklas"
 
-#: runcommand/runcommand_config.cpp:75
+#: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
 msgstr "Pavyzdinės komandos"
 
-#: runcommand/runcommand_config.cpp:80
+#: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
 msgstr ""
 
-#: runcommand/runcommand_config.cpp:83
+#: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
 msgstr ""
@@ -409,12 +409,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Nepavyksta apdoroti SFTP protokolo. Atsiprašome už nepatogumus"
 
-#: sftp/sftpplugin.cpp:142
+#: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "All files"
 msgstr "Visi failai"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:145
 #, kde-format
 msgid "Camera pictures"
 msgstr "Nuotraukos"

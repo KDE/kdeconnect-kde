@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2021-10-13 17:47+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -27,57 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@bredband.net"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "Inställning av KDE-anslut"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "Inställningsmodul för KDE-anslut"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "© 2015 Albert Vaca Cintora"
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr "Nyckel: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Tillgängliga insticksprogram"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Fel vid försök att para ihop: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(ihopparad)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(oparad)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(inkommande begäran om ihopparning)"
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(ihopparning begärd)"
@@ -185,6 +165,18 @@ msgstr ""
 "listan.<br><br>Om du har problem, besök <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE-"
 "ansluts Wiki</span></a> för att få hjälp.</p></body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "Inställning av KDE-anslut"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "Inställningsmodul för KDE-anslut"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "© 2015 Albert Vaca Cintora"
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Albert Vaca Cintora"
 
 #~ msgid "(C) 2018 Nicolas Fella"
 #~ msgstr "© 2018 Nicolas Fella"

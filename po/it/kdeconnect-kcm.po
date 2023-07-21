@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-05 08:13+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -28,57 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "smart2128vr@gmail.com"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "Impostazioni di KDE Connect"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "Modulo delle impostazioni di KDE Connect"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "(C) 2015 Albert Vaca Cintora"
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr "Chiave: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "Estensioni disponibili"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Errore durante l'associazione: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(associato)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(non associato)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(richiesta di associazione in ingresso)"
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(associazione richiesta)"
@@ -187,6 +167,18 @@ msgstr ""
 "userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
 "color:#4c6b8a;\">wiki della comunità di KDE Connect</span></a> per ottenere "
 "aiuto.</p></body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "Impostazioni di KDE Connect"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "Modulo delle impostazioni di KDE Connect"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "(C) 2015 Albert Vaca Cintora"
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Albert Vaca Cintora"
 
 #~ msgid "(C) 2018 Nicolas Fella"
 #~ msgstr "(C) 2018 Nicolas Fella"

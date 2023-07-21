@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-27 17:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -230,17 +230,17 @@ msgstr "Sulje kaikki holvit"
 msgid "Forcefully Close All Vaults"
 msgstr "Pakota sulkemaan kaikki holvit"
 
-#: runcommand/runcommand_config.cpp:75
+#: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
 msgstr "Esimerkkikomentoja"
 
-#: runcommand/runcommand_config.cpp:80
+#: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
 msgstr "Vie"
 
-#: runcommand/runcommand_config.cpp:83
+#: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
 msgstr "Tuo"
@@ -410,12 +410,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP-yhteyskäytäntöä ei voi käsitellä. Pahoittelut harmista"
 
-#: sftp/sftpplugin.cpp:142
+#: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:145
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerakuvat"

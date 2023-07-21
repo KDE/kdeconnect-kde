@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -230,17 +230,17 @@ msgstr "Fechar Todos os Cofres"
 msgid "Forcefully Close All Vaults"
 msgstr "Fechar à Força Todos os Cofres"
 
-#: runcommand/runcommand_config.cpp:75
+#: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
 msgstr "Comandos de exemplo"
 
-#: runcommand/runcommand_config.cpp:80
+#: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
 msgstr "Exportar"
 
-#: runcommand/runcommand_config.cpp:83
+#: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
 msgstr "Importar"
@@ -411,12 +411,12 @@ msgstr ""
 "Não é possível lidar com o protocolo SFTP. Pedimos desculpa pelo "
 "inconveniente"
 
-#: sftp/sftpplugin.cpp:142
+#: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:145
 #, kde-format
 msgid "Camera pictures"
 msgstr "Fotografias"

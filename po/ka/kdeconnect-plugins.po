@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-18 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-09 06:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -229,17 +229,17 @@ msgstr "ყველა საცავის დახურვა"
 msgid "Forcefully Close All Vaults"
 msgstr "ყველა საცავის ძალით დახურვა"
 
-#: runcommand/runcommand_config.cpp:75
+#: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
 msgstr "სანიმუშო ბრძანებები"
 
-#: runcommand/runcommand_config.cpp:80
+#: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
 msgstr "გატანა"
 
-#: runcommand/runcommand_config.cpp:83
+#: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
 msgstr "შემოტანა"
@@ -405,12 +405,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP პროტოკოლის მხარდაჭერა არ არსებობს. ბოდიში უხერხულობისთვის"
 
-#: sftp/sftpplugin.cpp:142
+#: sftp/sftpplugin.cpp:144
 #, kde-format
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:145
 #, kde-format
 msgid "Camera pictures"
 msgstr "კამერის სურათები"

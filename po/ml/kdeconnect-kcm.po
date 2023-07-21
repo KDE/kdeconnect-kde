@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -27,57 +27,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vivekkj2004@gmail.com"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണങ്ങൾ"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണഭാഗം"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr ""
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr ""
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr ""
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "ലഭ്യമായിട്ടുള്ള സംയോജകങ്ങൾ"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "ബന്ധപ്പെടാൻ ശ്രമിക്കുന്നതിൽ പിശക്:%1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(ബന്ധിച്ചു)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(ബന്ധിച്ചിട്ടില്ല)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr ""
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr ""
@@ -175,3 +155,9 @@ msgid ""
 "\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
 "Community wiki</span></a> for help.</p></body></html>"
 msgstr ""
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണങ്ങൾ"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണഭാഗം"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-08 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -29,57 +29,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "safa1996alfulaij@gmail.com"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "إعدادات «كِيدِي المتّصل»"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "وحدة إعدادات «كِيدِي المتّصل»"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "© 2015 Albert Vaca Cintora"
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:190
 #, kde-format
 msgid "Key: %1"
 msgstr "المفتاح: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:213
 #, kde-format
 msgid "Available plugins"
 msgstr "الملحقات المتوفّرة"
 
-#: kcm.cpp:277
+#: kcm.cpp:260
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "خطأ في محاولة الاقتران: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:276
 #, kde-format
 msgid "(paired)"
 msgstr "(مقترن)"
 
-#: kcm.cpp:296
+#: kcm.cpp:279
 #, kde-format
 msgid "(not paired)"
 msgstr "(غير مقترن)"
 
-#: kcm.cpp:299
+#: kcm.cpp:282
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(ورد طلب اقتران)"
 
-#: kcm.cpp:302
+#: kcm.cpp:285
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(طُلب الاقتران)"
@@ -186,6 +166,18 @@ msgstr ""
 "الجهاز في القائمة. <br><br>إذا واجهتك مشكلة فزر <a href=\"https://userbase."
 "kde.org/KDEConnect\"><span style=\" text-decoration: underline; color:"
 "#4c6b8a;\">ويكي كِيدِي المتصل</span></a> للمساعدة.</p></body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "إعدادات «كِيدِي المتّصل»"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "وحدة إعدادات «كِيدِي المتّصل»"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "© 2015 Albert Vaca Cintora"
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Albert Vaca Cintora"
 
 #~ msgid "No device selected."
 #~ msgstr "لم يحدّد جهاز."

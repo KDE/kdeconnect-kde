@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2017-05-24 07:45-0400\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:450
+#: device.cpp:451
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "טביעת האצבע SHA1 של ההתקן היא: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -138,12 +138,12 @@ msgstr ""
 "לא נמצאה תמיכה ב־RSA בהתקנת ה־QCA שלך. אם ההפצה שלך מספקת חבילות נפרדות ל: "
 "QCA-ossl ו־QCA-gnupg, וודא שהם מותקנות ונסה שוב."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "לא ניתן לאחסן את קובץ התעודה: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-08 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -93,12 +93,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "المقصد"
 
-#: device.cpp:450
+#: device.cpp:451
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة جهازك هي: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "بصمة SHA256 لشهادة الجهاز البعيد هي: %1\n"
@@ -133,12 +133,12 @@ msgstr ""
 "تعذّر إيجاد دعم RSA في تثبيت QCA لديك. إن كانت توفّر التّوزيعة حزمًا منفصلة ل‍QCA-"
 "ossl و QCA-gnupg، تأكّد من تثبيتها وجرّب مجدّدًا."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "تعذّر تخزين ملفّ المفتاح الخاصّ: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "تعذّر تخزين ملفّ الشّهادة: %1"

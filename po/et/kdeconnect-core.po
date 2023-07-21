@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2019-11-29 20:54+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr ""
 
-#: device.cpp:450
+#: device.cpp:451
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of your device certificate is: %1\n"
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Sinu seadme sertifikaadi SHA1 sõrmejälg on: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, fuzzy, kde-format
 #| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
@@ -134,12 +134,12 @@ msgstr ""
 "eraldi pakette QCA-ossl ja QCA-gnupg jaoks, kontrolli, kas need on ikka "
 "paigaldatud, ja proovi uuesti."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Privaatvõtmefaili salvestamine nurjus: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Sertifikaadifaili salvestamine nurjus: %1"

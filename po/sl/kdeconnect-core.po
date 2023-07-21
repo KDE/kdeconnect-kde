@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-03 09:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -90,12 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Cilj"
 
-#: device.cpp:450
+#: device.cpp:451
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "Prstni odtis potrdila SHA256 vaše naprave je: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Prstni odtis potrdila SHA256 oddaljene naprave je: %1\n"
@@ -131,12 +131,12 @@ msgstr ""
 "distribucija ponuja ločene pakete za QCA-ossl in QCA-gnupg, preverite da ste "
 "jih namestili in poskusite znova."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Datoteke zasebnega ključa ni bilo mogoče shraniti: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Datoteke potrdila ni bilo mogoče shraniti: %1"

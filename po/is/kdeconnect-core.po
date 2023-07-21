@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-01-09 18:43+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -90,12 +90,12 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Áfangastaður"
 
-#: device.cpp:450
+#: device.cpp:451
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA256-fingrafar af vottorði tækisins þíns er: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA256-fingrafar af vottorði fjartengda tækisins er: %1\n"
@@ -131,12 +131,12 @@ msgstr ""
 "Linux býður sérstaka pakka fyrir QCA-ossl og QCA-gnupg skaltu ganga úr "
 "skugga um að þú hafir sett þá upp og prófaðu svo aftur."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Tókst ekki að geyma einkalykilsskrá: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Tókst ekki að geyma vottorðsskrá: %1"

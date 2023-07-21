@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-20 00:48+0000\n"
+"POT-Creation-Date: 2023-07-21 00:49+0000\n"
 "PO-Revision-Date: 2023-06-03 13:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -91,13 +91,13 @@ msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destinació"
 
-#: device.cpp:450
+#: device.cpp:451
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr ""
 "L'empremta digital SHA256 del certificat del vostre dispositiu és: %1\n"
 
-#: device.cpp:456
+#: device.cpp:457
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "L'empremta digital SHA256 del certificat del dispositiu remot és: %1\n"
@@ -133,12 +133,12 @@ msgstr ""
 "Si la vostra distribució ofereix paquets separats per a QCA-ossl i QCA-"
 "gnupg, assegureu-vos que els heu instal·lat i torneu-ho a intentar."
 
-#: kdeconnectconfig.cpp:336
+#: kdeconnectconfig.cpp:338
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer de la clau privada: %1"
 
-#: kdeconnectconfig.cpp:381
+#: kdeconnectconfig.cpp:383
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
