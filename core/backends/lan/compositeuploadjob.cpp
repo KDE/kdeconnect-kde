@@ -133,7 +133,7 @@ void CompositeUploadJob::newConnection()
 
     connect(m_socket, &QSslSocket::disconnected, this, &CompositeUploadJob::socketDisconnected);
     connect(m_socket, &QAbstractSocket::errorOccurred, this, &CompositeUploadJob::socketError);
-    connect(m_socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &CompositeUploadJob::sslError);
+    connect(m_socket, &QSslSocket::sslErrors, this, &CompositeUploadJob::sslError);
     connect(m_socket, &QSslSocket::encrypted, this, &CompositeUploadJob::encrypted);
 
     LanLinkProvider::configureSslSocket(m_socket, m_deviceId, true);

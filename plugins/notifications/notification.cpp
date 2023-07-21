@@ -48,7 +48,7 @@ Notification::Notification(const NetworkPacket &np, const Device *device, QObjec
     parseNetworkPacket(np);
     createKNotification(np);
 
-    connect(m_notification, QOverload<unsigned int>::of(&KNotification::activated), this, [this](unsigned int actionIndex) {
+    connect(m_notification, &KNotification::activated, this, [this](unsigned int actionIndex) {
 // Since 5.81 we use KNotification's inline reply instead of our own action
 #if KNOTIFICATIONS_VERSION < QT_VERSION_CHECK(5, 81, 0)
         // Do nothing for our own reply action

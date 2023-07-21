@@ -92,7 +92,7 @@ void Mounter::onPackageReceived(const NetworkPacket &np)
 
     connect(m_proc, &QProcess::started, this, &Mounter::onStarted);
     connect(m_proc, &QProcess::errorOccurred, this, &Mounter::onError);
-    connect(m_proc, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Mounter::onFinished);
+    connect(m_proc, &QProcess::finished, this, &Mounter::onFinished);
 
     QDir().mkpath(m_mountPoint);
 
@@ -217,7 +217,7 @@ void Mounter::unmount(bool finished)
 
             auto proc = m_proc;
             m_proc = nullptr;
-            connect(proc, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), [proc]() {
+            connect(proc, &QProcess::finished, [proc]() {
                 qCDebug(KDECONNECT_PLUGIN_SFTP) << "Free" << proc;
                 proc->deleteLater();
             });

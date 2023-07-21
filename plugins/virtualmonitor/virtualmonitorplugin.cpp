@@ -115,7 +115,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
                              uuid.toString(),
                              QS("--port"),
                              port});
-    connect(m_process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
+    connect(m_process, &QProcess::finished, this, [this](int exitCode, QProcess::ExitStatus exitStatus) {
         qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "virtual display finished with" << device()->name() << m_process->readAllStandardError();
 
         if (m_retries < 5 && (exitCode == 1 || exitStatus == QProcess::CrashExit)) {

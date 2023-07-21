@@ -23,7 +23,7 @@ ShareConfig::ShareConfig(QObject *parent, const QVariantList &args)
     m_ui->commentLabel->setTextFormat(Qt::RichText);
     m_ui->commentLabel->setText(i18n("&percnt;1 in the path will be replaced with the specific device name."));
 
-    connect(m_ui->kurlrequester, SIGNAL(textChanged(QString)), this, SLOT(changed()));
+    connect(m_ui->kurlrequester, &KUrlRequester::textChanged, this, &ShareConfig::markAsChanged);
 }
 
 ShareConfig::~ShareConfig()

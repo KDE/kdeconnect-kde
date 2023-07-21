@@ -65,7 +65,7 @@ public:
             oc.openConfiguration(deviceId);
         };
         connect(notification, &KNotification::action3Activated, openSettings);
-        connect(notification, QOverload<unsigned int>::of(&KNotification::activated), openSettings);
+        connect(notification, &KNotification::activated, openSettings);
         notification->sendEvent();
     }
 

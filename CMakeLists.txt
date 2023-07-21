@@ -29,6 +29,7 @@ include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMQmlModule)
 include(ECMQMLModules)
+include(ECMDeprecationSettings)
 
 include(KDEConnectMacros.cmake)
 
@@ -48,6 +49,10 @@ else()
     set(QTQUICK_FILEDIALOG_FOLDER "folder")
 endif()
 
+ecm_set_disabled_deprecation_versions(
+    QT ${QT_MIN_VERSION}
+    KF ${KF5_MIN_VERSION}
+)
 
 # Make the version header available by linking against kdeconnectversion
 add_library(kdeconnectversion INTERFACE)
@@ -58,7 +63,7 @@ set(Qca_LIBRARY qca-qt${QT_MAJOR_VERSION})
 
 set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons DocTools)
 
-set_package_properties(KF5Kirigami2 PROPERTIES
+set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
     DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
     PURPOSE "Required for KDE Connect's QML-based GUI applications"
     URL "https://www.kde.org/products/kirigami/"
@@ -71,7 +76,6 @@ if(UNIX AND NOT APPLE)
 else()
     set(WITH_X11 OFF)
     set(WITH_PULSEAUDIO OFF)
-
 endif()
 
 if(UNIX AND NOT APPLE)

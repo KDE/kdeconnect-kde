@@ -10,9 +10,9 @@
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 
-#include <KDNSSD/DNSSD/PublicService>
-#include <KDNSSD/DNSSD/RemoteService>
-#include <KDNSSD/DNSSD/ServiceBrowser>
+#include <KDNSSD/PublicService>
+#include <KDNSSD/RemoteService>
+#include <KDNSSD/ServiceBrowser>
 
 const QString kServiceName = QStringLiteral("_kdeconnect._udp");
 

@@ -359,7 +359,7 @@ void LanLinkProvider::tcpSocketConnected()
 
         connect(socket, &QSslSocket::encrypted, this, &LanLinkProvider::encrypted);
 
-        connect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
+        connect(socket, &QSslSocket::sslErrors, this, &LanLinkProvider::sslErrors);
 
         socket->startServerEncryption();
     } else {
@@ -502,7 +502,7 @@ void LanLinkProvider::dataReceived()
     connect(socket, &QSslSocket::encrypted, this, &LanLinkProvider::encrypted);
 
     if (isDeviceTrusted) {
-        connect(socket, QOverload<const QList<QSslError> &>::of(&QSslSocket::sslErrors), this, &LanLinkProvider::sslErrors);
+        connect(socket, &QSslSocket::sslErrors, this, &LanLinkProvider::sslErrors);
     }
 
     socket->startClientEncryption();
