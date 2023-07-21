@@ -132,6 +132,9 @@ int main(int argc, char *argv[])
     detectPlatform(argc, argv);
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#if QT_VERSION_MAJOR == 6
+    QGuiApplication::setQuitLockEnabled(false);
+#endif
 
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("kdeconnect.daemon"),
