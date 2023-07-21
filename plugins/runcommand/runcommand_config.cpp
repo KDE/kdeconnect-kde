@@ -24,7 +24,7 @@
 
 #include <dbushelper.h>
 
-K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<RunCommandConfig>();)
+K_PLUGIN_CLASS(RunCommandConfig)
 
 RunCommandConfig::RunCommandConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)

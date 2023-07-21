@@ -12,7 +12,7 @@
 #include <KPluginFactory>
 #include <KUrlRequester>
 
-K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
+K_PLUGIN_CLASS(ShareConfig)
 
 ShareConfig::ShareConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)

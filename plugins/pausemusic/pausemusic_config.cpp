@@ -9,7 +9,7 @@
 
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(PauseMusicConfigFactory, registerPlugin<PauseMusicConfig>();)
+K_PLUGIN_CLASS(PauseMusicConfig)
 
 PauseMusicConfig::PauseMusicConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)

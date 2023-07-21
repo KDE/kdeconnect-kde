@@ -9,7 +9,7 @@
 
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(ClipboardConfigFactory, registerPlugin<ClipboardConfig>();)
+K_PLUGIN_CLASS(ClipboardConfig)
 
 ClipboardConfig::ClipboardConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)

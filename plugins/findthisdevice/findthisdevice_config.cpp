@@ -19,7 +19,7 @@
 #include <QAudioOutput>
 #endif
 
-K_PLUGIN_FACTORY(FindThisDeviceConfigFactory, registerPlugin<FindThisDeviceConfig>();)
+K_PLUGIN_CLASS(FindThisDeviceConfig)
 
 FindThisDeviceConfig::FindThisDeviceConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)

@@ -11,7 +11,7 @@
 #include <KCModule>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(SendNotificationsConfigFactory, registerPlugin<SendNotificationsConfig>();)
+K_PLUGIN_CLASS(SendNotificationsConfig)
 
 SendNotificationsConfig::SendNotificationsConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)

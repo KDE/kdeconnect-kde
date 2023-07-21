@@ -14,7 +14,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-K_PLUGIN_FACTORY_WITH_JSON(KdeConnectPluginFactory, "kdeconnect_systemvolume.json", registerPlugin<SystemvolumePlugin>();)
+K_PLUGIN_CLASS_WITH_JSON(SystemvolumePlugin, "kdeconnect_systemvolume.json")
 
 class MacOSCoreAudioDevice
 {
