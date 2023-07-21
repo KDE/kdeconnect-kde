@@ -19,13 +19,6 @@
 
 #include "interfaces_debug.h"
 
-static QString createId()
-{
-    return QCoreApplication::instance()->applicationName() + QString::number(QCoreApplication::applicationPid());
-}
-
-Q_GLOBAL_STATIC_WITH_ARGS(QString, s_keyId, (createId()));
-
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_dbusInterface(new DaemonDbusInterface(this))

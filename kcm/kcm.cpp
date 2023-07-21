@@ -22,11 +22,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(KdeConnectKcm, "kcm_kdeconnect.json")
 
-static QString createId()
-{
-    return QStringLiteral("kcm") + QString::number(QCoreApplication::applicationPid());
-}
-
 KdeConnectKcm::KdeConnectKcm(QObject *parent, const QVariantList &args)
     : KCModule(qobject_cast<QWidget *>(parent))
     , kcmUi(new Ui::KdeConnectKcmUi())
