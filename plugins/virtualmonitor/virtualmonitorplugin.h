@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef VIRTUALMONITORPLUGIN_H
-#define VIRTUALMONITORPLUGIN_H
+#pragma once
 
 #include "plugin_virtualmonitor_debug.h"
 #include <QJsonObject>
@@ -38,5 +37,3 @@ private:
     QJsonObject m_remoteResolution;
     uint m_retries = 0;
 };
-
-#endif

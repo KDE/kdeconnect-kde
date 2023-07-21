@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef LOCKDEVICEPLUGIN_WIN_H
-#define LOCKDEVICEPLUGIN_WIN_H
+#pragma once
 
 #include <QObject>
 
@@ -39,5 +38,3 @@ private:
     bool m_remoteLocked = false;
     bool m_localLocked = false;
 };
-
-#endif // LOCKDEVICEPLUGIN_WIN_H

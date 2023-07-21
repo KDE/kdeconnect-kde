@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SFTPPLUGIN_H
-#define SFTPPLUGIN_H
+#pragma once
 
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
@@ -61,5 +60,3 @@ private:
     QVariantMap remoteDirectories; // Actually a QMap<String, String>, but QDBus prefers this
     QString mountError;
 };
-
-#endif

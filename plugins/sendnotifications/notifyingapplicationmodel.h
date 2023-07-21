@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef NOTIFYINGAPPLICATIONMODEL_H
-#define NOTIFYINGAPPLICATIONMODEL_H
+#pragma once
 
 #include <QAbstractTableModel>
 
@@ -37,5 +36,3 @@ Q_SIGNALS:
 private:
     QVector<NotifyingApplication> m_apps;
 };
-
-#endif // NOTIFYINGAPPLICATIONMODEL_H

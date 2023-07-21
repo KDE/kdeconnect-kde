@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SENDNOTIFICATIONS_CONFIG_H
-#define SENDNOTIFICATIONS_CONFIG_H
+#pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
@@ -32,5 +31,3 @@ private:
     Ui::SendNotificationsConfigUi *m_ui;
     NotifyingApplicationModel *appModel;
 };
-
-#endif

@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef CLIPBOARD_CONFIG_H
-#define CLIPBOARD_CONFIG_H
+#pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
@@ -29,5 +28,3 @@ private:
     void autoShareChanged();
     Ui::ClipboardConfigUi *m_ui;
 };
-
-#endif

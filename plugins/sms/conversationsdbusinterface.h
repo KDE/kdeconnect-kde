@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef CONVERSATIONSDBUSINTERFACE_H
-#define CONVERSATIONSDBUSINTERFACE_H
+#pragma once
 
 #include <QDBusAbstractAdaptor>
 #include <QDir>
@@ -163,5 +162,3 @@ private /*attributes*/:
     QMutex waitingForMessagesLock;
     QWaitCondition waitingForMessages;
 };
-
-#endif // CONVERSATIONSDBUSINTERFACE_H

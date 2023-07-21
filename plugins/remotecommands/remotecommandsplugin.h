@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef REMOTECOMMANDSPLUGIN_H
-#define REMOTECOMMANDSPLUGIN_H
+#pragma once
 
 class QObject;
 
@@ -52,5 +51,3 @@ private:
     QByteArray m_commands;
     bool m_canAddCommand;
 };
-
-#endif

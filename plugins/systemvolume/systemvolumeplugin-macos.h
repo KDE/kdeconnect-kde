@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SYSTEMVOLUMEPLUGINMACOS_H
-#define SYSTEMVOLUMEPLUGINMACOS_H
+#pragma once
 
 #include <QMap>
 #include <QObject>
@@ -37,5 +36,3 @@ public:
 private:
     QMap<QString, MacOSCoreAudioDevice *> m_sinksMap;
 };
-
-#endif // SYSTEMVOLUMEPLUGINMACOS_H

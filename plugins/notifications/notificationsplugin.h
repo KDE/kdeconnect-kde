@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef NOTIFICATIONSPLUGIN_H
-#define NOTIFICATIONSPLUGIN_H
+#pragma once
 
 #include <core/kdeconnectplugin.h>
 
@@ -52,5 +51,3 @@ private:
     QHash<QString, QString> m_internalIdToPublicId;
     int m_lastId = 0;
 };
-
-#endif

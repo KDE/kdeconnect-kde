@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef NOTIFICATION_H
-#define NOTIFICATION_H
+#pragma once
 
 #include <KNotification>
 #include <QDir>
@@ -118,5 +117,3 @@ private:
 
     static QMap<QString, FileTransferJob *> s_downloadsInProgress;
 };
-
-#endif

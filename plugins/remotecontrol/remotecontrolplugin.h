@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef REMOTECONTROLPLUGIN_H
-#define REMOTECONTROLPLUGIN_H
+#pragma once
 
 #include <QObject>
 
@@ -30,5 +29,3 @@ public:
     Q_SCRIPTABLE void moveCursor(const QPoint &p);
     Q_SCRIPTABLE void sendCommand(const QVariantMap &body);
 };
-
-#endif

@@ -7,8 +7,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef TELEPHONYPLUGIN_H
-#define TELEPHONYPLUGIN_H
+#pragma once
 
 #include <KPluginFactory>
 #include <ModemManagerQt/Call>
@@ -50,5 +49,3 @@ private:
     void sendCancelMMTelephonyPacket(ModemManager::Call *call, const QString &lastState);
     static QString stateName(MMCallState state);
 };
-
-#endif

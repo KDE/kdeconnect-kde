@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef PRESENTERPLUGIN_H
-#define PRESENTERPLUGIN_H
+#pragma once
 
 #include <QObject>
 #include <QPointer>
@@ -31,5 +30,3 @@ private:
     QTimer *m_timer;
     float m_xPos, m_yPos;
 };
-
-#endif

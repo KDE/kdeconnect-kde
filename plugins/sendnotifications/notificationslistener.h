@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef NOTIFICATIONSLISTENER_H
-#define NOTIFICATIONSLISTENER_H
+#pragma once
 
 #include <QBuffer>
 #include <QDBusAbstractAdaptor>
@@ -56,5 +55,3 @@ private:
     GDBusConnection *m_gdbusConnection = nullptr;
     unsigned m_gdbusFilterId = 0;
 };
-
-#endif // NOTIFICATIONSLISTENER_H

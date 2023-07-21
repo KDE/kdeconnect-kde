@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef FINDTHISDEVICEPLUGIN_H
-#define FINDTHISDEVICEPLUGIN_H
+#pragma once
 
 #include <core/kdeconnectplugin.h>
 
@@ -63,5 +62,3 @@ inline QString defaultSound()
     }
     return soundURL.toLocalFile();
 }
-
-#endif // FINDTHISDEVICEPLUGIN_H

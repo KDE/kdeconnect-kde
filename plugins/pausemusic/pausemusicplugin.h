@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef PAUSEMUSICPLUGIN_H
-#define PAUSEMUSICPLUGIN_H
+#pragma once
 
 #include <QObject>
 #include <QSet>
@@ -26,5 +25,3 @@ private:
     QSet<QString> pausedSources;
     QSet<QString> mutedSinks;
 };
-
-#endif

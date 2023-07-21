@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SYSTEMVOLUMEPLUGINPULSE_H
-#define SYSTEMVOLUMEPLUGINPULSE_H
+#pragma once
 
 #include <QMap>
 #include <QObject>
@@ -31,5 +30,3 @@ private:
     void sendSinkList();
     QMap<QString, PulseAudioQt::Sink *> sinksMap;
 };
-
-#endif

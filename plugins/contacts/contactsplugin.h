@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef CONTACTSPLUGIN_H
-#define CONTACTSPLUGIN_H
+#pragma once
 
 class QObject;
 #include <QStandardPaths>
@@ -147,5 +146,3 @@ protected:
      */
     bool sendRequestWithIDs(const QString &packetType, const uIDList_t &uIDs);
 };
-
-#endif // CONTACTSPLUGIN_H

@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SFTPPLUGIN_MOUNTLOOP_H
-#define SFTPPLUGIN_MOUNTLOOP_H
+#pragma once
 
 #include <QEventLoop>
 
@@ -25,5 +24,3 @@ public Q_SLOTS:
     void succeeded();
     void exitWith(bool status);
 };
-
-#endif

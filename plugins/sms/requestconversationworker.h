@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef REQUESTCONVERSATIONWORKER_H
-#define REQUESTCONVERSATIONWORKER_H
+#pragma once
 
 #include "conversationsdbusinterface.h"
 
@@ -61,5 +60,3 @@ private:
      */
     size_t replyForConversation(const QList<ConversationMessage> &conversation, int start, size_t howMany);
 };
-
-#endif // REQUESTCONVERSATIONWORKER_H

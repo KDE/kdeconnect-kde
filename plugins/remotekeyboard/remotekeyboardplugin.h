@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef REMOTEKEYBOARDPLUGIN_H
-#define REMOTEKEYBOARDPLUGIN_H
+#pragma once
 
 #include <QDBusInterface>
 #include <QVariantMap>
@@ -45,5 +44,3 @@ Q_SIGNALS:
     Q_SCRIPTABLE void keyPressReceived(const QString &key, int specialKey = 0, bool shift = false, bool ctrl = false, bool alt = false);
     Q_SCRIPTABLE void remoteStateChanged(bool state);
 };
-
-#endif

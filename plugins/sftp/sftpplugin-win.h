@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SFTPPLUGIN_WIN_H
-#define SFTPPLUGIN_WIN_H
+#pragma once
 
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
@@ -35,5 +34,3 @@ public Q_SLOTS:
 private:
     QString deviceId; // Storing it to avoid accessing device() from the destructor which could cause a crash
 };
-
-#endif

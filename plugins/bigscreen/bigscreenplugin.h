@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef BIGSCREENPLUGIN_H
-#define BIGSCREENPLUGIN_H
+#pragma once
 
 #include <core/kdeconnectplugin.h>
 
@@ -26,5 +25,3 @@ public:
 Q_SIGNALS:
     Q_SCRIPTABLE void messageReceived(const QString &message);
 };
-
-#endif

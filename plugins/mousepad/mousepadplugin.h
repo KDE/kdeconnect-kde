@@ -6,8 +6,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef MOUSEPADPLUGIN_H
-#define MOUSEPADPLUGIN_H
+#pragma once
 
 #include <config-mousepad.h>
 #include <core/kdeconnectplugin.h>
@@ -30,5 +29,3 @@ public:
 private:
     AbstractRemoteInput *m_impl;
 };
-
-#endif

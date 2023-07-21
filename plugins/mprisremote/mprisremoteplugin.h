@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef MPRISREMOTEPLUGIN_H
-#define MPRISREMOTEPLUGIN_H
+#pragma once
 
 #include <QObject>
 
@@ -65,5 +64,3 @@ private:
     QString m_currentPlayer;
     QMap<QString, MprisRemotePlayer *> m_players;
 };
-
-#endif

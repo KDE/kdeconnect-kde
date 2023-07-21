@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SENDREPLYDIALOG_H
-#define SENDREPLYDIALOG_H
+#pragma once
 
 #include <QDialog>
 #include <QSize>
@@ -44,5 +43,3 @@ public:
 
     Q_SIGNAL void send();
 };
-
-#endif

@@ -5,8 +5,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SMSPLUGIN_H
-#define SMSPLUGIN_H
+#pragma once
 
 #include <QObject>
 
@@ -206,5 +205,3 @@ private:
     ConversationsDbusInterface *m_conversationInterface;
     QTextCodec *m_codec;
 };
-
-#endif

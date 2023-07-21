@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef ABSTRACTREMOTEINPUT_H
-#define ABSTRACTREMOTEINPUT_H
+#pragma once
 
 #include <QLoggingCategory>
 #include <QObject>
@@ -26,5 +25,3 @@ public:
         return false;
     };
 };
-
-#endif

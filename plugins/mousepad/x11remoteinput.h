@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef X11REMOTEINPUT_H
-#define X11REMOTEINPUT_H
+#pragma once
 
 #include "abstractremoteinput.h"
 
@@ -25,5 +24,3 @@ public:
 private:
     FakeKey *m_fakekey;
 };
-
-#endif

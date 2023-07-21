@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef PAUSEMUSIC_CONFIG_H
-#define PAUSEMUSIC_CONFIG_H
+#pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
 
@@ -28,5 +27,3 @@ public:
 private:
     Ui::PauseMusicConfigUi *m_ui;
 };
-
-#endif

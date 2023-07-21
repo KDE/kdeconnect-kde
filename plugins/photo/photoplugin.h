@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef PHOTOPLUGIN_H
-#define PHOTOPLUGIN_H
+#pragma once
 
 class QObject;
 
@@ -34,5 +33,3 @@ Q_SIGNALS:
 private:
     QStringList requestedFiles;
 };
-
-#endif

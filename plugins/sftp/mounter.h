@@ -4,8 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef SFTPPLUGIN_MOUNTER_H
-#define SFTPPLUGIN_MOUNTER_H
+#pragma once
 
 #include <KJob>
 #include <KProcess>
@@ -50,5 +49,3 @@ private:
     QString m_mountPoint;
     bool m_started;
 };
-
-#endif
