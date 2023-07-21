@@ -125,10 +125,16 @@ bool ConnectionMultiplexer::tryParseMessage()
      */
     char message_type = header[0];
     uint16_t message_length = qFromBigEndian<uint16_t>(&header.data()[1]);
+#if QT_VERSION_MAJOR == 5
     quint128 message_uuid_raw;
-    for (int i = 0; i < 16; ++i)
+    for (int i = 0; i < 16; ++i) {
         message_uuid_raw.data[i] = header[3 + i];
+    }
     QBluetoothUuid message_uuid = QBluetoothUuid(message_uuid_raw);
+#else
+    const QByteArray uuisByteArray = header.sliced(3, 16); // Faster than mid, see https://doc.qt.io/qt-6/qbytearray.html#mid
+    QBluetoothUuid message_uuid = QBluetoothUuid::fromBytes(uuisByteArray.constData());
+#endif
 
     // Check if we have the full message including its data
     QByteArray data = mSocket->read(message_length);
@@ -229,8 +235,13 @@ QBluetoothUuid ConnectionMultiplexer::newChannel()
     message[0] = MESSAGE_OPEN_CHANNEL;
     qToBigEndian<uint16_t>(0, &message.data()[1]);
 
-    quint128 new_id_raw = new_id.toUInt128();
-    message.append((const char *)new_id_raw.data, 16);
+#if QT_VERSION_MAJOR == 5
+    quint128 id_raw = new_id.toUInt128();
+    message.append((const char *)id_raw.data, 16);
+#else
+    const auto channelBytes = new_id.toByteArray();
+    message.append(channelBytes.constData(), 16);
+#endif
     to_write_bytes.append(message);
 
     // Add the channel ourselves
@@ -337,8 +348,13 @@ void ConnectionMultiplexer::channelCanRead(QBluetoothUuid channelId)
         QByteArray message(3, (char)0);
         message[0] = MESSAGE_READ;
         qToBigEndian<uint16_t>(2, &message.data()[1]);
+#if QT_VERSION_MAJOR == 5
         quint128 id_raw = channelId.toUInt128();
         message.append((const char *)id_raw.data, 16);
+#else
+        const auto channelBytes = channelId.toByteArray();
+        message.append(channelBytes.constData(), 16);
+#endif
         message.append(2, 0);
         qToBigEndian<int16_t>(read_amount, &message.data()[19]);
         to_write_bytes.append(message);
@@ -367,8 +383,14 @@ void ConnectionMultiplexer::channelCanWrite(QBluetoothUuid channelId)
         message[0] = MESSAGE_WRITE;
         qToBigEndian<uint16_t>(amount, &message.data()[1]);
 
+#if QT_VERSION_MAJOR == 5
         quint128 id_raw = channelId.toUInt128();
         message.append((const char *)id_raw.data, 16);
+#else
+        const auto channelBytes = channelId.toByteArray();
+        message.append(channelBytes.constData(), 16);
+#endif
+
         message.append(data);
         to_write_bytes.append(message);
         // Try to send it immediately
@@ -405,8 +427,13 @@ void ConnectionMultiplexer::closeChannel(QBluetoothUuid channelId)
     message[0] = MESSAGE_CLOSE_CHANNEL;
     qToBigEndian<uint16_t>(0, &message.data()[1]);
 
+#if QT_VERSION_MAJOR == 5
     quint128 id_raw = channelId.toUInt128();
     message.append((const char *)id_raw.data, 16);
+#else
+    const auto channelBytes = channelId.toByteArray();
+    message.append(channelBytes.constData(), 16);
+#endif
     to_write_bytes.append(message);
     // Try to send it immediately
     bytesWritten();

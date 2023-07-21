@@ -38,7 +38,7 @@ void BluetoothLinkProvider::onStart()
     }
 
     mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
-    mBluetoothServer->setSecurityFlags(QBluetooth::Encryption | QBluetooth::Secure);
+    mBluetoothServer->setSecurityFlags(QBluetooth::Security::Encryption | QBluetooth::Security::Secure);
     connect(mBluetoothServer, SIGNAL(newConnection()), this, SLOT(serverNewConnection()));
 
     mServiceDiscoveryAgent->start();
@@ -111,7 +111,7 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
 
     qCDebug(KDECONNECT_CORE()) << "Connecting to" << info.device().address();
 
-    if (socket->error() != QBluetoothSocket::NoSocketError) {
+    if (socket->error() != QBluetoothSocket::SocketError::NoSocketError) {
         qCWarning(KDECONNECT_CORE) << "Socket connection error:" << socket->errorString();
     }
 }

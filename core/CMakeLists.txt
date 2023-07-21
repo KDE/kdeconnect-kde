@@ -74,7 +74,7 @@ endif()
 
 if (BLUETOOTH_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_BLUETOOTH)
-    target_link_libraries(kdeconnectcore PRIVATE Qt5::Bluetooth)
+    target_link_libraries(kdeconnectcore PRIVATE Qt${QT_MAJOR_VERSION}::Bluetooth)
 endif()
 
 if (LOOPBACK_ENABLED)
@@ -83,7 +83,7 @@ endif()
 
 if (MDNS_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_MDNS)
-    target_link_libraries(kdeconnectcore PRIVATE KF5::DNSSD)
+    target_link_libraries(kdeconnectcore PRIVATE KF${QT_MAJOR_VERSION}::DNSSD)
 endif()
 
 set_target_properties(kdeconnectcore PROPERTIES
