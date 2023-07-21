@@ -24,7 +24,6 @@
 
 namespace DBusHelper
 {
-
 #ifdef Q_OS_MAC
 class DBusInstancePrivate
 {
