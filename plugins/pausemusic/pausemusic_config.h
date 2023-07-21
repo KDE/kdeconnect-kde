@@ -18,7 +18,7 @@ class PauseMusicConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    PauseMusicConfig(QObject *parent, const QVariantList &);
+    PauseMusicConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
     ~PauseMusicConfig() override;
 
     void save() override;

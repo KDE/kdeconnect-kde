@@ -18,7 +18,7 @@ class ClipboardConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    ClipboardConfig(QObject *parent, const QVariantList &);
+    ClipboardConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
     ~ClipboardConfig() override;
 
     void save() override;

@@ -8,6 +8,7 @@
 #define KDECONNECTPLUGINKCM_H
 
 #include <KCModule>
+#include <KPluginMetaData> // Not in KCModule header of older KF5 versions
 #include <kconfigwidgets_version.h>
 
 #include "core/kdeconnectpluginconfig.h"
@@ -24,7 +25,7 @@ class KDECONNECTPLUGINKCM_EXPORT KdeConnectPluginKcm : public KCModule
     Q_OBJECT
 
 public:
-    KdeConnectPluginKcm(QObject *parent, const QVariantList &args, const QString &componentName);
+    KdeConnectPluginKcm(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~KdeConnectPluginKcm() override;
 
     /**

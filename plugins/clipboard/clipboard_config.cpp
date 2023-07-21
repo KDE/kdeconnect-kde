@@ -11,8 +11,8 @@
 
 K_PLUGIN_FACTORY(ClipboardConfigFactory, registerPlugin<ClipboardConfig>();)
 
-ClipboardConfig::ClipboardConfig(QObject *parent, const QVariantList &args)
-    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_clipboard"))
+ClipboardConfig::ClipboardConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KdeConnectPluginKcm(parent, data, args)
     , m_ui(new Ui::ClipboardConfigUi())
 {
     m_ui->setupUi(widget());

@@ -16,7 +16,7 @@ class RunCommandConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    RunCommandConfig(QObject *parent, const QVariantList &);
+    RunCommandConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
 
     void save() override;
     void load() override;

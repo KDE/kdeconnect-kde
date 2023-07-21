@@ -6,16 +6,13 @@
 
 #include "kdeconnectpluginkcm.h"
 
-#include <KAboutData>
-#include <KService>
-
 struct KdeConnectPluginKcmPrivate {
     QString m_deviceId;
     QString m_pluginName;
     KdeConnectPluginConfig *m_config = nullptr;
 };
 
-KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const QVariantList &args, const QString &pluginName)
+KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
 #if QT_VERSION_MAJOR < 6
     : KCModule(qobject_cast<QWidget *>(parent), args)
 #else
@@ -23,8 +20,10 @@ KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const QVariantList &ar
 #endif
     , d(new KdeConnectPluginKcmPrivate())
 {
+    Q_ASSERT(data.isValid()); // Even if we have empty metadata, it should be valid!
     d->m_deviceId = args.at(0).toString();
-    d->m_pluginName = pluginName;
+    const static QRegularExpression removeConfigPostfix(QStringLiteral("_config$"));
+    d->m_pluginName = data.pluginId().remove(removeConfigPostfix);
 
     // The parent of the config should be the plugin itself
     d->m_config = new KdeConnectPluginConfig(d->m_deviceId, d->m_pluginName);

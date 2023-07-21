@@ -14,8 +14,8 @@
 
 K_PLUGIN_FACTORY(ShareConfigFactory, registerPlugin<ShareConfig>();)
 
-ShareConfig::ShareConfig(QObject *parent, const QVariantList &args)
-    : KdeConnectPluginKcm(parent, args, QStringLiteral("kdeconnect_share"))
+ShareConfig::ShareConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KdeConnectPluginKcm(parent, data, args)
     , m_ui(new Ui::ShareConfigUi())
 {
     m_ui->setupUi(widget());

@@ -18,7 +18,7 @@ class FindThisDeviceConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
-    FindThisDeviceConfig(QObject *parent, const QVariantList &);
+    FindThisDeviceConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
     ~FindThisDeviceConfig() override;
 
     void save() override;
