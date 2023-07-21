@@ -173,7 +173,7 @@ int main(int argc, char *argv[])
 
 #ifdef Q_OS_WIN
     // make sure indicator shows up in the tray whenever daemon is spawned
-    QProcess::startDetached(QStringLiteral("kdeconnect-indicator.exe"));
+    QProcess::startDetached(QStringLiteral("kdeconnect-indicator.exe"), QStringList());
 #endif
 
     // kdeconnectd is autostarted, so disable session management to speed up startup

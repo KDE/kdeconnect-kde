@@ -11,6 +11,7 @@
 #include <core/kdeconnectplugin.h>
 
 #ifdef Q_OS_WIN
+#include <QDebug>
 #include <Windows.h>
 #define INFO_BUFFER_SIZE 32767
 #else
@@ -42,7 +43,7 @@ inline QString defaultSound()
 #ifdef Q_OS_WIN
     wchar_t infoBuf[INFO_BUFFER_SIZE];
     if (!GetWindowsDirectory(infoBuf, INFO_BUFFER_SIZE)) {
-        qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Error with getting the Windows Directory.";
+        qWarning() << "Error with getting the Windows Directory.";
     } else {
         dirPath = QString::fromStdWString(infoBuf) + QStringLiteral("/media");
         if (!dirPath.isEmpty()) {
