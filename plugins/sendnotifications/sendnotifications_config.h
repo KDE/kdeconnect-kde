@@ -27,10 +27,8 @@ public:
     void load() override;
     void defaults() override;
 
-private Q_SLOTS:
-    void loadApplications();
-
 private:
+    void loadApplications();
     Ui::SendNotificationsConfigUi *m_ui;
     NotifyingApplicationModel *appModel;
 };

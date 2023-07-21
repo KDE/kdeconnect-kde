@@ -28,10 +28,14 @@ SendReplyDialog::SendReplyDialog(const QString &originalMessage, const QString &
     auto button = m_ui->buttonBox->button(QDialogButtonBox::Ok);
     button->setText(i18n("Send"));
 
+    const auto sendButtonClicked = [this]() {
+        Q_EMIT sendReply(m_replyId, m_ui->replyEdit->toPlainText());
+        close();
+    };
     auto textEdit = m_ui->replyEdit;
-    connect(textEdit, &SendReplyTextEdit::send, this, &SendReplyDialog::sendButtonClicked);
+    connect(textEdit, &SendReplyTextEdit::send, this, sendButtonClicked);
 
-    connect(this, &QDialog::accepted, this, &SendReplyDialog::sendButtonClicked);
+    connect(this, &QDialog::accepted, this, sendButtonClicked);
     setWindowTitle(topicName);
     setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     setAttribute(Qt::WA_DeleteOnClose);
@@ -39,12 +43,6 @@ SendReplyDialog::SendReplyDialog(const QString &originalMessage, const QString &
 }
 
 SendReplyDialog::~SendReplyDialog() = default;
-
-void SendReplyDialog::sendButtonClicked()
-{
-    Q_EMIT sendReply(m_replyId, m_ui->replyEdit->toPlainText());
-    close();
-}
 
 QSize SendReplyDialog::sizeHint() const
 {

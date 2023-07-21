@@ -26,9 +26,6 @@ public:
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
-private Q_SLOTS:
-    void configChanged();
-
 private:
     void sendConfig();
 };

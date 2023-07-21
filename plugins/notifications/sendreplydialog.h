@@ -26,9 +26,6 @@ public:
 
     QSize sizeHint() const override;
 
-private Q_SLOTS:
-    void sendButtonClicked();
-
 Q_SIGNALS:
     void sendReply(const QString &replyId, const QString &messageBody);
 

@@ -34,7 +34,7 @@ K_PLUGIN_CLASS_WITH_JSON(RunCommandPlugin, "kdeconnect_runcommand.json")
 RunCommandPlugin::RunCommandPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
 {
-    connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::configChanged);
+    connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::sendConfig);
 }
 
 bool RunCommandPlugin::receivePacket(const NetworkPacket &np)
@@ -80,11 +80,6 @@ void RunCommandPlugin::sendConfig()
     np.set<bool>(QStringLiteral("canAddCommand"), true);
 
     sendPacket(np);
-}
-
-void RunCommandPlugin::configChanged()
-{
-    sendConfig();
 }
 
 #include "runcommandplugin.moc"
