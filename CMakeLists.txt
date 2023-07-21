@@ -8,11 +8,11 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF5_MIN_VERSION "5.101.0")
+set(KF_MIN_VERSION "5.101.0")
 set(QT_MIN_VERSION "5.15.2")
 set(QCA_MIN_VERSION "2.1.0")
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 include(KDEInstallDirs)
@@ -51,7 +51,7 @@ endif()
 
 ecm_set_disabled_deprecation_versions(
     QT ${QT_MIN_VERSION}
-    KF ${KF5_MIN_VERSION}
+    KF ${KF_MIN_VERSION}
 )
 
 # Make the version header available by linking against kdeconnectversion
@@ -107,7 +107,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Qu
 if (UNIX AND NOT APPLE AND QT_MAJOR_VERSION EQUAL "5")
     find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
 endif()
-find_package(KF${QT_MAJOR_VERSION} ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
+find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -122,7 +122,7 @@ add_subdirectory(core)
 add_subdirectory(plugins)
 add_subdirectory(interfaces)
 
-find_package(KF${QT_MAJOR_VERSION}QQC2DesktopStyle ${KF5_MIN_VERSION} REQUIRED)
+find_package(KF${QT_MAJOR_VERSION}QQC2DesktopStyle ${KF_MIN_VERSION} REQUIRED)
 set_package_properties(KF${QT_MAJOR_VERSION}QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
 
 add_subdirectory(icons)

@@ -38,7 +38,7 @@ add_subdirectory(screensaver-inhibit)
 add_subdirectory(virtualmonitor)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    find_package(KF${QT_MAJOR_VERSION}ModemManagerQt ${KF5_MIN_VERSION})
+    find_package(KF${QT_MAJOR_VERSION}ModemManagerQt ${KF_MIN_VERSION})
     if (TARGET KF${QT_MAJOR_VERSION}::ModemManagerQt)
         add_subdirectory(mmtelephony)
     endif()

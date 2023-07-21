@@ -12,12 +12,12 @@ add_subdirectory(backends/loopback)
 
 option(MDNS_ENABLED "Use MDNS for device discovery (under development)" OFF)
 if (MDNS_ENABLED)
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DNSSD)
+    find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS DNSSD)
 endif()
 
 option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" OFF)
 if(BLUETOOTH_ENABLED)
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
+    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
     add_subdirectory(backends/bluetooth)
 endif()
 
