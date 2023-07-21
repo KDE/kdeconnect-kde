@@ -55,9 +55,9 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket &np)
         const QJsonObject commandJson = value.toObject();
         qCInfo(KDECONNECT_PLUGIN_RUNCOMMAND) << "Running:" << COMMAND << ARGS << commandJson[QStringLiteral("command")].toString();
 #ifdef Q_OS_WIN
-        QProcess::startDetached(commandJson[QStringLiteral("command")].toString());
+        QProcess::startDetached(commandJson[QStringLiteral("command")].toString(), QStringList());
 #else
-        QProcess::startDetached(QStringLiteral(COMMAND), QStringList() << QStringLiteral(ARGS) << commandJson[QStringLiteral("command")].toString());
+        QProcess::startDetached(QStringLiteral(COMMAND), QStringList{QStringLiteral(ARGS), commandJson[QStringLiteral("command")].toString()});
 #endif
         return true;
     } else if (np.has(QStringLiteral("setup"))) {

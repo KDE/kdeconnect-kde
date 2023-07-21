@@ -60,7 +60,7 @@ void IndicatorHelper::iconPathHook()
 
 int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
 {
-    kdeconnectd.start(processes::kdeconnect_daemon);
+    kdeconnectd.start(processes::kdeconnect_daemon, QStringList());
     return 0;
 }
 
