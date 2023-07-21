@@ -77,10 +77,7 @@ void RunCommandPlugin::sendConfig()
 {
     QString commands = config()->getString(QStringLiteral("commands"), QStringLiteral("{}"));
     NetworkPacket np(PACKET_TYPE_RUNCOMMAND, {{QStringLiteral("commandList"), commands}});
-
-#if KCMUTILS_VERSION >= QT_VERSION_CHECK(5, 45, 0)
     np.set<bool>(QStringLiteral("canAddCommand"), true);
-#endif
 
     sendPacket(np);
 }
