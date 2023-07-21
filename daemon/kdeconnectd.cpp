@@ -112,9 +112,9 @@ static void detectPlatform(int argc, char **argv)
     if (sessionType.isEmpty()) {
         return;
     }
-    if (qstrcmp(sessionType, "wayland") == 0) {
+    if (qstrcmp(sessionType.constData(), "wayland") == 0) {
         qputenv("QT_QPA_PLATFORM", "wayland");
-    } else if (qstrcmp(sessionType, "x11") == 0) {
+    } else if (qstrcmp(sessionType.constData(), "x11") == 0) {
         qputenv("QT_QPA_PLATFORM", "xcb");
     }
 }
