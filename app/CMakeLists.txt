@@ -1,6 +1,7 @@
 configure_file(qml/main.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/main.qml)
 configure_file(qml/DevicePage.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/DevicePage.qml)
 configure_file(qml/FindDevicesPage.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/FindDevicesPage.qml)
+configure_file(qml/PluginInfoPage.qml ${CMAKE_CURRENT_BINARY_DIR}/qml/PluginInfoPage.qml)
 configure_file(resources.qrc.in ${CMAKE_CURRENT_SOURCE_DIR}/resources.generated.qrc)
 
 qt_add_resources(kdeconnect_SRCS resources.generated.qrc)

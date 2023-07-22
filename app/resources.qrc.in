@@ -12,7 +12,7 @@
     <file>qml/volume.qml</file>
     <file>qml/MprisSlider.qml</file>
     <file>qml/PluginSettings.qml</file>
-    <file>qml/PluginInfoPage.qml</file>
+    <file alias="qml/PluginInfoPage.qml">@CMAKE_CURRENT_BINARY_DIR@/qml/PluginInfoPage.qml</file>
     <file>qml/Settings.qml</file>
  </qresource>
 </RCC>
