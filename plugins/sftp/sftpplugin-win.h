@@ -24,9 +24,6 @@ public:
     explicit SftpPlugin(QObject *parent, const QVariantList &args);
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override
-    {
-    }
     QString dbusPath() const override
     {
         return QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/sftp");

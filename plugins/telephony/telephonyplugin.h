@@ -40,9 +40,6 @@ public:
     ~TelephonyPlugin() override = default;
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override
-    {
-    }
     QString dbusPath() const override;
 
 public:

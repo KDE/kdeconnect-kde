@@ -25,9 +25,6 @@ public:
     Q_SCRIPTABLE void requestPhoto(const QString &url);
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override
-    {
-    }
 
     QString dbusPath() const override;
 

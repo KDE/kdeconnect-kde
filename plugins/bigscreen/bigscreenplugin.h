@@ -21,7 +21,6 @@ public:
     explicit BigscreenPlugin(QObject *parent, const QVariantList &args);
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override{};
     QString dbusPath() const override;
 
 Q_SIGNALS:

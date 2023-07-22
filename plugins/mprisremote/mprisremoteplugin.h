@@ -50,9 +50,6 @@ public:
     void setPlayer(const QString &player);
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override
-    {
-    }
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void seek(int offset) const;

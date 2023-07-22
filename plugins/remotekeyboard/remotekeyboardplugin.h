@@ -31,7 +31,6 @@ public:
 
     bool receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
-    void connected() override;
 
     bool remoteState() const
     {

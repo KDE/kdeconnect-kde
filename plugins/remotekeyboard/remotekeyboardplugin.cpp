@@ -121,10 +121,6 @@ int RemoteKeyboardPlugin::translateQtKey(int qtKey) const
     return specialKeysMap.value(qtKey, 0);
 }
 
-void RemoteKeyboardPlugin::connected()
-{
-}
-
 QString RemoteKeyboardPlugin::dbusPath() const
 {
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotekeyboard");

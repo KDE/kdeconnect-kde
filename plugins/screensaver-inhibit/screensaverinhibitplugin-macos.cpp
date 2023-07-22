@@ -33,10 +33,6 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
     }
 }
 
-void ScreensaverInhibitPlugin::connected()
-{
-}
-
 bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);

@@ -42,10 +42,6 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
     inhibitInterface.SimulateUserActivity();
 }
 
-void ScreensaverInhibitPlugin::connected()
-{
-}
-
 bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);

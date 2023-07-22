@@ -21,7 +21,6 @@ public:
     ~ScreensaverInhibitPlugin() override;
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override;
 
 private:
     QProcess *m_caffeinateProcess;

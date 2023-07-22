@@ -25,9 +25,6 @@ public:
     {
         return false;
     }
-    void connected() override
-    {
-    }
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void moveCursor(const QPoint &p);

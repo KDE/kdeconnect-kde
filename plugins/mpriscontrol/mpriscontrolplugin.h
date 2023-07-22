@@ -53,9 +53,6 @@ public:
     explicit MprisControlPlugin(QObject *parent, const QVariantList &args);
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override
-    {
-    }
 
 private Q_SLOTS:
     void propertiesChanged(const QString &propertyInterface, const QVariantMap &properties);

@@ -24,9 +24,6 @@ public:
     Q_SCRIPTABLE void ring();
 
     QString dbusPath() const override;
-    void connected() override
-    {
-    }
     bool receivePacket(const NetworkPacket &np) override;
 };
 

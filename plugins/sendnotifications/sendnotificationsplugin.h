@@ -28,7 +28,6 @@ public:
     ~SendNotificationsPlugin() override;
 
     bool receivePacket(const NetworkPacket &np) override;
-    void connected() override;
 
 protected:
     NotificationsListener *notificationsListener;

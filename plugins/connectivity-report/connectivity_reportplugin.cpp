@@ -30,10 +30,6 @@ int ConnectivityReportPlugin::cellularNetworkStrength() const
     return m_cellularNetworkStrength;
 }
 
-void ConnectivityReportPlugin::connected()
-{
-}
-
 bool ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
 {
     if (PACKET_TYPE_CONNECTIVITY_REPORT != np.type()) {
