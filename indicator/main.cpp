@@ -116,7 +116,7 @@ int main(int argc, char **argv)
             for (const auto &req : requests) {
                 DeviceDbusInterface *dev = new DeviceDbusInterface(req, menu);
                 auto pairMenu = menu->addMenu(dev->name());
-                pairMenu->addAction(i18n("Pair"), dev, &DeviceDbusInterface::acceptPairing);
+                pairMenu->addAction(i18nc("Accept a pairing request", "Pair"), dev, &DeviceDbusInterface::acceptPairing);
                 pairMenu->addAction(i18n("Reject"), dev, &DeviceDbusInterface::cancelPairing);
             }
         }
