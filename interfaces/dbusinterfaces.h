@@ -54,8 +54,7 @@ Q_SIGNALS:
 class KDECONNECTINTERFACES_EXPORT DeviceDbusInterface : public OrgKdeKdeconnectDeviceInterface
 {
     Q_OBJECT
-    //  TODO: Workaround because OrgKdeKdeconnectDeviceInterface is not generating
-    //  the signals for the properties
+    // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChangedProxy)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChangedProxy)
     Q_PROPERTY(bool isPairRequested READ isPairRequested NOTIFY pairStateChangedProxy)
@@ -148,8 +147,7 @@ public:
 class KDECONNECTINTERFACES_EXPORT MprisDbusInterface : public OrgKdeKdeconnectDeviceMprisremoteInterface
 {
     Q_OBJECT
-    //  TODO: Workaround because qdbusxml2cpp is not generating
-    //  the signals for the properties
+    // Workaround because qdbusxml2cpp is not generating NOTIFY for properties
     Q_PROPERTY(bool isPlaying READ isPlaying NOTIFY propertiesChangedProxy)
     Q_PROPERTY(int length READ length NOTIFY propertiesChangedProxy)
     Q_PROPERTY(QString title READ title NOTIFY propertiesChangedProxy)
@@ -199,6 +197,8 @@ public:
 class KDECONNECTINTERFACES_EXPORT RemoteCommandsDbusInterface : public OrgKdeKdeconnectDeviceRemotecommandsInterface
 {
     Q_OBJECT
+    // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
+    Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
 public:
     explicit RemoteCommandsDbusInterface(const QString &deviceId, QObject *parent = nullptr);
     ~RemoteCommandsDbusInterface() override;
@@ -242,6 +242,8 @@ public:
 class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface
 {
     Q_OBJECT
+    // Workaround because qdbusxml2cpp is not generating CONSTANT for properties and qml complains at runtime
+    Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
 public:
     explicit RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent = nullptr);
     ~RemoteSystemVolumeDbusInterface() override = default;
