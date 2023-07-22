@@ -18,7 +18,7 @@
 
 class MacOSCoreAudioDevice;
 
-class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
+class SystemvolumePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 

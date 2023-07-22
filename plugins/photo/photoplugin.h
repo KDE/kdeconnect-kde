@@ -13,7 +13,7 @@ class QObject;
 #define PACKET_TYPE_PHOTO_REQUEST QStringLiteral("kdeconnect.photo.request")
 #define PACKET_TYPE_PHOTO QStringLiteral("kdeconnect.photo")
 
-class Q_DECL_EXPORT PhotoPlugin : public KdeConnectPlugin
+class PhotoPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.photo")

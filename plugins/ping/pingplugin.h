@@ -12,7 +12,7 @@
 
 #define PACKET_TYPE_PING QStringLiteral("kdeconnect.ping")
 
-class Q_DECL_EXPORT PingPlugin : public KdeConnectPlugin
+class PingPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.ping")

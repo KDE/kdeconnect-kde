@@ -15,7 +15,7 @@
 #define PACKET_TYPE_MPRIS_REQUEST QStringLiteral("kdeconnect.mpris.request")
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
-class Q_DECL_EXPORT MprisRemotePlugin : public KdeConnectPlugin
+class MprisRemotePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.mprisremote")

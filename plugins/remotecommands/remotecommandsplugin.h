@@ -11,7 +11,7 @@ class QObject;
 #include <QString>
 #include <core/kdeconnectplugin.h>
 
-class Q_DECL_EXPORT RemoteCommandsPlugin : public KdeConnectPlugin
+class RemoteCommandsPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotecommands")

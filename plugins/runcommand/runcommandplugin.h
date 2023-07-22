@@ -15,7 +15,7 @@
 #include <QString>
 #include <core/kdeconnectplugin.h>
 
-class Q_DECL_EXPORT RunCommandPlugin : public KdeConnectPlugin
+class RunCommandPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 

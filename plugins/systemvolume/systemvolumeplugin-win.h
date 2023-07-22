@@ -22,7 +22,7 @@
 #define PACKET_TYPE_SYSTEMVOLUME QStringLiteral("kdeconnect.systemvolume")
 #define PACKET_TYPE_SYSTEMVOLUME_REQUEST QStringLiteral("kdeconnect.systemvolume.request")
 
-class Q_DECL_EXPORT SystemvolumePlugin : public KdeConnectPlugin
+class SystemvolumePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 

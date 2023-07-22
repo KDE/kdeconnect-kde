@@ -11,7 +11,7 @@
 
 #define PACKET_TYPE_BIGSCREEN_STT QStringLiteral("kdeconnect.bigscreen.stt")
 
-class Q_DECL_EXPORT BigscreenPlugin : public KdeConnectPlugin
+class BigscreenPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.bigscreen")

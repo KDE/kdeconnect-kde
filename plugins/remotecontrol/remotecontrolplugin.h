@@ -12,7 +12,7 @@
 
 #define PACKET_TYPE_MOUSEPAD_REQUEST QStringLiteral("kdeconnect.mousepad.request")
 
-class Q_DECL_EXPORT RemoteControlPlugin : public KdeConnectPlugin
+class RemoteControlPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotecontrol")

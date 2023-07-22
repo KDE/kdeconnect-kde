@@ -25,7 +25,7 @@ using namespace Windows::ApplicationModel;
 
 #define PACKET_TYPE_MPRIS QStringLiteral("kdeconnect.mpris")
 
-class Q_DECL_EXPORT MprisControlPlugin : public KdeConnectPlugin
+class MprisControlPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 

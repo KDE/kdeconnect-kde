@@ -13,7 +13,7 @@
 #define PACKET_TYPE_SYSTEMVOLUME QStringLiteral("kdeconnect.systemvolume")
 #define PACKET_TYPE_SYSTEMVOLUME_REQUEST QStringLiteral("kdeconnect.systemvolume.request")
 
-class Q_DECL_EXPORT RemoteSystemVolumePlugin : public KdeConnectPlugin
+class RemoteSystemVolumePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotesystemvolume")

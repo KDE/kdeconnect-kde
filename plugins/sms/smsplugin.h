@@ -137,7 +137,7 @@ Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS)
 
 class QTextCodec;
 
-class Q_DECL_EXPORT SmsPlugin : public KdeConnectPlugin
+class SmsPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.sms")

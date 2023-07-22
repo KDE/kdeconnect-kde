@@ -16,7 +16,7 @@
 #define PACKET_TYPE_LOCK QStringLiteral("kdeconnect.lock")
 #define PACKET_TYPE_LOCK_REQUEST QStringLiteral("kdeconnect.lock.request")
 
-class Q_DECL_EXPORT LockDevicePlugin : public KdeConnectPlugin
+class LockDevicePlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.lockdevice")

@@ -16,7 +16,7 @@
 
 class PresenterView;
 
-class Q_DECL_EXPORT PresenterPlugin : public KdeConnectPlugin
+class PresenterPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.presenter")

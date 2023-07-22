@@ -10,7 +10,7 @@
 
 #include <core/kdeconnectplugin.h>
 
-class Q_DECL_EXPORT ScreensaverInhibitPlugin : public KdeConnectPlugin
+class ScreensaverInhibitPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
 
