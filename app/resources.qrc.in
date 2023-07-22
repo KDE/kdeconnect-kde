@@ -8,7 +8,7 @@
     <file>qml/PluginItem.qml</file>
     <file alias="qml/DevicePage.qml">@CMAKE_CURRENT_BINARY_DIR@/qml/DevicePage.qml</file>
     <file alias="qml/FindDevicesPage.qml">@CMAKE_CURRENT_BINARY_DIR@/qml/FindDevicesPage.qml</file>
-    <file>qml/runcommand.qml</file>
+    <file alias="qml/runcommand.qml">@CMAKE_CURRENT_BINARY_DIR@/qml/runcommand.qml</file>
     <file>qml/volume.qml</file>
     <file>qml/MprisSlider.qml</file>
     <file>qml/PluginSettings.qml</file>

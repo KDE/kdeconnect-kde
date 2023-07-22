@@ -16,7 +16,7 @@ Kirigami.ScrollablePage
     title: i18nd("kdeconnect-app", "Run command")
     property QtObject pluginInterface
 
-    actions.main: Kirigami.Action {
+    @KIGIGAMI_PAGE_ACTIONS@: Kirigami.Action {
         icon.name: "document-edit"
         text: i18nd("kdeconnect-app", "Edit commands")
         onTriggered: {
