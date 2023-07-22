@@ -25,8 +25,6 @@ BigscreenPlugin::BigscreenPlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-BigscreenPlugin::~BigscreenPlugin() = default;
-
 bool BigscreenPlugin::receivePacket(const NetworkPacket &np)
 {
     QString message = np.get<QString>(QStringLiteral("content"));

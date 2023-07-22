@@ -22,7 +22,6 @@ class Q_DECL_EXPORT RemoteCommandsPlugin : public KdeConnectPlugin
 
 public:
     explicit RemoteCommandsPlugin(QObject *parent, const QVariantList &args);
-    ~RemoteCommandsPlugin() override;
 
     Q_SCRIPTABLE void triggerCommand(const QString &key);
     Q_SCRIPTABLE void editCommands();

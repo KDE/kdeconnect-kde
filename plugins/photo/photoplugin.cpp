@@ -20,10 +20,6 @@ PhotoPlugin::PhotoPlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-PhotoPlugin::~PhotoPlugin()
-{
-}
-
 bool PhotoPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("cancel"))) {

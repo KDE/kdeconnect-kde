@@ -23,7 +23,6 @@ class Q_DECL_EXPORT RemoteSystemVolumePlugin : public KdeConnectPlugin
 
 public:
     explicit RemoteSystemVolumePlugin(QObject *parent, const QVariantList &args);
-    ~RemoteSystemVolumePlugin() override;
 
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override;

@@ -15,8 +15,6 @@ MprisRemotePlayerMediaPlayer2::MprisRemotePlayerMediaPlayer2(MprisRemotePlayer *
 {
 }
 
-MprisRemotePlayerMediaPlayer2::~MprisRemotePlayerMediaPlayer2() = default;
-
 bool MprisRemotePlayerMediaPlayer2::CanQuit() const
 {
     return false;

@@ -172,10 +172,6 @@ WaylandRemoteInput::WaylandRemoteInput(QObject *parent)
 {
 }
 
-WaylandRemoteInput::~WaylandRemoteInput()
-{
-}
-
 bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
 {
     if (!s_session->isValid()) {

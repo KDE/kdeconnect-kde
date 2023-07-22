@@ -61,10 +61,6 @@ Notification::Notification(const NetworkPacket &np, const Device *device, QObjec
     });
 }
 
-Notification::~Notification()
-{
-}
-
 void Notification::dismiss()
 {
     if (m_dismissable) {

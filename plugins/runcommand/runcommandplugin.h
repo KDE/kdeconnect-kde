@@ -22,7 +22,6 @@ class Q_DECL_EXPORT RunCommandPlugin : public KdeConnectPlugin
 
 public:
     explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
-    ~RunCommandPlugin() override;
 
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override;

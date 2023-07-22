@@ -42,7 +42,6 @@ class WaylandRemoteInput : public AbstractRemoteInput
 
 public:
     explicit WaylandRemoteInput(QObject *parent);
-    ~WaylandRemoteInput();
 
     bool handlePacket(const NetworkPacket &np) override;
     bool hasKeyboardSupport() override

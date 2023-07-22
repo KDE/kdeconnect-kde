@@ -25,7 +25,6 @@ class Q_DECL_EXPORT LockDevicePlugin : public KdeConnectPlugin
 
 public:
     explicit LockDevicePlugin(QObject *parent, const QVariantList &args);
-    ~LockDevicePlugin() override;
 
     bool isLocked() const;
     Q_SCRIPTABLE void setLocked(bool);

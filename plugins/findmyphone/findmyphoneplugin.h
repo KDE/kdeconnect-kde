@@ -20,7 +20,6 @@ class FindMyPhonePlugin : public KdeConnectPlugin
 
 public:
     explicit FindMyPhonePlugin(QObject *parent, const QVariantList &args);
-    ~FindMyPhonePlugin() override;
 
     Q_SCRIPTABLE void ring();
 

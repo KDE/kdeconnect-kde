@@ -23,10 +23,6 @@ RemoteControlPlugin::RemoteControlPlugin(QObject *parent, const QVariantList &ar
 {
 }
 
-RemoteControlPlugin::~RemoteControlPlugin()
-{
-}
-
 void RemoteControlPlugin::moveCursor(const QPoint &p)
 {
     NetworkPacket np(PACKET_TYPE_MOUSEPAD_REQUEST, {{QStringLiteral("dx"), p.x()}, {QStringLiteral("dy"), p.y()}});

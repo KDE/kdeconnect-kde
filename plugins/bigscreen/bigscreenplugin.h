@@ -19,7 +19,6 @@ class Q_DECL_EXPORT BigscreenPlugin : public KdeConnectPlugin
 
 public:
     explicit BigscreenPlugin(QObject *parent, const QVariantList &args);
-    ~BigscreenPlugin() override;
 
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override{};

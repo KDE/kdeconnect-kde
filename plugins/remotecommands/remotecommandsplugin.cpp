@@ -24,8 +24,6 @@ RemoteCommandsPlugin::RemoteCommandsPlugin(QObject *parent, const QVariantList &
 {
 }
 
-RemoteCommandsPlugin::~RemoteCommandsPlugin() = default;
-
 bool RemoteCommandsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("commandList"))) {

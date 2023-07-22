@@ -58,10 +58,6 @@ PresenterPlugin::PresenterPlugin(QObject *parent, const QVariantList &args)
     m_timer->setSingleShot(true);
 }
 
-PresenterPlugin::~PresenterPlugin()
-{
-}
-
 bool PresenterPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("stop"), false)) {

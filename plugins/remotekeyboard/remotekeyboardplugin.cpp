@@ -58,10 +58,6 @@ RemoteKeyboardPlugin::RemoteKeyboardPlugin(QObject *parent, const QVariantList &
 {
 }
 
-RemoteKeyboardPlugin::~RemoteKeyboardPlugin()
-{
-}
-
 bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_MOUSEPAD_ECHO) {

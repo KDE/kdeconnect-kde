@@ -33,7 +33,6 @@ class Notification : public QObject
 
 public:
     Notification(const NetworkPacket &np, const Device *device, QObject *parent);
-    ~Notification() override;
 
     QString internalId() const
     {

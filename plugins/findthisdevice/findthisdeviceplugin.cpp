@@ -31,8 +31,6 @@ FindThisDevicePlugin::FindThisDevicePlugin(QObject *parent, const QVariantList &
 {
 }
 
-FindThisDevicePlugin::~FindThisDevicePlugin() = default;
-
 bool FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);

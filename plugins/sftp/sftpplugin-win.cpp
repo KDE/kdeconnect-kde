@@ -25,10 +25,6 @@ SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-SftpPlugin::~SftpPlugin()
-{
-}
-
 bool SftpPlugin::startBrowsing()
 {
     NetworkPacket np(PACKET_TYPE_SFTP_REQUEST, {{QStringLiteral("startBrowsing"), true}});

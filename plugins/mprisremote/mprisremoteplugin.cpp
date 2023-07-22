@@ -18,12 +18,6 @@ K_PLUGIN_CLASS_WITH_JSON(MprisRemotePlugin, "kdeconnect_mprisremote.json")
 
 MprisRemotePlugin::MprisRemotePlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , m_currentPlayer()
-    , m_players()
-{
-}
-
-MprisRemotePlugin::~MprisRemotePlugin()
 {
 }
 

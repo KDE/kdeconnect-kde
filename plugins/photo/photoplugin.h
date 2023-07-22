@@ -21,7 +21,6 @@ class Q_DECL_EXPORT PhotoPlugin : public KdeConnectPlugin
 
 public:
     explicit PhotoPlugin(QObject *parent, const QVariantList &args);
-    ~PhotoPlugin() override;
 
     Q_SCRIPTABLE void requestPhoto(const QString &url);
 

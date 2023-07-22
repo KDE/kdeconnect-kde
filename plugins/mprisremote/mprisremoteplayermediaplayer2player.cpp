@@ -27,8 +27,6 @@ MprisRemotePlayerMediaPlayer2Player::MprisRemotePlayerMediaPlayer2Player(MprisRe
     connect(m_parent, &MprisRemotePlayer::playingChanged, this, &MprisRemotePlayerMediaPlayer2Player::playingChanged);
 }
 
-MprisRemotePlayerMediaPlayer2Player::~MprisRemotePlayerMediaPlayer2Player() = default;
-
 QString MprisRemotePlayerMediaPlayer2Player::PlaybackStatus() const
 {
     if (m_parent->playing()) {

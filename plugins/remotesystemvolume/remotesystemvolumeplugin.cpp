@@ -26,10 +26,6 @@ RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject *parent, const QVaria
 {
 }
 
-RemoteSystemVolumePlugin::~RemoteSystemVolumePlugin()
-{
-}
-
 bool RemoteSystemVolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("sinkList"))) {

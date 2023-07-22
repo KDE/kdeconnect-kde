@@ -24,8 +24,6 @@ class Q_DECL_EXPORT PresenterPlugin : public KdeConnectPlugin
 
 public:
     explicit PresenterPlugin(QObject *parent, const QVariantList &args);
-    ~PresenterPlugin() override;
-
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override
     {

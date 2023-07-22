@@ -93,10 +93,6 @@ RunCommandConfig::RunCommandConfig(QObject *parent, const QVariantList &args)
     m_entriesModel->setHorizontalHeaderLabels(QStringList() << i18n("Name") << i18n("Command"));
 }
 
-RunCommandConfig::~RunCommandConfig()
-{
-}
-
 void RunCommandConfig::exportCommands()
 {
     QString filePath = QFileDialog::getSaveFileName(widget(), i18n("Export Commands"), QDir::homePath(), QStringLiteral("JSON (*.json)"));

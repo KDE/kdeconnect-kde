@@ -37,10 +37,6 @@ RunCommandPlugin::RunCommandPlugin(QObject *parent, const QVariantList &args)
     connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::configChanged);
 }
 
-RunCommandPlugin::~RunCommandPlugin()
-{
-}
-
 bool RunCommandPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("requestCommandList"), false)) {

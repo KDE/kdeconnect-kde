@@ -33,7 +33,6 @@ class Q_DECL_EXPORT MprisRemotePlugin : public KdeConnectPlugin
 
 public:
     explicit MprisRemotePlugin(QObject *parent, const QVariantList &args);
-    ~MprisRemotePlugin() override;
 
     long position() const;
     int volume() const;

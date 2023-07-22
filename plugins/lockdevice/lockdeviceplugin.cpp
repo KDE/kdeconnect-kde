@@ -55,10 +55,6 @@ LockDevicePlugin::LockDevicePlugin(QObject *parent, const QVariantList &args)
     m_localLocked = m_login1Interface.lockedHint();
 }
 
-LockDevicePlugin::~LockDevicePlugin()
-{
-}
-
 bool LockDevicePlugin::isLocked() const
 {
     return m_remoteLocked;

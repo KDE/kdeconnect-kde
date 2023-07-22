@@ -27,10 +27,6 @@ LockDevicePlugin::LockDevicePlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-LockDevicePlugin::~LockDevicePlugin()
-{
-}
-
 bool LockDevicePlugin::isLocked() const
 {
     return m_remoteLocked; // Windows doesn't support monitoring lock status, m_remoteLocked is never updated

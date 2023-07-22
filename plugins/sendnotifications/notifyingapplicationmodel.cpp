@@ -21,10 +21,6 @@ NotifyingApplicationModel::NotifyingApplicationModel(QObject *parent)
 {
 }
 
-NotifyingApplicationModel::~NotifyingApplicationModel()
-{
-}
-
 QVector<NotifyingApplication> NotifyingApplicationModel::apps()
 {
     return m_apps;

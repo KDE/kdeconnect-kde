@@ -25,7 +25,6 @@ class MprisRemotePlayerMediaPlayer2 : public QDBusAbstractAdaptor
 
 public:
     explicit MprisRemotePlayerMediaPlayer2(MprisRemotePlayer *parent, const MprisRemotePlugin *plugin);
-    ~MprisRemotePlayerMediaPlayer2() override;
 
 public Q_SLOTS:
     void Raise();
