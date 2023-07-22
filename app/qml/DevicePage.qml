@@ -125,7 +125,7 @@ Kirigami.ScrollablePage {
             anchors.centerIn: parent
             visible: root.currentDevice && root.currentDevice.isReachable && !root.currentDevice.isPaired && !root.currentDevice.isPairRequestedByPeer && !root.currentDevice.isPairRequested
             helpfulAction: Kirigami.Action {
-                text: i18nd("kdeconnect-app", "Pair")
+                text: i18ndc("kdeconnect-app", "Request pairing with a given device", "Pair")
                 icon.name:"network-connect"
                 onTriggered: root.currentDevice.requestPairing()
             }

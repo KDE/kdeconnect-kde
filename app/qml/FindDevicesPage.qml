@@ -20,7 +20,7 @@ Kirigami.ScrollablePage
     }
 
     objectName: "FindDevices"
-    title: i18nd("kdeconnect-app", "Pair")
+    title: i18ndc("kdeconnect-app", "Title of the page listing the devices", "Devices")
     supportsRefreshing: true
 
     onRefreshingChanged: {
