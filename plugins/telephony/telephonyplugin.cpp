@@ -61,8 +61,13 @@ void TelephonyPlugin::createNotification(const NetworkPacket &np)
     m_currentCallNotification->setText(content);
 
     if (event == QLatin1String("ringing")) {
+#if QT_VERSION_MAJOR == 6
+        KNotificationAction *muteAction = m_currentCallNotification->addAction(i18n("Mute Call"));
+        connect(muteAction, &KNotificationAction::activated, this, &TelephonyPlugin::sendMutePacket);
+#else
         m_currentCallNotification->setActions(QStringList(i18n("Mute Call")));
         connect(m_currentCallNotification, &KNotification::action1Activated, this, &TelephonyPlugin::sendMutePacket);
+#endif
     }
 
     m_currentCallNotification->sendEvent();
