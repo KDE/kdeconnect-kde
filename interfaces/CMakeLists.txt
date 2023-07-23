@@ -1,12 +1,12 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-interfaces\")
 
 function(geninterface source_h output_h)
-    set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/${output_h}.xml)
+    set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/generated/${output_h}.xml)
     qt_generate_dbus_interface( ${source_h} ${xml_file})
 
     set_source_files_properties(${xml_file} PROPERTIES NO_NAMESPACE true)
 
-    qt_add_dbus_interface(libkdeconnect_SRC ${xml_file} ${output_h})
+    qt_add_dbus_interface(libkdeconnect_SRC ${xml_file} generated/${output_h})
     set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
 endfunction()
 
@@ -70,6 +70,10 @@ set_target_properties(kdeconnectinterfaces PROPERTIES
     VERSION ${KDECONNECT_VERSION}
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
+
+# pretend the dbus generated headers are from the system so that clazy and other similar
+# tools do not show warnings about their contents
+target_include_directories(kdeconnectinterfaces SYSTEM PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/generated)
 
 generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
 
