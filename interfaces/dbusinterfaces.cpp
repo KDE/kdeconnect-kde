@@ -5,7 +5,6 @@
  */
 
 #include "dbusinterfaces.h"
-#include <dbushelper.h>
 
 QString DaemonDbusInterface::activatedService()
 {

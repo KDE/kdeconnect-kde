@@ -14,6 +14,7 @@
 #include <KPluginMetaData>
 #include <kcmutils_version.h>
 
+#include "dbushelpers.h"
 #include "dbusinterfaces.h"
 #include "devicesmodel.h"
 #include "devicessortproxymodel.h"
