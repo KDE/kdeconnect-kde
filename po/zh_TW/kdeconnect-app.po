@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-01-22 00:42+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -129,8 +129,10 @@ msgstr "音量控制"
 msgid "This device is not paired"
 msgstr "本裝置未配對"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
 
@@ -158,6 +160,13 @@ msgstr "無法連線裝置"
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "尋找裝置"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

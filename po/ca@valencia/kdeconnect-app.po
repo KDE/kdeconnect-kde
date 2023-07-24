@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
-"PO-Revision-Date: 2023-06-08 08:25+0200\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-23 18:28+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -128,10 +128,12 @@ msgstr "Control del volum"
 msgid "This device is not paired"
 msgstr "Este dispositiu no està aparellat"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Parell"
+msgstr "Aparella"
 
 #: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
@@ -157,6 +159,13 @@ msgstr "No es pot accedir a este dispositiu"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Seleccioneu un fitxer"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Troba el dispositiu"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

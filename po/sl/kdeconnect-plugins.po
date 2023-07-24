@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-06-08 06:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -391,12 +391,12 @@ msgstr "Napaka pri dostopu do sistema datotek. sshfs končal z izhodno kodo %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Priklop sistema datotek ni uspel: naprava se ne odziva"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:76
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Protokola SFTP ni mogoče obdelovati. Opravičilo za nevšečnosti"

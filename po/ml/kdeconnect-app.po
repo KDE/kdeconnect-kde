@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2020-01-28 02:48+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -124,8 +124,10 @@ msgstr "ശബ്ദ നിയന്ത്രണം"
 msgid "This device is not paired"
 msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴിയുന്നതല്ല"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ജോഡിചേരുക"
 
@@ -153,6 +155,13 @@ msgstr "ഈ ഉപകരണം എത്തിച്ചേരാന്‍ കഴ
 #, kde-format
 msgid "Please choose a file"
 msgstr "ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "ഉപകരണം കണ്ടെത്തുക"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

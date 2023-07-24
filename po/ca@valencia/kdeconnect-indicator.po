@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
-"PO-Revision-Date: 2023-06-08 08:29+0200\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-23 18:29+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -137,9 +137,11 @@ msgid "Pairing requests"
 msgstr "Sol·licituds d'aparellament"
 
 #: main.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Accept a pairing request"
 msgid "Pair"
-msgstr "Parell"
+msgstr "Aparella"
 
 #: main.cpp:120
 #, kde-format

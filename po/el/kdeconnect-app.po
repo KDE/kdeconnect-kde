@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2021-09-02 11:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -124,8 +124,10 @@ msgstr "Έλεγχος έντασης"
 msgid "This device is not paired"
 msgstr "Αυτή η συσκευή δεν είναι σε σύζευξη"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Ζεύγος"
 
@@ -153,6 +155,13 @@ msgstr "Αυτή η συσκευή δεν είναι προσβάσιμη"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Επιλέξτε αρχείο"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Εύρεση συσκευής"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

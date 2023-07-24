@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -133,7 +133,9 @@ msgid "Pairing requests"
 msgstr "Žiadosti o spárovanie"
 
 #: main.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Spárovať"
 

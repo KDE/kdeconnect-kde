@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Shinjo Park <kde@peremen.name>, 2020, 2021.
+# Shinjo Park <kde@peremen.name>, 2020, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
-"PO-Revision-Date: 2021-06-24 00:15+0200\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-23 00:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 20.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -35,7 +35,7 @@ msgstr "장치 탐색"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "클립보드 보내기"
 
 #: deviceindicator.cpp:81
 #, kde-format
@@ -133,7 +133,9 @@ msgid "Pairing requests"
 msgstr "페어링 요청"
 
 #: main.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "페어링"
 

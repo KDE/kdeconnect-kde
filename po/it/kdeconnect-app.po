@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-06-09 15:48+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -124,8 +124,10 @@ msgstr "Controllo volume"
 msgid "This device is not paired"
 msgstr "Questo dispositivo non è associato"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Associa"
 
@@ -153,6 +155,13 @@ msgstr "Questo dispositivo non è raggiungibile"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Scegli un file"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Trova dispositivo"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

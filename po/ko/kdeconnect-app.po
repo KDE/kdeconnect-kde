@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
-"PO-Revision-Date: 2023-03-01 01:24+0100\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-23 00:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -107,7 +107,7 @@ msgstr "명령 실행"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "클립보드 보내기"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -124,8 +124,10 @@ msgstr "음량 제어"
 msgid "This device is not paired"
 msgstr "장치가 연결되지 않음"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "페어링"
 
@@ -153,6 +155,13 @@ msgstr "이 장치에 접근할 수 없음"
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "장치 찾기"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -190,10 +199,10 @@ msgid "Remote Control"
 msgstr "원격 제어"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "잠금을 해제하려면 마우스 왼쪽과 오른쪽 단추를 동시에 누르십시오"
+msgstr ""
+"잠금을 해제하려면 %1 또는 마우스 왼쪽과 오른쪽 단추를 동시에 누르십시오"
 
 #: qml/mpris.qml:19
 #, kde-format

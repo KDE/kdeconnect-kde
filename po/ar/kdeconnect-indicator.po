@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-06-08 11:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -134,7 +134,9 @@ msgid "Pairing requests"
 msgstr "طلبات الاقتران"
 
 #: main.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "اقرن"
 

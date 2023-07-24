@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-23 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
 "PO-Revision-Date: 2023-01-22 00:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -395,12 +395,12 @@ msgstr "存取檔案系統時發生錯誤。sshfs 結束，並回傳結束碼 %0
 msgid "Failed to mount filesystem: device not responding"
 msgstr "掛載檔案系統時失敗：裝置未回應"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:75
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE連線"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:76
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "無法處理 SFTP 通訊協定。不便之處，敬請見諒。"
