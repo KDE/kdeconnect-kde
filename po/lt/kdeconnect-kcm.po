@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2021-12-12 16:02+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -30,37 +30,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "<>"
 
-#: kcm.cpp:190
+#: kcm.cpp:186
 #, kde-format
 msgid "Key: %1"
 msgstr "Raktas: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:209
 #, kde-format
 msgid "Available plugins"
 msgstr "Prieinami papildiniai"
 
-#: kcm.cpp:260
+#: kcm.cpp:256
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Klaida bandant suporuoti: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:272
 #, kde-format
 msgid "(paired)"
 msgstr "(suporuotas)"
 
-#: kcm.cpp:279
+#: kcm.cpp:275
 #, kde-format
 msgid "(not paired)"
 msgstr "(nesuporuotas)"
 
-#: kcm.cpp:282
+#: kcm.cpp:278
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(gaunama suporavimo užklausa)"
 
-#: kcm.cpp:285
+#: kcm.cpp:281
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(užklausta suporavimo)"

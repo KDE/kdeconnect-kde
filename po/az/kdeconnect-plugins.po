@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-12 17:09+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -71,34 +71,29 @@ msgstr "Səsləndirmək:"
 msgid "Select the sound to play"
 msgstr "Səsləndirəcəyiniz səsi seçin"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Uzaq kilidləmə uğurlu oldu"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Uzaq kilidləmə uğursuz oldu"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Cavab"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "%1-ə/a cavab verin..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Cavab"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -245,7 +240,7 @@ msgid "Import"
 msgstr "İdxal et"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Adı"
@@ -255,12 +250,12 @@ msgstr "Adı"
 msgid "Command"
 msgstr "Əmr"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
 msgstr "İxrac əmrləri"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
 msgstr "İdxal əmrləri"
@@ -270,22 +265,22 @@ msgstr "İdxal əmrləri"
 msgid "Phone is connected"
 msgstr "Telefon qoşulub"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Qara siyahıda"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Bildiriş verən tətbiqin adı."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Tətbiqin bildirişləri eyniləşdirilsin?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -393,12 +388,12 @@ msgstr "Fayl sisteminə giriş zamanı xəta, sshf %0 çıxış kodu ilə sonlan
 msgid "Failed to mount filesystem: device not responding"
 msgstr "fayl sisteminin qoşulması baş tutmadı, cihaz cavab vermir"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP protokolunu işlətmək olmur. Narahatçılığa görə üzr istəyirik"
@@ -483,6 +478,9 @@ msgstr "Buraxılan zəng: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Zəngi səsini susdurmaq"
+
+#~ msgid "Reply"
+#~ msgstr "Cavab"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "Digər cihazlarla paylaşılan məlumatlar"

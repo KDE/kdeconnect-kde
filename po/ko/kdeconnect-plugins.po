@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
-"PO-Revision-Date: 2023-04-22 00:07+0200\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"PO-Revision-Date: 2023-07-23 00:47+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -38,20 +38,19 @@ msgstr "클립보드 플러그인"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "자동 동기화"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "자동으로 이 장치에서 클립보드 공유"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "암호(암호 관리자에서 지정한 대로)"
+msgstr "암호 포함(암호 관리자에서 지정한 대로)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -71,34 +70,29 @@ msgstr "재생할 소리:"
 msgid "Select the sound to play"
 msgstr "재생할 소리를 선택하십시오"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "원격 잠금 성공"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "원격 잠금 실패"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "답장"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "%1 님에게 답장하기..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "답장"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -245,7 +239,7 @@ msgid "Import"
 msgstr "가져오기"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "이름"
@@ -255,12 +249,12 @@ msgstr "이름"
 msgid "Command"
 msgstr "명령"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
 msgstr "명령 내보내기"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
 msgstr "명령 가져오기"
@@ -270,22 +264,22 @@ msgstr "명령 가져오기"
 msgid "Phone is connected"
 msgstr "휴대폰이 연결됨"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "차단됨"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "알림을 보내는 앱의 이름입니다."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "앱 알림을 동기화하시겠습니까?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -362,7 +356,7 @@ msgstr "최소 긴급 단계"
 #: sendnotifications/sendnotifications_config.ui:148
 #, kde-format
 msgid "Applications"
-msgstr "프로그램"
+msgstr "앱"
 
 #: sftp/mounter.cpp:168
 #, kde-format
@@ -391,12 +385,12 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "파일 시스템을 마운트할 수 없음: 장치가 응답하지 않음"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP 프로토콜을 처리할 수 없습니다."
@@ -481,6 +475,9 @@ msgstr "부재 중 전화: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "통화 음소거"
+
+#~ msgid "Reply"
+#~ msgstr "답장"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "다른 장치와 공유된 내용"

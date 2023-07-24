@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-12 17:10+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -71,34 +71,29 @@ msgstr "Přehrát zvuk:"
 msgid "Select the sound to play"
 msgstr "Vybrat zvukový soubor k přehrání"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Vzdálené uzamčení bylo úspěšné"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Uzamčení na dálku selhalo"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odpovědět"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "Odpovědět %1..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Odpovědět"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -245,7 +240,7 @@ msgid "Import"
 msgstr "Importovat"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Název"
@@ -255,12 +250,12 @@ msgstr "Název"
 msgid "Command"
 msgstr "Příkaz"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
 msgstr "Exportovat příkazy"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
 msgstr "Importovat příkazy"
@@ -270,22 +265,22 @@ msgstr "Importovat příkazy"
 msgid "Phone is connected"
 msgstr "Telefon je připojen"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Na černé listině"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Název upozorňující aplikace."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Synchronizovat oznámení aplikace?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -392,12 +387,12 @@ msgstr "Chyba při přístupu k souborovému systému. sshfs byl ukončen s kód
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Chyba při připojení souborového systému: zařízení neodpovídá"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Protokol SFTP nelze použít. Omlouváme se za nepříjemnosti"
@@ -482,3 +477,6 @@ msgstr "Zmeškaný hovor od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Ztlumení telefonátu"
+
+#~ msgid "Reply"
+#~ msgstr "Odpovědět"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-01-22 00:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -75,34 +75,29 @@ msgstr "欲播放聲音："
 msgid "Select the sound to play"
 msgstr "選擇要播放的聲音"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "遠端鎖定成功"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "無法遠端鎖定"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "回覆"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "回覆 %1…"
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "回覆"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -249,7 +244,7 @@ msgid "Import"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "名字"
@@ -259,13 +254,13 @@ msgstr "名字"
 msgid "Command"
 msgstr "指令"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Export Commands"
 msgstr "指令"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, fuzzy, kde-format
 #| msgid "Sample commands"
 msgid "Import Commands"
@@ -276,22 +271,22 @@ msgstr "範例指令"
 msgid "Phone is connected"
 msgstr "手機已連線"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "黑名單"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "通知應用程式的名稱。"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "同步應用程式的通知？"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -395,12 +390,12 @@ msgstr "存取檔案系統時發生錯誤。sshfs 結束，並回傳結束碼 %0
 msgid "Failed to mount filesystem: device not responding"
 msgstr "掛載檔案系統時失敗：裝置未回應"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE連線"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "無法處理 SFTP 通訊協定。不便之處，敬請見諒。"
@@ -485,6 +480,9 @@ msgstr "錯過 %1 的來電"
 #, kde-format
 msgid "Mute Call"
 msgstr "通話靜音"
+
+#~ msgid "Reply"
+#~ msgstr "回覆"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "分享到其他裝置的內容"

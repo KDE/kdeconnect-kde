@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -125,8 +125,10 @@ msgstr "Helitugevuse juhtimine"
 msgid "This device is not paired"
 msgstr "See seade on paaristamata"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Paaristu"
 
@@ -154,6 +156,13 @@ msgstr "See seade ei ole kättesaadav"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Palun vali fail"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Otsi seadet"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

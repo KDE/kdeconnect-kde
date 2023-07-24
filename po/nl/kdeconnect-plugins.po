@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-08 11:39+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -70,34 +70,29 @@ msgstr "Af te spelen geluid:"
 msgid "Select the sound to play"
 msgstr "Het af te spelen geluid selecteren"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Succes met vergrendeling op afstand"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Vergrendeling op afstand is mislukt"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Beantwoorden"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "Beantwoorden aan %1..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Beantwoorden"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -244,7 +239,7 @@ msgid "Import"
 msgstr "Importeren"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Naam"
@@ -254,12 +249,12 @@ msgstr "Naam"
 msgid "Command"
 msgstr "Commando"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
 msgstr "Commando's exporteren"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
 msgstr "Commando's importeren"
@@ -269,22 +264,22 @@ msgstr "Commando's importeren"
 msgid "Phone is connected"
 msgstr "Telefoon is verbonden"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Op zwarte lijst"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Naam van een toepassing met meldingen."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Meldingen synchroniseren van een toepassing?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -396,12 +391,12 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Bestandssysteem aankoppelen is mislukt: apparaat geeft geen respons"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
@@ -489,6 +484,9 @@ msgstr "Gemiste oproep van %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Oproep dempen"
+
+#~ msgid "Reply"
+#~ msgstr "Beantwoorden"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "Inhoud gedeeld met andere apparaten"

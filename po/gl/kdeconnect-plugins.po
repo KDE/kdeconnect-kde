@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-11 07:52+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -71,34 +71,29 @@ msgstr "Son para reproducir:"
 msgid "Select the sound to play"
 msgstr "Escolla o son para reproducir"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Completouse o bloqueo remoto"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "O bloqueo remoto fallou"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Responder"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "Responder a %1…"
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Resposta"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -245,7 +240,7 @@ msgid "Import"
 msgstr "Importar"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Nome"
@@ -255,12 +250,12 @@ msgstr "Nome"
 msgid "Command"
 msgstr "Orde"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
 msgstr "Exportar ordes"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
 msgstr "Importar ordes"
@@ -270,22 +265,22 @@ msgstr "Importar ordes"
 msgid "Phone is connected"
 msgstr "O teléfono está conectado"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Na lista negra"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Nome da aplicación que notifica."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Sincronizar as notificacións dunha aplicación?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -397,12 +392,12 @@ msgid "Failed to mount filesystem: device not responding"
 msgstr ""
 "Non se puido montar o sistema de ficheiros: o dispositivo non responde."
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Non se pode manexar o protocolo SFTP"
@@ -487,6 +482,9 @@ msgstr "Ten unha chamada perdida de %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Silenciar a chamada"
+
+#~ msgid "Reply"
+#~ msgstr "Resposta"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "Contido compartido con outros dispositivos"

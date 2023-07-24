@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-10 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -137,7 +137,9 @@ msgid "Pairing requests"
 msgstr "Peticiones de emparejamiento"
 
 #: main.cpp:119
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Emparejar"
 

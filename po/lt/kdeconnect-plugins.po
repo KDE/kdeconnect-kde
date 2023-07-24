@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2022-11-17 02:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -73,34 +73,29 @@ msgstr "Garsas, kurį atkurti:"
 msgid "Select the sound to play"
 msgstr "Pasirinkite kurį garsą atkurti"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Pavyko užrakinti per nuotolį"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Nepavyko užrakinti per nuotolį"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Atsakyti"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "Atsakyti %1..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Atsakyti"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -247,7 +242,7 @@ msgid "Import"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Pavadinimas"
@@ -257,13 +252,13 @@ msgstr "Pavadinimas"
 msgid "Command"
 msgstr "Komanda"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Export Commands"
 msgstr "Komanda"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, fuzzy, kde-format
 #| msgid "Sample commands"
 msgid "Import Commands"
@@ -274,22 +269,22 @@ msgstr "Pavyzdinės komandos"
 msgid "Phone is connected"
 msgstr "Telefonas prijungtas"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Įtrauktas į juodąjį sąrašą"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Pranešančios programos pavadinimas."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Sinchronizuoti programos pranešimus?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -399,12 +394,12 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Nepavyko prijungti failų sistemos: įrenginys neatsako"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Nepavyksta apdoroti SFTP protokolo. Atsiprašome už nepatogumus"
@@ -489,6 +484,9 @@ msgstr "Praleistas skambutis nuo %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Nutildyti skambutį"
+
+#~ msgid "Reply"
+#~ msgstr "Atsakyti"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "Į kitus įrenginius bendrinamas turinys"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-09 06:21+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -71,34 +71,29 @@ msgstr "დასაკრავი ხმა:"
 msgid "Select the sound to play"
 msgstr "აირჩიეთ დასაკრავი ხმა"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "დაშორებული დაბლოკვა წარმატებულია"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "დაშორებული დაბლოკვა წარუმატებელია"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "პასუხი"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "%1-სთვის პასუხი..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "პასუხი"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -245,7 +240,7 @@ msgid "Import"
 msgstr "შემოტანა"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "სახელი"
@@ -255,12 +250,12 @@ msgstr "სახელი"
 msgid "Command"
 msgstr "ბრძანება"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
 msgstr "ბრძანებების გატანა"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
 msgstr "ბრძანებების შემოტანა"
@@ -270,22 +265,22 @@ msgstr "ბრძანებების შემოტანა"
 msgid "Phone is connected"
 msgstr "ტელეფონი დაკავშირებულია"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "შავ სიაშია"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "შემტყობინებელი აპლიკაციის სახელი."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "გნებავთ აპლიკაციის გაფრთხილებების სინქრონიზაცია?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -395,12 +390,12 @@ msgstr "ფაილურ სისტემასთან წვდომი�
 msgid "Failed to mount filesystem: device not responding"
 msgstr "ფაილური სისტემის მიმაგრების შეცდომა: მოწყობილობა არ გვპასუხობს"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "SFTP პროტოკოლის მხარდაჭერა არ არსებობს. ბოდიში უხერხულობისთვის"
@@ -485,6 +480,9 @@ msgstr "გამოტოვებული ზარი %1-დან"
 #, kde-format
 msgid "Mute Call"
 msgstr "ზარის დადუმება"
+
+#~ msgid "Reply"
+#~ msgstr "პასუხი"
 
 #~ msgid "Contents shared to other devices"
 #~ msgstr "სხვა მოწყობილობებთან გაზიარებული შემცველობა"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-15 04:49+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -31,37 +31,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "liueigi@gmail.com, s8321414@gmail.com, brli@chakralinux.org"
 
-#: kcm.cpp:190
+#: kcm.cpp:186
 #, kde-format
 msgid "Key: %1"
 msgstr "Key: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:209
 #, kde-format
 msgid "Available plugins"
 msgstr "可用的外掛程式"
 
-#: kcm.cpp:260
+#: kcm.cpp:256
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "嘗試 %1 配對錯誤"
 
-#: kcm.cpp:276
+#: kcm.cpp:272
 #, kde-format
 msgid "(paired)"
 msgstr "（已配對）"
 
-#: kcm.cpp:279
+#: kcm.cpp:275
 #, kde-format
 msgid "(not paired)"
 msgstr "（未配對）"
 
-#: kcm.cpp:282
+#: kcm.cpp:278
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "（到來的配對請求）"
 
-#: kcm.cpp:285
+#: kcm.cpp:281
 #, kde-format
 msgid "(pairing requested)"
 msgstr "（已請求配對）"

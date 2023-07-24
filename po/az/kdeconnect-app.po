@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-12 17:07+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -124,8 +124,10 @@ msgstr "Səs səviyyəsini tənzimləmək"
 msgid "This device is not paired"
 msgstr "Cihaz qoşulmayıb"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Qoşmaq"
 
@@ -153,6 +155,13 @@ msgstr "Bu cihaz əlçatan deyil"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Lütfən faylı seçin"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Cihazı tapmaq"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

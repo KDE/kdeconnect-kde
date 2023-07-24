@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2021-06-19 07:55+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -71,34 +71,29 @@ msgstr "Ήχος στην αναπαραγωγή:"
 msgid "Select the sound to play"
 msgstr "Επιλογή ήχου στην αναπαραγωγή"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Απομακρυσμένο κλείδωμα επιτυχές"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Αποτυχία απομακρυσμένου κλειδώματος"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Απάντηση"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "Απάντηση στο %1..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Απάντηση"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -245,7 +240,7 @@ msgid "Import"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Όνομα"
@@ -255,13 +250,13 @@ msgstr "Όνομα"
 msgid "Command"
 msgstr "Εντολή"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Export Commands"
 msgstr "Εντολή"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, fuzzy, kde-format
 #| msgid "Sample commands"
 msgid "Import Commands"
@@ -272,22 +267,22 @@ msgstr "Ενδεικτικές εντολές"
 msgid "Phone is connected"
 msgstr "Το τηλέφωνο είναι συνδεδεμένο"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Σε μαύρη λίστα"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Όνομα εφαρμογής της ειδοποίησης."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Συγχρονισμός των ειδοποιήσεων κάποιας εφαρμογής;"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -402,12 +397,12 @@ msgid "Failed to mount filesystem: device not responding"
 msgstr ""
 "Αποτυχία προσάρτησης του συστήματος αρχείων: η συσκευή δεν ανταποκρίνεται"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Αδυναμία χειρισμού του SFTP πρωτοκόλλου. Λυπούμαστε για την ενόχληση"
@@ -494,6 +489,9 @@ msgstr "Αναπάντητη κλήση από %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Σίγαση κλήσης"
+
+#~ msgid "Reply"
+#~ msgstr "Απάντηση"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "Χρήση του τηλεφώνου σας ως επιφάνεια αφής και πληκτρολόγιο"

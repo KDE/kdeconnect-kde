@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2021-11-15 17:36+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -124,8 +124,10 @@ msgstr "Ovládanie hlasitosti"
 msgid "This device is not paired"
 msgstr "Toto zariadenie nie je spárované"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Spárovať"
 
@@ -153,6 +155,13 @@ msgstr "Toto zariadenie nie je dosiahnuteľné"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Prosím, vyberte súbor"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Nájsť zariadenie"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

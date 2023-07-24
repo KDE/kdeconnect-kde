@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-21 00:49+0000\n"
-"PO-Revision-Date: 2023-06-11 22:14+0200\n"
+"PO-Revision-Date: 2023-07-23 21:27+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -45,7 +45,7 @@ msgstr "Cancellate per altere pare"
 #: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
-msgstr "%1: Jam coppiate"
+msgstr "%1: Jam associate"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, kde-format

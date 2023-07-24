@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2022-12-17 09:39+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -127,8 +127,10 @@ msgstr "Bolumenaren agintea"
 msgid "This device is not paired"
 msgstr "Gailu hau ez dago parekatuta"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parekatu"
 
@@ -156,6 +158,13 @@ msgstr "Gailu hau ez da irisgarria"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Mesedez aukeratu fitxategi bat"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Aurkitu nire gailua"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

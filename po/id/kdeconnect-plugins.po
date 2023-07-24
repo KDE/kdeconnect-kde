@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -71,34 +71,29 @@ msgstr "Suara untuk dibunyikan:"
 msgid "Select the sound to play"
 msgstr "Pilih suara yang akan dibunyikan"
 
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:93
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Mengunci jarak jauh berhasil"
 
-#: lockdevice/lockdeviceplugin-win.cpp:68
-#: lockdevice/lockdeviceplugin-win.cpp:69 lockdevice/lockdeviceplugin.cpp:98
-#: lockdevice/lockdeviceplugin.cpp:100
+#: lockdevice/lockdeviceplugin-win.cpp:64
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
+#: lockdevice/lockdeviceplugin.cpp:96
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Mengunci jarak jauh gagal"
 
-#: notifications/notification.cpp:128
+#: notifications/notification.cpp:113
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Balas"
 
-#: notifications/notification.cpp:129
+#: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
 msgstr "Balas ke %1..."
-
-#: notifications/notification.cpp:135
-#, kde-format
-msgid "Reply"
-msgstr "Balas"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -246,7 +241,7 @@ msgid "Import"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:178
 #, kde-format
 msgid "Name"
 msgstr "Nama"
@@ -256,13 +251,13 @@ msgstr "Nama"
 msgid "Command"
 msgstr "Perintah"
 
-#: runcommand/runcommand_config.cpp:102
+#: runcommand/runcommand_config.cpp:98
 #, fuzzy, kde-format
 #| msgid "Command"
 msgid "Export Commands"
 msgstr "Perintah"
 
-#: runcommand/runcommand_config.cpp:127
+#: runcommand/runcommand_config.cpp:123
 #, fuzzy, kde-format
 #| msgid "Sample commands"
 msgid "Import Commands"
@@ -273,22 +268,22 @@ msgstr "Contoh perintah"
 msgid "Phone is connected"
 msgstr "Ponsel telah terkoneksi"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:182
 #, kde-format
 msgid "Blacklisted"
 msgstr "Didaftarhitamkan"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:190
+#: sendnotifications/notifyingapplicationmodel.cpp:186
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Nama pada aplikasi yang memberitahu."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:192
+#: sendnotifications/notifyingapplicationmodel.cpp:188
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Menyinkronkan notifikasi dari sebuah aplikasi?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:195
+#: sendnotifications/notifyingapplicationmodel.cpp:191
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -396,12 +391,12 @@ msgstr "Galat ketika mengakses sistem file. sshfs terselesaikan dengan kode %0"
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Gagal mengaitkan sistem file: peranti tidak merespons"
 
-#: sftp/sftpplugin-win.cpp:74
+#: sftp/sftpplugin-win.cpp:71
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:75
+#: sftp/sftpplugin-win.cpp:72
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Tidak bisa menangani protokol SFTP. Maaf atas ketidaknyamanan ini"
@@ -486,6 +481,9 @@ msgstr "Panggilan tidak terjawab dari %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Bungkam Panggilan"
+
+#~ msgid "Reply"
+#~ msgstr "Balas"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "Gunakan telponmu sebagai touchpad dan keyboard"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-05 08:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adrian@chaves.io"
 
-#: kcm.cpp:190
+#: kcm.cpp:186
 #, kde-format
 msgid "Key: %1"
 msgstr "Chave: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:209
 #, kde-format
 msgid "Available plugins"
 msgstr "Complementos dispoñíbeis"
 
-#: kcm.cpp:260
+#: kcm.cpp:256
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Produciuse un erro ao intentar emparellarse: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:272
 #, kde-format
 msgid "(paired)"
 msgstr "(emparellado)"
 
-#: kcm.cpp:279
+#: kcm.cpp:275
 #, kde-format
 msgid "(not paired)"
 msgstr "(non emparellado)"
 
-#: kcm.cpp:282
+#: kcm.cpp:278
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(recibiuse unha solicitude para emparellar)"
 
-#: kcm.cpp:285
+#: kcm.cpp:281
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(solicitouse emparellar)"

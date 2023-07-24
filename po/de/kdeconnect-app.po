@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-12 00:15+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -125,8 +125,10 @@ msgstr "Lautstärkeeinstellung"
 msgid "This device is not paired"
 msgstr "Dieses Gerät ist nicht verbunden"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
-#, kde-format
+#: qml/DevicePage.qml:128
+#, fuzzy, kde-format
+#| msgid "Pair"
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Verbinden"
 
@@ -154,6 +156,13 @@ msgstr "Dieses Gerät ist nicht erreichbar"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Bitte wählen Sie eine Datei"
+
+#: qml/FindDevicesPage.qml:23
+#, fuzzy, kde-format
+#| msgid "Find Device"
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Gerät suchen"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

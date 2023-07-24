@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-07-05 07:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "error: "
 msgstr "eraro:"
 
-#: devicesmodel.cpp:236
+#: devicesmodel.cpp:231
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Aparato fidinda kaj konektita"
 
-#: devicesmodel.cpp:236
+#: devicesmodel.cpp:231
 #, kde-format
 msgid "Device not trusted"
 msgstr "Aparato ne fidinda"
 
-#: devicesmodel.cpp:236
+#: devicesmodel.cpp:231
 #, kde-format
 msgid "Device disconnected"
 msgstr "Aparato malkonektita"

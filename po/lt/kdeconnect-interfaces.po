@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-03 00:46+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2019-12-30 00:49+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -24,17 +24,17 @@ msgstr ""
 msgid "error: "
 msgstr "klaida: "
 
-#: devicesmodel.cpp:236
+#: devicesmodel.cpp:231
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Įrenginys patikimas ir prijungtas"
 
-#: devicesmodel.cpp:236
+#: devicesmodel.cpp:231
 #, kde-format
 msgid "Device not trusted"
 msgstr "Įrenginys nepatikimas"
 
-#: devicesmodel.cpp:236
+#: devicesmodel.cpp:231
 #, kde-format
 msgid "Device disconnected"
 msgstr "Įrenginys atjungtas"

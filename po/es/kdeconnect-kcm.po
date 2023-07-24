@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-06-10 17:28+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vrcordoba@gmail.com"
 
-#: kcm.cpp:190
+#: kcm.cpp:186
 #, kde-format
 msgid "Key: %1"
 msgstr "Clave: %1"
 
-#: kcm.cpp:213
+#: kcm.cpp:209
 #, kde-format
 msgid "Available plugins"
 msgstr "Complementos disponibles"
 
-#: kcm.cpp:260
+#: kcm.cpp:256
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Ha ocurrido un error al tratar de vincular: %1"
 
-#: kcm.cpp:276
+#: kcm.cpp:272
 #, kde-format
 msgid "(paired)"
 msgstr "(vinculado)"
 
-#: kcm.cpp:279
+#: kcm.cpp:275
 #, kde-format
 msgid "(not paired)"
 msgstr "(no vinculado)"
 
-#: kcm.cpp:282
+#: kcm.cpp:278
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(petición de vinculación entrante)"
 
-#: kcm.cpp:285
+#: kcm.cpp:281
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(vinculación solicitada)"

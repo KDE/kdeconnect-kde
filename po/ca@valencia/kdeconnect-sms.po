@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 00:57+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2022-07-21 10:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,19 +31,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "antonibella5@yahoo.com"
 
-#: conversationlistmodel.cpp:197
+#: conversationlistmodel.cpp:198
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
 msgstr "Imatge"
 
-#: conversationlistmodel.cpp:199
+#: conversationlistmodel.cpp:200
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
 msgstr "Vídeo"
 
-#: conversationlistmodel.cpp:203
+#: conversationlistmodel.cpp:204
 #, kde-format
 msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
@@ -51,17 +51,17 @@ msgctxt ""
 msgid "%1 file"
 msgstr "Fitxer %1"
 
-#: conversationlistmodel.cpp:219
+#: conversationlistmodel.cpp:220
 #, kde-format
 msgid "You: %1"
 msgstr "Vós: %1"
 
-#: conversationlistmodel.cpp:225
+#: conversationlistmodel.cpp:226
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:267 conversationlistmodel.cpp:289
+#: conversationlistmodel.cpp:268 conversationlistmodel.cpp:290
 #, kde-format
 msgid "%1"
 msgstr "%1"
