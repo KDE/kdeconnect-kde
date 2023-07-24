@@ -17,9 +17,9 @@
 #include <core/device.h>
 #include <dbushelper.h>
 
-#include "dbusproperties.h"
-#include "mprisplayer.h"
-#include "mprisroot.h"
+#include "generated/systeminterfaces/dbusproperties.h"
+#include "generated/systeminterfaces/mprisplayer.h"
+#include "generated/systeminterfaces/mprisroot.h"
 #include "plugin_mpris_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")

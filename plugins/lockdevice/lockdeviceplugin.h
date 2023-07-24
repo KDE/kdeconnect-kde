@@ -10,8 +10,8 @@
 
 #include <core/kdeconnectplugin.h>
 
-#include "login1dbusinterface.h"
-#include "propertiesdbusinterface.h"
+#include "generated/systeminterfaces/dbusproperties.h"
+#include "generated/systeminterfaces/login1.h"
 
 #define PACKET_TYPE_LOCK QStringLiteral("kdeconnect.lock")
 #define PACKET_TYPE_LOCK_REQUEST QStringLiteral("kdeconnect.lock.request")

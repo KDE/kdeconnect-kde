@@ -1,12 +1,6 @@
 kdeconnect_add_plugin(kdeconnect_mousepad SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
 
 if(UNIX AND NOT APPLE)
-    qt_add_dbus_interface(
-        SRCS
-        ${CMAKE_CURRENT_SOURCE_DIR}/xdp_dbus_remotedesktop_interface.xml
-        xdp_dbus_remotedesktop_interface
-    )
-
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp ${SRCS})
 
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
@@ -32,7 +26,7 @@ endif()
 
 configure_file(config-mousepad.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-mousepad.h)
 
-target_link_libraries(kdeconnect_mousepad kdeconnectcore Qt::Gui KF${QT_MAJOR_VERSION}::I18n)
+target_link_libraries(kdeconnect_mousepad kdeconnectcore kdeconnectinterfaces Qt::Gui KF${QT_MAJOR_VERSION}::I18n)
 
 if (WIN32)
     target_sources(kdeconnect_mousepad PUBLIC windowsremoteinput.cpp)

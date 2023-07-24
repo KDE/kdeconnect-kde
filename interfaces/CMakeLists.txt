@@ -1,16 +1,34 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kdeconnect-interfaces\")
 
-function(geninterface source_h output_h)
-    set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/generated/${output_h}.xml)
-    qt_generate_dbus_interface( ${source_h} ${xml_file})
+# geninterface generates a Qt class that is an interface to DBus
+# source_file can a DBus XML definition or QObject class header that is exposed through DBus
+# output_basename is the path and filename that will be generated (.h and .cpp will be appended to this)
+# The new targets are appended to the ${interfaces_SRC} variable in the parent scope.
+function(geninterface source_file output_basename)
+    if(${source_file} MATCHES ".*\.xml$")
+        set(xml_file ${source_file})
+    else()
+        set(xml_file ${CMAKE_CURRENT_BINARY_DIR}/${output_basename}.xml)
+        qt_generate_dbus_interface(${source_file} ${xml_file})
+    endif()
 
+    # Fixes "redefinition of 'MediaPlayer2' as different kind of symbol"
     set_source_files_properties(${xml_file} PROPERTIES NO_NAMESPACE true)
 
-    qt_add_dbus_interface(libkdeconnect_SRC ${xml_file} generated/${output_h})
-    set(libkdeconnect_SRC ${libkdeconnect_SRC} PARENT_SCOPE)
+    qt_add_dbus_interface(generated_sources ${xml_file} ${output_basename})
+
+    # Hack to append clazy:skip to generated files
+    set(fake_file ${output_basename}_replaced)
+    add_custom_command(OUTPUT ${fake_file}
+        COMMAND ${CMAKE_COMMAND} -E echo "// clazy:skip" >> ${output_basename}.h
+        COMMAND ${CMAKE_COMMAND} -E touch ${fake_file}
+        DEPENDS ${output_basename}.h
+    )
+
+    set(interfaces_SRC ${interfaces_SRC} ${generated_sources} ${fake_file} PARENT_SCOPE)
 endfunction()
 
-set(libkdeconnect_SRC
+set(interfaces_SRC
     dbusinterfaces.cpp
     devicesmodel.cpp
     notificationsmodel.cpp
@@ -23,36 +41,44 @@ set(libkdeconnect_SRC
     commandsmodel.cpp
 )
 
-geninterface(${PROJECT_SOURCE_DIR}/core/daemon.h daemoninterface)
-geninterface(${PROJECT_SOURCE_DIR}/core/device.h deviceinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/battery/batteryplugin.h batteryinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/connectivity-report/connectivity_reportplugin.h connectivityinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/sftp/sftpplugin.h devicesftpinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/notifications/notificationsplugin.h devicenotificationsinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/findmyphone/findmyphoneplugin.h devicefindmyphoneinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/notifications/notification.h notificationinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h mprisremoteinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h remotecontrolinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/lockdevice/lockdeviceplugin.h lockdeviceinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/remotecommands/remotecommandsplugin.h remotecommandsinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/remotekeyboard/remotekeyboardplugin.h remotekeyboardinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/smsplugin.h smsinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h conversationsinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/share/shareplugin.h shareinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolumeplugin.h remotesystemvolumeinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/bigscreen/bigscreenplugin.h bigscreeninterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/virtualmonitor/virtualmonitorplugin.h virtualmonitorinterface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/photo/photoplugin.h photointerface)
-geninterface(${PROJECT_SOURCE_DIR}/plugins/clipboard/clipboardplugin.h deviceclipboardinterface)
+# KDE Connect interfaces
+geninterface(${PROJECT_SOURCE_DIR}/core/daemon.h generated/daemoninterface)
+geninterface(${PROJECT_SOURCE_DIR}/core/device.h generated/deviceinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/battery/batteryplugin.h generated/batteryinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/connectivity-report/connectivity_reportplugin.h generated/connectivityinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/sftp/sftpplugin.h generated/devicesftpinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/notifications/notificationsplugin.h generated/devicenotificationsinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/findmyphone/findmyphoneplugin.h generated/devicefindmyphoneinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/notifications/notification.h generated/notificationinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/mprisremote/mprisremoteplugin.h generated/mprisremoteinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/remotecontrol/remotecontrolplugin.h generated/remotecontrolinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/lockdevice/lockdeviceplugin.h generated/lockdeviceinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/remotecommands/remotecommandsplugin.h generated/remotecommandsinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/remotekeyboard/remotekeyboardplugin.h generated/remotekeyboardinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/smsplugin.h generated/smsinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/sms/conversationsdbusinterface.h generated/conversationsinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/share/shareplugin.h generated/shareinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/remotesystemvolume/remotesystemvolumeplugin.h generated/remotesystemvolumeinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/bigscreen/bigscreenplugin.h generated/bigscreeninterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/virtualmonitor/virtualmonitorplugin.h generated/virtualmonitorinterface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/photo/photoplugin.h generated/photointerface)
+geninterface(${PROJECT_SOURCE_DIR}/plugins/clipboard/clipboardplugin.h generated/deviceclipboardinterface)
 
-if ("${QT_MAJOR_VERSION}" STREQUAL "6")
-    add_library(kdeconnectinterfaces STATIC)
-    set_property(TARGET kdeconnectinterfaces PROPERTY POSITION_INDEPENDENT_CODE ON)
-else()
-    add_library(kdeconnectinterfaces)
+# System dbus interfaces
+if (UNIX AND NOT APPLE)
+    geninterface(systeminterfaces/org.freedesktop.login1.xml generated/systeminterfaces/login1)
+    geninterface(systeminterfaces/org.freedesktop.ScreenSaver.xml generated/systeminterfaces/screensaver)
+    geninterface(systeminterfaces/org.freedesktop.DBus.Properties.xml generated/systeminterfaces/dbusproperties)
+    geninterface(systeminterfaces/org.mpris.MediaPlayer2.Player.xml generated/systeminterfaces/mprisplayer)
+    geninterface(systeminterfaces/org.mpris.MediaPlayer2.xml generated/systeminterfaces/mprisroot)
+    geninterface(systeminterfaces/org.freedesktop.portal.RemoteDesktop.xml generated/systeminterfaces/remotedesktop)
 endif()
 
-target_sources(kdeconnectinterfaces PRIVATE ${libkdeconnect_SRC})
+add_library(kdeconnectinterfaces STATIC)
+set_property(TARGET kdeconnectinterfaces PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+target_sources(kdeconnectinterfaces PRIVATE ${interfaces_SRC})
+
 ecm_qt_declare_logging_category(kdeconnectinterfaces
     HEADER interfaces_conversation_message_debug.h
     IDENTIFIER CONVERSATION_MESSAGE_LOGGING_CATEGORY CATEGORY_NAME kdeconnect.interfaces.conversationmessage
@@ -70,10 +96,6 @@ set_target_properties(kdeconnectinterfaces PROPERTIES
     VERSION ${KDECONNECT_VERSION}
     SOVERSION ${KDECONNECT_VERSION_MAJOR}
 )
-
-# pretend the dbus generated headers are from the system so that clazy and other similar
-# tools do not show warnings about their contents
-target_include_directories(kdeconnectinterfaces SYSTEM PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/generated)
 
 generate_export_header(kdeconnectinterfaces EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/kdeconnectinterfaces_export.h BASE_NAME KDEConnectInterfaces)
 

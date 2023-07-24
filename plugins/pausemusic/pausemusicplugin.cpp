@@ -10,7 +10,7 @@
 #include <PulseAudioQt/Context>
 #include <PulseAudioQt/Sink>
 
-#include "mprisplayer.h"
+#include "generated/systeminterfaces/mprisplayer.h"
 #include <dbushelper.h>
 
 #include "plugin_pausemusic_debug.h"

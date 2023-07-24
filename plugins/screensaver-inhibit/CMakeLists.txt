@@ -10,7 +10,6 @@ else()
     set(kdeconnect_screensaver_inhibit_SRCS
         screensaverinhibitplugin.cpp
     )
-    qt_add_dbus_interface(kdeconnect_screensaver_inhibit_SRCS org.freedesktop.ScreenSaver.xml screensaverinterface)
 endif()
 
 
@@ -21,7 +20,8 @@ ecm_qt_declare_logging_category(kdeconnect_screensaver_inhibit
     IDENTIFIER KDECONNECT_PLUGIN_SCREENSAVERINHIBIT CATEGORY_NAME kdeconnect.plugin.screensaverinhibit
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin screensaverinhibit)")
-target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore)
+
+target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore kdeconnectinterfaces)
 if(NOT APPLE AND NOT WIN32)
     target_link_libraries(kdeconnect_screensaver_inhibit
         Qt::DBus
