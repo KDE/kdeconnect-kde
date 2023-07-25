@@ -16,6 +16,7 @@ K_PLUGIN_CLASS_WITH_JSON(PauseMusicPlugin, "kdeconnect_pausemusic.json")
 
 PauseMusicPlugin::PauseMusicPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
+    , sessionManager(GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get())
 {
     CoInitialize(nullptr);
     deviceEnumerator = nullptr;
@@ -25,8 +26,6 @@ PauseMusicPlugin::PauseMusicPlugin(QObject *parent, const QVariantList &args)
         qWarning("Initialization failed: Failed to create MMDeviceEnumerator");
         qWarning("Error Code: %lx", hr);
     }
-
-    sessionManager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get();
 }
 
 bool PauseMusicPlugin::updateSinksList()
@@ -86,7 +85,7 @@ bool PauseMusicPlugin::updateSinksList()
 void PauseMusicPlugin::updatePlayersList()
 {
     playersList.clear();
-    auto sessions = sessionManager->GetSessions();
+    auto sessions = sessionManager.GetSessions();
     for (uint32_t i = 0; i < sessions.Size(); i++) {
         const auto player = sessions.GetAt(i);
         auto playerName = player.SourceAppUserModelId();

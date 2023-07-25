@@ -26,7 +26,7 @@ MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args
     : KdeConnectPlugin(parent, args)
     , sessionManager(GlobalSystemMediaTransportControlsSessionManager::RequestAsync().get())
 {
-    sessionManager->SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
+    sessionManager.SessionsChanged([this](GlobalSystemMediaTransportControlsSessionManager, SessionsChangedEventArgs) {
         this->updatePlayerList();
     });
     this->updatePlayerList();
@@ -158,7 +158,7 @@ void MprisControlPlugin::updatePlayerList()
     mediaPropertiesChangedHandlers.clear();
     timelinePropertiesChangedHandlers.clear();
 
-    auto sessions = sessionManager->GetSessions();
+    auto sessions = sessionManager.GetSessions();
     playbackInfoChangedHandlers.resize(sessions.Size());
     mediaPropertiesChangedHandlers.resize(sessions.Size());
     timelinePropertiesChangedHandlers.resize(sessions.Size());

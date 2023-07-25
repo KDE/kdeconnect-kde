@@ -43,7 +43,7 @@ private:
     IMMDeviceEnumerator *deviceEnumerator;
     QHash<QString, IAudioEndpointVolume *> sinksList;
 
-    std::optional<GlobalSystemMediaTransportControlsSessionManager> sessionManager;
+    GlobalSystemMediaTransportControlsSessionManager sessionManager;
     QHash<QString, GlobalSystemMediaTransportControlsSession> playersList;
 
     QSet<QString> pausedSources;

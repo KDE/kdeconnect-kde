@@ -35,7 +35,7 @@ public:
     bool receivePacket(const NetworkPacket &np) override;
 
 private:
-    std::optional<GlobalSystemMediaTransportControlsSessionManager> sessionManager;
+    GlobalSystemMediaTransportControlsSessionManager sessionManager;
     QHash<QString, GlobalSystemMediaTransportControlsSession> playerList;
 
     std::vector<GlobalSystemMediaTransportControlsSession::PlaybackInfoChanged_revoker> playbackInfoChangedHandlers;
