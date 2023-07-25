@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2023-07-23 18:28+0300\n"
+"PO-Revision-Date: 2023-07-24 19:36+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -129,8 +129,7 @@ msgid "This device is not paired"
 msgstr "Aquest dispositiu no està aparellat"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Aparella"
@@ -161,11 +160,10 @@ msgid "Please choose a file"
 msgstr "Si us plau, seleccioneu un fitxer"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Troba el dispositiu"
+msgstr "Dispositius"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
