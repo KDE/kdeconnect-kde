@@ -23,8 +23,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
-static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("user") << QStringLiteral("port") << QStringLiteral("path");
-
 struct SftpPlugin::Pimpl {
     Pimpl()
         : m_mounter(nullptr)
@@ -123,6 +121,7 @@ bool SftpPlugin::startBrowsing()
 
 bool SftpPlugin::receivePacket(const NetworkPacket &np)
 {
+    static const QSet<QString> fields_c{QStringLiteral("user"), QStringLiteral("port"), QStringLiteral("path")};
     const QStringList keysList = np.body().keys();
     const auto keys = QSet(keysList.begin(), keysList.end());
     if (!(fields_c - keys).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
