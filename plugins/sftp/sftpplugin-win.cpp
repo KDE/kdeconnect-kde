@@ -34,6 +34,13 @@ bool SftpPlugin::startBrowsing()
 
 bool SftpPlugin::receivePacket(const NetworkPacket &np)
 {
+    static const QSet<QString> expectedFields{
+        QStringLiteral("ip"),
+        QStringLiteral("port"),
+        QStringLiteral("user"),
+        QStringLiteral("password"),
+        QStringLiteral("path"),
+    };
     QStringList receivedFieldsList = np.body().keys();
     QSet<QString> receivedFields(receivedFieldsList.begin(), receivedFieldsList.end());
     if (!(expectedFields - receivedFields).isEmpty()) {

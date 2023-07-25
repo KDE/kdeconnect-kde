@@ -11,9 +11,6 @@
 
 #define PACKET_TYPE_SFTP_REQUEST QStringLiteral("kdeconnect.sftp.request")
 
-static const QSet<QString> expectedFields = QSet<QString>()
-    << QStringLiteral("ip") << QStringLiteral("port") << QStringLiteral("user") << QStringLiteral("password") << QStringLiteral("path");
-;
 class SftpPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
