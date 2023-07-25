@@ -90,7 +90,7 @@ RunCommandConfig::RunCommandConfig(QObject *parent, const KPluginMetaData &data,
     m_entriesModel = new QStandardItemModel(this);
     table->setModel(m_entriesModel);
 
-    m_entriesModel->setHorizontalHeaderLabels(QStringList() << i18n("Name") << i18n("Command"));
+    m_entriesModel->setHorizontalHeaderLabels(QStringList{i18n("Name"), i18n("Command")});
 }
 
 void RunCommandConfig::exportCommands()

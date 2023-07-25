@@ -83,7 +83,7 @@ void SendFileItemAction::sendFile()
                                                           QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"),
                                                           QStringLiteral("org.kde.kdeconnect.device.share"),
                                                           QStringLiteral("shareUrl"));
-        msg.setArguments(QVariantList() << url.toString());
+        msg.setArguments(QVariantList{url.toString()});
         QDBusConnection::sessionBus().asyncCall(msg);
     }
 }

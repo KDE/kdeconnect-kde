@@ -55,7 +55,7 @@ public:
         notification->setText(
             i18n("Pairing request from %1\nKey: %2...", device->name().toHtmlEscaped(), QString::fromUtf8(device->verificationKey().left(8))));
         notification->setDefaultAction(i18n("Open"));
-        notification->setActions(QStringList() << i18n("Accept") << i18n("Reject") << i18n("View key"));
+        notification->setActions(QStringList{i18n("Accept"), i18n("Reject"), i18n("View key")});
         connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
         connect(notification, &KNotification::action2Activated, device, &Device::cancelPairing);
         QString deviceId = device->id();
