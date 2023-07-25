@@ -36,9 +36,9 @@ int main(int argc, char **argv)
     about.addAuthor(i18n("Aleix Pol Gonzalez"), QString(), QStringLiteral("aleixpol@kde.org"));
     about.addAuthor(i18n("Albert Vaca Cintora"), QString(), QStringLiteral("albertvaka@gmail.com"));
     QCommandLineParser parser;
-    parser.addOption(QCommandLineOption(QStringList(QStringLiteral("l")) << QStringLiteral("list-devices"), i18n("List all devices")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("l"), QStringLiteral("list-devices")}, i18n("List all devices")));
     parser.addOption(
-        QCommandLineOption(QStringList(QStringLiteral("a")) << QStringLiteral("list-available"), i18n("List available (paired and reachable) devices")));
+        QCommandLineOption(QStringList{QStringLiteral("a"), QStringLiteral("list-available")}, i18n("List available (paired and reachable) devices")));
     parser.addOption(
         QCommandLineOption(QStringLiteral("id-only"), i18n("Make --list-devices or --list-available print only the devices id, to ease scripting")));
     parser.addOption(
@@ -62,8 +62,8 @@ int main(int argc, char **argv)
     parser.addOption(QCommandLineOption(QStringLiteral("attachment"),
                                         i18n("File urls to send attachments with the message (can be passed multiple times)"),
                                         i18n("file urls")));
-    parser.addOption(QCommandLineOption(QStringList(QStringLiteral("device")) << QStringLiteral("d"), i18n("Device ID"), QStringLiteral("dev")));
-    parser.addOption(QCommandLineOption(QStringList(QStringLiteral("name")) << QStringLiteral("n"), i18n("Device Name"), QStringLiteral("name")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("device"), QStringLiteral("d")}, i18n("Device ID"), QStringLiteral("dev")));
+    parser.addOption(QCommandLineOption(QStringList{QStringLiteral("name"), QStringLiteral("n")}, i18n("Device Name"), QStringLiteral("name")));
     parser.addOption(QCommandLineOption(QStringLiteral("encryption-info"), i18n("Get encryption info about said device")));
     parser.addOption(QCommandLineOption(QStringLiteral("list-commands"), i18n("Lists remote commands and their ids")));
     parser.addOption(QCommandLineOption(QStringLiteral("execute-command"), i18n("Executes a remote command by id"), QStringLiteral("id")));
@@ -210,7 +210,7 @@ int main(int argc, char **argv)
                                                               QStringLiteral("org.kde.kdeconnect.device.share"),
                                                               QStringLiteral("shareUrls"));
 
-            msg.setArguments(QVariantList() << QVariant(urls));
+            msg.setArguments(QVariantList{QVariant(urls)});
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
 
             for (const QString &url : qAsConst(urls)) {
@@ -221,7 +221,7 @@ int main(int argc, char **argv)
                                                               QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
                                                               QStringLiteral("org.kde.kdeconnect.device.share"),
                                                               QStringLiteral("shareText"));
-            msg.setArguments(QVariantList() << parser.value(QStringLiteral("share-text")));
+            msg.setArguments(QVariantList{parser.value(QStringLiteral("share-text"))});
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
             QTextStream(stdout) << i18n("Shared text: %1", parser.value(QStringLiteral("share-text"))) << Qt::endl;
         } else if (parser.isSet(QStringLiteral("lock")) || parser.isSet(QStringLiteral("unlock"))) {
@@ -280,7 +280,7 @@ int main(int argc, char **argv)
                                                               QStringLiteral("sendPing"));
             if (parser.isSet(QStringLiteral("ping-msg"))) {
                 QString message = parser.value(QStringLiteral("ping-msg"));
-                msg.setArguments(QVariantList() << message);
+                msg.setArguments(QVariantList{message});
             }
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if (parser.isSet(QStringLiteral("send-sms"))) {

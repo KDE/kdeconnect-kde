@@ -227,9 +227,9 @@ void Mounter::unmount(bool finished)
 
             // Free mount point (won't always succeed if the path is in use)
 #if defined(HAVE_FUSERMOUNT)
-        KProcess::execute(QStringList() << QStringLiteral("fusermount") << QStringLiteral("-u") << m_mountPoint, 10000);
+        KProcess::execute(QStringList{QStringLiteral("fusermount"), QStringLiteral("-u"), m_mountPoint}, 10000);
 #else
-        KProcess::execute(QStringList() << QStringLiteral("umount") << m_mountPoint, 10000);
+        KProcess::execute(QStringList{QStringLiteral("umount"), m_mountPoint}, 10000);
 #endif
         m_proc = nullptr;
     }
