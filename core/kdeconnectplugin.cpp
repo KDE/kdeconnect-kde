@@ -12,7 +12,7 @@ struct KdeConnectPluginPrivate {
     Device *m_device;
     QString m_pluginName;
     QSet<QString> m_outgoingCapabilties;
-    KdeConnectPluginConfig *m_config;
+    KdeConnectPluginConfig *m_config = nullptr;
     QString iconName;
 };
 
@@ -20,13 +20,12 @@ KdeConnectPlugin::KdeConnectPlugin(QObject *parent, const QVariantList &args)
     : QObject(parent)
     , d(new KdeConnectPluginPrivate)
 {
+    Q_ASSERT(args.length() == 4);
     d->m_device = qvariant_cast<Device *>(args.at(0));
     d->m_pluginName = args.at(1).toString();
 
     const QStringList cap = args.at(2).toStringList();
     d->m_outgoingCapabilties = QSet(cap.begin(), cap.end());
-
-    d->m_config = nullptr;
     d->iconName = args.at(3).toString();
 }
 
