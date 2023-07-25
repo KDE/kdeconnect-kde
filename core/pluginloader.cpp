@@ -48,32 +48,22 @@ KPluginMetaData PluginLoader::getPluginInfo(const QString &name) const
 
 KdeConnectPlugin *PluginLoader::instantiatePluginForDevice(const QString &pluginName, Device *device) const
 {
-    KdeConnectPlugin *ret = nullptr;
-
-    KPluginMetaData service = plugins.value(pluginName);
-    if (!service.isValid()) {
+    const KPluginMetaData data = plugins.value(pluginName);
+    if (!data.isValid()) {
         qCDebug(KDECONNECT_CORE) << "Plugin unknown" << pluginName;
-        return ret;
+        return nullptr;
     }
 
-    auto factoryResult = KPluginFactory::loadFactory(service);
-    if (!factoryResult) {
-        qCDebug(KDECONNECT_CORE) << "KPluginFactory could not load the plugin:" << service.pluginId() << factoryResult.errorString;
-        return ret;
+    const QStringList outgoingInterfaces = data.value(QStringLiteral("X-KdeConnect-OutgoingPacketType"), QStringList());
+    const QVariantList args{QVariant::fromValue<Device *>(device), pluginName, outgoingInterfaces, data.iconName()};
+
+    if (auto result = KPluginFactory::instantiatePlugin<KdeConnectPlugin>(data, device, args)) {
+        qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << data.pluginId();
+        return result.plugin;
+    } else {
+        qCDebug(KDECONNECT_CORE) << "Error loading plugin" << result.errorText;
+        return nullptr;
     }
-
-    const QStringList outgoingInterfaces = service.value(QStringLiteral("X-KdeConnect-OutgoingPacketType"), QStringList());
-
-    QVariant deviceVariant = QVariant::fromValue<Device *>(device);
-
-    ret = factoryResult.plugin->create<KdeConnectPlugin>(device, QVariantList() << deviceVariant << pluginName << outgoingInterfaces << service.iconName());
-    if (!ret) {
-        qCDebug(KDECONNECT_CORE) << "Error loading plugin";
-        return ret;
-    }
-
-    // qCDebug(KDECONNECT_CORE) << "Loaded plugin:" << service.pluginId();
-    return ret;
 }
 
 QStringList PluginLoader::incomingCapabilities() const
