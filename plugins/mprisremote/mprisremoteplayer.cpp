@@ -190,3 +190,5 @@ QDBusConnection &MprisRemotePlayer::dbus()
 {
     return m_dbusConnection;
 }
+
+#include "moc_mprisremoteplayer.cpp"

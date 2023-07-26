@@ -174,3 +174,5 @@ int RemoteSinksModel::rowCount(const QModelIndex &parent) const
 
     return m_sinkList.count();
 }
+
+#include "moc_remotesinksmodel.cpp"

@@ -193,3 +193,5 @@ void Notification::parseNetworkPacket(const NetworkPacket &np)
         m_actions.append(value.toString());
     }
 }
+
+#include "moc_notification.cpp"

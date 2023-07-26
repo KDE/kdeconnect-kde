@@ -80,3 +80,5 @@ void ClipboardListener::setText(const QString &content)
     mime->setText(content);
     clipboard->setMimeData(mime, QClipboard::Clipboard);
 }
+
+#include "moc_clipboardlistener.cpp"

@@ -51,3 +51,5 @@ NotificationServerInfo::Hints NotificationServerInfo::supportedHints()
 {
     return m_supportedHints;
 }
+
+#include "moc_notificationserverinfo.cpp"

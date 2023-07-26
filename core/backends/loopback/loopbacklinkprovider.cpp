@@ -39,3 +39,5 @@ void LoopbackLinkProvider::onStop()
         delete loopbackDeviceLink;
     }
 }
+
+#include "moc_loopbacklinkprovider.cpp"

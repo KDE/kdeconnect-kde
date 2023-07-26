@@ -59,3 +59,5 @@ void BatteryAction::setCharging(bool charging)
     m_charging = charging;
     update();
 }
+
+#include "moc_battery_action.cpp"

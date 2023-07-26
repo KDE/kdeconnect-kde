@@ -485,3 +485,5 @@ QString Device::pluginIconName(const QString &pluginName)
     }
     return QString();
 }
+
+#include "moc_device.cpp"

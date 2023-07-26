@@ -131,3 +131,5 @@ void RemoteCommandsModel::clearCommands()
         endRemoveRows();
     }
 }
+
+#include "moc_remotecommandsmodel.cpp"

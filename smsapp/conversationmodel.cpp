@@ -237,3 +237,5 @@ void ConversationModel::requestAttachmentPath(const qint64 &partID, const QStrin
 {
     m_conversationsInterface->requestAttachmentFile(partID, uniqueIdentifier);
 }
+
+#include "moc_conversationmodel.cpp"

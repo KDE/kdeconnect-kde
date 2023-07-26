@@ -59,3 +59,4 @@ void ClipboardConfig::save()
 }
 
 #include "clipboard_config.moc"
+#include "moc_clipboard_config.cpp"

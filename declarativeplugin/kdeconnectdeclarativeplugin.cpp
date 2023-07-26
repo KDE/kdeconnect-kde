@@ -131,3 +131,5 @@ void KdeConnectDeclarativePlugin::initializeEngine(QQmlEngine *engine, const cha
 
     engine->rootContext()->setContextProperty(QStringLiteral("DBusResponseWaiter"), DBusResponseWaiter::instance());
 }
+
+#include "moc_kdeconnectdeclarativeplugin.cpp"

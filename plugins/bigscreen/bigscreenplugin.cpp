@@ -41,3 +41,4 @@ QString BigscreenPlugin::dbusPath() const
 }
 
 #include "bigscreenplugin.moc"
+#include "moc_bigscreenplugin.cpp"

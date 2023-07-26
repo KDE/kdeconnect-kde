@@ -82,3 +82,5 @@ bool ConversationsSortFilterProxyModel::doesAddressExists(const QString &address
     }
     return false;
 }
+
+#include "moc_conversationssortfilterproxymodel.cpp"

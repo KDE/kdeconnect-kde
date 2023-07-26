@@ -211,4 +211,5 @@ void PointerLockerWayland::setWindow(QWindow *window)
     }
 }
 
+#include "moc_pointerlockerwayland.cpp"
 #include "pointerlockerwayland.moc"

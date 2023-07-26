@@ -278,3 +278,5 @@ ClipboardDbusInterface::ClipboardDbusInterface(const QString &deviceId, QObject 
 ClipboardDbusInterface::~ClipboardDbusInterface()
 {
 }
+
+#include "moc_dbusinterfaces.cpp"

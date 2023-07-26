@@ -208,3 +208,5 @@ int NotifyingApplicationModel::rowCount(const QModelIndex &parent) const
     }
     return m_apps.size();
 }
+
+#include "moc_notifyingapplicationmodel.cpp"

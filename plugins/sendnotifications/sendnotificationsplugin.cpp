@@ -30,4 +30,5 @@ bool SendNotificationsPlugin::receivePacket(const NetworkPacket &np)
     return true;
 }
 
+#include "moc_sendnotificationsplugin.cpp"
 #include "sendnotificationsplugin.moc"

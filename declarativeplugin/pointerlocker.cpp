@@ -71,3 +71,5 @@ bool PointerLockerQt::eventFilter(QObject *watched, QEvent *event)
 
     return true;
 }
+
+#include "moc_pointerlocker.cpp"

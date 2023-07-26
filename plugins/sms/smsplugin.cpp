@@ -241,4 +241,5 @@ void SmsPlugin::launchApp()
     QProcess::startDetached(QLatin1String("kdeconnect-sms"), {QStringLiteral("--device"), device()->id()});
 }
 
+#include "moc_smsplugin.cpp"
 #include "smsplugin.moc"

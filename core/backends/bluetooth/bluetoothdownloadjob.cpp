@@ -23,3 +23,5 @@ QSharedPointer<QIODevice> BluetoothDownloadJob::payload() const
 void BluetoothDownloadJob::start()
 {
 }
+
+#include "moc_bluetoothdownloadjob.cpp"

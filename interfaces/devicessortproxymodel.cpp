@@ -44,3 +44,5 @@ bool DevicesSortProxyModel::filterAcceptsRow(int source_row, const QModelIndex &
     // Possible to-do: Implement filter
     return true;
 }
+
+#include "moc_devicessortproxymodel.cpp"

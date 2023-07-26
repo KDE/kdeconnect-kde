@@ -11,3 +11,5 @@ AbstractRemoteInput::AbstractRemoteInput(QObject *parent)
     : QObject(parent)
 {
 }
+
+#include "moc_abstractremoteinput.cpp"

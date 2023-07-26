@@ -198,4 +198,5 @@ QString NotificationsPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/notifications");
 }
 
+#include "moc_notificationsplugin.cpp"
 #include "notificationsplugin.moc"

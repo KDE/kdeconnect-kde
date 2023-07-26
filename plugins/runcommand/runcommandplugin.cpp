@@ -82,4 +82,5 @@ void RunCommandPlugin::sendConfig()
     sendPacket(np);
 }
 
+#include "moc_runcommandplugin.cpp"
 #include "runcommandplugin.moc"

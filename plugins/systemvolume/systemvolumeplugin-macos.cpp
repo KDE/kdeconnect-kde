@@ -463,4 +463,5 @@ void MacOSCoreAudioDevice::updateType()
     }
 }
 
+#include "moc_systemvolumeplugin-macos.cpp"
 #include "systemvolumeplugin-macos.moc"

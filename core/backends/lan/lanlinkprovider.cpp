@@ -626,3 +626,5 @@ void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
     }
     Q_EMIT onConnectionReceived(deviceLink);
 }
+
+#include "moc_lanlinkprovider.cpp"

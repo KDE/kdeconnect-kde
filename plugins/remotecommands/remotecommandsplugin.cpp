@@ -66,4 +66,5 @@ void RemoteCommandsPlugin::editCommands()
     sendPacket(np);
 }
 
+#include "moc_remotecommandsplugin.cpp"
 #include "remotecommandsplugin.moc"

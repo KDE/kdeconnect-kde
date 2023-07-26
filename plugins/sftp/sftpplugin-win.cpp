@@ -83,4 +83,5 @@ bool SftpPlugin::receivePacket(const NetworkPacket &np)
     return true;
 }
 
+#include "moc_sftpplugin-win.cpp"
 #include "sftpplugin-win.moc"

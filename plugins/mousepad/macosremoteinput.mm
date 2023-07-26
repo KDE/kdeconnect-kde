@@ -223,3 +223,5 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
 bool MacOSRemoteInput::hasKeyboardSupport() {
     return true;
 }
+
+#include "moc_macosremoteinput.cpp"

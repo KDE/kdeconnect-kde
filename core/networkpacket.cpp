@@ -116,3 +116,5 @@ FileTransferJob *NetworkPacket::createPayloadTransferJob(const QUrl &destination
 {
     return new FileTransferJob(this, destination);
 }
+
+#include "moc_networkpacket.cpp"

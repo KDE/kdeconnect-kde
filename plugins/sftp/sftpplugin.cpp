@@ -186,4 +186,5 @@ QVariantMap SftpPlugin::getDirectories()
     return remoteDirectories;
 }
 
+#include "moc_sftpplugin.cpp"
 #include "sftpplugin.moc"

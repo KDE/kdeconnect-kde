@@ -99,3 +99,4 @@ bool ClipboardPlugin::receivePacket(const NetworkPacket &np)
 }
 
 #include "clipboardplugin.moc"
+#include "moc_clipboardplugin.cpp"

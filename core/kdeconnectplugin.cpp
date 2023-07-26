@@ -73,3 +73,5 @@ QString KdeConnectPlugin::iconName() const
 {
     return d->iconName;
 }
+
+#include "moc_kdeconnectplugin.cpp"

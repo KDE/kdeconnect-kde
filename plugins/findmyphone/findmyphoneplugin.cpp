@@ -37,3 +37,4 @@ QString FindMyPhonePlugin::dbusPath() const
 }
 
 #include "findmyphoneplugin.moc"
+#include "moc_findmyphoneplugin.cpp"

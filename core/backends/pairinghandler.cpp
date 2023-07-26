@@ -146,3 +146,5 @@ void PairingHandler::pairingDone()
     m_pairState = PairState::Paired;
     Q_EMIT pairingSuccessful();
 }
+
+#include "moc_pairinghandler.cpp"

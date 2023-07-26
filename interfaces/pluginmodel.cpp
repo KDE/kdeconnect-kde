@@ -117,3 +117,5 @@ QString PluginModel::deviceId()
 {
     return m_deviceId;
 }
+
+#include "moc_pluginmodel.cpp"

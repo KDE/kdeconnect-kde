@@ -450,4 +450,5 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
     return true;
 }
 
+#include "moc_systemvolumeplugin-win.cpp"
 #include "systemvolumeplugin-win.moc"

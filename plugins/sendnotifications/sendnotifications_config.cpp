@@ -104,4 +104,5 @@ void SendNotificationsConfig::save()
     config()->setList(QStringLiteral("applications"), list);
 }
 
+#include "moc_sendnotifications_config.cpp"
 #include "sendnotifications_config.moc"

@@ -16,3 +16,5 @@ AttachmentInfo::AttachmentInfo(const Attachment &attachment)
     , m_uniqueIdentifier(attachment.uniqueIdentifier())
 {
 }
+
+#include "moc_attachmentinfo.cpp"

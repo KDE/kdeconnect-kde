@@ -126,4 +126,5 @@ QString RemoteKeyboardPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotekeyboard");
 }
 
+#include "moc_remotekeyboardplugin.cpp"
 #include "remotekeyboardplugin.moc"

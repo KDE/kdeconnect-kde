@@ -235,3 +235,5 @@ void Mounter::unmount(bool finished)
     }
     m_started = false;
 }
+
+#include "moc_mounter.cpp"

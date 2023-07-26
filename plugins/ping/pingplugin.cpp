@@ -62,4 +62,5 @@ QString PingPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/ping");
 }
 
+#include "moc_pingplugin.cpp"
 #include "pingplugin.moc"

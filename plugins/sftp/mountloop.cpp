@@ -33,3 +33,5 @@ void MountLoop::exitWith(bool status)
     Q_EMIT result(status);
     exit(status ? 0 : 1);
 }
+
+#include "moc_mountloop.cpp"

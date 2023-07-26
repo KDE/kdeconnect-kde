@@ -35,3 +35,5 @@ void LinkProvider::suspend(bool suspend)
         onStart();
     }
 }
+
+#include "moc_linkprovider.cpp"

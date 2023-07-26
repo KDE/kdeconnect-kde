@@ -58,3 +58,5 @@ QStringList MprisRemotePlayerMediaPlayer2::SupportedMimeTypes() const
 {
     return {};
 }
+
+#include "moc_mprisremoteplayermediaplayer2.cpp"

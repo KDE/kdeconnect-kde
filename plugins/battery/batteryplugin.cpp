@@ -134,3 +134,4 @@ QString BatteryPlugin::dbusPath() const
 }
 
 #include "batteryplugin.moc"
+#include "moc_batteryplugin.cpp"

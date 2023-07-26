@@ -15,3 +15,5 @@ DeviceLink::DeviceLink(const QString &deviceId, LinkProvider *parent)
         parent->onLinkDestroyed(deviceId, this);
     });
 }
+
+#include "moc_devicelink.cpp"

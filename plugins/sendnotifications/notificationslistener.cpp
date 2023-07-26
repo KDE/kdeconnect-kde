@@ -348,3 +348,5 @@ GDBusMessage *NotificationsListener::onMessageFiltered(GDBusConnection *, GDBusM
 
     return nullptr;
 }
+
+#include "moc_notificationslistener.cpp"

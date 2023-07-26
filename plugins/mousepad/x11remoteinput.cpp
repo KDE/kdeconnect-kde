@@ -211,3 +211,5 @@ bool X11RemoteInput::hasKeyboardSupport()
 {
     return true;
 }
+
+#include "moc_x11remoteinput.cpp"

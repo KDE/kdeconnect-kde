@@ -260,3 +260,5 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
     }
     return true;
 }
+
+#include "moc_waylandremoteinput.cpp"

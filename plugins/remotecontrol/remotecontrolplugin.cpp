@@ -42,4 +42,5 @@ QString RemoteControlPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotecontrol");
 }
 
+#include "moc_remotecontrolplugin.cpp"
 #include "remotecontrolplugin.moc"

@@ -13,3 +13,5 @@ MultiplexChannelState::MultiplexChannelState()
     , close_after_write{false}
 {
 }
+
+#include "moc_multiplexchannelstate.cpp"

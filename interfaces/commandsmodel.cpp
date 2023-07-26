@@ -135,3 +135,5 @@ void CommandsModel::addCommand(const QString &name, const QString &command)
     endInsertRows();
     saveCommands();
 }
+
+#include "moc_commandsmodel.cpp"

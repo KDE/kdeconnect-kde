@@ -273,4 +273,5 @@ QString SharePlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/share");
 }
 
+#include "moc_shareplugin.cpp"
 #include "shareplugin.moc"

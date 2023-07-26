@@ -146,3 +146,5 @@ bool FileTransferJob::doKill()
 
     return true;
 }
+
+#include "moc_filetransferjob.cpp"
