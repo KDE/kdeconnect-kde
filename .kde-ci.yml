@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['@all']
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5', 'Windows/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'frameworks/kcoreaddons': '@stable'
@@ -21,13 +21,39 @@ Dependencies:
     'frameworks/kpeople': '@stable'
     'frameworks/kwindowsystem': '@stable'
     'frameworks/qqc2-desktop-style': '@stable'
-
-- 'on': ['Linux', 'FreeBSD']
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
   'require':
     'frameworks/kpackage': '@stable'
     'libraries/pulseaudio-qt': '@stable'
     'libraries/plasma-wayland-protocols': '@stable'
-
-- 'on': ['Linux']
+- 'on': ['Linux/Qt5']
   'require':
     'frameworks/modemmanager-qt': '@stable'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6', 'Windows/Qt6']
+  'require':
+    'frameworks/extra-cmake-modules': '@latest-kf6'
+    'frameworks/kcoreaddons': '@latest-kf6'
+    'frameworks/kconfig': '@latest-kf6'
+    'frameworks/ki18n': '@latest-kf6'
+    'frameworks/kitemmodels': '@latest-kf6'
+    'frameworks/kcontacts': '@latest-kf6'
+    'frameworks/kirigami': '@latest-kf6'
+    'frameworks/kdbusaddons': '@latest-kf6'
+    'frameworks/knotifications': '@latest-kf6'
+    'frameworks/kiconthemes': '@latest-kf6'
+    'frameworks/kio': '@latest-kf6'
+    'frameworks/kcmutils': '@latest-kf6'
+    'frameworks/kservice': '@latest-kf6'
+    'frameworks/solid': '@latest-kf6'
+    'frameworks/kpeople': '@latest-kf6'
+    'frameworks/kwindowsystem': '@latest-kf6'
+    'frameworks/qqc2-desktop-style': '@latest-kf6'
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
+  'require':
+    'frameworks/kpackage': '@latest-kf6'
+    'libraries/pulseaudio-qt': '@latest-kf6'
+    'libraries/plasma-wayland-protocols': '@latest-kf6'
+- 'on': ['Linux/Qt6']
+  'require':
+    'frameworks/modemmanager-qt': '@latest-kf6'

@@ -11,9 +11,8 @@
 #include <dbushelper.h>
 
 #include <KPluginFactory>
-#include <KStartupInfo>
-
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MAC)
+#include <KStartupInfo>
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QX11Info>
 #else
