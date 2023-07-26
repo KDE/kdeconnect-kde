@@ -156,7 +156,7 @@ QMap<QString, QString> Daemon::deviceNames(bool onlyReachable, bool onlyTrusted)
 
 void Daemon::onNewDeviceLink(DeviceLink *link)
 {
-    const QString &id = link->deviceId();
+    QString id = link->deviceId();
 
     // qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->name();
 
