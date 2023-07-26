@@ -7,23 +7,18 @@
 #pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
-
-namespace Ui
-{
-class ShareConfigUi;
-}
+#include "ui_share_config.h"
 
 class ShareConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
     ShareConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
-    ~ShareConfig() override;
 
     void save() override;
     void load() override;
     void defaults() override;
 
 private:
-    Ui::ShareConfigUi *m_ui;
+    Ui::ShareConfigUi m_ui;
 };

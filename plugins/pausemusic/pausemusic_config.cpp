@@ -5,7 +5,6 @@
  */
 
 #include "pausemusic_config.h"
-#include "ui_pausemusic_config.h"
 
 #include <KPluginFactory>
 
@@ -13,30 +12,24 @@ K_PLUGIN_CLASS(PauseMusicConfig)
 
 PauseMusicConfig::PauseMusicConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)
-    , m_ui(new Ui::PauseMusicConfigUi())
 {
-    m_ui->setupUi(widget());
+    m_ui.setupUi(widget());
 
-    connect(m_ui->rad_ringing, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
-    connect(m_ui->rad_talking, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
-    connect(m_ui->check_pause, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
-    connect(m_ui->check_mute, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
-    connect(m_ui->check_resume, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
-}
-
-PauseMusicConfig::~PauseMusicConfig()
-{
-    delete m_ui;
+    connect(m_ui.rad_ringing, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui.rad_talking, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui.check_pause, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui.check_mute, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
+    connect(m_ui.check_resume, &QCheckBox::toggled, this, &PauseMusicConfig::markAsChanged);
 }
 
 void PauseMusicConfig::defaults()
 {
     KCModule::defaults();
-    m_ui->rad_talking->setChecked(false);
-    m_ui->rad_ringing->setChecked(true);
-    m_ui->check_pause->setChecked(true);
-    m_ui->check_mute->setChecked(false);
-    m_ui->check_resume->setChecked(true);
+    m_ui.rad_talking->setChecked(false);
+    m_ui.rad_ringing->setChecked(true);
+    m_ui.check_pause->setChecked(true);
+    m_ui.check_mute->setChecked(false);
+    m_ui.check_resume->setChecked(true);
     markAsChanged();
 }
 
@@ -44,24 +37,24 @@ void PauseMusicConfig::load()
 {
     KCModule::load();
     bool talking = config()->getBool(QStringLiteral("conditionTalking"), false);
-    m_ui->rad_talking->setChecked(talking);
-    m_ui->rad_ringing->setChecked(!talking);
+    m_ui.rad_talking->setChecked(talking);
+    m_ui.rad_ringing->setChecked(!talking);
 
     bool pause = config()->getBool(QStringLiteral("actionPause"), true);
     bool mute = config()->getBool(QStringLiteral("actionMute"), false);
-    m_ui->check_pause->setChecked(pause);
-    m_ui->check_mute->setChecked(mute);
+    m_ui.check_pause->setChecked(pause);
+    m_ui.check_mute->setChecked(mute);
 
     const bool autoResume = config()->getBool(QStringLiteral("actionResume"), true);
-    m_ui->check_resume->setChecked(autoResume);
+    m_ui.check_resume->setChecked(autoResume);
 }
 
 void PauseMusicConfig::save()
 {
-    config()->set(QStringLiteral("conditionTalking"), m_ui->rad_talking->isChecked());
-    config()->set(QStringLiteral("actionPause"), m_ui->check_pause->isChecked());
-    config()->set(QStringLiteral("actionMute"), m_ui->check_mute->isChecked());
-    config()->set(QStringLiteral("actionResume"), m_ui->check_resume->isChecked());
+    config()->set(QStringLiteral("conditionTalking"), m_ui.rad_talking->isChecked());
+    config()->set(QStringLiteral("actionPause"), m_ui.check_pause->isChecked());
+    config()->set(QStringLiteral("actionMute"), m_ui.check_mute->isChecked());
+    config()->set(QStringLiteral("actionResume"), m_ui.check_resume->isChecked());
     KCModule::save();
 }
 

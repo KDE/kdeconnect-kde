@@ -7,7 +7,6 @@
 #include "findthisdevice_config.h"
 #include "findthisdeviceplugin.h"
 
-#include "ui_findthisdevice_config.h"
 // KF
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -23,33 +22,27 @@ K_PLUGIN_CLASS(FindThisDeviceConfig)
 
 FindThisDeviceConfig::FindThisDeviceConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : KdeConnectPluginKcm(parent, data, args)
-    , m_ui(new Ui::FindThisDeviceConfigUi())
 {
-    m_ui->setupUi(widget());
+    m_ui.setupUi(widget());
 
     const QStringList soundDirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("sounds"), QStandardPaths::LocateDirectory);
     if (!soundDirs.isEmpty()) {
-        m_ui->soundFileRequester->setStartDir(QUrl::fromLocalFile(soundDirs.last()));
+        m_ui.soundFileRequester->setStartDir(QUrl::fromLocalFile(soundDirs.last()));
     }
 
-    connect(m_ui->playSoundButton, &QToolButton::clicked, this, [this]() {
-        if (const QUrl soundUrl = m_ui->soundFileRequester->url(); soundUrl.isValid()) {
+    connect(m_ui.playSoundButton, &QToolButton::clicked, this, [this]() {
+        if (const QUrl soundUrl = m_ui.soundFileRequester->url(); soundUrl.isValid()) {
             playSound(soundUrl);
         }
     });
-    connect(m_ui->soundFileRequester, &KUrlRequester::textChanged, this, &FindThisDeviceConfig::markAsChanged);
-}
-
-FindThisDeviceConfig::~FindThisDeviceConfig()
-{
-    delete m_ui;
+    connect(m_ui.soundFileRequester, &KUrlRequester::textChanged, this, &FindThisDeviceConfig::markAsChanged);
 }
 
 void FindThisDeviceConfig::defaults()
 {
     KCModule::defaults();
 
-    m_ui->soundFileRequester->setText(defaultSound());
+    m_ui.soundFileRequester->setText(defaultSound());
     markAsChanged();
 }
 
@@ -58,12 +51,12 @@ void FindThisDeviceConfig::load()
     KCModule::load();
 
     const QString ringTone = config()->getString(QStringLiteral("ringtone"), defaultSound());
-    m_ui->soundFileRequester->setText(ringTone);
+    m_ui.soundFileRequester->setText(ringTone);
 }
 
 void FindThisDeviceConfig::save()
 {
-    config()->set(QStringLiteral("ringtone"), m_ui->soundFileRequester->text());
+    config()->set(QStringLiteral("ringtone"), m_ui.soundFileRequester->text());
 
     KCModule::save();
 }
