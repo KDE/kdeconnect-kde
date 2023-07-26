@@ -7,23 +7,18 @@
 #pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
-
-namespace Ui
-{
-class PauseMusicConfigUi;
-}
+#include "ui_pausemusic_config.h"
 
 class PauseMusicConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
     PauseMusicConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
-    ~PauseMusicConfig() override;
 
     void save() override;
     void load() override;
     void defaults() override;
 
 private:
-    Ui::PauseMusicConfigUi *m_ui;
+    Ui::PauseMusicConfigUi m_ui;
 };

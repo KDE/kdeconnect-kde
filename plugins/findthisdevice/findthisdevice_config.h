@@ -6,19 +6,14 @@
 
 #pragma once
 
+#include "ui_findthisdevice_config.h"
 #include <kcmplugin/kdeconnectpluginkcm.h>
-
-namespace Ui
-{
-class FindThisDeviceConfigUi;
-}
 
 class FindThisDeviceConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
     FindThisDeviceConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
-    ~FindThisDeviceConfig() override;
 
     void save() override;
     void load() override;
@@ -26,5 +21,5 @@ public:
 
 private:
     void playSound(const QUrl &soundUrl);
-    Ui::FindThisDeviceConfigUi *m_ui;
+    Ui::FindThisDeviceConfigUi m_ui;
 };

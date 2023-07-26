@@ -7,18 +7,13 @@
 #pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
-
-namespace Ui
-{
-class ClipboardConfigUi;
-}
+#include "ui_clipboard_config.h"
 
 class ClipboardConfig : public KdeConnectPluginKcm
 {
     Q_OBJECT
 public:
     ClipboardConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
-    ~ClipboardConfig() override;
 
     void save() override;
     void load() override;
@@ -26,5 +21,5 @@ public:
 
 private:
     void autoShareChanged();
-    Ui::ClipboardConfigUi *m_ui;
+    Ui::ClipboardConfigUi m_ui;
 };

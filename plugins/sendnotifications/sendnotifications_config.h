@@ -7,11 +7,7 @@
 #pragma once
 
 #include "kcmplugin/kdeconnectpluginkcm.h"
-
-namespace Ui
-{
-class SendNotificationsConfigUi;
-}
+#include "ui_sendnotifications_config.h"
 
 class NotifyingApplicationModel;
 
@@ -20,7 +16,6 @@ class SendNotificationsConfig : public KdeConnectPluginKcm
     Q_OBJECT
 public:
     SendNotificationsConfig(QObject *parent, const KPluginMetaData &data, const QVariantList &);
-    ~SendNotificationsConfig() override;
 
     void save() override;
     void load() override;
@@ -28,6 +23,6 @@ public:
 
 private:
     void loadApplications();
-    Ui::SendNotificationsConfigUi *m_ui;
+    Ui::SendNotificationsConfigUi m_ui;
     NotifyingApplicationModel *appModel;
 };
