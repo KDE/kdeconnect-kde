@@ -18,6 +18,10 @@
 #include <mstcpip.h>
 #endif
 
+#if defined(Q_OS_WIN) || defined(Q_OS_FREEBSD)
+#include <QNetworkInterface>
+#endif
+
 #include <QHostInfo>
 #include <QMetaEnum>
 #include <QNetworkProxy>
