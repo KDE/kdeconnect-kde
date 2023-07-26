@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2019, 2021.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2019, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2021-06-26 21:43+0200\n"
+"PO-Revision-Date: 2023-07-25 15:59+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -35,7 +35,7 @@ msgstr "Bläddra apparat"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "Skicka klippbord"
 
 #: deviceindicator.cpp:81
 #, kde-format
@@ -133,8 +133,7 @@ msgid "Pairing requests"
 msgstr "Begäran om att para ihop"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Para ihop"
