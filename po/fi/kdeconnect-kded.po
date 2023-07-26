@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2022-04-28 19:15+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -57,17 +57,17 @@ msgstr "Hylkää"
 msgid "View key"
 msgstr "Näytä avain"
 
-#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
+#: kdeconnectd.cpp:141 kdeconnectd.cpp:143
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect -palvelu"
 
-#: kdeconnectd.cpp:146
+#: kdeconnectd.cpp:149
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Korvaa aiempi instanssi"
 
-#: kdeconnectd.cpp:150
+#: kdeconnectd.cpp:153
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

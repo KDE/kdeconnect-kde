@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2022-12-14 10:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -57,17 +57,17 @@ msgstr "უარყოფა"
 msgid "View key"
 msgstr "გასაღების ნახვა"
 
-#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
+#: kdeconnectd.cpp:141 kdeconnectd.cpp:143
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect -ის დემონი"
 
-#: kdeconnectd.cpp:146
+#: kdeconnectd.cpp:149
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "გაშვებული ასლის ჩანაცვლება"
 
-#: kdeconnectd.cpp:150
+#: kdeconnectd.cpp:153
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

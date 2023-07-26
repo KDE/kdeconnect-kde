@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2021-04-18 14:24+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -53,17 +53,17 @@ msgstr "Ablehnen"
 msgid "View key"
 msgstr "Schlüssel anzeigen"
 
-#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
+#: kdeconnectd.cpp:141 kdeconnectd.cpp:143
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect-Dienst"
 
-#: kdeconnectd.cpp:146
+#: kdeconnectd.cpp:149
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Eine bestehende Instanz ersetzen"
 
-#: kdeconnectd.cpp:150
+#: kdeconnectd.cpp:153
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

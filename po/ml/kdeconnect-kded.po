@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2020-02-02 13:49+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -55,17 +55,17 @@ msgstr "നിരസിക്കുക"
 msgid "View key"
 msgstr ""
 
-#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
+#: kdeconnectd.cpp:141 kdeconnectd.cpp:143
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "കെ.ഡി.ഇ കണക്ട് ഡീമണ്‍"
 
-#: kdeconnectd.cpp:146
+#: kdeconnectd.cpp:149
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "നിലവിലുള്ള ജാലകത്തിനെ പകരം വക്കുക"
 
-#: kdeconnectd.cpp:150
+#: kdeconnectd.cpp:153
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-28 00:48+0000\n"
+"POT-Creation-Date: 2023-07-26 00:46+0000\n"
 "PO-Revision-Date: 2023-07-23 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -56,17 +56,17 @@ msgstr "拒绝"
 msgid "View key"
 msgstr "查看密钥"
 
-#: kdeconnectd.cpp:138 kdeconnectd.cpp:140
+#: kdeconnectd.cpp:141 kdeconnectd.cpp:143
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect守护进程"
 
-#: kdeconnectd.cpp:146
+#: kdeconnectd.cpp:149
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "替换现有实例"
 
-#: kdeconnectd.cpp:150
+#: kdeconnectd.cpp:153
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

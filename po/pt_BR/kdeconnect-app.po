@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2023-07-04 15:15-0300\n"
+"PO-Revision-Date: 2023-07-25 10:14-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -124,11 +124,10 @@ msgstr "Controle de volume"
 #: qml/DevicePage.qml:124
 #, kde-format
 msgid "This device is not paired"
-msgstr "Este dispositivo não está pareado"
+msgstr "Este dispositivo não está emparelhado"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Emparelhar"
@@ -159,11 +158,10 @@ msgid "Please choose a file"
 msgstr "Escolha um arquivo"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Localizar dispositivo"
+msgstr "Dispositivos"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
