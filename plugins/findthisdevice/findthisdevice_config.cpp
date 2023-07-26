@@ -88,3 +88,4 @@ void FindThisDeviceConfig::playSound(const QUrl &soundUrl)
 }
 
 #include "findthisdevice_config.moc"
+#include "moc_findthisdevice_config.cpp"

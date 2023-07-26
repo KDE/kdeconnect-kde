@@ -26,3 +26,5 @@ QObject *ObjectFactory::create(const QVariant &arg1, const QVariant &arg2)
         return m_f2(arg1, arg2);
     return nullptr;
 }
+
+#include "moc_objectfactory.cpp"

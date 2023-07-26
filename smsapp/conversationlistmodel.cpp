@@ -295,3 +295,5 @@ void ConversationListModel::createConversationForAddress(const QString &address)
     item->setData(address, SenderRole);
     appendRow(item);
 }
+
+#include "moc_conversationlistmodel.cpp"

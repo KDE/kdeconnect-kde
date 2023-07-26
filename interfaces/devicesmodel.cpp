@@ -276,3 +276,5 @@ bool DevicesModel::passesFilter(DeviceDbusInterface *dev) const
 
     return !((onlyReachable && !dev->isReachable()) || (onlyPaired && !dev->isPaired()));
 }
+
+#include "moc_devicesmodel.cpp"

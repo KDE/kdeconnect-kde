@@ -67,3 +67,5 @@ void SendReplyTextEdit::keyPressEvent(QKeyEvent *event)
     }
     QTextEdit::keyPressEvent(event);
 }
+
+#include "moc_sendreplydialog.cpp"

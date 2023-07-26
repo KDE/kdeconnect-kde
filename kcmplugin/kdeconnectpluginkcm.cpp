@@ -43,3 +43,5 @@ QString KdeConnectPluginKcm::deviceId() const
 {
     return d->m_deviceId;
 }
+
+#include "moc_kdeconnectpluginkcm.cpp"

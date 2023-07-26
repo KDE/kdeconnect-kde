@@ -88,4 +88,5 @@ void SendFileItemAction::sendFile()
     }
 }
 
+#include "moc_sendfileitemaction.cpp"
 #include "sendfileitemaction.moc"

@@ -121,4 +121,5 @@ void SystemvolumePlugin::connected()
     }
 }
 
+#include "moc_systemvolumeplugin-pulse.cpp"
 #include "systemvolumeplugin-pulse.moc"

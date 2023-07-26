@@ -179,4 +179,5 @@ bool MprisRemotePlugin::canSeek() const
     return player ? player->canSeek() : false;
 }
 
+#include "moc_mprisremoteplugin.cpp"
 #include "mprisremoteplugin.moc"

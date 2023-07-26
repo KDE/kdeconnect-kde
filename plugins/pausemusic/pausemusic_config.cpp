@@ -65,4 +65,5 @@ void PauseMusicConfig::save()
     KCModule::save();
 }
 
+#include "moc_pausemusic_config.cpp"
 #include "pausemusic_config.moc"

@@ -249,5 +249,5 @@ KIO::WorkerResult KioKdeconnect::get(const QUrl &url)
     return KIO::WorkerResult::pass();
 }
 
-// needed for JSON file embedding
 #include "kiokdeconnect.moc"
+#include "moc_kiokdeconnect.cpp"

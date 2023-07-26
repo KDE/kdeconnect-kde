@@ -400,4 +400,5 @@ void MprisControlPlugin::mprisPlayerMetadataToNetworkPacket(NetworkPacket &np, c
     np.set(QStringLiteral("url"), fileUrl);
 }
 
+#include "moc_mpriscontrolplugin.cpp"
 #include "mpriscontrolplugin.moc"

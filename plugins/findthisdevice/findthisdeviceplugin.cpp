@@ -94,3 +94,4 @@ QString FindThisDevicePlugin::dbusPath() const
 }
 
 #include "findthisdeviceplugin.moc"
+#include "moc_findthisdeviceplugin.cpp"

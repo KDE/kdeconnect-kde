@@ -36,3 +36,5 @@ bool TestDevice::sendPacket(NetworkPacket &np)
     lastPacket->setPayload(np.payload(), np.payloadSize());
     return true;
 }
+
+#include "moc_testdevice.cpp"

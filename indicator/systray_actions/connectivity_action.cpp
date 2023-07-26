@@ -81,3 +81,5 @@ void ConnectivityAction::setCellularNetworkType(QString cellularNetworkType)
     m_cellularNetworkType = cellularNetworkType;
     update();
 }
+
+#include "moc_connectivity_action.cpp"

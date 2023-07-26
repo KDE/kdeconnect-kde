@@ -247,3 +247,5 @@ bool WindowsRemoteInput::hasKeyboardSupport()
 {
     return true;
 }
+
+#include "moc_windowsremoteinput.cpp"

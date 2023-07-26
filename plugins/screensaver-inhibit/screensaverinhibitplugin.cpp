@@ -48,4 +48,5 @@ bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
     return false;
 }
 
+#include "moc_screensaverinhibitplugin.cpp"
 #include "screensaverinhibitplugin.moc"

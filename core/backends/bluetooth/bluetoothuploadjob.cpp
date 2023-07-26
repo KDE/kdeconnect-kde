@@ -64,3 +64,5 @@ void BluetoothUploadJob::closeConnection()
     mData->close();
     deleteLater();
 }
+
+#include "moc_bluetoothuploadjob.cpp"

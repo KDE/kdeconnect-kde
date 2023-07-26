@@ -85,3 +85,5 @@ void RequestConversationWorker::work()
 {
     m_thread->start();
 }
+
+#include "moc_requestconversationworker.cpp"

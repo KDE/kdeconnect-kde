@@ -145,4 +145,5 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     return true;
 }
 
+#include "moc_virtualmonitorplugin.cpp"
 #include "virtualmonitorplugin.moc"

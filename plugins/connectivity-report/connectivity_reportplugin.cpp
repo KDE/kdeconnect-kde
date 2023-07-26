@@ -59,3 +59,4 @@ QString ConnectivityReportPlugin::dbusPath() const
 }
 
 #include "connectivity_reportplugin.moc"
+#include "moc_connectivity_reportplugin.cpp"

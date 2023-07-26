@@ -51,4 +51,5 @@ QString PhotoPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/photo");
 }
 
+#include "moc_photoplugin.cpp"
 #include "photoplugin.moc"

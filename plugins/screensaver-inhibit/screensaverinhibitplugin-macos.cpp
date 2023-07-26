@@ -39,4 +39,5 @@ bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
     return false;
 }
 
+#include "moc_screensaverinhibitplugin-macos.cpp"
 #include "screensaverinhibitplugin-macos.moc"

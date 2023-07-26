@@ -39,3 +39,5 @@ void OpenConfig::openConfiguration(const QString &deviceId, const QString &plugi
 
     m_currentToken = QString();
 }
+
+#include "moc_openconfig.cpp"

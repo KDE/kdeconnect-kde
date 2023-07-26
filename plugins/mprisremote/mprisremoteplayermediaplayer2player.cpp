@@ -256,3 +256,5 @@ void MprisRemotePlayerMediaPlayer2Player::emitPropertiesChanged()
     m_positionChanged = false;
     m_volumeChanged = false;
 }
+
+#include "moc_mprisremoteplayermediaplayer2player.cpp"

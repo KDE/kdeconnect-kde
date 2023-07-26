@@ -251,4 +251,5 @@ void RunCommandConfig::onDataChanged(const QModelIndex &topLeft, const QModelInd
     }
 }
 
+#include "moc_runcommand_config.cpp"
 #include "runcommand_config.moc"

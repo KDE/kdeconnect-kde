@@ -304,3 +304,5 @@ void BluetoothLinkProvider::socketDisconnected(const QBluetoothAddress &peer, Mu
 BluetoothLinkProvider::~BluetoothLinkProvider()
 {
 }
+
+#include "moc_bluetoothlinkprovider.cpp"

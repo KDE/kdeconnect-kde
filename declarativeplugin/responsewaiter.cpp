@@ -114,3 +114,5 @@ const QDBusPendingCall *DBusResponseWaiter::extractPendingCall(QVariant &variant
 
     return nullptr;
 }
+
+#include "moc_responsewaiter.cpp"

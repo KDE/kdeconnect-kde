@@ -133,3 +133,4 @@ QString LockDevicePlugin::dbusPath() const
 }
 
 #include "lockdeviceplugin.moc"
+#include "moc_lockdeviceplugin.cpp"

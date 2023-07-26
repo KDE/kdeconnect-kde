@@ -54,4 +54,5 @@ void ShareConfig::save()
     config()->set(QStringLiteral("incoming_path"), m_ui->kurlrequester->text());
 }
 
+#include "moc_share_config.cpp"
 #include "share_config.moc"

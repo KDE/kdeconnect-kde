@@ -64,3 +64,5 @@ void BluetoothDeviceLink::dataReceived()
         Q_EMIT receivedPacket(packet);
     }
 }
+
+#include "moc_bluetoothdevicelink.cpp"

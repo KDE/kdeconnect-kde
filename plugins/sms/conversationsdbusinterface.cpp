@@ -228,3 +228,5 @@ void ConversationsDbusInterface::attachmentDownloaded(const QString &filePath, c
 {
     Q_EMIT attachmentReceived(filePath, fileName);
 }
+
+#include "moc_conversationsdbusinterface.cpp"

@@ -452,3 +452,5 @@ void ConnectionMultiplexer::removeChannel(QBluetoothUuid channelId)
 
     Q_EMIT channel->disconnected();
 }
+
+#include "moc_connectionmultiplexer.cpp"

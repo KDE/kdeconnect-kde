@@ -370,4 +370,5 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
     return true;
 }
 
+#include "moc_mpriscontrolplugin-win.cpp"
 #include "mpriscontrolplugin-win.moc"

@@ -71,4 +71,5 @@ void MousepadPlugin::connected()
     sendPacket(np);
 }
 
+#include "moc_mousepadplugin.cpp"
 #include "mousepadplugin.moc"

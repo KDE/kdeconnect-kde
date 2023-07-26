@@ -103,4 +103,5 @@ QString TelephonyPlugin::dbusPath() const
     return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/telephony");
 }
 
+#include "moc_telephonyplugin.cpp"
 #include "telephonyplugin.moc"

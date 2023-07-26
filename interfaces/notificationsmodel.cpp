@@ -235,3 +235,5 @@ void NotificationsModel::notificationUpdated()
 {
     Q_EMIT dataChanged(index(0, 0), index(m_notificationList.size() - 1, 0));
 }
+
+#include "moc_notificationsmodel.cpp"

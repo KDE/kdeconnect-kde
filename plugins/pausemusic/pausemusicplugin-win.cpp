@@ -212,4 +212,5 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket &np)
     return true;
 }
 
+#include "moc_pausemusicplugin-win.cpp"
 #include "pausemusicplugin-win.moc"

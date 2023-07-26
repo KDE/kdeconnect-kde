@@ -133,3 +133,4 @@ void MMTelephonyPlugin::sendCancelMMTelephonyPacket(ModemManager::Call *call, co
 }
 
 #include "mmtelephonyplugin.moc"
+#include "moc_mmtelephonyplugin.cpp"

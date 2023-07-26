@@ -91,4 +91,5 @@ bool PresenterPlugin::receivePacket(const NetworkPacket &np)
     return true;
 }
 
+#include "moc_presenterplugin.cpp"
 #include "presenterplugin.moc"

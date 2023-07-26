@@ -99,3 +99,5 @@ bool MultiplexChannel::isSequential() const
 {
     return true;
 }
+
+#include "moc_multiplexchannel.cpp"

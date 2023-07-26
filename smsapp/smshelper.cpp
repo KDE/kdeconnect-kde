@@ -475,3 +475,5 @@ QIcon SmsHelper::getThumbnailForAttachment(const Attachment &attachment)
         }
     }
 }
+
+#include "moc_smshelper.cpp"

@@ -281,3 +281,5 @@ QString Daemon::selfId() const
 {
     return KdeConnectConfig::instance().deviceId();
 }
+
+#include "moc_daemon.cpp"

@@ -194,3 +194,4 @@ QString ContactsPlugin::dbusPath() const
 }
 
 #include "contactsplugin.moc"
+#include "moc_contactsplugin.cpp"

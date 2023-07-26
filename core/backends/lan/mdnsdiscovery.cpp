@@ -118,3 +118,5 @@ void MdnsDiscovery::stopDiscovering()
         m_serviceBrowser = nullptr;
     }
 }
+
+#include "moc_mdnsdiscovery.cpp"

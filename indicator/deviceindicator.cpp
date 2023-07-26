@@ -162,3 +162,5 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
         },
         this);
 }
+
+#include "moc_deviceindicator.cpp"

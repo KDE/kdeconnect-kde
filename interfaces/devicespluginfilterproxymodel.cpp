@@ -22,3 +22,5 @@ QString DevicesPluginFilterProxyModel::pluginFilter() const
 {
     return m_pluginFilter;
 }
+
+#include "moc_devicespluginfilterproxymodel.cpp"

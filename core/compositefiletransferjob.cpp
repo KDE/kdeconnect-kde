@@ -134,3 +134,5 @@ void CompositeFileTransferJob::slotResult(KJob *job)
         emitResult();
     }
 }
+
+#include "moc_compositefiletransferjob.cpp"

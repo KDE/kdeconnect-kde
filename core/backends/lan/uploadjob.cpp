@@ -93,3 +93,5 @@ const NetworkPacket UploadJob::getNetworkPacket()
 {
     return m_networkPacket;
 }
+
+#include "moc_uploadjob.cpp"
