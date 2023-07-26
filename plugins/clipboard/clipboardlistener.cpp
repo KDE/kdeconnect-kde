@@ -28,10 +28,7 @@ qint64 ClipboardListener::updateTimestamp()
 
 ClipboardListener *ClipboardListener::instance()
 {
-    static ClipboardListener *me = nullptr;
-    if (!me) {
-        me = new ClipboardListener();
-    }
+    static ClipboardListener *const me = new ClipboardListener();
     return me;
 }
 
