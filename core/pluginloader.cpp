@@ -25,7 +25,7 @@ PluginLoader *PluginLoader::instance()
 
 PluginLoader::PluginLoader()
 {
-    const QVector<KPluginMetaData> data = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect/"));
+    const QVector<KPluginMetaData> data = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect"));
     for (const KPluginMetaData &metadata : data) {
         plugins[metadata.pluginId()] = metadata;
     }
