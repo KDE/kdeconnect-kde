@@ -4,13 +4,13 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#ifndef KDECONNECTKCM_H
-#define KDECONNECTKCM_H
+#pragma once
 
 #include <KCModule>
 #include <QStandardItemModel>
 #include <kconfigwidgets_version.h>
 
+#include "ui_kcm.h"
 #include <core/pairstate.h>
 
 class QModelIndex;
@@ -18,11 +18,6 @@ class DeviceDbusInterface;
 class DaemonDbusInterface;
 class DevicesModel;
 class DevicesSortProxyModel;
-
-namespace Ui
-{
-class KdeConnectKcmUi;
-}
 
 class KdeConnectKcm : public KCModule
 {
@@ -60,7 +55,7 @@ private Q_SLOTS:
 private:
     void resetDeviceView();
 
-    Ui::KdeConnectKcmUi *kcmUi;
+    Ui::KdeConnectKcmUi kcmUi;
     DaemonDbusInterface *daemon;
     DevicesModel *devicesModel;
     DevicesSortProxyModel *sortProxyModel;
@@ -71,5 +66,3 @@ private:
 public Q_SLOTS:
     void unpair();
 };
-
-#endif
