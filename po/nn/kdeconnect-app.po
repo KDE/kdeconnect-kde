@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-30 00:47+0000\n"
-"PO-Revision-Date: 2023-07-15 14:22+0200\n"
+"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"PO-Revision-Date: 2023-07-27 21:59+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -126,8 +126,9 @@ msgstr "Lydstyrkekontroll"
 msgid "This device is not paired"
 msgstr "Eininga er ikkje para"
 
-#: qml/DevicePage.qml:128 qml/FindDevicesPage.qml:23
+#: qml/DevicePage.qml:128
 #, kde-format
+msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Par"
 
@@ -155,6 +156,12 @@ msgstr "Får ikkje kontakt med eininga"
 #, kde-format
 msgid "Please choose a file"
 msgstr "Vel ei fil"
+
+#: qml/FindDevicesPage.qml:23
+#, kde-format
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Einingar"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
