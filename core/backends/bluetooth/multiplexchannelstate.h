@@ -27,8 +27,6 @@ private:
     MultiplexChannelState();
 
 public:
-    ~MultiplexChannelState() = default;
-
     constexpr static int BUFFER_SIZE = 4096;
 
 private:

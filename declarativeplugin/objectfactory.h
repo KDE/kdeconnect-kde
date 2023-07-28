@@ -43,8 +43,6 @@ public:
     {
     }
 
-    ~ObjectFactory() override = default;
-
     Q_INVOKABLE QObject *create();
     Q_INVOKABLE QObject *create(const QVariant &arg1);
 

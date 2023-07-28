@@ -36,7 +36,6 @@ class TelephonyPlugin : public KdeConnectPlugin
 
 public:
     explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
-    ~TelephonyPlugin() override = default;
 
     bool receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;

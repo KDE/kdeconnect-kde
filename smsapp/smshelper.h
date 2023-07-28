@@ -24,9 +24,6 @@ class SmsHelper : public QObject
 {
     Q_OBJECT
 public:
-    SmsHelper() = default;
-    ~SmsHelper() override = default;
-
     static QObject *singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngine);
 
     enum CountryCode {

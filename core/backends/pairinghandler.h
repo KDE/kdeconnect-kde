@@ -20,7 +20,6 @@ public:
     const static int pairingTimeoutMsec = 30 * 1000; // 30 seconds of timeout
 
     PairingHandler(Device *parent, PairState initialState);
-    ~PairingHandler() override = default;
 
     void packetReceived(const NetworkPacket &np);
 
