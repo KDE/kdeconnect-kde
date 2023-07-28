@@ -27,7 +27,7 @@ class FindThisDevicePlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.findthisdevice")
 
 public:
-    explicit FindThisDevicePlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     QString dbusPath() const override;
     void receivePacket(const NetworkPacket &np) override;

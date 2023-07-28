@@ -17,8 +17,7 @@ class BigscreenPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.bigscreen")
 
 public:
-    explicit BigscreenPlugin(QObject *parent, const QVariantList &args);
-
+    using KdeConnectPlugin::KdeConnectPlugin;
     void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 

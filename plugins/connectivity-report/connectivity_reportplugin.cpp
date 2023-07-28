@@ -15,11 +15,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(ConnectivityReportPlugin, "kdeconnect_connectivity_report.json")
 
-ConnectivityReportPlugin::ConnectivityReportPlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 QString ConnectivityReportPlugin::cellularNetworkType() const
 {
     return m_cellularNetworkType;

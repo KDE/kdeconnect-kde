@@ -19,11 +19,6 @@
 K_PLUGIN_CLASS_WITH_JSON(VirtualMonitorPlugin, "kdeconnect_virtualmonitor.json")
 #define QS QLatin1String
 
-VirtualMonitorPlugin::VirtualMonitorPlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 VirtualMonitorPlugin::~VirtualMonitorPlugin()
 {
     stop();

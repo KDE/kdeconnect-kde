@@ -21,7 +21,7 @@ class RemoteSystemVolumePlugin : public KdeConnectPlugin
     Q_PROPERTY(QString deviceId READ deviceId CONSTANT)
 
 public:
-    explicit RemoteSystemVolumePlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     void receivePacket(const NetworkPacket &np) override;
     void connected() override;

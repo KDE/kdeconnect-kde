@@ -16,11 +16,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(MprisRemotePlugin, "kdeconnect_mprisremote.json")
 
-MprisRemotePlugin::MprisRemotePlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 void MprisRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() != PACKET_TYPE_MPRIS)

@@ -15,11 +15,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PhotoPlugin, "kdeconnect_photo.json")
 
-PhotoPlugin::PhotoPlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 void PhotoPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("cancel"))) {

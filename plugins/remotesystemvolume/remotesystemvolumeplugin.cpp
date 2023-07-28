@@ -21,11 +21,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteSystemVolumePlugin, "kdeconnect_remotesystemvolume.json")
 
-RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 void RemoteSystemVolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("sinkList"))) {

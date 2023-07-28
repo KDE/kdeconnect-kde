@@ -18,8 +18,7 @@ class PingPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.ping")
 
 public:
-    explicit PingPlugin(QObject *parent, const QVariantList &args);
-    ~PingPlugin() override;
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     Q_SCRIPTABLE void sendPing();
     Q_SCRIPTABLE void sendPing(const QString &customMessage);

@@ -39,7 +39,7 @@ class ConnectivityReportPlugin : public KdeConnectPlugin
     Q_PROPERTY(int cellularNetworkStrength READ cellularNetworkStrength NOTIFY refreshed)
 
 public:
-    explicit ConnectivityReportPlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
