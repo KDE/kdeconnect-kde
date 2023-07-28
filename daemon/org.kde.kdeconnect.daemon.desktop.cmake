@@ -19,6 +19,7 @@ Name[da]=KDE Connect
 Name[de]=KDE Connect
 Name[el]=KDE Connect
 Name[en_GB]=KDE Connect
+Name[eo]=KDE Konekti
 Name[es]=KDE Connect
 Name[et]=KDE Connect
 Name[eu]=KDE Connect
