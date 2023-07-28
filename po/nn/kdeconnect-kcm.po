@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-07-24 07:33+0000\n"
 "PO-Revision-Date: 2023-07-15 14:22+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -29,57 +29,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: kcm.cpp:38
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "Innstillingar for KDE Connect"
-
-#: kcm.cpp:40
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "Modul for KDE Connect-innstillingar"
-
-#: kcm.cpp:42
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "© 2015 Albert Vaca Cintora"
-
-#: kcm.cpp:45
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Albert Vaca Cintora"
-
-#: kcm.cpp:207
+#: kcm.cpp:186
 #, kde-format
 msgid "Key: %1"
 msgstr "Nøkkel: %1"
 
-#: kcm.cpp:230
+#: kcm.cpp:209
 #, kde-format
 msgid "Available plugins"
 msgstr "Tilgjengelege programtillegg"
 
-#: kcm.cpp:277
+#: kcm.cpp:256
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Feil ved forsøk på paring: %1"
 
-#: kcm.cpp:293
+#: kcm.cpp:272
 #, kde-format
 msgid "(paired)"
 msgstr "(para)"
 
-#: kcm.cpp:296
+#: kcm.cpp:275
 #, kde-format
 msgid "(not paired)"
 msgstr "(ikkje para)"
 
-#: kcm.cpp:299
+#: kcm.cpp:278
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(får paringsførespurnad)"
 
-#: kcm.cpp:302
+#: kcm.cpp:281
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(paringsførespurnad)"
