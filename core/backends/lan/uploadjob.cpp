@@ -64,10 +64,8 @@ void UploadJob::uploadNextPacket()
     }
 }
 
-void UploadJob::encryptedBytesWritten(qint64 bytes)
+void UploadJob::encryptedBytesWritten(qint64 /*bytes*/)
 {
-    Q_UNUSED(bytes);
-
     if (m_socket->encryptedBytesToWrite() == 0) {
         bytesUploaded += bytesUploading;
         setProcessedAmount(Bytes, bytesUploaded);

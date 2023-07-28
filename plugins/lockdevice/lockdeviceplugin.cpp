@@ -37,9 +37,7 @@ LockDevicePlugin::LockDevicePlugin(QObject *parent, const QVariantList &args)
     connect(&m_propertiesInterface,
             &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged,
             this,
-            [this](const QString &interface, const QVariantMap &properties, QStringList invalidatedProperties) {
-                Q_UNUSED(invalidatedProperties);
-
+            [this](const QString &interface, const QVariantMap &properties) {
                 if (interface != QLatin1String("org.freedesktop.login1.Session")) {
                     return;
                 }

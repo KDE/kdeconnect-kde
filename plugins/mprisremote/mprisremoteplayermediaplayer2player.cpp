@@ -159,17 +159,14 @@ void MprisRemotePlayerMediaPlayer2Player::Seek(qlonglong Offset)
     m_plugin->seek(Offset);
 }
 
-void MprisRemotePlayerMediaPlayer2Player::SetPosition(QDBusObjectPath TrackId, qlonglong Position)
+void MprisRemotePlayerMediaPlayer2Player::SetPosition(QDBusObjectPath /*TrackId*/, qlonglong Position)
 {
-    Q_UNUSED(TrackId)
-
     m_plugin->setPlayer(m_parent->identity());
     m_plugin->setPosition(Position / 1000);
 }
 
-void MprisRemotePlayerMediaPlayer2Player::OpenUri(QString Uri)
+void MprisRemotePlayerMediaPlayer2Player::OpenUri(QString /*Uri*/)
 {
-    Q_UNUSED(Uri)
 }
 
 void MprisRemotePlayerMediaPlayer2Player::controlsChanged()

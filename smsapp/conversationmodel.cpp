@@ -62,7 +62,7 @@ void ConversationModel::setDeviceId(const QString &deviceId)
                                                << "of" << this;
     if (m_conversationsInterface) {
         disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
-        disconnect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
+        disconnect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64)));
         disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
         delete m_conversationsInterface;
     }
@@ -71,7 +71,7 @@ void ConversationModel::setDeviceId(const QString &deviceId)
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
     connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
-    connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64, quint64)));
+    connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64)));
     connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
 
     connect(m_conversationsInterface, SIGNAL(attachmentReceived(QString, QString)), this, SIGNAL(filePathReceived(QString, QString)));
@@ -205,9 +205,8 @@ void ConversationModel::handleConversationCreated(const QDBusVariant &msg)
     }
 }
 
-void ConversationModel::handleConversationLoaded(qint64 threadID, quint64 numMessages)
+void ConversationModel::handleConversationLoaded(qint64 threadID)
 {
-    Q_UNUSED(numMessages)
     if (threadID != m_threadId) {
         return;
     }

@@ -55,17 +55,12 @@ void MMTelephonyPlugin::onModemAdded(const QString &path)
     });
 }
 
-void MMTelephonyPlugin::onModemRemoved(const QString &path)
-{
-    Q_UNUSED(path);
-}
-
 void MMTelephonyPlugin::onCallAdded(ModemManager::Call::Ptr call)
 {
     qCDebug(KDECONNECT_PLUGIN_MMTELEPHONY) << "Call added" << call->number();
 
-    connect(call.get(), &ModemManager::Call::stateChanged, this, [=](MMCallState newState, MMCallState oldState, MMCallStateReason reason) {
-        onCallStateChanged(call.get(), newState, oldState, reason);
+    connect(call.get(), &ModemManager::Call::stateChanged, this, [=](MMCallState newState, MMCallState oldState) {
+        onCallStateChanged(call.get(), newState, oldState);
     });
 }
 
@@ -94,9 +89,8 @@ QString MMTelephonyPlugin::stateName(MMCallState state)
     return event;
 }
 
-void MMTelephonyPlugin::onCallStateChanged(ModemManager::Call *call, MMCallState newState, MMCallState oldState, MMCallStateReason reason)
+void MMTelephonyPlugin::onCallStateChanged(ModemManager::Call *call, MMCallState newState, MMCallState oldState)
 {
-    Q_UNUSED(reason);
     auto event = stateName(newState);
 
     qCDebug(KDECONNECT_PLUGIN_MMTELEPHONY) << "Call state changed" << call->uni() << event;

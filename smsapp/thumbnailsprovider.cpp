@@ -11,11 +11,8 @@ ThumbnailsProvider::ThumbnailsProvider()
 {
 }
 
-QImage ThumbnailsProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize)
+QImage ThumbnailsProvider::requestImage(const QString &id, QSize * /*size*/, const QSize & /*requestedSize*/)
 {
-    Q_UNUSED(size)
-    Q_UNUSED(requestedSize)
-
     if (m_thumbnails.contains(id)) {
         return m_thumbnails.value(id);
     }

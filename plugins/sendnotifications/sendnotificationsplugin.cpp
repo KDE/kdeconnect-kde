@@ -24,9 +24,8 @@ SendNotificationsPlugin::~SendNotificationsPlugin()
     delete notificationsListener;
 }
 
-bool SendNotificationsPlugin::receivePacket(const NetworkPacket &np)
+bool SendNotificationsPlugin::receivePacket(const NetworkPacket & /*np*/)
 {
-    Q_UNUSED(np);
     return true;
 }
 

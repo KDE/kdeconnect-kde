@@ -94,9 +94,8 @@ void DevicesModel::deviceRemoved(const QString &id)
     }
 }
 
-void DevicesModel::deviceUpdated(const QString &id, bool isVisible)
+void DevicesModel::deviceUpdated(const QString &id)
 {
-    Q_UNUSED(isVisible);
     int row = rowForDevice(id);
 
     if (row < 0) {
@@ -179,17 +178,10 @@ void DevicesModel::receivedDeviceList(QDBusPendingCallWatcher *watcher)
 void DevicesModel::appendDevice(DeviceDbusInterface *dev)
 {
     m_deviceList.append(dev);
-    connect(dev, &OrgKdeKdeconnectDeviceInterface::nameChanged, this, &DevicesModel::nameChanged);
-}
-
-void DevicesModel::nameChanged(const QString &newName)
-{
-    Q_UNUSED(newName);
-    DeviceDbusInterface *device = static_cast<DeviceDbusInterface *>(sender());
-
-    Q_ASSERT(rowForDevice(device->id()) >= 0);
-
-    deviceUpdated(device->id(), true);
+    connect(dev, &OrgKdeKdeconnectDeviceInterface::nameChanged, this, [this, dev]() {
+        Q_ASSERT(rowForDevice(dev->id()) >= 0);
+        deviceUpdated(dev->id());
+    });
 }
 
 void DevicesModel::clearDevices()

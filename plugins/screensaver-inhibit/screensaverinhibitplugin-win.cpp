@@ -23,9 +23,8 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
     SetThreadExecutionState(ES_CONTINUOUS);
 }
 
-bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
+bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket & /*np*/)
 {
-    Q_UNUSED(np);
     return false;
 }
 

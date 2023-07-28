@@ -68,7 +68,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void handleConversationUpdate(const QDBusVariant &message);
-    void handleConversationLoaded(qint64 threadID, quint64 numMessages);
+    void handleConversationLoaded(qint64 threadID);
     void handleConversationCreated(const QDBusVariant &message);
 
 private:
