@@ -19,7 +19,6 @@ class DeviceLink : public QObject
     Q_OBJECT
 public:
     DeviceLink(const QString &deviceId, LinkProvider *parent);
-    ~DeviceLink() override = default;
 
     QString deviceId() const
     {

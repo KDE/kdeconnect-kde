@@ -35,7 +35,6 @@ class MMTelephonyPlugin : public KdeConnectPlugin
 
 public:
     explicit MMTelephonyPlugin(QObject *parent, const QVariantList &args);
-    ~MMTelephonyPlugin() override = default;
 
     void receivePacket(const NetworkPacket &np) override;
 

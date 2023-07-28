@@ -20,7 +20,6 @@ class KDECONNECTCORE_EXPORT LinkProvider : public QObject
 
 public:
     LinkProvider();
-    ~LinkProvider() override = default;
 
     virtual QString name() = 0;
 
