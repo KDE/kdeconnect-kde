@@ -18,7 +18,7 @@ class FindMyPhonePlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.findmyphone")
 
 public:
-    explicit FindMyPhonePlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     Q_SCRIPTABLE void ring();
 

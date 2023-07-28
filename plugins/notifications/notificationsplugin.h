@@ -20,7 +20,7 @@ class NotificationsPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.notifications")
 
 public:
-    explicit NotificationsPlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     bool receivePacket(const NetworkPacket &np) override;
     void connected() override;

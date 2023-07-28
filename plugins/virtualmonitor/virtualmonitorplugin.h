@@ -21,7 +21,7 @@ class VirtualMonitorPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.virtualmonitor")
 
 public:
-    explicit VirtualMonitorPlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
     ~VirtualMonitorPlugin() override;
 
     Q_SCRIPTABLE bool requestVirtualMonitor();

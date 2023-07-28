@@ -26,11 +26,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 
-FindThisDevicePlugin::FindThisDevicePlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 bool FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
 {
     const QString soundFile = config()->getString(QStringLiteral("ringtone"), defaultSound());

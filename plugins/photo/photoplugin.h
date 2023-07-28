@@ -19,7 +19,7 @@ class PhotoPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.photo")
 
 public:
-    explicit PhotoPlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     Q_SCRIPTABLE void requestPhoto(const QString &url);
 

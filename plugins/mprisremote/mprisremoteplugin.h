@@ -31,7 +31,7 @@ class MprisRemotePlugin : public KdeConnectPlugin
     Q_PROPERTY(bool canSeek READ canSeek NOTIFY propertiesChanged)
 
 public:
-    explicit MprisRemotePlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     long position() const;
     int volume() const;

@@ -18,7 +18,7 @@ class RemoteControlPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.remotecontrol")
 
 public:
-    explicit RemoteControlPlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     bool receivePacket(const NetworkPacket & /*np*/) override
     {

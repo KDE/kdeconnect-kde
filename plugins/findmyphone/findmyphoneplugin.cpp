@@ -14,11 +14,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(FindMyPhonePlugin, "kdeconnect_findmyphone.json")
 
-FindMyPhonePlugin::FindMyPhonePlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 bool FindMyPhonePlugin::receivePacket(const NetworkPacket & /*np*/)
 {
     return false;

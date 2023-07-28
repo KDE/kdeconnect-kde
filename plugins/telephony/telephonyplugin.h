@@ -35,7 +35,7 @@ class TelephonyPlugin : public KdeConnectPlugin
     Q_CLASSINFO("D-Bus Interface", "org.kde.kdeconnect.device.telephony")
 
 public:
-    explicit TelephonyPlugin(QObject *parent, const QVariantList &args);
+    using KdeConnectPlugin::KdeConnectPlugin;
 
     bool receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;

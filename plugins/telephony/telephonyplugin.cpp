@@ -17,11 +17,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(TelephonyPlugin, "kdeconnect_telephony.json")
 
-TelephonyPlugin::TelephonyPlugin(QObject *parent, const QVariantList &args)
-    : KdeConnectPlugin(parent, args)
-{
-}
-
 void TelephonyPlugin::createNotification(const NetworkPacket &np)
 {
     const QString event = np.get<QString>(QStringLiteral("event"));
