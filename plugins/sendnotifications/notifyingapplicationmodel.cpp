@@ -73,7 +73,6 @@ void NotifyingApplicationModel::clearApplications()
 
 QVariant NotifyingApplicationModel::data(const QModelIndex &index, int role) const
 {
-    Q_UNUSED(role);
     if (!index.isValid() || index.row() < 0 || index.row() >= m_apps.size() || index.column() > 3) {
         return QVariant();
     }

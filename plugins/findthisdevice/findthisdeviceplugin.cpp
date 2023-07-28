@@ -31,10 +31,8 @@ FindThisDevicePlugin::FindThisDevicePlugin(QObject *parent, const QVariantList &
 {
 }
 
-void FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
+void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
 {
-    Q_UNUSED(np);
-
     const QString soundFile = config()->getString(QStringLiteral("ringtone"), defaultSound());
     const QUrl soundURL = QUrl::fromLocalFile(soundFile);
 

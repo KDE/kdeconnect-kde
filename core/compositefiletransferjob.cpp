@@ -86,10 +86,8 @@ bool CompositeFileTransferJob::doKill()
     return true;
 }
 
-void CompositeFileTransferJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount)
+void CompositeFileTransferJob::slotProcessedAmount(KJob * /*job*/, KJob::Unit unit, qulonglong amount)
 {
-    Q_UNUSED(job);
-
     m_currentJobSentPayloadSize = amount;
     const auto totalSent = m_totalSentPayloadSize + m_currentJobSentPayloadSize;
 

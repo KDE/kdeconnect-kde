@@ -146,10 +146,8 @@ void CompositeUploadJob::socketDisconnected()
     m_socket->close();
 }
 
-void CompositeUploadJob::socketError(QAbstractSocket::SocketError error)
+void CompositeUploadJob::socketError()
 {
-    Q_UNUSED(error);
-
     // Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a
     // segv
     setError(SocketError);
@@ -158,10 +156,8 @@ void CompositeUploadJob::socketError(QAbstractSocket::SocketError error)
     m_running = false;
 }
 
-void CompositeUploadJob::sslError(const QList<QSslError> &errors)
+void CompositeUploadJob::sslError()
 {
-    Q_UNUSED(errors);
-
     m_socket->close();
     setError(SslError);
     emitResult();
@@ -240,10 +236,8 @@ bool CompositeUploadJob::doKill()
     return true;
 }
 
-void CompositeUploadJob::slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount)
+void CompositeUploadJob::slotProcessedAmount(KJob * /*job*/, KJob::Unit unit, qulonglong amount)
 {
-    Q_UNUSED(job);
-
     m_currentJobSendPayloadSize = amount;
     quint64 uploaded = m_totalSendPayloadSize + m_currentJobSendPayloadSize;
 

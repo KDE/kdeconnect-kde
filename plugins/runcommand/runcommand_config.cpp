@@ -241,10 +241,9 @@ void RunCommandConfig::insertRow(int i, const QString &name, const QString &comm
     m_entriesModel->insertRow(i, QList<QStandardItem *>() << newName << newCommand);
 }
 
-void RunCommandConfig::onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight)
+void RunCommandConfig::onDataChanged(const QModelIndex & /*topLeft*/, const QModelIndex &bottomRight)
 {
     markAsChanged();
-    Q_UNUSED(topLeft);
     if (bottomRight.row() == m_entriesModel->rowCount() - 1) {
         // TODO check both entries are still empty
         insertEmptyRow();

@@ -42,8 +42,7 @@ private:
     void onCallAdded(ModemManager::Call::Ptr call);
     void onCallRemoved(ModemManager::Call::Ptr call);
     void onModemAdded(const QString &path);
-    void onModemRemoved(const QString &path);
-    void onCallStateChanged(ModemManager::Call *call, MMCallState newState, MMCallState oldState, MMCallStateReason reason);
+    void onCallStateChanged(ModemManager::Call *call, MMCallState newState, MMCallState oldState);
     void sendMMTelephonyPacket(ModemManager::Call *call, const QString &state);
     void sendCancelMMTelephonyPacket(ModemManager::Call *call, const QString &lastState);
     static QString stateName(MMCallState state);

@@ -119,10 +119,8 @@ void MprisControlPlugin::seeked(qlonglong position)
     sendPacket(np);
 }
 
-void MprisControlPlugin::propertiesChanged(const QString &propertyInterface, const QVariantMap &properties)
+void MprisControlPlugin::propertiesChanged(const QString & /*propertyInterface*/, const QVariantMap &properties)
 {
-    Q_UNUSED(propertyInterface);
-
     OrgFreedesktopDBusPropertiesInterface *propertiesInterface = (OrgFreedesktopDBusPropertiesInterface *)sender();
     const auto end = playerList.constEnd();
     const auto it = std::find_if(playerList.constBegin(), end, [propertiesInterface](const MprisPlayer &player) {

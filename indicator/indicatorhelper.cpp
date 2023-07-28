@@ -28,10 +28,8 @@ void IndicatorHelper::iconPathHook()
 {
 }
 
-int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
+int IndicatorHelper::daemonHook(QProcess & /*kdeconnectd*/)
 {
-    Q_UNUSED(kdeconnectd);
-
     return 0;
 }
 

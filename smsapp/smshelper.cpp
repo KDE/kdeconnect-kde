@@ -26,11 +26,8 @@
 #include "smsapp/gsmasciimap.h"
 #include "smshelper_debug.h"
 
-QObject *SmsHelper::singletonProvider(QQmlEngine *engine, QJSEngine *scriptEngine)
+QObject *SmsHelper::singletonProvider(QQmlEngine * /*engine*/, QJSEngine * /*scriptEngine*/)
 {
-    Q_UNUSED(engine);
-    Q_UNUSED(scriptEngine);
-
     return new SmsHelper();
 }
 
