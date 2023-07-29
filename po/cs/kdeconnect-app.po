@@ -125,11 +125,10 @@ msgid "This device is not paired"
 msgstr "Toto zařízení není spárováno"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Spárovat"
+msgstr ""
 
 #: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
@@ -157,11 +156,10 @@ msgid "Please choose a file"
 msgstr "Prosím, vyberte soubor"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Najít zařízení"
+msgstr ""
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
