@@ -133,11 +133,10 @@ msgid "Pairing requests"
 msgstr "Párování zařízení"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
-msgstr "Spárovat"
+msgstr ""
 
 #: main.cpp:120
 #, kde-format

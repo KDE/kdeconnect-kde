@@ -167,15 +167,3 @@ msgstr ""
 "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
 "\">Komunitní Wiki pro KDE Connect</span></a> kde můžete hledat pomoc.</p></"
 "body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "Nastavení KDE Connect"
-
-#~ msgid "KDE Connect Settings module"
-#~ msgstr "Nastavení modulu KDE Connect"
-
-#~ msgid "(C) 2015 Albert Vaca Cintora"
-#~ msgstr "(C) 2015 Albert Vaca Cintora"
-
-#~ msgid "Albert Vaca Cintora"
-#~ msgstr "Albert Vaca Cintora"

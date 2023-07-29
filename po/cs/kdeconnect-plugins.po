@@ -477,6 +477,3 @@ msgstr "Zmeškaný hovor od %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Ztlumení telefonátu"
-
-#~ msgid "Reply"
-#~ msgstr "Odpovědět"
