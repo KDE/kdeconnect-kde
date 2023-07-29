@@ -301,6 +301,9 @@ void LanLinkProvider::udpBroadcastReceived()
         m_receivedIdentityPackets[socket].sender = sender;
         connect(socket, &QAbstractSocket::connected, this, &LanLinkProvider::tcpSocketConnected);
         connect(socket, &QAbstractSocket::errorOccurred, this, &LanLinkProvider::connectError);
+        connect(socket, &QObject::destroyed, this, [this, socket]() {
+            delete m_receivedIdentityPackets.take(socket).np;
+        });
         socket->connectToHost(sender, tcpPort);
     }
 }
@@ -319,7 +322,6 @@ void LanLinkProvider::connectError(QAbstractSocket::SocketError socketError)
 
     // The socket we created didn't work, and we didn't manage
     // to create a LanDeviceLink from it, deleting everything.
-    delete m_receivedIdentityPackets.take(socket).np;
     socket->deleteLater();
 }
 
@@ -368,9 +370,8 @@ void LanLinkProvider::tcpSocketConnected()
         qCDebug(KDECONNECT_CORE) << "Fallback (2), try reverse connection (send udp packet)";
         m_udpSocket.writeDatagram(np2.serialize(), m_receivedIdentityPackets[socket].sender, m_udpBroadcastPort);
 
-        // Cleanup the network packet now. The socket should be deleted via the disconnected() signal.
-        // We don't do this on success, because it is done later in the encrypted() slot.
-        delete m_receivedIdentityPackets.take(socket).np;
+        // Disconnect should trigger deleteLater, which should remove the socket from m_receivedIdentityPackets
+        socket->disconnectFromHost();
     }
 }
 
@@ -388,10 +389,11 @@ void LanLinkProvider::encrypted()
 
     DeviceInfo deviceInfo = DeviceInfo::FromIdentityPacketAndCert(*identityPacket, socket->peerCertificate());
 
-    addLink(socket, deviceInfo);
-
     // We don't delete the socket because now it's owned by the LanDeviceLink
+    disconnect(socket, &QObject::destroyed, nullptr, nullptr);
     delete m_receivedIdentityPackets.take(socket).np;
+
+    addLink(socket, deviceInfo);
 }
 
 void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
@@ -411,8 +413,8 @@ void LanLinkProvider::sslErrors(const QList<QSslError> &errors)
     }
 
     if (fatal) {
+        // Disconnect should trigger deleteLater, which should remove the socket from m_receivedIdentityPackets
         socket->disconnectFromHost();
-        delete m_receivedIdentityPackets.take(socket).np;
     }
 }
 
@@ -487,6 +489,9 @@ void LanLinkProvider::dataReceived()
 
     // Needed in "encrypted" if ssl is used, similar to "tcpSocketConnected"
     m_receivedIdentityPackets[socket].np = np;
+    connect(socket, &QObject::destroyed, this, [this, socket]() {
+        delete m_receivedIdentityPackets.take(socket).np;
+    });
 
     const QString &deviceId = np->get<QString>(QStringLiteral("deviceId"));
     // qCDebug(KDECONNECT_CORE) << "Handshaking done (i'm the new device)";
