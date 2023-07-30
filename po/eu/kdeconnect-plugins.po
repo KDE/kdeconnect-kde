@@ -1,19 +1,18 @@
 # Translation for kdeconnect-plugins.po to Euskara/Basque (eu).
-# Copyright (C) 2017 Free Software Foundation, Inc.
-# Copyright (C) 2018-2022 This file is copyright:
+# Copyright (C) 2017-2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022, 2023.
 # Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2022-10-18 07:12+0200\n"
+"PO-Revision-Date: 2023-07-29 14:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: battery/batteryplugin.cpp:123
 #, kde-format
@@ -44,20 +43,19 @@ msgstr "Arbeleko plugina"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Sinkronizatze automatikoa"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Automatikoki partekatu gailu honetako arbela"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Pasahitzak (pasahitz kudeatzaileak seinalatu bezala)"
+msgstr "Pasahitzak barne (pasahitz kudeatzaileek zehaztu bezala)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -238,12 +236,12 @@ msgstr "Komandoen adibideak"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Esportatu"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Inportatu"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:178
@@ -257,16 +255,14 @@ msgid "Command"
 msgstr "Komandoa"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Komandoa"
+msgstr "Esportatu aginduak"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Komandoen adibideak"
+msgstr "Inportatu aginduak"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:25
 #, kde-format
@@ -445,19 +441,19 @@ msgstr "Gorde fitxategiak hemen:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "%1(e)tik partekatutako testua arbelera kopiatu du"
 
 #: share/shareplugin.cpp:164
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Ireki testu-editorean"
 
 #: share/shareplugin.cpp:167
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Ireki esteka"
 
 #: share/shareplugin.cpp:241
 #, kde-format

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2021-09-25 15:31-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -113,32 +113,42 @@ msgstr "不完全なファイルを受信 : %1"
 msgid "Received incomplete file from: %1"
 msgstr "不完全なファイルを %1 から受信しました"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect の起動に失敗しました"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"RSA のサポートをあなたの QCA インストールから見つけることができませんでした。"
-"もしあなたのディストリビューションが QCA-ossl と QCA-gnupg のための分割された"
-"パケットを提供している場合、それらが確実にインストールされていることを確認し"
-"た上で再試行してください。"
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "秘密鍵ファイル %1 を保存できませんでした"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "秘密鍵ファイル %1 を保存できませんでした"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "証明書ファイル %1 を保存できませんでした"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "証明書ファイル %1 を保存できませんでした"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "RSA のサポートをあなたの QCA インストールから見つけることができませんでし"
+#~ "た。もしあなたのディストリビューションが QCA-ossl と QCA-gnupg のための分"
+#~ "割されたパケットを提供している場合、それらが確実にインストールされているこ"
+#~ "とを確認した上で再試行してください。"
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1 : 既にこのデバイスに対するペアリング要求がされています"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2023-06-03 08:50+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -117,31 +117,41 @@ msgstr "Файл отримано не повністю: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Файл отримано не повністю від %1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Не вдалося запустити засіб з’єднання KDE"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"Не вдалося виявити підтримки RSA у встановленій вами версії QCA. Якщо у "
-"вашому дистрибутиві передбачено окремі пакунки для QCA-ossl і QCA-gnupg, "
-"встановіть обидва і повторіть спробу."
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "Не вдалося зберегти файл закритого ключа: %1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Не вдалося зберегти файл закритого ключа: %1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "Не вдалося зберегти файл сертифіката: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не вдалося зберегти файл сертифіката: %1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "Не вдалося виявити підтримки RSA у встановленій вами версії QCA. Якщо у "
+#~ "вашому дистрибутиві передбачено окремі пакунки для QCA-ossl і QCA-gnupg, "
+#~ "встановіть обидва і повторіть спробу."
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: запит щодо пов’язування цього пристрою вже надійшов"

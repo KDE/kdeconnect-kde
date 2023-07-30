@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2023-06-08 11:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -118,30 +118,40 @@ msgstr "استُقبل ملفّ غير مكتمل: %1"
 msgid "Received incomplete file from: %1"
 msgstr "استُقبل ملفّ غير مكتمل من: %1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "فشل بدء «كِيدِي المتّصل»"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"تعذّر إيجاد دعم RSA في تثبيت QCA لديك. إن كانت توفّر التّوزيعة حزمًا منفصلة ل‍QCA-"
-"ossl و QCA-gnupg، تأكّد من تثبيتها وجرّب مجدّدًا."
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "تعذّر تخزين ملفّ المفتاح الخاصّ: %1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "تعذّر تخزين ملفّ المفتاح الخاصّ: %1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "تعذّر إيجاد دعم RSA في تثبيت QCA لديك. إن كانت توفّر التّوزيعة حزمًا منفصلة ل‍"
+#~ "QCA-ossl و QCA-gnupg، تأكّد من تثبيتها وجرّب مجدّدًا."
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: طُلب الاقتران بهذا الجهاز فعلًا"

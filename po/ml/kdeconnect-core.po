@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -112,25 +112,27 @@ msgstr ""
 msgid "Received incomplete file from: %1"
 msgstr ""
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr ""
 
-#: kdeconnectconfig.cpp:66
+#: kdeconnectconfig.cpp:301
 #, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
+msgid "Could not generate the private key."
 msgstr ""
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr ""
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, kde-format
+msgid "Could not generate the device certificate."
+msgstr ""
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr ""

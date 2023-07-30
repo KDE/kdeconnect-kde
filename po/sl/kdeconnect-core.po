@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2023-06-03 09:00+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -115,31 +115,41 @@ msgstr "Prejeta nekompletna datoteka: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Prejeta nepopolna datoteka od: %1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect se ni zagnal"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"V vaši namestitvi QCA ni bilo mogoče najti podpore za RSA. Če vaša "
-"distribucija ponuja ločene pakete za QCA-ossl in QCA-gnupg, preverite da ste "
-"jih namestili in poskusite znova."
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "Datoteke zasebnega ključa ni bilo mogoče shraniti: %1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Datoteke zasebnega ključa ni bilo mogoče shraniti: %1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "Datoteke potrdila ni bilo mogoče shraniti: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Datoteke potrdila ni bilo mogoče shraniti: %1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "V vaši namestitvi QCA ni bilo mogoče najti podpore za RSA. Če vaša "
+#~ "distribucija ponuja ločene pakete za QCA-ossl in QCA-gnupg, preverite da "
+#~ "ste jih namestili in poskusite znova."
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: Zahtevek za uparjenje že zahtevan za to napravo"

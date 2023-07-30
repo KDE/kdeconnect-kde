@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2023-06-03 13:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -117,28 +117,38 @@ msgstr "S'ha rebut un fitxer incomplet: %1"
 msgid "Received incomplete file from: %1"
 msgstr "S'ha rebut un fitxer incomplet des de: %1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect ha fallat en iniciar"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"No s'ha pogut trobar la implementació RSA en la vostra instal·lació de QCA. "
-"Si la vostra distribució oferix paquets separats per a QCA-ossl i QCA-gnupg, "
-"assegureu-vos que els heu instal·lat i torneu-ho a intentar."
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "No s'ha pogut emmagatzemar el fitxer de la clau privada: %1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer de la clau privada: %1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "No s'ha pogut emmagatzemar el fitxer del certificat: %1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "No s'ha pogut trobar la implementació RSA en la vostra instal·lació de "
+#~ "QCA. Si la vostra distribució oferix paquets separats per a QCA-ossl i "
+#~ "QCA-gnupg, assegureu-vos que els heu instal·lat i torneu-ho a intentar."

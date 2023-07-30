@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2021-08-21 13:15+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -118,31 +118,41 @@ msgstr "Gautas nepilnas failas: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Gautas nepilnas failas iš: %1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect nepasileido"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"Nepavyko jūsų QCA diegime rasti RSA palaikymo. Jeigu jūsų platinimas teikia "
-"atskirus paketus, skirtus QCA-ossl ir QCA-gnupg, tuomet įsitikinkite, kad "
-"esate juos įdiegę ir bandykite dar kartą."
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "Nepavyko laikyti privačiojo rakto failo: %1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Nepavyko laikyti privačiojo rakto failo: %1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "Nepavyko laikyti liudijimo failo: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nepavyko laikyti liudijimo failo: %1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "Nepavyko jūsų QCA diegime rasti RSA palaikymo. Jeigu jūsų platinimas "
+#~ "teikia atskirus paketus, skirtus QCA-ossl ir QCA-gnupg, tuomet "
+#~ "įsitikinkite, kad esate juos įdiegę ir bandykite dar kartą."
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: Suporavimas šiam įrenginiui jau užklaustas"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2021-09-16 01:30+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -115,30 +115,40 @@ msgstr "接收到不完整的檔案：%1"
 msgid "Received incomplete file from: %1"
 msgstr "已從該位置接收到不完全檔案：%1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE 連線無法執行"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"在您的 QCA 安裝之中發現沒有支援 RSA，假如您的系統發行版有提供另外單獨的 QCA-"
-"ossl 以及 QCA-gnupq，請確定你有安裝並且重新嘗試一次。"
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "無法儲存私鑰檔案：%1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "無法儲存私鑰檔案：%1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "無法儲存憑證檔案：%1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "無法儲存憑證檔案：%1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "在您的 QCA 安裝之中發現沒有支援 RSA，假如您的系統發行版有提供另外單獨的 "
+#~ "QCA-ossl 以及 QCA-gnupq，請確定你有安裝並且重新嘗試一次。"
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: 這個裝置已經要求過配對"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 00:49+0000\n"
+"POT-Creation-Date: 2023-07-30 00:45+0000\n"
 "PO-Revision-Date: 2023-06-11 16:52+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -112,31 +112,41 @@ msgstr "முடிவடையாத கோப்பு பெறப்பட�
 msgid "Received incomplete file from: %1"
 msgstr "இதிலிருந்து முடிவடையாத கோப்பு பெறப்பட்டது: %1"
 
-#: kdeconnectconfig.cpp:65
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "கே.டீ.யீ. கனெக்டின் துவக்கம் தோல்வியடைந்தது"
 
-#: kdeconnectconfig.cpp:66
-#, kde-format
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"உங்கள் QCA நிறுவலில் RSA ஆதரவை கண்டுபிடிக்க முடியவில்லை. உங்கள் இயக்குதளம் QCA-ossl "
-"மற்றும் QCA-gnupg ஆகியவற்றிற்கு தனிப்பட்ட தொகுப்புகளை வழங்குமாயின், அவற்றை நிறுவி "
-"மீண்டும் முயற்சிக்கவும்."
+#: kdeconnectconfig.cpp:301
+#, fuzzy, kde-format
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "கமுக்க சாவி கோப்பை சேமிக்க முடியவில்லை: %1"
 
-#: kdeconnectconfig.cpp:338
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "கமுக்க சாவி கோப்பை சேமிக்க முடியவில்லை: %1"
 
-#: kdeconnectconfig.cpp:383
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "சான்றிதழ் கோப்பை சேமிக்க முடியவில்லை: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "சான்றிதழ் கோப்பை சேமிக்க முடியவில்லை: %1"
+
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "உங்கள் QCA நிறுவலில் RSA ஆதரவை கண்டுபிடிக்க முடியவில்லை. உங்கள் இயக்குதளம் QCA-ossl "
+#~ "மற்றும் QCA-gnupg ஆகியவற்றிற்கு தனிப்பட்ட தொகுப்புகளை வழங்குமாயின், அவற்றை நிறுவி "
+#~ "மீண்டும் முயற்சிக்கவும்."
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: இந்த சாதனத்திற்கு இணைப்பு ஏற்கனவே கோரப்பட்டுள்ளது"
