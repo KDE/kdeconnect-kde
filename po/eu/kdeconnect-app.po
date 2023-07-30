@@ -1,24 +1,24 @@
 # Translation for kdeconnect-app.po to Euskara/Basque (eu).
-# Copyright (C) 2020-2022, This file is copyright:
+# Copyright (C) 2020-2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2022-12-17 09:39+0100\n"
+"PO-Revision-Date: 2023-07-29 14:40+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque\n"
+"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -110,7 +110,7 @@ msgstr "Exekutatu komandoa"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Bidali arbela"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -128,8 +128,7 @@ msgid "This device is not paired"
 msgstr "Gailu hau ez dago parekatuta"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parekatu"
@@ -160,11 +159,10 @@ msgid "Please choose a file"
 msgstr "Mesedez aukeratu fitxategi bat"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Aurkitu nire gailua"
+msgstr "Gailuak"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -202,11 +200,11 @@ msgid "Remote Control"
 msgstr "Urruneko agintea"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Sakatu saguaren ezker eta eskuin botoiak aldi berean giltzapetik askatzeko"
+"Sakatu %1 edo saguaren ezker eta eskuin botoiak aldi berean giltzapetik "
+"askatzeko"
 
 #: qml/mpris.qml:19
 #, kde-format
