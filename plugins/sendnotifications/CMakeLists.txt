@@ -5,19 +5,26 @@ target_sources(kdeconnect_sendnotifications PRIVATE
     notificationslistener.cpp
     notifyingapplication.cpp
 )
+
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
-    Qt::DBus
     KF${QT_MAJOR_VERSION}::I18n
     Qt::Gui
     KF${QT_MAJOR_VERSION}::IconThemes
     KF${QT_MAJOR_VERSION}::ConfigCore
-    ${DBus_LIBRARIES}
 )
 
+
+if(WIN32)
+target_sources(kdeconnect_sendnotifications PRIVATE windowsnotificationslistener.cpp)
+target_link_libraries(kdeconnect_sendnotifications runtimeobject windowsapp)
+else()
+target_sources(kdeconnect_sendnotifications PRIVATE dbusnotificationslistener.cpp)
+target_link_libraries(kdeconnect_sendnotifications ${DBus_LIBRARIES})
 target_include_directories(kdeconnect_sendnotifications
     SYSTEM PRIVATE ${DBus_INCLUDE_DIRS}
 )
+endif()
 
 # Config
 kdeconnect_add_kcm(kdeconnect_sendnotifications_config)
