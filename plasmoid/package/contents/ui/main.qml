@@ -40,7 +40,7 @@ Item
     Plasmoid.preferredRepresentation: isConstrained ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 
     function action_launchkcm() {
-        OpenConfig.openConfiguration()
+        KCMShell.openSystemSettings("kcm_kdeconnect");
     }
 
     Component.onCompleted: {
