@@ -2,10 +2,8 @@ kdeconnect_add_plugin(kdeconnect_mousepad SOURCES mousepadplugin.cpp abstractrem
 
 if(UNIX AND NOT APPLE)
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp ${SRCS})
-
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
     target_link_libraries(kdeconnect_mousepad Wayland::Client Qt::WaylandClient PkgConfig::XkbCommon)
-    target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp)
 
     if (WITH_X11)
         find_package(LibFakeKey REQUIRED)

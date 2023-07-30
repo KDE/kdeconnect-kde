@@ -46,11 +46,8 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     endif()
 endif()
 
-if(NOT WIN32 AND NOT APPLE)
-    add_subdirectory(sendnotifications)
-endif()
-
 if(NOT APPLE)
+    add_subdirectory(sendnotifications)
     add_subdirectory(sftp)
 endif()
 

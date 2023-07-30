@@ -8,8 +8,6 @@
 
 #include "core/kdeconnectplugin.h"
 
-#define PACKET_TYPE_NOTIFICATION QStringLiteral("kdeconnect.notification")
-
 /*
  * This class is just a proxy for NotificationsDbusInterface
  * because it can not inherit from QDBusAbstractAdaptor and

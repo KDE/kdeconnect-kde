@@ -6,17 +6,17 @@
 
 #pragma once
 
-#include <QBuffer>
-#include <QDBusAbstractAdaptor>
-#include <QDBusArgument>
-#include <QFile>
-#include <core/device.h>
+#include <optional>
 
-#include <gio/gio.h>
+#include <QIODevice>
+
+#include <core/device.h>
 
 class KdeConnectPlugin;
 class Notification;
 struct NotifyingApplication;
+
+#define PACKET_TYPE_NOTIFICATION QStringLiteral("kdeconnect.notification")
 
 class NotificationsListener : public QObject
 {
@@ -27,31 +27,18 @@ public:
     ~NotificationsListener() override;
 
 protected:
+    bool checkApplicationName(const QString &appName, std::optional<std::reference_wrapper<const QString>> iconName = std::nullopt);
+    bool checkIsInBlacklist(const QString &appName, const QString &content);
+    QSharedPointer<QIODevice> iconFromQImage(const QImage &image) const;
+
     KdeConnectPlugin *m_plugin;
-    QHash<QString, NotifyingApplication> m_applications;
-
-    // virtual helper function to make testing possible (QDBusArgument can not
-    // be injected without making a DBUS-call):
-    virtual bool parseImageDataArgument(GVariant *argument,
-                                        int &width,
-                                        int &height,
-                                        int &rowStride,
-                                        int &bitsPerSample,
-                                        int &channels,
-                                        bool &hasAlpha,
-                                        QByteArray &imageData) const;
-    QSharedPointer<QIODevice> iconForImageData(GVariant *argument) const;
-    static QSharedPointer<QIODevice> iconForIconName(const QString &iconName);
-
-    static GDBusMessage *onMessageFiltered(GDBusConnection *connection, GDBusMessage *msg, int incoming, void *parent);
 
 private Q_SLOTS:
     void loadApplications();
 
 private:
     void setTranslatedAppName();
-    QString m_translatedAppName;
 
-    GDBusConnection *m_gdbusConnection = nullptr;
-    unsigned m_gdbusFilterId = 0;
+    QHash<QString, NotifyingApplication> m_applications;
+    QString m_translatedAppName;
 };
