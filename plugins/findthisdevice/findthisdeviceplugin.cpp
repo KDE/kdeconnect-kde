@@ -31,7 +31,7 @@ FindThisDevicePlugin::FindThisDevicePlugin(QObject *parent, const QVariantList &
 {
 }
 
-bool FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
+void FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
 {
     Q_UNUSED(np);
 
@@ -40,7 +40,7 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
 
     if (soundURL.isEmpty()) {
         qCWarning(KDECONNECT_PLUGIN_FINDTHISDEVICE) << "Not playing sound, no valid ring tone specified.";
-        return true;
+        return;
     }
 
     QMediaPlayer *player = new QMediaPlayer;
@@ -84,8 +84,6 @@ bool FindThisDevicePlugin::receivePacket(const NetworkPacket &np)
     connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
 #endif
     // TODO: ensure to use built-in loudspeakers
-
-    return true;
 }
 
 QString FindThisDevicePlugin::dbusPath() const

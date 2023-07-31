@@ -279,10 +279,10 @@ bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const
     }
 }
 
-bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
+void MprisControlPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("playerList"))) {
-        return false; // Whoever sent this is an mpris client and not an mpris control!
+        return; // Whoever sent this is an mpris client and not an mpris control!
     }
 
     // Send the player list
@@ -292,14 +292,15 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
     if (!valid_player || np.get<bool>(QStringLiteral("requestPlayerList"))) {
         sendPlayerList();
         if (!valid_player) {
-            return true;
+            return;
         }
     }
 
     auto player = it.value();
 
     if (np.has(QStringLiteral("albumArtUrl"))) {
-        return sendAlbumArt(name, player, np.get<QString>(QStringLiteral("albumArtUrl")));
+        sendAlbumArt(name, player, np.get<QString>(QStringLiteral("albumArtUrl")));
+        return;
     }
 
     if (np.has(QStringLiteral("action"))) {
@@ -366,8 +367,6 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
     if (somethingToSend) {
         sendPacket(answer);
     }
-
-    return true;
 }
 
 #include "moc_mpriscontrolplugin-win.cpp"

@@ -19,12 +19,6 @@ FindMyPhonePlugin::FindMyPhonePlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-bool FindMyPhonePlugin::receivePacket(const NetworkPacket &np)
-{
-    Q_UNUSED(np);
-    return false;
-}
-
 void FindMyPhonePlugin::ring()
 {
     NetworkPacket np(PACKET_TYPE_FINDMYPHONE_REQUEST);

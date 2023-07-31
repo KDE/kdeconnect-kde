@@ -23,7 +23,7 @@ class PresenterPlugin : public KdeConnectPlugin
 
 public:
     explicit PresenterPlugin(QObject *parent, const QVariantList &args);
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
 
 private:
     QPointer<PresenterView> m_view;

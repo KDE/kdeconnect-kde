@@ -19,7 +19,7 @@ class BigscreenPlugin : public KdeConnectPlugin
 public:
     explicit BigscreenPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 
 Q_SIGNALS:

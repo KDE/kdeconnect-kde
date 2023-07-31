@@ -73,23 +73,19 @@ void TelephonyPlugin::createNotification(const NetworkPacket &np)
     m_currentCallNotification->sendEvent();
 }
 
-bool TelephonyPlugin::receivePacket(const NetworkPacket &np)
+void TelephonyPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("isCancel"))) {
         if (m_currentCallNotification) {
             m_currentCallNotification->close();
         }
-        return true;
+        return;
     }
 
     // ignore old style sms packet
-    if (np.get<QString>(QStringLiteral("event")) == QLatin1String("sms")) {
-        return false;
+    if (np.get<QString>(QStringLiteral("event")) != QLatin1String("sms")) {
+        createNotification(np);
     }
-
-    createNotification(np);
-
-    return true;
 }
 
 void TelephonyPlugin::sendMutePacket()

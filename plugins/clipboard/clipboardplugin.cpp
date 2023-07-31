@@ -79,23 +79,20 @@ void ClipboardPlugin::sendConnectPacket()
     sendPacket(np);
 }
 
-bool ClipboardPlugin::receivePacket(const NetworkPacket &np)
+void ClipboardPlugin::receivePacket(const NetworkPacket &np)
 {
     QString content = np.get<QString>(QStringLiteral("content"));
     if (np.type() == PACKET_TYPE_CLIPBOARD) {
         ClipboardListener::instance()->setText(content);
-        return true;
     } else if (np.type() == PACKET_TYPE_CLIPBOARD_CONNECT) {
         qint64 packetTime = np.get<qint64>(QStringLiteral("timestamp"));
         // If the packetTime is 0, it means the timestamp is unknown (so do nothing).
         if (packetTime == 0 || packetTime < ClipboardListener::instance()->updateTimestamp()) {
-            return false;
+            return;
         }
 
         ClipboardListener::instance()->setText(content);
-        return true;
     }
-    return false;
 }
 
 #include "clipboardplugin.moc"

@@ -41,7 +41,7 @@ class ConnectivityReportPlugin : public KdeConnectPlugin
 public:
     explicit ConnectivityReportPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 
     QString cellularNetworkType() const;

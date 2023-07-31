@@ -106,10 +106,10 @@ void BatteryPlugin::slotChargeChanged()
     sendPacket(status);
 }
 
-bool BatteryPlugin::receivePacket(const NetworkPacket &np)
+void BatteryPlugin::receivePacket(const NetworkPacket &np)
 {
     if (PACKET_TYPE_BATTERY != np.type()) {
-        return false;
+        return;
     }
 
     m_isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
@@ -124,8 +124,6 @@ bool BatteryPlugin::receivePacket(const NetworkPacket &np)
                                                    i18n("Battery at %1%", m_charge),
                                                    QStringLiteral("battery-040"));
     }
-
-    return true;
 }
 
 QString BatteryPlugin::dbusPath() const

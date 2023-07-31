@@ -30,14 +30,12 @@ PingPlugin::~PingPlugin()
     //     qCDebug(KDECONNECT_PLUGIN_PING) << "Ping plugin destructor for device" << device()->name();
 }
 
-bool PingPlugin::receivePacket(const NetworkPacket &np)
+void PingPlugin::receivePacket(const NetworkPacket &np)
 {
     Daemon::instance()->sendSimpleNotification(QStringLiteral("pingReceived"),
                                                device()->name(),
                                                np.get<QString>(QStringLiteral("message"), i18n("Ping!")),
                                                QStringLiteral("dialog-ok"));
-
-    return true;
 }
 
 void PingPlugin::sendPing()

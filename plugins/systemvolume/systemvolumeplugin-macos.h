@@ -26,7 +26,7 @@ public:
     explicit SystemvolumePlugin(QObject *parent, const QVariantList &args);
     ~SystemvolumePlugin();
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     void connected() override;
     void sendSinkList();
 

@@ -34,7 +34,7 @@ public:
         shareUrl(QUrl(file), true);
     }
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 
 private Q_SLOTS:

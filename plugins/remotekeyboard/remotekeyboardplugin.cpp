@@ -58,12 +58,12 @@ RemoteKeyboardPlugin::RemoteKeyboardPlugin(QObject *parent, const QVariantList &
 {
 }
 
-bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
+void RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_MOUSEPAD_ECHO) {
         if (!np.has(QStringLiteral("isAck")) || !np.has(QStringLiteral("key"))) {
             qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Invalid packet of type" << PACKET_TYPE_MOUSEPAD_ECHO;
-            return false;
+            return;
         }
         //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keypress" << np;
         Q_EMIT keyPressReceived(np.get<QString>(QStringLiteral("key")),
@@ -71,16 +71,13 @@ bool RemoteKeyboardPlugin::receivePacket(const NetworkPacket &np)
                                 np.get<int>(QStringLiteral("shift"), false),
                                 np.get<int>(QStringLiteral("ctrl"), false),
                                 np.get<int>(QStringLiteral("alt"), 0));
-        return true;
     } else if (np.type() == PACKET_TYPE_MOUSEPAD_KEYBOARDSTATE) {
         //        qCWarning(KDECONNECT_PLUGIN_REMOTEKEYBOARD) << "Received keyboardstate" << np;
         if (m_remoteState != np.get<bool>(QStringLiteral("state"))) {
             m_remoteState = np.get<bool>(QStringLiteral("state"));
             Q_EMIT remoteStateChanged(m_remoteState);
         }
-        return true;
     }
-    return false;
 }
 
 void RemoteKeyboardPlugin::sendKeyPress(const QString &key, int specialKey, bool shift, bool ctrl, bool alt, bool sendAck) const

@@ -219,7 +219,7 @@ SystemvolumePlugin::~SystemvolumePlugin()
     AudioObjectRemovePropertyListener(kAudioObjectSystemObject, &kAudioDefaultOutputDevicePropertyAddress, &onDefaultChanged, (void *)this);
 }
 
-bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
+void SystemvolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("requestSinks"))) {
         sendSinkList();
@@ -238,8 +238,6 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
             }
         }
     }
-
-    return true;
 }
 
 void SystemvolumePlugin::sendSinkList()

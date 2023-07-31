@@ -49,7 +49,7 @@ public:
     Q_SCRIPTABLE void sendClipboard(const QString &content);
     QString dbusPath() const override;
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     void connected() override;
     bool isAutoShareDisabled();
 

@@ -28,7 +28,7 @@ private:
 public:
     explicit RemoteKeyboardPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 
     bool remoteState() const

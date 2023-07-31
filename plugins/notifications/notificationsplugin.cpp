@@ -33,10 +33,10 @@ void NotificationsPlugin::connected()
     sendPacket(np);
 }
 
-bool NotificationsPlugin::receivePacket(const NetworkPacket &np)
+void NotificationsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("request")))
-        return false;
+        return;
 
     if (np.get<bool>(QStringLiteral("isCancel"))) {
         QString id = np.get<QString>(QStringLiteral("id"));
@@ -44,7 +44,7 @@ bool NotificationsPlugin::receivePacket(const NetworkPacket &np)
         if (id.startsWith(QLatin1String("org.kde.kdeconnect_tp::")))
             id = id.mid(id.indexOf(QLatin1String("::")) + 2);
         removeNotification(id);
-        return true;
+        return;
     }
 
     QString id = np.get<QString>(QStringLiteral("id"));
@@ -64,8 +64,6 @@ bool NotificationsPlugin::receivePacket(const NetworkPacket &np)
         noti = m_notifications.value(pubId);
         noti->update(np);
     }
-
-    return true;
 }
 
 void NotificationsPlugin::clearNotifications()

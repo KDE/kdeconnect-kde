@@ -37,7 +37,7 @@ public:
     explicit MMTelephonyPlugin(QObject *parent, const QVariantList &args);
     ~MMTelephonyPlugin() override = default;
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
 
 private:
     void onCallAdded(ModemManager::Call::Ptr call);

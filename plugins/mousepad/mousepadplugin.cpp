@@ -53,12 +53,10 @@ MousepadPlugin::~MousepadPlugin()
     delete m_impl;
 }
 
-bool MousepadPlugin::receivePacket(const NetworkPacket &np)
+void MousepadPlugin::receivePacket(const NetworkPacket &np)
 {
     if (m_impl) {
-        return m_impl->handlePacket(np);
-    } else {
-        return false;
+        m_impl->handlePacket(np);
     }
 }
 

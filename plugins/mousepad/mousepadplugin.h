@@ -23,7 +23,7 @@ public:
     explicit MousepadPlugin(QObject *parent, const QVariantList &args);
     ~MousepadPlugin() override;
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:

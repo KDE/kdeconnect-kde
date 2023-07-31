@@ -21,10 +21,10 @@ MprisRemotePlugin::MprisRemotePlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-bool MprisRemotePlugin::receivePacket(const NetworkPacket &np)
+void MprisRemotePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() != PACKET_TYPE_MPRIS)
-        return false;
+        return;
 
     if (np.has(QStringLiteral("player"))) {
         const QString player = np.get<QString>(QStringLiteral("player"));
@@ -62,8 +62,6 @@ bool MprisRemotePlugin::receivePacket(const NetworkPacket &np)
         }
     }
     Q_EMIT propertiesChanged();
-
-    return true;
 }
 
 long MprisRemotePlugin::position() const

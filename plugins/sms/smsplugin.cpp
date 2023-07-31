@@ -39,17 +39,15 @@ SmsPlugin::~SmsPlugin()
     // m_conversationInterface is self-deleting, see ~ConversationsDbusInterface for more information
 }
 
-bool SmsPlugin::receivePacket(const NetworkPacket &np)
+void SmsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.type() == PACKET_TYPE_SMS_MESSAGES) {
-        return handleBatchMessages(np);
+        handleBatchMessages(np);
     }
 
     if (np.type() == PACKET_TYPE_SMS_ATTACHMENT_FILE && np.hasPayload()) {
-        return handleSmsAttachmentFile(np);
+        handleSmsAttachmentFile(np);
     }
-
-    return true;
 }
 
 void SmsPlugin::sendSms(const QVariantList &addresses, const QString &textMessage, const QVariantList &attachmentUrls, const qint64 subID)

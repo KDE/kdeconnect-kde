@@ -20,14 +20,14 @@ PhotoPlugin::PhotoPlugin(QObject *parent, const QVariantList &args)
 {
 }
 
-bool PhotoPlugin::receivePacket(const NetworkPacket &np)
+void PhotoPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("cancel"))) {
         requestedFiles.takeFirst();
     }
 
     if (requestedFiles.isEmpty() || !np.hasPayload()) {
-        return true;
+        return;
     }
 
     const QString url = requestedFiles.takeFirst();
@@ -36,7 +36,6 @@ bool PhotoPlugin::receivePacket(const NetworkPacket &np)
         Q_EMIT photoReceived(url);
     });
     job->start();
-    return true;
 }
 
 void PhotoPlugin::requestPhoto(const QString &url)

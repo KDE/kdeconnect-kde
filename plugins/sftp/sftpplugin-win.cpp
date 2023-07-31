@@ -32,7 +32,7 @@ bool SftpPlugin::startBrowsing()
     return false;
 }
 
-bool SftpPlugin::receivePacket(const NetworkPacket &np)
+void SftpPlugin::receivePacket(const NetworkPacket &np)
 {
     QStringList receivedFieldsList = np.body().keys();
     QSet<QString> receivedFields(receivedFieldsList.begin(), receivedFieldsList.end());
@@ -41,11 +41,11 @@ bool SftpPlugin::receivePacket(const NetworkPacket &np)
         for (QString missingField : (expectedFields - receivedFields)) {
             qCWarning(KDECONNECT_PLUGIN_SFTP) << "Field" << missingField << "missing from packet.";
         }
-        return false;
+        return;
     }
     if (np.has(QStringLiteral("errorMessage"))) {
         qCWarning(KDECONNECT_PLUGIN_SFTP) << np.get<QString>(QStringLiteral("errorMessage"));
-        return false;
+        return;
     }
 
     QString path;
@@ -73,7 +73,6 @@ bool SftpPlugin::receivePacket(const NetworkPacket &np)
                               QMessageBox::Abort,
                               QMessageBox::Abort);
     }
-    return true;
 }
 
 #include "moc_sftpplugin-win.cpp"

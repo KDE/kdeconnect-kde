@@ -30,10 +30,10 @@ int ConnectivityReportPlugin::cellularNetworkStrength() const
     return m_cellularNetworkStrength;
 }
 
-bool ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
+void ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
 {
     if (PACKET_TYPE_CONNECTIVITY_REPORT != np.type()) {
-        return false;
+        return;
     }
 
     auto subscriptions = np.get<QVariantMap>(QStringLiteral("signalStrengths"), QVariantMap());
@@ -50,7 +50,6 @@ bool ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
             Q_EMIT refreshed(m_cellularNetworkType, m_cellularNetworkStrength);
         }
     }
-    return true;
 }
 
 QString ConnectivityReportPlugin::dbusPath() const

@@ -30,14 +30,11 @@ MMTelephonyPlugin::MMTelephonyPlugin(QObject *parent, const QVariantList &args)
     connect(ModemManager::notifier(), &ModemManager::Notifier::modemAdded, this, &MMTelephonyPlugin::onModemAdded);
 }
 
-bool MMTelephonyPlugin::receivePacket(const NetworkPacket &np)
+void MMTelephonyPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<QString>(QStringLiteral("event")) == QLatin1String("mute")) {
         // TODO: mute code
-        return true;
     }
-
-    return true;
 }
 
 void MMTelephonyPlugin::onModemAdded(const QString &path)

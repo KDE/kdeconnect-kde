@@ -146,7 +146,7 @@ public:
     explicit SmsPlugin(QObject *parent, const QVariantList &args);
     ~SmsPlugin() override;
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
 
     QString dbusPath() const override;
 

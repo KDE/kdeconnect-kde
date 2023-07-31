@@ -44,19 +44,18 @@ void ContactsPlugin::connected()
     synchronizeRemoteWithLocal();
 }
 
-bool ContactsPlugin::receivePacket(const NetworkPacket &np)
+void ContactsPlugin::receivePacket(const NetworkPacket &np)
 {
     // qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Packet Received for device " << device()->name();
     // qCDebug(KDECONNECT_PLUGIN_CONTACTS) << np.body();
 
     if (np.type() == PACKAGE_TYPE_CONTACTS_RESPONSE_UIDS_TIMESTAMPS) {
-        return handleResponseUIDsTimestamps(np);
+        handleResponseUIDsTimestamps(np);
     } else if (np.type() == PACKET_TYPE_CONTACTS_RESPONSE_VCARDS) {
-        return handleResponseVCards(np);
+        handleResponseVCards(np);
     } else {
         // Is this check necessary?
         qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown packet type received from device: " << device()->name() << ". Maybe you need to upgrade KDE Connect?";
-        return false;
     }
 }
 

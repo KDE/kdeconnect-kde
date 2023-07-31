@@ -19,8 +19,6 @@ public:
     explicit ScreensaverInhibitPlugin(QObject *parent, const QVariantList &args);
     ~ScreensaverInhibitPlugin() override;
 
-    bool receivePacket(const NetworkPacket &np) override;
-
 private:
     QProcess *m_caffeinateProcess;
 };

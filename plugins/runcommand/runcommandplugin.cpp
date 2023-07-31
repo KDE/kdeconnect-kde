@@ -37,11 +37,11 @@ RunCommandPlugin::RunCommandPlugin(QObject *parent, const QVariantList &args)
     connect(config(), &KdeConnectPluginConfig::configChanged, this, &RunCommandPlugin::sendConfig);
 }
 
-bool RunCommandPlugin::receivePacket(const NetworkPacket &np)
+void RunCommandPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("requestCommandList"), false)) {
         sendConfig();
-        return true;
+        return;
     }
 
     if (np.has(QStringLiteral("key"))) {
@@ -59,13 +59,10 @@ bool RunCommandPlugin::receivePacket(const NetworkPacket &np)
 #else
         QProcess::startDetached(QStringLiteral(COMMAND), QStringList{QStringLiteral(ARGS), commandJson[QStringLiteral("command")].toString()});
 #endif
-        return true;
     } else if (np.has(QStringLiteral("setup"))) {
         OpenConfig oc;
         oc.openConfiguration(device()->id(), QStringLiteral("kdeconnect_runcommand"));
     }
-
-    return false;
 }
 
 void RunCommandPlugin::connected()

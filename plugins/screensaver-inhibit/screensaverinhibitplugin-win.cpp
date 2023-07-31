@@ -23,11 +23,5 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
     SetThreadExecutionState(ES_CONTINUOUS);
 }
 
-bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
-{
-    Q_UNUSED(np);
-    return false;
-}
-
 #include "moc_screensaverinhibitplugin-win.cpp"
 #include "screensaverinhibitplugin-win.moc"

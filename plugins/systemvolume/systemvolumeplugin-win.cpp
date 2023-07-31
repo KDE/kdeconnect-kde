@@ -407,13 +407,13 @@ HRESULT SystemvolumePlugin::setDefaultAudioPlaybackDevice(QString &name, bool en
     return hr;
 }
 
-bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
+void SystemvolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (!valid)
-        return false;
+        return;
 
     if (np.has(QStringLiteral("requestSinks"))) {
-        return sendSinkList();
+        sendSinkList();
     } else {
         QString name = np.get<QString>(QStringLiteral("name"));
 
@@ -447,7 +447,6 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
             }
         }
     }
-    return true;
 }
 
 #include "moc_systemvolumeplugin-win.cpp"

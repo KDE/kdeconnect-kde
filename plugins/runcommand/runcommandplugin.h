@@ -22,7 +22,7 @@ class RunCommandPlugin : public KdeConnectPlugin
 public:
     explicit RunCommandPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:

@@ -26,7 +26,7 @@ RemoteSystemVolumePlugin::RemoteSystemVolumePlugin(QObject *parent, const QVaria
 {
 }
 
-bool RemoteSystemVolumePlugin::receivePacket(const NetworkPacket &np)
+void RemoteSystemVolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("sinkList"))) {
         QJsonDocument document(np.get<QJsonArray>(QStringLiteral("sinkList")));
@@ -43,8 +43,6 @@ bool RemoteSystemVolumePlugin::receivePacket(const NetworkPacket &np)
             Q_EMIT mutedChanged(name, np.get<int>(QStringLiteral("muted")));
         }
     }
-
-    return true;
 }
 
 void RemoteSystemVolumePlugin::sendVolume(const QString &name, int volume)

@@ -254,14 +254,15 @@ bool MprisControlPlugin::sendAlbumArt(const NetworkPacket &np)
     return true;
 }
 
-bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
+void MprisControlPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("playerList"))) {
-        return false; // Whoever sent this is an mpris client and not an mpris control!
+        return; // Whoever sent this is an mpris client and not an mpris control!
     }
 
     if (np.has(QStringLiteral("albumArtUrl"))) {
-        return sendAlbumArt(np);
+        sendAlbumArt(np);
+        return;
     }
 
     // Send the player list
@@ -271,7 +272,7 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
     if (!valid_player || np.get<bool>(QStringLiteral("requestPlayerList"))) {
         sendPlayerList();
         if (!valid_player) {
-            return true;
+            return;
         }
     }
 
@@ -357,8 +358,6 @@ bool MprisControlPlugin::receivePacket(const NetworkPacket &np)
         answer.set(QStringLiteral("player"), player);
         sendPacket(answer);
     }
-
-    return true;
 }
 
 void MprisControlPlugin::sendPlayerList()

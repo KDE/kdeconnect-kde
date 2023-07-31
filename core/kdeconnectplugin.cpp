@@ -69,6 +69,10 @@ QString KdeConnectPlugin::dbusPath() const
     return {};
 }
 
+void KdeConnectPlugin::receivePacket(const NetworkPacket &np)
+{
+    qCWarning(KDECONNECT_CORE) << metaObject()->className() << "tried to send an recieve an unhandled packet type" << np.type();
+}
 QString KdeConnectPlugin::iconName() const
 {
     return d->iconName;

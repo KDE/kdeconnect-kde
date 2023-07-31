@@ -24,15 +24,12 @@ RemoteCommandsPlugin::RemoteCommandsPlugin(QObject *parent, const QVariantList &
 {
 }
 
-bool RemoteCommandsPlugin::receivePacket(const NetworkPacket &np)
+void RemoteCommandsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("commandList"))) {
         m_canAddCommand = np.get<bool>(QStringLiteral("canAddCommand"));
         setCommands(np.get<QByteArray>(QStringLiteral("commandList")));
-        return true;
     }
-
-    return false;
 }
 
 void RemoteCommandsPlugin::connected()

@@ -86,7 +86,7 @@ void SharePlugin::setDateCreated(const QUrl &destination, const qint64 timestamp
     receivedFile.setFileTime(QDateTime::fromMSecsSinceEpoch(timestamp), QFileDevice::FileTime(QFileDevice::FileBirthTime));
 }
 
-bool SharePlugin::receivePacket(const NetworkPacket &np)
+void SharePlugin::receivePacket(const NetworkPacket &np)
 {
     /*
         //TODO: Write a test like this
@@ -102,8 +102,6 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
             out.setPayload(file, file->size());
 
             device()->sendPacket(out);
-
-            return true;
 
         }
     */
@@ -206,8 +204,6 @@ bool SharePlugin::receivePacket(const NetworkPacket &np)
     } else {
         qCDebug(KDECONNECT_PLUGIN_SHARE) << "Error: Nothing attached!";
     }
-
-    return true;
 }
 
 void SharePlugin::finished(KJob *job, const qint64 dateModified, const qint64 dateCreated, const bool open)

@@ -30,7 +30,7 @@ public:
     explicit FindThisDevicePlugin(QObject *parent, const QVariantList &args);
 
     QString dbusPath() const override;
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
 };
 
 inline QString defaultSound()

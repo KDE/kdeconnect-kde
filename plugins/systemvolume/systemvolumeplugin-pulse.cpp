@@ -28,10 +28,10 @@ SystemvolumePlugin::SystemvolumePlugin(QObject *parent, const QVariantList &args
 {
 }
 
-bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
+void SystemvolumePlugin::receivePacket(const NetworkPacket &np)
 {
     if (!PulseAudioQt::Context::instance()->isValid())
-        return false;
+        return;
 
     if (np.has(QStringLiteral("requestSinks"))) {
         sendSinkList();
@@ -53,7 +53,6 @@ bool SystemvolumePlugin::receivePacket(const NetworkPacket &np)
             }
         }
     }
-    return true;
 }
 
 void SystemvolumePlugin::sendSinkList()

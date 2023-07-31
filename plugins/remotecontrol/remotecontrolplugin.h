@@ -20,10 +20,6 @@ class RemoteControlPlugin : public KdeConnectPlugin
 public:
     explicit RemoteControlPlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket & /*np*/) override
-    {
-        return false;
-    }
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void moveCursor(const QPoint &p);

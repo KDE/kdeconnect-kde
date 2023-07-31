@@ -33,7 +33,7 @@ public:
     explicit PauseMusicPlugin(QObject *parent, const QVariantList &args);
     ~PauseMusicPlugin();
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
 
 private:
     void updatePlayersList();

@@ -58,12 +58,12 @@ PresenterPlugin::PresenterPlugin(QObject *parent, const QVariantList &args)
     m_timer->setSingleShot(true);
 }
 
-bool PresenterPlugin::receivePacket(const NetworkPacket &np)
+void PresenterPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("stop"), false)) {
         delete m_view;
         m_view = nullptr;
-        return true;
+        return;
     }
 
     if (!m_view) {
@@ -88,7 +88,6 @@ bool PresenterPlugin::receivePacket(const NetworkPacket &np)
     QQuickItem *object = m_view->rootObject();
     object->setProperty("xPos", m_xPos);
     object->setProperty("yPos", m_yPos);
-    return true;
 }
 
 #include "moc_presenterplugin.cpp"

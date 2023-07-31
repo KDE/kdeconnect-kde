@@ -121,13 +121,13 @@ bool SftpPlugin::startBrowsing()
     return false;
 }
 
-bool SftpPlugin::receivePacket(const NetworkPacket &np)
+void SftpPlugin::receivePacket(const NetworkPacket &np)
 {
     const QStringList keysList = np.body().keys();
     const auto keys = QSet(keysList.begin(), keysList.end());
     if (!(fields_c - keys).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
         // packet is invalid
-        return false;
+        return;
     }
 
     Q_EMIT packetReceived(np);
@@ -144,7 +144,6 @@ bool SftpPlugin::receivePacket(const NetworkPacket &np)
         remoteDirectories.insert(mountPoint(), i18n("All files"));
         remoteDirectories.insert(mountPoint() + QStringLiteral("/DCIM/Camera"), i18n("Camera pictures"));
     }
-    return true;
 }
 
 QString SftpPlugin::mountPoint()

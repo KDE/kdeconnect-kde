@@ -41,7 +41,7 @@ public Q_SLOTS:
      * Returns true if it has handled the packet in some way
      * device.sendPacket can be used to send an answer back to the device
      */
-    virtual bool receivePacket(const NetworkPacket &np) = 0;
+    virtual void receivePacket(const NetworkPacket &np);
 
     /**
      * This method will be called when a device is connected to this computer.

@@ -48,7 +48,7 @@ public:
     void setPosition(int position);
     void setPlayer(const QString &player);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 
     Q_SCRIPTABLE void seek(int offset) const;

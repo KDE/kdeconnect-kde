@@ -24,6 +24,6 @@ public:
     Q_SCRIPTABLE void sendPing();
     Q_SCRIPTABLE void sendPing(const QString &customMessage);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override;
 };

@@ -66,7 +66,7 @@ void LockDevicePlugin::setLocked(bool locked)
     sendPacket(np);
 }
 
-bool LockDevicePlugin::receivePacket(const NetworkPacket &np)
+void LockDevicePlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("isLocked"))) {
         bool locked = np.get<bool>(QStringLiteral("isLocked"));
@@ -111,8 +111,6 @@ bool LockDevicePlugin::receivePacket(const NetworkPacket &np)
 
         sendState();
     }
-
-    return true;
 }
 
 void LockDevicePlugin::sendState()

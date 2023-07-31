@@ -103,17 +103,17 @@ PauseMusicPlugin::~PauseMusicPlugin()
     CoUninitialize();
 }
 
-bool PauseMusicPlugin::receivePacket(const NetworkPacket &np)
+void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
 {
     bool pauseOnlyWhenTalking = config()->getBool(QStringLiteral("conditionTalking"), false);
 
     if (pauseOnlyWhenTalking) {
         if (np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
-            return true;
+            return;
         }
     } else {
         if (np.get<QString>(QStringLiteral("event")) != QLatin1String("ringing") && np.get<QString>(QStringLiteral("event")) != QLatin1String("talking")) {
-            return true;
+            return;
         }
     }
 
@@ -208,8 +208,6 @@ bool PauseMusicPlugin::receivePacket(const NetworkPacket &np)
             }
         }
     }
-
-    return true;
 }
 
 #include "moc_pausemusicplugin-win.cpp"

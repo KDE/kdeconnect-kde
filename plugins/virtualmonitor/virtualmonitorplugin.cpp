@@ -59,7 +59,7 @@ void VirtualMonitorPlugin::connected()
     sendPacket(np);
 }
 
-bool VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
+void VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
 {
     if (received.type() == PACKET_TYPE_VIRTUALMONITOR_REQUEST && received.has(QS("url"))) {
         QUrl url(received.get<QString>(QS("url")));
@@ -76,7 +76,6 @@ bool VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
             stop();
         }
     }
-    return true;
 }
 
 QString VirtualMonitorPlugin::dbusPath() const

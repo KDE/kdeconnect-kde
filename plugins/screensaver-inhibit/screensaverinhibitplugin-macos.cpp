@@ -33,11 +33,5 @@ ScreensaverInhibitPlugin::~ScreensaverInhibitPlugin()
     }
 }
 
-bool ScreensaverInhibitPlugin::receivePacket(const NetworkPacket &np)
-{
-    Q_UNUSED(np);
-    return false;
-}
-
 #include "moc_screensaverinhibitplugin-macos.cpp"
 #include "screensaverinhibitplugin-macos.moc"

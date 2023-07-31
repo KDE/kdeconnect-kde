@@ -23,7 +23,7 @@ class SystemvolumePlugin : public KdeConnectPlugin
 public:
     explicit SystemvolumePlugin(QObject *parent, const QVariantList &args);
 
-    bool receivePacket(const NetworkPacket &np) override;
+    void receivePacket(const NetworkPacket &np) override;
     void connected() override;
 
 private:
