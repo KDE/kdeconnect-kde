@@ -33,6 +33,7 @@ elseif(APPLE)
         kdeconnectcore
         Qt::Core
         "-framework CoreAudio"
+        "-framework CoreFoundation"
     )
 else()
     target_link_libraries(kdeconnect_systemvolume
