@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-07-31 00:46+0000\n"
 "PO-Revision-Date: 2023-06-08 08:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -415,7 +415,7 @@ msgstr "Tots els fitxers"
 msgid "Camera pictures"
 msgstr "Imatges de la càmera"
 
-#: share/share_config.cpp:24
+#: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
 msgstr "&percnt;1 en el camí serà substituït pel nom específic del dispositiu."

@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-06-03 09:00+0200\n"
+"PO-Revision-Date: 2023-07-30 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.3.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -121,10 +121,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connect se ni zagnal"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Datoteke zasebnega ključa ni bilo mogoče shraniti: %1"
+msgstr "Ni bilo mogoče generirati zasebnega ključa."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -132,10 +131,9 @@ msgid "Could not store private key file: %1"
 msgstr "Datoteke zasebnega ključa ni bilo mogoče shraniti: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Datoteke potrdila ni bilo mogoče shraniti: %1"
+msgstr "Ni bilo mogoče generirati potrdila za napravo."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

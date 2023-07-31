@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-07-31 00:46+0000\n"
 "PO-Revision-Date: 2023-06-08 06:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -406,7 +406,7 @@ msgstr "Vse datoteke"
 msgid "Camera pictures"
 msgstr "Posnetki kamere"
 
-#: share/share_config.cpp:24
+#: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
 msgstr "&percnt;1 na poti bo nadomeščen z določenim imenom naprave."

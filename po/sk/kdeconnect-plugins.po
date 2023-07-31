@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-07-31 00:46+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -409,7 +409,7 @@ msgstr "Všetky súbory"
 msgid "Camera pictures"
 msgstr "Obrázky fotoaparátu"
 
-#: share/share_config.cpp:24
+#: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
 msgstr "&percnt;1 v ceste sa nahradí názvom určeného zariadenia."

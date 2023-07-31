@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-06-03 12:11+0200\n"
+"PO-Revision-Date: 2023-07-30 11:25+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -120,10 +120,9 @@ msgid "KDE Connect failed to start"
 msgstr "Starten van KDE Connect is mislukt"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Kon privé sleutelbestand niet opslaan: %1"
+msgstr "Kon de privé sleutel niet genereren"
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -131,10 +130,9 @@ msgid "Could not store private key file: %1"
 msgstr "Kon privé sleutelbestand niet opslaan: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Kon certificaatbestand niet opslaan: %1"
+msgstr "Kon het certificaat van het apparaat niet genereren."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

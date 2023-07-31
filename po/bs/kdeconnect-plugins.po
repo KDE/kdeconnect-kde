@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-07-31 00:46+0000\n"
 "PO-Revision-Date: 2015-02-22 23:17+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -408,7 +408,7 @@ msgstr "Sve datoteke"
 msgid "Camera pictures"
 msgstr "Slike sa kamere"
 
-#: share/share_config.cpp:24
+#: share/share_config.cpp:22
 #, fuzzy, kde-format
 #| msgid "%1  in the path will be replaced with the specific device name."
 msgid "&percnt;1 in the path will be replaced with the specific device name."

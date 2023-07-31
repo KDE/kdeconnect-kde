@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-07-31 00:46+0000\n"
 "PO-Revision-Date: 2023-07-23 00:47+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -405,7 +405,7 @@ msgstr "모든 파일"
 msgid "Camera pictures"
 msgstr "카메라 사진"
 
-#: share/share_config.cpp:24
+#: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
 msgstr "경로 중 &percnt;1은 지정한 장치 이름으로 대체됩니다."

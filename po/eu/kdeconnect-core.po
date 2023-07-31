@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-29 14:33+0200\n"
+"PO-Revision-Date: 2023-07-30 19:59+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -123,10 +123,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connect-ek huts egin du abiatzean"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Ezin izan da gako pribatuaren fitxategia gorde: %1"
+msgstr "Ezin izan du gako pribatua sortu."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -134,10 +133,9 @@ msgid "Could not store private key file: %1"
 msgstr "Ezin izan da gako pribatuaren fitxategia gorde: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Ezin izan da ziurtagiriaren fitxategia gorde: %1"
+msgstr "Ezin izan du gailuaren ziurtagiria sortu."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

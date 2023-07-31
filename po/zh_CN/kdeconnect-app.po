@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2023-07-23 12:28\n"
+"PO-Revision-Date: 2023-07-30 07:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -127,8 +127,7 @@ msgid "This device is not paired"
 msgstr "此设备未配对"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配对"
@@ -159,11 +158,10 @@ msgid "Please choose a file"
 msgstr "请选择文件"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "查找设备"
+msgstr "设备"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format

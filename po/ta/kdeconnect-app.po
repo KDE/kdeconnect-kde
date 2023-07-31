@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2023-06-11 16:52+0530\n"
+"PO-Revision-Date: 2023-07-30 14:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -125,8 +125,7 @@ msgid "This device is not paired"
 msgstr "இச்சாதனம் இணைக்கப்படவில்லை"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "இணை"
@@ -157,11 +156,10 @@ msgid "Please choose a file"
 msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "சாதனத்தை கண்டுபிடி"
+msgstr "சாதனங்கள்"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
