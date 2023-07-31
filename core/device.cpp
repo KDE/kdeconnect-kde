@@ -446,13 +446,13 @@ QString Device::encryptionInfo() const
 
     QString localChecksum = QString::fromLatin1(KdeConnectConfig::instance().certificate().digest(digestAlgorithm).toHex());
     for (int i = 2; i < localChecksum.size(); i += 3) {
-        localChecksum.insert(i, QStringLiteral(":")); // Improve readability
+        localChecksum.insert(i, QLatin1Char(':')); // Improve readability
     }
     result += i18n("SHA256 fingerprint of your device certificate is: %1\n", localChecksum);
 
     QString remoteChecksum = QString::fromLatin1(certificate().digest(digestAlgorithm).toHex());
     for (int i = 2; i < remoteChecksum.size(); i += 3) {
-        remoteChecksum.insert(i, QStringLiteral(":")); // Improve readability
+        remoteChecksum.insert(i, QLatin1Char(':')); // Improve readability
     }
     result += i18n("SHA256 fingerprint of remote device certificate is: %1\n", remoteChecksum);
 

@@ -84,8 +84,8 @@ void DBusInstancePrivate::launchDBusDaemon()
         kdeconnectDBusConfiguration = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("dbus-1/session.conf"));
     } else {
         // macOS Debug env
-        dbusDaemonExecutable = QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../bin/dbus-daemon");
-        kdeconnectDBusConfiguration = QString::fromLatin1(qgetenv("craftRoot")) + QStringLiteral("/../share/dbus-1/session.conf");
+        dbusDaemonExecutable = QLatin1String(qgetenv("craftRoot")) + QLatin1String("/../bin/dbus-daemon");
+        kdeconnectDBusConfiguration = QLatin1String(qgetenv("craftRoot")) + QLatin1String("/../share/dbus-1/session.conf");
     }
     m_dbusProcess->setProgram(dbusDaemonExecutable);
     m_dbusProcess->setArguments({QStringLiteral("--print-address"),

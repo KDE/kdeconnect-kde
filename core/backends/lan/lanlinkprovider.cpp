@@ -104,7 +104,7 @@ void LanLinkProvider::onStart()
         QAbstractSocket::SocketError sockErr = m_udpSocket.error();
         // Refer to https://doc.qt.io/qt-5/qabstractsocket.html#SocketError-enum to decode socket error number
         QString errorMessage = QString::fromLatin1(QMetaEnum::fromType<QAbstractSocket::SocketError>().valueToKey(sockErr));
-        qCritical(KDECONNECT_CORE) << QLatin1String("Failed to bind UDP socket on port") << m_udpListenPort << QLatin1String("with error") << errorMessage;
+        qCritical(KDECONNECT_CORE) << "Failed to bind UDP socket on port" << m_udpListenPort << "with error" << errorMessage;
     }
     Q_ASSERT(success);
 

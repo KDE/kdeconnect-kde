@@ -27,7 +27,7 @@ void FindMyPhonePlugin::ring()
 
 QString FindMyPhonePlugin::dbusPath() const
 {
-    return QString::fromLatin1("/modules/kdeconnect/devices/") + device()->id() + QString::fromLatin1("/findmyphone");
+    return QLatin1String("/modules/kdeconnect/devices/") + device()->id() + QLatin1String("/findmyphone");
 }
 
 #include "findmyphoneplugin.moc"

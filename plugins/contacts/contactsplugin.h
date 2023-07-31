@@ -59,11 +59,9 @@ class QObject;
  */
 
 #ifdef Q_OS_WIN
-Q_GLOBAL_STATIC_WITH_ARGS(QString, vcardsLocation, (QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QString::fromLatin1("/Contacts")))
+Q_GLOBAL_STATIC_WITH_ARGS(QString, vcardsLocation, (QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + QLatin1String("/Contacts")))
 #else
-Q_GLOBAL_STATIC_WITH_ARGS(QString,
-                          vcardsLocation,
-                          (QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QString::fromLatin1("/kpeoplevcard")))
+Q_GLOBAL_STATIC_WITH_ARGS(QString, vcardsLocation, (QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/kpeoplevcard")))
 #endif
 
 #define VCARD_EXTENSION QStringLiteral(".vcf")
