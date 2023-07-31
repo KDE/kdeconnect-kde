@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2023-06-10 17:27+0200\n"
+"PO-Revision-Date: 2023-07-29 11:18+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -129,8 +129,7 @@ msgid "This device is not paired"
 msgstr "Este dispositivo no está vinculado"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Emparejar"
@@ -161,11 +160,10 @@ msgid "Please choose a file"
 msgstr "Por favor, elija un archivo"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Encontar dispositivo"
+msgstr "Dispositivos"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
