@@ -23,20 +23,13 @@ public:
     explicit MdnsDiscovery(LanLinkProvider *parent);
     ~MdnsDiscovery();
 
-    void startDiscovering();
-    void stopDiscovering();
-
-    void stopAnnouncing();
-    void startAnnouncing();
+    void onStart();
+    void onStop();
 
 public Q_SLOTS:
-    void onNetworkChange()
-    {
-        mdnsAnnouncer.onNetworkChange();
-    }
+    void onNetworkChange();
 
 private:
-    LanLinkProvider *lanLinkProvider = nullptr;
     MdnsWrapper::Discoverer mdnsDiscoverer;
     MdnsWrapper::Announcer mdnsAnnouncer;
 };

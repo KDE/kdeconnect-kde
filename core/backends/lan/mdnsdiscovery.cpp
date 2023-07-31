@@ -15,8 +15,7 @@
 const QString kServiceType = QStringLiteral("_kdeconnect._udp.local");
 
 MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
-    : lanLinkProvider(lanLinkProvider)
-    , mdnsAnnouncer(KdeConnectConfig::instance().deviceId(), kServiceType, LanLinkProvider::UDP_PORT)
+    : mdnsAnnouncer(KdeConnectConfig::instance().deviceId(), kServiceType, LanLinkProvider::UDP_PORT)
 {
     KdeConnectConfig &config = KdeConnectConfig::instance();
     mdnsAnnouncer.putTxtRecord(QStringLiteral("id"), config.deviceId());
@@ -36,28 +35,26 @@ MdnsDiscovery::MdnsDiscovery(LanLinkProvider *lanLinkProvider)
 
 MdnsDiscovery::~MdnsDiscovery()
 {
-    stopAnnouncing();
-    stopDiscovering();
+    onStop();
 }
 
-void MdnsDiscovery::startAnnouncing()
+void MdnsDiscovery::onStart()
 {
     mdnsAnnouncer.startAnnouncing();
-}
-
-void MdnsDiscovery::stopAnnouncing()
-{
-    mdnsAnnouncer.stopAnnouncing();
-}
-
-void MdnsDiscovery::startDiscovering()
-{
     mdnsDiscoverer.startDiscovering(kServiceType);
 }
 
-void MdnsDiscovery::stopDiscovering()
+void MdnsDiscovery::onStop()
 {
+    mdnsAnnouncer.stopAnnouncing();
     mdnsDiscoverer.stopDiscovering();
+}
+
+void MdnsDiscovery::onNetworkChange()
+{
+    mdnsAnnouncer.onNetworkChange();
+    mdnsDiscoverer.stopDiscovering();
+    mdnsDiscoverer.startDiscovering(kServiceType);
 }
 
 #include "moc_mdnsdiscovery.cpp"

@@ -48,14 +48,14 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
     , m_udpBroadcastPort(udpBroadcastPort)
     , m_udpListenPort(udpListenPort)
     , m_testMode(testMode)
-    , m_combineBroadcastsTimer(this)
+    , m_combineNetworkChangeTimer(this)
 #ifdef KDECONNECT_MDNS
     , m_mdnsDiscovery(this)
 #endif
 {
-    m_combineBroadcastsTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
-    m_combineBroadcastsTimer.setSingleShot(true);
-    connect(&m_combineBroadcastsTimer, &QTimer::timeout, this, &LanLinkProvider::broadcastToNetwork);
+    m_combineNetworkChangeTimer.setInterval(0); // increase this if waiting a single event-loop iteration is not enough
+    m_combineNetworkChangeTimer.setSingleShot(true);
+    connect(&m_combineNetworkChangeTimer, &QTimer::timeout, this, &LanLinkProvider::combinedOnNetworkChange);
 
     connect(&m_udpSocket, &QIODevice::readyRead, this, &LanLinkProvider::udpBroadcastReceived);
 
@@ -71,21 +71,14 @@ LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint1
 #if QT_VERSION_MAJOR < 6
     QNetworkConfigurationManager *networkManager = new QNetworkConfigurationManager(this);
     connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, [this](QNetworkConfiguration config) {
-        if (m_lastConfig != config && config.state() == QNetworkConfiguration::Active) {
-            m_lastConfig = config;
+        if (config.state() == QNetworkConfiguration::Active) {
             onNetworkChange();
-#ifdef KDECONNECT_MDNS
-            m_mdnsDiscovery.onNetworkChange();
-#endif
         }
     });
 #else
     const auto checkNetworkChange = [this]() {
         if (QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online) {
             onNetworkChange();
-#ifdef KDECONNECT_MDNS
-            m_mdnsDiscovery.onNetworkChange();
-#endif
         }
     };
     // Detect when a network interface changes status, so we announce ourselves in the new network
@@ -127,8 +120,7 @@ void LanLinkProvider::onStart()
     broadcastUdpIdentityPacket();
 
 #ifdef KDECONNECT_MDNS
-    m_mdnsDiscovery.startAnnouncing();
-    m_mdnsDiscovery.startDiscovering();
+    m_mdnsDiscovery.onStart();
 #endif
 
     qCDebug(KDECONNECT_CORE) << "LanLinkProvider started";
@@ -137,8 +129,7 @@ void LanLinkProvider::onStart()
 void LanLinkProvider::onStop()
 {
 #ifdef KDECONNECT_MDNS
-    m_mdnsDiscovery.stopAnnouncing();
-    m_mdnsDiscovery.stopDiscovering();
+    m_mdnsDiscovery.onStop();
 #endif
     m_udpSocket.close();
     m_server->close();
@@ -147,15 +138,15 @@ void LanLinkProvider::onStop()
 
 void LanLinkProvider::onNetworkChange()
 {
-    if (m_combineBroadcastsTimer.isActive()) {
-        qCDebug(KDECONNECT_CORE) << "Preventing duplicate broadcasts";
+    if (m_combineNetworkChangeTimer.isActive()) {
+        qCDebug(KDECONNECT_CORE) << "Device discovery triggered too fast, ignoring";
         return;
     }
-    m_combineBroadcastsTimer.start();
+    m_combineNetworkChangeTimer.start();
 }
 
 // I'm in a new network, let's be polite and introduce myself
-void LanLinkProvider::broadcastToNetwork()
+void LanLinkProvider::combinedOnNetworkChange()
 {
     if (!m_server->isListening()) {
         qWarning() << "TCP server not listening, not broadcasting";
@@ -166,8 +157,7 @@ void LanLinkProvider::broadcastToNetwork()
 
     broadcastUdpIdentityPacket();
 #ifdef KDECONNECT_MDNS
-    m_mdnsDiscovery.stopDiscovering();
-    m_mdnsDiscovery.startDiscovering();
+    m_mdnsDiscovery.onNetworkChange();
 #endif
 }
 
