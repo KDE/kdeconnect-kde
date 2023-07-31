@@ -275,7 +275,8 @@ void SystemvolumePlugin::sendSinkList()
         // Add data source change listerner
         AudioObjectAddPropertyListener(deviceId, &kAudioMasterDataSourcePropertyAddress, &onOutputSourceChanged, (void *)this);
 
-        QJsonObject sinkObject{{QStringLiteral("name"), QStringLiteral("default-") + QString::number(deviceId)},
+        QString name = QStringLiteral("default-") + QString::number(deviceId);
+        QJsonObject sinkObject{{QStringLiteral("name"), name},
                                {QStringLiteral("muted"), audioDevice->isMuted()},
                                {QStringLiteral("description"), audioDevice->m_description},
                                {QStringLiteral("volume"), audioDevice->volume() * 100},

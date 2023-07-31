@@ -30,7 +30,7 @@ MousepadPlugin::MousepadPlugin(QObject *parent, const QVariantList &args)
 {
 #if defined(Q_OS_WIN)
     m_impl = new WindowsRemoteInput(this);
-#elif defined(Q_OS_APPLE)
+#elif defined(Q_OS_MACOS)
     m_impl = new MacOSRemoteInput(this);
 #else
     if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
