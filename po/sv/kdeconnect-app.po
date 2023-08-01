@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2019, 2020, 2021.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2019, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2021-08-09 18:45+0200\n"
+"PO-Revision-Date: 2023-07-25 19:11+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -107,7 +107,7 @@ msgstr "Kör kommando"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Skicka klippbord"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -125,8 +125,7 @@ msgid "This device is not paired"
 msgstr "Apparaten är inte ihopparad"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Para ihop"
@@ -157,11 +156,10 @@ msgid "Please choose a file"
 msgstr "Välj en fil"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Hitta apparat"
+msgstr "Apparater"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -189,10 +187,9 @@ msgid "Find devices..."
 msgstr "Hitta apparater..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Insticksprograminställningar"
+msgstr "Inställningar"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -200,10 +197,10 @@ msgid "Remote Control"
 msgstr "Fjärrkontroll"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "Tryck vänster och höger musknappar samtidigt för att låsa upp"
+msgstr ""
+"Tryck på %1 eller vänster och höger musknappar samtidigt för att låsa upp"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -241,19 +238,17 @@ msgid "No commands defined"
 msgstr "Inga kommandon definierade"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Insticksprograminställningar"
+msgstr "Inställningar"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Apparatnamn"
 
 #: qml/Settings.qml:52
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE-anslut"
+msgstr "Om KDE-anslut"

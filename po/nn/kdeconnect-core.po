@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-15 14:22+0200\n"
+"PO-Revision-Date: 2023-07-31 21:12+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -123,7 +123,7 @@ msgstr "Klarte ikkje starta KDE Connect"
 #: kdeconnectconfig.cpp:301
 #, kde-format
 msgid "Could not generate the private key."
-msgstr ""
+msgstr "Klarte ikkje generera privatnøkkelen."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -133,7 +133,7 @@ msgstr "Klarte ikkje lagra privatnøkkelfila: %1"
 #: kdeconnectconfig.cpp:332
 #, kde-format
 msgid "Could not generate the device certificate."
-msgstr ""
+msgstr "Klarte ikkje generera einingssertifikatet."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
