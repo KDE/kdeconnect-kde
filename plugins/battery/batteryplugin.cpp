@@ -108,10 +108,6 @@ void BatteryPlugin::slotChargeChanged()
 
 void BatteryPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (PACKET_TYPE_BATTERY != np.type()) {
-        return;
-    }
-
     m_isCharging = np.get<bool>(QStringLiteral("isCharging"), false);
     m_charge = np.get<int>(QStringLiteral("currentCharge"), -1);
     const int thresholdEvent = np.get<int>(QStringLiteral("thresholdEvent"), (int)ThresholdNone);

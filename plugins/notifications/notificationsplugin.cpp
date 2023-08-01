@@ -35,8 +35,9 @@ void NotificationsPlugin::connected()
 
 void NotificationsPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (np.get<bool>(QStringLiteral("request")))
-        return;
+    if (np.get<bool>(QStringLiteral("request"))) {
+        qCWarning(KDECONNECT_PLUGIN_NOTIFICATION) << "Unexpected notification request. Maybe the paired client is very old?";
+    }
 
     if (np.get<bool>(QStringLiteral("isCancel"))) {
         QString id = np.get<QString>(QStringLiteral("id"));

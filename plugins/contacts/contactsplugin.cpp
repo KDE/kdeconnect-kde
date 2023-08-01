@@ -53,9 +53,6 @@ void ContactsPlugin::receivePacket(const NetworkPacket &np)
         handleResponseUIDsTimestamps(np);
     } else if (np.type() == PACKET_TYPE_CONTACTS_RESPONSE_VCARDS) {
         handleResponseVCards(np);
-    } else {
-        // Is this check necessary?
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "Unknown packet type received from device: " << device()->name() << ". Maybe you need to upgrade KDE Connect?";
     }
 }
 

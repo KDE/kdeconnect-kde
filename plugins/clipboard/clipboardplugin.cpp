@@ -88,6 +88,7 @@ void ClipboardPlugin::receivePacket(const NetworkPacket &np)
         qint64 packetTime = np.get<qint64>(QStringLiteral("timestamp"));
         // If the packetTime is 0, it means the timestamp is unknown (so do nothing).
         if (packetTime == 0 || packetTime < ClipboardListener::instance()->updateTimestamp()) {
+            qCWarning(KDECONNECT_PLUGIN_CLIPBOARD) << "Ignoring clipboard without timestamp";
             return;
         }
 

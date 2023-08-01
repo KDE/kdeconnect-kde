@@ -32,10 +32,6 @@ int ConnectivityReportPlugin::cellularNetworkStrength() const
 
 void ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
 {
-    if (PACKET_TYPE_CONNECTIVITY_REPORT != np.type()) {
-        return;
-    }
-
     auto subscriptions = np.get<QVariantMap>(QStringLiteral("signalStrengths"), QVariantMap());
     if (!subscriptions.isEmpty()) {
         auto networkInfo = subscriptions.first().toMap();
