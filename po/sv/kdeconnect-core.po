@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-25 16:00+0200\n"
+"PO-Revision-Date: 2023-08-01 08:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -118,10 +118,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE-anslut misslyckades starta"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Kunde inte lagra privat nyckelfil: %1"
+msgstr "Kunde inte skapa privat nyckel."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -129,10 +128,9 @@ msgid "Could not store private key file: %1"
 msgstr "Kunde inte lagra privat nyckelfil: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Kunde inte lagra certifikatfil: %1"
+msgstr "Kunde inte generera apparatcertifikatet."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
