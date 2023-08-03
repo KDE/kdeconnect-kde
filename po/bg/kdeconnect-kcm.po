@@ -167,15 +167,3 @@ msgstr ""
 "<br><br>Ако срещнете проблеми, посетете <a href=\"https://userbase.kde.org/"
 "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE "
 "Connect Community wiki</span></a> за помощ.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "Настройки на KDE Connect"
-
-#~ msgid "KDE Connect Settings module"
-#~ msgstr "Модул на KDE Connect настройки"
-
-#~ msgid "(C) 2015 Albert Vaca Cintora"
-#~ msgstr "(C) 2015 Albert Vaca Cintora"
-
-#~ msgid "Albert Vaca Cintora"
-#~ msgstr "Albert Vaca Cintora"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-06-08 23:30+0200\n"
+"PO-Revision-Date: 2023-08-02 22:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -118,10 +118,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connect не успя да стартира"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Не може да се съхрани частен ключ: %1"
+msgstr "Не може да се генерира частен ключ."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -129,34 +128,11 @@ msgid "Could not store private key file: %1"
 msgstr "Не може да се съхрани частен ключ: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Не може да се съхрани сертификат на файл: %1"
+msgstr "Не може да се генерира сертификат на устройството."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не може да се съхрани сертификат на файл: %1"
-
-#~ msgid ""
-#~ "Could not find support for RSA in your QCA installation. If your "
-#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
-#~ "sure you have them installed and try again."
-#~ msgstr ""
-#~ "Не може да се намери поддръжка за RSA във вашата QCA инсталация. Ако "
-#~ "вашата дистрибуция осигурява отделни пакети за QCA-OSSL и QCA-GNUPG, "
-#~ "уверете се, че сте ги инсталирали и опитайте отново."
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: Сдвояване вече е поискано за това устройство"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "Това устройство не може да бъде сдвоено, защото се изпълнява стара версия "
-#~ "на KDE Connect."
-
-#~ msgid "Already paired"
-#~ msgstr "Вече е сдвоено"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-07-30 07:09\n"
+"PO-Revision-Date: 2023-08-02 12:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -117,10 +117,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connect 启动失败"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "无法保存私钥文件：%1"
+msgstr "无法生成私钥。"
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -128,20 +127,11 @@ msgid "Could not store private key file: %1"
 msgstr "无法保存私钥文件：%1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "无法保存证书文件：%1"
+msgstr "无法生成设备证书。"
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "无法保存证书文件：%1"
-
-#~ msgid ""
-#~ "Could not find support for RSA in your QCA installation. If your "
-#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
-#~ "sure you have them installed and try again."
-#~ msgstr ""
-#~ "你目前安装的 QCA 中没有 RSA 支持。如果你的发行版提供 QCA-ossl 和 QCA-"
-#~ "gnupg 之类的分包，请确保你已经正确地安装它们，然后重试。"
