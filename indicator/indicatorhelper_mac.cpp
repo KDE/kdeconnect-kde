@@ -112,6 +112,8 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
                                        "KDE Connect will quit"),
                                   QMessageBox::Abort,
                                   QMessageBox::Abort);
+            // End the program
+            return -1;
         } else {
             // Show a warning and exit
             qCritical() << "Fail to get launchctl" << KDECONNECT_SESSION_DBUS_LAUNCHD_ENV << "env";
