@@ -26,12 +26,17 @@ IndicatorHelper::IndicatorHelper()
 {
     registerServices();
 
-    QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
-    QPixmap splashPixmap(kdeconnectIcon.pixmap(256, 256));
-
+    // Do not create QIcon before D-Bus setup, use a QPixmap from a hardcoded icon now
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory); 
+    QPixmap splashPixmap(iconPath + QStringLiteral("/hicolor/scalable/apps/kdeconnect.svg"));
     m_splashScreen = new QSplashScreen(splashPixmap);
 
-    m_splashScreen->showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    // Icon is white, set the text color to black
+    m_splashScreen->showMessage(
+        i18n("Launching") + QStringLiteral("\n"),
+        Qt::AlignHCenter | Qt::AlignBottom,
+        Qt::black
+    );
     m_splashScreen->show();
 }
 
@@ -81,7 +86,11 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     }
 
     // Start daemon
-    m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+    m_splashScreen->showMessage(
+        i18n("Launching daemon") + QStringLiteral("\n"),
+        Qt::AlignHCenter | Qt::AlignBottom,
+        Qt::black
+    );
 
     // Here we will try to bring our private session D-Bus
     if (!hasUsableSessionBus) {
@@ -90,7 +99,11 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
         DBusHelper::launchDBusDaemon();
         // Wait for dbus daemon env
         QProcess getLaunchdDBusEnv;
-        m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+        m_splashScreen->showMessage(
+            i18n("Waiting D-Bus") + QStringLiteral("\n"),
+            Qt::AlignHCenter | Qt::AlignBottom,
+            Qt::black
+        );
         int retry = 0;
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
         getLaunchdDBusEnv.setArguments({QStringLiteral("getenv"), QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV)});
@@ -126,6 +139,10 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
                                   QMessageBox::Abort);
             return -2;
         }
+
+        // After D-Bus setting up, everything should go fine
+        QIcon kdeconnectIcon = QIcon::fromTheme(QStringLiteral("kdeconnect"));
+        m_splashScreen->setPixmap(QPixmap(kdeconnectIcon.pixmap(256, 256)));
     }
 
     // Start kdeconnectd, the daemon will not duplicate when there is already one
