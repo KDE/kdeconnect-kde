@@ -109,7 +109,7 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
 
     socket->connectToService(info);
 
-    qCDebug(KDECONNECT_CORE()) << "Connecting to" << info.device().address();
+    qCDebug(KDECONNECT_CORE) << "Connecting to" << info.device().address();
 
     if (socket->error() != QBluetoothSocket::SocketError::NoSocketError) {
         qCWarning(KDECONNECT_CORE) << "Socket connection error:" << socket->errorString();
@@ -124,10 +124,10 @@ void BluetoothLinkProvider::clientConnected(QPointer<QBluetoothSocket> socket)
 
     auto peer = socket->peerAddress();
 
-    qCDebug(KDECONNECT_CORE()) << "Connected to" << peer;
+    qCDebug(KDECONNECT_CORE) << "Connected to" << peer;
 
     if (mSockets.contains(socket->peerAddress())) {
-        qCWarning(KDECONNECT_CORE()) << "Duplicate connection to" << peer;
+        qCWarning(KDECONNECT_CORE) << "Duplicate connection to" << peer;
         socket->close();
         socket->deleteLater();
         return;
@@ -177,7 +177,7 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
         return;
     }
 
-    qCDebug(KDECONNECT_CORE()) << "Received identity packet from" << peer;
+    qCDebug(KDECONNECT_CORE) << "Received identity packet from" << peer;
 
     // TODO?
     // disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
@@ -212,12 +212,12 @@ void BluetoothLinkProvider::serverNewConnection()
 {
     QBluetoothSocket *socket = mBluetoothServer->nextPendingConnection();
 
-    qCDebug(KDECONNECT_CORE()) << "Received connection from" << socket->peerAddress();
+    qCDebug(KDECONNECT_CORE) << "Received connection from" << socket->peerAddress();
 
     QBluetoothAddress peer = socket->peerAddress();
 
     if (mSockets.contains(peer)) {
-        qCDebug(KDECONNECT_CORE()) << "Duplicate connection from" << peer;
+        qCDebug(KDECONNECT_CORE) << "Duplicate connection from" << peer;
         socket->close();
         socket->deleteLater();
         return;
@@ -246,7 +246,7 @@ void BluetoothLinkProvider::serverNewConnection()
     myIdentity.set(QStringLiteral("certificate"), QString::fromLatin1(myDeviceInfo.certificate.toPem()));
     socket->write(myIdentity.serialize());
 
-    qCDebug(KDECONNECT_CORE()) << "Sent identity packet to" << socket->peerAddress();
+    qCDebug(KDECONNECT_CORE) << "Sent identity packet to" << socket->peerAddress();
 }
 
 // I'm the existing device and this is the answer to my identity packet (data received)
@@ -275,7 +275,7 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
         return;
     }
 
-    qCDebug(KDECONNECT_CORE()) << "Received identity packet from" << peer;
+    qCDebug(KDECONNECT_CORE) << "Received identity packet from" << peer;
 
     QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
@@ -295,7 +295,7 @@ void BluetoothLinkProvider::onLinkDestroyed(const QString &deviceId, DeviceLink 
 
 void BluetoothLinkProvider::socketDisconnected(const QBluetoothAddress &peer, MultiplexChannel *socket)
 {
-    qCDebug(KDECONNECT_CORE()) << "Disconnected";
+    qCDebug(KDECONNECT_CORE) << "Disconnected";
     disconnect(socket, nullptr, this, nullptr);
 
     mSockets.remove(peer);

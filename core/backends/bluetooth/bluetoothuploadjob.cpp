@@ -47,7 +47,7 @@ void BluetoothUploadJob::writeSome()
         int bytesWritten = mSocket->write(mData->read(bytes));
 
         if (bytesWritten < 0) {
-            qCWarning(KDECONNECT_CORE()) << "error when writing data to bluetooth upload" << bytes << mData->bytesAvailable();
+            qCWarning(KDECONNECT_CORE) << "error when writing data to bluetooth upload" << bytes << mData->bytesAvailable();
             errorOccurred = true;
             break;
         }

@@ -171,7 +171,7 @@ void LanLinkProvider::broadcastUdpIdentityPacket()
         qWarning() << "Not broadcasting UDP because KDECONNECT_DISABLE_UDP_BROADCAST is set";
         return;
     }
-    qCDebug(KDECONNECT_CORE()) << "Broadcasting identity packet";
+    qCDebug(KDECONNECT_CORE) << "Broadcasting identity packet";
 
     QList<QHostAddress> addresses = getBroadcastAddresses();
 
@@ -184,7 +184,7 @@ void LanLinkProvider::broadcastUdpIdentityPacket()
             for (const QNetworkAddressEntry &ifaceAddress : iface.addressEntries()) {
                 QHostAddress sourceAddress = ifaceAddress.ip();
                 if (sourceAddress.protocol() == QAbstractSocket::IPv4Protocol && sourceAddress != QHostAddress::LocalHost) {
-                    qCDebug(KDECONNECT_CORE()) << "Broadcasting as" << sourceAddress;
+                    qCDebug(KDECONNECT_CORE) << "Broadcasting as" << sourceAddress;
                     sendSocket.bind(sourceAddress);
                     sendUdpIdentityPacket(sendSocket, addresses);
                     sendSocket.close();
