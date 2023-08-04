@@ -54,10 +54,6 @@ private:
 
 private Q_SLOTS:
     void newConnection();
-    void socketDisconnected();
-    void socketError();
-    void sslError();
-    void encrypted();
     void slotProcessedAmount(KJob *job, KJob::Unit unit, qulonglong amount);
     void slotResult(KJob *job) override;
     void startNextSubJob();

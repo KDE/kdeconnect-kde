@@ -131,47 +131,37 @@ void CompositeUploadJob::newConnection()
 
     m_currentJob->setSocket(m_socket);
 
-    connect(m_socket, &QSslSocket::disconnected, this, &CompositeUploadJob::socketDisconnected);
-    connect(m_socket, &QAbstractSocket::errorOccurred, this, &CompositeUploadJob::socketError);
-    connect(m_socket, &QSslSocket::sslErrors, this, &CompositeUploadJob::sslError);
-    connect(m_socket, &QSslSocket::encrypted, this, &CompositeUploadJob::encrypted);
+    connect(m_socket, &QSslSocket::disconnected, this, [this]() {
+        m_socket->close();
+    });
+    connect(m_socket, &QAbstractSocket::errorOccurred, this, [this](QAbstractSocket::SocketError error) {
+        qCDebug(KDECONNECT_CORE) << "Error in socket occurred" << error;
+        // Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a
+        // segv
+        setError(SocketError);
+        emitResult();
+
+        m_running = false;
+    });
+    connect(m_socket, &QSslSocket::sslErrors, this, [this](const QList<QSslError> &errors) {
+        qCDebug(KDECONNECT_CORE) << "Received ssl errors" << errors;
+        m_socket->close();
+        setError(SslError);
+        emitResult();
+
+        m_running = false;
+    });
+    connect(m_socket, &QSslSocket::encrypted, this, [this]() {
+        if (!m_timer.isValid()) {
+            m_timer.start();
+        }
+
+        m_currentJob->start();
+    });
 
     LanLinkProvider::configureSslSocket(m_socket, m_deviceId, true);
 
     m_socket->startServerEncryption();
-}
-
-void CompositeUploadJob::socketDisconnected()
-{
-    m_socket->close();
-}
-
-void CompositeUploadJob::socketError()
-{
-    // Do not close the socket because when android closes the socket (share is cancelled) closing the socket leads to a cyclic socketError and eventually a
-    // segv
-    setError(SocketError);
-    emitResult();
-
-    m_running = false;
-}
-
-void CompositeUploadJob::sslError()
-{
-    m_socket->close();
-    setError(SslError);
-    emitResult();
-
-    m_running = false;
-}
-
-void CompositeUploadJob::encrypted()
-{
-    if (!m_timer.isValid()) {
-        m_timer.start();
-    }
-
-    m_currentJob->start();
 }
 
 bool CompositeUploadJob::addSubjob(KJob *job)
