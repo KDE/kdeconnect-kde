@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 00:46+0000\n"
+"POT-Creation-Date: 2023-08-04 00:45+0000\n"
 "PO-Revision-Date: 2021-09-25 15:41-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 21.08.1\n"
 
-#: battery/batteryplugin.cpp:123
+#: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: バッテリー残量低下"
 
-#: battery/batteryplugin.cpp:124
+#: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
 msgstr "バッテリーは %1% です"
@@ -431,30 +431,30 @@ msgstr "受信中"
 msgid "Save files in:"
 msgstr "ファイルの保存先:"
 
-#: share/shareplugin.cpp:162
+#: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:164
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:165
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr ""
 
-#: share/shareplugin.cpp:241
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
 msgstr "ファイル共有ができません"
 
-#: share/shareplugin.cpp:241
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1は存在しません。"

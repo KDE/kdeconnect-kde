@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 00:46+0000\n"
+"POT-Creation-Date: 2023-08-04 00:45+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "X-Generator: Lokalize 21.07.90\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: battery/batteryplugin.cpp:123
+#: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: Nízka úroveň batérie"
 
-#: battery/batteryplugin.cpp:124
+#: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batéria na %1%"
@@ -432,31 +432,31 @@ msgstr "Prijímanie"
 msgid "Save files in:"
 msgstr "Uložiť súbory do:"
 
-#: share/shareplugin.cpp:162
+#: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:164
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:165
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Otvoriť"
 
-#: share/shareplugin.cpp:241
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
 msgstr "Nepodarilo sa zdieľať súbor"
 
-#: share/shareplugin.cpp:241
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Súbor %1 neexistuje"

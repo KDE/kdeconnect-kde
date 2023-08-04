@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-31 00:46+0000\n"
+"POT-Creation-Date: 2023-08-04 00:45+0000\n"
 "PO-Revision-Date: 2023-06-08 08:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,13 +21,13 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: battery/batteryplugin.cpp:123
+#: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: Bateria baixa"
 
-#: battery/batteryplugin.cpp:124
+#: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Bateria a %1%"
@@ -438,30 +438,30 @@ msgstr "Recepció"
 msgid "Save files in:"
 msgstr "Guarda els fitxers a:"
 
-#: share/shareplugin.cpp:162
+#: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "El text rebut de %1 s'ha copiat al porta-retalls"
 
-#: share/shareplugin.cpp:164
+#: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Obri en l'editor de text"
 
-#: share/shareplugin.cpp:167
+#: share/shareplugin.cpp:165
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Obri l'enllaç"
 
-#: share/shareplugin.cpp:241
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
 msgstr "No s'ha pogut compartir el fitxer"
 
-#: share/shareplugin.cpp:241
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 no existix"
