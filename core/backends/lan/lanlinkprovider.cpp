@@ -39,6 +39,8 @@
 static const int MAX_UNPAIRED_CONNECTIONS = 42;
 static const int MAX_REMEMBERED_IDENTITY_PACKETS = 42;
 
+static const long MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE = 500;
+
 LanLinkProvider::LanLinkProvider(bool testMode, quint16 udpBroadcastPort, quint16 udpListenPort)
     : m_server(new Server(this))
     , m_udpSocket(this)
@@ -277,11 +279,21 @@ void LanLinkProvider::udpBroadcastReceived()
             continue;
         }
 
-        if (receivedPacket->get<QString>(QStringLiteral("deviceId")) == KdeConnectConfig::instance().deviceId()) {
+        QString deviceId = receivedPacket->get<QString>(QStringLiteral("deviceId"));
+
+        if (deviceId == KdeConnectConfig::instance().deviceId()) {
             // qCDebug(KDECONNECT_CORE) << "Ignoring my own broadcast";
             delete receivedPacket;
             continue;
         }
+
+        qint64 now = QDateTime::currentMSecsSinceEpoch();
+        if (m_lastConnectionTime[deviceId] + MILLIS_DELAY_BETWEEN_CONNECTIONS_TO_SAME_DEVICE > now) {
+            qCDebug(KDECONNECT_CORE) << "Discarding second UPD packet from the same device" << deviceId << "received too quickly";
+            delete receivedPacket;
+            return;
+        }
+        m_lastConnectionTime[deviceId] = now;
 
         int tcpPort = receivedPacket->get<int>(QStringLiteral("tcpPort"));
         if (tcpPort < MIN_TCP_PORT || tcpPort > MAX_TCP_PORT) {

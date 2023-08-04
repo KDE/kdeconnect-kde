@@ -93,6 +93,7 @@ private:
         QHostAddress sender;
     };
     QMap<QSslSocket *, PendingConnect> m_receivedIdentityPackets;
+    QMap<QString, qint64> m_lastConnectionTime;
     const bool m_testMode;
     QTimer m_combineBroadcastsTimer;
 
