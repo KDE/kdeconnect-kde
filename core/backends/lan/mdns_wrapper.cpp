@@ -98,12 +98,12 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
 
     switch (record_type) {
     case MDNS_RECORDTYPE_PTR: {
-        // We don't use mdns_record_parse_ptr() because we want to extract just the service name instead of the full "<service-name>.<_service-type>._tcp.local." string
-        mdns_string_pair_t serviceNamePos = mdns_get_next_substring(data, size, record_offset);
-        discoveredService->name = QString::fromLatin1((char *)data + serviceNamePos.offset, serviceNamePos.length);
-        //static char serviceNameBuffer[256];
-        //mdns_string_t serviceName = mdns_record_parse_ptr(data, size, record_offset, record_length, serviceNameBuffer, sizeof(serviceNameBuffer));
-        //discoveredService->name = QString::fromLatin1(serviceName.str, serviceName.length);
+        // We don't use mdns_record_parse_ptr() because we want to extract just the service name instead of the full "<instance-name>._<service-type>._tcp.local." string
+        mdns_string_pair_t instanceNamePos = mdns_get_next_substring(data, size, record_offset);
+        discoveredService->name = QString::fromLatin1((char *)data + instanceNamePos.offset, instanceNamePos.length);
+        //static char instanceNameBuffer[256];
+        //mdns_string_t instanceName = mdns_record_parse_ptr(data, size, record_offset, record_length, instanceNameBuffer, sizeof(instanceNameBuffer));
+        //discoveredService->name = QString::fromLatin1(instanceName.str, instanceName.length);
         if (discoveredService->address == QHostAddress::Null) {
             discoveredService->address = QHostAddress(from); // In case we don't receive a A record, use from as address
         }
@@ -309,11 +309,11 @@ static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
     answer.rclass = 0;
     answer.ttl = 0;
     switch (record_type) {
-    case MDNS_RECORDTYPE_PTR: // maps "<_service-type>._tcp.local." to "<service-name>.<_service-type>._tcp.local."
+    case MDNS_RECORDTYPE_PTR: // maps "_<service-type>._tcp.local." to "<instance-name>._<service-type>._tcp.local."
         answer.name = createMdnsString(self.serviceType);
         answer.data.ptr.name = createMdnsString(self.serviceInstance);
         break;
-    case MDNS_RECORDTYPE_SRV: // maps "<service-name>.<_service-type>._tcp.local." to "<hostname>.local." and port
+    case MDNS_RECORDTYPE_SRV: // maps "<instance-name>._<service-type>._tcp.local." to "<hostname>.local." and port
         answer.name = createMdnsString(self.serviceInstance);
         answer.data.srv.name = createMdnsString(self.hostname);
         answer.data.srv.port = self.port;
@@ -544,14 +544,14 @@ int Announcer::listenForQueries()
     return numSockets;
 }
 
-Announcer::Announcer(const QString &serviceName, const QString &serviceType, uint16_t port)
+Announcer::Announcer(const QString &instanceName, const QString &serviceType, uint16_t port)
 {
     self.serviceType = serviceType.toLatin1();
     if (!self.serviceType.endsWith('.')) {
         // mdns.h needs all the qualified names to end with dot for some reason
         self.serviceType.append('.');
     }
-    self.serviceInstance = serviceName.toLatin1() + '.' + self.serviceType;
+    self.serviceInstance = instanceName.toLatin1() + '.' + self.serviceType;
     self.hostname = QHostInfo::localHostName().toLatin1() + ".local.";
     self.port = port;
     detectHostAddresses();

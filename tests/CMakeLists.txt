@@ -12,3 +12,4 @@ set(kdeconnect_libraries
 
 ecm_add_test(pluginloadtest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
 ecm_add_test(sendfiletest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
+ecm_add_test(mdnstest.cpp LINK_LIBRARIES ${kdeconnect_libraries})
