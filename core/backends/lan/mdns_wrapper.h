@@ -13,30 +13,32 @@
 #include <QString>
 #include <QVector>
 
-/*
+#include "kdeconnectcore_export.h"
+
+/**
  * A Qt wrapper for the mdns.h header-only library
  * from https://github.com/mjansson/mdns
  */
 namespace MdnsWrapper
 {
 
-class Discoverer : public QObject
+class KDECONNECTCORE_EXPORT Discoverer : public QObject
 {
     Q_OBJECT
 
 public:
     struct MdnsService {
-        QString name;
+        QString name; // The instance-name part in "<instance-name>._<service-type>._tcp.local."
         uint16_t port;
-        QHostAddress address;
+        QHostAddress address; // An IPv4 address (IPv6 addresses are ignored)
         QMap<QString, QString> txtRecords;
     };
 
-    // serviceType must be of the form "_<name>._<tcp/udp>.local"
+    // serviceType must be of the form "_<service-type>._<tcp/udp>.local"
     void startDiscovering(const QString &serviceType);
     void stopDiscovering();
 
-    void sendQuery(const QString &serviceName);
+    void sendQuery(const QString &serviceType);
 
 Q_SIGNALS:
     void serviceFound(const MdnsWrapper::Discoverer::MdnsService &service);
@@ -48,14 +50,14 @@ private:
     QVector<QSocketNotifier *> responseSocketNotifiers;
 };
 
-class Announcer : public QObject
+class KDECONNECTCORE_EXPORT Announcer : public QObject
 {
     Q_OBJECT
 
 public:
     struct AnnouncedInfo {
-        QByteArray serviceType; // ie: "<_service-type>._tcp.local."
-        QByteArray serviceInstance; // ie: "<service-name>.<_service-type>._tcp.local."
+        QByteArray serviceType; // ie: "_<service-type>._tcp.local."
+        QByteArray serviceInstance; // ie: "<instance-name>._<service-type>._tcp.local."
         QByteArray hostname; // ie: "<hostname>.local."
         QVector<QHostAddress> addressesV4;
         QVector<QHostAddress> addressesV6;
@@ -63,8 +65,8 @@ public:
         QHash<QByteArray, QByteArray> txtRecords;
     };
 
-    // serviceType must be of the form "_<name>._<tcp/udp>.local"
-    Announcer(const QString &serviceName, const QString &serviceType, uint16_t port);
+    // serviceType must be of the form "_<service-type>._<tcp/udp>.local"
+    Announcer(const QString &instanceName, const QString &serviceType, uint16_t port);
 
     void putTxtRecord(const QString &key, const QString &value)
     {
