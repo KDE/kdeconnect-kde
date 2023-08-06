@@ -20,7 +20,6 @@ target_link_libraries(kdeconnect_pausemusic
 )
 if (WIN32)
     target_link_libraries(kdeconnect_pausemusic windowsapp)
-    target_compile_features(kdeconnect_pausemusic PUBLIC cxx_std_17)
 else()
     target_link_libraries(kdeconnect_pausemusic KF${QT_MAJOR_VERSION}::PulseAudioQt)
 endif()

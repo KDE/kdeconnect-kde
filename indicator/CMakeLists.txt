@@ -47,7 +47,6 @@ target_link_libraries(kdeconnect-indicator Qt::Widgets KF${QT_MAJOR_VERSION}::Co
 
 if (WIN32)
     target_link_libraries(kdeconnect-indicator windowsapp)
-    target_compile_features(kdeconnect-indicator PUBLIC cxx_std_17)
 endif()
 
 if (APPLE)
