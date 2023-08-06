@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-30 00:45+0000\n"
-"PO-Revision-Date: 2023-06-05 08:30+0200\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"PO-Revision-Date: 2023-08-05 08:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -28,12 +28,12 @@ msgstr "Non se puido atopar un porto dispoñíbel."
 msgid "Failed to send packet to %1"
 msgstr "Non se puido enviar o paquete a %1"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
 msgid "Sending to %1"
 msgstr "Enviando a %1"
 
-#: backends/lan/compositeuploadjob.cpp:287
+#: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
 msgid "File"
 msgstr "Ficheiro"
@@ -119,10 +119,9 @@ msgid "KDE Connect failed to start"
 msgstr "Non se puido iniciar KDE Connect."
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Non se puido almacenar o ficheiro de chave privada: %1"
+msgstr "Non se puido xerar a chave privada."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -130,10 +129,9 @@ msgid "Could not store private key file: %1"
 msgstr "Non se puido almacenar o ficheiro de chave privada: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Non se puido almacenar o ficheiro de certificado: %1"
+msgstr "Non se puido xerar o certificado do dispositivo."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

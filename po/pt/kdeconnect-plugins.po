@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:45+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-06-09 03:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -72,14 +72,14 @@ msgstr "Som a tocar:"
 msgid "Select the sound to play"
 msgstr "Seleccione o som a tocar"
 
-#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Bloqueio remoto com sucesso"
 
 #: lockdevice/lockdeviceplugin-win.cpp:64
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
-#: lockdevice/lockdeviceplugin.cpp:96
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Bloqueio remoto sem sucesso"
@@ -241,7 +241,7 @@ msgid "Import"
 msgstr "Importar"
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
+#: sendnotifications/notifyingapplicationmodel.cpp:177
 #, kde-format
 msgid "Name"
 msgstr "Nome"
@@ -266,22 +266,22 @@ msgstr "Comandos de Importação"
 msgid "Phone is connected"
 msgstr "O telefone está ligado"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:181
 #, kde-format
 msgid "Blacklisted"
 msgstr "Proibido"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Nome de uma aplicação com notificações."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:188
+#: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Sincronizar as notificações de uma aplicação?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:191
+#: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"

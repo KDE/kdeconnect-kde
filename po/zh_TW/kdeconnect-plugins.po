@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-04 00:45+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2023-01-22 00:48+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -75,14 +75,14 @@ msgstr "欲播放聲音："
 msgid "Select the sound to play"
 msgstr "選擇要播放的聲音"
 
-#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:89
+#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
 msgstr "遠端鎖定成功"
 
 #: lockdevice/lockdeviceplugin-win.cpp:64
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:94
-#: lockdevice/lockdeviceplugin.cpp:96
+#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
 msgstr "無法遠端鎖定"
@@ -244,7 +244,7 @@ msgid "Import"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
-#: sendnotifications/notifyingapplicationmodel.cpp:178
+#: sendnotifications/notifyingapplicationmodel.cpp:177
 #, kde-format
 msgid "Name"
 msgstr "名字"
@@ -271,22 +271,22 @@ msgstr "範例指令"
 msgid "Phone is connected"
 msgstr "手機已連線"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:182
+#: sendnotifications/notifyingapplicationmodel.cpp:181
 #, kde-format
 msgid "Blacklisted"
 msgstr "黑名單"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:186
+#: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "通知應用程式的名稱。"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:188
+#: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "同步應用程式的通知？"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:191
+#: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"

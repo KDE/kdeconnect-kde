@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-08-06 00:46+0000\n"
 "PO-Revision-Date: 2020-09-16 18:42+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -22,17 +22,17 @@ msgstr ""
 msgid "error: "
 msgstr "xəta: "
 
-#: devicesmodel.cpp:231
+#: devicesmodel.cpp:223
 #, kde-format
 msgid "Device trusted and connected"
 msgstr "Cihaz etibarlıdır və qoşuludur"
 
-#: devicesmodel.cpp:231
+#: devicesmodel.cpp:223
 #, kde-format
 msgid "Device not trusted"
 msgstr "Cihaz etibarlı deyil"
 
-#: devicesmodel.cpp:231
+#: devicesmodel.cpp:223
 #, kde-format
 msgid "Device disconnected"
 msgstr "Cihaz ayrıldı"
