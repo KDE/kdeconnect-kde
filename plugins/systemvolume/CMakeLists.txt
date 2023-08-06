@@ -14,11 +14,6 @@ endif()
 
 kdeconnect_add_plugin(kdeconnect_systemvolume SOURCES ${kdeconnect_systemvolume_SRCS})
 
-ecm_qt_declare_logging_category(kdeconnect_systemvolume
-    HEADER plugin_systemvolume_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_SYSTEMVOLUME CATEGORY_NAME kdeconnect.plugin.systemvolume
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin systemvolume)")
 if(WIN32)
     target_link_libraries(kdeconnect_systemvolume
         kdeconnectcore

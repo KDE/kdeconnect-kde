@@ -6,7 +6,6 @@
 
 #include "screensaverinhibitplugin-win.h"
 
-#include "kdeconnect_screensaverinhibit_debug.h"
 #include <KPluginFactory>
 #include <Windows.h>
 

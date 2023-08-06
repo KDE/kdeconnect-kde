@@ -6,12 +6,6 @@ else()
     target_sources(kdeconnect_pausemusic PRIVATE pausemusicplugin.cpp)
 endif()
 
-ecm_qt_declare_logging_category(kdeconnect_pausemusic
-    HEADER plugin_pausemusic_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_PAUSEMUSIC CATEGORY_NAME kdeconnect.plugin.pausemusic
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin pausemusic)")
-
 target_link_libraries(kdeconnect_pausemusic
     kdeconnectcore
     kdeconnectinterfaces

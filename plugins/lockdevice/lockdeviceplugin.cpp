@@ -9,7 +9,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include "plugin_lock_debug.h"
+#include "plugin_lockdevice_debug.h"
 #include <QDebug>
 
 #include <core/daemon.h>
@@ -27,11 +27,11 @@ LockDevicePlugin::LockDevicePlugin(QObject *parent, const QVariantList &args)
     , m_propertiesInterface(QStringLiteral("org.freedesktop.login1"), QString(), QDBusConnection::systemBus())
 {
     if (!m_login1Interface.isValid()) {
-        qCWarning(KDECONNECT_PLUGIN_LOCKREMOTE) << "Could not connect to logind interface" << m_login1Interface.lastError();
+        qCWarning(KDECONNECT_PLUGIN_LOCKDEVICE) << "Could not connect to logind interface" << m_login1Interface.lastError();
     }
 
     if (!m_propertiesInterface.isValid()) {
-        qCWarning(KDECONNECT_PLUGIN_LOCKREMOTE) << "Could not connect to logind properties interface" << m_propertiesInterface.lastError();
+        qCWarning(KDECONNECT_PLUGIN_LOCKDEVICE) << "Could not connect to logind properties interface" << m_propertiesInterface.lastError();
     }
 
     connect(&m_propertiesInterface,

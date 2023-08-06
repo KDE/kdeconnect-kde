@@ -7,7 +7,6 @@
 #include "sendnotificationsplugin.h"
 
 #include "notificationslistener.h"
-#include "plugin_sendnotification_debug.h"
 
 #include <KPluginFactory>
 

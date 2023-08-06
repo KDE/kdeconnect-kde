@@ -6,7 +6,7 @@
 
 #include "notificationsplugin.h"
 
-#include "plugin_notification_debug.h"
+#include "plugin_notifications_debug.h"
 #include "sendreplydialog.h"
 #include <dbushelper.h>
 
@@ -31,7 +31,7 @@ void NotificationsPlugin::connected()
 void NotificationsPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("request"))) {
-        qCWarning(KDECONNECT_PLUGIN_NOTIFICATION) << "Unexpected notification request. Maybe the paired client is very old?";
+        qCWarning(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Unexpected notification request. Maybe the paired client is very old?";
     }
 
     if (np.get<bool>(QStringLiteral("isCancel"))) {
@@ -89,7 +89,7 @@ void NotificationsPlugin::addNotification(Notification *noti)
         removeNotification(internalId);
     }
 
-    // qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "addNotification" << internalId;
+    // qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "addNotification" << internalId;
 
     connect(noti, &Notification::dismissRequested, this, &NotificationsPlugin::dismissRequested);
 
@@ -114,10 +114,10 @@ void NotificationsPlugin::addNotification(Notification *noti)
 
 void NotificationsPlugin::removeNotification(const QString &internalId)
 {
-    // qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "removeNotification" << internalId;
+    // qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "removeNotification" << internalId;
 
     if (!m_internalIdToPublicId.contains(internalId)) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by internal Id: " << internalId;
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Not found noti by internal Id: " << internalId;
         return;
     }
 
@@ -125,7 +125,7 @@ void NotificationsPlugin::removeNotification(const QString &internalId)
 
     Notification *noti = m_notifications.take(publicId);
     if (!noti) {
-        qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Not found noti by public Id: " << publicId;
+        qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Not found noti by public Id: " << publicId;
         return;
     }
 

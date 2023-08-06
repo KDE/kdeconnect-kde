@@ -18,8 +18,6 @@
 
 K_PLUGIN_CLASS_WITH_JSON(BigscreenPlugin, "kdeconnect_bigscreen.json")
 
-Q_LOGGING_CATEGORY(KDECONNECT_PLUGIN_BIGSCREEN, "kdeconnect.plugin.bigscreen")
-
 void BigscreenPlugin::receivePacket(const NetworkPacket &np)
 {
     QString message = np.get<QString>(QStringLiteral("content"));

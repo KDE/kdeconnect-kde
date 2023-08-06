@@ -5,11 +5,6 @@ target_sources(kdeconnect_sendnotifications PRIVATE
     notificationslistener.cpp
     notifyingapplication.cpp
 )
-ecm_qt_declare_logging_category(kdeconnect_sendnotifications
-    HEADER plugin_sendnotification_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_SENDNOTIFICATION CATEGORY_NAME kdeconnect.plugin.sendnotification
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin sendnotification)")
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
     Qt::DBus

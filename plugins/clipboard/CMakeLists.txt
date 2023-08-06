@@ -1,11 +1,5 @@
 kdeconnect_add_plugin(kdeconnect_clipboard SOURCES clipboardplugin.cpp clipboardlistener.cpp)
 
-ecm_qt_declare_logging_category(kdeconnect_clipboard
-    HEADER plugin_clipboard_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_CLIPBOARD CATEGORY_NAME kdeconnect.plugin.clipboard
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin clipboard)")
-
 target_link_libraries(kdeconnect_clipboard kdeconnectcore
     Qt::DBus
     KF${QT_MAJOR_VERSION}::GuiAddons

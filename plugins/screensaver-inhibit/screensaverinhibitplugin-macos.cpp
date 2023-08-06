@@ -6,7 +6,7 @@
 
 #include "screensaverinhibitplugin-macos.h"
 
-#include "kdeconnect_screensaverinhibit_debug.h"
+#include "plugin_screensaver_inhibit_debug.h"
 #include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(ScreensaverInhibitPlugin, "kdeconnect_screensaver_inhibit.json")
@@ -21,7 +21,7 @@ ScreensaverInhibitPlugin::ScreensaverInhibitPlugin(QObject *parent, const QVaria
         m_caffeinateProcess->setArguments({QStringLiteral("-d")}); // Prevent the display from sleeping
         m_caffeinateProcess->start();
     } else {
-        qWarning(KDECONNECT_PLUGIN_SCREENSAVERINHIBIT) << "Cannot find caffeinate on macOS install";
+        qWarning(KDECONNECT_PLUGIN_SCREENSAVER_INHIBIT) << "Cannot find caffeinate on macOS install";
     }
 }
 

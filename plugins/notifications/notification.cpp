@@ -5,7 +5,7 @@
  */
 
 #include "notification.h"
-#include "plugin_notification_debug.h"
+#include "plugin_notifications_debug.h"
 
 #include <KLocalizedString>
 #include <KNotification>
@@ -148,7 +148,7 @@ void Notification::loadIcon(const NetworkPacket &np)
         connect(fileTransferJob, &FileTransferJob::result, this, [this, fileTransferJob] {
             s_downloadsInProgress.remove(m_iconPath);
             if (fileTransferJob->error()) {
-                qCDebug(KDECONNECT_PLUGIN_NOTIFICATION) << "Error in FileTransferJob: " << fileTransferJob->errorString();
+                qCDebug(KDECONNECT_PLUGIN_NOTIFICATIONS) << "Error in FileTransferJob: " << fileTransferJob->errorString();
             } else {
                 applyIcon();
             }

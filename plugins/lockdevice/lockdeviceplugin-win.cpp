@@ -8,8 +8,6 @@
 
 #include <KLocalizedString>
 #include <KPluginFactory>
-
-#include "plugin_lock_debug.h"
 #include <QDebug>
 
 #include <core/daemon.h>

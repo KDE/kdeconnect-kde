@@ -44,7 +44,7 @@ public:
 
         const auto ourErrors = errors();
         for (const auto &error : ourErrors) {
-            qCWarning(KDECONNECT_PLUGIN_PRESENT) << "error" << error.description() << error.url() << error.line() << error.column();
+            qCWarning(KDECONNECT_PLUGIN_PRESENTER) << "error" << error.description() << error.url() << error.line() << error.column();
         }
     }
 };

@@ -1,13 +1,4 @@
 kdeconnect_add_plugin(kdeconnect_share SOURCES shareplugin.cpp)
-
-ecm_qt_declare_logging_category(kdeconnect_share
-    HEADER plugin_share_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_SHARE
-    CATEGORY_NAME kdeconnect.plugin.share
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde
-    DESCRIPTION "kdeconnect (plugin share)"
-)
 target_link_libraries(kdeconnect_share
     kdeconnectcore
     Qt::DBus
@@ -18,11 +9,7 @@ target_link_libraries(kdeconnect_share
     KF${QT_MAJOR_VERSION}::Service
 )
 
-#######################################
-# Config
-
 kdeconnect_add_kcm(kdeconnect_share_config SOURCES share_config.cpp)
-
 ki18n_wrap_ui(kdeconnect_share_config share_config.ui)
 target_link_libraries(kdeconnect_share_config
     kdeconnectpluginkcm

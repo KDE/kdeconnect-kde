@@ -5,8 +5,8 @@
  */
 
 #include "mpriscontrolplugin-win.h"
-#include "plugin_mpris_debug.h"
 
+#include "plugin_mpriscontrol_debug.h"
 #include <core/device.h>
 
 #include <KPluginFactory>
@@ -37,7 +37,7 @@ std::optional<QString> MprisControlPlugin::getPlayerName(GlobalSystemMediaTransp
     auto entry = std::find(this->playerList.constBegin(), this->playerList.constEnd(), player);
 
     if (entry == this->playerList.constEnd()) {
-        qCWarning(KDECONNECT_PLUGIN_MPRIS) << "PlaybackInfoChanged received for no longer tracked session" << player.SourceAppUserModelId().c_str();
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "PlaybackInfoChanged received for no longer tracked session" << player.SourceAppUserModelId().c_str();
         return std::nullopt;
     }
 
@@ -172,7 +172,7 @@ void MprisControlPlugin::updatePlayerList()
         try {
             playerName = AppInfo::GetFromAppUserModelId(playerName).DisplayInfo().DisplayName();
         } catch (winrt::hresult_error e) {
-            qCDebug(KDECONNECT_PLUGIN_MPRIS) << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
+            qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << QString::fromWCharArray(playerName.c_str()) << "doesn\'t have a valid AppUserModelID! Sending as-is..";
         }
 #endif
         QString uniqueName = QString::fromWCharArray(playerName.c_str());
@@ -248,7 +248,7 @@ bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const
                                       GlobalSystemMediaTransportControlsSession const &player,
                                       QString artUrl)
 {
-    qWarning(KDECONNECT_PLUGIN_MPRIS) << "Sending Album Art";
+    qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Sending Album Art";
     NetworkPacket np = packetOrName.index() == 0 ? std::get<0>(packetOrName) : NetworkPacket(PACKET_TYPE_MPRIS);
     if (packetOrName.index() == 1)
         np.set(QStringLiteral("player"), std::get<1>(packetOrName));
@@ -320,11 +320,11 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
         }
     }
     if (np.has(QStringLiteral("setVolume"))) {
-        qWarning(KDECONNECT_PLUGIN_MPRIS) << "Setting volume is not supported";
+        qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Setting volume is not supported";
     }
     if (np.has(QStringLiteral("Seek"))) {
         TimeSpan offset = std::chrono::microseconds(np.get<int>(QStringLiteral("Seek")));
-        qWarning(KDECONNECT_PLUGIN_MPRIS) << "Seeking" << offset.count() << "ns to" << name;
+        qWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Seeking" << offset.count() << "ns to" << name;
         player.TryChangePlaybackPositionAsync((player.GetTimelineProperties().Position() + offset).count()).get();
     }
 

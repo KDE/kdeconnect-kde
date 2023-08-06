@@ -25,7 +25,7 @@
 #include <dbushelper.h>
 
 #include "notifyingapplication.h"
-#include "plugin_sendnotification_debug.h"
+#include "plugin_sendnotifications_debug.h"
 #include "sendnotificationsplugin.h"
 
 NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
@@ -60,7 +60,7 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
 
 NotificationsListener::~NotificationsListener()
 {
-    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Destroying NotificationsListener";
+    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Destroying NotificationsListener";
     g_dbus_connection_remove_filter(m_gdbusConnection, m_gdbusFilterId);
     g_object_unref(m_gdbusConnection);
 }
@@ -70,7 +70,8 @@ void NotificationsListener::setTranslatedAppName()
     QString filePath =
         QStandardPaths::locate(QStandardPaths::GenericDataLocation, QStringLiteral("knotifications5/kdeconnect.notifyrc"), QStandardPaths::LocateFile);
     if (filePath.isEmpty()) {
-        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
+        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS)
+            << "Couldn't find kdeconnect.notifyrc to hide kdeconnect notifications on the devices. Using default name.";
         m_translatedAppName = QStringLiteral("KDE Connect");
         return;
     }
@@ -90,7 +91,7 @@ void NotificationsListener::loadApplications()
             m_applications.insert(app.name, app);
         }
     }
-    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Loaded" << applications.size() << " applications";
+    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Loaded" << applications.size() << " applications";
 }
 
 bool NotificationsListener::parseImageDataArgument(GVariant *argument,
@@ -163,9 +164,9 @@ QSharedPointer<QIODevice> NotificationsListener::iconForImageData(GVariant *argu
         return QSharedPointer<QIODevice>();
 
     if (bitsPerSample != 8) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Unsupported image format:"
-                                                      << "width=" << width << "height=" << height << "rowStride=" << rowStride
-                                                      << "bitsPerSample=" << bitsPerSample << "channels=" << channels << "hasAlpha=" << hasAlpha;
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Unsupported image format:"
+                                                       << "width=" << width << "height=" << height << "rowStride=" << rowStride
+                                                       << "bitsPerSample=" << bitsPerSample << "channels=" << channels << "hasAlpha=" << hasAlpha;
         return QSharedPointer<QIODevice>();
     }
 
@@ -175,7 +176,7 @@ QSharedPointer<QIODevice> NotificationsListener::iconForImageData(GVariant *argu
 
     QSharedPointer<QBuffer> buffer = QSharedPointer<QBuffer>(new QBuffer);
     if (!buffer || !buffer->open(QIODevice::WriteOnly) || !image.save(buffer.data(), "PNG")) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Could not initialize image buffer";
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Could not initialize image buffer";
         return QSharedPointer<QIODevice>();
     }
 
@@ -193,7 +194,7 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &
             KIconTheme hicolor(QStringLiteral("hicolor"));
             if (hicolor.isValid()) {
                 iconPath = hicolor.iconPath(iconName + QStringLiteral(".png"), size, KIconLoader::MatchBest);
-                // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
+                // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Found non-png icon in default theme trying fallback to hicolor:" << iconPath;
             }
         }
     }
@@ -250,7 +251,7 @@ GDBusMessage *NotificationsListener::onMessageFiltered(GDBusConnection *, GDBusM
         for (const auto &a : std::as_const(listener->m_applications))
             list << QVariant::fromValue<NotifyingApplication>(a);
         listener->m_plugin->config()->setList(QStringLiteral("applications"), list);
-        // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Added new application to config:" << app;
+        // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Added new application to config:" << app;
     } else {
         app = listener->m_applications.value(appName);
     }
@@ -308,7 +309,7 @@ GDBusMessage *NotificationsListener::onMessageFiltered(GDBusConnection *, GDBusM
     variant = g_variant_get_child_value(bodyVariant, 1);
     const unsigned replacesId = g_variant_get_uint32(variant);
 
-    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
+    // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Sending notification from" << appName << ":" <<ticker << "; appIcon=" << appIcon;
     NetworkPacket np(PACKET_TYPE_NOTIFICATION,
                      {{QStringLiteral("id"), QString::number(replacesId > 0 ? replacesId : ++id)},
                       {QStringLiteral("appName"), appName},
@@ -342,9 +343,9 @@ GDBusMessage *NotificationsListener::onMessageFiltered(GDBusConnection *, GDBusM
 
     listener->m_plugin->sendPacket(np);
 
-    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATION) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon
-                                                << "summary=" << ticker << "body=" << body << "hints=" << hints.size() << "urgency=" << urgency
-                                                << "timeout=" << timeout;
+    qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Got notification appName=" << appName << "replacesId=" << replacesId << "appIcon=" << appIcon
+                                                 << "summary=" << ticker << "body=" << body << "hints=" << hints.size() << "urgency=" << urgency
+                                                 << "timeout=" << timeout;
 
     return nullptr;
 }

@@ -6,12 +6,6 @@ target_sources(kdeconnect_sms PRIVATE
     requestconversationworker.cpp
 )
 ecm_qt_declare_logging_category(kdeconnect_sms
-    HEADER plugin_sms_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_SMS CATEGORY_NAME kdeconnect.plugin.sms
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin sms)")
-
-ecm_qt_declare_logging_category(kdeconnect_sms
     HEADER kdeconnect_conversations_debug.h
     IDENTIFIER KDECONNECT_CONVERSATIONS CATEGORY_NAME kdeconnect.conversations
     DEFAULT_SEVERITY Warning

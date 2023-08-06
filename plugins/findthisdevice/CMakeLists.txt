@@ -1,11 +1,5 @@
 kdeconnect_add_plugin(kdeconnect_findthisdevice SOURCES findthisdeviceplugin.cpp)
 
-ecm_qt_declare_logging_category(kdeconnect_findthisdevice
-    HEADER plugin_findthisdevice_debug.h
-    IDENTIFIER KDECONNECT_PLUGIN_FINDTHISDEVICE CATEGORY_NAME kdeconnect.plugin.findthisdevice
-    DEFAULT_SEVERITY Warning
-    EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (plugin findthisdevice)")
-
 target_link_libraries(kdeconnect_findthisdevice
     kdeconnectcore
     Qt::Core

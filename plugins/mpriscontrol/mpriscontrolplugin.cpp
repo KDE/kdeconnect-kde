@@ -20,7 +20,7 @@
 #include "generated/systeminterfaces/dbusproperties.h"
 #include "generated/systeminterfaces/mprisplayer.h"
 #include "generated/systeminterfaces/mprisroot.h"
-#include "plugin_mpris_debug.h"
+#include "plugin_mpriscontrol_debug.h"
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
 
@@ -61,12 +61,12 @@ void MprisControlPlugin::serviceOwnerChanged(const QString &serviceName, const Q
         return;
 
     if (!oldOwner.isEmpty()) {
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "MPRIS service" << serviceName << "just went offline";
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "MPRIS service" << serviceName << "just went offline";
         removePlayer(serviceName);
     }
 
     if (!newOwner.isEmpty()) {
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "MPRIS service" << serviceName << "just came online";
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "MPRIS service" << serviceName << "just came online";
         addPlayer(serviceName);
     }
 }
@@ -94,7 +94,7 @@ void MprisControlPlugin::addPlayer(const QString &service)
     connect(player.propertiesInterface(), &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged, this, &MprisControlPlugin::propertiesChanged);
     connect(player.mediaPlayer2PlayerInterface(), &OrgMprisMediaPlayer2PlayerInterface::Seeked, this, &MprisControlPlugin::seeked);
 
-    qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris addPlayer" << service << "->" << uniqueName;
+    qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Mpris addPlayer" << service << "->" << uniqueName;
     sendPlayerList();
 }
 
@@ -107,7 +107,7 @@ void MprisControlPlugin::seeked(qlonglong position)
         return (player.mediaPlayer2PlayerInterface() == mediaPlayer2PlayerInterface);
     });
     if (it == end) {
-        qCWarning(KDECONNECT_PLUGIN_MPRIS) << "Seeked signal received for no longer tracked service" << mediaPlayer2PlayerInterface->service();
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Seeked signal received for no longer tracked service" << mediaPlayer2PlayerInterface->service();
         return;
     }
 
@@ -127,7 +127,7 @@ void MprisControlPlugin::propertiesChanged(const QString & /*propertyInterface*/
         return (player.propertiesInterface() == propertiesInterface);
     });
     if (it == end) {
-        qCWarning(KDECONNECT_PLUGIN_MPRIS) << "PropertiesChanged signal received for no longer tracked service" << propertiesInterface->service();
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "PropertiesChanged signal received for no longer tracked service" << propertiesInterface->service();
         return;
     }
 
@@ -202,12 +202,12 @@ void MprisControlPlugin::removePlayer(const QString &serviceName)
         return (player.serviceName() == serviceName);
     });
     if (it == end) {
-        qCWarning(KDECONNECT_PLUGIN_MPRIS) << "Could not find player for serviceName" << serviceName;
+        qCWarning(KDECONNECT_PLUGIN_MPRISCONTROL) << "Could not find player for serviceName" << serviceName;
         return;
     }
 
     const QString &playerName = it.key();
-    qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Mpris removePlayer" << serviceName << "->" << playerName;
+    qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Mpris removePlayer" << serviceName << "->" << playerName;
 
     playerList.erase(it);
 
@@ -287,17 +287,17 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
     }
     if (np.has(QStringLiteral("setLoopStatus"))) {
         const QString &loopStatus = np.get<QString>(QStringLiteral("setLoopStatus"));
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting loopStatus" << loopStatus << "to" << serviceName;
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Setting loopStatus" << loopStatus << "to" << serviceName;
         mprisInterface.setLoopStatus(loopStatus);
     }
     if (np.has(QStringLiteral("setShuffle"))) {
         bool shuffle = np.get<bool>(QStringLiteral("setShuffle"));
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting shuffle" << shuffle << "to" << serviceName;
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Setting shuffle" << shuffle << "to" << serviceName;
         mprisInterface.setShuffle(shuffle);
     }
     if (np.has(QStringLiteral("setVolume"))) {
         double volume = np.get<int>(QStringLiteral("setVolume")) / 100.f;
-        qCDebug(KDECONNECT_PLUGIN_MPRIS) << "Setting volume" << volume << "to" << serviceName;
+        qCDebug(KDECONNECT_PLUGIN_MPRISCONTROL) << "Setting volume" << volume << "to" << serviceName;
         mprisInterface.setVolume(volume);
     }
     if (np.has(QStringLiteral("Seek"))) {
