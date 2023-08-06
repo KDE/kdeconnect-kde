@@ -12,8 +12,8 @@ target_link_libraries(kdeconnect_runcommand
     KF${QT_MAJOR_VERSION}::I18n)
 
 #----------------------
-kcoreaddons_add_plugin(kdeconnect_runcommand_config SOURCES runcommand_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
-target_link_libraries( kdeconnect_runcommand_config
+kdeconnect_add_kcm(kdeconnect_runcommand_config SOURCES runcommand_config.cpp)
+target_link_libraries(kdeconnect_runcommand_config
     kdeconnectcore
     kdeconnectpluginkcm
     KF${QT_MAJOR_VERSION}::I18n

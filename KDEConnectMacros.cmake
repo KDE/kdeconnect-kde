@@ -4,7 +4,9 @@
 
 function(kdeconnect_add_plugin)
     kcoreaddons_add_plugin(${ARGN} INSTALL_NAMESPACE kdeconnect)
-    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${ARGV0}_config.qml")
-        install(FILES "${ARGV0}_config.qml" DESTINATION ${KDE_INSTALL_DATADIR}/kdeconnect)
-    endif()
+endfunction()
+
+function(kdeconnect_add_kcm plugin)
+    kcoreaddons_add_plugin(${plugin} ${ARGN} INSTALL_NAMESPACE kdeconnect/kcms)
+    install(FILES "${plugin}.qml" DESTINATION ${KDE_INSTALL_DATADIR}/kdeconnect)
 endfunction()

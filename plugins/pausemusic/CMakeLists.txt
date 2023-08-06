@@ -28,7 +28,7 @@ endif()
 #######################################
 # Config
 
-kcoreaddons_add_plugin(kdeconnect_pausemusic_config SOURCES pausemusic_config.cpp INSTALL_NAMESPACE "kdeconnect/kcms")
+kdeconnect_add_kcm(kdeconnect_pausemusic_config SOURCES pausemusic_config.cpp)
 
 ki18n_wrap_ui(kdeconnect_pausemusic_config pausemusic_config.ui)
 target_link_libraries(kdeconnect_pausemusic_config

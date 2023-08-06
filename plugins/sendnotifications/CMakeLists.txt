@@ -1,4 +1,3 @@
-
 kdeconnect_add_plugin(kdeconnect_sendnotifications)
 
 target_sources(kdeconnect_sendnotifications PRIVATE
@@ -22,7 +21,7 @@ target_link_libraries(kdeconnect_sendnotifications
 )
 
 # Config
-kcoreaddons_add_plugin(kdeconnect_sendnotifications_config INSTALL_NAMESPACE "kdeconnect/kcms")
+kdeconnect_add_kcm(kdeconnect_sendnotifications_config)
 
 ki18n_wrap_ui(kdeconnect_sendnotifications_config sendnotifications_config.ui)
 target_sources(kdeconnect_sendnotifications_config PRIVATE

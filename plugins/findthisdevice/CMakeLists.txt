@@ -19,10 +19,9 @@ if (NOT WIN32)
     )
 endif()
 
-kcoreaddons_add_plugin(kdeconnect_findthisdevice_config INSTALL_NAMESPACE "kdeconnect/kcms")
+kdeconnect_add_kcm(kdeconnect_findthisdevice_config SOURCES findthisdevice_config.cpp)
 
 ki18n_wrap_ui(kdeconnect_findthisdevice_config findthisdevice_config.ui)
-target_sources(kdeconnect_findthisdevice_config PRIVATE findthisdevice_config.cpp)
 target_link_libraries(kdeconnect_findthisdevice_config
     kdeconnectpluginkcm
     Qt::Multimedia
