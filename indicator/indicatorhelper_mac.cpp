@@ -26,7 +26,9 @@ IndicatorHelper::IndicatorHelper()
 {
     registerServices();
 
-    // Do not create QIcon before D-Bus setup, use a QPixmap from a hardcoded icon now
+    // Use a hardcoded QPixmap because QIcon::fromTheme will instantiate a QPlatformTheme theme
+    // which could try to use DBus before we have started it and cache an invalid DBus session
+    // in QDBusConnectionManager
     const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory); 
     QPixmap splashPixmap(iconPath + QStringLiteral("/hicolor/scalable/apps/kdeconnect.svg"));
     m_splashScreen = new QSplashScreen(splashPixmap);
