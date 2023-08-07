@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-08-07 00:48+0000\n"
 "PO-Revision-Date: 2023-07-24 19:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -68,28 +68,28 @@ msgstr "Poženi ukaz"
 msgid "Add commands"
 msgstr "Dodaj ukaze"
 
-#: indicatorhelper_mac.cpp:34
+#: indicatorhelper_mac.cpp:38
 #, kde-format
 msgid "Launching"
 msgstr "Zaganjam"
 
-#: indicatorhelper_mac.cpp:84
+#: indicatorhelper_mac.cpp:92
 #, kde-format
 msgid "Launching daemon"
 msgstr "Zaganjam demona"
 
-#: indicatorhelper_mac.cpp:93
+#: indicatorhelper_mac.cpp:105
 #, kde-format
 msgid "Waiting D-Bus"
 msgstr "Čakam na D-Bus"
 
-#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
-#: indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:125 indicatorhelper_mac.cpp:137
+#: indicatorhelper_mac.cpp:156
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#: indicatorhelper_mac.cpp:126 indicatorhelper_mac.cpp:138
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -98,12 +98,12 @@ msgstr ""
 "Ni se mogoče povezati na DBus\n"
 "KDE Connect bo prenehal"
 
-#: indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:156
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Ni mogoče najti kdeconnectd"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:161
 #, kde-format
 msgid "Loading modules"
 msgstr "Nalaganje modulov"

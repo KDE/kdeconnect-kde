@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-08-07 00:48+0000\n"
 "PO-Revision-Date: 2021-07-26 17:18+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
@@ -69,28 +69,28 @@ msgstr "Выполнить команду"
 msgid "Add commands"
 msgstr "Добавить команды"
 
-#: indicatorhelper_mac.cpp:34
+#: indicatorhelper_mac.cpp:38
 #, kde-format
 msgid "Launching"
 msgstr "Идёт запуск"
 
-#: indicatorhelper_mac.cpp:84
+#: indicatorhelper_mac.cpp:92
 #, kde-format
 msgid "Launching daemon"
 msgstr "Идёт запуск фоновой службы"
 
-#: indicatorhelper_mac.cpp:93
+#: indicatorhelper_mac.cpp:105
 #, kde-format
 msgid "Waiting D-Bus"
 msgstr "Ожидание D-Bus"
 
-#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
-#: indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:125 indicatorhelper_mac.cpp:137
+#: indicatorhelper_mac.cpp:156
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#: indicatorhelper_mac.cpp:126 indicatorhelper_mac.cpp:138
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -99,12 +99,12 @@ msgstr ""
 "Не удалось подключиться к D-Bus\n"
 "KDE Connect завершает работу"
 
-#: indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:156
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Не удалось найти kdeconnectd"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:161
 #, kde-format
 msgid "Loading modules"
 msgstr "Загрузка модулей"
