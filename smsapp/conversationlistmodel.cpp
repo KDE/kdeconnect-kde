@@ -56,8 +56,8 @@ void ConversationListModel::setDeviceId(const QString &deviceId)
     qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "setDeviceId" << deviceId << "of" << this;
 
     if (m_conversationsInterface) {
-        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleCreatedConversation(QDBusVariant)));
-        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdated(QDBusVariant)));
+        disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationCreated, this, &ConversationListModel::handleCreatedConversation);
+        disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationUpdated, this, &ConversationListModel::handleConversationUpdated);
         delete m_conversationsInterface;
         m_conversationsInterface = nullptr;
     }
@@ -73,8 +73,8 @@ void ConversationListModel::setDeviceId(const QString &deviceId)
     Q_EMIT deviceIdChanged();
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleCreatedConversation(QDBusVariant)));
-    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdated(QDBusVariant)));
+    connect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationCreated, this, &ConversationListModel::handleCreatedConversation);
+    connect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationUpdated, this, &ConversationListModel::handleConversationUpdated);
 
     refresh();
 }

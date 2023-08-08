@@ -61,20 +61,20 @@ void ConversationModel::setDeviceId(const QString &deviceId)
     qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId"
                                                << "of" << this;
     if (m_conversationsInterface) {
-        disconnect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
-        disconnect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64)));
-        disconnect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
+        disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationUpdated, this, &ConversationModel::handleConversationUpdate);
+        disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationLoaded, this, &ConversationModel::handleConversationLoaded);
+        disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationCreated, this, &ConversationModel::handleConversationCreated);
         delete m_conversationsInterface;
     }
 
     m_deviceId = deviceId;
 
     m_conversationsInterface = new DeviceConversationsDbusInterface(deviceId, this);
-    connect(m_conversationsInterface, SIGNAL(conversationUpdated(QDBusVariant)), this, SLOT(handleConversationUpdate(QDBusVariant)));
-    connect(m_conversationsInterface, SIGNAL(conversationLoaded(qint64, quint64)), this, SLOT(handleConversationLoaded(qint64)));
-    connect(m_conversationsInterface, SIGNAL(conversationCreated(QDBusVariant)), this, SLOT(handleConversationCreated(QDBusVariant)));
+    connect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationUpdated, this, &ConversationModel::handleConversationUpdate);
+    connect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationLoaded, this, &ConversationModel::handleConversationLoaded);
+    connect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationCreated, this, &ConversationModel::handleConversationCreated);
 
-    connect(m_conversationsInterface, SIGNAL(attachmentReceived(QString, QString)), this, SIGNAL(filePathReceived(QString, QString)));
+    connect(m_conversationsInterface, &DeviceConversationsDbusInterface::attachmentReceived, this, &ConversationModel::filePathReceived);
 
     QQmlApplicationEngine *engine = qobject_cast<QQmlApplicationEngine *>(QQmlEngine::contextForObject(this)->engine());
     m_thumbnailsProvider = dynamic_cast<ThumbnailsProvider *>(engine->imageProvider(QStringLiteral("thumbnailsProvider")));

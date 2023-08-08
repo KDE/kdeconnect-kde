@@ -27,7 +27,7 @@ DevicesModel::DevicesModel(QObject *parent)
     connect(this, &QAbstractItemModel::rowsRemoved, this, &DevicesModel::rowsChanged);
     connect(this, &QAbstractItemModel::rowsInserted, this, &DevicesModel::rowsChanged);
 
-    connect(m_dbusInterface, SIGNAL(deviceAdded(QString)), this, SLOT(deviceAdded(QString)));
+    connect(m_dbusInterface, &OrgKdeKdeconnectDaemonInterface::deviceAdded, this, &DevicesModel::deviceAdded);
     connect(m_dbusInterface, &OrgKdeKdeconnectDaemonInterface::deviceVisibilityChanged, this, &DevicesModel::deviceUpdated);
     connect(m_dbusInterface, &OrgKdeKdeconnectDaemonInterface::deviceRemoved, this, &DevicesModel::deviceRemoved);
 

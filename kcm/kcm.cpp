@@ -56,8 +56,8 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const QVariantList &args)
             kcmUi.rename_edit->setText(announcedName);
         },
         this);
-    connect(daemon, SIGNAL(announcedNameChanged(QString)), kcmUi.rename_edit, SLOT(setText(QString)));
-    connect(daemon, SIGNAL(announcedNameChanged(QString)), kcmUi.rename_label, SLOT(setText(QString)));
+    connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_edit, &QLineEdit::setText);
+    connect(daemon, &DaemonDbusInterface::announcedNameChanged, kcmUi.rename_label, &QLabel::setText);
     setRenameMode(false);
 
     setButtons(KCModule::Help | KCModule::NoAdditionalButton);
@@ -164,8 +164,8 @@ void KdeConnectKcm::deviceSelected(const QModelIndex &current)
     kcmUi.messages->setVisible(false);
     resetDeviceView();
 
-    connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
-    connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
+    connect(currentDevice, &DeviceDbusInterface::pluginsChanged, this, &KdeConnectKcm::resetCurrentDevice);
+    connect(currentDevice, &DeviceDbusInterface::pairingFailed, this, &KdeConnectKcm::pairingFailed);
     connect(currentDevice, &DeviceDbusInterface::pairStateChanged, this, &KdeConnectKcm::setCurrentDevicePairState);
 }
 

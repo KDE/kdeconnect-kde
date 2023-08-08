@@ -39,7 +39,7 @@ void BluetoothLinkProvider::onStart()
 
     mBluetoothServer = new QBluetoothServer(QBluetoothServiceInfo::RfcommProtocol, this);
     mBluetoothServer->setSecurityFlags(QBluetooth::Security::Encryption | QBluetooth::Security::Secure);
-    connect(mBluetoothServer, SIGNAL(newConnection()), this, SLOT(serverNewConnection()));
+    connect(mBluetoothServer, &QBluetoothServer::newConnection, this, &BluetoothLinkProvider::serverNewConnection);
 
     mServiceDiscoveryAgent->start();
 
@@ -73,9 +73,9 @@ void BluetoothLinkProvider::connectError()
 
     qCWarning(KDECONNECT_CORE) << "Couldn't connect to socket:" << socket->errorString();
 
-    disconnect(socket, SIGNAL(connected()), this, SLOT(clientConnected()));
-    disconnect(socket, SIGNAL(readyRead()), this, SLOT(serverDataReceived()));
-    disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
+    disconnect(socket, &QBluetoothSocket::connected, this, nullptr);
+    disconnect(socket, &QBluetoothSocket::readyRead, this, nullptr);
+    disconnect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error), this, nullptr);
 
     mSockets.remove(socket->peerAddress());
     socket->deleteLater();
@@ -105,7 +105,7 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
             clientConnected(deleteableSocket);
         });
     });
-    connect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
+    connect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error), this, &BluetoothLinkProvider::connectError);
 
     socket->connectToService(info);
 
@@ -180,7 +180,7 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
     qCDebug(KDECONNECT_CORE) << "Received identity packet from" << peer;
 
     // TODO?
-    // disconnect(socket, SIGNAL(error(QBluetoothSocket::SocketError)), this, SLOT(connectError()));
+    // disconnect(socket, &QAbstractSocket::error, this, &BluetoothLinkProvider::connectError);
 
     QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);

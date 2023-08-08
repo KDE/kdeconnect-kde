@@ -24,7 +24,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
 {
     setIcon(QIcon::fromTheme(device->iconName()));
 
-    connect(device, SIGNAL(nameChanged(QString)), this, SLOT(setText(QString)));
+    connect(device, &DeviceDbusInterface::nameChanged, this, &DeviceIndicator::setText);
 
     // Battery status
     auto battery = new BatteryAction(device);

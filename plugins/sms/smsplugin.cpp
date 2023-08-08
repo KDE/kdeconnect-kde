@@ -121,7 +121,7 @@ void SmsPlugin::forwardToTelepathy(const ConversationMessage &message)
         return;
 
     qCDebug(KDECONNECT_PLUGIN_SMS) << "Passing a text message to the telepathy interface";
-    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString, QString)), SLOT(sendSms(QString, QString)), Qt::UniqueConnection);
+    connect(&m_telepathyInterface, SIGNAL(messageReceived(QString, QString)), this, SLOT(sendSms(QString, QString)), Qt::UniqueConnection);
     const QString messageBody = message.body();
     const QString contactName; // TODO: When telepathy support is improved, look up the contact with KPeople
     const QString phoneNumber = message.addresses()[0].address();
