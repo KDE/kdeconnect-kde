@@ -21,7 +21,6 @@ QString DaemonDbusInterface::activatedService()
 DaemonDbusInterface::DaemonDbusInterface(QObject *parent)
     : OrgKdeKdeconnectDaemonInterface(DaemonDbusInterface::activatedService(), QStringLiteral("/modules/kdeconnect"), QDBusConnection::sessionBus(), parent)
 {
-    connect(this, &OrgKdeKdeconnectDaemonInterface::pairingRequestsChanged, this, &DaemonDbusInterface::pairingRequestsChangedProxy);
     connect(this, &OrgKdeKdeconnectDaemonInterface::customDevicesChanged, this, &DaemonDbusInterface::customDevicesChangedProxy);
 }
 
@@ -152,7 +151,7 @@ RemoteKeyboardDbusInterface::RemoteKeyboardDbusInterface(const QString &deviceId
                                                     QDBusConnection::sessionBus(),
                                                     parent)
 {
-    connect(this, &OrgKdeKdeconnectDeviceRemotekeyboardInterface::remoteStateChanged, this, &RemoteKeyboardDbusInterface::remoteStateChanged);
+    connect(this, &OrgKdeKdeconnectDeviceRemotekeyboardInterface::remoteStateChanged, this, &RemoteKeyboardDbusInterface::remoteStateChangedProxy);
 }
 
 SmsDbusInterface::SmsDbusInterface(const QString &deviceId, QObject *parent)

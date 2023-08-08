@@ -194,11 +194,11 @@ public:
 class KDECONNECTINTERFACES_EXPORT RemoteKeyboardDbusInterface : public OrgKdeKdeconnectDeviceRemotekeyboardInterface
 {
     Q_OBJECT
-    Q_PROPERTY(bool remoteState READ remoteState NOTIFY remoteStateChanged)
+    Q_PROPERTY(bool remoteState READ remoteState NOTIFY remoteStateChangedProxy)
 public:
     explicit RemoteKeyboardDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 Q_SIGNALS:
-    void remoteStateChanged(bool state);
+    void remoteStateChangedProxy(bool state);
 };
 
 class KDECONNECTINTERFACES_EXPORT SmsDbusInterface : public OrgKdeKdeconnectDeviceSmsInterface
