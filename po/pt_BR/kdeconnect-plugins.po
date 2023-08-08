@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-08 00:46+0000\n"
 "PO-Revision-Date: 2023-07-04 15:16-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -72,13 +72,13 @@ msgstr "Som a reproduzir:"
 msgid "Select the sound to play"
 msgstr "Selecione o som a reproduzir"
 
-#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:87
+#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Travado remotamente com sucesso"
 
-#: lockdevice/lockdeviceplugin-win.cpp:64
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin-win.cpp:62
+#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
@@ -155,7 +155,7 @@ msgstr "Silenciar o sistema de som"
 msgid "Automatically resume media when call has finished"
 msgstr "Reiniciar automaticamente a mídia quando a chamada terminar"
 
-#: ping/pingplugin.cpp:37
+#: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
@@ -261,7 +261,7 @@ msgstr "Exportar comandos"
 msgid "Import Commands"
 msgstr "Importar comandos"
 
-#: screensaver-inhibit/screensaverinhibitplugin.cpp:25
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "O celular está conectado"
@@ -467,22 +467,22 @@ msgstr "Não foi possível compartilhar o arquivo"
 msgid "%1 does not exist"
 msgstr "%1 não existe"
 
-#: telephony/telephonyplugin.cpp:28
+#: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
 msgstr "número desconhecido"
 
-#: telephony/telephonyplugin.cpp:37
+#: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
 msgstr "Chamada recebida de %1"
 
-#: telephony/telephonyplugin.cpp:41
+#: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
 msgstr "Chamada não atendida de %1"
 
-#: telephony/telephonyplugin.cpp:69
+#: telephony/telephonyplugin.cpp:64
 #, kde-format
 msgid "Mute Call"
 msgstr "Silenciar chamada"

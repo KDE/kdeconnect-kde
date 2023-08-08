@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-08 00:46+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -70,13 +70,13 @@ msgstr "ശബ്ദിക്കേണ്ട ശബ്ദം:"
 msgid "Select the sound to play"
 msgstr "ശബ്ദിക്കേണ്ട ശബ്ദം തിരഞ്ഞെടുക്കുക"
 
-#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:87
+#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
 msgstr ""
 
-#: lockdevice/lockdeviceplugin-win.cpp:64
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin-win.cpp:62
+#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
@@ -154,7 +154,7 @@ msgstr "സിസ്റ്റത്തിന്റെ ശബ്ദം നിശ�
 msgid "Automatically resume media when call has finished"
 msgstr ""
 
-#: ping/pingplugin.cpp:37
+#: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr ""
@@ -262,7 +262,7 @@ msgstr "ആജ്ഞ"
 msgid "Import Commands"
 msgstr "ഉദ്ദാഹരണ ആജ്ഞകൾ"
 
-#: screensaver-inhibit/screensaverinhibitplugin.cpp:25
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "ഫോൺ ബന്ധപ്പെടുത്തിയിരിക്കുന്നു"
@@ -456,22 +456,22 @@ msgstr "ഫയൽ പങ്കുവെയ്ക്കാൻ സാധിച്�
 msgid "%1 does not exist"
 msgstr "%1 നിലനിൽക്കുന്നില്ല"
 
-#: telephony/telephonyplugin.cpp:28
+#: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
 msgstr "അപരിചിത നമ്പർ"
 
-#: telephony/telephonyplugin.cpp:37
+#: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
 msgstr "%1 വിളിക്കുന്നു"
 
-#: telephony/telephonyplugin.cpp:41
+#: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
 msgstr "%1-ൽ നിന്നും ഒരു മിസ്ഡ് കോൾ"
 
-#: telephony/telephonyplugin.cpp:69
+#: telephony/telephonyplugin.cpp:64
 #, kde-format
 msgid "Mute Call"
 msgstr "കോൾ ശബ്ദരഹിതമാക്കുക"

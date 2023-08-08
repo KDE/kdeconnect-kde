@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-08 00:46+0000\n"
 "PO-Revision-Date: 2023-06-08 06:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -71,13 +71,13 @@ msgstr "Zvok za predvajanje:"
 msgid "Select the sound to play"
 msgstr "Izberi zvok za predvajanje"
 
-#: lockdevice/lockdeviceplugin-win.cpp:61 lockdevice/lockdeviceplugin.cpp:87
+#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
 msgstr "Oddaljeni zaklep uspešen"
 
-#: lockdevice/lockdeviceplugin-win.cpp:64
-#: lockdevice/lockdeviceplugin-win.cpp:65 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin-win.cpp:62
+#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
@@ -154,7 +154,7 @@ msgstr "Izklop zvoka sistema"
 msgid "Automatically resume media when call has finished"
 msgstr "Samodejno nadaljuj predstavnost, ko je klic končan"
 
-#: ping/pingplugin.cpp:37
+#: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Ping!"
@@ -260,7 +260,7 @@ msgstr "Izvozi ukaze"
 msgid "Import Commands"
 msgstr "Uvozi ukaze"
 
-#: screensaver-inhibit/screensaverinhibitplugin.cpp:25
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr "Telefon je povezan"
@@ -457,22 +457,22 @@ msgstr "Ni bilo mogoče deliti datoteke"
 msgid "%1 does not exist"
 msgstr "%1 ne obstaja"
 
-#: telephony/telephonyplugin.cpp:28
+#: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
 msgstr "neznana številka"
 
-#: telephony/telephonyplugin.cpp:37
+#: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
 msgstr "Prejeti klic od %1"
 
-#: telephony/telephonyplugin.cpp:41
+#: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
 msgstr "Zgrešeni klic od %1"
 
-#: telephony/telephonyplugin.cpp:69
+#: telephony/telephonyplugin.cpp:64
 #, kde-format
 msgid "Mute Call"
 msgstr "Klic brez zvoka"
