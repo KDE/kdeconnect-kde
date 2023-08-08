@@ -30,7 +30,7 @@ QString getSslError()
 QSslKey generateRsaPrivateKey()
 {
     // Initialize context.
-    auto pctxRaw = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, NULL);
+    auto pctxRaw = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, nullptr);
     auto pctx = std::unique_ptr<EVP_PKEY_CTX, decltype(&::EVP_PKEY_CTX_free)>(pctxRaw, ::EVP_PKEY_CTX_free);
     if (!pctx) {
         qCWarning(KDECONNECT_CORE) << "Generate RSA Private Key failed to allocate context " << getSslError();
@@ -157,7 +157,7 @@ QSslCertificate generateSelfSignedCertificate(const QSslKey &qtPrivateKey, const
         return QSslCertificate();
     }
 
-    auto pkeyRaw = PEM_read_bio_PrivateKey(bio.get(), NULL, NULL, NULL);
+    auto pkeyRaw = PEM_read_bio_PrivateKey(bio.get(), nullptr, nullptr, nullptr);
     auto pkey = std::unique_ptr<EVP_PKEY, decltype(&::EVP_PKEY_free)>(pkeyRaw, ::EVP_PKEY_free);
     if (!pkey) {
         qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to read private key " << getSslError();
