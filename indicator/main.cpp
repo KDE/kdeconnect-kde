@@ -139,7 +139,7 @@ int main(int argc, char **argv)
 #endif
     };
 
-    QObject::connect(&iface, &DaemonDbusInterface::pairingRequestsChangedProxy, &model, refreshMenu);
+    QObject::connect(&iface, &DaemonDbusInterface::pairingRequestsChanged, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsInserted, &model, refreshMenu);
     QObject::connect(&model, &DevicesModel::rowsRemoved, &model, refreshMenu);
 

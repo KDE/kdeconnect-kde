@@ -45,8 +45,6 @@ public:
     static QString activatedService();
 
 Q_SIGNALS:
-    void deviceAdded(const QString &id);
-    void pairingRequestsChangedProxy();
     void customDevicesChangedProxy();
 };
 

@@ -166,7 +166,7 @@ void KdeConnectKcm::deviceSelected(const QModelIndex &current)
 
     connect(currentDevice, SIGNAL(pluginsChanged()), this, SLOT(resetCurrentDevice()));
     connect(currentDevice, SIGNAL(pairingFailed(QString)), this, SLOT(pairingFailed(QString)));
-    connect(currentDevice, &DeviceDbusInterface::pairStateChangedProxy, this, &KdeConnectKcm::setCurrentDevicePairState);
+    connect(currentDevice, &DeviceDbusInterface::pairStateChanged, this, &KdeConnectKcm::setCurrentDevicePairState);
 }
 
 void KdeConnectKcm::resetCurrentDevice()
