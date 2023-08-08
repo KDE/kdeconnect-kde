@@ -78,7 +78,7 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
         this);
 
     // Find device
-    auto findDevice = addAction(QIcon::fromTheme(QStringLiteral("irc-voice")), i18n("Ring device"));
+    auto findDevice = addAction(QIcon::fromTheme(QStringLiteral("irc-voice")), i18nc("@action:inmenu play bell sound", "Ring device"));
     connect(findDevice, &QAction::triggered, device, [device]() {
         FindMyPhoneDeviceDbusInterface *iface = new FindMyPhoneDeviceDbusInterface(device->id(), device);
         iface->ring();
