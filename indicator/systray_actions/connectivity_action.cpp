@@ -14,9 +14,9 @@ ConnectivityAction::ConnectivityAction(DeviceDbusInterface *device)
     setCellularNetworkStrength(m_connectivityiface.cellularNetworkStrength());
     setCellularNetworkType(m_connectivityiface.cellularNetworkType());
 
-    connect(&m_connectivityiface, &ConnectivityReportDbusInterface::refreshedProxy, this, [this] {
-        setCellularNetworkStrength(m_connectivityiface.cellularNetworkStrength());
-        setCellularNetworkType(m_connectivityiface.cellularNetworkType());
+    connect(&m_connectivityiface, &ConnectivityReportDbusInterface::refreshed, this, [this](const QString &type, int strenght) {
+        setCellularNetworkStrength(strenght);
+        setCellularNetworkType(type);
     });
 
     setIcon(QIcon::fromTheme(QStringLiteral("network-wireless")));

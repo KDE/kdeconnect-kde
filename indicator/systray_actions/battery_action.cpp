@@ -14,9 +14,9 @@ BatteryAction::BatteryAction(DeviceDbusInterface *device)
     setCharge(m_batteryIface.charge());
     setCharging(m_batteryIface.isCharging());
 
-    connect(&m_batteryIface, &BatteryDbusInterface::refreshedProxy, this, [this] {
-        setCharge(m_batteryIface.charge());
-        setCharging(m_batteryIface.isCharging());
+    connect(&m_batteryIface, &BatteryDbusInterface::refreshed, this, [this](bool isCharging, int charge) {
+        setCharge(charge);
+        setCharging(isCharging);
     });
 
     BatteryAction::update();
