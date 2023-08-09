@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-07 00:48+0000\n"
+"POT-Creation-Date: 2023-08-09 00:46+0000\n"
 "PO-Revision-Date: 2023-06-13 06:28+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -36,7 +36,9 @@ msgid "Send clipboard"
 msgstr "Envoyer un presse-papier"
 
 #: deviceindicator.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ring device"
+msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Faire sonner le périphérique"
 

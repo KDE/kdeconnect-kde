@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-07 00:48+0000\n"
+"POT-Creation-Date: 2023-08-09 00:46+0000\n"
 "PO-Revision-Date: 2023-07-29 11:19+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -42,7 +42,9 @@ msgid "Send clipboard"
 msgstr "Enviar portapapeles"
 
 #: deviceindicator.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Ring device"
+msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Hacer sonar el dispositivo"
 
