@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-06 00:46+0000\n"
-"PO-Revision-Date: 2023-06-05 08:14+0200\n"
+"PO-Revision-Date: 2023-07-31 09:16+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -119,10 +119,9 @@ msgid "KDE Connect failed to start"
 msgstr "L'avvio di KDE Connect non è riuscito"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Impossibile memorizzare il file della chiave privata: %1"
+msgstr "Impossibile generare la chiave privata."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -130,10 +129,9 @@ msgid "Could not store private key file: %1"
 msgstr "Impossibile memorizzare il file della chiave privata: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Impossibile memorizzare il file del certificato: %1"
+msgstr "Impossibile generare il certificato del dispositivo."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
