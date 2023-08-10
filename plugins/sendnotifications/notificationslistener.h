@@ -12,6 +12,7 @@
 #include <QSet>
 #include <QSharedPointer>
 #include <QThread>
+#include <atomic>
 #include <dbus/dbus.h>
 
 class KdeConnectPlugin;
@@ -32,7 +33,7 @@ Q_SIGNALS:
     void notificationReceived(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
 
 private:
-    QAtomicPointer<DBusConnection> m_connection = nullptr;
+    std::atomic<DBusConnection *> m_connection = nullptr;
 };
 
 // TODO: make a singleton, shared for all devices

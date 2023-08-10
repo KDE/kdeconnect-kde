@@ -55,9 +55,8 @@ QString becomeMonitor(DBusConnection *conn, const char *match)
     return QString();
 }
 
-extern "C" DBusHandlerResult handleMessageFromC(DBusConnection *connection, DBusMessage *message, void *user_data)
+extern "C" DBusHandlerResult handleMessageFromC(DBusConnection *, DBusMessage *message, void *user_data)
 {
-    Q_UNUSED(connection);
     auto *self = static_cast<NotificationsListenerThread *>(user_data);
     if (dbus_message_is_method_call(message, "org.freedesktop.Notifications", "Notify")) {
         self->handleNotifyCall(message);
@@ -237,7 +236,9 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
     , m_plugin(aPlugin)
     , m_thread(new NotificationsListenerThread())
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
+#endif
 
     loadApplications();
 
@@ -379,7 +380,7 @@ void NotificationsListener::onNotify(const QString &appName,
         m_applications.insert(app.name, app);
         // update config
         QVariantList list;
-        for (const auto &a : qAsConst(m_applications))
+        for (const auto &a : std::as_const(m_applications))
             list << QVariant::fromValue<NotifyingApplication>(a);
         config->setList(QStringLiteral("applications"), list);
         // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Added new application to config:" << app;
@@ -396,9 +397,10 @@ void NotificationsListener::onNotify(const QString &appName,
     }
 
     int urgency = -1;
-    if (hints.contains(QStringLiteral("urgency"))) {
+    auto urgencyHint = hints.find(QStringLiteral("urgency"));
+    if (urgencyHint != hints.end()) {
         bool ok;
-        urgency = hints[QStringLiteral("urgency")].toInt(&ok);
+        urgency = urgencyHint->toInt(&ok);
         if (!ok)
             urgency = -1;
     }
@@ -443,18 +445,15 @@ void NotificationsListener::onNotify(const QString &appName,
     if (config->getBool(QStringLiteral("generalSynchronizeIcons"), true) && replacesId == 0) {
         QSharedPointer<QIODevice> iconSource;
         // try different image sources according to priorities in notifications-spec version 1.2:
-        if (hints.contains(QStringLiteral("image-data"))) {
-            iconSource = iconForImageData(hints[QStringLiteral("image-data")]);
-        } else if (hints.contains(QStringLiteral("image_data"))) { // 1.1 backward compatibility
-            iconSource = iconForImageData(hints[QStringLiteral("image_data")]);
-        } else if (hints.contains(QStringLiteral("image-path"))) {
-            iconSource = iconForIconName(hints[QStringLiteral("image-path")].toString());
-        } else if (hints.contains(QStringLiteral("image_path"))) { // 1.1 backward compatibility
-            iconSource = iconForIconName(hints[QStringLiteral("image_path")].toString());
+        auto it = hints.find(QStringLiteral("image-data"));
+        if (it != hints.end() || (it = hints.find(QStringLiteral("image_data"))) != hints.end()) {
+            iconSource = iconForImageData(it.value());
+        } else if ((it = hints.find(QStringLiteral("image-path"))) != hints.end() || (it = hints.find(QStringLiteral("image_path"))) != hints.end()) {
+            iconSource = iconForIconName(it.value().toString());
         } else if (!appIcon.isEmpty()) {
             iconSource = iconForIconName(appIcon);
-        } else if (hints.contains(QStringLiteral("icon_data"))) { // < 1.1 backward compatibility
-            iconSource = iconForImageData(hints[QStringLiteral("icon_data")]);
+        } else if ((it = hints.find(QStringLiteral("icon_data"))) != hints.end()) {
+            iconSource = iconForImageData(it.value());
         }
         if (iconSource) {
             np.setPayload(iconSource, iconSource->size());
@@ -463,3 +462,5 @@ void NotificationsListener::onNotify(const QString &appName,
 
     m_plugin->sendPacket(np);
 }
+
+#include "moc_notificationslistener.cpp"
