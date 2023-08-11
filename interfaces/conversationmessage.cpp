@@ -63,14 +63,6 @@ ConversationMessage::ConversationMessage(const qint32 &eventField,
 {
 }
 
-ConversationMessage ConversationMessage::fromDBus(const QDBusVariant &var)
-{
-    QDBusArgument data = var.variant().value<QDBusArgument>();
-    ConversationMessage message;
-    data >> message;
-    return message;
-}
-
 ConversationAddress::ConversationAddress(QString address)
     : m_address(address)
 {

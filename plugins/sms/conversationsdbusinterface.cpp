@@ -126,9 +126,9 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
 
         // Tell the world about what just happened
         if (newConversation) {
-            Q_EMIT conversationCreated(QDBusVariant(QVariant::fromValue(message)));
+            Q_EMIT conversationCreated(QVariant::fromValue(message));
         } else if (latestMessage) {
-            Q_EMIT conversationUpdated(QDBusVariant(QVariant::fromValue(message)));
+            Q_EMIT conversationUpdated(QVariant::fromValue(message));
         }
     }
 

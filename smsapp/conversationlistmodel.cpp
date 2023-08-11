@@ -110,15 +110,15 @@ void ConversationListModel::prepareConversationsList()
         this);
 }
 
-void ConversationListModel::handleCreatedConversation(const QDBusVariant &msg)
+void ConversationListModel::handleCreatedConversation(const QVariant &msg)
 {
-    const ConversationMessage message = ConversationMessage::fromDBus(msg);
+    const ConversationMessage message = msg.value<ConversationMessage>();
     createRowFromMessage(message);
 }
 
-void ConversationListModel::handleConversationUpdated(const QDBusVariant &msg)
+void ConversationListModel::handleConversationUpdated(const QVariant &msg)
 {
-    const ConversationMessage message = ConversationMessage::fromDBus(msg);
+    const ConversationMessage message = msg.value<ConversationMessage>();
     createRowFromMessage(message);
 }
 

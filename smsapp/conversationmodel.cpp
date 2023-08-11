@@ -182,10 +182,9 @@ void ConversationModel::createRowFromMessage(const ConversationMessage &message,
     knownMessageIDs.insert(message.uID());
 }
 
-void ConversationModel::handleConversationUpdate(const QDBusVariant &msg)
+void ConversationModel::handleConversationUpdate(const QVariant &msg)
 {
-    ConversationMessage message = ConversationMessage::fromDBus(msg);
-
+    ConversationMessage message = msg.value<ConversationMessage>();
     if (message.threadID() != m_threadId) {
         // If a conversation which we are not currently viewing was updated, discard the information
         qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "Saw update for thread" << message.threadID() << "but we are currently viewing" << m_threadId;
@@ -194,10 +193,9 @@ void ConversationModel::handleConversationUpdate(const QDBusVariant &msg)
     createRowFromMessage(message, 0);
 }
 
-void ConversationModel::handleConversationCreated(const QDBusVariant &msg)
+void ConversationModel::handleConversationCreated(const QVariant &msg)
 {
-    ConversationMessage message = ConversationMessage::fromDBus(msg);
-
+    ConversationMessage message = msg.value<ConversationMessage>();
     if (m_threadId == INVALID_THREAD_ID && SmsHelper::isPhoneNumberMatch(m_addressList[0].address(), message.addresses().first().address())
         && !message.isMultitarget()) {
         m_threadId = message.threadID();
@@ -235,6 +233,20 @@ QString ConversationModel::getCharCountInfo(const QString &message) const
 void ConversationModel::requestAttachmentPath(const qint64 &partID, const QString &uniqueIdentifier)
 {
     m_conversationsInterface->requestAttachmentFile(partID, uniqueIdentifier);
+}
+
+QDBusArgument &operator<<(QDBusArgument &argument, const Message& message)
+{
+    argument.beginStructure();
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, Message &message)
+{
+    argument.beginStructure();
+    argument.endStructure();
+    return argument;
 }
 
 #include "moc_conversationmodel.cpp"

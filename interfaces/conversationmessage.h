@@ -56,7 +56,6 @@ public:
                         const qint64 &subID,
                         const QList<Attachment> &attachments);
 
-    static ConversationMessage fromDBus(const QDBusVariant &);
     static void registerDbusType();
 
     qint32 eventField() const

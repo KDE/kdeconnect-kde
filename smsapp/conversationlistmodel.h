@@ -49,8 +49,8 @@ public:
     Q_INVOKABLE void createConversationForAddress(const QString &address);
 
 public Q_SLOTS:
-    void handleCreatedConversation(const QDBusVariant &msg);
-    void handleConversationUpdated(const QDBusVariant &msg);
+    void handleCreatedConversation(const QVariant &msg);
+    void handleConversationUpdated(const QVariant &msg);
     void createRowFromMessage(const ConversationMessage &message);
     void printDBusError(const QDBusError &error);
     void displayContacts();

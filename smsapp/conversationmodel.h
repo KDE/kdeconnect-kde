@@ -67,9 +67,9 @@ Q_SIGNALS:
     void deviceIdChanged(const QString &value);
 
 private Q_SLOTS:
-    void handleConversationUpdate(const QDBusVariant &message);
-    void handleConversationLoaded(qint64 threadID);
-    void handleConversationCreated(const QDBusVariant &message);
+    Q_SCRIPTABLE void handleConversationUpdate(const QVariant &message);
+    Q_SCRIPTABLE void handleConversationLoaded(qint64 threadID);
+    Q_SCRIPTABLE void handleConversationCreated(const QVariant &message);
 
 private:
     void createRowFromMessage(const ConversationMessage &message, int pos);

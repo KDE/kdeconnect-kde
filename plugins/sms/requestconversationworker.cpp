@@ -74,7 +74,7 @@ size_t RequestConversationWorker::replyForConversation(const QList<ConversationM
         if (i >= howMany) {
             break;
         }
-        Q_EMIT conversationMessageRead(QDBusVariant(QVariant::fromValue(*it)));
+        Q_EMIT conversationMessageRead(QVariant::fromValue(*it));
         i++;
     }
 

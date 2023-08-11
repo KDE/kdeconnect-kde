@@ -26,7 +26,6 @@ class QDBusPendingCallWatcher;
 class QDBusInterface;
 class QDBusError;
 class QDBusObjectPath;
-class QDBusVariant;
 
 class MMTelephonyPlugin : public KdeConnectPlugin
 {

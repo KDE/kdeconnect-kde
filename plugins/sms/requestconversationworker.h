@@ -36,7 +36,7 @@ public Q_SLOTS:
     void work();
 
 Q_SIGNALS:
-    void conversationMessageRead(const QDBusVariant &msg);
+    void conversationMessageRead(const QVariant &msg);
     void finished();
 
 private:
