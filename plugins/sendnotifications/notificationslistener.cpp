@@ -12,6 +12,9 @@
 #include <QFile>
 #include <QIODevice>
 #include <QImage>
+#include <QDBusMessage>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 
 #include <core/kdeconnectplugin.h>
 #include <core/kdeconnectpluginconfig.h>
@@ -23,236 +26,73 @@
 #include "plugin_sendnotifications_debug.h"
 #include "sendnotificationsplugin.h"
 
-const char *NOTIFY_SIGNATURE = "susssasa{sv}i";
-
-QString becomeMonitor(DBusConnection *conn, const char *match)
+void NotificationsListener::handleMessage(const QDBusMessage& message)
 {
-    // message
-    DBusMessage *msg = dbus_message_new_method_call(DBUS_SERVICE_DBUS, DBUS_PATH_DBUS, DBUS_INTERFACE_MONITORING, "BecomeMonitor");
-    Q_ASSERT(msg != nullptr);
+    qWarning() << message;
 
-    // arguments
-    const char *matches[] = {match};
-    const char **matches_ = matches;
-    dbus_uint32_t flags = 0;
-
-    bool success = dbus_message_append_args(msg, DBUS_TYPE_ARRAY, DBUS_TYPE_STRING, &matches_, 1, DBUS_TYPE_UINT32, &flags, DBUS_TYPE_INVALID);
-    if (!success) {
-        dbus_message_unref(msg);
-        return QStringLiteral("Failed to call dbus_message_append_args");
-    }
-
-    // send
-    // TODO: wait and check for error: dbus_connection_send_with_reply_and_block
-    success = dbus_connection_send(conn, msg, nullptr);
-    if (!success) {
-        dbus_message_unref(msg);
-        return QStringLiteral("Failed to call dbus_connection_send");
-    }
-
-    dbus_message_unref(msg);
-
-    return QString();
-}
-
-extern "C" DBusHandlerResult handleMessageFromC(DBusConnection *, DBusMessage *message, void *user_data)
-{
-    auto *self = static_cast<NotificationsListenerThread *>(user_data);
-    if (dbus_message_is_method_call(message, "org.freedesktop.Notifications", "Notify")) {
-        self->handleNotifyCall(message);
-    }
-    // Monitors must not allow libdbus to reply to messages, so we eat the message.
-    return DBUS_HANDLER_RESULT_HANDLED;
-}
-
-void NotificationsListenerThread::stop()
-{
-    if (m_connection) {
-        dbus_connection_close(m_connection);
-        dbus_connection_unref(m_connection);
-        m_connection = nullptr;
-    }
-}
-
-void NotificationsListenerThread::run()
-{
-    DBusError err = DBUS_ERROR_INIT;
-    m_connection = dbus_bus_get_private(DBUS_BUS_SESSION, &err);
-    if (dbus_error_is_set(&err)) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "D-Bus connection failed" << err.message;
-        dbus_error_free(&err);
+    if (message.interface() != QStringLiteral("org.freedesktop.Notifications") || message.member() != QStringLiteral("Notify")) {
+        qWarning() << "Wrong method";
         return;
     }
 
-    Q_ASSERT(m_connection != nullptr);
+    const QString notifySignature = QStringLiteral("susssasa{sv}i");
 
-    dbus_connection_set_route_peer_messages(m_connection, true);
-    dbus_connection_set_exit_on_disconnect(m_connection, false);
-    dbus_connection_add_filter(m_connection, handleMessageFromC, this, nullptr);
-
-    QString error = becomeMonitor(m_connection,
-                                  "interface='org.freedesktop.Notifications',"
-                                  "member='Notify'");
-
-    if (!error.isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS).noquote() << "Failed to become a DBus monitor."
-                                                                 << "No notifictions will be sent. Error:" << error;
+    if (message.signature() != notifySignature) {
+        qWarning() << "Wrong signature";
     }
 
-    // wake up every minute to see if we are still connected
-    while (m_connection != nullptr) {
-        dbus_connection_read_write_dispatch(m_connection, 60 * 1000);
-    }
-
-    deleteLater();
-}
-
-static unsigned nextUnsigned(DBusMessageIter *iter)
-{
-    Q_ASSERT(dbus_message_iter_get_arg_type(iter) == DBUS_TYPE_UINT32);
-    DBusBasicValue value;
-    dbus_message_iter_get_basic(iter, &value);
-    dbus_message_iter_next(iter);
-    return value.u32;
-}
-
-static int nextInt(DBusMessageIter *iter)
-{
-    Q_ASSERT(dbus_message_iter_get_arg_type(iter) == DBUS_TYPE_INT32);
-    DBusBasicValue value;
-    dbus_message_iter_get_basic(iter, &value);
-    dbus_message_iter_next(iter);
-    return value.i32;
-}
-
-static QString nextString(DBusMessageIter *iter)
-{
-    Q_ASSERT(dbus_message_iter_get_arg_type(iter) == DBUS_TYPE_STRING);
-    DBusBasicValue value;
-    dbus_message_iter_get_basic(iter, &value);
-    dbus_message_iter_next(iter);
-    return QString::fromUtf8(value.str);
-}
-
-static QStringList nextStringList(DBusMessageIter *iter)
-{
-    DBusMessageIter sub;
-    dbus_message_iter_recurse(iter, &sub);
-    dbus_message_iter_next(iter);
-
-    QStringList list;
-    while (dbus_message_iter_get_arg_type(&sub) != DBUS_TYPE_INVALID) {
-        list.append(nextString(&sub));
-    }
-    return list;
-}
-
-static QVariant nextVariant(DBusMessageIter *iter)
-{
-    int type = dbus_message_iter_get_arg_type(iter);
-    if (type != DBUS_TYPE_VARIANT)
-        return QVariant();
-
-    DBusMessageIter sub;
-    dbus_message_iter_recurse(iter, &sub);
-    dbus_message_iter_next(iter);
-
-    type = dbus_message_iter_get_arg_type(&sub);
-    if (dbus_type_is_basic(type)) {
-        DBusBasicValue value;
-        dbus_message_iter_get_basic(&sub, &value);
-        switch (type) {
-        case DBUS_TYPE_BOOLEAN:
-            return QVariant(value.bool_val);
-        case DBUS_TYPE_INT16:
-            return QVariant(value.i16);
-        case DBUS_TYPE_INT32:
-            return QVariant(value.i32);
-        case DBUS_TYPE_INT64:
-            return QVariant((qlonglong)value.i64);
-        case DBUS_TYPE_UINT16:
-            return QVariant(value.u16);
-        case DBUS_TYPE_UINT32:
-            return QVariant(value.u32);
-        case DBUS_TYPE_UINT64:
-            return QVariant((qulonglong)value.u64);
-        case DBUS_TYPE_BYTE:
-            return QVariant(value.byt);
-        case DBUS_TYPE_DOUBLE:
-            return QVariant(value.dbl);
-        case DBUS_TYPE_STRING:
-            return QVariant(QString::fromUtf8(value.str));
-        }
-    }
-
-    qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Unimplemented conversation of type" << QChar(type) << type;
-
-    return QVariant();
-}
-
-static QVariantMap nextVariantMap(DBusMessageIter *iter)
-{
-    DBusMessageIter sub;
-    dbus_message_iter_recurse(iter, &sub);
-    dbus_message_iter_next(iter);
-
-    QVariantMap map;
-    while (dbus_message_iter_get_arg_type(&sub) != DBUS_TYPE_INVALID) {
-        DBusMessageIter entry;
-        dbus_message_iter_recurse(&sub, &entry);
-        dbus_message_iter_next(&sub);
-        QString key = nextString(&entry);
-        QVariant value = nextVariant(&entry);
-        map.insert(key, value);
-    }
-    return map;
-}
-
-void NotificationsListenerThread::handleNotifyCall(DBusMessage *message)
-{
-    DBusMessageIter iter;
-    dbus_message_iter_init(message, &iter);
-
-    if (!dbus_message_has_signature(message, NOTIFY_SIGNATURE)) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS).nospace()
-            << "Call to Notify has wrong signature. Expected " << NOTIFY_SIGNATURE << ", got " << dbus_message_get_signature(message);
+    QList<QVariant> args = message.arguments();
+    if (args.isEmpty()) {
         return;
     }
 
-    QString appName = nextString(&iter);
-    uint replacesId = nextUnsigned(&iter);
-    QString appIcon = nextString(&iter);
-    QString summary = nextString(&iter);
-    QString body = nextString(&iter);
-    QStringList actions = nextStringList(&iter);
-    QVariantMap hints = nextVariantMap(&iter);
-    int timeout = nextInt(&iter);
+    QString appName = args.at(0).toString();
+    uint replacesId = args.at(1).toUInt();
+    QString appIcon = args.at(2).toString();
+    QString summary = args.at(3).toString();
+    QString body = args.at(4).toString();
+    QStringList actions = args.at(5).toStringList();
+    QVariantMap hints = args.at(6).toMap();
+    int timeout = args.at(7).toInt();
 
-    Q_EMIT notificationReceived(appName, replacesId, appIcon, summary, body, actions, hints, timeout);
+    handleNotification(appName, replacesId, appIcon, summary, body, actions, hints, timeout);
 }
 
 NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
     : QObject(aPlugin)
     , m_plugin(aPlugin)
-    , m_thread(new NotificationsListenerThread())
+    , sessionBus(QDBusConnection::sessionBus())
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
 #endif
 
+    if (!sessionBus.isConnected()) {
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "D-Bus connection failed";
+        return;
+    }
+
     loadApplications();
 
     connect(m_plugin->config(), &KdeConnectPluginConfig::configChanged, this, &NotificationsListener::loadApplications);
 
-    connect(m_thread, &NotificationsListenerThread::notificationReceived, this, &NotificationsListener::onNotify);
+    const QString dbusServiceBus = QStringLiteral("org.freedesktop.DBus");
+    const QString dbusPathDbus = QStringLiteral("/org/freedesktop/DBus");
+    const QString dbusInterfaceMonitoring = QStringLiteral("org.freedesktop.DBus.Monitoring");
+    const QString becomeMonitor = QStringLiteral("BecomeMonitor");
+    const quint32 flags = 0;
+    const QString match = QStringLiteral("interface='org.freedesktop.Notifications',member='Notify'");
 
-    m_thread->start();
-}
+    QObject::connect(sessionBus.interface(), SIGNAL(MessageReceived(QDBusMessage)), this, SLOT(handleMessage(QDBusMessage)));
 
-NotificationsListener::~NotificationsListener()
-{
-    m_thread->stop();
-    m_thread->quit();
+    QDBusMessage msg = QDBusMessage::createMethodCall(dbusServiceBus, dbusPathDbus, dbusInterfaceMonitoring, becomeMonitor);
+    QStringList matches = {match};
+    msg.setArguments(QList<QVariant>{QVariant(matches), QVariant(flags)});
+    QDBusMessage reply = sessionBus.call(msg);
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS).noquote() << "Failed to become a DBus monitor."
+                                                                 << "No notifictions will be sent. Error:" << reply.errorMessage();
+    }
 }
 
 void NotificationsListener::loadApplications()
@@ -354,14 +194,14 @@ QSharedPointer<QIODevice> NotificationsListener::iconForIconName(const QString &
     }
 }
 
-void NotificationsListener::onNotify(const QString &appName,
-                                     uint replacesId,
-                                     const QString &appIcon,
-                                     const QString &summary,
-                                     const QString &body,
-                                     const QStringList &actions,
-                                     const QVariantMap &hints,
-                                     int timeout)
+void NotificationsListener::handleNotification(const QString &appName,
+                                                uint replacesId,
+                                                const QString &appIcon,
+                                                const QString &summary,
+                                                const QString &body,
+                                                const QStringList &actions,
+                                                const QVariantMap &hints,
+                                                int timeout)
 {
     Q_UNUSED(actions);
 

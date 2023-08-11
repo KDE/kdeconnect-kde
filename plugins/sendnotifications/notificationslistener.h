@@ -9,32 +9,16 @@
 
 #include <QHash>
 #include <QIODevice>
-#include <QSet>
 #include <QSharedPointer>
-#include <QThread>
-#include <atomic>
-#include <dbus/dbus.h>
+#include <QDBusConnection>
+
+#include "notifyingapplication.h"
 
 class KdeConnectPlugin;
 
 struct NotifyingApplication;
 
 #define PACKET_TYPE_NOTIFICATION QStringLiteral("kdeconnect.notification")
-
-class NotificationsListenerThread : public QThread
-{
-    Q_OBJECT
-public:
-    void run() override;
-    void stop();
-    void handleNotifyCall(DBusMessage *message);
-
-Q_SIGNALS:
-    void notificationReceived(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
-
-private:
-    std::atomic<DBusConnection *> m_connection = nullptr;
-};
 
 // TODO: make a singleton, shared for all devices
 class NotificationsListener : public QObject
@@ -43,7 +27,6 @@ class NotificationsListener : public QObject
 
 public:
     explicit NotificationsListener(KdeConnectPlugin *aPlugin);
-    ~NotificationsListener() override;
 
 protected:
     KdeConnectPlugin *m_plugin;
@@ -63,11 +46,12 @@ protected:
     QSharedPointer<QIODevice> iconForIconName(const QString &iconName) const;
     QSharedPointer<QIODevice> iconFromQImage(const QImage &image) const;
 
+    void handleNotification(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
+
 private Q_SLOTS:
+    void handleMessage(const QDBusMessage& message);
     void loadApplications();
-    void onNotify(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
 
 private:
-    QSharedPointer<QIODevice> pngFromImage();
-    NotificationsListenerThread *m_thread;
+    QDBusConnection sessionBus;
 };
