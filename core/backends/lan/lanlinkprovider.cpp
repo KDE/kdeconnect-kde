@@ -230,6 +230,7 @@ void LanLinkProvider::sendUdpIdentityPacket(QUdpSocket &socket, const QList<QHos
 
     for (auto &address : addresses) {
         qint64 bytes = socket.writeDatagram(payload, address, m_udpBroadcastPort);
+        qWarning() << "Send UDP identity packet to" << address;
         if (bytes == -1 && socket.error() == QAbstractSocket::DatagramTooLargeError) {
             // On macOS and FreeBSD, UDP broadcasts larger than MTU get dropped. See:
             // https://opensource.apple.com/source/xnu/xnu-3789.1.32/bsd/netinet/ip_output.c.auto.html#:~:text=/*%20don%27t%20allow%20broadcast%20messages%20to%20be%20fragmented%20*/
@@ -254,6 +255,8 @@ void LanLinkProvider::udpBroadcastReceived()
         QHostAddress sender;
 
         m_udpSocket.readDatagram(datagram.data(), datagram.size(), &sender);
+
+        qWarning() << "Received UDP identity packet";
 
         if (sender.isLoopback() && !m_testMode)
             continue;
