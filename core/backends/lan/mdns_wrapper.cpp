@@ -107,6 +107,7 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
         if (discoveredService->address == QHostAddress::Null) {
             discoveredService->address = QHostAddress(from); // In case we don't receive a A record, use from as address
         }
+        qWarning() << "Got a PTR for addres" << discoveredService->address;
     } break;
     case MDNS_RECORDTYPE_SRV: {
         static char nameBuffer[256];
@@ -270,7 +271,7 @@ static QHostAddress findBestAddressMatchV4(QVector<QHostAddress> hostAddresses, 
         return hostAddresses[0];
     }
 
-    // qDebug() << "I have more than one IP address:" << hostAddresses << "- Finding best match for source IP:" << otherIp;
+    qWarning() << "I have more than one IP address:" << hostAddresses << "- Finding best match for source IP:" << otherIp;
 
     QHostAddress matchingIp = hostAddresses[0];
     int matchingBits = -1;
@@ -286,7 +287,7 @@ static QHostAddress findBestAddressMatchV4(QVector<QHostAddress> hostAddresses, 
         }
     }
 
-    // qDebug() << "Found match:" << matchingIp;
+    qWarning() << "Found match:" << matchingIp;
 
     return matchingIp;
 }
