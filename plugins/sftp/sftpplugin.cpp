@@ -11,7 +11,6 @@
 #include <QDir>
 #include <QStandardPaths>
 
-#include <KFilePlacesModel>
 #include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KNotification>
@@ -23,22 +22,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(SftpPlugin, "kdeconnect_sftp.json")
 
-static const QSet<QString> fields_c = QSet<QString>() << QStringLiteral("user") << QStringLiteral("port") << QStringLiteral("path");
-
-struct SftpPlugin::Pimpl {
-    Pimpl()
-        : m_mounter(nullptr)
-    {
-    }
-
-    // Add KIO entry to Dolphin's Places
-    KFilePlacesModel m_placesModel;
-    Mounter *m_mounter;
-};
-
 SftpPlugin::SftpPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
-    , d(new Pimpl())
     , deviceId(device()->id())
 {
     addToDolphin();
@@ -56,50 +41,50 @@ void SftpPlugin::addToDolphin()
     removeFromDolphin();
 
     QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
-    d->m_placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
+    m_placesModel.addPlace(device()->name(), kioUrl, QStringLiteral("kdeconnect"));
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "add to dolphin";
 }
 
 void SftpPlugin::removeFromDolphin()
 {
     QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
-    QModelIndex index = d->m_placesModel.closestItem(kioUrl);
+    QModelIndex index = m_placesModel.closestItem(kioUrl);
     while (index.row() != -1) {
-        d->m_placesModel.removePlace(index);
-        index = d->m_placesModel.closestItem(kioUrl);
+        m_placesModel.removePlace(index);
+        index = m_placesModel.closestItem(kioUrl);
     }
 }
 
 void SftpPlugin::mount()
 {
     qCDebug(KDECONNECT_PLUGIN_SFTP) << "Mount device:" << device()->name();
-    if (d->m_mounter) {
+    if (m_mounter) {
         return;
     }
 
-    d->m_mounter = new Mounter(this);
-    connect(d->m_mounter, &Mounter::mounted, this, &SftpPlugin::onMounted);
-    connect(d->m_mounter, &Mounter::unmounted, this, &SftpPlugin::onUnmounted);
-    connect(d->m_mounter, &Mounter::failed, this, &SftpPlugin::onFailed);
+    m_mounter = new Mounter(this);
+    connect(m_mounter, &Mounter::mounted, this, &SftpPlugin::onMounted);
+    connect(m_mounter, &Mounter::unmounted, this, &SftpPlugin::onUnmounted);
+    connect(m_mounter, &Mounter::failed, this, &SftpPlugin::onFailed);
 }
 
 void SftpPlugin::unmount()
 {
-    if (d->m_mounter) {
-        d->m_mounter->deleteLater();
-        d->m_mounter = nullptr;
+    if (m_mounter) {
+        m_mounter->deleteLater();
+        m_mounter = nullptr;
     }
 }
 
 bool SftpPlugin::mountAndWait()
 {
     mount();
-    return d->m_mounter->wait();
+    return m_mounter->wait();
 }
 
 bool SftpPlugin::isMounted() const
 {
-    return d->m_mounter && d->m_mounter->isMounted();
+    return m_mounter && m_mounter->isMounted();
 }
 
 QString SftpPlugin::getMountError()
@@ -123,6 +108,7 @@ bool SftpPlugin::startBrowsing()
 
 void SftpPlugin::receivePacket(const NetworkPacket &np)
 {
+    static const QSet<QString> fields_c{QStringLiteral("user"), QStringLiteral("port"), QStringLiteral("path")};
     const QStringList keysList = np.body().keys();
     const auto keys = QSet(keysList.begin(), keysList.end());
     if (!(fields_c - keys).isEmpty() && !np.has(QStringLiteral("errorMessage"))) {
@@ -130,7 +116,7 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
         return;
     }
 
-    d->m_mounter->onPacketReceived(np);
+    m_mounter->onPacketReceived(np);
 
     remoteDirectories.clear();
     if (np.has(QStringLiteral("multiPaths"))) {

@@ -6,10 +6,12 @@
 
 #pragma once
 
+#include <KFilePlacesModel>
 #include <core/device.h>
 #include <core/kdeconnectplugin.h>
 
 #define PACKET_TYPE_SFTP_REQUEST QStringLiteral("kdeconnect.sftp.request")
+class Mounter;
 
 class SftpPlugin : public KdeConnectPlugin
 {
@@ -45,13 +47,14 @@ private Q_SLOTS:
     void onFailed(const QString &message);
 
 private:
-    struct Pimpl;
-    QScopedPointer<Pimpl> d;
+    void knotify(int type, const QString &text, const QPixmap &icon) const;
+    void addToDolphin();
+    void removeFromDolphin();
+    // Add KIO entry to Dolphin's Places
+    KFilePlacesModel m_placesModel;
+    Mounter *m_mounter;
     QString deviceId; // Storing it to avoid accessing device() from the destructor which could cause a crash
 
     QVariantMap remoteDirectories; // Actually a QMap<String, String>, but QDBus prefers this
     QString mountError;
-
-    void addToDolphin();
-    void removeFromDolphin();
 };
