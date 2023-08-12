@@ -11,8 +11,7 @@
             "listing": [
                 "Name",
                 "Type",
-                "Access",
-                ""
+                "Access"
             ],
             "makedir": false,
             "maxInstances": 2,
