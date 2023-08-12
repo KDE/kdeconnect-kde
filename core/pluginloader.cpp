@@ -69,7 +69,7 @@ KdeConnectPlugin *PluginLoader::instantiatePluginForDevice(const QString &plugin
 QStringList PluginLoader::incomingCapabilities() const
 {
     QSet<QString> ret;
-    for (const KPluginMetaData &service : qAsConst(plugins)) {
+    for (const KPluginMetaData &service : plugins) {
         QStringList rawValues = service.value(QStringLiteral("X-KdeConnect-SupportedPacketType"), QStringList());
         ret += QSet<QString>(rawValues.begin(), rawValues.end());
     }
@@ -79,20 +79,20 @@ QStringList PluginLoader::incomingCapabilities() const
 QStringList PluginLoader::outgoingCapabilities() const
 {
     QSet<QString> ret;
-    for (const KPluginMetaData &service : qAsConst(plugins)) {
+    for (const KPluginMetaData &service : plugins) {
         QStringList rawValues = service.value(QStringLiteral("X-KdeConnect-OutgoingPacketType"), QStringList());
         ret += QSet<QString>(rawValues.begin(), rawValues.end());
     }
     return ret.values();
 }
 
-QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming, const QSet<QString> &outgoing)
+QSet<QString> PluginLoader::pluginsForCapabilities(const QSet<QString> &incoming, const QSet<QString> &outgoing) const
 {
     QSet<QString> ret;
 
     QString myDeviceType = KdeConnectConfig::instance().deviceType().toString();
 
-    for (const KPluginMetaData &service : qAsConst(plugins)) {
+    for (const KPluginMetaData &service : plugins) {
         // Check if the plugin support this device type
         const QStringList supportedDeviceTypes = service.rawData().value(QStringLiteral("X-KdeConnect-SupportedDeviceTypes")).toVariant().toStringList();
         if (!supportedDeviceTypes.isEmpty()) {
