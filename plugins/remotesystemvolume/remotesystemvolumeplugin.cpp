@@ -70,7 +70,7 @@ QByteArray RemoteSystemVolumePlugin::sinks()
 
 QString RemoteSystemVolumePlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotesystemvolume");
+    return QLatin1String("/modules/kdeconnect/devices/%1/remotesystemvolume").arg(device()->id());
 }
 
 #include "moc_remotesystemvolumeplugin.cpp"

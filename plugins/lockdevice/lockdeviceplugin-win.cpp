@@ -91,7 +91,7 @@ void LockDevicePlugin::connected()
 
 QString LockDevicePlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/lockdevice");
+    return QLatin1String("/modules/kdeconnect/devices/%1/lockdevice").arg(device()->id());
 }
 
 #include "lockdeviceplugin-win.moc"

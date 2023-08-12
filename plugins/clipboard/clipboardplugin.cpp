@@ -28,7 +28,7 @@ void ClipboardPlugin::connected()
 
 QString ClipboardPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/clipboard");
+    return QLatin1String("/modules/kdeconnect/devices/%1/clipboard").arg(device()->id());
 }
 
 void ClipboardPlugin::clipboardChanged(const QString &content, ClipboardListener::ClipboardContentType contentType)

@@ -266,7 +266,7 @@ void SharePlugin::shareText(const QString &text)
 
 QString SharePlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/share");
+    return QLatin1String("/modules/kdeconnect/devices/%1/share").arg(device()->id());
 }
 
 #include "moc_shareplugin.cpp"

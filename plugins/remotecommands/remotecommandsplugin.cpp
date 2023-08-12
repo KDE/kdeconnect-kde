@@ -40,7 +40,7 @@ void RemoteCommandsPlugin::connected()
 
 QString RemoteCommandsPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotecommands");
+    return QLatin1String("/modules/kdeconnect/devices/%1/remotecommands").arg(device()->id());
 }
 
 void RemoteCommandsPlugin::setCommands(const QByteArray &cmds)

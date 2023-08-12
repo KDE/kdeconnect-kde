@@ -79,7 +79,7 @@ QString VirtualMonitorPlugin::dbusPath() const
     if (QStandardPaths::findExecutable(QS("krfb-virtualmonitor")).isEmpty())
         return {};
 
-    return QS("/modules/kdeconnect/devices/") + device()->id() + QS("/virtualmonitor");
+    return QLatin1String("/modules/kdeconnect/devices/%1/virtualmonitor").arg(device()->id());
 }
 
 bool VirtualMonitorPlugin::requestVirtualMonitor()

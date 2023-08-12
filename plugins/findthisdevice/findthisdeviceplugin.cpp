@@ -81,7 +81,7 @@ void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
 
 QString FindThisDevicePlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/findthisdevice");
+    return QLatin1String("/modules/kdeconnect/devices/%1/findthisdevice").arg(device()->id());
 }
 
 #include "findthisdeviceplugin.moc"

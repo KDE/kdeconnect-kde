@@ -124,7 +124,7 @@ void BatteryPlugin::receivePacket(const NetworkPacket &np)
 
 QString BatteryPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/battery");
+    return QLatin1String("/modules/kdeconnect/devices/%1/battery").arg(device()->id());
 }
 
 #include "batteryplugin.moc"

@@ -186,7 +186,7 @@ bool ContactsPlugin::sendRequestWithIDs(const QString &packetType, const uIDList
 
 QString ContactsPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/contacts");
+    return QLatin1String("/modules/kdeconnect/devices/%1/contacts").arg(device()->id());
 }
 
 #include "contactsplugin.moc"

@@ -34,7 +34,7 @@ void RemoteControlPlugin::sendCommand(const QVariantMap &body)
 
 QString RemoteControlPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotecontrol");
+    return QLatin1String("/modules/kdeconnect/devices/%1/remotecontrol").arg(device()->id());
 }
 
 #include "moc_remotecontrolplugin.cpp"

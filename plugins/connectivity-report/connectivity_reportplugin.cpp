@@ -45,7 +45,7 @@ void ConnectivityReportPlugin::receivePacket(const NetworkPacket &np)
 
 QString ConnectivityReportPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/connectivity_report");
+    return QLatin1String("/modules/kdeconnect/devices/%1/connectivity_report").arg(device()->id());
 }
 
 #include "connectivity_reportplugin.moc"

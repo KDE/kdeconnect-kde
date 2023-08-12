@@ -67,7 +67,7 @@ long MprisRemotePlugin::position() const
 
 QString MprisRemotePlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/mprisremote");
+    return QLatin1String("/modules/kdeconnect/devices/%1/mprisremote").arg(device()->id());
 }
 
 void MprisRemotePlugin::requestPlayerStatus(const QString &player)

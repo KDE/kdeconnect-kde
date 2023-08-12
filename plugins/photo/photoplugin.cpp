@@ -42,7 +42,7 @@ void PhotoPlugin::requestPhoto(const QString &url)
 
 QString PhotoPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/photo");
+    return QLatin1String("/modules/kdeconnect/devices/%1/photo").arg(device()->id());
 }
 
 #include "moc_photoplugin.cpp"

@@ -120,7 +120,7 @@ int RemoteKeyboardPlugin::translateQtKey(int qtKey) const
 
 QString RemoteKeyboardPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/remotekeyboard");
+    return QLatin1String("/modules/kdeconnect/devices/%1/remotekeyboard").arg(device()->id());
 }
 
 #include "moc_remotekeyboardplugin.cpp"

@@ -29,7 +29,7 @@ void BigscreenPlugin::receivePacket(const NetworkPacket &np)
 
 QString BigscreenPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/bigscreen");
+    return QLatin1String("/modules/kdeconnect/devices/%1/bigscreen").arg(device()->id());
 }
 
 #include "bigscreenplugin.moc"

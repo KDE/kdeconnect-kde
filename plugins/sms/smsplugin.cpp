@@ -231,7 +231,7 @@ Attachment SmsPlugin::createAttachmentFromUrl(const QString &url)
 
 QString SmsPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/sms");
+    return QLatin1String("/modules/kdeconnect/devices/%1/sms").arg(device()->id());
 }
 
 void SmsPlugin::launchApp()

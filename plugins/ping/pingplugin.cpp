@@ -46,7 +46,7 @@ void PingPlugin::sendPing(const QString &customMessage)
 
 QString PingPlugin::dbusPath() const
 {
-    return QStringLiteral("/modules/kdeconnect/devices/") + device()->id() + QStringLiteral("/ping");
+    return QLatin1String("/modules/kdeconnect/devices/%1/ping").arg(device()->id());
 }
 
 #include "moc_pingplugin.cpp"
