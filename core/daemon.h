@@ -43,7 +43,7 @@ public:
 
     Device *getDevice(const QString &deviceId);
 
-    const QSet<LinkProvider *> &getLinkProviders() const;
+    QSet<LinkProvider *> getLinkProviders() const;
 
     QStringList pairingRequests() const;
 

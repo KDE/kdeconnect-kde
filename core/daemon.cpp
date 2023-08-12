@@ -123,7 +123,7 @@ Device *Daemon::getDevice(const QString &deviceId)
     return nullptr;
 }
 
-const QSet<LinkProvider *> &Daemon::getLinkProviders() const
+QSet<LinkProvider *> Daemon::getLinkProviders() const
 {
     return d->m_linkProviders;
 }
