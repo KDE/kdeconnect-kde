@@ -25,8 +25,8 @@ class KDECONNECTCORE_EXPORT KdeConnectPluginConfig : public QObject
     Q_PROPERTY(QString pluginName READ pluginName WRITE setPluginName NOTIFY configChanged)
 
 public:
-    KdeConnectPluginConfig();
-    KdeConnectPluginConfig(const QString &deviceId, const QString &pluginName);
+    explicit KdeConnectPluginConfig(QObject *parent = nullptr);
+    explicit KdeConnectPluginConfig(const QString &deviceId, const QString &pluginName, QObject *parent = nullptr);
     ~KdeConnectPluginConfig() override;
 
     /**

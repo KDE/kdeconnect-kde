@@ -21,13 +21,15 @@ struct KdeConnectPluginConfigPrivate {
     QDBusMessage m_signal;
 };
 
-KdeConnectPluginConfig::KdeConnectPluginConfig()
-    : d(new KdeConnectPluginConfigPrivate())
+KdeConnectPluginConfig::KdeConnectPluginConfig(QObject *parent)
+    : QObject(parent)
+    , d(new KdeConnectPluginConfigPrivate())
 {
 }
 
-KdeConnectPluginConfig::KdeConnectPluginConfig(const QString &deviceId, const QString &pluginName)
-    : d(new KdeConnectPluginConfigPrivate())
+KdeConnectPluginConfig::KdeConnectPluginConfig(const QString &deviceId, const QString &pluginName, QObject *parent)
+    : QObject(parent)
+    , d(new KdeConnectPluginConfigPrivate())
 {
     d->m_configDir = KdeConnectConfig::instance().pluginConfigDir(deviceId, pluginName);
     QDir().mkpath(d->m_configDir.path());
