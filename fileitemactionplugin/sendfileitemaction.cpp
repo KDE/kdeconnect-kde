@@ -54,9 +54,17 @@ QList<QAction *> SendFileItemAction::actions(const KFileItemListProperties &file
         }
         QAction *action = new QAction(QIcon::fromTheme(deviceIface.iconName()), deviceIface.name(), parentWidget);
         action->setProperty("id", id);
-        action->setProperty("urls", QVariant::fromValue(fileItemInfos.urlList()));
-        action->setProperty("parentWidget", QVariant::fromValue(parentWidget));
-        connect(action, &QAction::triggered, this, &SendFileItemAction::sendFile);
+        const QList<QUrl> urls = fileItemInfos.urlList();
+        connect(action, &QAction::triggered, this, [id, urls]() {
+            for (const QUrl &url : urls) {
+                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
+                                                                  QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"),
+                                                                  QStringLiteral("org.kde.kdeconnect.device.share"),
+                                                                  QStringLiteral("shareUrl"));
+                msg.setArguments(QVariantList{url.toString()});
+                QDBusConnection::sessionBus().asyncCall(msg);
+            }
+        });
         actions += action;
     }
 
@@ -71,20 +79,6 @@ QList<QAction *> SendFileItemAction::actions(const KFileItemListProperties &file
             actions.first()->setText(i18n("Send to '%1' via KDE Connect", actions.first()->text()));
         }
         return actions;
-    }
-}
-
-void SendFileItemAction::sendFile()
-{
-    const QList<QUrl> urls = sender()->property("urls").value<QList<QUrl>>();
-    QString id = sender()->property("id").toString();
-    for (const QUrl &url : urls) {
-        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                          QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"),
-                                                          QStringLiteral("org.kde.kdeconnect.device.share"),
-                                                          QStringLiteral("shareUrl"));
-        msg.setArguments(QVariantList{url.toString()});
-        QDBusConnection::sessionBus().asyncCall(msg);
     }
 }
 
