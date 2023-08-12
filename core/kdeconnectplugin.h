@@ -36,7 +36,6 @@ public:
 
     QString iconName() const;
 
-public Q_SLOTS:
     /**
      * Returns true if it has handled the packet in some way
      * device.sendPacket can be used to send an answer back to the device
