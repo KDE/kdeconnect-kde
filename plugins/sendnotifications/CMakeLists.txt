@@ -12,7 +12,11 @@ target_link_libraries(kdeconnect_sendnotifications
     Qt::Gui
     KF${QT_MAJOR_VERSION}::IconThemes
     KF${QT_MAJOR_VERSION}::ConfigCore
-    PkgConfig::GIO
+    ${DBus_LIBRARIES}
+)
+
+target_include_directories(kdeconnect_sendnotifications
+    SYSTEM PRIVATE ${DBus_INCLUDE_DIRS}
 )
 
 # Config
