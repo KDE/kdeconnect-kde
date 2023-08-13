@@ -13,7 +13,6 @@
 #include <QQmlEngine>
 
 #include <QDebug>
-#include <QScopedPointer>
 
 void AbstractPointerLocker::setWindow(QWindow *window)
 {

@@ -88,7 +88,7 @@ protected:
     void addDevice(Device *device);
     void removeDevice(Device *d);
 
-    QScopedPointer<struct DaemonPrivate> d;
+    const std::unique_ptr<struct DaemonPrivate> d;
 };
 
 #endif

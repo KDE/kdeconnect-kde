@@ -51,7 +51,7 @@ public:
     }
 
 private:
-    QScopedPointer<KdeConnectPluginPrivate> d;
+    const std::unique_ptr<KdeConnectPluginPrivate> d;
 };
 
 #endif

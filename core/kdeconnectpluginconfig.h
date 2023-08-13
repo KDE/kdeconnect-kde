@@ -14,6 +14,7 @@
 #include <QVariant>
 
 #include "kdeconnectcore_export.h"
+#include <memory>
 
 struct KdeConnectPluginConfigPrivate;
 
@@ -66,7 +67,7 @@ Q_SIGNALS:
 private:
     void loadConfig();
 
-    QScopedPointer<KdeConnectPluginConfigPrivate> d;
+    std::unique_ptr<KdeConnectPluginConfigPrivate> d;
     QString m_deviceId;
     QString m_pluginName;
 };

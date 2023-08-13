@@ -30,7 +30,7 @@ Q_SIGNALS:
 
 private:
     const QString m_replyId;
-    const QScopedPointer<Ui::SendReplyDialog> m_ui;
+    const std::unique_ptr<Ui::SendReplyDialog> m_ui;
 };
 
 class SendReplyTextEdit : public QTextEdit
