@@ -193,7 +193,7 @@ int Discoverer::listenForQueryResponses()
     }
 
     // Start listening on all sockets
-    for (int socket : sockets) {
+    for (int socket : std::as_const(sockets)) {
         QSocketNotifier *socketNotifier = new QSocketNotifier(socket, QSocketNotifier::Read);
         QObject::connect(socketNotifier, &QSocketNotifier::activated, [this](QSocketDescriptor socket) {
             MdnsService discoveredService;
@@ -257,7 +257,7 @@ int countCommonLeadingBits(quint32 int1, quint32 int2) {
     return count;
 }
 
-static QHostAddress findBestAddressMatchV4(QVector<QHostAddress> hostAddresses, const struct sockaddr *fromAddress)
+static QHostAddress findBestAddressMatchV4(const QVector<QHostAddress> &hostAddresses, const struct sockaddr *fromAddress)
 {
     Q_ASSERT(!hostAddresses.empty());
     if (hostAddresses.size() == 1 || fromAddress == nullptr) {
@@ -291,7 +291,7 @@ static QHostAddress findBestAddressMatchV4(QVector<QHostAddress> hostAddresses, 
     return matchingIp;
 }
 
-static QHostAddress findBestAddressMatchV6(QVector<QHostAddress> hostAddresses, const struct sockaddr *fromAddress)
+static QHostAddress findBestAddressMatchV6(const QVector<QHostAddress>& hostAddresses, const struct sockaddr *fromAddress)
 {
     Q_ASSERT(!hostAddresses.empty());
     // We could do the same logic for v6 that we do for V4, but we don't care that much about IPv6
@@ -595,14 +595,10 @@ void Announcer::stopAnnouncing()
 
 void Announcer::stopListeningForQueries()
 {
-    if (socketNotifier != nullptr) {
-        delete socketNotifier;
-        socketNotifier = nullptr;
-    }
-    if (socketNotifierV6 != nullptr) {
-        delete socketNotifierV6;
-        socketNotifierV6 = nullptr;
-    }
+    delete socketNotifier;
+    socketNotifier = nullptr;
+    delete socketNotifierV6;
+    socketNotifierV6 = nullptr;
 }
 
 void Announcer::sendMulticastAnnounce(bool isGoodbye)
