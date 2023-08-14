@@ -368,6 +368,11 @@ void NotificationsListener::onNotify(const QString &appName,
     // qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Got notification appName=" << appName << "replacesId=" << replacesId
     // << "appIcon=" << appIcon << "summary=" << summary << "body=" << body << "actions=" << actions << "hints=" << hints << "timeout=" << timeout;
 
+    if (appName == QStringLiteral("KDE Connect")) {
+        qCDebug(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Ignoring my own notification";
+        return;
+    }
+
     auto *config = m_plugin->config();
 
     NotifyingApplication app;
