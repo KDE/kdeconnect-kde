@@ -52,6 +52,7 @@ Dependencies:
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
   'require':
     'frameworks/kpackage': '@latest-kf6'
+    'frameworks/kstatusnotifieritem': '@latest-kf6'
     'libraries/pulseaudio-qt': '@latest-kf6'
     'libraries/plasma-wayland-protocols': '@latest-kf6'
 - 'on': ['Linux/Qt6']

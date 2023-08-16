@@ -49,6 +49,10 @@ if (WIN32)
     target_link_libraries(kdeconnect-indicator windowsapp)
 endif()
 
+if (QT_MAJOR_VERSION STREQUAL "6" AND NOT WIN32)
+    target_link_libraries(kdeconnect-indicator KF6::StatusNotifierItem)
+endif()
+
 if (APPLE)
 # Apple frameworks
 target_link_libraries(kdeconnect-indicator "-framework AppKit")

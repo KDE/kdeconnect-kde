@@ -95,6 +95,10 @@ set_package_properties(KF5PeopleVCard PROPERTIES
     TYPE RUNTIME
 )
 
+if (QT_MAJOR_VERSION STREQUAL "6" AND NOT WIN32)
+    find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
+endif()
+
 #ecm_find_qmlmodule(org.kde.people 1.0) FIXME This results in KPeople code being called which triggers DBus calls which breaks the Windows CI
 ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
