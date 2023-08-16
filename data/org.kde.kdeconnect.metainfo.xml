@@ -185,26 +185,9 @@
     <value key="KDE::app_store">https://apps.apple.com/app/kde-connect/id1580245991</value>
   </custom>
   <releases>
+    <release version="23.08.0" date="2023-08-24"/>
     <release version="23.04.3" date="2023-07-06"/>
     <release version="23.04.2" date="2023-06-08"/>
     <release version="23.04.1" date="2023-05-11"/>
-    <release version="23.04.0" date="2023-04-20">
-      <artifacts>
-        <artifact type="binary" platform="x86_64-windows-msvc">
-          <location>https://download.kde.org/stable/release-service/23.04.0/windows/kdeconnect-kde-23.04.0-1322-windows-cl-msvc2019-x86_64.exe</location>
-          <checksum type="sha256">b32a83ac7f89f284c2330b5dd01f430294d1adb201ab5c0f11aae19f29866eae</checksum>
-          <size type="download">68822496</size>
-        </artifact>
-      </artifacts>
-    </release>
-    <release version="22.12.3" date="2023-03-02">
-      <artifacts>
-        <artifact type="binary" platform="x86_64-windows-msvc">
-          <location>https://download.kde.org/stable/release-service/22.12.3/windows/kdeconnect-kde-22.12.3-1284-windows-cl-msvc2019-x86_64.exe</location>
-          <checksum type="sha256">0392238972a5f0425164858ce5ad31959847c94b41418f5d95a77733caf60949</checksum>
-          <size type="download">68705704</size>
-        </artifact>
-      </artifacts>
-    </release>
   </releases>
 </component>
