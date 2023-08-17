@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 10:09+0000\n"
+"POT-Creation-Date: 2023-08-17 02:25+0000\n"
 "PO-Revision-Date: 2021-09-12 08:47+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -71,28 +71,28 @@ msgstr "執行指令"
 msgid "Add commands"
 msgstr "新增指令"
 
-#: indicatorhelper_mac.cpp:34
+#: indicatorhelper_mac.cpp:36
 #, kde-format
 msgid "Launching"
 msgstr "正在啟動"
 
-#: indicatorhelper_mac.cpp:84
+#: indicatorhelper_mac.cpp:90
 #, kde-format
 msgid "Launching daemon"
 msgstr "正在啟動守護程式"
 
-#: indicatorhelper_mac.cpp:93
+#: indicatorhelper_mac.cpp:103
 #, kde-format
 msgid "Waiting D-Bus"
 msgstr "正在等待 D-Bus"
 
-#: indicatorhelper_mac.cpp:110 indicatorhelper_mac.cpp:120
-#: indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:123 indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:154
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE 連線"
 
-#: indicatorhelper_mac.cpp:111 indicatorhelper_mac.cpp:121
+#: indicatorhelper_mac.cpp:124 indicatorhelper_mac.cpp:136
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -101,12 +101,12 @@ msgstr ""
 "無法連線至 DBus\n"
 "KDE 連線將離開"
 
-#: indicatorhelper_mac.cpp:135
+#: indicatorhelper_mac.cpp:154
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "找不到 kdeconnectd"
 
-#: indicatorhelper_mac.cpp:140
+#: indicatorhelper_mac.cpp:159
 #, kde-format
 msgid "Loading modules"
 msgstr "正在載入模組"
