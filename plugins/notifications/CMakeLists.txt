@@ -4,6 +4,7 @@ ki18n_wrap_ui(kdeconnect_notifications sendreplydialog.ui)
 target_link_libraries(kdeconnect_notifications
     kdeconnectcore
     Qt::DBus
+    Qt::Widgets
     KF${QT_MAJOR_VERSION}::Notifications
     KF${QT_MAJOR_VERSION}::I18n
     KF${QT_MAJOR_VERSION}::WindowSystem
