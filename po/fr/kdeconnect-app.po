@@ -1,12 +1,12 @@
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 # Simon Depiets <sdepiets@gmail.com>, 2020.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 07:33+0000\n"
-"PO-Revision-Date: 2023-06-13 06:27+0200\n"
+"PO-Revision-Date: 2023-08-21 14:08+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.07.90\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -124,11 +124,10 @@ msgid "This device is not paired"
 msgstr "Ce périphérique est non associé"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Associer"
+msgstr "Appairer"
 
 #: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
@@ -156,11 +155,10 @@ msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Trouver l'appareil"
+msgstr "Périphériques"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
