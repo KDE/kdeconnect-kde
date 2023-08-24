@@ -25,6 +25,7 @@ public:
     {
         return m_started;
     }
+    void onPacketReceived(const NetworkPacket &np);
 
 Q_SIGNALS:
     void mounted();
@@ -32,7 +33,6 @@ Q_SIGNALS:
     void failed(const QString &message);
 
 private Q_SLOTS:
-    void onPackageReceived(const NetworkPacket &np);
     void onStarted();
     void onError(QProcess::ProcessError error);
     void onFinished(int exitCode, QProcess::ExitStatus exitStatus);

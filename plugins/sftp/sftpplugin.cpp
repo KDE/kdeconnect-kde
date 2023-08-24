@@ -130,7 +130,7 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
         return;
     }
 
-    Q_EMIT packetReceived(np);
+    d->m_mounter->onPacketReceived(np);
 
     remoteDirectories.clear();
     if (np.has(QStringLiteral("multiPaths"))) {

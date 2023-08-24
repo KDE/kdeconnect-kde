@@ -26,31 +26,23 @@ public:
         return QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/sftp");
     }
 
-Q_SIGNALS:
-    void packetReceived(const NetworkPacket &np);
-    Q_SCRIPTABLE void mounted();
-    Q_SCRIPTABLE void unmounted();
-
-public Q_SLOTS:
+    Q_SCRIPTABLE bool startBrowsing();
     Q_SCRIPTABLE void mount();
     Q_SCRIPTABLE void unmount();
     Q_SCRIPTABLE bool mountAndWait();
     Q_SCRIPTABLE bool isMounted() const;
     Q_SCRIPTABLE QString getMountError();
-
-    Q_SCRIPTABLE bool startBrowsing();
     Q_SCRIPTABLE QString mountPoint();
     Q_SCRIPTABLE QVariantMap getDirectories(); // Actually a QMap<String, String>, but QDBus prefers this
+
+Q_SIGNALS:
+    Q_SCRIPTABLE void mounted();
+    Q_SCRIPTABLE void unmounted();
 
 private Q_SLOTS:
     void onMounted();
     void onUnmounted();
     void onFailed(const QString &message);
-
-private:
-    void knotify(int type, const QString &text, const QPixmap &icon) const;
-    void addToDolphin();
-    void removeFromDolphin();
 
 private:
     struct Pimpl;
@@ -59,4 +51,7 @@ private:
 
     QVariantMap remoteDirectories; // Actually a QMap<String, String>, but QDBus prefers this
     QString mountError;
+
+    void addToDolphin();
+    void removeFromDolphin();
 };

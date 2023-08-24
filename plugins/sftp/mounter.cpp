@@ -24,8 +24,6 @@ Mounter::Mounter(SftpPlugin *sftp)
     , m_mountPoint(sftp->mountPoint())
     , m_started(false)
 {
-    connect(m_sftp, &SftpPlugin::packetReceived, this, &Mounter::onPackageReceived);
-
     connect(&m_connectTimer, &QTimer::timeout, this, &Mounter::onMountTimeout);
 
     connect(this, &Mounter::mounted, &m_connectTimer, &QTimer::stop);
@@ -58,7 +56,7 @@ bool Mounter::wait()
     return loop.exec();
 }
 
-void Mounter::onPackageReceived(const NetworkPacket &np)
+void Mounter::onPacketReceived(const NetworkPacket &np)
 {
     if (np.get<bool>(QStringLiteral("stop"), false)) {
         qCDebug(KDECONNECT_PLUGIN_SFTP) << "SFTP server stopped";
