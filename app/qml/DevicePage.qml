@@ -21,12 +21,12 @@ Kirigami.ScrollablePage {
             icon.name: "network-disconnect"
             onTriggered: root.currentDevice.unpair()
             text: i18nd("kdeconnect-app", "Unpair")
-            visible: root.currentDevice.isPaired
+            visible: root.currentDevice && root.currentDevice.isPaired
         },
         Kirigami.Action {
             icon.name: "hands-free"
             text: i18nd("kdeconnect-app", "Send Ping")
-            visible: root.currentDevice.isPaired && root.currentDevice.isReachable
+            visible: root.currentDevice && root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
                 root.currentDevice.pluginCall("ping", "sendPing");
             }
@@ -34,7 +34,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             icon.name: "settings-configure"
             text: i18n("Plugin Settings")
-            visible: root.currentDevice.isPaired && root.currentDevice.isReachable
+            visible: root.currentDevice && root.currentDevice.isPaired && root.currentDevice.isReachable
             onTriggered: {
                 pageStack.push(
                     Qt.resolvedUrl("PluginSettings.qml"),
