@@ -23,11 +23,8 @@ Kirigami.ApplicationWindow {
         id: drawer
         edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
         modal: Kirigami.Settings.isMobile || (applicationWindow().width < Kirigami.Units.gridUnit * 50 && !collapsed) // Only modal when not collapsed, otherwise collapsed won't show.
-        drawerOpen: !Kirigami.Settings.isMobile
         width: Kirigami.Units.gridUnit * 16
-        onModalChanged: if (!modal) {
-            drawerOpen = true;
-        }
+        onModalChanged: drawerOpen = !modal
 
         Behavior on width {
             NumberAnimation {
