@@ -113,22 +113,23 @@ void Mounter::onPacketReceived(const NetworkPacket &np)
         ip.append(QLatin1Char(']'));
     }
 
+    // clang-format off
     const QStringList arguments =
-        QStringList() << QStringLiteral("%1@%2:%3")
-                             .arg(np.get<QString>(QStringLiteral("user")),
-                                  ip,
-                                  path)
+        QStringList() << QStringLiteral("%1@%2:%3").arg(np.get<QString>(QStringLiteral("user")), ip, path)
                       << m_mountPoint << QStringLiteral("-p") << np.get<QString>(QStringLiteral("port"))
                       << QStringLiteral("-s") // This fixes a bug where file chunks are sent out of order and get corrupted on reception
                       << QStringLiteral("-f") << QStringLiteral("-F") << QStringLiteral("/dev/null") // Do not use ~/.ssh/config
-                      << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance().privateKeyPath() << QStringLiteral("-o")
-                      << QStringLiteral("StrictHostKeyChecking=no") // Do not ask for confirmation because it is not a known host
+                      << QStringLiteral("-o") << QStringLiteral("IdentityFile=") + KdeConnectConfig::instance().privateKeyPath()
+                      << QStringLiteral("-o") << QStringLiteral("StrictHostKeyChecking=no") // Do not ask for confirmation because it is not a known host
                       << QStringLiteral("-o") << QStringLiteral("UserKnownHostsFile=/dev/null") // Prevent storing as a known host
                       << QStringLiteral("-o") << QStringLiteral("HostKeyAlgorithms=+ssh-dss\\,ssh-rsa") // https://bugs.kde.org/show_bug.cgi?id=351725
                       << QStringLiteral("-o") << QStringLiteral("PubkeyAcceptedKeyTypes=+ssh-rsa") // https://bugs.kde.org/show_bug.cgi?id=443155
-                      << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid()) << QStringLiteral("-o")
-                      << QStringLiteral("gid=") + QString::number(getgid()) << QStringLiteral("-o") << QStringLiteral("reconnect") << QStringLiteral("-o")
-                      << QStringLiteral("ServerAliveInterval=30") << QStringLiteral("-o") << QStringLiteral("password_stdin");
+                      << QStringLiteral("-o") << QStringLiteral("uid=") + QString::number(getuid())
+                      << QStringLiteral("-o") << QStringLiteral("gid=") + QString::number(getgid())
+                      << QStringLiteral("-o") << QStringLiteral("reconnect")
+                      << QStringLiteral("-o") << QStringLiteral("ServerAliveInterval=30")
+                      << QStringLiteral("-o") << QStringLiteral("password_stdin");
+    // clang-format on
 
     m_proc->setProgram(program, arguments);
 
