@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 00:46+0000\n"
+"POT-Creation-Date: 2023-08-25 00:46+0000\n"
 "PO-Revision-Date: 2023-06-17 12:17+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -362,27 +362,27 @@ msgstr "Minimum urgency level"
 msgid "Applications"
 msgstr "Applications"
 
-#: sftp/mounter.cpp:168
+#: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Failed to start sshfs"
 
-#: sftp/mounter.cpp:172
+#: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs process crashed"
 
-#: sftp/mounter.cpp:176
+#: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Unknown error in sshfs"
 
-#: sftp/mounter.cpp:187
+#: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Error when accessing filesystem. sshfs finished with exit code %0"
 
-#: sftp/mounter.cpp:196
+#: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Failed to mount filesystem: device not responding"

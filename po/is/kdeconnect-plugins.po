@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 00:46+0000\n"
+"POT-Creation-Date: 2023-08-25 00:46+0000\n"
 "PO-Revision-Date: 2023-01-30 01:03+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -365,28 +365,28 @@ msgstr "Lágmarks forgangsstig"
 msgid "Applications"
 msgstr "Forrit"
 
-#: sftp/mounter.cpp:168
+#: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Mistókst að ræsa sshfs"
 
-#: sftp/mounter.cpp:172
+#: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs-ferlið hrundi"
 
-#: sftp/mounter.cpp:176
+#: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Óþekkt villa í sshfs"
 
-#: sftp/mounter.cpp:187
+#: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Villa við að skoða skráakerfið. sshfs kláraði og skilaði útgangskóðanum %0"
 
-#: sftp/mounter.cpp:196
+#: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Mistókst að tengja skráakerfi: tæki svarar ekki"

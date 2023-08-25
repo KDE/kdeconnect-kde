@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 00:46+0000\n"
+"POT-Creation-Date: 2023-08-25 00:46+0000\n"
 "PO-Revision-Date: 2023-07-29 14:57+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -368,28 +368,28 @@ msgstr "Gutxieneko larritasun maila"
 msgid "Applications"
 msgstr "Aplikazioak"
 
-#: sftp/mounter.cpp:168
+#: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Huts egin du «sshfs» abiatzea"
 
-#: sftp/mounter.cpp:172
+#: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs prozesua kraskatu da"
 
-#: sftp/mounter.cpp:176
+#: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Errore ezezaguna «sshfs»en"
 
-#: sftp/mounter.cpp:187
+#: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Errorea fitxategi-sistema atzitzean. «sshfs» %0 ixte kodearekin amaitu da"
 
-#: sftp/mounter.cpp:196
+#: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Huts egin du fitxategi-sistema muntatzea: gailuak ez du erantzuten"

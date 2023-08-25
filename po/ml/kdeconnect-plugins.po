@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 00:46+0000\n"
+"POT-Creation-Date: 2023-08-25 00:46+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -360,27 +360,27 @@ msgstr "ഏറ്റവും കുറഞ്ഞ ആവശ്യകത"
 msgid "Applications"
 msgstr "ആപ്ലിക്കേഷനുകൾ"
 
-#: sftp/mounter.cpp:168
+#: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "sshfs തുടങ്ങുവാൻ സാധിച്ചില്ല"
 
-#: sftp/mounter.cpp:172
+#: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs പ്രക്രിയ തകർന്നു"
 
-#: sftp/mounter.cpp:176
+#: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs-ൽ അറിയപ്പെടാത്ത പിശക് "
 
-#: sftp/mounter.cpp:187
+#: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 
-#: sftp/mounter.cpp:196
+#: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "ഫയൽസിസ്റ്റം ഘടിപ്പിക്കാൻ സാധിച്ചില്ല: ഉപകരണം മറുപടി നല്കുന്നില്ല"

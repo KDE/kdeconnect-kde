@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-08 00:46+0000\n"
+"POT-Creation-Date: 2023-08-25 00:46+0000\n"
 "PO-Revision-Date: 2023-04-10 11:36+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -365,29 +365,29 @@ msgstr "Najmniejszy poziom ważności"
 msgid "Applications"
 msgstr "Programy"
 
-#: sftp/mounter.cpp:168
+#: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Nieudane uruchamianie sshfs"
 
-#: sftp/mounter.cpp:172
+#: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs uległ usterce"
 
-#: sftp/mounter.cpp:176
+#: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Nieznany błąd w sshfs"
 
-#: sftp/mounter.cpp:187
+#: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Błąd przy uzyskiwaniu dostępu do systemu plików. sshfs ukończył z kodem "
 "wyjścia %0"
 
-#: sftp/mounter.cpp:196
+#: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Nie udało się podpiąć systemu plików: urządzenie nie odpowiada"
