@@ -14,7 +14,7 @@
 #else
 #include <private/qtx11extras_p.h>
 #endif
-
+#include<unistd.h>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <fakekey/fakekey.h>
@@ -184,6 +184,7 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
                 for (int i = 0; i < key.length(); i++) {
                     QByteArray utf8 = QString(key.at(i)).toUtf8();
                     fakekey_press(m_fakekey, (const uchar *)utf8.constData(), utf8.size(), 0);
+                    sleep(0.001);
                     fakekey_release(m_fakekey);
                 }
             }
