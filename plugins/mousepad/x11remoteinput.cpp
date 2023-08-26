@@ -184,7 +184,7 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
                 for (int i = 0; i < key.length(); i++) {
                     QByteArray utf8 = QString(key.at(i)).toUtf8();
                     fakekey_press(m_fakekey, (const uchar *)utf8.constData(), utf8.size(), 0);
-                    sleep(0.001);
+                    sleep(0.001); // Add delay to prevent keys transposed in X11 programs like Emacs
                     fakekey_release(m_fakekey);
                 }
             }
