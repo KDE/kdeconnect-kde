@@ -25,7 +25,7 @@ public:
     void receivePacket(const NetworkPacket &np) override;
     QString dbusPath() const override
     {
-        return QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/sftp");
+        return QLatin1String("/modules/kdeconnect/devices/%1/sftp").arg(deviceId);
     }
 
     Q_SCRIPTABLE bool startBrowsing();

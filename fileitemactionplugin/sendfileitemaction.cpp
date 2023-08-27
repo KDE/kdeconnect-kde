@@ -58,7 +58,7 @@ QList<QAction *> SendFileItemAction::actions(const KFileItemListProperties &file
         connect(action, &QAction::triggered, this, [id, urls]() {
             for (const QUrl &url : urls) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                                  QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/share"),
+                                                                  QLatin1String("/modules/kdeconnect/devices/%1/share").arg(id),
                                                                   QStringLiteral("org.kde.kdeconnect.device.share"),
                                                                   QStringLiteral("shareUrl"));
                 msg.setArguments(QVariantList{url.toString()});

@@ -205,7 +205,7 @@ int main(int argc, char **argv)
             }
 
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/share").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.share"),
                                                               QStringLiteral("shareUrls"));
 
@@ -217,7 +217,7 @@ int main(int argc, char **argv)
             }
         } else if (parser.isSet(QStringLiteral("share-text"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/share").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.share"),
                                                               QStringLiteral("shareText"));
             msg.setArguments(QVariantList{parser.value(QStringLiteral("share-text"))});
@@ -268,13 +268,13 @@ int main(int argc, char **argv)
             }
         } else if (parser.isSet(QStringLiteral("send-clipboard"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/clipboard"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/clipboard").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.clipboard"),
                                                               QStringLiteral("sendClipboard"));
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
         } else if (parser.isSet(QStringLiteral("ping")) || parser.isSet(QStringLiteral("ping-msg"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/ping"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/ping").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.ping"),
                                                               QStringLiteral("sendPing"));
             if (parser.isSet(QStringLiteral("ping-msg"))) {
@@ -314,7 +314,7 @@ int main(int argc, char **argv)
             }
         } else if (parser.isSet(QStringLiteral("ring"))) {
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/findmyphone"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/findmyphone").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.findmyphone"),
                                                               QStringLiteral("ring"));
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
@@ -322,7 +322,7 @@ int main(int argc, char **argv)
             const QString fileName = parser.value(QStringLiteral("photo"));
             if (!fileName.isEmpty()) {
                 QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                                  QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/photo"),
+                                                                  QLatin1String("/modules/kdeconnect/devices/%1/photo").arg(device),
                                                                   QStringLiteral("org.kde.kdeconnect.device.photo"),
                                                                   QStringLiteral("requestPhoto"));
                 msg.setArguments({QUrl::fromLocalFile(fileName).toString()});
@@ -333,7 +333,7 @@ int main(int argc, char **argv)
         } else if (parser.isSet(QStringLiteral("send-keys"))) {
             QString seq = parser.value(QStringLiteral("send-keys"));
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/remotekeyboard"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/remotekeyboard").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.remotekeyboard"),
                                                               QStringLiteral("sendKeyPress"));
             if (seq.trimmed() == QLatin1String("-")) {

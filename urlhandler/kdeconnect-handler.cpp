@@ -163,7 +163,7 @@ int main(int argc, char **argv)
             const QString action = open && url.isLocalFile() ? QStringLiteral("openFile") : QStringLiteral("shareUrl");
 
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                              QStringLiteral("/modules/kdeconnect/devices/") + device + QStringLiteral("/share"),
+                                                              QLatin1String("/modules/kdeconnect/devices/%1/share").arg(device),
                                                               QStringLiteral("org.kde.kdeconnect.device.share"),
                                                               action);
             msg.setArguments({url.toString()});

@@ -52,7 +52,7 @@ void DeviceDbusInterface::pluginCall(const QString &plugin, const QString &metho
 
 BatteryDbusInterface::BatteryDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceBatteryInterface(DaemonDbusInterface::activatedService(),
-                                             QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/battery"),
+                                             QLatin1String("/modules/kdeconnect/devices/%1/battery").arg(id),
                                              QDBusConnection::sessionBus(),
                                              parent)
 {
@@ -61,7 +61,7 @@ BatteryDbusInterface::BatteryDbusInterface(const QString &id, QObject *parent)
 
 ConnectivityReportDbusInterface::ConnectivityReportDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceConnectivity_reportInterface(DaemonDbusInterface::activatedService(),
-                                                         QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/connectivity_report"),
+                                                         QLatin1String("/modules/kdeconnect/devices/%1/connectivity_report").arg(id),
                                                          QDBusConnection::sessionBus(),
                                                          parent)
 {
@@ -70,7 +70,7 @@ ConnectivityReportDbusInterface::ConnectivityReportDbusInterface(const QString &
 
 DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceNotificationsInterface(DaemonDbusInterface::activatedService(),
-                                                   QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/notifications"),
+                                                   QLatin1String("/modules/kdeconnect/devices/%1/notifications").arg(id),
                                                    QDBusConnection::sessionBus(),
                                                    parent)
 {
@@ -78,7 +78,7 @@ DeviceNotificationsDbusInterface::DeviceNotificationsDbusInterface(const QString
 
 NotificationDbusInterface::NotificationDbusInterface(const QString &deviceId, const QString &notificationId, QObject *parent)
     : OrgKdeKdeconnectDeviceNotificationsNotificationInterface(DaemonDbusInterface::activatedService(),
-                                                               QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/notifications/")
+                                                               QLatin1String("/modules/kdeconnect/devices/%1/notifications/").arg(deviceId)
                                                                    + notificationId,
                                                                QDBusConnection::sessionBus(),
                                                                parent)
@@ -96,7 +96,7 @@ DeviceConversationsDbusInterface::DeviceConversationsDbusInterface(const QString
 
 SftpDbusInterface::SftpDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceSftpInterface(DaemonDbusInterface::activatedService(),
-                                          QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/sftp"),
+                                          QLatin1String("/modules/kdeconnect/devices/%1/sftp").arg(id),
                                           QDBusConnection::sessionBus(),
                                           parent)
 {
@@ -104,7 +104,7 @@ SftpDbusInterface::SftpDbusInterface(const QString &id, QObject *parent)
 
 MprisDbusInterface::MprisDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceMprisremoteInterface(DaemonDbusInterface::activatedService(),
-                                                 QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/mprisremote"),
+                                                 QLatin1String("/modules/kdeconnect/devices/%1/mprisremote").arg(id),
                                                  QDBusConnection::sessionBus(),
                                                  parent)
 {
@@ -113,7 +113,7 @@ MprisDbusInterface::MprisDbusInterface(const QString &id, QObject *parent)
 
 RemoteControlDbusInterface::RemoteControlDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceRemotecontrolInterface(DaemonDbusInterface::activatedService(),
-                                                   QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/remotecontrol"),
+                                                   QLatin1String("/modules/kdeconnect/devices/%1/remotecontrol").arg(id),
                                                    QDBusConnection::sessionBus(),
                                                    parent)
 {
@@ -121,7 +121,7 @@ RemoteControlDbusInterface::RemoteControlDbusInterface(const QString &id, QObjec
 
 LockDeviceDbusInterface::LockDeviceDbusInterface(const QString &id, QObject *parent)
     : OrgKdeKdeconnectDeviceLockdeviceInterface(DaemonDbusInterface::activatedService(),
-                                                QStringLiteral("/modules/kdeconnect/devices/") + id + QStringLiteral("/lockdevice"),
+                                                QLatin1String("/modules/kdeconnect/devices/%1/lockdevice").arg(id),
                                                 QDBusConnection::sessionBus(),
                                                 parent)
 {
@@ -131,7 +131,7 @@ LockDeviceDbusInterface::LockDeviceDbusInterface(const QString &id, QObject *par
 
 FindMyPhoneDeviceDbusInterface::FindMyPhoneDeviceDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceFindmyphoneInterface(DaemonDbusInterface::activatedService(),
-                                                 QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/findmyphone"),
+                                                 QLatin1String("/modules/kdeconnect/devices/%1/findmyphone").arg(deviceId),
                                                  QDBusConnection::sessionBus(),
                                                  parent)
 {
@@ -139,7 +139,7 @@ FindMyPhoneDeviceDbusInterface::FindMyPhoneDeviceDbusInterface(const QString &de
 
 RemoteCommandsDbusInterface::RemoteCommandsDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceRemotecommandsInterface(DaemonDbusInterface::activatedService(),
-                                                    QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/remotecommands"),
+                                                    QLatin1String("/modules/kdeconnect/devices/%1/remotecommands").arg(deviceId),
                                                     QDBusConnection::sessionBus(),
                                                     parent)
 {
@@ -147,7 +147,7 @@ RemoteCommandsDbusInterface::RemoteCommandsDbusInterface(const QString &deviceId
 
 RemoteKeyboardDbusInterface::RemoteKeyboardDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceRemotekeyboardInterface(DaemonDbusInterface::activatedService(),
-                                                    QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/remotekeyboard"),
+                                                    QLatin1String("/modules/kdeconnect/devices/%1/remotekeyboard").arg(deviceId),
                                                     QDBusConnection::sessionBus(),
                                                     parent)
 {
@@ -156,7 +156,7 @@ RemoteKeyboardDbusInterface::RemoteKeyboardDbusInterface(const QString &deviceId
 
 SmsDbusInterface::SmsDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceSmsInterface(DaemonDbusInterface::activatedService(),
-                                         QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/sms"),
+                                         QLatin1String("/modules/kdeconnect/devices/%1/sms").arg(deviceId),
                                          QDBusConnection::sessionBus(),
                                          parent)
 {
@@ -164,7 +164,7 @@ SmsDbusInterface::SmsDbusInterface(const QString &deviceId, QObject *parent)
 
 ShareDbusInterface::ShareDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceShareInterface(DaemonDbusInterface::activatedService(),
-                                           QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/share"),
+                                           QLatin1String("/modules/kdeconnect/devices/%1/share").arg(deviceId),
                                            QDBusConnection::sessionBus(),
                                            parent)
 {
@@ -172,7 +172,7 @@ ShareDbusInterface::ShareDbusInterface(const QString &deviceId, QObject *parent)
 
 PhotoDbusInterface::PhotoDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDevicePhotoInterface(DaemonDbusInterface::activatedService(),
-                                           QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/photo"),
+                                           QLatin1String("/modules/kdeconnect/devices/%1/photo").arg(deviceId),
                                            QDBusConnection::sessionBus(),
                                            parent)
 {
@@ -180,7 +180,7 @@ PhotoDbusInterface::PhotoDbusInterface(const QString &deviceId, QObject *parent)
 
 RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceRemotesystemvolumeInterface(DaemonDbusInterface::activatedService(),
-                                                        QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/remotesystemvolume"),
+                                                        QLatin1String("/modules/kdeconnect/devices/%1/remotesystemvolume").arg(deviceId),
                                                         QDBusConnection::sessionBus(),
                                                         parent)
 {
@@ -188,7 +188,7 @@ RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString &
 
 BigscreenDbusInterface::BigscreenDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceBigscreenInterface(DaemonDbusInterface::activatedService(),
-                                               QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/bigscreen"),
+                                               QLatin1String("/modules/kdeconnect/devices/%1/bigscreen").arg(deviceId),
                                                QDBusConnection::sessionBus(),
                                                parent)
 {
@@ -196,7 +196,7 @@ BigscreenDbusInterface::BigscreenDbusInterface(const QString &deviceId, QObject 
 
 VirtualmonitorDbusInterface::VirtualmonitorDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceVirtualmonitorInterface(DaemonDbusInterface::activatedService(),
-                                                    QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/virtualmonitor"),
+                                                    QLatin1String("/modules/kdeconnect/devices/%1/virtualmonitor").arg(deviceId),
                                                     QDBusConnection::sessionBus(),
                                                     parent)
 {
@@ -204,7 +204,7 @@ VirtualmonitorDbusInterface::VirtualmonitorDbusInterface(const QString &deviceId
 
 ClipboardDbusInterface::ClipboardDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceClipboardInterface(DaemonDbusInterface::activatedService(),
-                                               QStringLiteral("/modules/kdeconnect/devices/") + deviceId + QStringLiteral("/clipboard"),
+                                               QLatin1String("/modules/kdeconnect/devices/%1/clipboard").arg(deviceId),
                                                QDBusConnection::sessionBus(),
                                                parent)
 {
