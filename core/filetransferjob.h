@@ -71,7 +71,6 @@ private:
     QString m_from;
     QUrl m_destination;
     QElapsedTimer m_timer;
-    qulonglong m_speedBytes;
     qint64 m_written;
     qint64 m_size;
     const NetworkPacket *m_np;

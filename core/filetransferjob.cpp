@@ -23,7 +23,6 @@ FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destinatio
     , m_reply(nullptr)
     , m_from(QStringLiteral("KDE Connect"))
     , m_destination(destination)
-    , m_speedBytes(0)
     , m_written(0)
     , m_size(np->payloadSize())
     , m_np(np)

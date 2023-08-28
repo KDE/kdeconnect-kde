@@ -84,7 +84,6 @@ int main(int argc, char **argv)
     parser.process(app);
     about.processCommandLine(&parser);
 
-    const QString id = QStringLiteral("kdeconnect-cli-") + QString::number(QCoreApplication::applicationPid());
     DaemonDbusInterface iface;
 
     if (parser.isSet(QStringLiteral("my-id"))) {

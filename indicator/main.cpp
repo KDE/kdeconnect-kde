@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
     DaemonDbusInterface iface;
 
-    auto refreshMenu = [&iface, &model, &menu, &helper, &dialog]() {
+    auto refreshMenu = [&iface, &model, &menu, &dialog]() {
         menu->clear();
         auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [&dialog]() {
