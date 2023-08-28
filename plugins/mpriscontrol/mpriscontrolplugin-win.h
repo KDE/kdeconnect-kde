@@ -52,5 +52,7 @@ private:
     void sendPlayerList();
     bool sendAlbumArt(std::variant<NetworkPacket, QString> const &packetOrName, GlobalSystemMediaTransportControlsSession const &player, QString artUrl);
 
+    void handleDefaultPlayer(const NetworkPacket &np);
+
     QString randomUrl();
 };

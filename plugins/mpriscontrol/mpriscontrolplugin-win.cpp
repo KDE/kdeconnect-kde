@@ -9,6 +9,7 @@
 #include "plugin_mpriscontrol_debug.h"
 #include <core/device.h>
 
+#include <KLocalizedString>
 #include <KPluginFactory>
 
 #include <QBuffer>
@@ -17,10 +18,16 @@
 #include <random>
 
 #include <ppltasks.h>
+#include <windows.h>
 
 using namespace Windows::Foundation;
 
 K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
+
+namespace
+{
+const QString DEFAULT_PLAYER = i18nc("@title Users select this to control the current media player when we can't detect a specific player name like VLC", "Current Player");
+}
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
     : KdeConnectPlugin(parent, args)
@@ -238,7 +245,7 @@ void MprisControlPlugin::sendPlayerList()
 {
     NetworkPacket np(PACKET_TYPE_MPRIS);
 
-    np.set(QStringLiteral("playerList"), playerList.keys());
+    np.set(QStringLiteral("playerList"), playerList.keys() + QStringList(DEFAULT_PLAYER));
     np.set(QStringLiteral("supportAlbumArtPayload"), false); // TODO: Sending albumArt doesn't work
 
     sendPacket(np);
@@ -279,6 +286,67 @@ bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const
     }
 }
 
+void MprisControlPlugin::handleDefaultPlayer(const NetworkPacket &np)
+{
+    if (np.has(QStringLiteral("action"))) {
+
+        INPUT input={0};
+        input.type = INPUT_KEYBOARD;
+
+        input.ki.time = 0;
+        input.ki.dwExtraInfo = 0;
+        input.ki.wScan = 0;
+        input.ki.dwFlags = 0;
+
+        const QString &action = np.get<QString>(QStringLiteral("action"));
+
+        if (action == QStringLiteral("PlayPause") || (action == QStringLiteral("Play")) || (action == QStringLiteral("Pause")) ) {
+            input.ki.wVk = VK_MEDIA_PLAY_PAUSE;
+            ::SendInput(1,&input,sizeof(INPUT));
+        } else if (action == QStringLiteral("Stop")) {
+            input.ki.wVk = VK_MEDIA_STOP;
+            ::SendInput(1,&input,sizeof(INPUT));
+        }
+        else if (action == QStringLiteral("Next")) {
+                input.ki.wVk = VK_MEDIA_NEXT_TRACK;
+            ::SendInput(1,&input,sizeof(INPUT));
+        }
+        else if (action == QStringLiteral("Previous")) {
+            input.ki.wVk = VK_MEDIA_PREV_TRACK;
+            ::SendInput(1,&input,sizeof(INPUT));
+        }
+        else if (action == QStringLiteral("Stop")) {
+            input.ki.wVk = VK_MEDIA_STOP;
+            ::SendInput(1,&input,sizeof(INPUT));
+        }
+    }
+
+    //Send something read from the mpris interface
+    NetworkPacket answer(PACKET_TYPE_MPRIS);
+    answer.set(QStringLiteral("player"), DEFAULT_PLAYER);
+    bool somethingToSend = false;
+    if (np.get<bool>(QStringLiteral("requestNowPlaying"))) {
+        answer.set(QStringLiteral("pos"), 0);
+        answer.set(QStringLiteral("isPlaying"), false);
+        answer.set(QStringLiteral("canPause"), false);
+        answer.set(QStringLiteral("canPlay"), true);
+        answer.set(QStringLiteral("canGoNext"), true);
+        answer.set(QStringLiteral("canGoPrevious"), true);
+        answer.set(QStringLiteral("canSeek"), false);
+        somethingToSend = true;
+    }
+
+    if (np.get<bool>(QStringLiteral("requestVolume"))) {
+        // we don't support setting per-app volume levels yet
+        answer.set(QStringLiteral("volume"), -1);
+        somethingToSend = true;
+    }
+
+    if (somethingToSend) {
+        sendPacket(answer);
+    }
+}
+
 void MprisControlPlugin::receivePacket(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("playerList"))) {
@@ -287,9 +355,16 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
 
     // Send the player list
     const QString name = np.get<QString>(QStringLiteral("player"));
+
+    if (name == DEFAULT_PLAYER) {
+        handleDefaultPlayer(np);
+        return;
+    }
+
     auto it = playerList.find(name);
     bool valid_player = (it != playerList.end());
     if (!valid_player || np.get<bool>(QStringLiteral("requestPlayerList"))) {
+        updatePlayerList();
         sendPlayerList();
         if (!valid_player) {
             return;
