@@ -79,7 +79,7 @@
         "Description[sk]": "Vysielať upozornenia tohto počítača, aby sa zobrazili na druhom zariadení.",
         "Description[sl]": "Oddaj obvestila tega računalnika, da jih je mogoče prikazati na drugih napravah.",
         "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra enheter.",
-        "Description[tr]": "Bu bilgisayarın bildirimlerini yayınlayın, böylece diğer cihazlarda gösterilebilirler.",
+        "Description[tr]": "Bu bilgisayarın bildirimlerini yayınla, böylece diğer aygıtlarda gösterilebilirler.",
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.",
         "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",
         "Description[zh_CN]": "广播此电脑的通知，以便在其他设备上显示。",
@@ -114,7 +114,7 @@
         "Name[sk]": "Posielať upozornenia",
         "Name[sl]": "Pošiljaj obvestila",
         "Name[sv]": "Skicka underrättelser",
-        "Name[tr]": "Bildirim gönderin",
+        "Name[tr]": "Bildirim gönder",
         "Name[uk]": "Надіслати сповіщення",
         "Name[x-test]": "xxSend notificationsxx",
         "Name[zh_CN]": "发送通知"

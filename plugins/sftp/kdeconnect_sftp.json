@@ -92,7 +92,7 @@
         "Description[sr@latin]": "Pregledanje udaljenog fajl sistema pomoću SFTP‑a",
         "Description[sr]": "Прегледање удаљеног фајл система помоћу СФТП‑а",
         "Description[sv]": "Bläddra i den andra apparatens filsystem med SFTP",
-        "Description[tr]": "Uzak aygıt dosya sistemine SFTP kullanarak göz atın",
+        "Description[tr]": "Uzak aygıt dosya sistemine SFTP kullanarak göz at",
         "Description[uk]": "Перегляд файлових систем на сторонніх пристроях за допомогою SFTP",
         "Description[x-test]": "xxBrowse the remote device filesystem using SFTPxx",
         "Description[zh_CN]": "通过 SFTP 浏览远程设备文件系统",
