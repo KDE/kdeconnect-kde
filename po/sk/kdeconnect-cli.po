@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2021-08-06 12:42+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -217,22 +217,22 @@ msgstr "Zobraz id tohto zariadenia a skonči"
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Otvoriť fotoaparát pripojeného zariadenia a preniesť fotku"
 
-#: kdeconnect-cli.cpp:120
+#: kdeconnect-cli.cpp:119
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(spárované a dosiahnuteľné)"
 
-#: kdeconnect-cli.cpp:122
+#: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(reachable)"
 msgstr "(dosiahnuteľné)"
 
-#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
+#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
 #, kde-format
 msgid "(paired)"
 msgstr "(spárované)"
 
-#: kdeconnect-cli.cpp:130
+#: kdeconnect-cli.cpp:129
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -240,17 +240,17 @@ msgstr[0] "Nájdené 1 zariadenie"
 msgstr[1] "Nájdené %1 zariadenia"
 msgstr[2] "Nájdených %1 zariadení"
 
-#: kdeconnect-cli.cpp:132
+#: kdeconnect-cli.cpp:131
 #, kde-format
 msgid "No devices found"
 msgstr "Nenašli sa zariadenia"
 
-#: kdeconnect-cli.cpp:145
+#: kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(unpaired)"
 msgstr "(odpárované)"
 
-#: kdeconnect-cli.cpp:182
+#: kdeconnect-cli.cpp:181
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -263,59 +263,59 @@ msgstr ""
 "ID zariadenia a názvy sa dajú nájsť pomocou \"kdeconnect-cli -l\" \n"
 "Zobrazte kompletnú nápovedu pomocou možnosti --help"
 
-#: kdeconnect-cli.cpp:217
+#: kdeconnect-cli.cpp:216
 #, kde-format
 msgid "Shared %1"
 msgstr "Zdieľané %1"
 
-#: kdeconnect-cli.cpp:226
+#: kdeconnect-cli.cpp:225
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Zdieľaný text: %1"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:232
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Žiadosť o uzamknutie %1."
 
-#: kdeconnect-cli.cpp:235
+#: kdeconnect-cli.cpp:234
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Žiadosť o odomknutie %1."
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:241
 #, kde-format
 msgid "waiting for device..."
 msgstr "čakám na zariadenie..."
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:254
 #, kde-format
 msgid "Device not found"
 msgstr "Zariadenie sa nenašlo"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Already paired"
 msgstr "Už spárované"
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "Pair requested"
 msgstr "Spárovanie vyžiadané"
 
-#: kdeconnect-cli.cpp:265
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgid "Already not paired"
 msgstr "Už nespárované"
 
-#: kdeconnect-cli.cpp:267
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgid "Unpaired"
 msgstr "Odpárované"
 
-#: kdeconnect-cli.cpp:313
+#: kdeconnect-cli.cpp:312
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -323,12 +323,12 @@ msgid ""
 msgstr ""
 "Chyba: musíte upresniť prijímateľa SMS pomocou --destination <phone number>"
 
-#: kdeconnect-cli.cpp:332
+#: kdeconnect-cli.cpp:331
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Zadajte názov fotografie pre fotografiu"
 
-#: kdeconnect-cli.cpp:379
+#: kdeconnect-cli.cpp:378
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nič sa nedá robiť"

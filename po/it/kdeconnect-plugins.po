@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2023-06-09 15:47+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -81,6 +81,14 @@ msgstr "Blocco remoto avvenuto"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Blocco non riuscito"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:29
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr ""
 
 #: notifications/notification.cpp:113
 #, kde-format
@@ -405,12 +413,12 @@ msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
 "Impossibile gestire il protocollo SFTP. Ci scusiamo per l'inconveniente"
 
-#: sftp/sftpplugin.cpp:144
+#: sftp/sftpplugin.cpp:130
 #, kde-format
 msgid "All files"
 msgstr "Tutti i file"
 
-#: sftp/sftpplugin.cpp:145
+#: sftp/sftpplugin.cpp:131
 #, kde-format
 msgid "Camera pictures"
 msgstr "Immagini della fotocamera"

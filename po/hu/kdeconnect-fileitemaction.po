@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2021-11-23 13:03+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.08.3\n"
 
-#: sendfileitemaction.cpp:64
+#: sendfileitemaction.cpp:72
 #, kde-format
 msgid "Send via KDE Connect"
 msgstr "Küldés a KDE Connecttel"
 
-#: sendfileitemaction.cpp:71
+#: sendfileitemaction.cpp:79
 #, kde-format
 msgid "Send to '%1' via KDE Connect"
 msgstr "Küldés a KDE Connecttel ide: „%1”"

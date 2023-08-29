@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2020-10-06 15:33+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -80,6 +80,14 @@ msgstr ""
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
+msgstr ""
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:29
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
 msgstr ""
 
 #: notifications/notification.cpp:113
@@ -394,12 +402,12 @@ msgstr "Пайвасти KDE"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
 
-#: sftp/sftpplugin.cpp:144
+#: sftp/sftpplugin.cpp:130
 #, kde-format
 msgid "All files"
 msgstr "Ҳамаи файлҳо"
 
-#: sftp/sftpplugin.cpp:145
+#: sftp/sftpplugin.cpp:131
 #, kde-format
 msgid "Camera pictures"
 msgstr "Суратҳои камера"

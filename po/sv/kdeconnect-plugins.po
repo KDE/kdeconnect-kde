@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2023-07-25 19:09+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -81,6 +81,14 @@ msgstr "Fjärrlåsning lyckades"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Fjärrlåsning misslyckades"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:29
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr ""
 
 #: notifications/notification.cpp:113
 #, kde-format
@@ -398,12 +406,12 @@ msgstr "KDE-anslut"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Kan inte hantera SFTP-protokollet. Ursäkta besväret."
 
-#: sftp/sftpplugin.cpp:144
+#: sftp/sftpplugin.cpp:130
 #, kde-format
 msgid "All files"
 msgstr "Alla filer"
 
-#: sftp/sftpplugin.cpp:145
+#: sftp/sftpplugin.cpp:131
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerabilder"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-25 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2023-06-12 17:10+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -82,6 +82,14 @@ msgstr "Vzdálené uzamčení bylo úspěšné"
 #, kde-format
 msgid "Remote lock failed"
 msgstr "Uzamčení na dálku selhalo"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:29
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr ""
 
 #: notifications/notification.cpp:113
 #, kde-format
@@ -397,12 +405,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Protokol SFTP nelze použít. Omlouváme se za nepříjemnosti"
 
-#: sftp/sftpplugin.cpp:144
+#: sftp/sftpplugin.cpp:130
 #, kde-format
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: sftp/sftpplugin.cpp:145
+#: sftp/sftpplugin.cpp:131
 #, kde-format
 msgid "Camera pictures"
 msgstr "Obrázky z fotoaparátu"

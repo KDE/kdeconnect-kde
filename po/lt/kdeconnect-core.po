@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2021-08-21 13:15+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -103,17 +103,17 @@ msgstr "Jūsų įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Nuotolinio įrenginio liudijimo SHA256 kontrolinis kodas yra: %1\n"
 
-#: filetransferjob.cpp:60
+#: filetransferjob.cpp:59
 #, kde-format
 msgid "Filename already present"
 msgstr "Failo pavadinimas jau yra"
 
-#: filetransferjob.cpp:106
+#: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Gautas nepilnas failas: %1"
 
-#: filetransferjob.cpp:124
+#: filetransferjob.cpp:123
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Gautas nepilnas failas iš: %1"

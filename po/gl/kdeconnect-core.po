@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2023-08-05 08:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -98,17 +98,17 @@ msgstr "A pegada SHA256 do certificado do seu dispositivo é: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "A pegada SHA256 do certificado do dispositivo remoto é: %1\n"
 
-#: filetransferjob.cpp:60
+#: filetransferjob.cpp:59
 #, kde-format
 msgid "Filename already present"
 msgstr "O nome do ficheiro xa está presente."
 
-#: filetransferjob.cpp:106
+#: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "O ficheiro recibido está incompleto: %1"
 
-#: filetransferjob.cpp:124
+#: filetransferjob.cpp:123
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Recibiuse un ficheiro incompleto de: %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2021-06-14 15:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -218,39 +218,39 @@ msgstr "Εμφάνιση της ταυτότητας αυτής της συσκ�
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Άνοιγμα της κάμερας της συνδεδεμένης συσκευής και μεταφορά της εικόνας"
 
-#: kdeconnect-cli.cpp:120
+#: kdeconnect-cli.cpp:119
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(συζευγμένη και προσβάσιμη)"
 
-#: kdeconnect-cli.cpp:122
+#: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(reachable)"
 msgstr "(προσβάσιμη)"
 
-#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
+#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
 #, kde-format
 msgid "(paired)"
 msgstr "(συζευγμένη)"
 
-#: kdeconnect-cli.cpp:130
+#: kdeconnect-cli.cpp:129
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "1 συσκευή βρέθηκε"
 msgstr[1] "%1 συσκευές βρέθηκαν"
 
-#: kdeconnect-cli.cpp:132
+#: kdeconnect-cli.cpp:131
 #, kde-format
 msgid "No devices found"
 msgstr "Δεν βρέθηκαν συσκευές"
 
-#: kdeconnect-cli.cpp:145
+#: kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(unpaired)"
 msgstr "(ασύζευκτη)"
 
-#: kdeconnect-cli.cpp:182
+#: kdeconnect-cli.cpp:181
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -264,59 +264,59 @@ msgstr ""
 "«kdeconnect-cli -l» \n"
 "Δείτε την πλήρη βοήθεια με την επιλογή --help"
 
-#: kdeconnect-cli.cpp:217
+#: kdeconnect-cli.cpp:216
 #, kde-format
 msgid "Shared %1"
 msgstr "Διαμοιρασμένο: %1"
 
-#: kdeconnect-cli.cpp:226
+#: kdeconnect-cli.cpp:225
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Διαμοιρασμένο κείμενο: %1"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:232
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Αίτημα κλειδώματος του %1."
 
-#: kdeconnect-cli.cpp:235
+#: kdeconnect-cli.cpp:234
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Αίτημα ξεκλειδώματος του %1."
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:241
 #, kde-format
 msgid "waiting for device..."
 msgstr "αναμονή για συσκευή..."
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:254
 #, kde-format
 msgid "Device not found"
 msgstr "Η συσκευή δεν βρέθηκε"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Already paired"
 msgstr "Ήδη συζευγμένη"
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "Pair requested"
 msgstr "Ζητήθηκε σύζευξη"
 
-#: kdeconnect-cli.cpp:265
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgid "Already not paired"
 msgstr "Ήδη μη συζευγμένη"
 
-#: kdeconnect-cli.cpp:267
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgid "Unpaired"
 msgstr "Μη συζευγμένη"
 
-#: kdeconnect-cli.cpp:313
+#: kdeconnect-cli.cpp:312
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -325,12 +325,12 @@ msgstr ""
 "σφάλμα: πρέπει να οριστεί ο παραλήπτης του SMS με --destination <phone "
 "number>"
 
-#: kdeconnect-cli.cpp:332
+#: kdeconnect-cli.cpp:331
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Δώστε ένα όνομα αρχείου για τη φωτογραφία"
 
-#: kdeconnect-cli.cpp:379
+#: kdeconnect-cli.cpp:378
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Δεν χρειάζεται να γίνει κάτι"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2021-11-23 13:02+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -100,17 +100,17 @@ msgstr "Az eszköze tanúsítványának SHA256 ujjlenyomata: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "A távoli eszköz tanúsítványának SHA256 ujjlenyomata: %1\n"
 
-#: filetransferjob.cpp:60
+#: filetransferjob.cpp:59
 #, kde-format
 msgid "Filename already present"
 msgstr "A fájlnév már létezik"
 
-#: filetransferjob.cpp:106
+#: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Hibás fájl érkezett: %1"
 
-#: filetransferjob.cpp:124
+#: filetransferjob.cpp:123
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Hibás fájl érkezett innen: %1"

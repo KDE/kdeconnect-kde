@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 00:46+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2021-06-14 15:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -102,17 +102,17 @@ msgstr ""
 "Το αποτύπωμα SHA256 του πιστοποιητικού της απομακρυσμένης συσκευής είναι: "
 "%1\n"
 
-#: filetransferjob.cpp:60
+#: filetransferjob.cpp:59
 #, kde-format
 msgid "Filename already present"
 msgstr "Το αρχείο υπάρχει ήδη"
 
-#: filetransferjob.cpp:106
+#: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Λήψη μη ολοκληρωμένου αρχείου: %1"
 
-#: filetransferjob.cpp:124
+#: filetransferjob.cpp:123
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Λήψη μη ολοκληρωμένου αρχείου από: %1"

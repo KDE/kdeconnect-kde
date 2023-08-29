@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2020-03-22 10:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: sendfileitemaction.cpp:64
+#: sendfileitemaction.cpp:72
 #, kde-format
 msgid "Send via KDE Connect"
 msgstr "കെ ഡി ഇ കണക്ട് വഴി അയയ്ക്കുക"
 
-#: sendfileitemaction.cpp:71
+#: sendfileitemaction.cpp:79
 #, kde-format
 msgid "Send to '%1' via KDE Connect"
 msgstr "'%1'ലേക്ക് കെ.ഡി.ഇ കണക്റ്റ് ഉപയോഗിച്ച് അയ്യക്കുക"

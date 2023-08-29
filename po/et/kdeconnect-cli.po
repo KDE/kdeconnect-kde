@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-17 00:48+0000\n"
+"POT-Creation-Date: 2023-08-29 00:45+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -219,39 +219,39 @@ msgstr "Selle seadme ID näitamine ja väljumine"
 msgid "Open the connected device's camera and transfer the photo"
 msgstr "Ühendatud seadme kaamera avamine ja foto ülekandmine"
 
-#: kdeconnect-cli.cpp:120
+#: kdeconnect-cli.cpp:119
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(paardunud ja saadaval)"
 
-#: kdeconnect-cli.cpp:122
+#: kdeconnect-cli.cpp:121
 #, kde-format
 msgid "(reachable)"
 msgstr "(saadaval)"
 
-#: kdeconnect-cli.cpp:124 kdeconnect-cli.cpp:143
+#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
 #, kde-format
 msgid "(paired)"
 msgstr "(paardunud)"
 
-#: kdeconnect-cli.cpp:130
+#: kdeconnect-cli.cpp:129
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "Leiti 1 seade"
 msgstr[1] "Leiti %1 seadet"
 
-#: kdeconnect-cli.cpp:132
+#: kdeconnect-cli.cpp:131
 #, kde-format
 msgid "No devices found"
 msgstr "Seadmeid ei leitud"
 
-#: kdeconnect-cli.cpp:145
+#: kdeconnect-cli.cpp:144
 #, kde-format
 msgid "(unpaired)"
 msgstr "(paardumata)"
 
-#: kdeconnect-cli.cpp:182
+#: kdeconnect-cli.cpp:181
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -264,59 +264,59 @@ msgstr ""
 "Seadmete ID ja nime saab leida käsuga \"kdeconnect-cli -l\" \n"
 "Kõiki abivõimalusi näitab käsk --help"
 
-#: kdeconnect-cli.cpp:217
+#: kdeconnect-cli.cpp:216
 #, kde-format
 msgid "Shared %1"
 msgstr "Jagati %1"
 
-#: kdeconnect-cli.cpp:226
+#: kdeconnect-cli.cpp:225
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Jagati teksti: %1"
 
-#: kdeconnect-cli.cpp:233
+#: kdeconnect-cli.cpp:232
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr ""
 
-#: kdeconnect-cli.cpp:235
+#: kdeconnect-cli.cpp:234
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr ""
 
-#: kdeconnect-cli.cpp:242
+#: kdeconnect-cli.cpp:241
 #, kde-format
 msgid "waiting for device..."
 msgstr "oodatakse seadet ..."
 
-#: kdeconnect-cli.cpp:255
+#: kdeconnect-cli.cpp:254
 #, kde-format
 msgid "Device not found"
 msgstr "Seadet ei leitud"
 
-#: kdeconnect-cli.cpp:257
+#: kdeconnect-cli.cpp:256
 #, kde-format
 msgid "Already paired"
 msgstr "Juba paardunud"
 
-#: kdeconnect-cli.cpp:259
+#: kdeconnect-cli.cpp:258
 #, kde-format
 msgid "Pair requested"
 msgstr "Paardumise soov"
 
-#: kdeconnect-cli.cpp:265
+#: kdeconnect-cli.cpp:264
 #, kde-format
 msgid "Already not paired"
 msgstr "Juba paardumata"
 
-#: kdeconnect-cli.cpp:267
+#: kdeconnect-cli.cpp:266
 #, kde-format
 msgid "Unpaired"
 msgstr "Paardumata"
 
-#: kdeconnect-cli.cpp:313
+#: kdeconnect-cli.cpp:312
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -324,12 +324,12 @@ msgid ""
 msgstr ""
 "tõrge: määratud peab olema SMS-i saaja võtmega --destination <telefoninumber>"
 
-#: kdeconnect-cli.cpp:332
+#: kdeconnect-cli.cpp:331
 #, kde-format
 msgid "Please specify a filename for the photo"
 msgstr "Palun määra foto failinimi"
 
-#: kdeconnect-cli.cpp:379
+#: kdeconnect-cli.cpp:378
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Pole midagi teha"
