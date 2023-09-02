@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2023-06-12 16:24+0200\n"
+"PO-Revision-Date: 2023-08-07 11:49+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -128,7 +128,7 @@ msgstr "Toto zařízení není spárováno"
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr ""
+msgstr "Spárovat"
 
 #: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
@@ -159,7 +159,7 @@ msgstr "Prosím, vyberte soubor"
 #, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr ""
+msgstr "Zařízení"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
