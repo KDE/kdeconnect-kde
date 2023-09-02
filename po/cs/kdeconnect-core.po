@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-29 00:45+0000\n"
-"PO-Revision-Date: 2023-06-05 11:06+0200\n"
+"PO-Revision-Date: 2023-08-07 11:50+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -119,10 +119,9 @@ msgid "KDE Connect failed to start"
 msgstr "Start aplikace KDE Connect selhal"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Nelze uložit soubor soukromého klíče: %1"
+msgstr "Soukromý klíč zařízení nelze generovat."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -130,21 +129,11 @@ msgid "Could not store private key file: %1"
 msgstr "Nelze uložit soubor soukromého klíče: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Nelze uložit soubor certifikátu: %1"
+msgstr "Certifikát zařízení nelze generovat."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nelze uložit soubor certifikátu: %1"
-
-#~ msgid ""
-#~ "Could not find support for RSA in your QCA installation. If your "
-#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
-#~ "sure you have them installed and try again."
-#~ msgstr ""
-#~ "Ve vaší instalaci QCA nebyla nalezena podpora RSA. Pokud vaše distribuce "
-#~ "poskytuje QCA-ossl a QCA-gnupg ujistěte se, že máte nainstalované obě a "
-#~ "zkuste to znovu."
