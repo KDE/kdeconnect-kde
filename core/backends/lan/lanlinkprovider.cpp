@@ -31,6 +31,7 @@
 #include <QUdpSocket>
 
 #include "daemon.h"
+#include "dbushelper.h"
 #include "kdeconnectconfig.h"
 #include "landevicelink.h"
 #include "qtcompat_p.h"
@@ -576,6 +577,7 @@ void LanLinkProvider::configureSocket(QSslSocket *socket)
 void LanLinkProvider::addLink(QSslSocket *socket, const DeviceInfo &deviceInfo)
 {
     QString certDeviceId = socket->peerCertificate().subjectDisplayName();
+    DBusHelper::filterNonExportableCharacters(certDeviceId);
     if (deviceInfo.id != certDeviceId) {
         socket->disconnectFromHost();
         qCWarning(KDECONNECT_CORE) << "DeviceID in cert doesn't match deviceID in identity packet. " << deviceInfo.id << " vs " << certDeviceId;
