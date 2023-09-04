@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-29 00:45+0000\n"
-"PO-Revision-Date: 2023-06-11 07:52+0200\n"
+"PO-Revision-Date: 2023-09-03 11:24+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -69,7 +69,7 @@ msgstr "Son para reproducir:"
 #: findthisdevice/findthisdevice_config.ui:39
 #, kde-format
 msgid "Select the sound to play"
-msgstr "Escolla o son para reproducir"
+msgstr "Escolla o son para reproducir."
 
 #: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
@@ -89,7 +89,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Reprodutor actual"
 
 #: notifications/notification.cpp:113
 #, kde-format
@@ -160,7 +160,7 @@ msgstr "Silenciar o son do sistema."
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr "Continuar a reprodución ao rematar a chamada"
+msgstr "Continuar a reprodución ao rematar a chamada."
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -225,12 +225,12 @@ msgstr "Desbloquear a pantalla"
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
-msgstr "Pechar todas as caixas fortes"
+msgstr "Pechar todos os cofres"
 
 #: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr "Forzar o peche de todas as caixas fortes"
+msgstr "Forzar o peche de todos os cofres"
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
@@ -342,7 +342,7 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:79
 #, kde-format
 msgid "Synchronize icons"
-msgstr "Sincronizar as iconas"
+msgstr "Sincronizar as iconas."
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
 #: sendnotifications/sendnotifications_config.ui:107
