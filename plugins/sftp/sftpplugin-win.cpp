@@ -50,9 +50,17 @@ void SftpPlugin::receivePacket(const NetworkPacket &np)
 
     QString path;
     if (np.has(QStringLiteral("multiPaths"))) {
-        path = QStringLiteral("/");
+        QStringList paths = np.get<QStringList>(QStringLiteral("multiPaths"));
+        if (paths.size() == 1) {
+            path = paths[0];
+        } else {
+            path = QStringLiteral("/");
+        }
     } else {
         path = np.get<QString>(QStringLiteral("path"));
+    }
+    if (!path.endsWith(QChar::fromLatin1('/'))) {
+        path += QChar::fromLatin1('/');
     }
 
     QString url_string = QStringLiteral("sftp://%1:%2@%3:%4%5")
