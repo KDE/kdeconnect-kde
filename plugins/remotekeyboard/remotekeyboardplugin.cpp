@@ -113,7 +113,7 @@ void RemoteKeyboardPlugin::sendQKeyEvent(const QVariantMap &keyEvent, bool sendA
     // https://xkbcommon.org/doc/current/group__keysyms.html
     // Instead, just use QKeySequence to tell us which key that is and move on
     QString text = keyEvent.value(QStringLiteral("text")).toString();
-    if (!text.isEmpty() && !text[0].isLetterOrNumber()) {
+    if (!text.isEmpty() && !text[0].isLetterOrNumber() && text != QLatin1String(" ")) {
         text = QKeySequence(key).toString().toLower();
     }
 
