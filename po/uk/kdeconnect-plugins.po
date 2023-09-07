@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-09-07 00:45+0000\n"
 "PO-Revision-Date: 2023-08-29 09:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -399,12 +399,12 @@ msgstr ""
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Не вдалося змонтувати файлову систему: пристрій не відповідає"
 
-#: sftp/sftpplugin-win.cpp:71
+#: sftp/sftpplugin-win.cpp:79
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: sftp/sftpplugin-win.cpp:72
+#: sftp/sftpplugin-win.cpp:80
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Обробки протоколу SFTP не передбачено. Вибачте за незручності."
