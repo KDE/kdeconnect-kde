@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-12 00:45+0000\n"
 "PO-Revision-Date: 2023-07-24 19:01+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -182,12 +182,12 @@ msgstr "Na voljo"
 msgid "Connected"
 msgstr "Povezana"
 
-#: qml/main.qml:76
+#: qml/main.qml:73
 #, kde-format
 msgid "Find devices..."
 msgstr "Poišči naprave..."
 
-#: qml/main.qml:121 qml/main.qml:124
+#: qml/main.qml:118 qml/main.qml:121
 #, kde-format
 msgid "Settings"
 msgstr "Nastavitve"

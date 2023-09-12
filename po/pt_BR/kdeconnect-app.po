@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-12 00:45+0000\n"
 "PO-Revision-Date: 2023-07-25 10:14-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -183,12 +183,12 @@ msgstr "Disponível"
 msgid "Connected"
 msgstr "Conectado"
 
-#: qml/main.qml:76
+#: qml/main.qml:73
 #, kde-format
 msgid "Find devices..."
 msgstr "Localizar dispositivos..."
 
-#: qml/main.qml:121 qml/main.qml:124
+#: qml/main.qml:118 qml/main.qml:121
 #, kde-format
 msgid "Settings"
 msgstr "Configurações"
