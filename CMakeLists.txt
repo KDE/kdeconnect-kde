@@ -66,6 +66,12 @@ set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
     TYPE RUNTIME
 )
 
+find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.11 REQUIRED)
+set_package_properties(KF${QT_MAJOR_VERSION}KirigamiAddons PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Required runtime dependency (all the modules are required)"
+)
+
 if(UNIX AND NOT APPLE)
     option(WITH_X11 "Build with X11 support" ON)
     option(WITH_PULSEAUDIO "Build with Pulseaudio support" ON)

@@ -10,6 +10,7 @@ import QtQuick 2.1
 import org.kde.kirigami 2.6 as Kirigami
 import org.kde.kdeconnect 1.0
 import org.kde.kdeconnect.sms 1.0
+import org.kde.kirigamiaddons.formcard 1.0 as FormCard
 
 Kirigami.ApplicationWindow
 {
@@ -70,7 +71,9 @@ Kirigami.ApplicationWindow
 
     Component {
         id: aboutPageComponent
-        Kirigami.AboutPage {}
+        FormCard.AboutPage {
+            aboutData: About
+        }
     }
 
     globalDrawer: Kirigami.GlobalDrawer {
@@ -96,7 +99,7 @@ Kirigami.ApplicationWindow
                 icon.name: "help-about"
                 onTriggered: {
                     if (applicationWindow().pageStack.layers.depth < 2) {
-                        applicationWindow().pageStack.layers.push(aboutPageComponent, { aboutData: aboutData })
+                        applicationWindow().pageStack.layers.push(aboutPageComponent)
                     }
                 }
             }
