@@ -170,14 +170,6 @@ ShareDbusInterface::ShareDbusInterface(const QString &deviceId, QObject *parent)
 {
 }
 
-PhotoDbusInterface::PhotoDbusInterface(const QString &deviceId, QObject *parent)
-    : OrgKdeKdeconnectDevicePhotoInterface(DaemonDbusInterface::activatedService(),
-                                           QLatin1String("/modules/kdeconnect/devices/%1/photo").arg(deviceId),
-                                           QDBusConnection::sessionBus(),
-                                           parent)
-{
-}
-
 RemoteSystemVolumeDbusInterface::RemoteSystemVolumeDbusInterface(const QString &deviceId, QObject *parent)
     : OrgKdeKdeconnectDeviceRemotesystemvolumeInterface(DaemonDbusInterface::activatedService(),
                                                         QLatin1String("/modules/kdeconnect/devices/%1/remotesystemvolume").arg(deviceId),

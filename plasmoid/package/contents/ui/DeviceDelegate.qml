@@ -188,27 +188,6 @@ PlasmaComponents.ListItem
                         }
                     }
 
-                    //Photo
-                    PlasmaComponents.MenuItem
-                    {
-                        FileDialog {
-                            id: photoFileDialog
-                            title: i18n("Save As")
-                            folder: shortcuts.pictures
-                            selectMultiple: false
-                            selectExisting: false
-                            onAccepted: {
-                                var path = photoFileDialog.fileUrl.toString();
-                                photo.plugin.requestPhoto(path);
-                            }
-                        }
-
-                        id: takePhoto
-                        icon: "camera-photo-symbolic"
-                        visible: photo.available
-                        text: i18n("Take a photo")
-                        onClicked: photoFileDialog.open()
-                    }
 
                     //Find my phone
                     PlasmaComponents.MenuItem
@@ -445,12 +424,6 @@ PlasmaComponents.ListItem
         // Share
         Share {
             id: share
-            device: root.device
-        }
-
-        // Photo
-        Photo {
-            id: photo
             device: root.device
         }
     }

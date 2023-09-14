@@ -22,7 +22,6 @@
 #include "generated/lockdeviceinterface.h"
 #include "generated/mprisremoteinterface.h"
 #include "generated/notificationinterface.h"
-#include "generated/photointerface.h"
 #include "generated/remotecommandsinterface.h"
 #include "generated/remotecontrolinterface.h"
 #include "generated/remotekeyboardinterface.h"
@@ -211,13 +210,6 @@ class KDECONNECTINTERFACES_EXPORT ShareDbusInterface : public OrgKdeKdeconnectDe
     Q_OBJECT
 public:
     explicit ShareDbusInterface(const QString &deviceId, QObject *parent = nullptr);
-};
-
-class KDECONNECTINTERFACES_EXPORT PhotoDbusInterface : public OrgKdeKdeconnectDevicePhotoInterface
-{
-    Q_OBJECT
-public:
-    explicit PhotoDbusInterface(const QString &deviceId, QObject *parent = nullptr);
 };
 
 class KDECONNECTINTERFACES_EXPORT RemoteSystemVolumeDbusInterface : public OrgKdeKdeconnectDeviceRemotesystemvolumeInterface

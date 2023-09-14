@@ -70,7 +70,6 @@ int main(int argc, char **argv)
     parser.addOption(
         QCommandLineOption(QStringList{QStringLiteral("k"), QStringLiteral("send-keys")}, i18n("Sends keys to a said device"), QStringLiteral("key")));
     parser.addOption(QCommandLineOption(QStringLiteral("my-id"), i18n("Display this device's id and exit")));
-    parser.addOption(QCommandLineOption(QStringLiteral("photo"), i18n("Open the connected device's camera and transfer the photo"), QStringLiteral("path")));
 
     // Hidden because it's an implementation detail
     QCommandLineOption deviceAutocomplete(QStringLiteral("shell-device-autocompletion"));
@@ -318,18 +317,6 @@ int main(int argc, char **argv)
                                                               QStringLiteral("org.kde.kdeconnect.device.findmyphone"),
                                                               QStringLiteral("ring"));
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
-        } else if (parser.isSet(QStringLiteral("photo"))) {
-            const QString fileName = parser.value(QStringLiteral("photo"));
-            if (!fileName.isEmpty()) {
-                QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                                  QLatin1String("/modules/kdeconnect/devices/%1/photo").arg(device),
-                                                                  QStringLiteral("org.kde.kdeconnect.device.photo"),
-                                                                  QStringLiteral("requestPhoto"));
-                msg.setArguments({QUrl::fromLocalFile(fileName).toString()});
-                blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
-            } else {
-                QTextStream(stderr) << i18n("Please specify a filename for the photo") << Qt::endl;
-            }
         } else if (parser.isSet(QStringLiteral("send-keys"))) {
             QString seq = parser.value(QStringLiteral("send-keys"));
             QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),

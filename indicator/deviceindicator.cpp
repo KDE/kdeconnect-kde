@@ -91,24 +91,6 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
         },
         this);
 
-    // Get a photo
-    auto getPhoto = addAction(QIcon::fromTheme(QStringLiteral("camera-photo")), i18n("Get a photo"));
-    connect(getPhoto, &QAction::triggered, this, [device]() {
-        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kdeconnect"),
-                                                          QStringLiteral("/modules/kdeconnect/devices/") + device->id() + QStringLiteral("/photo"),
-                                                          QStringLiteral("org.kde.kdeconnect.device.photo"),
-                                                          QStringLiteral("requestPhoto"));
-        QStringList downloadDirs = QStandardPaths::standardLocations(QStandardPaths::DownloadLocation);
-        msg.setArguments({QString(downloadDirs.first() + QDateTime::currentDateTime().toString(QStringLiteral("/dd-MM-yy_hh-mm-ss.png")))});
-        blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
-    });
-    setWhenAvailable(
-        device->hasPlugin(QStringLiteral("kdeconnect_photo")),
-        [getPhoto](bool available) {
-            getPhoto->setVisible(available);
-        },
-        this);
-
     // Send file
     const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), {QCoreApplication::applicationDirPath()});
     if (!kdeconnectHandlerExecutable.isEmpty()) {
