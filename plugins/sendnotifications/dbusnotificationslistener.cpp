@@ -383,7 +383,7 @@ QSharedPointer<QIODevice> DBusNotificationsListener::iconForImageData(const QVar
 
     QImage image(reinterpret_cast<uchar *>(imageData.data()), width, height, rowStride, hasAlpha ? QImage::Format_ARGB32 : QImage::Format_RGB32);
     if (hasAlpha) {
-        image = image.rgbSwapped(); // RGBA --> ARGB
+        image = std::move(image).rgbSwapped(); // RGBA --> ARGB
     }
 
     QSharedPointer<QIODevice> buffer = iconFromQImage(image);
