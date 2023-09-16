@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2021-08-21 13:14+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -46,27 +46,22 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Skambinti į įrenginį"
 
-#: deviceindicator.cpp:95
-#, kde-format
-msgid "Get a photo"
-msgstr "Gauti nuotrauką"
-
-#: deviceindicator.cpp:115
+#: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Siųsti failą/URL"
 
-#: deviceindicator.cpp:125
+#: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS žinutės..."
 
-#: deviceindicator.cpp:138
+#: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
 msgstr "Vykdyti komandą"
 
-#: deviceindicator.cpp:140
+#: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
 msgstr "Pridėti komandas"
@@ -192,6 +187,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Get a photo"
+#~ msgstr "Gauti nuotrauką"
 
 #~ msgid "Select file to send to '%1'"
 #~ msgstr "Pasirinkite failą, kurį siųsti į \"%1\""

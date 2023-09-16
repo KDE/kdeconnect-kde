@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -247,13 +247,19 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Pengaturan Plugin"
 
-#: qml/Settings.qml:35
+#: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
 msgstr ""
 
-#: qml/Settings.qml:52
+#: qml/Settings.qml:36
 #, fuzzy, kde-format
 #| msgid "KDE Connect"
 msgid "About KDE Connect"
+msgstr "KDE Connect"
+
+#: qml/Settings.qml:47
+#, fuzzy, kde-format
+#| msgid "KDE Connect"
+msgid "About KDE"
 msgstr "KDE Connect"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-08-09 13:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:67
+#: main.cpp:51 qml/main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -157,7 +157,7 @@ msgstr ""
 "팁: 전원을 연결해 두면 절전 모드로 전환되지 않으며 더 빨리 불러올 수 있습니"
 "다."
 
-#: qml/ConversationList.qml:66 qml/main.qml:87
+#: qml/ConversationList.qml:66 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "새로 고침"
@@ -193,12 +193,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: qml/main.qml:82
+#: qml/main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "장치"
 
-#: qml/main.qml:95
+#: qml/main.qml:98
 #, kde-format
 msgid "About"
 msgstr "정보"

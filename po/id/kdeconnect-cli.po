@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -214,44 +214,39 @@ msgstr "Mengirimkan kunci ke peranti tersebut"
 msgid "Display this device's id and exit"
 msgstr "Tampilkan id peranti ini dan keluar"
 
-#: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Open the connected device's camera and transfer the photo"
-msgstr "Buka kamera peranti yang terkoneksi dan transfer foto"
-
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:118
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(tersanding dan tercapai)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(reachable)"
 msgstr "(tercapai)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
 #, kde-format
 msgid "(paired)"
 msgstr "(tersanding)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:128
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "1 peranti ditemukan"
 msgstr[1] "%1 peranti ditemukan"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "No devices found"
 msgstr "Tidak ada peranti yang ditemukan"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(unpaired)"
 msgstr "(terlerai)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:180
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -264,59 +259,59 @@ msgstr ""
 "ID dan nama peranti bisa ditemukan menggunakan \"kdeconnect-cli -l\" \n"
 "Tampilan lengkap bantuan pakai opsi --help"
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "Dibagikan %1"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Teks yang dibagikan: %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Diminta untuk mengunci %1."
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Diminta untuk membuka kunci %1."
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "menunggu peranti..."
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "Peranti tidak ditemukan"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Sudah disandingkan"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "Meminta sanding"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Belum disandingkan"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Dileraikan"
 
-#: kdeconnect-cli.cpp:312
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -325,15 +320,16 @@ msgstr ""
 "error: seharusnya menentukan penerimaan SMS dengan melalui --destination "
 "<phone number>"
 
-#: kdeconnect-cli.cpp:331
-#, kde-format
-msgid "Please specify a filename for the photo"
-msgstr "Silakan tentukan sebuah file name untuk foto"
-
-#: kdeconnect-cli.cpp:378
+#: kdeconnect-cli.cpp:365
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Tidak ada yang harus dilakukan"
+
+#~ msgid "Open the connected device's camera and transfer the photo"
+#~ msgstr "Buka kamera peranti yang terkoneksi dan transfer foto"
+
+#~ msgid "Please specify a filename for the photo"
+#~ msgstr "Silakan tentukan sebuah file name untuk foto"
 
 #~ msgid "No device specified"
 #~ msgstr "Tidak ada perangkat yang ditentukan"

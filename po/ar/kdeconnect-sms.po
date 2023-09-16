@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-09-12 22:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:67
+#: main.cpp:51 qml/main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "رسائل نصية لكِيدِي المتّصل"
@@ -157,7 +157,7 @@ msgid ""
 msgstr ""
 "نصيحة: إذا قمت بتوصيل جهازك، فيجب ألا يذهب إلى وضع الغفوة ويجب تحميله بسرعة."
 
-#: qml/ConversationList.qml:66 qml/main.qml:87
+#: qml/ConversationList.qml:66 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "أنعش"
@@ -193,12 +193,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: qml/main.qml:82
+#: qml/main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "الأجهزة"
 
-#: qml/main.qml:95
+#: qml/main.qml:98
 #, kde-format
 msgid "About"
 msgstr "عن"

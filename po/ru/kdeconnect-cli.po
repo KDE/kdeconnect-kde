@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2021-07-26 18:15+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
@@ -219,28 +219,22 @@ msgstr "Отправка нажатий клавиш на выбранное у�
 msgid "Display this device's id and exit"
 msgstr "Показать идентификатор этого устройства и выйти."
 
-#: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Open the connected device's camera and transfer the photo"
-msgstr ""
-"Запустить камеру на присоединённом устройстве, сделать и передать фотографию."
-
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:118
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(сопряжено и на связи)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(reachable)"
 msgstr "(на связи)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
 #, kde-format
 msgid "(paired)"
 msgstr "(сопряжено)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:128
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -249,17 +243,17 @@ msgstr[1] "Найдены %1 устройства."
 msgstr[2] "Найдены %1 устройств."
 msgstr[3] "Найдено %1 устройство."
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "No devices found"
 msgstr "Устройств не найдено."
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(unpaired)"
 msgstr "(сопряжение не создано)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:180
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -274,59 +268,59 @@ msgstr ""
 "Для просмотра полной справки по использованию программы, запустите её с "
 "параметром «--help»."
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "Создан общий доступ к %1"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Создан общий доступ к тексту: %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Запрошено блокирование %1."
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Запрошено разблокирование %1."
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "ожидание устройства…"
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "Устройство не найдено."
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Устройство уже сопряжено."
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "Запрошено сопряжение."
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Сопряжение уже разорвано"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Сопряжение разорвано"
 
-#: kdeconnect-cli.cpp:312
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -335,15 +329,18 @@ msgstr ""
 "ошибка: необходимо указать получателя SMS, передав параметр «--destination "
 "<номер телефона>»"
 
-#: kdeconnect-cli.cpp:331
-#, kde-format
-msgid "Please specify a filename for the photo"
-msgstr "Укажите имя файла фотографии."
-
-#: kdeconnect-cli.cpp:378
+#: kdeconnect-cli.cpp:365
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Нет действий для выполнения"
+
+#~ msgid "Open the connected device's camera and transfer the photo"
+#~ msgstr ""
+#~ "Запустить камеру на присоединённом устройстве, сделать и передать "
+#~ "фотографию."
+
+#~ msgid "Please specify a filename for the photo"
+#~ msgstr "Укажите имя файла фотографии."
 
 #~ msgid "No device specified"
 #~ msgstr "Устройство не выбрано."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2021-07-26 12:40+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -45,27 +45,22 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Sună dispozitivul"
 
-#: deviceindicator.cpp:95
-#, kde-format
-msgid "Get a photo"
-msgstr "Ia o poză"
-
-#: deviceindicator.cpp:115
+#: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Trimite un fișier/URL"
 
-#: deviceindicator.cpp:125
+#: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
 msgstr "Mesaje SMS..."
 
-#: deviceindicator.cpp:138
+#: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
 msgstr "Rulează comandă"
 
-#: deviceindicator.cpp:140
+#: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
 msgstr "Adaugă comenzi"
@@ -190,6 +185,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Get a photo"
+#~ msgstr "Ia o poză"
 
 #~ msgid "Select file to send to '%1'"
 #~ msgstr "Alegeți fișierul de trimis la „%1”"

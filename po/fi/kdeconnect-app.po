@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-12 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-06-27 17:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -245,12 +245,18 @@ msgctxt "@title:window"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: qml/Settings.qml:35
+#: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
 msgstr "Laitenimi"
 
-#: qml/Settings.qml:52
+#: qml/Settings.qml:36
 #, kde-format
 msgid "About KDE Connect"
+msgstr "Tietoa KDE Connectista"
+
+#: qml/Settings.qml:47
+#, fuzzy, kde-format
+#| msgid "About KDE Connect"
+msgid "About KDE"
 msgstr "Tietoa KDE Connectista"

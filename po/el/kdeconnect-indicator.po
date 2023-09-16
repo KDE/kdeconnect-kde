@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2021-06-19 07:51+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -44,27 +44,22 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Ήχος συσκευής"
 
-#: deviceindicator.cpp:95
-#, kde-format
-msgid "Get a photo"
-msgstr "Πάρτε μια φωτογραφία"
-
-#: deviceindicator.cpp:115
+#: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Αποστολή αρχείου/URL"
 
-#: deviceindicator.cpp:125
+#: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS μηνύματα..."
 
-#: deviceindicator.cpp:138
+#: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
 msgstr "Εκτέλεση εντολής"
 
-#: deviceindicator.cpp:140
+#: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
 msgstr "Προσθήκη εντολών"
@@ -188,6 +183,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Get a photo"
+#~ msgstr "Πάρτε μια φωτογραφία"
 
 #~ msgid "Select file to send to '%1'"
 #~ msgstr "Επιλογή αρχείου για αποστολή στο '%1'"

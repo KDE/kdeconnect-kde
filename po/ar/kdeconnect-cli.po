@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-06-08 11:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -212,27 +212,22 @@ msgstr "ترسل مفاتيح إلى الجهاز المذكور"
 msgid "Display this device's id and exit"
 msgstr "اعرض معرف هذا الجهاز واخرج"
 
-#: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Open the connected device's camera and transfer the photo"
-msgstr "افتح كاميرة الجهاز المتصل وانقل الصورة"
-
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:118
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(مُقترن ويمكن الوصول إليه)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(reachable)"
 msgstr "(يمكن الوصول إليه)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
 #, kde-format
 msgid "(paired)"
 msgstr "(مُقترن)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:128
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
@@ -243,17 +238,17 @@ msgstr[3] "وُجدت %1 أجهزة"
 msgstr[4] "وُجد %1 جهازًا"
 msgstr[5] "وُجد %1 جهاز"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "No devices found"
 msgstr "لا أجهزة"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(unpaired)"
 msgstr "(غير مُقترن)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:180
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -265,59 +260,59 @@ msgstr ""
 "يمكن العثور على معرفات الأجهزة وأسمائها باستعمال \"kdeconnect-cli -l\" \n"
 "انظر كامل المساعدة باستخدام خيار --help"
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "مشاركه %1"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "النص المشارك: %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "مطلوب منه قفل %1."
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "مطلوب منه فك قفل %1."
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "ينتظر الجهاز..."
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "لم يوجد الجهاز"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "مُقترن به فعلًا"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "طُلب الاقتران"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "ليس مُقترنًا به فعلًا"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "ليس مُقترنًا به"
 
-#: kdeconnect-cli.cpp:312
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -325,15 +320,16 @@ msgid ""
 msgstr ""
 "خطأ: يجب تحديد مستقبل الرسالة النصية بتمرير --destination <phone number>"
 
-#: kdeconnect-cli.cpp:331
-#, kde-format
-msgid "Please specify a filename for the photo"
-msgstr "الرجاء تحديد اسم الملف للصورة."
-
-#: kdeconnect-cli.cpp:378
+#: kdeconnect-cli.cpp:365
 #, kde-format
 msgid "Nothing to be done"
 msgstr "لا شيء للقيام به"
+
+#~ msgid "Open the connected device's camera and transfer the photo"
+#~ msgstr "افتح كاميرة الجهاز المتصل وانقل الصورة"
+
+#~ msgid "Please specify a filename for the photo"
+#~ msgstr "الرجاء تحديد اسم الملف للصورة."
 
 #~ msgid "No device specified"
 #~ msgstr "لا جهاز محدّد"

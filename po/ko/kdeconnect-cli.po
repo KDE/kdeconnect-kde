@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-07-23 00:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -210,43 +210,38 @@ msgstr "지정한 장치에 키 보내기"
 msgid "Display this device's id and exit"
 msgstr "장치 ID만 출력하고 끝내기"
 
-#: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Open the connected device's camera and transfer the photo"
-msgstr "연결된 장치의 카메라를 열고 사진 전송"
-
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:118
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(연결되고 접근 가능함)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(reachable)"
 msgstr "(접근 가능함)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
 #, kde-format
 msgid "(paired)"
 msgstr "(연결됨)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:128
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "장치 %1개 찾음"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "No devices found"
 msgstr "장치를 찾을 수 없음"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(unpaired)"
 msgstr "(연결 해제됨)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:180
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -259,59 +254,59 @@ msgstr ""
 "장치 ID와 이름은 \"kdeconnect-cli -l\" 명령으로 확인할 수 있습니다\n"
 "--help 옵션을 지정하여 전체 도움말을 참조하십시오"
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "%1 공유됨"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "텍스트 공유됨: %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "%1을(를) 잠그기를 요청했습니다."
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "%1의 잠금을 해제하기를 요청했습니다."
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "장치 대기 중..."
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "장치를 찾을 수 없음"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "이미 연결됨"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "연결 요청됨"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "이미 연결 해제됨"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "연결 해제됨"
 
-#: kdeconnect-cli.cpp:312
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -320,15 +315,16 @@ msgstr ""
 "오류: 문자 메시지를 받을 사람을 --destination <phone number> 형식으로 지정해"
 "야 함"
 
-#: kdeconnect-cli.cpp:331
-#, kde-format
-msgid "Please specify a filename for the photo"
-msgstr "사진 파일 이름을 지정하십시오"
-
-#: kdeconnect-cli.cpp:378
+#: kdeconnect-cli.cpp:365
 #, kde-format
 msgid "Nothing to be done"
 msgstr "더 이상 할 일 없음"
+
+#~ msgid "Open the connected device's camera and transfer the photo"
+#~ msgstr "연결된 장치의 카메라를 열고 사진 전송"
+
+#~ msgid "Please specify a filename for the photo"
+#~ msgstr "사진 파일 이름을 지정하십시오"
 
 #~ msgid "No device specified"
 #~ msgstr "장치가 지정되지 않았음"

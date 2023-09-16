@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-07-23 17:24+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -66,7 +66,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:67
+#: main.cpp:51 qml/main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "SMS de KDE Connect"
@@ -162,7 +162,7 @@ msgstr ""
 "Consejo: Si conecta su dispositivo, no debería entrar en modo hibernación y "
 "debería cargar rápidamente."
 
-#: qml/ConversationList.qml:66 qml/main.qml:87
+#: qml/ConversationList.qml:66 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Refrescar"
@@ -198,12 +198,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Sin resultados"
 
-#: qml/main.qml:82
+#: qml/main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: qml/main.qml:95
+#: qml/main.qml:98
 #, kde-format
 msgid "About"
 msgstr "Acerca de"

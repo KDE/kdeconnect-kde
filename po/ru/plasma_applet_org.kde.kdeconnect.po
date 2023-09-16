@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-09-29 21:47+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -81,78 +81,68 @@ msgstr "Отправить файл"
 msgid "Send Clipboard"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:196
-#, kde-format
-msgid "Save As"
-msgstr "Сохранить как"
-
-#: package/contents/ui/DeviceDelegate.qml:209
-#, kde-format
-msgid "Take a photo"
-msgstr "Сделать фотографию"
-
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:203
 #, kde-format
 msgid "Ring my phone"
 msgstr "Найти телефон"
 
-#: package/contents/ui/DeviceDelegate.qml:242
+#: package/contents/ui/DeviceDelegate.qml:221
 #, kde-format
 msgid "Browse this device"
 msgstr "Просмотр файлов на устройстве"
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS-сообщения"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Удалённая клавиатура"
 
-#: package/contents/ui/DeviceDelegate.qml:296
+#: package/contents/ui/DeviceDelegate.qml:275
 #, kde-format
 msgid "Notifications:"
 msgstr "Уведомления:"
 
-#: package/contents/ui/DeviceDelegate.qml:303
+#: package/contents/ui/DeviceDelegate.qml:282
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Отклонить все уведомления"
 
-#: package/contents/ui/DeviceDelegate.qml:342
+#: package/contents/ui/DeviceDelegate.qml:321
 #, kde-format
 msgid "Reply"
 msgstr "Ответить"
 
-#: package/contents/ui/DeviceDelegate.qml:351
+#: package/contents/ui/DeviceDelegate.qml:330
 #, kde-format
 msgid "Dismiss"
 msgstr "Отклонить"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:341
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:354
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Ответить %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:370
 #, kde-format
 msgid "Send"
 msgstr "Отправить"
 
-#: package/contents/ui/DeviceDelegate.qml:415
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Run command"
 msgstr "Выполнить команду"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:402
 #, kde-format
 msgid "Add command"
 msgstr "Добавить команду"
@@ -197,6 +187,12 @@ msgstr "Установить из F-Droid"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Настроить KDE Connect..."
+
+#~ msgid "Save As"
+#~ msgstr "Сохранить как"
+
+#~ msgid "Take a photo"
+#~ msgstr "Сделать фотографию"
 
 #~ msgid "Configure..."
 #~ msgstr "Настроить..."

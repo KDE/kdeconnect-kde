@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-07-29 14:31+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -82,78 +82,68 @@ msgstr "Partekatu fitxategia"
 msgid "Send Clipboard"
 msgstr "Bidali arbela"
 
-#: package/contents/ui/DeviceDelegate.qml:196
-#, kde-format
-msgid "Save As"
-msgstr "Gorde honela"
-
-#: package/contents/ui/DeviceDelegate.qml:209
-#, kde-format
-msgid "Take a photo"
-msgstr "Atera argazki bat"
-
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:203
 #, kde-format
 msgid "Ring my phone"
 msgstr "Jo nire telefonoaren dei-doinua"
 
-#: package/contents/ui/DeviceDelegate.qml:242
+#: package/contents/ui/DeviceDelegate.qml:221
 #, kde-format
 msgid "Browse this device"
 msgstr "Arakatu gailu hau"
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS mezuak"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Urruneko teklatua"
 
-#: package/contents/ui/DeviceDelegate.qml:296
+#: package/contents/ui/DeviceDelegate.qml:275
 #, kde-format
 msgid "Notifications:"
 msgstr "Jakinarazpenak:"
 
-#: package/contents/ui/DeviceDelegate.qml:303
+#: package/contents/ui/DeviceDelegate.qml:282
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Baztertu jakinarazpen guztiak"
 
-#: package/contents/ui/DeviceDelegate.qml:342
+#: package/contents/ui/DeviceDelegate.qml:321
 #, kde-format
 msgid "Reply"
 msgstr "Erantzun"
 
-#: package/contents/ui/DeviceDelegate.qml:351
+#: package/contents/ui/DeviceDelegate.qml:330
 #, kde-format
 msgid "Dismiss"
 msgstr "Baztertu"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:341
 #, kde-format
 msgid "Cancel"
 msgstr "Utzi"
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:354
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Erantzun %1(e)ri..."
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:370
 #, kde-format
 msgid "Send"
 msgstr "Bidali"
 
-#: package/contents/ui/DeviceDelegate.qml:415
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Run command"
 msgstr "Exekutatu komandoa"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:402
 #, kde-format
 msgid "Add command"
 msgstr "Gehitu komandoa"
@@ -194,6 +184,12 @@ msgstr "Instalatu F-Droidetik"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "KDE Connect-en ezarpenak..."
+
+#~ msgid "Save As"
+#~ msgstr "Gorde honela"
+
+#~ msgid "Take a photo"
+#~ msgstr "Atera argazki bat"
 
 #~ msgid "Configure..."
 #~ msgstr "Konfiguratu..."

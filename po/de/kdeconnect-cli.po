@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 00:45+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-06-12 00:15+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -211,44 +211,39 @@ msgstr "Tastendrücke an ein genanntes Gerät senden"
 msgid "Display this device's id and exit"
 msgstr "Kennung diese Geräts anzeigen und beenden"
 
-#: kdeconnect-cli.cpp:73
-#, kde-format
-msgid "Open the connected device's camera and transfer the photo"
-msgstr "Öffnet die Kamera des verbundenen Geräts und überträgt das Foto"
-
-#: kdeconnect-cli.cpp:119
+#: kdeconnect-cli.cpp:118
 #, kde-format
 msgid "(paired and reachable)"
 msgstr "(Gekoppelt und Erreichbar)"
 
-#: kdeconnect-cli.cpp:121
+#: kdeconnect-cli.cpp:120
 #, kde-format
 msgid "(reachable)"
 msgstr "(Erreichbar)"
 
-#: kdeconnect-cli.cpp:123 kdeconnect-cli.cpp:142
+#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
 #, kde-format
 msgid "(paired)"
 msgstr "(Gekoppelt)"
 
-#: kdeconnect-cli.cpp:129
+#: kdeconnect-cli.cpp:128
 #, kde-format
 msgid "1 device found"
 msgid_plural "%1 devices found"
 msgstr[0] "1 Gerät gefunden"
 msgstr[1] "%1 Gerät gefunden"
 
-#: kdeconnect-cli.cpp:131
+#: kdeconnect-cli.cpp:130
 #, kde-format
 msgid "No devices found"
 msgstr "Keine Geräte gefunden"
 
-#: kdeconnect-cli.cpp:144
+#: kdeconnect-cli.cpp:143
 #, kde-format
 msgid "(unpaired)"
 msgstr "(Nicht gekoppelt)"
 
-#: kdeconnect-cli.cpp:181
+#: kdeconnect-cli.cpp:180
 #, kde-format
 msgid ""
 "No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
@@ -261,59 +256,59 @@ msgstr ""
 "Geräte-Kennungen und -Namen finden Sie mit dem Befehl „kdeconnect-cli -l“\n"
 "Die vollständige Hilfe wird mit „-help“ angezeigt."
 
-#: kdeconnect-cli.cpp:216
+#: kdeconnect-cli.cpp:215
 #, kde-format
 msgid "Shared %1"
 msgstr "%1 geteilt"
 
-#: kdeconnect-cli.cpp:225
+#: kdeconnect-cli.cpp:224
 #, kde-format
 msgid "Shared text: %1"
 msgstr "Geteilter Text %1"
 
-#: kdeconnect-cli.cpp:232
+#: kdeconnect-cli.cpp:231
 #, kde-format
 msgctxt "device has requested to lock peer device"
 msgid "Requested to lock %1."
 msgstr "Anforderung %1 zu sperren."
 
-#: kdeconnect-cli.cpp:234
+#: kdeconnect-cli.cpp:233
 #, kde-format
 msgctxt "device has requested to unlock peer device"
 msgid "Requested to unlock %1."
 msgstr "Anforderung %1 zu entsperren."
 
-#: kdeconnect-cli.cpp:241
+#: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
 msgstr "Warten auf Gerät ..."
 
-#: kdeconnect-cli.cpp:254
+#: kdeconnect-cli.cpp:253
 #, kde-format
 msgid "Device not found"
 msgstr "Gerät nicht gefunden"
 
-#: kdeconnect-cli.cpp:256
+#: kdeconnect-cli.cpp:255
 #, kde-format
 msgid "Already paired"
 msgstr "Bereits gekoppelt"
 
-#: kdeconnect-cli.cpp:258
+#: kdeconnect-cli.cpp:257
 #, kde-format
 msgid "Pair requested"
 msgstr "Kopplung angefordert"
 
-#: kdeconnect-cli.cpp:264
+#: kdeconnect-cli.cpp:263
 #, kde-format
 msgid "Already not paired"
 msgstr "Noch nicht gekoppelt"
 
-#: kdeconnect-cli.cpp:266
+#: kdeconnect-cli.cpp:265
 #, kde-format
 msgid "Unpaired"
 msgstr "Nicht gekoppelt"
 
-#: kdeconnect-cli.cpp:312
+#: kdeconnect-cli.cpp:311
 #, kde-format
 msgid ""
 "error: should specify the SMS's recipient by passing --destination <phone "
@@ -322,15 +317,16 @@ msgstr ""
 "Fehler: SMS-Empfänger muss über die Option --destination <phone number> "
 "angegeben werden"
 
-#: kdeconnect-cli.cpp:331
-#, kde-format
-msgid "Please specify a filename for the photo"
-msgstr "Bitte geben Sie einen Namen für das Foto an"
-
-#: kdeconnect-cli.cpp:378
+#: kdeconnect-cli.cpp:365
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Es gibt nichts zu tun"
+
+#~ msgid "Open the connected device's camera and transfer the photo"
+#~ msgstr "Öffnet die Kamera des verbundenen Geräts und überträgt das Foto"
+
+#~ msgid "Please specify a filename for the photo"
+#~ msgstr "Bitte geben Sie einen Namen für das Foto an"
 
 #~ msgid "No device specified"
 #~ msgstr "Kein Gerät angegeben"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-07-21 21:33+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:67
+#: main.cpp:51 qml/main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -158,7 +158,7 @@ msgstr ""
 "Съвет: Ако свържете устройството, то не трябва да влиза в режим Doze и "
 "трябва да се зарежда бързо."
 
-#: qml/ConversationList.qml:66 qml/main.qml:87
+#: qml/ConversationList.qml:66 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Обновяване"
@@ -194,12 +194,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Няма съвпадения"
 
-#: qml/main.qml:82
+#: qml/main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Устройства"
 
-#: qml/main.qml:95
+#: qml/main.qml:98
 #, kde-format
 msgid "About"
 msgstr "Относно"

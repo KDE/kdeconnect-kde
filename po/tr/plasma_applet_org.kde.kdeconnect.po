@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-06-08 11:59+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -80,78 +80,68 @@ msgstr "Share file"
 msgid "Send Clipboard"
 msgstr "Pano Gönder"
 
-#: package/contents/ui/DeviceDelegate.qml:196
-#, kde-format
-msgid "Save As"
-msgstr "Farklı Kaydet"
-
-#: package/contents/ui/DeviceDelegate.qml:209
-#, kde-format
-msgid "Take a photo"
-msgstr "Fotoğraf çek"
-
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:203
 #, kde-format
 msgid "Ring my phone"
 msgstr "Telefonumu çaldır"
 
-#: package/contents/ui/DeviceDelegate.qml:242
+#: package/contents/ui/DeviceDelegate.qml:221
 #, kde-format
 msgid "Browse this device"
 msgstr "Bu aygıta göz at"
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS İletileri"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Uzaktan Klavye"
 
-#: package/contents/ui/DeviceDelegate.qml:296
+#: package/contents/ui/DeviceDelegate.qml:275
 #, kde-format
 msgid "Notifications:"
 msgstr "Bildirimler:"
 
-#: package/contents/ui/DeviceDelegate.qml:303
+#: package/contents/ui/DeviceDelegate.qml:282
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Tüm bildirimleri kapat"
 
-#: package/contents/ui/DeviceDelegate.qml:342
+#: package/contents/ui/DeviceDelegate.qml:321
 #, kde-format
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: package/contents/ui/DeviceDelegate.qml:351
+#: package/contents/ui/DeviceDelegate.qml:330
 #, kde-format
 msgid "Dismiss"
 msgstr "Reddet"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:341
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:354
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Yanıtla: %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:370
 #, kde-format
 msgid "Send"
 msgstr "Gönder"
 
-#: package/contents/ui/DeviceDelegate.qml:415
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Run command"
 msgstr "Komut çalıştır"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:402
 #, kde-format
 msgid "Add command"
 msgstr "Komut ekle"
@@ -192,6 +182,12 @@ msgstr "F-Droid'den Kur"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "KDE Bağlan Ayarları..."
+
+#~ msgid "Save As"
+#~ msgstr "Farklı Kaydet"
+
+#~ msgid "Take a photo"
+#~ msgstr "Fotoğraf çek"
 
 #~ msgid "Configure..."
 #~ msgstr "Yapılandır..."

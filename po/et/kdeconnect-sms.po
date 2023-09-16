@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-24 07:33+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2020-11-20 01:14+0100\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -63,7 +63,7 @@ msgstr "%1: %2"
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:67
+#: main.cpp:51 qml/main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connecti SMS"
@@ -156,7 +156,7 @@ msgid ""
 "load quickly."
 msgstr ""
 
-#: qml/ConversationList.qml:66 qml/main.qml:87
+#: qml/ConversationList.qml:66 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Värskenda"
@@ -193,12 +193,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr ""
 
-#: qml/main.qml:82
+#: qml/main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr ""
 
-#: qml/main.qml:95
+#: qml/main.qml:98
 #, fuzzy, kde-format
 #| msgid "About..."
 msgid "About"

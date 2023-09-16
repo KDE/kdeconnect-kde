@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-09-02 02:56\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -43,27 +43,22 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "使设备发出铃声"
 
-#: deviceindicator.cpp:95
-#, kde-format
-msgid "Get a photo"
-msgstr "获取照片"
-
-#: deviceindicator.cpp:115
+#: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
 msgstr "发送文件/URL"
 
-#: deviceindicator.cpp:125
+#: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
 msgstr "短信..."
 
-#: deviceindicator.cpp:138
+#: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
 msgstr "运行命令"
 
-#: deviceindicator.cpp:140
+#: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
 msgstr "添加命令"
@@ -185,3 +180,6 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Get a photo"
+#~ msgstr "获取照片"

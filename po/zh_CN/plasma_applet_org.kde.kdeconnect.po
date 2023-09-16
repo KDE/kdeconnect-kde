@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-09-02 02:56\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -79,78 +79,68 @@ msgstr "分享文件"
 msgid "Send Clipboard"
 msgstr "发送剪贴板"
 
-#: package/contents/ui/DeviceDelegate.qml:196
-#, kde-format
-msgid "Save As"
-msgstr "另存为"
-
-#: package/contents/ui/DeviceDelegate.qml:209
-#, kde-format
-msgid "Take a photo"
-msgstr "拍摄照片"
-
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:203
 #, kde-format
 msgid "Ring my phone"
 msgstr "让我的手机响铃"
 
-#: package/contents/ui/DeviceDelegate.qml:242
+#: package/contents/ui/DeviceDelegate.qml:221
 #, kde-format
 msgid "Browse this device"
 msgstr "浏览此设备"
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "SMS Messages"
 msgstr "短信"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "远程键盘"
 
-#: package/contents/ui/DeviceDelegate.qml:296
+#: package/contents/ui/DeviceDelegate.qml:275
 #, kde-format
 msgid "Notifications:"
 msgstr "通知："
 
-#: package/contents/ui/DeviceDelegate.qml:303
+#: package/contents/ui/DeviceDelegate.qml:282
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "清除所有通知"
 
-#: package/contents/ui/DeviceDelegate.qml:342
+#: package/contents/ui/DeviceDelegate.qml:321
 #, kde-format
 msgid "Reply"
 msgstr "回复"
 
-#: package/contents/ui/DeviceDelegate.qml:351
+#: package/contents/ui/DeviceDelegate.qml:330
 #, kde-format
 msgid "Dismiss"
 msgstr "忽略"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:341
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:354
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "回复给 %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:370
 #, kde-format
 msgid "Send"
 msgstr "发送"
 
-#: package/contents/ui/DeviceDelegate.qml:415
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Run command"
 msgstr "运行命令"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:402
 #, kde-format
 msgid "Add command"
 msgstr "添加命令"
@@ -190,3 +180,9 @@ msgstr "从 F-Droid 安装"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "KDE Connect 设置..."
+
+#~ msgid "Save As"
+#~ msgstr "另存为"
+
+#~ msgid "Take a photo"
+#~ msgstr "拍摄照片"

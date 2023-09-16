@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-08-10 22:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -44,27 +44,22 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Aygıtı çaldır"
 
-#: deviceindicator.cpp:95
-#, kde-format
-msgid "Get a photo"
-msgstr "Bir fotoğraf al"
-
-#: deviceindicator.cpp:115
+#: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
 msgstr "Dosya/URL gönder"
 
-#: deviceindicator.cpp:125
+#: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS İletileri ..."
 
-#: deviceindicator.cpp:138
+#: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
 msgstr "Komut çalıştır"
 
-#: deviceindicator.cpp:140
+#: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
 msgstr "Komut ekle"
@@ -187,6 +182,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%​%2"
+
+#~ msgid "Get a photo"
+#~ msgstr "Bir fotoğraf al"
 
 #~ msgid "Select file to send to '%1'"
 #~ msgstr "'%1'  adresine gönderilecek dosyayı seç"

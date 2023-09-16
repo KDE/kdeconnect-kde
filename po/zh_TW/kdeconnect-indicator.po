@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-09 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2021-09-12 08:47+0800\n"
 "Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -48,27 +48,22 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "讓裝置響鈴"
 
-#: deviceindicator.cpp:95
-#, kde-format
-msgid "Get a photo"
-msgstr "照張像"
-
-#: deviceindicator.cpp:115
+#: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
 msgstr "傳送檔案/網址"
 
-#: deviceindicator.cpp:125
+#: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
 msgstr "簡訊…"
 
-#: deviceindicator.cpp:138
+#: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: deviceindicator.cpp:140
+#: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
 msgstr "新增指令"
@@ -191,6 +186,9 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
+
+#~ msgid "Get a photo"
+#~ msgstr "照張像"
 
 #~ msgid "Select file to send to '%1'"
 #~ msgstr "選擇要傳送至「%1」的檔案"

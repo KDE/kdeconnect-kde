@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:46+0000\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2022-07-19 10:03+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -79,78 +79,68 @@ msgstr "Zdieľať súbor"
 msgid "Send Clipboard"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:196
-#, kde-format
-msgid "Save As"
-msgstr ""
-
-#: package/contents/ui/DeviceDelegate.qml:209
-#, kde-format
-msgid "Take a photo"
-msgstr ""
-
-#: package/contents/ui/DeviceDelegate.qml:224
+#: package/contents/ui/DeviceDelegate.qml:203
 #, kde-format
 msgid "Ring my phone"
 msgstr "Prezvoniť môj telefón"
 
-#: package/contents/ui/DeviceDelegate.qml:242
+#: package/contents/ui/DeviceDelegate.qml:221
 #, kde-format
 msgid "Browse this device"
 msgstr "Prehliadať toto zariadenie"
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:238
 #, kde-format
 msgid "SMS Messages"
 msgstr "Správy SMS"
 
-#: package/contents/ui/DeviceDelegate.qml:280
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Vzdialená klávesnica"
 
-#: package/contents/ui/DeviceDelegate.qml:296
+#: package/contents/ui/DeviceDelegate.qml:275
 #, kde-format
 msgid "Notifications:"
 msgstr "Upozornenia:"
 
-#: package/contents/ui/DeviceDelegate.qml:303
+#: package/contents/ui/DeviceDelegate.qml:282
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Odmietnuť všetky oznámenia"
 
-#: package/contents/ui/DeviceDelegate.qml:342
+#: package/contents/ui/DeviceDelegate.qml:321
 #, kde-format
 msgid "Reply"
 msgstr "Odpovedať"
 
-#: package/contents/ui/DeviceDelegate.qml:351
+#: package/contents/ui/DeviceDelegate.qml:330
 #, kde-format
 msgid "Dismiss"
 msgstr "Odmietnuť"
 
-#: package/contents/ui/DeviceDelegate.qml:362
+#: package/contents/ui/DeviceDelegate.qml:341
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:354
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:391
+#: package/contents/ui/DeviceDelegate.qml:370
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:415
+#: package/contents/ui/DeviceDelegate.qml:394
 #, kde-format
 msgid "Run command"
 msgstr "Spustiť príkaz"
 
-#: package/contents/ui/DeviceDelegate.qml:423
+#: package/contents/ui/DeviceDelegate.qml:402
 #, kde-format
 msgid "Add command"
 msgstr "Pridať príkaz"
