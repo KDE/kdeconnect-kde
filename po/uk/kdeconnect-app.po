@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
-"PO-Revision-Date: 2023-07-24 16:51+0300\n"
+"PO-Revision-Date: 2023-09-16 08:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -256,7 +256,6 @@ msgid "About KDE Connect"
 msgstr "Про KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "Про KDE Connect"
+msgstr "Про KDE"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
-"PO-Revision-Date: 2023-07-25 19:11+0200\n"
+"PO-Revision-Date: 2023-09-16 20:45+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -254,7 +254,6 @@ msgid "About KDE Connect"
 msgstr "Om KDE-anslut"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "Om KDE-anslut"
+msgstr "Om KDE"
