@@ -169,15 +169,3 @@ msgstr ""
 "teniu problemes, visiteu el <a href=\"https://userbase.kde.org/KDEConnect/ca"
 "\"><span style=\" text-decoration: underline; color:#4c6b8a;\">wiki de la "
 "KDE Connect Community</span></a> per a obtindre ajuda.</p></body></html>"
-
-#~ msgid "KDE Connect Settings"
-#~ msgstr "Configureu KDE Connect"
-
-#~ msgid "KDE Connect Settings module"
-#~ msgstr "Mòdul de configuració de KDE Connect"
-
-#~ msgid "(C) 2015 Albert Vaca Cintora"
-#~ msgstr "(C) 2015 Albert Vaca Cintora"
-
-#~ msgid "Albert Vaca Cintora"
-#~ msgstr "Albert Vaca Cintora"

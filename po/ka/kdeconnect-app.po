@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
-"PO-Revision-Date: 2023-07-25 04:45+0200\n"
+"PO-Revision-Date: 2023-09-17 06:33+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -256,7 +256,6 @@ msgid "About KDE Connect"
 msgstr "KDE Connect-ის შესახებ"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "KDE Connect-ის შესახებ"
+msgstr "KDE-ს შესახებ"

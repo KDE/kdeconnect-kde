@@ -256,7 +256,6 @@ msgid "About KDE Connect"
 msgstr "KDE Bağlan Hakkında"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "KDE Bağlan Hakkında"
+msgstr "KDE Hakkında"
