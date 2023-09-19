@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
-"PO-Revision-Date: 2023-07-04 15:16-0300\n"
+"PO-Revision-Date: 2023-09-18 09:40-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -90,7 +90,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Reprodutor atual"
 
 #: notifications/notification.cpp:113
 #, kde-format
