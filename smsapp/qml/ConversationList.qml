@@ -81,7 +81,7 @@ Kirigami.ScrollablePage
 
         actions: [
           Kirigami.Action {
-              iconName: "dialog-cancel"
+              icon.name: "dialog-cancel"
               text: i18nd("kdeconnect-sms", "Cancel")
               onTriggered: initialMessage = ""
             }

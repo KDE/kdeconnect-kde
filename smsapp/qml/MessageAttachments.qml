@@ -7,9 +7,9 @@
 import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.12
+import Qt5Compat.GraphicalEffects
 import org.kde.kirigami 2.13 as Kirigami
-import QtMultimedia 5.12
+import QtMultimedia
 
 Item {
     id: root
@@ -91,16 +91,16 @@ Item {
         radius: messageBox.radius
         color: "lightgrey"
 
-        Audio {
+        MediaPlayer {
             id: audioPlayer
             source: root.sourcePath
 
-            onStopped: {
-                audioPlayButton.icon.name = "media-playback-start"
-            }
-
-            onPlaying: {
-                audioPlayButton.icon.name = "media-playback-stop"
+            onPlaybackStateChanged: {
+                if (playbackState === MediaPlayer.PlayingState) {
+                    audioPlayButton.icon.name = "media-playback-stop"
+                } else {
+                    audioPlayButton.icon.name = "media-playback-start"
+                }
             }
         }
 

@@ -34,3 +34,4 @@ CMakeLists.txt.user
 /cmake-build*
 .clang-format
 app/resources.generated.qrc
+smsapp/resources.generated.qrc
