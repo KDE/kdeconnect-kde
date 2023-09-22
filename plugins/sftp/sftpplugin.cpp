@@ -49,10 +49,13 @@ void SftpPlugin::addToDolphin()
 void SftpPlugin::removeFromDolphin()
 {
     QUrl kioUrl(QStringLiteral("kdeconnect://") + deviceId + QStringLiteral("/"));
-    QModelIndex index = m_placesModel.closestItem(kioUrl);
-    while (index.row() != -1) {
-        m_placesModel.removePlace(index);
-        index = m_placesModel.closestItem(kioUrl);
+    for (int i = 0; i < m_placesModel.rowCount(); ++i) {
+        QModelIndex index = m_placesModel.index(i, 0);
+        QUrl url = m_placesModel.url(index);
+        if (url == kioUrl) {
+            m_placesModel.removePlace(index);
+            --i;
+        }
     }
 }
 
