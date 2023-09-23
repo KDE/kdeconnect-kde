@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 00:45+0000\n"
+"POT-Creation-Date: 2023-09-23 00:44+0000\n"
 "PO-Revision-Date: 2021-07-26 12:42+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -411,12 +411,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Protocolul SFTP nu e susținut. Ne cerem scuze pentru inconveniență"
 
-#: sftp/sftpplugin.cpp:131
+#: sftp/sftpplugin.cpp:134
 #, kde-format
 msgid "All files"
 msgstr "Toate fișierele"
 
-#: sftp/sftpplugin.cpp:132
+#: sftp/sftpplugin.cpp:135
 #, kde-format
 msgid "Camera pictures"
 msgstr "Fotografii"
