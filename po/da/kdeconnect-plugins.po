@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 02:24+0000\n"
+"POT-Creation-Date: 2023-09-23 02:24+0000\n"
 "PO-Revision-Date: 2020-07-21 18:28+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -406,12 +406,12 @@ msgstr "KDE Connect"
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr "Kan ikke håndtere SFTP-protokollen. Beklager ulejligheden"
 
-#: sftp/sftpplugin.cpp:142
+#: sftp/sftpplugin.cpp:145
 #, kde-format
 msgid "All files"
 msgstr "Alle filer"
 
-#: sftp/sftpplugin.cpp:143
+#: sftp/sftpplugin.cpp:146
 #, kde-format
 msgid "Camera pictures"
 msgstr "Kamerabilleder"
