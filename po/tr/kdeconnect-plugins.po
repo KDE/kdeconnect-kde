@@ -486,21 +486,3 @@ msgstr "Yanıtsız arama: %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Aramayı Sessize Al"
-
-#~ msgid "Reply"
-#~ msgstr "Yanıtla"
-
-#~ msgid "Contents shared to other devices"
-#~ msgstr "Başka aygıtlara paylaşılan içerik"
-
-#~ msgid "Anything else"
-#~ msgstr "Başka bir şey"
-
-#~ msgid "Use your phone as a touchpad and keyboard"
-#~ msgstr "Telefonunuzu bir dokunmatik yüzey ve klavye olarak kullanın"
-
-#~ msgid "Unknown telephony event: %1"
-#~ msgstr "Bilinmeyen telefon olayı: %1"
-
-#~ msgid "SMS from %1<br>%2"
-#~ msgstr "Gelen SMS: %1<br>%2"
