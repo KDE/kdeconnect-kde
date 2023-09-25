@@ -183,7 +183,7 @@ void ConversationListModel::createRowFromMessage(const ConversationMessage &mess
         const QIcon displayIcon = SmsHelper::getIconForAddresses(rawAddresses);
 
         item->setText(displayNames);
-        item->setIcon(displayIcon);
+        item->setData(displayIcon.name(), Qt::DecorationRole);
         item->setData(message.threadID(), ConversationIdRole);
         item->setData(rawAddresses[0].address(), SenderRole);
     }

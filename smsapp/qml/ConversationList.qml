@@ -187,7 +187,7 @@ Kirigami.ScrollablePage
         delegate: Kirigami.BasicListItem
         {
             id: listItem
-            icon: decoration
+            icon.name: decoration
             reserveSpaceForIcon: true
             label: display
             subtitle: toolTip
