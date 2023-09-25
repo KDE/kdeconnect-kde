@@ -19,7 +19,6 @@ extern "C" {
 
 namespace SslHelper
 {
-
 QString getSslError()
 {
     char buf[256];

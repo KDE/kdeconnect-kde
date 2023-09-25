@@ -47,8 +47,8 @@ void BluetoothLinkProvider::onStart()
     mKdeconnectService = mBluetoothServer->listen(mServiceUuid, QStringLiteral("KDE Connect"));
 
     // Disabled for the moment as once the server is listening, the client will not be able to connect anyway
-    //mServiceDiscoveryAgent->start();
-    //connectTimer->start();
+    // mServiceDiscoveryAgent->start();
+    // connectTimer->start();
 }
 
 void BluetoothLinkProvider::onStop()
@@ -105,7 +105,9 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
 {
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered executed ";
 
-    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered info: " << old_info.device().address() << old_info.serviceName() << old_info.serviceDescription() << old_info.socketProtocol() << old_info.isValid() << old_info.isComplete() << old_info.isRegistered() << old_info.serviceClassUuids();
+    qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered info: " << old_info.device().address() << old_info.serviceName()
+                             << old_info.serviceDescription() << old_info.socketProtocol() << old_info.isValid() << old_info.isComplete()
+                             << old_info.isRegistered() << old_info.serviceClassUuids();
 
     auto info = *(new QBluetoothServiceInfo(old_info));
     info.setServiceUuid(mServiceUuid);
@@ -113,7 +115,7 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
         qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered sockets contains address, returning";
         return;
     }
-    
+
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered before creating socket";
     QBluetoothSocket *socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 
@@ -134,7 +136,7 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
 #endif
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered about to call connectToService";
-    
+
     socket->connectToService(info);
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider Connecting to" << info.device().address();

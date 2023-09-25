@@ -96,7 +96,7 @@ void DBusInstancePrivate::launchDBusDaemon()
     m_dbusProcess->setStandardOutputFile(KdeConnectConfig::instance().privateDBusAddressPath());
     m_dbusProcess->setStandardErrorFile(QProcess::nullDevice());
     m_dbusProcess->start();
-    m_dbusProcess->waitForStarted();    // Avoid potential racing condition
+    m_dbusProcess->waitForStarted(); // Avoid potential racing condition
 
 #ifdef Q_OS_MAC
     // Set launchctl env

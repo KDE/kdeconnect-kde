@@ -26,7 +26,8 @@ K_PLUGIN_CLASS_WITH_JSON(MprisControlPlugin, "kdeconnect_mpriscontrol.json")
 
 namespace
 {
-const QString DEFAULT_PLAYER = i18nc("@title Users select this to control the current media player when we can't detect a specific player name like VLC", "Current Player");
+const QString DEFAULT_PLAYER =
+    i18nc("@title Users select this to control the current media player when we can't detect a specific player name like VLC", "Current Player");
 }
 
 MprisControlPlugin::MprisControlPlugin(QObject *parent, const QVariantList &args)
@@ -289,8 +290,7 @@ bool MprisControlPlugin::sendAlbumArt(std::variant<NetworkPacket, QString> const
 void MprisControlPlugin::handleDefaultPlayer(const NetworkPacket &np)
 {
     if (np.has(QStringLiteral("action"))) {
-
-        INPUT input={0};
+        INPUT input = {0};
         input.type = INPUT_KEYBOARD;
 
         input.ki.time = 0;
@@ -300,28 +300,25 @@ void MprisControlPlugin::handleDefaultPlayer(const NetworkPacket &np)
 
         const QString &action = np.get<QString>(QStringLiteral("action"));
 
-        if (action == QStringLiteral("PlayPause") || (action == QStringLiteral("Play")) || (action == QStringLiteral("Pause")) ) {
+        if (action == QStringLiteral("PlayPause") || (action == QStringLiteral("Play")) || (action == QStringLiteral("Pause"))) {
             input.ki.wVk = VK_MEDIA_PLAY_PAUSE;
-            ::SendInput(1,&input,sizeof(INPUT));
+            ::SendInput(1, &input, sizeof(INPUT));
         } else if (action == QStringLiteral("Stop")) {
             input.ki.wVk = VK_MEDIA_STOP;
-            ::SendInput(1,&input,sizeof(INPUT));
-        }
-        else if (action == QStringLiteral("Next")) {
-                input.ki.wVk = VK_MEDIA_NEXT_TRACK;
-            ::SendInput(1,&input,sizeof(INPUT));
-        }
-        else if (action == QStringLiteral("Previous")) {
+            ::SendInput(1, &input, sizeof(INPUT));
+        } else if (action == QStringLiteral("Next")) {
+            input.ki.wVk = VK_MEDIA_NEXT_TRACK;
+            ::SendInput(1, &input, sizeof(INPUT));
+        } else if (action == QStringLiteral("Previous")) {
             input.ki.wVk = VK_MEDIA_PREV_TRACK;
-            ::SendInput(1,&input,sizeof(INPUT));
-        }
-        else if (action == QStringLiteral("Stop")) {
+            ::SendInput(1, &input, sizeof(INPUT));
+        } else if (action == QStringLiteral("Stop")) {
             input.ki.wVk = VK_MEDIA_STOP;
-            ::SendInput(1,&input,sizeof(INPUT));
+            ::SendInput(1, &input, sizeof(INPUT));
         }
     }
 
-    //Send something read from the mpris interface
+    // Send something read from the mpris interface
     NetworkPacket answer(PACKET_TYPE_MPRIS);
     answer.set(QStringLiteral("player"), DEFAULT_PLAYER);
     bool somethingToSend = false;

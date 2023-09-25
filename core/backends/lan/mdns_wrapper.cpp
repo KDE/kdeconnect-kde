@@ -18,7 +18,6 @@
 
 namespace MdnsWrapper
 {
-
 const char *recordTypeToStr(int rtype)
 {
     switch (rtype) {
@@ -79,10 +78,22 @@ static sockaddr_in6 qHostAddressToSockaddr6(QHostAddress hostAddress)
 }
 
 // Callback that handles responses to a query
-static int query_callback(int sock, const struct sockaddr* from, size_t addrlen, mdns_entry_type_t entry_type,
-               uint16_t query_id, uint16_t record_type, uint16_t rclass, uint32_t ttl, const void* data,
-               size_t size, size_t name_offset, size_t name_length, size_t record_offset,
-               size_t record_length, void* user_data) {
+static int query_callback(int sock,
+                          const struct sockaddr *from,
+                          size_t addrlen,
+                          mdns_entry_type_t entry_type,
+                          uint16_t query_id,
+                          uint16_t record_type,
+                          uint16_t rclass,
+                          uint32_t ttl,
+                          const void *data,
+                          size_t size,
+                          size_t name_offset,
+                          size_t name_length,
+                          size_t record_offset,
+                          size_t record_length,
+                          void *user_data)
+{
     Q_UNUSED(sock);
     Q_UNUSED(addrlen);
     Q_UNUSED(query_id);
@@ -92,18 +103,20 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
     Q_UNUSED(name_offset);
     Q_UNUSED(name_length);
 
-    //qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" << entryTypeToStr(entry_type);
+    // qCDebug(KDECONNECT_CORE) << "Received DNS record of type" << recordTypeToStr(record_type) << "from socket" << sock << "with type" <<
+    // entryTypeToStr(entry_type);
 
     Discoverer::MdnsService *discoveredService = (Discoverer::MdnsService *)user_data;
 
     switch (record_type) {
     case MDNS_RECORDTYPE_PTR: {
-        // We don't use mdns_record_parse_ptr() because we want to extract just the service name instead of the full "<instance-name>._<service-type>._tcp.local." string
+        // We don't use mdns_record_parse_ptr() because we want to extract just the service name instead of the full
+        // "<instance-name>._<service-type>._tcp.local." string
         mdns_string_pair_t instanceNamePos = mdns_get_next_substring(data, size, record_offset);
         discoveredService->name = QString::fromLatin1((char *)data + instanceNamePos.offset, instanceNamePos.length);
-        //static char instanceNameBuffer[256];
-        //mdns_string_t instanceName = mdns_record_parse_ptr(data, size, record_offset, record_length, instanceNameBuffer, sizeof(instanceNameBuffer));
-        //discoveredService->name = QString::fromLatin1(instanceName.str, instanceName.length);
+        // static char instanceNameBuffer[256];
+        // mdns_string_t instanceName = mdns_record_parse_ptr(data, size, record_offset, record_length, instanceNameBuffer, sizeof(instanceNameBuffer));
+        // discoveredService->name = QString::fromLatin1(instanceName.str, instanceName.length);
         if (discoveredService->address == QHostAddress::Null) {
             discoveredService->address = QHostAddress(from); // In case we don't receive a A record, use from as address
         }
@@ -112,7 +125,7 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
         static char nameBuffer[256];
         mdns_record_srv_t record = mdns_record_parse_srv(data, size, record_offset, record_length, nameBuffer, sizeof(nameBuffer));
         // We can use the IP to connect so we don't need to store the "<hostname>.local." address.
-        //discoveredService->qualifiedHostname = QString::fromLatin1(record.name.str, record.name.length);
+        // discoveredService->qualifiedHostname = QString::fromLatin1(record.name.str, record.name.length);
         discoveredService->port = record.port;
     } break;
     case MDNS_RECORDTYPE_A: {
@@ -122,8 +135,8 @@ static int query_callback(int sock, const struct sockaddr* from, size_t addrlen,
     } break;
     case MDNS_RECORDTYPE_AAAA:
         // Ignore IPv6 for now
-        //sockaddr_in6 addr6;
-        //mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
+        // sockaddr_in6 addr6;
+        // mdns_record_parse_aaaa(data, size, record_offset, record_length, &addr6);
         break;
     case MDNS_RECORDTYPE_TXT: {
         mdns_record_txt_t records[24];
@@ -251,7 +264,8 @@ static mdns_string_t createMdnsString(const QByteArray &str)
     return mdns_string_t{str.constData(), (size_t)str.length()};
 }
 
-int countCommonLeadingBits(quint32 int1, quint32 int2) {
+int countCommonLeadingBits(quint32 int1, quint32 int2)
+{
     int count = 0;
     while (int1 != 0 && int2 != 0) {
         if ((int1 & 0x80000000) == (int2 & 0x80000000)) {
@@ -283,7 +297,7 @@ static QHostAddress findBestAddressMatchV4(const QVector<QHostAddress> &hostAddr
     QHostAddress matchingIp = hostAddresses[0];
     int matchingBits = -1;
     quint32 rawOtherIp = otherIp.toIPv4Address();
-    for (const QHostAddress& ip : hostAddresses) {
+    for (const QHostAddress &ip : hostAddresses) {
         Q_ASSERT(ip.protocol() == QAbstractSocket::IPv4Protocol);
         quint32 rawMyIp = ip.toIPv4Address();
         // Since we don't have the network mask, we just compare the prefixes of the IPs to find the longest match
@@ -299,7 +313,7 @@ static QHostAddress findBestAddressMatchV4(const QVector<QHostAddress> &hostAddr
     return matchingIp;
 }
 
-static QHostAddress findBestAddressMatchV6(const QVector<QHostAddress>& hostAddresses, const struct sockaddr *fromAddress)
+static QHostAddress findBestAddressMatchV6(const QVector<QHostAddress> &hostAddresses, const struct sockaddr *fromAddress)
 {
     Q_ASSERT(!hostAddresses.empty());
     // We could do the same logic for v6 that we do for V4, but we don't care that much about IPv6
@@ -349,10 +363,22 @@ static mdns_record_t createMdnsRecord(const Announcer::AnnouncedInfo &self,
 }
 
 // Callback handling questions incoming on service sockets
-static int service_callback(int sock, const struct sockaddr* from, size_t addrlen, mdns_entry_type_t entry_type,
-                 uint16_t query_id, uint16_t record_type, uint16_t rclass, uint32_t ttl, const void* data,
-                 size_t size, size_t name_offset, size_t name_length, size_t record_offset,
-                 size_t record_length, void* user_data) {
+static int service_callback(int sock,
+                            const struct sockaddr *from,
+                            size_t addrlen,
+                            mdns_entry_type_t entry_type,
+                            uint16_t query_id,
+                            uint16_t record_type,
+                            uint16_t rclass,
+                            uint32_t ttl,
+                            const void *data,
+                            size_t size,
+                            size_t name_offset,
+                            size_t name_length,
+                            size_t record_offset,
+                            size_t record_length,
+                            void *user_data)
+{
     Q_UNUSED(ttl);
     Q_UNUSED(name_length);
     Q_UNUSED(record_offset);
@@ -379,9 +405,20 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
             if (unicast) {
-                ret = mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer), query_id,
-                                          (mdns_record_type_t)record_type, nameMdnsString.str, nameMdnsString.length,
-                                          answer, nullptr, 0, nullptr, 0);
+                ret = mdns_query_answer_unicast(sock,
+                                                from,
+                                                addrlen,
+                                                sendbuffer,
+                                                sizeof(sendbuffer),
+                                                query_id,
+                                                (mdns_record_type_t)record_type,
+                                                nameMdnsString.str,
+                                                nameMdnsString.length,
+                                                answer,
+                                                nullptr,
+                                                0,
+                                                nullptr,
+                                                0);
             } else {
                 ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0, nullptr, 0);
             }
@@ -409,12 +446,22 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
             if (unicast) {
-                ret = mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer), query_id,
-                                          (mdns_record_type_t)record_type, nameMdnsString.str, nameMdnsString.length,
-                                          answer, nullptr, 0, additional.constData(), additional.length());
+                ret = mdns_query_answer_unicast(sock,
+                                                from,
+                                                addrlen,
+                                                sendbuffer,
+                                                sizeof(sendbuffer),
+                                                query_id,
+                                                (mdns_record_type_t)record_type,
+                                                nameMdnsString.str,
+                                                nameMdnsString.length,
+                                                answer,
+                                                nullptr,
+                                                0,
+                                                additional.constData(),
+                                                additional.length());
             } else {
-                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0,
-                                            additional.constData(), additional.length());
+                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0, additional.constData(), additional.length());
             }
         }
     } else if (name == self.serviceInstance) {
@@ -439,12 +486,22 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
             if (unicast) {
-                ret = mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer), query_id,
-                                          (mdns_record_type_t)record_type, nameMdnsString.str, nameMdnsString.length,
-                                          answer, nullptr, 0, additional.constData(), additional.length());
+                ret = mdns_query_answer_unicast(sock,
+                                                from,
+                                                addrlen,
+                                                sendbuffer,
+                                                sizeof(sendbuffer),
+                                                query_id,
+                                                (mdns_record_type_t)record_type,
+                                                nameMdnsString.str,
+                                                nameMdnsString.length,
+                                                answer,
+                                                nullptr,
+                                                0,
+                                                additional.constData(),
+                                                additional.length());
             } else {
-                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0,
-                                            additional.constData(), additional.length());
+                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0, additional.constData(), additional.length());
             }
         }
     } else if (name == self.hostname) {
@@ -465,12 +522,22 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
             if (unicast) {
-                ret = mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer), query_id,
-                                          (mdns_record_type_t)record_type, nameMdnsString.str, nameMdnsString.length,
-                                          answer, nullptr, 0, additional.constData(), additional.length());
+                ret = mdns_query_answer_unicast(sock,
+                                                from,
+                                                addrlen,
+                                                sendbuffer,
+                                                sizeof(sendbuffer),
+                                                query_id,
+                                                (mdns_record_type_t)record_type,
+                                                nameMdnsString.str,
+                                                nameMdnsString.length,
+                                                answer,
+                                                nullptr,
+                                                0,
+                                                additional.constData(),
+                                                additional.length());
             } else {
-                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0,
-                                            additional.constData(), additional.length());
+                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0, additional.constData(), additional.length());
             }
         } else if (((record_type == MDNS_RECORDTYPE_AAAA) || (record_type == MDNS_RECORDTYPE_ANY)) && !self.addressesV6.empty()) {
             // The AAAA query was for our qualified hostname and we have an IPv6 address, answer with an AAAA
@@ -489,12 +556,22 @@ static int service_callback(int sock, const struct sockaddr* from, size_t addrle
 
             uint16_t unicast = (rclass & MDNS_UNICAST_RESPONSE);
             if (unicast) {
-                ret = mdns_query_answer_unicast(sock, from, addrlen, sendbuffer, sizeof(sendbuffer), query_id,
-                                          (mdns_record_type_t)record_type, nameMdnsString.str, nameMdnsString.length,
-                                          answer, nullptr, 0, additional.constData(), additional.length());
+                ret = mdns_query_answer_unicast(sock,
+                                                from,
+                                                addrlen,
+                                                sendbuffer,
+                                                sizeof(sendbuffer),
+                                                query_id,
+                                                (mdns_record_type_t)record_type,
+                                                nameMdnsString.str,
+                                                nameMdnsString.length,
+                                                answer,
+                                                nullptr,
+                                                0,
+                                                additional.constData(),
+                                                additional.length());
             } else {
-                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0,
-                                            additional.constData(), additional.length());
+                ret = mdns_query_answer_multicast(sock, sendbuffer, sizeof(sendbuffer), answer, nullptr, 0, additional.constData(), additional.length());
             }
         }
     } // else request is not for me

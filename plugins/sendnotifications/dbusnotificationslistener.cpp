@@ -20,7 +20,8 @@
 #include <core/kdeconnectplugin.h>
 #include <core/kdeconnectpluginconfig.h>
 
-namespace {
+namespace
+{
 // https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
 inline constexpr const char *NOTIFY_SIGNATURE = "susssasa{sv}i";
 inline constexpr const char *IMAGE_DATA_SIGNATURE = "iiibiiay";
@@ -142,7 +143,6 @@ QVariant nextVariant(DBusMessageIter *iter)
         case DBUS_TYPE_STRING:
             return QVariant(QString::fromUtf8(value.str));
         case DBUS_STRUCT_BEGIN_CHAR: {
-
         }
         default:
             break;
@@ -253,13 +253,13 @@ DBusNotificationsListener::~DBusNotificationsListener()
 }
 
 void DBusNotificationsListener::onNotify(const QString &appName,
-                                     uint replacesId,
-                                     const QString &appIcon,
-                                     const QString &summary,
-                                     const QString &body,
-                                     const QStringList &actions,
-                                     const QVariantMap &hints,
-                                     int timeout)
+                                         uint replacesId,
+                                         const QString &appIcon,
+                                         const QString &summary,
+                                         const QString &body,
+                                         const QStringList &actions,
+                                         const QVariantMap &hints,
+                                         int timeout)
 {
     Q_UNUSED(actions);
 
@@ -330,7 +330,8 @@ void DBusNotificationsListener::onNotify(const QString &appName,
         auto it = hints.constFind(QStringLiteral("image-data"));
         if (it != hints.cend() || (it = hints.constFind(QStringLiteral("image_data"))) != hints.cend()) {
             iconSource = iconForImageData(it.value());
-        } else if ((it = hints.constFind(QStringLiteral("image-path"))) != hints.cend() || (it = hints.constFind(QStringLiteral("image_path"))) != hints.cend()) {
+        } else if ((it = hints.constFind(QStringLiteral("image-path"))) != hints.cend()
+                   || (it = hints.constFind(QStringLiteral("image_path"))) != hints.cend()) {
             iconSource = iconForIconName(it.value().toString());
         } else if (!appIcon.isEmpty()) {
             iconSource = iconForIconName(appIcon);
@@ -346,13 +347,13 @@ void DBusNotificationsListener::onNotify(const QString &appName,
 }
 
 bool DBusNotificationsListener::parseImageDataArgument(const QVariant &argument,
-                                                   int &width,
-                                                   int &height,
-                                                   int &rowStride,
-                                                   int &bitsPerSample,
-                                                   int &channels,
-                                                   bool &hasAlpha,
-                                                   QByteArray &imageData) const
+                                                       int &width,
+                                                       int &height,
+                                                       int &rowStride,
+                                                       int &bitsPerSample,
+                                                       int &channels,
+                                                       bool &hasAlpha,
+                                                       QByteArray &imageData) const
 {
     // FIXME
     // if (!argument.canConvert<QDBusArgument>()) {

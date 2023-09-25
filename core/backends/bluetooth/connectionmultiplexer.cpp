@@ -128,13 +128,13 @@ bool ConnectionMultiplexer::tryParseMessage()
     uint16_t message_length = qFromBigEndian<uint16_t>(&header.data()[1]);
 
     quint128 message_uuid_raw;
-    #ifndef QT_SUPPORTS_INT128 
+#ifndef QT_SUPPORTS_INT128
     for (int i = 0; i < 16; ++i) {
         message_uuid_raw.data[i] = header[3 + i];
     }
-    #else
+#else
     message_uuid_raw = qFromBigEndian<quint128>(&header.data()[3]);
-    #endif
+#endif
     QBluetoothUuid message_uuid = QBluetoothUuid(message_uuid_raw);
 
     // Check if we have the full message including its data

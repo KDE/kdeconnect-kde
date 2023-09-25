@@ -21,7 +21,6 @@
  */
 namespace MdnsWrapper
 {
-
 class KDECONNECTCORE_EXPORT Discoverer : public QObject
 {
     Q_OBJECT

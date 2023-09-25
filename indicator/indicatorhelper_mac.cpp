@@ -29,16 +29,12 @@ IndicatorHelper::IndicatorHelper()
     // Use a hardcoded QPixmap because QIcon::fromTheme will instantiate a QPlatformTheme theme
     // which could try to use DBus before we have started it and cache an invalid DBus session
     // in QDBusConnectionManager
-    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory); 
+    const QString iconPath = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("kdeconnect-icons"), QStandardPaths::LocateDirectory);
     QPixmap splashPixmap(iconPath + QStringLiteral("/hicolor/scalable/apps/kdeconnect.svg"));
     m_splashScreen = new QSplashScreen(splashPixmap);
 
     // Icon is white, set the text color to black
-    m_splashScreen->showMessage(
-        i18n("Launching") + QStringLiteral("\n"),
-        Qt::AlignHCenter | Qt::AlignBottom,
-        Qt::black
-    );
+    m_splashScreen->showMessage(i18n("Launching") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::black);
     m_splashScreen->show();
 }
 
@@ -88,11 +84,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
     }
 
     // Start daemon
-    m_splashScreen->showMessage(
-        i18n("Launching daemon") + QStringLiteral("\n"),
-        Qt::AlignHCenter | Qt::AlignBottom,
-        Qt::black
-    );
+    m_splashScreen->showMessage(i18n("Launching daemon") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::black);
 
     // Here we will try to bring our private session D-Bus
     if (!hasUsableSessionBus) {
@@ -101,11 +93,7 @@ int IndicatorHelper::daemonHook(QProcess &kdeconnectd)
         DBusHelper::launchDBusDaemon();
         // Wait for dbus daemon env
         QProcess getLaunchdDBusEnv;
-        m_splashScreen->showMessage(
-            i18n("Waiting D-Bus") + QStringLiteral("\n"),
-            Qt::AlignHCenter | Qt::AlignBottom,
-            Qt::black
-        );
+        m_splashScreen->showMessage(i18n("Waiting D-Bus") + QStringLiteral("\n"), Qt::AlignHCenter | Qt::AlignBottom, Qt::black);
         int retry = 0;
         getLaunchdDBusEnv.setProgram(QStringLiteral("launchctl"));
         getLaunchdDBusEnv.setArguments({QStringLiteral("getenv"), QStringLiteral(KDECONNECT_SESSION_DBUS_LAUNCHD_ENV)});

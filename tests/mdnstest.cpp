@@ -38,13 +38,16 @@ private Q_SLOTS:
 
         QSignalSpy spy(&discoverer, &MdnsWrapper::Discoverer::serviceFound);
 
-        connect(&discoverer, &MdnsWrapper::Discoverer::serviceFound, this, [instanceName, instancePort, txtKey, txtValue](const MdnsWrapper::Discoverer::MdnsService &service) {
-            QCOMPARE(instanceName, service.name);
-            QCOMPARE(instancePort, service.port);
-            QVERIFY(service.txtRecords.size() == 1);
-            QVERIFY(service.txtRecords.contains(txtKey));
-            QCOMPARE(txtValue, service.txtRecords.value(txtKey));
-        });
+        connect(&discoverer,
+                &MdnsWrapper::Discoverer::serviceFound,
+                this,
+                [instanceName, instancePort, txtKey, txtValue](const MdnsWrapper::Discoverer::MdnsService &service) {
+                    QCOMPARE(instanceName, service.name);
+                    QCOMPARE(instancePort, service.port);
+                    QVERIFY(service.txtRecords.size() == 1);
+                    QVERIFY(service.txtRecords.contains(txtKey));
+                    QCOMPARE(txtValue, service.txtRecords.value(txtKey));
+                });
 
         announcer.startAnnouncing();
         discoverer.startDiscovering(serviceType);
