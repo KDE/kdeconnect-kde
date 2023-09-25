@@ -12,6 +12,7 @@
  *
  */
 
+// clang-format off
 #pragma once
 
 #include <stdint.h>
