@@ -6,13 +6,14 @@
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
 # Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# Oliver Tzeng <olivertzeng@proton.me>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-23 00:44+0000\n"
 "PO-Revision-Date: 2023-01-22 00:48+0900\n"
-"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Last-Translator: Oliver Tzeng <olivertzeng@proton.me>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
@@ -42,20 +43,20 @@ msgstr "剪貼簿擴充元件"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "自動同步"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "自動從這個裝置共享剪貼簿"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
 #, fuzzy, kde-format
 #| msgid "Passwords (as marked by password managers)"
 msgid "Including passwords (as marked by password managers)"
-msgstr "密碼（由密碼管理員所標記）"
+msgstr "包含密碼（由密碼管理員所標記）"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -67,7 +68,7 @@ msgstr "探索工具程式"
 #: findthisdevice/findthisdevice_config.ui:25
 #, kde-format
 msgid "Sound to play:"
-msgstr "欲播放聲音："
+msgstr "播放的聲音："
 
 #. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
 #: findthisdevice/findthisdevice_config.ui:39
@@ -93,7 +94,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "目前播放器"
 
 #: notifications/notification.cpp:113
 #, kde-format
@@ -152,13 +153,13 @@ msgstr "動作"
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr "暫停媒體播放程式"
+msgstr "暫停播放器"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
 #, kde-format
 msgid "Mute system sound"
-msgstr "系統聲音消音"
+msgstr "禁音"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_resume)
 #: pausemusic/pausemusic_config.ui:81
@@ -169,7 +170,7 @@ msgstr "結束通話後自動繼續播放媒體"
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
-msgstr "Ping!"
+msgstr "已收到 Ping！"
 
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
@@ -204,7 +205,7 @@ msgstr "鎖定螢幕"
 #: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
-msgstr "說嗨"
+msgstr "說你好"
 
 #: runcommand/runcommand_config.cpp:52
 #, kde-format
@@ -229,7 +230,7 @@ msgstr "解鎖螢幕"
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
-msgstr "關閉所有 Vaults"
+msgstr "關閉所有 Vault"
 
 #: runcommand/runcommand_config.cpp:66
 #, kde-format
@@ -244,12 +245,12 @@ msgstr "範例指令"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "導出"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "導入"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
@@ -287,12 +288,12 @@ msgstr "黑名單"
 #: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "通知應用程式的名稱。"
+msgstr "通知應用程式名稱。"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "同步應用程式的通知？"
+msgstr "同步應用程式通知？"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
@@ -327,7 +328,7 @@ msgstr "僅永久通知"
 #, kde-format
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
-msgstr "當同步通知時將通知本文附加到概覽中？"
+msgstr "同步通知時將通知本文附加到概覽中？"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63
@@ -381,7 +382,7 @@ msgstr "啟動 sshfs 失敗"
 #: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
-msgstr "sshfs 執行程序當掉了"
+msgstr "sshfs 執行程序當機"
 
 #: sftp/mounter.cpp:175
 #, kde-format
@@ -401,7 +402,7 @@ msgstr "掛載檔案系統時失敗：裝置未回應"
 #: sftp/sftpplugin-win.cpp:79
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE連線"
+msgstr "KDE 連線"
 
 #: sftp/sftpplugin-win.cpp:80
 #, kde-format
@@ -445,19 +446,19 @@ msgstr "儲存檔案到："
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "已從 %1 將文字複製到剪貼簿"
 
 #: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "在文字編輯器內開啟檔案"
 
 #: share/shareplugin.cpp:165
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "開啟連結"
 
 #: share/shareplugin.cpp:237
 #, kde-format
@@ -487,7 +488,7 @@ msgstr "錯過 %1 的來電"
 #: telephony/telephonyplugin.cpp:64
 #, kde-format
 msgid "Mute Call"
-msgstr "通話靜音"
+msgstr "靜音通話"
 
 #~ msgid "Reply"
 #~ msgstr "回覆"
@@ -496,7 +497,7 @@ msgstr "通話靜音"
 #~ msgstr "分享到其他裝置的內容"
 
 #~ msgid "Anything else"
-#~ msgstr "其他任何東西"
+#~ msgstr "其他東西"
 
 #~ msgid "Use your phone as a touchpad and keyboard"
 #~ msgstr "將您的智慧型手機當成觸碰板或鍵盤"
