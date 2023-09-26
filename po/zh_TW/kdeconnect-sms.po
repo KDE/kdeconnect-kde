@@ -7,13 +7,14 @@
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
 # Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# Oliver Tzeng <olivertzeng@proton.me>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-01-22 00:51+0900\n"
-"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Last-Translator: Oliver Tzeng <olivertzeng@proton.me>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -25,12 +26,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "pan93412, Chaoting Liu"
+msgstr "pan93412, Chaoting Liu, Oliver Tzeng"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "pan93412@gmail.com, brli@chakrlainux.org"
+msgstr "pan93412@gmail.com, brli@chakrlainux.org, olivertzeng@proton.me"
 
 #: conversationlistmodel.cpp:198
 #, kde-format
@@ -105,7 +106,7 @@ msgstr "選擇裝置"
 #: main.cpp:76
 #, kde-format
 msgid "id"
-msgstr "id"
+msgstr "代碼"
 
 #: main.cpp:77
 #, kde-format
@@ -240,7 +241,7 @@ msgstr "撰寫訊息"
 #~ msgstr "不支援回覆多個目標的訊息"
 
 #~ msgid "Spoiler"
-#~ msgstr "有雷"
+#~ msgstr "有爆雷"
 
 #~ msgid "Download"
 #~ msgstr "下載"
