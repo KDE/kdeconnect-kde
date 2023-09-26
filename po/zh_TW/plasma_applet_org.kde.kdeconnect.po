@@ -5,13 +5,14 @@
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
 # Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# Oliver Tzeng <olivertzeng@proton.me>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
 "PO-Revision-Date: 2023-01-22 00:54+0900\n"
-"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Last-Translator: Oliver Tzeng <olivertzeng@proton.me>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +80,7 @@ msgstr "分享檔案"
 #: package/contents/ui/DeviceDelegate.qml:184
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "上傳剪貼簿"
 
 #: package/contents/ui/DeviceDelegate.qml:203
 #, kde-format
