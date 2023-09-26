@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-29 00:45+0000\n"
-"PO-Revision-Date: 2023-06-27 17:49+0300\n"
+"PO-Revision-Date: 2023-08-26 17:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -119,10 +119,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connectin käynnistyminen epäonnistui"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Ei voitu tallentaa yksityisen avaimen tiedostoa: %1"
+msgstr "Ei voitu luoda yksityistä avainta."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -130,10 +129,9 @@ msgid "Could not store private key file: %1"
 msgstr "Ei voitu tallentaa yksityisen avaimen tiedostoa: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Ei voitu tallentaa vamennetiedostoa: %1"
+msgstr "Ei voitu luoda laitevarmennetta."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

@@ -322,9 +322,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "Nebude nic provedeno"
-
-#~ msgid "Open the connected device's camera and transfer the photo"
-#~ msgstr "Otevřít fotoaparát připojeného zařízení a přenést fotografii"
-
-#~ msgid "Please specify a filename for the photo"
-#~ msgstr "Prosím, zadejte příponu fotografie"

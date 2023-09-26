@@ -253,7 +253,6 @@ msgid "About KDE Connect"
 msgstr "O aplikaci KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "O aplikaci KDE Connect"
+msgstr "O prostředí KDE"
