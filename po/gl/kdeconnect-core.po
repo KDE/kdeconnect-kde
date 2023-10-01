@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-17 00:48+0000\n"
-"PO-Revision-Date: 2023-06-05 08:30+0200\n"
+"PO-Revision-Date: 2023-08-05 08:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -21,12 +21,12 @@ msgstr ""
 #: backends/lan/compositeuploadjob.cpp:82
 #, kde-format
 msgid "Couldn't find an available port"
-msgstr "Non se puido atopar un porto dispoñíbel."
+msgstr "Non foi posíbel atopar un porto dispoñíbel."
 
 #: backends/lan/compositeuploadjob.cpp:127
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr "Non se puido enviar o paquete a %1"
+msgstr "Non foi posíbel enviar o paquete a %1"
 
 #: backends/lan/compositeuploadjob.cpp:303
 #, kde-format
@@ -116,7 +116,7 @@ msgstr "Recibiuse un ficheiro incompleto de: %1"
 #: kdeconnectconfig.cpp:78
 #, kde-format
 msgid "KDE Connect failed to start"
-msgstr "Non se puido iniciar KDE Connect."
+msgstr "Non foi posíbel iniciar KDE Connect."
 
 #: kdeconnectconfig.cpp:79
 #, kde-format
@@ -125,19 +125,19 @@ msgid ""
 "distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
 "you have them installed and try again."
 msgstr ""
-"Non se puido atopar compatibilidade con RSA na súa instalación de QCA. Se a "
-"súa distribución fornece paquetes por separado para QCA-ossl e QCA-gnupg, "
+"Non foi posíbel atopar compatibilidade con RSA na súa instalación de QCA. Se "
+"a súa distribución fornece paquetes por separado para QCA-ossl e QCA-gnupg, "
 "asegúrese de que os ten instalados e inténteo de novo."
 
 #: kdeconnectconfig.cpp:353
 #, kde-format
 msgid "Could not store private key file: %1"
-msgstr "Non se puido almacenar o ficheiro de chave privada: %1"
+msgstr "Non foi posíbel almacenar o ficheiro de chave privada: %1"
 
 #: kdeconnectconfig.cpp:398
 #, kde-format
 msgid "Could not store certificate file: %1"
-msgstr "Non se puido almacenar o ficheiro de certificado: %1"
+msgstr "Non foi posíbel almacenar o ficheiro de certificado: %1"
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: xa solicitou emparellarse con este dispositivo."

@@ -137,7 +137,7 @@ msgstr "Non hai dispositivos dispoñíbeis"
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
-"Non se poden enviar ou recibir novas mensaxes, pero pode examinar o contido "
+"Non é posíbel enviar ou recibir novas mensaxes, pero pode examinar o contido "
 "da caché"
 
 #: qml/ConversationList.qml:50
@@ -212,7 +212,7 @@ msgstr "Fragmento de son"
 #: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
-msgstr "Non se puido enviar"
+msgstr "Non foi posíbel enviar"
 
 #: qml/SendingArea.qml:25
 #, kde-format

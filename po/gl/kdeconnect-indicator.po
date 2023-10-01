@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-17 02:25+0000\n"
-"PO-Revision-Date: 2023-07-29 07:53+0200\n"
+"PO-Revision-Date: 2023-08-26 03:16+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -94,13 +94,13 @@ msgid ""
 "Cannot connect to DBus\n"
 "KDE Connect will quit"
 msgstr ""
-"Non se pode conectar a DBus\n"
+"Non é posíbel conectar a DBus\n"
 "KDE Connect sairá"
 
 #: indicatorhelper_mac.cpp:154
 #, kde-format
 msgid "Cannot find kdeconnectd"
-msgstr "Non se pode atopar kdeconnectd"
+msgstr "Non é posíbel atopar kdeconnectd"
 
 #: indicatorhelper_mac.cpp:159
 #, kde-format

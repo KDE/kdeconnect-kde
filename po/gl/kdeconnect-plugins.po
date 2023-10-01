@@ -373,7 +373,7 @@ msgstr "Aplicacións"
 #: sftp/mounter.cpp:168
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "Non se puido iniciar «sshfs»."
+msgstr "Non foi posíbel iniciar «sshfs»."
 
 #: sftp/mounter.cpp:172
 #, kde-format
@@ -395,7 +395,7 @@ msgstr ""
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr ""
-"Non se puido montar o sistema de ficheiros: o dispositivo non responde."
+"Non foi posíbel montar o sistema de ficheiros: o dispositivo non responde."
 
 #: sftp/sftpplugin-win.cpp:83
 #, kde-format
@@ -405,7 +405,7 @@ msgstr "KDE Connect"
 #: sftp/sftpplugin-win.cpp:84
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr "Non se pode manexar o protocolo SFTP"
+msgstr "Non é posíbel manexar o protocolo SFTP"
 
 #: sftp/sftpplugin.cpp:145
 #, kde-format
@@ -461,7 +461,7 @@ msgstr "Abrir a ligazón"
 #: share/shareplugin.cpp:241
 #, kde-format
 msgid "Could not share file"
-msgstr "Non se puido compartir o ficheiro"
+msgstr "Non foi posíbel compartir o ficheiro"
 
 #: share/shareplugin.cpp:241
 #, kde-format
