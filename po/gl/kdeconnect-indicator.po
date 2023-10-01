@@ -90,13 +90,13 @@ msgid ""
 "Cannot connect to DBus\n"
 "KDE Connect will quit"
 msgstr ""
-"Non se pode conectar a DBus\n"
+"Non é posíbel conectar a DBus\n"
 "KDE Connect sairá"
 
 #: indicatorhelper_mac.cpp:156
 #, kde-format
 msgid "Cannot find kdeconnectd"
-msgstr "Non se pode atopar kdeconnectd"
+msgstr "Non é posíbel atopar kdeconnectd"
 
 #: indicatorhelper_mac.cpp:161
 #, kde-format

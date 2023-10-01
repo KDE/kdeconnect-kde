@@ -50,7 +50,7 @@ msgstr "%0 non ten complemento de sistema de ficheiros remoto"
 #: kiokdeconnect.cpp:208
 #, kde-format
 msgid "Could not contact background service."
-msgstr "Non se puido contactar co servizo en segundo plano."
+msgstr "Non foi posíbel contactar co servizo en segundo plano."
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "Non se puido montar o sistema de ficheiros do dispositivo."

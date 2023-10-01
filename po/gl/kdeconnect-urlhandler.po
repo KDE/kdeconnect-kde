@@ -109,4 +109,4 @@ msgstr "Dispositivo ao que enviar %1:"
 #: kdeconnect-handler.cpp:173
 #, kde-format
 msgid "Couldn't share %1"
-msgstr "Non se puido compartir %1"
+msgstr "Non foi posíbel compartir %1"
