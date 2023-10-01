@@ -14,6 +14,7 @@ DeviceLink::DeviceLink(const QString &deviceId, LinkProvider *parent)
     connect(this, &QObject::destroyed, [this, deviceId, parent]() {
         parent->onLinkDestroyed(deviceId, this);
     });
+    this->priorityFromProvider = parent->priority();
 }
 
 #include "moc_devicelink.cpp"

@@ -25,9 +25,17 @@ public:
         return deviceInfo().id;
     }
 
+    int priority() const
+    {
+        return priorityFromProvider;
+    }
+
     virtual bool sendPacket(NetworkPacket &np) = 0;
 
     virtual DeviceInfo deviceInfo() const = 0;
+
+private:
+    int priorityFromProvider;
 
 Q_SIGNALS:
     void receivedPacket(const NetworkPacket &np);

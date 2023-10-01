@@ -158,7 +158,7 @@ void Daemon::onNewDeviceLink(DeviceLink *link)
 {
     QString id = link->deviceId();
 
-    // qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via" << dl->name();
+    qCDebug(KDECONNECT_CORE) << "Device discovered" << id << "via link with priority" << link->priority();
 
     if (d->m_devices.contains(id)) {
         qCDebug(KDECONNECT_CORE) << "It is a known device" << link->deviceInfo().name;

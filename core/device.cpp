@@ -276,6 +276,10 @@ void Device::addLink(DeviceLink *link)
 
     d->m_deviceLinks.append(link);
 
+    std::sort(d->m_deviceLinks.begin(), d->m_deviceLinks.end(), [](DeviceLink *a, DeviceLink *b) {
+        return a->priority() > b->priority();
+    });
+
     connect(link, &QObject::destroyed, this, &Device::linkDestroyed);
     connect(link, &DeviceLink::receivedPacket, this, &Device::privateReceivedPacket);
 

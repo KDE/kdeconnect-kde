@@ -22,6 +22,10 @@ public:
     {
         return QStringLiteral("LoopbackLinkProvider");
     }
+    int priority() override
+    {
+        return 0;
+    }
 
     void onStart() override;
     void onStop() override;

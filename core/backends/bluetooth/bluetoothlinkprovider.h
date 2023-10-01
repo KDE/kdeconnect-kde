@@ -37,6 +37,11 @@ public:
         return QStringLiteral("BluetoothLinkProvider");
     }
 
+    int priority() override
+    {
+        return 10;
+    }
+
 public Q_SLOTS:
     virtual void onNetworkChange() override;
     virtual void onStart() override;

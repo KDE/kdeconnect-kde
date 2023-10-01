@@ -43,6 +43,11 @@ public:
         return QStringLiteral("LanLinkProvider");
     }
 
+    int priority() override
+    {
+        return 20;
+    }
+
     void sendUdpIdentityPacket(const QList<QHostAddress> &addresses);
 
     static void configureSslSocket(QSslSocket *socket, const QString &deviceId, bool isDeviceTrusted);

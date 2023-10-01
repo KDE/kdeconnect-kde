@@ -22,6 +22,7 @@ public:
     LinkProvider();
 
     virtual QString name() = 0;
+    virtual int priority() = 0;
 
 public Q_SLOTS:
     virtual void onStart() = 0;
