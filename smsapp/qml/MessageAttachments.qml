@@ -135,9 +135,9 @@ Item {
 
     Connections {
         target: conversationModel
-        function onFilePathReceived() {
+        function onFilePathReceived(filePath, fileName) {
             if (root.uniqueIdentifier == fileName && root.sourcePath == "") {
-                root.sourcePath = "file:" + filePath
+                root.sourcePath = "file://" + filePath
 
                 if (root.mimeType.match("audio")) {
                     audioPlayer.source = root.sourcePath
