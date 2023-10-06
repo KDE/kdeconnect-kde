@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+import org.kde.plasma.plasmoid 2.0
 import QtQuick 2.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
@@ -35,7 +36,7 @@ Item
     Plasmoid.compactRepresentation: CompactRepresentation {
     }
 
-    readonly property bool isConstrained: (plasmoid.formFactor == PlasmaCore.Types.Vertical || plasmoid.formFactor == PlasmaCore.Types.Horizontal)
+    readonly property bool isConstrained: (Plasmoid.formFactor == PlasmaCore.Types.Vertical || Plasmoid.formFactor == PlasmaCore.Types.Horizontal)
 
     Plasmoid.preferredRepresentation: isConstrained ? Plasmoid.compactRepresentation : Plasmoid.fullRepresentation
 
@@ -44,9 +45,9 @@ Item
     }
 
     Component.onCompleted: {
-        plasmoid.removeAction("configure");
+        Plasmoid.removeAction("configure");
         if (KCMShell.authorize("kcm_kdeconnect.desktop").length > 0) {
-            plasmoid.setAction("launchkcm", i18n("KDE Connect Settings..."), "configure");
+            Plasmoid.setAction("launchkcm", i18n("KDE Connect Settings..."), "configure");
         }
     }
 }

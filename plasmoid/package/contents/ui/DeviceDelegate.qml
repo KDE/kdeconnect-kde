@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+import org.kde.plasma.plasmoid 2.0
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
@@ -46,7 +47,7 @@ PlasmaComponents.ListItem
         PlasmaCore.ToolTipArea {
             id: dropAreaToolTip
             anchors.fill: parent
-            location: plasmoid.location
+            location: Plasmoid.location
             active: true
             mainText: i18n("File Transfer")
             subText: i18n("Drop a file to transfer it onto your phone.")
