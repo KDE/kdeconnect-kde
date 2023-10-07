@@ -447,7 +447,7 @@ msgstr "Guarda els fitxers a:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr "El text rebut de %1 s'ha copiat al porta-retalls"
+msgstr "El text rebut de %1 s'ha copiat a dins del porta-retalls"
 
 #: share/shareplugin.cpp:164
 #, kde-format
