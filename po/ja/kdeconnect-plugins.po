@@ -486,9 +486,3 @@ msgstr "%1からの不在着信"
 #, kde-format
 msgid "Mute Call"
 msgstr "呼び出しをミュート"
-
-#~ msgid "Reply"
-#~ msgstr "返信"
-
-#~ msgid "Use your phone as a touchpad and keyboard"
-#~ msgstr "あなたの端末をタッチパッドとキーボードとして使用する"

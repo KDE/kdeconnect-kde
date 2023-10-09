@@ -182,9 +182,3 @@ msgstr "F-Droid からインストール"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "KDE Connect の設定..."
-
-#~ msgid "Save As"
-#~ msgstr "名前をつけて保存"
-
-#~ msgid "Take a photo"
-#~ msgstr "写真を撮る"
