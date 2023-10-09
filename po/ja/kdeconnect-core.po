@@ -139,16 +139,3 @@ msgstr "秘密鍵ファイル %1 を保存できませんでした"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "証明書ファイル %1 を保存できませんでした"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1 : 既にこのデバイスに対するペアリング要求がされています"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "旧バージョンの KDE Connect が動作しているため、このデバイスとペアリングで"
-#~ "きません。"
-
-#~ msgid "Already paired"
-#~ msgstr "ペアリング済み"
