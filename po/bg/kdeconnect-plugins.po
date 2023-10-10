@@ -484,9 +484,3 @@ msgstr "Пропуснато обаждане от %1"
 #, kde-format
 msgid "Mute Call"
 msgstr "Заглушаване на обаждането"
-
-#~ msgid "Contents shared to other devices"
-#~ msgstr "Съдържание, споделено с други устройства"
-
-#~ msgid "Anything else"
-#~ msgstr "Всичко останало"

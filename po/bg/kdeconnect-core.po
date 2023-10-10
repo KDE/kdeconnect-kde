@@ -137,16 +137,3 @@ msgstr "Не може да се съхрани частен ключ: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не може да се съхрани сертификат на файл: %1"
-
-#~ msgid "%1: Pairing already requested for this device"
-#~ msgstr "%1: Сдвояване вече е поискано за това устройство"
-
-#~ msgid ""
-#~ "This device cannot be paired because it is running an old version of KDE "
-#~ "Connect."
-#~ msgstr ""
-#~ "Това устройство не може да бъде сдвоено, защото се изпълнява стара версия "
-#~ "на KDE Connect."
-
-#~ msgid "Already paired"
-#~ msgstr "Вече е сдвоено"
