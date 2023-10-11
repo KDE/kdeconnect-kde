@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
-"PO-Revision-Date: 2023-09-16 10:08\n"
+"PO-Revision-Date: 2023-10-10 14:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -310,9 +310,3 @@ msgstr "错误：应该指定短信收件人，传递参数 --destination <电�
 #, kde-format
 msgid "Nothing to be done"
 msgstr "无事可做"
-
-#~ msgid "Open the connected device's camera and transfer the photo"
-#~ msgstr "打开连接设备的相机并传递照片"
-
-#~ msgid "Please specify a filename for the photo"
-#~ msgstr "请指定照片的文件名"
