@@ -10,7 +10,8 @@ import QtQuick 2.5
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
 import org.kde.people 1.0
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami as Kirigami
+import org.kde.kirigami.delegates as KirigamiDelegates
 import org.kde.kdeconnect 1.0
 import org.kde.kdeconnect.sms 1.0
 
@@ -184,13 +185,13 @@ Kirigami.ScrollablePage
 
         Keys.forwardTo: [headerItem]
 
-        delegate: Kirigami.BasicListItem
+        delegate: KirigamiDelegates.SubtitleDelegate
         {
             id: listItem
             icon.name: decoration
-            reserveSpaceForIcon: true
-            label: display
+            text: display
             subtitle: toolTip
+            width: view.width
 
             property var thumbnail: attachmentPreview
 
@@ -205,8 +206,8 @@ Kirigami.ScrollablePage
             }
 
             onClicked: {
-                startChat();
                 view.currentIndex = index
+                startChat();
             }
 
             Kirigami.Icon {
@@ -227,13 +228,13 @@ Kirigami.ScrollablePage
                 Layout.minimumHeight: size
                 Layout.maximumHeight: size
                 Layout.minimumWidth: size
-                selected: (listItem.highlighted || listItem.checked || (listItem.pressed && listItem.supportsMouseEvents))
+                selected: (listItem.highlighted || listItem.checked || listItem.pressed)
                 opacity: 1
                 visible: source != undefined
             }
 
             // Keep the currently-open chat highlighted even if this element is not focused
-            highlighted: view.currentIndex == index
+            highlighted: ListView.isCurrentItem
         }
 
         Component.onCompleted: {
