@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kheyyam Gojayev <xxmn77@gmail.com>, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2020, 2021, 2023 Kheyyam Gojayev <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-16 00:45+0000\n"
-"PO-Revision-Date: 2023-06-12 17:07+0400\n"
+"PO-Revision-Date: 2023-10-11 18:12+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -125,11 +125,10 @@ msgid "This device is not paired"
 msgstr "Cihaz qoşulmayıb"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
-msgstr "Qoşmaq"
+msgstr "Qoşun"
 
 #: qml/DevicePage.qml:135 qml/DevicePage.qml:144
 #, kde-format
@@ -157,11 +156,10 @@ msgid "Please choose a file"
 msgstr "Lütfən faylı seçin"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Cihazı tapmaq"
+msgstr "Cihazlar"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -257,7 +255,6 @@ msgid "About KDE Connect"
 msgstr "KDE Connect haqqında"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "KDE Connect haqqında"
+msgstr "KDE haqqında"
