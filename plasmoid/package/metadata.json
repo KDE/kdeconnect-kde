@@ -39,6 +39,7 @@
         "Category": "System Information",
         "Description": "Show notifications from your devices using KDE Connect",
         "Description[ar]": "أظهر الإخطارات من أجهزتك باستخدام «كِيدِي المتّصل»",
+        "Description[az]": "KDE Connect istifadə edərək digər cihazlardakı bildirişləri göstərmək",
         "Description[bg]": "Показване на известия от вашите устройства чрез KDE Connect",
         "Description[ca@valencia]": "Mostra les notificacions dels vostres dispositius emprant KDE Connect",
         "Description[ca]": "Mostra les notificacions dels vostres dispositius emprant el KDE Connect",
