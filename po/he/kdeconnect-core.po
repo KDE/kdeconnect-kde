@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-02 00:42+0000\n"
-"PO-Revision-Date: 2017-05-24 07:45-0400\n"
+"PO-Revision-Date: 2023-10-20 13:59+0300\n"
 "Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
 "Language: he\n"
@@ -16,54 +16,52 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
-msgstr "לא נמצאה יציאה פנויה"
+msgstr "לא ניתן למצוא פתחה זמינה"
 
 #: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr ""
+msgstr "שליחת חבילה אל %1 נכשלה"
 
 #: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
 msgid "Sending to %1"
-msgstr ""
+msgstr "מתבצעת שליחה אל %1"
 
 #: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
 msgid "File"
-msgstr ""
+msgstr "קובץ"
 
 #: backends/pairinghandler.cpp:59
 #, kde-format
 msgid "Canceled by other peer"
-msgstr "בוטל על ידי ההתקן האחר"
+msgstr "בוטל על ידי המכשיר השני"
 
 #: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
-msgstr "%1 כבר מתואם"
+msgstr "%1: כבר מצומד"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "ההתקן לא זמין"
+msgstr "%1: המכשיר לא נגיש"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
 msgid "Device not reachable"
-msgstr "ההתקן לא זמין"
+msgstr "המכשיר לא זמין"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "בוטל על ידי ההתקן האחר"
+msgstr "בוטל על ידי המשתמש"
 
 #: backends/pairinghandler.cpp:140
 #, kde-format
@@ -71,53 +69,49 @@ msgid "Timed out"
 msgstr "נגמר הזמן"
 
 #: compositefiletransferjob.cpp:45
-#, fuzzy, kde-format
-#| msgid "Received incomplete file: %1"
+#, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
-msgstr[0] "התקבל קובץ לא במלואו: %1"
-msgstr[1] "התקבל קובץ לא במלואו: %1"
+msgstr[0] "קובץ מתקבל"
+msgstr[1] "קבצים מתקבלים"
 
 #: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
-msgstr ""
+msgstr "מקור"
 
 #: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
-msgstr ""
+msgstr "יעד"
 
 #: device.cpp:455
-#, fuzzy, kde-format
-#| msgid "SHA1 fingerprint of your device certificate is: %1\n"
+#, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
-msgstr "טביעת האצבע SHA1 של ההתקן היא: %1\n"
+msgstr "טביעת האצבע ב־SHA256 של אישור המכשיר שלך היא: %1\n"
 
 #: device.cpp:461
-#, fuzzy, kde-format
-#| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
+#, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
-msgstr "טביעת האצבע SHA1 של ההתקן המרוחק היא: %1\n"
+msgstr "טביעת האצבע ב־SHA256 של אישור המכשיר המרוחק היא: %1\n"
 
 #: filetransferjob.cpp:59
 #, kde-format
 msgid "Filename already present"
-msgstr "קיים קובץ בעל שם זהה"
+msgstr "שם הקובץ כבר קיים"
 
 #: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
-msgstr "התקבל קובץ לא במלואו: %1"
+msgstr "התקבל קובץ חלקי: %1"
 
 #: filetransferjob.cpp:123
-#, fuzzy, kde-format
-#| msgid "Received incomplete file: %1"
+#, kde-format
 msgid "Received incomplete file from: %1"
-msgstr "התקבל קובץ לא במלואו: %1"
+msgstr "התקבל קובץ חלקי מהמכשיר: %1"
 
 #: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
@@ -125,10 +119,9 @@ msgid "KDE Connect failed to start"
 msgstr "הפעלת KDE Connect נכשלה"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
+msgstr "לא ניתן לייצר את המפתח הפרטי."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -136,15 +129,14 @@ msgid "Could not store private key file: %1"
 msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "לא ניתן לאחסן את קובץ התעודה: %1"
+msgstr "לא ניתן לייצר את אישור המכשיר."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
-msgstr "לא ניתן לאחסן את קובץ התעודה: %1"
+msgstr "לא ניתן לאחסן את קובץ האישור: %1"
 
 #, fuzzy
 #~| msgid ""

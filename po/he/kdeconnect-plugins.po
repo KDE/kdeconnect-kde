@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-23 00:44+0000\n"
-"PO-Revision-Date: 2017-05-16 06:48-0400\n"
+"PO-Revision-Date: 2023-10-20 16:21+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
 "Language: he\n"
@@ -16,72 +16,72 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1:הסוללה עומדת להגמר"
+msgstr "%1: הסוללה חלשה"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr "הסוללה ב־%1%"
+msgstr "הסוללה על %1%"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "תוסף לוח גזירים"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "סנכרון אוטומטי"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "לשתף את לוח הגזירים מהמכשיר הזה אוטומטית"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "כולל סיסמאות (כפי שמסומן על ידי מנהלי סיסמאות)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
 #, kde-format
 msgid "Discovery Utilities"
-msgstr ""
+msgstr "כלי גילוי"
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: findthisdevice/findthisdevice_config.ui:25
 #, kde-format
 msgid "Sound to play:"
-msgstr ""
+msgstr "צליל להשמעה:"
 
 #. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
 #: findthisdevice/findthisdevice_config.ui:39
 #, kde-format
 msgid "Select the sound to play"
-msgstr ""
+msgstr "בחירת הצליל להשמעה"
 
 #: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr ""
+msgstr "הנעילה המרוחקת הצליחה"
 
 #: lockdevice/lockdeviceplugin-win.cpp:62
 #: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr ""
+msgstr "נעילה מרוחקת נכשלה"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:29
 #, kde-format
@@ -89,31 +89,30 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "נגן נוכחי"
 
 #: notifications/notification.cpp:113
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
-msgstr "השב"
+msgstr "תגובה"
 
 #: notifications/notification.cpp:114
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr ""
+msgstr "תגובה אל %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
 msgid "Send"
-msgstr "שלח"
+msgstr "שליחה"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
 #: notifications/sendreplydialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "חלונית"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
 #: pausemusic/pausemusic_config.ui:17
@@ -131,13 +130,13 @@ msgstr "תנאי"
 #: pausemusic/pausemusic_config.ui:38
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr "השהה מקבל שהפלאפון מקבל שיחה"
+msgstr "להשהות כבר כשהטלפון מצלצל"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
 #: pausemusic/pausemusic_config.ui:45
 #, kde-format
 msgid "Pause only while talking"
-msgstr "השהה רק שהפלאפון בשיחה"
+msgstr "להשהות רק בזמן שיחת טלפון"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: pausemusic/pausemusic_config.ui:61
@@ -149,19 +148,19 @@ msgstr "פעולות"
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr "השהה נגני מדיה"
+msgstr "השהיית נגני מדיה"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
 #, kde-format
 msgid "Mute system sound"
-msgstr "השתק את השמע במערכת"
+msgstr "השתקת שמע המערכת"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_resume)
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr ""
+msgstr "להמשיך לנגן את המדיה עם ניתוק השיחה"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
@@ -171,82 +170,82 @@ msgstr "פינג!"
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
-msgstr ""
+msgstr "תזמון כיבוי"
 
 #: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
-msgstr ""
+msgstr "לכבות כעת"
 
 #: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
-msgstr ""
+msgstr "ביטול הכיבוי האחרון"
 
 #: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
-msgstr ""
+msgstr "תזמון הפעלה מחדש"
 
 #: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
-msgstr ""
+msgstr "השהיה"
 
 #: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
-msgstr ""
+msgstr "נעילת מסך"
 
 #: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
-msgstr ""
+msgstr "לומר שלום"
 
 #: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
-msgstr ""
+msgstr "כיבוי"
 
 #: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
-msgstr ""
+msgstr "הפעלה מחדש"
 
 #: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
-msgstr ""
+msgstr "בהירות מרבית"
 
 #: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
-msgstr ""
+msgstr "שחרור מסך"
 
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
-msgstr ""
+msgstr "סגירת כל הכספות"
 
 #: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "סריגת כל הכספות בכוח"
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
-msgstr ""
+msgstr "פקודות לדוגמה"
 
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "ייצוא"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "ייבוא"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
@@ -260,36 +259,34 @@ msgid "Command"
 msgstr "פקודה"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "פקודה"
+msgstr "ייצוא פקודות"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Import Commands"
-msgstr "פקודה"
+msgstr "ייבוא פקודות"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
-msgstr ""
+msgstr "הטלפון מחובר"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:181
 #, kde-format
 msgid "Blacklisted"
-msgstr "ברשימה השחורה"
+msgstr "ברשימת החסימה"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "שם אפליקציה שהתריעה"
+msgstr "שם היישום שהודיע."
 
 #: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "סנכרן התראות מאפליקציה"
+msgstr "לסנכרן התראות של יישום?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
@@ -298,8 +295,8 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"ביטוי רגולרי שמסנן אילו התראות לא ישלחו.\n"
-"הביטוי יבדק על הכותרת, ואם נבחר למעלה, גם בפרטי ההתראה."
+"ביטוי רגולרי שמסנן אילו התראות לא תישלחנה.\n"
+"הביטוי יחול על הכותרת, ואם נבחר למעלה, גם על תוכן ההתראה."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: sendnotifications/sendnotifications_config.ui:38
@@ -311,7 +308,7 @@ msgstr "כללי"
 #: sendnotifications/sendnotifications_config.ui:44
 #, kde-format
 msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "לסנכרן רק התראות ללא זמן מוגדר להעלמות?"
+msgstr "לסנכרן רק התראות ללא זמן מוגדר להיעלמות?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:47
@@ -324,7 +321,7 @@ msgstr "התראות קבועות בלבד"
 #, kde-format
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
-msgstr "להוסיף את תוכן ההתראה לתקציר שמסכרנים התראות?"
+msgstr "להוסיף את תוכן ההתראה לתקציר בעת סנכרון התראות?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63
@@ -336,13 +333,13 @@ msgstr "כולל התוכן"
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr "לסנכרן את סמל היישום ששלח את ההתראה אם אפשר?"
+msgstr "לסנכרן את סמלי היישומונים ששלחו את ההתראה אם אפשר?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
 #, kde-format
 msgid "Synchronize icons"
-msgstr "סנכרן סמלים"
+msgstr "סנכרון סמלים"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
 #: sendnotifications/sendnotifications_config.ui:107
@@ -350,19 +347,19 @@ msgstr "סנכרן סמלים"
 msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
-msgstr "<html><head/><body><p>רמת החשיבות המינימלית להתראות</p></body></html>"
+msgstr "<html><head/><body><p>רמת הדחיפות המזערית להתראות</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr "סנכרן רק התראות מעל רמת החשיבות הנתונה"
+msgstr "לסנכרן רק התראות ברמת הדחיפות שצוינה."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr "רמת חשיבות בסיסית"
+msgstr "רמת דחיפות מזערית"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148
@@ -373,28 +370,27 @@ msgstr "יישומים"
 #: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "נכשל בהפעלת sshfs"
+msgstr "הפעלת sshfs נכשלה"
 
 #: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
-msgstr ""
+msgstr "התהליך sshfs קרס"
 
 #: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr ""
+msgstr "שגיאה לא ידועה ב־sshfs"
 
 #: sftp/mounter.cpp:186
-#, fuzzy, kde-format
-#| msgid "Error when accessing to filesystem"
+#, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
-msgstr "תקלה בעת הגישה למערכת הקבצים"
+msgstr "שגיאה בגישה למערכת הקבצים. sshfs סיים עם קוד השגיאה %0"
 
 #: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr "נכשל בחיבור מערכת הקבצים: ההתקן אינו מגיב"
+msgstr "עיגון מערכת הקבצים נכשל: המכשיר לא מגיב"
 
 #: sftp/sftpplugin-win.cpp:79
 #, kde-format
@@ -404,7 +400,7 @@ msgstr "KDE Connect"
 #: sftp/sftpplugin-win.cpp:80
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr ""
+msgstr "לא ניתן לטפל בפרוטוקול SFTP. מחילה על אי־הנוחות"
 
 #: sftp/sftpplugin.cpp:134
 #, kde-format
@@ -419,53 +415,53 @@ msgstr "תמונות מצלמה"
 #: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt;1 בנתיב יוחלף בשם ההתקן"
+msgstr "&percnt;1 בנתיב יוחלף בשם המכשיר."
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr "שתף הגדרות תוספים"
+msgstr "הגדרות תוסף שיתוף"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23
 #, kde-format
 msgid "Receiving"
-msgstr "מקבל"
+msgstr "מתקבל"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: share/share_config.ui:31
 #, kde-format
 msgid "Save files in:"
-msgstr "שמור קבצים ב:"
+msgstr "שמירת קבצים תחת:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "הטקסט ששיתף %1 הועתק ללוח הגזירים"
 
 #: share/shareplugin.cpp:162
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "פתיחה בעורך טקסט"
 
 #: share/shareplugin.cpp:165
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "פתיחת קישור"
 
 #: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
-msgstr ""
+msgstr "לא ניתן לשתף קובץ"
 
 #: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
-msgstr ""
+msgstr "%1 לא קיים"
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
@@ -475,17 +471,17 @@ msgstr "מספר לא ידוע"
 #: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
-msgstr "שיחה נכנסת מ%1"
+msgstr "שיחה נכנסת מאת %1"
 
 #: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
-msgstr "שיחה שלא נענתה מ%1"
+msgstr "שיחה שלא נענתה מאת %1"
 
 #: telephony/telephonyplugin.cpp:64
 #, kde-format
 msgid "Mute Call"
-msgstr "השתק צלצול"
+msgstr "השתקת שיחה"
 
 #~ msgid "Reply"
 #~ msgstr "השב"

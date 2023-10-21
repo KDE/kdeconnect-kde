@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-12 00:45+0000\n"
-"PO-Revision-Date: 2017-05-16 06:48-0400\n"
+"PO-Revision-Date: 2023-10-20 16:10+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
 "Language: he\n"
@@ -16,42 +16,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: kiokdeconnect.cpp:75
 #, kde-format
 msgid "Listing devices..."
-msgstr "רישום התקנים..."
+msgstr "מכשירים מוצגים…"
 
 #: kiokdeconnect.cpp:120
 #, kde-format
 msgid "Accessing device..."
-msgstr "ניגש להתקן..."
+msgstr "מתבצעת גישה למכשיר…"
 
 #: kiokdeconnect.cpp:135
 #, kde-format
 msgid "No such device: %0"
-msgstr ""
+msgstr "אין כזה מכשיר: %0"
 
 #: kiokdeconnect.cpp:141
 #, kde-format
 msgid "%0 is not paired"
-msgstr ""
+msgstr "%0 אינו מצומד"
 
 #: kiokdeconnect.cpp:145
 #, kde-format
 msgid "%0 is not connected"
-msgstr ""
+msgstr "%0 אינו מחובר"
 
 #: kiokdeconnect.cpp:149
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
-msgstr ""
+msgstr "ל־%0 אין תוסף מערכת קבצים מרוחקת"
 
 #: kiokdeconnect.cpp:208
 #, kde-format
 msgid "Could not contact background service."
-msgstr "לא יכול ליצור קשר עם שירות הרקע."
+msgstr "לא ניתן ליצור קשר עם שירות הרקע."
 
 #~ msgid "Could not mount device filesystem"
 #~ msgstr "לא יכול להציב את מערכת הקבצים של ההתקן"

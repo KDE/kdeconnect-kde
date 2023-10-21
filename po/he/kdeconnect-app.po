@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-09-16 00:45+0000\n"
+"PO-Revision-Date: 2023-10-20 16:33+0300\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: main.cpp:32 main.cpp:34
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:36
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015, אלש פול גונזלז"
+
+#: main.cpp:37
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "אלש פול גונזלז"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "מתחזק"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: main.cpp:54
+#, kde-format
+msgid "URL to share"
+msgstr "כתובת לשיתוף"
+
+#: qml/DevicePage.qml:23
+#, kde-format
+msgid "Unpair"
+msgstr "הפרדה"
+
+#: qml/DevicePage.qml:28
+#, kde-format
+msgid "Send Ping"
+msgstr "שליחת פינג"
+
+#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
+#, kde-format
+msgid "Plugin Settings"
+msgstr "הגדרות תוסף"
+
+#: qml/DevicePage.qml:60
+#, kde-format
+msgid "Multimedia control"
+msgstr "בקרת מולטימדיה"
+
+#: qml/DevicePage.qml:67
+#, kde-format
+msgid "Remote input"
+msgstr "קלט מרוחק"
+
+#: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr "מצב מצגת"
+
+#: qml/DevicePage.qml:83 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "נעילה"
+
+#: qml/DevicePage.qml:83
+#, kde-format
+msgid "Unlock"
+msgstr "שחרור"
+
+#: qml/DevicePage.qml:90
+#, kde-format
+msgid "Find Device"
+msgstr "איתור מכשיר"
+
+#: qml/DevicePage.qml:95 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr "הרצת פקודה"
+
+#: qml/DevicePage.qml:104
+#, kde-format
+msgid "Send Clipboard"
+msgstr "שליחת לוח גזירים"
+
+#: qml/DevicePage.qml:110
+#, kde-format
+msgid "Share File"
+msgstr "שיתוף קובץ"
+
+#: qml/DevicePage.qml:115 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr "בקרת עוצמת שמע"
+
+#: qml/DevicePage.qml:124
+#, kde-format
+msgid "This device is not paired"
+msgstr "המכשיר הזה לא מצומד"
+
+#: qml/DevicePage.qml:128
+#, kde-format
+msgctxt "Request pairing with a given device"
+msgid "Pair"
+msgstr "צימוד"
+
+#: qml/DevicePage.qml:135 qml/DevicePage.qml:144
+#, kde-format
+msgid "Pair requested"
+msgstr "התקבלה בקשת צימוד"
+
+#: qml/DevicePage.qml:150
+#, kde-format
+msgid "Accept"
+msgstr "אישור"
+
+#: qml/DevicePage.qml:156
+#, kde-format
+msgid "Reject"
+msgstr "דחייה"
+
+#: qml/DevicePage.qml:165
+#, kde-format
+msgid "This device is not reachable"
+msgstr "המכשיר הזה לא נגיש"
+
+#: qml/DevicePage.qml:173
+#, kde-format
+msgid "Please choose a file"
+msgstr "נא לבחור קובץ"
+
+#: qml/FindDevicesPage.qml:23
+#, kde-format
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "מכשירים"
+
+#: qml/FindDevicesPage.qml:38
+#, kde-format
+msgid "No devices found"
+msgstr "לא נמצאו מכשירים"
+
+#: qml/FindDevicesPage.qml:51
+#, kde-format
+msgid "Remembered"
+msgstr "שמור"
+
+#: qml/FindDevicesPage.qml:53
+#, kde-format
+msgid "Available"
+msgstr "זמין"
+
+#: qml/FindDevicesPage.qml:55
+#, kde-format
+msgid "Connected"
+msgstr "מחובר"
+
+#: qml/main.qml:73
+#, kde-format
+msgid "Find devices..."
+msgstr "איתור מכשירים…"
+
+#: qml/main.qml:118 qml/main.qml:121
+#, kde-format
+msgid "Settings"
+msgstr "הגדרות"
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr "שלט רחוק"
+
+#: qml/mousepad.qml:59
+#, kde-format
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
+"יש ללחוץ על %1 או על כפתור העכבר השמאלי או הימני בו־זמנית כדי לשחרר את הנעילה"
+
+#: qml/mpris.qml:19
+#, kde-format
+msgid "Multimedia Controls"
+msgstr "פקדי מולטימדיה"
+
+#: qml/mpris.qml:65
+#, kde-format
+msgid "No players available"
+msgstr "אין נגנים זמינים"
+
+#: qml/mpris.qml:105
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: qml/presentationRemote.qml:20
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr "הפעלת מסך מלא"
+
+#: qml/runcommand.qml:21
+#, kde-format
+msgid "Edit commands"
+msgstr "עריכת פקודות"
+
+#: qml/runcommand.qml:24
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr "אפשר לערוך פקודות במכשיר המחובר"
+
+#: qml/runcommand.qml:43
+#, kde-format
+msgid "No commands defined"
+msgstr "לא הוגדרות פקודות"
+
+#: qml/Settings.qml:13
+#, kde-format
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "הגדרות"
+
+#: qml/Settings.qml:21
+#, kde-format
+msgid "Device name"
+msgstr "שם המכשיר"
+
+#: qml/Settings.qml:36
+#, kde-format
+msgid "About KDE Connect"
+msgstr "על KDE Connect"
+
+#: qml/Settings.qml:47
+#, kde-format
+msgid "About KDE"
+msgstr "על KDE"

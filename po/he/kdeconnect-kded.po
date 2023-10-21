@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-26 00:46+0000\n"
-"PO-Revision-Date: 2017-05-16 06:48-0400\n"
+"PO-Revision-Date: 2023-10-20 16:09+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
 "Language: he\n"
@@ -16,58 +16,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-l10n-he@kde.org"
 
 #: kdeconnectd.cpp:56
-#, fuzzy, kde-format
-#| msgid "Pairing request from %1"
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2..."
-msgstr "התאמה בוקשה מ־%1"
+msgstr ""
+"בקשת צימוד מאת %1\n"
+"מפתח: %2…"
 
 #: kdeconnectd.cpp:57
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "פתיחה"
 
 #: kdeconnectd.cpp:58
 #, kde-format
 msgid "Accept"
-msgstr "אשר"
+msgstr "אישור"
 
 #: kdeconnectd.cpp:58
 #, kde-format
 msgid "Reject"
-msgstr "דחה"
+msgstr "דחייה"
 
 #: kdeconnectd.cpp:58
 #, kde-format
 msgid "View key"
-msgstr ""
+msgstr "הצגת מפתח"
 
 #: kdeconnectd.cpp:141 kdeconnectd.cpp:143
 #, kde-format
 msgid "KDE Connect Daemon"
-msgstr ""
+msgstr "סוכן KDE Connect"
 
 #: kdeconnectd.cpp:149
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "החלפת מופע קיים"
 
 #: kdeconnectd.cpp:153
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-msgstr ""
+msgstr "הפעלת סוכן D-Bus פרטי עם kdeconnectd (למטרות בדיקה עם macOS בלבד)"
