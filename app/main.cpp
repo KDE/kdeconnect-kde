@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
                          i18n("(c) 2015, Aleix Pol Gonzalez"));
     aboutData.addAuthor(i18n("Aleix Pol Gonzalez"), i18n("Maintainer"), QStringLiteral("aleixpol@kde.org"));
     aboutData.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+    aboutData.setBugAddress("https://bugs.kde.org/enter_bug.cgi?product=kdeconnect&component=common");
     KAboutData::setApplicationData(aboutData);
 
 #ifdef Q_OS_WIN
