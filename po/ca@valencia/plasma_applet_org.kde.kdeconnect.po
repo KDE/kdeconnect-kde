@@ -54,7 +54,7 @@ msgstr "Transferència de fitxers"
 #: package/contents/ui/DeviceDelegate.qml:52
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
-msgstr "Deixeu anar un fitxer per a transferir-lo al telèfon."
+msgstr "Deixeu anar un fitxer per a transferir-lo cap al telèfon."
 
 #: package/contents/ui/DeviceDelegate.qml:87
 #, kde-format
@@ -185,9 +185,3 @@ msgstr "Instal·la des del F-Droid"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Configureu KDE Connect..."
-
-#~ msgid "Save As"
-#~ msgstr "Anomena i guarda"
-
-#~ msgid "Take a photo"
-#~ msgstr "Pren una foto"
