@@ -14,4 +14,4 @@ target_link_libraries(
     kdeconnectinterfaces
     kdeconnectcore
 )
-install(TARGETS kdeconnectfileitemaction DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kfileitemaction)
+install(TARGETS kdeconnectfileitemaction DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kfileitemaction)
