@@ -40,7 +40,6 @@
         "Description[sv]": "Skicka fil till en annan enhet med användning av KDE:s anslutningstjänst",
         "Description[tr]": "KDE Bağlan'ı kullanarak dosyayı başka bir aygıta gönder",
         "Description[uk]": "Надіслати файл на інший пристрій за допомогою KDE Connect",
-        "Description[x-test]": "xxSend file to other device using KDE Connectxx",
         "Description[zh_CN]": "使用 KDE Connect将文件发送到其他设备",
         "Description[zh_TW]": "使用 KDE 連線傳送檔案至其他裝置",
         "Icon": "kdeconnect",
@@ -89,7 +88,6 @@
         "Name[sv]": "Skicka fil via KDE:s anslutningstjänst",
         "Name[tr]": "KDE Bağlan ile Dosya Gönder",
         "Name[uk]": "Надіслати файл за допомогою KDE Connect",
-        "Name[x-test]": "xxSend file via KDE Connectxx",
         "Name[zh_CN]": "通过 KDE Connect发送文件",
         "Name[zh_TW]": "使用 KDE 連線傳送檔案"
     }

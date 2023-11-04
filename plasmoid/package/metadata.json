@@ -33,7 +33,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora"
             }
         ],
@@ -65,7 +64,6 @@
         "Description[sv]": "Visa underrättelser från apparater med KDE anslut",
         "Description[tr]": "KDE Bağlan'ı kullanarak aygıttan gelen bildirimleri göster",
         "Description[uk]": "Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»",
-        "Description[x-test]": "xxShow notifications from your devices using KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 显示来自其他设备的通知",
         "EnabledByDefault": true,
         "Icon": "kdeconnect",
@@ -104,7 +102,6 @@
         "Name[sv]": "KDE-anslut",
         "Name[tr]": "KDE Bağlan",
         "Name[uk]": "KDE Connect",
-        "Name[x-test]": "xxKDE Connectxx",
         "Name[zh_CN]": "KDE Connect",
         "Name[zh_TW]": "KDE 連線",
         "ServiceTypes": [

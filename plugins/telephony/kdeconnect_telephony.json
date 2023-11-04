@@ -33,7 +33,6 @@
                 "Name[sv]": "Albert Vaca Cintora",
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
-                "Name[x-test]": "xxAlbert Vaca Cintoraxx",
                 "Name[zh_CN]": "Albert Vaca Cintora"
             }
         ],
@@ -77,7 +76,6 @@
         "Description[sv]": "Visa underrättelser om inkommande samtal",
         "Description[tr]": "Gelen aramalar için bildirimleri göster",
         "Description[uk]": "Показ сповіщень щодо вхідних дзвінків",
-        "Description[x-test]": "xxShow notifications for incoming callsxx",
         "Description[zh_CN]": "显示来电通知",
         "Description[zh_TW]": "顯示來電通知",
         "EnabledByDefault": true,
@@ -127,7 +125,6 @@
         "Name[sv]": "Integrering av telefoni",
         "Name[tr]": "Telefon tümleştirmesi",
         "Name[uk]": "Інтеграція з системою телефонії",
-        "Name[x-test]": "xxTelephony integrationxx",
         "Name[zh_CN]": "Telephony 集成",
         "Name[zh_TW]": "電話整合"
     },
