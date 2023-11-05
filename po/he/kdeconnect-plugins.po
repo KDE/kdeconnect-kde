@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2023-10-20 16:21+0300\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -91,13 +91,13 @@ msgctxt ""
 msgid "Current Player"
 msgstr "נגן נוכחי"
 
-#: notifications/notification.cpp:113
+#: notifications/notification.cpp:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "תגובה"
 
-#: notifications/notification.cpp:114
+#: notifications/notification.cpp:116
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
@@ -441,24 +441,24 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "הטקסט ששיתף %1 הועתק ללוח הגזירים"
 
-#: share/shareplugin.cpp:162
+#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "פתיחה בעורך טקסט"
 
-#: share/shareplugin.cpp:165
+#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "פתיחת קישור"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
 msgstr "לא ניתן לשתף קובץ"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:251
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 לא קיים"
@@ -478,7 +478,7 @@ msgstr "שיחה נכנסת מאת %1"
 msgid "Missed call from %1"
 msgstr "שיחה שלא נענתה מאת %1"
 
-#: telephony/telephonyplugin.cpp:64
+#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
 #, kde-format
 msgid "Mute Call"
 msgstr "השתקת שיחה"

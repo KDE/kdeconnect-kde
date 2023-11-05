@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-23 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -91,13 +91,13 @@ msgctxt ""
 msgid "Current Player"
 msgstr ""
 
-#: notifications/notification.cpp:113
+#: notifications/notification.cpp:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Odpovedať"
 
-#: notifications/notification.cpp:114
+#: notifications/notification.cpp:116
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
@@ -446,25 +446,25 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:162
+#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:165
+#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, fuzzy, kde-format
 #| msgid "Open"
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Otvoriť"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
 msgstr "Nepodarilo sa zdieľať súbor"
 
-#: share/shareplugin.cpp:237
+#: share/shareplugin.cpp:251
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Súbor %1 neexistuje"
@@ -484,7 +484,7 @@ msgstr "Prichádzajúci hovor od %1"
 msgid "Missed call from %1"
 msgstr "Zmeškaný hovor od %1"
 
-#: telephony/telephonyplugin.cpp:64
+#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
 #, kde-format
 msgid "Mute Call"
 msgstr "Stlmiť hovor"
