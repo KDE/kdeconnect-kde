@@ -204,7 +204,7 @@ void KdeConnectKcm::resetDeviceView()
     kcmUi.pluginSelector->clear();
     kcmUi.pluginSelector->setConfigurationArguments({currentDevice->id()});
     kcmUi.pluginSelector->addPlugins(availablePluginInfo, i18n("Available plugins"));
-    kcmUi.pluginSelector->setConfig(deviceConfig->group("Plugins"));
+    kcmUi.pluginSelector->setConfig(deviceConfig->group(QStringLiteral("Plugins")));
 }
 
 void KdeConnectKcm::requestPairing()

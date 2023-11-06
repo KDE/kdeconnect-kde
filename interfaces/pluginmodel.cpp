@@ -46,7 +46,7 @@ QVariant PluginModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::CheckStateRole: {
         const QString def = pluginEntry.isEnabledByDefault() ? QStringLiteral("true") : QStringLiteral("false");
-        return m_config->group("Plugins").readEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), def) == QStringLiteral("true");
+        return m_config->group(QStringLiteral("Plugins")).readEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), def) == QStringLiteral("true");
     }
     case Qt::DisplayRole:
         return pluginEntry.name();
@@ -91,7 +91,7 @@ bool PluginModel::setData(const QModelIndex &index, const QVariant &value, int r
 
     if (role == Qt::CheckStateRole) {
         const KPluginMetaData &pluginEntry = m_plugins[index.row()];
-        m_config->group("Plugins").writeEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), value);
+        m_config->group(QStringLiteral("Plugins")).writeEntry(QStringLiteral("%1Enabled").arg(pluginEntry.pluginId()), value);
         ret = true;
     }
 

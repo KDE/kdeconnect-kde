@@ -427,7 +427,7 @@ void Device::setPluginEnabled(const QString &pluginName, bool enabled)
         return;
     }
 
-    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
+    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group(QStringLiteral("Plugins"));
 
     const QString enabledKey = pluginName + QStringLiteral("Enabled");
     pluginStates.writeEntry(enabledKey, enabled);
@@ -437,7 +437,7 @@ void Device::setPluginEnabled(const QString &pluginName, bool enabled)
 bool Device::isPluginEnabled(const QString &pluginName) const
 {
     const QString enabledKey = pluginName + QStringLiteral("Enabled");
-    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group("Plugins");
+    KConfigGroup pluginStates = KSharedConfig::openConfig(pluginsConfigFile())->group(QStringLiteral("Plugins"));
 
     return (pluginStates.hasKey(enabledKey) ? pluginStates.readEntry(enabledKey, false)
                                             : PluginLoader::instance()->getPluginInfo(pluginName).isEnabledByDefault());
