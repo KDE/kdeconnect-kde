@@ -34,6 +34,7 @@
         "Description[sv]": "Anslut och synkronisera dina apparater",
         "Description[tr]": "Aygıtlarını bağla ve eşzamanla",
         "Description[uk]": "З'єднання і синхронізація ваших пристроїв",
+        "Description[x-test]": "xxConnect and sync your devicesxx",
         "Description[zh_CN]": "连接并同步您的设备",
         "Description[zh_TW]": "與您的裝置連線並同步",
         "Icon": "preferences-kde-connect",
@@ -70,6 +71,7 @@
         "Name[sv]": "KDE-anslut",
         "Name[tr]": "KDE Bağlan",
         "Name[uk]": "KDE Connect",
+        "Name[x-test]": "xxKDE Connectxx",
         "Name[zh_CN]": "KDE Connect",
         "Name[zh_TW]": "KDE 連線"
     },

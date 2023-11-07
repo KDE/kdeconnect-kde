@@ -44,6 +44,7 @@
                 "Name[sv]": "Aditya Mehra",
                 "Name[tr]": "Aditya Mehra",
                 "Name[uk]": "Aditya Mehra",
+                "Name[x-test]": "xxAditya Mehraxx",
                 "Name[zh_CN]": "Aditya Mehra",
                 "Name[zh_TW]": "Aditya Mehra"
             }
@@ -77,6 +78,7 @@
         "Description[sv]": "Skicka röstkommandon till en tv-apparat som kör Plasma storbildsskärm",
         "Description[tr]": "Plasma Büyük ekran kullanan televizyonlara ses komutları gönder",
         "Description[uk]": "Надсилання голосових команд вашому телевізору, де запущено Plasma Bigscreen",
+        "Description[x-test]": "xxSend voice commands to your TV running Plasma Bigscreenxx",
         "Description[zh_CN]": "发送语音命令给运行 Plasma Bigscreen 的电视机",
         "EnabledByDefault": true,
         "Icon": "tvtrusted",
@@ -110,6 +112,7 @@
         "Name[sv]": "Röstkontroll av storskärm",
         "Name[tr]": "Büyük Ekran sesle denetim",
         "Name[uk]": "Голосове керування Bigscreen",
+        "Name[x-test]": "xxBigscreen voice controlxx",
         "Name[zh_CN]": "Bigscreen 语音控制"
     },
     "X-KdeConnect-OutgoingPacketType": [

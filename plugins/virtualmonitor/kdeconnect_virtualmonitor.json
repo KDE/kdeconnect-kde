@@ -40,6 +40,7 @@
                 "Name[sv]": "Aleix Pol i Gonzalez",
                 "Name[tr]": "Aleix Pol i Gonzalez",
                 "Name[uk]": "Aleix Pol i Gonzalez",
+                "Name[x-test]": "xxAleix Pol i Gonzalezxx",
                 "Name[zh_CN]": "Aleix Pol i Gonzalez",
                 "Name[zh_TW]": "Aleix Pol i Gonzalez"
             }
@@ -80,6 +81,7 @@
         "Description[sv]": "Använd apparater som virtuella bildskärmar",
         "Description[tr]": "Aygıtları sanal ekranlar olarak kullan",
         "Description[uk]": "Використання ваших пристроїв як віртуальних моніторів",
+        "Description[x-test]": "xxUse your devices as virtual monitorsxx",
         "Description[zh_CN]": "使用您的设备作为虚拟显示器",
         "Description[zh_TW]": "將您的裝置作為虛擬螢幕使用",
         "EnabledByDefault": true,
@@ -121,6 +123,7 @@
         "Name[sv]": "Virtuell bildskärm",
         "Name[tr]": "Sanal Ekran",
         "Name[uk]": "Віртуальний монітор",
+        "Name[x-test]": "xxVirtual Monitorxx",
         "Name[zh_CN]": "虚拟显示器",
         "Name[zh_TW]": "虛擬螢幕"
     },

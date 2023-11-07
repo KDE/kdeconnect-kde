@@ -48,6 +48,7 @@
                 "Name[sv]": "Holger Kaelberer",
                 "Name[tr]": "Holger Kaelberer",
                 "Name[uk]": "Holger Kaelberer",
+                "Name[x-test]": "xxHolger Kaelbererxx",
                 "Name[zh_CN]": "Holger Kaelberer",
                 "Name[zh_TW]": "Holger Kaelberer"
             }
@@ -85,6 +86,7 @@
         "Description[sv]": "Sänd ut datorns underrättelser så att de kan visas på andra enheter.",
         "Description[tr]": "Bu bilgisayarın bildirimlerini yayınla, böylece diğer aygıtlarda gösterilebilirler.",
         "Description[uk]": "Транслювати сповіщення з цього комп’ютера так, щоб їх було показано на інших пристроях.",
+        "Description[x-test]": "xxBroadcast this computer's notifications, so they can be shown on other devices.xx",
         "Description[zh_CN]": "广播此电脑的通知，以便在其他设备上显示。",
         "EnabledByDefault": false,
         "Icon": "preferences-desktop-notification",
@@ -122,6 +124,7 @@
         "Name[sv]": "Skicka underrättelser",
         "Name[tr]": "Bildirim gönder",
         "Name[uk]": "Надіслати сповіщення",
+        "Name[x-test]": "xxSend notificationsxx",
         "Name[zh_CN]": "发送通知"
     },
     "X-KDE-ConfigModule": "kdeconnect/kcms/kdeconnect_sendnotifications_config",
