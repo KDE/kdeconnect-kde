@@ -24,7 +24,7 @@ Kirigami.ScrollablePage {
 
         delegate: Kirigami.SwipeListItem {
 
-            RowLayout {
+            contentItem: RowLayout {
                 CheckBox {
                     id: serviceCheck
                     Layout.alignment: Qt.AlignVCenter

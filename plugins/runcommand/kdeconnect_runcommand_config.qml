@@ -35,7 +35,7 @@ ListView {
         width: parent.width
         enabled: true
 
-        QQC2.Label {
+        contentItem: QQC2.Label {
             text: i18n("%1 <br> <i>%2</i>", name, command)
         }
 
