@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2023 pieter <pieterkristensen@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-06-08 11:39+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-11-09 20:00+0100\n"
+"Last-Translator: pieter <pieterkristensen@gmail.com>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: package/contents/ui/Battery.qml:26
 #, kde-format
@@ -106,7 +107,7 @@ msgstr "Meldingen:"
 #: package/contents/ui/DeviceDelegate.qml:282
 #, kde-format
 msgid "Dismiss all notifications"
-msgstr "Alle meldingen wegdoen"
+msgstr "Alle meldingen gezien"
 
 #: package/contents/ui/DeviceDelegate.qml:321
 #, kde-format
@@ -116,7 +117,7 @@ msgstr "Beantwoorden"
 #: package/contents/ui/DeviceDelegate.qml:330
 #, kde-format
 msgid "Dismiss"
-msgstr "Wegdoen"
+msgstr "Gezien"
 
 #: package/contents/ui/DeviceDelegate.qml:341
 #, kde-format
