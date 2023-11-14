@@ -46,11 +46,12 @@ Kirigami.ScrollablePage {
 
     ListView {
         model: plugins
-        delegate: Kirigami.BasicListItem {
-            label: name
-            @KIRIGAMI_ICON@: iconName
+        delegate: QQC2.ItemDelegate {
+            text: name
+            icon.name: iconName
             highlighted: false
-            iconColor: "transparent"
+            icon.color: "transparent"
+            width: ListView.view.width
             visible: loaded
             onClicked: onClick()
         }

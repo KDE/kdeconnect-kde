@@ -68,10 +68,10 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            Kirigami.BasicListItem {
+            QQC2.ItemDelegate {
                 id: findDevicesAction
                 text: i18nd("kdeconnect-app", "Find devices...")
-                @KIRIGAMI_ICON@: "list-add"
+                icon.name: "list-add"
                 checked: pageStack.currentItem && pageStack.currentItem.objectName == "FindDevices"
                 Layout.fillWidth: true
 
@@ -92,13 +92,13 @@ Kirigami.ApplicationWindow {
                     }
                 }
 
-                Kirigami.BasicListItem {
+                QQC2.ItemDelegate {
                     Layout.fillWidth: true
                     text: model.name + "\n" + toolTip
                     enabled: status & DevicesModel.Reachable
                     checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
-                    @KIRIGAMI_ICON@: model.iconName
-                    iconColor: "transparent"
+                    icon.name: model.iconName
+                    icon.color: "transparent"
                     onClicked: {
                         root.pageStack.clear()
                         root.pageStack.push(
@@ -114,9 +114,10 @@ Kirigami.ApplicationWindow {
                 Layout.fillWidth: true
             }
 
-            Kirigami.BasicListItem {
+            QQC2.ItemDelegate {
                 text: i18n("Settings")
-                @KIRIGAMI_ICON@: "settings-configure"
+                icon.name: "settings-configure"
+                Layout.fillWidth: true
                 onClicked: pageStack.pushDialogLayer('qrc:/qml/Settings.qml', {}, {
                     title: i18n("Settings"),
                 });

@@ -60,12 +60,20 @@ Kirigami.ScrollablePage
         model: DevicesSortProxyModel {
             sourceModel: DevicesModel {}
         }
-        delegate: Kirigami.BasicListItem {
-            @KIRIGAMI_ICON@: iconName
-            iconColor: "transparent"
-            label: model.name
-            subtitle: toolTip
+        delegate: ItemDelegate {
+            id: delegate
+            icon.name: iconName
+            icon.color: "transparent"
+            text: model.name
+            width: ListView.view.width
             highlighted: false
+
+            contentItem: Kirigami.IconTitleSubtitle {
+                title: delegate.text
+                subtitle: toolTip
+                icon: icon.fromControlsIcon(delegate.icon)
+            }
+
             onClicked: {
                 pageStack.push(
                     deviceComp,

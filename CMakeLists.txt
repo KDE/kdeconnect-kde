@@ -57,7 +57,7 @@ ecm_set_disabled_deprecation_versions(
 add_library(kdeconnectversion INTERFACE)
 target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
 
-set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami2 People WindowSystem GuiAddons DocTools)
+set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools)
 
 set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
     DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"

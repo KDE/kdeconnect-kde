@@ -30,12 +30,17 @@ Kirigami.ScrollablePage
         model: RemoteCommandsModel {
             deviceId: pluginInterface.deviceId
         }
-        delegate: Kirigami.BasicListItem {
+        delegate: ItemDelegate {
+            id: delegate
             width: ListView.view.width
-            label: name
-            subtitle: command
+            text: name
+
+            contentItem: Kirigami.TitleSubtitle {
+                title: delegate.text
+                subtitle: command
+            }
+
             onClicked: pluginInterface.triggerCommand(key)
-            reserveSpaceForIcon: false
         }
 
         Kirigami.PlaceholderMessage {
