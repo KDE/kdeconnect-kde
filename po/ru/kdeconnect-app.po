@@ -3,21 +3,22 @@
 #
 # Alexander Yavorsky <kekcuha@gmail.com>, 2020, 2021, 2023.
 # Дронова Юлия <juliette.tux@gmail.com>, 2021.
+# Olesya Gerasimenko <translation-team@basealt.ru>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2023-01-12 11:32+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2023-11-16 14:42+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -43,13 +44,13 @@ msgstr "Сопровождение"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Александр Яворский, Дронова Юлия"
+msgstr "Александр Яворский, Дронова Юлия, Олеся Герасименко"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kekcuha@gmail.com, juliette.tux@gmail.com"
+msgstr "kekcuha@gmail.com, juliette.tux@gmail.com, translation-team@basealt.ru"
 
 #: main.cpp:54
 #, kde-format
@@ -109,7 +110,7 @@ msgstr "Выполнить команду"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Отправить содержимое буфера обмена"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -127,8 +128,7 @@ msgid "This device is not paired"
 msgstr "Это устройство не сопряжено"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Cоздать сопряжение"
@@ -159,16 +159,15 @@ msgid "Please choose a file"
 msgstr "Выберите файл"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Найти устройство"
+msgstr "Устройства"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
 msgid "No devices found"
-msgstr "Устройств не найдено."
+msgstr "Устройств не найдено"
 
 #: qml/FindDevicesPage.qml:51
 #, kde-format
@@ -201,15 +200,15 @@ msgid "Remote Control"
 msgstr "Удалённое управление"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "Для разблокирования нажмите одновременно правую и левую кнопки мыши"
+msgstr ""
+"Для разблокирования нажмите %1 или одновременно левую и правую кнопки мыши"
 
 #: qml/mpris.qml:19
 #, kde-format
 msgid "Multimedia Controls"
-msgstr "Элементы управления мультимедия"
+msgstr "Элементы управления мультимедиа"
 
 #: qml/mpris.qml:65
 #, kde-format

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-23 02:24+0000\n"
-"PO-Revision-Date: 2023-06-13 06:30+0200\n"
+"PO-Revision-Date: 2023-11-15 14:33+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -392,7 +392,7 @@ msgstr "Le processus sshfs s'est arrêté de façon anormale."
 #: sftp/mounter.cpp:176
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr "Erreur inconnue de sshfs"
+msgstr "Erreur inconnue de « sshfs »"
 
 #: sftp/mounter.cpp:187
 #, kde-format
@@ -483,7 +483,7 @@ msgstr "%1 n'existe pas."
 #: telephony/telephonyplugin.cpp:28
 #, kde-format
 msgid "unknown number"
-msgstr "nombre inconnu"
+msgstr "numéro inconnu"
 
 #: telephony/telephonyplugin.cpp:37
 #, kde-format
