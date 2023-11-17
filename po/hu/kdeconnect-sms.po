@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-17 00:42+0000\n"
 "PO-Revision-Date: 2021-11-23 13:51+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -118,22 +118,22 @@ msgstr "üzenet"
 msgid "Open with default"
 msgstr "Megnyitás az alapértelmezettel"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:155
 #, kde-format
 msgid "Copy Message"
 msgstr "Üzenet másolása"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:160
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kijelölés másolása"
 
-#: qml/ConversationList.qml:24
+#: qml/ConversationList.qml:25
 #, kde-format
 msgid "No devices available"
 msgstr "Nem érhetők el eszközök"
 
-#: qml/ConversationList.qml:34
+#: qml/ConversationList.qml:35
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
@@ -141,52 +141,52 @@ msgstr ""
 "Nem küldhetők vagy fogadhatók új üzenetek, de böngészheti a gyorsítótárazott "
 "tartalmat"
 
-#: qml/ConversationList.qml:50
+#: qml/ConversationList.qml:51
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
 
-#: qml/ConversationList.qml:58
+#: qml/ConversationList.qml:59
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
 
-#: qml/ConversationList.qml:66 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Frissítés"
 
-#: qml/ConversationList.qml:80
+#: qml/ConversationList.qml:81
 #, kde-format
 msgid "Choose recipient"
 msgstr "Címzett kiválasztása"
 
-#: qml/ConversationList.qml:85
+#: qml/ConversationList.qml:86
 #, kde-format
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: qml/ConversationList.qml:112
+#: qml/ConversationList.qml:113
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
 msgid "Search or start conversation..."
 msgstr "Új beszélgetés"
 
-#: qml/ConversationList.qml:144
+#: qml/ConversationList.qml:145
 #, kde-format
 msgid "New"
 msgstr "Új"
 
-#: qml/ConversationList.qml:149
+#: qml/ConversationList.qml:150
 #, kde-format
 msgid "Start new conversation"
 msgstr "Új beszélgetés"
 
-#: qml/ConversationList.qml:248
+#: qml/ConversationList.qml:249
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"

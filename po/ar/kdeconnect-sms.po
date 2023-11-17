@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-17 00:42+0000\n"
 "PO-Revision-Date: 2022-09-12 22:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -118,29 +118,29 @@ msgstr "رسالة"
 msgid "Open with default"
 msgstr "افتح في المبدئي"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:155
 #, kde-format
 msgid "Copy Message"
 msgstr "انسخ الرِّسالة"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:160
 #, kde-format
 msgid "Copy Selection"
 msgstr "انسخ التحديد"
 
-#: qml/ConversationList.qml:24
+#: qml/ConversationList.qml:25
 #, kde-format
 msgid "No devices available"
 msgstr "لا يوجد أجهزة متوفّرة"
 
-#: qml/ConversationList.qml:34
+#: qml/ConversationList.qml:35
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
 "لا يمكن إرسال أو استلام أي رسائل جديدة، ولكن يمكنك تصفح المحتوى المخبوء مؤقتًا"
 
-#: qml/ConversationList.qml:50
+#: qml/ConversationList.qml:51
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -149,7 +149,7 @@ msgstr ""
 "تحميل المحادثات من الجهاز. إذا استغرق هذا وقتًا طويلاً، فيرجى إيقاظ جهازك ثم "
 "انقر فوق تحديث."
 
-#: qml/ConversationList.qml:58
+#: qml/ConversationList.qml:59
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -157,37 +157,37 @@ msgid ""
 msgstr ""
 "نصيحة: إذا قمت بتوصيل جهازك، فيجب ألا يذهب إلى وضع الغفوة ويجب تحميله بسرعة."
 
-#: qml/ConversationList.qml:66 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "أنعش"
 
-#: qml/ConversationList.qml:80
+#: qml/ConversationList.qml:81
 #, kde-format
 msgid "Choose recipient"
 msgstr "اختر مستلم"
 
-#: qml/ConversationList.qml:85
+#: qml/ConversationList.qml:86
 #, kde-format
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: qml/ConversationList.qml:112
+#: qml/ConversationList.qml:113
 #, kde-format
 msgid "Search or start conversation..."
 msgstr "ابحث أو ابدأ محادثة…"
 
-#: qml/ConversationList.qml:144
+#: qml/ConversationList.qml:145
 #, kde-format
 msgid "New"
 msgstr "جديد"
 
-#: qml/ConversationList.qml:149
+#: qml/ConversationList.qml:150
 #, kde-format
 msgid "Start new conversation"
 msgstr "ابدأ محادثة جديدة"
 
-#: qml/ConversationList.qml:248
+#: qml/ConversationList.qml:249
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"

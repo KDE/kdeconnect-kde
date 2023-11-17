@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-17 00:42+0000\n"
 "PO-Revision-Date: 2022-07-22 05:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -118,22 +118,22 @@ msgstr "sporočilo"
 msgid "Open with default"
 msgstr "Odpri s privzetimi nastavitvami"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:155
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopiraj sporočilo"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:160
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kopiraj izbrano"
 
-#: qml/ConversationList.qml:24
+#: qml/ConversationList.qml:25
 #, kde-format
 msgid "No devices available"
 msgstr "Ni na voljo nobene naprave"
 
-#: qml/ConversationList.qml:34
+#: qml/ConversationList.qml:35
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
@@ -141,7 +141,7 @@ msgstr ""
 "Nobenih novih sporočil ni mogoče poslati ali prejeti, lahko pa brskate po "
 "vsebini predpomnilnika"
 
-#: qml/ConversationList.qml:50
+#: qml/ConversationList.qml:51
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -150,7 +150,7 @@ msgstr ""
 "Nalaganje pogovorov iz naprave. Če to traja (pre)dolgo, zbudite vašo napravo "
 "in kliknite Osveži."
 
-#: qml/ConversationList.qml:58
+#: qml/ConversationList.qml:59
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -159,37 +159,37 @@ msgstr ""
 "Namig: Če priključite vašo napravo, se ne bi smela uspavati in bi morala "
 "hitro naložiti."
 
-#: qml/ConversationList.qml:66 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Osveži"
 
-#: qml/ConversationList.qml:80
+#: qml/ConversationList.qml:81
 #, kde-format
 msgid "Choose recipient"
 msgstr "Izberi prejemnika"
 
-#: qml/ConversationList.qml:85
+#: qml/ConversationList.qml:86
 #, kde-format
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: qml/ConversationList.qml:112
+#: qml/ConversationList.qml:113
 #, kde-format
 msgid "Search or start conversation..."
 msgstr "Poišči ali začni pogovor..."
 
-#: qml/ConversationList.qml:144
+#: qml/ConversationList.qml:145
 #, kde-format
 msgid "New"
 msgstr "Nov"
 
-#: qml/ConversationList.qml:149
+#: qml/ConversationList.qml:150
 #, kde-format
 msgid "Start new conversation"
 msgstr "Začni nov pogovor"
 
-#: qml/ConversationList.qml:248
+#: qml/ConversationList.qml:249
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
