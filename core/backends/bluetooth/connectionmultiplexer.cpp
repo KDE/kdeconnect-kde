@@ -44,7 +44,8 @@ ConnectionMultiplexer::ConnectionMultiplexer(QBluetoothSocket *socket, QObject *
     // Only support version 1 (lowest supported = highest supported = 1)
     qToBigEndian<uint16_t>(1, &message.data()[19]);
     qToBigEndian<uint16_t>(1, &message.data()[21]);
-    to_write_bytes.append(message);
+
+    socket->write(message);
 
     // Send the protocol version message (queued)
     QMetaObject::invokeMethod(this, &ConnectionMultiplexer::bytesWritten, Qt::QueuedConnection);
@@ -125,16 +126,16 @@ bool ConnectionMultiplexer::tryParseMessage()
      */
     char message_type = header[0];
     uint16_t message_length = qFromBigEndian<uint16_t>(&header.data()[1]);
-#if QT_VERSION_MAJOR == 5
+
     quint128 message_uuid_raw;
+    #ifndef QT_SUPPORTS_INT128 
     for (int i = 0; i < 16; ++i) {
         message_uuid_raw.data[i] = header[3 + i];
     }
+    #else
+    message_uuid_raw = qFromBigEndian<quint128>(&header.data()[3]);
+    #endif
     QBluetoothUuid message_uuid = QBluetoothUuid(message_uuid_raw);
-#else
-    const QByteArray uuisByteArray = header.sliced(3, 16); // Faster than mid, see https://doc.qt.io/qt-6/qbytearray.html#mid
-    QBluetoothUuid message_uuid = QBluetoothUuid::fromBytes(uuisByteArray.constData());
-#endif
 
     // Check if we have the full message including its data
     QByteArray data = mSocket->read(message_length);
@@ -283,6 +284,7 @@ void ConnectionMultiplexer::addChannel(QBluetoothUuid new_id)
             closeChannel(new_id);
         },
         Qt::QueuedConnection);
+
     auto channelStatePtr = QSharedPointer<MultiplexChannelState>{channelState};
     channels[new_id] = channelStatePtr;
     unrequested_channels[new_id] = new MultiplexChannel{channelStatePtr};
