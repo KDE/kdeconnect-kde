@@ -30,7 +30,7 @@ msgstr "%1: Bateria baixa"
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr "Bateria a %1%"
+msgstr "Bateria al %1%"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
 #: clipboard/clipboard_config.ui:17
