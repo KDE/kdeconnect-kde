@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-11-19 03:40\n"
+"PO-Revision-Date: 2023-11-25 02:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -48,8 +48,7 @@ msgstr "KDE China, Coelacanthus, Guo Yunhe, Tyson Tan"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"kde-china@kde.org, liuhongwu2003@outlook.com, i@guoyunhe.me, "
-"tysontan@tysontan.com"
+"kde-china@kde.org, liuhongwu2003@outlook.com, i@guoyunhe.me, tds00@qq.com"
 
 #: main.cpp:55
 #, kde-format
