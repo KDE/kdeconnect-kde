@@ -352,6 +352,7 @@ PlasmaComponents.ListItem
                     PlasmaComponents3.TextArea {
                         id: replyTextField
                         placeholderText: i18nc("@info:placeholder", "Reply to %1…", appName)
+                        wrapMode: TextEdit.Wrap
                         Layout.fillWidth: true
                         Keys.onPressed: {
                             if ((event.key == Qt.Key_Return || event.key == Qt.Key_Enter) && !(event.modifiers & Qt.ShiftModifier)) {
