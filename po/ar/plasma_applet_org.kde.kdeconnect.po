@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-29 00:42+0000\n"
 "PO-Revision-Date: 2023-06-08 11:43+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -131,17 +131,17 @@ msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "ردّ على %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:370
+#: package/contents/ui/DeviceDelegate.qml:371
 #, kde-format
 msgid "Send"
 msgstr "أرسل"
 
-#: package/contents/ui/DeviceDelegate.qml:394
+#: package/contents/ui/DeviceDelegate.qml:395
 #, kde-format
 msgid "Run command"
 msgstr "نفّذ أمرًا"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:403
 #, kde-format
 msgid "Add command"
 msgstr "أضف أمر"

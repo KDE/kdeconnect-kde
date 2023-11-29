@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-29 00:42+0000\n"
 "PO-Revision-Date: 2023-06-11 07:52+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -131,17 +131,17 @@ msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responder a %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:370
+#: package/contents/ui/DeviceDelegate.qml:371
 #, kde-format
 msgid "Send"
 msgstr "Enviar"
 
-#: package/contents/ui/DeviceDelegate.qml:394
+#: package/contents/ui/DeviceDelegate.qml:395
 #, kde-format
 msgid "Run command"
 msgstr "Executar unha orde"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:403
 #, kde-format
 msgid "Add command"
 msgstr "Engadir unha orde"

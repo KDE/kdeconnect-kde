@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-29 00:42+0000\n"
 "PO-Revision-Date: 2020-04-08 19:46+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -130,17 +130,17 @@ msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:370
+#: package/contents/ui/DeviceDelegate.qml:371
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:394
+#: package/contents/ui/DeviceDelegate.qml:395
 #, kde-format
 msgid "Run command"
 msgstr "Kør kommando"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:403
 #, kde-format
 msgid "Add command"
 msgstr "Tilføj kommando"

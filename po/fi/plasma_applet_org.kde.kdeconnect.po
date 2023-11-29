@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-29 00:42+0000\n"
 "PO-Revision-Date: 2023-06-27 17:48+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -130,17 +130,17 @@ msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Vastaa: %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:370
+#: package/contents/ui/DeviceDelegate.qml:371
 #, kde-format
 msgid "Send"
 msgstr "Lähetä"
 
-#: package/contents/ui/DeviceDelegate.qml:394
+#: package/contents/ui/DeviceDelegate.qml:395
 #, kde-format
 msgid "Run command"
 msgstr "Suorita komento"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:403
 #, kde-format
 msgid "Add command"
 msgstr "Lisää komento"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-11-29 00:42+0000\n"
 "PO-Revision-Date: 2022-06-01 15:18+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -130,17 +130,17 @@ msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:370
+#: package/contents/ui/DeviceDelegate.qml:371
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:394
+#: package/contents/ui/DeviceDelegate.qml:395
 #, kde-format
 msgid "Run command"
 msgstr "Rulează o comandă"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:403
 #, kde-format
 msgid "Add command"
 msgstr "Adaugă o comandă"
