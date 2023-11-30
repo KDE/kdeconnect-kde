@@ -150,7 +150,11 @@ add_subdirectory(settings)
 
 if(NOT WIN32 AND NOT APPLE)
     add_subdirectory(kio)
-    add_subdirectory(plasmoid)
+    if(QT_MAJOR_VERSION STREQUAL "6")
+        add_subdirectory(plasmoid-kf6)
+    else()
+        add_subdirectory(plasmoid-kf5)
+    endif()
 endif()
 
 add_subdirectory(doc)
