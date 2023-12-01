@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-29 00:42+0000\n"
+"POT-Creation-Date: 2023-12-01 00:41+0000\n"
 "PO-Revision-Date: 2023-06-13 06:28+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -19,167 +19,167 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.04.2\n"
 
-#: package/contents/ui/Battery.qml:26
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1% charging"
 msgstr "%1 % de charge"
 
-#: package/contents/ui/Battery.qml:26
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/Battery.qml:26
+#: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "No info"
 msgstr "aucune information"
 
-#: package/contents/ui/Connectivity.qml:41
+#: package/contents/ui/Connectivity.qml:40
 #, kde-format
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: package/contents/ui/Connectivity.qml:51
+#: package/contents/ui/Connectivity.qml:50
 #, kde-format
 msgid "No signal"
 msgstr "Aucun signal"
 
-#: package/contents/ui/DeviceDelegate.qml:51
+#: package/contents/ui/DeviceDelegate.qml:53
 #, kde-format
 msgid "File Transfer"
 msgstr "Transfert de fichiers"
 
-#: package/contents/ui/DeviceDelegate.qml:52
+#: package/contents/ui/DeviceDelegate.qml:54
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Déposez un fichier pour le transférer vers votre téléphone."
 
-#: package/contents/ui/DeviceDelegate.qml:87
+#: package/contents/ui/DeviceDelegate.qml:90
 #, kde-format
 msgid "Virtual Display"
 msgstr "Affichage virtuel"
 
-#: package/contents/ui/DeviceDelegate.qml:138
+#: package/contents/ui/DeviceDelegate.qml:143
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1 %"
 
-#: package/contents/ui/DeviceDelegate.qml:160
+#: package/contents/ui/DeviceDelegate.qml:165
 #, kde-format
 msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
 
-#: package/contents/ui/DeviceDelegate.qml:169
+#: package/contents/ui/DeviceDelegate.qml:174
 #, kde-format
 msgid "Share file"
 msgstr "Partager le fichier"
 
-#: package/contents/ui/DeviceDelegate.qml:184
+#: package/contents/ui/DeviceDelegate.qml:189
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Envoyer un presse-papier"
 
-#: package/contents/ui/DeviceDelegate.qml:203
+#: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Ring my phone"
 msgstr "Faire sonner mon téléphone"
 
-#: package/contents/ui/DeviceDelegate.qml:221
+#: package/contents/ui/DeviceDelegate.qml:226
 #, kde-format
 msgid "Browse this device"
 msgstr "Naviguer dans ce périphérique"
 
-#: package/contents/ui/DeviceDelegate.qml:238
+#: package/contents/ui/DeviceDelegate.qml:243
 #, kde-format
 msgid "SMS Messages"
 msgstr "Messages SMS"
 
-#: package/contents/ui/DeviceDelegate.qml:259
+#: package/contents/ui/DeviceDelegate.qml:264
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Clavier distant"
 
-#: package/contents/ui/DeviceDelegate.qml:275
+#: package/contents/ui/DeviceDelegate.qml:285
 #, kde-format
 msgid "Notifications:"
 msgstr "Notifications :"
 
-#: package/contents/ui/DeviceDelegate.qml:282
+#: package/contents/ui/DeviceDelegate.qml:293
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Rejeter toutes les notifications"
 
-#: package/contents/ui/DeviceDelegate.qml:321
+#: package/contents/ui/DeviceDelegate.qml:340
 #, kde-format
 msgid "Reply"
 msgstr "Répondre"
 
-#: package/contents/ui/DeviceDelegate.qml:330
+#: package/contents/ui/DeviceDelegate.qml:350
 #, kde-format
 msgid "Dismiss"
 msgstr "Rejeter"
 
-#: package/contents/ui/DeviceDelegate.qml:341
+#: package/contents/ui/DeviceDelegate.qml:363
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
 
-#: package/contents/ui/DeviceDelegate.qml:354
+#: package/contents/ui/DeviceDelegate.qml:377
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Répondre à %1…"
 
-#: package/contents/ui/DeviceDelegate.qml:371
+#: package/contents/ui/DeviceDelegate.qml:395
 #, kde-format
 msgid "Send"
 msgstr "Envoyer"
 
-#: package/contents/ui/DeviceDelegate.qml:395
+#: package/contents/ui/DeviceDelegate.qml:421
 #, kde-format
 msgid "Run command"
 msgstr "Exécuter une commande"
 
-#: package/contents/ui/DeviceDelegate.qml:403
+#: package/contents/ui/DeviceDelegate.qml:429
 #, kde-format
 msgid "Add command"
 msgstr "Ajouter une commande"
 
-#: package/contents/ui/FullRepresentation.qml:53
+#: package/contents/ui/FullRepresentation.qml:58
 #, kde-format
 msgid "No paired devices"
 msgstr "Aucun périphérique associé"
 
-#: package/contents/ui/FullRepresentation.qml:53
+#: package/contents/ui/FullRepresentation.qml:58
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Le périphérique associé n'est pas disponible"
 msgstr[1] "Aucun périphérique associé n'est disponible"
 
-#: package/contents/ui/FullRepresentation.qml:55
+#: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Installez KDE Connect sur votre appareil Android pour l'intégrer à Plasma !"
 
-#: package/contents/ui/FullRepresentation.qml:59
+#: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Pair a Device..."
 msgstr "Associer un périphérique..."
 
-#: package/contents/ui/FullRepresentation.qml:71
+#: package/contents/ui/FullRepresentation.qml:76
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Installer depuis Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:81
+#: package/contents/ui/FullRepresentation.qml:86
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Installer depuis F-Droid"
 
-#: package/contents/ui/main.qml:49
+#: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Paramètres de KDE Connect..."
