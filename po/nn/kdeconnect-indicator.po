@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-12-03 00:41+0000\n"
 "PO-Revision-Date: 2023-08-10 18:44+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -65,28 +65,28 @@ msgstr "Køyr kommando"
 msgid "Add commands"
 msgstr "Legg til kommandoar"
 
-#: indicatorhelper_mac.cpp:38
+#: indicatorhelper_mac.cpp:37
 #, kde-format
 msgid "Launching"
 msgstr "Startar"
 
-#: indicatorhelper_mac.cpp:92
+#: indicatorhelper_mac.cpp:87
 #, kde-format
 msgid "Launching daemon"
 msgstr "Startar teneste"
 
-#: indicatorhelper_mac.cpp:105
+#: indicatorhelper_mac.cpp:96
 #, kde-format
 msgid "Waiting D-Bus"
 msgstr "Ventar på D-Bus"
 
-#: indicatorhelper_mac.cpp:125 indicatorhelper_mac.cpp:137
-#: indicatorhelper_mac.cpp:156
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
+#: indicatorhelper_mac.cpp:144
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: indicatorhelper_mac.cpp:126 indicatorhelper_mac.cpp:138
+#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
 #, kde-format
 msgid ""
 "Cannot connect to DBus\n"
@@ -95,12 +95,12 @@ msgstr ""
 "Klarte ikkje kopla til D-Bus.\n"
 "KDE Connect vert no avslutta."
 
-#: indicatorhelper_mac.cpp:156
+#: indicatorhelper_mac.cpp:144
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Fann ikkje kdeconnectd"
 
-#: indicatorhelper_mac.cpp:161
+#: indicatorhelper_mac.cpp:149
 #, kde-format
 msgid "Loading modules"
 msgstr "Lastar modular"

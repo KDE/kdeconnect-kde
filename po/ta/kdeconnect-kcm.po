@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kishore G <kishore96@gmail.com>, 2021, 2023.
+# SPDX-FileCopyrightText: 2021, 2023 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-06-11 17:18+0530\n"
+"PO-Revision-Date: 2023-12-04 20:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -142,18 +142,7 @@ msgstr "பிங் அனுப்பு"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -168,14 +157,13 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>எந்த சாதனமும் தேர்ந்தெடுக்கப்படவில்லை.<br><br>ஆண்ட்ராய்டு சாதனம் "
 "இருந்தால், <a href=\"https://play.google.com/store/apps/details?id=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">கே.டீ.யீ. கனெக்ட் ஆண்ட்ராய்டு செயலியை</span></a> நிறுவியிபின் <a href=\"https://f-"
-"droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
-"text-decoration: underline; color:#4c6b8a;\">F-Droid</span></a>-இலும் "
-"கிடைக்கும்) அது இப்பட்டியலில் தெரியும்.<br><br>பிரச்சனைகள் இருந்தால் <a href=\"https://"
-"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
-"color:#4c6b8a;\">கே.டீ.யீ. கனெக்ட் சமூக விக்கியில்</span></a> உதவி பெறலாம்.</p></"
-"body></html>"
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்ட் "
+"ஆண்ட்ராய்டு செயலியை</span></a> நிறுவியிபின் <a href=\"https://f-droid.org/"
+"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">F-Droid</span></a>-இலும் கிடைக்கும்) அது இப்பட்டியலில் "
+"தெரியும்.<br><br>பிரச்சனைகள் இருந்தால் <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline;\">கே.டீ.யீ. கனெக்ட் சமூக "
+"விக்கியில்</span></a> உதவி பெறலாம்.</p></body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "கே.டீ.யீ. கனெக்ட் அமைப்புகள்"
