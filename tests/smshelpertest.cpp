@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-#include "smshelper.h"
+#include "smsapp/smshelper.h"
 
 #include <QtTest>
 
@@ -239,4 +239,4 @@ void SmsHelperTest::testEmptyInput()
 }
 
 QTEST_GUILESS_MAIN(SmsHelperTest);
-#include "testsmshelper.moc"
+#include "smshelpertest.moc"

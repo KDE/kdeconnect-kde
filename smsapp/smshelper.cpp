@@ -24,7 +24,6 @@
 
 #include "interfaces/conversationmessage.h"
 #include "smsapp/gsmasciimap.h"
-#include "smshelper_debug.h"
 
 QObject *SmsHelper::singletonProvider(QQmlEngine * /*engine*/, QJSEngine * /*scriptEngine*/)
 {
