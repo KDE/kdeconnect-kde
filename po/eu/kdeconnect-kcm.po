@@ -1,7 +1,7 @@
 # Translation for kdeconnect-kcm.po to Euskara/Basque (eu).
 # Copyright (C) 2017-2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Osoitz <oelkoro@gmail.com>, 2017.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-07-29 14:30+0200\n"
+"PO-Revision-Date: 2023-12-06 10:30+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -147,18 +147,7 @@ msgstr "Bidali Ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -176,11 +165,11 @@ msgstr ""
 "id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; color:"
 "#4c6b8a;\">KDE Connect Android app</span></a> (<a href=\"https://f-droid.org/"
 "repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
-"decoration: underline; color:#4c6b8a;\">F-Droid</span></a> bidez ere "
-"eskuragarri) eta zerrendan agertu beharko litzateke.<br><br>Arazorik  "
-"baduzu, bisitatu <a href=\"https://userbase.kde.org/KDEConnect\"><span style="
-"\" text-decoration: underline; color:#4c6b8a;\">KDE Connect Community wikia</"
-"span></a> laguntza lortzeko.</p></body></html>"
+"decoration:underline;\">F-Droid</span></a> bidez ere eskuragarri) eta "
+"zerrendan agertu beharko litzateke.<br><br>Arazorik  baduzu, bisitatu <a "
+"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline;\">KDE Connect Community wikia</span></a> laguntza lortzeko.</p></"
+"body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "KDE Connect ezarpenak"
