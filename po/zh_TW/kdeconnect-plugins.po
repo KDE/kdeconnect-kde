@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2023-01-22 00:48+0900\n"
+"PO-Revision-Date: 2023-12-09 17:28+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 24.01.80\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: battery/batteryplugin.cpp:119
@@ -36,26 +36,25 @@ msgstr "電池剩餘 %1%"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr "剪貼簿擴充元件"
+msgstr "剪貼簿外掛程式"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "自動同步"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "自動分享這個裝置的剪貼簿"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "密碼（由密碼管理員所標記）"
+msgstr "包含密碼（由密碼管理員所標記）"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -93,7 +92,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "目前播放器"
 
 #: notifications/notification.cpp:115
 #, kde-format
@@ -122,7 +121,7 @@ msgstr "對話框"
 #: pausemusic/pausemusic_config.ui:17
 #, kde-format
 msgid "Pause music plugin"
-msgstr "暫停音樂擴充元件"
+msgstr "暫停音樂外掛程式"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: pausemusic/pausemusic_config.ui:32
@@ -244,12 +243,12 @@ msgstr "範例指令"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "匯出"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "匯入"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
@@ -263,16 +262,14 @@ msgid "Command"
 msgstr "指令"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "指令"
+msgstr "匯出指令"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "範例指令"
+msgstr "匯入指令"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -445,19 +442,19 @@ msgstr "儲存檔案到："
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "從 %1 分享來的文字已複製到剪貼簿"
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "用編輯器開啟"
 
 #: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "開啟連結"
 
 #: share/shareplugin.cpp:251
 #, kde-format

@@ -6,20 +6,21 @@
 # Automatically generated, 2019.
 # pan93412 <pan93412@gmail.com>, 2019.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2021-09-12 08:47+0800\n"
-"Last-Translator: Chaoting Liu <brli@chakralinux.org>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-09 17:31+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,11 +40,10 @@ msgstr "瀏覽裝置"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "傳送剪貼簿"
 
 #: deviceindicator.cpp:81
-#, fuzzy, kde-format
-#| msgid "Ring device"
+#, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "讓裝置響鈴"
@@ -134,8 +134,7 @@ msgid "Pairing requests"
 msgstr "配對請求"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "配對"

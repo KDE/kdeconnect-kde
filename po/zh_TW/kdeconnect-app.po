@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-01-22 00:42+0900\n"
+"PO-Revision-Date: 2023-12-09 17:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "傳送 Ping"
 #: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
-msgstr "擴充元件設定"
+msgstr "外掛程式設定"
 
 #: qml/DevicePage.qml:60
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "執行指令"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "傳送剪貼簿"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -130,8 +130,7 @@ msgid "This device is not paired"
 msgstr "本裝置未配對"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
@@ -162,11 +161,10 @@ msgid "Please choose a file"
 msgstr "請選擇檔案"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "尋找裝置"
+msgstr "裝置"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -204,10 +202,9 @@ msgid "Remote Control"
 msgstr "遠端控制"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "同時按下滑鼠左鍵與右鍵以解鎖"
+msgstr "按下 %1 或是同時按下滑鼠左鍵與右鍵來解鎖"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -261,7 +258,6 @@ msgid "About KDE Connect"
 msgstr "關於 KDE 連線"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "關於 KDE 連線"
+msgstr "關於 KDE"
