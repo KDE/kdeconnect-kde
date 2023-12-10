@@ -36,7 +36,8 @@
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
                 "Name[x-test]": "xxAlbert Vaca Cintoraxx",
-                "Name[zh_CN]": "Albert Vaca Cintora"
+                "Name[zh_CN]": "Albert Vaca Cintora",
+                "Name[zh_TW]": "Albert Vaca Cintora"
             }
         ],
         "Category": "System Information",
@@ -69,6 +70,7 @@
         "Description[uk]": "Показ сповіщень з ваших пристроїв за допомогою програми «З’єднання KDE»",
         "Description[x-test]": "xxShow notifications from your devices using KDE Connectxx",
         "Description[zh_CN]": "通过 KDE Connect 显示来自其他设备的通知",
+        "Description[zh_TW]": "使用 KDE 連線顯示來自您的裝置的通知",
         "EnabledByDefault": true,
         "Icon": "kdeconnect",
         "Id": "org.kde.kdeconnect",

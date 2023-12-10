@@ -35,7 +35,8 @@
                 "Name[tr]": "Albert Vaca Cintora",
                 "Name[uk]": "Albert Vaca Cintora",
                 "Name[x-test]": "xxAlbert Vaca Cintoraxx",
-                "Name[zh_CN]": "Albert Vaca Cintora"
+                "Name[zh_CN]": "Albert Vaca Cintora",
+                "Name[zh_TW]": "Albert Vaca Cintora"
             }
         ],
         "Description": "Pause music/videos during a phone call",
