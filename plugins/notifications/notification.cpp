@@ -121,6 +121,7 @@ void Notification::createKNotification(const NetworkPacket &np)
     }
 
 #if QT_VERSION_MAJOR == 6
+    m_notification->clearActions();
     for (const QString &actionId : std::as_const(m_actions)) {
         KNotificationAction *action = m_notification->addAction(actionId);
 
