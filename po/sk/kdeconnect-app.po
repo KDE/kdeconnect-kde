@@ -1,5 +1,5 @@
 # translation of kdeconnect-app.po to Slovak
-# Roman Paholik <wizzardsk@gmail.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2023 Roman Paholik <wizzardsk@gmail.com>
 # Matej Mrenica <matejm98mthw@gmail.com>, 2020.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2021-11-15 17:36+0100\n"
+"PO-Revision-Date: 2023-12-11 18:15+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: main.cpp:32 main.cpp:34
@@ -107,7 +107,7 @@ msgstr "Spustiť príkaz"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Poslať schránku"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -125,8 +125,7 @@ msgid "This device is not paired"
 msgstr "Toto zariadenie nie je spárované"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Spárovať"
@@ -157,11 +156,10 @@ msgid "Please choose a file"
 msgstr "Prosím, vyberte súbor"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Nájsť zariadenie"
+msgstr "Zariadenia"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -189,10 +187,9 @@ msgid "Find devices..."
 msgstr "Nájsť zariadenia..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Nastavenia doplnkov"
+msgstr "Nastavenia"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -241,16 +238,15 @@ msgid "No commands defined"
 msgstr "Nie sú určené žiadne príkazy"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Nastavenia doplnkov"
+msgstr "Nastavenia"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Názov zariadenia"
 
 #: qml/Settings.qml:52
 #, fuzzy, kde-format
