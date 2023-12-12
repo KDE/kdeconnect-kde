@@ -2,6 +2,8 @@
 # SPDX-License-Identifier: CC0-1.0
 
 include:
-  - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/linux.yml
-  - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/freebsd.yml
-  - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/windows.yml
+  - project: sysadmin/ci-utilities
+    file:
+      - /gitlab-templates/linux.yml
+      - /gitlab-templates/freebsd.yml
+      - /gitlab-templates/windows.yml
