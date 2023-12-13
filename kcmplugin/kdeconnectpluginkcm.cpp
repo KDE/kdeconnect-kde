@@ -14,7 +14,7 @@ KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const KPluginMetaData 
 #endif
     , m_deviceId(args.at(0).toString())
     // The plugin name is the KCMs ID with the postfix removed
-    , m_config(new KdeConnectPluginConfig(m_deviceId, args.at(1).toString().remove(QLatin1String("_config")), this))
+    , m_config(new KdeConnectPluginConfig(m_deviceId, data.pluginId().remove(QLatin1String("_config")), this))
 {
     Q_ASSERT(data.isValid()); // Even if we have empty metadata, it should be valid!
 }
