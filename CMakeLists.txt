@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(kdeconnect VERSION ${RELEASE_SERVICE_VERSION})
 
-set(KF_MIN_VERSION "5.101.0")
-set(QT_MIN_VERSION "5.15.2")
+set(KF_MIN_VERSION "5.240")
+set(QT_MIN_VERSION "6.6.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
@@ -49,8 +49,8 @@ else()
 endif()
 
 ecm_set_disabled_deprecation_versions(
-    QT ${QT_MIN_VERSION}
-    KF ${KF_MIN_VERSION}
+    QT 5.15
+    KF 5.110
 )
 
 # Make the version header available by linking against kdeconnectversion
