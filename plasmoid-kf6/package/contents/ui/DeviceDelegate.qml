@@ -20,6 +20,9 @@ PlasmaComponents.ItemDelegate
     id: root
     readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
 
+    hoverEnabled: false
+    down: false
+
     DropArea {
         id: fileDropArea
         anchors.fill: parent
