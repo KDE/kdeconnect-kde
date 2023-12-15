@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2013, 2014, 2015, 2016, 2017, 2018, 2021.
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2017, 2018, 2021, 2023 Vít Pelčák <vit@pelcak.org>
 # Vit Pelcak <vit@pelcak.org>, 2021.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2021-11-01 13:56+0100\n"
+"PO-Revision-Date: 2023-11-21 15:04+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -143,18 +143,7 @@ msgstr "Poslat ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -168,13 +157,12 @@ msgid ""
 "html>"
 msgstr ""
 "<html><head/><body><p>Nebylo vybráno zařízení.<br><br>Pokud máte zařízení s "
-"Androidem, ujistěte se, že máte nainstalovánu<a href=\"https://play.google."
-"com/store/apps/details?id=org.kde.kdeconnect_tp\"> <span style=\" text-"
-"decoration: underline; color:#4c6b8a;\">aplikaci KDE Connect Android</span></"
-"a> (rovněž dostupná <a href=\"https://f-droid.org/repository/ browse/?"
-"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; "
-"color:#4c6b8a;\">z F-Droidu</span></a>) a měla by se objevit v seznamu.<br> "
-"<br>V případě problémů, navštivte <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">Komunitní Wiki pro KDE Connect</span></a> kde můžete hledat pomoc.</p></"
-"body></html>"
+"Androidem, ujistěte se, že máte nainstalovánu <a href=\"https://play.google."
+"com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">aplikaci KDE Connect Android</span></a> (rovněž "
+"dostupná <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">z F-Droidu</"
+"span></a>) a měla by se objevit v seznamu.<br> <br>V případě problémů, "
+"navštivte <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
+"text-decoration: underline;\">Komunitní Wiki pro KDE Connect</span></a> kde "
+"můžete hledat pomoc.</p></body></html>"
