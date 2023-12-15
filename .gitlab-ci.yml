@@ -13,3 +13,4 @@ include:
       - /gitlab-templates/freebsd-qt6.yml
       - /gitlab-templates/windows-qt6.yml
       - /gitlab-templates/clang-format.yml
+      - /gitlab-templates/craft-windows-x86-64.yml
