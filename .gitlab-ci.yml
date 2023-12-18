@@ -14,3 +14,4 @@ include:
       - /gitlab-templates/windows-qt6.yml
       - /gitlab-templates/clang-format.yml
       - /gitlab-templates/craft-windows-x86-64.yml
+      - /gitlab-templates/craft-windows-appx-qt5.yml
