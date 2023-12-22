@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Maxime Corteel <mcorteel@gmail.com>, 2017, 2019.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2021, 2022, 2023.
+# Xavier Besnard <xavier.besnard@kde.org>, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""

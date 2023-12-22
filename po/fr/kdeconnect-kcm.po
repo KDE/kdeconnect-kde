@@ -4,15 +4,15 @@
 # Nicolas Ménard <nico.menard@gmail.com>, 2014.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018.
-# SPDX-FileCopyrightText: 2020, 2021, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
+# SPDX-FileCopyrightText: 2020, 2021, 2023 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-17 00:48+0000\n"
-"PO-Revision-Date: 2023-06-13 06:28+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2023-11-21 11:00+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Maxime Corteel, Simon Depiets, Xavier Besnard"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "mcorteel@gmail.com, sdepiets@gmail.com, xavier.besnard@neuf.fr"
+msgstr "mcorteel@gmail.com, sdepiets@gmail.com, xavier.besnard@kde.org"
 
 #: kcm.cpp:38
 #, kde-format
