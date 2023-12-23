@@ -15,13 +15,15 @@ Kirigami.Page
     title: i18nd("kdeconnect-app", "Presentation Remote")
     property QtObject pluginInterface
 
-    actions.main: Kirigami.Action {
-        icon.name: "view-fullscreen"
-        text: i18nd("kdeconnect-app", "Enable Full-Screen")
-        onTriggered: {
-            mousepad.pluginInterface.sendKeyPress("", 25 /*XK_F5*/);
+    actions: [
+        Kirigami.Action {
+            icon.name: "view-fullscreen"
+            text: i18nd("kdeconnect-app", "Enable Full-Screen")
+            onTriggered: {
+                mousepad.pluginInterface.sendKeyPress("", 25 /*XK_F5*/);
+            }
         }
-    }
+    ]
 
     ColumnLayout
     {

@@ -16,14 +16,16 @@ Kirigami.ScrollablePage
     title: i18nd("kdeconnect-app", "Run command")
     property QtObject pluginInterface
 
-    @KIGIGAMI_PAGE_ACTIONS@: Kirigami.Action {
-        icon.name: "document-edit"
-        text: i18nd("kdeconnect-app", "Edit commands")
-        onTriggered: {
-            pluginInterface.editCommands();
-            showPassiveNotification(i18nd("kdeconnect-app", "You can edit commands on the connected device"));
+    actions: [
+        Kirigami.Action {
+            icon.name: "document-edit"
+            text: i18nd("kdeconnect-app", "Edit commands")
+            onTriggered: {
+                pluginInterface.editCommands();
+                showPassiveNotification(i18nd("kdeconnect-app", "You can edit commands on the connected device"));
+            }
         }
-    }
+    ]
 
     ListView {
         id: commandsList

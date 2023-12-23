@@ -12,7 +12,7 @@ Kirigami.Page {
     property string configFile
     property string device
 
-    @KIRIGAMI_PAGE_ACTIONS@: loader.item && loader.item.action ? loader.item.action : null
+    actions: loader.item && loader.item.action ? [loader.item.action] : []
 
     onConfigFileChanged: loader.setSource(configFile, {
         device: root.device

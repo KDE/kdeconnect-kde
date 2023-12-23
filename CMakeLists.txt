@@ -37,17 +37,6 @@ ecm_setup_version(${RELEASE_SERVICE_VERSION}
     VERSION_HEADER ${CMAKE_CURRENT_BINARY_DIR}/kdeconnect-version.h
 )
 
-if(QT_MAJOR_VERSION STREQUAL "6")
-    set(KIRIGAMI_ICON "icon.name")
-    set(KIRIGAMI_PAGE_ACTIONS "actions")
-    set(QTQUICK_FILEDIALOG_FOLDER "currentFolder")
-else()
-    set(QTQUICK_DIALOGS_IMPORT_VERSION 1.0)
-    set(KIRIGAMI_ICON "icon")
-    set(KIRIGAMI_PAGE_ACTIONS "contextualActions")
-    set(QTQUICK_FILEDIALOG_FOLDER "folder")
-endif()
-
 ecm_set_disabled_deprecation_versions(
     QT 5.15
     KF 5.110

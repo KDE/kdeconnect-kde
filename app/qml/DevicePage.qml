@@ -16,7 +16,7 @@ Kirigami.ScrollablePage {
     property QtObject currentDevice
     title: currentDevice.name
 
-    @KIRIGAMI_PAGE_ACTIONS@: [
+    actions: [
         Kirigami.Action {
             icon.name: "network-disconnect"
             onTriggered: root.currentDevice.unpair()
@@ -172,7 +172,7 @@ Kirigami.ScrollablePage {
         id: fileDialog
         readonly property var shareIface: root.currentDevice ? ShareDbusInterfaceFactory.create(root.currentDevice.id()) : null
         title: i18nd("kdeconnect-app", "Please choose a file")
-        @QTQUICK_FILEDIALOG_FOLDER@: shortcuts.home
+        currentFolder: shortcuts.home
         onAccepted: shareIface.shareUrl(fileDialog.fileUrl)
     }
 }
