@@ -189,7 +189,7 @@ Kirigami.ScrollablePage
         {
             id: listItem
             icon.name: decoration
-            text: display
+            text: displayNames
             subtitle: toolTip
             width: view.width
 

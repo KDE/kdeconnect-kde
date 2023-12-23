@@ -27,6 +27,7 @@ ConversationListModel::ConversationListModel(QObject *parent)
 {
     // qCDebug(KDECONNECT_SMS_CONVERSATIONS_LIST_MODEL) << "Constructing" << this;
     auto roles = roleNames();
+    roles.insert(Qt::DisplayRole, "displayNames");
     roles.insert(FromMeRole, "fromMe");
     roles.insert(SenderRole, "sender");
     roles.insert(DateRole, "date");
