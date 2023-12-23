@@ -5,6 +5,7 @@
  */
 
 import QtQuick
+import QtCore
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import QtQuick.Dialogs
@@ -172,7 +173,7 @@ Kirigami.ScrollablePage {
         id: fileDialog
         readonly property var shareIface: root.currentDevice ? ShareDbusInterfaceFactory.create(root.currentDevice.id()) : null
         title: i18nd("kdeconnect-app", "Please choose a file")
-        currentFolder: shortcuts.home
+        currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
         onAccepted: shareIface.shareUrl(fileDialog.fileUrl)
     }
 }

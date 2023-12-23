@@ -5,6 +5,7 @@
  */
 
 import QtQuick
+import QtCore
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
@@ -31,7 +32,7 @@ ColumnLayout {
 
     FileDialog {
         id: fileDialog
-        currentFolder: shortcuts.home
+        currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
         fileMode: FileDialog.OpenFiles
 
         onAccepted: {
