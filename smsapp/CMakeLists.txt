@@ -38,13 +38,24 @@ add_executable(kdeconnect-sms
     conversationlistmodel.cpp
     conversationmodel.cpp
     conversationssortfilterproxymodel.cpp
-    resources.qrc
     thumbnailsprovider.cpp
     attachmentinfo.cpp
     ${kdeconnect_custom_icons_SRCS}
 )
 
-target_link_libraries(kdeconnect-sms
+ecm_add_qml_module(kdeconnect-sms URI org.kde.kdeconnect.sms)
+
+ecm_target_qml_sources(kdeconnect-sms SOURCES
+    qml/Main.qml
+    qml/ConversationList.qml
+    qml/ConversationDisplay.qml
+    qml/ChatMessage.qml
+    qml/MessageAttachments.qml
+    qml/AttachmentViewer.qml
+    qml/SendingArea.qml
+)
+
+target_link_libraries(kdeconnect-sms PRIVATE
     kdeconnectsmshelper
     kdeconnectinterfaces
     kdeconnectversion

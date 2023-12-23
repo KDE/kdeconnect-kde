@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
-    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+    engine.loadFromModule("org.kde.kdeconnect.app", "Main");
 
     return app.exec();
 }
