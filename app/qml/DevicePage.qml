@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as QQC2
-import QtQuick.Layouts 1.15
-import QtQuick.Dialogs @QTQUICK_DIALOGS_IMPORT_VERSION@
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.kdeconnect 1.0
+import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts
+import QtQuick.Dialogs
+import org.kde.kirigami as Kirigami
+import org.kde.kdeconnect
 
 Kirigami.ScrollablePage {
     id: root
