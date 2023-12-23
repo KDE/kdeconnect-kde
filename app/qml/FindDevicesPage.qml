@@ -45,6 +45,9 @@ Kirigami.ScrollablePage
         section {
             property: "status"
             delegate: Kirigami.ListSectionHeader {
+
+                width: ListView.view.width
+
                 text: switch (parseInt(section))
                 {
                     case DevicesModel.Paired:
