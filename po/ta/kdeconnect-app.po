@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-12-24 00:41+0000\n"
 "PO-Revision-Date: 2023-10-15 13:57+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -69,88 +69,88 @@ msgstr "பிங் அனுப்பு"
 msgid "Plugin Settings"
 msgstr "செருகுநிரல் அமைப்புகள்"
 
-#: qml/DevicePage.qml:60
+#: qml/DevicePage.qml:61
 #, kde-format
 msgid "Multimedia control"
 msgstr "பல்லூடக கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:67
+#: qml/DevicePage.qml:68
 #, kde-format
 msgid "Remote input"
 msgstr "தொலை உள்ளீடு"
 
-#: qml/DevicePage.qml:74 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "வில்லைக்காட்சி தொலையியக்கி"
 
-#: qml/DevicePage.qml:83 qml/mousepad.qml:44
+#: qml/DevicePage.qml:84 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "பூட்டு"
 
-#: qml/DevicePage.qml:83
+#: qml/DevicePage.qml:84
 #, kde-format
 msgid "Unlock"
 msgstr "திற"
 
-#: qml/DevicePage.qml:90
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Find Device"
 msgstr "சாதனத்தை கண்டுபிடி"
 
-#: qml/DevicePage.qml:95 qml/runcommand.qml:16
+#: qml/DevicePage.qml:96 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "கட்டளையை இயக்கு"
 
-#: qml/DevicePage.qml:104
+#: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
 msgstr "பிடிப்புப்பலகையை அனுப்பு"
 
-#: qml/DevicePage.qml:110
+#: qml/DevicePage.qml:111
 #, kde-format
 msgid "Share File"
 msgstr "கோப்பை பகிர்"
 
-#: qml/DevicePage.qml:115 qml/volume.qml:16
+#: qml/DevicePage.qml:116 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "ஒலியளவு கட்டுப்பாடு"
 
-#: qml/DevicePage.qml:124
+#: qml/DevicePage.qml:125
 #, kde-format
 msgid "This device is not paired"
 msgstr "இச்சாதனம் இணைக்கப்படவில்லை"
 
-#: qml/DevicePage.qml:128
+#: qml/DevicePage.qml:129
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "இணை"
 
-#: qml/DevicePage.qml:135 qml/DevicePage.qml:144
+#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
 #, kde-format
 msgid "Pair requested"
 msgstr "இணைப்பு கோரப்பட்டது"
 
-#: qml/DevicePage.qml:150
+#: qml/DevicePage.qml:151
 #, kde-format
 msgid "Accept"
 msgstr "ஏற்றுக்கொள்"
 
-#: qml/DevicePage.qml:156
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Reject"
 msgstr "மறு"
 
-#: qml/DevicePage.qml:165
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "This device is not reachable"
 msgstr "சாதனத்தைத் தொடர்புகொள்ள முடியவில்லை"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Please choose a file"
 msgstr "கோப்பைத் தேர்ந்தெடுங்கள்"
@@ -186,7 +186,7 @@ msgstr "இணைந்துள்ளது"
 msgid "Find devices..."
 msgstr "சாதனங்களை கண்டுபிடி..."
 
-#: qml/main.qml:118 qml/main.qml:121
+#: qml/main.qml:118 qml/main.qml:122
 #, kde-format
 msgid "Settings"
 msgstr "அமைப்புகள்"
@@ -232,7 +232,7 @@ msgstr "கட்டளைகளை திருத்து"
 msgid "You can edit commands on the connected device"
 msgstr "இணைக்கப்பட்டுள்ள சாதனத்திலிருந்து கட்டளைகளை திருத்தலாம்"
 
-#: qml/runcommand.qml:43
+#: qml/runcommand.qml:48
 #, kde-format
 msgid "No commands defined"
 msgstr "எந்த கட்டளையும் வரையறுக்கப்படவில்லை"
