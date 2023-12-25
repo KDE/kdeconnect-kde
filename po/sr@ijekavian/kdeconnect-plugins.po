@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-31 18:06+0200\n"
+"POT-Creation-Date: 2023-12-03 00:41+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -20,16 +20,40 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: battery/batteryplugin.cpp:147
+#: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
 msgstr "%1: батерија на измаку"
 
-#: battery/batteryplugin.cpp:147
+#: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
 msgstr "батерија на %1%"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Automatic synchronization"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -49,22 +73,40 @@ msgstr ""
 msgid "Select the sound to play"
 msgstr ""
 
-#: mousepad/waylandremoteinput.cpp:60 sftp/sftpplugin-win.cpp:85
+#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
-msgid "KDE Connect"
-msgstr "КДЕ‑конекција"
+msgid "Remote lock successful"
+msgstr ""
 
-#: mousepad/waylandremoteinput.cpp:60
+#: lockdevice/lockdeviceplugin-win.cpp:62
+#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
-msgid "Use your phone as a touchpad and keyboard"
-msgstr "Користите телефон као додирник и тастатуру"
+msgid "Remote lock failed"
+msgstr ""
 
-#: notifications/notification.cpp:131
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr ""
+
+#: notifications/notification.cpp:115
+#, fuzzy, kde-format
+#| msgid "Reply"
+msgctxt "@action:button"
 msgid "Reply"
 msgstr "Одговори"
 
-#: notifications/sendreplydialog.cpp:41
+#: notifications/notification.cpp:116
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1..."
+msgstr ""
+
+#: notifications/sendreplydialog.cpp:29
 #, kde-format
 msgid "Send"
 msgstr "Пошаљи"
@@ -123,78 +165,135 @@ msgstr "Утишај звукове система"
 msgid "Automatically resume media when call has finished"
 msgstr ""
 
-#: ping/pingplugin.cpp:49
+#: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
 msgstr "Пинг!"
 
-#: runcommand/runcommand_config.cpp:45
+#: runcommand/runcommand_config.cpp:41
+#, kde-format
+msgid "Schedule a shutdown"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:42
+#, kde-format
+msgid "Shutdown now"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:43
+#, kde-format
+msgid "Cancel last shutdown"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:44
+#, kde-format
+msgid "Schedule a reboot"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
 msgstr ""
 
-#: runcommand/runcommand_config.cpp:46
-#, kde-format
-msgid "Maximum Brightness"
-msgstr ""
-
-#: runcommand/runcommand_config.cpp:47
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
 msgstr ""
 
-#: runcommand/runcommand_config.cpp:48
-#, kde-format
-msgid "Unlock Screen"
-msgstr ""
-
 #: runcommand/runcommand_config.cpp:49
 #, kde-format
-msgid "Close All Vaults"
+msgid "Say Hello"
 msgstr ""
 
-#: runcommand/runcommand_config.cpp:50
+#: runcommand/runcommand_config.cpp:52
 #, kde-format
-msgid "Forcefully Close All Vaults"
+msgid "Shutdown"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:53
+#, kde-format
+msgid "Reboot"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:57
 #, kde-format
-msgid "Sample commands"
+msgid "Maximum Brightness"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:63
+#, kde-format
+msgid "Unlock Screen"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:64
+#, kde-format
+msgid "Close All Vaults"
 msgstr ""
 
 #: runcommand/runcommand_config.cpp:66
-#: sendnotifications/notifyingapplicationmodel.cpp:208
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:73
+#, kde-format
+msgid "Sample commands"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:77
+#, kde-format
+msgid "Export"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Import"
+msgstr ""
+
+#: runcommand/runcommand_config.cpp:93
+#: sendnotifications/notifyingapplicationmodel.cpp:177
 #, kde-format
 msgid "Name"
 msgstr "Назив"
 
-#: runcommand/runcommand_config.cpp:66
+#: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
 msgstr "Наредба"
 
-#: screensaver-inhibit/screensaverinhibitplugin.cpp:43
+#: runcommand/runcommand_config.cpp:98
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Export Commands"
+msgstr "Наредба"
+
+#: runcommand/runcommand_config.cpp:123
+#, fuzzy, kde-format
+#| msgid "Command"
+msgid "Import Commands"
+msgstr "Наредба"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
 msgstr ""
 
-#: sendnotifications/notifyingapplicationmodel.cpp:212
+#: sendnotifications/notifyingapplicationmodel.cpp:181
 #, kde-format
 msgid "Blacklisted"
 msgstr "На црној листи"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:216
+#: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
 msgstr "Назив обавештавајућег програма."
 
-#: sendnotifications/notifyingapplicationmodel.cpp:218
+#: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
 msgstr "Синхронизовати обавештења програма?"
 
-#: sendnotifications/notifyingapplicationmodel.cpp:220
+#: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
 msgid ""
 "Regular expression defining which notifications should not be sent.\n"
@@ -275,49 +374,54 @@ msgstr "Минимум нивоа хитности"
 msgid "Applications"
 msgstr "Програми"
 
-#: sftp/mounter.cpp:185
+#: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Не могу да покренем sshfs"
 
-#: sftp/mounter.cpp:189
+#: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
 msgstr ""
 
-#: sftp/mounter.cpp:193
+#: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr ""
 
-#: sftp/mounter.cpp:207
+#: sftp/mounter.cpp:186
 #, fuzzy, kde-format
 #| msgid "Error when accessing to filesystem"
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Грешка у приступу фајл систему"
 
-#: sftp/mounter.cpp:216
+#: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Неуспело монтирање фајл система: уређај не одговара"
 
-#: sftp/sftpplugin-win.cpp:85
+#: sftp/sftpplugin-win.cpp:79
+#, kde-format
+msgid "KDE Connect"
+msgstr "КДЕ‑конекција"
+
+#: sftp/sftpplugin-win.cpp:80
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
 msgstr ""
 
-#: sftp/sftpplugin.cpp:153
+#: sftp/sftpplugin.cpp:134
 #, kde-format
 msgid "All files"
 msgstr "сви фајлови"
 
-#: sftp/sftpplugin.cpp:154
+#: sftp/sftpplugin.cpp:135
 #, kde-format
 msgid "Camera pictures"
 msgstr "Слике са камере"
 
 # ignore-entity: percnt
-#: share/share_config.cpp:38
+#: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
 msgstr "&percnt;1 у путањи биће замењено са називом уређаја."
@@ -340,32 +444,53 @@ msgstr "Примање"
 msgid "Save files in:"
 msgstr "Уписуј фајлове у:"
 
-#: share/shareplugin.cpp:207
+#: share/shareplugin.cpp:160
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr ""
+
+#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr ""
+
+#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr ""
+
+#: share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
 msgstr ""
 
-#: share/shareplugin.cpp:207
+#: share/shareplugin.cpp:251
 #, kde-format
 msgid "%1 does not exist"
 msgstr ""
 
-#: telephony/telephonyplugin.cpp:42
+#: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
 msgstr "непознат број"
 
-#: telephony/telephonyplugin.cpp:51
+#: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
 msgstr "Долазни позив: %1"
 
-#: telephony/telephonyplugin.cpp:55
+#: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
 msgstr "Пропуштен позив: %1"
 
-#: telephony/telephonyplugin.cpp:83
+#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
 #, kde-format
 msgid "Mute Call"
 msgstr "Утишај позив"
+
+#~ msgid "Use your phone as a touchpad and keyboard"
+#~ msgstr "Користите телефон као додирник и тастатуру"

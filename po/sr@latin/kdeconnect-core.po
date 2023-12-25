@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-10 03:31+0200\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -20,156 +20,165 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: backends/bluetooth/bluetoothpairinghandler.cpp:71
-#: backends/lan/lanpairinghandler.cpp:67
-#, kde-format
-msgid "Canceled by other peer"
-msgstr "Otkazala druga strana"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:80
-#: backends/lan/lanpairinghandler.cpp:76
-#, kde-format
-msgid "%1: Already paired"
-msgstr "%1: već upareno"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:83
-#, kde-format
-msgid "%1: Pairing already requested for this device"
-msgstr "%1: već je zatraženo uparivanje sa uređajem"
-
-#: backends/bluetooth/bluetoothpairinghandler.cpp:139
-#: backends/lan/lanpairinghandler.cpp:120
-#, kde-format
-msgid "Timed out"
-msgstr "Isteklo vreme"
-
-#: backends/lan/compositeuploadjob.cpp:95
+#: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Ne mogu da nađem dostupan port"
 
-#: backends/lan/compositeuploadjob.cpp:134
+#: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:292
-#, kde-format
-msgid "Sent 1 file"
-msgid_plural "Sent %1 files"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
-#: backends/lan/compositeuploadjob.cpp:293
-#: backends/lan/compositeuploadjob.cpp:308
+#: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
 msgid "Sending to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:304 compositefiletransferjob.cpp:155
-#, kde-format
-msgid "Progress"
-msgstr ""
-
-#: backends/lan/compositeuploadjob.cpp:305
-#, kde-format
-msgid "Sending file %1 of %2"
-msgstr ""
-
-#: backends/lan/compositeuploadjob.cpp:309 compositefiletransferjob.cpp:160
+#: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
 msgid "File"
 msgstr ""
 
-#: backends/lan/landevicelink.cpp:160 backends/lan/landevicelink.cpp:174
+#: backends/pairinghandler.cpp:59
 #, kde-format
-msgid ""
-"This device cannot be paired because it is running an old version of KDE "
-"Connect."
-msgstr ""
-"Ovaj uređaj se ne može upariti jer radi sa starijom verzijom KDE‑konekcije."
+msgid "Canceled by other peer"
+msgstr "Otkazala druga strana"
 
-#: compositefiletransferjob.cpp:156
+#: backends/pairinghandler.cpp:75
+#, kde-format
+msgid "%1: Already paired"
+msgstr "%1: već upareno"
+
+#: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
 #, fuzzy, kde-format
-#| msgid "Receiving file over KDE Connect"
-msgid "Receiving file %1 of %2"
-msgstr "Primam fajl preko KDE‑konekcije"
+#| msgid "Device not reachable"
+msgid "%1: Device not reachable"
+msgstr "Uređaj nije dostupan"
 
-#: compositefiletransferjob.cpp:159
+#: backends/pairinghandler.cpp:113
+#, kde-format
+msgid "Device not reachable"
+msgstr "Uređaj nije dostupan"
+
+#: backends/pairinghandler.cpp:124
+#, fuzzy, kde-format
+#| msgid "Canceled by other peer"
+msgid "Cancelled by user"
+msgstr "Otkazala druga strana"
+
+#: backends/pairinghandler.cpp:140
+#, kde-format
+msgid "Timed out"
+msgstr "Isteklo vreme"
+
+#: compositefiletransferjob.cpp:45
 #, fuzzy, kde-format
 #| msgid "Received incomplete file: %1"
-msgid "Receiving file from %2"
-msgid_plural "Receiving %1 files from %2"
+msgctxt "@title job"
+msgid "Receiving file"
+msgid_plural "Receiving files"
 msgstr[0] "Primljen nedovršen fajl: %1"
 msgstr[1] "Primljen nedovršen fajl: %1"
 msgstr[2] "Primljen nedovršen fajl: %1"
 msgstr[3] "Primljen nedovršen fajl: %1"
 
-#: device.cpp:225
+#: compositefiletransferjob.cpp:46
 #, kde-format
-msgid "Already paired"
-msgstr "već upareno"
+msgctxt "The source of a file operation"
+msgid "Source"
+msgstr ""
 
-#: device.cpp:230
+#: compositefiletransferjob.cpp:47
 #, kde-format
-msgid "Device not reachable"
-msgstr "Uređaj nije dostupan"
+msgctxt "The destination of a file operation"
+msgid "Destination"
+msgstr ""
 
-#: device.cpp:549
-#, kde-format
-msgid "SHA1 fingerprint of your device certificate is: %1\n"
+#: device.cpp:455
+#, fuzzy, kde-format
+#| msgid "SHA1 fingerprint of your device certificate is: %1\n"
+msgid "SHA256 fingerprint of your device certificate is: %1\n"
 msgstr "SHA‑1 otisak sertifikata za vaš uređaj je: %1\n"
 
-#: device.cpp:557
-#, kde-format
-msgid "SHA1 fingerprint of remote device certificate is: %1\n"
+#: device.cpp:461
+#, fuzzy, kde-format
+#| msgid "SHA1 fingerprint of remote device certificate is: %1\n"
+msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA‑1 otisak sertifikata udaljenog uređaja je: %1\n"
 
-#: filetransferjob.cpp:65
+#: filetransferjob.cpp:59
 #, kde-format
 msgid "Filename already present"
 msgstr "Naziv fajla već postoji"
 
-#: filetransferjob.cpp:115
+#: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
 msgstr "Primljen nedovršen fajl: %1"
 
-#: filetransferjob.cpp:133
+#: filetransferjob.cpp:123
 #, fuzzy, kde-format
 #| msgid "Received incomplete file: %1"
 msgid "Received incomplete file from: %1"
 msgstr "Primljen nedovršen fajl: %1"
 
-#: kdeconnectconfig.cpp:74
+#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Propalo pokretanje KDE‑konekcije"
 
-# QCA-ossl and QCA-gnupg are plugin identifiers in QCA
-#: kdeconnectconfig.cpp:75
+#: kdeconnectconfig.cpp:301
 #, fuzzy, kde-format
-#| msgid ""
-#| "Could not find support for RSA in your QCA installation. If your "
-#| "distribution provides separate packages for QCA-ossl and QCA-gnupg, make "
-#| "sure you have them installed and try again."
-msgid ""
-"Could not find support for RSA in your QCA installation. If your "
-"distribution provides separate packets for QCA-ossl and QCA-gnupg, make sure "
-"you have them installed and try again."
-msgstr ""
-"U vašoj instalaciji QCA‑a, ne mogu da nađem podršku za RSA. Ako vaša "
-"distribucija daje odvojene pakete za QCA-ossl i QCA-gnupg proverite da su "
-"instalirani i pokušajte ponovo."
+#| msgid "Could not store private key file: %1"
+msgid "Could not generate the private key."
+msgstr "Ne mogu da smestim fajl ličnog ključa: %1"
 
-#: kdeconnectconfig.cpp:302
+#: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Ne mogu da smestim fajl ličnog ključa: %1"
 
-#: kdeconnectconfig.cpp:347
+#: kdeconnectconfig.cpp:332
+#, fuzzy, kde-format
+#| msgid "Could not store certificate file: %1"
+msgid "Could not generate the device certificate."
+msgstr "Ne mogu da smestim fajl sertifikata: %1"
+
+#: kdeconnectconfig.cpp:348
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne mogu da smestim fajl sertifikata: %1"
+
+#~ msgid "%1: Pairing already requested for this device"
+#~ msgstr "%1: već je zatraženo uparivanje sa uređajem"
+
+#~ msgid ""
+#~ "This device cannot be paired because it is running an old version of KDE "
+#~ "Connect."
+#~ msgstr ""
+#~ "Ovaj uređaj se ne može upariti jer radi sa starijom verzijom "
+#~ "KDE‑konekcije."
+
+#, fuzzy
+#~| msgid "Receiving file over KDE Connect"
+#~ msgid "Receiving file %1 of %2"
+#~ msgstr "Primam fajl preko KDE‑konekcije"
+
+#~ msgid "Already paired"
+#~ msgstr "već upareno"
+
+# QCA-ossl and QCA-gnupg are plugin identifiers in QCA
+#, fuzzy
+#~| msgid ""
+#~| "Could not find support for RSA in your QCA installation. If your "
+#~| "distribution provides separate packages for QCA-ossl and QCA-gnupg, make "
+#~| "sure you have them installed and try again."
+#~ msgid ""
+#~ "Could not find support for RSA in your QCA installation. If your "
+#~ "distribution provides separate packets for QCA-ossl and QCA-gnupg, make "
+#~ "sure you have them installed and try again."
+#~ msgstr ""
+#~ "U vašoj instalaciji QCA‑a, ne mogu da nađem podršku za RSA. Ako vaša "
+#~ "distribucija daje odvojene pakete za QCA-ossl i QCA-gnupg proverite da su "
+#~ "instalirani i pokušajte ponovo."

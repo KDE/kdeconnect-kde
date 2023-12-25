@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-04-23 03:27+0200\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
 "PO-Revision-Date: 2017-08-03 11:05+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -20,88 +20,143 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: package/contents/ui/Battery.qml:40
+#: package/contents/ui/Battery.qml:25
+#, kde-format
 msgid "%1% charging"
 msgstr "%1% пуни се"
 
-#: package/contents/ui/Battery.qml:40
+#: package/contents/ui/Battery.qml:25
+#, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/Battery.qml:40
+#: package/contents/ui/Battery.qml:25
+#, kde-format
 msgid "No info"
 msgstr "нема података"
 
-#: package/contents/ui/DeviceDelegate.qml:65
+#: package/contents/ui/Connectivity.qml:40
+#, kde-format
+msgid "Unknown"
+msgstr ""
+
+#: package/contents/ui/Connectivity.qml:50
+#, kde-format
+msgid "No signal"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:56
+#, kde-format
 msgid "File Transfer"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:66
+#: package/contents/ui/DeviceDelegate.qml:57
+#, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:84
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
+#: package/contents/ui/DeviceDelegate.qml:93
+#, kde-format
+msgid "Virtual Display"
+msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:105
+#: package/contents/ui/DeviceDelegate.qml:146
+#, fuzzy, kde-format
+#| msgid "%1%"
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:168
+#, kde-format
 msgid "Please choose a file"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:113
+#: package/contents/ui/DeviceDelegate.qml:177
+#, kde-format
 msgid "Share file"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:133
+#: package/contents/ui/DeviceDelegate.qml:192
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:211
+#, kde-format
 msgid "Ring my phone"
 msgstr "зазвони телефоном"
 
-#: package/contents/ui/DeviceDelegate.qml:151
+#: package/contents/ui/DeviceDelegate.qml:229
+#, kde-format
 msgid "Browse this device"
 msgstr "прегледај овај уређај"
 
-#: package/contents/ui/DeviceDelegate.qml:168
+#: package/contents/ui/DeviceDelegate.qml:246
+#, kde-format
 msgid "SMS Messages"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:189
+#: package/contents/ui/DeviceDelegate.qml:267
+#, kde-format
 msgid "Remote Keyboard"
 msgstr "даљинска тастатура"
 
-#: package/contents/ui/DeviceDelegate.qml:205
+#: package/contents/ui/DeviceDelegate.qml:288
+#, kde-format
 msgid "Notifications:"
 msgstr "Обавештења:"
 
-#: package/contents/ui/DeviceDelegate.qml:212
-#, fuzzy
+#: package/contents/ui/DeviceDelegate.qml:296
+#, fuzzy, kde-format
 #| msgid "Notifications:"
 msgid "Dismiss all notifications"
 msgstr "Обавештења:"
 
-#: package/contents/ui/DeviceDelegate.qml:248
+#: package/contents/ui/DeviceDelegate.qml:343
+#, kde-format
 msgid "Reply"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:257
+#: package/contents/ui/DeviceDelegate.qml:353
+#, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:274
+#: package/contents/ui/DeviceDelegate.qml:366
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:380
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:398
+#, kde-format
+msgid "Send"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:424
+#, kde-format
 msgid "Run command"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:282
+#: package/contents/ui/DeviceDelegate.qml:432
+#, kde-format
 msgid "Add command"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:74
-#, fuzzy
+#: package/contents/ui/FullRepresentation.qml:58
+#, fuzzy, kde-format
 #| msgid "No paired devices available"
 msgid "No paired devices"
 msgstr "нема доступних упарених уређаја"
 
-#: package/contents/ui/FullRepresentation.qml:74
-#, fuzzy
+#: package/contents/ui/FullRepresentation.qml:58
+#, fuzzy, kde-format
 #| msgid "No paired devices available"
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
@@ -110,26 +165,30 @@ msgstr[1] "нема доступних упарених уређаја"
 msgstr[2] "нема доступних упарених уређаја"
 msgstr[3] "нема доступних упарених уређаја"
 
-#: package/contents/ui/FullRepresentation.qml:76
+#: package/contents/ui/FullRepresentation.qml:60
+#, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:80
+#: package/contents/ui/FullRepresentation.qml:64
+#, kde-format
 msgid "Pair a Device..."
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:80
-msgid "Configure..."
-msgstr ""
-
-#: package/contents/ui/FullRepresentation.qml:92
+#: package/contents/ui/FullRepresentation.qml:76
+#, kde-format
 msgid "Install from Google Play"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:102
+#: package/contents/ui/FullRepresentation.qml:86
+#, kde-format
 msgid "Install from F-Droid"
 msgstr ""
 
-#: package/contents/ui/main.qml:63
+#: package/contents/ui/main.qml:59
+#, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Поставке за КДЕ‑конекцију..."
+
+#~ msgid "%1 (%2)"
+#~ msgstr "%1 (%2)"

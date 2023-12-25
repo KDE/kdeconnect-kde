@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-01-17 03:20+0100\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,124 +30,121 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "slsimic@gmail.com"
 
-#: kcm.cpp:47
+#: kcm.cpp:183
 #, kde-format
-msgid "KDE Connect Settings"
-msgstr "Поставке за КДЕ‑конекцију"
+msgid "Key: %1"
+msgstr ""
 
-#: kcm.cpp:49
-#, kde-format
-msgid "KDE Connect Settings module"
-msgstr "Модул поставки за КДЕ‑конекцију"
-
-#: kcm.cpp:51
-#, kde-format
-msgid "(C) 2015 Albert Vaca Cintora"
-msgstr "© 2015, Алберт Вака Синтора"
-
-#: kcm.cpp:55
-#, kde-format
-msgid "Albert Vaca Cintora"
-msgstr "Алберт Вака Синтора"
-
-#: kcm.cpp:262
+#: kcm.cpp:206
 #, kde-format
 msgid "Available plugins"
 msgstr "Доступни прикључци"
 
-#: kcm.cpp:315
+#: kcm.cpp:253
 #, kde-format
 msgid "Error trying to pair: %1"
 msgstr "Грешка при покушају упаривања: %1"
 
-#: kcm.cpp:336
+#: kcm.cpp:269
 #, kde-format
 msgid "(paired)"
 msgstr "(упарен)"
 
-#: kcm.cpp:339
+#: kcm.cpp:272
 #, kde-format
 msgid "(not paired)"
 msgstr "(неупарен)"
 
-#: kcm.cpp:342
+#: kcm.cpp:275
 #, kde-format
 msgid "(incoming pair request)"
 msgstr "(долазни захтев за упаривање)"
 
-#: kcm.cpp:345
+#: kcm.cpp:278
 #, kde-format
 msgid "(pairing requested)"
 msgstr "(тражено упаривање)"
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
-#: kcm.ui:47
+#: kcm.ui:59
 #, kde-format
 msgid "KDE Connect"
 msgstr "КДЕ‑конекција"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
-#: kcm.ui:70
+#: kcm.ui:82
 #, kde-format
 msgid "Edit"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
-#: kcm.ui:92
+#: kcm.ui:104
 #, kde-format
 msgid "Save"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
-#: kcm.ui:108
+#: kcm.ui:120
 #, kde-format
 msgid "Refresh"
 msgstr "Освежи"
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
-#: kcm.ui:155
+#: kcm.ui:193
 #, kde-format
 msgid "Device"
 msgstr "Уређај"
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
-#: kcm.ui:171
+#: kcm.ui:209
 #, kde-format
 msgid "(status)"
 msgstr "(стање)"
 
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, cancel_button)
+#: kcm.ui:263
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
-#: kcm.ui:210
+#: kcm.ui:289
 #, kde-format
 msgid "Accept"
 msgstr "Прихвати"
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
-#: kcm.ui:217
+#: kcm.ui:296
 #, kde-format
 msgid "Reject"
 msgstr "Одбаци"
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
-#: kcm.ui:230
+#: kcm.ui:309
 #, kde-format
 msgid "Request pair"
 msgstr "Тражи упаривање"
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
-#: kcm.ui:243
+#: kcm.ui:322
 #, kde-format
 msgid "Unpair"
 msgstr "Распари"
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
-#: kcm.ui:256
+#: kcm.ui:335
 #, kde-format
 msgid "Send ping"
 msgstr "Пошаљи пинг"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
-#: kcm.ui:294
+#: kcm.ui:373
 #, fuzzy, kde-format
 #| msgid ""
 #| "<html><head/><body><p>If you own an Android device, make sure to install "
@@ -161,13 +158,13 @@ msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
 "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-"underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-"available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">from F-Droid</span></a>) and it should appear in the list.<br><br>If you "
-"are having problems, visit the <a href=\"https://community.kde.org/KDEConnect"
-"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE Connect "
-"Community wiki</span></a> for help.</p></body></html>"
+"underline;\">KDE Connect Android app</span></a> (also available <a href="
+"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
+"style=\" text-decoration: underline;\">from F-Droid</span></a>) and it "
+"should appear in the list.<br><br>If you are having problems, visit the <a "
+"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
+"html>"
 msgstr ""
 "<html><head/><body><p>Ако поседујете андроид уређај, инсталирајте <a href="
 "\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
@@ -176,3 +173,15 @@ msgstr ""
 "repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
 "decoration: underline; \">Ф‑дроиду</span></a>) и уређај ће се појавити на "
 "списку.</p></body></html>"
+
+#~ msgid "KDE Connect Settings"
+#~ msgstr "Поставке за КДЕ‑конекцију"
+
+#~ msgid "KDE Connect Settings module"
+#~ msgstr "Модул поставки за КДЕ‑конекцију"
+
+#~ msgid "(C) 2015 Albert Vaca Cintora"
+#~ msgstr "© 2015, Алберт Вака Синтора"
+
+#~ msgid "Albert Vaca Cintora"
+#~ msgstr "Алберт Вака Синтора"

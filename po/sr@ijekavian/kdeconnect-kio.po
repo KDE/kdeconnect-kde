@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-08-18 02:35+0200\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
 "PO-Revision-Date: 2017-03-20 21:07+0100\n"
 "Last-Translator: Slobodan Simic <slsimic@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,37 +18,37 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: kiokdeconnect.cpp:94
+#: kiokdeconnect.cpp:75
 #, kde-format
 msgid "Listing devices..."
 msgstr "Листам уређаје..."
 
-#: kiokdeconnect.cpp:139
+#: kiokdeconnect.cpp:120
 #, kde-format
 msgid "Accessing device..."
 msgstr "Приступам уређајима..."
 
-#: kiokdeconnect.cpp:155
+#: kiokdeconnect.cpp:135
 #, kde-format
 msgid "No such device: %0"
 msgstr ""
 
-#: kiokdeconnect.cpp:162
+#: kiokdeconnect.cpp:141
 #, kde-format
 msgid "%0 is not paired"
 msgstr ""
 
-#: kiokdeconnect.cpp:167
+#: kiokdeconnect.cpp:145
 #, kde-format
 msgid "%0 is not connected"
 msgstr ""
 
-#: kiokdeconnect.cpp:172
+#: kiokdeconnect.cpp:149
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
 msgstr ""
 
-#: kiokdeconnect.cpp:237
+#: kiokdeconnect.cpp:208
 #, kde-format
 msgid "Could not contact background service."
 msgstr "Не могу да контактирам позадински сервис."
