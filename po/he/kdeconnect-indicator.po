@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2023-10-20 15:49+0300\n"
-"Last-Translator: \n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-25 20:57+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.3.2\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -150,7 +150,9 @@ msgstr "יציאה"
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
 msgstr[0] "מכשיר מחובר"
-msgstr[1] "%1 מכשירים מחוברים"
+msgstr[1] "שני מכשירים מחוברים"
+msgstr[2] "%1 מכשירים מחוברים"
+msgstr[3] "%1 מכשירים מחוברים"
 
 #: systray_actions/battery_action.cpp:28
 #, kde-format

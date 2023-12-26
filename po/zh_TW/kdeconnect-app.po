@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-24 00:41+0000\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
 "PO-Revision-Date: 2023-12-09 17:00+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -59,103 +59,103 @@ msgstr "pan93412@gmail.com"
 msgid "URL to share"
 msgstr "要分享的網址"
 
-#: qml/DevicePage.qml:23
+#: qml/DevicePage.qml:24
 #, kde-format
 msgid "Unpair"
 msgstr "取消配對"
 
-#: qml/DevicePage.qml:28
+#: qml/DevicePage.qml:29
 #, kde-format
 msgid "Send Ping"
 msgstr "傳送 Ping"
 
-#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "外掛程式設定"
 
-#: qml/DevicePage.qml:61
+#: qml/DevicePage.qml:62
 #, kde-format
 msgid "Multimedia control"
 msgstr "多媒體控制"
 
-#: qml/DevicePage.qml:68
+#: qml/DevicePage.qml:69
 #, kde-format
 msgid "Remote input"
 msgstr "遠端輸入"
 
-#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "簡報遙控"
 
-#: qml/DevicePage.qml:84 qml/mousepad.qml:44
+#: qml/DevicePage.qml:85 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "鎖定"
 
-#: qml/DevicePage.qml:84
+#: qml/DevicePage.qml:85
 #, kde-format
 msgid "Unlock"
 msgstr "解鎖"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:92
 #, kde-format
 msgid "Find Device"
 msgstr "尋找裝置"
 
-#: qml/DevicePage.qml:96 qml/runcommand.qml:16
+#: qml/DevicePage.qml:97 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: qml/DevicePage.qml:105
+#: qml/DevicePage.qml:106
 #, kde-format
 msgid "Send Clipboard"
 msgstr "傳送剪貼簿"
 
-#: qml/DevicePage.qml:111
+#: qml/DevicePage.qml:112
 #, kde-format
 msgid "Share File"
 msgstr "分享檔案"
 
-#: qml/DevicePage.qml:116 qml/volume.qml:16
+#: qml/DevicePage.qml:117 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "音量控制"
 
-#: qml/DevicePage.qml:125
+#: qml/DevicePage.qml:126
 #, kde-format
 msgid "This device is not paired"
 msgstr "本裝置未配對"
 
-#: qml/DevicePage.qml:129
+#: qml/DevicePage.qml:130
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
 
-#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
+#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
 #, kde-format
 msgid "Pair requested"
 msgstr "送出配對請求"
 
-#: qml/DevicePage.qml:151
+#: qml/DevicePage.qml:152
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:167
 #, kde-format
 msgid "This device is not reachable"
 msgstr "無法連線裝置"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:175
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"
@@ -171,27 +171,27 @@ msgstr "裝置"
 msgid "No devices found"
 msgstr "找不到裝置"
 
-#: qml/FindDevicesPage.qml:51
+#: qml/FindDevicesPage.qml:54
 #, kde-format
 msgid "Remembered"
 msgstr "已記住"
 
-#: qml/FindDevicesPage.qml:53
+#: qml/FindDevicesPage.qml:56
 #, kde-format
 msgid "Available"
 msgstr "可用"
 
-#: qml/FindDevicesPage.qml:55
+#: qml/FindDevicesPage.qml:58
 #, kde-format
 msgid "Connected"
 msgstr "已連線"
 
-#: qml/main.qml:73
+#: qml/Main.qml:73
 #, kde-format
 msgid "Find devices..."
 msgstr "尋找裝置…"
 
-#: qml/main.qml:118 qml/main.qml:122
+#: qml/Main.qml:118 qml/Main.qml:122
 #, kde-format
 msgid "Settings"
 msgstr "設定"
@@ -221,22 +221,22 @@ msgstr "無可用播放器"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/presentationRemote.qml:20
+#: qml/presentationRemote.qml:21
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "啟用全螢幕"
 
-#: qml/runcommand.qml:21
+#: qml/runcommand.qml:22
 #, kde-format
 msgid "Edit commands"
 msgstr "編輯指令"
 
-#: qml/runcommand.qml:24
+#: qml/runcommand.qml:25
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "您可以在已連線的裝置上編輯指令"
 
-#: qml/runcommand.qml:48
+#: qml/runcommand.qml:50
 #, kde-format
 msgid "No commands defined"
 msgstr "未定義指令"

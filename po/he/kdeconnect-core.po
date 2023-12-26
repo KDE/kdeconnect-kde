@@ -3,20 +3,22 @@
 #
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-10-20 13:59+0300\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-25 20:57+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.3.2\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -75,6 +77,8 @@ msgid "Receiving file"
 msgid_plural "Receiving files"
 msgstr[0] "קובץ מתקבל"
 msgstr[1] "קבצים מתקבלים"
+msgstr[2] "קבצים מתקבלים"
+msgstr[3] "קבצים מתקבלים"
 
 #: compositefiletransferjob.cpp:46
 #, kde-format

@@ -186,9 +186,3 @@ msgstr "Instal·la des del F-Droid"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Arranjament del KDE Connect..."
-
-#~ msgid "Save As"
-#~ msgstr "Desa com a"
-
-#~ msgid "Take a photo"
-#~ msgstr "Pren una foto"

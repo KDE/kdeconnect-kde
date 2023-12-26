@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-24 00:41+0000\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
 "PO-Revision-Date: 2023-10-11 18:12+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -54,103 +54,103 @@ msgstr "xxmn77@gmail.com"
 msgid "URL to share"
 msgstr "Paylaşmaq üçün URL"
 
-#: qml/DevicePage.qml:23
+#: qml/DevicePage.qml:24
 #, kde-format
 msgid "Unpair"
 msgstr "Ayırmaq"
 
-#: qml/DevicePage.qml:28
+#: qml/DevicePage.qml:29
 #, kde-format
 msgid "Send Ping"
 msgstr "Dümsükləmək"
 
-#: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Plaqin ayarları"
 
-#: qml/DevicePage.qml:61
+#: qml/DevicePage.qml:62
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimedia idarə edilməsi"
 
-#: qml/DevicePage.qml:68
+#: qml/DevicePage.qml:69
 #, kde-format
 msgid "Remote input"
 msgstr "Məsafədən yazmaq"
 
-#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Uzaqdan Təqdimat"
 
-#: qml/DevicePage.qml:84 qml/mousepad.qml:44
+#: qml/DevicePage.qml:85 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Kilidləmək"
 
-#: qml/DevicePage.qml:84
+#: qml/DevicePage.qml:85
 #, kde-format
 msgid "Unlock"
 msgstr "Kiliddən çıxarmaq"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:92
 #, kde-format
 msgid "Find Device"
 msgstr "Cihazı tapmaq"
 
-#: qml/DevicePage.qml:96 qml/runcommand.qml:16
+#: qml/DevicePage.qml:97 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Əmr başlatmaq"
 
-#: qml/DevicePage.qml:105
+#: qml/DevicePage.qml:106
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Mübadilə yaddaşını göndərin"
 
-#: qml/DevicePage.qml:111
+#: qml/DevicePage.qml:112
 #, kde-format
 msgid "Share File"
 msgstr "Fayl paylaşmaq"
 
-#: qml/DevicePage.qml:116 qml/volume.qml:16
+#: qml/DevicePage.qml:117 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Səs səviyyəsini tənzimləmək"
 
-#: qml/DevicePage.qml:125
+#: qml/DevicePage.qml:126
 #, kde-format
 msgid "This device is not paired"
 msgstr "Cihaz qoşulmayıb"
 
-#: qml/DevicePage.qml:129
+#: qml/DevicePage.qml:130
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Qoşun"
 
-#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
+#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
 #, kde-format
 msgid "Pair requested"
 msgstr "Qoşulma soruşuldu"
 
-#: qml/DevicePage.qml:151
+#: qml/DevicePage.qml:152
 #, kde-format
 msgid "Accept"
 msgstr "Qəbul etmək"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:158
 #, kde-format
 msgid "Reject"
 msgstr "Çıxartmaq"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:167
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Bu cihaz əlçatan deyil"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:175
 #, kde-format
 msgid "Please choose a file"
 msgstr "Lütfən faylı seçin"
@@ -166,27 +166,27 @@ msgstr "Cihazlar"
 msgid "No devices found"
 msgstr "Cihaz tapılmadı"
 
-#: qml/FindDevicesPage.qml:51
+#: qml/FindDevicesPage.qml:54
 #, kde-format
 msgid "Remembered"
 msgstr "Yadda saxlanılanlar"
 
-#: qml/FindDevicesPage.qml:53
+#: qml/FindDevicesPage.qml:56
 #, kde-format
 msgid "Available"
 msgstr "Mövcuddur"
 
-#: qml/FindDevicesPage.qml:55
+#: qml/FindDevicesPage.qml:58
 #, kde-format
 msgid "Connected"
 msgstr "Qoşuldu"
 
-#: qml/main.qml:73
+#: qml/Main.qml:73
 #, kde-format
 msgid "Find devices..."
 msgstr "Cihazları tapmaq..."
 
-#: qml/main.qml:118 qml/main.qml:122
+#: qml/Main.qml:118 qml/Main.qml:122
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
@@ -218,22 +218,22 @@ msgstr "Pleyerlər yoxdur"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: qml/presentationRemote.qml:20
+#: qml/presentationRemote.qml:21
 #, kde-format
 msgid "Enable Full-Screen"
 msgstr "Tam ekran rejimi"
 
-#: qml/runcommand.qml:21
+#: qml/runcommand.qml:22
 #, kde-format
 msgid "Edit commands"
 msgstr "Əmrlərə düzəliş"
 
-#: qml/runcommand.qml:24
+#: qml/runcommand.qml:25
 #, kde-format
 msgid "You can edit commands on the connected device"
 msgstr "Qoşulan cihazda əmrlərə düzəliş edə bilərsiniz"
 
-#: qml/runcommand.qml:48
+#: qml/runcommand.qml:50
 #, kde-format
 msgid "No commands defined"
 msgstr "Əmrlər təyin edilməyib"

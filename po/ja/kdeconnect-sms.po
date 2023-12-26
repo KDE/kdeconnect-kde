@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 00:42+0000\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
 "PO-Revision-Date: 2019-12-24 22:22-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -24,19 +24,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: conversationlistmodel.cpp:198
+#: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
 msgstr ""
 
-#: conversationlistmodel.cpp:200
+#: conversationlistmodel.cpp:201
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
 msgstr ""
 
-#: conversationlistmodel.cpp:204
+#: conversationlistmodel.cpp:205
 #, kde-format
 msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
@@ -44,22 +44,22 @@ msgctxt ""
 msgid "%1 file"
 msgstr ""
 
-#: conversationlistmodel.cpp:220
+#: conversationlistmodel.cpp:221
 #, kde-format
 msgid "You: %1"
 msgstr ""
 
-#: conversationlistmodel.cpp:226
+#: conversationlistmodel.cpp:227
 #, kde-format
 msgid "%1: %2"
 msgstr ""
 
-#: conversationlistmodel.cpp:268 conversationlistmodel.cpp:290
+#: conversationlistmodel.cpp:269 conversationlistmodel.cpp:291
 #, kde-format
 msgid "%1"
 msgstr ""
 
-#: main.cpp:51 qml/main.qml:68
+#: main.cpp:51 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr ""
@@ -149,7 +149,7 @@ msgid ""
 "load quickly."
 msgstr ""
 
-#: qml/ConversationList.qml:67 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr ""
@@ -185,12 +185,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr ""
 
-#: qml/main.qml:85
+#: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr ""
 
-#: qml/main.qml:98
+#: qml/Main.qml:98
 #, kde-format
 msgid "About"
 msgstr ""
@@ -200,17 +200,17 @@ msgstr ""
 msgid "Audio clip"
 msgstr ""
 
-#: qml/SendingArea.qml:24
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Failed to send"
 msgstr ""
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:26
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr ""
 
-#: qml/SendingArea.qml:73
+#: qml/SendingArea.qml:74
 #, kde-format
 msgid "Compose message"
 msgstr ""

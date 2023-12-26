@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 00:42+0000\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
 "PO-Revision-Date: 2022-08-09 13:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,19 +27,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: conversationlistmodel.cpp:198
+#: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
 msgstr "그림"
 
-#: conversationlistmodel.cpp:200
+#: conversationlistmodel.cpp:201
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
 msgstr "비디오"
 
-#: conversationlistmodel.cpp:204
+#: conversationlistmodel.cpp:205
 #, kde-format
 msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
@@ -47,22 +47,22 @@ msgctxt ""
 msgid "%1 file"
 msgstr "%1 파일"
 
-#: conversationlistmodel.cpp:220
+#: conversationlistmodel.cpp:221
 #, kde-format
 msgid "You: %1"
 msgstr "나: %1"
 
-#: conversationlistmodel.cpp:226
+#: conversationlistmodel.cpp:227
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:268 conversationlistmodel.cpp:290
+#: conversationlistmodel.cpp:269 conversationlistmodel.cpp:291
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:68
+#: main.cpp:51 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -157,7 +157,7 @@ msgstr ""
 "팁: 전원을 연결해 두면 절전 모드로 전환되지 않으며 더 빨리 불러올 수 있습니"
 "다."
 
-#: qml/ConversationList.qml:67 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "새로 고침"
@@ -193,12 +193,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: qml/main.qml:85
+#: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "장치"
 
-#: qml/main.qml:98
+#: qml/Main.qml:98
 #, kde-format
 msgid "About"
 msgstr "정보"
@@ -208,17 +208,17 @@ msgstr "정보"
 msgid "Audio clip"
 msgstr "오디오 클립"
 
-#: qml/SendingArea.qml:24
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Failed to send"
 msgstr "보낼 수 없음"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:26
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "최대 메시지 크기 제한을 초과했습니다."
 
-#: qml/SendingArea.qml:73
+#: qml/SendingArea.qml:74
 #, kde-format
 msgid "Compose message"
 msgstr "메시지 작성"

@@ -326,9 +326,3 @@ msgstr ""
 #, kde-format
 msgid "Nothing to be done"
 msgstr "No es fa res"
-
-#~ msgid "Open the connected device's camera and transfer the photo"
-#~ msgstr "Obre la càmera del dispositiu connectat i transfereix la fotografia"
-
-#~ msgid "Please specify a filename for the photo"
-#~ msgstr "Especifiqueu un nom de fitxer per a la fotografia"

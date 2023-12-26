@@ -50,7 +50,7 @@
 >La llista de dispositius</title>
 
 <para
->Conté una llista dels dispositius amb una separació entre els aparellats i els sense aparellar. Trieu-ne un per aparellar-lo, i quan resti aparellat, configureu-lo.</para>
+>Conté una llista dels dispositius amb una separació entre els aparellats i els sense aparellar. Trieu-ne un per a aparellar-lo, i quan resti aparellat, configureu-lo.</para>
 </sect2>
 
 <sect2>
@@ -66,7 +66,7 @@
 >Interacció general amb els dispositius</title>
 
 <para
->El KDE Connect no ofereix un lloc central per interactuar amb els vostres dispositius. Està dissenyat per a integrar-se correctament amb el sistema operatiu, fent possible la compartició de fitxers des d'aplicacions diferents o la integració amb el sistema de notificacions per a mostrar la informació.</para>
+>El KDE Connect no ofereix un lloc central per a interactuar amb els vostres dispositius. Està dissenyat per a integrar-se correctament amb el sistema operatiu, fent possible la compartició de fitxers des d'aplicacions diferents o la integració amb el sistema de notificacions per a mostrar la informació.</para>
 </sect2>
 
 </sect1>

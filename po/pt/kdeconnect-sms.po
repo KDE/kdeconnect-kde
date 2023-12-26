@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 00:42+0000\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
 "PO-Revision-Date: 2022-07-21 19:39+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -24,19 +24,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com"
 
-#: conversationlistmodel.cpp:198
+#: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
 msgstr "Imagem"
 
-#: conversationlistmodel.cpp:200
+#: conversationlistmodel.cpp:201
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
 msgstr "Vídeo"
 
-#: conversationlistmodel.cpp:204
+#: conversationlistmodel.cpp:205
 #, kde-format
 msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
@@ -44,22 +44,22 @@ msgctxt ""
 msgid "%1 file"
 msgstr "ficheiro %1"
 
-#: conversationlistmodel.cpp:220
+#: conversationlistmodel.cpp:221
 #, kde-format
 msgid "You: %1"
 msgstr "Você: %1"
 
-#: conversationlistmodel.cpp:226
+#: conversationlistmodel.cpp:227
 #, kde-format
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: conversationlistmodel.cpp:268 conversationlistmodel.cpp:290
+#: conversationlistmodel.cpp:269 conversationlistmodel.cpp:291
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:68
+#: main.cpp:51 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE Connect SMS"
@@ -155,7 +155,7 @@ msgstr ""
 "Dica: Se ligar o seu dispositivo, não deverá entrar no modo de economia e "
 "deverá carregar rapidamente."
 
-#: qml/ConversationList.qml:67 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Actualizar"
@@ -191,12 +191,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "Sem correspondências"
 
-#: qml/main.qml:85
+#: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: qml/main.qml:98
+#: qml/Main.qml:98
 #, kde-format
 msgid "About"
 msgstr "Acerca"
@@ -206,17 +206,17 @@ msgstr "Acerca"
 msgid "Audio clip"
 msgstr "'Clip' de áudio"
 
-#: qml/SendingArea.qml:24
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Failed to send"
 msgstr "Não foi possível enviar"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:26
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "Atingiu-se o tamanho máximo da mensagem."
 
-#: qml/SendingArea.qml:73
+#: qml/SendingArea.qml:74
 #, kde-format
 msgid "Compose message"
 msgstr "Compor a mensagem"

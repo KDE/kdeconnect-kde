@@ -3,20 +3,22 @@
 #
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2023-10-20 16:27+0300\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-25 20:57+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.3.2\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -156,6 +158,8 @@ msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "המכשיר המצומד לא זמין"
 msgstr[1] "כל המכשירים המצומדים לא זמינים"
+msgstr[2] "כל המכשירים המצומדים לא זמינים"
+msgstr[3] "כל המכשירים המצומדים לא זמינים"
 
 #: package/contents/ui/FullRepresentation.qml:60
 #, kde-format

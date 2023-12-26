@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-17 00:42+0000\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
 "PO-Revision-Date: 2023-01-22 00:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -32,19 +32,19 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pan93412@gmail.com, brli@chakrlainux.org"
 
-#: conversationlistmodel.cpp:198
+#: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
 msgstr "圖片"
 
-#: conversationlistmodel.cpp:200
+#: conversationlistmodel.cpp:201
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
 msgstr "影片"
 
-#: conversationlistmodel.cpp:204
+#: conversationlistmodel.cpp:205
 #, kde-format
 msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
@@ -52,22 +52,22 @@ msgctxt ""
 msgid "%1 file"
 msgstr "%1 檔案"
 
-#: conversationlistmodel.cpp:220
+#: conversationlistmodel.cpp:221
 #, kde-format
 msgid "You: %1"
 msgstr "你：%1"
 
-#: conversationlistmodel.cpp:226
+#: conversationlistmodel.cpp:227
 #, kde-format
 msgid "%1: %2"
 msgstr "%1：%2"
 
-#: conversationlistmodel.cpp:268 conversationlistmodel.cpp:290
+#: conversationlistmodel.cpp:269 conversationlistmodel.cpp:291
 #, kde-format
 msgid "%1"
 msgstr "%1"
 
-#: main.cpp:51 qml/main.qml:68
+#: main.cpp:51 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr "KDE 連線 SMS"
@@ -161,7 +161,7 @@ msgid ""
 msgstr ""
 "提示：如果您插入裝置，它應該就不會進入省電 (doze) 模式而應該就會比較快載入。"
 
-#: qml/ConversationList.qml:67 qml/main.qml:90
+#: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "重新整理"
@@ -197,12 +197,12 @@ msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
 msgstr "無相符的簡訊"
 
-#: qml/main.qml:85
+#: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
 msgstr "裝置"
 
-#: qml/main.qml:98
+#: qml/Main.qml:98
 #, kde-format
 msgid "About"
 msgstr "關於"
@@ -212,17 +212,17 @@ msgstr "關於"
 msgid "Audio clip"
 msgstr "語音訊息"
 
-#: qml/SendingArea.qml:24
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Failed to send"
 msgstr "無法傳送"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:26
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "已達簡訊最大字數"
 
-#: qml/SendingArea.qml:73
+#: qml/SendingArea.qml:74
 #, kde-format
 msgid "Compose message"
 msgstr "撰寫訊息"
