@@ -21,6 +21,7 @@
 #include <KAboutData>
 #include <KDBusService>
 #include <KIO/Global>
+#include <KIO/JobTracker>
 #include <KLocalizedString>
 #include <KNotification>
 #include <KWindowSystem>
