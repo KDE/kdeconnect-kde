@@ -46,8 +46,6 @@ ecm_set_disabled_deprecation_versions(
 add_library(kdeconnectversion INTERFACE)
 target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
 
-set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools)
-
 set_package_properties(KF6Kirigami2 PROPERTIES
     DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
     PURPOSE "Required for KDE Connect's QML-based GUI applications"
@@ -100,7 +98,8 @@ ecm_find_qmlmodule(QtQuick.Particles 2.0)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickControls2 Network Multimedia)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications
+    KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools)
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
