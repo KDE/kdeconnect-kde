@@ -26,13 +26,6 @@ public:
     KdeConnectKcm(QObject *parent, const QVariantList &);
     ~KdeConnectKcm() override;
 
-#if KCONFIGWIDGETS_VERSION < QT_VERSION_CHECK(5, 105, 0)
-    QWidget *widget()
-    {
-        return this;
-    }
-#endif
-
 private:
     void save() override;
 

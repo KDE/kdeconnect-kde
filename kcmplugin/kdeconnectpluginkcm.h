@@ -40,13 +40,6 @@ public:
         return m_config;
     }
 
-#if KCONFIGWIDGETS_VERSION < QT_VERSION_CHECK(5, 105, 0)
-    QWidget *widget()
-    {
-        return this;
-    }
-#endif
-
 private:
     const QString m_deviceId;
     const QString m_pluginName;

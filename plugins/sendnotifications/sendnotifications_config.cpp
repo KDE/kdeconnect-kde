@@ -16,10 +16,6 @@ SendNotificationsConfig::SendNotificationsConfig(QObject *parent, const KPluginM
     : KdeConnectPluginKcm(parent, data, args)
     , appModel(new NotifyingApplicationModel)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
-#endif
-
     m_ui.setupUi(widget());
     m_ui.appList->setIconSize(QSize(32, 32));
 

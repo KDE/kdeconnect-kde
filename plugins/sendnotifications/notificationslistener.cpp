@@ -22,10 +22,6 @@ NotificationsListener::NotificationsListener(KdeConnectPlugin *aPlugin)
     : QObject(aPlugin)
     , m_plugin(aPlugin)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    qRegisterMetaTypeStreamOperators<NotifyingApplication>("NotifyingApplication");
-#endif
-
     setTranslatedAppName();
     loadApplications();
 
