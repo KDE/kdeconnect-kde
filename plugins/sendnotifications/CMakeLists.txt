@@ -8,10 +8,10 @@ target_sources(kdeconnect_sendnotifications PRIVATE
 
 target_link_libraries(kdeconnect_sendnotifications
     kdeconnectcore
-    KF${QT_MAJOR_VERSION}::I18n
+    KF6::I18n
     Qt::Gui
-    KF${QT_MAJOR_VERSION}::IconThemes
-    KF${QT_MAJOR_VERSION}::ConfigCore
+    KF6::IconThemes
+    KF6::ConfigCore
 )
 
 
@@ -39,6 +39,6 @@ target_sources(kdeconnect_sendnotifications_config PRIVATE
 target_link_libraries(kdeconnect_sendnotifications_config
     kdeconnectcore
     kdeconnectpluginkcm
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::KCMUtils
+    KF6::I18n
+    KF6::KCMUtils
 )

@@ -48,15 +48,15 @@ target_include_directories(kdeconnectversion INTERFACE ${CMAKE_CURRENT_BINARY_DI
 
 set(KF5_REQUIRED_COMPONENTS I18n ConfigWidgets DBusAddons IconThemes Notifications KIO KCMUtils Service Solid Kirigami People WindowSystem GuiAddons DocTools)
 
-set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
+set_package_properties(KF6Kirigami2 PROPERTIES
     DESCRIPTION "QtQuick plugins to build user interfaces based on KDE UX guidelines"
     PURPOSE "Required for KDE Connect's QML-based GUI applications"
     URL "https://www.kde.org/products/kirigami/"
     TYPE RUNTIME
 )
 
-find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.11 REQUIRED)
-set_package_properties(KF${QT_MAJOR_VERSION}KirigamiAddons PROPERTIES
+find_package(KF6KirigamiAddons 0.11 REQUIRED)
+set_package_properties(KF6KirigamiAddons PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required runtime dependency (all the modules are required)"
 )
@@ -70,13 +70,13 @@ else()
 endif()
 
 if(UNIX AND NOT APPLE)
-    find_package(KF${QT_MAJOR_VERSION}Package REQUIRED)
+    find_package(KF6Package REQUIRED)
     if (WITH_PULSEAUDIO)
-        find_package(KF${QT_MAJOR_VERSION}PulseAudioQt REQUIRED)
+        find_package(KF6PulseAudioQt REQUIRED)
     endif()
     find_package(QtWaylandScanner REQUIRED)
     find_package(Wayland 1.9 REQUIRED Client)
-    find_package(Qt${QT_MAJOR_VERSION} REQUIRED COMPONENTS WaylandClient)
+    find_package(Qt6 REQUIRED COMPONENTS WaylandClient)
     find_package(WaylandProtocols REQUIRED)
     pkg_check_modules(XkbCommon IMPORTED_TARGET xkbcommon)
     find_package(PkgConfig QUIET REQUIRED)
@@ -90,7 +90,7 @@ set_package_properties(KF5PeopleVCard PROPERTIES
     TYPE RUNTIME
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6" AND NOT WIN32)
+if (NOT WIN32)
     find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 endif()
 
@@ -99,11 +99,8 @@ ecm_find_qmlmodule(QtQuick.Particles 2.0)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING -DQT_NO_KEYWORDS -DQT_NO_CAST_FROM_ASCII)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickControls2 Network Multimedia)
-if (UNIX AND NOT APPLE AND QT_MAJOR_VERSION EQUAL "5")
-    find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS X11Extras)
-endif()
-find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS DBus Quick QuickControls2 Network Multimedia)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS ${KF5_REQUIRED_COMPONENTS})
 
 if (WIN32)
     get_filename_component(WINDOWS_KITS_DIR
@@ -118,8 +115,8 @@ add_subdirectory(core)
 add_subdirectory(plugins)
 add_subdirectory(interfaces)
 
-find_package(KF${QT_MAJOR_VERSION}QQC2DesktopStyle ${KF_MIN_VERSION} REQUIRED)
-set_package_properties(KF${QT_MAJOR_VERSION}QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
+find_package(KF6QQC2DesktopStyle ${KF_MIN_VERSION} REQUIRED)
+set_package_properties(KF6QQC2DesktopStyle PROPERTIES TYPE RUNTIME)
 
 add_subdirectory(icons)
 add_subdirectory(data)

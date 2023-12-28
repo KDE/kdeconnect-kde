@@ -2,7 +2,7 @@ kdeconnect_add_plugin(kdeconnect_clipboard SOURCES clipboardplugin.cpp clipboard
 
 target_link_libraries(kdeconnect_clipboard kdeconnectcore
     Qt::DBus
-    KF${QT_MAJOR_VERSION}::GuiAddons
+    KF6::GuiAddons
     ${kdeconnect_clipboard_WL_LINK_LIBS}
 )
 
@@ -11,6 +11,6 @@ ki18n_wrap_ui(kdeconnect_clipboard_config clipboard_config.ui)
 target_link_libraries(kdeconnect_clipboard_config
     kdeconnectcore
     kdeconnectpluginkcm
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::KCMUtils
+    KF6::I18n
+    KF6::KCMUtils
 )

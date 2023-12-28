@@ -43,13 +43,11 @@ ecm_qt_declare_logging_category(kdeconnect-indicator
 
 target_include_directories(kdeconnect-indicator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/systray_actions)
 
-target_link_libraries(kdeconnect-indicator Qt::Widgets KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::Notifications KF${QT_MAJOR_VERSION}::DBusAddons KF${QT_MAJOR_VERSION}::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
+target_link_libraries(kdeconnect-indicator Qt::Widgets KF6::CoreAddons KF6::I18n KF6::Notifications KF6::DBusAddons KF6::KCMUtils kdeconnectinterfaces kdeconnectcore kdeconnectversion)
 
 if (WIN32)
     target_link_libraries(kdeconnect-indicator windowsapp)
-endif()
-
-if (QT_MAJOR_VERSION STREQUAL "6" AND NOT WIN32)
+else()
     target_link_libraries(kdeconnect-indicator KF6::StatusNotifierItem)
 endif()
 

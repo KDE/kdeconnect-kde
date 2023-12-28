@@ -14,7 +14,7 @@ add_subdirectory(backends/loopback)
 
 option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" ON)
 if(BLUETOOTH_ENABLED)
-    find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
     add_subdirectory(backends/bluetooth)
 endif()
 
@@ -58,14 +58,14 @@ find_package(OpenSSL REQUIRED COMPONENTS Crypto)
 target_link_libraries(kdeconnectcore
 PUBLIC
     Qt::Network
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::KIOCore
-    KF${QT_MAJOR_VERSION}::KIOGui
+    KF6::CoreAddons
+    KF6::KIOCore
+    KF6::KIOGui
     OpenSSL::Crypto
 PRIVATE
     Qt::DBus
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::ConfigCore
+    KF6::I18n
+    KF6::ConfigCore
 )
 
 if(WIN32)
@@ -74,7 +74,7 @@ endif()
 
 if (BLUETOOTH_ENABLED)
     target_compile_definitions(kdeconnectcore PRIVATE -DKDECONNECT_BLUETOOTH)
-    target_link_libraries(kdeconnectcore PRIVATE Qt${QT_MAJOR_VERSION}::Bluetooth)
+    target_link_libraries(kdeconnectcore PRIVATE Qt6::Bluetooth)
 endif()
 
 if (LOOPBACK_ENABLED)

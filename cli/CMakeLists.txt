@@ -7,8 +7,8 @@ target_link_libraries(kdeconnect-cli
     kdeconnectinterfaces
     kdeconnectcore
     kdeconnectversion
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::I18n
+    KF6::CoreAddons
+    KF6::I18n
 )
 
 install(TARGETS kdeconnect-cli ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -11,16 +11,14 @@ ecm_qt_declare_logging_category(kdeconnect_sms
     DEFAULT_SEVERITY Warning
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (conversations)")
 
+find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
+
 target_link_libraries(kdeconnect_sms
     kdeconnectcore
     kdeconnectinterfaces
     Qt::DBus
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::Notifications
+    KF6::I18n
+    KF6::Notifications
     Qt::Widgets
+    Qt::Core5Compat # for QTextCodec
 )
-
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
-    target_link_libraries(kdeconnect_sms Qt::Core5Compat) # for QTextCodec
-endif()

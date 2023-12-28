@@ -102,12 +102,12 @@ target_link_libraries(kdeconnectinterfaces
 LINK_PUBLIC
     Qt::Gui
     Qt::DBus
-    KF${QT_MAJOR_VERSION}::ConfigCore
+    KF6::ConfigCore
 LINK_PRIVATE
     kdeconnectcore
-    KF${QT_MAJOR_VERSION}::I18n
+    KF6::I18n
     kdeconnectcore
-    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF6::CoreAddons
 )
 
 install(TARGETS kdeconnectinterfaces EXPORT kdeconnectLibraryTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

@@ -9,7 +9,7 @@ target_link_libraries(kdeconnect_findthisdevice
 
 if (NOT WIN32)
     target_link_libraries(kdeconnect_findthisdevice
-        KF${QT_MAJOR_VERSION}::PulseAudioQt
+        KF6::PulseAudioQt
     )
 endif()
 
@@ -19,8 +19,8 @@ ki18n_wrap_ui(kdeconnect_findthisdevice_config findthisdevice_config.ui)
 target_link_libraries(kdeconnect_findthisdevice_config
     kdeconnectpluginkcm
     Qt::Multimedia
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::ConfigWidgets
-    KF${QT_MAJOR_VERSION}::KIOWidgets # KUrlRequester
+    KF6::I18n
+    KF6::CoreAddons
+    KF6::ConfigWidgets
+    KF6::KIOWidgets # KUrlRequester
 )

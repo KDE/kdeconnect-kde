@@ -8,11 +8,11 @@ ecm_qt_declare_logging_category(kdeconnectd
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (daemon)")
 target_link_libraries(kdeconnectd
     kdeconnectcore kdeconnectversion
-    KF${QT_MAJOR_VERSION}::KIOWidgets
-    KF${QT_MAJOR_VERSION}::DBusAddons
-    KF${QT_MAJOR_VERSION}::Notifications
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::WindowSystem
+    KF6::KIOWidgets
+    KF6::DBusAddons
+    KF6::Notifications
+    KF6::I18n
+    KF6::WindowSystem
     Qt::Widgets)
 
 ecm_mark_nongui_executable(kdeconnectd)

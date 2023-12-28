@@ -1,6 +1,6 @@
 add_definitions(-DTRANSLATION_DOMAIN="kdeconnect-kio")
 
-kcoreaddons_add_plugin(kio_kdeconnect SOURCES kiokdeconnect.cpp INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kio")
+kcoreaddons_add_plugin(kio_kdeconnect SOURCES kiokdeconnect.cpp INSTALL_NAMESPACE "kf6/kio")
 
 set_target_properties(kio_kdeconnect PROPERTIES OUTPUT_NAME "kdeconnect")
 ecm_qt_declare_logging_category(kio_kdeconnect
@@ -14,6 +14,6 @@ target_link_libraries(kio_kdeconnect
     kdeconnectinterfaces
     Qt::Core
     Qt::Network
-    KF${QT_MAJOR_VERSION}::KIOCore
-    KF${QT_MAJOR_VERSION}::I18n
+    KF6::KIOCore
+    KF6::I18n
 )

@@ -15,7 +15,7 @@ target_link_libraries(kdeconnect_pausemusic
 if (WIN32)
     target_link_libraries(kdeconnect_pausemusic windowsapp)
 else()
-    target_link_libraries(kdeconnect_pausemusic KF${QT_MAJOR_VERSION}::PulseAudioQt)
+    target_link_libraries(kdeconnect_pausemusic KF6::PulseAudioQt)
 endif()
 
 #######################################
@@ -27,6 +27,6 @@ ki18n_wrap_ui(kdeconnect_pausemusic_config pausemusic_config.ui)
 target_link_libraries(kdeconnect_pausemusic_config
     kdeconnectcore
     kdeconnectpluginkcm
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::KCMUtils
+    KF6::I18n
+    KF6::KCMUtils
 )

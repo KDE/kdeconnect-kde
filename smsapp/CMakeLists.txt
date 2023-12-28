@@ -26,7 +26,7 @@ target_link_libraries(kdeconnectsmshelper
     PUBLIC
     Qt::Core
     Qt::DBus
-    KF${QT_MAJOR_VERSION}::People
+    KF6::People
     Qt::Qml
     kdeconnectinterfaces
 )
@@ -62,11 +62,11 @@ target_link_libraries(kdeconnect-sms PRIVATE
     Qt::Quick
     Qt::QuickControls2
     Qt::Widgets
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::DBusAddons
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::People
-    KF${QT_MAJOR_VERSION}::KCMUtils
+    KF6::CoreAddons
+    KF6::DBusAddons
+    KF6::I18n
+    KF6::People
+    KF6::KCMUtils
     )
 
 install(TARGETS kdeconnect-sms ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

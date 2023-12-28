@@ -5,15 +5,11 @@ target_link_libraries(kdeconnect_notifications
     kdeconnectcore
     Qt::DBus
     Qt::Widgets
-    KF${QT_MAJOR_VERSION}::Notifications
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::WindowSystem
+    KF6::Notifications
+    KF6::I18n
+    KF6::WindowSystem
 )
 
 if (UNIX AND NOT APPLE)
-    if (QT_MAJOR_VERSION EQUAL "5")
-        target_link_libraries(kdeconnect_notifications Qt5::X11Extras)
-    else()
-        target_link_libraries(kdeconnect_notifications Qt6::GuiPrivate)
-    endif()
+    target_link_libraries(kdeconnect_notifications Qt6::GuiPrivate)
 endif()

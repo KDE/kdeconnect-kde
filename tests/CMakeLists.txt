@@ -1,15 +1,15 @@
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 
 set(kdeconnect_libraries
     kdeconnectcore
     kdeconnectinterfaces
     kdeconnectsmshelper
     kdeconnectversion
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF6::I18n
+    KF6::KIOWidgets
     Qt::DBus
     Qt::Network
-    KF${QT_MAJOR_VERSION}::People
+    KF6::People
     Qt::Qml
     Qt::Test
 )

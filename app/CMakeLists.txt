@@ -46,7 +46,7 @@ ecm_target_qml_sources(kdeconnect-app SOURCES
     qml/Settings.qml
 )
 
-target_link_libraries(kdeconnect-app PRIVATE Qt::Quick Qt::QuickControls2 Qt::Widgets KF${QT_MAJOR_VERSION}::CoreAddons KF${QT_MAJOR_VERSION}::I18n KF${QT_MAJOR_VERSION}::KCMUtils)
+target_link_libraries(kdeconnect-app PRIVATE Qt::Quick Qt::QuickControls2 Qt::Widgets KF6::CoreAddons KF6::I18n KF6::KCMUtils)
 
 install(TARGETS kdeconnect-app ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.kdeconnect.app.desktop DESTINATION ${KDE_INSTALL_APPDIR})

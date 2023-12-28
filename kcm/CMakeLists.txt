@@ -9,8 +9,8 @@ ki18n_wrap_ui(kcm_kdeconnect kcm.ui)
 target_link_libraries(kcm_kdeconnect
     Qt::Core
     Qt::Gui
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::KCMUtils
+    KF6::I18n
+    KF6::KCMUtils
     kdeconnectinterfaces
     kdeconnectversion
 )

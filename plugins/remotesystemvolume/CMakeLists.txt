@@ -2,5 +2,5 @@ kdeconnect_add_plugin(kdeconnect_remotesystemvolume SOURCES remotesystemvolumepl
 target_link_libraries(kdeconnect_remotesystemvolume
     kdeconnectcore
     Qt::DBus
-    KF${QT_MAJOR_VERSION}::I18n
+    KF6::I18n
 )

@@ -18,7 +18,7 @@ target_link_libraries(kdeconnect_screensaver_inhibit kdeconnectcore kdeconnectin
 if(NOT APPLE AND NOT WIN32)
     target_link_libraries(kdeconnect_screensaver_inhibit
         Qt::DBus
-        KF${QT_MAJOR_VERSION}::I18n
+        KF6::I18n
     )
 endif()
 

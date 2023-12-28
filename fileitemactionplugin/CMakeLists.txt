@@ -9,9 +9,9 @@ ecm_qt_declare_logging_category(kdeconnectfileitemaction
     EXPORT kdeconnect-kde DESCRIPTION "kdeconnect (fileitemaction)")
 target_link_libraries(
     kdeconnectfileitemaction
-    KF${QT_MAJOR_VERSION}::KIOWidgets
-    KF${QT_MAJOR_VERSION}::I18n
+    KF6::KIOWidgets
+    KF6::I18n
     kdeconnectinterfaces
     kdeconnectcore
 )
-install(TARGETS kdeconnectfileitemaction DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kfileitemaction)
+install(TARGETS kdeconnectfileitemaction DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kfileitemaction)

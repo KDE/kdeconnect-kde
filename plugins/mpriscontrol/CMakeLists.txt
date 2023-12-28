@@ -11,7 +11,7 @@ endif()
 kdeconnect_add_plugin(kdeconnect_mpriscontrol SOURCES  ${kdeconnect_mpriscontrol_SRCS})
 
 if(WIN32)
-   target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore windowsapp KF${QT_MAJOR_VERSION}::I18n)
+   target_link_libraries(kdeconnect_mpriscontrol kdeconnectcore windowsapp KF6::I18n)
 else()
    target_link_libraries(kdeconnect_mpriscontrol Qt::DBus kdeconnectcore kdeconnectinterfaces)
 endif()
