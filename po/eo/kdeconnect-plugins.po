@@ -1,0 +1,486 @@
+# translation of kdeconnect-plugins.pot to esperanto
+# Copyright (C) 2023 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: battery/batteryplugin.cpp:119
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: Malalta Baterio"
+
+#: battery/batteryplugin.cpp:120
+#, kde-format
+msgid "Battery at %1%"
+msgstr "Baterio ĉe %1%"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr "Kromprogramo de tondujo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Automatic synchronization"
+msgstr "Aŭtomata sinkronigo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "Aŭtomate kundividi la tondujon de ĉi tiu aparato"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr "Inkluzive de pasvortoj (kiel markite de pasvortmanaĝeroj)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: findthisdevice/findthisdevice_config.ui:17
+#, kde-format
+msgid "Discovery Utilities"
+msgstr "Discovery Utilaĵoj"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: findthisdevice/findthisdevice_config.ui:25
+#, kde-format
+msgid "Sound to play:"
+msgstr "Sono por ludi:"
+
+#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
+#: findthisdevice/findthisdevice_config.ui:39
+#, kde-format
+msgid "Select the sound to play"
+msgstr "Elekti la sonon por ludi"
+
+#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
+#, kde-format
+msgid "Remote lock successful"
+msgstr "Fora riglado sukcesa"
+
+#: lockdevice/lockdeviceplugin-win.cpp:62
+#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin.cpp:94
+#, kde-format
+msgid "Remote lock failed"
+msgstr "Fora riglado malsukcesis"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr "Nuna Ludanto"
+
+#: notifications/notification.cpp:115
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Respondi"
+
+#: notifications/notification.cpp:116
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1..."
+msgstr "Respondi al %1..."
+
+#: notifications/sendreplydialog.cpp:29
+#, kde-format
+msgid "Send"
+msgstr "Sendi"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Dialogo"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
+#: pausemusic/pausemusic_config.ui:17
+#, kde-format
+msgid "Pause music plugin"
+msgstr "Paŭzi muzikan kromprogramon"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: pausemusic/pausemusic_config.ui:32
+#, kde-format
+msgid "Condition"
+msgstr "Kondiĉo"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
+#: pausemusic/pausemusic_config.ui:38
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Paŭzi tuj kiam telefono sonoras"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
+#: pausemusic/pausemusic_config.ui:45
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Paŭzi nur dum parolado"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: pausemusic/pausemusic_config.ui:61
+#, kde-format
+msgid "Actions"
+msgstr "Agoj"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
+#: pausemusic/pausemusic_config.ui:67
+#, kde-format
+msgid "Pause media players"
+msgstr "Paŭzi plurmediajn ludilojn"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
+#: pausemusic/pausemusic_config.ui:74
+#, kde-format
+msgid "Mute system sound"
+msgstr "Silentigi sisteman sonon"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
+#: pausemusic/pausemusic_config.ui:81
+#, kde-format
+msgid "Automatically resume media when call has finished"
+msgstr "Aŭtomate rekomenci amaskomunikilaron kiam la voko finiĝis"
+
+#: ping/pingplugin.cpp:26
+#, kde-format
+msgid "Ping!"
+msgstr "Ping!"
+
+#: runcommand/runcommand_config.cpp:41
+#, kde-format
+msgid "Schedule a shutdown"
+msgstr "Plani sistemfermon"
+
+#: runcommand/runcommand_config.cpp:42
+#, kde-format
+msgid "Shutdown now"
+msgstr "Fermi nun"
+
+#: runcommand/runcommand_config.cpp:43
+#, kde-format
+msgid "Cancel last shutdown"
+msgstr "Nuligi lastan sistemfermon"
+
+#: runcommand/runcommand_config.cpp:44
+#, kde-format
+msgid "Schedule a reboot"
+msgstr "Plani sistemrekomencon"
+
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
+#, kde-format
+msgid "Suspend"
+msgstr "Suspendi"
+
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
+#, kde-format
+msgid "Lock Screen"
+msgstr "Ŝlosi Ekranon"
+
+#: runcommand/runcommand_config.cpp:49
+#, kde-format
+msgid "Say Hello"
+msgstr "Diri Saluton"
+
+#: runcommand/runcommand_config.cpp:52
+#, kde-format
+msgid "Shutdown"
+msgstr "Malŝalti"
+
+#: runcommand/runcommand_config.cpp:53
+#, kde-format
+msgid "Reboot"
+msgstr "Rekomenci"
+
+#: runcommand/runcommand_config.cpp:57
+#, kde-format
+msgid "Maximum Brightness"
+msgstr "Maksimuma Brilo"
+
+#: runcommand/runcommand_config.cpp:63
+#, kde-format
+msgid "Unlock Screen"
+msgstr "Malŝlosi Ekranon"
+
+#: runcommand/runcommand_config.cpp:64
+#, kde-format
+msgid "Close All Vaults"
+msgstr "Fermi Ĉiujn Trezorejojn"
+
+#: runcommand/runcommand_config.cpp:66
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr "Perforte Fermi Ĉiujn Trezorejojn"
+
+#: runcommand/runcommand_config.cpp:73
+#, kde-format
+msgid "Sample commands"
+msgstr "Ekzemplaj komandoj"
+
+#: runcommand/runcommand_config.cpp:77
+#, kde-format
+msgid "Export"
+msgstr "Eksporti"
+
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Import"
+msgstr "Importi"
+
+#: runcommand/runcommand_config.cpp:93
+#: sendnotifications/notifyingapplicationmodel.cpp:177
+#, kde-format
+msgid "Name"
+msgstr "Nomo"
+
+#: runcommand/runcommand_config.cpp:93
+#, kde-format
+msgid "Command"
+msgstr "Komando"
+
+#: runcommand/runcommand_config.cpp:98
+#, kde-format
+msgid "Export Commands"
+msgstr "Eksporti Komandojn"
+
+#: runcommand/runcommand_config.cpp:123
+#, kde-format
+msgid "Import Commands"
+msgstr "Importi Komandojn"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
+#, kde-format
+msgid "Phone is connected"
+msgstr "Telefono estas konektita"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:181
+#, kde-format
+msgid "Blacklisted"
+msgstr "Nigrolistigita"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:185
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "Nomo de sciiga aplikaĵo."
+
+#: sendnotifications/notifyingapplicationmodel.cpp:187
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "Ĉu sinkronigi sciigojn pri aplikaĵo?"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:190
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"Regula esprimo difinanta kiajn sciigojn ne devas esti senditaj.\n"
+"Tiu ŝablono estas aplikata al la resumo kaj, se elektita supre, al la korpo "
+"de sciigoj."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: sendnotifications/sendnotifications_config.ui:38
+#, kde-format
+msgid "General"
+msgstr "Ĝeneralo"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:44
+#, kde-format
+msgid "Synchronize only notifications with a timeout value of 0?"
+msgstr "Sinkronigi nur sciigojn kun tempofinvaloro de 0?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:47
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Nur konstantaj sciigoj"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:60
+#, kde-format
+msgid ""
+"Append the notification body to the summary when synchronizing notifications?"
+msgstr "Ĉu aldoni la sciigan korpon al la resumo dum sinkronigado de sciigoj?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:63
+#, kde-format
+msgid "Include body"
+msgstr "Inkluzivi korpon"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:76
+#, kde-format
+msgid "Synchronize icons of notifying applications if possible?"
+msgstr "Sinkronigi piktogramojn de sciigaj aplikoj se eble?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:79
+#, kde-format
+msgid "Synchronize icons"
+msgstr "Sinkronigi piktogramojn"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
+#: sendnotifications/sendnotifications_config.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Minimuma urĝnivelo de la sciigoj</p></body></html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:123
+#, kde-format
+msgid "Synchronize only notifications with the given urgency level."
+msgstr "Sinkronigu nur sciigojn kun la donita urĝecnivelo."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:126
+#, kde-format
+msgid "Minimum urgency level"
+msgstr "Minimuma urĝnivelo"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: sendnotifications/sendnotifications_config.ui:148
+#, kde-format
+msgid "Applications"
+msgstr "Aplikoj"
+
+#: sftp/mounter.cpp:167
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "Malsukcesis lanĉi sshfs"
+
+#: sftp/mounter.cpp:171
+#, kde-format
+msgid "sshfs process crashed"
+msgstr "sshfs-procezo paneis"
+
+#: sftp/mounter.cpp:175
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr "Nekonata eraro en sshfs"
+
+#: sftp/mounter.cpp:186
+#, kde-format
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr "Eraro dum aliro al dosiersistemo. sshfs finiĝis kun elirkodo %0"
+
+#: sftp/mounter.cpp:195
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "Malsukcesis munti dosiersistemon: aparato ne respondas"
+
+#: sftp/sftpplugin-win.cpp:79
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Konekti"
+
+#: sftp/sftpplugin-win.cpp:80
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr "Ne povas trakti SFTP-protokolon. Pardonu pro la ĝeno"
+
+#: sftp/sftpplugin.cpp:134
+#, kde-format
+msgid "All files"
+msgstr "Ĉiuj dosieroj"
+
+#: sftp/sftpplugin.cpp:135
+#, kde-format
+msgid "Camera pictures"
+msgstr "Fotilaj bildoj"
+
+#: share/share_config.cpp:22
+#, kde-format
+msgid "&percnt;1 in the path will be replaced with the specific device name."
+msgstr "&percnt;1 en la vojo estos anstataŭigita per la specifa aparato nomo."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
+#: share/share_config.ui:17
+#, kde-format
+msgid "Share plugin settings"
+msgstr "Kunhavigi kromprogramojn"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: share/share_config.ui:23
+#, kde-format
+msgid "Receiving"
+msgstr "Ricevante"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: share/share_config.ui:31
+#, kde-format
+msgid "Save files in:"
+msgstr "Konservi dosierojn en:"
+
+#: share/shareplugin.cpp:160
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr "Komuna teksto de %1 kopiita al tondujo"
+
+#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr "Malfermi en Tekstredaktilo"
+
+#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr "Malfermi Ligon"
+
+#: share/shareplugin.cpp:251
+#, kde-format
+msgid "Could not share file"
+msgstr "Ne eblis kunhavigi dosieron"
+
+#: share/shareplugin.cpp:251
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 ne ekzistas"
+
+#: telephony/telephonyplugin.cpp:23
+#, kde-format
+msgid "unknown number"
+msgstr "nekonata nombro"
+
+#: telephony/telephonyplugin.cpp:32
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "Envenanta voko de %1"
+
+#: telephony/telephonyplugin.cpp:36
+#, kde-format
+msgid "Missed call from %1"
+msgstr "Maltrafita voko de %1"
+
+#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#, kde-format
+msgid "Mute Call"
+msgstr "Silentigi Vokon"

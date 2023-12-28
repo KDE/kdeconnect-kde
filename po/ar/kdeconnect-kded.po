@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-12-28 01:33+0000\n"
 "PO-Revision-Date: 2022-04-28 12:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "safa1996alfulaij@gmail.com"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -38,37 +38,37 @@ msgstr ""
 "طلب اقتران من%1\n"
 "المفتاح: %2..."
 
-#: kdeconnectd.cpp:65 kdeconnectd.cpp:77
+#: kdeconnectd.cpp:66 kdeconnectd.cpp:78
 #, kde-format
 msgid "Open"
 msgstr "افتح"
 
-#: kdeconnectd.cpp:68 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:69 kdeconnectd.cpp:79
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
 
-#: kdeconnectd.cpp:71 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:72 kdeconnectd.cpp:79
 #, kde-format
 msgid "Reject"
 msgstr "ارفض"
 
-#: kdeconnectd.cpp:74 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:75 kdeconnectd.cpp:79
 #, kde-format
 msgid "View key"
 msgstr "شاهد المفتاح"
 
-#: kdeconnectd.cpp:157 kdeconnectd.cpp:159
+#: kdeconnectd.cpp:158 kdeconnectd.cpp:160
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "عفريت كِيدِي المتصل"
 
-#: kdeconnectd.cpp:165
+#: kdeconnectd.cpp:166
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "استبدل نسخة موجودة"
 
-#: kdeconnectd.cpp:169
+#: kdeconnectd.cpp:170
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

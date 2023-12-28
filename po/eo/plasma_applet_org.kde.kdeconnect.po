@@ -1,0 +1,184 @@
+# translation of plasma_applet_org.kde.kdeconnect.pot to esperanto
+# Copyright (C) 2023 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
+"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: package/contents/ui/Battery.qml:25
+#, kde-format
+msgid "%1% charging"
+msgstr "%1% ŝarĝante"
+
+#: package/contents/ui/Battery.qml:25
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/Battery.qml:25
+#, kde-format
+msgid "No info"
+msgstr "Neniu informo"
+
+#: package/contents/ui/Connectivity.qml:40
+#, kde-format
+msgid "Unknown"
+msgstr "Nekonata"
+
+#: package/contents/ui/Connectivity.qml:50
+#, kde-format
+msgid "No signal"
+msgstr "Neniu signalo"
+
+#: package/contents/ui/DeviceDelegate.qml:56
+#, kde-format
+msgid "File Transfer"
+msgstr "Dosiera Transdono"
+
+#: package/contents/ui/DeviceDelegate.qml:57
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr "Faligi dosieron por transdoni ĝin al via telefono."
+
+#: package/contents/ui/DeviceDelegate.qml:93
+#, kde-format
+msgid "Virtual Display"
+msgstr "Virtuala Ekrano"
+
+#: package/contents/ui/DeviceDelegate.qml:146
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:168
+#, kde-format
+msgid "Please choose a file"
+msgstr "Bonvolu elekti dosieron"
+
+#: package/contents/ui/DeviceDelegate.qml:177
+#, kde-format
+msgid "Share file"
+msgstr "Kunhavigi dosieron"
+
+#: package/contents/ui/DeviceDelegate.qml:192
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Sendi Tondujon"
+
+#: package/contents/ui/DeviceDelegate.qml:211
+#, kde-format
+msgid "Ring my phone"
+msgstr "Sonorigi mian telefonon"
+
+#: package/contents/ui/DeviceDelegate.qml:229
+#, kde-format
+msgid "Browse this device"
+msgstr "Foliumi ĉi tiun aparaton"
+
+#: package/contents/ui/DeviceDelegate.qml:246
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS Mesaĝoj"
+
+#: package/contents/ui/DeviceDelegate.qml:267
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "Fora Klavaro"
+
+#: package/contents/ui/DeviceDelegate.qml:288
+#, kde-format
+msgid "Notifications:"
+msgstr "Sciigoj:"
+
+#: package/contents/ui/DeviceDelegate.qml:296
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "Forĵeti ĉiujn sciigojn"
+
+#: package/contents/ui/DeviceDelegate.qml:343
+#, kde-format
+msgid "Reply"
+msgstr "Respondi"
+
+#: package/contents/ui/DeviceDelegate.qml:353
+#, kde-format
+msgid "Dismiss"
+msgstr "Forĵeti"
+
+#: package/contents/ui/DeviceDelegate.qml:366
+#, kde-format
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: package/contents/ui/DeviceDelegate.qml:380
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr "Respondi al %1…"
+
+#: package/contents/ui/DeviceDelegate.qml:398
+#, kde-format
+msgid "Send"
+msgstr "Sendi"
+
+#: package/contents/ui/DeviceDelegate.qml:424
+#, kde-format
+msgid "Run command"
+msgstr "Ruli komandon"
+
+#: package/contents/ui/DeviceDelegate.qml:432
+#, kde-format
+msgid "Add command"
+msgstr "Aldoni komandon"
+
+#: package/contents/ui/FullRepresentation.qml:58
+#, kde-format
+msgid "No paired devices"
+msgstr "Neniuj parigitaj aparatoj"
+
+#: package/contents/ui/FullRepresentation.qml:58
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] "Parigita aparato estas nedisponebla"
+msgstr[1] "Ĉiuj parigitaj aparatoj estas nedisponeblaj"
+
+#: package/contents/ui/FullRepresentation.qml:60
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr ""
+"Instalu KDE Connect sur via Android-aparato por integri ĝin kun Plasma!"
+
+#: package/contents/ui/FullRepresentation.qml:64
+#, kde-format
+msgid "Pair a Device..."
+msgstr "Parigi aparaton..."
+
+#: package/contents/ui/FullRepresentation.qml:76
+#, kde-format
+msgid "Install from Google Play"
+msgstr "Instali el Google Play"
+
+#: package/contents/ui/FullRepresentation.qml:86
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "Instali de F-Droid"
+
+#: package/contents/ui/main.qml:59
+#, kde-format
+msgid "KDE Connect Settings..."
+msgstr "Agordoj de KDE Connect..."

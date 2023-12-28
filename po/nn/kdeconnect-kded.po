@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2023-12-28 01:33+0000\n"
 "PO-Revision-Date: 2022-06-22 20:16+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: kdeconnectd.cpp:56
+#: kdeconnectd.cpp:57
 #, kde-format
 msgid ""
 "Pairing request from %1\n"
@@ -38,37 +38,37 @@ msgstr ""
 "Paringsførespurnad frå %1\n"
 "Nøkkel: %2 …"
 
-#: kdeconnectd.cpp:65 kdeconnectd.cpp:77
+#: kdeconnectd.cpp:66 kdeconnectd.cpp:78
 #, kde-format
 msgid "Open"
 msgstr "Opna"
 
-#: kdeconnectd.cpp:68 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:69 kdeconnectd.cpp:79
 #, kde-format
 msgid "Accept"
 msgstr "Godta"
 
-#: kdeconnectd.cpp:71 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:72 kdeconnectd.cpp:79
 #, kde-format
 msgid "Reject"
 msgstr "Avslå"
 
-#: kdeconnectd.cpp:74 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:75 kdeconnectd.cpp:79
 #, kde-format
 msgid "View key"
 msgstr "Vis nøkkelen"
 
-#: kdeconnectd.cpp:157 kdeconnectd.cpp:159
+#: kdeconnectd.cpp:158 kdeconnectd.cpp:160
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect-teneste"
 
-#: kdeconnectd.cpp:165
+#: kdeconnectd.cpp:166
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Erstatt ein instans som finst frå før"
 
-#: kdeconnectd.cpp:169
+#: kdeconnectd.cpp:170
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

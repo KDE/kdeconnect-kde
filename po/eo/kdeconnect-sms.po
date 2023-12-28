@@ -1,38 +1,38 @@
-# Copyright (C) 2023 This file is copyright:
+# translation of kdeconnect-sms.pot to esperanto
+# Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the kdeconnect-kde package.
+# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
 #
-# Volkan Gezer <volkangezer@gmail.com>, 2021.
-# SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:33+0000\n"
-"PO-Revision-Date: 2023-12-27 14:28+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
-"Language: tr\n"
+"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Hasan Kıran, Emir SARI"
+msgstr "Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sunder67@hotmail.com, emir_sari@icloud.com"
+msgstr "okellogg@users.sourceforge.net"
 
 #: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
-msgstr "Resim"
+msgstr "Bildo"
 
 #: conversationlistmodel.cpp:201
 #, kde-format
@@ -46,12 +46,12 @@ msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
 "attachment, resulting in something like \"pdf file\""
 msgid "%1 file"
-msgstr "%1 dosya"
+msgstr "%1 dosiero"
 
 #: conversationlistmodel.cpp:221
 #, kde-format
 msgid "You: %1"
-msgstr "Siz: %1"
+msgstr "Vi: %1"
 
 #: conversationlistmodel.cpp:227
 #, kde-format
@@ -66,17 +66,17 @@ msgstr "%1"
 #: main.cpp:51 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
-msgstr "KDE Bağlan SMS"
+msgstr "KDE Connect SMS"
 
 #: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
-msgstr "SMS Anlık İletileşme"
+msgstr "SMS Tuja Mesaĝado"
 
 #: main.cpp:55
 #, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, KDE Bağlan Takımı"
+msgstr "(C) 2018-2022, Teamo de KDE Connect"
 
 #: main.cpp:56
 #, kde-format
@@ -96,50 +96,50 @@ msgstr "Nicolas Fella"
 #: main.cpp:76
 #, kde-format
 msgid "Select a device"
-msgstr "Bir aygıt seçin"
+msgstr "Select a device"
 
 #: main.cpp:76
 #, kde-format
 msgid "id"
-msgstr "Kimlik"
+msgstr "id"
 
 #: main.cpp:77
 #, kde-format
 msgid "Send a message"
-msgstr "İleti gönder"
+msgstr "Sendi mesaĝon"
 
 #: main.cpp:77
 #, kde-format
 msgid "message"
-msgstr "İleti"
+msgstr "mesaĝo"
 
 #: qml/AttachmentViewer.qml:20
 #, kde-format
 msgid "Open with default"
-msgstr "Varsayılan olarak aç"
+msgstr "Malfermi defaŭlte"
 
 #: qml/ChatMessage.qml:155
 #, kde-format
 msgid "Copy Message"
-msgstr "İletiyi Kopyala"
+msgstr "Kopii Mesaĝon"
 
 #: qml/ChatMessage.qml:160
 #, kde-format
 msgid "Copy Selection"
-msgstr "Seçimi Kopyala"
+msgstr "Kopii Elekton"
 
 #: qml/ConversationList.qml:25
 #, kde-format
 msgid "No devices available"
-msgstr "Kullanılabilir aygıt yok"
+msgstr "Neniuj aparatoj haveblaj"
 
 #: qml/ConversationList.qml:35
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
-"Yeni ileti gönderilemez veya alınamaz; ancak önbelleğe alınmış içeriğe göz "
-"atabilirsiniz"
+"Neniuj novaj mesaĝoj povas esti senditaj aŭ ricevitaj, sed vi povas foliumi "
+"konservitan enhavon"
 
 #: qml/ConversationList.qml:51
 #, kde-format
@@ -147,8 +147,8 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
-"Aygıttan görüşmeler yükleniyor. Uzun sürerse aygıtınızı uyandırın ve "
-"Yenile'ye basın."
+"Ŝargante konversaciojn de aparato. Se tio daŭras longan tempon, bonvolu veki "
+"vian aparaton kaj tiam alklaku Refreŝigi."
 
 #: qml/ConversationList.qml:59
 #, kde-format
@@ -156,70 +156,71 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
-"İpucu: Aygıtınızı takarsanız pinekleme kipine girmez ve daha tez yüklenir."
+"Konsilo: Se vi enŝovas vian aparaton, ĝi ne devus eniri en dormreĝimon kaj "
+"devus ŝargi rapide."
 
 #: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
-msgstr "Yenile"
+msgstr "Refreŝigi"
 
 #: qml/ConversationList.qml:81
 #, kde-format
 msgid "Choose recipient"
-msgstr "Alıcı seçin"
+msgstr "Elekti ricevonton"
 
 #: qml/ConversationList.qml:86
 #, kde-format
 msgid "Cancel"
-msgstr "İptal"
+msgstr "Nuligi"
 
 #: qml/ConversationList.qml:113
 #, kde-format
 msgid "Search or start conversation..."
-msgstr "Görüşme ara veya yeni görüşme başlat..."
+msgstr "Serĉi aŭ komenci konversacion..."
 
 #: qml/ConversationList.qml:145
 #, kde-format
 msgid "New"
-msgstr "Yeni"
+msgstr "Nova"
 
 #: qml/ConversationList.qml:150
 #, kde-format
 msgid "Start new conversation"
-msgstr "Yeni görüşme başlat"
+msgstr "Komenci novan konversacion"
 
 #: qml/ConversationList.qml:249
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
-msgstr "Eşleşme yok"
+msgstr "Neniuj alumetoj"
 
 #: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
-msgstr "Aygıtlar"
+msgstr "Aparatoj"
 
 #: qml/Main.qml:98
 #, kde-format
 msgid "About"
-msgstr "Hakkında"
+msgstr "Pri"
 
 #: qml/MessageAttachments.qml:131
 #, kde-format
 msgid "Audio clip"
-msgstr "Ses klibi"
+msgstr "Aŭda tondaĵo"
 
 #: qml/SendingArea.qml:25
 #, kde-format
 msgid "Failed to send"
-msgstr "Gönderilemedi"
+msgstr "Malsukcesis sendi"
 
 #: qml/SendingArea.qml:26
 #, kde-format
 msgid "Max message size limit exceeded."
-msgstr "En büyük ileti boyutu sınırı aşıldı."
+msgstr "Maksimuma grandecolimo de mesaĝo superita."
 
 #: qml/SendingArea.qml:74
 #, kde-format
 msgid "Compose message"
-msgstr "İleti oluştur"
+msgstr "Verki mesaĝon"

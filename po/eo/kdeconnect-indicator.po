@@ -1,86 +1,83 @@
-# Translation of kdeconnect-indicator.po to Catalan (Valencian)
-# Copyright (C) 2014-2023 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
+# translation of kdeconnect-indicator.pot to esperanto
+# Copyright (C) 2023 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2018, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2023-08-09 09:53+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca@valencia\n"
+"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Antoni Bella"
+msgstr "Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "antonibella5@yahoo.com"
+msgstr "okellogg@users.sourceforge.net"
 
 #: deviceindicator.cpp:53
 #, kde-format
 msgid "Browse device"
-msgstr "Navega per este dispositiu"
+msgstr "Foliumi aparaton"
 
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr "Envia el porta-retalls"
+msgstr "Sendi tondujon"
 
 #: deviceindicator.cpp:81
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
-msgstr "Toca al dispositiu"
+msgstr "Sonorigi aparaton"
 
 #: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
-msgstr "Envia un fitxer/URL"
+msgstr "Sendi dosieron/URL"
 
 #: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
-msgstr "Missatges SMS..."
+msgstr "SMS-Mesaĝoj..."
 
 #: deviceindicator.cpp:120
 #, kde-format
 msgid "Run command"
-msgstr "Executa una ordre"
+msgstr "Lanĉi komandon"
 
 #: deviceindicator.cpp:122
 #, kde-format
 msgid "Add commands"
-msgstr "Afig ordres"
+msgstr "Aldoni komandojn"
 
 #: indicatorhelper_mac.cpp:37
 #, kde-format
 msgid "Launching"
-msgstr "S'està llançant"
+msgstr "Lanĉante"
 
 #: indicatorhelper_mac.cpp:87
 #, kde-format
 msgid "Launching daemon"
-msgstr "S'està llançant el dimoni"
+msgstr "Lanĉa demono"
 
 #: indicatorhelper_mac.cpp:96
 #, kde-format
 msgid "Waiting D-Bus"
-msgstr "S'està a l'espera de D-Bus"
+msgstr "Atendante D-Bus"
 
 #: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
 #: indicatorhelper_mac.cpp:144
@@ -94,28 +91,28 @@ msgid ""
 "Cannot connect to DBus\n"
 "KDE Connect will quit"
 msgstr ""
-"No s'ha pogut connectar amb D-Bus\n"
-"KDE Connect eixirà"
+"Ne povas konekti al DBus\n"
+"KDE Connect ĉesos"
 
 #: indicatorhelper_mac.cpp:144
 #, kde-format
 msgid "Cannot find kdeconnectd"
-msgstr "No s'ha pogut trobar «kdeconnectd»"
+msgstr "Ne povas trovi kdeconnectd"
 
 #: indicatorhelper_mac.cpp:149
 #, kde-format
 msgid "Loading modules"
-msgstr "S'estan carregant els mòduls"
+msgstr "Ŝargante modulojn"
 
 #: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator"
-msgstr "Indicador de KDE Connect"
+msgstr "Indikilo de KDE Connect"
 
 #: main.cpp:55
 #, kde-format
 msgid "KDE Connect Indicator tool"
-msgstr "Eina Indicador de KDE Connect"
+msgstr "Indikilo de KDE Connect"
 
 #: main.cpp:57
 #, kde-format
@@ -125,50 +122,50 @@ msgstr "(C) 2016 Aleix Pol Gonzalez"
 #: main.cpp:92
 #, kde-format
 msgid "Configure..."
-msgstr "Configura..."
+msgstr "Agordi..."
 
 #: main.cpp:114
 #, kde-format
 msgid "Pairing requests"
-msgstr "Sol·licituds d'aparellament"
+msgstr "Parigaj petoj"
 
 #: main.cpp:119
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
-msgstr "Aparella"
+msgstr "Parigi"
 
 #: main.cpp:120
 #, kde-format
 msgid "Reject"
-msgstr "Rebutja"
+msgstr "Malakcepti"
 
 #: main.cpp:126 main.cpp:136
 #, kde-format
 msgid "Quit"
-msgstr "Ix"
+msgstr "Forlasi"
 
 #: main.cpp:155 main.cpp:179
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
-msgstr[0] "%1 dispositiu connectat"
-msgstr[1] "%1 dispositius connectats"
+msgstr[0] "konektis %1 aparaton"
+msgstr[1] "konektis %1 aparatojn"
 
 #: systray_actions/battery_action.cpp:28
 #, kde-format
 msgid "No Battery"
-msgstr "Sense bateria"
+msgstr "Neniu Baterio"
 
 #: systray_actions/battery_action.cpp:30
 #, kde-format
 msgid "Battery: %1% (Charging)"
-msgstr "Bateria: %1% (està carregant)"
+msgstr "Baterio: %1% (Ŝarĝante)"
 
 #: systray_actions/battery_action.cpp:32
 #, kde-format
 msgid "Battery: %1%"
-msgstr "Bateria: %1%"
+msgstr "Baterio: %1%"
 
 #: systray_actions/connectivity_action.cpp:30
 #, kde-format
@@ -176,7 +173,7 @@ msgctxt ""
 "The fallback text to display in case the remote device does not have a "
 "cellular connection"
 msgid "No Cellular Connectivity"
-msgstr "Sense connectivitat cel·lular"
+msgstr "Neniu Ĉelreta Konekteblo"
 
 #: systray_actions/connectivity_action.cpp:33
 #, kde-format

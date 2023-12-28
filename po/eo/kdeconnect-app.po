@@ -1,0 +1,260 @@
+# translation of kdeconnect-app.pot to esperanto
+# Copyright (C) 2023 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kdeconnect-kde package.
+# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: main.cpp:32 main.cpp:34
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: main.cpp:36
+#, kde-format
+msgid "(c) 2015, Aleix Pol Gonzalez"
+msgstr "(c) 2015, Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:37
+#, kde-format
+msgid "Maintainer"
+msgstr "Prizorganto"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Oliver Kellogg"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "okellogg@users.sourceforge.net"
+
+#: main.cpp:55
+#, kde-format
+msgid "URL to share"
+msgstr "URL por kunhavigi"
+
+#: qml/DevicePage.qml:24
+#, kde-format
+msgid "Unpair"
+msgstr "Malparigi"
+
+#: qml/DevicePage.qml:29
+#, kde-format
+msgid "Send Ping"
+msgstr "Sendi Ping"
+
+#: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
+#, kde-format
+msgid "Plugin Settings"
+msgstr "Kromprogramaj agordoj"
+
+#: qml/DevicePage.qml:62
+#, kde-format
+msgid "Multimedia control"
+msgstr "Mastrumo de Aŭdvidaĵoj"
+
+#: qml/DevicePage.qml:69
+#, kde-format
+msgid "Remote input"
+msgstr "Fora enigo"
+
+#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
+#, kde-format
+msgid "Presentation Remote"
+msgstr "Fora aparato de Prezento"
+
+#: qml/DevicePage.qml:85 qml/mousepad.qml:44
+#, kde-format
+msgid "Lock"
+msgstr "Ŝlosi"
+
+#: qml/DevicePage.qml:85
+#, kde-format
+msgid "Unlock"
+msgstr "Malŝlosi"
+
+#: qml/DevicePage.qml:92
+#, kde-format
+msgid "Find Device"
+msgstr "Trovi Aparaton"
+
+#: qml/DevicePage.qml:97 qml/runcommand.qml:16
+#, kde-format
+msgid "Run command"
+msgstr "Ruli komandon"
+
+#: qml/DevicePage.qml:106
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Sendi Tondujon"
+
+#: qml/DevicePage.qml:112
+#, kde-format
+msgid "Share File"
+msgstr "Kunhavigi Dosieron"
+
+#: qml/DevicePage.qml:117 qml/volume.qml:16
+#, kde-format
+msgid "Volume control"
+msgstr "Mastrumo de laŭteco"
+
+#: qml/DevicePage.qml:126
+#, kde-format
+msgid "This device is not paired"
+msgstr "Ĉi tiu aparato ne estas parigita"
+
+#: qml/DevicePage.qml:130
+#, kde-format
+msgctxt "Request pairing with a given device"
+msgid "Pair"
+msgstr "Parigi"
+
+#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
+#, kde-format
+msgid "Pair requested"
+msgstr "Parigo alpetiĝis"
+
+#: qml/DevicePage.qml:152
+#, kde-format
+msgid "Accept"
+msgstr "Akcepti"
+
+#: qml/DevicePage.qml:158
+#, kde-format
+msgid "Reject"
+msgstr "Malakcepti"
+
+#: qml/DevicePage.qml:167
+#, kde-format
+msgid "This device is not reachable"
+msgstr "Ĉi tiu aparato ne estas atingebla"
+
+#: qml/DevicePage.qml:175
+#, kde-format
+msgid "Please choose a file"
+msgstr "Bonvolu elekti dosieron"
+
+#: qml/FindDevicesPage.qml:23
+#, kde-format
+msgctxt "Title of the page listing the devices"
+msgid "Devices"
+msgstr "Aparatoj"
+
+#: qml/FindDevicesPage.qml:38
+#, kde-format
+msgid "No devices found"
+msgstr "Neniuj aparatoj trovitaj"
+
+#: qml/FindDevicesPage.qml:54
+#, kde-format
+msgid "Remembered"
+msgstr "Memorita"
+
+#: qml/FindDevicesPage.qml:56
+#, kde-format
+msgid "Available"
+msgstr "Disponebla"
+
+#: qml/FindDevicesPage.qml:58
+#, kde-format
+msgid "Connected"
+msgstr "Konektita"
+
+#: qml/Main.qml:73
+#, kde-format
+msgid "Find devices..."
+msgstr "Trovi aparatojn..."
+
+#: qml/Main.qml:118 qml/Main.qml:122
+#, kde-format
+msgid "Settings"
+msgstr "Agordoj"
+
+#: qml/mousepad.qml:16
+#, kde-format
+msgid "Remote Control"
+msgstr "Teleregilo"
+
+#: qml/mousepad.qml:59
+#, kde-format
+msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
+msgstr ""
+"Premu %1 aŭ la maldekstran kaj dekstran musbutonojn samtempe por malŝlosi"
+
+#: qml/mpris.qml:19
+#, kde-format
+msgid "Multimedia Controls"
+msgstr "Plurmedia Kontroloj"
+
+#: qml/mpris.qml:65
+#, kde-format
+msgid "No players available"
+msgstr "Neniuj ludantoj disponeblaj"
+
+#: qml/mpris.qml:105
+#, kde-format
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: qml/presentationRemote.qml:21
+#, kde-format
+msgid "Enable Full-Screen"
+msgstr "Ebligi Plenekranon"
+
+#: qml/runcommand.qml:22
+#, kde-format
+msgid "Edit commands"
+msgstr "Redakti komandojn"
+
+#: qml/runcommand.qml:25
+#, kde-format
+msgid "You can edit commands on the connected device"
+msgstr "Vi povas redakti komandojn sur la konektita aparato"
+
+#: qml/runcommand.qml:50
+#, kde-format
+msgid "No commands defined"
+msgstr "Neniuj komandoj difinitaj"
+
+#: qml/Settings.qml:13
+#, kde-format
+msgctxt "@title:window"
+msgid "Settings"
+msgstr "Agordoj"
+
+#: qml/Settings.qml:21
+#, kde-format
+msgid "Device name"
+msgstr "Aparatnomo"
+
+#: qml/Settings.qml:36
+#, kde-format
+msgid "About KDE Connect"
+msgstr "Pri KDE Connect"
+
+#: qml/Settings.qml:47
+#, kde-format
+msgid "About KDE"
+msgstr "Pri KDE"
