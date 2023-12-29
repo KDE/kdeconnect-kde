@@ -81,13 +81,6 @@ if(UNIX AND NOT APPLE)
     pkg_check_modules(DBus REQUIRED dbus-1)
 endif()
 
-find_package(KF5PeopleVCard)
-set_package_properties(KF5PeopleVCard PROPERTIES
-    PURPOSE "Read vcards from the file system"
-    URL "https://invent.kde.org/pim/kpeoplevcard"
-    TYPE RUNTIME
-)
-
 if (NOT WIN32)
     find_package(KF6StatusNotifierItem ${KF_MIN_VERSION} REQUIRED)
 endif()
