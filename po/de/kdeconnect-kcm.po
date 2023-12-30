@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Burkhard Lück <lueck@hube-lueck.de>, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2015, 2016, 2020, 2022, 2023.
 msgid ""
@@ -7,13 +8,13 @@ msgstr ""
 "POT-Creation-Date: 2023-07-17 00:48+0000\n"
 "PO-Revision-Date: 2023-06-25 17:03+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
