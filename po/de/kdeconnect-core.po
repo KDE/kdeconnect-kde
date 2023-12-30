@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2016, 2018, 2019, 2021.
 msgid ""
@@ -5,15 +6,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-06-18 23:44+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-28 13:07+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -117,10 +118,9 @@ msgid "KDE Connect failed to start"
 msgstr "Start von KDE Connect ist fehlgeschlagen"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Die private Schlüsseldatei kann nicht gespeichert werden: %1"
+msgstr "Der private Schlüssel kann nicht erstellt werden."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -128,10 +128,9 @@ msgid "Could not store private key file: %1"
 msgstr "Die private Schlüsseldatei kann nicht gespeichert werden: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Die Zertifikatsdatei kann nicht gespeichert werden: %1"
+msgstr "Das Gerätezertifikat kann nicht erstellt werden."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

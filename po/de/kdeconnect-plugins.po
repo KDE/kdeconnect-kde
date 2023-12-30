@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2014, 2016, 2018, 2020, 2022, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2017, 2018, 2019, 2021.
 # hkaelber <holger.k@elberer.de>, 2016.
@@ -7,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2023-06-12 00:14+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-28 17:05+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -50,7 +51,7 @@ msgstr "Die Zwischenablage dieses Geräts automatisch teilen"
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "Einschließlich Passwörter (wie von Passwortverwaltungen vorgegeben)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -73,14 +74,14 @@ msgstr "Wählen Sie den abzuspielenden Klang"
 #: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr ""
+msgstr "Entfernte Sperre ist erfolgreich"
 
 #: lockdevice/lockdeviceplugin-win.cpp:62
 #: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr ""
+msgstr "Entfernte Sperre ist fehlgeschlagen"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
@@ -88,7 +89,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Aktuelles Wiedergabegerät"
 
 #: notifications/notification.cpp:115
 #, kde-format

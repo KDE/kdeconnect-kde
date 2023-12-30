@@ -1,22 +1,23 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2022.
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:33+0000\n"
-"PO-Revision-Date: 2022-07-23 22:42+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-12-28 17:14+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 24.01.85\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -138,8 +139,8 @@ msgstr "Es sind keine Geräte verfügbar"
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
-"Es können keine neuen Nachrichten gesendet oder empfangen werden, Sie können "
-"nur die gespeicherten Inhalte durchsehen"
+"Es können keine neuen Nachrichten gesendet oder empfangen sondern nur die "
+"gespeicherten Inhalte durchsehen werden"
 
 #: qml/ConversationList.qml:51
 #, kde-format
@@ -147,6 +148,9 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
+"Die Unterhaltungen werden vom Gerät geladen werden. Sollte dieser Vorgang zu "
+"lange dauern, aktivieren Sie bitte das Gerät und klicken dann auf "
+"Aktualisieren."
 
 #: qml/ConversationList.qml:59
 #, kde-format
@@ -154,6 +158,8 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
+"Tipp: Wenn das Gerät angeschlossen ist, sollte es nicht in den Doze-Modus "
+"wechseln und sollte schnell laden."
 
 #: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
