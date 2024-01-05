@@ -3,13 +3,13 @@
 #
 # Julia Dronova <juliette.tux@gmail.com>, 2013, 2021.
 # Alexander Potashev <aspotashev@gmail.com>, 2015, 2017.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-08-09 16:21+0300\n"
+"PO-Revision-Date: 2024-01-04 21:35+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -148,18 +148,7 @@ msgstr "Отправить тестовый сигнал"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -175,14 +164,13 @@ msgstr ""
 "<html><head/><body><p>Устройство не выбрано.<br><br>Если у вас есть "
 "мобильное устройство на базе Android, установите <a href=\"https://play."
 "google.com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
-"decoration: underline; color:#4c6b8a;\">мобильное приложение KDE Connect</"
-"span></a> (также доступно <a href=\"https://f-droid.org/repository/browse/?"
-"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; "
-"color:#4c6b8a;\">в F-Droid</span></a>), — и оно должно появиться в списке."
-"<br><br>Если у вас возникли проблемы, посетите <a href=\"https://userbase."
-"kde.org/KDEConnect\"><span style=\" text-decoration: underline; color:"
-"#4c6b8a;\">KDE Connect Community wiki</span></a> для получения помощи.</p></"
-"body></html>"
+"decoration: underline;\">мобильное приложение KDE Connect</span></a> (также "
+"доступно <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">в F-Droid</"
+"span></a>), — и оно должно появиться в списке.<br><br>Если у вас возникли "
+"проблемы, посетите <a href=\"https://userbase.kde.org/KDEConnect\"><span "
+"style=\" text-decoration: underline;\">KDE Connect Community wiki</span></a> "
+"для получения помощи.</p></body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "Настройка KDE Connect"
