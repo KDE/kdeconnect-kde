@@ -78,7 +78,7 @@ if(UNIX AND NOT APPLE)
     find_package(WaylandProtocols REQUIRED)
     pkg_check_modules(XkbCommon IMPORTED_TARGET xkbcommon)
     find_package(PkgConfig QUIET REQUIRED)
-    pkg_check_modules(DBus REQUIRED dbus-1)
+    pkg_check_modules(DBus REQUIRED IMPORTED_TARGET dbus-1)
 endif()
 
 if (NOT WIN32)

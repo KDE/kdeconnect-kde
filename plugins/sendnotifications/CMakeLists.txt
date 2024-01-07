@@ -20,10 +20,7 @@ target_sources(kdeconnect_sendnotifications PRIVATE windowsnotificationslistener
 target_link_libraries(kdeconnect_sendnotifications runtimeobject windowsapp)
 else()
 target_sources(kdeconnect_sendnotifications PRIVATE dbusnotificationslistener.cpp)
-target_link_libraries(kdeconnect_sendnotifications ${DBus_LIBRARIES})
-target_include_directories(kdeconnect_sendnotifications
-    SYSTEM PRIVATE ${DBus_INCLUDE_DIRS}
-)
+target_link_libraries(kdeconnect_sendnotifications PkgConfig::DBus)
 endif()
 
 # Config
