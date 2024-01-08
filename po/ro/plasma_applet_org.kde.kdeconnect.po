@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2013, 2014, 2020, 2021, 2022.
+# This file is distributed under the same license as the kde-connect package.
+# Sergiu Bivol <sergiu@cip.md>, 2013, 2014, 2020, 2021, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2022-06-01 15:18+0100\n"
+"PO-Revision-Date: 2024-01-07 13:16+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -77,7 +77,7 @@ msgstr "Partajează un fișier"
 #: package/contents/ui/DeviceDelegate.qml:192
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Trimite clipboard"
 
 #: package/contents/ui/DeviceDelegate.qml:211
 #, kde-format
@@ -122,18 +122,18 @@ msgstr "Revocă"
 #: package/contents/ui/DeviceDelegate.qml:366
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Renunță"
 
 #: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Răspunde pentru %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:398
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Expediază"
 
 #: package/contents/ui/DeviceDelegate.qml:424
 #, kde-format
@@ -182,7 +182,7 @@ msgstr "Instalează din F-Droid"
 #: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings..."
-msgstr "Configurări KDE Connect..."
+msgstr "Configurări KDE Connect…"
 
 #~ msgid "Configure..."
 #~ msgstr "Configurare..."

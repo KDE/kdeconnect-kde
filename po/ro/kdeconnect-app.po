@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2022.
+# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:33+0000\n"
-"PO-Revision-Date: 2022-02-04 00:52+0000\n"
+"PO-Revision-Date: 2024-01-07 13:07+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "Rulează comandă"
 #: qml/DevicePage.qml:106
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Trimite clipboard"
 
 #: qml/DevicePage.qml:112
 #, kde-format
@@ -126,8 +126,7 @@ msgid "This device is not paired"
 msgstr "Acest dispozitiv nu e asociat"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Asociază"
@@ -158,11 +157,10 @@ msgid "Please choose a file"
 msgstr "Alegeți un fișier"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Găsește dispozitivul"
+msgstr "Dispozitive"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -190,10 +188,9 @@ msgid "Find devices..."
 msgstr "Găsește dispozitive..."
 
 #: qml/Main.qml:118 qml/Main.qml:122
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Configurare extensii"
+msgstr "Configurări"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -201,11 +198,11 @@ msgid "Remote Control"
 msgstr "Telecomandă"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Apăsați simultan butoanele drept și stâng ale mausului pentru deblocare"
+"Apăsați %1 sau butoanele drept și stâng ale mausului simultan pentru "
+"deblocare"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -243,25 +240,22 @@ msgid "No commands defined"
 msgstr "Nicio comandă definită"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Configurare extensii"
+msgstr "Configurări"
 
 #: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Denumire dispozitiv"
 
 #: qml/Settings.qml:36
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "Despre KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "KDE Connect"
+msgstr "Despre KDE"

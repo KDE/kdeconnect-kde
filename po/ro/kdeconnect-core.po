@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Sergiu Bivol <sergiu@cip.md>, 2020, 2021.
+# Sergiu Bivol <sergiu@cip.md>, 2020, 2021, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2021-04-16 17:06+0100\n"
+"PO-Revision-Date: 2024-01-07 13:08+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
-"Language-Team: Romanian\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -49,10 +49,9 @@ msgid "%1: Already paired"
 msgstr "%1: Asociat deja"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Dispozitivul nu e accesibil"
+msgstr "%1: Dispozitivul nu e accesibil"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -60,10 +59,9 @@ msgid "Device not reachable"
 msgstr "Dispozitivul nu e accesibil"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Anulat de către partener"
+msgstr "Anulat de utilizator"
 
 #: backends/pairinghandler.cpp:140
 #, kde-format
@@ -122,10 +120,9 @@ msgid "KDE Connect failed to start"
 msgstr "Pornirea KDE Connect a eșuat"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Fișierul cu cheia privată nu a putut fi stocat: %1"
+msgstr "Cheia privată nu a putut fi generată."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -133,10 +130,9 @@ msgid "Could not store private key file: %1"
 msgstr "Fișierul cu cheia privată nu a putut fi stocat: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
+msgstr "Certificatul dispozitivului nu a putut fi generat."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
