@@ -46,36 +46,35 @@ Kirigami.ScrollablePage {
     ]
 
     ListView {
-        model: plugins
+        model: plugins.filter((plugin) => plugin.loaded)
         delegate: QQC2.ItemDelegate {
-            text: name
-            icon.name: iconName
+            text: modelData.name
+            icon.name: modelData.iconName
             highlighted: false
             icon.color: "transparent"
             width: ListView.view.width
-            visible: loaded
-            onClicked: onClick()
+            onClicked: modelData.onClick()
         }
 
         property list<QtObject> plugins: [
             PluginItem {
                 name: i18nd("kdeconnect-app", "Multimedia control")
                 interfaceFactory: MprisDbusInterfaceFactory
-                component: "qrc:/qml/mpris.qml"
+                component: "mpris.qml"
                 pluginName: "mprisremote"
                 device: root.currentDevice
             },
             PluginItem {
                 name: i18nd("kdeconnect-app", "Remote input")
                 interfaceFactory: RemoteControlDbusInterfaceFactory
-                component: "qrc:/qml/mousepad.qml"
+                component: "mousepad.qml"
                 pluginName: "remotecontrol"
                 device: root.currentDevice
             },
             PluginItem {
                 name: i18nd("kdeconnect-app", "Presentation Remote")
                 interfaceFactory: RemoteKeyboardDbusInterfaceFactory
-                component: "qrc:/qml/presentationRemote.qml"
+                component: "presentationRemote.qml"
                 pluginName: "remotecontrol"
                 device: root.currentDevice
             },
@@ -96,7 +95,7 @@ Kirigami.ScrollablePage {
             PluginItem {
                 name: i18nd("kdeconnect-app", "Run command")
                 interfaceFactory: RemoteCommandsDbusInterfaceFactory
-                component: "qrc:/qml/runcommand.qml"
+                component: "runcommand.qml"
                 pluginName: "remotecommands"
                 device: root.currentDevice
             },
@@ -116,7 +115,7 @@ Kirigami.ScrollablePage {
             PluginItem {
                 name: i18nd("kdeconnect-app", "Volume control")
                 interfaceFactory: RemoteSystemVolumeDbusInterfaceFactory
-                component: "qrc:/qml/volume.qml"
+                component: "volume.qml"
                 pluginName: "remotesystemvolume"
                 device: root.currentDevice
             }

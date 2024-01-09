@@ -29,7 +29,7 @@ QtObject
 
         var obj = interfaceFactory.create(checker.device.id());
         var page = pageStack.push(
-            component,
+            Qt.resolvedUrl(component),
             { pluginInterface: obj,
               device: checker.device
             }
