@@ -94,11 +94,15 @@ Kirigami.ApplicationWindow {
 
                 QQC2.ItemDelegate {
                     Layout.fillWidth: true
-                    text: model.name + "\n" + toolTip
+                    contentItem: Kirigami.IconTitleSubtitle {
+                        icon.name: model.iconName
+                        icon.width: Kirigami.Units.iconSizes.smallMedium
+                        title: model.name
+                        subtitle: model.toolTip
+                    }
+
                     enabled: status & DevicesModel.Reachable
                     checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
-                    icon.name: model.iconName
-                    icon.color: "transparent"
                     onClicked: {
                         root.pageStack.clear()
                         root.pageStack.push(
