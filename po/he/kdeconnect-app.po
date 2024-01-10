@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-10-20 16:33+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -71,88 +71,88 @@ msgstr "שליחת פינג"
 msgid "Plugin Settings"
 msgstr "הגדרות תוסף"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:61
 #, kde-format
 msgid "Multimedia control"
 msgstr "בקרת מולטימדיה"
 
-#: qml/DevicePage.qml:69
+#: qml/DevicePage.qml:68
 #, kde-format
 msgid "Remote input"
 msgstr "קלט מרוחק"
 
-#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "מצב מצגת"
 
-#: qml/DevicePage.qml:85 qml/mousepad.qml:44
+#: qml/DevicePage.qml:84 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "נעילה"
 
-#: qml/DevicePage.qml:85
+#: qml/DevicePage.qml:84
 #, kde-format
 msgid "Unlock"
 msgstr "שחרור"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Find Device"
 msgstr "איתור מכשיר"
 
-#: qml/DevicePage.qml:97 qml/runcommand.qml:16
+#: qml/DevicePage.qml:96 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "הרצת פקודה"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
 msgstr "שליחת לוח גזירים"
 
-#: qml/DevicePage.qml:112
+#: qml/DevicePage.qml:111
 #, kde-format
 msgid "Share File"
 msgstr "שיתוף קובץ"
 
-#: qml/DevicePage.qml:117 qml/volume.qml:16
+#: qml/DevicePage.qml:116 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "בקרת עוצמת שמע"
 
-#: qml/DevicePage.qml:126
+#: qml/DevicePage.qml:125
 #, kde-format
 msgid "This device is not paired"
 msgstr "המכשיר הזה לא מצומד"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:129
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "צימוד"
 
-#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
+#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
 #, kde-format
 msgid "Pair requested"
 msgstr "התקבלה בקשת צימוד"
 
-#: qml/DevicePage.qml:152
+#: qml/DevicePage.qml:151
 #, kde-format
 msgid "Accept"
 msgstr "אישור"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Reject"
 msgstr "דחייה"
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "This device is not reachable"
 msgstr "המכשיר הזה לא נגיש"
 
-#: qml/DevicePage.qml:175
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Please choose a file"
 msgstr "נא לבחור קובץ"
@@ -188,7 +188,7 @@ msgstr "מחובר"
 msgid "Find devices..."
 msgstr "איתור מכשירים…"
 
-#: qml/Main.qml:118 qml/Main.qml:122
+#: qml/Main.qml:122 qml/Main.qml:126
 #, kde-format
 msgid "Settings"
 msgstr "הגדרות"

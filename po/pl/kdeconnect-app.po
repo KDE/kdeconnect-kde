@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-09-24 08:26+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -70,88 +70,88 @@ msgstr "Wyślij ping"
 msgid "Plugin Settings"
 msgstr "Ustawienia wtyczki"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:61
 #, kde-format
 msgid "Multimedia control"
 msgstr "Sterowanie odtwarzaczami"
 
-#: qml/DevicePage.qml:69
+#: qml/DevicePage.qml:68
 #, kde-format
 msgid "Remote input"
 msgstr "Zdalna obsługa"
 
-#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Obsługa prezentacji"
 
-#: qml/DevicePage.qml:85 qml/mousepad.qml:44
+#: qml/DevicePage.qml:84 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Zablokuj"
 
-#: qml/DevicePage.qml:85
+#: qml/DevicePage.qml:84
 #, kde-format
 msgid "Unlock"
 msgstr "Odblokuj"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Find Device"
 msgstr "Znajdź urządzenie"
 
-#: qml/DevicePage.qml:97 qml/runcommand.qml:16
+#: qml/DevicePage.qml:96 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Wykonaj polecenie"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Wysyłanie schowka"
 
-#: qml/DevicePage.qml:112
+#: qml/DevicePage.qml:111
 #, kde-format
 msgid "Share File"
 msgstr "Udostępnij plik"
 
-#: qml/DevicePage.qml:117 qml/volume.qml:16
+#: qml/DevicePage.qml:116 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Sterowanie głośnością"
 
-#: qml/DevicePage.qml:126
+#: qml/DevicePage.qml:125
 #, kde-format
 msgid "This device is not paired"
 msgstr "To urządzenie nie jest sparowane"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:129
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Sparuj"
 
-#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
+#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
 #, kde-format
 msgid "Pair requested"
 msgstr "Zażądano parowania"
 
-#: qml/DevicePage.qml:152
+#: qml/DevicePage.qml:151
 #, kde-format
 msgid "Accept"
 msgstr "Przyjmij"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Reject"
 msgstr "Odrzuć"
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "This device is not reachable"
 msgstr "To urządzenie jest nieosiągalne"
 
-#: qml/DevicePage.qml:175
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Please choose a file"
 msgstr "Wybierz plik"
@@ -187,7 +187,7 @@ msgstr "Podłączone"
 msgid "Find devices..."
 msgstr "Znajdź urządzenia..."
 
-#: qml/Main.qml:118 qml/Main.qml:122
+#: qml/Main.qml:122 qml/Main.qml:126
 #, kde-format
 msgid "Settings"
 msgstr "Ustawienia"

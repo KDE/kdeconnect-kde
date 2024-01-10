@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2021-09-02 11:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -69,89 +69,89 @@ msgstr "Αποστολή ping"
 msgid "Plugin Settings"
 msgstr "Ρυθμίσεις προσθέτου"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:61
 #, kde-format
 msgid "Multimedia control"
 msgstr "Συστατικό ελέγχου πολυμέσων"
 
-#: qml/DevicePage.qml:69
+#: qml/DevicePage.qml:68
 #, kde-format
 msgid "Remote input"
 msgstr "Απομακρυσμένη είσοδος"
 
-#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Τηλεχειριριστήριο παρουσίασης"
 
-#: qml/DevicePage.qml:85 qml/mousepad.qml:44
+#: qml/DevicePage.qml:84 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Κλείδωμα"
 
-#: qml/DevicePage.qml:85
+#: qml/DevicePage.qml:84
 #, kde-format
 msgid "Unlock"
 msgstr "Ξεκλείδωμα"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Find Device"
 msgstr "Εύρεση συσκευής"
 
-#: qml/DevicePage.qml:97 qml/runcommand.qml:16
+#: qml/DevicePage.qml:96 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Εκτέλεση εντολής"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
 msgstr ""
 
-#: qml/DevicePage.qml:112
+#: qml/DevicePage.qml:111
 #, kde-format
 msgid "Share File"
 msgstr "Διαμοιρασμός αρχείου"
 
-#: qml/DevicePage.qml:117 qml/volume.qml:16
+#: qml/DevicePage.qml:116 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Έλεγχος έντασης"
 
-#: qml/DevicePage.qml:126
+#: qml/DevicePage.qml:125
 #, kde-format
 msgid "This device is not paired"
 msgstr "Αυτή η συσκευή δεν είναι σε σύζευξη"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:129
 #, fuzzy, kde-format
 #| msgid "Pair"
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Ζεύγος"
 
-#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
+#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
 #, kde-format
 msgid "Pair requested"
 msgstr "Ζητήθυηκε σύζευξη"
 
-#: qml/DevicePage.qml:152
+#: qml/DevicePage.qml:151
 #, kde-format
 msgid "Accept"
 msgstr "Αποδοχή"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Reject"
 msgstr "Απόρριψη"
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Αυτή η συσκευή δεν είναι προσβάσιμη"
 
-#: qml/DevicePage.qml:175
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Please choose a file"
 msgstr "Επιλέξτε αρχείο"
@@ -188,7 +188,7 @@ msgstr "Συνδεδεμένη"
 msgid "Find devices..."
 msgstr "Εύρεση συσκευών..."
 
-#: qml/Main.qml:118 qml/Main.qml:122
+#: qml/Main.qml:122 qml/Main.qml:126
 #, fuzzy, kde-format
 #| msgid "Plugin Settings"
 msgid "Settings"

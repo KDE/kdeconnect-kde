@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"POT-Creation-Date: 2024-01-10 01:34+0000\n"
 "PO-Revision-Date: 2023-09-26 10:45+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -69,88 +69,88 @@ msgstr "Lähetä ping"
 msgid "Plugin Settings"
 msgstr "Liitännäisten asetukset"
 
-#: qml/DevicePage.qml:62
+#: qml/DevicePage.qml:61
 #, kde-format
 msgid "Multimedia control"
 msgstr "Multimediaohjain"
 
-#: qml/DevicePage.qml:69
+#: qml/DevicePage.qml:68
 #, kde-format
 msgid "Remote input"
 msgstr "Etäsyöte"
 
-#: qml/DevicePage.qml:76 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Esityskaukosäädin"
 
-#: qml/DevicePage.qml:85 qml/mousepad.qml:44
+#: qml/DevicePage.qml:84 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Lukitse"
 
-#: qml/DevicePage.qml:85
+#: qml/DevicePage.qml:84
 #, kde-format
 msgid "Unlock"
 msgstr "Poista lukitus"
 
-#: qml/DevicePage.qml:92
+#: qml/DevicePage.qml:91
 #, kde-format
 msgid "Find Device"
 msgstr "Etsi laite"
 
-#: qml/DevicePage.qml:97 qml/runcommand.qml:16
+#: qml/DevicePage.qml:96 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Suorita komento"
 
-#: qml/DevicePage.qml:106
+#: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Lähetä leikepöytä"
 
-#: qml/DevicePage.qml:112
+#: qml/DevicePage.qml:111
 #, kde-format
 msgid "Share File"
 msgstr "Jaa tiedosto"
 
-#: qml/DevicePage.qml:117 qml/volume.qml:16
+#: qml/DevicePage.qml:116 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Äänenvoimakkuuden säätö"
 
-#: qml/DevicePage.qml:126
+#: qml/DevicePage.qml:125
 #, kde-format
 msgid "This device is not paired"
 msgstr "Laitetta ei ole kytketty pariksi"
 
-#: qml/DevicePage.qml:130
+#: qml/DevicePage.qml:129
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Parita"
 
-#: qml/DevicePage.qml:137 qml/DevicePage.qml:146
+#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
 #, kde-format
 msgid "Pair requested"
 msgstr "Paritusta pyydetään"
 
-#: qml/DevicePage.qml:152
+#: qml/DevicePage.qml:151
 #, kde-format
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: qml/DevicePage.qml:158
+#: qml/DevicePage.qml:157
 #, kde-format
 msgid "Reject"
 msgstr "Hylkää"
 
-#: qml/DevicePage.qml:167
+#: qml/DevicePage.qml:166
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Laitetta ei tavoiteta"
 
-#: qml/DevicePage.qml:175
+#: qml/DevicePage.qml:174
 #, kde-format
 msgid "Please choose a file"
 msgstr "Valitse tiedosto"
@@ -186,7 +186,7 @@ msgstr "Yhdistetty"
 msgid "Find devices..."
 msgstr "Etsi laitteita…"
 
-#: qml/Main.qml:118 qml/Main.qml:122
+#: qml/Main.qml:122 qml/Main.qml:126
 #, kde-format
 msgid "Settings"
 msgstr "Asetukset"
