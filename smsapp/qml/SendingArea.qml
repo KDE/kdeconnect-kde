@@ -88,7 +88,7 @@ ColumnLayout {
                             if (event.modifiers & Qt.ShiftModifier) {
                                 messageField.append("")
                             } else {
-                                sendButton.onClicked()
+                                sendButton.clicked()
                                 event.accepted = true
                             }
                         }

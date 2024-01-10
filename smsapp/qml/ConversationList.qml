@@ -163,7 +163,7 @@ Kirigami.ScrollablePage
 
             Shortcut {
                 sequence: "Ctrl+N"
-                onActivated: newButton.onClicked()
+                onActivated: newButton.clicked()
             }
         }
     }
