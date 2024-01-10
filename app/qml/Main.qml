@@ -122,7 +122,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("Settings")
                 icon.name: "settings-configure"
                 Layout.fillWidth: true
-                onClicked: pageStack.pushDialogLayer('qrc:/qml/Settings.qml', {}, {
+                onClicked: pageStack.pushDialogLayer(Qt.resolvedUrl("Settings.qml"), {}, {
                     title: i18n("Settings"),
                 });
             }
