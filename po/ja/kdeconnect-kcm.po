@@ -1,12 +1,12 @@
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-05-07 16:37+0900\n"
+"PO-Revision-Date: 2024-01-06 22:42+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -109,7 +109,7 @@ msgstr "🔑 abababab"
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289
@@ -143,18 +143,7 @@ msgstr "Ping を送信"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -167,14 +156,13 @@ msgid ""
 "underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>デバイスが選択されていません。<br><br>もし Android デバ"
-"イスを所有している場合、<a href=\"https://play.google.com/store/apps/details?"
-"id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline; color:"
-"#4c6b8a;\">KDE Connect の Android アプリ</span></a> (<a href=\"https://f-"
-"droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
-"text-decoration: underline; color:#4c6b8a;\">F-Droid</span></a> からも入手可"
-"能) をインストールしてください。インストール後、こちらのリストに表示されま"
-"す。<br><br>もし問題が発生し、サポートが必要な場合は、<a href=\"https://"
-"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
-"color:#4c6b8a;\">KDE Connect Community wiki</span></a> をご覧ください。</p></"
-"body></html>"
+"<html><head/><body><p>デバイスが選択されていません。<br><br>お使いの Android "
+"デバイスに <a href=\"https://play.google.com/store/apps/details?id=org.kde."
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect の "
+"Android アプリ</span></a> (<a href=\"https://f-droid.org/repository/browse/?"
+"fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">F-"
+"Droid</span></a> からも入手可能) をインストールしてください。インストール後、"
+"こちらのリストに表示されます。<br><br>もし問題が発生し、サポートが必要な場合"
+"は、<a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-"
+"decoration: underline;\">KDE Connect Community wiki</span></a> をご覧くださ"
+"い。</p></body></html>"
