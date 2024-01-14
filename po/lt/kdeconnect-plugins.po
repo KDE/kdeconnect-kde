@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2022-11-17 02:16+0200\n"
+"PO-Revision-Date: 2024-01-13 18:42+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -40,20 +40,19 @@ msgstr "Iškarpinės papildinys"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Automatinis sinchronizavimas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Automatiškai bendrinti iškarpinę iš šio įrenginio"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Slaptažodžiai (kaip juos žymi slaptažodžių tvarkytuvės)"
+msgstr "Įskaitant slaptažodžius (kaip juos žymi slaptažodžių tvarkytuvės)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -91,7 +90,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Dabartinė leistuvė"
 
 #: notifications/notification.cpp:115
 #, kde-format
@@ -242,12 +241,12 @@ msgstr "Pavyzdinės komandos"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Eksportuoti"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Importuoti"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
@@ -261,16 +260,14 @@ msgid "Command"
 msgstr "Komanda"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Komanda"
+msgstr "Eksportuoti komandas"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Pavyzdinės komandos"
+msgstr "Importuoti komandas"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -449,19 +446,19 @@ msgstr "Įrašyti failus į:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Bendrintas tekstas iš %1 nukopijuotas į iškarpinę"
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Atverti tekstų redaktoriuje"
 
 #: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Atverti nuorodą"
 
 #: share/shareplugin.cpp:251
 #, kde-format
