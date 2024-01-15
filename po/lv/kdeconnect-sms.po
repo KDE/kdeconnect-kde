@@ -1,0 +1,226 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"PO-Revision-Date: 2024-01-11 20:38+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Toms Trasūns"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "toms.trasuns@poste.net"
+
+#: conversationlistmodel.cpp:199
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is an image"
+msgid "Picture"
+msgstr "Attēls"
+
+#: conversationlistmodel.cpp:201
+#, kde-format
+msgctxt "Used as a text placeholder when the most-recent message is a video"
+msgid "Video"
+msgstr "Video"
+
+#: conversationlistmodel.cpp:205
+#, kde-format
+msgctxt ""
+"Used as a text placeholder when the most-recent message is an arbitrary "
+"attachment, resulting in something like \"pdf file\""
+msgid "%1 file"
+msgstr "%1 datne"
+
+#: conversationlistmodel.cpp:221
+#, kde-format
+msgid "You: %1"
+msgstr "Jūs: %1"
+
+#: conversationlistmodel.cpp:227
+#, kde-format
+msgid "%1: %2"
+msgstr "%1: %2"
+
+#: conversationlistmodel.cpp:269 conversationlistmodel.cpp:291
+#, kde-format
+msgid "%1"
+msgstr "%1"
+
+#: main.cpp:51 qml/Main.qml:68
+#, kde-format
+msgid "KDE Connect SMS"
+msgstr "„KDE Connect“ īsziņas"
+
+#: main.cpp:53
+#, kde-format
+msgid "SMS Instant Messaging"
+msgstr "Īsziņu sūtīšana"
+
+#: main.cpp:55
+#, kde-format
+msgid "(C) 2018-2022, KDE Connect Team"
+msgstr "(C) 2018–2022, „KDE Connect“ komanda"
+
+#: main.cpp:56
+#, kde-format
+msgid "Simon Redman"
+msgstr "Simon Redman"
+
+#: main.cpp:57
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "Aleix Pol Gonzalez"
+
+#: main.cpp:58
+#, kde-format
+msgid "Nicolas Fella"
+msgstr "Nicolas Fella"
+
+#: main.cpp:76
+#, kde-format
+msgid "Select a device"
+msgstr "Izvēlieties ierīci"
+
+#: main.cpp:76
+#, kde-format
+msgid "id"
+msgstr "ID"
+
+#: main.cpp:77
+#, kde-format
+msgid "Send a message"
+msgstr "Nosūtīt ziņojumu"
+
+#: main.cpp:77
+#, kde-format
+msgid "message"
+msgstr "ziņojums"
+
+#: qml/AttachmentViewer.qml:20
+#, kde-format
+msgid "Open with default"
+msgstr "Atvērt pēc noklusējuma"
+
+#: qml/ChatMessage.qml:155
+#, kde-format
+msgid "Copy Message"
+msgstr "Kopēt ziņojumu"
+
+#: qml/ChatMessage.qml:160
+#, kde-format
+msgid "Copy Selection"
+msgstr "Kopēt atlasi"
+
+#: qml/ConversationList.qml:25
+#, kde-format
+msgid "No devices available"
+msgstr "Nav pieejamu ierīču"
+
+#: qml/ConversationList.qml:35
+#, kde-format
+msgid ""
+"No new messages can be sent or received, but you can browse cached content"
+msgstr ""
+"Nav saņemti vai nosūtīti jauni ziņojumi, tomēr varat pārlūkot kešatmiņā "
+"uzkrāto saturu"
+
+#: qml/ConversationList.qml:51
+#, kde-format
+msgid ""
+"Loading conversations from device. If this takes a long time, please wake up "
+"your device and then click Refresh."
+msgstr ""
+"Ielādē sarunas no ierīces. Ja tas notiek pārāk ilgi, uzmodiniet savu ierīci "
+"un spiediet „Atsvaidzināt“."
+
+#: qml/ConversationList.qml:59
+#, kde-format
+msgid ""
+"Tip: If you plug in your device, it should not go into doze mode and should "
+"load quickly."
+msgstr ""
+"Padoms: Ja iespraužat savu ierīci, tai nevajadzētu ieiet miega režīmā un "
+"vajadzētu ātri ielādēties."
+
+#: qml/ConversationList.qml:67 qml/Main.qml:90
+#, kde-format
+msgid "Refresh"
+msgstr "Atsvaidzināt"
+
+#: qml/ConversationList.qml:81
+#, kde-format
+msgid "Choose recipient"
+msgstr "Izvēlēties saņēmēju"
+
+#: qml/ConversationList.qml:86
+#, kde-format
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: qml/ConversationList.qml:113
+#, kde-format
+msgid "Search or start conversation..."
+msgstr "Meklēt vai sākt sarunu..."
+
+#: qml/ConversationList.qml:145
+#, kde-format
+msgid "New"
+msgstr "Jauna"
+
+#: qml/ConversationList.qml:150
+#, kde-format
+msgid "Start new conversation"
+msgstr "Sākt jaunu sarunu"
+
+#: qml/ConversationList.qml:249
+#, kde-format
+msgctxt "Placeholder message text when no messages are found"
+msgid "No matches"
+msgstr "Nav sakritību"
+
+#: qml/Main.qml:85
+#, kde-format
+msgid "Devices"
+msgstr "Ierīces"
+
+#: qml/Main.qml:98
+#, kde-format
+msgid "About"
+msgstr "Par"
+
+#: qml/MessageAttachments.qml:131
+#, kde-format
+msgid "Audio clip"
+msgstr "Audio klips"
+
+#: qml/SendingArea.qml:25
+#, kde-format
+msgid "Failed to send"
+msgstr "Neizdevās nosūtīt"
+
+#: qml/SendingArea.qml:26
+#, kde-format
+msgid "Max message size limit exceeded."
+msgstr "Ir pārsniegts maksimālais ziņas izmērs."
+
+#: qml/SendingArea.qml:74
+#, kde-format
+msgid "Compose message"
+msgstr "Rakstīt ziņu"

@@ -1,0 +1,185 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Toms Trasūns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"PO-Revision-Date: 2024-01-11 11:05+0200\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Toms Trasūns"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "toms.trasuns@posteo.net"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "Pārlūkot ierīci"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Send clipboard"
+msgstr "Nosūtīt starpliktuves saturu"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgctxt "@action:inmenu play bell sound"
+msgid "Ring device"
+msgstr "Likt ierīcei zvanīt"
+
+#: deviceindicator.cpp:97
+#, kde-format
+msgid "Send a file/URL"
+msgstr "Nosūtīt datni/URL"
+
+#: deviceindicator.cpp:107
+#, kde-format
+msgid "SMS Messages..."
+msgstr "Īsziņas..."
+
+#: deviceindicator.cpp:120
+#, kde-format
+msgid "Run command"
+msgstr "Palaist komandu"
+
+#: deviceindicator.cpp:122
+#, kde-format
+msgid "Add commands"
+msgstr "Pievienot komandas"
+
+#: indicatorhelper_mac.cpp:37
+#, kde-format
+msgid "Launching"
+msgstr "Palaiž"
+
+#: indicatorhelper_mac.cpp:87
+#, kde-format
+msgid "Launching daemon"
+msgstr "Palaiž dēmonu"
+
+#: indicatorhelper_mac.cpp:96
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "Gaida „D-Bus“"
+
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
+#: indicatorhelper_mac.cpp:144
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"Neizdodas savienoties ar „D-Bus“\n"
+"„KDE Connect“ izslēgsies"
+
+#: indicatorhelper_mac.cpp:144
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "Neizdodas atrast „kdeconnectd“"
+
+#: indicatorhelper_mac.cpp:149
+#, kde-format
+msgid "Loading modules"
+msgstr "Ielādē moduļus"
+
+#: main.cpp:53
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "„KDE Connect“ indikators"
+
+#: main.cpp:55
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "KDE Connect indikatora rīks"
+
+#: main.cpp:57
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "(C) 2016 Aleix Pol Gonzalez"
+
+#: main.cpp:92
+#, kde-format
+msgid "Configure..."
+msgstr "Konfigurēt..."
+
+#: main.cpp:114
+#, kde-format
+msgid "Pairing requests"
+msgstr "Sapārošanas pieprasījums"
+
+#: main.cpp:119
+#, kde-format
+msgctxt "Accept a pairing request"
+msgid "Pair"
+msgstr "Sapārot"
+
+#: main.cpp:120
+#, kde-format
+msgid "Reject"
+msgstr "Noraidīt"
+
+#: main.cpp:126 main.cpp:136
+#, kde-format
+msgid "Quit"
+msgstr "Iziet"
+
+#: main.cpp:155 main.cpp:179
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "%1 savienota ierīce"
+msgstr[1] "%1 savienotas ierīces"
+msgstr[2] "%1 savienotu ierīču"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "Nav akumulatora"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "Akumulators: %1% (uzlādējas)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "Akumulators: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "Nav mobilā tīkla savienojuma"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"

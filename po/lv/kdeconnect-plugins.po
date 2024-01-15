@@ -1,0 +1,488 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Toms Trasūns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"PO-Revision-Date: 2024-01-11 20:45+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#: battery/batteryplugin.cpp:119
+#, kde-format
+msgctxt "device name: low battery"
+msgid "%1: Low Battery"
+msgstr "%1: zems akumulators"
+
+#: battery/batteryplugin.cpp:120
+#, kde-format
+msgid "Battery at %1%"
+msgstr "Akumulatora līmenis ir %1%"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
+#: clipboard/clipboard_config.ui:17
+#, kde-format
+msgid "Clipboard plugin"
+msgstr "Starpliktuves papildinājums"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: clipboard/clipboard_config.ui:32
+#, kde-format
+msgid "Automatic synchronization"
+msgstr "Automātiska sinhronizācija"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
+#: clipboard/clipboard_config.ui:38
+#, kde-format
+msgid "Automatically share the clipboard from this device"
+msgstr "Automātiski dalīties ar starpliktuvi no šīs ierīces"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_password)
+#: clipboard/clipboard_config.ui:45
+#, kde-format
+msgid "Including passwords (as marked by password managers)"
+msgstr "Tostarp paroles (kā tās marķē paroļu pārvaldnieks)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: findthisdevice/findthisdevice_config.ui:17
+#, kde-format
+msgid "Discovery Utilities"
+msgstr "Atrašanas rīki"
+
+#. i18n: ectx: property (text), widget (QLabel)
+#: findthisdevice/findthisdevice_config.ui:25
+#, kde-format
+msgid "Sound to play:"
+msgstr "Atskaņojamā skaņa:"
+
+#. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
+#: findthisdevice/findthisdevice_config.ui:39
+#, kde-format
+msgid "Select the sound to play"
+msgstr "Atlasīt atskaņojamo skaņu"
+
+#: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
+#, kde-format
+msgid "Remote lock successful"
+msgstr "Attālinātā bloķēšana veikta"
+
+#: lockdevice/lockdeviceplugin-win.cpp:62
+#: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
+#: lockdevice/lockdeviceplugin.cpp:94
+#, kde-format
+msgid "Remote lock failed"
+msgstr "Attālinātā bloķēšana neizdevās"
+
+#: mpriscontrol/mpriscontrolplugin-win.cpp:30
+#, kde-format
+msgctxt ""
+"@title Users select this to control the current media player when we can't "
+"detect a specific player name like VLC"
+msgid "Current Player"
+msgstr "Pašreizējais atskaņotājs"
+
+#: notifications/notification.cpp:115
+#, kde-format
+msgctxt "@action:button"
+msgid "Reply"
+msgstr "Atkārtot"
+
+#: notifications/notification.cpp:116
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1..."
+msgstr "Atkārtot uz %1..."
+
+#: notifications/sendreplydialog.cpp:29
+#, kde-format
+msgid "Send"
+msgstr "Nosūtīt"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
+#: notifications/sendreplydialog.ui:14
+#, kde-format
+msgid "Dialog"
+msgstr "Lodziņš"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
+#: pausemusic/pausemusic_config.ui:17
+#, kde-format
+msgid "Pause music plugin"
+msgstr "Pauzēt mūzikas papildinājumu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: pausemusic/pausemusic_config.ui:32
+#, kde-format
+msgid "Condition"
+msgstr "Nosacījums"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
+#: pausemusic/pausemusic_config.ui:38
+#, kde-format
+msgid "Pause as soon as phone rings"
+msgstr "Pauzēt tiklīdz sāk zvanīt telefons"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
+#: pausemusic/pausemusic_config.ui:45
+#, kde-format
+msgid "Pause only while talking"
+msgstr "Pauzēt tikai sarunas laikā"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: pausemusic/pausemusic_config.ui:61
+#, kde-format
+msgid "Actions"
+msgstr "Darbības"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_pause)
+#: pausemusic/pausemusic_config.ui:67
+#, kde-format
+msgid "Pause media players"
+msgstr "Pauzēt multivides atskaņotājus"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_mute)
+#: pausemusic/pausemusic_config.ui:74
+#, kde-format
+msgid "Mute system sound"
+msgstr "Apklusināt sistēmas skaņas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_resume)
+#: pausemusic/pausemusic_config.ui:81
+#, kde-format
+msgid "Automatically resume media when call has finished"
+msgstr "Automātiski turpināt multivides atskaņošanu, beidzoties zvanam"
+
+#: ping/pingplugin.cpp:26
+#, kde-format
+msgid "Ping!"
+msgstr "Ping!"
+
+#: runcommand/runcommand_config.cpp:41
+#, kde-format
+msgid "Schedule a shutdown"
+msgstr "Ieplānot izslēgšanu"
+
+#: runcommand/runcommand_config.cpp:42
+#, kde-format
+msgid "Shutdown now"
+msgstr "Izslēgt tagad"
+
+#: runcommand/runcommand_config.cpp:43
+#, kde-format
+msgid "Cancel last shutdown"
+msgstr "Atcelt pēdējo izslēgšanu"
+
+#: runcommand/runcommand_config.cpp:44
+#, kde-format
+msgid "Schedule a reboot"
+msgstr "Ieplānot pārstartēšanu"
+
+#: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
+#, kde-format
+msgid "Suspend"
+msgstr "Iesnaudināt"
+
+#: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
+#, kde-format
+msgid "Lock Screen"
+msgstr "Bloķēt ekrānu"
+
+#: runcommand/runcommand_config.cpp:49
+#, kde-format
+msgid "Say Hello"
+msgstr "Sasveicināties"
+
+#: runcommand/runcommand_config.cpp:52
+#, kde-format
+msgid "Shutdown"
+msgstr "Izslēgt"
+
+#: runcommand/runcommand_config.cpp:53
+#, kde-format
+msgid "Reboot"
+msgstr "Pārstartēt"
+
+#: runcommand/runcommand_config.cpp:57
+#, kde-format
+msgid "Maximum Brightness"
+msgstr "Maksimālais gaišums"
+
+#: runcommand/runcommand_config.cpp:63
+#, kde-format
+msgid "Unlock Screen"
+msgstr "Atbloķēt ekrānu"
+
+#: runcommand/runcommand_config.cpp:64
+#, kde-format
+msgid "Close All Vaults"
+msgstr "Aizvērt visus seifus"
+
+#: runcommand/runcommand_config.cpp:66
+#, kde-format
+msgid "Forcefully Close All Vaults"
+msgstr "Piespiedu aizvērt visus seifus"
+
+#: runcommand/runcommand_config.cpp:73
+#, kde-format
+msgid "Sample commands"
+msgstr "Komandu paraugi"
+
+#: runcommand/runcommand_config.cpp:77
+#, kde-format
+msgid "Export"
+msgstr "Eksportēt"
+
+#: runcommand/runcommand_config.cpp:80
+#, kde-format
+msgid "Import"
+msgstr "Importēt"
+
+#: runcommand/runcommand_config.cpp:93
+#: sendnotifications/notifyingapplicationmodel.cpp:177
+#, kde-format
+msgid "Name"
+msgstr "Nosaukums"
+
+#: runcommand/runcommand_config.cpp:93
+#, kde-format
+msgid "Command"
+msgstr "Komanda"
+
+#: runcommand/runcommand_config.cpp:98
+#, kde-format
+msgid "Export Commands"
+msgstr "Eksporta komandas"
+
+#: runcommand/runcommand_config.cpp:123
+#, kde-format
+msgid "Import Commands"
+msgstr "Importa komandas"
+
+#: screensaver-inhibit/screensaverinhibitplugin.cpp:24
+#, kde-format
+msgid "Phone is connected"
+msgstr "Tālrunis ir savienots"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:181
+#, kde-format
+msgid "Blacklisted"
+msgstr "Ievietots melnajā sarakstā"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:185
+#, kde-format
+msgid "Name of a notifying application."
+msgstr "Paziņojošās programmas nosaukums."
+
+#: sendnotifications/notifyingapplicationmodel.cpp:187
+#, kde-format
+msgid "Synchronize notifications of an application?"
+msgstr "Sinhronizēt programmas paziņojumus?"
+
+#: sendnotifications/notifyingapplicationmodel.cpp:190
+#, kde-format
+msgid ""
+"Regular expression defining which notifications should not be sent.\n"
+"This pattern is applied to the summary and, if selected above, the body of "
+"notifications."
+msgstr ""
+"Šīs regulārās izteiksmes nosaka, kādus paziņojumus nav jāsūt.\n"
+"Šis paraugs tiek izmantots paziņojuma kopsavilkumam un, ja ir augstāk "
+"atzīmēts, arī tā saturam."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: sendnotifications/sendnotifications_config.ui:38
+#, kde-format
+msgid "General"
+msgstr "Vispārīgi"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:44
+#, kde-format
+msgid "Synchronize only notifications with a timeout value of 0?"
+msgstr "Sinhronizēt tikai paziņojumus, kuru pazušanas vērtība ir 0?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
+#: sendnotifications/sendnotifications_config.ui:47
+#, kde-format
+msgid "Persistent notifications only"
+msgstr "Tikai paliekošos paziņojumus"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:60
+#, kde-format
+msgid ""
+"Append the notification body to the summary when synchronizing notifications?"
+msgstr "Kopsavilkumam pievienot paziņojuma saturu, sinhronizējot paziņojumus?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_body)
+#: sendnotifications/sendnotifications_config.ui:63
+#, kde-format
+msgid "Include body"
+msgstr "Iekļaut saturu"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:76
+#, kde-format
+msgid "Synchronize icons of notifying applications if possible?"
+msgstr "Sinhronizēt paziņojošo programmu ikonas, ja iespējams?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, check_icons)
+#: sendnotifications/sendnotifications_config.ui:79
+#, kde-format
+msgid "Synchronize icons"
+msgstr "Sinhronizēt ikonas"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
+#: sendnotifications/sendnotifications_config.ui:107
+#, kde-format
+msgid ""
+"<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
+"html>"
+msgstr ""
+"<html><head/><body><p>Minimālais paziņojuma svarīguma līmenis</p></body></"
+"html>"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:123
+#, kde-format
+msgid "Synchronize only notifications with the given urgency level."
+msgstr "Sinhronizēt tikai paziņojumus ar norādīt svarīguma līmeni."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: sendnotifications/sendnotifications_config.ui:126
+#, kde-format
+msgid "Minimum urgency level"
+msgstr "Minimālais svarīguma līmenis"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: sendnotifications/sendnotifications_config.ui:148
+#, kde-format
+msgid "Applications"
+msgstr "Programmas"
+
+#: sftp/mounter.cpp:167
+#, kde-format
+msgid "Failed to start sshfs"
+msgstr "Neizdevās ieslēgt sshf"
+
+#: sftp/mounter.cpp:171
+#, kde-format
+msgid "sshfs process crashed"
+msgstr "sshf process avarēja"
+
+#: sftp/mounter.cpp:175
+#, kde-format
+msgid "Unknown error in sshfs"
+msgstr "Nezināma sshf kļūda"
+
+#: sftp/mounter.cpp:186
+#, kde-format
+msgid "Error when accessing filesystem. sshfs finished with exit code %0"
+msgstr ""
+"Kļūda, piekļūstot datņu sistēmai. sshfs beidza darbību ar izejas kodu %0"
+
+#: sftp/mounter.cpp:195
+#, kde-format
+msgid "Failed to mount filesystem: device not responding"
+msgstr "Neizdevās piemontēt datņu sistēmu: ierīce neatbild"
+
+#: sftp/sftpplugin-win.cpp:79
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE Connect"
+
+#: sftp/sftpplugin-win.cpp:80
+#, kde-format
+msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
+msgstr "Neizdodas izmantot SFTP protokolu. Atvainojamies par neērtībām"
+
+#: sftp/sftpplugin.cpp:134
+#, kde-format
+msgid "All files"
+msgstr "Visas datnes"
+
+#: sftp/sftpplugin.cpp:135
+#, kde-format
+msgid "Camera pictures"
+msgstr "Kameras attēli"
+
+#: share/share_config.cpp:22
+#, kde-format
+msgid "&percnt;1 in the path will be replaced with the specific device name."
+msgstr "Simbols &percnt;1 ceļā tiks aizvietots ar attiecīgo ierīces nosaukumu."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
+#: share/share_config.ui:17
+#, kde-format
+msgid "Share plugin settings"
+msgstr "Nosūtīšanas papildinājuma iestatījumi"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: share/share_config.ui:23
+#, kde-format
+msgid "Receiving"
+msgstr "Saņemšana"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: share/share_config.ui:31
+#, kde-format
+msgid "Save files in:"
+msgstr "Saglabāt datnes:"
+
+#: share/shareplugin.cpp:160
+#, kde-format
+msgctxt "@info Some piece of text was received from a connected device"
+msgid "Shared text from %1 copied to clipboard"
+msgstr "No %1 nosūtītais teksts ir saglabāts starpliktuvē"
+
+#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
+#, kde-format
+msgctxt "@action:button Edit text with default text editor"
+msgid "Open in Text Editor"
+msgstr "Atvērt teksta redaktorā"
+
+#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
+#, kde-format
+msgctxt "@action:button Open URL with default app"
+msgid "Open Link"
+msgstr "Atvērt saiti"
+
+#: share/shareplugin.cpp:251
+#, kde-format
+msgid "Could not share file"
+msgstr "Neizdevās dalīties ar datni"
+
+#: share/shareplugin.cpp:251
+#, kde-format
+msgid "%1 does not exist"
+msgstr "%1 neeksistē"
+
+#: telephony/telephonyplugin.cpp:23
+#, kde-format
+msgid "unknown number"
+msgstr "nezināms numurs"
+
+#: telephony/telephonyplugin.cpp:32
+#, kde-format
+msgid "Incoming call from %1"
+msgstr "Ienākošs zvans no %1"
+
+#: telephony/telephonyplugin.cpp:36
+#, kde-format
+msgid "Missed call from %1"
+msgstr "Neatbildēts zvans no %1"
+
+#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#, kde-format
+msgid "Mute Call"
+msgstr "Apklusināt zvanu"
