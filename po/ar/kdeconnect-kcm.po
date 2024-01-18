@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015, 2016, 2017.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2023.
+# SPDX-FileCopyrightText: 2021, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-06-08 11:45+0400\n"
+"PO-Revision-Date: 2024-01-17 17:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -144,18 +144,7 @@ msgstr "أرسل وخزة"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -170,13 +159,13 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>لم يحدد أي جهاز.<br><br>إن كنت تملك جهاز أندرويد، تأكّد "
 "من تثبيت <a href=\"https://play.google.com/store/apps/details?id=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">تطبيق «كِيدِي المتّصل» لأندويد</span></a> (متوفّر أيضًا <a href=\"https://f-"
-"droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" "
-"text-decoration: underline; color:#4c6b8a;\">في F-Droid</span></a>) وسيظهر "
-"الجهاز في القائمة. <br><br>إذا واجهتك مشكلة فزر <a href=\"https://userbase."
-"kde.org/KDEConnect\"><span style=\" text-decoration: underline; color:"
-"#4c6b8a;\">ويكي كِيدِي المتصل</span></a> للمساعدة.</p></body></html>"
+"kdeconnect_tp\"><span style=\" text-decoration: underline;\">تطبيق «كِيدِي "
+"المتّصل» لأندويد</span></a> (متوفّر أيضًا <a href=\"https://f-droid.org/"
+"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline; color:#cba;\">في F-Droid</span></a>) وسيظهر الجهاز في "
+"القائمة. <br><br>إذا واجهتك مشكلة فزر <a href=\"https://userbase.kde.org/"
+"KDEConnect\"><span style=\" text-decoration: underline; color:#cba;\">ويكي "
+"كِيدِي المتصل</span></a> للمساعدة.</p></body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "إعدادات «كِيدِي المتّصل»"
