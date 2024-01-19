@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kristof Kiszel <ulysses@fsf.hu>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-26 01:33+0000\n"
-"PO-Revision-Date: 2021-11-23 13:51+0100\n"
+"PO-Revision-Date: 2024-01-18 10:00+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -73,10 +73,9 @@ msgid "SMS Instant Messaging"
 msgstr "SMS azonnali üzenetküldés"
 
 #: main.cpp:55
-#, fuzzy, kde-format
-#| msgid "(C) 2018-2019, KDE Connect Team"
+#, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) A KDE Connect fejlesztői, 2018-2019."
+msgstr "(C) A KDE Connect fejlesztői, 2018-2022."
 
 #: main.cpp:56
 #, kde-format
@@ -147,6 +146,8 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
+"Beszélgetések betöltése az eszközről. Ha ez sok időt vesz igénybe, ébressze "
+"fel az eszközt, és kattintson a Frissítésre."
 
 #: qml/ConversationList.qml:59
 #, kde-format
@@ -154,6 +155,8 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
+"Tipp: ha csatlakoztatja eszközét, az nem lép alvó módba, és gyorsabban "
+"betöltődik."
 
 #: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
@@ -171,10 +174,9 @@ msgid "Cancel"
 msgstr "Mégsem"
 
 #: qml/ConversationList.qml:113
-#, fuzzy, kde-format
-#| msgid "Start new conversation"
+#, kde-format
 msgid "Search or start conversation..."
-msgstr "Új beszélgetés"
+msgstr "Beszélgetés keresése vagy indítása…"
 
 #: qml/ConversationList.qml:145
 #, kde-format
@@ -195,7 +197,7 @@ msgstr "Nincs találat"
 #: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "Eszközök"
 
 #: qml/Main.qml:98
 #, kde-format

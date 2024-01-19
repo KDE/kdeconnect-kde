@@ -3,20 +3,21 @@
 #
 # Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2015, 2020, 2021.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2021-09-04 09:30+0200\n"
-"Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
+"PO-Revision-Date: 2024-01-18 10:01+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -56,7 +57,7 @@ msgstr "Ejtsen ide egy fájlt a telefonra átvitelhez."
 #: package/contents/ui/DeviceDelegate.qml:93
 #, kde-format
 msgid "Virtual Display"
-msgstr ""
+msgstr "Virtuális kijelző"
 
 #: package/contents/ui/DeviceDelegate.qml:146
 #, kde-format
@@ -77,7 +78,7 @@ msgstr "Fájl megosztása"
 #: package/contents/ui/DeviceDelegate.qml:192
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Vágólap küldése"
 
 #: package/contents/ui/DeviceDelegate.qml:211
 #, kde-format
@@ -122,18 +123,18 @@ msgstr "Bezárás"
 #: package/contents/ui/DeviceDelegate.qml:366
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: package/contents/ui/DeviceDelegate.qml:380
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
-msgstr ""
+msgstr "Válasz erre: %1…"
 
 #: package/contents/ui/DeviceDelegate.qml:398
 #, kde-format
 msgid "Send"
-msgstr ""
+msgstr "Küldés"
 
 #: package/contents/ui/DeviceDelegate.qml:424
 #, kde-format

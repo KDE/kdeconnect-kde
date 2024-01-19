@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2015, 2020, 2021.
-# Kristof Kiszel <ulysses@fsf.hu>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2021-11-23 13:02+0100\n"
+"PO-Revision-Date: 2024-01-18 09:49+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -49,10 +49,9 @@ msgid "%1: Already paired"
 msgstr "%1: Már párosított"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Az eszköz nem érhető el"
+msgstr "%1: Az eszköz nem érhető el"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -60,8 +59,7 @@ msgid "Device not reachable"
 msgstr "Az eszköz nem érhető el"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by the user"
+#, kde-format
 msgid "Cancelled by user"
 msgstr "Felhasználói megszakítás"
 
@@ -121,10 +119,9 @@ msgid "KDE Connect failed to start"
 msgstr "A KDE Connect indulása sikertelen"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Nem sikerült tárolni a privát kulcsfájlt: %1"
+msgstr "Nem sikerült előállítani a privát kulcsot."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -132,10 +129,9 @@ msgid "Could not store private key file: %1"
 msgstr "Nem sikerült tárolni a privát kulcsfájlt: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Nem sikerült tárolni a tanúsítványfájlt: %1"
+msgstr "Nem sikerült előállítani az eszköztanúsítványt."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

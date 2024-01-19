@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Balázs Úr <urbalazs@gmail.com>, 2013, 2014.
-# Kristof Kiszel <kiszel.kristof@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:33+0000\n"
-"PO-Revision-Date: 2021-11-23 13:26+0100\n"
+"PO-Revision-Date: 2024-01-18 09:55+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -71,7 +71,7 @@ msgstr "Meglévő példány cseréje"
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
-msgstr ""
+msgstr "Privát D-Bus démon indítása kdeconnectd-vel (csak macOS tesztcélra)"
 
 #~ msgid "kdeconnect"
 #~ msgstr "kdeconnect"

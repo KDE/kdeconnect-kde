@@ -1,14 +1,14 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Kristóf Kiszel <kiszel.kristof@gmail.com>, 2021.
-# Kristof Kiszel <ulysses@fsf.hu>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:34+0000\n"
-"PO-Revision-Date: 2021-11-23 11:41+0100\n"
+"PO-Revision-Date: 2024-01-18 09:48+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "Parancs végrehajtása"
 #: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Vágólap küldése"
 
 #: qml/DevicePage.qml:111
 #, kde-format
@@ -126,8 +126,7 @@ msgid "This device is not paired"
 msgstr "Az eszköz nincs párosítva"
 
 #: qml/DevicePage.qml:129
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Párosítás"
@@ -158,11 +157,10 @@ msgid "Please choose a file"
 msgstr "Válasszon egy fájlt"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Eszköz keresése"
+msgstr "Eszközök"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -190,10 +188,9 @@ msgid "Find devices..."
 msgstr "Eszközök keresése…"
 
 #: qml/Main.qml:122 qml/Main.qml:126
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Bővítménybeállítások"
+msgstr "Beállítások"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -201,10 +198,10 @@ msgid "Remote Control"
 msgstr "Távoli hozzáférés"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "Feloldáshoz nyomja meg egyszerre az egér bal és jobb gombját"
+msgstr ""
+"Feloldáshoz nyomja meg egyszerre az egér bal és jobb gombját vagy ezt: %1"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -242,25 +239,22 @@ msgid "No commands defined"
 msgstr "Nincsenek definiálva parancsok"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Bővítménybeállítások"
+msgstr "Beállítások"
 
 #: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Eszköznév"
 
 #: qml/Settings.qml:36
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "A KDE Connect névjegye"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "KDE Connect"
+msgstr "A KDE névjegye"
