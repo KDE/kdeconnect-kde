@@ -182,9 +182,3 @@ msgstr "Инсталиране от F-Droid"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Настройки на KDE Connect..."
-
-#~ msgid "Save As"
-#~ msgstr "Запазване като"
-
-#~ msgid "Take a photo"
-#~ msgstr "Снимане"

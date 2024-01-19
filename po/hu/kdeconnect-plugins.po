@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Kristof Kiszel <ulysses@fsf.hu>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2021-11-24 12:31+0100\n"
+"PO-Revision-Date: 2024-01-18 09:57+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.90\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
@@ -32,25 +32,25 @@ msgstr "Akkumulátor %1%-on"
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "Vágólap bővítmény"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Automatikus szinkronizáció"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Az eszköz vágólapjának automatikus megosztása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "Jelszavakat is (a jelszókezelők által megjelöltek szerint)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -88,7 +88,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Jelenlegi lejátszó"
 
 #: notifications/notification.cpp:115
 #, kde-format
@@ -239,12 +239,12 @@ msgstr "Mintaparancsok"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Exportálás"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Importálás"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
@@ -258,16 +258,14 @@ msgid "Command"
 msgstr "Parancs"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Parancs"
+msgstr "Parancsok exportálása"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Mintaparancsok"
+msgstr "Parancsok importálása"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -448,19 +446,19 @@ msgstr "Fájlok mentése ide:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "A(z) %1 által megosztott szöveg a vágólapra lett másolva"
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Megnyitás szövegszerkeszőben"
 
 #: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Hivatkozás megnyitása"
 
 #: share/shareplugin.cpp:251
 #, kde-format
