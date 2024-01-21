@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:34+0000\n"
-"PO-Revision-Date: 2023-02-05 01:06+0200\n"
+"PO-Revision-Date: 2024-01-21 01:14+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -109,7 +109,7 @@ msgstr "Vykdyti komandą"
 #: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Siųsti iškarpinę"
 
 #: qml/DevicePage.qml:111
 #, kde-format
@@ -127,8 +127,7 @@ msgid "This device is not paired"
 msgstr "Šis įrenginys nėra suporuotas"
 
 #: qml/DevicePage.qml:129
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Suporuoti"
@@ -159,11 +158,10 @@ msgid "Please choose a file"
 msgstr "Pasirinkite failą"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Rasti įrenginį"
+msgstr "Įrenginiai"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -201,11 +199,11 @@ msgid "Remote Control"
 msgstr "Nuotolinis valdymas"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
 msgstr ""
-"Norėdami atrakinti, vienu metu paspauskite kairįjį ir dešinįjį pelės mygtuką"
+"Norėdami atrakinti, paspauskite %1 arba vienu metu kairįjį ir dešinįjį pelės "
+"mygtuką"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -259,7 +257,6 @@ msgid "About KDE Connect"
 msgstr "Apie KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "Apie KDE Connect"
+msgstr "Apie KDE"

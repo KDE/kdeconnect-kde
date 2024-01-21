@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2021-08-21 13:15+0300\n"
+"PO-Revision-Date: 2024-01-21 01:13+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -50,10 +50,9 @@ msgid "%1: Already paired"
 msgstr "%1: Jau suporuota"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Įrenginys nepasiekiamas"
+msgstr "%1: Įrenginys nepasiekiamas"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -61,10 +60,9 @@ msgid "Device not reachable"
 msgstr "Įrenginys nepasiekiamas"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "Kitas lygiarangis atsisakė"
+msgstr "Naudotojas atsisakė"
 
 #: backends/pairinghandler.cpp:140
 #, kde-format
@@ -124,10 +122,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connect nepasileido"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Nepavyko laikyti privačiojo rakto failo: %1"
+msgstr "Nepavyko sugeneruoti privačiojo rakto."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -135,10 +132,9 @@ msgid "Could not store private key file: %1"
 msgstr "Nepavyko laikyti privačiojo rakto failo: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Nepavyko laikyti liudijimo failo: %1"
+msgstr "Nepavyko sugeneruoti įrenginio liudijimo."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format
