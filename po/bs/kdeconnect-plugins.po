@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-23 02:29+0000\n"
 "PO-Revision-Date: 2015-02-22 23:17+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -483,7 +483,7 @@ msgstr "Dolazni poziv od %1"
 msgid "Missed call from %1"
 msgstr "Propušten poziv od %1"
 
-#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, fuzzy, kde-format
 #| msgid "Mute call"
 msgid "Mute Call"

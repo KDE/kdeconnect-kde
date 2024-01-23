@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-23 02:29+0000\n"
 "PO-Revision-Date: 2023-09-14 23:02+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -487,7 +487,7 @@ msgstr "Appello in arrivata ab %1"
 msgid "Missed call from %1"
 msgstr "Appello perdite ab %1"
 
-#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
 msgstr "Appello silente"

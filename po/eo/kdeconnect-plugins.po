@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-23 02:29+0000\n"
 "PO-Revision-Date: 2024-01-03 14:17+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -480,7 +480,7 @@ msgstr "Envenanta voko de %1"
 msgid "Missed call from %1"
 msgstr "Maltrafita voko de %1"
 
-#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
 msgstr "Silentigi Vokon"

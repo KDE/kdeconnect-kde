@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-23 02:29+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -485,7 +485,7 @@ msgstr "Panggilan masuk dari %1"
 msgid "Missed call from %1"
 msgstr "Panggilan tidak terjawab dari %1"
 
-#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
 msgstr "Bungkam Panggilan"

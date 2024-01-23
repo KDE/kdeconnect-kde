@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-01-23 02:29+0000\n"
 "PO-Revision-Date: 2020-07-21 18:28+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -485,7 +485,7 @@ msgstr "Indkommende opkald fra %1"
 msgid "Missed call from %1"
 msgstr "Ubesvaret opkald fra %1"
 
-#: telephony/telephonyplugin.cpp:65 telephony/telephonyplugin.cpp:68
+#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
 msgstr "Sæt opkald på lydløs"
