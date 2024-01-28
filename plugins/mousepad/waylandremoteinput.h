@@ -30,6 +30,7 @@ public:
 private Q_SLOTS:
     void handleXdpSessionCreated(uint code, const QVariantMap &results);
     void handleXdpSessionConfigured(uint code, const QVariantMap &results);
+    void handleXdpSessionStarted(uint code, const QVariantMap &results);
     void handleXdpSessionFinished(uint code, const QVariantMap &results);
 
 private:

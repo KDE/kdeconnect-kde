@@ -10,7 +10,9 @@
 #include <QDebug>
 #include <QSizeF>
 
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDBusPendingCallWatcher>
 
 #include <linux/input.h>
@@ -106,12 +108,20 @@ void RemoteDesktopSession::handleXdpSessionCreated(uint code, const QVariantMap 
         qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Failed to create session with code" << code << results;
         return;
     }
+
     m_connecting = false;
     m_xdpPath = QDBusObjectPath(results.value(QLatin1String("session_handle")).toString());
-    const QVariantMap startParameters = {
+    QVariantMap startParameters = {
         {QLatin1String("handle_token"), QStringLiteral("kdeconnect%1").arg(QRandomGenerator::global()->generate())},
         {QStringLiteral("types"), QVariant::fromValue<uint>(7)}, // request all (KeyBoard, Pointer, TouchScreen)
+        {QLatin1String("persist_mode"), QVariant::fromValue<uint>(2)}, // Persist permission until explicitly revoked by user
     };
+
+    KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QStringLiteral("mousepad"));
+    QString restoreToken = stateConfig.readEntry(QStringLiteral("RestoreToken"), QString());
+    if (restoreToken.length() > 0) {
+        startParameters[QLatin1String("restore_token")] = restoreToken;
+    }
 
     QDBusConnection::sessionBus().connect(QString(),
                                           m_xdpPath.path(),
@@ -158,8 +168,26 @@ void RemoteDesktopSession::handleXdpSessionConfigured(uint code, const QVariantM
         if (reply.isError()) {
             qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Could not start the remote control session" << reply.error();
             m_connecting = false;
+            return;
         }
+
+        bool b = QDBusConnection::sessionBus().connect(QString(),
+                                                       reply.value().path(),
+                                                       QLatin1String("org.freedesktop.portal.Request"),
+                                                       QLatin1String("Response"),
+                                                       this,
+                                                       SLOT(handleXdpSessionStarted(uint, QVariantMap)));
+        Q_ASSERT(b);
+        qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "starting" << reply.value().path();
     });
+}
+
+void RemoteDesktopSession::handleXdpSessionStarted(uint code, const QVariantMap &results)
+{
+    Q_UNUSED(code);
+
+    KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QStringLiteral("mousepad"));
+    stateConfig.writeEntry(QStringLiteral("RestoreToken"), results[QStringLiteral("restore_token")].toString());
 }
 
 void RemoteDesktopSession::handleXdpSessionFinished(uint /*code*/, const QVariantMap & /*results*/)
