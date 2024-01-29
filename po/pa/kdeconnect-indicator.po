@@ -1,0 +1,181 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 A S Alam <aalam@punlinux.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"PO-Revision-Date: 2024-01-28 13:19-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੪"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@punlinux.org"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "ਡਿਵਾਈਸ ਦੀ ਝਲਕ ਵੇਖੋ"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Send clipboard"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਭੇਜੋ"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgctxt "@action:inmenu play bell sound"
+msgid "Ring device"
+msgstr ""
+
+#: deviceindicator.cpp:97
+#, kde-format
+msgid "Send a file/URL"
+msgstr "ਫਾਇਲ/URL ਭੇਜੋ"
+
+#: deviceindicator.cpp:107
+#, kde-format
+msgid "SMS Messages..."
+msgstr "SMS ਸੁਨੇਹੇ..."
+
+#: deviceindicator.cpp:120
+#, kde-format
+msgid "Run command"
+msgstr "ਕਮਾਂਡ ਨੂੰ ਚਲਾਓ"
+
+#: deviceindicator.cpp:122
+#, kde-format
+msgid "Add commands"
+msgstr "ਕਮਾਂਡਾਂ ਨੂੰ ਜੋੜੋ"
+
+#: indicatorhelper_mac.cpp:37
+#, kde-format
+msgid "Launching"
+msgstr "ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: indicatorhelper_mac.cpp:87
+#, kde-format
+msgid "Launching daemon"
+msgstr "ਡੈਮਨ ਨੂੰ ਲਾਂਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: indicatorhelper_mac.cpp:96
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "ਡੀ-ਬੱਸ ਦੀ ਉਡੀਕ ਜਾਰੀ"
+
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
+#: indicatorhelper_mac.cpp:144
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE ਕਨੈਕਟ"
+
+#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:144
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr ""
+
+#: indicatorhelper_mac.cpp:149
+#, kde-format
+msgid "Loading modules"
+msgstr "ਮੋਡੀਊਲ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ"
+
+#: main.cpp:53
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "KDE ਕਨੈਕਟ ਸੰਕੇਤਕ"
+
+#: main.cpp:55
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "KDE ਕਨੈਕਟ ਸੰਕੇਤਕ ਟੂਲ"
+
+#: main.cpp:57
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr ""
+
+#: main.cpp:92
+#, kde-format
+msgid "Configure..."
+msgstr "ਸੰਰਚਨਾ..."
+
+#: main.cpp:114
+#, kde-format
+msgid "Pairing requests"
+msgstr "ਪੇਅਰ ਕਰਨ ਦੀਆਂ ਬੇਨਤੀਆਂ"
+
+#: main.cpp:119
+#, kde-format
+msgctxt "Accept a pairing request"
+msgid "Pair"
+msgstr "ਪੇਅਰ"
+
+#: main.cpp:120
+#, kde-format
+msgid "Reject"
+msgstr "ਇਨਕਾਰ"
+
+#: main.cpp:126 main.cpp:136
+#, kde-format
+msgid "Quit"
+msgstr "ਬਾਹਰ"
+
+#: main.cpp:155 main.cpp:179
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "%1 ਡਿਵਾਈਸ ਕਨੈਕਟ ਹੈ"
+msgstr[1] "%1 ਡਿਵਾਈਸ ਕਨੈਕਟ ਹਨ"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "ਕੋਈ ਬੈਟਰੀ ਨਹੀਂ ਹੈ"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "ਬੈਟਰੀ: %1% (ਚਾਰਜਿੰਗ)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "ਬੈਟਰੀ: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "ਕੋਈ ਸੈਲੂਲਰ ਕਨੈਕਟਵਿਟੀ ਨਹੀਂ ਹੈ"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"

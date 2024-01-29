@@ -1,0 +1,73 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 A S Alam <aalam@punlinux.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-28 01:33+0000\n"
+"PO-Revision-Date: 2024-01-28 13:38-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੪"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@punlinux.org"
+
+#: kdeconnectd.cpp:57
+#, kde-format
+msgid ""
+"Pairing request from %1\n"
+"Key: %2..."
+msgstr ""
+"%1 ਤੋਂ ਪੇਅਰ ਕਰਨ ਦੀ ਬੇਨਤੀ\n"
+"ਕੁੰਜੀ: %2..."
+
+#: kdeconnectd.cpp:66 kdeconnectd.cpp:78
+#, kde-format
+msgid "Open"
+msgstr "ਖੋਲ੍ਹੋ"
+
+#: kdeconnectd.cpp:69 kdeconnectd.cpp:79
+#, kde-format
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ"
+
+#: kdeconnectd.cpp:72 kdeconnectd.cpp:79
+#, kde-format
+msgid "Reject"
+msgstr "ਇਨਕਾਰ"
+
+#: kdeconnectd.cpp:75 kdeconnectd.cpp:79
+#, kde-format
+msgid "View key"
+msgstr "ਕੁੰਜੀ ਨੂੰ ਵੇਖੋ"
+
+#: kdeconnectd.cpp:158 kdeconnectd.cpp:160
+#, kde-format
+msgid "KDE Connect Daemon"
+msgstr "KDE ਕਨੈਕਟ ਡੈਮਨ"
+
+#: kdeconnectd.cpp:166
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
+
+#: kdeconnectd.cpp:170
+#, kde-format
+msgid ""
+"Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
+msgstr "kdeconnectd ਨਾਲ ਪ੍ਰਾਈਵੇਟ ਡੀ-ਬੱਸ ਡੈਮਨ ਨੂੰ ਚਲਾਓ (ਸਿਰਫ਼ macOS ਟੈਸਟ ਵਾਸਤੇ ਹੀ)"

@@ -1,0 +1,182 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 A S Alam <aalam@punlinux.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-12-22 00:41+0000\n"
+"PO-Revision-Date: 2024-01-28 13:46-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#: package/contents/ui/Battery.qml:25
+#, kde-format
+msgid "%1% charging"
+msgstr "%1% ਚਾਰਜਿੰਗ"
+
+#: package/contents/ui/Battery.qml:25
+#, kde-format
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/Battery.qml:25
+#, kde-format
+msgid "No info"
+msgstr "ਕੋਈ ਜਾਣਕਾਰੀ ਨਹੀਂ"
+
+#: package/contents/ui/Connectivity.qml:40
+#, kde-format
+msgid "Unknown"
+msgstr "ਅਣਪਛਾਤਾ"
+
+#: package/contents/ui/Connectivity.qml:50
+#, kde-format
+msgid "No signal"
+msgstr "ਕੋਈ ਸਿਗਨਲ ਨਹੀਂ ਹੈ"
+
+#: package/contents/ui/DeviceDelegate.qml:56
+#, kde-format
+msgid "File Transfer"
+msgstr "ਫਾਇਲ ਟਰਾਂਸਫਰ"
+
+#: package/contents/ui/DeviceDelegate.qml:57
+#, kde-format
+msgid "Drop a file to transfer it onto your phone."
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:93
+#, kde-format
+msgid "Virtual Display"
+msgstr "ਵਰਚੁਅਲ ਡਿਸਪਲੇਅ"
+
+#: package/contents/ui/DeviceDelegate.qml:146
+#, kde-format
+msgctxt "Battery charge percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/DeviceDelegate.qml:168
+#, kde-format
+msgid "Please choose a file"
+msgstr "ਫਾਇਲ ਚੁਣੋ ਜੀ"
+
+#: package/contents/ui/DeviceDelegate.qml:177
+#, kde-format
+msgid "Share file"
+msgstr "ਫਾਇਲ ਸਾਂਝੀ ਕਰੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:192
+#, kde-format
+msgid "Send Clipboard"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਭੇਜੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:211
+#, kde-format
+msgid "Ring my phone"
+msgstr "ਮੇਰੇ ਫ਼ੋਨ ਉੱਤੇ ਰਿੰਗ ਕਰੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:229
+#, kde-format
+msgid "Browse this device"
+msgstr "ਇਸ ਡਿਵਾਈਸ ਦੀ ਝਲਕ"
+
+#: package/contents/ui/DeviceDelegate.qml:246
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS ਸੁਨੇਹੇ"
+
+#: package/contents/ui/DeviceDelegate.qml:267
+#, kde-format
+msgid "Remote Keyboard"
+msgstr "ਰਿਮੋਟ ਕੀਬੋਰਡ"
+
+#: package/contents/ui/DeviceDelegate.qml:288
+#, kde-format
+msgid "Notifications:"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ:"
+
+#: package/contents/ui/DeviceDelegate.qml:296
+#, kde-format
+msgid "Dismiss all notifications"
+msgstr "ਸਭ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਖਾਰਜ ਕਰੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:343
+#, kde-format
+msgid "Reply"
+msgstr "ਜਵਾਬ ਦਿਓ"
+
+#: package/contents/ui/DeviceDelegate.qml:353
+#, kde-format
+msgid "Dismiss"
+msgstr "ਖ਼ਾਰਜ ਕਰੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:366
+#, kde-format
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:380
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Reply to %1…"
+msgstr "%1 ਨੂੰ ਜਵਾਬ ਦਿਓ…"
+
+#: package/contents/ui/DeviceDelegate.qml:398
+#, kde-format
+msgid "Send"
+msgstr "ਭੇਜੋ"
+
+#: package/contents/ui/DeviceDelegate.qml:424
+#, kde-format
+msgid "Run command"
+msgstr "ਕਮਾਂਡ ਨੂੰ ਚਲਾਓ"
+
+#: package/contents/ui/DeviceDelegate.qml:432
+#, kde-format
+msgid "Add command"
+msgstr "ਕਮਾਂਡ ਨੂੰ ਜੋੜੋ"
+
+#: package/contents/ui/FullRepresentation.qml:58
+#, kde-format
+msgid "No paired devices"
+msgstr "ਕੋਈ ਪੇਅਰ ਹੋਏ ਡਿਵਾਈਸ ਨਹੀਂ ਹਨ"
+
+#: package/contents/ui/FullRepresentation.qml:58
+#, kde-format
+msgid "Paired device is unavailable"
+msgid_plural "All paired devices are unavailable"
+msgstr[0] ""
+msgstr[1] ""
+
+#: package/contents/ui/FullRepresentation.qml:60
+#, kde-format
+msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
+msgstr "ਆਪਣੇ ਐਂਡਰਾਇਡ ਡਿਵਾਈਸ ਨੂੰ ਪਲਾਜ਼ਮਾ ਨਾਲ ਜੋੜਨ ਲਈ ਉਸ ਉੱਤੇ KDE ਕਨੈਕਟ ਇੰਸਟਾਲ ਕਰੋ!"
+
+#: package/contents/ui/FullRepresentation.qml:64
+#, kde-format
+msgid "Pair a Device..."
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਪੇਅਰ ਕਰੋ..."
+
+#: package/contents/ui/FullRepresentation.qml:76
+#, kde-format
+msgid "Install from Google Play"
+msgstr "Google Play ਤੋਂ ਇੰਸਟਾਲ ਕਰੋ"
+
+#: package/contents/ui/FullRepresentation.qml:86
+#, kde-format
+msgid "Install from F-Droid"
+msgstr "F-Droid ਤੋਂ ਇੰਸਟਾਲ ਕਰੋ"
+
+#: package/contents/ui/main.qml:59
+#, kde-format
+msgid "KDE Connect Settings..."
+msgstr "KDE ਕਨੈਕਟ ਸੈਟਿੰਗਾਂ..."

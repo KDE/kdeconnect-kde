@@ -1,0 +1,157 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 A S Alam <aalam@punlinux.org>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-20 00:42+0000\n"
+"PO-Revision-Date: 2024-01-28 13:20-0600\n"
+"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੪"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@punlinux.org"
+
+#: kcm.cpp:183
+#, kde-format
+msgid "Key: %1"
+msgstr "ਕੁੰਜੀ: %1"
+
+#: kcm.cpp:206
+#, kde-format
+msgid "Available plugins"
+msgstr "ਮੌਜੂਦ ਪਲੱਗਇਨ"
+
+#: kcm.cpp:253
+#, kde-format
+msgid "Error trying to pair: %1"
+msgstr "ਪੇਅਰ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਦੌਰਾਨ ਗਲਤੀ: %1"
+
+#: kcm.cpp:269
+#, kde-format
+msgid "(paired)"
+msgstr "(ਪੇਅਰ ਹੈ)"
+
+#: kcm.cpp:272
+#, kde-format
+msgid "(not paired)"
+msgstr "(ਪੇਅਰ ਨਹੀਂ ਹੈ)"
+
+#: kcm.cpp:275
+#, kde-format
+msgid "(incoming pair request)"
+msgstr ""
+
+#: kcm.cpp:278
+#, kde-format
+msgid "(pairing requested)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, rename_label)
+#: kcm.ui:59
+#, kde-format
+msgid "KDE Connect"
+msgstr "KDE ਕਨੈਕਟ"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
+#: kcm.ui:82
+#, kde-format
+msgid "Edit"
+msgstr "ਸੋਧੋ"
+
+#. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
+#: kcm.ui:104
+#, kde-format
+msgid "Save"
+msgstr "ਸੰਭਾਲੋ"
+
+#. i18n: ectx: property (text), widget (QPushButton, refresh_button)
+#: kcm.ui:120
+#, kde-format
+msgid "Refresh"
+msgstr "ਤਾਜ਼ਾ ਕਰੋ"
+
+#. i18n: ectx: property (text), widget (QLabel, name_label)
+#: kcm.ui:193
+#, kde-format
+msgid "Device"
+msgstr "ਡਿਵਾਈਸ"
+
+#. i18n: ectx: property (text), widget (QLabel, status_label)
+#: kcm.ui:209
+#, kde-format
+msgid "(status)"
+msgstr "(ਹਾਲਤ)"
+
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
+#: kcm.ui:232
+#, kde-format
+msgid "🔑 abababab"
+msgstr "🔑 abababab"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancel_button)
+#: kcm.ui:263
+#, kde-format
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#. i18n: ectx: property (text), widget (QPushButton, accept_button)
+#: kcm.ui:289
+#, kde-format
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ"
+
+#. i18n: ectx: property (text), widget (QPushButton, reject_button)
+#: kcm.ui:296
+#, kde-format
+msgid "Reject"
+msgstr "ਇਨਕਾਰ"
+
+#. i18n: ectx: property (text), widget (QPushButton, pair_button)
+#: kcm.ui:309
+#, kde-format
+msgid "Request pair"
+msgstr "ਪੇਅਰ ਦੀ ਬੇਨਤੀ"
+
+#. i18n: ectx: property (text), widget (QPushButton, unpair_button)
+#: kcm.ui:322
+#, kde-format
+msgid "Unpair"
+msgstr "ਅਣ-ਪੇਅਰ"
+
+#. i18n: ectx: property (text), widget (QPushButton, ping_button)
+#: kcm.ui:335
+#, kde-format
+msgid "Send ping"
+msgstr "ਪਿੰਗ ਭੇਜੋ"
+
+#. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
+#: kcm.ui:373
+#, kde-format
+msgid ""
+"<html><head/><body><p>No device selected.<br><br>If you own an Android "
+"device, make sure to install the <a href=\"https://play.google.com/store/"
+"apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
+"underline;\">KDE Connect Android app</span></a> (also available <a href="
+"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
+"style=\" text-decoration: underline;\">from F-Droid</span></a>) and it "
+"should appear in the list.<br><br>If you are having problems, visit the <a "
+"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
+"html>"
+msgstr ""
