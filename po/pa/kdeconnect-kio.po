@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2024-01-28 13:31-0600\n"
+"PO-Revision-Date: 2024-01-29 22:59-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -25,7 +25,7 @@ msgstr "...ਡਿਵਾਈਸ ਲਿਸਟ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ"
 #: kiokdeconnect.cpp:120
 #, kde-format
 msgid "Accessing device..."
-msgstr ""
+msgstr "...ਡਿਵਾਈਸ ਅਸੈਸ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: kiokdeconnect.cpp:135
 #, kde-format
@@ -45,9 +45,9 @@ msgstr "%0 ਕਨੈਕਟ ਨਹੀਂ ਹੈ"
 #: kiokdeconnect.cpp:149
 #, kde-format
 msgid "%0 has no Remote Filesystem plugin"
-msgstr ""
+msgstr "%0 ਕੋਲ ਕੋਈ ਰਿਮੋਟ ਫਾਇਲ-ਸਿਸਟਮ ਪਲੱਗਇਨ ਨਹੀਂ ਹੈ"
 
 #: kiokdeconnect.cpp:208
 #, kde-format
 msgid "Could not contact background service."
-msgstr ""
+msgstr "ਬੈਕਗਰਾਊਂਡ ਸੇਵਾ ਨਾਲ ਸੰਪਰਕ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।"
