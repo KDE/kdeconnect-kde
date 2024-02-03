@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:34+0000\n"
-"PO-Revision-Date: 2024-01-21 01:14+0200\n"
+"PO-Revision-Date: 2024-02-02 21:22+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -69,7 +69,7 @@ msgstr "Siųsti ryšio patikrinimą"
 #: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
-msgstr "Papildinio nuostatos"
+msgstr "Įskiepio nuostatos"
 
 #: qml/DevicePage.qml:61
 #, kde-format
