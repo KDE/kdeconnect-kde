@@ -1,11 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-24 10:09+0000\n"
-"PO-Revision-Date: 2021-09-25 15:19-0700\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"PO-Revision-Date: 2024-01-30 19:23+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -14,54 +15,54 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE Connect"
 
 #: main.cpp:36
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
-msgstr ""
+msgstr "(c) 2015, Aleix Pol Gonzalez"
 
 #: main.cpp:37
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr ""
+msgstr "Aleix Pol Gonzalez"
 
 #: main.cpp:37
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "メンテナ"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Ryuichi Yamada"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "ryuichi_ya220@outlook.jp"
 
 #: main.cpp:54
 #, kde-format
 msgid "URL to share"
-msgstr ""
+msgstr "共有する URL"
 
 #: qml/DevicePage.qml:23
 #, kde-format
 msgid "Unpair"
-msgstr "ペア解除"
+msgstr "ペアリング解除"
 
 #: qml/DevicePage.qml:28
 #, kde-format
 msgid "Send Ping"
-msgstr "ping を送信"
+msgstr "Ping を送信"
 
 #: qml/DevicePage.qml:36 qml/PluginSettings.qml:15
 #, kde-format
@@ -106,7 +107,7 @@ msgstr "コマンド実行"
 #: qml/DevicePage.qml:104
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "クリップボードを送信"
 
 #: qml/DevicePage.qml:110
 #, kde-format
@@ -124,8 +125,7 @@ msgid "This device is not paired"
 msgstr "このデバイスはペアリングされていません"
 
 #: qml/DevicePage.qml:128
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "ペア"
@@ -143,7 +143,7 @@ msgstr "承諾"
 #: qml/DevicePage.qml:156
 #, kde-format
 msgid "Reject"
-msgstr "拒絶"
+msgstr "拒否"
 
 #: qml/DevicePage.qml:165
 #, kde-format
@@ -156,11 +156,10 @@ msgid "Please choose a file"
 msgstr "ファイルを選択してください"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "デバイスを探す"
+msgstr "デバイス"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -188,10 +187,9 @@ msgid "Find devices..."
 msgstr "デバイスを探す..."
 
 #: qml/main.qml:121 qml/main.qml:124
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "プラグイン設定"
+msgstr "設定"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -199,10 +197,9 @@ msgid "Remote Control"
 msgstr "リモートコントロール"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "左右のマウスボタンを同時に押してロック解除"
+msgstr "%1 を押すか左右のマウスボタンを同時に押してロック解除"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -217,7 +214,7 @@ msgstr "利用可能なプレーヤーはありません"
 #: qml/mpris.qml:105
 #, kde-format
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 - %2"
 
 #: qml/presentationRemote.qml:20
 #, kde-format
@@ -227,7 +224,7 @@ msgstr "フルスクリーンを有効化"
 #: qml/runcommand.qml:21
 #, kde-format
 msgid "Edit commands"
-msgstr "コマンド編集"
+msgstr "コマンドを編集"
 
 #: qml/runcommand.qml:24
 #, kde-format
@@ -240,18 +237,17 @@ msgid "No commands defined"
 msgstr "コマンドが定義されていません"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "プラグイン設定"
+msgstr "設定"
 
 #: qml/Settings.qml:35
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "デバイスの名前"
 
 #: qml/Settings.qml:52
 #, kde-format
 msgid "About KDE Connect"
-msgstr ""
+msgstr "KDE Connect について"
