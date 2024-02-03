@@ -22,6 +22,10 @@ PlasmoidItem
         || plasmoid.location == PlasmaCore.Types.LeftEdge)
 
     DevicesModel {
+        id: allDevicesModel
+    }
+
+    DevicesModel {
         id: connectDeviceModel
         displayFilter: DevicesModel.Paired | DevicesModel.Reachable
     }
@@ -44,7 +48,7 @@ PlasmoidItem
     Binding {
         target: plasmoid
         property: "status"
-        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+        value: (connectDeviceModel.count > 0) ? PlasmaCore.Types.ActiveStatus : ((allDevicesModel.count === 0) ? PlasmaCore.Types.PassiveStatus : PlasmaCore.Types.HiddenStatus)
     }
 
     fullRepresentation: FullRepresentation {
