@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2021.
 msgid ""
@@ -5,8 +6,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2021-09-25 15:31-0700\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"PO-Revision-Date: 2024-01-30 19:35+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
 #, kde-format
@@ -25,7 +26,7 @@ msgstr "利用可能なポートを見つけられませんでした"
 #: backends/lan/compositeuploadjob.cpp:115
 #, kde-format
 msgid "Failed to send packet to %1"
-msgstr "%1 へのパケット送信失敗"
+msgstr "%1 へのパケット送信に失敗しました"
 
 #: backends/lan/compositeuploadjob.cpp:271
 #, kde-format
@@ -45,13 +46,12 @@ msgstr "他ピアによりキャンセル"
 #: backends/pairinghandler.cpp:75
 #, kde-format
 msgid "%1: Already paired"
-msgstr "%1 : ペアリング済み"
+msgstr "%1: ペアリング済み"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "デバイスに到達できません"
+msgstr "%1: デバイスに到達できません"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -59,10 +59,9 @@ msgid "Device not reachable"
 msgstr "デバイスに到達できません"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by other peer"
+#, kde-format
 msgid "Cancelled by user"
-msgstr "他ピアによりキャンセル"
+msgstr "ユーザによってキャンセルされました"
 
 #: backends/pairinghandler.cpp:140
 #, kde-format
@@ -74,7 +73,7 @@ msgstr "タイムアウト"
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
-msgstr[0] "複数のファイルを受信"
+msgstr[0] "複数のファイルを受信中"
 
 #: compositefiletransferjob.cpp:46
 #, kde-format
@@ -91,12 +90,12 @@ msgstr "行き先"
 #: device.cpp:455
 #, kde-format
 msgid "SHA256 fingerprint of your device certificate is: %1\n"
-msgstr "あなたのデバイスの SHA256 fingerprint 証明書 : %1\n"
+msgstr "あなたのデバイスの SHA256 フィンガープリント証明書: %1\n"
 
 #: device.cpp:461
 #, kde-format
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
-msgstr "リモートデバイスの SHA256 fingerprint 証明書 : %1\n"
+msgstr "リモートデバイスの SHA256 フィンガープリント証明書: %1\n"
 
 #: filetransferjob.cpp:59
 #, kde-format
@@ -106,7 +105,7 @@ msgstr "そのファイル名は既に存在します"
 #: filetransferjob.cpp:105
 #, kde-format
 msgid "Received incomplete file: %1"
-msgstr "不完全なファイルを受信 : %1"
+msgstr "不完全なファイルを受信: %1"
 
 #: filetransferjob.cpp:123
 #, kde-format
@@ -119,10 +118,9 @@ msgid "KDE Connect failed to start"
 msgstr "KDE Connect の起動に失敗しました"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "秘密鍵ファイル %1 を保存できませんでした"
+msgstr "秘密鍵を生成できませんでした。"
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -130,10 +128,9 @@ msgid "Could not store private key file: %1"
 msgstr "秘密鍵ファイル %1 を保存できませんでした"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "証明書ファイル %1 を保存できませんでした"
+msgstr "デバイスの証明書を生成できませんでした。"
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

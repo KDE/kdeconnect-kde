@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2021.
 msgid ""
@@ -5,8 +6,8 @@ msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-23 00:37+0000\n"
-"PO-Revision-Date: 2021-09-25 15:41-0700\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"PO-Revision-Date: 2024-01-30 19:50+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -15,42 +16,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1: バッテリー残量低下"
+msgstr "%1: バッテリ残量低下"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr "バッテリーは %1% です"
+msgstr "バッテリは %1% です"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr ""
+msgstr "クリップボードプラグイン"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "自動同期"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "このデバイスのクリップボードを自動的にコピーする"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "パスワードを含む (パスワードマネージャによって指定されたテキスト)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -88,11 +89,10 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "現在のプレーヤー"
 
 #: notifications/notification.cpp:115
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "返信"
@@ -101,7 +101,7 @@ msgstr "返信"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr "%1 に返信..."
+msgstr "%1に返信..."
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
@@ -160,12 +160,12 @@ msgstr "システム音をミュート"
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr "通話終了後にメディアを自動的に再開する"
+msgstr "通話終了後にメディアを自動的に再開"
 
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
-msgstr ""
+msgstr "Ping!"
 
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
@@ -215,7 +215,7 @@ msgstr "再起動"
 #: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
-msgstr "輝度を最大にする"
+msgstr "明るさを最大にする"
 
 #: runcommand/runcommand_config.cpp:63
 #, kde-format
@@ -240,12 +240,12 @@ msgstr "サンプルコマンド"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "エクスポート"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "インポート"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
@@ -259,16 +259,14 @@ msgid "Command"
 msgstr "コマンド"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "コマンド"
+msgstr "コマンドをエクスポート"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "サンプルコマンド"
+msgstr "コマンドをインポート"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -304,7 +302,7 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:38
 #, kde-format
 msgid "General"
-msgstr "一般"
+msgstr "全般"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:44
@@ -349,13 +347,13 @@ msgstr "アイコンを同期"
 msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
-msgstr "<html><head/><body><p>重要性の低い通知</p></body></html>"
+msgstr "<html><head/><body><p>低い緊急性レベル</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr "緊急性のある通知のみを同期する"
+msgstr "緊急性のある通知のみを同期"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
@@ -372,7 +370,7 @@ msgstr "アプリケーション"
 #: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "sshfs の開始に失敗"
+msgstr "sshfs の開始に失敗しました"
 
 #: sftp/mounter.cpp:171
 #, kde-format
@@ -399,7 +397,7 @@ msgstr "ファイルシステムのマウントに失敗: デバイスが応答�
 #: sftp/sftpplugin-win.cpp:79
 #, kde-format
 msgid "KDE Connect"
-msgstr ""
+msgstr "KDE Connect"
 
 #: sftp/sftpplugin-win.cpp:80
 #, kde-format
@@ -409,7 +407,7 @@ msgstr "SFTP プロトコルがハンドルできません"
 #: sftp/sftpplugin.cpp:134
 #, kde-format
 msgid "All files"
-msgstr "全ファイル"
+msgstr "すべてのファイル"
 
 #: sftp/sftpplugin.cpp:135
 #, kde-format
@@ -419,13 +417,13 @@ msgstr "カメラの画像"
 #: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "&percnt; 1つのパスは、特定のデバイス名に置換されます"
+msgstr "パスの &percnt;1 は、特定のデバイス名に置換されます"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr "プラグイン設定を共有する"
+msgstr "プラグイン設定を共有"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23
@@ -443,24 +441,24 @@ msgstr "ファイルの保存先:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "%1 から共有されたテキストがクリップボードにコピーされました"
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "テキストエディタで開く"
 
 #: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "リンクを開く"
 
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
-msgstr "ファイル共有ができません"
+msgstr "ファイルを共有できませんでした"
 
 #: share/shareplugin.cpp:251
 #, kde-format
