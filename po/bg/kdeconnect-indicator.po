@@ -181,6 +181,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Get a photo"
-#~ msgstr "Приемане на снимка"
