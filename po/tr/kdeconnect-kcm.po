@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2017, 2021.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-11-20 13:05+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -161,10 +161,10 @@ msgstr ""
 "\"><span style=\" text-decoration: underline;\">KDE Bağlan Android</span></"
 "a> (ayrıca <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
 "kdeconnect_tp\"><span style=\" text-decoration: underline;\">from F-Droid</"
-"span></a>'ten de kurulabilir) uygulamasını kurduğunuzdan ve listede "
+"span></a>’ten de kurulabilir) uygulamasını kurduğunuzdan ve listede "
 "göründüğünden emin olun.<br><br>Sorun yaşıyorsanız yardım için <a href="
 "\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-"underline;\">KDE Bağlan Topluluk Vikisi'ni</span></a> ziyaret edin.</p></"
+"underline;\">KDE Bağlan Topluluk Vikisi’ni</span></a> ziyaret edin.</p></"
 "body></html>"
 
 #~ msgid "KDE Connect Settings"

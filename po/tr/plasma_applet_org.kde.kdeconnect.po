@@ -3,13 +3,13 @@
 #
 # Translators:
 # Volkan Gezer <volkangezer@gmail.com>, 2014, 2017, 2021.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2023-06-08 11:59+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -161,7 +161,7 @@ msgstr[1] "Tüm eşleştirilmiş aygıtlar kullanılamıyor"
 #: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
-msgstr "Plasma ile tümleştirmek için Android aygıtınıza KDE Bağlan'ı kurun!"
+msgstr "Plasma ile tümleştirmek için Android aygıtınıza KDE Bağlan’ı kurun!"
 
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
@@ -171,12 +171,12 @@ msgstr "Bir Aygıt Eşleştir..."
 #: package/contents/ui/FullRepresentation.qml:76
 #, kde-format
 msgid "Install from Google Play"
-msgstr "Google Play'den Kur"
+msgstr "Google Play’den Kur"
 
 #: package/contents/ui/FullRepresentation.qml:86
 #, kde-format
 msgid "Install from F-Droid"
-msgstr "F-Droid'den Kur"
+msgstr "F-Droid’den Kur"
 
 #: package/contents/ui/main.qml:59
 #, kde-format

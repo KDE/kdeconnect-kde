@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2021.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-cli\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-06-08 11:59+0300\n"
+"PO-Revision-Date: 2024-02-09 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 "X-POOTLE-MTIME: 1497612949.000000\n"
 
 #, kde-format
@@ -171,12 +171,12 @@ msgstr "telefon numarası"
 msgid ""
 "File urls to send attachments with the message (can be passed multiple times)"
 msgstr ""
-"İletiyle ekleri göndermek için dosya url'leri (birden çok kez girilebilir)"
+"İletiyle ekleri göndermek için dosya url’leri (birden çok kez girilebilir)"
 
 #: kdeconnect-cli.cpp:64
 #, kde-format
 msgid "file urls"
-msgstr "dosya url'leri"
+msgstr "dosya url’leri"
 
 #: kdeconnect-cli.cpp:65
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "Belirtilen aygıtın şifreleme bilgisini al"
 #: kdeconnect-cli.cpp:68
 #, kde-format
 msgid "Lists remote commands and their ids"
-msgstr "Uzak komutları ve id'lerini listeler"
+msgstr "Uzak komutları ve id’lerini listeler"
 
 #: kdeconnect-cli.cpp:69
 #, kde-format
