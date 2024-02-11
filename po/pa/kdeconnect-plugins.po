@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-23 00:37+0000\n"
-"PO-Revision-Date: 2024-01-28 13:37-0600\n"
+"PO-Revision-Date: 2024-02-10 10:21-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -50,7 +50,7 @@ msgstr "ਇਸ ਡਿਵਾਈਸ ਤੋਂ ਕਲਿੱਪਬੋਰਡ ਨੂ�
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr ""
+msgstr "ਪਾਸਵਰਡਾਂ ਸਮੇਤ (ਪਾਸਵਰਡ ਮੈਨੇਜਰਾਂ ਵਲੋਂ ਨਿਸ਼ਾਨਬੱਧ ਕੀਤੇ ਵਜੋਂ)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -117,7 +117,7 @@ msgstr "ਡਾਈਲਾਗ"
 #: pausemusic/pausemusic_config.ui:17
 #, kde-format
 msgid "Pause music plugin"
-msgstr ""
+msgstr "ਸੰਗੀਤ ਵਿਰਾਮ ਪਲੱਗਇਨ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: pausemusic/pausemusic_config.ui:32
@@ -135,7 +135,7 @@ msgstr "ਫ਼ੋਨ ਦੀ ਘੰਟੀ ਵੱਜਣ ਦੇ ਨਾਲ ਹੀ �
 #: pausemusic/pausemusic_config.ui:45
 #, kde-format
 msgid "Pause only while talking"
-msgstr ""
+msgstr "ਸਿਰਫ਼ ਗੱਲ ਕਰਨ ਦੇ ਦੌਰਾਨ ਹੀ ਵਿਰਾਮ ਕਰੋ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: pausemusic/pausemusic_config.ui:61
@@ -147,7 +147,7 @@ msgstr "ਕਾਰਵਾਈਆਂ"
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr ""
+msgstr "ਸੰਗੀਤ ਪਲੇਅਰਾਂ ਨੂੰ ਵਿਰਾਮ ਕਰੋ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
@@ -169,7 +169,7 @@ msgstr "ਪਿੰਗ!"
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
-msgstr ""
+msgstr "ਬੰਦ ਕਰਨ ਲਈ ਸਮਾਂ ਤੈਅ ਕਰੋ"
 
 #: runcommand/runcommand_config.cpp:42
 #, kde-format
@@ -184,7 +184,7 @@ msgstr "ਆਖਰੀ ਬੰਦ ਕਰੋ ਨੂੰ ਰੱਦ ਕਰੋ"
 #: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
-msgstr ""
+msgstr "ਮੁੜ-ਚਾਲੂ ਕਰਨ ਨੂੰ ਸਮਾਂ ਤੈਅ ਕਰੋ"
 
 #: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
@@ -214,7 +214,7 @@ msgstr "ਮੁੜ-ਚਾਲੂ ਕਰੋ"
 #: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
-msgstr ""
+msgstr "ਵੱਧ ਤੋਂ ਵੱਧ ਚਮਕ"
 
 #: runcommand/runcommand_config.cpp:63
 #, kde-format
@@ -229,12 +229,12 @@ msgstr "ਸਭ ਵਾਲਟਾਂ ਨੂੰ ਬੰਦ ਕਰੋ"
 #: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr ""
+msgstr "ਸਭ ਵਾਲਟਾਂ ਨੂੰ ਬੰਦ ਹੋਣ ਲਈ ਮਜ਼ਬੂਰ ਕਰੋ"
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
-msgstr ""
+msgstr "ਸਰਲ ਕਮਾਡਾ"
 
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
@@ -265,7 +265,7 @@ msgstr "ਕਮਾਡਾਂ ਐਕਸਪੋਰਟ ਕਰੋ"
 #: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
-msgstr ""
+msgstr "ਕਮਾਡਾਂ ਇੰਪੋਰਟ ਕਰੋ"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -280,12 +280,12 @@ msgstr "ਪਾਬੰਦੀ-ਸੂਚੀ"
 #: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
-msgstr ""
+msgstr "ਨੋਟੀਫਾਈ ਕਰਨ ਵਾਲੀ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਨਾਂ।"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr ""
+msgstr "ਐਪਲੀਕੇਸ਼ਨ ਲਈ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰਨਾ ਹੈ?"
 
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
@@ -311,7 +311,7 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:47
 #, kde-format
 msgid "Persistent notifications only"
-msgstr ""
+msgstr "ਸਿਰਫ਼ ਅਟੱਲ ਨੋਟੀਫਿਕੇਸ਼ਨ ਹੀ"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:60
@@ -324,13 +324,13 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:63
 #, kde-format
 msgid "Include body"
-msgstr ""
+msgstr "ਮੁੱਖ ਹਿੱਸੇ ਸਮੇਤ"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr ""
+msgstr "ਜੇ ਸੰਭਵ ਹੋਵੇ ਤਾਂ ਨੋਟੀਫਾਈ ਕਰਨ ਵਾਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੇ ਆਈਕਾਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰਨਾ ਹੈ?"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
@@ -344,19 +344,19 @@ msgstr "ਆਈਕਾਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰੋ
 msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
-msgstr ""
+msgstr "<html><head/><body><p>ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਲਈ ਘੱਟੋ-ਘੱਟ ਲੋੜਵੰਦੀ ਪੱਧਰ</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr ""
+msgstr "ਜੇ ਦਿੱਤਾ ਲੋੜਵੰਦੀ ਪੱਧਰ ਹੋਵੇ ਤਾਂ ਹੀ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਸੈਕਰੋਨਾਈਜ਼ ਕਰੋ।"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr ""
+msgstr "ਘੱਟੋ-ਘੱਟ ਲੋੜਵੰਦੀ ਪੱਧਰ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148
@@ -367,17 +367,17 @@ msgstr "ਐਪਲੀਕੇਸ਼ਨਾਂ"
 #: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr ""
+msgstr "sshfs ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਅਸਫ਼ਲ"
 
 #: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
-msgstr ""
+msgstr "sshfs ਪਰੋਸੈਸ ਕਰੈਸ਼ ਹੋਇਆ"
 
 #: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr ""
+msgstr "sshfs ਵਿੱਚ ਅਣਪਛਾਤੀ ਗਲਤੀ"
 
 #: sftp/mounter.cpp:186
 #, kde-format
@@ -418,25 +418,25 @@ msgstr ""
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr ""
+msgstr "ਸਾਂਝਾ ਕਰੋ ਪਲੱਗਇਨ ਦੀਆਂ ਸੈਟਿੰਗਾਂ"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23
 #, kde-format
 msgid "Receiving"
-msgstr ""
+msgstr "ਪ੍ਰਾਪਤ"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: share/share_config.ui:31
 #, kde-format
 msgid "Save files in:"
-msgstr ""
+msgstr "ਫਾਇਲਾਂ ਨੂੰ ਇੱਥੇ ਸੰਭਾਲੋ:"
 
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "%1 ਤੋਂ ਸਾਂਝੀ ਕੀਤੀ ਲਿਖਤ ਨੂੰ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰੋ"
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "ਲਿੰਕ ਨੂੰ ਖੋਲ੍ਹੋ"
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
-msgstr ""
+msgstr "ਫਾਇਲ ਸਾਂਝੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"
 
 #: share/shareplugin.cpp:251
 #, kde-format
@@ -463,7 +463,7 @@ msgstr "%1 ਮੌਜੂਦ ਨਹੀਂ"
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
-msgstr ""
+msgstr "ਅਣਪਛਾਤਾ ਨੰਬਰ"
 
 #: telephony/telephonyplugin.cpp:32
 #, kde-format
@@ -478,4 +478,4 @@ msgstr "%1 ਤੋਂ ਖੁੰਝੀ ਕਾਲ"
 #: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
-msgstr ""
+msgstr "ਕਾਲ ਨੂੰ ਮੌਨ ਕਰੋ"

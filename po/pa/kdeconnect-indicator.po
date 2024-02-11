@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2024-01-28 13:19-0600\n"
+"PO-Revision-Date: 2024-02-10 10:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -41,7 +41,7 @@ msgstr "ਕਲਿੱਪਬੋਰਡ ਭੇਜੋ"
 #, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
-msgstr ""
+msgstr "ਡਿਵਾਈਸ ਨੂੰ ਘੰਟੀ ਕਰੋ"
 
 #: deviceindicator.cpp:97
 #, kde-format
@@ -90,11 +90,13 @@ msgid ""
 "Cannot connect to DBus\n"
 "KDE Connect will quit"
 msgstr ""
+"ਡੀਬੱਸ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ\n"
+"KDE ਕਨੈਕਟ ਬੰਦ ਹੋਵੇਗਾ"
 
 #: indicatorhelper_mac.cpp:144
 #, kde-format
 msgid "Cannot find kdeconnectd"
-msgstr ""
+msgstr "kdeconnectd ਲੱਭਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ"
 
 #: indicatorhelper_mac.cpp:149
 #, kde-format
@@ -114,7 +116,7 @@ msgstr "KDE ਕਨੈਕਟ ਸੰਕੇਤਕ ਟੂਲ"
 #: main.cpp:57
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
-msgstr ""
+msgstr "(C) 2016 Aleix Pol Gonzalez"
 
 #: main.cpp:92
 #, kde-format

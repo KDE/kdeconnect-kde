@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2024-02-10 10:21-0600\n"
+"PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -17,27 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
+#: sendfileitemaction.cpp:72
 #, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ ੨੦੨੪"
+msgid "Send via KDE Connect"
+msgstr "KDE ਕਨੈਕਟ ਰਾਹੀਂ ਭੇਜੋ"
 
+#: sendfileitemaction.cpp:79
 #, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "aalam@punlinux.org"
-
-#: main.cpp:28 main.cpp:30
-#, kde-format
-msgid "KDE Connect Settings"
-msgstr "KDE ਕਨੈਕਟ ਸੈਟਿੰਗਾਂ"
-
-#: main.cpp:32
-#, kde-format
-msgid "(C) 2018-2020 Nicolas Fella"
-msgstr "(C) 2018-2020 ਨਿਕੋਲਸ ਫੇਲਾ"
-
-#: main.cpp:36 main.cpp:55
-#, kde-format
-msgid "Arguments for the config module"
-msgstr ""
+msgid "Send to '%1' via KDE Connect"
+msgstr "'%1' ਨੂੰ KDE ਕਨੈਕਟ ਰਾਹੀਂ ਭੇਜੋ"

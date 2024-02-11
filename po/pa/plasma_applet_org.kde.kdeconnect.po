@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2024-01-28 13:46-0600\n"
+"PO-Revision-Date: 2024-02-10 10:27-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -50,7 +50,7 @@ msgstr "ਫਾਇਲ ਟਰਾਂਸਫਰ"
 #: package/contents/ui/DeviceDelegate.qml:57
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
-msgstr ""
+msgstr "ਆਪਣੇ ਫ਼ੋਨ ਉੱਤੇ ਫਾਇਲ ਭੇਜਣ ਲਈ ਇਸ ਨੂੰ ਰੱਖੋ।"
 
 #: package/contents/ui/DeviceDelegate.qml:93
 #, kde-format
@@ -153,8 +153,8 @@ msgstr "ਕੋਈ ਪੇਅਰ ਹੋਏ ਡਿਵਾਈਸ ਨਹੀਂ ਹਨ"
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਪੇਅਰ ਕੀਤਾ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+msgstr[1] "ਸਭ ਪੇਅਰ ਕੀਤੇ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹਨ"
 
 #: package/contents/ui/FullRepresentation.qml:60
 #, kde-format
