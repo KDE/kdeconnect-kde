@@ -85,6 +85,7 @@
         "Description[lv]": "Pārlūkot attālinātās ierīces datņu sistēmu, izmantojot SFTP",
         "Description[nl]": "Blader door het bestandssysteem met SFTP op het apparaat op afstand",
         "Description[nn]": "Bla gjennom filsystemet på eininga med SFTP",
+        "Description[pa]": "SFTP ਵਰਤ ਕੇ ਰਿਮੋਟ ਡਿਵਾਈਸ ਦੇ ਫਾਇਲ-ਸਿਸਟਮ ਨੂੰ ਬਰਾਊਜ਼ ਕਰੋ",
         "Description[pl]": "Przegląda system plików innego urządzenia z tego urządzenia, używając SFTP",
         "Description[pt]": "Navegar pelo sistema de ficheiros de um dispositivo remoto por SFTP",
         "Description[pt_BR]": "Navegue pelo sistema de arquivos do dispositivo usando SFTP",
