@@ -1,20 +1,20 @@
 # translation of kdeconnect-app.po to Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2020, 2021.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2020, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:34+0000\n"
-"PO-Revision-Date: 2021-11-15 17:36+0100\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"PO-Revision-Date: 2024-02-12 15:40+0100\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 24.01.95\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: main.cpp:32 main.cpp:34
@@ -107,7 +107,7 @@ msgstr "Spustiť príkaz"
 #: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Odoslať schránku"
 
 #: qml/DevicePage.qml:111
 #, kde-format
@@ -125,8 +125,7 @@ msgid "This device is not paired"
 msgstr "Toto zariadenie nie je spárované"
 
 #: qml/DevicePage.qml:129
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Spárovať"
@@ -157,11 +156,10 @@ msgid "Please choose a file"
 msgstr "Prosím, vyberte súbor"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Nájsť zariadenie"
+msgstr "Zariadenia"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -189,10 +187,9 @@ msgid "Find devices..."
 msgstr "Nájsť zariadenia..."
 
 #: qml/Main.qml:122 qml/Main.qml:126
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgid "Settings"
-msgstr "Nastavenia doplnkov"
+msgstr "Nastavenia"
 
 #: qml/mousepad.qml:16
 #, kde-format
@@ -241,25 +238,22 @@ msgid "No commands defined"
 msgstr "Nie sú určené žiadne príkazy"
 
 #: qml/Settings.qml:13
-#, fuzzy, kde-format
-#| msgid "Plugin Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Settings"
-msgstr "Nastavenia doplnkov"
+msgstr "Nastavenia"
 
 #: qml/Settings.qml:21
 #, kde-format
 msgid "Device name"
-msgstr ""
+msgstr "Názov zariadenia"
 
 #: qml/Settings.qml:36
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE Connect"
-msgstr "KDE Connect"
+msgstr "O KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "KDE Connect"
+msgstr "Informácie o KDE"
