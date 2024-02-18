@@ -1,32 +1,32 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# gummi <gudmundure@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-03 00:41+0000\n"
-"PO-Revision-Date: 2023-01-09 19:00+0000\n"
-"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2023-12-30 19:00+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli,Guðmundur Erlingsson"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: deviceindicator.cpp:53
 #, kde-format
@@ -36,11 +36,10 @@ msgstr "Fletta í tæki"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "Senda klippispjald"
 
 #: deviceindicator.cpp:81
-#, fuzzy, kde-format
-#| msgid "Ring device"
+#, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Hringja í tæki"
@@ -48,7 +47,7 @@ msgstr "Hringja í tæki"
 #: deviceindicator.cpp:97
 #, kde-format
 msgid "Send a file/URL"
-msgstr "Senda skrá/URL"
+msgstr "Senda skrá/slóð"
 
 #: deviceindicator.cpp:107
 #, kde-format
@@ -68,12 +67,12 @@ msgstr "Bæta við skipunum"
 #: indicatorhelper_mac.cpp:37
 #, kde-format
 msgid "Launching"
-msgstr "Ræsing"
+msgstr "Ræsi"
 
 #: indicatorhelper_mac.cpp:87
 #, kde-format
 msgid "Launching daemon"
-msgstr "Ræsi vaktara (daemon)"
+msgstr "Ræsi miðlara"
 
 #: indicatorhelper_mac.cpp:96
 #, kde-format
@@ -93,7 +92,7 @@ msgid ""
 "KDE Connect will quit"
 msgstr ""
 "Get ekki tengst við DBus\n"
-"KDE Connect mun hætta"
+"KDE Connect verður lokað"
 
 #: indicatorhelper_mac.cpp:144
 #, kde-format
@@ -131,8 +130,7 @@ msgid "Pairing requests"
 msgstr "Pörunarbeiðnir"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Para"
@@ -175,7 +173,7 @@ msgctxt ""
 "The fallback text to display in case the remote device does not have a "
 "cellular connection"
 msgid "No Cellular Connectivity"
-msgstr "Ekkert farsímamerki"
+msgstr "Ekkert farsímasamband"
 
 #: systray_actions/connectivity_action.cpp:33
 #, kde-format

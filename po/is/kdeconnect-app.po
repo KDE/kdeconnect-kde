@@ -1,22 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# gummi <gudmundure@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 01:34+0000\n"
-"PO-Revision-Date: 2023-01-09 18:36+0000\n"
-"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2023-12-26 18:49+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -68,7 +68,7 @@ msgstr "Senda ping-beiðni "
 #: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
-msgstr "Stillingar tengiviðbótar"
+msgstr "Stillingar viðbótar"
 
 #: qml/DevicePage.qml:61
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Fjartengt inntak"
 #: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
-msgstr "Kynningarfjarstýring"
+msgstr "Fjarstýring í kynningu"
 
 #: qml/DevicePage.qml:84 qml/mousepad.qml:44
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "Keyra skipun"
 #: qml/DevicePage.qml:105
 #, kde-format
 msgid "Send Clipboard"
-msgstr ""
+msgstr "Senda klippispjald"
 
 #: qml/DevicePage.qml:111
 #, kde-format
@@ -126,8 +126,7 @@ msgid "This device is not paired"
 msgstr "Þetta tæki er ekki parað"
 
 #: qml/DevicePage.qml:129
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Para"
@@ -158,11 +157,10 @@ msgid "Please choose a file"
 msgstr "Veldu skrá"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Finna tæki"
+msgstr "Tæki"
 
 #: qml/FindDevicesPage.qml:38
 #, kde-format
@@ -200,10 +198,9 @@ msgid "Remote Control"
 msgstr "Fjarstýring"
 
 #: qml/mousepad.qml:59
-#, fuzzy, kde-format
-#| msgid "Press the left and right mouse buttons at the same time to unlock"
+#, kde-format
 msgid "Press %1 or the left and right mouse buttons at the same time to unlock"
-msgstr "Ýttu á vinstri og hægri músahnappa samtímis til að aflæsa"
+msgstr "Ýttu á %1 eða vinstri og hægri músahnappa samtímis til að aflæsa"
 
 #: qml/mpris.qml:19
 #, kde-format
@@ -257,7 +254,6 @@ msgid "About KDE Connect"
 msgstr "Um KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "Um KDE Connect"
+msgstr "Um KDE"

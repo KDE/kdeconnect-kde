@@ -1,32 +1,32 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# gummi <gudmundure@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-01-09 19:04+0000\n"
-"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2023-12-30 19:02+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli,Guðmundur Erlingsson"
+msgstr "Sveinn í Felli, Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
+msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
 #: kcm.cpp:183
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "Lykill: %1"
 #: kcm.cpp:206
 #, kde-format
 msgid "Available plugins"
-msgstr "Tiltækar tengiviðbætur"
+msgstr "Tiltækar viðbætur"
 
 #: kcm.cpp:253
 #, kde-format
@@ -109,7 +109,7 @@ msgstr "🔑 abababab"
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Hætta við"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289
@@ -143,18 +143,7 @@ msgstr "Senda ping-beiðni "
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -168,15 +157,15 @@ msgid ""
 "html>"
 msgstr ""
 "<html><head/><body><p>Ekkert tæki valið.<br><br>Ef þú átt Android tæki "
-"skaltu ganga úr skugga um að það sé sett upp<a href=\"https://play.google."
-"com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
-"decoration: underline; color:#4c6b8a;\">KDE Connect Android-appið</span></a> "
-"(einnig tiltækt <a href=\"https://f-droid.org/repository/browse/?fdid=org."
-"kde.kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">frá F-Droid</span></a>) og þá ætti það að birtast á listanum.<br><br>Ef "
-"þú átt í vandræðum geturðu skoðað <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">wiki-síður KDE Connect samfélagsins</span></a>.</p></body></html>"
+"skaltu setja upp <a href=\"https://play.google.com/store/apps/details?id=org."
+"kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect "
+"Android-appið</span></a> (einnig fáanlegt <a href=\"https://f-droid.org/"
+"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline;\">frá F-Droid</span></a>) og þá ætti það að birtast á "
+"listanum.<br><br>Ef þú átt í vandræðum geturðu skoðað <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\"text-decoration: underline;"
+"\">wiki-síðu KDE Connect samfélagsins</span></a> til að fá aðstoð.</p></"
+"body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "Stillingar KDE Connect"

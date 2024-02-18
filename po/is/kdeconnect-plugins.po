@@ -1,28 +1,28 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# gummi <gudmundure@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-23 00:37+0000\n"
-"PO-Revision-Date: 2023-01-30 01:03+0000\n"
-"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2023-12-30 19:09+0000\n"
+"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1: lítil hleðsla rafhlöðu"
+msgstr "%1: lítil hleðsla á rafhlöðu"
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
@@ -39,20 +39,19 @@ msgstr "Klippispjaldsviðbót"
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr ""
+msgstr "Sjálfvirk samstilling"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr ""
+msgstr "Deila klippispjaldinu sjálfvirkt úr þessu tæki"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
-#, fuzzy, kde-format
-#| msgid "Passwords (as marked by password managers)"
+#, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "Lykilorð (merkt af lykilorðastjórum)"
+msgstr "Lykilorð innifalin (merkt af lykilorðastjórum)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
@@ -75,14 +74,14 @@ msgstr "Veldu hljóð til að spila"
 #: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr "Tókst að læsa fjartengt"
+msgstr "Fjartengd læsing tókst"
 
 #: lockdevice/lockdeviceplugin-win.cpp:62
 #: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr "Mistókst að læsa fjartengt"
+msgstr "Fjartengd læsing mistókst"
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
@@ -90,7 +89,7 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr ""
+msgstr "Núverandi spilari"
 
 #: notifications/notification.cpp:115
 #, kde-format
@@ -149,7 +148,7 @@ msgstr "Aðgerðir"
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr "Setja margmiðlunarspilara á pásu"
+msgstr "Setja miðlaspilara á pásu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
@@ -166,12 +165,12 @@ msgstr "Halda sjálfkrafa áfram að spila þegar símtali lýkur"
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
-msgstr "Ping-skipun!"
+msgstr "Ping!"
 
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
-msgstr "Áætla að slökkva"
+msgstr "Tímasetja slökkviaðgerð"
 
 #: runcommand/runcommand_config.cpp:42
 #, kde-format
@@ -186,7 +185,7 @@ msgstr "Hætta við síðustu slökkviaðgerð"
 #: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
-msgstr "Áætla endurræsingu"
+msgstr "Tímasetja endurræsingu"
 
 #: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
@@ -241,18 +240,18 @@ msgstr "Dæmi um skipanir"
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr ""
+msgstr "Flytja út"
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Flytja inn"
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
 #, kde-format
 msgid "Name"
-msgstr "Heiti"
+msgstr "Nafn"
 
 #: runcommand/runcommand_config.cpp:93
 #, kde-format
@@ -260,16 +259,14 @@ msgid "Command"
 msgstr "Skipun"
 
 #: runcommand/runcommand_config.cpp:98
-#, fuzzy, kde-format
-#| msgid "Command"
+#, kde-format
 msgid "Export Commands"
-msgstr "Skipun"
+msgstr "Flytja út skipanir"
 
 #: runcommand/runcommand_config.cpp:123
-#, fuzzy, kde-format
-#| msgid "Sample commands"
+#, kde-format
 msgid "Import Commands"
-msgstr "Dæmi um skipanir"
+msgstr "Flytja inn skipanir"
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
@@ -332,7 +329,7 @@ msgstr ""
 #: sendnotifications/sendnotifications_config.ui:63
 #, kde-format
 msgid "Include body"
-msgstr "Hafa með meginmál"
+msgstr "Hafa meginmál með"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:76
@@ -353,7 +350,7 @@ msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>Lágmarks forgangsstig tilkynninganna</p></body></html>"
+"<html><head/><body><p>Lægsta forgangsstig tilkynninganna</p></body></html>"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
@@ -365,7 +362,7 @@ msgstr "Samstilla einungis tilkynningar með tilgreindu forgangsstigi."
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr "Lágmarks forgangsstig"
+msgstr "Lægsta forgangsstig"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148
@@ -447,19 +444,19 @@ msgstr "Vista skrár í:"
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr ""
+msgstr "Samnýttur texti frá %1 afritaður á klippispjald"
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr ""
+msgstr "Opna í textaritli"
 
 #: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr ""
+msgstr "Opna tengil"
 
 #: share/shareplugin.cpp:251
 #, kde-format
