@@ -240,7 +240,6 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
             // For drag'n drop
             s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 1);
         } else if (isSingleRelease) {
-            // For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
             s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 0);
         } else if (isScroll) {
             s_session->iface->NotifyPointerAxis(s_session->m_xdpPath, {}, dx, dy);

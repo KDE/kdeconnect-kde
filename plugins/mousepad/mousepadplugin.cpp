@@ -66,6 +66,7 @@ void MousepadPlugin::connected()
     if (m_impl) {
         np.set<bool>(QStringLiteral("state"), m_impl->hasKeyboardSupport());
     }
+    np.set<bool>(QStringLiteral("singlerelease_support"), true);
     sendPacket(np);
 }
 
