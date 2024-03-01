@@ -131,7 +131,6 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
             // For drag'n drop
             XTestFakeButtonEvent(display, mainMouseButton, True, 0);
         } else if (isSingleRelease) {
-            // For drag'n drop. NEVER USED (release is done by tapping, which actually triggers a isSingleClick). Kept here for future-proofness.
             XTestFakeButtonEvent(display, mainMouseButton, False, 0);
         } else if (isScroll) {
             if (dy < 0) {
