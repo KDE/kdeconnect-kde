@@ -12,7 +12,7 @@ option(MDNS_ENABLED "Use MDNS for device discovery" ON)
 add_subdirectory(backends/lan)
 add_subdirectory(backends/loopback)
 
-option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" ON)
+option(BLUETOOTH_ENABLED "Bluetooth support for kdeconnect" OFF)
 if(BLUETOOTH_ENABLED)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Bluetooth)
     add_subdirectory(backends/bluetooth)
