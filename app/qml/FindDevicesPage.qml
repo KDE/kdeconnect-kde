@@ -34,12 +34,6 @@ Kirigami.ScrollablePage
         onTriggered: root.refreshing = false
     }
 
-    Kirigami.PlaceholderMessage {
-        text: i18nd("kdeconnect-app", "No devices found")
-        anchors.centerIn: parent
-        visible: devices.count === 0
-    }
-
     ListView {
         id: devices
         section {
@@ -58,6 +52,11 @@ Kirigami.ScrollablePage
                         return i18nd("kdeconnect-app", "Connected")
                 }
             }
+        }
+        Kirigami.PlaceholderMessage {
+            text: i18nd("kdeconnect-app", "No devices found")
+            anchors.centerIn: parent
+            visible: devices.count === 0
         }
 
         model: DevicesSortProxyModel {
