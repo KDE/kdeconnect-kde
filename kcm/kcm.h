@@ -23,7 +23,7 @@ class KdeConnectKcm : public KCModule
 {
     Q_OBJECT
 public:
-    KdeConnectKcm(QObject *parent, const QVariantList &);
+    KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const QVariantList &args);
     ~KdeConnectKcm() override;
 
 private:

@@ -22,8 +22,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(KdeConnectKcm, "kcm_kdeconnect.json")
 
-KdeConnectKcm::KdeConnectKcm(QObject *parent, const QVariantList &args)
-    : KCModule(qobject_cast<QWidget *>(parent))
+KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const QVariantList &args)
+    : KCModule(parent, md)
     , daemon(new DaemonDbusInterface(this))
     , devicesModel(new DevicesModel(this))
     , currentDevice(nullptr)
