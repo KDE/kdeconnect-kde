@@ -19,16 +19,10 @@ ecm_mark_nongui_executable(kdeconnectd)
 
 configure_file(org.kde.kdeconnect.daemon.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop)
 
-# Conditionally configure the daemon service according to the target OS
-if(WIN32)
-    set(SERV_EXEC kdeconnectd)
-else()
-    set(SERV_EXEC ${KDE_INSTALL_FULL_LIBEXECDIR}/kdeconnectd)
-endif()
 configure_file(org.kde.kdeconnect.service.in ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.daemon.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kdeconnect.service DESTINATION ${KDE_INSTALL_DBUSSERVICEDIR})
-install(TARGETS kdeconnectd DESTINATION ${KDE_INSTALL_LIBEXECDIR})
+install(TARGETS kdeconnectd DESTINATION)
 

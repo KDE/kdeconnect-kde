@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=${KDE_INSTALL_FULL_LIBEXECDIR}/kdeconnectd
+Exec=kdeconnectd
 StartupNotify=false
 X-KDE-autostart-phase=1
 X-GNOME-Autostart-enabled=true
