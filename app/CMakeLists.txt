@@ -20,8 +20,6 @@ if (WIN32)
     )
 endif()
 
-ecm_find_qmlmodule(org.kde.kirigamiaddons.labs.mobileform 0.1)
-
 add_executable(kdeconnect-app
     main.cpp
     ${kdeconnect_SRCS}
