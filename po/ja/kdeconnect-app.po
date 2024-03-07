@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-30 19:23+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -161,25 +161,25 @@ msgctxt "Title of the page listing the devices"
 msgid "Devices"
 msgstr "デバイス"
 
-#: qml/FindDevicesPage.qml:38
-#, kde-format
-msgid "No devices found"
-msgstr "デバイスが見つかりません"
-
-#: qml/FindDevicesPage.qml:54
+#: qml/FindDevicesPage.qml:48
 #, kde-format
 msgid "Remembered"
 msgstr "記憶済み"
 
-#: qml/FindDevicesPage.qml:56
+#: qml/FindDevicesPage.qml:50
 #, kde-format
 msgid "Available"
 msgstr "利用可能"
 
-#: qml/FindDevicesPage.qml:58
+#: qml/FindDevicesPage.qml:52
 #, kde-format
 msgid "Connected"
 msgstr "接続済み"
+
+#: qml/FindDevicesPage.qml:57
+#, kde-format
+msgid "No devices found"
+msgstr "デバイスが見つかりません"
 
 #: qml/Main.qml:73
 #, kde-format

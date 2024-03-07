@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2024-01-17 17:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -162,25 +162,25 @@ msgctxt "Title of the page listing the devices"
 msgid "Devices"
 msgstr "الأجهزة"
 
-#: qml/FindDevicesPage.qml:38
-#, kde-format
-msgid "No devices found"
-msgstr "لم يُعثر على أجهزة"
-
-#: qml/FindDevicesPage.qml:54
+#: qml/FindDevicesPage.qml:48
 #, kde-format
 msgid "Remembered"
 msgstr "متذكَّرة"
 
-#: qml/FindDevicesPage.qml:56
+#: qml/FindDevicesPage.qml:50
 #, kde-format
 msgid "Available"
 msgstr "متوفّرة"
 
-#: qml/FindDevicesPage.qml:58
+#: qml/FindDevicesPage.qml:52
 #, kde-format
 msgid "Connected"
 msgstr "متّصل"
+
+#: qml/FindDevicesPage.qml:57
+#, kde-format
+msgid "No devices found"
+msgstr "لم يُعثر على أجهزة"
 
 #: qml/Main.qml:73
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2021-08-06 12:43+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -80,7 +80,7 @@ msgid "Waiting D-Bus"
 msgstr "Čaká sa na zbernicu D-Bus"
 
 #: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
-#: indicatorhelper_mac.cpp:144
+#: indicatorhelper_mac.cpp:142
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -94,12 +94,12 @@ msgstr ""
 "Nepodarilo sa pripojiť k zbernici DBus\n"
 "Aplikácia KDE Connect sa ukončí"
 
-#: indicatorhelper_mac.cpp:144
+#: indicatorhelper_mac.cpp:142
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Nepodarilo sa nájsť službu kdeconnectd"
 
-#: indicatorhelper_mac.cpp:149
+#: indicatorhelper_mac.cpp:147
 #, kde-format
 msgid "Loading modules"
 msgstr "Načítavajú sa moduly"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -163,25 +163,25 @@ msgctxt "Title of the page listing the devices"
 msgid "Devices"
 msgstr "Temukan Peranti"
 
-#: qml/FindDevicesPage.qml:38
-#, kde-format
-msgid "No devices found"
-msgstr "Tidak ada peranti yang ditemukan"
-
-#: qml/FindDevicesPage.qml:54
+#: qml/FindDevicesPage.qml:48
 #, kde-format
 msgid "Remembered"
 msgstr "Diingat"
 
-#: qml/FindDevicesPage.qml:56
+#: qml/FindDevicesPage.qml:50
 #, kde-format
 msgid "Available"
 msgstr "Tersedia"
 
-#: qml/FindDevicesPage.qml:58
+#: qml/FindDevicesPage.qml:52
 #, kde-format
 msgid "Connected"
 msgstr "Terkoneksi"
+
+#: qml/FindDevicesPage.qml:57
+#, kde-format
+msgid "No devices found"
+msgstr "Tidak ada peranti yang ditemukan"
 
 #: qml/Main.qml:73
 #, kde-format

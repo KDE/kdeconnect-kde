@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2023-10-15 13:57+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -161,25 +161,25 @@ msgctxt "Title of the page listing the devices"
 msgid "Devices"
 msgstr "சாதனங்கள்"
 
-#: qml/FindDevicesPage.qml:38
-#, kde-format
-msgid "No devices found"
-msgstr "எந்த சாதனங்களும் கண்டுபிடிக்கப்படவில்லை"
-
-#: qml/FindDevicesPage.qml:54
+#: qml/FindDevicesPage.qml:48
 #, kde-format
 msgid "Remembered"
 msgstr "நினைவிலுள்ளது"
 
-#: qml/FindDevicesPage.qml:56
+#: qml/FindDevicesPage.qml:50
 #, kde-format
 msgid "Available"
 msgstr "கிடைக்கக்கூடியது"
 
-#: qml/FindDevicesPage.qml:58
+#: qml/FindDevicesPage.qml:52
 #, kde-format
 msgid "Connected"
 msgstr "இணைந்துள்ளது"
+
+#: qml/FindDevicesPage.qml:57
+#, kde-format
+msgid "No devices found"
+msgstr "எந்த சாதனங்களும் கண்டுபிடிக்கப்படவில்லை"
 
 #: qml/Main.qml:73
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 01:34+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2023-09-16 09:39+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -162,25 +162,25 @@ msgctxt "Title of the page listing the devices"
 msgid "Devices"
 msgstr "Naprave"
 
-#: qml/FindDevicesPage.qml:38
-#, kde-format
-msgid "No devices found"
-msgstr "Ni najdenih naprav"
-
-#: qml/FindDevicesPage.qml:54
+#: qml/FindDevicesPage.qml:48
 #, kde-format
 msgid "Remembered"
 msgstr "Zapomnjena"
 
-#: qml/FindDevicesPage.qml:56
+#: qml/FindDevicesPage.qml:50
 #, kde-format
 msgid "Available"
 msgstr "Na voljo"
 
-#: qml/FindDevicesPage.qml:58
+#: qml/FindDevicesPage.qml:52
 #, kde-format
 msgid "Connected"
 msgstr "Povezana"
+
+#: qml/FindDevicesPage.qml:57
+#, kde-format
+msgid "No devices found"
+msgstr "Ni najdenih naprav"
 
 #: qml/Main.qml:73
 #, kde-format

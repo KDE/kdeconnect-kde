@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-03 00:41+0000\n"
+"POT-Creation-Date: 2024-03-07 00:37+0000\n"
 "PO-Revision-Date: 2023-06-17 12:17+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -80,7 +80,7 @@ msgid "Waiting D-Bus"
 msgstr "Waiting D-Bus"
 
 #: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
-#: indicatorhelper_mac.cpp:144
+#: indicatorhelper_mac.cpp:142
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
@@ -94,12 +94,12 @@ msgstr ""
 "Cannot connect to DBus\n"
 "KDE Connect will quit"
 
-#: indicatorhelper_mac.cpp:144
+#: indicatorhelper_mac.cpp:142
 #, kde-format
 msgid "Cannot find kdeconnectd"
 msgstr "Cannot find kdeconnectd"
 
-#: indicatorhelper_mac.cpp:149
+#: indicatorhelper_mac.cpp:147
 #, kde-format
 msgid "Loading modules"
 msgstr "Loading modules"
