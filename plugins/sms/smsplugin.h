@@ -133,10 +133,6 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KDECONNECT_PLUGIN_SMS)
 
-#define CODEC_NAME "CP1251"
-
-class QTextCodec;
-
 class SmsPlugin : public KdeConnectPlugin
 {
     Q_OBJECT
@@ -203,5 +199,4 @@ private:
 
     QDBusInterface m_telepathyInterface;
     ConversationsDbusInterface *m_conversationInterface;
-    QTextCodec *m_codec;
 };

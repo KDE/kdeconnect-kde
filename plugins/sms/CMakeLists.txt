@@ -20,5 +20,4 @@ target_link_libraries(kdeconnect_sms
     KF6::I18n
     KF6::Notifications
     Qt::Widgets
-    Qt::Core5Compat # for QTextCodec
 )

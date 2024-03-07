@@ -16,7 +16,6 @@
 #include <QFileInfo>
 #include <QMimeDatabase>
 #include <QProcess>
-#include <QTextCodec>
 
 #include <core/daemon.h>
 #include <core/device.h>
@@ -31,7 +30,6 @@ SmsPlugin::SmsPlugin(QObject *parent, const QVariantList &args)
     , m_telepathyInterface(QStringLiteral("org.freedesktop.Telepathy.ConnectionManager.kdeconnect"), QStringLiteral("/kdeconnect"))
     , m_conversationInterface(new ConversationsDbusInterface(this))
 {
-    m_codec = QTextCodec::codecForName(CODEC_NAME);
 }
 
 SmsPlugin::~SmsPlugin()
@@ -217,10 +215,8 @@ Attachment SmsPlugin::createAttachmentFromUrl(const QString &url)
     QFileInfo fileInfo(file);
     QString fileName(fileInfo.fileName());
 
-    QByteArray byteArray = file.readAll().toBase64();
+    QString base64EncodedFile = QString::fromLatin1(file.readAll().toBase64());
     file.close();
-
-    QString base64EncodedFile = m_codec->toUnicode(byteArray);
 
     QMimeDatabase mimeDatabase;
     QString mimeType = mimeDatabase.mimeTypeForFile(url).name();
