@@ -83,7 +83,7 @@ ColumnLayout {
                         cursorShape: Qt.IBeamCursor
                         z: 1
                     }
-                    Keys.onReturnPressed: {
+                    Keys.onReturnPressed: event => {
                         if (event.key === Qt.Key_Return) {
                             if (event.modifiers & Qt.ShiftModifier) {
                                 messageField.append("")

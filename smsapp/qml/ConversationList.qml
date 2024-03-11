@@ -125,11 +125,11 @@ Kirigami.ScrollablePage
                 view.currentIndex = 0
                 filter.forceActiveFocus();
             }
-            Keys.onReturnPressed: {
+            Keys.onReturnPressed: event => {
                 event.accepted = true
                 view.currentItem.startChat()
             }
-            Keys.onEscapePressed: {
+            Keys.onEscapePressed: event => {
                 event.accepted = filter.text != ""
                 filter.text = ""
             }

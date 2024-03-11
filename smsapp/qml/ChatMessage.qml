@@ -76,7 +76,7 @@ Item {
                         contextMenu.open();
                     }
                 }
-                onPressAndHold: {
+                onPressAndHold: mouse => {
                     var selectStart = messageLabel.selectionStart;
                     var selectEnd = messageLabel.selectionEnd;
                     selectedText = messageLabel.selectedText;
