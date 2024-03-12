@@ -12,7 +12,6 @@ import QtQuick.Layouts
 import org.kde.people
 import org.kde.kirigami as Kirigami
 import org.kde.kdeconnect.sms
-import Qt5Compat.GraphicalEffects
 
 Kirigami.ScrollablePage
 {
