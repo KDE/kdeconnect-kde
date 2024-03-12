@@ -89,7 +89,6 @@ Item {
             Column {
                 id: messageColumn
                 width: parent.width
-                height: childrenRect.height
 
                 property int contentWidth: Math.max(Math.max(messageLabel.implicitWidth, attachmentGrid.implicitWidth), dateLabel.implicitWidth)
                 Label {
