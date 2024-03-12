@@ -243,6 +243,8 @@ Kirigami.ScrollablePage
         }
 
         Kirigami.PlaceholderMessage {
+            // FIXME: not accessible. screen readers won't read this.
+            //        https://invent.kde.org/frameworks/kirigami/-/merge_requests/1482
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             visible: deviceConnected && view.count == 0 && currentSearchText.length != 0

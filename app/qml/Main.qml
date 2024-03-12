@@ -104,7 +104,7 @@ Kirigami.ApplicationWindow {
                     enabled: status & DevicesModel.Reachable
                     checked: pageStack.currentItem && pageStack.currentItem.currentDevice == device
                     onClicked: {
-                        root.pageStack.clear()
+                        root.pageStack.pop(0)
                         root.pageStack.push(
                             Qt.resolvedUrl("DevicePage.qml"),
                             {currentDevice: device}

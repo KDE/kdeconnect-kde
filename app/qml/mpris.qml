@@ -62,6 +62,8 @@ Kirigami.Page
 
     Kirigami.PlaceholderMessage {
         id: noPlayersText
+        // FIXME: not accessible. screen readers won't read this.
+        //        https://invent.kde.org/frameworks/kirigami/-/merge_requests/1482
         text: i18nd("kdeconnect-app", "No players available")
         anchors.centerIn: parent
         visible: pluginInterface.playerList.length == 0

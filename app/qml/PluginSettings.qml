@@ -30,6 +30,8 @@ Kirigami.ScrollablePage {
                     Layout.alignment: Qt.AlignVCenter
                     checked: model.isChecked
                     onToggled: model.isChecked = checked
+                    Accessible.name: model.name
+                    Accessible.description: model.description
                 }
 
                 ColumnLayout {
@@ -57,6 +59,9 @@ Kirigami.ScrollablePage {
                 Kirigami.Action {
                     icon.name: "settings-configure"
                     visible: configSource != ""
+                    // FIXME: not accessible. screen readers won't read this and just say "push button".
+                    //        https://bugreports.qt.io/browse/QTBUG-123123
+                    Accessible.name: i18nd("kdeconnect-app", "Configure plugin")
                     onTriggered: {
                         if (pageStack.lastItem.toString().startsWith("PluginInfoPage")) {
                             pageStack.lastItem.configFile = configSource;
