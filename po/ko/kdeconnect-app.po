@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-13 00:37+0000\n"
 "PO-Revision-Date: 2023-10-08 22:54+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -54,103 +54,103 @@ msgstr "kde@peremen.name"
 msgid "URL to share"
 msgstr "공유할 URL"
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:27
 #, kde-format
 msgid "Unpair"
 msgstr "페어링 해제"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:32
 #, kde-format
 msgid "Send Ping"
 msgstr "핑 보내기"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "플러그인 설정"
 
-#: qml/DevicePage.qml:61
+#: qml/DevicePage.qml:64
 #, kde-format
 msgid "Multimedia control"
 msgstr "멀티미디어 제어"
 
-#: qml/DevicePage.qml:68
+#: qml/DevicePage.qml:71
 #, kde-format
 msgid "Remote input"
 msgstr "원격 입력"
 
-#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "프레젠테이션 리모콘"
 
-#: qml/DevicePage.qml:84 qml/mousepad.qml:44
+#: qml/DevicePage.qml:87 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "잠금"
 
-#: qml/DevicePage.qml:84
+#: qml/DevicePage.qml:87
 #, kde-format
 msgid "Unlock"
 msgstr "잠금 해제"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:94
 #, kde-format
 msgid "Find Device"
 msgstr "장치 찾기"
 
-#: qml/DevicePage.qml:96 qml/runcommand.qml:16
+#: qml/DevicePage.qml:99 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "명령 실행"
 
-#: qml/DevicePage.qml:105
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Send Clipboard"
 msgstr "클립보드 보내기"
 
-#: qml/DevicePage.qml:111
+#: qml/DevicePage.qml:114
 #, kde-format
 msgid "Share File"
 msgstr "파일 공유"
 
-#: qml/DevicePage.qml:116 qml/volume.qml:16
+#: qml/DevicePage.qml:119 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "음량 제어"
 
-#: qml/DevicePage.qml:125
+#: qml/DevicePage.qml:130
 #, kde-format
 msgid "This device is not paired"
 msgstr "장치가 연결되지 않음"
 
-#: qml/DevicePage.qml:129
+#: qml/DevicePage.qml:134
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "페어링"
 
-#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
+#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
 #, kde-format
 msgid "Pair requested"
 msgstr "연결 요청됨"
 
-#: qml/DevicePage.qml:151
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Accept"
 msgstr "수락"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:162
 #, kde-format
 msgid "Reject"
 msgstr "거부"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "This device is not reachable"
 msgstr "이 장치에 접근할 수 없음"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Please choose a file"
 msgstr "파일을 선택하십시오"
@@ -207,15 +207,20 @@ msgstr ""
 msgid "Multimedia Controls"
 msgstr "멀티미디어 제어"
 
-#: qml/mpris.qml:65
+#: qml/mpris.qml:67
 #, kde-format
 msgid "No players available"
 msgstr "사용 가능한 재생기 없음"
 
-#: qml/mpris.qml:105
+#: qml/mpris.qml:107
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
+
+#: qml/PluginSettings.qml:64
+#, kde-format
+msgid "Configure plugin"
+msgstr ""
 
 #: qml/presentationRemote.qml:21
 #, kde-format
@@ -232,7 +237,7 @@ msgstr "명령 편집"
 msgid "You can edit commands on the connected device"
 msgstr "연결된 장치에서 명령을 편집할 수 있습니다"
 
-#: qml/runcommand.qml:50
+#: qml/runcommand.qml:52
 #, kde-format
 msgid "No commands defined"
 msgstr "지정한 명령 없음"

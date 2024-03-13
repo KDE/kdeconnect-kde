@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-13 00:37+0000\n"
 "PO-Revision-Date: 2023-09-17 21:59+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -53,103 +53,103 @@ msgstr "sdepiets@gmail.com, xavier.besnard@kde.org"
 msgid "URL to share"
 msgstr "URL à partager"
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:27
 #, kde-format
 msgid "Unpair"
 msgstr "Dissocier"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:32
 #, kde-format
 msgid "Send Ping"
 msgstr "Envoyer un « Ping »"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "Configuration du module externe"
 
-#: qml/DevicePage.qml:61
+#: qml/DevicePage.qml:64
 #, kde-format
 msgid "Multimedia control"
 msgstr "Contrôle multimédia"
 
-#: qml/DevicePage.qml:68
+#: qml/DevicePage.qml:71
 #, kde-format
 msgid "Remote input"
 msgstr "Saisie à distance"
 
-#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "Présentation à distance"
 
-#: qml/DevicePage.qml:84 qml/mousepad.qml:44
+#: qml/DevicePage.qml:87 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "Verrouiller"
 
-#: qml/DevicePage.qml:84
+#: qml/DevicePage.qml:87
 #, kde-format
 msgid "Unlock"
 msgstr "Déverrouiller"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:94
 #, kde-format
 msgid "Find Device"
 msgstr "Trouver l'appareil"
 
-#: qml/DevicePage.qml:96 qml/runcommand.qml:16
+#: qml/DevicePage.qml:99 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "Exécuter une commande"
 
-#: qml/DevicePage.qml:105
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Envoyer un presse-papier"
 
-#: qml/DevicePage.qml:111
+#: qml/DevicePage.qml:114
 #, kde-format
 msgid "Share File"
 msgstr "Partager un fichier"
 
-#: qml/DevicePage.qml:116 qml/volume.qml:16
+#: qml/DevicePage.qml:119 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "Contrôle du volume"
 
-#: qml/DevicePage.qml:125
+#: qml/DevicePage.qml:130
 #, kde-format
 msgid "This device is not paired"
 msgstr "Ce périphérique est non associé"
 
-#: qml/DevicePage.qml:129
+#: qml/DevicePage.qml:134
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Appairer"
 
-#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
+#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
 #, kde-format
 msgid "Pair requested"
 msgstr "Association demandée"
 
-#: qml/DevicePage.qml:151
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:162
 #, kde-format
 msgid "Reject"
 msgstr "Rejeter"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ce périphérique est injoignable"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Please choose a file"
 msgstr "Veuillez choisir un fichier"
@@ -207,15 +207,20 @@ msgstr ""
 msgid "Multimedia Controls"
 msgstr "Contrôles multimédia"
 
-#: qml/mpris.qml:65
+#: qml/mpris.qml:67
 #, kde-format
 msgid "No players available"
 msgstr "Aucun lecteur disponible"
 
-#: qml/mpris.qml:105
+#: qml/mpris.qml:107
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
+
+#: qml/PluginSettings.qml:64
+#, kde-format
+msgid "Configure plugin"
+msgstr ""
 
 #: qml/presentationRemote.qml:21
 #, kde-format
@@ -232,7 +237,7 @@ msgstr "Modifier les commandes"
 msgid "You can edit commands on the connected device"
 msgstr "Vous pouvez modifier les commandes sur l'appareil connecté"
 
-#: qml/runcommand.qml:50
+#: qml/runcommand.qml:52
 #, kde-format
 msgid "No commands defined"
 msgstr "Aucune commande définie"

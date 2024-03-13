@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-03-13 00:37+0000\n"
 "PO-Revision-Date: 2024-01-08 04:02+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -59,103 +59,103 @@ msgstr "pan93412@gmail.com, brli@chakralinux.org"
 msgid "URL to share"
 msgstr "要分享的網址"
 
-#: qml/DevicePage.qml:24
+#: qml/DevicePage.qml:27
 #, kde-format
 msgid "Unpair"
 msgstr "取消配對"
 
-#: qml/DevicePage.qml:29
+#: qml/DevicePage.qml:32
 #, kde-format
 msgid "Send Ping"
 msgstr "傳送 Ping"
 
-#: qml/DevicePage.qml:37 qml/PluginSettings.qml:15
+#: qml/DevicePage.qml:40 qml/PluginSettings.qml:15
 #, kde-format
 msgid "Plugin Settings"
 msgstr "外掛程式設定"
 
-#: qml/DevicePage.qml:61
+#: qml/DevicePage.qml:64
 #, kde-format
 msgid "Multimedia control"
 msgstr "多媒體控制"
 
-#: qml/DevicePage.qml:68
+#: qml/DevicePage.qml:71
 #, kde-format
 msgid "Remote input"
 msgstr "遠端輸入"
 
-#: qml/DevicePage.qml:75 qml/presentationRemote.qml:15
+#: qml/DevicePage.qml:78 qml/presentationRemote.qml:15
 #, kde-format
 msgid "Presentation Remote"
 msgstr "簡報遙控"
 
-#: qml/DevicePage.qml:84 qml/mousepad.qml:44
+#: qml/DevicePage.qml:87 qml/mousepad.qml:44
 #, kde-format
 msgid "Lock"
 msgstr "鎖定"
 
-#: qml/DevicePage.qml:84
+#: qml/DevicePage.qml:87
 #, kde-format
 msgid "Unlock"
 msgstr "解鎖"
 
-#: qml/DevicePage.qml:91
+#: qml/DevicePage.qml:94
 #, kde-format
 msgid "Find Device"
 msgstr "尋找裝置"
 
-#: qml/DevicePage.qml:96 qml/runcommand.qml:16
+#: qml/DevicePage.qml:99 qml/runcommand.qml:16
 #, kde-format
 msgid "Run command"
 msgstr "執行指令"
 
-#: qml/DevicePage.qml:105
+#: qml/DevicePage.qml:108
 #, kde-format
 msgid "Send Clipboard"
 msgstr "傳送剪貼簿"
 
-#: qml/DevicePage.qml:111
+#: qml/DevicePage.qml:114
 #, kde-format
 msgid "Share File"
 msgstr "分享檔案"
 
-#: qml/DevicePage.qml:116 qml/volume.qml:16
+#: qml/DevicePage.qml:119 qml/volume.qml:16
 #, kde-format
 msgid "Volume control"
 msgstr "音量控制"
 
-#: qml/DevicePage.qml:125
+#: qml/DevicePage.qml:130
 #, kde-format
 msgid "This device is not paired"
 msgstr "本裝置未配對"
 
-#: qml/DevicePage.qml:129
+#: qml/DevicePage.qml:134
 #, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "配對"
 
-#: qml/DevicePage.qml:136 qml/DevicePage.qml:145
+#: qml/DevicePage.qml:141 qml/DevicePage.qml:150
 #, kde-format
 msgid "Pair requested"
 msgstr "送出配對請求"
 
-#: qml/DevicePage.qml:151
+#: qml/DevicePage.qml:156
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
-#: qml/DevicePage.qml:157
+#: qml/DevicePage.qml:162
 #, kde-format
 msgid "Reject"
 msgstr "拒絕"
 
-#: qml/DevicePage.qml:166
+#: qml/DevicePage.qml:173
 #, kde-format
 msgid "This device is not reachable"
 msgstr "無法連線裝置"
 
-#: qml/DevicePage.qml:174
+#: qml/DevicePage.qml:181
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"
@@ -211,15 +211,20 @@ msgstr "按下 %1 或是同時按下滑鼠左鍵與右鍵來解鎖"
 msgid "Multimedia Controls"
 msgstr "多媒體控制"
 
-#: qml/mpris.qml:65
+#: qml/mpris.qml:67
 #, kde-format
 msgid "No players available"
 msgstr "無可用播放器"
 
-#: qml/mpris.qml:105
+#: qml/mpris.qml:107
 #, kde-format
 msgid "%1 - %2"
 msgstr "%1 - %2"
+
+#: qml/PluginSettings.qml:64
+#, kde-format
+msgid "Configure plugin"
+msgstr ""
 
 #: qml/presentationRemote.qml:21
 #, kde-format
@@ -236,7 +241,7 @@ msgstr "編輯指令"
 msgid "You can edit commands on the connected device"
 msgstr "您可以在已連線的裝置上編輯指令"
 
-#: qml/runcommand.qml:50
+#: qml/runcommand.qml:52
 #, kde-format
 msgid "No commands defined"
 msgstr "未定義指令"

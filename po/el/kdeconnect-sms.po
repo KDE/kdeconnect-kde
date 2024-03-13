@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"POT-Creation-Date: 2024-03-13 00:37+0000\n"
 "PO-Revision-Date: 2021-06-19 07:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -186,7 +186,7 @@ msgstr "Νέο"
 msgid "Start new conversation"
 msgstr "Έναρξη νέας συνομιλίας"
 
-#: qml/ConversationList.qml:249
+#: qml/ConversationList.qml:251
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
