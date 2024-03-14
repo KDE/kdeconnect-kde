@@ -9,7 +9,6 @@ import QtCore
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
-import Qt5Compat.GraphicalEffects
 import QtQuick.Dialogs
 import org.kde.kdeconnect.sms
 
@@ -41,166 +40,169 @@ ColumnLayout {
         }
     }
 
-    Controls.Pane {
-        id: sendingArea
-        enabled: page.deviceConnected
-        layer.enabled: sendingArea.enabled
-        layer.effect: DropShadow {
-            verticalOffset: 1
+    Kirigami.ShadowedRectangle {
+        implicitHeight: sendingArea.height
+        implicitWidth: sendingArea.width
+        color: "transparent"
+        shadow {
+            size: Math.round(Kirigami.Units.largeSpacing*1.5)
             color: Kirigami.Theme.disabledTextColor
-            samples: 20
-            spread: 0.3
-        }
-        Layout.fillWidth: true
-        padding: 0
-        wheelEnabled: true
-        background: Rectangle {
-            color: Kirigami.Theme.backgroundColor
         }
 
-        RowLayout {
-            anchors.fill: parent
+        Controls.Pane {
+            id: sendingArea
+            enabled: page.deviceConnected
+            implicitWidth: root.width
+            padding: 0
+            wheelEnabled: true
 
-            Controls.ScrollView {
-                Layout.fillWidth: true
-                Layout.maximumHeight: page.height > 300 ? page.height / 3 : 2 * page.height / 3
-                contentWidth: page.width - sendButtonArea.width
-                clip: true
-                Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+            RowLayout {
+                anchors.fill: parent
 
-                Controls.TextArea {
-                    width: parent.width
-                    id: messageField
-                    placeholderText: i18nd("kdeconnect-sms", "Compose message")
-                    wrapMode: TextEdit.Wrap
-                    topPadding: Kirigami.Units.gridUnit * 0.5
-                    bottomPadding: topPadding
-                    selectByMouse: true
-                    hoverEnabled: true
-                    background: MouseArea {
+                Controls.ScrollView {
+                    Layout.fillWidth: true
+                    Layout.maximumHeight: page.height > 300 ? page.height / 3 : 2 * page.height / 3
+                    contentWidth: page.width - sendButtonArea.width
+                    clip: true
+                    Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+
+                    Controls.TextArea {
+                        width: parent.width
+                        id: messageField
+                        placeholderText: i18nd("kdeconnect-sms", "Compose message")
+                        wrapMode: TextEdit.Wrap
+                        topPadding: Kirigami.Units.gridUnit * 0.5
+                        bottomPadding: topPadding
+                        selectByMouse: true
                         hoverEnabled: true
-                        acceptedButtons: Qt.NoButton
-                        cursorShape: Qt.IBeamCursor
-                        z: 1
-                    }
-                    Keys.onReturnPressed: event => {
-                        if (event.key === Qt.Key_Return) {
-                            if (event.modifiers & Qt.ShiftModifier) {
-                                messageField.append("")
-                            } else {
-                                sendButton.clicked()
-                                event.accepted = true
+                        background: MouseArea {
+                            hoverEnabled: true
+                            acceptedButtons: Qt.NoButton
+                            cursorShape: Qt.IBeamCursor
+                            z: 1
+                        }
+                        Keys.onReturnPressed: event => {
+                            if (event.key === Qt.Key_Return) {
+                                if (event.modifiers & Qt.ShiftModifier) {
+                                    messageField.append("")
+                                } else {
+                                    sendButton.clicked()
+                                    event.accepted = true
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            ColumnLayout {
-                id: sendButtonArea
-                Layout.alignment: Qt.AlignBottom
+                ColumnLayout {
+                    id: sendButtonArea
+                    Layout.alignment: Qt.AlignBottom
 
-                RowLayout {
-                    Controls.ToolButton {
-                        id: attachFilesButton
-                        enabled: true
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                        padding: 0
-                        Text {
-                            id: attachedFilesCount
-                            text: selectedFileUrls.length
-                            color: "red"
+                    RowLayout {
+                        Controls.ToolButton {
+                            id: attachFilesButton
+                            enabled: true
+                            Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                            padding: 0
+                            Text {
+                                id: attachedFilesCount
+                                text: selectedFileUrls.length
+                                color: "red"
+                                visible: selectedFileUrls.length > 0
+                            }
+                            Kirigami.Icon {
+                                source: "insert-image"
+                                isMask: true
+                                smooth: true
+                                anchors.centerIn: parent
+                                width: Kirigami.Units.gridUnit * 1.5
+                                height: width
+                            }
+
+                            onClicked: {
+                                fileDialog.open()
+                            }
+                        }
+
+                        Controls.ToolButton {
+                            id: clearAttachmentButton
                             visible: selectedFileUrls.length > 0
-                        }
-                        Kirigami.Icon {
-                            source: "insert-image"
-                            isMask: true
-                            smooth: true
-                            anchors.centerIn: parent
-                            width: Kirigami.Units.gridUnit * 1.5
-                            height: width
-                        }
-
-                        onClicked: {
-                            fileDialog.open()
-                        }
-                    }
-
-                    Controls.ToolButton {
-                        id: clearAttachmentButton
-                        visible: selectedFileUrls.length > 0
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                        padding: 0
-                        Kirigami.Icon {
-                            id: cancelIcon
-                            source: "edit-clear"
-                            isMask: true
-                            smooth: true
-                            anchors.centerIn: parent
-                            width: Kirigami.Units.gridUnit * 1.5
-                            height: width
-                        }
-
-                        onClicked: {
-                            selectedFileUrls = []
-                        }
-                    }
-
-                    Controls.ToolButton {
-                        property bool isSendingInProcess: false
-
-                        id: sendButton
-                        enabled: (messageField.text.length || selectedFileUrls.length) && !isSendingInProcess
-                        Layout.preferredWidth: Kirigami.Units.gridUnit * 2
-                        Layout.preferredHeight: Kirigami.Units.gridUnit * 2
-                        padding: 0
-                        Kirigami.Icon {
-                            source: "document-send"
-                            enabled: sendButton.enabled
-                            isMask: true
-                            smooth: true
-                            anchors.centerIn: parent
-                            width: Kirigami.Units.gridUnit * 1.5
-                            height: width
-                        }
-
-                        property bool messageSent: false
-
-                        onClicked: {
-
-                            // prevent sending the same message several times
-                            // and don't touch enabled property
-                            if (isSendingInProcess){
-                                return;
-                            }
-                            isSendingInProcess = true
-
-                            if (SmsHelper.totalMessageSize(selectedFileUrls, messageField.text) > maxMessageSize) {
-                                messageDialog.visible = true
-                            } else if (page.conversationId === page.invalidId) {
-                                messageSent = conversationModel.startNewConversation(messageField.text, addresses, selectedFileUrls)
-                            } else {
-                                messageSent = conversationModel.sendReplyToConversation(messageField.text, selectedFileUrls)
+                            Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                            padding: 0
+                            Kirigami.Icon {
+                                id: cancelIcon
+                                source: "edit-clear"
+                                isMask: true
+                                smooth: true
+                                anchors.centerIn: parent
+                                width: Kirigami.Units.gridUnit * 1.5
+                                height: width
                             }
 
-                            if (messageSent) {
-                                messageField.text = ""
+                            onClicked: {
                                 selectedFileUrls = []
                             }
-                            isSendingInProcess = false
+                        }
+
+                        Controls.ToolButton {
+                            property bool isSendingInProcess: false
+
+                            id: sendButton
+                            enabled: (messageField.text.length || selectedFileUrls.length) && !isSendingInProcess
+                            Layout.preferredWidth: Kirigami.Units.gridUnit * 2
+                            Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+                            padding: 0
+                            Kirigami.Icon {
+                                source: "document-send"
+                                enabled: sendButton.enabled
+                                isMask: true
+                                smooth: true
+                                anchors.centerIn: parent
+                                width: Kirigami.Units.gridUnit * 1.5
+                                height: width
+                            }
+
+                            property bool messageSent: false
+
+                            onClicked: {
+
+                                // prevent sending the same message several times
+                                // and don't touch enabled property
+                                if (isSendingInProcess){
+                                    return;
+                                }
+                                isSendingInProcess = true
+
+                                if (SmsHelper.totalMessageSize(selectedFileUrls, messageField.text) > maxMessageSize) {
+                                    messageDialog.visible = true
+                                } else if (page.conversationId === page.invalidId) {
+                                    messageSent = conversationModel.startNewConversation(messageField.text, addresses, selectedFileUrls)
+                                } else {
+                                    messageSent = conversationModel.sendReplyToConversation(messageField.text, selectedFileUrls)
+                                }
+
+                                if (messageSent) {
+                                    messageField.text = ""
+                                    selectedFileUrls = []
+                                }
+                                isSendingInProcess = false
+                            }
                         }
                     }
-                }
 
-                Controls.Label {
-                    id: charCount
-                    text: conversationModel.getCharCountInfo(messageField.text)
-                    visible: text.length > 0
-                    Layout.minimumWidth: Math.max(Layout.minimumWidth, width) // Make this label only grow, never shrink
+                    Controls.Label {
+                        id: charCount
+                        text: conversationModel.getCharCountInfo(messageField.text)
+                        visible: text.length > 0
+                        Layout.minimumWidth: Math.max(Layout.minimumWidth, width) // Make this label only grow, never shrink
+                    }
                 }
             }
+
         }
+
     }
+
 }
