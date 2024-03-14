@@ -7,7 +7,6 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
-import Qt5Compat.GraphicalEffects
 import org.kde.kirigami as Kirigami
 import QtMultimedia
 
@@ -21,8 +20,8 @@ Item {
     readonly property int elementWidth: 100
     readonly property int elementHeight: 100
 
-    width: thumbnailElement.visible ? thumbnailElement.width : elementWidth
-    height: thumbnailElement.visible ? thumbnailElement.height : elementHeight
+    width: thumbnailElement.width
+    height: thumbnailElement.height
 
     Component {
         id: attachmentViewer
@@ -34,29 +33,15 @@ Item {
         }
     }
 
-    Image {
+    Kirigami.ShadowedImage {
         id: thumbnailElement
         visible: mimeType.match("image") || mimeType.match("video")
         source: visible ? "image://thumbnailsProvider/" + root.uniqueIdentifier : ""
 
-        property bool rounded: true
-        property bool adapt: true
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        radius: 6
 
-        layer.enabled: rounded
-        layer.effect: OpacityMask {
-            maskSource: Item {
-                width: thumbnailElement.width
-                height: thumbnailElement.height
-                Rectangle {
-                    anchors.centerIn: parent
-                    width: thumbnailElement.adapt ? thumbnailElement.width : Math.min(thumbnailElement.width, thumbnailElement.height)
-                    height: thumbnailElement.adapt ? thumbnailElement.height : width
-                    radius: messageBox.radius
-                }
-            }
-        }
+        width: visible ? sourceSize.width : elementWidth
+        height: visible ? sourceSize.height : elementHeight
 
         MouseArea {
             anchors.fill: parent
@@ -72,8 +57,7 @@ Item {
         Button {
             icon.name: "media-playback-start"
             visible: root.mimeType.match("video")
-            anchors.horizontalCenter: thumbnailElement.horizontalCenter
-            anchors.verticalCenter: thumbnailElement.verticalCenter
+            anchors.centerIn: parent
             onClicked: {
                 if (root.sourcePath == "") {
                     conversationModel.requestAttachmentPath(root.partID, root.uniqueIdentifier)
@@ -105,8 +89,7 @@ Item {
         }
 
         ColumnLayout {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             spacing: Kirigami.Units.largeSpacing
 
             Button {
@@ -116,7 +99,7 @@ Item {
 
                 onClicked: {
                     if (root.sourcePath != "") {
-                        if (icon.name == "media-playback-start") {
+                        if (icon.name === "media-playback-start") {
                             audioPlayer.play()
                         } else {
                             audioPlayer.stop()
@@ -136,7 +119,7 @@ Item {
     Connections {
         target: conversationModel
         function onFilePathReceived(filePath, fileName) {
-            if (root.uniqueIdentifier == fileName && root.sourcePath == "") {
+            if (root.uniqueIdentifier === fileName && root.sourcePath == "") {
                 root.sourcePath = "file://" + filePath
 
                 if (root.mimeType.match("audio")) {
