@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-03-14 00:37+0000\n"
 "PO-Revision-Date: 2021-06-19 07:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -118,12 +118,12 @@ msgstr "μήνυμα"
 msgid "Open with default"
 msgstr "Άνοιγμα με το προκαθορισμένο"
 
-#: qml/ChatMessage.qml:155
+#: qml/ChatMessage.qml:154
 #, kde-format
 msgid "Copy Message"
 msgstr "Αντιγραφή μηνύματος"
 
-#: qml/ChatMessage.qml:160
+#: qml/ChatMessage.qml:159
 #, kde-format
 msgid "Copy Selection"
 msgstr "Αντιγραφή επιλογής"

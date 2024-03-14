@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-03-14 00:37+0000\n"
 "PO-Revision-Date: 2022-07-23 17:24+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -121,12 +121,12 @@ msgstr "mensaje"
 msgid "Open with default"
 msgstr "Abrir por omisión"
 
-#: qml/ChatMessage.qml:155
+#: qml/ChatMessage.qml:154
 #, kde-format
 msgid "Copy Message"
 msgstr "Copiar mensaje"
 
-#: qml/ChatMessage.qml:160
+#: qml/ChatMessage.qml:159
 #, kde-format
 msgid "Copy Selection"
 msgstr "Copiar selección"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-03-14 00:37+0000\n"
 "PO-Revision-Date: 2022-07-21 10:26+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -121,12 +121,12 @@ msgstr "missatge"
 msgid "Open with default"
 msgstr "Obri amb la predeterminada"
 
-#: qml/ChatMessage.qml:155
+#: qml/ChatMessage.qml:154
 #, kde-format
 msgid "Copy Message"
 msgstr "Copia el missatge"
 
-#: qml/ChatMessage.qml:160
+#: qml/ChatMessage.qml:159
 #, kde-format
 msgid "Copy Selection"
 msgstr "Copia la selecció"

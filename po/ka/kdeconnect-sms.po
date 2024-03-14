@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-26 01:33+0000\n"
+"POT-Creation-Date: 2024-03-14 00:37+0000\n"
 "PO-Revision-Date: 2022-12-14 10:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -118,12 +118,12 @@ msgstr "შეტყობინება"
 msgid "Open with default"
 msgstr "ნაგულისხმებით გახსნა"
 
-#: qml/ChatMessage.qml:155
+#: qml/ChatMessage.qml:154
 #, kde-format
 msgid "Copy Message"
 msgstr "შეტყობინების კოპირება"
 
-#: qml/ChatMessage.qml:160
+#: qml/ChatMessage.qml:159
 #, kde-format
 msgid "Copy Selection"
 msgstr "მონიშნულის კოპირება"
@@ -189,7 +189,7 @@ msgstr "ახალი"
 msgid "Start new conversation"
 msgstr "ახალი საუბრის დაწყება"
 
-#: qml/ConversationList.qml:249
+#: qml/ConversationList.qml:251
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-03-14 00:37+0000\n"
 "PO-Revision-Date: 2022-07-21 21:33+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -117,12 +117,12 @@ msgstr "съобщение"
 msgid "Open with default"
 msgstr "Стандартно отваряне"
 
-#: qml/ChatMessage.qml:155
+#: qml/ChatMessage.qml:154
 #, kde-format
 msgid "Copy Message"
 msgstr "Копиране на съобщение"
 
-#: qml/ChatMessage.qml:160
+#: qml/ChatMessage.qml:159
 #, kde-format
 msgid "Copy Selection"
 msgstr "Копиране на селекцията"
