@@ -103,16 +103,14 @@ Kirigami.ScrollablePage
 
     titleDelegate: RowLayout {
         id: headerLayout
-        width: parent.width
         Keys.forwardTo: [filter]
         Kirigami.SearchField {
             /**
              * Used as the filter of the list of messages
              */
             id: filter
-            placeholderText: i18nd("kdeconnect-sms", "Search or start conversation...")
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            placeholderText: i18nd("kdeconnect-sms", "Search or start a conversation")
             onTextChanged: {
                 currentSearchText = filter.text;
                 if (filter.text != "") {
@@ -142,8 +140,6 @@ Kirigami.ScrollablePage
         Button {
             id: newButton
             icon.name: "list-add"
-            text: i18nd("kdeconnect-sms", "New")
-            visible: true
             enabled: SmsHelper.isAddressValid(filter.text) && deviceConnected
             ToolTip.visible: hovered
             ToolTip.delay: Qt.styleHints.mousePressAndHoldInterval
@@ -230,7 +226,7 @@ Kirigami.ScrollablePage
                 Layout.minimumWidth: size
                 selected: (listItem.highlighted || listItem.checked || listItem.pressed)
                 opacity: 1
-                visible: source != undefined
+                visible: source !== undefined
             }
 
             // Keep the currently-open chat highlighted even if this element is not focused
