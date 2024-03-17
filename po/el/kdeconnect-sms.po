@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-17 00:37+0000\n"
 "PO-Revision-Date: 2021-06-19 07:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -207,17 +207,17 @@ msgstr "Σχετικά"
 msgid "Audio clip"
 msgstr "Audio clip"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
 msgstr "Αποτυχία αποστολής"
 
-#: qml/SendingArea.qml:26
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "Υπέρβαση του μέγιστου ορίου μεγέθους του μηνύματος."
 
-#: qml/SendingArea.qml:74
+#: qml/SendingArea.qml:72
 #, kde-format
 msgid "Compose message"
 msgstr "Σύνθεση μηνύματος"

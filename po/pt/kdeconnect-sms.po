@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-17 00:37+0000\n"
 "PO-Revision-Date: 2022-07-21 19:39+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -206,17 +206,17 @@ msgstr "Acerca"
 msgid "Audio clip"
 msgstr "'Clip' de áudio"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
 msgstr "Não foi possível enviar"
 
-#: qml/SendingArea.qml:26
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "Atingiu-se o tamanho máximo da mensagem."
 
-#: qml/SendingArea.qml:74
+#: qml/SendingArea.qml:72
 #, kde-format
 msgid "Compose message"
 msgstr "Compor a mensagem"

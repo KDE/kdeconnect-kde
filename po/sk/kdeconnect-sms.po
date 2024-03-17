@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-17 00:37+0000\n"
 "PO-Revision-Date: 2022-04-15 19:10+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -210,17 +210,17 @@ msgstr "O"
 msgid "Audio clip"
 msgstr "Zvukový klip"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
 msgstr "Odosielanie zlyhalo"
 
-#: qml/SendingArea.qml:26
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "Bol prekročený limit maximálnej veľkosti správy."
 
-#: qml/SendingArea.qml:74
+#: qml/SendingArea.qml:72
 #, kde-format
 msgid "Compose message"
 msgstr "Napísať správu"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-14 00:37+0000\n"
+"POT-Creation-Date: 2024-03-17 00:37+0000\n"
 "PO-Revision-Date: 2024-01-11 20:38+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -210,17 +210,17 @@ msgstr "Par"
 msgid "Audio clip"
 msgstr "Audio klips"
 
-#: qml/SendingArea.qml:25
+#: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
 msgstr "Neizdevās nosūtīt"
 
-#: qml/SendingArea.qml:26
+#: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
 msgstr "Ir pārsniegts maksimālais ziņas izmērs."
 
-#: qml/SendingArea.qml:74
+#: qml/SendingArea.qml:72
 #, kde-format
 msgid "Compose message"
 msgstr "Rakstīt ziņu"
