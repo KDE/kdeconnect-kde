@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"POT-Creation-Date: 2024-03-18 00:38+0000\n"
 "PO-Revision-Date: 2022-07-23 17:24+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -208,7 +208,7 @@ msgstr "Dispositivos"
 msgid "About"
 msgstr "Acerca de"
 
-#: qml/MessageAttachments.qml:131
+#: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
 msgstr "Recorte de audio"

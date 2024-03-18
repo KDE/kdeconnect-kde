@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"POT-Creation-Date: 2024-03-18 00:38+0000\n"
 "PO-Revision-Date: 2023-10-20 17:00+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -202,7 +202,7 @@ msgstr "מכשירים"
 msgid "About"
 msgstr "על אודות"
 
-#: qml/MessageAttachments.qml:131
+#: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
 msgstr "קטע שמע"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"POT-Creation-Date: 2024-03-18 00:38+0000\n"
 "PO-Revision-Date: 2022-08-10 15:03+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -206,7 +206,7 @@ msgstr "Устройства"
 msgid "About"
 msgstr "О программе"
 
-#: qml/MessageAttachments.qml:131
+#: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
 msgstr "Аудиоклип"

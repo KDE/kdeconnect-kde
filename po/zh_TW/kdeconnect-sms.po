@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:37+0000\n"
+"POT-Creation-Date: 2024-03-18 00:38+0000\n"
 "PO-Revision-Date: 2023-01-22 00:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -207,7 +207,7 @@ msgstr "裝置"
 msgid "About"
 msgstr "關於"
 
-#: qml/MessageAttachments.qml:131
+#: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
 msgstr "語音訊息"
