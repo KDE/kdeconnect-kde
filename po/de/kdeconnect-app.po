@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 # Burkhard Lück <lueck@hube-lueck.de>, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2022, 2023.
-# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2023, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-13 00:37+0000\n"
-"PO-Revision-Date: 2023-12-28 13:05+0100\n"
+"PO-Revision-Date: 2024-03-20 20:55+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.85\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -222,7 +222,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Modul einrichten"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

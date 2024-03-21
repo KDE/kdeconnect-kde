@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Mincho Kondarev <mkondarev@yahoo.de>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-13 00:37+0000\n"
-"PO-Revision-Date: 2023-09-24 22:13+0200\n"
+"PO-Revision-Date: 2024-03-20 10:40+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -220,7 +220,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Настройка на приставката"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

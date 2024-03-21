@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-13 00:37+0000\n"
-"PO-Revision-Date: 2024-01-08 04:02+0900\n"
+"PO-Revision-Date: 2024-03-20 18:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -224,7 +224,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "設定外掛程式"
 
 #: qml/presentationRemote.qml:21
 #, kde-format
