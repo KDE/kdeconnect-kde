@@ -66,7 +66,7 @@ void ClipboardListener::updateClipboard(QClipboard::Mode mode)
     }
 
     const QString content = clipboard->text(QClipboard::Clipboard);
-    if (content == m_currentContent && contentType == m_currentContentType) {
+    if ((content.isEmpty() || content == m_currentContent) && contentType == m_currentContentType) {
         return;
     }
     refreshContent(content, contentType);
