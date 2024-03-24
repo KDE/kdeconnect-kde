@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2023-10-20 17:00+0300\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -119,12 +119,12 @@ msgstr "הודעה"
 msgid "Open with default"
 msgstr "פתיחה עם ברירת המחדל"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "העתקת הודעה"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "העתקת בחירה"
@@ -172,21 +172,17 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "חיפוש או התחלת שיחה…"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "חדש"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "התחלת שיחה חדשה"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -221,3 +217,6 @@ msgstr "חרגת ממגבלת הגודל המרבי להודעה."
 #, kde-format
 msgid "Compose message"
 msgstr "כתיבת הודעה"
+
+#~ msgid "New"
+#~ msgstr "חדש"

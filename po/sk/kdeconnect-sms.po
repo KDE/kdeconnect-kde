@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2022-04-15 19:10+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -118,12 +118,12 @@ msgstr "správa"
 msgid "Open with default"
 msgstr "Otvoriť s predvoleným"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopírovať správu"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kopírovať výber"
@@ -175,21 +175,17 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Vyhľadajte alebo začnite novú konverzáciu"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Nová"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Začať novú konverzáciu"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -224,6 +220,9 @@ msgstr "Bol prekročený limit maximálnej veľkosti správy."
 #, kde-format
 msgid "Compose message"
 msgstr "Napísať správu"
+
+#~ msgid "New"
+#~ msgstr "Nová"
 
 #~ msgid "Filter..."
 #~ msgstr "Filter..."

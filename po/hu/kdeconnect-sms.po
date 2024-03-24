@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2024-01-18 10:00+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -117,12 +117,12 @@ msgstr "üzenet"
 msgid "Open with default"
 msgstr "Megnyitás az alapértelmezettel"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Üzenet másolása"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kijelölés másolása"
@@ -174,21 +174,17 @@ msgid "Cancel"
 msgstr "Mégsem"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Beszélgetés keresése vagy indítása…"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Új"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Új beszélgetés"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -223,6 +219,9 @@ msgstr "Maximális üzenetméret túllépve."
 #, kde-format
 msgid "Compose message"
 msgstr "Üzenet írása"
+
+#~ msgid "New"
+#~ msgstr "Új"
 
 #~ msgid "Filter..."
 #~ msgstr "Szűrő…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2022-07-21 21:33+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -117,12 +117,12 @@ msgstr "съобщение"
 msgid "Open with default"
 msgstr "Стандартно отваряне"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Копиране на съобщение"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Копиране на селекцията"
@@ -174,21 +174,17 @@ msgid "Cancel"
 msgstr "Отказ"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Търсене или стартиране на кореспонденция..."
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Нова"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Стартиране на нова кореспонденция"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -223,3 +219,6 @@ msgstr "Границата за максимален размер на съоб�
 #, kde-format
 msgid "Compose message"
 msgstr "Съставяне на съобщение"
+
+#~ msgid "New"
+#~ msgstr "Нова"

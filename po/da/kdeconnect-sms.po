@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2020-07-21 18:26+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -118,12 +118,12 @@ msgstr "besked"
 msgid "Open with default"
 msgstr ""
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopiér besked"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kopiér markering"
@@ -173,20 +173,15 @@ msgstr "Annullér"
 #: qml/ConversationList.qml:113
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
-msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Start ny samtale"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Ny"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Start ny samtale"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -222,6 +217,9 @@ msgstr ""
 #, kde-format
 msgid "Compose message"
 msgstr "Skriv besked"
+
+#~ msgid "New"
+#~ msgstr "Ny"
 
 #~ msgid "Filter..."
 #~ msgstr "Filtrér..."

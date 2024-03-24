@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2022-09-12 22:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -118,12 +118,12 @@ msgstr "رسالة"
 msgid "Open with default"
 msgstr "افتح في المبدئي"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "انسخ الرِّسالة"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "انسخ التحديد"
@@ -173,21 +173,17 @@ msgid "Cancel"
 msgstr "ألغِ"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "ابحث أو ابدأ محادثة…"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "جديد"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "ابدأ محادثة جديدة"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -222,3 +218,6 @@ msgstr "تخطى الحد الأقصى لحجم الرسالة"
 #, kde-format
 msgid "Compose message"
 msgstr "اكتب رسالة"
+
+#~ msgid "New"
+#~ msgstr "جديد"

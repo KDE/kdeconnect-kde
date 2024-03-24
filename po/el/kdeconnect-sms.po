@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2021-06-19 07:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -118,12 +118,12 @@ msgstr "μήνυμα"
 msgid "Open with default"
 msgstr "Άνοιγμα με το προκαθορισμένο"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Αντιγραφή μηνύματος"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Αντιγραφή επιλογής"
@@ -173,20 +173,15 @@ msgstr "Ακύρωση"
 #: qml/ConversationList.qml:113
 #, fuzzy, kde-format
 #| msgid "Start new conversation"
-msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Έναρξη νέας συνομιλίας"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Νέο"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Έναρξη νέας συνομιλίας"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -221,6 +216,9 @@ msgstr "Υπέρβαση του μέγιστου ορίου μεγέθους τ�
 #, kde-format
 msgid "Compose message"
 msgstr "Σύνθεση μηνύματος"
+
+#~ msgid "New"
+#~ msgstr "Νέο"
 
 #~ msgid "Filter..."
 #~ msgstr "Φιλτράρισμα..."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2022-08-09 13:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -117,12 +117,12 @@ msgstr "메시지"
 msgid "Open with default"
 msgstr "기본값으로 열기"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "메시지 복사"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "선택 영역 복사"
@@ -173,21 +173,17 @@ msgid "Cancel"
 msgstr "취소"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "새 대화 시작 또는 검색..."
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "새로 만들기"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "새 대화 시작하기"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -222,6 +218,9 @@ msgstr "최대 메시지 크기 제한을 초과했습니다."
 #, kde-format
 msgid "Compose message"
 msgstr "메시지 작성"
+
+#~ msgid "New"
+#~ msgstr "새로 만들기"
 
 #~ msgid "Filter..."
 #~ msgstr "필터..."

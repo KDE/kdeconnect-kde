@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2022-09-19 13:07+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
@@ -119,12 +119,12 @@ msgstr "žinutė"
 msgid "Open with default"
 msgstr "Atverti naudojant numatytąją"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopijuoti žinutę"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kopijuoti žymėjimą"
@@ -176,21 +176,17 @@ msgid "Cancel"
 msgstr "Atsisakyti"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Ieškoti ar pradėti pokalbį..."
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Naujas"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Pradėti naują pokalbį"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -225,6 +221,9 @@ msgstr "Viršytas didžiausias žinutės dydis."
 #, kde-format
 msgid "Compose message"
 msgstr "Rašyti žinutę"
+
+#~ msgid "New"
+#~ msgstr "Naujas"
 
 #~ msgid "Filter..."
 #~ msgstr "Filtruoti..."

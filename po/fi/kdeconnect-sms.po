@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:38+0000\n"
+"POT-Creation-Date: 2024-03-24 00:37+0000\n"
 "PO-Revision-Date: 2022-09-06 16:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: KDE\n"
@@ -117,12 +117,12 @@ msgstr "viesti"
 msgid "Open with default"
 msgstr "Avaa oletusohjelmaan"
 
-#: qml/ChatMessage.qml:154
+#: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopioi viesti"
 
-#: qml/ChatMessage.qml:159
+#: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
 msgstr "Kopioi valinta"
@@ -174,21 +174,17 @@ msgid "Cancel"
 msgstr "Peru"
 
 #: qml/ConversationList.qml:113
-#, kde-format
-msgid "Search or start conversation..."
+#, fuzzy, kde-format
+#| msgid "Search or start conversation..."
+msgid "Search or start a conversation"
 msgstr "Etsi tai aloita keskustelu…"
 
-#: qml/ConversationList.qml:145
-#, kde-format
-msgid "New"
-msgstr "Uusi"
-
-#: qml/ConversationList.qml:150
+#: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
 msgstr "Aloita uusi keskustelu"
 
-#: qml/ConversationList.qml:251
+#: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
@@ -223,6 +219,9 @@ msgstr "Viestin enimmäiskoko ylitetty."
 #, kde-format
 msgid "Compose message"
 msgstr "Luo viesti"
+
+#~ msgid "New"
+#~ msgstr "Uusi"
 
 #~ msgid "Filter..."
 #~ msgstr "Suodata…"
