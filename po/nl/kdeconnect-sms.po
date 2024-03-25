@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:37+0000\n"
-"PO-Revision-Date: 2022-07-21 22:19+0200\n"
+"PO-Revision-Date: 2024-03-24 09:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2019 t/m 2022"
+msgstr "Freek de Kruijf - 2019 t/m 2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -174,10 +174,9 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: qml/ConversationList.qml:113
-#, fuzzy, kde-format
-#| msgid "Search or start conversation..."
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Zoeken of conversatie beginnen..."
+msgstr "Zoeken of een conversatie beginnen"
 
 #: qml/ConversationList.qml:146
 #, kde-format

@@ -5,13 +5,13 @@
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
 # Automatically generated, 2020.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2020.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-13 00:37+0000\n"
-"PO-Revision-Date: 2023-09-16 18:34+0200\n"
+"PO-Revision-Date: 2024-03-23 17:41+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -225,7 +225,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Configurar complemento"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

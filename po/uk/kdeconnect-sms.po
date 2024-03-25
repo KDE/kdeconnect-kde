@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2019, 2020, 2021, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:37+0000\n"
-"PO-Revision-Date: 2022-07-21 09:12+0300\n"
+"PO-Revision-Date: 2024-03-24 12:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -178,10 +178,9 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: qml/ConversationList.qml:113
-#, fuzzy, kde-format
-#| msgid "Search or start conversation..."
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Виконайте пошук або розпочніть спілкування…"
+msgstr "Виконайте пошук або розпочніть спілкування"
 
 #: qml/ConversationList.qml:146
 #, kde-format

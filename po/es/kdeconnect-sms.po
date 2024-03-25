@@ -4,14 +4,14 @@
 #
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
 # Automatically generated, 2020.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2020.
+# SPDX-FileCopyrightText: 2020, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:37+0000\n"
-"PO-Revision-Date: 2022-07-23 17:24+0200\n"
+"PO-Revision-Date: 2024-03-24 08:51+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -178,10 +178,9 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: qml/ConversationList.qml:113
-#, fuzzy, kde-format
-#| msgid "Search or start conversation..."
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Buscar o iniciar una nueva conversación..."
+msgstr "Buscar o iniciar una conversación"
 
 #: qml/ConversationList.qml:146
 #, kde-format
