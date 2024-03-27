@@ -221,6 +221,3 @@ msgstr "Over grensa for meldingsstorleik."
 #, kde-format
 msgid "Compose message"
 msgstr "Skriv melding"
-
-#~ msgid "New"
-#~ msgstr "Ny"
