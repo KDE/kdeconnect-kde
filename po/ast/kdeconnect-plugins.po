@@ -1,86 +1,86 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-23 00:37+0000\n"
-"PO-Revision-Date: 2024-03-27 19:45\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-03-27 23:45+0100\n"
+"Last-Translator: Enol P. <enolp@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"Language: ast_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-plugins.pot\n"
-"X-Crowdin-File-ID: 49030\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: battery/batteryplugin.cpp:119
 #, kde-format
 msgctxt "device name: low battery"
 msgid "%1: Low Battery"
-msgstr "%1：电池电量低"
+msgstr ""
 
 #: battery/batteryplugin.cpp:120
 #, kde-format
 msgid "Battery at %1%"
-msgstr "电量 %1%"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ClipboardConfigUi)
 #: clipboard/clipboard_config.ui:17
 #, kde-format
 msgid "Clipboard plugin"
-msgstr "剪贴板插件"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: clipboard/clipboard_config.ui:32
 #, kde-format
 msgid "Automatic synchronization"
-msgstr "自动同步"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_autoshare)
 #: clipboard/clipboard_config.ui:38
 #, kde-format
 msgid "Automatically share the clipboard from this device"
-msgstr "自动共享此设备的剪贴板"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_password)
 #: clipboard/clipboard_config.ui:45
 #, kde-format
 msgid "Including passwords (as marked by password managers)"
-msgstr "包括密码 (由密码管理器标记的密码)"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: findthisdevice/findthisdevice_config.ui:17
 #, kde-format
 msgid "Discovery Utilities"
-msgstr "发现实用工具"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel)
 #: findthisdevice/findthisdevice_config.ui:25
 #, kde-format
 msgid "Sound to play:"
-msgstr "要播放的声音："
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (KUrlRequester, soundFileRequester)
 #: findthisdevice/findthisdevice_config.ui:39
 #, kde-format
 msgid "Select the sound to play"
-msgstr "选择要播放的声音"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:59 lockdevice/lockdeviceplugin.cpp:87
 #, kde-format
 msgid "Remote lock successful"
-msgstr "远程锁定成功"
+msgstr ""
 
 #: lockdevice/lockdeviceplugin-win.cpp:62
 #: lockdevice/lockdeviceplugin-win.cpp:63 lockdevice/lockdeviceplugin.cpp:92
 #: lockdevice/lockdeviceplugin.cpp:94
 #, kde-format
 msgid "Remote lock failed"
-msgstr "远程锁定失败"
+msgstr ""
 
 #: mpriscontrol/mpriscontrolplugin-win.cpp:30
 #, kde-format
@@ -88,204 +88,204 @@ msgctxt ""
 "@title Users select this to control the current media player when we can't "
 "detect a specific player name like VLC"
 msgid "Current Player"
-msgstr "当前播放器"
+msgstr ""
 
 #: notifications/notification.cpp:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
-msgstr "回复"
+msgstr ""
 
 #: notifications/notification.cpp:116
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr "回复给 %1..."
+msgstr ""
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format
 msgid "Send"
-msgstr "发送"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, SendReplyDialog)
 #: notifications/sendreplydialog.ui:14
 #, kde-format
 msgid "Dialog"
-msgstr "对话"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PauseMusicConfigUi)
 #: pausemusic/pausemusic_config.ui:17
 #, kde-format
 msgid "Pause music plugin"
-msgstr "暂停音乐插件"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: pausemusic/pausemusic_config.ui:32
 #, kde-format
 msgid "Condition"
-msgstr "条件"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rad_ringing)
 #: pausemusic/pausemusic_config.ui:38
 #, kde-format
 msgid "Pause as soon as phone rings"
-msgstr "电话响铃时暂停"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rad_talking)
 #: pausemusic/pausemusic_config.ui:45
 #, kde-format
 msgid "Pause only while talking"
-msgstr "仅在对话时暂停"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: pausemusic/pausemusic_config.ui:61
 #, kde-format
 msgid "Actions"
-msgstr "操作"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_pause)
 #: pausemusic/pausemusic_config.ui:67
 #, kde-format
 msgid "Pause media players"
-msgstr "暂停媒体播放器"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_mute)
 #: pausemusic/pausemusic_config.ui:74
 #, kde-format
 msgid "Mute system sound"
-msgstr "系统静音"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_resume)
 #: pausemusic/pausemusic_config.ui:81
 #, kde-format
 msgid "Automatically resume media when call has finished"
-msgstr "通话结束后自动恢复媒体播放"
+msgstr ""
 
 #: ping/pingplugin.cpp:26
 #, kde-format
 msgid "Ping!"
-msgstr "Ping!"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:41
 #, kde-format
 msgid "Schedule a shutdown"
-msgstr "定时关机"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:42
 #, kde-format
 msgid "Shutdown now"
-msgstr "立刻关机"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:43
 #, kde-format
 msgid "Cancel last shutdown"
-msgstr "取消上次预订的关机"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:44
 #, kde-format
 msgid "Schedule a reboot"
-msgstr "定时重启"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:45 runcommand/runcommand_config.cpp:54
 #, kde-format
 msgid "Suspend"
-msgstr "挂起"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:46 runcommand/runcommand_config.cpp:62
 #, kde-format
 msgid "Lock Screen"
-msgstr "锁定屏幕"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:49
 #, kde-format
 msgid "Say Hello"
-msgstr "打招呼"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:52
 #, kde-format
 msgid "Shutdown"
-msgstr "关机"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:53
 #, kde-format
 msgid "Reboot"
-msgstr "重启"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:57
 #, kde-format
 msgid "Maximum Brightness"
-msgstr "最高亮度"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:63
 #, kde-format
 msgid "Unlock Screen"
-msgstr "解除屏幕锁定"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:64
 #, kde-format
 msgid "Close All Vaults"
-msgstr "关闭所有保险库"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:66
 #, kde-format
 msgid "Forcefully Close All Vaults"
-msgstr "强制关闭所有保险库"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:73
 #, kde-format
 msgid "Sample commands"
-msgstr "示例命令"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:77
 #, kde-format
 msgid "Export"
-msgstr "导出"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:80
 #, kde-format
 msgid "Import"
-msgstr "导入"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
 #: sendnotifications/notifyingapplicationmodel.cpp:177
 #, kde-format
 msgid "Name"
-msgstr "名称"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:93
 #, kde-format
 msgid "Command"
-msgstr "命令"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:98
 #, kde-format
 msgid "Export Commands"
-msgstr "导出命令"
+msgstr ""
 
 #: runcommand/runcommand_config.cpp:123
 #, kde-format
 msgid "Import Commands"
-msgstr "导入命令"
+msgstr ""
 
 #: screensaver-inhibit/screensaverinhibitplugin.cpp:24
 #, kde-format
 msgid "Phone is connected"
-msgstr "手机未连接"
+msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:181
 #, kde-format
 msgid "Blacklisted"
-msgstr "已加入黑名单的"
+msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:185
 #, kde-format
 msgid "Name of a notifying application."
-msgstr "通知应用程序的名称。"
+msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:187
 #, kde-format
 msgid "Synchronize notifications of an application?"
-msgstr "要同步应用程序的通知吗？"
+msgstr ""
 
 #: sendnotifications/notifyingapplicationmodel.cpp:190
 #, kde-format
@@ -294,51 +294,49 @@ msgid ""
 "This pattern is applied to the summary and, if selected above, the body of "
 "notifications."
 msgstr ""
-"定义不应发送哪些通知的正则表达式。\n"
-"此模式应用于摘要，如果在上面选择，则也可以匹配通知正文。"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: sendnotifications/sendnotifications_config.ui:38
 #, kde-format
 msgid "General"
-msgstr "常规"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:44
 #, kde-format
 msgid "Synchronize only notifications with a timeout value of 0?"
-msgstr "仅同步超时值为0的通知？"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_persistent)
 #: sendnotifications/sendnotifications_config.ui:47
 #, kde-format
 msgid "Persistent notifications only"
-msgstr "仅持久通知"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:60
 #, kde-format
 msgid ""
 "Append the notification body to the summary when synchronizing notifications?"
-msgstr "在同步通知时将通知正文追加到摘要中吗？"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_body)
 #: sendnotifications/sendnotifications_config.ui:63
 #, kde-format
 msgid "Include body"
-msgstr "包括正文"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:76
 #, kde-format
 msgid "Synchronize icons of notifying applications if possible?"
-msgstr "如果可能，同步通知应用程序的图标？"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, check_icons)
 #: sendnotifications/sendnotifications_config.ui:79
 #, kde-format
 msgid "Synchronize icons"
-msgstr "同步图标"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, spin_urgency)
 #: sendnotifications/sendnotifications_config.ui:107
@@ -346,138 +344,138 @@ msgstr "同步图标"
 msgid ""
 "<html><head/><body><p>Minimum urgency level of the notifications</p></body></"
 "html>"
-msgstr "<html><head/><body><p>通知的最低紧急程度</p></body></html>"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:123
 #, kde-format
 msgid "Synchronize only notifications with the given urgency level."
-msgstr "仅同步具有给定紧急级别的通知。"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: sendnotifications/sendnotifications_config.ui:126
 #, kde-format
 msgid "Minimum urgency level"
-msgstr "最低紧急级别"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: sendnotifications/sendnotifications_config.ui:148
 #, kde-format
 msgid "Applications"
-msgstr "应用程序"
+msgstr ""
 
 #: sftp/mounter.cpp:167
 #, kde-format
 msgid "Failed to start sshfs"
-msgstr "启动 sshfs 失败"
+msgstr ""
 
 #: sftp/mounter.cpp:171
 #, kde-format
 msgid "sshfs process crashed"
-msgstr "sshfs 进程崩溃"
+msgstr ""
 
 #: sftp/mounter.cpp:175
 #, kde-format
 msgid "Unknown error in sshfs"
-msgstr "sshfs 未知错误"
+msgstr ""
 
 #: sftp/mounter.cpp:186
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
-msgstr "访问文件系统时出错。sshfs 完成退出代码 %0"
+msgstr ""
 
 #: sftp/mounter.cpp:195
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
-msgstr "挂载文件系统出错：设备未响应"
+msgstr ""
 
 #: sftp/sftpplugin-win.cpp:79
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE Connect"
+msgstr ""
 
 #: sftp/sftpplugin-win.cpp:80
 #, kde-format
 msgid "Cannot handle SFTP protocol. Apologies for the inconvenience"
-msgstr "抱歉，无法处理 SFTP 协议。"
+msgstr ""
 
 #: sftp/sftpplugin.cpp:134
 #, kde-format
 msgid "All files"
-msgstr "所有文件"
+msgstr ""
 
 #: sftp/sftpplugin.cpp:135
 #, kde-format
 msgid "Camera pictures"
-msgstr "相机图片"
+msgstr ""
 
 #: share/share_config.cpp:22
 #, kde-format
 msgid "&percnt;1 in the path will be replaced with the specific device name."
-msgstr "路径中的 &percnt;1 将被替换为设备名称。"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, ShareConfigUi)
 #: share/share_config.ui:17
 #, kde-format
 msgid "Share plugin settings"
-msgstr "分享插件设置"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: share/share_config.ui:23
 #, kde-format
 msgid "Receiving"
-msgstr "正在接收"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: share/share_config.ui:31
 #, kde-format
 msgid "Save files in:"
-msgstr "将文件保存在："
+msgstr ""
 
 #: share/shareplugin.cpp:160
 #, kde-format
 msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
-msgstr "来自 %1 的分享文本已复制到剪贴板"
+msgstr ""
 
 #: share/shareplugin.cpp:192 share/shareplugin.cpp:201
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
-msgstr "使用文本编辑器打开"
+msgstr ""
 
 #: share/shareplugin.cpp:196 share/shareplugin.cpp:203
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
-msgstr "打开链接"
+msgstr ""
 
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "Could not share file"
-msgstr "无法分享文件"
+msgstr ""
 
 #: share/shareplugin.cpp:251
 #, kde-format
 msgid "%1 does not exist"
-msgstr "%1 不存在"
+msgstr ""
 
 #: telephony/telephonyplugin.cpp:23
 #, kde-format
 msgid "unknown number"
-msgstr "未知号码"
+msgstr ""
 
 #: telephony/telephonyplugin.cpp:32
 #, kde-format
 msgid "Incoming call from %1"
-msgstr "%1 来电"
+msgstr ""
 
 #: telephony/telephonyplugin.cpp:36
 #, kde-format
 msgid "Missed call from %1"
-msgstr "%1 的未接来电"
+msgstr ""
 
 #: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
 #, kde-format
 msgid "Mute Call"
-msgstr "静音来电"
+msgstr ""

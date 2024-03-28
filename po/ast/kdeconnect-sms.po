@@ -1,43 +1,43 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:37+0000\n"
-"PO-Revision-Date: 2024-03-27 19:45\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-03-27 23:45+0100\n"
+"Last-Translator: Enol P. <enolp@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"Language: ast_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-sms.pot\n"
-"X-Crowdin-File-ID: 49020\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE China,Guo Yunhe"
+msgstr "Softastur"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org,i@guoyunhe.me"
+msgstr "alministradores@softastur.org"
 
 #: conversationlistmodel.cpp:199
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is an image"
 msgid "Picture"
-msgstr "图片"
+msgstr ""
 
 #: conversationlistmodel.cpp:201
 #, kde-format
 msgctxt "Used as a text placeholder when the most-recent message is a video"
 msgid "Video"
-msgstr "视频"
+msgstr ""
 
 #: conversationlistmodel.cpp:205
 #, kde-format
@@ -45,98 +45,98 @@ msgctxt ""
 "Used as a text placeholder when the most-recent message is an arbitrary "
 "attachment, resulting in something like \"pdf file\""
 msgid "%1 file"
-msgstr "%1 文件"
+msgstr ""
 
 #: conversationlistmodel.cpp:221
 #, kde-format
 msgid "You: %1"
-msgstr "您：%1"
+msgstr ""
 
 #: conversationlistmodel.cpp:227
 #, kde-format
 msgid "%1: %2"
-msgstr "%1：%2"
+msgstr ""
 
 #: conversationlistmodel.cpp:269 conversationlistmodel.cpp:291
 #, kde-format
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
 #: main.cpp:51 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
-msgstr "KDE Connect 短信"
+msgstr ""
 
 #: main.cpp:53
 #, kde-format
 msgid "SMS Instant Messaging"
-msgstr "短信即时通讯"
+msgstr ""
 
 #: main.cpp:55
 #, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
-msgstr "(C) 2018-2022, KDE Connect Team"
+msgstr ""
 
 #: main.cpp:56
 #, kde-format
 msgid "Simon Redman"
-msgstr "Simon Redman"
+msgstr ""
 
 #: main.cpp:57
 #, kde-format
 msgid "Aleix Pol Gonzalez"
-msgstr "Aleix Pol Gonzalez"
+msgstr ""
 
 #: main.cpp:58
 #, kde-format
 msgid "Nicolas Fella"
-msgstr "Nicolas Fella"
+msgstr ""
 
 #: main.cpp:76
 #, kde-format
 msgid "Select a device"
-msgstr "选择设备"
+msgstr ""
 
 #: main.cpp:76
 #, kde-format
 msgid "id"
-msgstr "id"
+msgstr ""
 
 #: main.cpp:77
 #, kde-format
 msgid "Send a message"
-msgstr "发送消息"
+msgstr ""
 
 #: main.cpp:77
 #, kde-format
 msgid "message"
-msgstr "消息"
+msgstr ""
 
 #: qml/AttachmentViewer.qml:20
 #, kde-format
 msgid "Open with default"
-msgstr "用默认程序打开"
+msgstr ""
 
 #: qml/ChatMessage.qml:153
 #, kde-format
 msgid "Copy Message"
-msgstr "复制消息"
+msgstr ""
 
 #: qml/ChatMessage.qml:158
 #, kde-format
 msgid "Copy Selection"
-msgstr "复制选中项"
+msgstr ""
 
 #: qml/ConversationList.qml:25
 #, kde-format
 msgid "No devices available"
-msgstr "没有可用的设备"
+msgstr ""
 
 #: qml/ConversationList.qml:35
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
-msgstr "没有新消息可以发送或接收，但您可以浏览缓存的内容"
+msgstr ""
 
 #: qml/ConversationList.qml:51
 #, kde-format
@@ -144,8 +144,6 @@ msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
 "your device and then click Refresh."
 msgstr ""
-"正在加载设备中的对话。如果此过程需要太长时间，请唤醒您的设备，然后点击“刷"
-"新”。"
 
 #: qml/ConversationList.qml:59
 #, kde-format
@@ -153,65 +151,64 @@ msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
 "load quickly."
 msgstr ""
-"提示：在正常情况下，插入设备后，对话应该会在设备自动息屏之前迅速加载完毕。"
 
 #: qml/ConversationList.qml:67 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
-msgstr "刷新"
+msgstr ""
 
 #: qml/ConversationList.qml:81
 #, kde-format
 msgid "Choose recipient"
-msgstr "选择收件人"
+msgstr ""
 
 #: qml/ConversationList.qml:86
 #, kde-format
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: qml/ConversationList.qml:113
 #, kde-format
 msgid "Search or start a conversation"
-msgstr "搜索或者发起对话"
+msgstr ""
 
 #: qml/ConversationList.qml:146
 #, kde-format
 msgid "Start new conversation"
-msgstr "新建对话"
+msgstr ""
 
 #: qml/ConversationList.qml:247
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
-msgstr "无匹配项"
+msgstr ""
 
 #: qml/Main.qml:85
 #, kde-format
 msgid "Devices"
-msgstr "设备"
+msgstr ""
 
 #: qml/Main.qml:98
 #, kde-format
 msgid "About"
-msgstr "关于"
+msgstr ""
 
 #: qml/MessageAttachments.qml:114
 #, kde-format
 msgid "Audio clip"
-msgstr "语音"
+msgstr ""
 
 #: qml/SendingArea.qml:24
 #, kde-format
 msgid "Failed to send"
-msgstr "发送失败"
+msgstr ""
 
 #: qml/SendingArea.qml:25
 #, kde-format
 msgid "Max message size limit exceeded."
-msgstr "超过消息大小上限。"
+msgstr ""
 
 #: qml/SendingArea.qml:72
 #, kde-format
 msgid "Compose message"
-msgstr "撰写消息"
+msgstr ""

@@ -1,144 +1,144 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2024-03-27 19:45\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-03-27 23:43+0100\n"
+"Last-Translator: Enol P. <enolp@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"Language: ast_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-kcm.pot\n"
-"X-Crowdin-File-ID: 49032\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE China, Guo Yunhe, Tyson Tan"
+msgstr "Softastur"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
+msgstr "alministradores@softastur.org"
 
 #: kcm.cpp:183
 #, kde-format
 msgid "Key: %1"
-msgstr "密钥：%1"
+msgstr ""
 
 #: kcm.cpp:206
 #, kde-format
 msgid "Available plugins"
-msgstr "可用插件"
+msgstr ""
 
 #: kcm.cpp:253
 #, kde-format
 msgid "Error trying to pair: %1"
-msgstr "尝试配对出错：%1"
+msgstr ""
 
 #: kcm.cpp:269
 #, kde-format
 msgid "(paired)"
-msgstr "(已配对)"
+msgstr ""
 
 #: kcm.cpp:272
 #, kde-format
 msgid "(not paired)"
-msgstr "(未配对)"
+msgstr ""
 
 #: kcm.cpp:275
 #, kde-format
 msgid "(incoming pair request)"
-msgstr "(传入的配对请求)"
+msgstr ""
 
 #: kcm.cpp:278
 #, kde-format
 msgid "(pairing requested)"
-msgstr "(已请求配对)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, rename_label)
 #: kcm.ui:59
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE Connect"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:82
 #, kde-format
 msgid "Edit"
-msgstr "编辑"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, renameDone_button)
 #: kcm.ui:104
 #, kde-format
 msgid "Save"
-msgstr "保存"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, refresh_button)
 #: kcm.ui:120
 #, kde-format
 msgid "Refresh"
-msgstr "刷新"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, name_label)
 #: kcm.ui:193
 #, kde-format
 msgid "Device"
-msgstr "设备"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, status_label)
 #: kcm.ui:209
 #, kde-format
 msgid "(status)"
-msgstr "(状态)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, verificationKey)
 #: kcm.ui:232
 #, kde-format
 msgid "🔑 abababab"
-msgstr "🔑 abababab"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancel_button)
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289
 #, kde-format
 msgid "Accept"
-msgstr "接受"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, reject_button)
 #: kcm.ui:296
 #, kde-format
 msgid "Reject"
-msgstr "拒绝"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pair_button)
 #: kcm.ui:309
 #, kde-format
 msgid "Request pair"
-msgstr "请求配对"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, unpair_button)
 #: kcm.ui:322
 #, kde-format
 msgid "Unpair"
-msgstr "取消配对"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, ping_button)
 #: kcm.ui:335
 #, kde-format
 msgid "Send ping"
-msgstr "发送 ping"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
@@ -155,12 +155,3 @@ msgid ""
 "underline;\">KDE Connect Community wiki</span></a> for help.</p></body></"
 "html>"
 msgstr ""
-"<html><head/><body><p>未选择任何设备。<br><br>如果您拥有 Android 设备，请确保"
-"安装了 <a href=\"https://play.google.com/store/apps/details?id=org.kde."
-"kdeconnect_tp\"><span style=\" text-decoration: underline;\">KDE Connect "
-"Android 应用</span></a> (也可从 <a href=\"https://f-droid.org/repository/"
-"browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-"underline;\">F-Droid</span></a> 获取)。安装后它应该会显示在列表中。<br><br>如"
-"果遇到问题，请访问 <a href=\"https://userbase.kde.org/KDEConnect\"><span "
-"style=\" text-decoration: underline;\">KDE Connect 社区维基网站</span></a>以"
-"获得帮助。</p></body></html>"
