@@ -9,6 +9,7 @@ Icon=kdeconnect
 
 Name=KDE Connect
 Name[ar]=كِيدِي المتّصل
+Name[ast]=KDE Connect
 Name[az]=KDE Connect
 Name[bg]=KDE Connect
 Name[bs]=Konekcija KDE
