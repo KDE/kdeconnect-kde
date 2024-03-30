@@ -42,12 +42,6 @@ FileTransferJob::FileTransferJob(const NetworkPacket *np, const QUrl &destinatio
 
 void FileTransferJob::start()
 {
-    QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
-    // qCDebug(KDECONNECT_CORE) << "FileTransferJob start";
-}
-
-void FileTransferJob::doStart()
-{
     if (m_destination.isLocalFile() && QFile::exists(m_destination.toLocalFile())) {
         if (m_autoRename) {
             QFileInfo fileInfo(m_destination.toLocalFile());
@@ -61,9 +55,15 @@ void FileTransferJob::doStart()
             return;
         }
     }
+    QMetaObject::invokeMethod(this, "doStart", Qt::QueuedConnection);
+    // qCDebug(KDECONNECT_CORE) << "FileTransferJob start";
+}
 
+void FileTransferJob::doStart()
+{
     if (m_origin->bytesAvailable())
         startTransfer();
+
     connect(m_origin.data(), &QIODevice::readyRead, this, &FileTransferJob::startTransfer);
 }
 

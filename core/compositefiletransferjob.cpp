@@ -41,12 +41,12 @@ void CompositeFileTransferJob::startNextSubJob()
     m_currentJob = qobject_cast<FileTransferJob *>(subjobs().at(0));
     m_currentJobSentPayloadSize = 0;
 
+    m_currentJob->start();
     Q_EMIT description(this,
                        i18ncp("@title job", "Receiving file", "Receiving files", m_totalJobs),
                        {i18nc("The source of a file operation", "Source"), Daemon::instance()->getDevice(this->m_deviceId)->name()},
                        {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)});
 
-    m_currentJob->start();
     connect(m_currentJob, &FileTransferJob::processedAmountChanged, this, &CompositeFileTransferJob::slotProcessedAmount);
 }
 
