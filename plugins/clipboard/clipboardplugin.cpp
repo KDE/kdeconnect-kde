@@ -73,6 +73,11 @@ void ClipboardPlugin::sendClipboard(const QString &content)
 
 void ClipboardPlugin::sendConnectPacket()
 {
+    if (!autoShare || (!sharePasswords && ClipboardListener::instance()->currentContentType() == ClipboardListener::ClipboardContentTypePassword)) {
+        // avoid sharing clipboard if the content is no need to share
+        return;
+    }
+
     NetworkPacket np(PACKET_TYPE_CLIPBOARD_CONNECT,
                      {{QStringLiteral("content"), ClipboardListener::instance()->currentContent()},
                       {QStringLiteral("timestamp"), ClipboardListener::instance()->updateTimestamp()}});
@@ -92,7 +97,9 @@ void ClipboardPlugin::receivePacket(const NetworkPacket &np)
             return;
         }
 
-        ClipboardListener::instance()->setText(content);
+        if (np.has(QStringLiteral("content"))) {
+            ClipboardListener::instance()->setText(content);
+        }
     }
 }
 
