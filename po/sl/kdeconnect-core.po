@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2023-07-30 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -68,7 +68,7 @@ msgstr "Odpovedano od uporabnika"
 msgid "Timed out"
 msgstr "Čas potekel"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -78,13 +78,13 @@ msgstr[1] "Sprejem datotek"
 msgstr[2] "Sprejem datotek"
 msgstr[3] "Sprejem datotek"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Vir"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -100,7 +100,7 @@ msgstr "Prstni odtis potrdila SHA256 vaše naprave je: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Prstni odtis potrdila SHA256 oddaljene naprave je: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Ime datoteke je že uporabljeno"

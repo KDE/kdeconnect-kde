@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2023-12-27 09:20+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -68,7 +68,7 @@ msgstr "Nuligite de uzanto"
 msgid "Timed out"
 msgstr "Tempo elĉerpita"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -76,13 +76,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Ricevante dosieron"
 msgstr[1] "Ricevante dosierojn"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Fonto"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -98,7 +98,7 @@ msgstr "La fingrospuro SHA256 de via aparato-atestilo estas: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "La fingrospuro SHA256 de la atestilo de fora aparato estas: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Dosiernomo jam ĉeestas"

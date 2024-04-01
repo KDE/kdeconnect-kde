@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2023-07-30 08:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -70,7 +70,7 @@ msgstr "Скасовано користувачем"
 msgid "Timed out"
 msgstr "Перевищено час очікування"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -80,13 +80,13 @@ msgstr[1] "Отримуємо файли"
 msgstr[2] "Отримуємо файли"
 msgstr[3] "Отримуємо файл"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Джерело"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -102,7 +102,7 @@ msgstr "Відбиток SHA256 сертифіката пристрою: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Відбиток SHA256 сертифіката віддаленого пристрою: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Файл із такою назвою вже існує"

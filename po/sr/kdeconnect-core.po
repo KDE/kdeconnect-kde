@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -72,7 +72,7 @@ msgstr "Отказала друга страна"
 msgid "Timed out"
 msgstr "Истекло време"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, fuzzy, kde-format
 #| msgid "Received incomplete file: %1"
 msgctxt "@title job"
@@ -83,13 +83,13 @@ msgstr[1] "Примљен недовршен фајл: %1"
 msgstr[2] "Примљен недовршен фајл: %1"
 msgstr[3] "Примљен недовршен фајл: %1"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr ""
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -107,7 +107,7 @@ msgstr "СХА‑1 отисак сертификата за ваш уређај 
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "СХА‑1 отисак сертификата удаљеног уређаја је: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Назив фајла већ постоји"

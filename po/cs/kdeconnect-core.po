@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2023-08-07 11:50+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -67,7 +67,7 @@ msgstr "Zrušeno uživatelem"
 msgid "Timed out"
 msgstr "Čas vypršel"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -76,13 +76,13 @@ msgstr[0] "Přijímám soubor"
 msgstr[1] "Přijímám soubory"
 msgstr[2] "Přijímám soubory"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Zdroj"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -98,7 +98,7 @@ msgstr "Otisk certifikátu SHA256 vašeho zařízení je: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Otisk certifikátu SHA256 vzdáleného zařízení je: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Název souboru již existuje"

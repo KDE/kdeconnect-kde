@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2020-04-08 19:44+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -69,7 +69,7 @@ msgstr "Annulleret af brugeren"
 msgid "Timed out"
 msgstr "Tidsudløb"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, fuzzy, kde-format
 #| msgid "Receiving file from %2"
 #| msgid_plural "Receiving %1 files from %2"
@@ -79,13 +79,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Modtager fil fra %2"
 msgstr[1] "Modtager %1 filer fra %2"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr ""
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -103,7 +103,7 @@ msgstr "SHA1-fingeraftrykket for dit enhedscertifikat er: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "SHA1-fingeraftrykket for det eksterne enhedscertifikat er: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Filnavnet findes allerede"

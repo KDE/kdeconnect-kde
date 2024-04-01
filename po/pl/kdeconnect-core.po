@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2023-09-24 08:26+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -68,7 +68,7 @@ msgstr "Porzucone przez użytkownika"
 msgid "Timed out"
 msgstr "Upłynął czasu oczekiwania"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -77,13 +77,13 @@ msgstr[0] "Pobieranie pliku"
 msgstr[1] "Pobieranie plików"
 msgstr[2] "Pobieranie plików"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Źródło"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -99,7 +99,7 @@ msgstr "Odcisk palca SHA256 certyfikatu twojego urządzenia to: %1\n"
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "Odcisk palca SHA256 certyfikatu twojego zdalnego urządzenia to: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "Nazwa pliku już istnieje"

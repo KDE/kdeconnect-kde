@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-01 00:37+0000\n"
 "PO-Revision-Date: 2023-12-25 20:57+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -70,7 +70,7 @@ msgstr "בוטל על ידי המשתמש"
 msgid "Timed out"
 msgstr "נגמר הזמן"
 
-#: compositefiletransferjob.cpp:45
+#: compositefiletransferjob.cpp:46
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -80,13 +80,13 @@ msgstr[1] "קבצים מתקבלים"
 msgstr[2] "קבצים מתקבלים"
 msgstr[3] "קבצים מתקבלים"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "מקור"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -102,7 +102,7 @@ msgstr "טביעת האצבע ב־SHA256 של אישור המכשיר שלך ה�
 msgid "SHA256 fingerprint of remote device certificate is: %1\n"
 msgstr "טביעת האצבע ב־SHA256 של אישור המכשיר המרוחק היא: %1\n"
 
-#: filetransferjob.cpp:59
+#: filetransferjob.cpp:53
 #, kde-format
 msgid "Filename already present"
 msgstr "שם הקובץ כבר קיים"
