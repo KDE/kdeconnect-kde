@@ -219,7 +219,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Nastavit modul"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

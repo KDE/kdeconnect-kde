@@ -173,10 +173,9 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: qml/ConversationList.qml:113
-#, fuzzy, kde-format
-#| msgid "Search or start conversation..."
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Hledat nebo začít konverzaci..."
+msgstr ""
 
 #: qml/ConversationList.qml:146
 #, kde-format
@@ -218,6 +217,3 @@ msgstr "Byl překročen limit velikosti zprávy."
 #, kde-format
 msgid "Compose message"
 msgstr "Napsat zprávu"
-
-#~ msgid "New"
-#~ msgstr "Nový"
