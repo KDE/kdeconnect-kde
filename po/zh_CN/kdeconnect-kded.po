@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:33+0000\n"
-"PO-Revision-Date: 2024-03-30 19:38\n"
+"PO-Revision-Date: 2024-04-01 14:45\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -59,7 +59,7 @@ msgstr "查看密钥"
 #: kdeconnectd.cpp:158 kdeconnectd.cpp:160
 #, kde-format
 msgid "KDE Connect Daemon"
-msgstr "KDE Connect 守护进程"
+msgstr "KDE Connect守护进程"
 
 #: kdeconnectd.cpp:166
 #, kde-format
