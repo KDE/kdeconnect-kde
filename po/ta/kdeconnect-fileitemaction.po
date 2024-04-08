@@ -1,0 +1,28 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Kishore G <kishore96@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"PO-Revision-Date: 2024-04-07 17:38+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.1\n"
+
+#: sendfileitemaction.cpp:72
+#, kde-format
+msgid "Send via KDE Connect"
+msgstr "கே.டீ.யீ. கனெக்ட் மூலம் அனுப்பு"
+
+#: sendfileitemaction.cpp:79
+#, kde-format
+msgid "Send to '%1' via KDE Connect"
+msgstr "கே.டீ.யீ. கனெக்ட் மூலம் '%1'-க்கு அனுப்பு"

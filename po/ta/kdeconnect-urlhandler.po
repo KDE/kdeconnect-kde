@@ -1,0 +1,112 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# SPDX-FileCopyrightText: 2024 Kishore G <kishore96@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"PO-Revision-Date: 2024-04-07 17:39+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialog.ui:31
+#, kde-format
+msgid "Select device:"
+msgstr "சாதனத்தை தேர்ந்தெடுக்கவும்:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
+#: dialog.ui:55
+#, kde-format
+msgid "Send URL"
+msgstr "முகவரியை அனுப்பு"
+
+#. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
+#: dialog.ui:62
+#, kde-format
+msgid "Send File"
+msgstr "கோப்பை அனுப்பு"
+
+#. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
+#: dialog.ui:82
+#, kde-format
+msgid "Open on peer device"
+msgstr ""
+
+#: kdeconnect-handler.cpp:43
+#, kde-format
+msgid "KDE Connect URL handler"
+msgstr ""
+
+#: kdeconnect-handler.cpp:49
+#, kde-format
+msgid "(C) 2017 Aleix Pol Gonzalez"
+msgstr ""
+
+#: kdeconnect-handler.cpp:65
+#, kde-format
+msgid "URL to share"
+msgstr ""
+
+#: kdeconnect-handler.cpp:66
+#, kde-format
+msgid "Select a device"
+msgstr ""
+
+#: kdeconnect-handler.cpp:66
+#, kde-format
+msgid "id"
+msgstr ""
+
+#: kdeconnect-handler.cpp:102
+#, kde-format
+msgid "Enter URL here"
+msgstr ""
+
+#: kdeconnect-handler.cpp:110
+#, kde-format
+msgid "Enter file location here"
+msgstr ""
+
+#: kdeconnect-handler.cpp:135
+#, kde-format
+msgid "Device to call %1 with:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:138
+#, kde-format
+msgid "Device to open %1 on:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:141
+#, kde-format
+msgid "Device to send a SMS with:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:144
+#, kde-format
+msgid "Device to send %1 to:"
+msgstr ""
+
+#: kdeconnect-handler.cpp:173
+#, kde-format
+msgid "Couldn't share %1"
+msgstr ""
