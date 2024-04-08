@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-24 00:37+0000\n"
-"PO-Revision-Date: 2023-12-27 09:20+0100\n"
+"PO-Revision-Date: 2024-04-07 17:09+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -175,10 +175,9 @@ msgid "Cancel"
 msgstr "Nuligi"
 
 #: qml/ConversationList.qml:113
-#, fuzzy, kde-format
-#| msgid "Search or start conversation..."
+#, kde-format
 msgid "Search or start a conversation"
-msgstr "Serĉi aŭ komenci konversacion..."
+msgstr "Serĉi aŭ komenci konversacion"
 
 #: qml/ConversationList.qml:146
 #, kde-format
@@ -220,6 +219,3 @@ msgstr "Maksimuma grandecolimo de mesaĝo superita."
 #, kde-format
 msgid "Compose message"
 msgstr "Verki mesaĝon"
-
-#~ msgid "New"
-#~ msgstr "Nova"
