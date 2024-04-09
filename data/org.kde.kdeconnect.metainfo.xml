@@ -194,7 +194,15 @@
   <releases>
     <release version="24.02.2" date="2024-04-11"/>
     <release version="24.02.1" date="2024-03-21"/>
-    <release version="24.02.0" date="2024-02-28"/>
+    <release version="24.02.0" date="2024-02-28">
+      <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/release-service/24.02.0/windows/kdeconnect-kde-release_24.02-3692-windows-cl-msvc2022-x86_64.exe</location>
+          <checksum type="sha256">8f7eb541bbe21a5fb1800d5f362fe1ea25328631894c30e937bd4bc259327ebd</checksum>
+          <size type="download">88187672</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="23.08.5" date="2024-02-15"/>
   </releases>
 </component>
