@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:37+0000\n"
 "PO-Revision-Date: 2024-03-30 19:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -127,18 +127,18 @@ msgstr "复制消息"
 msgid "Copy Selection"
 msgstr "复制选中项"
 
-#: qml/ConversationList.qml:25
+#: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
 msgstr "没有可用的设备"
 
-#: qml/ConversationList.qml:35
+#: qml/ConversationList.qml:32
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr "没有新消息可以发送或接收，但您可以浏览缓存的内容"
 
-#: qml/ConversationList.qml:51
+#: qml/ConversationList.qml:48
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -147,7 +147,7 @@ msgstr ""
 "正在加载设备中的对话。如果此过程需要太长时间，请唤醒您的设备，然后点击“刷"
 "新”。"
 
-#: qml/ConversationList.qml:59
+#: qml/ConversationList.qml:56
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -155,32 +155,32 @@ msgid ""
 msgstr ""
 "提示：在正常情况下，插入设备后，对话应该会在设备自动息屏之前迅速加载完毕。"
 
-#: qml/ConversationList.qml:67 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "刷新"
 
-#: qml/ConversationList.qml:81
+#: qml/ConversationList.qml:82
 #, kde-format
 msgid "Choose recipient"
 msgstr "选择收件人"
 
-#: qml/ConversationList.qml:86
+#: qml/ConversationList.qml:87
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: qml/ConversationList.qml:113
+#: qml/ConversationList.qml:102
 #, kde-format
 msgid "Search or start a conversation"
 msgstr "搜索或者发起对话"
 
-#: qml/ConversationList.qml:146
+#: qml/ConversationList.qml:136
 #, kde-format
 msgid "Start new conversation"
 msgstr "新建对话"
 
-#: qml/ConversationList.qml:247
+#: qml/ConversationList.qml:186
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"

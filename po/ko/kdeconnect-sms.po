@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:37+0000\n"
 "PO-Revision-Date: 2022-08-09 13:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -127,19 +127,19 @@ msgstr "메시지 복사"
 msgid "Copy Selection"
 msgstr "선택 영역 복사"
 
-#: qml/ConversationList.qml:25
+#: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
 msgstr "장치가 없습니다"
 
-#: qml/ConversationList.qml:35
+#: qml/ConversationList.qml:32
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
 msgstr ""
 "새 메시지를 보내거나 받을 수 없지만 캐시에 저장된 내용을 볼 수 있습니다"
 
-#: qml/ConversationList.qml:51
+#: qml/ConversationList.qml:48
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -148,7 +148,7 @@ msgstr ""
 "장치에서 대화를 불러 오는 중입니다. 시간이 너무 오래 걸리면 전원을 켠 다음 새"
 "로 고치십시오."
 
-#: qml/ConversationList.qml:59
+#: qml/ConversationList.qml:56
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -157,33 +157,33 @@ msgstr ""
 "팁: 전원을 연결해 두면 절전 모드로 전환되지 않으며 더 빨리 불러올 수 있습니"
 "다."
 
-#: qml/ConversationList.qml:67 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: qml/ConversationList.qml:81
+#: qml/ConversationList.qml:82
 #, kde-format
 msgid "Choose recipient"
 msgstr "받는 사람 선택"
 
-#: qml/ConversationList.qml:86
+#: qml/ConversationList.qml:87
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
 
-#: qml/ConversationList.qml:113
+#: qml/ConversationList.qml:102
 #, fuzzy, kde-format
 #| msgid "Search or start conversation..."
 msgid "Search or start a conversation"
 msgstr "새 대화 시작 또는 검색..."
 
-#: qml/ConversationList.qml:146
+#: qml/ConversationList.qml:136
 #, kde-format
 msgid "Start new conversation"
 msgstr "새 대화 시작하기"
 
-#: qml/ConversationList.qml:247
+#: qml/ConversationList.qml:186
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"

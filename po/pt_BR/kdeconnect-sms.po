@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:37+0000\n"
 "PO-Revision-Date: 2022-08-19 15:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -129,12 +129,12 @@ msgstr "Copiar mensagem"
 msgid "Copy Selection"
 msgstr "Copiar seleção"
 
-#: qml/ConversationList.qml:25
+#: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
 msgstr "Nenhum dispositivo disponível"
 
-#: qml/ConversationList.qml:35
+#: qml/ConversationList.qml:32
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
@@ -142,7 +142,7 @@ msgstr ""
 "Nenhuma nova mensagem poderá ser enviada ou recebida, mas você poderá "
 "navegar pelo conteúdo em cache"
 
-#: qml/ConversationList.qml:51
+#: qml/ConversationList.qml:48
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -151,7 +151,7 @@ msgstr ""
 "Carregando conversas do dispositivo. Isto pode levar algum tempo, acorde seu "
 "dispositivo e clique em Atualizar."
 
-#: qml/ConversationList.qml:59
+#: qml/ConversationList.qml:56
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -160,33 +160,33 @@ msgstr ""
 "Dica: Se você conectar seu dispositivo, ele não deverá entrar no modo de "
 "descanso e deverá carregar rapidamente."
 
-#: qml/ConversationList.qml:67 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Atualizar"
 
-#: qml/ConversationList.qml:81
+#: qml/ConversationList.qml:82
 #, kde-format
 msgid "Choose recipient"
 msgstr "Escolher destinatário"
 
-#: qml/ConversationList.qml:86
+#: qml/ConversationList.qml:87
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: qml/ConversationList.qml:113
+#: qml/ConversationList.qml:102
 #, fuzzy, kde-format
 #| msgid "Search or start conversation..."
 msgid "Search or start a conversation"
 msgstr "Pesquisar ou iniciar conversa..."
 
-#: qml/ConversationList.qml:146
+#: qml/ConversationList.qml:136
 #, kde-format
 msgid "Start new conversation"
 msgstr "Iniciar nova conversa"
 
-#: qml/ConversationList.qml:247
+#: qml/ConversationList.qml:186
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"

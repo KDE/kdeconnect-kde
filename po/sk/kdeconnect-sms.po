@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-sms\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-24 00:37+0000\n"
+"POT-Creation-Date: 2024-04-10 00:37+0000\n"
 "PO-Revision-Date: 2022-04-15 19:10+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -128,12 +128,12 @@ msgstr "Kopírovať správu"
 msgid "Copy Selection"
 msgstr "Kopírovať výber"
 
-#: qml/ConversationList.qml:25
+#: qml/ConversationList.qml:23
 #, kde-format
 msgid "No devices available"
 msgstr "Žiadne dostupné zariadenia"
 
-#: qml/ConversationList.qml:35
+#: qml/ConversationList.qml:32
 #, kde-format
 msgid ""
 "No new messages can be sent or received, but you can browse cached content"
@@ -141,7 +141,7 @@ msgstr ""
 "Žiadne nové správy nemôžu byť odoslané alebo prijaté, ale môžte si prezerať "
 "ulož uložený obsah"
 
-#: qml/ConversationList.qml:51
+#: qml/ConversationList.qml:48
 #, kde-format
 msgid ""
 "Loading conversations from device. If this takes a long time, please wake up "
@@ -150,7 +150,7 @@ msgstr ""
 "Načítavam konverzácie zo zariadenia. Ak to trvá dlho, prosím zabuďte vaše "
 "zariadenie a kliknite na Obnoviť."
 
-#: qml/ConversationList.qml:59
+#: qml/ConversationList.qml:56
 #, kde-format
 msgid ""
 "Tip: If you plug in your device, it should not go into doze mode and should "
@@ -159,33 +159,33 @@ msgstr ""
 "Tip: Ak odpojíte a pripojíte vaše zariadenie, nemalo by prejsť do režimu "
 "spánku a malo by sa rýchlo načítať."
 
-#: qml/ConversationList.qml:67 qml/Main.qml:90
+#: qml/ConversationList.qml:64 qml/Main.qml:90
 #, kde-format
 msgid "Refresh"
 msgstr "Obnoviť"
 
-#: qml/ConversationList.qml:81
+#: qml/ConversationList.qml:82
 #, kde-format
 msgid "Choose recipient"
 msgstr "Vybrať príjemcu"
 
-#: qml/ConversationList.qml:86
+#: qml/ConversationList.qml:87
 #, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: qml/ConversationList.qml:113
+#: qml/ConversationList.qml:102
 #, fuzzy, kde-format
 #| msgid "Search or start conversation..."
 msgid "Search or start a conversation"
 msgstr "Vyhľadajte alebo začnite novú konverzáciu"
 
-#: qml/ConversationList.qml:146
+#: qml/ConversationList.qml:136
 #, kde-format
 msgid "Start new conversation"
 msgstr "Začať novú konverzáciu"
 
-#: qml/ConversationList.qml:247
+#: qml/ConversationList.qml:186
 #, kde-format
 msgctxt "Placeholder message text when no messages are found"
 msgid "No matches"
