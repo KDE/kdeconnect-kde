@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-13 00:37+0000\n"
-"PO-Revision-Date: 2024-03-20 10:40+0100\n"
+"PO-Revision-Date: 2024-04-11 11:40+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: main.cpp:32 main.cpp:34
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Изпращане на клипборда"
 #: qml/DevicePage.qml:114
 #, kde-format
 msgid "Share File"
-msgstr "Споделяне на файла"
+msgstr "Споделяне на файл"
 
 #: qml/DevicePage.qml:119 qml/volume.qml:16
 #, kde-format
