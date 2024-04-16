@@ -62,7 +62,6 @@ protected:
 
 private:
     void startTransfer();
-    void transferFailed(QNetworkReply::NetworkError error);
     void transferFinished();
     void deleteDestinationFile();
 
