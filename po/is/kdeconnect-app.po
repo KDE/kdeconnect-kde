@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# SPDX-FileCopyrightText: 2023 gummi <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-13 00:37+0000\n"
-"PO-Revision-Date: 2023-12-26 18:49+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2024-04-06 20:57+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -220,7 +220,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Grunnstilla viðbót"
 
 #: qml/presentationRemote.qml:21
 #, kde-format
