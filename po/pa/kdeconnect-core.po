@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -102,12 +102,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr "ਫਾਇਲ-ਨਾਂ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "ਅਧੂਰੀ ਫਾਇਲ ਮਿਲੀ: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "ਇਸ ਤੋਂ ਅਧੂਰੀ ਫਾਇਲ ਮਿਲੀ: %1"
@@ -136,3 +131,6 @@ msgstr "ਡਿਵਾਈਸ ਸਰਟੀਫਿਕੇਟ ਤਿਆਰ ਨਹੀਂ
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "ਸਰਟੀਫਿਕੇਟ ਫਾਇਲ ਨੂੰ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "ਅਧੂਰੀ ਫਾਇਲ ਮਿਲੀ: %1"

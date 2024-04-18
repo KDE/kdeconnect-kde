@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-08-21 14:10+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -109,12 +109,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr "Fichier déjà présent"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Fichier incomplet reçu : %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Fichier incomplet reçu de : %1"
@@ -143,6 +138,9 @@ msgstr "Impossible de générer le certificat du périphérique."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Impossible de stocker le fichier de certificat : %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Fichier incomplet reçu : %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

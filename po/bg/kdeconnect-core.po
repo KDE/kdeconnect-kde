@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-08-02 22:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -102,12 +102,7 @@ msgstr "SHA256 отпечатъкът на сертификата на отда�
 msgid "Filename already present"
 msgstr "Това име на файл вече съществува"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Получен е непълен файл: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Получен е непълен файл от: %1"
@@ -136,3 +131,6 @@ msgstr "Не може да се генерира сертификат на ус�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не може да се съхрани сертификат на файл: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Получен е непълен файл: %1"

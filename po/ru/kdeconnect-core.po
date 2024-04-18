@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-01-10 21:58+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -109,12 +109,7 @@ msgstr "Отпечаток SHA256 сертификата удалённого у
 msgid "Filename already present"
 msgstr "Такое имя файла уже существует"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Получен неполный файл: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "С %1 получен неполный файл"
@@ -143,6 +138,9 @@ msgstr "Не удалось создать сертификата устройс
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не удалось сохранить файл сертификата: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Получен неполный файл: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

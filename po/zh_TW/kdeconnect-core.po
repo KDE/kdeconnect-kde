@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-12-09 16:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -104,12 +104,7 @@ msgstr "遠端裝置憑證的 SHA256 指紋是：%1\n"
 msgid "Filename already present"
 msgstr "檔案名稱已存在"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "接收到不完整的檔案：%1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "已從該位置接收到不完全檔案：%1"
@@ -138,6 +133,9 @@ msgstr "無法產生裝置憑證。"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "無法儲存憑證檔案：%1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "接收到不完整的檔案：%1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

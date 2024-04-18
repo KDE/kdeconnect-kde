@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-07-31 06:28+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -103,12 +103,7 @@ msgstr "დაშორებული მოწყობილობის ს�
 msgid "Filename already present"
 msgstr "ფაილის სახელი უკვე არსებობს"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "მიღებული ფაილი დაუსრულებელია: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "მიღებულია დაუსრულებელი ფაილი წყაროდან: %1"
@@ -137,6 +132,9 @@ msgstr "მოწყობილობის სერტიფიკატი�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "სერტიფიკატის ფაილის დამახსოვრების შეცდომა: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "მიღებული ფაილი დაუსრულებელია: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

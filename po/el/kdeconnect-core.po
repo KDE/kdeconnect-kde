@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2021-06-14 15:37+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -107,12 +107,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr "Το αρχείο υπάρχει ήδη"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Λήψη μη ολοκληρωμένου αρχείου: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Λήψη μη ολοκληρωμένου αρχείου από: %1"
@@ -143,6 +138,9 @@ msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποι�
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Αδυναμία αποθήκευσης αρχείου πιστοποιητικού: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Λήψη μη ολοκληρωμένου αρχείου: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

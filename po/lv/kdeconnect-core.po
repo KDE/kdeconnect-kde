@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-01-14 10:58+0200\n"
 "Last-Translator: Māris Nartišs <maris.kde@gmail.com>\n"
 "Language-Team: \n"
@@ -105,12 +105,7 @@ msgstr "Attālinātās ierīces sertifikāta SHA256 digitālnospiedums ir: %1\n"
 msgid "Filename already present"
 msgstr "Šāds datnes nosaukums jau eksistē"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Saņēma nepabeigtu datni: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Saņēma nepabeigtu datni no: %1"
@@ -139,3 +134,6 @@ msgstr "Neizdevās ģenerēt ierīces sertifikātu."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Neizdevās saglabāt sertifikāta datni: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Saņēma nepabeigtu datni: %1"

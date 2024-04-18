@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-03-30 19:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -101,12 +101,7 @@ msgstr "远程设备证书的 SHA256 指纹是：%1\n"
 msgid "Filename already present"
 msgstr "文件名已存在"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "收到不完整的文件：%1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "收到不完整的文件自：%1"
@@ -135,3 +130,6 @@ msgstr "无法生成设备证书。"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "无法保存证书文件：%1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "收到不完整的文件：%1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-01-07 13:08+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -104,12 +104,7 @@ msgstr "Amprenta SHA256 a certificatului dispozitivului distant e: %1\n"
 msgid "Filename already present"
 msgstr "Denumirea de fișier există deja"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "S-a primit fișier incomplet: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "S-a primit fișier incomplet de la: %1"
@@ -138,6 +133,9 @@ msgstr "Certificatul dispozitivului nu a putut fi generat."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Fișierul cu certificat nu a putut fi stocat: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "S-a primit fișier incomplet: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

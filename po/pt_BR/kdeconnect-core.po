@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-08-04 01:25-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -106,12 +106,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr "O nome de arquivo já está presente"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Arquivo incompleto recebido: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Arquivo incompleto recebido de: %1"
@@ -140,6 +135,9 @@ msgstr "Não foi possível gerar o arquivo do certificado."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Não foi possível armazenar o arquivo do certificado: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Arquivo incompleto recebido: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

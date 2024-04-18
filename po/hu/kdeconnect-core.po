@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-01-18 09:49+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -103,12 +103,7 @@ msgstr "A távoli eszköz tanúsítványának SHA256 ujjlenyomata: %1\n"
 msgid "Filename already present"
 msgstr "A fájlnév már létezik"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Hibás fájl érkezett: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Hibás fájl érkezett innen: %1"
@@ -137,6 +132,9 @@ msgstr "Nem sikerült előállítani az eszköztanúsítványt."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nem sikerült tárolni a tanúsítványfájlt: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Hibás fájl érkezett: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

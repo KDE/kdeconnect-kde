@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-07-30 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -105,12 +105,7 @@ msgstr "Prstni odtis potrdila SHA256 oddaljene naprave je: %1\n"
 msgid "Filename already present"
 msgstr "Ime datoteke je že uporabljeno"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Prejeta nekompletna datoteka: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Prejeta nepopolna datoteka od: %1"
@@ -139,6 +134,9 @@ msgstr "Ni bilo mogoče generirati potrdila za napravo."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Datoteke potrdila ni bilo mogoče shraniti: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Prejeta nekompletna datoteka: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

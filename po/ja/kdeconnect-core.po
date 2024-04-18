@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2024-02-24 20:19+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: ja\n"
@@ -102,12 +102,7 @@ msgstr "リモートデバイスの SHA256 フィンガープリント証明書:
 msgid "Filename already present"
 msgstr "そのファイル名は既に存在します"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "不完全なファイルを受信: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "不完全なファイルを %1 から受信しました"
@@ -136,3 +131,6 @@ msgstr "デバイスの証明書を生成できませんでした。"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "証明書ファイル %1 を保存できませんでした"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "不完全なファイルを受信: %1"

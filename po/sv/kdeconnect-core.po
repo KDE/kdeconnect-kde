@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-08-01 08:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -102,12 +102,7 @@ msgstr "SHA256-fingeravtryck för den andra apparatens certifikat är: %1\n"
 msgid "Filename already present"
 msgstr "Filnamnet finns redan"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Mottog ofullständig fil: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Mottog ofullständig fil från: %1"
@@ -136,6 +131,9 @@ msgstr "Kunde inte generera apparatcertifikatet."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Kunde inte lagra certifikatfil: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Mottog ofullständig fil: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

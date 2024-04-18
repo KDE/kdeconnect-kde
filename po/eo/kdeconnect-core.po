@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-12-27 09:20+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -103,12 +103,7 @@ msgstr "La fingrospuro SHA256 de la atestilo de fora aparato estas: %1\n"
 msgid "Filename already present"
 msgstr "Dosiernomo jam ĉeestas"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Ricevita nekompleta dosiero: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Ricevis nekompletan dosieron de: %1"
@@ -137,3 +132,6 @@ msgstr "Ne eblis generi la aparatan atestilon."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne eblis konservi atestilon: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Ricevita nekompleta dosiero: %1"

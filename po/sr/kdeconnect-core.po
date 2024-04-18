@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2017-05-26 11:26+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -112,12 +112,7 @@ msgstr "СХА‑1 отисак сертификата удаљеног уређ
 msgid "Filename already present"
 msgstr "Назив фајла већ постоји"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Примљен недовршен фајл: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, fuzzy, kde-format
 #| msgid "Received incomplete file: %1"
 msgid "Received incomplete file from: %1"
@@ -149,6 +144,9 @@ msgstr "Не могу да сместим фајл сертификата: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Не могу да сместим фајл сертификата: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Примљен недовршен фајл: %1"
 
 #~ msgid "%1: Pairing already requested for this device"
 #~ msgstr "%1: већ је затражено упаривање са уређајем"

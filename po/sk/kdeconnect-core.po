@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2021-02-01 16:08+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -106,12 +106,7 @@ msgstr "Odtlačok SHA256 certifikátu vzdialeného zariadenia je: %1\n"
 msgid "Filename already present"
 msgstr "Názov súboru už existuje"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Prijatý neúplný súbor: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Prijatý neúplný súbor zo zariadenia: %1"
@@ -142,6 +137,9 @@ msgstr "Nepodarilo sa uložiť súbor s certifikátom: %1"
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nepodarilo sa uložiť súbor s certifikátom: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Prijatý neúplný súbor: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

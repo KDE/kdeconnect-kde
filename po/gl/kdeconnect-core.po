@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-08-05 08:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -103,12 +103,7 @@ msgstr "A pegada SHA256 do certificado do dispositivo remoto é: %1\n"
 msgid "Filename already present"
 msgstr "O nome do ficheiro xa está presente."
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "O ficheiro recibido está incompleto: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Recibiuse un ficheiro incompleto de: %1"
@@ -137,6 +132,9 @@ msgstr "Non foi posíbel xerar o certificado do dispositivo."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Non foi posíbel almacenar o ficheiro de certificado: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "O ficheiro recibido está incompleto: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

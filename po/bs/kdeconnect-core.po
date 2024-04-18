@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bosnianuniversetranslation\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2014-12-19 00:46+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -110,13 +110,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr ""
 
-#: filetransferjob.cpp:105
-#, fuzzy, kde-format
-#| msgid "Received incomplete file"
-msgid "Received incomplete file: %1"
-msgstr "Primljena nepotpuna datoteka"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, fuzzy, kde-format
 #| msgid "Received incomplete file"
 msgid "Received incomplete file from: %1"
@@ -146,6 +140,11 @@ msgstr ""
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Received incomplete file"
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Primljena nepotpuna datoteka"
 
 #, fuzzy
 #~| msgid "Pairing already requested for this device"

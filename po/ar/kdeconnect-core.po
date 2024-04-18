@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-08-19 22:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -108,12 +108,7 @@ msgstr "بصمة SHA256 لشهادة الجهاز البعيد هي: %1\n"
 msgid "Filename already present"
 msgstr "اسم الملفّ موجود فعلًا"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "استُقبل ملفّ غير مكتمل: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "استُقبل ملفّ غير مكتمل من: %1"
@@ -142,6 +137,9 @@ msgstr "تعذّر توليد شهادة الجهاز."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "تعذّر تخزين ملفّ الشّهادة: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "استُقبل ملفّ غير مكتمل: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

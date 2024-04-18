@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-07-31 21:12+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -105,12 +105,7 @@ msgstr "SHA-256-fingeravtrykket til fjerneiningssertifikatet er: %1\n"
 msgid "Filename already present"
 msgstr "Filnamnet finst frå før"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Fekk ufullstendig fil: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Fekk ufullstendig fil frå: %1"
@@ -139,3 +134,6 @@ msgstr "Klarte ikkje generera einingssertifikatet."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Klarte ikkje lagra sertifikatfila: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Fekk ufullstendig fil: %1"

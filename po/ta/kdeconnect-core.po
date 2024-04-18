@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-07-30 14:14+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -102,12 +102,7 @@ msgstr "தொலை சாதன சான்றிதழின் SHA256 க�
 msgid "Filename already present"
 msgstr "இப்பெயருள்ள கோப்பு ஏற்கனவே உள்ளது"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "முடிவடையாத கோப்பு பெறப்பட்டது: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "இதிலிருந்து முடிவடையாத கோப்பு பெறப்பட்டது: %1"
@@ -136,6 +131,9 @@ msgstr "சாதனச் சான்றிதழை உருவாக்க 
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "சான்றிதழ் கோப்பை சேமிக்க முடியவில்லை: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "முடிவடையாத கோப்பு பெறப்பட்டது: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "

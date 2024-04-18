@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2022-11-16 16:14+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: Interlingue <kde-i18n-doc@kde.org>\n"
@@ -104,12 +104,7 @@ msgstr ""
 msgid "Filename already present"
 msgstr ""
 
-#: filetransferjob.cpp:105
-#, fuzzy, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Vu ha recivet un file"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr ""
@@ -138,6 +133,10 @@ msgstr "Ne successat leer li file %1."
 #, fuzzy, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne successat leer li file %1."
+
+#, fuzzy
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Vu ha recivet un file"
 
 #~ msgid ""
 #~ "This device cannot be paired because it is running an old version of KDE "

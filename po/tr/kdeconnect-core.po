@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-01 00:37+0000\n"
+"POT-Creation-Date: 2024-04-18 00:37+0000\n"
 "PO-Revision-Date: 2023-07-30 21:41+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -103,12 +103,7 @@ msgstr "Uzak aygıt sertifikasının SHA256 parmak izi: %1\n"
 msgid "Filename already present"
 msgstr "Dosya adı halihazırda var"
 
-#: filetransferjob.cpp:105
-#, kde-format
-msgid "Received incomplete file: %1"
-msgstr "Tamamlanmamış dosya alındı: %1"
-
-#: filetransferjob.cpp:123
+#: filetransferjob.cpp:116
 #, kde-format
 msgid "Received incomplete file from: %1"
 msgstr "Eksik dosya şuradan alındı: %1"
@@ -137,6 +132,9 @@ msgstr "Aygıt sertifikası üretilemedi."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Sertifika dosyası depolanamadı: %1"
+
+#~ msgid "Received incomplete file: %1"
+#~ msgstr "Tamamlanmamış dosya alındı: %1"
 
 #~ msgid ""
 #~ "Could not find support for RSA in your QCA installation. If your "
