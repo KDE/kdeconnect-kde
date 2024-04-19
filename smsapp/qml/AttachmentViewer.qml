@@ -20,7 +20,7 @@ Kirigami.Page {
             text: i18nd("kdeconnect-sms", "Open with default")
             icon.name: "window-new"
             onTriggered: {
-                Qt.openUrlExternally(filePath);
+                Qt.openUrlExternally(Qt.url(`file://${filePath}`))
             }
         }
     ]
