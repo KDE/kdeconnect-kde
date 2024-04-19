@@ -12,6 +12,7 @@ import QtMultimedia
 
 Kirigami.Page {
     id: root
+
     property string filePath
     property string mimeType
 
@@ -20,7 +21,7 @@ Kirigami.Page {
             text: i18nd("kdeconnect-sms", "Open with default")
             icon.name: "window-new"
             onTriggered: {
-                Qt.openUrlExternally(filePath);
+                Qt.openUrlExternally(root.filePath);
             }
         }
     ]
@@ -30,7 +31,7 @@ Kirigami.Page {
 
         Rectangle {
             id: imageViewer
-            visible: mimeType.match("image")
+            visible: root.mimeType.match("image")
             anchors.horizontalCenter: parent.horizontalCenter
             width: image.width
             height: parent.height - y
@@ -39,7 +40,7 @@ Kirigami.Page {
 
             Image {
                 id: image
-                source: parent.visible ? filePath : ""
+                source: parent.visible ? root.filePath : ""
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 width: sourceSize.width
@@ -50,7 +51,7 @@ Kirigami.Page {
 
         MediaPlayer {
             id: mediaPlayer
-            source: filePath
+            source: root.filePath
 
             onPositionChanged: {
                 if (mediaPlayer.position > 1000 && mediaPlayer.duration - mediaPlayer.position < 1000) {
@@ -80,7 +81,7 @@ Kirigami.Page {
 
         Rectangle {
             id: mediaControls
-            visible: mimeType.match("video")
+            visible: root.mimeType.match("video")
             width: parent.width
             height: 50
             anchors.horizontalCenter: parent.horizontalCenter
