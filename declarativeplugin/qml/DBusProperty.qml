@@ -45,7 +45,7 @@ QtObject {
             prop._value = result;
         }
         onError: message => {
-            console.warn("failed call", object, read, write, change)
+            console.warn("failed call", prop.object, prop.read, prop.change, message)
         }
     }
 
