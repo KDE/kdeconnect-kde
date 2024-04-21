@@ -58,11 +58,7 @@ bool ConversationsSortFilterProxyModel::filterAcceptsRow(int sourceRow, const QM
         const QList<ConversationAddress> addressList = sourceModel()->data(index, ConversationListModel::AddressesRole).value<QList<ConversationAddress>>();
         for (const ConversationAddress &address : addressList) {
             QString canonicalAddress = SmsHelper::canonicalizePhoneNumber(address.address());
-#if QT_VERSION_MAJOR < 6
-            if (canonicalAddress.contains(filterRegExp())) {
-#else
             if (canonicalAddress.contains(filterRegularExpression())) {
-#endif
                 return true;
             }
         }

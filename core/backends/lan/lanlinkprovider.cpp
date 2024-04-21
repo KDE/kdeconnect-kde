@@ -67,14 +67,6 @@ LanLinkProvider::LanLinkProvider(bool testMode)
         qWarning() << "Error sending UDP packet:" << socketError;
     });
 
-#if QT_VERSION_MAJOR < 6
-    QNetworkConfigurationManager *networkManager = new QNetworkConfigurationManager(this);
-    connect(networkManager, &QNetworkConfigurationManager::configurationChanged, this, [this](QNetworkConfiguration config) {
-        if (config.state() == QNetworkConfiguration::Active) {
-            onNetworkChange();
-        }
-    });
-#else
     const auto checkNetworkChange = [this]() {
         if (QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online) {
             onNetworkChange();
@@ -86,7 +78,6 @@ LanLinkProvider::LanLinkProvider(bool testMode)
     // We want to know if our current network reachability has changed, or if we change from one network to another
     connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, checkNetworkChange);
     connect(QNetworkInformation::instance(), &QNetworkInformation::transportMediumChanged, this, checkNetworkChange);
-#endif
 }
 
 LanLinkProvider::~LanLinkProvider()

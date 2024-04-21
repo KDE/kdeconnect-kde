@@ -7,11 +7,7 @@
 #include "kdeconnectpluginkcm.h"
 
 KdeConnectPluginKcm::KdeConnectPluginKcm(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-#if QT_VERSION_MAJOR < 6
-    : KCModule(qobject_cast<QWidget *>(parent), args)
-#else
     : KCModule(parent)
-#endif
     , m_deviceId(args.at(0).toString())
     // The plugin name is the KCMs ID with the postfix removed
     , m_config(new KdeConnectPluginConfig(m_deviceId, data.pluginId().remove(QLatin1String("_config")), this))

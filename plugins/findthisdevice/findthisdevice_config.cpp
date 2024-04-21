@@ -14,9 +14,7 @@
 #include <QMediaPlayer>
 #include <QStandardPaths>
 
-#if QT_VERSION_MAJOR == 6
 #include <QAudioOutput>
-#endif
 
 K_PLUGIN_CLASS(FindThisDeviceConfig)
 
@@ -64,20 +62,12 @@ void FindThisDeviceConfig::save()
 void FindThisDeviceConfig::playSound(const QUrl &soundUrl)
 {
     QMediaPlayer *player = new QMediaPlayer;
-#if QT_VERSION_MAJOR < 6
-    player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
-    player->setMedia(soundUrl);
-    player->setVolume(100);
-    player->play();
-    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
-#else
     auto audioOutput = new QAudioOutput();
     audioOutput->setVolume(100);
     player->setSource(soundUrl);
     player->setAudioOutput(audioOutput);
     player->play();
     connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
-#endif
 }
 
 #include "findthisdevice_config.moc"

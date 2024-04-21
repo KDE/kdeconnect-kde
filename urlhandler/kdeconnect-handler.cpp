@@ -36,8 +36,6 @@
 
 int main(int argc, char **argv)
 {
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kdeconnect")));
     const QString description = i18n("KDE Connect URL handler");

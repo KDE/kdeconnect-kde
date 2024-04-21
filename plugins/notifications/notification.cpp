@@ -44,13 +44,6 @@ Notification::Notification(const NetworkPacket &np, const Device *device, QObjec
 
     parseNetworkPacket(np);
     createKNotification(np);
-
-#if QT_VERSION_MAJOR == 5
-    connect(m_notification, &KNotification::activated, this, [this](unsigned int actionIndex) {
-        // Notification action indices start at 1
-        Q_EMIT actionTriggered(m_internalId, m_actions[actionIndex - 1]);
-    });
-#endif
 }
 
 void Notification::dismiss()
@@ -120,7 +113,6 @@ void Notification::createKNotification(const NetworkPacket &np)
         m_notification->setReplyAction(std::move(replyAction));
     }
 
-#if QT_VERSION_MAJOR == 6
     m_notification->clearActions();
     for (const QString &actionId : std::as_const(m_actions)) {
         KNotificationAction *action = m_notification->addAction(actionId);
@@ -129,9 +121,6 @@ void Notification::createKNotification(const NetworkPacket &np)
             Q_EMIT actionTriggered(m_internalId, actionId);
         });
     }
-#else
-    m_notification->setActions(m_actions);
-#endif
 
     m_hasIcon = m_hasIcon && !m_payloadHash.isEmpty();
 

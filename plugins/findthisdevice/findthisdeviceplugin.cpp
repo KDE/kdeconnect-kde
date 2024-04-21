@@ -20,9 +20,7 @@
 #include <QDBusConnection>
 #include <QMediaPlayer>
 
-#if QT_VERSION_MAJOR == 6
 #include <QAudioOutput>
-#endif
 
 K_PLUGIN_CLASS_WITH_JSON(FindThisDevicePlugin, "kdeconnect_findthisdevice.json")
 
@@ -37,17 +35,11 @@ void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
     }
 
     QMediaPlayer *player = new QMediaPlayer;
-#if QT_VERSION_MAJOR < 6
-    player->setAudioRole(QAudio::Role(QAudio::NotificationRole));
-    player->setMedia(soundURL);
-    player->setVolume(100);
-#else
     auto audioOutput = new QAudioOutput();
     audioOutput->setVolume(100);
     player->setSource(soundURL);
     player->setAudioOutput(audioOutput);
     connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
-#endif
     player->play();
 
 #ifndef Q_OS_WIN
@@ -59,11 +51,7 @@ void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
             mutedSinks.append(sink);
         }
     }
-#if QT_VERSION_MAJOR < 6
     connect(player, &QMediaPlayer::stateChanged, this, [mutedSinks] {
-#else
-    connect(player, &QMediaPlayer::playingChanged, this, [mutedSinks] {
-#endif
         for (auto sink : qAsConst(mutedSinks)) {
             sink->setMuted(true);
         }
@@ -71,11 +59,7 @@ void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
 #endif
 
     player->play();
-#if QT_VERSION_MAJOR < 6
-    connect(player, &QMediaPlayer::stateChanged, player, &QObject::deleteLater);
-#else
     connect(player, &QMediaPlayer::playingChanged, player, &QObject::deleteLater);
-#endif
     // TODO: ensure to use built-in loudspeakers
 }
 

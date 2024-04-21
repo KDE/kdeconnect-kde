@@ -62,7 +62,6 @@ public:
             oc.openConfiguration(deviceId);
         };
 
-#if QT_VERSION_MAJOR == 6
         KNotificationAction *openSettingsAction = notification->addDefaultAction(i18n("Open"));
         connect(openSettingsAction, &KNotificationAction::activated, openSettings);
 
@@ -74,15 +73,6 @@ public:
 
         KNotificationAction *viewKeyAction = notification->addAction(i18n("View key"));
         connect(viewKeyAction, &KNotificationAction::activated, openSettings);
-#else
-        notification->setDefaultAction(i18n("Open"));
-        notification->setActions(QStringList() << i18n("Accept") << i18n("Reject") << i18n("View key"));
-        connect(notification, &KNotification::action1Activated, device, &Device::acceptPairing);
-        connect(notification, &KNotification::action2Activated, device, &Device::cancelPairing);
-        connect(notification, &KNotification::action3Activated, openSettings);
-        connect(notification, &KNotification::activated, openSettings);
-#endif
-
         notification->sendEvent();
     }
 
@@ -147,11 +137,7 @@ int main(int argc, char *argv[])
 #endif
 
     detectPlatform(argc, argv);
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-#if QT_VERSION_MAJOR == 6
     QGuiApplication::setQuitLockEnabled(false);
-#endif
 
     QApplication app(argc, argv);
     KAboutData aboutData(QStringLiteral("kdeconnect.daemon"),

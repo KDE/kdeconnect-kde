@@ -188,7 +188,6 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
             Q_EMIT shareReceived(url.toString());
         };
 
-#if QT_VERSION_MAJOR == 6
         KNotificationAction *textEditorAction = notif->addAction(i18nc("@action:button Edit text with default text editor", "Open in Text Editor"));
         connect(textEditorAction, &KNotificationAction::activated, this, openTextEditor);
 
@@ -196,19 +195,6 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
             KNotificationAction *openLinkAction = notif->addAction(i18nc("@action:button Open URL with default app", "Open Link"));
             connect(openLinkAction, &KNotificationAction::activated, this, openUrl);
         }
-#else
-        QStringList actions;
-        actions << i18nc("@action:button Edit text with default text editor", "Open in Text Editor");
-        if (url.isValid() && (url.scheme() == QStringLiteral("http") || url.scheme() == QStringLiteral("https"))) {
-            actions << i18nc("@action:button Open URL with default app", "Open Link");
-        }
-        notif->setActions(actions);
-
-        connect(notif, &KNotification::action1Activated, this, openTextEditor);
-
-        connect(notif, &KNotification::action2Activated, this, openUrl);
-#endif
-
         notif->sendEvent();
 
     } else if (np.has(QStringLiteral("url"))) {

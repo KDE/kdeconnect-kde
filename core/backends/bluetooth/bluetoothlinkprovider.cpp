@@ -81,12 +81,7 @@ void BluetoothLinkProvider::connectError()
 
     disconnect(socket, &QBluetoothSocket::connected, this, nullptr);
     disconnect(socket, &QBluetoothSocket::readyRead, this, nullptr);
-
-#if QT_VERSION_MAJOR == 5
-    disconnect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error), this, nullptr);
-#else
     disconnect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::errorOccurred), this, nullptr);
-#endif
 
     mSockets.remove(socket->peerAddress());
     socket->deleteLater();
@@ -129,11 +124,7 @@ void BluetoothLinkProvider::serviceDiscovered(const QBluetoothServiceInfo &old_i
     });
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered about to call connect";
-#if QT_VERSION_MAJOR == 5
-    connect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::error), this, &BluetoothLinkProvider::connectError);
-#else
     connect(socket, QOverload<QBluetoothSocket::SocketError>::of(&QBluetoothSocket::errorOccurred), this, &BluetoothLinkProvider::connectError);
-#endif
 
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::serviceDiscovered about to call connectToService";
 

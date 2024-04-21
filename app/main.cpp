@@ -22,8 +22,6 @@
 int main(int argc, char *argv[])
 {
     QIcon::setFallbackThemeName(QStringLiteral("breeze"));
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("kdeconnect-app");
