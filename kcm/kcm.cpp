@@ -76,7 +76,7 @@ KdeConnectKcm::KdeConnectKcm(QObject *parent, const KPluginMetaData &md, const Q
     connect(kcmUi.renameShow_button, &QAbstractButton::clicked, this, &KdeConnectKcm::renameShow);
     connect(kcmUi.pluginSelector, &KPluginWidget::changed, this, &KdeConnectKcm::pluginsConfigChanged);
 
-    if (!args.isEmpty() && args.first().type() == QVariant::String) {
+    if (!args.isEmpty() && !args.first().isNull() && args.first().canConvert<QString>()) {
         const QString input = args.first().toString();
         const auto colonIdx = input.indexOf(QLatin1Char(':'));
         const QString deviceId = input.left(colonIdx);

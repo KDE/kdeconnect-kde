@@ -87,7 +87,7 @@ void Daemon::init()
     }
 
     // Listen to new devices
-    for (LinkProvider *a : qAsConst(d->m_linkProviders)) {
+    for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         connect(a, &LinkProvider::onConnectionReceived, this, &Daemon::onNewDeviceLink);
         a->onStart();
     }
@@ -108,14 +108,14 @@ void Daemon::removeDevice(Device *device)
 void Daemon::forceOnNetworkChange()
 {
     qCDebug(KDECONNECT_CORE) << "Sending onNetworkChange to" << d->m_linkProviders.size() << "LinkProviders";
-    for (LinkProvider *a : qAsConst(d->m_linkProviders)) {
+    for (LinkProvider *a : std::as_const(d->m_linkProviders)) {
         a->onNetworkChange();
     }
 }
 
 Device *Daemon::getDevice(const QString &deviceId)
 {
-    for (Device *device : qAsConst(d->m_devices)) {
+    for (Device *device : std::as_const(d->m_devices)) {
         if (device->id() == deviceId) {
             return device;
         }
@@ -131,7 +131,7 @@ QSet<LinkProvider *> Daemon::getLinkProviders() const
 QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 {
     QStringList ret;
-    for (Device *device : qAsConst(d->m_devices)) {
+    for (Device *device : std::as_const(d->m_devices)) {
         if (onlyReachable && !device->isReachable())
             continue;
         if (onlyTrusted && !device->isPaired())
@@ -144,7 +144,7 @@ QStringList Daemon::devices(bool onlyReachable, bool onlyTrusted) const
 QMap<QString, QString> Daemon::deviceNames(bool onlyReachable, bool onlyTrusted) const
 {
     QMap<QString, QString> ret;
-    for (Device *device : qAsConst(d->m_devices)) {
+    for (Device *device : std::as_const(d->m_devices)) {
         if (onlyReachable && !device->isReachable())
             continue;
         if (onlyTrusted && !device->isPaired())
@@ -239,7 +239,7 @@ QList<Device *> Daemon::devicesList() const
 
 QString Daemon::deviceIdByName(const QString &name) const
 {
-    for (Device *device : qAsConst(d->m_devices)) {
+    for (Device *device : std::as_const(d->m_devices)) {
         if (device->name() == name && device->isPaired())
             return device->id();
     }
@@ -266,7 +266,7 @@ void Daemon::addDevice(Device *device)
 QStringList Daemon::pairingRequests() const
 {
     QStringList ret;
-    for (Device *dev : qAsConst(d->m_devices)) {
+    for (Device *dev : std::as_const(d->m_devices)) {
         if (dev->isPairRequestedByPeer())
             ret += dev->id();
     }

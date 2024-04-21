@@ -166,6 +166,10 @@ Kirigami.ScrollablePage {
             }
         }
 
+        QQC2.Button {
+            text: "banana"
+            Accessible.description: "Can you see me"
+        }
         Kirigami.PlaceholderMessage {
             // FIXME: not accessible. screen readers won't read this.
             //        https://invent.kde.org/frameworks/kirigami/-/merge_requests/1482

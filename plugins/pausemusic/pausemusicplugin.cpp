@@ -94,7 +94,7 @@ void PauseMusicPlugin::receivePacket(const NetworkPacket &np)
 
         if (pause && !pausedSources.empty()) {
             if (autoResume) {
-                for (const QString &iface : qAsConst(pausedSources)) {
+                for (const QString &iface : std::as_const(pausedSources)) {
                     OrgMprisMediaPlayer2PlayerInterface mprisInterface(iface, QStringLiteral("/org/mpris/MediaPlayer2"), QDBusConnection::sessionBus());
                     mprisInterface.Play();
                 }

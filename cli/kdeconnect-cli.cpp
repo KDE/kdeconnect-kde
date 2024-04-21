@@ -211,7 +211,7 @@ int main(int argc, char **argv)
             msg.setArguments(QVariantList{QVariant(urls)});
             blockOnReply(QDBusConnection::sessionBus().asyncCall(msg));
 
-            for (const QString &url : qAsConst(urls)) {
+            for (const QString &url : std::as_const(urls)) {
                 QTextStream(stdout) << i18n("Shared %1", url) << Qt::endl;
             }
         } else if (parser.isSet(QStringLiteral("share-text"))) {

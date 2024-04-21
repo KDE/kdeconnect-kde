@@ -173,7 +173,7 @@ void Discoverer::stopDiscovering()
 void Discoverer::stopListeningForQueryResponses()
 {
     qCDebug(KDECONNECT_CORE) << "Closing" << responseSocketNotifiers.size() << "sockets";
-    for (QSocketNotifier *socketNotifier : qAsConst(responseSocketNotifiers)) {
+    for (QSocketNotifier *socketNotifier : std::as_const(responseSocketNotifiers)) {
         mdns_socket_close(socketNotifier->socket());
         delete socketNotifier;
     }
@@ -247,7 +247,7 @@ void Discoverer::sendQuery(const QString &serviceType)
     query.type = MDNS_RECORDTYPE_PTR;
 
     static char buffer[2048];
-    for (QSocketNotifier *socketNotifier : qAsConst(responseSocketNotifiers)) {
+    for (QSocketNotifier *socketNotifier : std::as_const(responseSocketNotifiers)) {
         int socket = socketNotifier->socket();
         qCDebug(KDECONNECT_CORE) << "Sending mDNS query via socket" << socket;
         int ret = mdns_multiquery_send(socket, &query, 1, buffer, sizeof(buffer), 0);

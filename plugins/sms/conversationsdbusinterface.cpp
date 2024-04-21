@@ -120,7 +120,7 @@ void ConversationsDbusInterface::addMessages(const QList<ConversationMessage> &m
         m_known_messages[threadId].insert(message.uID());
 
         // If this message was inserted at the end of the list, it is the latest message in the conversation
-        bool latestMessage = threadPosition == m_conversations[threadId].end() - 1;
+        const bool latestMessage = std::distance(threadPosition, m_conversations[threadId].end()) == 1;
 
         // Tell the world about what just happened
         if (newConversation) {

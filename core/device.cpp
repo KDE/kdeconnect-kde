@@ -159,7 +159,7 @@ void Device::reloadPlugins()
 
         PluginLoader *loader = PluginLoader::instance();
 
-        for (const QString &pluginName : qAsConst(d->m_supportedPlugins)) {
+        for (const QString &pluginName : std::as_const(d->m_supportedPlugins)) {
             const KPluginMetaData service = loader->getPluginInfo(pluginName);
 
             const bool pluginEnabled = isPluginEnabled(pluginName);
@@ -194,7 +194,7 @@ void Device::reloadPlugins()
 
     // Recreate dbus paths for all plugins (new and existing)
     QDBusConnection bus = QDBusConnection::sessionBus();
-    for (KdeConnectPlugin *plugin : qAsConst(d->m_plugins)) {
+    for (KdeConnectPlugin *plugin : std::as_const(d->m_plugins)) {
         const QString dbusPath = plugin->dbusPath();
         if (!dbusPath.isEmpty()) {
             bus.registerObject(dbusPath,
@@ -343,7 +343,7 @@ bool Device::sendPacket(NetworkPacket &np)
     Q_ASSERT(isPaired() || np.type() == PACKET_TYPE_PAIR);
 
     // Maybe we could block here any packet that is not an identity or a pairing packet to prevent sending non encrypted data
-    for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
+    for (DeviceLink *dl : std::as_const(d->m_deviceLinks)) {
         if (dl->sendPacket(np))
             return true;
     }
@@ -396,7 +396,7 @@ bool Device::isPairRequestedByPeer() const
 
 QHostAddress Device::getLocalIpAddress() const
 {
-    for (DeviceLink *dl : qAsConst(d->m_deviceLinks)) {
+    for (DeviceLink *dl : std::as_const(d->m_deviceLinks)) {
         LanDeviceLink *ldl = dynamic_cast<LanDeviceLink *>(dl);
         if (ldl) {
             return ldl->hostAddress();

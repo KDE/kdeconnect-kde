@@ -106,8 +106,8 @@ void DBusAsyncResponse::onTimeout()
 
 const QDBusPendingCall *DBusResponseWaiter::extractPendingCall(QVariant &variant) const
 {
-    for (int type : qAsConst(m_registered)) {
-        if (variant.canConvert(QVariant::Type(type))) {
+    for (int type : std::as_const(m_registered)) {
+        if (variant.typeId() == type) {
             return reinterpret_cast<const QDBusPendingCall *>(variant.constData());
         }
     }

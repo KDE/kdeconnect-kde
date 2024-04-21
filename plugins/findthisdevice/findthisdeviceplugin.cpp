@@ -51,8 +51,8 @@ void FindThisDevicePlugin::receivePacket(const NetworkPacket & /*np*/)
             mutedSinks.append(sink);
         }
     }
-    connect(player, &QMediaPlayer::stateChanged, this, [mutedSinks] {
-        for (auto sink : qAsConst(mutedSinks)) {
+    connect(player, &QMediaPlayer::playbackStateChanged, this, [mutedSinks] {
+        for (auto sink : std::as_const(mutedSinks)) {
             sink->setMuted(true);
         }
     });
