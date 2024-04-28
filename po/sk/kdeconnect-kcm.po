@@ -2,20 +2,20 @@
 # Roman Paholik <wizzardsk@gmail.com>, 2013, 2014, 2015, 2016, 2021.
 # Mthw <jari_45@hotmail.com>, 2019.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2020, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2021-11-18 21:27+0100\n"
-"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"PO-Revision-Date: 2024-04-27 16:41+0200\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -109,7 +109,7 @@ msgstr "🔑 abababab"
 #: kcm.ui:263
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #. i18n: ectx: property (text), widget (QPushButton, accept_button)
 #: kcm.ui:289
@@ -143,18 +143,7 @@ msgstr "Odoslať ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline; color:#4c6b8a;\">KDE Connect Android app</span></a> (also "
-#| "available <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
-#| "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">from F-Droid</span></a>) and it should appear in the list.<br><br>If "
-#| "you are having problems, visit the <a href=\"https://userbase.kde.org/"
-#| "KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-#| "\">KDE Connect Community wiki</span></a> for help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -170,14 +159,14 @@ msgstr ""
 "<html><head/><body><p>Nie je vybrané žiadne zariadenie.<br><br>Ak vlastníte "
 "zariadenie so systémom Android, uistite sa, že máte nainštalovanú <a href="
 "\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
-"\"><span style=\" text-decoration: underline; color:#4c6b8a;\">aplikáciu KDE "
-"Connect pre systém Android</span></a> (ktorá je tiež dostupná <a href="
-"\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span "
-"style=\" text-decoration: underline; color:#4c6b8a;\">v službe F-Droid</"
-"span></a>) a malo by sa objaviť v zozname.<br><br>Ak máte problémy, "
-"navštívte <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-"text-decoration: underline; color:#4c6b8a;\">wiki komunity KDE Connect</"
-"span></a> pre získanie pomoci.</p></body></html>"
+"\"><span style=\" text-decoration: underline;\">aplikáciu KDE Connect pre "
+"systém Android</span></a> (ktorá je tiež dostupná <a href=\"https://f-droid."
+"org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"decoration: underline; color:#cba;\">v službe F-Droid</span></a>) a malo by "
+"sa objaviť v zozname.<br><br>Ak máte problémy, navštívte <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline; "
+"color:#cba;\">wiki komunity KDE Connect</span></a> pre získanie pomoci.</p></"
+"body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "Nastavenia aplikácie KDE Connect"

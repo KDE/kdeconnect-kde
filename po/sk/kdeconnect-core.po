@@ -1,21 +1,21 @@
 # translation of kdeconnect-core.po to Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2014, 2015, 2016.
 # Mthw <jari_45@hotmail.com>, 2019.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2021.
+# SPDX-FileCopyrightText: 2019, 2021, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-18 00:37+0000\n"
-"PO-Revision-Date: 2021-02-01 16:08+0100\n"
+"PO-Revision-Date: 2024-04-27 16:40+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.12.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: backends/lan/compositeuploadjob.cpp:77
@@ -49,10 +49,9 @@ msgid "%1: Already paired"
 msgstr "%1: Už je spárované"
 
 #: backends/pairinghandler.cpp:84 backends/pairinghandler.cpp:98
-#, fuzzy, kde-format
-#| msgid "Device not reachable"
+#, kde-format
 msgid "%1: Device not reachable"
-msgstr "Zariadenie nie je dosiahnuteľné"
+msgstr "%1: Zariadenie nie je dosiahnuteľné"
 
 #: backends/pairinghandler.cpp:113
 #, kde-format
@@ -60,8 +59,7 @@ msgid "Device not reachable"
 msgstr "Zariadenie nie je dosiahnuteľné"
 
 #: backends/pairinghandler.cpp:124
-#, fuzzy, kde-format
-#| msgid "Canceled by the user"
+#, kde-format
 msgid "Cancelled by user"
 msgstr "Zrušené používateľom"
 
@@ -117,10 +115,9 @@ msgid "KDE Connect failed to start"
 msgstr "Aplikáciu KDE Connect sa nepodarilo spustiť"
 
 #: kdeconnectconfig.cpp:301
-#, fuzzy, kde-format
-#| msgid "Could not store private key file: %1"
+#, kde-format
 msgid "Could not generate the private key."
-msgstr "Nepodarilo sa uložiť súbor so súkromným kľúčom: %1"
+msgstr "Failed to generate a device certificate."
 
 #: kdeconnectconfig.cpp:317
 #, kde-format
@@ -128,10 +125,9 @@ msgid "Could not store private key file: %1"
 msgstr "Nepodarilo sa uložiť súbor so súkromným kľúčom: %1"
 
 #: kdeconnectconfig.cpp:332
-#, fuzzy, kde-format
-#| msgid "Could not store certificate file: %1"
+#, kde-format
 msgid "Could not generate the device certificate."
-msgstr "Nepodarilo sa uložiť súbor s certifikátom: %1"
+msgstr "Nepodarilo sa vygenerovať certifikát zariadenia."
 
 #: kdeconnectconfig.cpp:348
 #, kde-format

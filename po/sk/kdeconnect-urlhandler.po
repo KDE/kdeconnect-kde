@@ -2,20 +2,20 @@
 # Roman Paholik <wizzardsk@gmail.com>, 2017.
 # Mthw <jari_45@hotmail.com>, 2019.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2021-08-06 12:42+0200\n"
+"PO-Revision-Date: 2024-04-27 16:40+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.07.90\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -30,28 +30,27 @@ msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialog.ui:31
-#, fuzzy, kde-format
-#| msgid "Select a device"
+#, kde-format
 msgid "Select device:"
-msgstr "Vybrať zariadenie"
+msgstr "Vyberte zariadenie:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
 #, kde-format
 msgid "Send URL"
-msgstr ""
+msgstr "Poslať URL"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
 #: dialog.ui:62
 #, kde-format
 msgid "Send File"
-msgstr ""
+msgstr "Odoslať súbor"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
 #: dialog.ui:82
 #, kde-format
 msgid "Open on peer device"
-msgstr ""
+msgstr "Otvoriť na partnerskom zariadení"
 
 #: kdeconnect-handler.cpp:43
 #, kde-format
