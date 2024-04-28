@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-01-13 18:36+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -105,48 +105,48 @@ msgstr "Nepavyksta rasti kdeconnectd"
 msgid "Loading modules"
 msgstr "Įkeliami moduliai"
 
-#: main.cpp:53
+#: main.cpp:51
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect indikatorius"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect indikatoriaus įrankis"
 
-#: main.cpp:57
+#: main.cpp:55
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:92
+#: main.cpp:90
 #, kde-format
 msgid "Configure..."
 msgstr "Konfigūruoti..."
 
-#: main.cpp:114
+#: main.cpp:112
 #, kde-format
 msgid "Pairing requests"
 msgstr "Suporavimo užklausos"
 
-#: main.cpp:119
+#: main.cpp:117
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Suporuoti"
 
-#: main.cpp:120
+#: main.cpp:118
 #, kde-format
 msgid "Reject"
 msgstr "Atmesti"
 
-#: main.cpp:126 main.cpp:136
+#: main.cpp:124 main.cpp:134
 #, kde-format
 msgid "Quit"
 msgstr "Išeiti"
 
-#: main.cpp:155 main.cpp:179
+#: main.cpp:153 main.cpp:177
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

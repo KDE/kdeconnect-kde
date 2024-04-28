@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:33+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2022-07-30 23:32+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -42,37 +42,37 @@ msgstr ""
 "Parekatzeko eskaria %1(e)tik\n"
 "Gakoa: %2..."
 
-#: kdeconnectd.cpp:66 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "Ireki"
 
-#: kdeconnectd.cpp:69 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Onartu"
 
-#: kdeconnectd.cpp:72 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "Errefuxatu"
 
-#: kdeconnectd.cpp:75 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "Ikusi gakoa"
 
-#: kdeconnectd.cpp:158 kdeconnectd.cpp:160
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect daimona"
 
-#: kdeconnectd.cpp:166
+#: kdeconnectd.cpp:152
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ordeztu existitzen den instantzia bat"
 
-#: kdeconnectd.cpp:170
+#: kdeconnectd.cpp:156
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

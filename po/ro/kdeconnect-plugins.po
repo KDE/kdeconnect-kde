@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-01-07 13:14+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -92,13 +92,13 @@ msgctxt ""
 msgid "Current Player"
 msgstr "Lector actual"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:108
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Răspunde"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
@@ -449,24 +449,24 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "Textul partajat de %1 a fost copiat în clipboard"
 
-#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
+#: share/shareplugin.cpp:191
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "Deschide în redactorul de text"
 
-#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
+#: share/shareplugin.cpp:195
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "Deschide legătura"
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
 msgstr "Fișierul nu a putut fi partajat"
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 nu există"
@@ -486,7 +486,7 @@ msgstr "Apel de intrare de la %1"
 msgid "Missed call from %1"
 msgstr "Apel pierdut de la %1"
 
-#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
+#: telephony/telephonyplugin.cpp:65
 #, kde-format
 msgid "Mute Call"
 msgstr "Muțește apelul"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:33+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2022-04-20 15:23+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -32,37 +32,37 @@ msgstr ""
 "Pedido de emparelhamento de %1\n"
 "Chave: %2..."
 
-#: kdeconnectd.cpp:66 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: kdeconnectd.cpp:69 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Aceitar"
 
-#: kdeconnectd.cpp:72 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "Rejeitar"
 
-#: kdeconnectd.cpp:75 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "Ver a chave"
 
-#: kdeconnectd.cpp:158 kdeconnectd.cpp:160
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Servidor do KDE Connect"
 
-#: kdeconnectd.cpp:166
+#: kdeconnectd.cpp:152
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Substituir uma instância existente"
 
-#: kdeconnectd.cpp:170
+#: kdeconnectd.cpp:156
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

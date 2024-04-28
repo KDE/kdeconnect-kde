@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2022-12-31 16:04+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -51,62 +51,62 @@ msgstr "Send File"
 msgid "Open on peer device"
 msgstr "Open on peer device"
 
-#: kdeconnect-handler.cpp:43
+#: kdeconnect-handler.cpp:41
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE Connect URL handler"
 
-#: kdeconnect-handler.cpp:49
+#: kdeconnect-handler.cpp:47
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:65
+#: kdeconnect-handler.cpp:63
 #, kde-format
 msgid "URL to share"
 msgstr "URL to share"
 
-#: kdeconnect-handler.cpp:66
+#: kdeconnect-handler.cpp:64
 #, kde-format
 msgid "Select a device"
 msgstr "Select a device"
 
-#: kdeconnect-handler.cpp:66
+#: kdeconnect-handler.cpp:64
 #, kde-format
 msgid "id"
 msgstr "ID"
 
-#: kdeconnect-handler.cpp:102
+#: kdeconnect-handler.cpp:100
 #, kde-format
 msgid "Enter URL here"
 msgstr "Enter URL here"
 
-#: kdeconnect-handler.cpp:110
+#: kdeconnect-handler.cpp:108
 #, kde-format
 msgid "Enter file location here"
 msgstr "Enter file location here"
 
-#: kdeconnect-handler.cpp:135
+#: kdeconnect-handler.cpp:133
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Device to call %1 with:"
 
-#: kdeconnect-handler.cpp:138
+#: kdeconnect-handler.cpp:136
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Device to open %1 on:"
 
-#: kdeconnect-handler.cpp:141
+#: kdeconnect-handler.cpp:139
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Device to send a SMS with:"
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:142
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Device to send %1 to:"
 
-#: kdeconnect-handler.cpp:173
+#: kdeconnect-handler.cpp:171
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Could not share %1"

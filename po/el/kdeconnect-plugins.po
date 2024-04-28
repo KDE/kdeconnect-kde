@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2021-06-19 07:55+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -91,13 +91,13 @@ msgctxt ""
 msgid "Current Player"
 msgstr ""
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:108
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "Απάντηση"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
@@ -456,24 +456,24 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr ""
 
-#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
+#: share/shareplugin.cpp:191
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr ""
 
-#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
+#: share/shareplugin.cpp:195
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr ""
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
 msgstr "Αδυναμία διαμοιρασμού αρχείου"
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
 msgstr "Το %1 δεν υπάρχει"
@@ -493,7 +493,7 @@ msgstr "Εισερχόμενη κλήση από %1"
 msgid "Missed call from %1"
 msgstr "Αναπάντητη κλήση από %1"
 
-#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
+#: telephony/telephonyplugin.cpp:65
 #, kde-format
 msgid "Mute Call"
 msgstr "Σίγαση κλήσης"

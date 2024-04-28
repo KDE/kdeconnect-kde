@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2023-08-09 11:26+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -103,48 +103,48 @@ msgstr "Не може да се намери kdeconnectd"
 msgid "Loading modules"
 msgstr "Зареждане на модули"
 
-#: main.cpp:53
+#: main.cpp:51
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Индикатор на KDE Connect"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Индикатор на KDE Connect"
 
-#: main.cpp:57
+#: main.cpp:55
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:92
+#: main.cpp:90
 #, kde-format
 msgid "Configure..."
 msgstr "Настойки..."
 
-#: main.cpp:114
+#: main.cpp:112
 #, kde-format
 msgid "Pairing requests"
 msgstr "Заявки за сдвояване"
 
-#: main.cpp:119
+#: main.cpp:117
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Сдвояване"
 
-#: main.cpp:120
+#: main.cpp:118
 #, kde-format
 msgid "Reject"
 msgstr "Отхвърляне"
 
-#: main.cpp:126 main.cpp:136
+#: main.cpp:124 main.cpp:134
 #, kde-format
 msgid "Quit"
 msgstr "Изход"
 
-#: main.cpp:155 main.cpp:179
+#: main.cpp:153 main.cpp:177
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

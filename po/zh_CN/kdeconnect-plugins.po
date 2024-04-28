@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-04-22 15:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -90,13 +90,13 @@ msgctxt ""
 msgid "Current Player"
 msgstr "当前播放器"
 
-#: notifications/notification.cpp:115
+#: notifications/notification.cpp:108
 #, kde-format
 msgctxt "@action:button"
 msgid "Reply"
 msgstr "回复"
 
-#: notifications/notification.cpp:116
+#: notifications/notification.cpp:109
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
@@ -440,24 +440,24 @@ msgctxt "@info Some piece of text was received from a connected device"
 msgid "Shared text from %1 copied to clipboard"
 msgstr "来自 %1 的分享文本已复制到剪贴板"
 
-#: share/shareplugin.cpp:192 share/shareplugin.cpp:201
+#: share/shareplugin.cpp:191
 #, kde-format
 msgctxt "@action:button Edit text with default text editor"
 msgid "Open in Text Editor"
 msgstr "使用文本编辑器打开"
 
-#: share/shareplugin.cpp:196 share/shareplugin.cpp:203
+#: share/shareplugin.cpp:195
 #, kde-format
 msgctxt "@action:button Open URL with default app"
 msgid "Open Link"
 msgstr "打开链接"
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "Could not share file"
 msgstr "无法分享文件"
 
-#: share/shareplugin.cpp:251
+#: share/shareplugin.cpp:237
 #, kde-format
 msgid "%1 does not exist"
 msgstr "%1 不存在"
@@ -477,7 +477,7 @@ msgstr "%1 来电"
 msgid "Missed call from %1"
 msgstr "%1 的未接来电"
 
-#: telephony/telephonyplugin.cpp:66 telephony/telephonyplugin.cpp:69
+#: telephony/telephonyplugin.cpp:65
 #, kde-format
 msgid "Mute Call"
 msgstr "静音来电"

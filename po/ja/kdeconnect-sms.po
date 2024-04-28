@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2019-12-24 22:22-0800\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -59,52 +59,52 @@ msgstr ""
 msgid "%1"
 msgstr ""
 
-#: main.cpp:51 qml/Main.qml:68
+#: main.cpp:49 qml/Main.qml:68
 #, kde-format
 msgid "KDE Connect SMS"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:51
 #, kde-format
 msgid "SMS Instant Messaging"
 msgstr ""
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "(C) 2018-2022, KDE Connect Team"
 msgstr ""
 
-#: main.cpp:56
+#: main.cpp:54
 #, kde-format
 msgid "Simon Redman"
 msgstr ""
 
-#: main.cpp:57
+#: main.cpp:55
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr ""
 
-#: main.cpp:58
+#: main.cpp:56
 #, kde-format
 msgid "Nicolas Fella"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:74
 #, kde-format
 msgid "Select a device"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:74
 #, kde-format
 msgid "id"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:75
 #, kde-format
 msgid "Send a message"
 msgstr ""
 
-#: main.cpp:77
+#: main.cpp:75
 #, kde-format
 msgid "message"
 msgstr ""

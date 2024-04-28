@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2020-04-02 20:52+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -29,17 +29,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: main.cpp:28 main.cpp:30
+#: main.cpp:26 main.cpp:28
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "Innstillingar for KDE Connect"
 
-#: main.cpp:32
+#: main.cpp:30
 #, kde-format
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr "© 2018–2020 Nicolas Fella"
 
-#: main.cpp:36 main.cpp:55
+#: main.cpp:34 main.cpp:53
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "Argument for oppsettmodulen"

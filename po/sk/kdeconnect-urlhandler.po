@@ -2,20 +2,20 @@
 # Roman Paholik <wizzardsk@gmail.com>, 2017.
 # Mthw <jari_45@hotmail.com>, 2019.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2021-08-06 12:42+0200\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"PO-Revision-Date: 2024-04-27 16:45+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.07.90\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -30,85 +30,84 @@ msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialog.ui:31
-#, fuzzy, kde-format
-#| msgid "Select a device"
+#, kde-format
 msgid "Select device:"
-msgstr "Vybrať zariadenie"
+msgstr "Vyberte zariadenie:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendUrlRadioButton)
 #: dialog.ui:55
 #, kde-format
 msgid "Send URL"
-msgstr ""
+msgstr "Poslať URL"
 
 #. i18n: ectx: property (text), widget (QRadioButton, sendFileRadioButton)
 #: dialog.ui:62
 #, kde-format
 msgid "Send File"
-msgstr ""
+msgstr "Odoslať súbor"
 
 #. i18n: ectx: property (text), widget (QCheckBox, openOnPeerCheckBox)
 #: dialog.ui:82
 #, kde-format
 msgid "Open on peer device"
-msgstr ""
+msgstr "Otvoriť na partnerskom zariadení"
 
-#: kdeconnect-handler.cpp:43
+#: kdeconnect-handler.cpp:41
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "Obslužný program URL KDE Connect"
 
-#: kdeconnect-handler.cpp:49
+#: kdeconnect-handler.cpp:47
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:65
+#: kdeconnect-handler.cpp:63
 #, kde-format
 msgid "URL to share"
 msgstr "URL na zdieľanie"
 
-#: kdeconnect-handler.cpp:66
+#: kdeconnect-handler.cpp:64
 #, kde-format
 msgid "Select a device"
 msgstr "Vybrať zariadenie"
 
-#: kdeconnect-handler.cpp:66
+#: kdeconnect-handler.cpp:64
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:102
+#: kdeconnect-handler.cpp:100
 #, kde-format
 msgid "Enter URL here"
 msgstr "Tu zadajte URL"
 
-#: kdeconnect-handler.cpp:110
+#: kdeconnect-handler.cpp:108
 #, kde-format
 msgid "Enter file location here"
 msgstr "Tu zadajte umiestnenie súboru"
 
-#: kdeconnect-handler.cpp:135
+#: kdeconnect-handler.cpp:133
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Zariadenie pomocou ktorého volať %1:"
 
-#: kdeconnect-handler.cpp:138
+#: kdeconnect-handler.cpp:136
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Zariadenie, na ktorom otvoriť %1:"
 
-#: kdeconnect-handler.cpp:141
+#: kdeconnect-handler.cpp:139
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Zariadenie pomocou ktorého zaslať SMS:"
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:142
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Zariadenie, do ktorého odoslať %1:"
 
-#: kdeconnect-handler.cpp:173
+#: kdeconnect-handler.cpp:171
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Nepodarilo sa zdieľať %1"

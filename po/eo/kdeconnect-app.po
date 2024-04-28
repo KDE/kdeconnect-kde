@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-03-17 05:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,39 +18,39 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: main.cpp:32 main.cpp:34
+#: main.cpp:30 main.cpp:32
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "(c) 2015, Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Maintainer"
 msgstr "Prizorganto"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Oliver Kellogg"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "okellogg@users.sourceforge.net"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "URL to share"
 msgstr "URL por kunhavigi"
@@ -146,12 +146,12 @@ msgstr "Akcepti"
 msgid "Reject"
 msgstr "Malakcepti"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:177
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Ĉi tiu aparato ne estas atingebla"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:185
 #, kde-format
 msgid "Please choose a file"
 msgstr "Bonvolu elekti dosieron"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-03-20 18:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -22,39 +22,39 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: main.cpp:32 main.cpp:34
+#: main.cpp:30 main.cpp:32
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE 連線"
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "(c) 2015, Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "pan93412, Chaoting Liu"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "pan93412@gmail.com, brli@chakralinux.org"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "URL to share"
 msgstr "要分享的網址"
@@ -150,12 +150,12 @@ msgstr "接受"
 msgid "Reject"
 msgstr "拒絕"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:177
 #, kde-format
 msgid "This device is not reachable"
 msgstr "無法連線裝置"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:185
 #, kde-format
 msgid "Please choose a file"
 msgstr "請選擇檔案"

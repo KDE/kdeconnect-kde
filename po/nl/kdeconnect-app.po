@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-03-13 11:34+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,39 +17,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: main.cpp:32 main.cpp:34
+#: main.cpp:30 main.cpp:32
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "(c) 2015, Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Maintainer"
 msgstr "Onderhouder"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Freek de Kruijf - 2020 t/m 2021"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "freekdekruijf@kde.nl"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "URL to share"
 msgstr "Te delen URL"
@@ -145,12 +145,12 @@ msgstr "Accepteren"
 msgid "Reject"
 msgstr "Afwijzen"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:177
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Dit apparaat is niet bereikbaar"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:185
 #, kde-format
 msgid "Please choose a file"
 msgstr "Kies een bestand a.u.b"

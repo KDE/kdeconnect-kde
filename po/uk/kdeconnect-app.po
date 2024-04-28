@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-app\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-13 00:37+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-03-13 08:31+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -20,39 +20,39 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.1\n"
 
-#: main.cpp:32 main.cpp:34
+#: main.cpp:30 main.cpp:32
 #, kde-format
 msgid "KDE Connect"
 msgstr "KDE Connect"
 
-#: main.cpp:36
+#: main.cpp:34
 #, kde-format
 msgid "(c) 2015, Aleix Pol Gonzalez"
 msgstr "© Aleix Pol Gonzalez, 2015"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Aleix Pol Gonzalez"
 msgstr "Aleix Pol Gonzalez"
 
-#: main.cpp:37
+#: main.cpp:35
 #, kde-format
 msgid "Maintainer"
 msgstr "Супровідник"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Юрій Чорноіван"
 
-#: main.cpp:38
+#: main.cpp:36
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "URL to share"
 msgstr "Адреса для оприлюднення"
@@ -148,12 +148,12 @@ msgstr "Прийняти"
 msgid "Reject"
 msgstr "Відкинути"
 
-#: qml/DevicePage.qml:173
+#: qml/DevicePage.qml:177
 #, kde-format
 msgid "This device is not reachable"
 msgstr "Цей пристрій є недоступним"
 
-#: qml/DevicePage.qml:181
+#: qml/DevicePage.qml:185
 #, kde-format
 msgid "Please choose a file"
 msgstr "Будь ласка, виберіть файл"

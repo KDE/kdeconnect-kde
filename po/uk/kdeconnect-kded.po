@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:33+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2022-04-13 08:43+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -39,37 +39,37 @@ msgstr ""
 "Запит щодо пов’язування від %1\n"
 "Ключ: %2…"
 
-#: kdeconnectd.cpp:66 kdeconnectd.cpp:78
+#: kdeconnectd.cpp:65
 #, kde-format
 msgid "Open"
 msgstr "Відкрити"
 
-#: kdeconnectd.cpp:69 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:68
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
 
-#: kdeconnectd.cpp:72 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:71
 #, kde-format
 msgid "Reject"
 msgstr "Відмовити"
 
-#: kdeconnectd.cpp:75 kdeconnectd.cpp:79
+#: kdeconnectd.cpp:74
 #, kde-format
 msgid "View key"
 msgstr "Переглянути ключ"
 
-#: kdeconnectd.cpp:158 kdeconnectd.cpp:160
+#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "Фонова служба KDE Connect"
 
-#: kdeconnectd.cpp:166
+#: kdeconnectd.cpp:152
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Замінити наявний екземпляр"
 
-#: kdeconnectd.cpp:170
+#: kdeconnectd.cpp:156
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

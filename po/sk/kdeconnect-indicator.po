@@ -1,20 +1,20 @@
 # translation of kdeconnect-indicator.po to Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2020.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2020, 2021.
+# SPDX-FileCopyrightText: 2020, 2021, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2021-08-06 12:43+0200\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"PO-Revision-Date: 2024-04-27 16:46+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.07.90\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -35,11 +35,10 @@ msgstr "Prehliadať zariadenie"
 #: deviceindicator.cpp:67
 #, kde-format
 msgid "Send clipboard"
-msgstr ""
+msgstr "Odoslať schránku"
 
 #: deviceindicator.cpp:81
-#, fuzzy, kde-format
-#| msgid "Ring device"
+#, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Prezvoniť zariadenie"
@@ -104,49 +103,48 @@ msgstr "Nepodarilo sa nájsť službu kdeconnectd"
 msgid "Loading modules"
 msgstr "Načítavajú sa moduly"
 
-#: main.cpp:53
+#: main.cpp:51
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "Indikátor aplikácie KDE Connect"
 
-#: main.cpp:55
+#: main.cpp:53
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "Nástroj indikátora aplikácie KDE Connect"
 
-#: main.cpp:57
+#: main.cpp:55
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(C) 2016 Aleix Pol Gonzalez"
 
-#: main.cpp:92
+#: main.cpp:90
 #, kde-format
 msgid "Configure..."
 msgstr "Nastaviť..."
 
-#: main.cpp:114
+#: main.cpp:112
 #, kde-format
 msgid "Pairing requests"
 msgstr "Žiadosti o spárovanie"
 
-#: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "Pair"
+#: main.cpp:117
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Spárovať"
 
-#: main.cpp:120
+#: main.cpp:118
 #, kde-format
 msgid "Reject"
 msgstr "Odmietnuť"
 
-#: main.cpp:126 main.cpp:136
+#: main.cpp:124 main.cpp:134
 #, kde-format
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: main.cpp:155 main.cpp:179
+#: main.cpp:153 main.cpp:177
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"

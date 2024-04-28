@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2021-02-14 10:08+0700\n"
 "Last-Translator: Wantoyo <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -26,17 +26,17 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wantoyek@gmail.com"
 
-#: main.cpp:28 main.cpp:30
+#: main.cpp:26 main.cpp:28
 #, kde-format
 msgid "KDE Connect Settings"
 msgstr "Pengaturan KDE Connect"
 
-#: main.cpp:32
+#: main.cpp:30
 #, kde-format
 msgid "(C) 2018-2020 Nicolas Fella"
 msgstr "(C) 2018-2020 Nicolas Fella"
 
-#: main.cpp:36 main.cpp:55
+#: main.cpp:34 main.cpp:53
 #, kde-format
 msgid "Arguments for the config module"
 msgstr "Argumen untuk modul config"

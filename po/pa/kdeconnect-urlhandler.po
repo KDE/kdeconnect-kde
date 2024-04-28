@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"POT-Creation-Date: 2024-04-28 00:38+0000\n"
 "PO-Revision-Date: 2024-02-10 10:26-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -51,62 +51,62 @@ msgstr "ਫਾਇਲ ਭੇਜੋ"
 msgid "Open on peer device"
 msgstr "ਪੀਅਰ ਡਿਵਾਈਸ ਉੱਤੇ ਖੋਲ੍ਹੋ"
 
-#: kdeconnect-handler.cpp:43
+#: kdeconnect-handler.cpp:41
 #, kde-format
 msgid "KDE Connect URL handler"
 msgstr "KDE ਕਨੈਕਟ URL ਹੈਂਡਲਰ"
 
-#: kdeconnect-handler.cpp:49
+#: kdeconnect-handler.cpp:47
 #, kde-format
 msgid "(C) 2017 Aleix Pol Gonzalez"
 msgstr "(C) 2017 Aleix Pol Gonzalez"
 
-#: kdeconnect-handler.cpp:65
+#: kdeconnect-handler.cpp:63
 #, kde-format
 msgid "URL to share"
 msgstr "ਸਾਂਝਾ ਕਰਨ ਲਈ URL"
 
-#: kdeconnect-handler.cpp:66
+#: kdeconnect-handler.cpp:64
 #, kde-format
 msgid "Select a device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਚੁਣੋ"
 
-#: kdeconnect-handler.cpp:66
+#: kdeconnect-handler.cpp:64
 #, kde-format
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:102
+#: kdeconnect-handler.cpp:100
 #, kde-format
 msgid "Enter URL here"
 msgstr "URL ਇੱਥੇ ਦਿਓ"
 
-#: kdeconnect-handler.cpp:110
+#: kdeconnect-handler.cpp:108
 #, kde-format
 msgid "Enter file location here"
 msgstr "ਫਾਇਲ ਦਾ ਟਿਕਾਣਾ ਇੱਥੇ ਦਿਓ"
 
-#: kdeconnect-handler.cpp:135
+#: kdeconnect-handler.cpp:133
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "ਇਸ ਨਾਲ %1 ਕਾਲ ਕਰਨ ਲਈ ਡਿਵਾਈਸ:"
 
-#: kdeconnect-handler.cpp:138
+#: kdeconnect-handler.cpp:136
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "ਇਸ ਉੱਤੇ %1 ਖੋਲ੍ਹਣ ਲਈ ਡਿਵਾਈਸ:"
 
-#: kdeconnect-handler.cpp:141
+#: kdeconnect-handler.cpp:139
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "ਇਸ ਨਾਲ SMS ਭੇਜਣ ਲਈ ਡਿਵਾਈਸ:"
 
-#: kdeconnect-handler.cpp:144
+#: kdeconnect-handler.cpp:142
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "ਇਸ ਉੱਤੇ %1 ਭੇਜਣ ਲਈ ਡਿਵਾਈਸ:"
 
-#: kdeconnect-handler.cpp:173
+#: kdeconnect-handler.cpp:171
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "%1 ਨੂੰ ਸਾਂਝਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
