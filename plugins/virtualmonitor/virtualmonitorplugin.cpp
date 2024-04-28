@@ -18,6 +18,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(VirtualMonitorPlugin, "kdeconnect_virtualmonitor.json")
 #define QS QLatin1String
+static const int DEFAULT_PORT = 5901;
 
 VirtualMonitorPlugin::~VirtualMonitorPlugin()
 {
@@ -56,8 +57,29 @@ void VirtualMonitorPlugin::connected()
 
 void VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
 {
-    if (received.type() == PACKET_TYPE_VIRTUALMONITOR_REQUEST && received.has(QS("url"))) {
-        QUrl url(received.get<QString>(QS("url")));
+    if (received.type() == PACKET_TYPE_VIRTUALMONITOR_REQUEST) {
+        // At least a password is necessary, we have defaults for all other parameters
+        if (!received.has(QS("password"))) {
+            qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Request invalid, missing password";
+            return;
+        }
+
+        // Try to get the IP address of the paired device
+        QHostAddress addr = device()->getLocalIpAddress();
+        if (addr == QHostAddress::Null) {
+            qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Device doesn't have a LanDeviceLink, unable to get IP address";
+            return;
+        }
+
+        QUrl url;
+        url.setScheme(received.get<QString>(QS("protocol"), QS("vnc")));
+        url.setUserName(received.get<QString>(QS("username"), QS("user")));
+        url.setPassword(received.get<QString>(QS("password")));
+        url.setPort(received.get<int>(QS("port"), DEFAULT_PORT));
+        url.setHost(addr.toString());
+
+        qCInfo(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Received request, try connecting to" << url.toDisplayString();
+
         if (!QDesktopServices::openUrl(url)) {
             qCWarning(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Failed to open" << url.toDisplayString();
             NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR, {{QS("failed"), 0}});
@@ -93,7 +115,7 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Requesting virtual display " << device()->name();
 
     QUuid uuid = QUuid::createUuid();
-    static int s_port = 5901;
+    static int s_port = DEFAULT_PORT;
     const QString port = QString::number(s_port++);
 
     m_process = new QProcess(this);
@@ -128,13 +150,11 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
         return false;
     }
 
-    QUrl url;
-    url.setScheme(QS("vnc"));
-    url.setUserName(QS("user"));
-    url.setPassword(uuid.toString());
-    url.setHost(device()->getLocalIpAddress().toString());
-
-    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST, {{QS("url"), url.toEncoded()}});
+    NetworkPacket np(PACKET_TYPE_VIRTUALMONITOR_REQUEST);
+    np.set(QS("protocol"), QS("vnc"));
+    np.set(QS("username"), QS("user"));
+    np.set(QS("password"), uuid.toString());
+    np.set(QS("port"), port);
     sendPacket(np);
     return true;
 }
