@@ -358,10 +358,37 @@ void MprisControlPlugin::receivePacket(const NetworkPacket &np)
     }
 }
 
+QStringList getFilteredPlayerKeys(const QHash<QString, MprisPlayer> &players)
+{
+    bool hasPlasmaChromiumExtension = false;
+    bool hasPlasmaFirefoxExtension = false;
+    for (auto [name, player] : players.asKeyValueRange()) {
+        QString serviceName = player.serviceName();
+        if (serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2.plasma-browser-integration"))) {
+            if (name.contains(QStringLiteral("Firefox"))) {
+                hasPlasmaFirefoxExtension = true;
+            } else if (name.contains(QStringLiteral("Chrome")) || name.contains(QStringLiteral("Chromium"))) {
+                hasPlasmaChromiumExtension = true;
+            }
+        }
+    }
+    QStringList result;
+    for (auto [name, player] : players.asKeyValueRange()) {
+        QString serviceName = player.serviceName();
+        if ((hasPlasmaFirefoxExtension && serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2.firefox")))
+            || (hasPlasmaChromiumExtension && serviceName.startsWith(QStringLiteral("org.mpris.MediaPlayer2.chromium")))) {
+            continue; // skip
+        }
+        result += name;
+    }
+    return result;
+}
+
 void MprisControlPlugin::sendPlayerList()
 {
+    QStringList players = getFilteredPlayerKeys(playerList);
     NetworkPacket np(PACKET_TYPE_MPRIS);
-    np.set(QStringLiteral("playerList"), playerList.keys());
+    np.set(QStringLiteral("playerList"), players);
     np.set(QStringLiteral("supportAlbumArtPayload"), true);
     sendPacket(np);
 }
