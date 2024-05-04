@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Maxime Corteel <mcorteel@gmail.com>, 2017, 2019.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
-# Xavier Besnard <xavier.besnard@kde.org>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2023-06-13 06:28+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2024-04-26 15:53+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -162,7 +162,8 @@ msgstr[1] "Aucun périphérique associé n'est disponible"
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
-"Installez KDE Connect sur votre appareil Android pour l'intégrer à Plasma !"
+"Installez KDEConnect sur votre appareil sous Android pour l'intégrer à "
+"Plasma !"
 
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
@@ -172,7 +173,7 @@ msgstr "Associer un périphérique..."
 #: package/contents/ui/FullRepresentation.qml:76
 #, kde-format
 msgid "Install from Google Play"
-msgstr "Installer depuis Google Play"
+msgstr "Installer depuis GooglePlay"
 
 #: package/contents/ui/FullRepresentation.qml:86
 #, kde-format
@@ -182,7 +183,7 @@ msgstr "Installer depuis F-Droid"
 #: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings..."
-msgstr "Paramètres de KDE Connect..."
+msgstr "Configuration de KDEConnect..."
 
 #~ msgid "Save As"
 #~ msgstr "Enregistrer sous"

@@ -1,21 +1,21 @@
+# SPDX-FileCopyrightText: 2021, 2022, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Maxime Corteel <mcorteel@gmail.com>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
-# Xavier Besnard <xavier.besnard@kde.org>, 2021, 2022.
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-urlhandler\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:32+0000\n"
-"PO-Revision-Date: 2023-01-02 22:12+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2024-04-25 14:48+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -59,7 +59,7 @@ msgstr "Ouvrir sur un périphérique associé"
 #: kdeconnect-handler.cpp:43
 #, kde-format
 msgid "KDE Connect URL handler"
-msgstr "Gestionnaire d'URL de KDE Connect"
+msgstr "Gestionnaire d'URL de KDEConnect"
 
 #: kdeconnect-handler.cpp:49
 #, kde-format

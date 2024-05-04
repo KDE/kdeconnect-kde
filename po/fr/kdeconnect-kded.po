@@ -6,7 +6,7 @@
 # Sebastien Renard <renard@kde.org>, 2014, 2015.
 # Maxime Corteel <mcorteel@gmail.com>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019, 2020.
-# Xavier Besnard <xavier.besnard@kde.org>, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2020, 2021, 2022, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 #
 msgid ""
@@ -14,15 +14,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:33+0000\n"
-"PO-Revision-Date: 2023-03-08 12:47+0100\n"
+"PO-Revision-Date: 2024-04-26 15:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -69,7 +69,7 @@ msgstr "Afficher la clé"
 #: kdeconnectd.cpp:158 kdeconnectd.cpp:160
 #, kde-format
 msgid "KDE Connect Daemon"
-msgstr "Démon KDE Connect"
+msgstr "Démon de KDEConnect"
 
 #: kdeconnectd.cpp:166
 #, kde-format
@@ -82,7 +82,7 @@ msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"
 msgstr ""
 "Lancer un démon privé « D-Bus » avec le processus "
-"« kdeconnectd » (Uniquement pour des besoins de tests sous MacOS)"
+"« kdeconnectd » (Uniquement pour des besoins de tests sous macOS)"
 
 #~ msgid "kdeconnect"
 #~ msgstr "kdeconnect"
