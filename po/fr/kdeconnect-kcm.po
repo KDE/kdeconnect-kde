@@ -4,22 +4,22 @@
 # Nicolas Ménard <nico.menard@gmail.com>, 2014.
 # Maxime Corteel <mcorteel@gmail.com>, 2014, 2015, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018.
-# SPDX-FileCopyrightText: 2020, 2021, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-11-21 11:00+0100\n"
+"PO-Revision-Date: 2024-04-26 15:47+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -73,7 +73,7 @@ msgstr "(association demandée)"
 #: kcm.ui:59
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE Connect"
+msgstr "KDEConnect"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:82
@@ -165,15 +165,14 @@ msgstr ""
 "<html><head/><body> <p>Aucun périphérique sélectionné.<br><br>Si vous "
 "utilisez un périphérique Android, veuillez vous assurer de l'installation de "
 "<a href=\"https://play.google.com/store/apps/details?id=org.kde.kdeconnect_tp"
-"\"><span style=\" text-decoration: underline;\">l'application Android « KDE "
-"Connect »</span></a> (Également disponible <a href=\"https://f-droid.org/"
-"repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
+"\"><span style=\" text-decoration: underline;\">l'application Android "
+"« KDEConnect »</span></a> (Également disponible <a href=\"https://f-droid."
+"org/repository/browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-"
 "decoration: underline;\">sur le site « F-Droid » </span></a>) et il devrait "
 "apparaître dans la liste.<br><br>Si vous rencontrez des problèmes, veuillez "
 "consulter le <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-"text-decoration: underline;\">KDE Connect Community wiki</span></a>wiki de "
-"la communauté « KDE Connect »</span></a> pour obtenir de l'aide.</p></body></"
-"html>"
+"text-decoration: underline;\">wiki de la communauté de KDEConnect</span></a> "
+"pour obtenir de l'aide.</p></body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "Configuration de KDE Connect"
