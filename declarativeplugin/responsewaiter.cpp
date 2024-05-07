@@ -68,7 +68,7 @@ void DBusAsyncResponse::setPendingCall(QVariant variant)
 {
     if (QDBusPendingCall *call = const_cast<QDBusPendingCall *>(DBusResponseWaiter::instance()->extractPendingCall(variant))) {
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(*call);
-        watcher->setProperty("pengingCallVariant", variant);
+        watcher->setProperty("pendingCallVariant", variant);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &DBusAsyncResponse::onCallFinished);
         connect(watcher, &QDBusPendingCallWatcher::finished, watcher, &QObject::deleteLater);
         connect(&m_timeout, &QTimer::timeout, watcher, &QObject::deleteLater);
@@ -79,7 +79,7 @@ void DBusAsyncResponse::setPendingCall(QVariant variant)
 void DBusAsyncResponse::onCallFinished(QDBusPendingCallWatcher *watcher)
 {
     m_timeout.stop();
-    QVariant variant = watcher->property("pengingCallVariant");
+    QVariant variant = watcher->property("pendingCallVariant");
 
     if (QDBusPendingCall *call = const_cast<QDBusPendingCall *>(DBusResponseWaiter::instance()->extractPendingCall(variant))) {
         if (call->isError()) {
