@@ -55,7 +55,7 @@ msgstr "Envia un fitxer/URL"
 #: deviceindicator.cpp:107
 #, kde-format
 msgid "SMS Messages..."
-msgstr "Missatges SMS..."
+msgstr "Missatges SMS…"
 
 #: deviceindicator.cpp:120
 #, kde-format
@@ -125,7 +125,7 @@ msgstr "(C) 2016 Aleix Pol Gonzalez"
 #: main.cpp:90
 #, kde-format
 msgid "Configure..."
-msgstr "Configura..."
+msgstr "Configura…"
 
 #: main.cpp:112
 #, kde-format

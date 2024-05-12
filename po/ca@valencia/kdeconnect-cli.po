@@ -286,7 +286,7 @@ msgstr "Sol·licitud de desbloqueig %1."
 #: kdeconnect-cli.cpp:240
 #, kde-format
 msgid "waiting for device..."
-msgstr "s'està esperant per un dispositiu..."
+msgstr "s'està esperant per un dispositiu…"
 
 #: kdeconnect-cli.cpp:253
 #, kde-format
