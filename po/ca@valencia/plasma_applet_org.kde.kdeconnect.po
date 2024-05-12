@@ -169,7 +169,7 @@ msgstr ""
 #: package/contents/ui/FullRepresentation.qml:64
 #, kde-format
 msgid "Pair a Device..."
-msgstr "Aparella un dispositiu..."
+msgstr "Aparella un dispositiu…"
 
 #: package/contents/ui/FullRepresentation.qml:76
 #, kde-format
@@ -184,4 +184,4 @@ msgstr "Instal·la des del F-Droid"
 #: package/contents/ui/main.qml:59
 #, kde-format
 msgid "KDE Connect Settings..."
-msgstr "Configureu KDE Connect..."
+msgstr "Configureu KDE Connect…"

@@ -104,7 +104,7 @@ msgstr "Respon"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1..."
-msgstr "Respon a %1..."
+msgstr "Respon a %1…"
 
 #: notifications/sendreplydialog.cpp:29
 #, kde-format

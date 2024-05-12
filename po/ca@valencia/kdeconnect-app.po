@@ -188,7 +188,7 @@ msgstr "No s'ha trobat cap dispositiu"
 #: qml/Main.qml:73
 #, kde-format
 msgid "Find devices..."
-msgstr "Busca dispositius..."
+msgstr "Busca dispositius…"
 
 #: qml/Main.qml:122 qml/Main.qml:126
 #, kde-format
