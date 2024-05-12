@@ -547,11 +547,11 @@ void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &devi
     socket->setPeerVerifyName(deviceId);
 
     // Usually SSL errors are only bad for trusted devices. Uncomment this section to log errors in any case, for debugging.
-    // QObject::connect(socket, static_cast<void (QSslSocket::*)(const QList<QSslError>&)>(&QSslSocket::sslErrors), [](const QList<QSslError>& errors)
-    //{
-    //     Q_FOREACH (const QSslError& error, errors) {
-    //         qCDebug(KDECONNECT_CORE) << "SSL Error:" << error.errorString();
-    //     }
+    // connect(socket, &QSslSocket::sslErrors, [](const QList<QSslError>& errors)
+    // {
+    //      for (const QSslError& error : errors) {
+    //          qCDebug(KDECONNECT_CORE) << "SSL Error:" << error.errorString();
+    //      }
     // });
 }
 
