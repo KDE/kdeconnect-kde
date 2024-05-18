@@ -1,15 +1,15 @@
 # translation of kdeconnect-core.pot to esperanto
 # Copyright (C) 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the kdeconnect-kde package.
-# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-18 00:37+0000\n"
-"PO-Revision-Date: 2023-12-27 09:20+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-10 11:33+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr "Ne eblis generi la privatan ŝlosilon."
 #: kdeconnectconfig.cpp:317
 #, kde-format
 msgid "Could not store private key file: %1"
-msgstr "Ne eblis stoki privatan ŝlosildosieron: %1"
+msgstr "Ne eblis konservi privatan ŝlosildosieron: %1"
 
 #: kdeconnectconfig.cpp:332
 #, kde-format
@@ -132,6 +132,3 @@ msgstr "Ne eblis generi la aparatan atestilon."
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Ne eblis konservi atestilon: %1"
-
-#~ msgid "Received incomplete file: %1"
-#~ msgstr "Ricevita nekompleta dosiero: %1"
