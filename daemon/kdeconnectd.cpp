@@ -53,8 +53,7 @@ public:
         notification->setIconName(QStringLiteral("dialog-information"));
         notification->setComponentName(QStringLiteral("kdeconnect"));
         notification->setTitle(QStringLiteral("KDE Connect"));
-        notification->setText(
-            i18n("Pairing request from %1\nKey: %2...", device->name().toHtmlEscaped(), QString::fromUtf8(device->verificationKey().left(8))));
+        notification->setText(i18n("Pairing request from %1\nKey: %2", device->name().toHtmlEscaped(), device->verificationKey()));
         QString deviceId = device->id();
         auto openSettings = [deviceId, notification] {
             OpenConfig oc;

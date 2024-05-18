@@ -468,7 +468,7 @@ QSslCertificate Device::certificate() const
     return d->m_deviceInfo.certificate;
 }
 
-QByteArray Device::verificationKey() const
+QString Device::verificationKey() const
 {
     auto a = KdeConnectConfig::instance().certificate().publicKey().toDer();
     auto b = certificate().publicKey().toDer();
@@ -479,7 +479,7 @@ QByteArray Device::verificationKey() const
     QCryptographicHash hash(QCryptographicHash::Sha256);
     hash.addData(a);
     hash.addData(b);
-    return hash.result().toHex();
+    return QString::fromLatin1(hash.result().toHex().left(8).toUpper());
 }
 
 QString Device::pluginIconName(const QString &pluginName)

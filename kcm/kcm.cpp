@@ -180,7 +180,7 @@ void KdeConnectKcm::resetCurrentDevice()
 
 void KdeConnectKcm::resetDeviceView()
 {
-    kcmUi.verificationKey->setText(i18n("Key: %1", QString::fromUtf8(currentDevice->verificationKey())));
+    kcmUi.verificationKey->setText(i18n("Key: %1", currentDevice->verificationKey()));
 
     kcmUi.name_label->setText(currentDevice->name());
     setWhenAvailable(

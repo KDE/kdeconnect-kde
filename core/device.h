@@ -26,6 +26,7 @@ class KDECONNECTCORE_EXPORT Device : public QObject
     Q_PROPERTY(QString type READ typeAsString NOTIFY typeChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString iconName READ iconName CONSTANT)
+    Q_PROPERTY(QString verificationKey READ verificationKey CONSTANT)
     Q_PROPERTY(QString statusIconName READ statusIconName NOTIFY statusIconNameChanged)
     Q_PROPERTY(bool isReachable READ isReachable NOTIFY reachableChanged)
     Q_PROPERTY(bool isPaired READ isPaired NOTIFY pairStateChanged)
@@ -64,7 +65,7 @@ public:
     };
     QString iconName() const;
     QString statusIconName() const;
-    Q_SCRIPTABLE QByteArray verificationKey() const;
+    Q_SCRIPTABLE QString verificationKey() const;
     Q_SCRIPTABLE QString encryptionInfo() const;
 
     // Add and remove links
