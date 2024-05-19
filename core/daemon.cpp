@@ -193,10 +193,11 @@ void Daemon::onDeviceStatusChanged()
 
 void Daemon::setAnnouncedName(const QString &name)
 {
+    QString filteredName = DeviceInfo::filterName(name);
     qCDebug(KDECONNECT_CORE) << "Announcing name";
-    KdeConnectConfig::instance().setName(name);
+    KdeConnectConfig::instance().setName(filteredName);
     forceOnNetworkChange();
-    Q_EMIT announcedNameChanged(name);
+    Q_EMIT announcedNameChanged(filteredName);
 }
 
 void Daemon::setCustomDevices(const QStringList &addresses)

@@ -259,8 +259,8 @@ void LanLinkProvider::udpBroadcastReceived()
             continue;
         }
 
-        if (receivedPacket->type() != PACKET_TYPE_IDENTITY) {
-            qCDebug(KDECONNECT_CORE) << "Received a UDP packet of wrong type" << receivedPacket->type();
+        if (!DeviceInfo::isValidIdentityPacket(receivedPacket)) {
+            qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
             delete receivedPacket;
             continue;
         }
@@ -477,8 +477,8 @@ void LanLinkProvider::dataReceived()
         return;
     }
 
-    if (np->type() != PACKET_TYPE_IDENTITY) {
-        qCWarning(KDECONNECT_CORE) << "LanLinkProvider/newConnection: Expected identity, received " << np->type();
+    if (!DeviceInfo::isValidIdentityPacket(np)) {
+        qCWarning(KDECONNECT_CORE) << "Invalid identity packet received";
         delete np;
         return;
     }
