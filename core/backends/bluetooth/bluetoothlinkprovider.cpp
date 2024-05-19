@@ -89,6 +89,8 @@ void BluetoothLinkProvider::connectError()
 
 void BluetoothLinkProvider::addLink(BluetoothDeviceLink *deviceLink, const QString &deviceId)
 {
+    Q_EMIT onConnectionReceived(deviceLink);
+
     qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider::addLink executed";
     if (mLinks.contains(deviceId)) {
         delete mLinks.take(deviceId); // not calling deleteLater because this triggers onLinkDestroyed
@@ -217,8 +219,6 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
     if (success) {
         qCDebug(KDECONNECT_CORE) << "BluetoothLinkProvider Handshaking done (I'm the new device)";
 
-        Q_EMIT onConnectionReceived(deviceLink);
-
         // We kill any possible link from this same device
         addLink(deviceLink, deviceInfo.id);
 
@@ -311,8 +311,6 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
     QSslCertificate receivedCertificate(receivedPacket.get<QString>(QStringLiteral("certificate")).toLatin1());
     DeviceInfo deviceInfo = deviceInfo.FromIdentityPacketAndCert(receivedPacket, receivedCertificate);
     BluetoothDeviceLink *deviceLink = new BluetoothDeviceLink(deviceInfo, this, mSockets[peer], socket);
-
-    Q_EMIT onConnectionReceived(deviceLink);
 
     addLink(deviceLink, deviceInfo.id);
 }
