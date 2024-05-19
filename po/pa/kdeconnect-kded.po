@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2024-01-28 13:38-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -27,46 +27,49 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@punlinux.org"
 
-#: kdeconnectd.cpp:57
-#, kde-format
+#: kdeconnectd.cpp:56
+#, fuzzy, kde-format
+#| msgid ""
+#| "Pairing request from %1\n"
+#| "Key: %2..."
 msgid ""
 "Pairing request from %1\n"
-"Key: %2..."
+"Key: %2"
 msgstr ""
 "%1 ਤੋਂ ਪੇਅਰ ਕਰਨ ਦੀ ਬੇਨਤੀ\n"
 "ਕੁੰਜੀ: %2..."
 
-#: kdeconnectd.cpp:65
+#: kdeconnectd.cpp:64
 #, kde-format
 msgid "Open"
 msgstr "ਖੋਲ੍ਹੋ"
 
-#: kdeconnectd.cpp:68
+#: kdeconnectd.cpp:67
 #, kde-format
 msgid "Accept"
 msgstr "ਮਨਜ਼ੂਰ"
 
-#: kdeconnectd.cpp:71
+#: kdeconnectd.cpp:70
 #, kde-format
 msgid "Reject"
 msgstr "ਇਨਕਾਰ"
 
-#: kdeconnectd.cpp:74
+#: kdeconnectd.cpp:73
 #, kde-format
 msgid "View key"
 msgstr "ਕੁੰਜੀ ਨੂੰ ਵੇਖੋ"
 
-#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
+#: kdeconnectd.cpp:143 kdeconnectd.cpp:145
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE ਕਨੈਕਟ ਡੈਮਨ"
 
-#: kdeconnectd.cpp:152
+#: kdeconnectd.cpp:151
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
 
-#: kdeconnectd.cpp:156
+#: kdeconnectd.cpp:155
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

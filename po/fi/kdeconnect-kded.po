@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2024-01-29 17:52+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -28,46 +28,49 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "translator@legisign.org"
 
-#: kdeconnectd.cpp:57
-#, kde-format
+#: kdeconnectd.cpp:56
+#, fuzzy, kde-format
+#| msgid ""
+#| "Pairing request from %1\n"
+#| "Key: %2..."
 msgid ""
 "Pairing request from %1\n"
-"Key: %2..."
+"Key: %2"
 msgstr ""
 "Parituspyyntö laitteelta %1\n"
 "Avain: %2…"
 
-#: kdeconnectd.cpp:65
+#: kdeconnectd.cpp:64
 #, kde-format
 msgid "Open"
 msgstr "Avaa"
 
-#: kdeconnectd.cpp:68
+#: kdeconnectd.cpp:67
 #, kde-format
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: kdeconnectd.cpp:71
+#: kdeconnectd.cpp:70
 #, kde-format
 msgid "Reject"
 msgstr "Hylkää"
 
-#: kdeconnectd.cpp:74
+#: kdeconnectd.cpp:73
 #, kde-format
 msgid "View key"
 msgstr "Näytä avain"
 
-#: kdeconnectd.cpp:144 kdeconnectd.cpp:146
+#: kdeconnectd.cpp:143 kdeconnectd.cpp:145
 #, kde-format
 msgid "KDE Connect Daemon"
 msgstr "KDE Connect -palvelu"
 
-#: kdeconnectd.cpp:152
+#: kdeconnectd.cpp:151
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Korvaa aiempi ilmentymä"
 
-#: kdeconnectd.cpp:156
+#: kdeconnectd.cpp:155
 #, kde-format
 msgid ""
 "Launch a private D-Bus daemon with kdeconnectd (macOS test-purpose only)"

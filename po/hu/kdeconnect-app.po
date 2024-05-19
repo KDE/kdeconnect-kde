@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:38+0000\n"
-"PO-Revision-Date: 2024-01-18 09:48+0100\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
+"PO-Revision-Date: 2024-05-18 14:21+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.01.90\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: main.cpp:30 main.cpp:32
 #, kde-format
@@ -121,8 +121,11 @@ msgid "Volume control"
 msgstr "Hangerőszabályzó"
 
 #: qml/DevicePage.qml:130
-#, kde-format
-msgid "This device is not paired"
+#, fuzzy, kde-format
+#| msgid "This device is not paired"
+msgid ""
+"This device is not paired.\n"
+"Key: %1"
 msgstr "Az eszköz nincs párosítva"
 
 #: qml/DevicePage.qml:134
@@ -132,8 +135,11 @@ msgid "Pair"
 msgstr "Párosítás"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, kde-format
-msgid "Pair requested"
+#, fuzzy, kde-format
+#| msgid "Pair requested"
+msgid ""
+"Pair requested\n"
+"Key: "
 msgstr "Párosítás kérve"
 
 #: qml/DevicePage.qml:156
@@ -221,7 +227,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Bővítmény beállítása"
 
 #: qml/presentationRemote.qml:21
 #, kde-format

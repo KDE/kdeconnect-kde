@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:38+0000\n"
+"POT-Creation-Date: 2024-05-19 00:38+0000\n"
 "PO-Revision-Date: 2024-05-12 16:20+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -124,8 +124,11 @@ msgid "Volume control"
 msgstr "Регулятор громкости"
 
 #: qml/DevicePage.qml:130
-#, kde-format
-msgid "This device is not paired"
+#, fuzzy, kde-format
+#| msgid "This device is not paired"
+msgid ""
+"This device is not paired.\n"
+"Key: %1"
 msgstr "Это устройство не сопряжено"
 
 #: qml/DevicePage.qml:134
@@ -135,8 +138,11 @@ msgid "Pair"
 msgstr "Cоздать сопряжение"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, kde-format
-msgid "Pair requested"
+#, fuzzy, kde-format
+#| msgid "Pair requested"
+msgid ""
+"Pair requested\n"
+"Key: "
 msgstr "Запрошено сопряжение"
 
 #: qml/DevicePage.qml:156
