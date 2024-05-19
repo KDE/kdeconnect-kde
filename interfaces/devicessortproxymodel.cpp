@@ -34,7 +34,7 @@ bool DevicesSortProxyModel::lessThan(const QModelIndex &left, const QModelIndex 
     QString nameLeft = model->data(left, DevicesModel::NameModelRole).toString();
     QString nameRight = model->data(right, DevicesModel::NameModelRole).toString();
 
-    return nameLeft > nameRight;
+    return nameLeft < nameRight;
 }
 
 bool DevicesSortProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
