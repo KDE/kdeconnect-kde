@@ -26,6 +26,61 @@ QString getSslError()
     return QString::fromLatin1(buf);
 }
 
+QSslKey generateEcPrivateKey()
+{
+    // Initialize context.
+    auto pctxRaw = EVP_PKEY_CTX_new_id(EVP_PKEY_EC, nullptr);
+    auto pctx = std::unique_ptr<EVP_PKEY_CTX, decltype(&::EVP_PKEY_CTX_free)>(pctxRaw, ::EVP_PKEY_CTX_free);
+    if (!pctx) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed to allocate context " << getSslError();
+        return QSslKey();
+    }
+
+    if (EVP_PKEY_keygen_init(pctx.get()) <= 0) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed to initialize context " << getSslError();
+        return QSslKey();
+    }
+
+    // Set the curve.
+    if (EVP_PKEY_CTX_set_ec_paramgen_curve_nid(pctx.get(), NID_X9_62_prime256v1) <= 0) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed to set curve " << getSslError();
+        return QSslKey();
+    }
+
+    // Generate private key.
+    auto pkey = std::unique_ptr<EVP_PKEY, decltype(&::EVP_PKEY_free)>(EVP_PKEY_new(), ::EVP_PKEY_free);
+    if (!pkey) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed to allocate private key " << getSslError();
+        return QSslKey();
+    }
+
+    auto pkey_raw = pkey.get();
+    if (EVP_PKEY_keygen(pctx.get(), &pkey_raw) <= 0) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed to generate private key " << getSslError();
+        return QSslKey();
+    }
+
+    // Convert private key format to PEM as required by QSslKey.
+    auto bio = std::unique_ptr<BIO, decltype(&::BIO_free_all)>(BIO_new(BIO_s_mem()), ::BIO_free_all);
+    if (!bio) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed to allocate I/O abstraction " << getSslError();
+        return QSslKey();
+    }
+
+    if (!PEM_write_bio_PrivateKey(bio.get(), pkey_raw, nullptr, nullptr, 0, nullptr, nullptr)) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed write PEM format private key to BIO " << getSslError();
+        return QSslKey();
+    }
+
+    BUF_MEM *mem = nullptr;
+    if (!BIO_get_mem_ptr(bio.get(), &mem)) {
+        qCWarning(KDECONNECT_CORE) << "Generate EC Private Key failed get PEM format address " << getSslError();
+        return QSslKey();
+    }
+
+    return QSslKey(QByteArray(mem->data, mem->length), QSsl::KeyAlgorithm::Ec);
+}
+
 QSslKey generateRsaPrivateKey()
 {
     // Initialize context.
@@ -86,11 +141,12 @@ QSslCertificate generateSelfSignedCertificate(const QSslKey &qtPrivateKey, const
     // Create certificate.
     auto x509 = std::unique_ptr<X509, decltype(&::X509_free)>(X509_new(), ::X509_free);
     if (!x509) {
-        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to allocate certifcate " << getSslError();
+        qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to allocate certificate " << getSslError();
         return QSslCertificate();
     }
 
-    if (!X509_set_version(x509.get(), 2)) {
+    constexpr int x509version = 3 - 1; // version is 0-indexed, so we need the -1
+    if (!X509_set_version(x509.get(), x509version)) {
         qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to set version " << getSslError();
         return QSslCertificate();
     }
@@ -169,7 +225,7 @@ QSslCertificate generateSelfSignedCertificate(const QSslKey &qtPrivateKey, const
     }
 
     // Sign the certificate with private key.
-    if (!X509_sign(x509.get(), pkey.get(), EVP_sha256())) {
+    if (!X509_sign(x509.get(), pkey.get(), EVP_sha512())) {
         qCWarning(KDECONNECT_CORE) << "Generate Self Signed Certificate failed to sign certificate " << getSslError();
         return QSslCertificate();
     }

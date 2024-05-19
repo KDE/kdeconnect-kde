@@ -527,14 +527,7 @@ void LanLinkProvider::configureSslSocket(QSslSocket *socket, const QString &devi
     // Configure for ssl
     QSslConfiguration sslConfig;
     sslConfig.setLocalCertificate(KdeConnectConfig::instance().certificate());
-
-    QFile privateKeyFile(KdeConnectConfig::instance().privateKeyPath());
-    QSslKey privateKey;
-    if (privateKeyFile.open(QIODevice::ReadOnly)) {
-        privateKey = QSslKey(privateKeyFile.readAll(), QSsl::Rsa);
-    }
-    privateKeyFile.close();
-    sslConfig.setPrivateKey(privateKey);
+    sslConfig.setPrivateKey(KdeConnectConfig::instance().privateKey());
 
     if (isDeviceTrusted) {
         QSslCertificate certificate = KdeConnectConfig::instance().getTrustedDeviceCertificate(deviceId);

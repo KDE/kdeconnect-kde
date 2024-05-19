@@ -13,6 +13,7 @@
 
 namespace SslHelper
 {
+QSslKey generateEcPrivateKey();
 QSslKey generateRsaPrivateKey();
 QSslCertificate generateSelfSignedCertificate(const QSslKey &privateKey, const QString &commonName);
 }
