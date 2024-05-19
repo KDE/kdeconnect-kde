@@ -86,7 +86,18 @@ int main(int argc, char **argv)
     uidialog.devicePicker->setModel(&proxyModel);
 
     if (!deviceId.isEmpty()) {
-        uidialog.devicePicker->setCurrentIndex(model.rowForDevice(deviceId));
+        // This is done on rowsInserted because the model isn't populated yet
+        QObject::connect(&model, &QAbstractItemModel::rowsInserted, &app, [&uidialog, &deviceId, &proxyModel](const QModelIndex &parent, int first) {
+            Q_UNUSED(parent);
+            /**
+             * We want to run this only once, but on startup the data is populated, removed then repopulated (rowsInserted() -> rowsRemoved() ->
+             * rowsInserted()). Thus by running only when there were no devices previously, it ensures that the user's selection doesn't change without them
+             * realising.
+             */
+            if (first == 0) {
+                uidialog.devicePicker->setCurrentIndex(proxyModel.rowForDevice(deviceId));
+            }
+        });
     }
 
     uidialog.openOnPeerCheckBox->setChecked(open);

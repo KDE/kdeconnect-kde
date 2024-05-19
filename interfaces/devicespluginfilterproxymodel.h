@@ -19,6 +19,7 @@ public:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
     void setPluginFilter(const QString plugin);
     QString pluginFilter() const;
+    int rowForDevice(const QString &id) const;
 
 private:
     QString m_pluginFilter;

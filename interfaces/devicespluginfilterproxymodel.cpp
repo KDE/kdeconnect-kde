@@ -23,4 +23,14 @@ QString DevicesPluginFilterProxyModel::pluginFilter() const
     return m_pluginFilter;
 }
 
+int DevicesPluginFilterProxyModel::rowForDevice(const QString &id) const
+{
+    for (int i = 0, c = rowCount(); i < c; ++i) {
+        if (data(index(i, 0), DevicesModel::IdModelRole).value<QString>() == id) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 #include "moc_devicespluginfilterproxymodel.cpp"
