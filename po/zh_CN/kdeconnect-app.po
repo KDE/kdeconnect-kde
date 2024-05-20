@@ -121,12 +121,11 @@ msgid "Volume control"
 msgstr "音量控制"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "此设备未配对"
+msgstr ""
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +134,11 @@ msgid "Pair"
 msgstr "配对"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "已请求配对"
+msgstr ""
 
 #: qml/DevicePage.qml:156
 #, kde-format

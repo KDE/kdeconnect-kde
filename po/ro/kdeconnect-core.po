@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:37+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2024-01-07 13:08+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -109,27 +109,27 @@ msgstr "Denumirea de fișier există deja"
 msgid "Received incomplete file from: %1"
 msgstr "S-a primit fișier incomplet de la: %1"
 
-#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Pornirea KDE Connect a eșuat"
 
-#: kdeconnectconfig.cpp:301
+#: kdeconnectconfig.cpp:316
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Cheia privată nu a putut fi generată."
 
-#: kdeconnectconfig.cpp:317
+#: kdeconnectconfig.cpp:335
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Fișierul cu cheia privată nu a putut fi stocat: %1"
 
-#: kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Certificatul dispozitivului nu a putut fi generat."
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:366
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Fișierul cu certificat nu a putut fi stocat: %1"

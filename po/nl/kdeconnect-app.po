@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-03-13 11:34+0100\n"
+"PO-Revision-Date: 2024-05-19 13:30+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: main.cpp:30 main.cpp:32
 #, kde-format
@@ -120,12 +120,13 @@ msgid "Volume control"
 msgstr "Volumebesturing"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Dit apparaat is niet gepaard"
+msgstr ""
+"Dit apparaat is niet gepaard.\n"
+"Sleutel: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -134,12 +135,13 @@ msgid "Pair"
 msgstr "Paren"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Paarvorming gevraagd"
+msgstr ""
+"Paarvorming gevraagd\n"
+"Sleutel:"
 
 #: qml/DevicePage.qml:156
 #, kde-format

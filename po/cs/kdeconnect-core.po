@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:37+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2023-08-07 11:50+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -108,27 +108,27 @@ msgstr "Název souboru již existuje"
 msgid "Received incomplete file from: %1"
 msgstr "Přijat nekompletní soubor z: %1"
 
-#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Start aplikace KDE Connect selhal"
 
-#: kdeconnectconfig.cpp:301
+#: kdeconnectconfig.cpp:316
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Soukromý klíč zařízení nelze generovat."
 
-#: kdeconnectconfig.cpp:317
+#: kdeconnectconfig.cpp:335
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Nelze uložit soubor soukromého klíče: %1"
 
-#: kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Certifikát zařízení nelze generovat."
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:366
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Nelze uložit soubor certifikátu: %1"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:37+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2024-04-25 14:41+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -114,27 +114,27 @@ msgstr "Fichier déjà présent"
 msgid "Received incomplete file from: %1"
 msgstr "Fichier incomplet reçu de : %1"
 
-#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "Impossible de démarrer KDEConnect"
 
-#: kdeconnectconfig.cpp:301
+#: kdeconnectconfig.cpp:316
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "Impossible de générer la clé privée."
 
-#: kdeconnectconfig.cpp:317
+#: kdeconnectconfig.cpp:335
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Impossible de stocker le fichier de clé privée : %1"
 
-#: kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "Impossible de générer le certificat du périphérique."
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:366
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Impossible de stocker le fichier de certificat : %1"

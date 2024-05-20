@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:37+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2023-12-25 20:57+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -112,27 +112,27 @@ msgstr "שם הקובץ כבר קיים"
 msgid "Received incomplete file from: %1"
 msgstr "התקבל קובץ חלקי מהמכשיר: %1"
 
-#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "הפעלת KDE Connect נכשלה"
 
-#: kdeconnectconfig.cpp:301
+#: kdeconnectconfig.cpp:316
 #, kde-format
 msgid "Could not generate the private key."
 msgstr "לא ניתן לייצר את המפתח הפרטי."
 
-#: kdeconnectconfig.cpp:317
+#: kdeconnectconfig.cpp:335
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "לא ניתן לאחסן את קובץ המפתח הפרטי: %1"
 
-#: kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:350
 #, kde-format
 msgid "Could not generate the device certificate."
 msgstr "לא ניתן לייצר את אישור המכשיר."
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:366
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "לא ניתן לאחסן את קובץ האישור: %1"

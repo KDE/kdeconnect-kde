@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-03-17 17:49+0530\n"
+"PO-Revision-Date: 2024-05-19 16:26+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: main.cpp:30 main.cpp:32
 #, kde-format
@@ -120,12 +120,13 @@ msgid "Volume control"
 msgstr "ஒலியளவு கட்டுப்பாடு"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "இச்சாதனம் இணைக்கப்படவில்லை"
+msgstr ""
+"இச்சாதனம் இணைக்கப்படவில்லை.\n"
+"சாவி: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -134,12 +135,13 @@ msgid "Pair"
 msgstr "இணை"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "இணைப்பு கோரப்பட்டது"
+msgstr ""
+"இணைப்பு கோரப்பட்டுள்ளது\n"
+"சாவி: "
 
 #: qml/DevicePage.qml:156
 #, kde-format

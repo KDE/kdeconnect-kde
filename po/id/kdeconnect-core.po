@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-18 00:37+0000\n"
+"POT-Creation-Date: 2024-05-20 00:38+0000\n"
 "PO-Revision-Date: 2022-11-16 22:43+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -110,29 +110,29 @@ msgstr "Nama berkas sudah ada"
 msgid "Received incomplete file from: %1"
 msgstr "Menerima berkas yang belum selesai dari: %1"
 
-#: kdeconnectconfig.cpp:301 kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:316 kdeconnectconfig.cpp:350
 #, kde-format
 msgid "KDE Connect failed to start"
 msgstr "KDE Connect gagal untuk dijalankan"
 
-#: kdeconnectconfig.cpp:301
+#: kdeconnectconfig.cpp:316
 #, fuzzy, kde-format
 #| msgid "Could not store private key file: %1"
 msgid "Could not generate the private key."
 msgstr "Tidak dapat menyimpan berkas kunci privat: %1"
 
-#: kdeconnectconfig.cpp:317
+#: kdeconnectconfig.cpp:335
 #, kde-format
 msgid "Could not store private key file: %1"
 msgstr "Tidak dapat menyimpan berkas kunci privat: %1"
 
-#: kdeconnectconfig.cpp:332
+#: kdeconnectconfig.cpp:350
 #, fuzzy, kde-format
 #| msgid "Could not store certificate file: %1"
 msgid "Could not generate the device certificate."
 msgstr "Tidak dapat menyimpan berkas sertifikat: %1"
 
-#: kdeconnectconfig.cpp:348
+#: kdeconnectconfig.cpp:366
 #, kde-format
 msgid "Could not store certificate file: %1"
 msgstr "Tidak dapat menyimpan berkas sertifikat: %1"

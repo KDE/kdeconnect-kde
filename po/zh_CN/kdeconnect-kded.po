@@ -28,16 +28,11 @@ msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, henry.hu.sh@gmail.com"
 
 #: kdeconnectd.cpp:56
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
-"来自 %1 的配对请求\n"
-"密钥：%2..."
 
 #: kdeconnectd.cpp:64
 #, kde-format

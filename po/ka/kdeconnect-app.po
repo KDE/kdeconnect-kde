@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-03-14 03:48+0100\n"
+"PO-Revision-Date: 2024-05-19 05:29+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -121,12 +121,11 @@ msgid "Volume control"
 msgstr "ხმის კონტროლი"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "ეს მოწყობილობა დაწყვილებული არაა"
+msgstr "ეს მოწყობილობა დაწყვილებული არაა.\vგასაღები: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +134,13 @@ msgid "Pair"
 msgstr "დაწყვილება"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "დაწყვილების მოთხოვნა"
+msgstr ""
+"დაწყვილების მოთხოვნა\n"
+"გასაღები: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
