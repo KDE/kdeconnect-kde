@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2022-11-15 07:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -77,37 +77,37 @@ msgstr "აირჩიეთ მოწყობილობა"
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:100
+#: kdeconnect-handler.cpp:111
 #, kde-format
 msgid "Enter URL here"
 msgstr "შეიყვანეთ URL"
 
-#: kdeconnect-handler.cpp:108
+#: kdeconnect-handler.cpp:119
 #, kde-format
 msgid "Enter file location here"
 msgstr "შეიყვანეთ ფაილის მდგომარეობა"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "%1-თან დასარეკი მოწყობილობა:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:147
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "%1-ის გასახსნელი მოწყობილობა:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:150
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "SMS-ის გასაგზავნი მოწყობილობა:"
 
-#: kdeconnect-handler.cpp:142
+#: kdeconnect-handler.cpp:153
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "%1-ის გასაგზავნი მოწყობილობა:"
 
-#: kdeconnect-handler.cpp:171
+#: kdeconnect-handler.cpp:182
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "%1-ის გაზიარების პრობლემა"

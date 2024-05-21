@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-05-10 11:33+0100\n"
+"PO-Revision-Date: 2024-05-20 13:35+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -121,12 +121,13 @@ msgid "Volume control"
 msgstr "Mastrumo de laŭteco"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Ĉi tiu aparato ne estas parigita"
+msgstr ""
+"Ĉi tiu aparato ne estas parigita.\n"
+"Ŝlosilo: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +136,13 @@ msgid "Pair"
 msgstr "Parigi"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Parigo alpetiĝis"
+msgstr ""
+"Parigo alpetiĝis\n"
+"Ŝlosilo: "
 
 #: qml/DevicePage.qml:156
 #, kde-format

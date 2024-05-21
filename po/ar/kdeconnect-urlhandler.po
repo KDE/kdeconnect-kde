@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2022-11-21 19:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -77,37 +77,37 @@ msgstr "اختر جهازًا"
 msgid "id"
 msgstr "المعرّف"
 
-#: kdeconnect-handler.cpp:100
+#: kdeconnect-handler.cpp:111
 #, kde-format
 msgid "Enter URL here"
 msgstr "أدخل رابط هنا"
 
-#: kdeconnect-handler.cpp:108
+#: kdeconnect-handler.cpp:119
 #, kde-format
 msgid "Enter file location here"
 msgstr "أدخل موقع الملف هنا"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "الجهاز لمكالمة %1 به:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:147
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "الجهاز لفتح %1 عليه:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:150
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "الجهاز لإرسال الرسالة القصيرة به:"
 
-#: kdeconnect-handler.cpp:142
+#: kdeconnect-handler.cpp:153
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "الجهاز لإرسال %1 له:"
 
-#: kdeconnect-handler.cpp:171
+#: kdeconnect-handler.cpp:182
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "تعثر مشاركة %1"

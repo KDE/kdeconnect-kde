@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2023-01-04 22:18+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -77,37 +77,37 @@ msgstr "Zvolte zařízení"
 msgid "id"
 msgstr "id"
 
-#: kdeconnect-handler.cpp:100
+#: kdeconnect-handler.cpp:111
 #, kde-format
 msgid "Enter URL here"
 msgstr "Zde zadejte URL"
 
-#: kdeconnect-handler.cpp:108
+#: kdeconnect-handler.cpp:119
 #, kde-format
 msgid "Enter file location here"
 msgstr "Vyberte umístění souboru"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Zařízení pro volání %1 s:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:147
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Zařízení pro pro otevření %1 na:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:150
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Zařízení, kam odeslat SMS s:"
 
-#: kdeconnect-handler.cpp:142
+#: kdeconnect-handler.cpp:153
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Zařízení, kam odeslat %1:"
 
-#: kdeconnect-handler.cpp:171
+#: kdeconnect-handler.cpp:182
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "Nelze sdílet %1"

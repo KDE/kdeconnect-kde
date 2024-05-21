@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-05-21 00:38+0000\n"
 "PO-Revision-Date: 2022-11-14 08:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -80,37 +80,37 @@ msgstr "Seleccioneu un dispositiu"
 msgid "id"
 msgstr "ID"
 
-#: kdeconnect-handler.cpp:100
+#: kdeconnect-handler.cpp:111
 #, kde-format
 msgid "Enter URL here"
 msgstr "Introduïu ací un URL"
 
-#: kdeconnect-handler.cpp:108
+#: kdeconnect-handler.cpp:119
 #, kde-format
 msgid "Enter file location here"
 msgstr "Introduïu ací la ubicació del fitxer"
 
-#: kdeconnect-handler.cpp:133
+#: kdeconnect-handler.cpp:144
 #, kde-format
 msgid "Device to call %1 with:"
 msgstr "Dispositiu amb què tocar %1:"
 
-#: kdeconnect-handler.cpp:136
+#: kdeconnect-handler.cpp:147
 #, kde-format
 msgid "Device to open %1 on:"
 msgstr "Dispositiu en què obrir %1:"
 
-#: kdeconnect-handler.cpp:139
+#: kdeconnect-handler.cpp:150
 #, kde-format
 msgid "Device to send a SMS with:"
 msgstr "Dispositiu amb què enviar un SMS:"
 
-#: kdeconnect-handler.cpp:142
+#: kdeconnect-handler.cpp:153
 #, kde-format
 msgid "Device to send %1 to:"
 msgstr "Dispositiu a què enviar %1:"
 
-#: kdeconnect-handler.cpp:171
+#: kdeconnect-handler.cpp:182
 #, kde-format
 msgid "Couldn't share %1"
 msgstr "No s'ha pogut compartir %1"

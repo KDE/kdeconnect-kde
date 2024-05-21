@@ -29,16 +29,11 @@ msgid "Your emails"
 msgstr "vit@pelcak.org"
 
 #: kdeconnectd.cpp:56
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
-"Požadavek na párování od %1\n"
-"Klíč: %2..."
 
 #: kdeconnectd.cpp:64
 #, kde-format
