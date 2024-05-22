@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2022-04-23 13:28+0100\n"
+"PO-Revision-Date: 2024-05-21 19:32+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -28,16 +28,13 @@ msgid "Your emails"
 msgstr "steve.allewell@gmail.com"
 
 #: kdeconnectd.cpp:56
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
 "Pairing request from %1\n"
-"Key: %2..."
+"Key: %2"
 
 #: kdeconnectd.cpp:64
 #, kde-format

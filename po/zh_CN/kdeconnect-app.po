@@ -126,6 +126,8 @@ msgid ""
 "This device is not paired.\n"
 "Key: %1"
 msgstr ""
+"此设备尚未配对。\n"
+"密钥：%1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -139,6 +141,8 @@ msgid ""
 "Pair requested\n"
 "Key: "
 msgstr ""
+"配对请求已发送\n"
+"密钥："
 
 #: qml/DevicePage.qml:156
 #, kde-format

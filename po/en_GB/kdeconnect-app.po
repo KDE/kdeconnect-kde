@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2023-06-17 12:16+0100\n"
+"PO-Revision-Date: 2024-05-21 19:33+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: main.cpp:30 main.cpp:32
 #, kde-format
@@ -120,27 +120,28 @@ msgid "Volume control"
 msgstr "Volume control"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "This device is not paired"
+msgstr ""
+"This device is not paired.\n"
+"Key: %1"
 
 #: qml/DevicePage.qml:134
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Request pairing with a given device"
 msgid "Pair"
 msgstr "Pair"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Pair requested"
+msgstr ""
+"Pair requested\n"
+"Key: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
@@ -163,11 +164,10 @@ msgid "Please choose a file"
 msgstr "Please choose a file"
 
 #: qml/FindDevicesPage.qml:23
-#, fuzzy, kde-format
-#| msgid "Find Device"
+#, kde-format
 msgctxt "Title of the page listing the devices"
 msgid "Devices"
-msgstr "Find Device"
+msgstr "Devices"
 
 #: qml/FindDevicesPage.qml:48
 #, kde-format
@@ -228,7 +228,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Configure plugin"
 
 #: qml/presentationRemote.qml:21
 #, kde-format
@@ -267,7 +267,6 @@ msgid "About KDE Connect"
 msgstr "About KDE Connect"
 
 #: qml/Settings.qml:47
-#, fuzzy, kde-format
-#| msgid "About KDE Connect"
+#, kde-format
 msgid "About KDE"
-msgstr "About KDE Connect"
+msgstr "About KDE"
