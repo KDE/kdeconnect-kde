@@ -59,7 +59,6 @@ PlasmaComponents.ItemDelegate
         PlasmaCore.ToolTipArea {
             id: dropAreaToolTip
             anchors.fill: parent
-            location: plasmoid.location
             active: true
             mainText: i18n("File Transfer")
             subText: i18n("Drop a file to transfer it onto your phone.")
