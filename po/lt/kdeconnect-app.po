@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-04-24 01:15+0300\n"
+"PO-Revision-Date: 2024-05-25 15:44+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -122,12 +122,13 @@ msgid "Volume control"
 msgstr "Garsumo valdymas"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Šis įrenginys nėra suporuotas"
+msgstr ""
+"Šis įrenginys nėra suporuotas.\n"
+"Raktas: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -136,12 +137,13 @@ msgid "Pair"
 msgstr "Suporuoti"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Suporavimas užklaustas"
+msgstr ""
+"Paprašyta suporavimo\n"
+"Raktas: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
