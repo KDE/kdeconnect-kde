@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-03-17 11:00+0100\n"
+"PO-Revision-Date: 2024-05-26 11:15+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
+" || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: main.cpp:30 main.cpp:32
 #, kde-format
@@ -121,12 +121,14 @@ msgid "Volume control"
 msgstr "Sterowanie głośnością"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "This device is not paired"
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "To urządzenie nie jest sparowane"
+msgstr ""
+"To urządzenie nie jest sparowane.\n"
+"Klucz: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +137,14 @@ msgid "Pair"
 msgstr "Sparuj"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Pair requested"
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Zażądano parowania"
+msgstr ""
+"Zażądano parowania\n"
+"Klucz: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
@@ -270,3 +274,4 @@ msgstr "O KDE Connect"
 #, kde-format
 msgid "About KDE"
 msgstr "O KDE"
+
