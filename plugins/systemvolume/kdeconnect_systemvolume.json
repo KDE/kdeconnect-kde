@@ -1,5 +1,5 @@
 {
-    "Encoding": "UTF-8",
+    "$schema": "../kdeconnect.schema.json",
     "KPlugin": {
         "Authors": [
             {
