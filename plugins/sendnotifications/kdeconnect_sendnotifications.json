@@ -1,4 +1,5 @@
 {
+    "$schema": "../kdeconnect.schema.json",
     "KPlugin": {
         "Authors": [
             {

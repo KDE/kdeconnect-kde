@@ -1,4 +1,5 @@
 {
+    "$schema": "../kdeconnect.schema.json",
     "KPlugin": {
         "Authors": [
             {
@@ -111,5 +112,7 @@
         "Name[x-test]": "xxInhibit screensaverxx",
         "Name[zh_CN]": "禁止屏保",
         "Name[zh_TW]": "停止螢幕保護"
-    }
+    },
+    "X-KdeConnect-SupportedPacketType": [],
+    "X-KdeConnect-OutgoingPacketType": []
 }

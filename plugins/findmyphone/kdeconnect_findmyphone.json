@@ -1,4 +1,5 @@
 {
+    "$schema": "../kdeconnect.schema.json",
     "KPlugin": {
         "Authors": [
             {
@@ -132,5 +133,6 @@
     },
     "X-KdeConnect-OutgoingPacketType": [
         "kdeconnect.findmyphone.request"
-    ]
+    ],
+    "X-KdeConnect-SupportedPacketType": []
 }
