@@ -46,6 +46,10 @@
                 "Name[x-test]": "xxAleix Pol i Gonzalezxx",
                 "Name[zh_CN]": "Aleix Pol i Gonzalez",
                 "Name[zh_TW]": "Aleix Pol i Gonzalez"
+            },
+            {
+                "Email": "fabian.arndt@root-core.net",
+                "Name": "Fabian Arndt"
             }
         ],
         "Description": "Use your devices as virtual monitors",

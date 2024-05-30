@@ -23,6 +23,14 @@ PlasmaComponents.ItemDelegate
     hoverEnabled: false
     down: false
 
+    Kirigami.PromptDialog {
+        id: prompt
+        visible: false
+        showCloseButton: true
+        standardButtons: Kirigami.Dialog.NoButton
+        title: i18n("Virtual Monitor is not available")
+    }
+
     DropArea {
         id: fileDropArea
         anchors.fill: parent
@@ -76,6 +84,11 @@ PlasmaComponents.ItemDelegate
                 device: root.device
             }
 
+            VirtualMonitor {
+                id: virtualmonitor
+                device: root.device
+            }
+
             PlasmaComponents.Label {
                 id: deviceName
                 elide: Text.ElideRight
@@ -85,16 +98,25 @@ PlasmaComponents.ItemDelegate
             }
 
             PlasmaComponents.ToolButton {
-                VirtualMonitor {
-                    id: vd
-                    device: root.device
-                }
                 icon.name: "video-monitor"
+                visible: virtualmonitor.available
                 text: i18n("Virtual Display")
-                visible: vd.available
                 onClicked: {
-                    if (!vd.plugin.requestVirtualMonitor()) {
-                        console.warn("Failed to create the virtual monitor")
+                    let err = "";
+                    if (virtualmonitor?.plugin?.hasRemoteVncClient === false) {
+                        err = i18n("Remote device does not have a VNC client (eg. krdc) installed.");
+                    }
+                    if (virtualmonitor?.plugin?.isVirtualMonitorAvailable === false) {
+                        err = (err ? err + "\n\n" : "")
+                            + i18n("The krfb package is required on the local device.");
+                    }
+
+                    if (err) {
+                        prompt.subtitle = err;
+                        prompt.visible = true;
+                    } else if (!virtualmonitor.plugin.requestVirtualMonitor()) {
+                        prompt.subtitle = i18n("Failed to create the virtual monitor.");
+                        prompt.visible = true;
                     }
                 }
             }

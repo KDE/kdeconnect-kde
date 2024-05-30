@@ -1,5 +1,6 @@
 /**
  * SPDX-FileCopyrightText: 2021 Aleix Pol i Gonzalez <aleixpol@kde.org>
+ * SPDX-FileCopyrightText: 2024 Fabian Arndt <fabian.arndt@root-core.net>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -15,6 +16,12 @@
 #include <QProcess>
 #include <QScreen>
 #include <QStandardPaths>
+
+#if defined(Q_OS_WIN)
+#include <QSettings>
+#else
+#include <KApplicationTrader>
+#endif
 
 K_PLUGIN_CLASS_WITH_JSON(VirtualMonitorPlugin, "kdeconnect_virtualmonitor.json")
 #define QS QLatin1String
@@ -41,6 +48,13 @@ void VirtualMonitorPlugin::stop()
 
 void VirtualMonitorPlugin::connected()
 {
+    // Get local capabilities
+    // We test again, since the user may have installed the necessary packages in the meantime
+    m_capabilitiesLocal.vncClient = checkVncClient();
+    m_capabilitiesLocal.virtualMonitor = !QStandardPaths::findExecutable(QS("krfb-virtualmonitor")).isEmpty();
+    qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Local device supports VNC:" << m_capabilitiesLocal.vncClient;
+    qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Local device supports Virtual Monitor:" << m_capabilitiesLocal.virtualMonitor;
+
     auto screen = QGuiApplication::primaryScreen();
     auto resolution = screen->size();
     QString resolutionString = QString::number(resolution.width()) + QLatin1Char('x') + QString::number(resolution.height());
@@ -51,6 +65,8 @@ void VirtualMonitorPlugin::connected()
                               {QS("resolution"), resolutionString},
                               {QS("scale"), screen->devicePixelRatio()},
                           }}},
+                         {QS("supports_vnc"), m_capabilitiesLocal.vncClient},
+                         {QS("supports_virt_mon"), m_capabilitiesLocal.virtualMonitor},
                      });
     sendPacket(np);
 }
@@ -92,13 +108,19 @@ void VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
         if (received.has(QS("failed"))) {
             stop();
         }
+
+        // Get device's capabilities
+        m_capabilitiesRemote.vncClient = received.get<bool>(QS("supports_vnc"), false);
+        m_capabilitiesRemote.virtualMonitor = received.get<bool>(QS("supports_virt_mon"), false);
+        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Remote device supports VNC:" << m_capabilitiesRemote.vncClient;
+        qCDebug(KDECONNECT_PLUGIN_VIRTUALMONITOR) << "Remote device supports Virtual Monitor:" << m_capabilitiesRemote.virtualMonitor;
     }
 }
 
 QString VirtualMonitorPlugin::dbusPath() const
 {
     // Don't offer the feature if krfb-virtualmonitor is not around
-    if (QStandardPaths::findExecutable(QS("krfb-virtualmonitor")).isEmpty())
+    if (!m_capabilitiesLocal.virtualMonitor)
         return {};
 
     return QLatin1String("/modules/kdeconnect/devices/%1/virtualmonitor").arg(device()->id());
@@ -157,6 +179,44 @@ bool VirtualMonitorPlugin::requestVirtualMonitor()
     np.set(QS("port"), port);
     sendPacket(np);
     return true;
+}
+
+bool VirtualMonitorPlugin::checkVncClient() const
+{
+#if defined(Q_OS_MAC)
+    // TODO: macOS has some VNC client preinstalled.. does it work for us?
+    return true;
+#else
+    // krdc is default on KDE
+    if (!QStandardPaths::findExecutable(QS("krdc")).isEmpty())
+        return true;
+
+    // Check if another client is available
+    return checkDefaultSchemeHandler(QS("vnc"));
+#endif
+}
+
+bool VirtualMonitorPlugin::checkDefaultSchemeHandler(const QString &scheme) const
+{
+    // TODO: macOS built-in tool: defaults read com.apple.LaunchServices/com.apple.launchservices.secure
+    // A function to use such a program was implemented and later removed in MR !670 (Commit e72f688ae1fad8846c006a3f87d57e507f6dbcb6)
+#if defined(Q_OS_WIN)
+    // Scheme handlers are stored in the registry on Windows
+    // https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)
+
+    // Check if url handler is present
+    QSettings handler(QS("HKEY_CLASSES_ROOT\\") + scheme, QSettings::Registry64Format);
+    if (handler.value("URL Protocol").isNull())
+        return false;
+
+    // Check if a command is actually present
+    QSettings command(QS("HKEY_CLASSES_ROOT\\") + scheme + QS("\\shell\\open\\command"), QSettings::Registry64Format);
+    return !command.value("Default").isNull();
+#else
+    KService::Ptr service = KApplicationTrader::preferredService(QS("x-scheme-handler/") + scheme);
+    const QString defaultApp = service ? service->desktopEntryName() : QString();
+    return !defaultApp.isEmpty();
+#endif
 }
 
 #include "moc_virtualmonitorplugin.cpp"

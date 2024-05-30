@@ -36,7 +36,6 @@ QtObject {
     function pluginsChanged() {
         availableResponse.setPendingCall(device.hasPlugin("kdeconnect_" + pluginName))
         iconResponse.setPendingCall(device.pluginIconName("kdeconnect_" + pluginName))
-
     }
 
     readonly property var vv: DBusAsyncResponse {
