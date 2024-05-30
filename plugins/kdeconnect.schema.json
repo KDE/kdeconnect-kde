@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "allOf": [
+        {
+            "$ref": "https://autoconfig.kde.org/jsonschemas/kpluginmetadata.schema.json"
+        },
+        {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "KPlugin",
+                "X-KdeConnect-SupportedPacketType",
+                "X-KdeConnect-OutgoingPacketType"
+            ],
+            "properties": {
+                "$schema": {
+                    "type": "string"
+                },
+                "KPlugin": {
+                    "type": "object"
+                },
+                "X-KdeConnect-SupportedPacketType": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "X-KdeConnect-OutgoingPacketType": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "X-KdeConnect-SupportedDeviceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "X-KDE-ConfigModule": {
+                    "type": "string",
+                    "pattern": "^kdeconnect/kcms/[^/]+$"
+                }
+            }
+        }
+    ]
+}
