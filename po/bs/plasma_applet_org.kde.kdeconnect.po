@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: $2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-22 00:41+0000\n"
+"POT-Creation-Date: 2024-05-31 00:39+0000\n"
 "PO-Revision-Date: 2015-02-16 11:58+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: none\n"
@@ -46,106 +46,127 @@ msgstr ""
 msgid "No signal"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:56
+#: package/contents/ui/DeviceDelegate.qml:31
+#, fuzzy, kde-format
+#| msgid "No paired devices available"
+msgid "Virtual Monitor is not available"
+msgstr "Nema uparenih dostupnih uređaja"
+
+#: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
 msgid "File Transfer"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:57
+#: package/contents/ui/DeviceDelegate.qml:65
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:93
+#: package/contents/ui/DeviceDelegate.qml:103
 #, kde-format
 msgid "Virtual Display"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:146
+#: package/contents/ui/DeviceDelegate.qml:107
+#, kde-format
+msgid "Remote device does not have a VNC client (eg. krdc) installed."
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:111
+#, kde-format
+msgid "The krfb package is required on the local device."
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:118
+#, kde-format
+msgid "Failed to create the virtual monitor."
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:168
+#: package/contents/ui/DeviceDelegate.qml:190
 #, kde-format
 msgid "Please choose a file"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:177
+#: package/contents/ui/DeviceDelegate.qml:199
 #, kde-format
 msgid "Share file"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:192
+#: package/contents/ui/DeviceDelegate.qml:214
 #, kde-format
 msgid "Send Clipboard"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:211
+#: package/contents/ui/DeviceDelegate.qml:233
 #, kde-format
 msgid "Ring my phone"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:229
+#: package/contents/ui/DeviceDelegate.qml:251
 #, kde-format
 msgid "Browse this device"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:246
+#: package/contents/ui/DeviceDelegate.qml:268
 #, kde-format
 msgid "SMS Messages"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:267
+#: package/contents/ui/DeviceDelegate.qml:289
 #, kde-format
 msgid "Remote Keyboard"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:288
+#: package/contents/ui/DeviceDelegate.qml:310
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Notifications:"
 msgstr "Napomene"
 
-#: package/contents/ui/DeviceDelegate.qml:296
+#: package/contents/ui/DeviceDelegate.qml:318
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Dismiss all notifications"
 msgstr "Napomene"
 
-#: package/contents/ui/DeviceDelegate.qml:343
+#: package/contents/ui/DeviceDelegate.qml:365
 #, kde-format
 msgid "Reply"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:353
+#: package/contents/ui/DeviceDelegate.qml:375
 #, kde-format
 msgid "Dismiss"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:366
+#: package/contents/ui/DeviceDelegate.qml:388
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:380
+#: package/contents/ui/DeviceDelegate.qml:402
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:398
+#: package/contents/ui/DeviceDelegate.qml:420
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:424
+#: package/contents/ui/DeviceDelegate.qml:446
 #, kde-format
 msgid "Run command"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:432
+#: package/contents/ui/DeviceDelegate.qml:454
 #, kde-format
 msgid "Add command"
 msgstr ""
