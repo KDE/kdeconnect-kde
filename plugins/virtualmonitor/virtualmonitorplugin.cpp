@@ -119,10 +119,6 @@ void VirtualMonitorPlugin::receivePacket(const NetworkPacket &received)
 
 QString VirtualMonitorPlugin::dbusPath() const
 {
-    // Don't offer the feature if krfb-virtualmonitor is not around
-    if (!m_capabilitiesLocal.virtualMonitor)
-        return {};
-
     return QLatin1String("/modules/kdeconnect/devices/%1/virtualmonitor").arg(device()->id());
 }
 
