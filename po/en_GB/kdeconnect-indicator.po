@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2019, 2021, 2023.
+# SPDX-FileCopyrightText: 2019, 2021, 2023, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:37+0000\n"
-"PO-Revision-Date: 2023-06-17 12:17+0100\n"
+"PO-Revision-Date: 2024-05-30 19:45+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,8 +38,7 @@ msgid "Send clipboard"
 msgstr "Send clipboard"
 
 #: deviceindicator.cpp:81
-#, fuzzy, kde-format
-#| msgid "Ring device"
+#, kde-format
 msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Ring device"
@@ -130,8 +129,7 @@ msgid "Pairing requests"
 msgstr "Pairing requests"
 
 #: main.cpp:119
-#, fuzzy, kde-format
-#| msgid "Pair"
+#, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Pair"
