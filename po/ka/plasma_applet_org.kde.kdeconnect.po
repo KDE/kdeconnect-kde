@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-31 00:39+0000\n"
-"PO-Revision-Date: 2023-06-09 06:21+0200\n"
+"PO-Revision-Date: 2024-05-31 06:45+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -44,11 +44,9 @@ msgid "No signal"
 msgstr "სიგანალის გარეშე"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "შეწყვილებული მოწყობილობა მიუწვდომელია"
+msgstr "ვირტუალური მონიტორის ხელმისაწვდომი არაა"
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
@@ -68,17 +66,17 @@ msgstr "ვირტუალური ეკრანი"
 #: package/contents/ui/DeviceDelegate.qml:107
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "დაშორებულ მოწყობილობაზე VNC კლიენტი (მაგ: krdc) დაყენებული არაა."
 
 #: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "ლოკალურ მოწყობილობაზე აუცილებელია პაკეტი krfb."
 
 #: package/contents/ui/DeviceDelegate.qml:118
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "ვირტუალური მონიტორის შექმნა ჩავარდა."
 
 #: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format

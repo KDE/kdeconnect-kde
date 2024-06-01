@@ -44,11 +44,9 @@ msgid "No signal"
 msgstr "无信号"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "没有可用的配对设备"
+msgstr ""
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format

@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2016.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-31 00:39+0000\n"
-"PO-Revision-Date: 2023-06-08 11:43+0400\n"
+"PO-Revision-Date: 2024-05-31 18:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -45,11 +45,9 @@ msgid "No signal"
 msgstr "لا توجد إشارة"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "لا يوجد جهاز مقترن"
+msgstr "الشاشة الافتراضية غير متوفرة"
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
@@ -69,17 +67,17 @@ msgstr "شاشة افتراضية"
 #: package/contents/ui/DeviceDelegate.qml:107
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "الجهاز البعيد غير مثبت عليه عميل VNC (على سبيل المثال krdc)."
 
 #: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "حزمة krfb مطلوبة على الجهاز المحلي."
 
 #: package/contents/ui/DeviceDelegate.qml:118
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "فشل في إنشاء شاشة افتراضية"
 
 #: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format

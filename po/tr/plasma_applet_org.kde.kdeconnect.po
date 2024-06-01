@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-31 00:39+0000\n"
-"PO-Revision-Date: 2024-02-09 17:45+0300\n"
+"PO-Revision-Date: 2024-05-31 14:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -45,11 +45,9 @@ msgid "No signal"
 msgstr "Sinyal yok"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Eşleştirilmiş aygıt kullanılamıyor"
+msgstr "Sanal monitör kullanılamıyor"
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
@@ -69,17 +67,17 @@ msgstr "Sanal Ekran"
 #: package/contents/ui/DeviceDelegate.qml:107
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Uzak aygıtta bir VNC istemcisi (örneğin, krdc) kurulu değil."
 
 #: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Yerel aygıtta krfb paketine gereksinim duyuluyor."
 
 #: package/contents/ui/DeviceDelegate.qml:118
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Sanal monitör oluşturulamadı."
 
 #: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format
