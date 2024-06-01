@@ -49,7 +49,21 @@
             },
             {
                 "Email": "fabian.arndt@root-core.net",
-                "Name": "Fabian Arndt"
+                "Name": "Fabian Arndt",
+                "Name[ar]": "فابيان أرندت",
+                "Name[ca@valencia]": "Fabian Arndt",
+                "Name[ca]": "Fabian Arndt",
+                "Name[cs]": "Fabian Arndt",
+                "Name[eo]": "Fabian Arndt",
+                "Name[he]": "פביאן ארנדט",
+                "Name[hu]": "Fabian Arndt",
+                "Name[ia]": "Fabian Arndt",
+                "Name[ka]": "Fabian Arndt",
+                "Name[nl]": "Fabian Arndt",
+                "Name[sl]": "Fabian Arndt",
+                "Name[tr]": "Fabian Arndt",
+                "Name[uk]": "Fabian Arndt",
+                "Name[x-test]": "xxFabian Arndtxx"
             }
         ],
         "Description": "Use your devices as virtual monitors",
