@@ -28,6 +28,7 @@
 #include "deviceindicator.h"
 #include "interfaces/dbusinterfaces.h"
 #include "interfaces/devicesmodel.h"
+#include "interfaces/devicessortproxymodel.h"
 #include "kdeconnect-version.h"
 
 #include <dbushelper.h>
@@ -79,13 +80,15 @@ int main(int argc, char **argv)
 
     DevicesModel model;
     model.setDisplayFilter(DevicesModel::Reachable | DevicesModel::Paired);
+    DevicesSortProxyModel proxyModel;
+    proxyModel.setSourceModel(&model);
     QMenu *menu = new QMenu;
 
     QPointer<KCMultiDialog> dialog;
 
     DaemonDbusInterface iface;
 
-    auto refreshMenu = [&iface, &model, &menu, &dialog]() {
+    auto refreshMenu = [&iface, &proxyModel, &menu, &dialog]() {
         menu->clear();
         auto configure = menu->addAction(QIcon::fromTheme(QStringLiteral("configure")), i18n("Configure..."));
         QObject::connect(configure, &QAction::triggered, configure, [&dialog]() {
@@ -100,8 +103,12 @@ int main(int argc, char **argv)
                 dialog->activateWindow();
             }
         });
-        for (int i = 0, count = model.rowCount(); i < count; ++i) {
-            DeviceDbusInterface *device = model.getDevice(i);
+        for (int i = 0, count = proxyModel.rowCount(); i < count; ++i) {
+            QObject *deviceObject = proxyModel.data(proxyModel.index(i, 0), DevicesModel::DeviceRole).value<QObject *>();
+            DeviceDbusInterface *device = qobject_cast<DeviceDbusInterface *>(deviceObject);
+            if (device == nullptr)
+                continue;
+
             auto indicator = new DeviceIndicator(device);
             QObject::connect(device, &DeviceDbusInterface::destroyed, indicator, &QObject::deleteLater);
 
