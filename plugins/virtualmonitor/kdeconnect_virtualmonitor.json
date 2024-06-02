@@ -51,6 +51,7 @@
                 "Email": "fabian.arndt@root-core.net",
                 "Name": "Fabian Arndt",
                 "Name[ar]": "فابيان أرندت",
+                "Name[bg]": "Fabian Arndt",
                 "Name[ca@valencia]": "Fabian Arndt",
                 "Name[ca]": "Fabian Arndt",
                 "Name[cs]": "Fabian Arndt",
@@ -63,7 +64,8 @@
                 "Name[sl]": "Fabian Arndt",
                 "Name[tr]": "Fabian Arndt",
                 "Name[uk]": "Fabian Arndt",
-                "Name[x-test]": "xxFabian Arndtxx"
+                "Name[x-test]": "xxFabian Arndtxx",
+                "Name[zh_CN]": "Fabian Arndt"
             }
         ],
         "Description": "Use your devices as virtual monitors",
