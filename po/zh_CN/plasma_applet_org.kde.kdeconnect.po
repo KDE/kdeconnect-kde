@@ -46,7 +46,7 @@ msgstr "无信号"
 #: package/contents/ui/DeviceDelegate.qml:31
 #, kde-format
 msgid "Virtual Monitor is not available"
-msgstr ""
+msgstr "虚拟监视器不可用"
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
@@ -66,17 +66,17 @@ msgstr "虚拟显示器"
 #: package/contents/ui/DeviceDelegate.qml:107
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "远程设备没有安装 VNC 客户端 (例如 krdc)。"
 
 #: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "本地设备上必须安装 krfb 软件包。"
 
 #: package/contents/ui/DeviceDelegate.qml:118
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "创建虚拟监视器失败。"
 
 #: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format

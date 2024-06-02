@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-31 00:39+0000\n"
-"PO-Revision-Date: 2024-05-13 22:47+0200\n"
+"PO-Revision-Date: 2024-06-01 18:10+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -43,11 +43,9 @@ msgid "No signal"
 msgstr "Няма сигнал"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Сдвоеното устройство не е налично"
+msgstr "Не е наличен виртуален монитор"
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
@@ -67,17 +65,17 @@ msgstr "Виртуален екран"
 #: package/contents/ui/DeviceDelegate.qml:107
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "На отдалеченото устройство не е инсталиран VNC клиент (напр. krdc)."
 
 #: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Пакетът krfb е необходим на локалното устройство."
 
 #: package/contents/ui/DeviceDelegate.qml:118
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Неуспешно създаване на виртуален монитор."
 
 #: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format
