@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-31 00:39+0000\n"
-"PO-Revision-Date: 2023-06-11 07:52+0200\n"
+"PO-Revision-Date: 2024-06-02 11:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -45,11 +45,9 @@ msgid "No signal"
 msgstr "Sen sinal"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "O dispositivo emparellado non está dispoñíbel"
+msgstr "O monitor virtual non está dispoñíbel."
 
 #: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
@@ -69,17 +67,17 @@ msgstr "Pantalla virtual"
 #: package/contents/ui/DeviceDelegate.qml:107
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "O dispositivo remoto non ten instalado un cliente VNC (p. ex. krdc)."
 
 #: package/contents/ui/DeviceDelegate.qml:111
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Necesita o paquete krfb no dispositivo local."
 
 #: package/contents/ui/DeviceDelegate.qml:118
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Non foi posíbel crear o monitor virtual."
 
 #: package/contents/ui/DeviceDelegate.qml:168
 #, kde-format
