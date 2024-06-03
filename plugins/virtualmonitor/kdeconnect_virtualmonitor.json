@@ -55,7 +55,9 @@
                 "Name[ca@valencia]": "Fabian Arndt",
                 "Name[ca]": "Fabian Arndt",
                 "Name[cs]": "Fabian Arndt",
+                "Name[en_GB]": "Fabian Arndt",
                 "Name[eo]": "Fabian Arndt",
+                "Name[fr]": "Fabian Arndt",
                 "Name[he]": "פביאן ארנדט",
                 "Name[hu]": "Fabian Arndt",
                 "Name[ia]": "Fabian Arndt",
@@ -65,7 +67,8 @@
                 "Name[tr]": "Fabian Arndt",
                 "Name[uk]": "Fabian Arndt",
                 "Name[x-test]": "xxFabian Arndtxx",
-                "Name[zh_CN]": "Fabian Arndt"
+                "Name[zh_CN]": "Fabian Arndt",
+                "Name[zh_TW]": "Fabian Arndt"
             }
         ],
         "Description": "Use your devices as virtual monitors",
