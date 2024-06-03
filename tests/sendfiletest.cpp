@@ -87,7 +87,6 @@ private Q_SLOTS:
         DeviceInfo deviceInfo = KdeConnectConfig::instance().deviceInfo();
         KdeConnectConfig::instance().addTrustedDevice(deviceInfo);
 
-        // We need the device to be loaded on the daemon, otherwise CompositeUploadJob will get a null device
         Device *device = new Device(this, deviceInfo.id);
         m_daemon->addDevice(device);
 
@@ -95,7 +94,7 @@ private Q_SLOTS:
         NetworkPacket np(PACKET_TYPE_SHARE_REQUEST);
         np.setPayload(f, f->size());
 
-        CompositeUploadJob *job = new CompositeUploadJob(deviceInfo.id, false);
+        CompositeUploadJob *job = new CompositeUploadJob(device, false);
         UploadJob *uj = new UploadJob(np);
         job->addSubjob(uj);
 

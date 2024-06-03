@@ -10,6 +10,7 @@
 
 #include "backends/linkprovider.h"
 #include "core_debug.h"
+#include "daemon.h"
 #include "kdeconnectconfig.h"
 #include "lanlinkprovider.h"
 #include "plugins/share/shareplugin.h"
@@ -56,9 +57,15 @@ QHostAddress LanDeviceLink::hostAddress() const
 bool LanDeviceLink::sendPacket(NetworkPacket &np)
 {
     if (np.payload()) {
+        Device *device = Daemon::instance()->getDevice(deviceId());
+        if (device == nullptr) {
+            qCWarning(KDECONNECT_CORE) << "Device disconnected" << deviceId();
+            return false;
+        }
+        // FIXME: Remove packet-type-specific logic from the link
         if (np.type() == PACKET_TYPE_SHARE_REQUEST && np.payloadSize() >= 0) {
             if (!m_compositeUploadJob || !m_compositeUploadJob->isRunning()) {
-                m_compositeUploadJob = new CompositeUploadJob(deviceId(), true);
+                m_compositeUploadJob = new CompositeUploadJob(device, true);
             }
 
             m_compositeUploadJob->addSubjob(new UploadJob(np));
@@ -67,7 +74,7 @@ bool LanDeviceLink::sendPacket(NetworkPacket &np)
                 m_compositeUploadJob->start();
             }
         } else { // Infinite stream
-            CompositeUploadJob *fireAndForgetJob = new CompositeUploadJob(deviceId(), false);
+            CompositeUploadJob *fireAndForgetJob = new CompositeUploadJob(device, false);
             fireAndForgetJob->addSubjob(new UploadJob(np));
             fireAndForgetJob->start();
         }

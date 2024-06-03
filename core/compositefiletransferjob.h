@@ -11,6 +11,7 @@
 #include <KCompositeJob>
 #include <QElapsedTimer>
 
+class Device;
 class FileTransferJob;
 
 class KDECONNECTCORE_EXPORT CompositeFileTransferJob : public KCompositeJob
@@ -18,7 +19,7 @@ class KDECONNECTCORE_EXPORT CompositeFileTransferJob : public KCompositeJob
     Q_OBJECT
 
 public:
-    explicit CompositeFileTransferJob(const QString &deviceId);
+    explicit CompositeFileTransferJob(const Device *device, QObject *parent);
 
     void start() override;
     bool isRunning() const;
@@ -33,7 +34,7 @@ private Q_SLOTS:
     void startNextSubJob();
 
 private:
-    QString m_deviceId;
+    const Device *m_device;
     bool m_running;
     int m_currentJobNum;
     int m_totalJobs;

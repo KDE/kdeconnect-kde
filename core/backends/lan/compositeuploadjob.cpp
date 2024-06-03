@@ -11,13 +11,14 @@
 #include <KLocalizedString>
 #include <core_debug.h>
 #include <daemon.h>
+#include <device.h>
 
-CompositeUploadJob::CompositeUploadJob(const QString &deviceId, bool displayNotification)
-    : KCompositeJob()
+CompositeUploadJob::CompositeUploadJob(Device *device, bool displayNotification)
+    : KCompositeJob(device)
     , m_server(new Server(this))
     , m_socket(nullptr)
     , m_port(0)
-    , m_deviceId(deviceId)
+    , m_device(device)
     , m_running(false)
     , m_currentJobNum(1)
     , m_totalJobs(0)
@@ -102,17 +103,11 @@ void CompositeUploadJob::startNextSubJob()
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
 
-    Device *device = Daemon::instance()->getDevice(m_deviceId);
-    if (device == nullptr) {
-        qCWarning(KDECONNECT_CORE) << "Device disconnected" << this->m_deviceId;
-        return;
-    }
-
-    if (device->sendPacket(np)) {
+    if (m_device->sendPacket(np)) {
         m_server->resumeAccepting();
     } else {
         setError(SendingNetworkPacketFailed);
-        setErrorText(i18n("Failed to send packet to %1", device->name()));
+        setErrorText(i18n("Failed to send packet to %1", m_device->name()));
 
         emitResult();
     }
@@ -159,7 +154,7 @@ void CompositeUploadJob::newConnection()
         m_currentJob->start();
     });
 
-    LanLinkProvider::configureSslSocket(m_socket, m_deviceId, true);
+    LanLinkProvider::configureSslSocket(m_socket, m_device->id(), true);
 
     m_socket->startServerEncryption();
 }
@@ -207,12 +202,7 @@ void CompositeUploadJob::sendUpdatePacket()
     np.set<int>(QStringLiteral("numberOfFiles"), m_totalJobs);
     np.set<quint64>(QStringLiteral("totalPayloadSize"), m_totalPayloadSize);
 
-    Device *device = Daemon::instance()->getDevice(m_deviceId);
-    if (device == nullptr) {
-        qCWarning(KDECONNECT_CORE) << "Device disconnected" << this->m_deviceId;
-        return;
-    }
-    device->sendPacket(np);
+    m_device->sendPacket(np);
 }
 
 bool CompositeUploadJob::doKill()
@@ -263,12 +253,7 @@ void CompositeUploadJob::slotResult(KJob *job)
 
 void CompositeUploadJob::emitDescription(const QString &currentFileName)
 {
-    Device *device = Daemon::instance()->getDevice(this->m_deviceId);
-    if (device == nullptr) {
-        qWarning() << "Device disconnected" << this->m_deviceId;
-        return;
-    }
-    Q_EMIT description(this, i18n("Sending to %1", device->name()), {i18n("File"), currentFileName}, {});
+    Q_EMIT description(this, i18n("Sending to %1", m_device->name()), {i18n("File"), currentFileName}, {});
 
     setProcessedAmount(Files, m_currentJobNum);
     setTotalAmount(Files, m_totalJobs);

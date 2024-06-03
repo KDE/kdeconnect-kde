@@ -12,12 +12,14 @@
 #include "uploadjob.h"
 #include <KCompositeJob>
 
+class Device;
+
 class KDECONNECTCORE_EXPORT CompositeUploadJob : public KCompositeJob
 {
     Q_OBJECT
 
 public:
-    explicit CompositeUploadJob(const QString &deviceId, bool displayNotification);
+    explicit CompositeUploadJob(Device *device, bool displayNotification);
 
     void start() override;
     QVariantMap transferInfo();
@@ -37,7 +39,7 @@ private:
     Server *const m_server;
     QSslSocket *m_socket;
     quint16 m_port;
-    QString m_deviceId;
+    Device *m_device;
     bool m_running;
     int m_currentJobNum;
     int m_totalJobs;

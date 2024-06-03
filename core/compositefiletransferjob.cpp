@@ -9,10 +9,11 @@
 #include <KLocalizedString>
 #include <core_debug.h>
 #include <daemon.h>
+#include <device.h>
 
-CompositeFileTransferJob::CompositeFileTransferJob(const QString &deviceId)
-    : KCompositeJob()
-    , m_deviceId(deviceId)
+CompositeFileTransferJob::CompositeFileTransferJob(const Device *device, QObject *parent)
+    : KCompositeJob(parent)
+    , m_device(device)
     , m_running(false)
     , m_currentJobNum(1)
     , m_totalJobs(0)
@@ -44,7 +45,7 @@ void CompositeFileTransferJob::startNextSubJob()
     m_currentJob->start();
     Q_EMIT description(this,
                        i18ncp("@title job", "Receiving file", "Receiving files", m_totalJobs),
-                       {i18nc("The source of a file operation", "Source"), Daemon::instance()->getDevice(this->m_deviceId)->name()},
+                       {i18nc("The source of a file operation", "Source"), this->m_device->name()},
                        {i18nc("The destination of a file operation", "Destination"), m_currentJob->destination().toDisplayString(QUrl::PreferLocalFile)});
 
     connect(m_currentJob, &FileTransferJob::processedAmountChanged, this, &CompositeFileTransferJob::slotProcessedAmount);

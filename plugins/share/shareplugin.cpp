@@ -119,7 +119,7 @@ void SharePlugin::receivePacket(const NetworkPacket &np)
             const bool open = np.get<bool>(QStringLiteral("open"), false);
 
             if (!m_compositeJob) {
-                m_compositeJob = new CompositeFileTransferJob(device()->id());
+                m_compositeJob = new CompositeFileTransferJob(device(), this);
                 m_compositeJob->setProperty("destUrl", destinationDir().toString());
                 m_compositeJob->setProperty("immediateProgressReporting", true);
                 Daemon::instance()->jobTracker()->registerJob(m_compositeJob);
