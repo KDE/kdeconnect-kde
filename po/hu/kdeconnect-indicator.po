@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-06-04 00:38+0000\n"
 "PO-Revision-Date: 2024-01-18 09:49+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -103,48 +103,48 @@ msgstr "A kdeconnectd nem található"
 msgid "Loading modules"
 msgstr "Modulok betöltése"
 
-#: main.cpp:51
+#: main.cpp:52
 #, kde-format
 msgid "KDE Connect Indicator"
 msgstr "KDE Connect jelző"
 
-#: main.cpp:53
+#: main.cpp:54
 #, kde-format
 msgid "KDE Connect Indicator tool"
 msgstr "KDE Connect jelző segédprogram"
 
-#: main.cpp:55
+#: main.cpp:56
 #, kde-format
 msgid "(C) 2016 Aleix Pol Gonzalez"
 msgstr "(c) Aleix Pol Gonzalez, 2016."
 
-#: main.cpp:90
+#: main.cpp:93
 #, kde-format
 msgid "Configure..."
 msgstr "Beállítások…"
 
-#: main.cpp:112
+#: main.cpp:119
 #, kde-format
 msgid "Pairing requests"
 msgstr "Párosítási kérések"
 
-#: main.cpp:117
+#: main.cpp:124
 #, kde-format
 msgctxt "Accept a pairing request"
 msgid "Pair"
 msgstr "Párosítás"
 
-#: main.cpp:118
+#: main.cpp:125
 #, kde-format
 msgid "Reject"
 msgstr "Elutasítás"
 
-#: main.cpp:124 main.cpp:134
+#: main.cpp:131 main.cpp:141
 #, kde-format
 msgid "Quit"
 msgstr "Kilépés"
 
-#: main.cpp:153 main.cpp:177
+#: main.cpp:160 main.cpp:184
 #, kde-format
 msgid "%1 device connected"
 msgid_plural "%1 devices connected"
