@@ -64,7 +64,8 @@ void ContactsPlugin::synchronizeRemoteWithLocal()
 bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket &np)
 {
     if (!np.has(QStringLiteral("uids"))) {
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:" << "Malformed packet does not have uids key";
+        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:"
+                                            << "Malformed packet does not have uids key";
         return false;
     }
     uIDList_t uIDsToUpdate;
@@ -96,8 +97,8 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket &np)
 
         // Check if the vcard needs to be updated
         if (!vcardFile.open(QIODevice::ReadOnly)) {
-            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:" << "Unable to open" << filename
-                                                  << "to read even though it was reported to exist";
+            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseUIDsTimestamps:"
+                                                  << "Unable to open" << filename << "to read even though it was reported to exist";
             continue;
         }
 
@@ -135,7 +136,8 @@ bool ContactsPlugin::handleResponseUIDsTimestamps(const NetworkPacket &np)
 bool ContactsPlugin::handleResponseVCards(const NetworkPacket &np)
 {
     if (!np.has(QStringLiteral("uids"))) {
-        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Malformed packet does not have uids key";
+        qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:"
+                                            << "Malformed packet does not have uids key";
         return false;
     }
 
@@ -149,7 +151,8 @@ bool ContactsPlugin::handleResponseVCards(const NetworkPacket &np)
         QFile vcardFile(filename);
         bool vcardFileOpened = vcardFile.open(QIODevice::WriteOnly); // Want to smash anything that might have already been there
         if (!vcardFileOpened) {
-            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Unable to open" << filename;
+            qCWarning(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:"
+                                                  << "Unable to open" << filename;
             continue;
         }
 
@@ -157,7 +160,8 @@ bool ContactsPlugin::handleResponseVCards(const NetworkPacket &np)
         const QString &vcard = np.get<QString>(ID);
         fileWriteStream << vcard;
     }
-    qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:" << "Got" << uIDs.size() << "VCards";
+    qCDebug(KDECONNECT_PLUGIN_CONTACTS) << "handleResponseVCards:"
+                                        << "Got" << uIDs.size() << "VCards";
     Q_EMIT localCacheSynchronized(uIDs);
     return true;
 }

@@ -76,12 +76,14 @@ QVariantList ConversationsDbusInterface::activeConversations()
 void ConversationsDbusInterface::requestConversation(const qint64 &conversationID, int start, int end)
 {
     if (start < 0 || end < 0) {
-        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation" << "Start and end must be >= 0";
+        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation"
+                                            << "Start and end must be >= 0";
         return;
     }
 
     if (end - start < 0) {
-        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation" << "Start must be before end";
+        qCWarning(KDECONNECT_CONVERSATIONS) << "requestConversation"
+                                            << "Start must be before end";
         return;
     }
 

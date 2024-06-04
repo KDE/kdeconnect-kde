@@ -194,7 +194,8 @@ void DBusNotificationsListenerThread::run()
                                   "member='Notify'");
 
     if (!error.isEmpty()) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS).noquote() << "Failed to become a DBus monitor." << "No notifictions will be sent. Error:" << error;
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS).noquote() << "Failed to become a DBus monitor."
+                                                                 << "No notifictions will be sent. Error:" << error;
     }
 
     // wake up every minute to see if we are still connected
@@ -375,7 +376,8 @@ QSharedPointer<QIODevice> DBusNotificationsListener::iconForImageData(const QVar
         return QSharedPointer<QIODevice>();
 
     if (bitsPerSample != 8) {
-        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Unsupported image format:" << "width=" << width << "height=" << height << "rowStride=" << rowStride
+        qCWarning(KDECONNECT_PLUGIN_SENDNOTIFICATIONS) << "Unsupported image format:"
+                                                       << "width=" << width << "height=" << height << "rowStride=" << rowStride
                                                        << "bitsPerSample=" << bitsPerSample << "channels=" << channels << "hasAlpha=" << hasAlpha;
         return QSharedPointer<QIODevice>();
     }

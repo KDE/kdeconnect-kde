@@ -30,8 +30,8 @@ public:
      */
     qint32 messages;
 
-    SmsCharCount(){};
-    ~SmsCharCount(){};
+    SmsCharCount() {};
+    ~SmsCharCount() {};
 };
 
 #endif // CHARCOUNT_H
