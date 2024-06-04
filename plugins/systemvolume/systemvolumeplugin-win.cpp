@@ -35,7 +35,7 @@ public:
         , _cRef(1)
     {
     }
-    ~CAudioEndpointVolumeCallback(){};
+    ~CAudioEndpointVolumeCallback() {};
 
     // IUnknown methods -- AddRef, Release, and QueryInterface
 
@@ -91,9 +91,9 @@ class SystemvolumePlugin::CMMNotificationClient : public IMMNotificationClient
 public:
     CMMNotificationClient(SystemvolumePlugin &x)
         : enclosing(x)
-        , _cRef(1){};
+        , _cRef(1) {};
 
-    ~CMMNotificationClient(){};
+    ~CMMNotificationClient() {};
 
     // IUnknown methods -- AddRef, Release, and QueryInterface
 

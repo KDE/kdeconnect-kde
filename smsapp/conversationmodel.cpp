@@ -58,7 +58,8 @@ void ConversationModel::setDeviceId(const QString &deviceId)
     if (deviceId == m_deviceId)
         return;
 
-    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId" << "of" << this;
+    qCDebug(KDECONNECT_SMS_CONVERSATION_MODEL) << "setDeviceId"
+                                               << "of" << this;
     if (m_conversationsInterface) {
         disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationUpdated, this, &ConversationModel::handleConversationUpdate);
         disconnect(m_conversationsInterface, &DeviceConversationsDbusInterface::conversationLoaded, this, &ConversationModel::handleConversationLoaded);
