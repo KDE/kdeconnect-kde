@@ -13,7 +13,7 @@ import QtMultimedia
 Kirigami.Page {
     id: root
 
-    property string filePath
+    property url fileUrl
     property string mimeType
 
     actions: [
@@ -21,7 +21,7 @@ Kirigami.Page {
             text: i18nd("kdeconnect-sms", "Open with default")
             icon.name: "window-new"
             onTriggered: {
-                Qt.openUrlExternally(root.filePath);
+                Qt.openUrlExternally(root.fileUrl);
             }
         }
     ]
@@ -40,7 +40,7 @@ Kirigami.Page {
 
             Image {
                 id: image
-                source: parent.visible ? root.filePath : ""
+                source: parent.visible ? root.fileUrl : ""
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 width: sourceSize.width
@@ -51,7 +51,7 @@ Kirigami.Page {
 
         MediaPlayer {
             id: mediaPlayer
-            source: root.filePath
+            source: root.fileUrl
 
             onPositionChanged: {
                 if (mediaPlayer.position > 1000 && mediaPlayer.duration - mediaPlayer.position < 1000) {

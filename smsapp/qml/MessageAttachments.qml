@@ -15,7 +15,7 @@ Item {
     property int partID
     property string mimeType
     property string uniqueIdentifier
-    property string sourcePath: ""
+    property url source
 
     readonly property int elementWidth: 100
     readonly property int elementHeight: 100
@@ -27,7 +27,7 @@ Item {
         id: attachmentViewer
 
         AttachmentViewer {
-            filePath: root.sourcePath
+            fileUrl: root.source
             mimeType: root.mimeType
             title: uniqueIdentifier
         }
@@ -46,7 +46,7 @@ Item {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                if (root.sourcePath == "") {
+                if (root.source.toString() === "") {
                     conversationModel.requestAttachmentPath(root.partID, root.uniqueIdentifier)
                 } else {
                     openMedia();
@@ -59,7 +59,7 @@ Item {
             visible: root.mimeType.match("video")
             anchors.centerIn: parent
             onClicked: {
-                if (root.sourcePath == "") {
+                if (root.source.toString() === "") {
                     conversationModel.requestAttachmentPath(root.partID, root.uniqueIdentifier)
                 } else {
                     openMedia();
@@ -77,7 +77,7 @@ Item {
 
         MediaPlayer {
             id: audioPlayer
-            source: root.sourcePath
+            source: root.source
 
             onPlaybackStateChanged: {
                 if (playbackState === MediaPlayer.PlayingState) {
@@ -93,12 +93,12 @@ Item {
             spacing: Kirigami.Units.largeSpacing
 
             Button {
-                id : audioPlayButton
+                id: audioPlayButton
                 icon.name: "media-playback-start"
                 Layout.alignment: Qt.AlignCenter
 
                 onClicked: {
-                    if (root.sourcePath != "") {
+                    if (root.source.toString() !== "") {
                         if (icon.name === "media-playback-start") {
                             audioPlayer.play()
                         } else {
@@ -119,11 +119,11 @@ Item {
     Connections {
         target: conversationModel
         function onFilePathReceived(filePath, fileName) {
-            if (root.uniqueIdentifier === fileName && root.sourcePath == "") {
-                root.sourcePath = "file://" + filePath
+            if (root.uniqueIdentifier === fileName && root.source.toString() === "") {
+                root.source = "file://" + filePath
 
                 if (root.mimeType.match("audio")) {
-                    audioPlayer.source = root.sourcePath
+                    audioPlayer.source = root.source
                     audioPlayer.play()
                 } else if (root.mimeType.match("image") || root.mimeType.match("video")) {
                     openMedia();
