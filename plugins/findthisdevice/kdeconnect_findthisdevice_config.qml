@@ -11,46 +11,52 @@ import org.kde.kirigami 2.20 as Kirigami
 import Qt.labs.platform 1.1
 import org.kde.kdeconnect 1.0
 
-Kirigami.FormLayout {
+Kirigami.Page {
 
     property string device
 
-    property var action: Kirigami.Action {
-        icon.name: "dialog-ok"
-        text: i18n("Apply")
-        onTriggered: config.set("ringtone", path.text)
-    }
-
-    FileDialog {
-        id: fileDialog
-        currentFile: path.text
-
-        onAccepted: {
-            path.text = currentFile.toString().replace("file://", "")
+    actions: [
+        Kirigami.Action {
+            icon.name: "dialog-ok"
+            text: i18n("Apply")
+            onTriggered: config.set("ringtone", path.text)
         }
-    }
+    ]
 
-    KdeConnectPluginConfig {
-        id: config
-        deviceId: device
-        pluginName: "kdeconnect_findthisdevice"
+    Kirigami.FormLayout {
 
-        onConfigChanged: {
-            path.text = getString("ringtone", StandardPaths.writableLocation(StandardPaths.DownloadsLocation).toString().replace("file://", ""))
-        }
-    }
+        anchors.fill: parent
 
-    RowLayout {
-        Kirigami.FormData.label: i18n("Sound to play:")
+        FileDialog {
+            id: fileDialog
+            currentFile: path.text
 
-        QQC2.TextField {
-            id: path
+            onAccepted: {
+                path.text = currentFile.toString().replace("file://", "")
+            }
         }
 
-        QQC2.Button {
-            icon.name: "document-open"
-            onClicked: fileDialog.open()
+        KdeConnectPluginConfig {
+            id: config
+            deviceId: device
+            pluginName: "kdeconnect_findthisdevice"
+
+            onConfigChanged: {
+                path.text = getString("ringtone", StandardPaths.writableLocation(StandardPaths.DownloadsLocation).toString().replace("file://", ""))
+            }
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Sound to play:")
+
+            QQC2.TextField {
+                id: path
+            }
+
+            QQC2.Button {
+                icon.name: "document-open"
+                onClicked: fileDialog.open()
+            }
         }
     }
 }
-

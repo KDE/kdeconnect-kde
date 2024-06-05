@@ -63,17 +63,14 @@ Kirigami.ScrollablePage {
                     //        https://bugreports.qt.io/browse/QTBUG-123123
                     Accessible.name: i18nd("kdeconnect-app", "Configure plugin")
                     onTriggered: {
-                        if (pageStack.lastItem.toString().startsWith("PluginInfoPage")) {
-                            pageStack.lastItem.configFile = configSource;
-                            pageStack.lastItem.title = name;
-                            pageStack.goForward();
-                        } else {
-                            pageStack.push(Qt.resolvedUrl("PluginInfoPage.qml"), {
-                                title: name,
-                                configFile: configSource,
-                                device: root.device,
-                            });
+                        if (!pageStack.lastItem.toString().startsWith("PluginSettings")) {
+                            pageStack.pop()
                         }
+
+                        pageStack.push(configSource, {
+                            title: name,
+                            device: root.device,
+                        });
                     }
                 }
             ]

@@ -11,49 +11,56 @@ import org.kde.kirigami 2.20 as Kirigami
 import Qt.labs.platform 1.1
 import org.kde.kdeconnect 1.0
 
-Kirigami.FormLayout {
+Kirigami.Page {
 
     property string device
 
-    property var action: Kirigami.Action {
-        icon.name: "dialog-ok"
-        text: i18n("Apply")
-        onTriggered: config.set("incoming_path", path.text)
-    }
-
-    FolderDialog {
-        id: folderDialog
-        currentFolder: path.text
-
-        onAccepted: {
-            path.text = currentFolder.toString().replace("file://", "")
+    actions: [
+        Kirigami.Action {
+            icon.name: "dialog-ok"
+            text: i18n("Apply")
+            onTriggered: config.set("incoming_path", path.text)
         }
-    }
+    ]
 
-    KdeConnectPluginConfig {
-        id: config
-        deviceId: device
-        pluginName: "kdeconnect_share"
+    Kirigami.FormLayout {
 
-        onConfigChanged: {
-            path.text = getString("incoming_path", StandardPaths.writableLocation(StandardPaths.DownloadsLocation).toString().replace("file://", ""))
-        }
-    }
+        anchors.fill: parent
 
-    RowLayout {
-        Kirigami.FormData.label: i18n("Save files in:")
+        FolderDialog {
+            id: folderDialog
+            currentFolder: path.text
 
-        QQC2.TextField {
-            id: path
+            onAccepted: {
+                path.text = currentFolder.toString().replace("file://", "")
+            }
         }
 
-        QQC2.Button {
-            icon.name: "document-open"
-            onClicked: folderDialog.open()
-        }
-    }
+        KdeConnectPluginConfig {
+            id: config
+            deviceId: device
+            pluginName: "kdeconnect_share"
 
-    QQC2.Label {
-        text: i18n("%1 in the path will be replaced with the specific device name", "%1")
+            onConfigChanged: {
+                path.text = getString("incoming_path", StandardPaths.writableLocation(StandardPaths.DownloadsLocation).toString().replace("file://", ""))
+            }
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Save files in:")
+
+            QQC2.TextField {
+                id: path
+            }
+
+            QQC2.Button {
+                icon.name: "document-open"
+                onClicked: folderDialog.open()
+            }
+        }
+
+        QQC2.Label {
+            text: i18n("%1 in the path will be replaced with the specific device name", "%1")
+        }
     }
 }
