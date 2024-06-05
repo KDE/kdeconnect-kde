@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2023-12-09 16:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -20,22 +20,22 @@ msgstr ""
 "X-Generator: Lokalize 24.01.80\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: backends/lan/compositeuploadjob.cpp:77
+#: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "找不到任何可用的 port"
 
-#: backends/lan/compositeuploadjob.cpp:115
+#: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "無法傳送封包到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "Sending to %1"
 msgstr "正在傳送到 %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "File"
 msgstr "檔案"
@@ -70,20 +70,20 @@ msgstr "已被使用者取消"
 msgid "Timed out"
 msgstr "逾時"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
 msgid_plural "Receiving files"
 msgstr[0] "正在接收檔案"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "來源"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"

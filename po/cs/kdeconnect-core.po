@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2023-08-07 11:50+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: backends/lan/compositeuploadjob.cpp:77
+#: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Nelze najít žádný dostupný port"
 
-#: backends/lan/compositeuploadjob.cpp:115
+#: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Selhalo odesílání paketu na %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "Sending to %1"
 msgstr "Posílám na %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "File"
 msgstr "Soubor"
@@ -67,7 +67,7 @@ msgstr "Zrušeno uživatelem"
 msgid "Timed out"
 msgstr "Čas vypršel"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -76,13 +76,13 @@ msgstr[0] "Přijímám soubor"
 msgstr[1] "Přijímám soubory"
 msgstr[2] "Přijímám soubory"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Zdroj"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"

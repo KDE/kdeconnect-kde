@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2023-07-31 09:16+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: backends/lan/compositeuploadjob.cpp:77
+#: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Impossibile trovare una porta disponibile"
 
-#: backends/lan/compositeuploadjob.cpp:115
+#: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Invio pacchetto a %1 non riuscito"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "Sending to %1"
 msgstr "Invio a %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "File"
 msgstr "File"
@@ -67,7 +67,7 @@ msgstr "Annullato dall'utente"
 msgid "Timed out"
 msgstr "Tempo scaduto"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -75,13 +75,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Ricezione file"
 msgstr[1] "Ricezione file"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Sorgente"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"

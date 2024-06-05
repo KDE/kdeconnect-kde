@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-core\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2023-08-04 01:25-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -20,22 +20,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: backends/lan/compositeuploadjob.cpp:77
+#: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "Não foi possível encontrar uma porta disponível"
 
-#: backends/lan/compositeuploadjob.cpp:115
+#: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr "Ocorreu uma falha ao enviar o pacote para %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "Sending to %1"
 msgstr "Enviando para %1"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "File"
 msgstr "Arquivo"
@@ -70,7 +70,7 @@ msgstr "Cancelado pelo usuário"
 msgid "Timed out"
 msgstr "Tempo limite expirou"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -78,13 +78,13 @@ msgid_plural "Receiving files"
 msgstr[0] "Recebendo arquivo"
 msgstr[1] "Recebendo arquivos"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Origem"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"

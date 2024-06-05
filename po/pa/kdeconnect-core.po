@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-20 00:38+0000\n"
+"POT-Creation-Date: 2024-06-05 00:38+0000\n"
 "PO-Revision-Date: 2024-02-10 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: backends/lan/compositeuploadjob.cpp:77
+#: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
 msgid "Couldn't find an available port"
 msgstr "ਮੌਜੂਦ ਪੋਰਟ ਲੱਭੀ ਨਹੀਂ ਜਾ ਸਕੀ"
 
-#: backends/lan/compositeuploadjob.cpp:115
+#: backends/lan/compositeuploadjob.cpp:110
 #, kde-format
 msgid "Failed to send packet to %1"
 msgstr ""
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "Sending to %1"
 msgstr "%1 ਨੂੰ ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: backends/lan/compositeuploadjob.cpp:271
+#: backends/lan/compositeuploadjob.cpp:256
 #, kde-format
 msgid "File"
 msgstr "ਫਾਇਲ"
@@ -67,7 +67,7 @@ msgstr "ਵਰਤੋਂਕਾਰ ਵਲੋਂ ਰੱਦ ਕੀਤਾ"
 msgid "Timed out"
 msgstr "ਸਮਾਂ ਸਮਾਪਤ"
 
-#: compositefiletransferjob.cpp:46
+#: compositefiletransferjob.cpp:47
 #, kde-format
 msgctxt "@title job"
 msgid "Receiving file"
@@ -75,13 +75,13 @@ msgid_plural "Receiving files"
 msgstr[0] "ਫਾਇਲ ਮਿਲ ਰਹੀ ਹੈ"
 msgstr[1] "ਫਾਇਲਾਂ ਮਿਲ ਰਹੀਆਂ ਹਨ"
 
-#: compositefiletransferjob.cpp:47
+#: compositefiletransferjob.cpp:48
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
-#: compositefiletransferjob.cpp:48
+#: compositefiletransferjob.cpp:49
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
