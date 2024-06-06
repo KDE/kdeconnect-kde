@@ -3,8 +3,10 @@
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
+pragma ComponentBehavior: Bound
 
 import QtQuick 2.15
+import QtQuick.Layouts
 import QtQuick.Controls 2.15 as QQC2
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.kdeconnect 1.0
@@ -30,18 +32,33 @@ Kirigami.ScrollablePage {
             deviceId: device
         }
 
-        delegate: Kirigami.SwipeListItem {
-            width: parent.width
-            enabled: true
+        delegate: QQC2.ItemDelegate {
+            id: commandDelegate
 
-            contentItem: QQC2.Label {
-                text: i18n("%1 <br> <i>%2</i>", name, command)
-            }
+            required property string name
+            required property string command
+            required property int index
 
-            actions: Kirigami.Action {
-                text: i18n("Delete")
-                icon.name: "delete"
-                onTriggered: commandModel.removeCommand(index)
+            text: name
+            width: ListView.view.width
+
+            contentItem: RowLayout {
+                Kirigami.TitleSubtitle {
+                    title: commandDelegate.text
+                    subtitle: commandDelegate.command
+                    Layout.fillWidth: true
+                }
+
+                QQC2.ToolButton {
+                    text: i18n("Delete")
+                    icon.name: "delete"
+                    onClicked: commandModel.removeCommand(commandDelegate.index)
+                    display: QQC2.ToolButton.IconOnly
+
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered || activeFocus
+                }
             }
         }
 
