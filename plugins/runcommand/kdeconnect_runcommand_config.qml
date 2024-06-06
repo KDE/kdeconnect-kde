@@ -72,11 +72,13 @@ Kirigami.ScrollablePage {
             helpfulAction: root.actions[0]
         }
 
-        QQC2.Dialog {
+        Kirigami.Dialog {
             id: addDialog
             title: "Add command"
 
             standardButtons: QQC2.Dialog.Save | QQC2.Dialog.Cancel
+
+            horizontalPadding: Kirigami.Units.largeSpacing
 
             Kirigami.FormLayout {
                 QQC2.TextField {
