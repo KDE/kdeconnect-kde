@@ -124,7 +124,7 @@ Kirigami.ScrollablePage {
                             command: "qdbus org.kde.kded5 /modules/plasmavault forceCloseAllVaults"
                         }
                     }
-                    onActivated: {
+                    onActivated: index => {
                         if (index > 0) {
                             nameField.text = sampleCommands.get(index).name
                             commandField.text = sampleCommands.get(index).command
