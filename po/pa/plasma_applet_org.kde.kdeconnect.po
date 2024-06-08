@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 00:39+0000\n"
+"POT-Creation-Date: 2024-06-08 00:38+0000\n"
 "PO-Revision-Date: 2024-02-10 10:27-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -49,119 +49,119 @@ msgstr "ਕੋਈ ਸਿਗਨਲ ਨਹੀਂ ਹੈ"
 msgid "Virtual Monitor is not available"
 msgstr "ਪੇਅਰ ਕੀਤਾ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: package/contents/ui/DeviceDelegate.qml:64
+#: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
 msgid "File Transfer"
 msgstr "ਫਾਇਲ ਟਰਾਂਸਫਰ"
 
-#: package/contents/ui/DeviceDelegate.qml:65
+#: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "ਆਪਣੇ ਫ਼ੋਨ ਉੱਤੇ ਫਾਇਲ ਭੇਜਣ ਲਈ ਇਸ ਨੂੰ ਰੱਖੋ।"
 
-#: package/contents/ui/DeviceDelegate.qml:103
+#: package/contents/ui/DeviceDelegate.qml:102
 #, kde-format
 msgid "Virtual Display"
 msgstr "ਵਰਚੁਅਲ ਡਿਸਪਲੇਅ"
 
-#: package/contents/ui/DeviceDelegate.qml:107
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:111
+#: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:118
+#: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:168
+#: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:190
+#: package/contents/ui/DeviceDelegate.qml:189
 #, kde-format
 msgid "Please choose a file"
 msgstr "ਫਾਇਲ ਚੁਣੋ ਜੀ"
 
-#: package/contents/ui/DeviceDelegate.qml:199
+#: package/contents/ui/DeviceDelegate.qml:198
 #, kde-format
 msgid "Share file"
 msgstr "ਫਾਇਲ ਸਾਂਝੀ ਕਰੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:214
+#: package/contents/ui/DeviceDelegate.qml:213
 #, kde-format
 msgid "Send Clipboard"
 msgstr "ਕਲਿੱਪਬੋਰਡ ਭੇਜੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:233
+#: package/contents/ui/DeviceDelegate.qml:232
 #, kde-format
 msgid "Ring my phone"
 msgstr "ਮੇਰੇ ਫ਼ੋਨ ਉੱਤੇ ਰਿੰਗ ਕਰੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:251
+#: package/contents/ui/DeviceDelegate.qml:250
 #, kde-format
 msgid "Browse this device"
 msgstr "ਇਸ ਡਿਵਾਈਸ ਦੀ ਝਲਕ"
 
-#: package/contents/ui/DeviceDelegate.qml:268
+#: package/contents/ui/DeviceDelegate.qml:267
 #, kde-format
 msgid "SMS Messages"
 msgstr "SMS ਸੁਨੇਹੇ"
 
-#: package/contents/ui/DeviceDelegate.qml:289
+#: package/contents/ui/DeviceDelegate.qml:288
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "ਰਿਮੋਟ ਕੀਬੋਰਡ"
 
-#: package/contents/ui/DeviceDelegate.qml:310
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Notifications:"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ:"
 
-#: package/contents/ui/DeviceDelegate.qml:318
+#: package/contents/ui/DeviceDelegate.qml:317
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "ਸਭ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਨੂੰ ਖਾਰਜ ਕਰੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:365
+#: package/contents/ui/DeviceDelegate.qml:364
 #, kde-format
 msgid "Reply"
 msgstr "ਜਵਾਬ ਦਿਓ"
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:374
 #, kde-format
 msgid "Dismiss"
 msgstr "ਖ਼ਾਰਜ ਕਰੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:388
+#: package/contents/ui/DeviceDelegate.qml:387
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:401
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "%1 ਨੂੰ ਜਵਾਬ ਦਿਓ…"
 
-#: package/contents/ui/DeviceDelegate.qml:420
+#: package/contents/ui/DeviceDelegate.qml:419
 #, kde-format
 msgid "Send"
 msgstr "ਭੇਜੋ"
 
-#: package/contents/ui/DeviceDelegate.qml:446
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "ਕਮਾਂਡ ਨੂੰ ਚਲਾਓ"
 
-#: package/contents/ui/DeviceDelegate.qml:454
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "ਕਮਾਂਡ ਨੂੰ ਜੋੜੋ"

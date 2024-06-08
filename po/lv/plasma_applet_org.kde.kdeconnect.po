@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-31 00:39+0000\n"
+"POT-Creation-Date: 2024-06-08 00:38+0000\n"
 "PO-Revision-Date: 2024-01-11 20:44+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -50,119 +50,119 @@ msgstr "Nav signāla"
 msgid "Virtual Monitor is not available"
 msgstr "Sapārotā ierīce nav pieejama"
 
-#: package/contents/ui/DeviceDelegate.qml:64
+#: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
 msgid "File Transfer"
 msgstr "Datņu nosūtīšana"
 
-#: package/contents/ui/DeviceDelegate.qml:65
+#: package/contents/ui/DeviceDelegate.qml:64
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Ievelciet datni nosūtīšanai uz savu tālruni"
 
-#: package/contents/ui/DeviceDelegate.qml:103
+#: package/contents/ui/DeviceDelegate.qml:102
 #, kde-format
 msgid "Virtual Display"
 msgstr "Virtuālais displejs"
 
-#: package/contents/ui/DeviceDelegate.qml:107
+#: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:111
+#: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:118
+#: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:168
+#: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:190
+#: package/contents/ui/DeviceDelegate.qml:189
 #, kde-format
 msgid "Please choose a file"
 msgstr "Izvēlieties datni"
 
-#: package/contents/ui/DeviceDelegate.qml:199
+#: package/contents/ui/DeviceDelegate.qml:198
 #, kde-format
 msgid "Share file"
 msgstr "Nosūtīt datni"
 
-#: package/contents/ui/DeviceDelegate.qml:214
+#: package/contents/ui/DeviceDelegate.qml:213
 #, kde-format
 msgid "Send Clipboard"
 msgstr "Nosūtīt starpliktuvi"
 
-#: package/contents/ui/DeviceDelegate.qml:233
+#: package/contents/ui/DeviceDelegate.qml:232
 #, kde-format
 msgid "Ring my phone"
 msgstr "Likt tālrunim zvanīt"
 
-#: package/contents/ui/DeviceDelegate.qml:251
+#: package/contents/ui/DeviceDelegate.qml:250
 #, kde-format
 msgid "Browse this device"
 msgstr "Pārlūkot šo ierīci"
 
-#: package/contents/ui/DeviceDelegate.qml:268
+#: package/contents/ui/DeviceDelegate.qml:267
 #, kde-format
 msgid "SMS Messages"
 msgstr "Īsziņas"
 
-#: package/contents/ui/DeviceDelegate.qml:289
+#: package/contents/ui/DeviceDelegate.qml:288
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Attālā tastatūra"
 
-#: package/contents/ui/DeviceDelegate.qml:310
+#: package/contents/ui/DeviceDelegate.qml:309
 #, kde-format
 msgid "Notifications:"
 msgstr "Paziņojumi:"
 
-#: package/contents/ui/DeviceDelegate.qml:318
+#: package/contents/ui/DeviceDelegate.qml:317
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Aizvākt visus paziņojumus"
 
-#: package/contents/ui/DeviceDelegate.qml:365
+#: package/contents/ui/DeviceDelegate.qml:364
 #, kde-format
 msgid "Reply"
 msgstr "Atbildēt"
 
-#: package/contents/ui/DeviceDelegate.qml:375
+#: package/contents/ui/DeviceDelegate.qml:374
 #, kde-format
 msgid "Dismiss"
 msgstr "Aizvākt"
 
-#: package/contents/ui/DeviceDelegate.qml:388
+#: package/contents/ui/DeviceDelegate.qml:387
 #, kde-format
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: package/contents/ui/DeviceDelegate.qml:402
+#: package/contents/ui/DeviceDelegate.qml:401
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Atbildēt %1..."
 
-#: package/contents/ui/DeviceDelegate.qml:420
+#: package/contents/ui/DeviceDelegate.qml:419
 #, kde-format
 msgid "Send"
 msgstr "Nosūtīt"
 
-#: package/contents/ui/DeviceDelegate.qml:446
+#: package/contents/ui/DeviceDelegate.qml:445
 #, kde-format
 msgid "Run command"
 msgstr "Palaist komandu"
 
-#: package/contents/ui/DeviceDelegate.qml:454
+#: package/contents/ui/DeviceDelegate.qml:453
 #, kde-format
 msgid "Add command"
 msgstr "Pievienot komandu"
