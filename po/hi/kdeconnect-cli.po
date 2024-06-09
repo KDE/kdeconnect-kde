@@ -1,0 +1,322 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Raghavendra Kamath <raghu@raghukamath.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:32+0000\n"
+"PO-Revision-Date: 2024-06-08 20:37+0530\n"
+"Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
+"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "आसीश कुमार, राघवेंद्र कामत"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "officialasishkumar@gmail.com, raghu@raghukamath.com"
+
+#: kdeconnect-cli.cpp:31
+#, kde-format
+msgid "KDE Connect CLI tool"
+msgstr "केडीई कनेक्ट सीएलआई साधन"
+
+#: kdeconnect-cli.cpp:33
+#, kde-format
+msgid "(C) 2015 Aleix Pol Gonzalez"
+msgstr "(c) 2015, एलेक्स पोल गोंजालेज"
+
+#: kdeconnect-cli.cpp:36
+#, kde-format
+msgid "Aleix Pol Gonzalez"
+msgstr "एलेक्स पोल गोंजालेज"
+
+#: kdeconnect-cli.cpp:37
+#, kde-format
+msgid "Albert Vaca Cintora"
+msgstr "अल्बर्ट वाका सिंटोरा"
+
+#: kdeconnect-cli.cpp:39
+#, kde-format
+msgid "List all devices"
+msgstr "सभी उपकरणों की सूची बनाएं"
+
+#: kdeconnect-cli.cpp:41
+#, kde-format
+msgid "List available (paired and reachable) devices"
+msgstr "उपलब्ध (युग्मित और पहुंच योग्य) उपकरणों की सूची बनाएं"
+
+#: kdeconnect-cli.cpp:43
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id, to ease "
+"scripting"
+msgstr ""
+"स्क्रिप्टिंग को आसान बनाने के लिए --list-devices और --list-available पर केवल उपकरण "
+"का आइ-डी छापें"
+
+#: kdeconnect-cli.cpp:45
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices name, to ease "
+"scripting"
+msgstr ""
+"स्क्रिप्टिंग को आसान बनाने के लिए --list-devices और --list-available पर केवल उपकरण "
+"का नाम छापें"
+
+#: kdeconnect-cli.cpp:47
+#, kde-format
+msgid ""
+"Make --list-devices or --list-available print only the devices id and name, "
+"to ease scripting"
+msgstr ""
+"स्क्रिप्टिंग को आसान बनाने के लिए --list-devices और --list-available पर उपकरण आईडी "
+"और नाम छापें"
+
+#: kdeconnect-cli.cpp:48
+#, kde-format
+msgid "Search for devices in the network and re-establish connections"
+msgstr "नेटवर्क में उपकरण खोजें और कनेक्शन पुनः स्थापित करें"
+
+#: kdeconnect-cli.cpp:49
+#, kde-format
+msgid "Request pairing to a said device"
+msgstr "उक्त उपकरण से युग्मन का अनुरोध करें"
+
+#: kdeconnect-cli.cpp:50
+#, kde-format
+msgid "Find the said device by ringing it."
+msgstr "उक्त उपकरण को रिंग करके ढूंढें।"
+
+#: kdeconnect-cli.cpp:51
+#, kde-format
+msgid "Stop pairing to a said device"
+msgstr "उक्त उपकरण से युग्मित होना बंद करें"
+
+#: kdeconnect-cli.cpp:52
+#, kde-format
+msgid "Sends a ping to said device"
+msgstr "उक्त उपकरण पर एक पिंग भेजता है"
+
+#: kdeconnect-cli.cpp:53
+#, kde-format
+msgid "Same as ping but you can set the message to display"
+msgstr "पिंग के समान लेकिन आप संदेश को प्रदर्शित करने के लिए सेट कर सकते हैं"
+
+#: kdeconnect-cli.cpp:53 kdeconnect-cli.cpp:60
+#, kde-format
+msgid "message"
+msgstr "संदेश"
+
+#: kdeconnect-cli.cpp:54
+#, kde-format
+msgid "Sends the current clipboard to said device"
+msgstr "वर्तमान क्लिपबोर्ड को उक्त उपकरण पर भेजता है"
+
+#: kdeconnect-cli.cpp:55
+#, kde-format
+msgid "Share a file/URL to a said device"
+msgstr "किसी फ़ाइल/यूआरएल को उक्त उपकरण पर साझा करें"
+
+#: kdeconnect-cli.cpp:56
+#, kde-format
+msgid "Share text to a said device"
+msgstr "किसी उक्त उपकरण पर टेक्स्ट साझा करें"
+
+#: kdeconnect-cli.cpp:57
+#, kde-format
+msgid "Display the notifications on a said device"
+msgstr "उक्त उपकरण पर सूचनाएं प्रदर्शित करें"
+
+#: kdeconnect-cli.cpp:58
+#, kde-format
+msgid "Lock the specified device"
+msgstr "निर्दिष्ट उपकरण को तालाबंद करें"
+
+#: kdeconnect-cli.cpp:59
+#, kde-format
+msgid "Unlock the specified device"
+msgstr "निर्दिष्ट उपकरण का ताला खोलें"
+
+#: kdeconnect-cli.cpp:60
+#, kde-format
+msgid "Sends an SMS. Requires destination"
+msgstr "एक एसएमएस भेजता है। गंतव्य की आवश्यकता है"
+
+#: kdeconnect-cli.cpp:61
+#, kde-format
+msgid "Phone number to send the message"
+msgstr "संदेश भेजने के लिए फ़ोन नंबर"
+
+#: kdeconnect-cli.cpp:61
+#, kde-format
+msgid "phone number"
+msgstr "फ़ोन नंबर"
+
+#: kdeconnect-cli.cpp:63
+#, kde-format
+msgid ""
+"File urls to send attachments with the message (can be passed multiple times)"
+msgstr "संदेश के साथ अनुलग्नक भेजने के लिए फ़ाइल यूआरएल (कई बार पारित किया जा सकता है)"
+
+#: kdeconnect-cli.cpp:64
+#, kde-format
+msgid "file urls"
+msgstr "फ़ाइल यूआरएल"
+
+#: kdeconnect-cli.cpp:65
+#, kde-format
+msgid "Device ID"
+msgstr "उपकरण आईडी"
+
+#: kdeconnect-cli.cpp:66
+#, kde-format
+msgid "Device Name"
+msgstr "उपकरण का नाम"
+
+#: kdeconnect-cli.cpp:67
+#, kde-format
+msgid "Get encryption info about said device"
+msgstr "उक्त उपकरण के बारे में एन्क्रिप्शन जानकारी प्राप्त करें"
+
+#: kdeconnect-cli.cpp:68
+#, kde-format
+msgid "Lists remote commands and their ids"
+msgstr "दूरस्थ कमांड और उनकी आईडी सूचीबद्ध करता है"
+
+#: kdeconnect-cli.cpp:69
+#, kde-format
+msgid "Executes a remote command by id"
+msgstr "आईडी द्वारा दूरस्थ कमांड निष्पादित करता है"
+
+#: kdeconnect-cli.cpp:71
+#, kde-format
+msgid "Sends keys to a said device"
+msgstr "उक्त उपकरण पर कुंजी भेजता है"
+
+#: kdeconnect-cli.cpp:72
+#, kde-format
+msgid "Display this device's id and exit"
+msgstr "इस उपकरण की आईडी प्रदर्शित करें और बाहर निकलें"
+
+#: kdeconnect-cli.cpp:118
+#, kde-format
+msgid "(paired and reachable)"
+msgstr "(युग्मित और पहुंच योग्य)"
+
+#: kdeconnect-cli.cpp:120
+#, kde-format
+msgid "(reachable)"
+msgstr "(पहुँचने योग्य)"
+
+#: kdeconnect-cli.cpp:122 kdeconnect-cli.cpp:141
+#, kde-format
+msgid "(paired)"
+msgstr "(युग्मित)"
+
+#: kdeconnect-cli.cpp:128
+#, kde-format
+msgid "1 device found"
+msgid_plural "%1 devices found"
+msgstr[0] "1 उपकरण मिला"
+msgstr[1] "%1 उपकरण मिले"
+
+#: kdeconnect-cli.cpp:130
+#, kde-format
+msgid "No devices found"
+msgstr "कोई उपकरण नहीं मिला"
+
+#: kdeconnect-cli.cpp:143
+#, kde-format
+msgid "(unpaired)"
+msgstr "(अयुग्मित)"
+
+#: kdeconnect-cli.cpp:180
+#, kde-format
+msgid ""
+"No device specified: Use -d <Device ID> or -n <Device Name> to specify a "
+"device. \n"
+"Device ID's and names may be found using \"kdeconnect-cli -l\" \n"
+"View complete help with --help option"
+msgstr ""
+"कोई उपकरण निर्दिष्ट नहीं: किसी उपकरण को निर्दिष्ट करने के लिए -d <Device ID> या -n "
+"<Device Name> का उपयोग करें.\n"
+"उपकरण आईडी और नाम \"kdeconnect-cli -l\" का उपयोग करके पाए जा सकते हैं\n"
+"--help विकल्प के साथ पूरी मदद देखें"
+
+#: kdeconnect-cli.cpp:215
+#, kde-format
+msgid "Shared %1"
+msgstr "साझा %1"
+
+#: kdeconnect-cli.cpp:224
+#, kde-format
+msgid "Shared text: %1"
+msgstr "साझा पाठ: %1"
+
+#: kdeconnect-cli.cpp:231
+#, kde-format
+msgctxt "device has requested to lock peer device"
+msgid "Requested to lock %1."
+msgstr "%1 को तालाबंद करने का अनुरोध किया गया।"
+
+#: kdeconnect-cli.cpp:233
+#, kde-format
+msgctxt "device has requested to unlock peer device"
+msgid "Requested to unlock %1."
+msgstr "%1 का ताला खोलने का अनुरोध किया गया।"
+
+#: kdeconnect-cli.cpp:240
+#, kde-format
+msgid "waiting for device..."
+msgstr "उपकरण की प्रतीक्षा..."
+
+#: kdeconnect-cli.cpp:253
+#, kde-format
+msgid "Device not found"
+msgstr "उपकरण नहीं मिला"
+
+#: kdeconnect-cli.cpp:255
+#, kde-format
+msgid "Already paired"
+msgstr "पहले से ही युग्मित है"
+
+#: kdeconnect-cli.cpp:257
+#, kde-format
+msgid "Pair requested"
+msgstr "जुडने का अनुरोध किया गया"
+
+#: kdeconnect-cli.cpp:263
+#, kde-format
+msgid "Already not paired"
+msgstr "पहले से ही युग्मित नहीं है"
+
+#: kdeconnect-cli.cpp:265
+#, kde-format
+msgid "Unpaired"
+msgstr "अयुग्मित"
+
+#: kdeconnect-cli.cpp:311
+#, kde-format
+msgid ""
+"error: should specify the SMS's recipient by passing --destination <phone "
+"number>"
+msgstr ""
+"त्रुटि: --destination <phone number> पास करके एसएमएस के प्राप्तकर्ता को निर्दिष्ट "
+"करना चाहिए"
+
+#: kdeconnect-cli.cpp:365
+#, kde-format
+msgid "Nothing to be done"
+msgstr "कुछ नहीं करना है"

@@ -1,0 +1,183 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the kdeconnect-kde package.
+#
+# Raghavendra Kamath <raghu@raghukamath.com>, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeconnect-kde\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"PO-Revision-Date: 2024-06-08 20:33+0530\n"
+"Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
+"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 22.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "आपके नाम"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "आपके ईमेल"
+
+#: deviceindicator.cpp:53
+#, kde-format
+msgid "Browse device"
+msgstr "उपकरण ब्राउज़ करें"
+
+#: deviceindicator.cpp:67
+#, kde-format
+msgid "Send clipboard"
+msgstr "क्लिपबोर्ड भेजें"
+
+#: deviceindicator.cpp:81
+#, kde-format
+msgctxt "@action:inmenu play bell sound"
+msgid "Ring device"
+msgstr "उपकरण को रिंग करें"
+
+#: deviceindicator.cpp:97
+#, kde-format
+msgid "Send a file/URL"
+msgstr "फ़ाइल/यूआरएल भेजें"
+
+#: deviceindicator.cpp:107
+#, kde-format
+msgid "SMS Messages..."
+msgstr "एसएमएस भेजें..."
+
+#: deviceindicator.cpp:120
+#, kde-format
+msgid "Run command"
+msgstr "समादेश चलाएँ"
+
+#: deviceindicator.cpp:122
+#, kde-format
+msgid "Add commands"
+msgstr "समादेश जोड़ें"
+
+#: indicatorhelper_mac.cpp:37
+#, kde-format
+msgid "Launching"
+msgstr "शुरू हो रहा है"
+
+#: indicatorhelper_mac.cpp:87
+#, kde-format
+msgid "Launching daemon"
+msgstr "डेमॉन शुरू हो रहा"
+
+#: indicatorhelper_mac.cpp:96
+#, kde-format
+msgid "Waiting D-Bus"
+msgstr "इंतज़ार कर रही D-Bus"
+
+#: indicatorhelper_mac.cpp:113 indicatorhelper_mac.cpp:125
+#: indicatorhelper_mac.cpp:142
+#, kde-format
+msgid "KDE Connect"
+msgstr "केडीई कनेक्ट"
+
+#: indicatorhelper_mac.cpp:114 indicatorhelper_mac.cpp:126
+#, kde-format
+msgid ""
+"Cannot connect to DBus\n"
+"KDE Connect will quit"
+msgstr ""
+"DBus से कनेक्ट नहीं हो सका\n"
+"केडीई कनेक्ट बंद हो जाएगा"
+
+#: indicatorhelper_mac.cpp:142
+#, kde-format
+msgid "Cannot find kdeconnectd"
+msgstr "केडीकनेक्टेड नहीं मिल सका"
+
+#: indicatorhelper_mac.cpp:147
+#, kde-format
+msgid "Loading modules"
+msgstr "मॉड्यूलों को लोड किया जा रहा है"
+
+#: main.cpp:52
+#, kde-format
+msgid "KDE Connect Indicator"
+msgstr "केडीई कनेक्ट सूचक"
+
+#: main.cpp:54
+#, kde-format
+msgid "KDE Connect Indicator tool"
+msgstr "केडीई कनेक्ट सूचक साधन"
+
+#: main.cpp:56
+#, kde-format
+msgid "(C) 2016 Aleix Pol Gonzalez"
+msgstr "(C) 2016, एलेक्स पोल गोंजालेज"
+
+#: main.cpp:93
+#, kde-format
+msgid "Configure..."
+msgstr "विन्यस्त करें..."
+
+#: main.cpp:119
+#, kde-format
+msgid "Pairing requests"
+msgstr "जोड़ने का अनुरोध"
+
+#: main.cpp:124
+#, kde-format
+msgctxt "Accept a pairing request"
+msgid "Pair"
+msgstr "जोड़ी"
+
+#: main.cpp:125
+#, kde-format
+msgid "Reject"
+msgstr "अस्वीकार करें"
+
+#: main.cpp:131 main.cpp:141
+#, kde-format
+msgid "Quit"
+msgstr "छोड़ें"
+
+#: main.cpp:160 main.cpp:184
+#, kde-format
+msgid "%1 device connected"
+msgid_plural "%1 devices connected"
+msgstr[0] "%1 उपकरण जुड़े हुए है"
+msgstr[1] "%1 उपकारण जुड़े हुए हैं"
+
+#: systray_actions/battery_action.cpp:28
+#, kde-format
+msgid "No Battery"
+msgstr "बैटरी नहीं है"
+
+#: systray_actions/battery_action.cpp:30
+#, kde-format
+msgid "Battery: %1% (Charging)"
+msgstr "बैटरी: %1% (चार्जिंग)"
+
+#: systray_actions/battery_action.cpp:32
+#, kde-format
+msgid "Battery: %1%"
+msgstr "बैटरी: %1%"
+
+#: systray_actions/connectivity_action.cpp:30
+#, kde-format
+msgctxt ""
+"The fallback text to display in case the remote device does not have a "
+"cellular connection"
+msgid "No Cellular Connectivity"
+msgstr "कोई सेल्युलर संयोजकता नहीं"
+
+#: systray_actions/connectivity_action.cpp:33
+#, kde-format
+msgctxt ""
+"Display the cellular connection type and an approximate percentage of signal "
+"strength"
+msgid "%1  | ~%2%"
+msgstr "%1  | ~%2%"
