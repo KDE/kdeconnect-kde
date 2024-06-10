@@ -194,7 +194,7 @@ void BluetoothLinkProvider::clientIdentityReceived(const QBluetoothAddress &peer
     NetworkPacket receivedPacket;
     bool success = NetworkPacket::unserialize(identityArray, &receivedPacket);
 
-    if (!success || !DeviceInfo::isValidIdentityPacket(np)) {
+    if (!success || !DeviceInfo::isValidIdentityPacket(&receivedPacket)) {
         qCWarning(KDECONNECT_CORE) << "BluetoothLinkProvider: Invalid identity packet received";
         mSockets.remove(peer);
         socket->close();
@@ -298,7 +298,7 @@ void BluetoothLinkProvider::serverDataReceived(const QBluetoothAddress &peer, QS
     NetworkPacket receivedPacket;
     bool success = NetworkPacket::unserialize(identityArray, &receivedPacket);
 
-    if (!success || !DeviceInfo::isValidIdentityPacket(receivedPacket)) {
+    if (!success || !DeviceInfo::isValidIdentityPacket(&receivedPacket)) {
         qCWarning(KDECONNECT_CORE) << "BluetoothLinkProvider: Invalid identity packet received";
         mSockets.remove(peer);
         socket->close();
