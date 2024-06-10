@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, %Y.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, %Y.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:38+0000\n"
-"PO-Revision-Date: 2023-06-10 17:30+0200\n"
+"PO-Revision-Date: 2024-06-08 17:48+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -44,11 +44,9 @@ msgid "No signal"
 msgstr "Sin señal"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "El dispositivo vinculado no está disponible"
+msgstr "El  monitor virtual no está disponible"
 
 #: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
@@ -69,16 +67,17 @@ msgstr "Monitor virtual"
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr ""
+"El dispositivo remoto no tiene el cliente VNC (por ejemplo: krdc) instalado."
 
 #: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Se necesita el paquete krfb en el dispositivo local."
 
 #: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Fallo al crear el monitor virtual."
 
 #: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
@@ -204,9 +203,3 @@ msgstr "Instalar desde F-Droid"
 #, kde-format
 msgid "KDE Connect Settings..."
 msgstr "Preferencias de KDE Connect..."
-
-#~ msgid "Save As"
-#~ msgstr "Guardar como"
-
-#~ msgid "Take a photo"
-#~ msgstr "Tomar una foto"
