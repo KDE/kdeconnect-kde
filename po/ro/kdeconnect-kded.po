@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the kde-connect package.
-# Sergiu Bivol <sergiu@cip.md>, 2013, 2020, 2021, 2022.
+# Sergiu Bivol <sergiu@cip.md>, 2013, 2020, 2021, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2022-04-30 12:14+0100\n"
+"PO-Revision-Date: 2024-06-09 11:32+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -29,16 +29,13 @@ msgid "Your emails"
 msgstr "sergiu@cip.md"
 
 #: kdeconnectd.cpp:56
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
 "Cerere de asociere de la %1\n"
-"Cheie: %2..."
+"Cheie: %2"
 
 #: kdeconnectd.cpp:64
 #, kde-format

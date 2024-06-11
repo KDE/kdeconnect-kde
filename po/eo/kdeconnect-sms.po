@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-06-11 00:38+0000\n"
 "PO-Revision-Date: 2024-04-07 17:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -113,7 +113,7 @@ msgstr "Sendi mesaĝon"
 msgid "message"
 msgstr "mesaĝo"
 
-#: qml/AttachmentViewer.qml:20
+#: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
 msgstr "Malfermi defaŭlte"

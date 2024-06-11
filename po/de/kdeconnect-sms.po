@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-06-11 00:38+0000\n"
 "PO-Revision-Date: 2024-03-26 17:48+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -114,7 +114,7 @@ msgstr "Nachricht senden"
 msgid "message"
 msgstr "Nachricht"
 
-#: qml/AttachmentViewer.qml:20
+#: qml/AttachmentViewer.qml:21
 #, kde-format
 msgid "Open with default"
 msgstr "Mit Standard-Anwendung öffnen"

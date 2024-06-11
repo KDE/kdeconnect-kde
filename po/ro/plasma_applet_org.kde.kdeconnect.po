@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:38+0000\n"
-"PO-Revision-Date: 2024-01-07 13:16+0000\n"
+"PO-Revision-Date: 2024-06-09 11:34+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -44,11 +44,9 @@ msgid "No signal"
 msgstr "Fără semnal"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Dispozitivul asociat nu e disponibil"
+msgstr "Monitorul virtual nu e disponibil"
 
 #: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
@@ -68,17 +66,17 @@ msgstr "Afișaj virtual"
 #: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Dispozitivul distant nu are un client VNC instalat (ca „krdc”)."
 
 #: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Pachetul krfb e necesar pe dispozitivul local."
 
 #: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Crearea monitorului virtual a eșuat."
 
 #: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format

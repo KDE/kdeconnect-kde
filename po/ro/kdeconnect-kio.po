@@ -62,7 +62,7 @@ msgstr "Serviciul de fundal nu a putut fi contactat."
 
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
-#~ msgstr "sergiu@ase.md"
+#~ msgstr "sergiu@cip.md"
 
 #~ msgid "kiokdeconnect"
 #~ msgstr "kiokdeconnect"

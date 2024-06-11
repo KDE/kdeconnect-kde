@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-01-07 13:07+0000\n"
+"PO-Revision-Date: 2024-06-09 11:33+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -121,12 +121,13 @@ msgid "Volume control"
 msgstr "Control volum"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Acest dispozitiv nu e asociat"
+msgstr ""
+"Acest dispozitiv nu e asociat.\n"
+"Cheie: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +136,13 @@ msgid "Pair"
 msgstr "Asociază"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Asociere cerută"
+msgstr ""
+"Asociere cerută\n"
+"Cheie: "
 
 #: qml/DevicePage.qml:156
 #, kde-format
@@ -228,7 +230,7 @@ msgstr "%1 - %2"
 #: qml/PluginSettings.qml:64
 #, kde-format
 msgid "Configure plugin"
-msgstr ""
+msgstr "Configurează extensia"
 
 #: qml/presentationRemote.qml:21
 #, kde-format
