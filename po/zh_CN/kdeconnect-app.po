@@ -210,7 +210,7 @@ msgstr "多媒体控制"
 #: qml/mpris.qml:67
 #, kde-format
 msgid "No players available"
-msgstr "无可用播放器"
+msgstr "没有可用的播放器"
 
 #: qml/mpris.qml:107
 #, kde-format
