@@ -47,7 +47,7 @@ RunCommandConfig::RunCommandConfig(QObject *parent, const KPluginMetaData &data,
     addSuggestedCommand(
         defaultMenu,
         i18n("Say Hello"),
-        QStringLiteral("PowerShell -Command \"Add-Type –AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');\""));
+        QStringLiteral("PowerShell -Command Add-Type -AssemblyName System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('hello');"));
 #else
     addSuggestedCommand(defaultMenu, i18n("Shutdown"), QStringLiteral("systemctl poweroff"));
     addSuggestedCommand(defaultMenu, i18n("Reboot"), QStringLiteral("systemctl reboot"));
