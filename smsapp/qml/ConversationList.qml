@@ -191,12 +191,11 @@ Kirigami.ScrollablePage
         delegate: ItemDelegate {
             id: listItem
             text: displayNames
-            icon.name: decoration
             width: view.width
 
             required property string displayNames
             required property string toolTip
-            required property string decoration
+            required property var decoration
             required property var attachmentPreview
             required property int index
             required property var addresses
@@ -223,8 +222,22 @@ Kirigami.ScrollablePage
 
             // Note: Width calcs to account for scrollbar coming and going
             contentItem: RowLayout {
+                id: contentRow
                 spacing: Kirigami.Units.smallSpacing
                 implicitWidth: view.width - Kirigami.Units.largeSpacing
+
+                Kirigami.Icon {
+                    id: contactIcon
+                    source: listItem.decoration
+                }
+
+                // Set width here to force elide and account for scrollbar
+                KirigamiDelegates.TitleSubtitle {
+                    title: listItem.text
+                    subtitle: listItem.toolTip
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
+                }
 
                 Kirigami.Icon {
                     id: thumbnailItem
@@ -240,21 +253,9 @@ Kirigami.ScrollablePage
                         return listItem.attachmentPreview;
                     }
 
-                    width: Kirigami.Units.iconSizes.small
-                    height: Kirigami.Units.iconSizes.small
-
                     visible: source !== undefined
                 }
-
-                // Set width here to force elide and account for scrollbar
-                KirigamiDelegates.TitleSubtitle {
-                    title: listItem.text
-                    subtitle: listItem.toolTip
-                    elide: Text.ElideRight
-                    implicitWidth: view.width - Kirigami.Units.largeSpacing*2
-                }
             }
-
         }
     }
 }
