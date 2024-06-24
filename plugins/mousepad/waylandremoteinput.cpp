@@ -210,6 +210,8 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
 
     const float dx = np.get<float>(QStringLiteral("dx"), 0);
     const float dy = np.get<float>(QStringLiteral("dy"), 0);
+    const float x = np.get<float>(QStringLiteral("x"), 0);
+    const float y = np.get<float>(QStringLiteral("y"), 0);
 
     const bool isSingleClick = np.get<bool>(QStringLiteral("singleclick"), false);
     const bool isDoubleClick = np.get<bool>(QStringLiteral("doubleclick"), false);
@@ -283,7 +285,10 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
                 s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTMETA, 0);
         }
     } else { // Is a mouse move event
-        s_session->iface->NotifyPointerMotion(s_session->m_xdpPath, {}, dx, dy);
+        if (dx || dy)
+            s_session->iface->NotifyPointerMotion(s_session->m_xdpPath, {}, dx, dy);
+        else if ((np.has(QStringLiteral("x")) || np.has(QStringLiteral("y"))))
+            s_session->iface->NotifyPointerMotionAbsolute(s_session->m_xdpPath, {}, 0, x, y);
     }
     return true;
 }
