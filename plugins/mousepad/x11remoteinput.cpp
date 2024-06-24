@@ -98,6 +98,8 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
 {
     float dx = np.get<float>(QStringLiteral("dx"), 0);
     float dy = np.get<float>(QStringLiteral("dy"), 0);
+    float x = np.get<float>(QStringLiteral("x"), 0);
+    float y = np.get<float>(QStringLiteral("y"), 0);
 
     bool isSingleClick = np.get<bool>(QStringLiteral("singleclick"), false);
     bool isDoubleClick = np.get<bool>(QStringLiteral("doubleclick"), false);
@@ -202,8 +204,12 @@ bool X11RemoteInput::handlePacket(const NetworkPacket &np)
         XFlush(display);
 
     } else { // Is a mouse move event
-        QPoint point = QCursor::pos();
-        QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
+        if (dx || dy) {
+            QPoint point = QCursor::pos();
+            QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
+        } else if (np.has(QStringLiteral("x")) || np.has(QStringLiteral("y"))) {
+            QCursor::setPos(x, y);
+        }
     }
     return true;
 }
