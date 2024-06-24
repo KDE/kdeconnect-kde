@@ -71,6 +71,8 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
 
     float dx = np.get<float>(QStringLiteral("dx"), 0);
     float dy = np.get<float>(QStringLiteral("dy"), 0);
+    float x = np.get<float>(QStringLiteral("x"), 0);
+    float y = np.get<float>(QStringLiteral("y"), 0);
 
     bool isSingleClick = np.get<bool>(QStringLiteral("singleclick"), false);
     bool isDoubleClick = np.get<bool>(QStringLiteral("doubleclick"), false);
@@ -138,7 +140,7 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
             bool shift = np.get<bool>(QStringLiteral("shift"), false);
             bool super = np.get<bool>(QStringLiteral("super"), false);
-            
+
 
             if (ctrl) {
                 CGEventRef ctrlEvent = CGEventCreateKeyboardEvent(NULL, (CGKeyCode)kVK_Control, true);
@@ -214,8 +216,12 @@ bool MacOSRemoteInput::handlePacket(const NetworkPacket& np)
 
         }
     } else { //Is a mouse move event
-        QPoint point = QCursor::pos();
-        QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
+         if (dx || dy) {
+            QPoint point = QCursor::pos();
+            QCursor::setPos(point.x() + (int)dx, point.y() + (int)dy);
+        } else if (np.has(QStringLiteral("x")) || np.has(QStringLiteral("y"))) {
+            QCursor::setPos(x, y);
+        }
     }
     return true;
 }
