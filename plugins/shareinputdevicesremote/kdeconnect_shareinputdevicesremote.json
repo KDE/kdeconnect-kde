@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "David Redondo",
+                "Email": "kde@david-redondo.de"
+            }
+        ],
+        "EnabledByDefault": true,
+        "Icon": "dialog-input-devices",
+        "License": "GPL",
+        "Hidden": true
+
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.shareinputdevices"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.mousepad.request",
+        "kdeconnect.shareinputdevices.request"
+    ]
+}
