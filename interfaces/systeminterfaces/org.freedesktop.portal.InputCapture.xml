@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<!--
+ Copyright (C) 2022 Red Hat, Inc.
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library. If not, see <http://www.gnu.org/licenses/>.
+
+ Author: Matthias Clasen <mclasen@redhat.com>
+-->
+
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
+  <!--
+      org.freedesktop.portal.InputCapture:
+      @short_description: Portal for permitting input capture
+
+      The InputCapture portal allows capture input events from connected
+      physical or logical devices. Capturing input has two distinct states:
+      "enabled" where an application has requested that input should be captured
+      once certain conditions are met (but no input events are being delivered
+      yet) and "active", when input events are being delivered to the application.
+      An application can only control the "enabled" state, the compositor decides
+      when to switch into the "active" state - and which devices to capture.
+
+      Once the compositor activates input capturing, events from physical or
+      logical devices are sent directly to the application instead of using
+      those events to update the pointer position on-screen. The compositor
+      is in control of the input capturing and may filter events and/or stop
+      capturing at any time.
+
+      Input capturing is an asynchronous operation using "triggers". An
+      application sets up a number of triggers but it is the compositor who
+      decides when the trigger conditions are met. Currently, the only defined
+      trigger are pointer barriers: horizontal or vertical "lines" on the screen
+      that should trigger when the cursor moves across those lines.
+      See org.freedesktop.portal.InputCapture.SetPointerBarriers().
+
+      There is currently no way for an application to activate immediate input
+      capture.
+
+      The InputCapture portal merely *manages* the logic when input should be
+      captured. The transport of actual input events is delegated to a
+      transport layer, specifically libei. See org.freedesktop.portal.InputCapture.ConnectToEIS().
+
+      This documentation describes version 1 of this interface.
+   -->
+  <interface name="org.freedesktop.portal.InputCapture">
+    <!--
+        CreateSession:
+        @parent_window: Identifier for the application window, see :doc:`window-identifiers`
+        @options: Vardict with optional further information
+        @handle: Object path for the :ref:`org.freedesktop.portal.Request` object representing this call
+
+        Create a capture input session. A successfully created session can at
+        any time be closed using :ref:`org.freedesktop.portal.Session.Close`, or may
+        at any time be closed by the portal implementation, which will be
+        signalled via :ref:`org.freedesktop.portal.Session::Closed`.
+
+        Supported keys in the @options vardict include:
+
+        * ``handle_token`` (``s``)
+
+          A string that will be used as the last element of the @handle. Must be a valid
+          object path element. See the :ref:`org.freedesktop.portal.Request` documentation for
+          more information about the @handle.
+
+        * ``session_handle_token`` (``s``)
+
+          A string that will be used as the last element of the session handle. Must be a valid
+          object path element. See the :ref:`org.freedesktop.portal.Session` documentation for
+          more information about the session handle.
+
+        * ``capabilities`` (``u``)
+
+          Bitmask of requested capabilities, see the SupportedCapabilities property.
+          This value is required and must not be zero.
+
+        The following results get returned via the :ref:`org.freedesktop.portal.Request::Response` signal:
+
+        * ``session_handle`` (``o``)
+
+          The session handle. An object path for the
+          :ref:`org.freedesktop.portal.Session` object representing the created
+          session.
+
+        * ``capabilities`` (``u``)
+
+          The capabilities available to this session. This is always a
+          subset of the requested capabilities.
+          See the SupportedCapabilities property for details. Note that
+          while a capability may be available to a session, there is no
+          guarantee a device with that capability is currently available
+          or if one does become available that it will trigger input capture.
+
+          It is best to view this set as a negative confirmation - a
+          capability that was requested but is missing is an indication that
+          this application may not capture events of that capability.
+    -->
+    <method name="CreateSession">
+      <arg type="s" name="parent_window" direction="in"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="o" name="handle" direction="out"/>
+    </method>
+
+    <!--
+        GetZones:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+        @handle: Object path for the :ref:`org.freedesktop.portal.Request` object representing this call
+
+        Retrieve the set of currently available input zones for this session.
+        The zones may not be continuous and may be a logical representation
+        of the physical screens (e.g. a 4k screen may be represented as
+        low-resolution screen instead). A set of zones is identified by a unique
+        zone_set ID.
+
+        The name "Zone" was chosen to provide distinction with the libei
+        "Region".
+
+        If the zones change (e.g. a monitor is unplugged), the
+        #org.freedesktop.portal.InputCapture::ZonesChanged signal is emitted
+        and the application should re-request the current zones to update its
+        internal state.
+
+        Note that zones are session-specific, there is no guarantee that two
+        applications see the same screen zones. An empty zone list implies
+        that no pointer barriers can be set.
+
+        Whenever the application calls GetZones, the current
+        zone_set ID is returned that references the current set of zones. To
+        establish a pointer barrier, the application must pass this ID to
+        org.freedesktop.portal.InputCapture.SetPointerBarriers(). A mismatch of
+        zone_set IDs implies the application is not using the current zone set and
+        pointer barriers will fail.
+
+        The zone_set ID increases by an unspecified amount with each change to
+        the set of zones. Applications must be able to handle the zone_set ID
+        wrapping around. Implementations of this portal must to increase
+        the zone_set ID by a sensible amount to allow for
+        wrapping detection.
+
+        The following results get returned via the :ref:`org.freedesktop.portal.Request::Response` signal:
+
+        * ``zones`` (``a(uuii)``)
+
+          An array of regions, each specifying that zone's width, height,
+          x/y offset.
+
+        * ``zone_set`` (``u``)
+
+          A unique ID to be used in the
+          org.freedesktop.portal.InputCapture.SetPointerBarriers() method to refer to
+          this set of zones. This id increases by an unspecified
+          amount whenever the zones change and pointer barriers can only be set up
+          if the zone_set matches the most recent returned zone_set.
+    -->
+    <method name="GetZones">
+      <arg type="o" name="session_handle" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+      <arg type="o" name="handle" direction="out"/>
+    </method>
+
+    <!--
+        SetPointerBarriers:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+        @barriers: An array of vardicts, each specifying one barrier
+        @zone_set: A unique zone_set ID referring to the zone set
+        @handle: Object path for the :ref:`org.freedesktop.portal.Request` object representing this call
+
+        Set up zero or more pointer barriers. Pointer barriers are horizontal
+        or vertical "lines" that should trigger the start of input capture when the cursor moves
+        across the pointer barrier. After a successful
+        org.freedesktop.portal.InputCapture.Enable() call and when the
+        compositor has deemed the pointer barrier to be crossed, input events
+        (from compositor-determined input devices) are sent to the application
+        via the transport layer.
+
+        Pointer barriers are situated on the top (for horizontal barriers) or left
+        (for vertical barriers) edge of their respective pixels and their width or height
+        is inclusive each pixel's width or height. In other words, a barrier spanning
+        x1=0, x2=1 is exactly two pixels wide. A pointer barrier must be situated at the
+        outside boundary of the union of all zones.
+        A pointer barrier must be fully contained within one zone.
+
+        For example, consider two zones of size 1920x1080 with offsets
+        0,0 and 1920,0, respectively. (i.e. a left-right dual-monitor setup).
+        The following pointer barriers are permitted:
+
+        - top edge of left screen: `x1=0, y1=0, x2=1919, y1=0`
+        - bottom edge of left screen: `x1=0, y1=1080, x2=1919, y1=1080`
+        - top edge of right screen: `x1=1920, y1=0, x2=3839, y1=0`
+        - bottom edge of right screen: `x1=1920, y1=1080, x2=3839, y1=1080`
+        - left edge of left screen: `x1=0, y1=0, x2=0, y1=1079`
+        - right edge of right screen: `x1=3840, y1=0, x2=3840, y1=1079`
+
+        A pointer barrier is considered triggered when the pointer would
+        logically move off that zone, even if the actual cusor movement is
+        clipped to the zone.
+
+        A zero-sized array of pointer barriers removes all existing pointer barriers
+        for this session. Setting pointer barriers immediately suspends the
+        current session and the application must call org.freedesktop.portal.InputCapture.Enable()
+        after this method.
+
+        The @zone_set must be equivalent to the last returned zone_set of the
+        org.freedesktop.portal.InputCapture.GetZones() method. A mismatch of ids
+        implies the application is not using the current zone set and
+        pointer barriers will fail.
+
+        Supported keys in the @options vardict include:
+
+        * ``handle_token`` (``s``)
+
+          A string that will be used as the last element of the @handle. Must be a valid
+          object path element. See the :ref:`org.freedesktop.portal.Request` documentation for
+          more information about the @handle.
+
+        Supported keys in the @barriers vardicts include:
+
+        * ``barrier_id`` (``u``)
+
+          The non-zero id of this barrier. This id is used in the
+          #org.freedesktop.portal.InputCapture::Activated signal to inform
+          which barrier triggered input capture.
+
+        * ``position`` (``(iiii)``)
+
+          The x1/y1 x2/y2 position of the pointer barrier. A horizontal
+          pointer barrier must have y1 == y2, a vertical pointer barrier
+          must have x1 == x2. Diagonal pointer barriers are not supported.
+
+        The following results get returned via the :ref:`org.freedesktop.portal.Request::Response` signal:
+
+        * ``failed_barriers`` (``au``)
+
+          An array of barrier_ids of pointer barriers that have been denied. The
+          id matches the barrier_id of the entries in the @barriers argument.
+    -->
+    <method name="SetPointerBarriers">
+      <arg type="o" name="session_handle" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In2" value="QList&lt;QVariantMap&gt;"/>
+      <arg type="aa{sv}" name="barriers" direction="in"/>
+      <arg type="u" name="zone_set" direction="in"/>
+      <arg type="o" name="handle" direction="out"/>
+    </method>
+
+    <!--
+        Enable:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        Enable input capturing. This does not immediately trigger capture, it
+        merely enables the capturing to be triggered at some future point
+        (e.g. by the cursor moving across a barrier). If and when that happens,
+        the #org.freedesktop.portal.InputCapture::Activated signal is emitted.
+    -->
+    <method name="Enable">
+      <arg type="o" name="session_handle" direction="in"/>
+       <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+    </method>
+
+    <!--
+        Disable:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        Disable input capturing. No
+        #org.freedesktop.portal.InputCapture::Disabled signal will be emitted.
+
+        If input capturing is currently ongoing, no
+        #org.freedesktop.portal.InputCapture::Deactivated signal will be
+        emitted.
+
+        Due to the asynchronous nature of this protocol,
+        #org.freedesktop.portal.InputCapture::Deactivated
+        and/or #org.freedesktop.portal.InputCapture::Deactivated signals may
+        nevertheless be received by the application after a call to
+        org.freedesktop.portal.InputCapture.Enable().
+
+        Input events will not be captured until a subsequent
+        org.freedesktop.portal.InputCapture.Enable() call.
+    -->
+    <method name="Disable">
+      <arg type="o" name="session_handle" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+    </method>
+
+    <!--
+        Release:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        Release any ongoing input capture. No
+        #org.freedesktop.portal.InputCapture::Deactivated signal will be emitted.
+
+        Due to the asynchronous nature of this protocol, a
+        #org.freedesktop.portal.InputCapture::Deactivated
+        signal may
+        nevertheless be received by the application after a call to
+        org.freedesktop.portal.InputCapture.Release().
+
+        The activation_id provided in the @options vardict specifies which
+        currently ongoing input capture should be terminated. The asynchronous
+        nature of this portal allows for an input capture to be Deactivated and
+        a new input capture to be Activated before the client requests the
+        Release for the previous input capture.
+
+        A compositor should ignore a
+        org.freedesktop.portal.InputCapture.Release() request for a no longer active
+        activation_id.
+
+        Supported keys in the @options vardict include:
+
+        * ``activation_id`` (``u``)
+
+          The same activation_id number as in the
+          #org.freedesktop.portal.InputCapture::Activated signal.
+
+        * ``cursor_position`` (``(dd)``)
+
+          The suggested cursor position within the Zones available in
+          this session.
+
+          This is a suggestion to the compositor to place the cursor in
+          the correct position to allow for fluent movement between virtual
+          screens. The compositor is not required to honor this suggestion.
+    -->
+    <method name="Release">
+      <arg type="o" name="session_handle" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+    </method>
+
+    <!--
+        ConnectToEIS:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+        @fd: A file descriptor to an active EIS implementation that can be passed to a passive libei context
+
+        Set up the connection to an active EIS implementation. Once input capturing starts,
+        input events are sent via the EI protocol between the compositor and the application.
+        This call must be invoked before org.freedesktop.portal.InputCapture.Enable().
+
+        A session only needs to set this up once, the EIS implementation is not affected by
+        calls to org.freedesktop.portal.InputCapture.Disable() and org.freedesktop.portal.InputCapture.Enable() -
+        the same connection can be re-used until the session is closed.
+    -->
+    <method name="ConnectToEIS">
+      <annotation name="org.gtk.GDBus.C.Name" value="connect_to_eis"/>
+      <annotation name="org.gtk.GDBus.C.UnixFD" value="true"/>
+      <arg type="o" name="session_handle" direction="in"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="in"/>
+      <arg type="h" name="fd" direction="out"/>
+    </method>
+
+    <!--
+        Disabled:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        The Disabled signal is emitted when the application will no longer
+        receive captured input. If input capturing is currently ongoing, the
+        #org.freedesktop.portal.InputCapture::Deactivated signal is emitted
+        before this signal.
+
+        Applications must call org.freedesktop.portal.InputCapture.Enable() to
+        request future input capturing for this session.
+    -->
+    <signal name="Disabled">
+      <arg type="o" name="session_handle" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="out"/>
+    </signal>
+
+    <!--
+        Activated:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        The Activated signal is emitted when input capture starts and input events
+        are about to be sent to the application.
+
+        This signal is only emitted after a prior call
+        to org.freedesktop.portal.InputCapture.Enable().
+
+        Supported keys in the @options vardict include:
+
+        * ``activation_id`` (``u``)
+
+          A number that can be used to synchronize with the
+          transport-layer. This number has no intrinsic meaning but
+          is guaranteed to increase by an unspecified amount on each call.
+
+          In particular: if the compositor sends a activation_id of N as
+          part of this request it will also set the sequence in EIS'
+          start_emulating event the same value N on the EIS connection
+          before the first event from a device is sent.
+          This allows an application to have a synchronization point and
+          attribute an event sequence to the portal interaction.
+
+          Applications must be able to handle the activation_id number
+          wrapping around. Implementations of this portal must increase
+          the activation_id number by a sensible amount to allow for
+          wrapping detection.
+
+        * ``cursor_position`` (``(dd)``)
+
+          The current cursor position in the same coordinate space as
+          the Zones. Note that this position is usually outside the Zones
+          available to this session as all PointerBarriers are at the edge
+          of their respective Zones.
+
+          For example, a fast movement against a barrier on the right edge
+          of a screen may logically put the cursor dozens of pixels into
+          the (non-existing) screen on the other side of the barrier.
+          It is the application's responsibility to calculate and adjust the
+          cursor position as necessary.
+
+        * ``barrier_id`` (``u``)
+
+          The barrier id of the barrier that triggered. If the value is
+          nonzero, it matches the barrier id as specified in
+          org.freedesktop.portal.InputCapture.SetPointerBarriers().
+
+          If the id is zero, the pointer barrier could not be determined.
+          If the id is missing, the input capture was not triggered by a
+          pointer barrier.
+
+          Where more than one pointer barrier are triggered by the same
+          movement it is up to the compositor to choose one barrier (or use
+          a barrier id of zero).
+    -->
+    <signal name="Activated">
+      <arg type="o" name="session_handle" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="out"/>
+    </signal>
+
+    <!--
+        Deactivated:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        The Deactivated signal is emitted when input capture stopped and input events
+        are no longer sent to the application. To prevent future input
+        capture, an application must call org.freedesktop.portal.InputCapture.Disable().
+
+        Supported keys in the @options vardict include:
+
+        * ``activation_id`` (``u``)
+
+            The same activation_id number as in the corresponding
+            #org.freedesktop.portal.InputCapture::Activated signal.
+    -->
+    <signal name="Deactivated">
+      <arg type="o" name="session_handle" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="out"/>
+    </signal>
+
+    <!--
+        ZonesChanged:
+        @session_handle: Object path for the :ref:`org.freedesktop.portal.Session` object
+        @options: Vardict with optional further information
+
+        The ZonesChanged signal is emitted when the set of zones
+        available **to this session** change. An application should immediately
+        call org.freedesktop.portal.InputCapture.GetZones() to update its state
+        of the zones followed by
+        org.freedesktop.portal.InputCapture.SetPointerBarriers() to re-establish
+        the pointer barriers.
+
+        The ZonesChanged signal includes the zone_set ID of the set of zones
+        invalidated, see #org.freedesktop.portal.InputCapture.GetZones().
+        Due to the asynchronous nature of this protocol, the zone_set ID may
+        identify a set of zones that the application has never (or not yet) seen.
+        Applications must be able to handle unknown zone_set IDs. In particular,
+        because the zone_set ID is guaranteed to increment, an application holding
+        a zone_set ID higher than the ID in this signal can usually simply
+        discard the signal.
+
+        Supported keys in the @options vardict include:
+
+        * ``zone_set`` (``u``)
+
+          The zone_set ID of the invalidated zone set as described in
+          org.freedesktop.portal.InputCapture.GetZones()
+    -->
+    <signal name="ZonesChanged">
+      <arg type="o" name="session_handle" direction="out"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QVariantMap"/>
+      <arg type="a{sv}" name="options" direction="out"/>
+    </signal>
+
+    <!--
+        SupportedCapabilities:
+
+        A bitmask of supported capabilities. This list is constant, it is not the list of
+        capabilities currently available but rather which capabilies are
+        implemented by the portal.
+
+        Applications must ignore unknown capabilities.
+
+        Currently defined types are:
+
+        - ``1``: KEYBOARD
+        - ``2``: POINTER
+        - ``4``: TOUCHSCREEN
+    -->
+    <property name="SupportedCapabilities" type="u" access="read"/>
+    <property name="version" type="u" access="read"/>
+  </interface>
+</node>
