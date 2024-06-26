@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# giovanni <g.sora@tiscali.it>, 2017, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2017, 2021, 2022, 2023, 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:38+0000\n"
-"PO-Revision-Date: 2023-11-30 09:53+0100\n"
+"PO-Revision-Date: 2024-06-25 09:38+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -142,18 +142,7 @@ msgstr "Invia Ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -174,10 +163,12 @@ msgstr ""
 "decoration: underline;\">KDE Connect Android </span></a> (anque disponibile "
 "<a href=\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
 "\"><span style=\" text-decoration: underline;\">ex F-Droid</span></a>) e "
-"deberea apparer in le lista.<br><br>Si tu es havente problemas, visita le <a "
-"href=\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
-"underline;\">KDE Connect Community wiki</span></a> per adjuta</p></body></"
-"html>"
+"deberea apparer in le lista.Si tu ha un iPhone, assecura te installar le "
+"app  <a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\"text-decoration: underline;\">KDE Connect iOS</"
+"span></a> <br><br>Si tu es havente problemas, visita le <a href=\"https://"
+"userbase.kde.org/KDEConnect\"><span style=\" text-decoration: underline;"
+"\">KDE Connect Community wiki</span></a> per adjuta</p></body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "Preferentias de KDE Connect"

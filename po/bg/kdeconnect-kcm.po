@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Svetoslav Stefanov <svetlisashkov@yahoo.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:38+0000\n"
-"PO-Revision-Date: 2023-11-21 14:44+0100\n"
+"PO-Revision-Date: 2024-06-25 17:12+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, kde-format
@@ -144,18 +144,7 @@ msgstr "Изпращане на пинг"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -176,7 +165,10 @@ msgstr ""
 "underline; color:#4c6b8a;\">KDE Connect Android</span></a> (налично също и "
 "на <a href=\"https://f-droid.org/repository/browse/?fdid=org.kde."
 "kdeconnect_tp\"><span style=\" text-decoration: underline; color:#4c6b8a;"
-"\">F-Droid</span></a>). Тогава устройството ще се появи в списъка."
-"<br><br>Ако срещнете проблеми, посетете <a href=\"https://userbase.kde.org/"
-"KDEConnect\"><span style=\" text-decoration: underline; color:#4c6b8a;\">KDE "
-"Connect Community wiki</span></a> за помощ.</p></body></html>"
+"\">F-Droid</span></a>). Тогава устройството ще се появи в списъка. Ако имате "
+"iPhone, трябва да инсталирате приложението <a href=\"https://apps.apple.com/"
+"us/app/kde-connect/id1580245991\"><span style=\" text-decoration: underline;"
+"\">KDE Connect iOS</span></a><br><br>Ако срещнете проблеми, посетете <a href="
+"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline; color:#4c6b8a;\">KDE Connect Community wiki</span></a> за помощ.</"
+"p></body></html>"
