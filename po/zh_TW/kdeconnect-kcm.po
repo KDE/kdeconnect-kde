@@ -5,20 +5,20 @@
 # Jeff Huang <s8321414@gmail.com>, 2016.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-20 00:42+0000\n"
-"PO-Revision-Date: 2023-12-09 16:54+0900\n"
+"PO-Revision-Date: 2024-06-26 06:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.01.80\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -73,7 +73,7 @@ msgstr "（已請求配對）"
 #: kcm.ui:59
 #, kde-format
 msgid "KDE Connect"
-msgstr "KDE連線"
+msgstr "KDE 連線"
 
 #. i18n: ectx: property (text), widget (QToolButton, renameShow_button)
 #: kcm.ui:82
@@ -145,7 +145,7 @@ msgstr "取消配對"
 #: kcm.ui:335
 #, kde-format
 msgid "Send ping"
-msgstr "傳送Ping回應封包"
+msgstr "傳送 Ping 回應封包"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
