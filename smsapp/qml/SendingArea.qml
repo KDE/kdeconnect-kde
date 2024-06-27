@@ -84,7 +84,9 @@ ColumnLayout {
                         Keys.onReturnPressed: event => {
                             if (event.key === Qt.Key_Return) {
                                 if (event.modifiers & Qt.ShiftModifier) {
-                                    messageField.append("")
+                                    //remove any selected text and insert new line at cursor position
+                                    messageField.cursorSelection.text = ""
+                                    messageField.insert(messageField.cursorPosition,"\n")
                                 } else {
                                     sendButton.clicked()
                                     event.accepted = true
