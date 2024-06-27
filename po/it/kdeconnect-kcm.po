@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Mauro Panzeri <damonhill82@gmail.com>, 2013.
-# SPDX-FileCopyrightText: 2014, 2015, 2018, 2020, 2021, 2023 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2018, 2020, 2021, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:38+0000\n"
-"PO-Revision-Date: 2023-11-20 14:26+0100\n"
+"PO-Revision-Date: 2024-06-25 14:20+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -143,18 +143,7 @@ msgstr "Invia ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -172,13 +161,16 @@ msgstr ""
 "<html><head/><body><p>Nessun dispositivo selezionato.<br><br>Se hai un "
 "dispositivo Android, assicurati di installare <a href=\"https://play.google."
 "com/store/apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-"
-"decoration: underline;\">l'applicazione per Android KDE Connect</span></a> "
+"decoration: underline;\">l'applicazione KDE Connect per Android</span></a> "
 "(disponibile anche su <a href=\"https://f-droid.org/repository/browse/?"
 "fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: underline;\">F-"
-"Droid</span></a>) e dovrebbe apparire nell'elenco.<br><br>Se hai problemi, "
-"visita il <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-"text-decoration: underline;\">wiki della comunità di KDE Connect</span></a> "
-"per ottenere aiuto.</p></body></html>"
+"Droid</span></a>) e dovrebbe apparire nell'elenco.<br><br> Se hai un iPhone, "
+"assicurati di installare <a href=\"https://apps.apple.com/us/app/kde-connect/"
+"id1580245991\"><span style=\" text-decoration: underline;\">l'applicazione "
+"KDE Connect per iOS</span></a> <br><br>Se hai problemi, visita il <a href="
+"\"https://userbase.kde.org/KDEConnect\"><span style=\" text-decoration: "
+"underline;\">wiki della comunità di KDE Connect</span></a> per ottenere "
+"aiuto.</p></body></html>"
 
 #~ msgid "KDE Connect Settings"
 #~ msgstr "Impostazioni di KDE Connect"
