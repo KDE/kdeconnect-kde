@@ -24,12 +24,126 @@ PlasmaComponents.ItemDelegate {
     hoverEnabled: false
     down: false
 
+    Battery {
+        id: battery
+        device: root.device
+    }
+
+    Clipboard {
+        id: clipboard
+        device: root.device
+    }
+
+    Connectivity {
+        id: connectivity
+        device: root.device
+    }
+
+    FindMyPhone {
+        id: findmyphone
+        device: root.device
+    }
+
+    RemoteCommands {
+        id: remoteCommands
+        device: root.device
+    }
+
+    Sftp {
+        id: sftp
+        device: root.device
+    }
+
+    Share {
+        id: share
+        device: root.device
+    }
+
+    SMS {
+        id: sms
+        device: root.device
+    }
+
+    VirtualMonitor {
+        id: virtualmonitor
+        device: root.device
+    }
+
     Kirigami.PromptDialog {
         id: prompt
         visible: false
         showCloseButton: true
         standardButtons: Kirigami.Dialog.NoButton
         title: i18n("Virtual Monitor is not available")
+    }
+
+    QtDialogs.FileDialog {
+        id: fileDialog
+        title: i18n("Please choose a file")
+        currentFolder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+        fileMode: QtDialogs.FileDialog.OpenFiles
+        onAccepted: {
+            selectedFiles.forEach(url => share.plugin.shareUrl(url));
+        }
+    }
+
+    PlasmaExtras.Menu {
+        id: menu
+
+        visualParent: overflowMenu
+        placement: PlasmaExtras.Menu.BottomPosedLeftAlignedPopup
+
+        // Share
+        PlasmaExtras.MenuItem {
+            icon: "document-share"
+            visible: share.available
+            text: i18n("Share file")
+            onClicked: fileDialog.open()
+        }
+
+        // Clipboard
+        PlasmaExtras.MenuItem {
+            icon: "klipper"
+            visible: clipboard.clipboard?.isAutoShareDisabled ?? false
+            text: i18n("Send Clipboard")
+
+            onClicked: {
+                clipboard.sendClipboard()
+            }
+        }
+
+        // Find my phone
+        PlasmaExtras.MenuItem {
+            icon: "irc-voice"
+            visible: findmyphone.available
+            text: i18n("Ring my phone")
+
+            onClicked: {
+                findmyphone.ring()
+            }
+        }
+
+        // SFTP
+        PlasmaExtras.MenuItem {
+            icon: "document-open-folder"
+            visible: sftp.available
+            text: i18n("Browse this device")
+
+            onClicked: {
+                sftp.browse()
+            }
+        }
+
+        // SMS
+        PlasmaExtras.MenuItem {
+            icon: "message-new"
+            visible: sms.available
+            text: i18n("SMS Messages")
+
+            onClicked: {
+                sms.plugin.launchApp()
+            }
+        }
     }
 
     DropArea {
@@ -59,21 +173,6 @@ PlasmaComponents.ItemDelegate {
         RowLayout {
             width: parent.width
             spacing: Kirigami.Units.smallSpacing
-
-            Battery {
-                id: battery
-                device: root.device
-            }
-
-            Connectivity {
-                id: connectivity
-                device: root.device
-            }
-
-            VirtualMonitor {
-                id: virtualmonitor
-                device: root.device
-            }
 
             PlasmaComponents.Label {
                 id: deviceName
@@ -164,101 +263,6 @@ PlasmaComponents.ItemDelegate {
                 checked: menu.status === PlasmaExtras.Menu.Open
 
                 onPressed: menu.openRelative()
-
-                PlasmaExtras.Menu {
-                    id: menu
-                    visualParent: overflowMenu
-                    placement: PlasmaExtras.Menu.BottomPosedLeftAlignedPopup
-
-                    // Share
-                    PlasmaExtras.MenuItem {
-                        id: shareFile
-
-                        readonly property QtDialogs.FileDialog data: QtDialogs.FileDialog {
-                            id: fileDialog
-                            title: i18n("Please choose a file")
-                            currentFolder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-                            fileMode: QtDialogs.FileDialog.OpenFiles
-                            onAccepted: fileDialog.selectedFiles.forEach(url => share.plugin.shareUrl(url))
-                        }
-
-                        icon: "document-share"
-                        visible: share.available
-                        text: i18n("Share file")
-                        onClicked: fileDialog.open()
-                    }
-
-                    // Clipboard
-                    PlasmaExtras.MenuItem {
-                        id: sendclipboard
-
-                        readonly property Clipboard data: Clipboard {
-                            id: clipboard
-                            device: root.device
-                        }
-
-                        icon: "klipper"
-                        visible: clipboard.clipboard?.isAutoShareDisabled ?? false
-                        text: i18n("Send Clipboard")
-
-                        onClicked: {
-                            clipboard.sendClipboard()
-                        }
-                    }
-
-
-                    // Find my phone
-                    PlasmaExtras.MenuItem {
-                        id: ring
-
-                        readonly property FindMyPhone data: FindMyPhone {
-                            id: findmyphone
-                            device: root.device
-                        }
-
-                        icon: "irc-voice"
-                        visible: findmyphone.available
-                        text: i18n("Ring my phone")
-
-                        onClicked: {
-                            findmyphone.ring()
-                        }
-                    }
-
-                    // SFTP
-                    PlasmaExtras.MenuItem {
-                        id: browse
-
-                        readonly property Sftp data: Sftp {
-                            id: sftp
-                            device: root.device
-                        }
-
-                        icon: "document-open-folder"
-                        visible: sftp.available
-                        text: i18n("Browse this device")
-
-                        onClicked: {
-                            sftp.browse()
-                        }
-                    }
-
-                    // SMS
-                    PlasmaExtras.MenuItem {
-                        readonly property SMS data: SMS {
-                            id: sms
-                            device: root.device
-                        }
-
-                        icon: "message-new"
-                        visible: sms.available
-                        text: i18n("SMS Messages")
-
-                        onClicked: {
-                            sms.plugin.launchApp()
-                        }
-                    }
-                }
             }
         }
 
@@ -422,11 +426,6 @@ PlasmaComponents.ItemDelegate {
             }
         }
 
-        RemoteCommands {
-            id: remoteCommands
-            device: root.device
-        }
-
         // Commands
         RowLayout {
             visible: remoteCommands.available
@@ -466,12 +465,6 @@ PlasmaComponents.ItemDelegate {
                     text: name + "\n" + command
                 }
             }
-        }
-
-        // Share
-        Share {
-            id: share
-            device: root.device
         }
     }
 }
