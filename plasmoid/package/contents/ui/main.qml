@@ -56,7 +56,7 @@ PlasmoidItem
 
     PlasmaCore.Action {
         id: configureAction
-        text: i18n("KDE Connect Settings...")
+        text: i18n("KDE Connect Settings…")
         icon.name: "configure"
         visible: KConfig.KAuthorized.authorizeControlModule("kcm_kdeconnect");
         onTriggered: {

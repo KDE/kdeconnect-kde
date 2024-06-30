@@ -61,7 +61,7 @@ PlasmaExtras.Representation {
                     }
                 }
                 helpfulAction: Action {
-                    text: i18n("Pair a Device...")
+                    text: i18n("Pair a Device…")
                     icon.name: "list-add"
                     onTriggered: KCMUtils.KCMLauncher.openSystemSettings("kcm_kdeconnect")
                     enabled: pairedDevicesModel.count == 0 && KConfig.KAuthorized.authorizeControlModule("kcm_kdeconnect")
