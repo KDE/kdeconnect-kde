@@ -40,6 +40,8 @@ PlasmaExtras.Representation {
 
             spacing: Kirigami.Units.smallSpacing
 
+            clip: true
+
             delegate: DeviceDelegate {
                 width: parent.width
             }
