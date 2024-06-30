@@ -1,24 +1,25 @@
 /**
  * SPDX-FileCopyrightText: 2013 Albert Vaca <albertvaka@gmail.com>
+ * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick
-import QtQuick.Layouts
-import org.kde.plasma.core as PlasmaCore
-import org.kde.plasma.components as PlasmaComponents
-import org.kde.kdeconnect
-import QtQuick.Controls
-import org.kde.kirigami as Kirigami
-import org.kde.plasma.extras as PlasmaExtras
-import QtQuick.Dialogs
 import QtCore
+import QtQuick
+import QtQuick.Dialogs as QtDialogs
+import QtQuick.Layouts
 
-PlasmaComponents.ItemDelegate
-{
+import org.kde.kdeconnect as KDEConnect
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.extras as PlasmaExtras
+
+PlasmaComponents.ItemDelegate {
     id: root
-    readonly property QtObject device: DeviceDbusInterfaceFactory.create(model.deviceId)
+
+    readonly property KDEConnect.DeviceDbusInterface device: KDEConnect.DeviceDbusInterfaceFactory.create(model.deviceId)
 
     hoverEnabled: false
     down: false
@@ -35,23 +36,10 @@ PlasmaComponents.ItemDelegate
         id: fileDropArea
         anchors.fill: parent
 
-        onDropped: {
+        onDropped: drop => {
             if (drop.hasUrls) {
-
-                var urls = [];
-
-                for (var v in drop.urls) {
-                    if (drop.urls[v] != null) {
-                        if (urls.indexOf(drop.urls[v].toString()) == -1) {
-                            urls.push(drop.urls[v].toString());
-                        }
-                    }
-                }
-
-                var i;
-                for (i = 0; i < urls.length; i++) {
-                    share.plugin.shareUrl(urls[i]);
-                }
+                const urls = new Set(drop.urls.map(url => url.toString()));
+                urls.forEach(url => share.plugin.shareUrl(url));
             }
             drop.accepted = true;
         }
@@ -68,8 +56,7 @@ PlasmaComponents.ItemDelegate
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
 
-        RowLayout
-        {
+        RowLayout {
             width: parent.width
             spacing: Kirigami.Units.smallSpacing
 
@@ -119,9 +106,10 @@ PlasmaComponents.ItemDelegate
                     }
                 }
             }
-            RowLayout
-            {
+
+            RowLayout {
                 id: connectionInformation
+
                 visible: connectivity.available
                 spacing: Kirigami.Units.smallSpacing
 
@@ -147,10 +135,10 @@ PlasmaComponents.ItemDelegate
                 }
             }
 
-            RowLayout
-            {
+            RowLayout {
                 id: batteryInformation
-                visible: (battery.available && battery.charge > -1)
+
+                visible: battery.available && battery.charge > -1
                 spacing: Kirigami.Units.smallSpacing
 
                 Kirigami.Icon {
@@ -171,6 +159,7 @@ PlasmaComponents.ItemDelegate
 
             PlasmaComponents.ToolButton {
                 id: overflowMenu
+
                 icon.name: "application-menu"
                 checked: menu.status === PlasmaExtras.Menu.Open
 
@@ -181,35 +170,35 @@ PlasmaComponents.ItemDelegate
                     visualParent: overflowMenu
                     placement: PlasmaExtras.Menu.BottomPosedLeftAlignedPopup
 
-                    //Share
-                    PlasmaExtras.MenuItem
-                    {
-                        property FileDialog data: FileDialog {
+                    // Share
+                    PlasmaExtras.MenuItem {
+                        id: shareFile
+
+                        readonly property QtDialogs.FileDialog data: QtDialogs.FileDialog {
                             id: fileDialog
                             title: i18n("Please choose a file")
                             currentFolder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
-                            fileMode: FileDialog.OpenFiles
+                            fileMode: QtDialogs.FileDialog.OpenFiles
                             onAccepted: fileDialog.selectedFiles.forEach(url => share.plugin.shareUrl(url))
                         }
 
-                        id: shareFile
                         icon: "document-share"
                         visible: share.available
                         text: i18n("Share file")
                         onClicked: fileDialog.open()
                     }
 
-                    //Clipboard
-                    PlasmaExtras.MenuItem
-                    {
-                        property Clipboard data: Clipboard {
+                    // Clipboard
+                    PlasmaExtras.MenuItem {
+                        id: sendclipboard
+
+                        readonly property Clipboard data: Clipboard {
                             id: clipboard
                             device: root.device
                         }
 
-                        id: sendclipboard
                         icon: "klipper"
-                        visible: clipboard.available && clipboard.clipboard.isAutoShareDisabled
+                        visible: clipboard.clipboard?.isAutoShareDisabled ?? false
                         text: i18n("Send Clipboard")
 
                         onClicked: {
@@ -218,15 +207,15 @@ PlasmaComponents.ItemDelegate
                     }
 
 
-                    //Find my phone
-                    PlasmaExtras.MenuItem
-                    {
-                        property FindMyPhone data: FindMyPhone {
+                    // Find my phone
+                    PlasmaExtras.MenuItem {
+                        id: ring
+
+                        readonly property FindMyPhone data: FindMyPhone {
                             id: findmyphone
                             device: root.device
                         }
 
-                        id: ring
                         icon: "irc-voice"
                         visible: findmyphone.available
                         text: i18n("Ring my phone")
@@ -236,15 +225,15 @@ PlasmaComponents.ItemDelegate
                         }
                     }
 
-                    //SFTP
-                    PlasmaExtras.MenuItem
-                    {
-                        property Sftp data: Sftp {
+                    // SFTP
+                    PlasmaExtras.MenuItem {
+                        id: browse
+
+                        readonly property Sftp data: Sftp {
                             id: sftp
                             device: root.device
                         }
 
-                        id: browse
                         icon: "document-open-folder"
                         visible: sftp.available
                         text: i18n("Browse this device")
@@ -254,10 +243,9 @@ PlasmaComponents.ItemDelegate
                         }
                     }
 
-                    //SMS
-                    PlasmaExtras.MenuItem
-                    {
-                        property SMS data: SMS {
+                    // SMS
+                    PlasmaExtras.MenuItem {
+                        readonly property SMS data: SMS {
                             id: sms
                             device: root.device
                         }
@@ -274,7 +262,7 @@ PlasmaComponents.ItemDelegate
             }
         }
 
-        //RemoteKeyboard
+        // RemoteKeyboard
         PlasmaComponents.ItemDelegate {
             visible: remoteKeyboard.remoteState
             Layout.fillWidth: true
@@ -288,7 +276,7 @@ PlasmaComponents.ItemDelegate
                     text: i18n("Remote Keyboard")
                 }
 
-                RemoteKeyboard {
+                KDEConnect.RemoteKeyboard {
                     id: remoteKeyboard
                     device: root.device
                     Layout.fillWidth: true
@@ -296,9 +284,9 @@ PlasmaComponents.ItemDelegate
             }
         }
 
-        //Notifications
+        // Notifications
         PlasmaComponents.ItemDelegate {
-            visible: notificationsModel.count>0
+            visible: notificationsModel.count > 0
             enabled: true
             Layout.fillWidth: true
 
@@ -314,19 +302,23 @@ PlasmaComponents.ItemDelegate
                     visible: notificationsModel.isAnyDimissable;
                     Layout.alignment: Qt.AlignRight
                     icon.name: "edit-clear-history"
-                    ToolTip.text: i18n("Dismiss all notifications")
+                    PlasmaComponents.ToolTip.text: i18n("Dismiss all notifications")
                     onClicked: notificationsModel.dismissAll();
                 }
             }
         }
+
         Repeater {
             id: notificationsView
-            model: NotificationsModel {
+
+            model: KDEConnect.NotificationsModel {
                 id: notificationsModel
                 deviceId: root.device.id()
             }
+
             delegate: PlasmaComponents.ItemDelegate {
                 id: listitem
+
                 enabled: true
                 onClicked: checked = !checked
                 Layout.fillWidth: true
@@ -349,7 +341,7 @@ PlasmaComponents.ItemDelegate
 
                         PlasmaComponents.Label {
                             id: notificationLabel
-                            text: appName + ": " + (title.length>0 ? (appName==title?notitext:title+": "+notitext) : model.name)
+                            text: appName + ": " + (title.length > 0 ? (appName == title ? notitext : title + ": " + notitext) : model.name)
                             elide: listitem.checked ? Text.ElideNone : Text.ElideRight
                             maximumLineCount: listitem.checked ? 0 : 1
                             wrapMode: Text.WordWrap
@@ -361,7 +353,7 @@ PlasmaComponents.ItemDelegate
                             visible: repliable
                             enabled: repliable && !replying
                             icon.name: "mail-reply-sender"
-                            ToolTip.text: i18n("Reply")
+                            PlasmaComponents.ToolTip.text: i18n("Reply")
                             onClicked: { replying = true; replyTextField.forceActiveFocus(); }
                         }
 
@@ -371,7 +363,7 @@ PlasmaComponents.ItemDelegate
                             enabled: dismissable
                             Layout.alignment: Qt.AlignRight
                             icon.name: "window-close"
-                            ToolTip.text: i18n("Dismiss")
+                            PlasmaComponents.ToolTip.text: i18n("Dismiss")
                             onClicked: dbusInterface.dismiss();
                         }
                     }
@@ -401,12 +393,12 @@ PlasmaComponents.ItemDelegate
                             placeholderText: i18nc("@info:placeholder", "Reply to %1…", appName)
                             wrapMode: TextEdit.Wrap
                             Layout.fillWidth: true
-                            Keys.onPressed: {
-                                if ((event.key == Qt.Key_Return || event.key == Qt.Key_Enter) && !(event.modifiers & Qt.ShiftModifier)) {
+                            Keys.onPressed: event => {
+                                if ((event.key === Qt.Key_Return || event.key === Qt.Key_Enter) && !(event.modifiers & Qt.ShiftModifier)) {
                                     replySendButton.clicked();
                                     event.accepted = true;
                                 }
-                                if (event.key == Qt.Key_Escape) {
+                                if (event.key === Qt.Key_Escape) {
                                     replyCancelButton.clicked();
                                     event.accepted = true;
                                 }
@@ -431,13 +423,13 @@ PlasmaComponents.ItemDelegate
         }
 
         RemoteCommands {
-            id: rc
+            id: remoteCommands
             device: root.device
         }
 
         // Commands
         RowLayout {
-            visible: rc.available
+            visible: remoteCommands.available
             width: parent.width
             spacing: Kirigami.Units.smallSpacing
 
@@ -446,25 +438,28 @@ PlasmaComponents.ItemDelegate
                 Layout.fillWidth: true
             }
 
-            PlasmaComponents.Button
-            {
+            PlasmaComponents.Button {
                 id: addCommandButton
                 icon.name: "list-add"
-                ToolTip.text: i18n("Add command")
-                onClicked: rc.plugin.editCommands()
-                visible: rc.plugin && rc.plugin.canAddCommand
+                PlasmaComponents.ToolTip.text: i18n("Add command")
+                onClicked: remoteCommands.plugin.editCommands()
+                visible: remoteCommands.plugin?.canAddCommand ?? false
             }
         }
+
         Repeater {
             id: commandsView
-            visible: rc.available
-            model: RemoteCommandsModel {
+
+            visible: remoteCommands.available
+
+            model: KDEConnect.RemoteCommandsModel {
                 id: commandsModel
-                deviceId: rc.device.id()
+                deviceId: remoteCommands.device.id()
             }
+
             delegate: PlasmaComponents.ItemDelegate {
                 enabled: true
-                onClicked: rc.plugin.triggerCommand(key)
+                onClicked: remoteCommands.plugin?.triggerCommand(key)
                 Layout.fillWidth: true
 
                 contentItem: PlasmaComponents.Label {
