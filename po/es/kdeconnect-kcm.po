@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2014.
-# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023.
+# Victor Rodrigo Cordoba <vrcordoba@gmail.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:38+0000\n"
-"PO-Revision-Date: 2023-11-25 17:18+0100\n"
+"PO-Revision-Date: 2024-06-29 11:58+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -143,18 +143,7 @@ msgstr "Enviar ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -175,7 +164,10 @@ msgstr ""
 "\"text-decoration: underline;\">la aplicación KDE Connect para Android</"
 "span></a> (también disponible <a href=\"https://f-droid.org/repository/"
 "browse/?fdid=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-"underline;\">en F-Droid</span></a>) y debería aparecer en la lista."
-"<br><br>Si tiene problemas, visite la <a href=\"https://userbase.kde.org/"
-"KDEConnect \"><span style=\" text-decoration: underline;\">la wiki "
-"comunitaria de KDE Connect</span></a> para encontrar ayuda.</p></body></html>"
+"underline;\">en F-Droid</span></a>) y debería aparecer en la lista. Si posee "
+"un iPhone, asegúrese de instalar la <a href=\"https://apps.apple.com/us/app/"
+"kde-connect/id1580245991\"><span style=\" text-decoration: underline;\"> "
+"aplicación KDE Connect iOS</span></a> <br><br>Si tiene problemas, visite la "
+"<a href=\"https://userbase.kde.org/KDEConnect \"><span style=\" text-"
+"decoration: underline;\">la wiki comunitaria de KDE Connect</span></a> para "
+"encontrar ayuda.</p></body></html>"
