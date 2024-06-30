@@ -5,6 +5,8 @@
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtCore
 import QtQuick
 import QtQuick.Dialogs as QtDialogs
@@ -18,6 +20,9 @@ import org.kde.plasma.extras as PlasmaExtras
 
 PlasmaComponents.ItemDelegate {
     id: root
+
+    required property int index
+    required property var model
 
     readonly property KDEConnect.DeviceDbusInterface device: KDEConnect.DeviceDbusInterfaceFactory.create(model.deviceId)
 
@@ -177,7 +182,7 @@ PlasmaComponents.ItemDelegate {
             PlasmaComponents.Label {
                 id: deviceName
                 elide: Text.ElideRight
-                text: model.name
+                text: root.model.name
                 Layout.fillWidth: true
                 textFormat: Text.PlainText
             }
@@ -317,11 +322,14 @@ PlasmaComponents.ItemDelegate {
 
             model: KDEConnect.NotificationsModel {
                 id: notificationsModel
-                deviceId: root.device.id()
+                deviceId: root.model.deviceId
             }
 
             delegate: PlasmaComponents.ItemDelegate {
                 id: listitem
+
+                required property int index
+                required property var model
 
                 enabled: true
                 onClicked: checked = !checked
@@ -337,64 +345,71 @@ PlasmaComponents.ItemDelegate {
 
                         Kirigami.Icon {
                             id: notificationIcon
-                            source: appIcon
-                            width: (valid && appIcon.length) ? dismissButton.width : 0
+                            source: listitem.model.appIcon
+                            width: (valid && listitem.model.appIcon !== "") ? dismissButton.width : 0
                             height: width
                             Layout.alignment: Qt.AlignLeft
                         }
 
                         PlasmaComponents.Label {
                             id: notificationLabel
-                            text: appName + ": " + (title.length > 0 ? (appName == title ? notitext : title + ": " + notitext) : model.name)
+                            text: {
+                                const { appName, notitext, title } = listitem.model;
+                                const description = title !== "" ? (appName === title ? notitext : `${title}: ${notitext}`) : notitext;
+                                return `${appName}: ${description}`;
+                            }
                             elide: listitem.checked ? Text.ElideNone : Text.ElideRight
                             maximumLineCount: listitem.checked ? 0 : 1
-                            wrapMode: Text.WordWrap
+                            wrapMode: Text.Wrap
                             Layout.fillWidth: true
                         }
 
                         PlasmaComponents.ToolButton {
                             id: replyButton
-                            visible: repliable
-                            enabled: repliable && !replying
+                            visible: listitem.model.repliable
+                            enabled: listitem.model.repliable && !listitem.replying
                             icon.name: "mail-reply-sender"
                             PlasmaComponents.ToolTip.text: i18n("Reply")
-                            onClicked: { replying = true; replyTextField.forceActiveFocus(); }
+                            onClicked: {
+                                listitem.replying = true;
+                                replyTextField.forceActiveFocus();
+                            }
                         }
 
                         PlasmaComponents.ToolButton {
                             id: dismissButton
                             visible: notificationsModel.isAnyDimissable;
-                            enabled: dismissable
+                            enabled: listitem.model.dismissable
                             Layout.alignment: Qt.AlignRight
                             icon.name: "window-close"
                             PlasmaComponents.ToolTip.text: i18n("Dismiss")
-                            onClicked: dbusInterface.dismiss();
+                            onClicked: listitem.model.dbusInterface.dismiss();
                         }
                     }
 
                     RowLayout {
-                        visible: replying
+                        visible: listitem.replying
                         width: notificationLabel.width + replyButton.width + dismissButton.width + Kirigami.Units.smallSpacing * 2
                         spacing: Kirigami.Units.smallSpacing
 
                         PlasmaComponents.Button {
-                            Layout.alignment: Qt.AlignBottom
                             id: replyCancelButton
+                            Layout.alignment: Qt.AlignBottom
                             text: i18n("Cancel")
                             display: PlasmaComponents.AbstractButton.IconOnly
                             PlasmaComponents.ToolTip {
-                                text: parent.text
+                                text: replyCancelButton.text
                             }
                             icon.name: "dialog-cancel"
                             onClicked: {
                                 replyTextField.text = "";
-                                replying = false;
+                                listitem.replying = false;
                             }
                         }
 
                         PlasmaComponents.TextArea {
                             id: replyTextField
-                            placeholderText: i18nc("@info:placeholder", "Reply to %1…", appName)
+                            placeholderText: i18nc("@info:placeholder", "Reply to %1…", listitem.model.appName)
                             wrapMode: TextEdit.Wrap
                             Layout.fillWidth: true
                             Keys.onPressed: event => {
@@ -414,11 +429,11 @@ PlasmaComponents.ItemDelegate {
                             id: replySendButton
                             text: i18n("Send")
                             icon.name: "document-send"
-                            enabled: replyTextField.text
+                            enabled: replyTextField.text !== ""
                             onClicked: {
-                                dbusInterface.sendReply(replyTextField.text);
+                                listitem.model.dbusInterface.sendReply(replyTextField.text);
                                 replyTextField.text = "";
-                                replying = false;
+                                listitem.replying = false;
                             }
                         }
                     }
@@ -453,16 +468,25 @@ PlasmaComponents.ItemDelegate {
 
             model: KDEConnect.RemoteCommandsModel {
                 id: commandsModel
-                deviceId: remoteCommands.device.id()
+                deviceId: root.model.deviceId
             }
 
             delegate: PlasmaComponents.ItemDelegate {
+                id: commandDelegate
+
+                required property int index
+                required property var model
+
                 enabled: true
-                onClicked: remoteCommands.plugin?.triggerCommand(key)
+
+                onClicked: {
+                    remoteCommands.plugin?.triggerCommand(commandDelegate.model.key);
+                }
+
                 Layout.fillWidth: true
 
                 contentItem: PlasmaComponents.Label {
-                    text: name + "\n" + command
+                    text: `${commandDelegate.model.name}\n${commandDelegate.model.command}`
                 }
             }
         }
