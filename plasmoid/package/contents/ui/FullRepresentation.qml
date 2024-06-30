@@ -43,7 +43,7 @@ PlasmaExtras.Representation {
             clip: true
 
             delegate: DeviceDelegate {
-                width: parent.width
+                width: ListView.view.width - ListView.view.leftMargin - ListView.view.rightMargin
             }
 
             PlasmaExtras.PlaceholderMessage {
