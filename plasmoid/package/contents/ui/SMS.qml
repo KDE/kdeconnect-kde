@@ -1,25 +1,29 @@
 /**
  * SPDX-FileCopyrightText: 2019 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import org.kde.plasma.core as PlasmaCore
-import org.kde.kdeconnect
+
+import org.kde.kdeconnect as KDEConnect
 
 QtObject {
-
     id: root
 
-    property alias device: checker.device
+    required property KDEConnect.DeviceDbusInterface device
+
     readonly property alias available: checker.available
 
-    readonly property PluginChecker pluginChecker: PluginChecker {
+    readonly property KDEConnect.PluginChecker pluginChecker: KDEConnect.PluginChecker {
         id: checker
         pluginName: "sms"
+        device: root.device
     }
 
-    readonly property variant plugin: available ? SmsDbusInterfaceFactory.create(device.id()) : null
+    readonly property KDEConnect.SmsDbusInterface plugin:
+        available ? KDEConnect.SmsDbusInterfaceFactory.create(device.id()) : null
 }
-

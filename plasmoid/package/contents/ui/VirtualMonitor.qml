@@ -1,23 +1,29 @@
 /**
- * SPDX-FileCopyrightText: 2021 Aleix Pol i Gonzalez <aleixpol@kde.org>
+ * SPDX-FileCopyrightText: 2021 Aleix Pol Gonzalez <aleixpol@kde.org>
+ * SPDX-FileCopyrightText: 2024 ivan tkachenko <me@ratijas.tk>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick
-import org.kde.plasma.core as PlasmaCore
-import org.kde.kdeconnect
+pragma ComponentBehavior: Bound
 
-QtObject
-{
-    property alias device: checker.device
+import QtQuick
+
+import org.kde.kdeconnect as KDEConnect
+
+QtObject {
+    id: root
+
+    required property KDEConnect.DeviceDbusInterface device
+
     readonly property alias available: checker.available
 
-    readonly property PluginChecker pluginChecker: PluginChecker {
+    readonly property KDEConnect.PluginChecker pluginChecker: KDEConnect.PluginChecker {
         id: checker
         pluginName: "virtualmonitor"
+        device: root.device
     }
 
-    readonly property QtObject plugin: available ? VirtualmonitorDbusInterfaceFactory.create(device.id()) : null
+    readonly property KDEConnect.VirtualmonitorDbusInterface plugin:
+        available ? KDEConnect.VirtualmonitorDbusInterfaceFactory.create(device.id()) : null
 }
-

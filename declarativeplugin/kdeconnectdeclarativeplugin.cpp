@@ -71,6 +71,19 @@ void KdeConnectDeclarativePlugin::registerTypes(const char *uri)
                                                             "RemoteKeyboardDbusInterface",
                                                             QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<DeviceDbusInterface>(uri, 1, 0, "DeviceDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<BatteryDbusInterface>(uri, 1, 0, "BatteryDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<ConnectivityReportDbusInterface>(uri,
+                                                                1,
+                                                                0,
+                                                                "ConnectivityReportDbusInterface",
+                                                                QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<SftpDbusInterface>(uri, 1, 0, "SftpDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<SmsDbusInterface>(uri, 1, 0, "SmsDbusInterface", QStringLiteral("You're not supposed to instantiate interfaces"));
+    qmlRegisterUncreatableType<VirtualmonitorDbusInterface>(uri,
+                                                            1,
+                                                            0,
+                                                            "VirtualmonitorDbusInterface",
+                                                            QStringLiteral("You're not supposed to instantiate interfaces"));
     qmlRegisterUncreatableType<RemoteCommandsDbusInterface>(uri,
                                                             1,
                                                             0,
