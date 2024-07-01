@@ -30,6 +30,8 @@ KdeConnectPluginConfig::KdeConnectPluginConfig(QObject *parent)
 KdeConnectPluginConfig::KdeConnectPluginConfig(const QString &deviceId, const QString &pluginName, QObject *parent)
     : QObject(parent)
     , d(new KdeConnectPluginConfigPrivate())
+    , m_deviceId(deviceId)
+    , m_pluginName(pluginName)
 {
     d->m_configDir = KdeConnectConfig::instance().pluginConfigDir(deviceId, pluginName);
     QDir().mkpath(d->m_configDir.path());
