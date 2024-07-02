@@ -190,7 +190,7 @@ void KdeConnectKcm::resetDeviceView()
         },
         this);
 
-    const QVector<KPluginMetaData> pluginInfo = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect"));
+    const QVector<KPluginMetaData> pluginInfo = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect"), std::not_fn(&KPluginMetaData::isHidden));
     QVector<KPluginMetaData> availablePluginInfo;
 
     m_oldSupportedPluginNames = currentDevice->supportedPlugins();
