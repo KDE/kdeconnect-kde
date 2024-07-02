@@ -16,7 +16,7 @@ PluginModel::PluginModel(QObject *parent)
 {
     connect(this, &QAbstractItemModel::rowsInserted, this, &PluginModel::rowsChanged);
     connect(this, &QAbstractItemModel::rowsRemoved, this, &PluginModel::rowsChanged);
-    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect"));
+    m_plugins = KPluginMetaData::findPlugins(QStringLiteral("kdeconnect"), std::not_fn(&KPluginMetaData::isHidden));
 }
 
 PluginModel::~PluginModel()
