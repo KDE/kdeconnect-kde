@@ -1,16 +1,16 @@
 # Translation of kdeconnect-kcm.po to Catalan (Valencian)
-# Copyright (C) 2014-2023 This_file_is_part_of_KDE
+# Copyright (C) 2014-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2016, 2017, 2018, 2020, 2021.
-# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2018, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2015, 2016, 2018, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:38+0000\n"
-"PO-Revision-Date: 2023-11-20 09:37+0100\n"
+"PO-Revision-Date: 2024-06-25 12:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -146,18 +146,7 @@ msgstr "Envia un ping"
 
 #. i18n: ectx: property (text), widget (QLabel, noDeviceLinks)
 #: kcm.ui:373
-#, fuzzy, kde-format
-#| msgid ""
-#| "<html><head/><body><p>No device selected.<br><br>If you own an Android "
-#| "device, make sure to install the <a href=\"https://play.google.com/store/"
-#| "apps/details?id=org.kde.kdeconnect_tp\"><span style=\" text-decoration: "
-#| "underline;\">KDE Connect Android app</span></a> (also available <a href="
-#| "\"https://f-droid.org/repository/browse/?fdid=org.kde.kdeconnect_tp"
-#| "\"><span style=\" text-decoration: underline;\">from F-Droid</span></a>) "
-#| "and it should appear in the list.<br><br>If you are having problems, "
-#| "visit the <a href=\"https://userbase.kde.org/KDEConnect\"><span style=\" "
-#| "text-decoration: underline;\">KDE Connect Community wiki</span></a> for "
-#| "help.</p></body></html>"
+#, kde-format
 msgid ""
 "<html><head/><body><p>No device selected.<br><br>If you own an Android "
 "device, make sure to install the <a href=\"https://play.google.com/store/"
@@ -178,7 +167,10 @@ msgstr ""
 "text-decoration: underline; \">app KDE Connect per a Android</span></a> "
 "(també disponible <a href=\"https://f-droid.org/repository/browse/?fdid=org."
 "kde.kdeconnect_tp\"><span style=\" text-decoration: underline; \">des del F-"
-"Droid</span></a>) i hauria d'aparéixer en la llista.<br><br>Si teniu "
-"problemes, visiteu el <a href=\"https://userbase.kde.org/KDEConnect/ca"
-"\"><span style=\" text-decoration: underline; \">wiki de la KDE Connect "
-"Community</span></a> per a obtindre ajuda.</p></body></html>"
+"Droid</span></a>) i hauria d'aparéixer en la llista. Si teniu un iPhone, "
+"assegureu-vos d'instal·lar l'aplicació d'<a href=\"https://apps.apple.com/"
+"vos/app/kde-connect/id1580245991\"><span style=\" text-decoration: underline;"
+"\">iOS KDE Connect</span></a> <br><br>Si teniu problemes, visiteu el <a href="
+"\"https://userbase.kde.org/KDEConnect/ca\"><span style=\" text-decoration: "
+"underline; \">wiki de la KDE Connect Community</span></a> per a obtindre "
+"ajuda.</p></body></html>"
