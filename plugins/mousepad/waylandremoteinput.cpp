@@ -15,7 +15,10 @@
 #include <KSharedConfig>
 #include <QDBusPendingCallWatcher>
 
+#include <libei.h>
 #include <linux/input.h>
+#include <sys/mman.h>
+#include <unistd.h>
 #include <xkbcommon/xkbcommon.h>
 
 namespace
@@ -60,12 +63,67 @@ int SpecialKeysMap[] = {
 
 Q_GLOBAL_STATIC(RemoteDesktopSession, s_session);
 
+class Xkb
+{
+public:
+    Xkb()
+    {
+        m_xkbcontext.reset(xkb_context_new(XKB_CONTEXT_NO_FLAGS));
+        m_xkbkeymap.reset(xkb_keymap_new_from_names(m_xkbcontext.get(), nullptr, XKB_KEYMAP_COMPILE_NO_FLAGS));
+        m_xkbstate.reset(xkb_state_new(m_xkbkeymap.get()));
+    }
+    Xkb(int keymapFd, int size)
+    {
+        m_xkbcontext.reset(xkb_context_new(XKB_CONTEXT_NO_FLAGS));
+        char *map = static_cast<char *>(mmap(nullptr, size, PROT_READ, MAP_PRIVATE, keymapFd, 0));
+        if (map != MAP_FAILED) {
+            m_xkbkeymap.reset(xkb_keymap_new_from_string(m_xkbcontext.get(), map, XKB_KEYMAP_FORMAT_TEXT_V1, XKB_KEYMAP_COMPILE_NO_FLAGS));
+            munmap(map, size);
+        }
+        close(keymapFd);
+        if (!m_xkbkeymap) {
+            qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Failed to create keymap";
+            m_xkbkeymap.reset(xkb_keymap_new_from_names(m_xkbcontext.get(), nullptr, XKB_KEYMAP_COMPILE_NO_FLAGS));
+        }
+        m_xkbstate.reset(xkb_state_new(m_xkbkeymap.get()));
+    }
+
+    std::optional<int> keycodeFromKeysym(xkb_keysym_t keysym)
+    {
+        auto layout = xkb_state_serialize_layout(m_xkbstate.get(), XKB_STATE_LAYOUT_EFFECTIVE);
+        const xkb_keycode_t max = xkb_keymap_max_keycode(m_xkbkeymap.get());
+        for (xkb_keycode_t keycode = xkb_keymap_min_keycode(m_xkbkeymap.get()); keycode < max; keycode++) {
+            uint levelCount = xkb_keymap_num_levels_for_key(m_xkbkeymap.get(), keycode, layout);
+            for (uint currentLevel = 0; currentLevel < levelCount; currentLevel++) {
+                const xkb_keysym_t *syms;
+                uint num_syms = xkb_keymap_key_get_syms_by_level(m_xkbkeymap.get(), keycode, layout, currentLevel, &syms);
+                for (uint sym = 0; sym < num_syms; sym++) {
+                    if (syms[sym] == keysym) {
+                        return {keycode - 8};
+                    }
+                }
+            }
+        }
+        return {};
+    }
+
+private:
+    template<auto D>
+    using deleter = std::integral_constant<decltype(D), D>;
+    std::unique_ptr<xkb_context, deleter<xkb_context_unref>> m_xkbcontext;
+    std::unique_ptr<xkb_keymap, deleter<xkb_keymap_unref>> m_xkbkeymap;
+    std::unique_ptr<xkb_state, deleter<xkb_state_unref>> m_xkbstate;
+};
+
 RemoteDesktopSession::RemoteDesktopSession()
     : iface(new OrgFreedesktopPortalRemoteDesktopInterface(QLatin1String("org.freedesktop.portal.Desktop"),
                                                            QLatin1String("/org/freedesktop/portal/desktop"),
                                                            QDBusConnection::sessionBus(),
                                                            this))
+    , m_eiNotifier(QSocketNotifier::Read)
+    , m_xkb(new Xkb)
 {
+    connect(&m_eiNotifier, &QSocketNotifier::activated, this, &RemoteDesktopSession::handleEiEvents);
 }
 
 void RemoteDesktopSession::createSession()
@@ -188,11 +246,184 @@ void RemoteDesktopSession::handleXdpSessionStarted(uint code, const QVariantMap 
 
     KConfigGroup stateConfig = KSharedConfig::openStateConfig()->group(QStringLiteral("mousepad"));
     stateConfig.writeEntry(QStringLiteral("RestoreToken"), results[QStringLiteral("restore_token")].toString());
+    auto call = iface->ConnectToEIS(m_xdpPath, {});
+    connect(new QDBusPendingCallWatcher(call), &QDBusPendingCallWatcher::finished, [this](QDBusPendingCallWatcher *watcher) {
+        watcher->deleteLater();
+        QDBusReply<QDBusUnixFileDescriptor> reply = *watcher;
+        if (!reply.isValid()) {
+            qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Error connecting to eis" << reply.error();
+            return;
+        }
+        connectToEi(reply.value().takeFileDescriptor());
+    });
+}
+
+void RemoteDesktopSession::connectToEi(int fd)
+{
+    m_eiNotifier.setSocket(fd);
+    m_eiNotifier.setEnabled(true);
+    m_ei = ei_new_sender(this);
+    ei_log_set_handler(m_ei, nullptr);
+    ei_setup_backend_fd(m_ei, fd);
+}
+
+void RemoteDesktopSession::handleEiEvents()
+{
+    ei_dispatch(m_ei);
+    while (auto event = ei_get_event(m_ei)) {
+        const auto type = ei_event_get_type(event);
+        switch (type) {
+        case EI_EVENT_CONNECT:
+            qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Connected to ei";
+            break;
+        case EI_EVENT_DISCONNECT:
+            qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "Disconnected from ei";
+            break;
+        case EI_EVENT_SEAT_ADDED: {
+            auto seat = ei_event_get_seat(event);
+            ei_seat_bind_capabilities(seat,
+                                      EI_DEVICE_CAP_KEYBOARD,
+                                      EI_DEVICE_CAP_POINTER,
+                                      EI_DEVICE_CAP_POINTER_ABSOLUTE,
+                                      EI_DEVICE_CAP_BUTTON,
+                                      EI_DEVICE_CAP_SCROLL,
+                                      nullptr);
+            break;
+        }
+        case EI_EVENT_SEAT_REMOVED:
+            break;
+        case EI_EVENT_DEVICE_ADDED: {
+            auto device = ei_event_get_device(event);
+            if (ei_device_has_capability(device, EI_DEVICE_CAP_KEYBOARD) && !m_keyboard) {
+                auto keymap = ei_device_keyboard_get_keymap(device);
+                if (ei_keymap_get_type(keymap) != EI_KEYMAP_TYPE_XKB) {
+                    break;
+                }
+                m_xkb.reset(new Xkb(ei_keymap_get_fd(keymap), ei_keymap_get_size(keymap)));
+                m_keyboard = device;
+            }
+            if (ei_device_has_capability(device, EI_DEVICE_CAP_POINTER) && !m_pointer) {
+                m_pointer = device;
+            }
+            if (ei_device_has_capability(device, EI_DEVICE_CAP_POINTER_ABSOLUTE) && !m_absolutePointer) {
+                m_absolutePointer = device;
+            }
+        } break;
+        case EI_EVENT_DEVICE_REMOVED: {
+            auto device = ei_event_get_device(event);
+            if (device == m_keyboard) {
+                m_keyboard = nullptr;
+            }
+            if (device == m_pointer) {
+                m_pointer = nullptr;
+            }
+            if (device == m_absolutePointer) {
+                m_absolutePointer = nullptr;
+            }
+            break;
+        }
+        case EI_EVENT_DEVICE_PAUSED:
+            break;
+        case EI_EVENT_DEVICE_RESUMED:
+            ei_device_start_emulating(ei_event_get_device(event), 0);
+            break;
+
+        case EI_EVENT_FRAME:
+        case EI_EVENT_POINTER_MOTION:
+        case EI_EVENT_POINTER_MOTION_ABSOLUTE:
+        case EI_EVENT_BUTTON_BUTTON:
+        case EI_EVENT_SCROLL_DELTA:
+        case EI_EVENT_SCROLL_DISCRETE:
+        case EI_EVENT_SCROLL_STOP:
+        case EI_EVENT_SCROLL_CANCEL:
+        case EI_EVENT_KEYBOARD_MODIFIERS:
+        case EI_EVENT_KEYBOARD_KEY:
+        case EI_EVENT_DEVICE_START_EMULATING:
+        case EI_EVENT_DEVICE_STOP_EMULATING:
+        case EI_EVENT_TOUCH_DOWN:
+        case EI_EVENT_TOUCH_MOTION:
+        case EI_EVENT_TOUCH_UP:
+            qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Unexpected event of type" << ei_event_get_type(event);
+            break;
+        }
+        ei_event_unref(event);
+    }
 }
 
 void RemoteDesktopSession::handleXdpSessionFinished(uint /*code*/, const QVariantMap & /*results*/)
 {
     m_xdpPath = {};
+    m_eiNotifier.setEnabled(false);
+    ei_unref(m_ei);
+    m_pointer = nullptr;
+    m_keyboard = nullptr;
+    m_absolutePointer = nullptr;
+}
+
+void RemoteDesktopSession::pointerButton(int button, bool down)
+{
+    if (m_ei && m_pointer) {
+        ei_device_button_button(m_pointer, button, down);
+        ei_device_frame(m_pointer, ei_now(m_ei));
+    } else {
+        iface->NotifyPointerButton(m_xdpPath, {}, BTN_LEFT, down);
+    }
+}
+
+void RemoteDesktopSession::pointerAxis(double dx, double dy)
+{
+    if (m_ei && m_pointer) {
+        // Qt/Kdeconnect use inverted vertical scroll direction compared to libei
+        ei_device_scroll_delta(m_pointer, dx, dy * -1);
+        ei_device_frame(m_pointer, ei_now(m_ei));
+    } else {
+        iface->NotifyPointerAxis(m_xdpPath, {}, dx, dy);
+    }
+}
+
+void RemoteDesktopSession::pointerMotion(double dx, double dy)
+{
+    if (m_ei && m_pointer) {
+        ei_device_pointer_motion(m_pointer, dx, dy);
+        ei_device_frame(m_pointer, ei_now(m_ei));
+    } else {
+        iface->NotifyPointerMotion(m_xdpPath, {}, dx, dy);
+    }
+}
+
+void RemoteDesktopSession::pointerMotionAbsolute(double x, double y)
+{
+    if (m_ei && m_absolutePointer) {
+        qDebug() << x << y;
+        ei_device_pointer_motion_absolute(m_absolutePointer, x, y);
+        ei_device_frame(m_absolutePointer, ei_now(m_ei));
+    } else {
+        iface->NotifyPointerMotionAbsolute(m_xdpPath, {}, 0, x, y);
+    }
+}
+
+void RemoteDesktopSession::keyboardKeycode(int key, bool press)
+{
+    if (m_ei && m_keyboard) {
+        ei_device_keyboard_key(m_keyboard, key, press);
+        ei_device_frame(m_keyboard, ei_now(m_ei));
+    } else {
+        iface->NotifyKeyboardKeycode(m_xdpPath, {}, key, press);
+    }
+}
+
+void RemoteDesktopSession::keyboardKeysym(int sym, bool press)
+{
+    if (m_ei && m_keyboard) {
+        if (auto code = m_xkb->keycodeFromKeysym(sym)) {
+            ei_device_keyboard_key(m_keyboard, *code, press);
+            ei_device_frame(m_keyboard, ei_now(m_ei));
+        } else {
+            qCWarning(KDECONNECT_PLUGIN_MOUSEPAD) << "failed to convert keysym" << sym;
+        }
+    } else {
+        iface->NotifyKeyboardKeysym(m_xdpPath, {}, sym, press).waitForFinished();
+    }
 }
 
 WaylandRemoteInput::WaylandRemoteInput(QObject *parent)
@@ -225,26 +456,26 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
 
     if (isSingleClick || isDoubleClick || isMiddleClick || isRightClick || isSingleHold || isSingleRelease || isScroll || !key.isEmpty() || specialKey) {
         if (isSingleClick) {
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 1);
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 0);
+            s_session->pointerButton(BTN_LEFT, true);
+            s_session->pointerButton(BTN_LEFT, false);
         } else if (isDoubleClick) {
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 1);
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 0);
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 1);
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 0);
+            s_session->pointerButton(BTN_LEFT, true);
+            s_session->pointerButton(BTN_LEFT, false);
+            s_session->pointerButton(BTN_LEFT, true);
+            s_session->pointerButton(BTN_LEFT, false);
         } else if (isMiddleClick) {
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_MIDDLE, 1);
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_MIDDLE, 0);
+            s_session->pointerButton(BTN_MIDDLE, true);
+            s_session->pointerButton(BTN_MIDDLE, false);
         } else if (isRightClick) {
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_RIGHT, 1);
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_RIGHT, 0);
+            s_session->pointerButton(BTN_RIGHT, true);
+            s_session->pointerButton(BTN_RIGHT, false);
         } else if (isSingleHold) {
             // For drag'n drop
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 1);
+            s_session->pointerButton(BTN_LEFT, true);
         } else if (isSingleRelease) {
-            s_session->iface->NotifyPointerButton(s_session->m_xdpPath, {}, BTN_LEFT, 0);
+            s_session->pointerButton(BTN_LEFT, false);
         } else if (isScroll) {
-            s_session->iface->NotifyPointerAxis(s_session->m_xdpPath, {}, dx, dy);
+            s_session->pointerAxis(dx, dy);
         } else if (specialKey || !key.isEmpty()) {
             bool ctrl = np.get<bool>(QStringLiteral("ctrl"), false);
             bool alt = np.get<bool>(QStringLiteral("alt"), false);
@@ -252,23 +483,23 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
             bool super = np.get<bool>(QStringLiteral("super"), false);
 
             if (ctrl)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTCTRL, 1);
+                s_session->keyboardKeycode(KEY_LEFTCTRL, true);
             if (alt)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTALT, 1);
+                s_session->keyboardKeycode(KEY_LEFTALT, true);
             if (shift)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTSHIFT, 1);
+                s_session->keyboardKeycode(KEY_LEFTSHIFT, true);
             if (super)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTMETA, 1);
+                s_session->keyboardKeycode(KEY_LEFTMETA, true);
 
             if (specialKey) {
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 1);
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, SpecialKeysMap[specialKey], 0);
+                s_session->keyboardKeycode(SpecialKeysMap[specialKey], true);
+                s_session->keyboardKeycode(SpecialKeysMap[specialKey], false);
             } else if (!key.isEmpty()) {
                 for (const QChar character : key) {
                     const auto keysym = xkb_utf32_to_keysym(character.unicode());
                     if (keysym != XKB_KEY_NoSymbol) {
-                        s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 1).waitForFinished();
-                        s_session->iface->NotifyKeyboardKeysym(s_session->m_xdpPath, {}, keysym, 0).waitForFinished();
+                        s_session->keyboardKeysym(keysym, true);
+                        s_session->keyboardKeysym(keysym, false);
                     } else {
                         qCDebug(KDECONNECT_PLUGIN_MOUSEPAD) << "Cannot send character" << character;
                     }
@@ -276,19 +507,19 @@ bool WaylandRemoteInput::handlePacket(const NetworkPacket &np)
             }
 
             if (ctrl)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTCTRL, 0);
+                s_session->keyboardKeycode(KEY_LEFTCTRL, false);
             if (alt)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTALT, 0);
+                s_session->keyboardKeycode(KEY_LEFTALT, false);
             if (shift)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTSHIFT, 0);
+                s_session->keyboardKeycode(KEY_LEFTSHIFT, false);
             if (super)
-                s_session->iface->NotifyKeyboardKeycode(s_session->m_xdpPath, {}, KEY_LEFTMETA, 0);
+                s_session->keyboardKeycode(KEY_LEFTMETA, false);
         }
     } else { // Is a mouse move event
         if (dx || dy)
-            s_session->iface->NotifyPointerMotion(s_session->m_xdpPath, {}, dx, dy);
+            s_session->pointerMotion(dx, dy);
         else if ((np.has(QStringLiteral("x")) || np.has(QStringLiteral("y"))))
-            s_session->iface->NotifyPointerMotionAbsolute(s_session->m_xdpPath, {}, 0, x, y);
+            s_session->pointerMotionAbsolute(x, y);
     }
     return true;
 }
