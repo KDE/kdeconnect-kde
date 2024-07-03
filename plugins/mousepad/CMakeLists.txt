@@ -1,9 +1,11 @@
 kdeconnect_add_plugin(kdeconnect_mousepad SOURCES mousepadplugin.cpp abstractremoteinput.cpp)
 
 if(UNIX AND NOT APPLE)
+    pkg_check_modules(PKG_libei REQUIRED IMPORTED_TARGET libei-1.0)
     target_sources(kdeconnect_mousepad PUBLIC waylandremoteinput.cpp ${SRCS})
     target_sources(kdeconnect_mousepad PRIVATE ${wayland_SRCS})
-    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt::WaylandClient PkgConfig::XkbCommon)
+    target_link_libraries(kdeconnect_mousepad Wayland::Client Qt::WaylandClient PkgConfig::XkbCommon PkgConfig::PKG_libei)
+
 
     if (WITH_X11)
         find_package(LibFakeKey REQUIRED)
