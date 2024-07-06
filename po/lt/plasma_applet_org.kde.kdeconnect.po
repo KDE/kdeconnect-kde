@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:38+0000\n"
-"PO-Revision-Date: 2024-01-13 18:29+0200\n"
+"PO-Revision-Date: 2024-07-06 01:40+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -45,11 +45,9 @@ msgid "No signal"
 msgstr "Nėra signalo"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Suporuotas įrenginys neprieinamas"
+msgstr "Virtualus monitorius neprieinamas"
 
 #: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
@@ -70,16 +68,17 @@ msgstr "Virtualus ekranas"
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr ""
+"Nuotolinis įrenginys neturi įdiegtos VNC kliento programos (pvz., krdc)."
 
 #: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Reikia, kad vietiniame įrenginyje būtų krfb paketas."
 
 #: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Nepavyko sukurti virtualaus monitoriaus."
 
 #: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
