@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2024-03-17 10:05+0100\n"
+"PO-Revision-Date: 2024-07-06 14:27+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -121,12 +121,13 @@ msgid "Volume control"
 msgstr "Lydstyrkekontroll"
 
 #: qml/DevicePage.qml:130
-#, fuzzy, kde-format
-#| msgid "This device is not paired"
+#, kde-format
 msgid ""
 "This device is not paired.\n"
 "Key: %1"
-msgstr "Eininga er ikkje para"
+msgstr ""
+"Eininga er ikkje para.\n"
+"Nøkkel: %1"
 
 #: qml/DevicePage.qml:134
 #, kde-format
@@ -135,12 +136,13 @@ msgid "Pair"
 msgstr "Par"
 
 #: qml/DevicePage.qml:141 qml/DevicePage.qml:150
-#, fuzzy, kde-format
-#| msgid "Pair requested"
+#, kde-format
 msgid ""
 "Pair requested\n"
 "Key: "
-msgstr "Paringsførespurnad"
+msgstr ""
+"Paringsførespurnad\n"
+"Nøkkel: "
 
 #: qml/DevicePage.qml:156
 #, kde-format

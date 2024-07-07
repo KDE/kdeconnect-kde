@@ -1,12 +1,11 @@
 # Translation of kdeconnect-kded to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-19 00:38+0000\n"
-"PO-Revision-Date: 2022-06-22 20:16+0200\n"
+"PO-Revision-Date: 2024-07-06 14:28+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -30,16 +29,13 @@ msgid "Your emails"
 msgstr "karl@huftis.org"
 
 #: kdeconnectd.cpp:56
-#, fuzzy, kde-format
-#| msgid ""
-#| "Pairing request from %1\n"
-#| "Key: %2..."
+#, kde-format
 msgid ""
 "Pairing request from %1\n"
 "Key: %2"
 msgstr ""
 "Paringsførespurnad frå %1\n"
-"Nøkkel: %2 …"
+"Nøkkel: %2"
 
 #: kdeconnectd.cpp:64
 #, kde-format
