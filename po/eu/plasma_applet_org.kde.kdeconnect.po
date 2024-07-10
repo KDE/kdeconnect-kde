@@ -1,17 +1,17 @@
 # Translation for plasma_applet_org.kde.kdeconnect.po to Euskara/Basque (eu).
-# Copyright (C) 2017-2023 This file is copyright:
+# Copyright (C) 2017-2024 This file is copyright:
 # This file is distributed under the same license as the kdeconnect-kde package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2017, 2019, 2020, 2021, 2022, 2023, 2024.
 # Thadah Denyse <gontzalpujana@protonmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-08 00:38+0000\n"
-"PO-Revision-Date: 2023-07-29 14:31+0200\n"
+"PO-Revision-Date: 2024-07-09 23:50+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
@@ -47,11 +47,9 @@ msgid "No signal"
 msgstr "Seinalerik ez"
 
 #: package/contents/ui/DeviceDelegate.qml:31
-#, fuzzy, kde-format
-#| msgid "Paired device is unavailable"
-#| msgid_plural "All paired devices are unavailable"
+#, kde-format
 msgid "Virtual Monitor is not available"
-msgstr "Parekatutako gailua ez dago eskuragarri"
+msgstr "Alegiazko begiralea ez dago eskuragarri"
 
 #: package/contents/ui/DeviceDelegate.qml:63
 #, kde-format
@@ -71,17 +69,17 @@ msgstr "Alegiazko pantaila"
 #: package/contents/ui/DeviceDelegate.qml:106
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
-msgstr ""
+msgstr "Hurreneko gailuak ez du VNC bezerorik (adib. krdc) instalatuta."
 
 #: package/contents/ui/DeviceDelegate.qml:110
 #, kde-format
 msgid "The krfb package is required on the local device."
-msgstr ""
+msgstr "Gailu lokalean «krfb» paketea behar da."
 
 #: package/contents/ui/DeviceDelegate.qml:117
 #, kde-format
 msgid "Failed to create the virtual monitor."
-msgstr ""
+msgstr "Alegiazko begiralea sortzea huts egin du."
 
 #: package/contents/ui/DeviceDelegate.qml:167
 #, kde-format
