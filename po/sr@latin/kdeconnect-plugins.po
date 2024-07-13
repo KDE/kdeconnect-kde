@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-plugins\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-28 00:38+0000\n"
+"POT-Creation-Date: 2024-07-13 00:39+0000\n"
 "PO-Revision-Date: 2017-09-28 17:57+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -374,28 +374,28 @@ msgstr "Minimum nivoa hitnosti"
 msgid "Applications"
 msgstr "Programi"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Ne mogu da pokrenem sshfs"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
 msgstr ""
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr ""
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:184
 #, fuzzy, kde-format
 #| msgid "Error when accessing to filesystem"
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Greška u pristupu fajl sistemu"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Neuspelo montiranje fajl sistema: uređaj ne odgovara"

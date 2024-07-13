@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-08 00:38+0000\n"
+"POT-Creation-Date: 2024-07-13 00:39+0000\n"
 "PO-Revision-Date: 2024-05-31 09:50+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,189 +17,191 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: package/contents/ui/Battery.qml:25
+#: package/contents/ui/Battery.qml:33
 #, kde-format
 msgid "%1% charging"
 msgstr "%1% Cargante"
 
-#: package/contents/ui/Battery.qml:25
+#: package/contents/ui/Battery.qml:35
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/Battery.qml:25
+#: package/contents/ui/Battery.qml:38
 #, kde-format
 msgid "No info"
 msgstr "Necun Info"
 
-#: package/contents/ui/Connectivity.qml:40
+#: package/contents/ui/Connectivity.qml:43
 #, kde-format
 msgid "Unknown"
 msgstr "Incognite"
 
-#: package/contents/ui/Connectivity.qml:50
+#: package/contents/ui/Connectivity.qml:54
 #, kde-format
 msgid "No signal"
 msgstr "Nulle signal"
 
-#: package/contents/ui/DeviceDelegate.qml:31
+#: package/contents/ui/DeviceDelegate.qml:82
 #, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "Monitor Virtual non es disponibile"
 
-#: package/contents/ui/DeviceDelegate.qml:63
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Please choose a file"
+msgstr "Pro favor tu selige un file"
+
+#: package/contents/ui/DeviceDelegate.qml:105
+#, kde-format
+msgid "Share file"
+msgstr "Comparti file"
+
+#: package/contents/ui/DeviceDelegate.qml:113
+#, kde-format
+msgid "Send Clipboard"
+msgstr "Invia Area de transferentia"
+
+#: package/contents/ui/DeviceDelegate.qml:124
+#, kde-format
+msgid "Ring my phone"
+msgstr "Sona mi telephono"
+
+#: package/contents/ui/DeviceDelegate.qml:135
+#, kde-format
+msgid "Browse this device"
+msgstr "Naviga iste dispositivo"
+
+#: package/contents/ui/DeviceDelegate.qml:146
+#, kde-format
+msgid "SMS Messages"
+msgstr "Messages SMS"
+
+#: package/contents/ui/DeviceDelegate.qml:170
 #, kde-format
 msgid "File Transfer"
 msgstr "Transferimento de file"
 
-#: package/contents/ui/DeviceDelegate.qml:64
+#: package/contents/ui/DeviceDelegate.qml:171
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "Lassa cader un file per transferer lo in tu telephono. "
 
-#: package/contents/ui/DeviceDelegate.qml:102
+#: package/contents/ui/DeviceDelegate.qml:193
 #, kde-format
 msgid "Virtual Display"
 msgstr "Monstrator virtual"
 
-#: package/contents/ui/DeviceDelegate.qml:106
+#: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr "Dispositivo remote non ha un cliente VNC (p.ex. kdrc) installate."
 
-#: package/contents/ui/DeviceDelegate.qml:110
+#: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr "Le pacchetto krfb es requirite sur le dispositivo local."
 
-#: package/contents/ui/DeviceDelegate.qml:117
+#: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr "Falleva a crear le monitor virtual."
 
-#: package/contents/ui/DeviceDelegate.qml:167
+#: package/contents/ui/DeviceDelegate.qml:259
 #, kde-format
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:189
-#, kde-format
-msgid "Please choose a file"
-msgstr "Pro favor tu selige un file"
-
-#: package/contents/ui/DeviceDelegate.qml:198
-#, kde-format
-msgid "Share file"
-msgstr "Comparti file"
-
-#: package/contents/ui/DeviceDelegate.qml:213
-#, kde-format
-msgid "Send Clipboard"
-msgstr "Invia Area de transferentia"
-
-#: package/contents/ui/DeviceDelegate.qml:232
-#, kde-format
-msgid "Ring my phone"
-msgstr "Sona mi telephono"
-
-#: package/contents/ui/DeviceDelegate.qml:250
-#, kde-format
-msgid "Browse this device"
-msgstr "Naviga iste dispositivo"
-
-#: package/contents/ui/DeviceDelegate.qml:267
-#, kde-format
-msgid "SMS Messages"
-msgstr "Messages SMS"
-
-#: package/contents/ui/DeviceDelegate.qml:288
+#: package/contents/ui/DeviceDelegate.qml:285
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "Claviero remote"
 
-#: package/contents/ui/DeviceDelegate.qml:309
+#: package/contents/ui/DeviceDelegate.qml:306
 #, kde-format
 msgid "Notifications:"
 msgstr "Notificationes:"
 
-#: package/contents/ui/DeviceDelegate.qml:317
+#: package/contents/ui/DeviceDelegate.qml:314
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "Dimitte omne notificationes"
 
-#: package/contents/ui/DeviceDelegate.qml:364
+#: package/contents/ui/DeviceDelegate.qml:372
 #, kde-format
 msgid "Reply"
 msgstr "Responde"
 
-#: package/contents/ui/DeviceDelegate.qml:374
+#: package/contents/ui/DeviceDelegate.qml:385
 #, kde-format
 msgid "Dismiss"
 msgstr "Abbandona"
 
-#: package/contents/ui/DeviceDelegate.qml:387
+#: package/contents/ui/DeviceDelegate.qml:398
 #, kde-format
 msgid "Cancel"
 msgstr "Cancella"
 
-#: package/contents/ui/DeviceDelegate.qml:401
+#: package/contents/ui/DeviceDelegate.qml:412
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr "Responde a %1..."
 
-#: package/contents/ui/DeviceDelegate.qml:419
+#: package/contents/ui/DeviceDelegate.qml:430
 #, kde-format
 msgid "Send"
 msgstr "Invia"
 
-#: package/contents/ui/DeviceDelegate.qml:445
+#: package/contents/ui/DeviceDelegate.qml:451
 #, kde-format
 msgid "Run command"
 msgstr "Executa Commando"
 
-#: package/contents/ui/DeviceDelegate.qml:453
+#: package/contents/ui/DeviceDelegate.qml:458
 #, kde-format
 msgid "Add command"
 msgstr "Adde commando"
 
-#: package/contents/ui/FullRepresentation.qml:58
+#: package/contents/ui/FullRepresentation.qml:65
 #, kde-format
 msgid "No paired devices"
 msgstr "Necun dispositivo associate"
 
-#: package/contents/ui/FullRepresentation.qml:58
+#: package/contents/ui/FullRepresentation.qml:65
 #, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "Dispositivo associate non es disponibile"
 msgstr[1] "Omne dispositivos associate non es disponibile"
 
-#: package/contents/ui/FullRepresentation.qml:60
+#: package/contents/ui/FullRepresentation.qml:67
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 "Installa KDE Connect sur tu dispositivo Android per integrar lo con Plasma!"
 
-#: package/contents/ui/FullRepresentation.qml:64
-#, kde-format
-msgid "Pair a Device..."
+#: package/contents/ui/FullRepresentation.qml:71
+#, fuzzy, kde-format
+#| msgid "Pair a Device..."
+msgid "Pair a Device…"
 msgstr "Associa un dispositivo..."
 
-#: package/contents/ui/FullRepresentation.qml:76
+#: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
 msgid "Install from Google Play"
 msgstr "Installa ex Google Play"
 
-#: package/contents/ui/FullRepresentation.qml:86
+#: package/contents/ui/FullRepresentation.qml:93
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "Installa ex F-Droid"
 
-#: package/contents/ui/main.qml:59
-#, kde-format
-msgid "KDE Connect Settings..."
+#: package/contents/ui/main.qml:55
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings..."
+msgid "KDE Connect Settings…"
 msgstr "Preferentias de KDE Connect ..."
 
 #~ msgid "Save As"

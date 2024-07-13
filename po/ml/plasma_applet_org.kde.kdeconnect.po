@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-08 00:38+0000\n"
+"POT-Creation-Date: 2024-07-13 00:39+0000\n"
 "PO-Revision-Date: 2020-02-02 13:49+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -17,189 +17,190 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: package/contents/ui/Battery.qml:25
+#: package/contents/ui/Battery.qml:33
 #, kde-format
 msgid "%1% charging"
 msgstr "%1% ചാർജിംഗ്"
 
-#: package/contents/ui/Battery.qml:25
+#: package/contents/ui/Battery.qml:35
 #, kde-format
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/Battery.qml:25
+#: package/contents/ui/Battery.qml:38
 #, kde-format
 msgid "No info"
 msgstr "വിവരമില്ല"
 
-#: package/contents/ui/Connectivity.qml:40
+#: package/contents/ui/Connectivity.qml:43
 #, kde-format
 msgid "Unknown"
 msgstr ""
 
-#: package/contents/ui/Connectivity.qml:50
+#: package/contents/ui/Connectivity.qml:54
 #, kde-format
 msgid "No signal"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:31
+#: package/contents/ui/DeviceDelegate.qml:82
 #, fuzzy, kde-format
 msgid "Virtual Monitor is not available"
 msgstr "ജോഡിയായ ഉപകരണങ്ങൾ ലഭ്യമല്ല"
 
-#: package/contents/ui/DeviceDelegate.qml:63
+#: package/contents/ui/DeviceDelegate.qml:87
+#, kde-format
+msgid "Please choose a file"
+msgstr "ദയവായി ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
+
+#: package/contents/ui/DeviceDelegate.qml:105
+#, kde-format
+msgid "Share file"
+msgstr "ഫയൽ പങ്കുവെക്കുക"
+
+#: package/contents/ui/DeviceDelegate.qml:113
+#, kde-format
+msgid "Send Clipboard"
+msgstr ""
+
+#: package/contents/ui/DeviceDelegate.qml:124
+#, kde-format
+msgid "Ring my phone"
+msgstr "എന്റെ മൊബൈൽ റിംഗ് ചെയ്പ്പിക്കുക"
+
+#: package/contents/ui/DeviceDelegate.qml:135
+#, kde-format
+msgid "Browse this device"
+msgstr "ഈ ഉപകരണം തുറന്നുനോക്കുക"
+
+#: package/contents/ui/DeviceDelegate.qml:146
+#, kde-format
+msgid "SMS Messages"
+msgstr "SMS സന്ദേശങ്ങൾ"
+
+#: package/contents/ui/DeviceDelegate.qml:170
 #, kde-format
 msgid "File Transfer"
 msgstr "ഫയൽ കൈമാറ്റം"
 
-#: package/contents/ui/DeviceDelegate.qml:64
+#: package/contents/ui/DeviceDelegate.qml:171
 #, kde-format
 msgid "Drop a file to transfer it onto your phone."
 msgstr "മൊബൈലിലേക്ക് പങ്കുവെക്കേണ്ട ഫയൽ ഇവിടെ വീഴ്ത്തുക"
 
-#: package/contents/ui/DeviceDelegate.qml:102
+#: package/contents/ui/DeviceDelegate.qml:193
 #, kde-format
 msgid "Virtual Display"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:106
+#: package/contents/ui/DeviceDelegate.qml:197
 #, kde-format
 msgid "Remote device does not have a VNC client (eg. krdc) installed."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:110
+#: package/contents/ui/DeviceDelegate.qml:201
 #, kde-format
 msgid "The krfb package is required on the local device."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:117
+#: package/contents/ui/DeviceDelegate.qml:208
 #, kde-format
 msgid "Failed to create the virtual monitor."
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:167
+#: package/contents/ui/DeviceDelegate.qml:259
 #, fuzzy, kde-format
 #| msgid "%1%"
 msgctxt "Battery charge percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/DeviceDelegate.qml:189
-#, kde-format
-msgid "Please choose a file"
-msgstr "ദയവായി ഒരു ഫയൽ തിരഞ്ഞെടുക്കുക"
-
-#: package/contents/ui/DeviceDelegate.qml:198
-#, kde-format
-msgid "Share file"
-msgstr "ഫയൽ പങ്കുവെക്കുക"
-
-#: package/contents/ui/DeviceDelegate.qml:213
-#, kde-format
-msgid "Send Clipboard"
-msgstr ""
-
-#: package/contents/ui/DeviceDelegate.qml:232
-#, kde-format
-msgid "Ring my phone"
-msgstr "എന്റെ മൊബൈൽ റിംഗ് ചെയ്പ്പിക്കുക"
-
-#: package/contents/ui/DeviceDelegate.qml:250
-#, kde-format
-msgid "Browse this device"
-msgstr "ഈ ഉപകരണം തുറന്നുനോക്കുക"
-
-#: package/contents/ui/DeviceDelegate.qml:267
-#, kde-format
-msgid "SMS Messages"
-msgstr "SMS സന്ദേശങ്ങൾ"
-
-#: package/contents/ui/DeviceDelegate.qml:288
+#: package/contents/ui/DeviceDelegate.qml:285
 #, kde-format
 msgid "Remote Keyboard"
 msgstr "വിദൂര കീബോർഡ്"
 
-#: package/contents/ui/DeviceDelegate.qml:309
+#: package/contents/ui/DeviceDelegate.qml:306
 #, kde-format
 msgid "Notifications:"
 msgstr "അറിയിപ്പുകൾ:"
 
-#: package/contents/ui/DeviceDelegate.qml:317
+#: package/contents/ui/DeviceDelegate.qml:314
 #, kde-format
 msgid "Dismiss all notifications"
 msgstr "എല്ലാ അറിയിപ്പുകളും ഉപേക്ഷിക്കുക"
 
-#: package/contents/ui/DeviceDelegate.qml:364
+#: package/contents/ui/DeviceDelegate.qml:372
 #, kde-format
 msgid "Reply"
 msgstr "മറുപടി"
 
-#: package/contents/ui/DeviceDelegate.qml:374
+#: package/contents/ui/DeviceDelegate.qml:385
 #, kde-format
 msgid "Dismiss"
 msgstr "ഉപേക്ഷിക്കുക"
 
-#: package/contents/ui/DeviceDelegate.qml:387
+#: package/contents/ui/DeviceDelegate.qml:398
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:401
+#: package/contents/ui/DeviceDelegate.qml:412
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Reply to %1…"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:419
+#: package/contents/ui/DeviceDelegate.qml:430
 #, kde-format
 msgid "Send"
 msgstr ""
 
-#: package/contents/ui/DeviceDelegate.qml:445
+#: package/contents/ui/DeviceDelegate.qml:451
 #, kde-format
 msgid "Run command"
 msgstr "ആജ്ഞ പ്രവർത്തിപ്പിക്കുക"
 
-#: package/contents/ui/DeviceDelegate.qml:453
+#: package/contents/ui/DeviceDelegate.qml:458
 #, kde-format
 msgid "Add command"
 msgstr "ആജ്ഞ കൂട്ടിച്ചേർക്കുക"
 
-#: package/contents/ui/FullRepresentation.qml:58
+#: package/contents/ui/FullRepresentation.qml:65
 #, fuzzy, kde-format
 msgid "No paired devices"
 msgstr "ജോഡിയായ ഉപകരണങ്ങൾ ലഭ്യമല്ല"
 
-#: package/contents/ui/FullRepresentation.qml:58
+#: package/contents/ui/FullRepresentation.qml:65
 #, fuzzy, kde-format
 msgid "Paired device is unavailable"
 msgid_plural "All paired devices are unavailable"
 msgstr[0] "ജോഡിയായ ഉപകരണങ്ങൾ ലഭ്യമല്ല"
 msgstr[1] "ജോഡിയായ ഉപകരണങ്ങൾ ലഭ്യമല്ല"
 
-#: package/contents/ui/FullRepresentation.qml:60
+#: package/contents/ui/FullRepresentation.qml:67
 #, kde-format
 msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:64
+#: package/contents/ui/FullRepresentation.qml:71
 #, kde-format
-msgid "Pair a Device..."
+msgid "Pair a Device…"
 msgstr ""
 
-#: package/contents/ui/FullRepresentation.qml:76
+#: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
 msgid "Install from Google Play"
 msgstr "ഗൂഗിൾ പ്ലേയിൽ നിന്നും ഇൻസ്റ്റാൾ ചെയ്യുക"
 
-#: package/contents/ui/FullRepresentation.qml:86
+#: package/contents/ui/FullRepresentation.qml:93
 #, kde-format
 msgid "Install from F-Droid"
 msgstr "എഫ്-ഡ്രോയ്ഡിൽ നിന്നും ഇൻസ്റ്റാൾ ചെയ്യുക"
 
-#: package/contents/ui/main.qml:59
-#, kde-format
-msgid "KDE Connect Settings..."
+#: package/contents/ui/main.qml:55
+#, fuzzy, kde-format
+#| msgid "KDE Connect Settings..."
+msgid "KDE Connect Settings…"
 msgstr "കെ ഡി ഇ കണക്ട് സജ്ജീകരണങ്ങൾ"
 
 #~ msgid "%1 (%2)"
