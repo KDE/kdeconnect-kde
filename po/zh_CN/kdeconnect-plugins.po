@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-07-14 02:26+0000\n"
 "PO-Revision-Date: 2024-04-23 19:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -366,27 +366,27 @@ msgstr "最低紧急级别"
 msgid "Applications"
 msgstr "应用程序"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "启动 sshfs 失败"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs 进程崩溃"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "sshfs 未知错误"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:184
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "访问文件系统时出错。sshfs 完成退出代码 %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "挂载文件系统出错：设备未响应"

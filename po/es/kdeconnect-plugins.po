@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-07-14 02:26+0000\n"
 "PO-Revision-Date: 2023-09-02 17:30+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -377,29 +377,29 @@ msgstr "Nivel mínimo de importancia"
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Fallo al iniciar sshfs"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "El proceso sshfs se ha colgado"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Error desconocido en sshfs"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:184
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Error accediendo al sistema de archivos. sshfs finalizó con el código de "
 "error %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Fallo al montar el sistema de archivos: el dispositivo no responde"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-07-14 02:26+0000\n"
 "PO-Revision-Date: 2021-06-19 07:55+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -377,29 +377,29 @@ msgstr "Ελάχιστο επίπεδο επείγοντος"
 msgid "Applications"
 msgstr "Εφαρμογές"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Αποτυχία εκκίνησης του sshfs"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "Κατάρρευση της διεργασίας sshfs"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Άγνωστο σφάλμα στην sshfs"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:184
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr ""
 "Σφάλμα κατά την πρόσβαση στο σύστημα αρχείων, το sshfs τερματίστηκε με "
 "κώδικό %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr ""

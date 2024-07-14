@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-07-14 02:26+0000\n"
 "PO-Revision-Date: 2020-10-11 01:31+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -374,27 +374,27 @@ msgstr "Minimaalne olulisustase"
 msgid "Applications"
 msgstr "Rakendused"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "Sshfs-i käivitamine nurjus"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs'i protsessi tabas krahh"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "Tundmatu tõrge sshfs'is"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:184
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "Tõrge failisüsteemi ligipääsul. sshfs lõpetas väljumiskoodiga %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "Failisüsteemi ühendamine nurjus: seade ei reageeri"

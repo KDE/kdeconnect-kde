@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-22 00:41+0000\n"
-"PO-Revision-Date: 2024-02-09 17:45+0300\n"
+"PO-Revision-Date: 2024-07-13 08:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format
 msgid "%1% charging"
-msgstr "Şarj durumu: %​%1"
+msgstr "Şarj oluyor: %​%1"
 
 #: package/contents/ui/Battery.qml:25
 #, kde-format

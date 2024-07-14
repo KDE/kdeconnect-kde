@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-23 00:37+0000\n"
+"POT-Creation-Date: 2024-07-14 02:26+0000\n"
 "PO-Revision-Date: 2023-08-30 07:52+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -373,27 +373,27 @@ msgstr "გადაუდებლობის მინიმალური �
 msgid "Applications"
 msgstr "აპლიკაციები"
 
-#: sftp/mounter.cpp:167
+#: sftp/mounter.cpp:165
 #, kde-format
 msgid "Failed to start sshfs"
 msgstr "SSHFS-ის გაშვების შეცდომა"
 
-#: sftp/mounter.cpp:171
+#: sftp/mounter.cpp:169
 #, kde-format
 msgid "sshfs process crashed"
 msgstr "sshfs -ის პროცესი ავარიულად დასრულდა"
 
-#: sftp/mounter.cpp:175
+#: sftp/mounter.cpp:173
 #, kde-format
 msgid "Unknown error in sshfs"
 msgstr "უცნობი შეცდომა sshfs-ში"
 
-#: sftp/mounter.cpp:186
+#: sftp/mounter.cpp:184
 #, kde-format
 msgid "Error when accessing filesystem. sshfs finished with exit code %0"
 msgstr "ფაილურ სისტემასთან წვდომისას sshfs-მა მუშაობა დაასრულა კოდით %0"
 
-#: sftp/mounter.cpp:195
+#: sftp/mounter.cpp:193
 #, kde-format
 msgid "Failed to mount filesystem: device not responding"
 msgstr "ფაილური სისტემის მიმაგრების შეცდომა: მოწყობილობა არ გვპასუხობს"
