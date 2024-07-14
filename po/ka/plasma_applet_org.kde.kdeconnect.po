@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-05-31 06:45+0200\n"
+"PO-Revision-Date: 2024-07-13 05:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -185,8 +185,7 @@ msgstr ""
 "Connect!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
 msgstr "მოწყობილობის დაწყვილება…"
 
@@ -201,10 +200,9 @@ msgid "Install from F-Droid"
 msgstr "F-Droid-დან დაყენება"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE Connect -ის მორგება..."
+msgstr "KDE Connect-ის მორგება…"
 
 #~ msgid "Save As"
 #~ msgstr "შენახვა, როგორც"

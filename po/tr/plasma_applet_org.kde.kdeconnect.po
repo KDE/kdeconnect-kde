@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: playground-base-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-05-31 14:22+0300\n"
+"PO-Revision-Date: 2024-07-13 08:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: package/contents/ui/Battery.qml:33
 #, kde-format
 msgid "%1% charging"
-msgstr "Şarj durumu: %​%1"
+msgstr "Şarj oluyor: %​%1"
 
 #: package/contents/ui/Battery.qml:35
 #, kde-format
@@ -184,10 +184,9 @@ msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "Plasma ile tümleştirmek için Android aygıtınıza KDE Bağlan’ı kurun!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Bir Aygıt Eşleştir..."
+msgstr "Aygıt Eşleştir…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -200,10 +199,9 @@ msgid "Install from F-Droid"
 msgstr "F-Droid’den Kur"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE Bağlan Ayarları..."
+msgstr "KDE Bağlan Ayarları…"
 
 #~ msgid "Save As"
 #~ msgstr "Farklı Kaydet"

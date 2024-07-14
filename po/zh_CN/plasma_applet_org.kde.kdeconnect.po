@@ -183,7 +183,6 @@ msgstr "请在您的 Android 设备上安装 KDE Connect，让它能够与 Plasm
 
 #: package/contents/ui/FullRepresentation.qml:71
 #, fuzzy, kde-format
-#| msgid "Pair a Device..."
 msgid "Pair a Device…"
 msgstr "配对设备..."
 
@@ -199,6 +198,5 @@ msgstr "从 F-Droid 安装"
 
 #: package/contents/ui/main.qml:55
 #, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
 msgid "KDE Connect Settings…"
 msgstr "KDE Connect 设置..."

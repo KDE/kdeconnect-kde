@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-05-31 10:11+0200\n"
+"PO-Revision-Date: 2024-07-13 06:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -187,10 +187,9 @@ msgstr ""
 "Plasmo!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Upari napravo..."
+msgstr "Upari napravo…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -203,10 +202,9 @@ msgid "Install from F-Droid"
 msgstr "Namesti iz F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Nastavitve KDE Connect..."
+msgstr "Nastavitve KDE Connect…"
 
 #~ msgid "Save As"
 #~ msgstr "Shrani kot"
