@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-06-01 18:10+0200\n"
+"PO-Revision-Date: 2024-07-14 21:46+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -184,10 +184,9 @@ msgstr ""
 "с Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Сдвояване на устройство..."
+msgstr "Сдвояване на устройство…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -200,7 +199,6 @@ msgid "Install from F-Droid"
 msgstr "Инсталиране от F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Настройки на KDE Connect..."
+msgstr "Настройки на KDE Connect…"

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.kdeconnect\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-06-02 17:49+0900\n"
+"PO-Revision-Date: 2024-07-14 17:23+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: Traditional Chinese\n"
@@ -184,8 +184,7 @@ msgid "Install KDE Connect on your Android device to integrate it with Plasma!"
 msgstr "在您的 Android 裝置安裝 KDE 連線，將裝置與 Plasma 桌面無縫整合！"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
 msgstr "配對裝置…"
 
@@ -200,10 +199,9 @@ msgid "Install from F-Droid"
 msgstr "從 F-Droid 安裝"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "KDE 連線設定..."
+msgstr "KDE 連線設定…"
 
 #~ msgid "Save As"
 #~ msgstr "另存為"
