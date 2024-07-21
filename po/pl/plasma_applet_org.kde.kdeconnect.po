@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-06-16 10:42+0200\n"
+"PO-Revision-Date: 2024-07-20 10:29+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -185,10 +185,9 @@ msgstr ""
 "Wgraj KDE Connect na swoim urządzeniu Android, aby współpracować z Plazmą!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Sparuj urządzenie"
+msgstr "Sparuj urządzenie…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -201,10 +200,9 @@ msgid "Install from F-Droid"
 msgstr "Wgraj z F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Ustawienia KDE Connect..."
+msgstr "Ustawienia KDE Connect…"
 
 #~ msgid "Save As"
 #~ msgstr "Zapisz jako"
