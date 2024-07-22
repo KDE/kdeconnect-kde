@@ -92,14 +92,24 @@ DeviceIndicator::DeviceIndicator(DeviceDbusInterface *device)
         this);
 
     // Send file
-    const QString kdeconnectHandlerExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-handler"), {QCoreApplication::applicationDirPath()});
-    if (!kdeconnectHandlerExecutable.isEmpty()) {
-        auto handlerApp = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send a file/URL"));
-        QObject::connect(handlerApp, &QAction::triggered, device, [device, kdeconnectHandlerExecutable]() {
-            QProcess::startDetached(kdeconnectHandlerExecutable, {QStringLiteral("--device"), device->id()});
-        });
-        handlerApp->setVisible(true);
-    }
+    auto sendFile = addAction(QIcon::fromTheme(QStringLiteral("document-share")), i18n("Send files"));
+    connect(sendFile, &QAction::triggered, device, [device, this]() {
+        const QList<QUrl> urls = QFileDialog::getOpenFileUrls(this);
+        if (!urls.isEmpty()) {
+            QStringList urlsAsQStringList;
+            for (const QUrl &url : urls)
+                urlsAsQStringList.append(url.toString());
+            ShareDbusInterface *iface = new ShareDbusInterface(device->id(), device);
+            iface->shareUrls(urlsAsQStringList);
+            iface->deleteLater();
+        }
+    });
+    setWhenAvailable(
+        device->hasPlugin(QStringLiteral("kdeconnect_share")),
+        [sendFile](bool available) {
+            sendFile->setVisible(available);
+        },
+        this);
 
     // SMS Messages
     const QString kdeconnectsmsExecutable = QStandardPaths::findExecutable(QStringLiteral("kdeconnect-sms"), {QCoreApplication::applicationDirPath()});
