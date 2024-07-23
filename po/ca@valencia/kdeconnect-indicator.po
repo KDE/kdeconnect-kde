@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-07-23 00:39+0000\n"
 "PO-Revision-Date: 2023-08-09 09:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -47,22 +47,23 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "Toca al dispositiu"
 
-#: deviceindicator.cpp:97
-#, kde-format
-msgid "Send a file/URL"
+#: deviceindicator.cpp:95
+#, fuzzy, kde-format
+#| msgid "Send a file/URL"
+msgid "Send files"
 msgstr "Envia un fitxer/URL"
 
-#: deviceindicator.cpp:107
+#: deviceindicator.cpp:117
 #, kde-format
 msgid "SMS Messages..."
 msgstr "Missatges SMS…"
 
-#: deviceindicator.cpp:120
+#: deviceindicator.cpp:130
 #, kde-format
 msgid "Run command"
 msgstr "Executa una ordre"
 
-#: deviceindicator.cpp:122
+#: deviceindicator.cpp:132
 #, kde-format
 msgid "Add commands"
 msgstr "Afig ordres"

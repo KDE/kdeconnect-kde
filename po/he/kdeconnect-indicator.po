@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-07-23 00:39+0000\n"
 "PO-Revision-Date: 2023-12-25 20:57+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -44,22 +44,23 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "צלצול במכשיר"
 
-#: deviceindicator.cpp:97
-#, kde-format
-msgid "Send a file/URL"
+#: deviceindicator.cpp:95
+#, fuzzy, kde-format
+#| msgid "Send a file/URL"
+msgid "Send files"
 msgstr "שליחת קובץ/כתובת"
 
-#: deviceindicator.cpp:107
+#: deviceindicator.cpp:117
 #, kde-format
 msgid "SMS Messages..."
 msgstr "מסרונים…"
 
-#: deviceindicator.cpp:120
+#: deviceindicator.cpp:130
 #, kde-format
 msgid "Run command"
 msgstr "הרצת פקודה"
 
-#: deviceindicator.cpp:122
+#: deviceindicator.cpp:132
 #, kde-format
 msgid "Add commands"
 msgstr "הוספת פקודות"

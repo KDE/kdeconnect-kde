@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-04 00:38+0000\n"
+"POT-Creation-Date: 2024-07-23 00:39+0000\n"
 "PO-Revision-Date: 2024-02-10 10:07-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -43,22 +43,23 @@ msgctxt "@action:inmenu play bell sound"
 msgid "Ring device"
 msgstr "ਡਿਵਾਈਸ ਨੂੰ ਘੰਟੀ ਕਰੋ"
 
-#: deviceindicator.cpp:97
-#, kde-format
-msgid "Send a file/URL"
+#: deviceindicator.cpp:95
+#, fuzzy, kde-format
+#| msgid "Send a file/URL"
+msgid "Send files"
 msgstr "ਫਾਇਲ/URL ਭੇਜੋ"
 
-#: deviceindicator.cpp:107
+#: deviceindicator.cpp:117
 #, kde-format
 msgid "SMS Messages..."
 msgstr "SMS ਸੁਨੇਹੇ..."
 
-#: deviceindicator.cpp:120
+#: deviceindicator.cpp:130
 #, kde-format
 msgid "Run command"
 msgstr "ਕਮਾਂਡ ਨੂੰ ਚਲਾਓ"
 
-#: deviceindicator.cpp:122
+#: deviceindicator.cpp:132
 #, kde-format
 msgid "Add commands"
 msgstr "ਕਮਾਂਡਾਂ ਨੂੰ ਜੋੜੋ"
