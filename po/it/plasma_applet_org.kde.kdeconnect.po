@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-13 00:39+0000\n"
-"PO-Revision-Date: 2024-05-31 19:07+0200\n"
+"PO-Revision-Date: 2024-07-15 10:09+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: package/contents/ui/Battery.qml:33
 #, kde-format
@@ -183,10 +183,9 @@ msgstr ""
 "Installa KDE Connect sul tuo dispositivo Android per integrarlo con Plasma!"
 
 #: package/contents/ui/FullRepresentation.qml:71
-#, fuzzy, kde-format
-#| msgid "Pair a Device..."
+#, kde-format
 msgid "Pair a Device…"
-msgstr "Associa un dispositivo..."
+msgstr "Associa un dispositivo…"
 
 #: package/contents/ui/FullRepresentation.qml:83
 #, kde-format
@@ -199,10 +198,9 @@ msgid "Install from F-Droid"
 msgstr "Installa da F-Droid"
 
 #: package/contents/ui/main.qml:55
-#, fuzzy, kde-format
-#| msgid "KDE Connect Settings..."
+#, kde-format
 msgid "KDE Connect Settings…"
-msgstr "Impostazioni di KDE Connect..."
+msgstr "Impostazioni di KDE Connect…"
 
 #~ msgid "Save As"
 #~ msgstr "Salva come"

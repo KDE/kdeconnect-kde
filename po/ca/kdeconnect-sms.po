@@ -222,6 +222,3 @@ msgstr "S'ha superat el límit màxim de la mida del missatge."
 #, kde-format
 msgid "Compose message"
 msgstr "Redacta un missatge"
-
-#~ msgid "New"
-#~ msgstr "Nova"
