@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-23 00:39+0000\n"
-"PO-Revision-Date: 2023-08-10 06:55+0200\n"
+"PO-Revision-Date: 2024-07-23 05:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -45,10 +45,9 @@ msgid "Ring device"
 msgstr "მოწყობილობაზე დარეკვა"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
-msgstr "ფაილი/URL-ი გაგზავნა"
+msgstr "ფაილების გაგზავნა"
 
 #: deviceindicator.cpp:117
 #, kde-format
