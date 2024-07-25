@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/kdeconnect-kde/kdeconnect-core.pot\n"
-"X-Crowdin-File-ID: 49044\n"
+"X-Crowdin-File: /kf6-stable/messages/kdeconnect-kde/kdeconnect-core.pot\n"
+"X-Crowdin-File-ID: 51178\n"
 
 #: backends/lan/compositeuploadjob.cpp:78
 #, kde-format
