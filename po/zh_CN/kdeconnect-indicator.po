@@ -44,10 +44,9 @@ msgid "Ring device"
 msgstr "使设备发出铃声"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
-msgstr "发送文件/URL"
+msgstr ""
 
 #: deviceindicator.cpp:117
 #, kde-format
