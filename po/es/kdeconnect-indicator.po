@@ -5,13 +5,13 @@
 # Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, %Y.
 # Automatically generated, 2020.
 # Eloy Cuadra <ecuadra@eloihr.net>, 2020.
-# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2023.
+# Víctor Rodrigo Córdoba <vrcordoba@gmail.com>, 2020, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-indicator\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-23 00:39+0000\n"
-"PO-Revision-Date: 2023-08-12 17:27+0200\n"
+"PO-Revision-Date: 2024-07-26 17:22+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -48,10 +48,9 @@ msgid "Ring device"
 msgstr "Hacer sonar el dispositivo"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
-msgstr "Enviar un archivo/URL"
+msgstr "Enviar archivos"
 
 #: deviceindicator.cpp:117
 #, kde-format
@@ -186,6 +185,3 @@ msgctxt ""
 "strength"
 msgid "%1  | ~%2%"
 msgstr "%1  | ~%2%"
-
-#~ msgid "Get a photo"
-#~ msgstr "Tomar una foto"

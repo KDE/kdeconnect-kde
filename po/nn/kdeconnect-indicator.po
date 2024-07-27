@@ -1,12 +1,11 @@
 # Translation of kdeconnect-indicator to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeconnect-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-23 00:39+0000\n"
-"PO-Revision-Date: 2023-08-10 18:44+0200\n"
+"PO-Revision-Date: 2024-07-26 14:09+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -46,10 +45,9 @@ msgid "Ring device"
 msgstr "Ring eining"
 
 #: deviceindicator.cpp:95
-#, fuzzy, kde-format
-#| msgid "Send a file/URL"
+#, kde-format
 msgid "Send files"
-msgstr "Send fil/nettadresse"
+msgstr "Send filer"
 
 #: deviceindicator.cpp:117
 #, kde-format
