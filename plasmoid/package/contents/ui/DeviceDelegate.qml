@@ -188,7 +188,7 @@ PlasmaComponents.ItemDelegate {
             }
 
             PlasmaComponents.ToolButton {
-                icon.name: "video-monitor"
+                icon.name: "krdc"
                 visible: virtualmonitor.available
                 text: i18n("Virtual Display")
                 onClicked: {

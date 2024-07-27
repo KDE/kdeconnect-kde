@@ -61,7 +61,7 @@
         "Description[zh_CN]": "使用您的设备作为虚拟显示器",
         "Description[zh_TW]": "將您的裝置作為虛擬螢幕使用",
         "EnabledByDefault": true,
-        "Icon": "video-monitor",
+        "Icon": "krdc",
         "License": "GPL",
         "Name": "Virtual Monitor",
         "Name[ar]": "شاشة افتراضية",
